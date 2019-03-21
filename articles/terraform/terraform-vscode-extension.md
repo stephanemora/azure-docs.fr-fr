@@ -2,19 +2,19 @@
 title: Installer et utiliser l’extension Azure Terraform Visual Studio Code
 description: Découvrez comment installer et utiliser l’extension Azure Terraform dans Visual Studio Code.
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, azure, devops, visual studio code, extension
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/31/2018
-ms.openlocfilehash: 137a57638207a05f797692b25a5d5a31bd66ce3d
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: b1102649e48af8cb36a64f1142c078bf9ebc0d99
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074578"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58006194"
 ---
 # <a name="install-and-use-the-azure-terraform-visual-studio-code-extension"></a>Installer et utiliser l’extension Azure Terraform Visual Studio Code
 
@@ -59,7 +59,7 @@ Pour utiliser Terraform dans Cloud Shell, vous devez [installer Node.js](https:/
 
 ### <a name="install-graphviz"></a>Installer GraphViz
 
-Pour utiliser la fonction de visualisation de Terraform, vous devez [installer GraphViz](http://graphviz.org/).
+Pour utiliser la fonction de visualisation de Terraform, vous devez [installer GraphViz](https://graphviz.org/).
 
 >[!NOTE]
 >Pour vérifier si GraphViz est installé, ouvrez une fenêtre de terminal et tapez `dot -V`.
@@ -128,7 +128,7 @@ Dans cet exercice, vous allez créer et exécuter un fichier de configuration Te
     ![Enregistrer le fichier sous main.tf](media/terraform-vscode-extension/tf-save-as-main.png)
 
 1. Sélectionnez **Enregistrer**.
-- Dans la barre de menus, sélectionnez **Fichier > Ouvrir le dossier**. Localisez, puis sélectionnez le dossier que vous venez de créer.
+1. Dans la barre de menus, sélectionnez **Fichier > Ouvrir le dossier**. Localisez, puis sélectionnez le dossier que vous venez de créer.
 
 ### <a name="run-terraform-init-command"></a>Exécuter la commande *init* de Terraform
 

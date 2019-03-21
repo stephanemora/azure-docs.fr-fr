@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: v-gedod
-ms.openlocfilehash: ea13ae5bc649ae3a803fb8446fa009fac94874a8
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: a5a3bb38f832d13a39a061453e6ef7910ba5cccf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673562"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58094107"
 ---
 # <a name="quickstart-send-a-search-request-with-the-bing-entity-search-sdk-for-java"></a>Démarrage rapide : Envoyer une requête de recherche avec le SDK Recherche d’entités Bing pour Java
 
@@ -67,7 +67,7 @@ Installez les dépendances du Kit de développement logiciel (SDK) pour Recherch
 
 ## <a name="create-a-search-client"></a>Créer un client de recherche
 
-2. Implémentez le client `dominantEntityLookup`, qui nécessite votre point de terminaison d’API et une instance de la classe `ServiceClientCredentials`.
+1. Implémentez le client `dominantEntityLookup`, qui nécessite votre point de terminaison d’API et une instance de la classe `ServiceClientCredentials`.
 
     ```java
     public static EntitySearchAPIImpl getClient(final String subscriptionKey) {
@@ -80,47 +80,47 @@ Installez les dépendances du Kit de développement logiciel (SDK) pour Recherch
 
     Pour implémenter `ServiceClientCredentials`, effectuez les étapes suivantes :
 
-    1. Remplacez la fonction `applyCredentialsFilter()` avec un objet `OkHttpClient.Builder` en tant que paramètre. 
+   1. Remplacez la fonction `applyCredentialsFilter()` avec un objet `OkHttpClient.Builder` en tant que paramètre. 
         
-        ```java
-        //...
-        new ServiceClientCredentials() {
-                @Override
-                public void applyCredentialsFilter(OkHttpClient.Builder builder) {
-                //...
-                }
-        //...
-        ```
+       ```java
+       //...
+       new ServiceClientCredentials() {
+               @Override
+               public void applyCredentialsFilter(OkHttpClient.Builder builder) {
+               //...
+               }
+       //...
+       ```
     
-    2. Au sein de `applyCredentialsFilter()`, appelez `builder.addNetworkInterceptor()`. Créez un objet `Interceptor` et remplacez sa méthode `intercept()` pour prendre un objet intercepteur `Chain`.
+   2. Au sein de `applyCredentialsFilter()`, appelez `builder.addNetworkInterceptor()`. Créez un objet `Interceptor` et remplacez sa méthode `intercept()` pour prendre un objet intercepteur `Chain`.
 
-        ```java
-        //...
-        builder.addNetworkInterceptor(
-            new Interceptor() {
-                @Override
-                public Response intercept(Chain chain) throws IOException {
-                //...    
-                }
-            });
-        ///...
-        ```
+       ```java
+       //...
+       builder.addNetworkInterceptor(
+           new Interceptor() {
+               @Override
+               public Response intercept(Chain chain) throws IOException {
+               //...    
+               }
+           });
+       ///...
+       ```
 
-    3. Au sein de la fonction `intercept`, créez des variables pour votre requête. Utilisez `Request.Builder()` pour générer votre requête. Ajoutez votre clé d’abonnement à l’en-tête `Ocp-Apim-Subscription-Key` et retournez `chain.proceed()` sur l’objet de requête.
+   3. Au sein de la fonction `intercept`, créez des variables pour votre requête. Utilisez `Request.Builder()` pour générer votre requête. Ajoutez votre clé d’abonnement à l’en-tête `Ocp-Apim-Subscription-Key` et retournez `chain.proceed()` sur l’objet de requête.
             
-        ```java
-        //...
-        public Response intercept(Chain chain) throws IOException {
-            Request request = null;
-            Request original = chain.request();
-            Request.Builder requestBuilder = original.newBuilder()
-                    .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
-            request = requestBuilder.build();
-            return chain.proceed(request);
-        }
-        //...
-        ```
-## <a name="send-a-request-and-receive-a-response"></a>Envoyer une requête et recevoir une réponse
+       ```java
+       //...
+       public Response intercept(Chain chain) throws IOException {
+           Request request = null;
+           Request original = chain.request();
+           Request.Builder requestBuilder = original.newBuilder()
+                   .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
+           request = requestBuilder.build();
+           return chain.proceed(request);
+       }
+       //...
+       ```
+      ## <a name="send-a-request-and-receive-a-response"></a>Envoyer une requête et recevoir une réponse
 
 1. Créez une instance du client de recherche avec votre clé d’abonnement. Utilisez `client.entities().search()` pour envoyer une demande pour la requête de recherche `satya nadella` et obtenir une réponse. 
     
@@ -130,7 +130,7 @@ Installez les dépendances du Kit de développement logiciel (SDK) pour Recherch
             "satya nadella", null, null, null, null, null, null, "en-us", null, null, SafeSearch.STRICT, null);
     ```
 
-2. Si des entités sont retournées, convertissez-les en liste. Itérez en leur sein et affichez l’entité dominante.
+1. Si des entités sont retournées, convertissez-les en liste. Itérez en leur sein et affichez l’entité dominante.
 
     ```java
     if (entityData.entities().value().size() > 0){

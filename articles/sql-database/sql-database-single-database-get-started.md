@@ -12,12 +12,12 @@ ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/25/2019
-ms.openlocfilehash: 64d16073062c0fd7f0b97a64950ceab9efc0eacf
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 5aeb84e5086fb0cf5c30e175ad419ee70bed55ad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984881"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58075183"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal"></a>Démarrage rapide : créer et interroger une base de données unique dans Azure SQL Database à l’aide du portail Azure
 
@@ -42,8 +42,8 @@ Pour créer une base de données unique contenant les exemples de données Adven
    - **Groupe de ressources** : Sélectionnez **Créer**, entrez *myResourceGroup* et sélectionnez **OK**.
    - **Sélectionner la source** : Sélectionnez **Sample (AdventureWorksLT)** dans la liste.
 
-    > [!IMPORTANT]
-    > Veillez à sélectionner les données **Exemple (AdventureWorksLT)** pour pouvoir facilement suivre le présent guide ainsi que d’autres articles dédiés à Azure SQL Database qui utilisent ces données.
+     > [!IMPORTANT]
+     > Veillez à sélectionner les données **Exemple (AdventureWorksLT)** pour pouvoir facilement suivre le présent guide ainsi que d’autres articles dédiés à Azure SQL Database qui utilisent ces données.
   
    ![Créer une base de données unique](./media/sql-database-get-started-portal/create-database-1.png)
 
@@ -67,7 +67,7 @@ Pour créer une base de données unique contenant les exemples de données Adven
    > [!NOTE]
    > Ce gudie de démarrage rapide utilise le [modèle d’achat DTU](sql-database-service-tiers-dtu.md), mais le [modèle d’achat vCore](sql-database-service-tiers-vcore.md) est également disponible.
    > [!IMPORTANT]
-   > Un espace de stockage supérieur à 1 To au niveau Premium est actuellement disponible dans les toutes régions sauf les suivantes : Chine Est, Chine Nord, Allemagne Centre, Allemagne Nord-Est, USA Centre-Ouest, US DoD et Gouvernement US Centre. Dans ces régions, l’espace de stockage maximal au niveau Premium est limité à 1 To.  Pour plus d’informations, voir les [limitations actuelles P11-P15](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   > Un espace de stockage supérieur à 1 To au niveau Premium est actuellement disponible dans les toutes régions sauf les suivantes : Chine Est, Chine Nord, Allemagne Centre, Allemagne Nord-Est, USA Centre-Ouest, US DoD et Gouvernement US Centre. Dans ces régions, l’espace de stockage maximal au niveau Premium est limité à 1 To.  Pour plus d’informations, voir les [limitations actuelles P11-P15](sql-database-single-database-scale.md#dtu-based-purchasing-model-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 8. Pour ce démarrage rapide, sélectionnez le niveau de service **Standard** et utilisez le curseur pour sélectionner **10 DTU (S0)** et **1** Go de stockage.
 9. Sélectionnez **Appliquer**.  
@@ -76,9 +76,9 @@ Pour créer une base de données unique contenant les exemples de données Adven
 
 10. Sur le formulaire **SQL Database**, sélectionnez **Créer** pour déployer et configurer le groupe de ressources, le serveur et la base de données.
 
-   Le déploiement prend quelques minutes. Pour surveiller la progression du déploiement, sélectionnez **Notifications** dans la barre d’outils.
+    Le déploiement prend quelques minutes. Pour surveiller la progression du déploiement, sélectionnez **Notifications** dans la barre d’outils.
 
-   ![Notification](./media/sql-database-get-started-portal/notification.png)
+    ![Notification](./media/sql-database-get-started-portal/notification.png)
 
 ## <a name="query-the-database"></a>Interroger la base de données
 

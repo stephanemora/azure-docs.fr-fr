@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 7b01ee726d8417e34645e743497a02455fbe709c
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 9baeb1c21252f8b7f7b24debde48108532d9865c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54453151"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118304"
 ---
-# <a name="tutorial-push-location-based-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>Didacticiel : Notifications Push en fonction du lieu avec Azure Notification Hubs et les données spatiales Bing
+# <a name="tutorial-push-location-based-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>Tutoriel : Notifications Push en fonction du lieu avec Azure Notification Hubs et les données spatiales Bing
 
 Ce didacticiel vous présente comment envoyer des notifications Push en fonction du lieu avec Azure Notification Hubs et les données spatiales Bing.
 
@@ -63,12 +63,12 @@ Dans ce didacticiel, vous effectuez les étapes suivantes :
 
     ![](./media/notification-hubs-geofence/bing-maps-geofence.png)
 5. Sur la page **Télécharger une source de données**, effectuez les actions suivantes :
-    1. Sélectionnez **pipe** dans **format de données**.
-    2. Recherchez et sélectionnez le fichier `NotificationHubGeofence.pipe` créé à l’étape précédente.
-    3. Sélectionnez le bouton **Télécharger**.
+   1. Sélectionnez **pipe** dans **format de données**.
+   2. Recherchez et sélectionnez le fichier `NotificationHubGeofence.pipe` créé à l’étape précédente.
+   3. Sélectionnez le bouton **Télécharger**.
 
-    > [!NOTE]
-    > Vous serez peut-être invité à spécifier une nouvelle clé pour la **clé principale** qui diffère de la **clé de requête**. Créez simplement une clé dans le tableau de bord et actualisez la page de téléchargement de la source de données.
+      > [!NOTE]
+      > Vous serez peut-être invité à spécifier une nouvelle clé pour la **clé principale** qui diffère de la **clé de requête**. Créez simplement une clé dans le tableau de bord et actualisez la page de téléchargement de la source de données.
 6. Une fois que vous avez téléchargé le fichier de données, vous devez publier la source de données. Sélectionnez **Sources de données** -> **Gérer les sources de données** comme vous le faisiez avant.
 7. Sélectionnez votre source de données dans la liste, puis choisissez **Publier** dans la colonne **Actions**.
 
@@ -112,11 +112,11 @@ Dans ce didacticiel, vous effectuez les étapes suivantes :
     ```
     Pour que cela fonctionne, spécifiez les paramètres suivants :
 
-    * **ID de source de données** et **nom de source de données** : dans l’API Bing Cartes, les sources de données contiennent diverses métadonnées compartimentées, telles que les emplacements et les heures d’ouverture de l’opération.  
-    * **Nom d’entité** : l’entité que vous souhaitez utiliser comme point de référence pour la notification.
-    * **Clé d’API Bing Cartes** : la clé que vous avez obtenue précédemment lorsque vous avez créé le compte Centre de développement Bing.
+   * **ID de source de données** et **nom de source de données** : dans l’API Bing Cartes, les sources de données contiennent diverses métadonnées compartimentées, telles que les emplacements et les heures d’ouverture de l’opération.  
+   * **Nom d’entité** : l’entité que vous souhaitez utiliser comme point de référence pour la notification.
+   * **Clé d’API Bing Cartes** : la clé que vous avez obtenue précédemment lorsque vous avez créé le compte Centre de développement Bing.
 
-    Maintenant que la source de données est prête, vous pouvez commencer à travailler sur l’application UWP.
+     Maintenant que la source de données est prête, vous pouvez commencer à travailler sur l’application UWP.
 2. Activez les services de localisation pour votre application. Ouvrez le fichier `Package.appxmanifest` dans **l’Explorateur de solution**.
 
     ![](./media/notification-hubs-geofence/vs-package-manifest.png)

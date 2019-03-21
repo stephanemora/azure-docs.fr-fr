@@ -11,14 +11,14 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: cf16f27a8d39871491b7cf46a509b9714a669667
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 87e006cc5d56e0c7eb5455147c5ce9eb40afc162
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873812"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086613"
 ---
-# <a name="tutorial-identify-common-intents-and-entities"></a>Didacticiel : Identifier les intentions et entités courantes
+# <a name="tutorial-identify-common-intents-and-entities"></a>Tutoriel : Identifier les intentions et entités courantes
 
 Dans ce tutoriel, vous allez ajouter des intentions et des entités prédéfinies à une application de Ressources humaines pour obtenir rapidement une prédiction des intentions et l’extraction de données. Vous n’avez pas besoin de marquer les énoncés avec des entités prédéfinies, car l’entité est détectée automatiquement.
 
@@ -55,13 +55,13 @@ LUIS fournit plusieurs intentions prédéfinies pour aider avec des intentions u
 
 1. Sélectionnez les intentions suivantes, puis sélectionnez **Terminé** : 
 
-    * Utilities.Cancel
-    * Utilities.Confirm
-    * Utilities.Help
-    * Utilities.StartOver
-    * Utilities.Stop
+   * Utilities.Cancel
+   * Utilities.Confirm
+   * Utilities.Help
+   * Utilities.StartOver
+   * Utilities.Stop
 
-    Ces intentions sont utiles pour déterminer où se trouve l’utilisateur dans la conversation et ce qu’il demande à faire. 
+     Ces intentions sont utiles pour déterminer où se trouve l’utilisateur dans la conversation et ce qu’il demande à faire. 
 
 
 ## <a name="add-prebuilt-entities-to-help-with-common-data-type-extraction"></a>Ajouter des entités prédéfinies pour faciliter l’extraction de types de données courants
@@ -74,12 +74,12 @@ LUIS fournit plusieurs entités prédéfinies pour l’extraction de données co
 
 1. Sélectionnez les entités suivantes dans la liste des entités prédéfinies, puis sélectionnez **Terminé** :
 
-    * **[PersonName](luis-reference-prebuilt-person.md)** 
-    * **[GeographyV2](luis-reference-prebuilt-geographyV2.md)**
+   * **[PersonName](luis-reference-prebuilt-person.md)** 
+   * **[GeographyV2](luis-reference-prebuilt-geographyV2.md)**
 
-    ![Capture d’écran de la sélection du nombre dans la boîte de dialogue des entités prédéfinies](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
+     ![Capture d’écran de la sélection du nombre dans la boîte de dialogue des entités prédéfinies](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
 
-    Ces entités vous permettent d’ajouter la reconnaissance de nom et de lieu à votre application cliente.
+     Ces entités vous permettent d’ajouter la reconnaissance de nom et de lieu à votre application cliente.
 
 ## <a name="add-example-utterances-to-the-none-intent"></a>Ajouter des exemples d’énoncés à l’intention « None » 
 

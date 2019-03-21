@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel :  Configurer PHS comme sauvegarde pour AD FS dans Azure AD Connect | Microsoft Docs'
+title: 'Tutoriel :  Configurer PHS comme sauvegarde pour AD FS dans Azure AD Connect | Microsoft Docs'
 description: Explique comment activer la synchronisation de hachage de mot de passe en tant que sauvegarde et pour AD FS.
 services: active-directory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.date: 01/30/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c68dba4a188e5acf88cc39b02e535d89a1c9e46
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2281bc451a5acf9e4e634a124161a3e8b0734deb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178819"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58090506"
 ---
 # <a name="tutorial--setting-up-phs-as-backup-for-ad-fs-in-azure-ad-connect"></a>Tutoriel :  Configurer PHS en tant que sauvegarde pour AD FS dans Azure AD Connect
 
@@ -60,9 +60,9 @@ Nous allons maintenant vous expliquer comment basculer vers la synchronisation d
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Tester la connexion avec un des utilisateurs
 
-1.  Accédez à [http://myapps.microsoft.com](http://myapps.microsoft.com).
+1. Accédez à [https://myapps.microsoft.com](https://myapps.microsoft.com).
 2. Connectez-vous avec un compte d’utilisateur créé dans le nouveau locataire.  Vous devez vous connecter en utilisant le format suivant : (user@domain.onmicrosoft.com). Saisissez le même mot de passe que celui utilisé par l’utilisateur pour se connecter en local.</br>
-![Vérifier](media/tutorial-password-hash-sync/verify1.png)</br>
+   ![Vérifier](media/tutorial-password-hash-sync/verify1.png)</br>
 
 ## <a name="next-steps"></a>Étapes suivantes
 

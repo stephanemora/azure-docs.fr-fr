@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 3442ced47e50485da1ffdd475d9649243b1c8583
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 37f85afbdd55d3f14638f0833f69bb1992770449
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116692"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086069"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Démarrage rapide : Intégrer un abonnement Azure à Security Center Standard
 Azure Security Center propose des fonctionnalités unifiées de gestion de la sécurité et de protection contre les menaces sur l’ensemble des charges de travail cloud hybrides. Alors que le niveau Gratuit offre une sécurité limitée aux seules ressources Azure, le niveau Standard étend ces fonctions aux ressources locales et à d’autres clouds. Security Center Standard aide à rechercher et à corriger les failles de sécurité, applique des contrôles d’accès et d’application pour bloquer les activités malveillantes, détecte les menaces à l’aide de l’analytique et de l’analyse décisionnelle et répond rapidement en cas d’attaque. Vous pouvez essayer Security Center Standard gratuitement. Pour en savoir plus, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/).
@@ -37,7 +37,7 @@ Pour mettre à niveau un abonnement et passer au niveau Standard, vous devez avo
 1. Connectez-vous au [portail Azure](https://azure.microsoft.com/features/azure-portal/).
 2. Dans le menu **Microsoft Azure**, sélectionnez **Security Center**. La fenêtre **Security Center - Vue d’ensemble** s’ouvre.
 
- ![Vue d’ensemble de Security Center][2]
+   ![Vue d’ensemble de Security Center][2]
 
 **Security Center - Vue d’ensemble** donne un aperçu unifié de l’état de sécurité des charges de travail cloud hybrides, ce qui permet de détecter et d’évaluer leur sécurité, ainsi que d’identifier et d’atténuer les risques. Security Center active automatiquement les abonnements Azure que ni vous ni aucun autre utilisateur de l’abonnement n’avez intégrés au niveau Gratuit.
 
@@ -55,13 +55,13 @@ Dans le cadre des guides de démarrage rapide et des didacticiels de Security Ce
 
 1. Dans le menu principal de Security Center, sélectionnez **Prise en main**.
  
-  ![Prise en main][4]
+   ![Prise en main][4]
 
 2. Dans **Mise à niveau**, Security Center liste les abonnements et les espaces de travail éligibles à l’intégration. 
    - Vous pouvez cliquer sur le menu déroulant **Appliquer votre version d’évaluation** pour afficher la liste de tous les abonnements et espaces de travail avec leur éligibilité pour la version d'évaluation.
    -    Vous pouvez mettre à niveau des abonnements et espaces de travail qui ne sont pas éligibles pour la version d’évaluation.
    -    Vous pouvez sélectionner des espaces de travail et abonnements éligibles pour démarrer votre évaluation.
-3.  Cliquez sur **Démarrer la version d'évaluation** pour démarrer votre version d’évaluation sur les abonnements sélectionnés.
+3. Cliquez sur **Démarrer la version d'évaluation** pour démarrer votre version d’évaluation sur les abonnements sélectionnés.
 
 
   ![Alertes de sécurité][9]

@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 90af443621ec47400779bdc1689fc07be558e4b8
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 695056be67294c6a0787bad61bf5ee00378275b0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164538"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111427"
 ---
 # <a name="create-a-cicd-pipeline-for-python-with-azure-devops-projects"></a>Créer un pipeline CI/CD pour Python avec Azure DevOps Projects
 
@@ -55,7 +55,7 @@ Web App pour conteneurs est la cible de déploiement par défaut. Le framework d
 
 1. Créez une organisation Azure DevOps ou choisissez une organisation existante. 
 
-    a. Entrez un nom pour votre projet dans Azure DevOps.  
+    a. Indiquez un nom pour votre projet Azure DevOps.  
 
     b. Sélectionnez votre abonnement et un emplacement Azure, entrez un nom pour votre application, puis sélectionnez **Terminé**.  
      Après quelques minutes, le tableau de bord du projet est affiché dans le portail Azure. Un exemple d’application est configuré dans un dépôt de votre organisation Azure DevOps, une build est exécutée et votre application est déployée sur Azure. Ce tableau de bord donne une visibilité sur votre dépôt de code, votre pipeline CI/CD et votre application dans Azure.  
@@ -64,17 +64,17 @@ Web App pour conteneurs est la cible de déploiement par défaut. Le framework d
 
     ![Vue du tableau de bord](_img/azure-devops-project-python/dashboardnopreview.png) 
     
- DevOps Projects configure automatiquement un déclencheur de build et de mise en production CI. Vous êtes maintenant prêt à collaborer avec une équipe sur une application Python avec un processus d’intégration et de déploiement continus (CI/CD) qui déploie automatiquement votre travail le plus récent sur votre site web.
+   DevOps Projects configure automatiquement un déclencheur de build et de mise en production CI. Vous êtes maintenant prêt à collaborer avec une équipe sur une application Python avec un processus d’intégration et de déploiement continus (CI/CD) qui déploie automatiquement votre travail le plus récent sur votre site web.
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>Valider les modifications de code et exécuter CI/CD
 
  DevOps Projects crée un dépôt Git dans Azure Repos ou dans GitHub. Pour voir le dépôt et modifier le code dans votre application, suivez les étapes ci-dessous : 
 
 1. À gauche du tableau de bord DevOps Projects, sélectionnez le lien correspondant à votre branche master.  
-        Ce lien ouvre une vue sur le dépôt Git récemment créé.
+        Ce lien ouvre une vue sur le référentiel Git récemment créé.
 
-1. Pour afficher l’URL du clone du dépôt, sélectionnez **Clone** en haut à droite du navigateur.   
-Vous pouvez cloner votre dépôt Git dans votre environnement de développement intégré favori.  Dans les prochaines étapes, vous allez utiliser le navigateur web pour effectuer des modifications de code directement dans la branche master et les valider.
+1. Pour afficher l’URL du clone du référentiel, sélectionnez **Clone** en haut à droite du navigateur.   
+Vous pouvez cloner votre référentiel Git dans votre environnement de développement intégré favori.  Dans les prochaines étapes, vous allez utiliser le navigateur web pour effectuer des modifications de code directement dans la branche maîtresse et les valider.
 
 1. À gauche, accédez au fichier **app/templates/app/index.html**.
 
@@ -93,7 +93,7 @@ Dans l’étape précédente, DevOps Projects a automatiquement configuré un pi
 Un onglet du navigateur affiche le pipeline de build de votre nouveau projet.
 
 1. Pointez sur le champ **État**, puis sélectionnez les **points de suspension** (...).  
-        Un menu affiche plusieurs options, comme la mise en file d’attente d’une nouvelle build, la mise en pause d’une build et la modification du pipeline de build.
+        Un menu affiche plusieurs options, telles que de la mise en file d’attente d’une nouvelle build, la mise en pause d’une build et la modification du pipeline de build.
 
 1. Sélectionnez **Modifier**.
 
@@ -108,7 +108,7 @@ Un onglet du navigateur affiche le pipeline de build de votre nouveau projet.
         Vous pouvez observer une piste d’audit des modifications que vous avez apportées récemment à la build.  Azure DevOps fait le suivi des modifications apportées au pipeline de build et vous permet de comparer des versions.
 
 1. Sélectionnez **Déclencheurs**.  
-         DevOps Projects crée automatiquement un déclencheur CI, et chaque validation dans le dépôt lance une nouvelle build.  Vous pouvez éventuellement choisir d’inclure ou d’exclure des branches dans le processus d’intégration continue.
+         DevOps Projects crée automatiquement un déclencheur CI tandis que chaque validation dans le dépôt lance une nouvelle build.  Vous pouvez éventuellement choisir d’inclure ou d’exclure des branches dans le processus d’intégration continue.
 
 1. Sélectionnez **Rétention**.  
         En fonction de votre scénario, vous pouvez spécifier des stratégies pour conserver ou supprimer un certain nombre de builds.
@@ -120,7 +120,7 @@ Un onglet du navigateur affiche le pipeline de build de votre nouveau projet.
 Le pipeline de mise en production définit le processus de mise en production.  
         
 12. Sous **Artefacts**, sélectionnez **Déposer**.   
-Le pipeline de build que vous avez examiné dans les étapes précédentes produit la sortie utilisée pour l’artefact. 
+Le pipeline de build que vous avez examiné aux étapes précédentes produit la sortie qui est utilisée pour l’artefact. 
 
 1. En regard de l’icône **Déposer**, sélectionnez le **déclencheur de déploiement continu**.  
         Le pipeline de mise en production a un déclencheur CD actif, qui effectue un déploiement chaque fois qu’un nouvel artefact de build est disponible. Si vous le souhaitez, vous pouvez désactiver le déclencheur, vos déploiements nécessitant alors une exécution manuelle. 

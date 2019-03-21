@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 3cc6cdb84b2c77b15b79c7d6a04cc7c6ae0721e5
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: bee4618ff08c89bbdab7413ca7f7f74a266d96dd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115859"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077902"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Démarrage rapide : Intégrer des ordinateurs Windows à Azure Security Center
 Après avoir intégré vos abonnements Azure, vous pouvez activer Security Center pour des ressources qui s’exécutent en dehors d’Azure, par exemple, en local ou dans d’autres clouds, en approvisionnant Microsoft Monitoring Agent.
@@ -37,7 +37,7 @@ Vous devez utiliser le niveau tarifaire Standard de Security Center pour commenc
 1. Connectez-vous au [portail Azure](https://azure.microsoft.com/features/azure-portal/).
 2. Dans le menu **Microsoft Azure**, sélectionnez **Security Center**. La fenêtre **Security Center - Vue d’ensemble** s’ouvre.
 
- ![Vue d’ensemble de Security Center][2]
+   ![Vue d’ensemble de Security Center][2]
 
 3. Dans le menu principal de Security Center, sélectionnez **Prise en main**.
 4. Sélectionnez l’onglet **Prise en main**.
@@ -48,13 +48,13 @@ Vous devez utiliser le niveau tarifaire Standard de Security Center pour commenc
 
     ![Ajouter un ordinateur autre qu’Azure](./media/quick-onboard-windows-computer/non-azure.png)
 
-  Le panneau **Agent direct** s’ouvre et affiche un lien permettant de télécharger un agent Windows et des clés pour votre ID d’espace de travail, qui serviront à la configuration de l’agent.
+   Le panneau **Agent direct** s’ouvre et affiche un lien permettant de télécharger un agent Windows et des clés pour votre ID d’espace de travail, qui serviront à la configuration de l’agent.
 
-6.  Cliquez sur le lien **Télécharger l’Agent Windows** correspondant au type de processeur de votre ordinateur pour télécharger le fichier d’installation.
+6. Cliquez sur le lien **Télécharger l’Agent Windows** correspondant au type de processeur de votre ordinateur pour télécharger le fichier d’installation.
 
-7.  À droite du champ **ID de l’espace de travail**, sélectionnez l’icône de copie et collez l’ID dans le Bloc-notes.
+7. À droite du champ **ID de l’espace de travail**, sélectionnez l’icône de copie et collez l’ID dans le Bloc-notes.
 
-8.  À droite du champ **Clé primaire**, sélectionnez l’icône de copie et collez la clé dans le Bloc-notes.
+8. À droite du champ **Clé primaire**, sélectionnez l’icône de copie et collez la clé dans le Bloc-notes.
 
 ## <a name="install-the-agent"></a>Installer l’agent
 Vous devez maintenant installer le fichier téléchargé sur l’ordinateur cible.
@@ -68,7 +68,7 @@ Vous devez maintenant installer le fichier téléchargé sur l’ordinateur cibl
 7. Si l’ordinateur doit communiquer avec un espace de travail Log Analytics dans le cloud Azure Government, sélectionnez **Azure - Gouvernement des États-Unis** dans la liste déroulante **Azure Cloud**.  Si l’ordinateur a besoin de communiquer avec le service Log Analytics par le biais d’un serveur proxy, sélectionnez **Avancé**, puis indiquez l’URL et le numéro de port du serveur proxy.
 8. Sélectionnez **Suivant** après avoir indiqué les paramètres de configuration nécessaires.
 
-  ![Installer l’agent][5]
+   ![Installer l’agent][5]
 
 9. Sur la page **Prêt pour l’installation**, vérifiez vos choix, puis sélectionnez **Installer**.
 10. Sur la page **Configuration effectuée**, sélectionnez **Terminer**.

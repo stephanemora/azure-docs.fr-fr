@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: rkarlin
-ms.openlocfilehash: d3154e137aec8dcedcb066e2c9aab046b5a7b6e0
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: d726006d3ecce69f129b1576c7c6d12833582873
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108821"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58081988"
 ---
-# <a name="tutorial-respond-to-security-incidents"></a>Tutoriel : Répondre à des incidents de sécurité
+# <a name="tutorial-respond-to-security-incidents"></a>Didacticiel : Répondre à des incidents de sécurité
 Security center analyse continuellement vos charges de travail de cloud hybride à l’aide d’analyses avancées et d’informations sur les menaces pour vous avertir des activités malveillantes. En outre, vous pouvez intégrer des alertes à partir d’autres produits et services de sécurité dans Security Center et créer des alertes personnalisées en fonction de vos propres indicateurs ou sources d’informations. Une fois une alerte générée, une action rapide est nécessaire pour examiner et résoudre la situation. Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 
 > [!div class="checklist"]
@@ -45,28 +45,28 @@ Security Center fournit une vue unifiée de toutes les alertes de sécurité. Le
 
 1. Dans le menu principal de Security Center sous **DETECTION**, sélectionnez **Alertes de sécurité** :
 
-  ![Alertes de sécurité](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)  
+   ![Alertes de sécurité](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)  
 
 2. Dans la liste des alertes, cliquez sur un incident de sécurité, qui est un ensemble d’alertes, pour en savoir plus sur cet incident. **Incident de sécurité détecté** s’ouvre.
 
-  ![Incident de sécurité](./media/tutorial-security-incident/tutorial-security-incident-fig2.png)
+   ![Incident de sécurité](./media/tutorial-security-incident/tutorial-security-incident-fig2.png)
 
 3. Dans cet écran, la description de l’incident de sécurité est affichée au-dessus, ainsi que la liste des alertes faisant parties de l’incident. Cliquez sur l’alerte sur laquelle vous souhaitez approfondir vos recherches et obtenir plus d’informations.
 
-  ![Incident de sécurité](./media/tutorial-security-incident/tutorial-security-incident-fig3.png)
+   ![Incident de sécurité](./media/tutorial-security-incident/tutorial-security-incident-fig3.png)
 
-  Le type d’alerte peut varier, lisez [Présentation des alertes de sécurité dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) pour plus d’informations sur le type d’alerte, ainsi que les étapes de correction possibles. Pour les alertes qui peuvent être ignorées en toute sécurité, vous pouvez cliquer avec le bouton droit sur l’alerte et sélectionnez l’option **Ignorer** :
+   Le type d’alerte peut varier, lisez [Présentation des alertes de sécurité dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) pour plus d’informations sur le type d’alerte, ainsi que les étapes de correction possibles. Pour les alertes qui peuvent être ignorées en toute sécurité, vous pouvez cliquer avec le bouton droit sur l’alerte et sélectionnez l’option **Ignorer** :
 
-  ![Alerte](./media/tutorial-security-incident/tutorial-security-incident-fig4.png)
+   ![Alerte](./media/tutorial-security-incident/tutorial-security-incident-fig4.png)
 
 4. Si la cause première et la portée de l’activité malveillante sont inconnues, passez à l’étape suivante pour approfondir vos recherches.
 
 ## <a name="investigate-an-alert-or-incident"></a>Examiner une alerte ou un incident
 1. Sur la page **Alerte de sécurité**, cliquez sur le bouton **Démarrer l’investigation** (si vous avez déjà démarré, le nom devient **Poursuivre l’investigation**).
 
-  ![Investigation](./media/tutorial-security-incident/tutorial-security-incident-fig5.png)
+   ![Investigation](./media/tutorial-security-incident/tutorial-security-incident-fig5.png)
 
-  Le mappage d’investigation est une représentation graphique des entités connectées à cette alerte ou cet incident de sécurité. En cliquant sur une entité du mappage, les informations sur cette entité font apparaitre de nouvelles entités et le mappage se développe. Les propriétés de l’entité sélectionnée dans le mappage sont mises en surbrillance dans le volet situé à droite de la page. Les informations disponibles sur chaque onglet varient en fonction de l’entité sélectionnée. Pendant le processus d’investigation, passez en revue toutes les informations pertinentes pour mieux comprendre le mouvement de l’attaquant.
+   Le mappage d’investigation est une représentation graphique des entités connectées à cette alerte ou cet incident de sécurité. En cliquant sur une entité du mappage, les informations sur cette entité font apparaitre de nouvelles entités et le mappage se développe. Les propriétés de l’entité sélectionnée dans le mappage sont mises en surbrillance dans le volet situé à droite de la page. Les informations disponibles sur chaque onglet varient en fonction de l’entité sélectionnée. Pendant le processus d’investigation, passez en revue toutes les informations pertinentes pour mieux comprendre le mouvement de l’attaquant.
 
 2. Si vous avez besoin de plus de preuves, ou si vous devez examiner plus en détail des entités trouvées lors de l’analyse, passez à l’étape suivante.
 

@@ -8,14 +8,14 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: dkshir
-ms.openlocfilehash: 465dd2a69ad42b8b6a88268eb35a1aa7d8d922c5
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: ad6c2625dc56dc3a3155183a04b712122a3b10f1
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229394"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535380"
 ---
-# <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>Tutoriel : Provisionner votre bâtiment et superviser les conditions de travail avec Azure Digital Twins
+# <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>Didacticiel : Provisionner votre bâtiment et superviser les conditions de travail avec Azure Digital Twins
 
 Ce didacticiel montre comment utiliser Azure Digital Twins pour surveiller les conditions de température et le niveau de confort souhaités pour vos espaces. Après avoir [configuré votre exemple de bâtiment](tutorial-facilities-setup.md), vous pouvez le provisionner et exécuter des fonctions personnalisées dans vos données de capteur en suivant les étapes de ce tutoriel.
 
@@ -257,7 +257,7 @@ Si la condition supervisée est remplie, la fonction définie par l’utilisateu
 
 Si vous souhaitez arrêter votre exploration d’Azure Digital Twins ici, vous pouvez supprimer les ressources créées dans ce tutoriel :
 
-1. Dans le menu de gauche du [portail Azure](http://portal.azure.com), sélectionnez **Toutes les ressources**, puis votre groupe de ressources Digital Twins et **Supprimer**.
+1. Dans le menu de gauche du [portail Azure](https://portal.azure.com), sélectionnez **Toutes les ressources**, puis votre groupe de ressources Digital Twins et **Supprimer**.
 
     > [!TIP]
     > Si vous avez rencontré des difficultés pour supprimer votre instance de Digital Twins, une mise à jour du service a été déployée avec le correctif. Réessayez de supprimer votre instance.

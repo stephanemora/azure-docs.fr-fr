@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 2b37d77e00595be125490431694f4549f61fced6
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 912307e6509ea66be887838e875076b7a895ca94
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56982791"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57888148"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Tutoriel : Équilibrer la charge des machines virtuelles sur les zones de disponibilité avec un équilibreur de charge standard à l’aide du portail Azure
 
@@ -43,7 +43,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous au portail Azure sur [http://portal.azure.com](http://portal.azure.com).
+Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-standard-load-balancer"></a>Créer un équilibreur de charge standard
 
@@ -61,7 +61,7 @@ L’équilibreur de charge standard prend uniquement en charge une adresse IP pu
     | Type          | Sélectionnez **Public**.                                        |
     | SKU           | Sélectionnez **Standard**.                          |
     | Adresse IP publique | Sélectionnez **Créer nouveau**. |
-    | Nom de l’adresse IP publique              | Tapez *myPublicIP* dans la zone de texte.   |
+    | Nom de l’adresse IP publique              | Tapez *myPublicIP* dans la zone de texte.   |
     |Zone de disponibilité| Sélectionnez **Redondant dans une zone**.    |
    
 
@@ -108,7 +108,7 @@ Dans cette section, vous allez créer des règles pour le groupe de sécurité r
     - *Allow HTTP* : pour la description de la règle de l’équilibreur de charge.
 4. Cliquez sur **OK**.
  
- ![Créez un réseau virtuel](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
+   ![Créez un réseau virtuel](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
 5. Répétez les étapes 2 à 4 pour créer une autre règle nommée *myRDPRule* pour autoriser une connexion RDP entrante à l’aide du port 3389 avec les valeurs suivantes :
     - *Service Tag* : pour **Source**.
     - *Internet* : pour **Balise de service source**
@@ -137,7 +137,7 @@ Dans différentes zones (zone 1, zone 2 et zone 3) de la région, créez des mac
 5. Cliquez sur **Désactivé** pour désactiver les diagnostics de démarrage.
 6. Cliquez sur **OK**, vérifiez les paramètres sur la page de résumé, puis cliquez sur **Créer**.
   
- ![Création d'une machine virtuelle](./media/load-balancer-standard-public-availability-zones-portal/create-vm-standard-ip.png)
+   ![Création d'une machine virtuelle](./media/load-balancer-standard-public-availability-zones-portal/create-vm-standard-ip.png)
 
 7. Créez une deuxième machine virtuelle nommée *VM2* dans Zone 2 et une troisième machine virtuelle dans Zone 3, avec *myVnet* en tant que réseau virtuel, *myBackendSubnet* en tant que sous-réseau, \**myNetworkSecurityGroup* en tant que groupe de sécurité réseau à l’aide des étapes 1 à 16.
 

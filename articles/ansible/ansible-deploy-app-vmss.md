@@ -1,19 +1,19 @@
 ---
 title: Déployer des applications sur des groupes de machines virtuelles identiques dans Azure avec Ansible
 description: Découvrez comment utiliser Ansible pour configurer un groupe de machines virtuelles identiques et déployer des applications sur ce groupe dans Azure
-ms.service: ansible
+ms.service: azure
 keywords: ansible, azure, devops, bash, playbook, machine virtuelle, groupe de machines virtuelles identiques, vmss
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/11/2018
-ms.openlocfilehash: 540634d68f28aadeed308bc6cc84f459b79385e2
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 2214dd9505dff86ac26f01967a360140dee0069f
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729285"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791730"
 ---
 # <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Déployer des applications sur des groupes de machines virtuelles identiques dans Azure avec Ansible
 Ansible vous permet d’automatiser le déploiement et la configuration de ressources dans votre environnement. Vous pouvez utiliser Ansible pour déployer vos applications sur Azure. Cet article vous montre comment déployer une application Java sur un groupe de machines virtuelles identiques Azure.

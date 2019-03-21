@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7ad5f22b0604cb9de38f7990c88d760df97098d9
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: dc2fb3faddc8af30edd66b926259c05580d9872a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235833"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104520"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Découvrir et évaluer des machines virtuelles VMware locales pour la migration vers Azure.
 
@@ -179,16 +179,16 @@ Importez le fichier téléchargé sur le serveur vCenter.
 3. Sur le bureau, cliquez sur le raccourci **Run collector** (Exécuter le collecteur).
 4. Cliquez sur **Vérifier les mises à jour** dans la barre supérieure de l’interface utilisateur du collecteur et vérifiez que le collecteur est exécuté sur la version la plus récente. Si ce n’est pas le cas, vous pouvez choisir de télécharger le dernier package de mise à niveau à partir du lien et mettre à jour le collecteur.
 5. Dans Azure Migrate Collector, ouvrez **Set Up Prerequisites** (Configurer les prérequis).
-    - Sélectionnez le cloud Azure vers lequel vous prévoyez de migrer (Azure Global ou Azure Government).
-    - Acceptez les termes de licence et lisez les informations relatives aux tiers.
-    - Le collecteur vérifie que la machine virtuelle a accès à Internet.
-    - Si la machine virtuelle accède à internet via un proxy, cliquez sur **Proxy settings** (Paramètres du proxy) et spécifiez l’adresse du proxy et le port d’écoute. Spécifiez les informations d’identification si le proxy nécessite une authentification. [Apprenez-en davantage](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites) sur les conditions de connectivité Internet et la [liste des URL](https://docs.microsoft.com/azure/migrate/concepts-collector) auxquelles le collecteur accède.
+   - Sélectionnez le cloud Azure vers lequel vous prévoyez de migrer (Azure Global ou Azure Government).
+   - Acceptez les termes de licence et lisez les informations relatives aux tiers.
+   - Le collecteur vérifie que la machine virtuelle a accès à Internet.
+   - Si la machine virtuelle accède à internet via un proxy, cliquez sur **Proxy settings** (Paramètres du proxy) et spécifiez l’adresse du proxy et le port d’écoute. Spécifiez les informations d’identification si le proxy nécessite une authentification. [Apprenez-en davantage](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites) sur les conditions de connectivité Internet et la [liste des URL](https://docs.microsoft.com/azure/migrate/concepts-collector) auxquelles le collecteur accède.
 
-      > [!NOTE]
-      > L’adresse proxy doit être saisie dans le formulaire http://ProxyIPAddress ou http://ProxyFQDN. Seuls les proxys HTTP sont pris en charge. Si vous disposez d’un proxy d’interception, il est possible que la connexion Internet échoue à l’origine si vous n’avez pas importé le certificat de proxy ; [apprenez-en davantage](https://docs.microsoft.com/azure/migrate/concepts-collector) sur la manière dont vous pouvez résoudre ce problème en important le certificat de proxy en tant que certificat approuvé sur la machine virtuelle du collecteur.
+     > [!NOTE]
+     > L’adresse proxy doit être saisie dans le formulaire <http://ProxyIPAddress> ou <http://ProxyFQDN>. Seuls les proxys HTTP sont pris en charge. Si vous disposez d’un proxy d’interception, il est possible que la connexion Internet échoue à l’origine si vous n’avez pas importé le certificat de proxy ; [apprenez-en davantage](https://docs.microsoft.com/azure/migrate/concepts-collector) sur la manière dont vous pouvez résoudre ce problème en important le certificat de proxy en tant que certificat approuvé sur la machine virtuelle du collecteur.
 
-    - Le collecteur vérifie que le service Collector est en cours d’exécution. Le service est installé par défaut sur la machine virtuelle collector.
-    - Téléchargez et installez VMware PowerCLI.
+   - Le collecteur vérifie que le service Collector est en cours d’exécution. Le service est installé par défaut sur la machine virtuelle collector.
+   - Téléchargez et installez VMware PowerCLI.
 
 6. Dans **Specify vCenter Server details** (Spécifier les informations vCenter Server), procédez aux étapes suivantes :
     - Spécifiez le nom (FQDN) ou l’adresse IP du serveur vCenter.

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 99e282b720bb29ed5fb94ad2c9779ae56a019836
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 3c0be935a4ffb51c03d2f63b14ab7c0c713dd2ae
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993513"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58006251"
 ---
 # <a name="deprecated-update-an-application-in-kubernetes"></a>(DÉPRÉCIÉ) Mettre à jour une application dans Kubernetes
 
@@ -75,7 +75,7 @@ docker-compose up --build -d
 
 ## <a name="test-application-locally"></a>Tester l’application localement
 
-Accédez à http://localhost:8080 pour voir l’application mise à jour.
+Accédez à `http://localhost:8080` pour voir l’application mise à jour.
 
 ![Image du cluster Kubernetes sur Azure](media/container-service-kubernetes-tutorials/vote-app-updated.png)
 

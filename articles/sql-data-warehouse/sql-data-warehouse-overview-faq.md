@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
-ms.openlocfilehash: d55c9db9af2eea9a56afe34c7a8689947a689bac
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 596ed857b39cf106ed2e37ad81c5fe9e939cca61
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462543"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58001425"
 ---
 # <a name="sql-data-warehouse-frequently-asked-questions"></a>Foire aux questions SQL Data Warehouse
 
@@ -31,7 +31,7 @@ R. Consultez la page [Conformité Microsoft] pour connaître les différentes of
 
 Q. Puis-je connecter Power BI ?
 
-R.  Oui. Bien que Power BI prenne en charge les requêtes directes avec SQL DW, il n’est pas destiné à traiter un grand nombre d’utilisateurs ou de données en temps réel. Pour une utilisation en production de Power BI, nous recommandons d’utiliser Power BI en complément d’Azure Analysis Services ou d’Analysis Service IaaS. 
+R. Oui. Bien que Power BI prenne en charge les requêtes directes avec SQL DW, il n’est pas destiné à traiter un grand nombre d’utilisateurs ou de données en temps réel. Pour une utilisation en production de Power BI, nous recommandons d’utiliser Power BI en complément d’Azure Analysis Services ou d’Analysis Service IaaS. 
 
 Q. Quelles sont les limites de capacité de SQL Data Warehouse ?
 
@@ -105,7 +105,7 @@ Pour plus d’informations sur SQL Data Warehouse dans son ensemble, consultez n
 <!-- Article references -->
 [UserVoice]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [Chaînes de connexion]: ./sql-data-warehouse-connection-strings.md
-[Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Tickets de support]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [Sécurité]: ./sql-data-warehouse-overview-manage-security.md
 [Conformité Microsoft]: https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 9b06b79616dc7f541201563ad50495e436d6499f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c10be50adbfae559873da87fffe4cdb10bc350ef
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55856272"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57875836"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-nodejs-in-computer-vision"></a>Démarrage rapide : Générer une miniature à l’aide de l’API REST et Node.js dans Vision par ordinateur
 
@@ -53,7 +53,7 @@ Pour créer et exécuter l’exemple, effectuez les étapes suivantes :
 1. Ouvrir une fenêtre d’invite de commandes.
 1. À l’invite, utilisez la commande `node` pour exécuter le fichier. Par exemple : `node get-thumbnail.js`.
 
-```nodejs
+```javascript
 'use strict';
 
 const request = require('request');

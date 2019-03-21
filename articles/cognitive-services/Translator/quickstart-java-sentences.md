@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: d7679f41b5e1c1fe6705ef3ed4be28a521f0d0d2
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 46507562ab5a31f377b8c3a11902abf9aeccd846
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728486"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176444"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-java"></a>Démarrage rapide : Utiliser l’API de traduction de texte Translator Text et Java pour déterminer la longueur de phrase
 
@@ -34,8 +34,8 @@ Pour suivre ce démarrage rapide, vous devrez disposer d’un [compte Azure Cogn
 Commencez par créer un répertoire de travail pour ce projet. À partir de la ligne de commande (ou d’une session Terminal Server), exécutez cette commande :
 
 ```console
-mkdir break-sentence-sample
-cd break-sentence-sample
+mkdir length-sentence-sample
+cd length-sentence-sample
 ```
 
 Ensuite, initialisez un projet Gradle. Cette commande crée les fichiers de build nécessaires pour Gradle, dont le plus important est le fichier `build.gradle.kts`, qui est utilisé au moment de l’exécution pour créer et configurer votre application. Exécutez cette commande à partir de votre répertoire de travail :
@@ -56,7 +56,7 @@ plugins {
     application
 }
 application {
-    mainClassName = "BreakSentence"
+    mainClassName = "LengthSentence"
 }
 repositories {
     mavenCentral()
@@ -77,11 +77,11 @@ Créez maintenant un dossier pour votre exemple d’application. À partir de vo
 mkdir -p src/main/java
 ```
 
-Ensuite, dans ce dossier, créez un fichier nommé `BreakSentence.java`.
+Ensuite, dans ce dossier, créez un fichier nommé `LengthSentence.java`.
 
 ## <a name="import-required-libraries"></a>Importer les bibliothèques nécessaires
 
-Ouvrez `BreakSentence.java` et ajoutez-y les instructions import suivantes :
+Ouvrez `LengthSentence.java` et ajoutez-y les instructions import suivantes :
 
 ```java
 import java.io.*;
@@ -97,12 +97,12 @@ import com.squareup.okhttp.*;
 Vous devez tout d’abord créer une classe publique pour votre projet :
 
 ```java
-public class BreakSentence {
+public class LengthSentence {
   // All project code goes here...
 }
 ```
 
-Ajoutez ces lignes à la classe `BreakSentence`. Vous remarquerez qu’avec `api-version`, vous pouvez définir la langue d’entrée. Dans cet exemple, il s’agit de l’anglais.
+Ajoutez ces lignes à la classe `LengthSentence`. Vous remarquerez qu’avec `api-version`, vous pouvez définir la langue d’entrée. Dans cet exemple, il s’agit de l’anglais.
 
 ```java
 String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
@@ -111,7 +111,7 @@ String url = "https://api.cognitive.microsofttranslator.com/breaksentence?api-ve
 
 ## <a name="create-a-client-and-build-a-request"></a>Créer un client et générer une requête
 
-Ajoutez cette ligne à la classe `BreakSentence` pour instancier `OkHttpClient` :
+Ajoutez cette ligne à la classe `LengthSentence` pour instancier `OkHttpClient` :
 
 ```java
 // Instantiates the OkHttpClient.
@@ -156,8 +156,8 @@ La dernière étape consiste à effectuer une requête et à obtenir une répons
 ```java
 public static void main(String[] args) {
     try {
-        BreakSentence breakSentenceRequest = new BreakSentence();
-        String response = breakSentenceRequest.Post();
+        LengthSentence lengthSentenceRequest = new LengthSentence();
+        String response = lengthSentenceRequest.Post();
         System.out.println(prettify(response));
     } catch (Exception e) {
         System.out.println(e);

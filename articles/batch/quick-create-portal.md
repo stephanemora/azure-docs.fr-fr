@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 07/03/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 4356ea57e73e063d18155611b8c11090aa11edb3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d478307ff4393d84a854fcd3b2ea0efd77de7135
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471213"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087837"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Démarrage rapide : Exécuter votre premier travail Batch dans le portail Azure
 
@@ -34,7 +34,7 @@ Suivez ces étapes pour créer un compte Batch d’exemple à des fins de test. 
 
 1. Sélectionnez **Créer une ressource** > **Compute** > **Service Batch**. 
 
-  ![Batch dans Marketplace][marketplace_portal]
+   ![Batch dans Marketplace][marketplace_portal]
 
 2. Entrez les valeurs **Nom du compte** et **Groupe de ressources**. Le nom du compte doit être unique à l’**emplacement** Azure sélectionné, utilisez uniquement des caractères en minuscules ou des nombres dans une limite de 3 à 24 caractères. 
 
@@ -42,7 +42,7 @@ Suivez ces étapes pour créer un compte Batch d’exemple à des fins de test. 
 
 4. Conservez les valeurs par défaut pour les paramètres restants, puis cliquez sur **Créer** pour créer le compte.
 
-  ![Création d’un compte Batch][account_portal]  
+   ![Création d’un compte Batch][account_portal]  
 
 Lorsque le message **Déploiement réussi** s’affiche, accédez au compte Batch dans le portail.
 
@@ -57,23 +57,23 @@ Maintenant que vous avez un compte Batch, créez un pool d’exemple de nœuds d
 
 3. Dans **Système d’exploitation**, sélectionnez les paramètres suivants (vous pouvez explorer d’autres options).
   
-  |Paramètre  |Valeur  |
-  |---------|---------|
-  |**Type d’image**|Place de marché (Linux/Windows)|
-  |**Publisher**     |MicrosoftWindowsServer|
-  |**Offer**     |WindowsServer|
-  |**Sku**     |2012-R2-Datacenter-smalldisk|
+   |Paramètre  |Valeur  |
+   |---------|---------|
+   |**Type d’image**|Place de marché (Linux/Windows)|
+   |**Publisher**     |MicrosoftWindowsServer|
+   |**Offer**     |WindowsServer|
+   |**Sku**     |2012-R2-Datacenter-smalldisk|
 
-  ![Sélectionner un système d’exploitation pour le pool][pool_os] 
+   ![Sélectionner un système d’exploitation pour le pool][pool_os] 
 
 4. Faites défiler pour accéder aux paramètres **Taille du nœud** et **Mise à l’échelle**. La taille de nœud suggérée offre un bon compromis entre performances et coûts pour cet exemple rapide.
   
-  |Paramètre  |Valeur  |
-  |---------|---------|
-  |**Niveau de tarification du nœud**     |Standard_A1|
-  |**Nœuds dédiés cibles**     |2|
+   |Paramètre  |Valeur  |
+   |---------|---------|
+   |**Niveau de tarification du nœud**     |Standard_A1|
+   |**Nœuds dédiés cibles**     |2|
 
-  ![Sélectionner une taille de pool][pool_size] 
+   ![Sélectionner une taille de pool][pool_size] 
 
 5. Conservez les valeurs par défaut pour les paramètres restants, puis cliquez sur **OK** pour créer le pool.
 
@@ -91,7 +91,7 @@ Maintenant que vous disposez d’un pool, créez un travail à exécuter sur cel
 
 2. Entrez un **ID de travail** appelé *myjob*. Dans **Pool**, sélectionnez *mypool*. Conservez les valeurs par défaut pour les paramètres restants, puis cliquez sur **OK**.
 
-  ![Création d’un travail][job_create]
+   ![Création d’un travail][job_create]
 
 Une fois que le travail est créé, la page **Tâches** s’ouvre.
 
@@ -109,7 +109,7 @@ Pour créer la première tâche :
 
 3. Dans **Ligne de commande**, entrez `cmd /c "set AZ_BATCH & timeout /t 90 > NUL"`. Conservez les valeurs par défaut pour les paramètres restants, puis cliquez sur **OK**.
 
-  ![Créer une tâche][task_create]
+   ![Créer une tâche][task_create]
 
 Après avoir créé une tâche, Azure Batch la met en file d’attente pour l’exécuter sur le pool. Lorsqu’un nœud est disponible pour l’exécuter, la tâche s’exécute.
 

@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 5899b2b667df4800bf98aa6ed7b70f2f8ba4f931
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 7d56f01aabe77680ed78927848668457344a0f2c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337102"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58080293"
 ---
 # <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>Démarrage rapide : Provisionner un appareil simulé avec des clés symétriques
 
@@ -114,15 +114,15 @@ Le SDK inclut l’exemple de code pour un appareil simulé. Cet appareil simulé
 
 3. Dans **Ajouter une inscription**, entrez les informations suivantes, puis cliquez sur le bouton **Enregistrer**.
 
-    - **Mécanisme** : sélectionnez **Clé symétrique** comme *Mécanisme* d'attestation d'identité.
+   - **Mécanisme** : sélectionnez **Clé symétrique** comme *Mécanisme* d'attestation d'identité.
 
-    - **Générer automatiquement les clés** : cochez cette case.
+   - **Générer automatiquement les clés** : cochez cette case.
 
-    - **ID d'inscription** : entrez un ID pour identifier l'inscription. Utilisez uniquement des caractères alphanumériques en minuscules et des tirets (« - »). Par exemple : `symm-key-device-007`.
+   - **ID d'inscription** : entrez un ID pour identifier l'inscription. Utilisez uniquement des caractères alphanumériques en minuscules et des tirets (« - »). Par exemple : `symm-key-device-007`.
 
-    - **ID de l'appareil IoT Hub :** entrez un identificateur d'appareil. Par exemple : **device-007**.
+   - **ID de l'appareil IoT Hub :** entrez un identificateur d'appareil. Par exemple : **device-007**.
 
-    ![Ajouter une inscription individuelle pour l’attestation de clé symétrique dans le portail](./media/quick-create-simulated-device-symm-key/create-individual-enrollment.png)
+     ![Ajouter une inscription individuelle pour l’attestation de clé symétrique dans le portail](./media/quick-create-simulated-device-symm-key/create-individual-enrollment.png)
 
 4. Une fois que vous avez enregistré votre inscription, la **Clé primaire** et la **Clé secondaire** sont générées et ajoutées à l’entrée d’inscription. Votre inscription d’appareil à clé symétrique apparaît sous la forme **symm-key-device-007** sous la colonne *ID d’inscription* de l’onglet *Inscriptions individuelles*. 
 

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc seodec18
 ms.date: 12/17/2018
 ms.author: alinast
-ms.openlocfilehash: d2588090ced3e82e63397a416245ca69204f3d87
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 4c41fbaa00dc3460df3f94433428c448a7b41250
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53583083"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089695"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Démarrage rapide : Rechercher des salles disponibles avec Azure Digital Twins
 
@@ -115,8 +115,8 @@ L’exemple de capteur simule des valeurs de données aléatoires pour les deux 
 1. Examinez côte à côte cette invite de commande et l’invite de commande des données de capteur.
 
     Une invite de commande envoie toutes les cinq secondes à Digital Twins les données de la simulation des mouvements et du dioxyde de carbone. L’autre commande lit le graphe en temps réel pour trouver les salles disponibles avec de l’air frais à partir de données simulées aléatoires. Une de ces conditions s’affiche presque en temps réel en fonction des dernières données de capteur qui ont été envoyées :
-    - Salles disponibles avec de l’air frais.
-    - Salle occupée ou de mauvaise qualité de l’air.
+   - Salles disponibles avec de l’air frais.
+   - Salle occupée ou de mauvaise qualité de l’air.
 
      ![Obtenir des espaces disponibles avec de l’air frais][3]
 
@@ -132,7 +132,7 @@ Les tutoriels vont très loin dans le code. Ils vous apprennent à modifier les 
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| NOM | Remplacer par |
+| Nom | Remplacer par |
 | --- | --- |
 | YOUR_INSTANCE_NAME | Nom de votre instance Digital Twins |
 | YOUR_LOCATION | Région de serveur dans laquelle votre instance est hébergée |
@@ -149,7 +149,7 @@ Les tutoriels expliquent en détail comment :
 Pour continuer à suivre des tutoriels, ne nettoyez pas les ressources créées dans ce guide de démarrage rapide. Si vous ne prévoyez pas de continuer, supprimez toutes les ressources créées par ce guide de démarrage rapide.
 
 1. Supprimez le dossier créé quand vous avez téléchargé l’exemple de référentiel.
-1. Dans le menu de gauche du [portail Azure](http://portal.azure.com), sélectionnez **Toutes les ressources**. Sélectionnez ensuite votre ressource Digital Twins. En haut du volet **Toutes les ressources**, sélectionnez **Supprimer**.
+1. Dans le menu de gauche du [portail Azure](https://portal.azure.com), sélectionnez **Toutes les ressources**. Sélectionnez ensuite votre ressource Digital Twins. En haut du volet **Toutes les ressources**, sélectionnez **Supprimer**.
 
     > [!TIP]
     > Si vous avez rencontré des difficultés pour supprimer votre instance de Digital Twins, une mise à jour du service a été déployée avec le correctif. Réessayez de supprimer votre instance.

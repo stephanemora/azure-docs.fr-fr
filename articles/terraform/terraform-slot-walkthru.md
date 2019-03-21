@@ -2,19 +2,19 @@
 title: Terraform avec les emplacements de déploiement fournisseur Azure
 description: Didacticiel sur l’utilisation de Terraform avec les emplacements de déploiement fournisseur Azure
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, machine virtuelle, Azure, emplacements de déploiement
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 4/05/2018
-ms.openlocfilehash: 1564991ecfe29b1977837c2fdff4be7b3a3e1797
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 08e90a69791b0555a6497166f6008e8619f40704
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074816"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57992237"
 ---
 # <a name="use-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>Utiliser Terraform pour approvisionner une infrastructure avec des emplacements de déploiement Azure
 
@@ -26,11 +26,11 @@ Cet article illustre un exemple d’utilisation d’emplacements de déploiement
 
 - **Abonnement Azure** : Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
 
-- **Compte GitHub** : vous avez besoin d’un compte [GitHub](http://www.github.com) pour dupliquer (fork) et utiliser le dépôt GitHub de test.
+- **Compte GitHub** : vous avez besoin d’un compte [GitHub](https://www.github.com) pour dupliquer (fork) et utiliser le dépôt GitHub de test.
 
 ## <a name="create-and-apply-the-terraform-plan"></a>Créer et appliquer le plan Terraform
 
-1. Accédez au [portail Azure](http://portal.azure.com).
+1. Accédez au [portail Azure](https://portal.azure.com).
 
 1. Ouvrez [Azure Cloud Shell](/azure/cloud-shell/overview). Si vous n’avez pas sélectionné d’environnement précédemment, choisissez **Bash** comme votre environnement.
 

@@ -14,17 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: f2c726fd4159bcb47088e814fd60e054e50a1315
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 4750ba55c08ebac244e7515cae4e998155a79599
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814280"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870619"
 ---
 # <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>StorSimple pour le programme des fournisseurs de solutions cloud : Forum Aux Questions (FAQ)
 
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Vous trouverez ci-dessous une suite de questions-réponses sur les problématiques que vous pouvez rencontrer en tant que partenaire StorSimple, lorsque vous déployez ou gérez une instance StorSimple Virtual Array dans le portail Azure.
 
 Les questions/réponses sont organisées en plusieurs catégories :
@@ -63,7 +63,7 @@ Il existe plusieurs solutions :
 - Ils peuvent également découvrir de nouveaux modèles d’entreprise, en fournissant des services gérés.
 
 ### <a name="what-are-the-incentives-available-for-storsimple-csp-partners-do-i-qualify-for-any-csp-program-incentives"></a>Quelles sont les primes disponibles pour les partenaires du programme des fournisseurs de solutions cloud StorSimple ? Suis-je éligible à une prime du programme des fournisseurs de solutions cloud ?
-Pour plus d’informations sur les primes, accédez à la [page descriptive des primes du programme des fournisseurs de solutions cloud](https://partner.microsoft.com/en-US/cloud-solution-provider/program-details).
+Pour plus d’informations sur les primes, accédez à [prime du programme CSP](https://partner.microsoft.com/en-US/cloud-solution-provider/program-details).
 
 
 ## <a name="deploy-and-manage-storsimple-as-a-partner"></a>Déployer et gérer StorSimple en tant que partenaire
@@ -75,7 +75,7 @@ Vous pouvez ajouter des abonnements StorSimple Virtual Array aux comptes de vos 
 Oui. Avec StorSimple Virtual Array pour le programme des fournisseurs de solutions cloud, le meilleur moyen pour les partenaires d’accéder au portail Azure est de transiter par l’[Espace Partenaires](https://partnercenter.microsoft.com/), à partir duquel ils peuvent gérer les clients et les abonnements. Pour gérer les abonnements StorSimple, le partenaire ou le client (en fonction des autorisations accordées) doit se connecter sur le portail Azure. 
 
 ### <a name="is-microsoft-shipping-a-new-portal-for-storsimple-for-csp"></a>La société Microsoft propose-t-elle un nouveau portail pour StorSimple pour le programme des fournisseurs de solutions cloud ? 
- Non. Vous pourrez gérer StorSimple Virtual Array dans le programme des fournisseurs de solutions cloud via le portail Azure.
+Non. Vous pourrez gérer StorSimple Virtual Array dans le programme des fournisseurs de solutions cloud via le portail Azure.
 
 ### <a name="i-have-provisioned-a-standalone-storsimple-subscription-for-my-customer-do-i-have-to-use-the-azure-portal-to-administer-my-device"></a>J’ai configuré un abonnement StorSimple autonome pour mon client. Dois-je utiliser le portail Azure pour gérer mon appareil ? 
 Oui. 

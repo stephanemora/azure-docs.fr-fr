@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: e49cffc5ba08d400c733ef7c211132c4909f9ef4
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 32962e6d40103c23a0ec7fd1116aec8820f513bd
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343559"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57780284"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Créer et gérer des stratégies pour appliquer la conformité
 
@@ -87,32 +87,32 @@ Maintenant que vous avez affecté une définition de stratégie intégrée, vous
       - Les règles/conditions de la stratégie, dans ce cas : la taille de la référence (SKU) de la machine virtuelle est égale à la série G
       - L’effet de la stratégie, dans ce cas – **Refuser**.
 
-    Voici à quoi le code JSON doit ressembler. Collez le code révisé dans le portail Azure.
+   Voici à quoi le code JSON doit ressembler. Collez le code révisé dans le portail Azure.
 
-    ```json
-    {
-        "policyRule": {
-            "if": {
-                "allOf": [{
-                        "field": "type",
-                        "equals": "Microsoft.Compute/virtualMachines"
-                    },
-                    {
-                        "field": "Microsoft.Compute/virtualMachines/sku.name",
-                        "like": "Standard_G*"
-                    }
-                ]
-            },
-            "then": {
-                "effect": "deny"
-            }
-        }
-    }
-    ```
+   ```json
+   {
+       "policyRule": {
+           "if": {
+               "allOf": [{
+                       "field": "type",
+                       "equals": "Microsoft.Compute/virtualMachines"
+                   },
+                   {
+                       "field": "Microsoft.Compute/virtualMachines/sku.name",
+                       "like": "Standard_G*"
+                   }
+               ]
+           },
+           "then": {
+               "effect": "deny"
+           }
+       }
+   }
+   ```
 
-    La propriété *field* dans la règle de stratégie doit avoir l’une des valeurs suivantes : Name, Type, Location, Tags ou un alias. Exemple d’alias : `"Microsoft.Compute/VirtualMachines/Size"`.
+   La propriété *field* dans la règle de stratégie doit avoir l’une des valeurs suivantes : Name, Type, Location, Tags ou un alias. Exemple d’alias : `"Microsoft.Compute/VirtualMachines/Size"`.
 
-    Pour voir d’autres exemples relatifs à Azure Policy, consultez [Exemples Azure Policy](../samples/index.md).
+   Pour voir d’autres exemples relatifs à Azure Policy, consultez [Exemples Azure Policy](../samples/index.md).
 
 1. Sélectionnez **Enregistrer**.
 

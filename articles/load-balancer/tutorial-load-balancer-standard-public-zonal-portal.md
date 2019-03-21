@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 5f3b9b48fc5f15738c3de9928ca0bb220a66db12
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 563b54fe9b4ab65cd8d3008e9d3955618194031f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985986"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57899544"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Didacticiel : Équilibrer la charge de machines virtuelles dans une zone de disponibilité avec Standard Load Balancer à l’aide du portail Azure
 
@@ -41,7 +41,7 @@ Si vous préférez, utilisez [Azure CLI](load-balancer-standard-public-zonal-cli
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous au portail Azure sur [http://portal.azure.com](http://portal.azure.com).
+Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-public-standard-load-balancer-instance"></a>Créer une instance Standard Load Balancer publique
 
@@ -59,11 +59,11 @@ Standard Load Balancer prend uniquement en charge une adresse IP publique standa
     | Type          | Sélectionnez **Public**.                                        |
     | SKU           | Sélectionnez **Standard**.                          |
     | Adresse IP publique | Sélectionnez **Créer nouveau**. |
-    | Nom de l’adresse IP publique              | Tapez *myPublicIP* dans la zone de texte.   |
+    | Nom de l’adresse IP publique              | Tapez *myPublicIP* dans la zone de texte.   |
     |Zone de disponibilité| Sélectionnez **1**.    |
 3. Sous l’onglet **Vérifier + créer**, cliquez sur **Créer**.   
 
- ## <a name="create-backend-servers"></a>Créer des serveurs principaux
+   ## <a name="create-backend-servers"></a>Créer des serveurs principaux
 
 Dans cette section, vous créez un réseau virtuel. Vous créez également deux machines virtuelles dans la même zone (à savoir, la zone 1) pour la région à ajouter au pool principal de votre équilibreur de charge. Vous installez ensuite IIS sur les machines virtuelles pour faciliter le test de l’équilibreur de charge redondant interzone. Si une machine virtuelle échoue, la sonde d’intégrité de la machine virtuelle dans la même zone échoue. Le trafic continue à être pris en charge par les autres machines virtuelles au sein de la même zone.
 
@@ -80,8 +80,8 @@ Dans cette section, vous créez un réseau virtuel. Vous créez également deux 
 
 1. Dans le coin supérieur gauche de l’écran, sélectionnez **Créer une ressource**. Dans la zone de recherche, entrez **Groupe de sécurité réseau**. Dans la page de groupe de sécurité réseau, sélectionnez **Créer**.
 2. Dans la page **Création d’un groupe de sécurité réseau**, entrez ces valeurs :
-    - **myNetworkSecurityGroup**, pour le nom du groupe de sécurité réseau.
-    - **myResourceGroupLBAZ**, pour le nom du groupe de ressources existant.
+   - **myNetworkSecurityGroup**, pour le nom du groupe de sécurité réseau.
+   - **myResourceGroupLBAZ**, pour le nom du groupe de ressources existant.
    
      ![Créer un groupe de sécurité réseau](./media/tutorial-load-balancer-standard-zonal-portal/create-network-security-group.png)
 

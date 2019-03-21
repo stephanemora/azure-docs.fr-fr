@@ -2,19 +2,19 @@
 title: Créer un cluster Kubernetes avec Application Gateway comme contrôleur d’entrée avec Azure Kubernetes Service (AKS)
 description: Tutoriel montrant comment créer un cluster Kubernetes avec Azure Kubernetes Service et utilisant Application Gateway comme contrôleur d’entrée
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, machine virtuelle, azure, kubernetes, entrée, passerelle d’application
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 1/10/2019
-ms.openlocfilehash: 6add7323fdbcf07681e8566437632aa6679828e4
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 477b2ec1af4c52f51c3ab20ac2ddf7ef043dfcc7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55891979"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994346"
 ---
 # <a name="create-a-kubernetes-cluster-with-application-gateway-ingress-controller-using-azure-kubernetes-service-and-terraform"></a>Créer un cluster Kubernetes avec Application Gateway comme contrôleur d’entrée, et en utilisant Azure Kubernetes Service (AKS) et Terraform
 [Azure Kubernetes Service (AKS)](/azure/aks/) gère votre environnement Kubernetes hébergé. AKS permet de déployer et de gérer rapidement et facilement des applications conteneurisées sans expertise d’orchestration de conteneurs. Il élimine également la charge des opérations en cours et la maintenance par configuration, la mise à niveau et la mise à l’échelle des ressources à la demande, sans déconnecter vos applications.
@@ -36,16 +36,16 @@ Dans ce tutoriel, découvrez comment effectuer les tâches suivantes pour créer
 - **Configurez Terraform** : Suivez les instructions de l’article [Terraform et configuration de l’accès à Azure ](/azure/virtual-machines/linux/terraform-install-configure)
 
 - **Principal de service Azure** : suivez les instructions de la section **Créer le principal de service** de l’article [Créer un principal de service Azure avec Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Notez les valeurs des éléments appId, displayName et password.
-    - Notez l’ID d’objet du principal du service en exécutant la commande suivante
+  - Notez l’ID d’objet du principal du service en exécutant la commande suivante
 
     ```bash
-     az ad sp list --display-name <displayName>
+    az ad sp list --display-name <displayName>
     ```
 
 ## <a name="create-the-directory-structure"></a>Créer la structure de répertoire
 La première étape consiste à créer le répertoire qui contient vos fichiers de configuration Terraform pour l’exercice.
 
-1. Accédez au [portail Azure](http://portal.azure.com).
+1. Accédez au [portail Azure](https://portal.azure.com).
 
 1. Ouvrez [Azure Cloud Shell](/azure/cloud-shell/overview). Si vous n’avez pas sélectionné d’environnement précédemment, choisissez **Bash** comme votre environnement.
 
@@ -99,8 +99,8 @@ Créez le fichier de configuration Terraform qui déclare le fournisseur Azure.
     ```bash
     :wq
     ```
-## <a name="define-input-variables"></a>Définir des variables d’entrée
-Créer le fichier de configuration Terraform qui liste toutes les variables nécessaires pour ce déploiement
+   ## <a name="define-input-variables"></a>Définir des variables d’entrée
+   Créer le fichier de configuration Terraform qui liste toutes les variables nécessaires pour ce déploiement
 1. Dans Cloud Shell, créez un fichier nommé `variables.tf`.
     ```bash
     vi variables.tf

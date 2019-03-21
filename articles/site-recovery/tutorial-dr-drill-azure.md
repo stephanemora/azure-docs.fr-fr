@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: c01cc6bd6244bcaa8d33baead35ac2a1dadc3d7a
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: e3a2b45e2039c5cabaa7c507c85a045ca73add83
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970795"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993929"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Effectuer un exercice de récupération d'urgence vers Azure
 
@@ -23,10 +23,10 @@ Dans cet article, nous vous montrons comment effectuer un exercice de récupéra
 Il s’agit du quatrième tutoriel dans une série qui vous montre comment configurer la récupération d’urgence sur Azure pour des machines virtuelles VMware ou des machines virtuelles Hyper-V locales.
 
 Ce tutoriel suppose que vous avez effectué les trois premiers tutoriels :
-    - Dans le [premier didacticiel](tutorial-prepare-azure.md), nous avons configuré les composants Azure nécessaires pour la récupération d’urgence de VMware.
-    - Dans le [deuxième didacticiel](vmware-azure-tutorial-prepare-on-premises.md), nous avons préparé des composants locaux pour la récupération d’urgence et nous avons passé en revue les conditions préalables.
-    - Dans le [troisième didacticiel](vmware-azure-tutorial.md), nous avons configuré et activé la réplication pour notre machine virtuelle VMware locale.
-    - Les tutoriels sont conçus pour vous montrer le chemin de **déploiement le plus simple pour un scénario**. Ils utilisent les options par défaut lorsque cela est possible et n’affichent pas tous les paramètres et chemins d’accès possibles. Si vous souhaitez en savoir plus sur les étapes de basculement de test, lisez le [guide de procédure](site-recovery-test-failover-to-azure.md).
+- Dans le [premier didacticiel](tutorial-prepare-azure.md), nous avons configuré les composants Azure nécessaires pour la récupération d’urgence de VMware.
+- Dans le [deuxième didacticiel](vmware-azure-tutorial-prepare-on-premises.md), nous avons préparé des composants locaux pour la récupération d’urgence et nous avons passé en revue les conditions préalables.
+- Dans le [troisième didacticiel](vmware-azure-tutorial.md), nous avons configuré et activé la réplication pour notre machine virtuelle VMware locale.
+- Les tutoriels sont conçus pour vous montrer le chemin de **déploiement le plus simple pour un scénario**. Ils utilisent les options par défaut lorsque cela est possible et n’affichent pas tous les paramètres et chemins d’accès possibles. Si vous souhaitez en savoir plus sur les étapes de basculement de test, lisez le [guide de procédure](site-recovery-test-failover-to-azure.md).
 
 Dans ce tutoriel, vous allez apprendre à effectuer les actions suivantes :
 

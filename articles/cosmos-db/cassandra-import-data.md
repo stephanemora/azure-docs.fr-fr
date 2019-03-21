@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/03/2018
 ms.custom: seodec18
 Customer intent: As a developer, I want to migrate my existing Cassandra workloads to Azure Cosmos DB so that the overhead to manage resources, clusters, and garbage collection is automatically handled by Azure Cosmos DB.
-ms.openlocfilehash: b12e7aad5fbdf65a8936b943f5053eda76dbd883
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: c9f7ec5009c9299e317d9b10f857e326d25fa005
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037478"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120106"
 ---
 # <a name="tutorial-migrate-your-data-to-cassandra-api-account-in-azure-cosmos-db"></a>Tutoriel : Migrer vos données vers un compte d'API Cassandra dans Azure Cosmos DB
 
@@ -35,31 +35,31 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 * **Estimer vos besoins en débit :** avant de migrer des données vers le compte d'API Cassandra dans Azure Cosmos DB, vous devez estimer les besoins en débit de votre charge de travail. D’une façon générale, il est recommandé de commencer par le débit moyen nécessaire pour les opérations CRUD, puis d’inclure le débit supplémentaire nécessaire pour les opérations ETL (Extract Transform Load) ou entraînant une charge ponctuelle importante. Vous avez besoin des informations suivantes pour planifier la migration : 
 
-   * **Taille des données existantes ou estimation de la taille des données :** Définit la taille minimale de la base de données et le débit requis. Si vous estimez la taille des données pour une nouvelle application, vous pouvez supposer que les données sont réparties uniformément entre les lignes et estimer la valeur en multipliant par la taille des données. 
+  * **Taille des données existantes ou estimation de la taille des données :** Définit la taille minimale de la base de données et le débit requis. Si vous estimez la taille des données pour une nouvelle application, vous pouvez supposer que les données sont réparties uniformément entre les lignes et estimer la valeur en multipliant par la taille des données. 
 
-   * **Débit nécessaire :** débit approximatif en lecture (interroger/obtenir) et en écriture (mettre à jour/supprimer/insérer). Cette valeur est nécessaire pour calculer les unités de requête nécessaires, ainsi que la taille des données à l’état stable.  
+  * **Débit nécessaire :** débit approximatif en lecture (interroger/obtenir) et en écriture (mettre à jour/supprimer/insérer). Cette valeur est nécessaire pour calculer les unités de requête nécessaires, ainsi que la taille des données à l’état stable.  
 
-   * **Le schéma :** connectez-vous à votre cluster Cassandra existant via cqlsh et exportez le schéma depuis Cassandra : 
+  * **Le schéma :** connectez-vous à votre cluster Cassandra existant via cqlsh et exportez le schéma depuis Cassandra : 
 
-     ```bash
-     cqlsh [IP] "-e DESC SCHEMA" > orig_schema.cql
-     ```
+    ```bash
+    cqlsh [IP] "-e DESC SCHEMA" > orig_schema.cql
+    ```
 
-   Après avoir identifié les exigences de votre charge de travail existante, vous devez créer un compte, une base de données et des conteneurs Azure Cosmos, conformément aux spécifications établies en matière de débit.  
+    Après avoir identifié les exigences de votre charge de travail existante, vous devez créer un compte, une base de données et des conteneurs Azure Cosmos, conformément aux spécifications établies en matière de débit.  
 
-   * **Déterminer le coût en unités de requête pour une opération :** vous pouvez déterminer les unités de requête avec n'importe quel kit de développement logiciel (SDK) pris en charge par l'API Cassandra. Cet exemple montre la version .NET pour obtenir les frais de RU.
+  * **Déterminer le coût en unités de requête pour une opération :** vous pouvez déterminer les unités de requête avec n'importe quel kit de développement logiciel (SDK) pris en charge par l'API Cassandra. Cet exemple montre la version .NET pour obtenir les frais de RU.
 
-     ```csharp
-     var tableInsertStatement = table.Insert(sampleEntity);
-     var insertResult = await tableInsertStatement.ExecuteAsync();
+    ```csharp
+    var tableInsertStatement = table.Insert(sampleEntity);
+    var insertResult = await tableInsertStatement.ExecuteAsync();
 
-     foreach (string key in insertResult.Info.IncomingPayload)
-       {
-          byte[] valueInBytes = customPayload[key];
-          string value = Encoding.UTF8.GetString(valueInBytes);
-          Console.WriteLine($"CustomPayload:  {key}: {value}");
-       }
-     ```
+    foreach (string key in insertResult.Info.IncomingPayload)
+      {
+         byte[] valueInBytes = customPayload[key];
+         string value = Encoding.UTF8.GetString(valueInBytes);
+         Console.WriteLine($"CustomPayload:  {key}: {value}");
+      }
+    ```
 
 * **Allouer le débit requis :** Azure Cosmos DB peut procéder à la mise à l'échelle automatique du stockage et du débit au fil de l'accroissement de vos besoins. Vous pouvez estimer vos besoins en débit en utilisant le [calculateur d’unités de requête d’Azure Cosmos DB](https://www.documentdb.com/capacityplanner). 
 

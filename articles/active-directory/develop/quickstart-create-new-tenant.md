@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7db08cde0df1ba3d9bc227758ab3ad00c1fc422
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2f569b497afe01db0fc4c3aa29589e6f2c538faf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207368"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108659"
 ---
 # <a name="quickstart-set-up-a-dev-environment"></a>Démarrage rapide : Configurer un environnement de développement
 
@@ -55,8 +55,8 @@ De nombreux développeurs disposent déjà de locataires grâce à des services 
 
 > [!TIP]
 > Deux options s’offrent à vous si vous avez besoin de trouver l’ID du locataire :
-* Survolez le nom de votre compte avec la souris pour obtenir le répertoire/ID du locataire.
-* Sélectionnez **Azure Active Directory > Propriétés > ID de répertoire** dans le Portail Azure.
+> * Survolez le nom de votre compte avec la souris pour obtenir le répertoire/ID du locataire.
+> * Sélectionnez **Azure Active Directory > Propriétés > ID de répertoire** dans le Portail Azure.
 
 Si vous ne disposez pas de locataire associé à votre compte, vous voyez un GUID sous le nom de votre compte et vous ne pouvez pas effectuer certaines actions comme l’inscription d’applications tant que vous n’avez pas suivi les étapes de la prochaine section.
 

@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: v-gedod
-ms.openlocfilehash: 6a365ef5421de3ceb31c5cc78a424f786f174ab3
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 99b7f05304b48b7d885a80705d05fbe24854150f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861916"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58080639"
 ---
 # <a name="send-a-search-request-with-the-bing-entity-search-sdk-for-c"></a>Envoyer une requête de recherche avec le SDK Recherche d’entités Bing pour C#
 
@@ -26,7 +26,7 @@ Utilisez ce guide de démarrage rapide pour commencer à rechercher des entités
 
 * N’importe quelle édition de [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 * Le framework [Json.NET](https://www.newtonsoft.com/json), disponible sous forme de package NuGet.
-* Si vous utilisez Linux/MacOS, cette application peut être exécutée à l’aide de [Mono](http://www.mono-project.com/).
+* Si vous utilisez Linux/MacOS, cette application peut être exécutée à l’aide de [Mono](https://www.mono-project.com/).
 * Le [package NuGet du SDK Recherche d’actualités Bing](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.EntitySearch/1.2.0). L’installation de ce package installe également les éléments suivants :
     * Microsoft.Rest.ClientRuntime
     * Microsoft.Rest.ClientRuntime.Azure
@@ -52,13 +52,13 @@ Pour ajouter le SDK Recherche d’entités Bing à votre projet Visual Studio, u
 
 ## <a name="create-a-client-and-send-a-search-request"></a>Créer un client et envoyer une requête de recherche
 
-2. Créez un client de recherche. Ajoutez votre clé d’abonnement en créant un `ApiKeyServiceClientCredentials`.
+1. Créez un client de recherche. Ajoutez votre clé d’abonnement en créant un `ApiKeyServiceClientCredentials`.
 
     ```csharp
     var client = new EntitySearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
     ```
 
-3. Utilisez la fonction `Entities.Search()` du client pour rechercher votre requête :
+1. Utilisez la fonction `Entities.Search()` du client pour rechercher votre requête :
     
     ```csharp
     var entityData = client.Entities.Search(query: "Satya Nadella");

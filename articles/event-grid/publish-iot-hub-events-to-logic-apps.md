@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
 ms.author: kgremban
-ms.openlocfilehash: 7c5030a80ead7e84526e01aa3a8a4a75ee2b276a
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9c84e1a62ad8b67e398c62074c390711f4b0be28
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135013"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079995"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-logic-apps"></a>Tutoriel : Envoyer des notifications par e-mail sur des événements Azure IoT Hub à l’aide de Logic Apps
 
@@ -162,14 +162,14 @@ Dans cette section, vous configurez votre hub IoT pour publier des événements 
    ![Créer un abonnement aux événements](./media/publish-iot-hub-events-to-logic-apps/event-subscription.png)
 
 4. Créez l’abonnement aux événements avec les valeurs suivantes : 
-    * **Type d’événement** : décochez la case S’abonner à tous les types d’événements et sélectionnez **Appareil créé** à partir du menu.
-    * **Détails du point de terminaison** : sélectionnez **Webhook** comme type de point de terminaison puis cliquez sur le point de terminaison sélectionné et collez l’URL copiée à partir de votre application logique et confirmez la sélection.
+   * **Type d’événement** : décochez la case S’abonner à tous les types d’événements et sélectionnez **Appareil créé** à partir du menu.
+   * **Détails du point de terminaison** : sélectionnez **Webhook** comme type de point de terminaison puis cliquez sur le point de terminaison sélectionné et collez l’URL copiée à partir de votre application logique et confirmez la sélection.
 
-    ![sélectionner l’URL du point de terminaison](./media/publish-iot-hub-events-to-logic-apps/endpoint-url.png)
+     ![sélectionner l’URL du point de terminaison](./media/publish-iot-hub-events-to-logic-apps/endpoint-url.png)
 
-    * **Détails de l’abonnement d’événements** : fournissez un nom descriptif et sélectionnez **Schéma Event Grid**.
+   * **Détails de l’abonnement d’événements** : fournissez un nom descriptif et sélectionnez **Schéma Event Grid**.
 
-  Quand vous avez terminé, votre formulaire doit ressembler à l’exemple suivant : 
+   Quand vous avez terminé, votre formulaire doit ressembler à l’exemple suivant : 
 
     ![Exemple de formulaire d’abonnement aux événements](./media/publish-iot-hub-events-to-logic-apps/subscription-form.png)
 
@@ -177,8 +177,8 @@ Dans cette section, vous configurez votre hub IoT pour publier des événements 
 
 6. Créez les filtres suivants :
 
-  * **Le sujet commence par** : entrez `devices/Building1_` pour filtrer les événements d’appareil dans l’édifice 1.
-  * **Le sujet se termine par** : entrez `_Temperature` pour filtrer les événements d’appareil liés à la température.
+   * **Le sujet commence par** : entrez `devices/Building1_` pour filtrer les événements d’appareil dans l’édifice 1.
+   * **Le sujet se termine par** : entrez `_Temperature` pour filtrer les événements d’appareil liés à la température.
 
 5. Sélectionnez **Créer** pour enregistrer l’abonnement aux événements.
 

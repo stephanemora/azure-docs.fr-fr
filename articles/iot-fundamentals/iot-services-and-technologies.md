@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/09/2018
 ms.author: robinsh
-ms.openlocfilehash: e7ffd8f6f4f3aee376a09071fad0f1a36c23f1c4
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: dd80095f50aa7bff488ac24e498afc0b41958dc0
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694004"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57403445"
 ---
 # <a name="internet-of-things-iot-technologies-and-solutions-paas-and-saas"></a>Technologies et solutions pour l’Internet des objets (IoT) : PaaS et SaaS
 
@@ -90,7 +90,7 @@ En s’appuyant sur le portefeuille de services de plateforme IoT le plus comple
 
 ### <a name="device-support"></a>Prise en charge des appareils
 
-Démarrez votre projet IoT en toute confiance. Pour cela, utilisez les [Azure IoT Starter Kits](https://catalog.azureiotsuite.com/kits) ou choisissez parmi les centaines d’appareils certifiés pour IoT dans le [catalogue](http://catalog.azureiotsuite.com/). Tous ces appareils sont indépendants de la plateforme et testés pour se connecter en toute transparence à IoT Hub.
+Démarrez votre projet IoT en toute confiance. Pour cela, utilisez les [Azure IoT Starter Kits](https://catalog.azureiotsolutions.com/kits) ou choisissez parmi les centaines d’appareils certifiés pour IoT dans le [catalogue](https://catalog.azureiotsolutions.com/). Tous ces appareils sont indépendants de la plateforme et testés pour se connecter en toute transparence à IoT Hub.
 Connectez tous vos appareils à Azure IoT à l’aide des [Kits de développement logiciel (SDK) pour appareils](/azure/iot-hub/iot-hub-devguide-sdks). Ces SDK prennent en charge plusieurs systèmes d’exploitation, par exemple Linux, Windows et les systèmes d’exploitation en temps réel, ainsi que plusieurs langages de programmation, comme [C](https://github.com/Azure/azure-iot-sdk-c), [Node.js](https://github.com/Azure/azure-iot-sdk-node), [Java](https://github.com/Azure/azure-iot-sdk-java), [.NET](https://github.com/Azure/azure-iot-sdk-csharp) et [Python](https://github.com/Azure/azure-iot-sdk-python).
 
 ### <a name="iot"></a>IoT 

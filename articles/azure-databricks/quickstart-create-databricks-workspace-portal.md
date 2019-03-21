@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.date: 07/23/2018
 ms.custom: mvc
-ms.openlocfilehash: 1c8f280d58d12df33b687fa9c09712176987cdd1
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 1e0e5deea8602b3da16074155e69c952227b8609
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259543"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117674"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Démarrage rapide : Exécuter une tâche Spark sur Azure Databricks à l'aide du portail Azure
 
@@ -74,11 +74,11 @@ Dans cette section, vous créez un espace de travail Azure Databricks en utilisa
 
     Acceptez toutes les valeurs par défaut autres que les suivantes :
 
-    * Entrez un nom pour le cluster.
-    * Pour cet article, créez un cluster avec le runtime **4.0**.
-    * Veillez à cocher la case **Arrêter après \_\_ minutes d’inactivité**. Spécifiez une durée (en minutes) pour arrêter le cluster, si le cluster n’est pas utilisé.
+   * Entrez un nom pour le cluster.
+   * Pour cet article, créez un cluster avec le runtime **4.0**.
+   * Veillez à cocher la case **Arrêter après \_\_ minutes d’inactivité**. Spécifiez une durée (en minutes) pour arrêter le cluster, si le cluster n’est pas utilisé.
     
-    Sélectionnez **Créer un cluster**. Une fois que le cluster est en cours d’exécution, vous pouvez y attacher des notebooks et exécuter des travaux Spark.
+     Sélectionnez **Créer un cluster**. Une fois que le cluster est en cours d’exécution, vous pouvez y attacher des notebooks et exécuter des travaux Spark.
 
 Pour plus d’informations sur la création de clusters, consultez [Créer un cluster Spark dans Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html).
 
@@ -89,12 +89,12 @@ Téléchargez un exemple de fichier de données JSON, et enregistrez-le dans le 
 1. Téléchargez cet exemple de fichier de données JSON sur votre ordinateur local [à partir de GitHub](https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json). Cliquez sur le bouton droit de la souris, et sélectionnez Enregistrer sous pour enregistrer le fichier brut localement.
 
 2. Si vous ne disposez pas d'un compte de stockage, créez-en un.
-    - Dans le portail Azure, sélectionnez **Créer une ressource**. Sélectionnez la catégorie **Stockage**, puis **Comptes de stockage**.
-    - Attribuez un nom unique au compte de stockage.
-    - Sélectionnez **Type de compte** : **Stockage d'objets blob**
-    - Sélectionnez un nom de **Groupe de ressources**. Utilisez le même groupe de ressources que vous avez créé avec l’espace de travail Databricks.
+   - Dans le portail Azure, sélectionnez **Créer une ressource**. Sélectionnez la catégorie **Stockage**, puis **Comptes de stockage**.
+   - Attribuez un nom unique au compte de stockage.
+   - Sélectionnez **Type de compte** : **Stockage d'objets blob**
+   - Sélectionnez un nom de **Groupe de ressources**. Utilisez le même groupe de ressources que vous avez créé avec l’espace de travail Databricks.
     
-    Pour plus d’informations, consultez la rubrique [Créer un compte de stockage Blob Azure](../storage/common/storage-quickstart-create-account.md).
+     Pour plus d’informations, consultez la rubrique [Créer un compte de stockage Blob Azure](../storage/common/storage-quickstart-create-account.md).
 
 3. Créez un conteneur de stockage dans le compte de stockage Blob, et téléchargez l’exemple de fichier JSON dans le conteneur. Vous pouvez utiliser le portail Azure ou de l’[Explorateur Stockage Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) pour télécharger le fichier.
 
@@ -130,21 +130,21 @@ Effectuez les tâches suivantes pour créer un notebook dans Databricks, configu
 
     Dans l’extrait suivant, remplacez les valeurs `{YOUR CONTAINER NAME}`, `{YOUR STORAGE ACCOUNT NAME}` et `{YOUR STORAGE ACCOUNT ACCESS KEY}` par les valeurs correspondantes à votre compte de Stockage Azure. Collez l’extrait de code dans une cellule vide du notebook, puis appuyez sur Maj+Entrée pour exécuter la cellule de code.
 
-    * **Monter le compte de stockage avec DBFS (recommandé)**. Dans cet extrait, le chemin du compte de Stockage Azure est monté à `/mnt/mypath`. Ainsi, à chaque fois que vous accèderez au compte de Stockage Azure, vous n’aurez pas besoin de renseigner le chemin complet. Vous pouvez juste utiliser `/mnt/mypath`.
+   * **Monter le compte de stockage avec DBFS (recommandé)**. Dans cet extrait, le chemin du compte de Stockage Azure est monté à `/mnt/mypath`. Ainsi, à chaque fois que vous accèderez au compte de Stockage Azure, vous n’aurez pas besoin de renseigner le chemin complet. Vous pouvez juste utiliser `/mnt/mypath`.
 
-          dbutils.fs.mount(
-            source = "wasbs://{YOUR CONTAINER NAME}@{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net/",
-            mountPoint = "/mnt/mypath",
-            extraConfigs = Map("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net" -> "{YOUR STORAGE ACCOUNT ACCESS KEY}"))
+         dbutils.fs.mount(
+           source = "wasbs://{YOUR CONTAINER NAME}@{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net/",
+           mountPoint = "/mnt/mypath",
+           extraConfigs = Map("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net" -> "{YOUR STORAGE ACCOUNT ACCESS KEY}"))
 
-    * **Accès direct au compte de stockage**
+   * **Accès direct au compte de stockage**
 
-          spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
+         spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
 
-    Pour des instructions sur la récupération de la clé du compte de stockage, consultez [Gérer vos clés d’accès de stockage](../storage/common/storage-account-manage.md#access-keys).
+     Pour des instructions sur la récupération de la clé du compte de stockage, consultez [Gérer vos clés d’accès de stockage](../storage/common/storage-account-manage.md#access-keys).
 
-    > [!NOTE]
-    > Vous pouvez également utiliser Azure Data Lake Store avec un cluster Spark sur Azure Databricks. Pour obtenir des instructions, consultez [Utiliser Data Lake Store avec Azure Databricks](https://go.microsoft.com/fwlink/?linkid=864084).
+     > [!NOTE]
+     > Vous pouvez également utiliser Azure Data Lake Store avec un cluster Spark sur Azure Databricks. Pour obtenir des instructions, consultez [Utiliser Data Lake Store avec Azure Databricks](https://go.microsoft.com/fwlink/?linkid=864084).
 
 4. Exécutez une instruction SQL pour créer une table temporaire en utilisant les données de l’exemple de fichier de données JSON, **small_radio_json.json**. Dans l’extrait de code suivant, remplacez les valeurs des espaces réservés par le nom de votre conteneur et par le nom de votre compte de stockage. Collez l’extrait de code dans une cellule vide du notebook, puis appuyez sur Maj+Entrée. Dans l’extrait de code, `path` désigne l’emplacement de l’exemple de fichier JSON que vous avez chargé sur votre compte de stockage Azure.
 
@@ -183,12 +183,12 @@ Effectuez les tâches suivantes pour créer un notebook dans Databricks, configu
 
     ![Personnaliser le graphique à barres](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-customize-plot.png "Personnaliser le graphique à barres")
 
-    * Définissez **Clés** sur **gender**.
-    * Définissez **Regroupements de séries** sur **level**.
-    * Définissez **Valeurs** sur **level**.
-    * Définissez **Agrégation** sur **COUNT**.
+   * Définissez **Clés** sur **gender**.
+   * Définissez **Regroupements de séries** sur **level**.
+   * Définissez **Valeurs** sur **level**.
+   * Définissez **Agrégation** sur **COUNT**.
 
-    Cliquez sur **Appliquer**.
+     Cliquez sur **Appliquer**.
 
 9. La sortie montre la représentation visuelle, comme illustré dans la capture d’écran suivante :
 

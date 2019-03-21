@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 2530f6f59ef458d5a7c2de5850d8fab322798ba3
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: c9be377dc74ac936aa3139d395b6a02f3b3192eb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752657"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58084359"
 ---
 # <a name="tutorial-configure-hybrid-cloud-connectivity-with-azure-and-azure-stack"></a>Tutoriel : Configurer l’identité de cloud hybride avec Azure et Azure Stack
 
@@ -119,7 +119,7 @@ Procédez comme suit pour créer un réseau virtuel à l’aide du portail Azure
 
 Pour créer un réseau virtuel dans Azure :
 
-1. À partir de votre navigateur, connectez-vous au [portail Azure](http://portal.azure.com/) à l’aide des informations d’identification de votre compte Azure.
+1. À partir de votre navigateur, connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide des informations d’identification de votre compte Azure.
 2. Sélectionnez **Créer une ressource**. Dans le champ **Rechercher dans le marketplace**, entrez `virtual network`. Recherchez **Réseau virtuel** dans la liste des résultats, puis sélectionnez **Réseau virtuel**.
 3. Dans la liste **Sélectionner un modèle de déploiement**, sélectionnez **Gestionnaire des ressources**, puis sélectionnez **Créer**.
 4. Dans **Créer un réseau virtuel**, configurez les paramètres du réseau virtuel. Les noms des champs obligatoires sont précédés d’un astérisque rouge.  Lorsque vous entrez une valeur valide, l’astérisque devient une coche verte.
@@ -132,7 +132,7 @@ Pour créer un réseau virtuel dans Azure Stack :
 
 Avant de connecter votre réseau virtuel à une passerelle, vous devez créer le sous-réseau de passerelle pour le réseau virtuel auquel vous souhaitez vous connecter. Les services de passerelle utilisent les adresses IP que vous spécifiez dans le sous-réseau de passerelle.
 
-Dans le [portail Azure](http://portal.azure.com/), accédez au réseau virtuel Gestionnaire des ressources dans lequel vous souhaitez créer une passerelle de réseau virtuel.
+Dans le [portail Azure](https://portal.azure.com/), accédez au réseau virtuel Gestionnaire des ressources dans lequel vous souhaitez créer une passerelle de réseau virtuel.
 
 1. Sélectionnez le réseau virtuel pour ouvrir la page **Réseau virtuel**.
 2. Dans **PARAMÈTRES**, sélectionnez **Sous-réseaux**.
@@ -152,12 +152,12 @@ Procédez comme suit pour créer une passerelle de réseau virtuel dans Azure.
 3. Dans **Passerelle de réseau virtuel**, sélectionnez **Créer** pour ouvrir la page **Créer une passerelle de réseau virtuel**.
 4. Dans **Créer une passerelle réseau virtuelle**, spécifiez les valeurs de votre passerelle de réseau, comme indiqué dans **Exemples de valeurs du didacticiel**, ainsi que les valeurs supplémentaires suivantes :
 
-    - **Référence (SKU)** : De base
-    - **Réseau virtuel** : sélectionnez le réseau virtuel que vous avez créé précédemment. Le sous-réseau de passerelle que vous avez créé est automatiquement sélectionné.
-    - **Première configuration IP** :  adresse IP publique de votre passerelle.
-        - Sélectionnez **Créer une configuration d’IP de passerelle**, la page **Choisir une adresse IP publique** s’affiche.
-        - Sélectionnez **+Créer nouveau** pour ouvrir la page **Créer une adresse IP publique**.
-        - Donnez un  **nom** à votre adresse IP publique. Laissez la référence SKU sur **De base**, puis sélectionnez **OK** pour enregistrer vos modifications.
+   - **Référence (SKU)** : De base
+   - **Réseau virtuel** : sélectionnez le réseau virtuel que vous avez créé précédemment. Le sous-réseau de passerelle que vous avez créé est automatiquement sélectionné.
+   - **Première configuration IP** :  adresse IP publique de votre passerelle.
+     - Sélectionnez **Créer une configuration d’IP de passerelle**, la page **Choisir une adresse IP publique** s’affiche.
+     - Sélectionnez **+Créer nouveau** pour ouvrir la page **Créer une adresse IP publique**.
+     - Donnez un **nom** à votre adresse IP publique. Laissez la référence SKU sur **De base**, puis sélectionnez **OK** pour enregistrer vos modifications.
 
        > [!Note]
        > Actuellement, la passerelle VPN prend uniquement en charge l’allocation d’adresses IP publiques dynamiques. Toutefois, cela ne signifie pas que l’adresse IP change après son affectation à votre passerelle VPN. L’adresse IP publique change uniquement lorsque la passerelle est supprimée, puis recréée. Un redimensionnement, une réinitialisation ou des autres opérations de maintenance/mise à niveau internes de votre passerelle VPN ne modifient pas l’adresse IP.

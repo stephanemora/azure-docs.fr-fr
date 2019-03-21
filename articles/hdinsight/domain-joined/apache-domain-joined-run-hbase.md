@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: tutorial
 ms.date: 02/01/2019
-ms.openlocfilehash: e1a0dda4c13baf7fc2e5ba65d599db8c74591adb
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 1421b142fbca83d2de46f52f8390d0c25f22780c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893236"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117283"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Didacticiel : Configurer des stratégies Apache HBase dans HDInsight avec le Pack Sécurité Entreprise (préversion)
 
@@ -102,7 +102,7 @@ Créez une stratégie Ranger pour **sales_user1** et **marketing_user1**.
 
     ![Interface utilisateur de l’administrateur Apache Ranger - Créer une stratégie](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png)
 
-3.  Dans l’écran **Create Policy** (Créer une stratégie), entrez les valeurs suivantes :
+3. Dans l’écran **Create Policy** (Créer une stratégie), entrez les valeurs suivantes :
 
    |**Paramètre**  |**Valeur suggérée**  |
    |---------|---------|

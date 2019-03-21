@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: lbosq
-ms.openlocfilehash: 88bb87dea4508ba41ee97a127fc60c531f2bfcab
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 5b76d7393e78b464227e93a4c7c8a3f22ccc169e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958341"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092529"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-python-and-the-azure-portal"></a>Démarrage rapide : Créer une base de données de graphe dans Azure Cosmos DB à l’aide de Python et du portail Azure
 
@@ -45,11 +45,11 @@ Par ailleurs :
 
 ## <a name="create-a-database-account"></a>Création d’un compte de base de données
 
-Pour être en mesure de créer une base de données de graphes, vous devez avoir préalablement créé un compte de base de données (Graph) Gremlin avec Azure Cosmos DB.
+Pour être en mesure de créer une base de données de graphiques, vous devez avoir préalablement créé un compte de base de données (Graphique) Gremlin avec Azure Cosmos DB.
 
 [!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
-## <a name="add-a-graph"></a>Ajout d’un graphe
+## <a name="add-a-graph"></a>Ajout d’un graphique
 
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
@@ -222,17 +222,17 @@ Vous pouvez à présent revenir à l’Explorateur de données et voir les verte
 
 12. À présent, nous pouvons connecter rakesh et ashley. Vérifiez que **ashley** est bien sélectionné dans la liste **Résultats**, puis cliquez sur le bouton de modification en regard de **Cibles** dans la partie inférieure droite de l’écran. Vous devrez peut-être élargir la fenêtre pour visualiser la zone **Propriétés**.
 
-   ![Modifier la cible d’un vertex dans un graphique](./media/create-graph-python/azure-cosmosdb-data-explorer-edit-target.png)
+    ![Modifier la cible d’un vertex dans un graphique](./media/create-graph-python/azure-cosmosdb-data-explorer-edit-target.png)
 
 13. Dans la zone **Cible**, tapez *rakesh*. Dans la zone **Edge label** (Étiquette de relation), tapez *knows*, puis cochez la case.
 
-   ![Ajouter une connexion entre ashley et rakesh dans l’Explorateur de données](./media/create-graph-python/azure-cosmosdb-data-explorer-set-target.png)
+    ![Ajouter une connexion entre ashley et rakesh dans l’Explorateur de données](./media/create-graph-python/azure-cosmosdb-data-explorer-set-target.png)
 
 14. À présent, sélectionnez **rakesh** dans la liste des résultats et vérifiez qu’ashley et rakesh sont connectés. 
 
-   ![Deux vertex connectés dans l’Explorateur de données](./media/create-graph-python/azure-cosmosdb-graph-explorer.png)
+    ![Deux vertex connectés dans l’Explorateur de données](./media/create-graph-python/azure-cosmosdb-graph-explorer.png)
 
-   Ainsi s’achève la portion de ce didacticiel consacrée à la création de ressources. Vous pouvez continuer à ajouter des vertex à votre graphique, modifier les vertex existants ou modifier les requêtes. Nous allons à présent examiner les métriques fournies par Azure Cosmos DB et nettoyer les ressources. 
+    Ainsi s’achève la portion de ce didacticiel consacrée à la création de ressources. Vous pouvez continuer à ajouter des vertex à votre graphique, modifier les vertex existants ou modifier les requêtes. Nous allons à présent examiner les métriques fournies par Azure Cosmos DB et nettoyer les ressources. 
 
 ## <a name="review-slas-in-the-azure-portal"></a>Vérification des contrats SLA dans le portail Azure
 

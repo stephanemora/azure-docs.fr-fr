@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: php
 ms.topic: sample
 ms.date: 04/05/2018
-ms.openlocfilehash: 3ec91b564647e4eda4696a249c77739daff2ece3
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: aac6755ed90c795b8fff09d9ffde33878ad21a32
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044227"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111495"
 ---
 # <a name="how-to-use-azure-storage-table-service-or-the-azure-cosmos-db-table-api-from-php"></a>Utilisation de l’API du service de Table de Stockage Azure ou de l’API Azure Cosmos DB Table à partir de code PHP
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -44,19 +44,19 @@ Dans ce guide, vous allez utiliser les fonctionnalités du service de Table de S
 ## <a name="get-the-client-library"></a>Obtenir la bibliothèque de client
 
 1. Créez un fichier nommé composer.json à la racine de votre projet et ajoutez-y le code suivant :
-```json
-{
-  "require": {
+   ```json
+   {
+   "require": {
     "microsoft/azure-storage-table": "*"
-  }
-}
-```
+   }
+   }
+   ```
 2. Téléchargez [composer.phar](https://getcomposer.org/composer.phar) à la racine. 
 3. Ouvrez une invite de commandes et exécutez la commande suivante à la racine du projet :
-```
-php composer.phar install
-```
-Vous pouvez également accéder à la [bibliothèque de client PHP du service de Table de Stockage Azure](https://github.com/Azure/azure-storage-php/tree/master/azure-storage-table) sur GitHub pour cloner le code source.
+   ```
+   php composer.phar install
+   ```
+   Vous pouvez également accéder à la [bibliothèque de client PHP du service de Table de Stockage Azure](https://github.com/Azure/azure-storage-php/tree/master/azure-storage-table) sur GitHub pour cloner le code source.
 
 
 ## <a name="add-required-references"></a>Ajouter les références requises

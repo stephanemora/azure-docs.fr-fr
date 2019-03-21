@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/03/2018
 ms.author: naziml
 ms.custom: seodec18
-ms.openlocfilehash: 4681dad55807705a2ce8e9908cbd3ee53fb3c32e
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: c1930777f44266755f20400d063ec938ee631adb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631496"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089316"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Configuration d'un pare-feu d'applications Web (WAF) pour un environnement App Service
 ## <a name="overview"></a>Vue d’ensemble
@@ -66,7 +66,7 @@ Ajoutez le point de terminaison de gestion, comme illustré dans l’image ci-de
 
 ![Ajouter un point de terminaison de gestion][AddManagementEndpoint]
 
-Utilisez un navigateur pour accéder au point de terminaison de gestion sur votre service cloud. Si votre service cloud se nomme test.cloudapp.net, vous atteignez ce point de terminaison en accédant à http://test.cloudapp.net:8000 Une page de connexion, comme celle illustrée dans l’image ci-dessous, doit s’afficher. Vous pouvez vous connecter à l’aide des informations d’identification spécifiées durant la phase de configuration de la machine virtuelle WAF.
+Utilisez un navigateur pour accéder au point de terminaison de gestion sur votre service cloud. Si votre service cloud se nomme test.cloudapp.net, vous atteignez ce point de terminaison en accédant à `http://test.cloudapp.net:8000` Une page de connexion, comme celle illustrée dans l’image ci-dessous, doit s’afficher. Vous pouvez vous connecter à l’aide des informations d’identification spécifiées durant la phase de configuration de la machine virtuelle WAF.
 
 ![Page de connexion à la gestion][ManagementLoginPage]
 

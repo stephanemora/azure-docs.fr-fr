@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: f0050a91ca8ed380c838c96cf1e485a80a0c9297
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
-ms.translationtype: HT
+ms.openlocfilehash: c15dc83929aeaf6811f4d19bfca462abfacf4014
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445393"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57892453"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Délégation de l'inscription des utilisateurs et des abonnements aux produits
 La délégation vous permet d'utiliser votre site web existant pour gérer les connexions/inscriptions des développeurs et l'abonnement aux produits au lieu de faire appel aux fonctionnalités intégrées du portail des développeurs. Ceci permet à votre site web de conserver les données utilisateur et de valider ces étapes de façon personnalisée.
@@ -47,7 +47,7 @@ Pour commencer, configurons Gestion des API pour que les demandes soient achemin
 
 1. Recevoir une demande au format suivant :
    
-   > *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL de la page source}&salt={chaîne}&sig={chaîne}*
+   > *http :\//www.yourwebsite.com/apimdelegation?operation=SignIn & returnUrl = {URL de la page source} & salt = {chaîne} & sig = {chaîne}*
    > 
    > 
    
@@ -104,7 +104,7 @@ Assurez-vous ensuite que le point de terminaison de délégation effectue bien l
 
 1. Recevoir une demande au format suivant :
    
-   > *http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product auquel s’abonner}&userId={requête utilisateur}&salt={chaîne}&sig={chaîne}*
+   > *http :\//www.yourwebsite.com/apimdelegation?operation= {operation} & productId = {product pour vous abonner aux} & userId = {requête utilisateur} & salt = {chaîne} & sig = {chaîne}*
    > 
    > 
    
@@ -120,7 +120,7 @@ Assurez-vous ensuite que le point de terminaison de délégation effectue bien l
    * **sig**: code de hachage de sécurité calculé à comparer avec votre propre code de hachage calculé.
 2. Vérifiez si la demande émane bien de Gestion des API Azure (facultatif, mais fortement recommandé pour assurer la sécurité).
    
-   * Calculez un code de hachage HMAC-SHA512 d’une chaîne basée sur les paramètres de requête **ProductId**, **userId et **salt** :
+   * Calculer un hachage HMAC-SHA512 d’une chaîne basée sur le **productId**, **userId**, et **salt** paramètres de requête :
      
      > HMAC(**salt** + ’\n’ + **productId** + ’\n’ + **userId**)
      > 

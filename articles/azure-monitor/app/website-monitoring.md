@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 2f16a8fdb124cd2ee69fbdef74f3999800b55157
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: a35f4d8c1d5bf5943ecba02ff262fbc7fc0730fe
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261994"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108221"
 ---
 # <a name="start-monitoring-your-website"></a>Démarrer la surveillance de votre site web
 
@@ -87,7 +87,7 @@ Application Insights permet de recueillir les données de télémétrie à parti
         });
         
         window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&appInsights.trackPageView();
-</script>
+   </script>
    ```
 
 3. Modifiez ``hello_world.html`` et ajoutez votre clé d’instrumentation.
@@ -127,7 +127,7 @@ Application Insights permet de recueillir les données de télémétrie à parti
 
 5. Si nous avions instrumenté un site web plus complexe avec plusieurs pages, un autre outil utile serait les [**Flux d’utilisateurs**](../../azure-monitor/app/usage-flows.md). Avec les **Flux d’utilisateurs** vous pouvez suivre les chemins d’accès empruntés par les visiteurs sur les différentes parties de votre site web.
 
-  ![Visualisation des flux d’utilisateurs](./media/website-monitoring/user-flows.png)
+   ![Visualisation des flux d’utilisateurs](./media/website-monitoring/user-flows.png)
 
 Pour en savoir plus les configurations plus complexes pour la supervision des sites web, consultez la [Documentation de référence de l’API du Kit de développement logiciel (SDK) JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md).
 

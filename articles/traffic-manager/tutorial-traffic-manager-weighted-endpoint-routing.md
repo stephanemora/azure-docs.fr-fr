@@ -8,14 +8,14 @@ ms.service: traffic-manager
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: kumud
-ms.openlocfilehash: f4c29526f675cab461153b4749c4f6edc237dada
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 50790e50602fbc8d302a67ea9963a4e492ce2f0b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467330"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58009760"
 ---
-# <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>Tutoriel : Contrôler le routage du trafic avec des points de terminaison pondérés à l’aide de Traffic Manager
+# <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>Didacticiel : Contrôler le routage du trafic avec des points de terminaison pondérés à l’aide de Traffic Manager
 
 Ce didacticiel explique comment utiliser Azure Traffic Manager pour contrôler l’acheminement du trafic utilisateur entre des points de terminaison à l’aide de la méthode de routage pondéré. Dans cette méthode de routage, vous affectez un poids à chaque point de terminaison dans la configuration du profil Traffic Manager. Le trafic utilisateur est alors acheminé en fonction du poids attribué à chaque point de terminaison. Le poids est un entier compris entre 1 et 1 000. Plus la valeur de pondération affectée à un point de terminaison est élevée, plus celui-ci est prioritaire.
 
@@ -54,12 +54,13 @@ Dans cette section, vous allez créer deux machines virtuelles (*myIISVMEastUS* 
 
     |Paramètre|Valeur|
     |---|---|
-    |NOM|Entrez **myIISVMEastUS**.|
+    |Nom|Entrez **myIISVMEastUS**.|
     |Nom d'utilisateur| Entrez un nom d’utilisateur de votre choix.|
     |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Groupe de ressources| Sélectionnez **Nouveau**, puis entrez **myResourceGroupTM1**.|
     |Lieu| Sélectionnez **USA Est**.|
     |||
+
 4. Sélectionnez une taille de machine virtuelle sous **Choisir une taille**.
 5. Sélectionnez les valeurs suivantes pour les **Paramètres**, puis sélectionnez **OK** :
     
@@ -69,6 +70,7 @@ Dans cette section, vous allez créer deux machines virtuelles (*myIISVMEastUS* 
     |Groupe de sécurité réseau|Sélectionnez **De base**. Dans la liste déroulante **Sélectionner des ports d’entrée publics**, sélectionnez **HTTP** et **RDP**. |
     |Diagnostics de démarrage|Sélectionnez **Désactivé**.|
     |||
+
 6. Sous **Créer** dans **Résumé**, sélectionnez **Créer** pour démarrer le déploiement de la machine virtuelle.
 
 7. Effectuez à nouveau les étapes 1 à 6, avec les modifications suivantes :
@@ -80,6 +82,7 @@ Dans cette section, vous allez créer deux machines virtuelles (*myIISVMEastUS* 
     |Nom de la machine virtuelle | Entrez **myIISVMWEurope**.|
     |Réseau virtuel | Sélectionnez **Réseau virtuel**. Dans **Créer un réseau virtuel**, pour le champ **Nom**, entrez **myVNet2**. Pour **Sous-réseau**, entrez **mySubnet**.|
     |||
+
 8. La création des machines virtuelles peut prendre plusieurs minutes. Attendez que les deux machines virtuelles aient été créées avant de passer aux autres étapes.
 
 ![Créer une machine virtuelle](./media/tutorial-traffic-manager-improve-website-response/createVM.png)
@@ -129,7 +132,7 @@ Dans cette section, vous allez créer la machine virtuelle appelée *mVMEastUS*.
 
     |Paramètre|Valeur|
     |---|---|
-    |NOM|Entrez **myVMEastUS**.|
+    |Nom|Entrez **myVMEastUS**.|
     |Nom d'utilisateur| Entrez un nom d’utilisateur de votre choix.|
     |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Groupe de ressources| Sélectionnez **Utiliser l’existant**, puis **myResourceGroupTM1**.|
@@ -137,6 +140,7 @@ Dans cette section, vous allez créer la machine virtuelle appelée *mVMEastUS*.
 
 4. Sélectionnez une taille de machine virtuelle sous **Choisir une taille**.
 5. Sélectionnez les valeurs suivantes pour les **Paramètres**, puis sélectionnez **OK** :
+
     |Paramètre|Valeur|
     |---|---|
     |Réseau virtuel| Sélectionnez **Réseau virtuel**. Dans **Créer un réseau virtuel**, pour le champ **Nom**, entrez **myVNet3**. Pour le sous-réseau, entrez **mySubnet**.|
@@ -155,7 +159,7 @@ Créez un profil Traffic Manager basé sur la méthode de routage **Pondéré**.
 
     | Paramètre                 | Valeur                                              |
     | ---                     | ---                                                |
-    | NOM                   | Entrez un nom unique dans la zone trafficmanager.net. Cela attribuera le nom DNS trafficmanager.net qui vous permettra d’accéder à votre profil Traffic Manager.                                   |
+    | Nom                   | Entrez un nom unique dans la zone trafficmanager.net. Cela attribuera le nom DNS trafficmanager.net qui vous permettra d’accéder à votre profil Traffic Manager.                                   |
     | Méthode de routage          | Sélectionnez la méthode de routage **Pondéré**.                                       |
     | Abonnement            | Sélectionnez votre abonnement.                          |
     | Groupe de ressources          | Sélectionnez **Utiliser l’existant**, puis **myResourceGroupTM1**. |
@@ -173,8 +177,8 @@ Ajoutez les deux machines virtuelles qui exécutent les serveurs IIS myIISVMEas
 
     | Paramètre                 | Valeur                                              |
     | ---                     | ---                                                |
-    | type                    | Entrez le point de terminaison Azure.                                   |
-    | NOM           | Entrez **myEastUSEndpoint**.                                        |
+    | Type                    | Entrez le point de terminaison Azure.                                   |
+    | Nom           | Entrez **myEastUSEndpoint**.                                        |
     | Type de ressource cible           | Sélectionnez **Adresse IP publique**.                          |
     | Ressource cible          | Choisissez une adresse IP publique pour afficher la liste des ressources pourvues d’adresses IP publiques dans le même abonnement. Dans **Ressource**, sélectionnez l’adresse IP publique nommée **myIISVMEastUS-ip**. Il s’agit de l’adresse IP publique de la machine virtuelle serveur IIS qui se trouve dans la région USA Est.|
     |  Poids      | Entrez **100**.        |

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/24/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27456f672e2fa67928b43e80bef384a14e9c1d62
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9f062596e2be93065b3c076787c2f5b3dfcedf9d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166961"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110118"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>Démarrage rapide : Ajouter une application à votre locataire Azure Active Directory
 
@@ -113,35 +113,35 @@ Pour modifier les propriétés de l’application
 
 4. Utilisez les tableaux suivants pour vous aider à choisir les options qui conviennent le mieux à vos besoins.
 
-    - Comportement pour les utilisateurs **assignés** :
+   - Comportement pour les utilisateurs **assignés** :
 
-        | Paramètres de propriété d'application | | | Expérience de l’utilisateur assigné | |
-        |---|---|---|---|---|
-        | Connexion permise pour les utilisateurs ? | Assignation requise de utilisateur ? | Visible par les utilisateurs ? | Est-ce que les utilisateurs assignés peuvent se connecter ? | Est-ce que les utilisateurs assignés peuvent voir l’application ?* |
-        | Oui | Oui | Oui | Oui | Oui  |
-        | Oui | Oui | no  | Oui | no   |
-        | Oui | no  | Oui | Oui | Oui  |
-        | Oui | no  | no  | Oui | no   |
-        | no  | Oui | Oui | no  | no   |
-        | no  | Oui | no  | no  | no   |
-        | no  | no  | Oui | no  | no   |
-        | no  | no  | no  | no  | no   |
+       | Paramètres de propriété d'application | | | Expérience de l’utilisateur assigné | |
+       |---|---|---|---|---|
+       | Connexion permise pour les utilisateurs ? | Assignation requise de utilisateur ? | Visible par les utilisateurs ? | Est-ce que les utilisateurs assignés peuvent se connecter ? | Est-ce que les utilisateurs assignés peuvent voir l’application ?* |
+       | Oui | Oui | Oui | Oui | Oui  |
+       | Oui | Oui | no  | Oui | no   |
+       | Oui | no  | Oui | Oui | Oui  |
+       | Oui | no  | no  | Oui | no   |
+       | no  | Oui | Oui | no  | no   |
+       | no  | Oui | no  | no  | no   |
+       | no  | no  | Oui | no  | no   |
+       | no  | no  | no  | no  | no   |
 
-    - Comportement pour les utilisateurs **non assignés** :
+   - Comportement pour les utilisateurs **non assignés** :
 
-        | Paramètres de propriété d'application | | | Expérience de l’utilisateur non assigné | |
-        |---|---|---|---|---|
-        | Connexion permise pour les utilisateurs ? | Assignation requise de utilisateur ? | Visible par les utilisateurs ? | Est-ce que les utilisateurs non assignés peuvent se connecter ? | Est-ce que les utilisateurs non assignés peuvent voir l’application ?* |
-        | Oui | Oui | Oui | no  | no   |
-        | Oui | Oui | no  | no  | no   |
-        | Oui | no  | Oui | Oui | no   |
-        | Oui | no  | no  | Oui | no   |
-        | no  | Oui | Oui | no  | no   |
-        | no  | Oui | no  | no  | no   |
-        | no  | no  | Oui | no  | no   |
-        | no  | no  | no  | no  | no   |
+       | Paramètres de propriété d'application | | | Expérience de l’utilisateur non assigné | |
+       |---|---|---|---|---|
+       | Connexion permise pour les utilisateurs ? | Assignation requise de utilisateur ? | Visible par les utilisateurs ? | Est-ce que les utilisateurs non assignés peuvent se connecter ? | Est-ce que les utilisateurs non assignés peuvent voir l’application ?* |
+       | Oui | Oui | Oui | no  | no   |
+       | Oui | Oui | no  | no  | no   |
+       | Oui | no  | Oui | Oui | no   |
+       | Oui | no  | no  | Oui | no   |
+       | no  | Oui | Oui | no  | no   |
+       | no  | Oui | no  | no  | no   |
+       | no  | no  | Oui | no  | no   |
+       | no  | no  | no  | no  | no   |
 
-    * Est-ce que l’utilisateur peut voir l’application dans le volet d’accès et le lanceur d’applications Office 365 ?
+     * Est-ce que l’utilisateur peut voir l’application dans le volet d’accès et le lanceur d’applications Office 365 ?
 
 ## <a name="use-a-custom-logo"></a>Utiliser un logo personnalisé
 

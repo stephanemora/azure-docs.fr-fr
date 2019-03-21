@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2018
 ms.author: rkarlin
-ms.openlocfilehash: e6d2404e6f509c03d2d3965f34d8229de25df4b7
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: ee28bfebb6732c7bb3b689cf08b9b876adb74b1b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114618"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104673"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Démarrage rapide : Intégrer des ordinateurs Linux à Azure Security Center
 Après avoir intégré vos abonnements Azure, vous pouvez activer Security Center pour les ressources Linux s’exécutant en dehors d’Azure, par exemple, localement ou dans d’autres clouds, en provisionnant l’agent Linux.
@@ -37,7 +37,7 @@ Vous devez utiliser le niveau tarifaire Standard de Security Center pour commenc
 1. Connectez-vous au [portail Azure](https://azure.microsoft.com/features/azure-portal/).
 2. Dans le menu **Microsoft Azure**, sélectionnez **Security Center**. La fenêtre **Security Center - Vue d’ensemble** s’ouvre.
 
- ![Vue d’ensemble de Security Center][2]
+   ![Vue d’ensemble de Security Center][2]
 
 3. Dans le menu principal de Security Center, sélectionnez **Prise en main**.
 4. Sélectionnez l’onglet **Prise en main**. ![Prise en main][3]
@@ -46,16 +46,16 @@ Vous devez utiliser le niveau tarifaire Standard de Security Center pour commenc
 
     ![Ajouter un ordinateur autre qu’Azure](./media/quick-onboard-linux-computer/non-azure.png)
 
-6.  Dans la page **Agent direct**, sous **TÉLÉCHARGER ET INTÉGRER L’AGENT POUR LINUX**, sélectionnez le bouton **copier** pour copier la commande *wget*.
+6. Dans la page **Agent direct**, sous **TÉLÉCHARGER ET INTÉGRER L’AGENT POUR LINUX**, sélectionnez le bouton **copier** pour copier la commande *wget*.
 
-7.  Ouvrez le bloc-notes et collez cette commande. Enregistrez ce fichier dans un emplacement accessible à partir de votre ordinateur Linux.
+7. Ouvrez le bloc-notes et collez cette commande. Enregistrez ce fichier dans un emplacement accessible à partir de votre ordinateur Linux.
 
 ## <a name="install-the-agent"></a>Installer l’agent
 
-1.  Sur votre ordinateur Linux, ouvrez le fichier précédemment enregistré. Sélectionnez tout le contenu, copiez-le, ouvrez une console de terminal et collez la commande.
-2.  Une fois l’installation terminée, vous pouvez vérifier que *omsagent* est installé en exécutant la commande *pgrep*. La commande retourne le PID (ID de processus) *omsagent* comme indiqué ci-dessous :
+1. Sur votre ordinateur Linux, ouvrez le fichier précédemment enregistré. Sélectionnez tout le contenu, copiez-le, ouvrez une console de terminal et collez la commande.
+2. Une fois l’installation terminée, vous pouvez vérifier que *omsagent* est installé en exécutant la commande *pgrep*. La commande retourne le PID (ID de processus) *omsagent* comme indiqué ci-dessous :
 
-  ![Installer l’agent][5]
+   ![Installer l’agent][5]
 
 Les journaux de l’agent Security Center pour Linux sont disponibles à l’emplacement : */var/opt/microsoft/omsagent/<workspace id>/log/*
 

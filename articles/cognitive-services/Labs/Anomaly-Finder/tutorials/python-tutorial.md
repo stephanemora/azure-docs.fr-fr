@@ -10,18 +10,18 @@ ms.subservice: anomaly-detection
 ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 2df1e2c261069473a02b40e4a7e45895eadea42d
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 5a2fb54658599e0500944aaae9225f314277f9da
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219394"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539086"
 ---
 # <a name="tutorial-anomaly-detection-with-python-application"></a>Tutoriel : Détection d’anomalie avec une application Python
 
 [!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
-Ce tutoriel montre comment utiliser l’API Détection d’anomalies dans Python et comment visualiser vos résultats à l’aide de bibliothèques connues. Vous allez utiliser Jupyter pour exécuter le tutoriel, ainsi que vos propres données avec votre clé d’abonnement. Pour savoir comment utiliser les blocs-notes Jupyter interactifs, consultez la [documentation Jupyter](http://jupyter.readthedocs.io/en/latest/index.html). 
+Ce tutoriel montre comment utiliser l’API Détection d’anomalies dans Python et comment visualiser vos résultats à l’aide de bibliothèques connues. Vous allez utiliser Jupyter pour exécuter le tutoriel, ainsi que vos propres données avec votre clé d’abonnement. Pour savoir comment utiliser les blocs-notes Jupyter interactifs, consultez la [documentation Jupyter](https://jupyter.readthedocs.io/en/latest/index.html). 
 
 ## <a name="prerequisites"></a>Prérequis
 

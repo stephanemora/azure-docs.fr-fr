@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/26/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 01404c89665ebfea62e7bda0e7566289bb15f2ae
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 7d06d23af8d4d4f0282f6eb743c0f47dba80e3f0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300956"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58015308"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>Tutoriel : Charger des données d’image dans le cloud avec le Stockage Azure
 
@@ -258,7 +258,7 @@ Sélectionnez **Choisir un fichier** pour sélectionner un fichier, puis cliquez
 Dans l’exemple de code, l’itinéraire `post` est responsable du chargement de l’image dans un conteneur d’objets blob. L’itinéraire utilise les modules pour faciliter le traitement du chargement :
 
 - [multer](https://github.com/expressjs/multer) implémente la stratégie de chargement pour le gestionnaire de routage.
-- [into-stream](https://github.com/sindresorhus/into-stream) convertit la mémoire tampon en un flux, comme le nécessite [createBlockBlobFromStream].(http://azure.github.io/azure-sdk-for-node/azure-storage-legacy/latest/BlobService.html)
+- [into-stream](https://github.com/sindresorhus/into-stream) convertit la mémoire tampon en un flux, comme le nécessite [createBlockBlobFromStream].(https://azure.github.io/azure-sdk-for-node/azure-storage-legacy/latest/BlobService.html)
 
 Étant donné que le fichier est envoyé à la route, le contenu du fichier reste en mémoire jusqu’à son chargement dans le conteneur d’objets blob.
 
@@ -322,7 +322,7 @@ Sélectionnez **Choisir un fichier** pour sélectionner un fichier, puis cliquez
 Dans l’exemple de code, l’itinéraire `post` est responsable du chargement de l’image dans un conteneur d’objets blob. L’itinéraire utilise les modules pour faciliter le traitement du chargement :
 
 - [multer](https://github.com/expressjs/multer) implémente la stratégie de chargement pour le gestionnaire de routage.
-- [into-stream](https://github.com/sindresorhus/into-stream) convertit la mémoire tampon en flux, comme le nécessite [createBlockBlobFromStream](http://azure.github.io/azure-sdk-for-node/azure-storage-legacy/latest/BlobService.html).
+- [into-stream](https://github.com/sindresorhus/into-stream) convertit la mémoire tampon en flux, comme le nécessite [createBlockBlobFromStream](https://azure.github.io/azure-sdk-for-node/azure-storage-legacy/latest/BlobService.html).
 
 Étant donné que le fichier est envoyé à la route, le contenu du fichier reste en mémoire jusqu’à son chargement dans le conteneur d’objets blob.
 

@@ -9,12 +9,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 300f0ddc8b738b5fd8578ed0b33cc15000c1098a
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 70a11867dded3b7156f6b212ceb4756ee7c287f6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54101783"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079160"
 ---
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>Surveiller et alerter sur l’intégrité des applications avec Azure Application Insights
 
@@ -69,18 +69,18 @@ Les tests de disponibilité dans Application Insights vous permettent de tester 
 ## <a name="create-an-alert-from-metrics"></a>Créer une alerte à partir de mesures
 En plus d’envoyer d’alertes à partir d’un test de disponibilité, vous pouvez créer une alerte à partir de toutes les mesures de performances collectées pour votre application.
 
-2. Sélectionnez **Alertes** dans le menu **Configurer**.  Cette opération ouvre le panneau des alertes Azure.  Il existe peut-être d’autres règles d’alerte configurées ici pour d’autres services.
-3. Cliquez sur **Ajouter une alerte de mesure**.  Cette opération ouvre le panneau permettant de créer une règle d’alerte.
+1. Sélectionnez **Alertes** dans le menu **Configurer**.  Cette opération ouvre le panneau des alertes Azure.  Il existe peut-être d’autres règles d’alerte configurées ici pour d’autres services.
+1. Cliquez sur **Ajouter une alerte de mesure**.  Cette opération ouvre le panneau permettant de créer une règle d’alerte.
 
     ![Ajouter une alerte de mesure](media/tutorial-alert/add-metric-alert.png)
 
-4. Entrez un **nom** pour l’alerte de règle et sélectionnez votre application dans la liste déroulante **Ressources**.
-5. Sélectionnez une **mesure** à échantillonner.  Un graphique s’affiche pour indiquer la valeur de cette requête au cours des dernières 24 heures.  Il vous aide à définir la condition de la mesure.
+1. Entrez un **nom** pour l’alerte de règle et sélectionnez votre application dans la liste déroulante **Ressources**.
+1. Sélectionnez une **mesure** à échantillonner.  Un graphique s’affiche pour indiquer la valeur de cette requête au cours des dernières 24 heures.  Il vous aide à définir la condition de la mesure.
 
     ![Ajouter une règle d’alerte](media/tutorial-alert/add-alert-01.png)
 
-6. Spécifiez une **condition** et un **seuil** pour l’alerte. Il s’agit du nombre de fois où la mesure doit être dépassée pour qu’une alerte soit créée. 
-6. Sous **Notifier via**, cochez la case **Envoyer un e-mail aux propriétaires, aux contributeurs et aux lecteurs** pour envoyer un message à ces utilisateurs lorsque la condition d’alerte est remplie et pour ajouter l’adresse e-mail d’autres destinataires.  Vous pouvez également spécifier ici un webhook ou une application logique qui s’exécute lorsque la condition est remplie.  Utilisez ces éléments pour essayer de limiter le problème détecté ou 
+1. Spécifiez une **condition** et un **seuil** pour l’alerte. Il s’agit du nombre de fois où la mesure doit être dépassée pour qu’une alerte soit créée. 
+1. Sous **Notifier via**, cochez la case **Envoyer un e-mail aux propriétaires, aux contributeurs et aux lecteurs** pour envoyer un message à ces utilisateurs lorsque la condition d’alerte est remplie et pour ajouter l’adresse e-mail d’autres destinataires.  Vous pouvez également spécifier ici un webhook ou une application logique qui s’exécute lorsque la condition est remplie.  Utilisez ces éléments pour essayer de limiter le problème détecté ou 
 
     ![Ajouter une règle d’alerte](media/tutorial-alert/add-alert-02.png)
 

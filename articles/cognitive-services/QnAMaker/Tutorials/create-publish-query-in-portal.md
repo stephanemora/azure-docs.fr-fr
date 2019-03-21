@@ -7,16 +7,16 @@ author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: diberry
-ms.openlocfilehash: b78c19d4fa6b2e5b69e5d7f46cea51d943b808fa
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 5635e0f669cec64bdbbf947099f980066a4aebc1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882146"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58121415"
 ---
 # <a name="tutorial-create-a-knowledge-base-then-answer-question-via-the-qna-maker-portal"></a>Didacticiel : Créer une base de connaissances puis répondre à une question via le portail QnA Maker
 
@@ -25,12 +25,12 @@ Ce tutoriel vous aide à créer et publier une base de connaissances, puis à r�
 Ce tutoriel vous montre comment effectuer les opérations suivantes : 
 
 > [!div class="checklist"]
-* Créer une base de connaissances dans le portail QnA Maker
-* Réviser, enregistrer et former la base de connaissances
-* Publier la base de connaissances
-* Utiliser Curl pour interroger la base de connaissances
-
-> [!NOTE] 
+> * Créer une base de connaissances dans le portail QnA Maker
+> * Réviser, enregistrer et former la base de connaissances
+> * Publier la base de connaissances
+> * Utiliser Curl pour interroger la base de connaissances
+> 
+> [!NOTE]
 > La version programmatique de ce didacticiel est disponible avec une solution complète dans le dépôt GitHub [**Azure-Samples/cognitive-services-qnamaker-csharp**](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base).
 
 ## <a name="prerequisites"></a>Prérequis

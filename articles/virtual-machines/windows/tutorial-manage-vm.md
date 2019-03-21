@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 11/28/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a2e056baa2dd27ca0bf054d0dacf15d35e0ef384
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 94858a147dc0383376a54bc94685d855d37e12d5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977919"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57991191"
 ---
-# <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>Tutoriel : Créer et gérer des machines virtuelles Windows avec Azure PowerShell
+# <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>Didacticiel : Créer et gérer des machines virtuelles Windows avec Azure PowerShell
 
 Les machines virtuelles fournissent un environnement informatique entièrement configurable et flexible. Ce tutoriel traite de tâches de déploiement de machines virtuelles Azure, telles que la sélection d’une taille de machine virtuelle, la sélection d’une image de machine virtuelle et le déploiement d’une machine virtuelle. Vous allez apprendre à effectuer les actions suivantes :
 
@@ -180,6 +180,7 @@ La taille de machine virtuelle détermine la quantité de ressources de calcul, 
 ### <a name="vm-sizes"></a>Tailles de machine virtuelle
 
 Le tableau suivant classe les tailles en fonction des cas d’utilisation.  
+
 | Type                     | Tailles courantes           |    Description       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Usage général](sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| Ratio processeur/mémoire équilibré. Idéale pour le développement/test et pour les petites et moyennes applications et solutions de données.  |

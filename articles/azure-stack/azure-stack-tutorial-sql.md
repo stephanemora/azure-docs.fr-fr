@@ -16,14 +16,14 @@ ms.date: 02/25/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: f81a781bf3d1232c0af519b81f38c1d27fa6b2df
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: b61bf4f05f52b9d28ee09bb6c0de30544396e815
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818389"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091594"
 ---
-# <a name="tutorial-offer-highly-available-sql-databases"></a>Didacticiel : Offrir des bases de données SQL hautement disponibles
+# <a name="tutorial-offer-highly-available-sql-databases"></a>Tutoriel : Offrir des bases de données SQL hautement disponibles
 
 En tant qu’opérateur Azure Stack, vous pouvez configurer des machines virtuelles serveurs pour héberger des bases de données SQL Server. Une fois qu’un serveur d’hébergement SQL est correctement créé et géré par Azure Stack, les utilisateurs qui se sont abonnés aux services SQL peuvent facilement créer des bases de données SQL.
 
@@ -44,7 +44,7 @@ Avant de commencer les étapes décrites dans ce didacticiel, vérifiez que le [
 > Tous les éléments suivants sont nécessaires pour pouvoir utiliser le modèle de démarrage rapide Azure Stack.
 
 - Image de la Place de marché de [Windows Server 2016 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer).
-- SQL Server 2016 SP1 ou SP2 (Standard, Enterprise ou Developer) sur l’image du serveur Windows Server 2016. Ce tutoriel utilise l’image de la Place de marché de [SQL Server 2016 SP2 Enterprise sur Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.sqlserver2016sp2enterprisewindowsserver2016).
+- SQL Server 2016 SP1 ou SP2 (Standard, Enterprise ou Developer) sur l’image du serveur Windows Server 2016. Ce tutoriel utilise l’image de la Place de marché de [SQL Server 2016 SP2 Enterprise sur Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoftsqlserver.sql2016sp2-ws2016).
 - [SQL Server IaaS Extension](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) version 1.2.30 ou ultérieure. L’extension IaaS SQL installe les composants nécessaires pour les éléments de la Place de marché SQL Server pour toutes les versions de Windows. Il permet la configuration de paramètres spécifiques à SQL sur les machines virtuelles SQL. Si l’extension n’est pas installée dans la Place de marché locale, le provisionnement de SQL échoue.
 - [Extension de script personnalisé pour Windows](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.CustomScriptExtension) version 1.9.1 ou ultérieure. L’extension de script personnalisé est un outil qui peut être utilisé pour lancer automatiquement des tâches de personnalisation post-déploiement des machines virtuelles.
 - [Configuration d’état souhaité PowerShell](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.DSC-arm) version 2.76.0.0 ou ultérieure. Configuration d’état souhaité est une plateforme de gestion dans Windows PowerShell qui permet le déploiement et la gestion des données de configuration des services logiciels, et la gestion de l’environnement dans lequel ces services s’exécutent.
@@ -65,7 +65,7 @@ Utilisez les étapes de cette section pour déployer le groupe de disponibilité
 - Un groupe à haute disponibilité contenant les machines virtuelles SQL et témoin de partage de fichiers  
 
 1. 
-[!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
+   [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. Sélectionnez **\+** **Créer une ressource** > **Personnalisé**, puis **Déploiement de modèle**.
 
@@ -156,7 +156,7 @@ Une fois que le groupe de disponibilité AlwaysOn SQL a été créé, configuré
 > Effectuez ces étapes à partir du portail utilisateur Azure Stack en tant qu’utilisateur du locataire, avec un abonnement fournissant des fonctionnalités SQL Server (service Microsoft.SQLAdapter).
 
 1. 
-[!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
+   [!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
 
 2. Cliquez sur **\+** **Créer une ressource** > **Données\+Stockage**, puis sur **Base de données SQL**.<br><br>Spécifiez les informations des propriétés de base de données nécessaires, notamment le nom, le classement, la taille maximale, et l’abonnement, le groupe de ressources et l’emplacement à utiliser pour le déploiement. 
 

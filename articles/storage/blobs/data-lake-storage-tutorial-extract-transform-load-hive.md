@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Effectuer des opérations d’extraction, transformation et chargement (ETL) à l’aide d’Apache Hive sur Azure HDInsight'
+title: 'Tutoriel : Effectuer des opérations d’extraction, transformation et chargement (ETL) à l’aide d’Apache Hive sur Azure HDInsight'
 description: Dans ce tutoriel, vous allez découvrir comment extraire des données d’un jeu de données CSV brut, comment les transformer à l’aide d’Apache Hive sur Azure HDInsight, puis comment charger les données transformées dans Azure SQL Database à l’aide de Sqoop.
 services: storage
 author: jamesbak
@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jamesbak
-ms.openlocfilehash: 566af5d42b1b5b778db0a2014b238657ace7db5c
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: cdb89b552d0e328e6685e2bd62ea135e15e4b074
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672625"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58013455"
 ---
-# <a name="tutorial-extract-transform-and-load-data-by-using-apache-hive-on-azure-hdinsight"></a>Didacticiel : Extraire, transformer et charger des données à l’aide d’Apache Hive sur Azure HDInsight
+# <a name="tutorial-extract-transform-and-load-data-by-using-apache-hive-on-azure-hdinsight"></a>Tutoriel : Extraire, transformer et charger des données à l’aide d’Apache Hive sur Azure HDInsight
 
 Dans ce tutoriel, vous effectuez une opération ETL : extraction, transformation et chargement de données. Vous prenez un fichier de données CSV brut, vous l’importez dans un cluster Azure HDInsight, le transformez avec Apache Hive, puis vous le chargez dans une base de données SQL Azure avec Apache Sqoop.
 
@@ -58,6 +58,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
    | Filtre année |2013 |
    | Filtre période |Janvier |
    | Champs |Year, FlightDate, Reporting_Airline, IATA_CODE_Reporting_Airline, Flight_Number_Reporting_Airline, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. |
+   
    Effacez tous les autres champs.
 
 3. Sélectionnez **Télécharger**. Vous obtenez un fichier .zip avec les champs de données que vous avez sélectionnés.

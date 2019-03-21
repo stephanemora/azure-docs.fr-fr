@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 08/08/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 97734ad6119e89c00634035b1646bc29ac6549bd
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: a8f756385b62dfb21e910b9373dc275c7f679d3e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237851"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58009659"
 ---
-# <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>Tutoriel : Créer une pile MongoDB, Express, AngularJS et Node.js (MEAN) sur une machine virtuelle Linux dans Azure
+# <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>Didacticiel : Créer une pile MongoDB, Express, AngularJS et Node.js (MEAN) sur une machine virtuelle Linux dans Azure
 
 Ce didacticiel montre comment implémenter une pile MongoDB, Express, AngularJS et Node.js (MEAN) sur une machine virtuelle Linux dans Azure. La pile MEAN que vous créez permet l’ajout, la suppression et le référencement de livres dans une base de données. Vous allez apprendre à effectuer les actions suivantes :
 
@@ -91,13 +91,13 @@ sudo apt-get install -y nodejs
 ```
 
 ## <a name="install-mongodb-and-set-up-the-server"></a>Installer MongoDB et configurer le serveur
-[MongoDB](http://www.mongodb.com) stocke les données dans des documents flexibles, similaires à JSON. Les champs d’une base de données peuvent varier d’un document à l’autre, et la structure des données peut changer au fil du temps. Pour notre exemple d’application, nous ajoutons à MongoDB des enregistrements de livre qui contiennent le nom du livre, le numéro isbn, l’auteur et le nombre de pages. 
+[MongoDB](https://www.mongodb.com) stocke les données dans des documents flexibles, similaires à JSON. Les champs d’une base de données peuvent varier d’un document à l’autre, et la structure des données peut changer au fil du temps. Pour notre exemple d’application, nous ajoutons à MongoDB des enregistrements de livre qui contiennent le nom du livre, le numéro isbn, l’auteur et le nombre de pages. 
 
 1. Sur la machine virtuelle, définissez la clé MongoDB à l’aide de l’interpréteur de commandes Bash que vous avez ouvert avec SSH.
 
     ```bash
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
-    echo "deb [ arch=amd64 ] http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
+    echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
     ```
 
 2. Mettez à jour le Gestionnaire de package avec la clé.
@@ -149,7 +149,7 @@ sudo apt-get install -y nodejs
 
 ## <a name="install-express-and-set-up-routes-to-the-server"></a>Installer Express et définir les itinéraires au serveur
 
-[Express](https://expressjs.com) est un framework d’applications web Node.js flexible et minimal qui fournit des fonctionnalités aux applications web et mobiles. Express est utilisé dans ce didacticiel pour transmettre des informations de livre en provenance ou à destination de notre base de données MongoDB. [Mongoose](http://mongoosejs.com) offre une solution simple, reposant sur un schéma, pour modéliser les données de vos applications. Dans ce didacticiel, Mongoose sert à fournir un schéma de livre pour la base de données.
+[Express](https://expressjs.com) est un framework d’applications web Node.js flexible et minimal qui fournit des fonctionnalités aux applications web et mobiles. Express est utilisé dans ce didacticiel pour transmettre des informations de livre en provenance ou à destination de notre base de données MongoDB. [Mongoose](https://mongoosejs.com) offre une solution simple, reposant sur un schéma, pour modéliser les données de vos applications. Dans ce didacticiel, Mongoose sert à fournir un schéma de livre pour la base de données.
 
 1. Installez Express et Mongoose.
 

@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: f6ae69c04d83e1ce1540267fb7932b80cca1013c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ef0a3d251679d7dd6760f1f928cbf0f0daf3db01
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087204"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099135"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Créer et approvisionner un appareil TPM simulé auprès du service IoT Hub Device Provisioning à l’aide du Kit de développement logiciel (SDK) Node.js
 
@@ -72,25 +72,25 @@ Cet article présente les inscriptions individuelles.
 
 1. Installez les packages suivants qui contiennent les composants utilisés pendant l’inscription :
 
-    - un client de sécurité qui fonctionne avec TPM : `azure-iot-security-tpm`
-    - un mode de transport pour connecter l’appareil au service Device Provisioning : `azure-iot-provisioning-device-http` ou `azure-iot-provisioning-device-amqp`
-    - un client pour utiliser le mode de transport et le client de sécurité : `azure-iot-provisioning-device`
+   - un client de sécurité qui fonctionne avec TPM : `azure-iot-security-tpm`
+   - un mode de transport pour connecter l’appareil au service Device Provisioning : `azure-iot-provisioning-device-http` ou `azure-iot-provisioning-device-amqp`
+   - un client pour utiliser le mode de transport et le client de sécurité : `azure-iot-provisioning-device`
 
-    Une fois l’appareil inscrit, vous pouvez utiliser les packages du client IoT Hub Device habituels pour connecter l’appareil à l’aide des informations d’identifications fournies lors de l’inscription. Éléments requis :
+     Une fois l’appareil inscrit, vous pouvez utiliser les packages du client IoT Hub Device habituels pour connecter l’appareil à l’aide des informations d’identifications fournies lors de l’inscription. Éléments requis :
 
-    - le client d’appareil : `azure-iot-device`
-    - un mode de transport : `azure-iot-device-amqp`, `azure-iot-device-mqtt` ou `azure-iot-device-http`
-    - le client de sécurité, déjà installé : `azure-iot-security-tpm`
+   - le client d’appareil : `azure-iot-device`
+   - un mode de transport : `azure-iot-device-amqp`, `azure-iot-device-mqtt` ou `azure-iot-device-http`
+   - le client de sécurité, déjà installé : `azure-iot-security-tpm`
 
-    > [!NOTE]
-    > Les exemples ci-dessous utilisent les modes de transports `azure-iot-provisioning-device-http` et `azure-iot-device-mqtt`.
-    > 
+     > [!NOTE]
+     > Les exemples ci-dessous utilisent les modes de transports `azure-iot-provisioning-device-http` et `azure-iot-device-mqtt`.
+     > 
 
-    Vous pouvez installer tous ces packages d’un coup en exécutant la commande suivante dans l’invite de commandes, dans le dossier **registerdevice** :
+     Vous pouvez installer tous ces packages d’un coup en exécutant la commande suivante dans l’invite de commandes, dans le dossier **registerdevice** :
 
-        ```cmd/sh
-        npm install --save azure-iot-device azure-iot-device-mqtt azure-iot-security-tpm azure-iot-provisioning-device-http azure-iot-provisioning-device
-        ```
+       ```cmd/sh
+       npm install --save azure-iot-device azure-iot-device-mqtt azure-iot-security-tpm azure-iot-provisioning-device-http azure-iot-provisioning-device
+       ```
 
 1. Avec un éditeur de texte, créer un fichier **ExtractDevice.js** dans le dossier **registerdevice**.
 
@@ -141,15 +141,15 @@ Cet article présente les inscriptions individuelles.
 1. Dans le panneau de résumé du service Device Provisioning, sélectionnez **Gérer les inscriptions**. Sélectionnez l’onglet **Inscriptions individuelles**, puis cliquez sur le bouton **Ajouter une inscription individuelle** dans la partie supérieure. 
 
 1. Sous **Ajouter une inscription**, entrez les informations suivantes :
-    - Sélectionnez **TPM** comme *mécanisme* d’attestation d’identité.
-    - Entrez l’*ID d’inscription* et la *paire de clés de type EK (Endorsement Key)* pour votre appareil de module de plateforme sécurisée.
-    - Si vous le souhaitez, vous pouvez fournir les informations suivantes :
-        - Sélectionnez un hub IoT lié à votre service d’approvisionnement.
-        - Entrez un ID d’appareil unique. Veillez à éviter les données sensibles lorsque vous affectez un nom à votre appareil.
-        - Mettez à jour l’**état du jumeau d’appareil initial** à l’aide de la configuration initiale de votre choix pour l’appareil.
-    - Cela fait, cliquez sur le bouton **Enregistrer**. 
+   - Sélectionnez **TPM** comme *mécanisme* d’attestation d’identité.
+   - Entrez l’*ID d’inscription* et la *paire de clés de type EK (Endorsement Key)* pour votre appareil de module de plateforme sécurisée.
+   - Si vous le souhaitez, vous pouvez fournir les informations suivantes :
+       - Sélectionnez un hub IoT lié à votre service d’approvisionnement.
+       - Entrez un ID d’appareil unique. Veillez à éviter les données sensibles lorsque vous affectez un nom à votre appareil.
+       - Mettez à jour l’**état du jumeau d’appareil initial** à l’aide de la configuration initiale de votre choix pour l’appareil.
+   - Cela fait, cliquez sur le bouton **Enregistrer**. 
 
-    ![Saisir les informations d’inscription d’appareil dans le panneau du portail](./media/quick-create-simulated-device/enter-device-enrollment.png)  
+     ![Saisir les informations d’inscription d’appareil dans le panneau du portail](./media/quick-create-simulated-device/enter-device-enrollment.png)  
 
    Lorsque l’inscription aboutit, *l’ID d’inscription* de votre appareil s’affiche dans la liste sous l’onglet *Inscriptions individuelles*. 
 

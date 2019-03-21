@@ -8,12 +8,12 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 01/05/2018
 ms.author: lbosq
-ms.openlocfilehash: e7ca026d47952721c7aa28de401738ef50b697c6
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: aace9b61ae7625f1d3bbed5181fd88e367ea8f12
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586714"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58082753"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-php-and-the-azure-portal"></a>Démarrage rapide : Créer une base de données de graphe dans Azure Cosmos DB à l’aide de PHP et du portail Azure
 
@@ -40,11 +40,11 @@ Par ailleurs :
 
 ## <a name="create-a-database-account"></a>Création d’un compte de base de données
 
-Pour être en mesure de créer une base de données de graphe, vous devez avoir préalablement créé un compte de base de données (Graph) Gremlin avec Azure Cosmos DB.
+Pour être en mesure de créer une base de données de graphiques, vous devez avoir préalablement créé un compte de base de données (Graphique) Gremlin avec Azure Cosmos DB.
 
 [!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
-## <a name="add-a-graph"></a>Ajout d’un graphe
+## <a name="add-a-graph"></a>Ajout d’un graphique
 
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
@@ -123,7 +123,7 @@ Maintenant, retournez dans le portail Azure afin d’obtenir vos informations de
     ]);
     ```
 
-3. Si votre compte de base de données de graphe a été créé le 20 décembre 2017 ou après, modifiez `graphs.azure.com` dans le nom d’hôte pour le remplacer par `gremlin.cosmosdb.azure.com`.
+3. Si votre compte de base de données de graphiques a été créé le 20 décembre 2017 ou après, modifiez `graphs.azure.com` dans le nom d’hôte pour le remplacer par `gremlin.cosmosdb.azure.com`.
 
 4. Remplacez le paramètre `username` dans l’objet de connexion par le nom de votre base de données et de votre graphe. Si vous avez utilisé les valeurs recommandées `sample-database` et `sample-graph`, vous devriez avoir le code suivant :
 
@@ -181,7 +181,7 @@ Maintenant, retournez dans le portail Azure afin d’obtenir vos informations de
     php connect.php
     ```
 
-    La fenêtre de terminal affiche les vertex ajoutés au graphe. 
+    La fenêtre de terminal affiche les vertex ajoutés au graphique. 
     
     Si vous rencontrez des erreurs de délai d’expiration, vérifiez que vous avez correctement mis à jour les informations de connexion dans [Mise à jour de vos informations de connexion](#update-your-connection-information) et essayez également de réexécuter la dernière commande. 
     
@@ -206,7 +206,7 @@ Vous pouvez à présent revenir à l’Explorateur de données et voir les verte
 
 4. Entrez l’étiquette *person*.
 
-5. Cliquez sur **Ajouter une propriété** pour ajouter chacune des propriétés suivantes. Notez que vous pouvez créer des propriétés uniques pour chaque personne dans votre graphe. Seule la clé id est obligatoire.
+5. Cliquez sur **Ajouter une propriété** pour ajouter chacune des propriétés suivantes. Notez que vous pouvez créer des propriétés uniques pour chaque personne dans votre graphique. Seule la clé id est obligatoire.
 
     key|value|Notes
     ----|----|----
@@ -239,17 +239,17 @@ Vous pouvez à présent revenir à l’Explorateur de données et voir les verte
 
 12. À présent, vous pouvez connecter rakesh et ashley. Vérifiez que **ashley** est bien sélectionné dans la liste **Résultats**, puis cliquez sur le bouton de modification en regard de **Cibles** dans la partie inférieure droite de l’écran. Vous devrez peut-être élargir la fenêtre pour visualiser la zone **Propriétés**.
 
-   ![Modifier la cible d’un vertex dans un graphique](./media/create-graph-php/azure-cosmosdb-data-explorer-edit-target.png)
+    ![Modifier la cible d’un vertex dans un graphique](./media/create-graph-php/azure-cosmosdb-data-explorer-edit-target.png)
 
 13. Dans la zone **Cible**, tapez *rakesh*. Dans la zone **Edge label** (Étiquette de relation), tapez *knows*, puis cochez la case.
 
-   ![Ajouter une connexion entre ashley et rakesh dans l’Explorateur de données](./media/create-graph-php/azure-cosmosdb-data-explorer-set-target.png)
+    ![Ajouter une connexion entre ashley et rakesh dans l’Explorateur de données](./media/create-graph-php/azure-cosmosdb-data-explorer-set-target.png)
 
 14. À présent, sélectionnez **rakesh** dans la liste des résultats et vérifiez qu’ashley et rakesh sont connectés. 
 
-   ![Deux vertex connectés dans l’Explorateur de données](./media/create-graph-php/azure-cosmosdb-graph-explorer.png)
+    ![Deux vertex connectés dans l’Explorateur de données](./media/create-graph-php/azure-cosmosdb-graph-explorer.png)
 
-   Ainsi s’achève la section de ce Démarrage rapide consacrée à la création de ressources. Vous pouvez continuer à ajouter des vertex à votre graphique, modifier les vertex existants ou modifier les requêtes. Nous allons à présent examiner les métriques fournies par Azure Cosmos DB et nettoyer les ressources. 
+    Ainsi s’achève la section de ce Démarrage rapide consacrée à la création de ressources. Vous pouvez continuer à ajouter des vertex à votre graphique, modifier les vertex existants ou modifier les requêtes. Nous allons à présent examiner les métriques fournies par Azure Cosmos DB et nettoyer les ressources. 
 
 ## <a name="review-slas-in-the-azure-portal"></a>Vérification des contrats SLA dans le portail Azure
 

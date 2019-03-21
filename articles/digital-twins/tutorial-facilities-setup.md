@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Déployer Azure Digital Twins | Microsoft Docs'
+title: 'Didacticiel : Déployer Azure Digital Twins | Microsoft Docs'
 description: Découvrez comment déployer votre instance d’Azure Digital Twins et configurer vos ressources spatiales en suivant les étapes de ce tutoriel.
 services: digital-twins
 author: dsk-2015
@@ -8,12 +8,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: dkshir
-ms.openlocfilehash: 28433f8f3f181c507521cb12f064df045ae21d9d
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 096df62305af91ac85ce9ddbcff5b0160aaa4e8a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54212190"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537454"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-and-configure-a-spatial-graph"></a>Tutoriel : Déployer Azure Digital Twins et configurer un graphique spatial
 
@@ -173,7 +173,7 @@ Enregistrez et fermez le fichier provisionSample.yaml. Dans le tutoriel suivant,
 
 Si vous souhaitez arrêter votre exploration d’Azure Digital Twins ici, vous pouvez supprimer les ressources créées dans ce tutoriel :
 
-1. Dans le menu de gauche du [portail Azure](http://portal.azure.com), sélectionnez **Toutes les ressources**, puis votre groupe de ressources Digital Twins et **Supprimer**.
+1. Dans le menu de gauche du [portail Azure](https://portal.azure.com), sélectionnez **Toutes les ressources**, puis votre groupe de ressources Digital Twins et **Supprimer**.
 
     > [!TIP]
     > Si vous avez rencontré des difficultés pour supprimer votre instance de Digital Twins, une mise à jour du service a été déployée avec le correctif. Réessayez de supprimer votre instance.

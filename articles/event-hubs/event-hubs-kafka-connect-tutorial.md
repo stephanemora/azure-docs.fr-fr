@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: f405fe1c93ad17476ac47bc23951c65a5ea5db73
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 2ed4432aec9b833efe6b521b4452177088d21d70
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091361"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119409"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview"></a>Intégrer la prise en charge Apache Kafka Connect à Azure Event Hubs (préversion)
 Si l’ingestion des besoins métier augmente, les exigences augmentent également pour ingérer différents récepteurs et sources externes. [Apache Kafka Connect](https://kafka.apache.org/documentation/#connect) fournit cette infrastructure pour se connecter et importer/exporter des données depuis/vers n’importe quel système externe, tel que MySQL, HDFS, et système de fichiers via un cluster Kafka. Ce tutoriel vous guide tout au long de l’utilisation de la structure Kafka Connect avec des Event Hubs prenant en charge Kafka.
@@ -23,7 +23,7 @@ Si l’ingestion des besoins métier augmente, les exigences augmentent égaleme
 Ce tutoriel vous guide tout au long de l’intégration de Kafka Connect avec un Event Hub prenant en charge Kafka et du déploiement des connecteurs FileStreamSource et FileStreamSink de base. Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire. Bien que ces connecteurs ne soient pas destinés à une utilisation en production, ils présentent un scénario Kafka Connect de bout en bout où Azure Event Hubs agit comme un répartiteur Kafka.
 
 > [!NOTE]
-Cet exemple est disponible sur [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/connect).
+> Cet exemple est disponible sur [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/connect).
 
 Dans ce tutoriel, vous effectuez les étapes suivantes :
 

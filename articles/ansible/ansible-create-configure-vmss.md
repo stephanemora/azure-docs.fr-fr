@@ -1,19 +1,19 @@
 ---
 title: Créer des groupes de machines virtuelles identiques dans Azure avec Ansible
 description: Découvrez comment utiliser Ansible pour créer et configurer un groupe de machines virtuelles identiques dans Azure
-ms.service: ansible
+ms.service: azure
 keywords: ansible, azure, devops, bash, playbook, machine virtuelle, groupe de machines virtuelles identiques, vmss
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/24/2018
-ms.openlocfilehash: 920a631ed379651751641c22e4b43f6731197377
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 1176987ab318a97a7db6a12e619e7b7db06ad2da
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054154"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097887"
 ---
 # <a name="create-virtual-machine-scale-sets-in-azure-using-ansible"></a>Créer des groupes de machines virtuelles identiques dans Azure avec Ansible
 Ansible vous permet d’automatiser le déploiement et la configuration de ressources dans votre environnement. Vous pouvez utiliser Ansible pour gérer votre groupe de machines virtuelles identiques dans Azure comme vous le feriez pour toute autre ressource Azure. Cet article vous montre comment utiliser Ansible pour créer et augmenter le nombre d’instances d’un groupe de machines virtuelles identiques. 
@@ -276,5 +276,5 @@ Les résultats de l’exécution de la commande dans Cloud Shell montrent qu’i
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"] 
 > [Déployer des applications sur des groupes de machines virtuelles identiques avec Ansible](https://docs.microsoft.com/azure/ansible/ansible-deploy-app-vmss)
-
+> 
 > [Mettre à l’échelle automatiquement un groupe de machines virtuelles identiques avec Ansible](https://docs.microsoft.com/azure/ansible/ansible-auto-scale-vmss)

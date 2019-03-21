@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 07/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: d208d989fb9b84ae7bc94c6a1882754ed2bacb5d
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 0bf1558f81f2936b4556ee658a235cd09dddf905
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343959"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57892912"
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Applications gérées Azure sur la Place de marché
 
@@ -43,7 +43,7 @@ Pour devenir éditeur sur la Place de marché Azure, vous devez :
 
 1. Créer un identifiant Microsoft - Créez votre compte Microsoft avec une adresse e-mail qui appartient au domaine de votre entreprise, mais pas à une seule personne. Cette adresse e-mail est utilisée pour le Portail Cloud Partner et pour le Centre de développement Microsoft. Pour plus d’informations, consultez le [Guide pour les éditeurs de la Place de marché Azure](https://aka.ms/sellerguide).
 1. Envoyer le [formulaire de candidature pour la Place de marché Azure](https://aka.ms/ampnomination) - Pour **Solution that you intend to publish? (Quelle solution avez-vous l’intention de publier ?)**, sélectionnez **Managed Application (Application managée)**. Une fois le formulaire envoyé, l’équipe d’intégration de la Place de marché examine la candidature et valide la demande. Le processus d’approbation peut prendre un à trois jours. Une fois votre candidature approuvée, vous recevez un code promotionnel vous dispensant des frais d’inscription au Centre de développement. Si vous ne remplissez **pas** le formulaire de candidature pour la Place de marché, vous devez payer des frais d’inscription de 99 $.
-1. Vous inscrire auprès du [Centre de développement](http://dev.windows.com/registration?accountprogram=azure) : Microsoft vérifie que votre organisation est une entité juridique valide avec un numéro fiscal valide dans le pays où elle est enregistrée. Le processus d’approbation peut prendre de cinq à dix jours. Pour éviter les frais d’inscription, utilisez le code promotionnel que vous avez reçu par e-mail suite à la procédure de candidature. Pour plus d’informations, consultez le [Guide pour les éditeurs de la Place de marché Azure](https://aka.ms/sellerguide).
+1. Vous inscrire auprès du [Centre de développement](https://dev.windows.com/registration?accountprogram=azure) : Microsoft vérifie que votre organisation est une entité juridique valide avec un numéro fiscal valide dans le pays où elle est enregistrée. Le processus d’approbation peut prendre de cinq à dix jours. Pour éviter les frais d’inscription, utilisez le code promotionnel que vous avez reçu par e-mail suite à la procédure de candidature. Pour plus d’informations, consultez le [Guide pour les éditeurs de la Place de marché Azure](https://aka.ms/sellerguide).
 1. Vous connecter au [Portail Cloud Partner](https://cloudpartner.azure.com) : dans le profil d’éditeur, associez votre compte du Centre de développement au profil d’éditeur de la Place de marché. Pour plus d’informations, consultez le [Guide pour les éditeurs de la Place de marché Azure](https://aka.ms/sellerguide).
 
 ## <a name="create-a-new-azure-application-offer"></a>Création d’une offre d’application Azure

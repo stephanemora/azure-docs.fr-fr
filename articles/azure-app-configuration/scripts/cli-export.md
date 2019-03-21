@@ -14,12 +14,12 @@ ms.workload: azure-app-configuration
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 3310dc5d72284e8d94b95b855fee90d560205fa4
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 480e21994846f5b2adb85bcf846df2a7cdda4bda
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56884386"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444461"
 ---
 # <a name="export-from-an-azure-app-configuration-store"></a>Exporter à partir d’un magasin Azure App Configuration
 
@@ -52,7 +52,7 @@ Ce script utilise les commandes suivantes pour exporter un magasin de configurat
 
 | Commande | Notes |
 |---|---|
-| [az appconfig export](/cli/azure/ext/appconfig/appconfig#ext-appconfig-az-appconfig-export) | Exporte à partir d’une ressource de magasin de configuration d’application. |
+| [az appconfig export](/cli/azure/ext/appconfig/appconfig) | Exporte à partir d’une ressource de magasin de configuration d’application. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

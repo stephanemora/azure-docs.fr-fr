@@ -15,12 +15,12 @@ ms.workload: azure-vs
 ms.date: 03/26/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: 8e83da53d0b2f71abc1f74a0ca8fbc2405e75bda
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: aebc308f6bfaddbe8e9b430096cb6698d7dd06c5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736581"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099067"
 ---
 # <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>Démarrage rapide : déployer une application .NET Reliable Services sur Service Fabric
 
@@ -47,9 +47,10 @@ Pour suivre ce guide de démarrage rapide :
 2. [Installez Git](https://git-scm.com/)
 3. [Installez le Kit de développement logiciel (SDK) Microsoft Azure Service Fabric](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK)
 4. Exécutez la commande suivante pour permettre à Visual Studio de déployer sur le cluster Service Fabric local :
-    ```powershell
-    Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
-    ```
+
+   ```powershell
+   Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
+   ```
     
 ## <a name="build-a-cluster"></a>Générer un cluster
 
@@ -63,14 +64,14 @@ Après avoir installé le runtime, les SDK, Visual Studio Tools et Docker, et un
 1. Ouvrez une nouvelle fenêtre PowerShell avec élévation de privilèges en tant qu’administrateur.
 2. Exécutez la commande PowerShell suivante pour créer un cluster de développement :
 
-    ```powershell
-    . "C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1"
-    ```
+   ```powershell
+   . "C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1"
+   ```
 3. Exécutez la commande suivante pour démarrer l’outil de gestion de cluster local :
 
-    ```powershell
-    . "C:\Program Files\Microsoft SDKs\Service Fabric\Tools\ServiceFabricLocalClusterManager\ServiceFabricLocalClusterManager.exe"
-    ```
+   ```powershell
+   . "C:\Program Files\Microsoft SDKs\Service Fabric\Tools\ServiceFabricLocalClusterManager\ServiceFabricLocalClusterManager.exe"
+   ```
 
 >[!NOTE]
 > L’exemple d’application de ce démarrage rapide utilise des fonctionnalités qui ne sont pas disponibles sur Windows 7.
@@ -131,23 +132,23 @@ Pour examiner ce qui se produit dans le code, procédez comme suit :
 2. Ouvrez le fichier **/VotingData/Controllers/VoteDataController.cs** et définissez un point d’arrêt dans la méthode **Put** de l’API web (ligne 54).
 
 3. Revenez en arrière dans le navigateur, puis cliquez sur une option de vote ou ajoutez une nouvelle option de vote. Vous avez atteint le premier point d’arrêt dans le contrôleur d’api du service frontal web.
-    * Il s’agit de l’emplacement où le JavaScript dans le navigateur envoie une demande au contrôleur d’API web dans le service frontal.
+   * Il s’agit de l’emplacement où le JavaScript dans le navigateur envoie une demande au contrôleur d’API web dans le service frontal.
 
-    ![Ajouter un service de vote frontal](./media/service-fabric-quickstart-dotnet/addvote-frontend.png)
+     ![Ajouter un service de vote frontal](./media/service-fabric-quickstart-dotnet/addvote-frontend.png)
 
-    * Tout d’abord, créez l’URL du ReverseProxy pour notre service backend **(1)**.
-    * Ensuite, envoyez la requête HTTP PUT au ReverseProxy **(2)**.
-    * Pour finir, retournez la réponse du service backend au client **(3)**.
+   * Tout d’abord, créez l’URL du ReverseProxy pour notre service backend **(1)**.
+   * Ensuite, envoyez la requête HTTP PUT au ReverseProxy **(2)**.
+   * Pour finir, retournez la réponse du service backend au client **(3)**.
 
 4. Appuyez sur **F5** pour continuer.
-    - Si le navigateur vous y invite, accordez des autorisations de lecture et d’exécution au groupe ServiceFabricAllowedUsers pour le mode débogage.
-    - Vous êtes à présent au point d’arrêt dans le service principal.
+   - Si le navigateur vous y invite, accordez des autorisations de lecture et d’exécution au groupe ServiceFabricAllowedUsers pour le mode débogage.
+   - Vous êtes à présent au point d’arrêt dans le service principal.
 
-    ![Ajouter un service de vote principal](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
+     ![Ajouter un service de vote principal](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
 
-    * Dans la première ligne de la méthode **(1)**, le `StateManager` obtient ou ajoute un dictionnaire fiable nommé `counts`.
-    * Toutes les interactions avec des valeurs d’un dictionnaire fiable requièrent une transaction. Cette instruction using **(2)** crée cette transaction.
-    * Dans la transaction, mettez à jour la valeur de la clé appropriée pour l’option de vote et validez l’opération **(3)**. Lorsque la méthode commit retourne des données, celles-ci sont mises à jour dans le dictionnaire et répliquées sur d’autres nœuds du cluster. Les données sont à présent stockées en sécurité dans le cluster, et le service principal peut basculer vers d’autres nœuds, tout en gardant les données disponibles.
+   - Dans la première ligne de la méthode **(1)**, le `StateManager` obtient ou ajoute un dictionnaire fiable nommé `counts`.
+   - Toutes les interactions avec des valeurs d’un dictionnaire fiable requièrent une transaction. Cette instruction using **(2)** crée cette transaction.
+   - Dans la transaction, mettez à jour la valeur de la clé appropriée pour l’option de vote et validez l’opération **(3)**. Lorsque la méthode commit retourne des données, celles-ci sont mises à jour dans le dictionnaire et répliquées sur d’autres nœuds du cluster. Les données sont à présent stockées en sécurité dans le cluster, et le service principal peut basculer vers d’autres nœuds, tout en gardant les données disponibles.
 5. Appuyez sur **F5** pour continuer.
 
 Pour arrêter la session de débogage, appuyez sur **Maj+F5**.

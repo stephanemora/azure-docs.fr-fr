@@ -17,12 +17,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08ad61070fd3bfb8472cffb51fd0b1bb4bcf169b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7ef499e49fc4d1a0dc79dfc4efb818f7330b57b6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169375"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57995196"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis-preview"></a>Démarrage rapide : Configurer une application cliente pour accéder aux API web (préversion)
 
@@ -74,11 +74,11 @@ Pour ajouter un URI de redirection à votre application :
 
 1. Pour ajouter un URI de redirection personnalisé pour des applications web et client public, procédez comme suit :
 
-    1. Recherchez la section **URI de redirection**.
-    1. Sélectionnez le type d’application que vous créez : **Web** ou **Client public (mobile et bureau)**.
-    1. Entrez l’URI de redirection de votre application.
-        * Pour les applications web, indiquez l’URL de base de votre application. Par exemple, http://localhost:31544 peut être l’URL pour une application web en cours d’exécution sur votre ordinateur local. Les utilisateurs peuvent utiliser cette URL pour se connecter à une application web cliente.
-        * Pour les applications publiques, indiquez l’URI utilisé par Azure AD pour retourner les réponses de jeton. Saisissez une valeur spécifique à votre application, par exemple https://MyFirstApp.
+   1. Recherchez la section **URI de redirection**.
+   1. Sélectionnez le type d’application que vous créez : **Web** ou **Client public (mobile et bureau)**.
+   1. Entrez l’URI de redirection de votre application.
+      * Pour les applications web, indiquez l’URL de base de votre application. Par exemple, `http://localhost:31544` peut être l’URL pour une application web en cours d’exécution sur votre ordinateur local. Les utilisateurs peuvent utiliser cette URL pour se connecter à une application web cliente.
+      * Pour les applications publiques, indiquez l’URI utilisé par Azure AD pour retourner les réponses de jeton. Saisissez une valeur spécifique à votre application, par exemple https://MyFirstApp.
 
 1. Pour choisir parmi les URI de redirection suggérés pour les clients publics (mobile, bureau), procédez comme suit :
 

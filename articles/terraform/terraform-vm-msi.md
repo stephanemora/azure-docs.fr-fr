@@ -2,19 +2,19 @@
 title: Utiliser une image de la Place de marché Microsoft Azure pour créer une machine virtuelle Terraform pour Linux avec une identité managée
 description: Utilisez une image de la Place de marché afin de créer une machine virtuelle Terraform pour Linux avec une identité managée et la gestion de l’état à distance pour déployer facilement des ressources sur Azure.
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, MSI, machine virtuelle, état à distance, azure
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 3/12/2018
-ms.openlocfilehash: 3f10e5dfd0a4aac859c1a946b5f0a680899e0888
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: a1a980e1f8b004c4a3dba53e4f83367022074c7c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852539"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58007966"
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-identities-for-azure-resources"></a>Utiliser une image de la Place de marché Microsoft Azure pour créer une machine virtuelle Terraform pour Linux avec des identités managées pour des ressources Azure
 
@@ -77,7 +77,7 @@ L’image de la machine virtuelle Terraform effectue les étapes suivantes :
 
 ## <a name="access-and-configure-a-linux-terraform-virtual-machine"></a>Utiliser et configurer la machine virtuelle Terraform pour Linux
 
-Une fois la machine virtuelle créée, vous pouvez vous y connecter avec SSH. Utilisez les informations d’identification de compte que vous avez définies dans la section Paramètres de base de l’étape 3 de l’interface de l’interpréteur de commandes texte. Sous Windows, vous pouvez télécharger un outil client SSH tel que [Putty](http://www.putty.org/).
+Une fois la machine virtuelle créée, vous pouvez vous y connecter avec SSH. Utilisez les informations d’identification de compte que vous avez définies dans la section Paramètres de base de l’étape 3 de l’interface de l’interpréteur de commandes texte. Sous Windows, vous pouvez télécharger un outil client SSH tel que [Putty](https://www.putty.org/).
 
 Après vous être connecté à la machine virtuelle à l’aide de SSH, vous devez accorder les autorisations de contributeur sur tout l’abonnement aux identités managées pour les ressources Azure sur la machine virtuelle. 
 

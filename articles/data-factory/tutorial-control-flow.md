@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: shlo
-ms.openlocfilehash: 53540128b5a9a1e2690179a35f26a9a82c6cb584
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: d2f892941f9d37dd3d74afe17d7952b404dc709f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446951"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551634"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Activités de création de branches et chaînage dans un pipeline Azure Data Factory
 Dans ce didacticiel, vous créez un pipeline Data Factory qui présente certaines des fonctionnalités de flux de contrôle. Ce pipeline est une simple copie depuis un conteneur Stockage Blob Azure vers un autre conteneur dans le même compte de stockage. Si l’activité de copie réussit, vous envoyez les détails de l’opération de copie réussie (par exemple, la quantité de données écrites) dans un e-mail d’avis de réussite. Si l’activité de copie échoue, vous envoyez les détails de l’échec de la copie (par exemple, le message d’erreur) dans un e-mail d’avis d’échec. Tout au long de ce didacticiel, vous allez apprendre à passer des paramètres.
@@ -56,7 +56,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
     John|Doe
     Jane|Doe
     ```
-2. Utilisez des outils comme l’[explorateur Stockage Azure](http://storageexplorer.com/) pour créer le conteneur **adfv2branch** et charger le fichier **input.txt** sur ce dernier.
+2. Utilisez des outils comme l’[explorateur Stockage Azure](https://storageexplorer.com/) pour créer le conteneur **adfv2branch** et charger le fichier **input.txt** sur ce dernier.
 
 ## <a name="create-visual-studio-project"></a>Création d’un projet Visual Studio
 

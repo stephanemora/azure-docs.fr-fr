@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 02/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b590d75abb9e3f6465594a5c8c684b94e6f2e07f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: d1debbcc8f225a0d4608d67b19e5e00aca580ce1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56864293"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122010"
 ---
 # <a name="what-is-azure-backup"></a>Qu’est-ce qu’Azure Backup ?
 
@@ -55,10 +55,10 @@ Les deux services fournissent des fonctionnalités complémentaires mais différ
 Utilisez les points du tableau pour vous aider à déterminer vos besoins en continuité d’activité et de reprise d’activité (BCDR). 
 
 **Objectif** | **Détails** | **Comparaison**
---- | --- | --- | --- |
+--- | --- | --- 
 **Conservation/sauvegarde de données** | Les données de sauvegarde peuvent être conservées et stockées pendant des jours, des mois, voire même des années si nécessaire du point de vue de la conformité. | Les solutions de sauvegarde comme le service Sauvegarde Azure vous permettent de choisir précisément les données que vous voulez sauvegarder et de paramétrer avec précision les stratégies de sauvegarde et de conservation.<br/><br/> Site Recovery ne permet pas la même précision dans les ajustements.
 **Objectif de point de récupération (RPO)** | Quantité de perte de données acceptable si la récupération doit être exécutée. | Les sauvegardes ont un objectif de point de récupération (RPO) plus variable.<br/><br/> Les sauvegardes de machines virtuelles ont généralement un RPO d’un jour, contre seulement 15 minutes pour les sauvegardes de base de données.<br/><br/> Site Recovery fournit un RPO faible car la réplication est continue ou fréquente, de sorte que le delta entre la source et la copie de réplica est faible.
-**Objectif de délai de récupération (RTO)** |Quantité de temps nécessaire pour effectuer une récupération ou une restauration complète. | Un RPO plus long est généralement synonyme pour la solution de sauvegarde d’une bien plus grande quantité de données à traiter, ce qui rallonge d’autant le RTO. Par exemple, il peut falloir plusieurs jours pour restaurer des données à partir de bandes, selon le temps nécessaire au transport de la bande depuis un site externe. | Les solutions de reprise d’activité après sinistre telles que Site Recovery ont un RPO faible car une réplication continue/fréquente signifie généralement que la cible est plus hautement synchronisée avec la source. |
+**Objectif de délai de récupération (RTO)** |Quantité de temps nécessaire pour effectuer une récupération ou une restauration complète. | Un RPO plus long est généralement synonyme pour la solution de sauvegarde d’une bien plus grande quantité de données à traiter, ce qui rallonge d’autant le RTO. Par exemple, il peut falloir plusieurs jours pour restaurer des données à partir de bandes, selon le temps nécessaire au transport de la bande depuis un site externe. 
 
 ## <a name="what-backup-scenarios-are-supported"></a>Quels sont les scénarios de sauvegarde pris en charge ?
 

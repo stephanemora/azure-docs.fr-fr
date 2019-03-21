@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Utiliser l’API de flux Apache Kafka - Azure HDInsight '
+title: 'Tutoriel : Utiliser l’API de flux Apache Kafka - Azure HDInsight '
 description: Découvrez comment utiliser l’API de flux Apache Kafka avec Kafka sur HDInsight. Cette API vous permet d’effectuer un traitement de flux entre des rubriques dans Kafka.
 services: hdinsight
 ms.service: hdinsight
@@ -9,14 +9,14 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 11/06/2018
-ms.openlocfilehash: cb959bd74322534573f83c2b3258ff28d4c324ff
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 3c40e00d55af49b1b040d3fe706f08af719b2238
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584154"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58112787"
 ---
-# <a name="tutorial-apache-kafka-streams-api"></a>Didacticiel : API de flux Apache Kafka
+# <a name="tutorial-apache-kafka-streams-api"></a>Tutoriel : API de flux Apache Kafka
 
 Découvrez comment créer une application qui utilise l’API Apache Kafka Streams et comment l’exécuter avec Kafka sur HDInsight. 
 
@@ -199,13 +199,13 @@ Pour générer et déployer le projet dans votre cluster Kafka sur HDInsight, pr
 
     Les rubriques sont utilisées pour les opérations suivantes :
 
-    * `test`: cette rubrique indique où les enregistrements sont reçus. L’application de diffusion en continu procède à la lecture à partir d’ici.
-    * `wordcounts`: cette rubrique correspond à l’emplacement où l’application de streaming stocke sa sortie.
-    * `RekeyedIntermediateTopic`: cette rubrique est utilisée pour repartitionner les données à mesure que le comptage est mis à jour par l’opérateur `countByKey`.
-    * `wordcount-example-Counts-changelog`: cette rubrique est un magasin d’état utilisé par l’opération `countByKey`.
+   * `test`: cette rubrique indique où les enregistrements sont reçus. L’application de diffusion en continu procède à la lecture à partir d’ici.
+   * `wordcounts`: cette rubrique correspond à l’emplacement où l’application de streaming stocke sa sortie.
+   * `RekeyedIntermediateTopic`: cette rubrique est utilisée pour repartitionner les données à mesure que le comptage est mis à jour par l’opérateur `countByKey`.
+   * `wordcount-example-Counts-changelog`: cette rubrique est un magasin d’état utilisé par l’opération `countByKey`.
 
-    > [!IMPORTANT]  
-    > Kafka sur HDInsight peut également être configuré pour créer des rubriques automatiquement. Pour plus d’informations, consultez le document [Configure automatic topic creation (Configurer la création automatique de rubriques)](apache-kafka-auto-create-topics.md).
+     > [!IMPORTANT]  
+     > Kafka sur HDInsight peut également être configuré pour créer des rubriques automatiquement. Pour plus d’informations, consultez le document [Configure automatic topic creation (Configurer la création automatique de rubriques)](apache-kafka-auto-create-topics.md).
 
 ## <a name="run-the-code"></a>Exécuter le code
 

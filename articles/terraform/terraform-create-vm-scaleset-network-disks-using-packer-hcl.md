@@ -2,19 +2,19 @@
 title: Utiliser Terraform pour créer un groupe de machines virtuelles Azure identiques à partir d’une image Packer personnalisée
 description: Utilisez Terraform pour effectuer la configuration et gérer les versions d’un groupe de machines virtuelles Azure identiques à partir d’une image personnalisée générée par Packer (comprenant un réseau virtuel et des disques attachés gérés).
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, groupe de machines virtuelles identiques, machine virtuelle, réseau, stockage, modules images personnalisées, packer
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/29/2017
-ms.openlocfilehash: 12c6ebc9b29c356ad169dbd921e71c7aa0c273b7
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 5aff45b4a6b5da62569e0a39c13239a726e6b80b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077502"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58001997"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image"></a>Utiliser Terraform pour créer un groupe de machines virtuelles Azure identiques à partir d’une image Packer personnalisée
 
@@ -180,7 +180,7 @@ Cette étape vous permet de créer les ressources suivantes sur le réseau qui a
 - Un pool d’adresses principales Azure qui est ensuite affecté à l’équilibrage de charge 
 - Un port de sonde d’intégrité utilisé par l’application et configuré sur l’équilibrage de charge 
 - Un groupe de machines virtuelles identiques derrière l’équilibrage de charge, exécuté sur le réseau virtuel déployé précédemment
-- [Nginx](http://nginx.org/) sur les nœuds du groupe de machines virtuelles identiques installé à partir de l’image personnalisée.
+- [Nginx](https://nginx.org/) sur les nœuds du groupe de machines virtuelles identiques installé à partir de l’image personnalisée.
 
 
 Ajoutez le code suivant à la fin du fichier `vmss.tf`.

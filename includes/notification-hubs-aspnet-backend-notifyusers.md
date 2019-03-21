@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/04/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 9a94f76e2d1fe930d2d6d43e81a756f0cb15d23d
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 8413044beff68390dbccdf16c4477e113a85f81b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54453067"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58125229"
 ---
 ## <a name="create-the-webapi-project"></a>Création du projet WebAPI
 
@@ -55,7 +55,7 @@ Pour créer le serveur principal WebAPI ASP.NET, procédez comme suit :
     * Sélectionnez un plan App Service que vous avez déjà créé.
     * Sélectionnez **Créer un plan App Service**, et créez-en un.
 
-  Vous n'avez pas besoin de base de données pour ce didacticiel. Une fois que vous avez sélectionné votre plan App Service, sélectionnez **OK** pour créer le projet.
+   Vous n'avez pas besoin de base de données pour ce didacticiel. Une fois que vous avez sélectionné votre plan App Service, sélectionnez **OK** pour créer le projet.
 
     ![Fenêtre Configurer l’application web Microsoft Azure][B5]
 
@@ -84,9 +84,9 @@ Dans cette section, vous créez une classe de gestionnaire de messages nommée *
    * La demande utilise l’authentification *de base* .
    * Les chaînes du nom d’utilisateur et du mot de passe sont identiques.
 
-  Sinon, la demande est rejetée. Cette authentification ne répond pas à une véritable approche d’authentification et d’autorisation. Il s’agit uniquement d’un exemple très simple pour ce didacticiel.
+   Sinon, la demande est rejetée. Cette authentification ne répond pas à une véritable approche d’authentification et d’autorisation. Il s’agit uniquement d’un exemple très simple pour ce didacticiel.
 
-  Si le message de la demande est authentifié et autorisé par `AuthenticationTestHandler`, l’utilisateur de l’authentification de base est attaché à la demande actuelle sur [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). Les informations utilisateur dans HttpContext sont utilisées ultérieurement par un autre contrôleur (RegisterController) pour ajouter une [balise](https://msdn.microsoft.com/library/azure/dn530749.aspx) à la demande d’inscription aux notifications.
+   Si le message de la demande est authentifié et autorisé par `AuthenticationTestHandler`, l’utilisateur de l’authentification de base est attaché à la demande actuelle sur [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). Les informations utilisateur dans HttpContext sont utilisées ultérieurement par un autre contrôleur (RegisterController) pour ajouter une [balise](https://msdn.microsoft.com/library/azure/dn530749.aspx) à la demande d’inscription aux notifications.
 
     ```csharp
     public class AuthenticationTestHandler : DelegatingHandler

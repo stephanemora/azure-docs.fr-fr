@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 01/30/2019
 ms.author: spelluru
 ms.custom: seodec18
-ms.openlocfilehash: 0a71b88f6ad85cbd76f9bc789e87ad5b032418c9
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: d2daa23a22fae6ba420a146599c0c0ba659a94f2
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297104"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540803"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Choisissez entre les trois services de messagerie Azure - Event Grid, Event Hubs et Service Bus
 
@@ -34,7 +34,7 @@ Il existe une distinction importante entre les services qui remettent un événe
 
 Un événement est une notification légère d’une condition ou d’un changement d’état. Le serveur de publication de l’événement n’a aucune attente vis-à-vis de la façon dont est géré l’événement. Le consommateur de l’événement décide ce qu’il fait de la notification. Les événements peuvent être des unités discrètes ou appartenir à une série.
 
-Les événements discrets signalent un changement d’état et sont actionnables. Pour passer à l’étape suivante, le consommateur a uniquement besoin de savoir que quelque chose s’est produit. Les données d’événement contiennent des informations sur ce qui est arrivé, mais ne comportent pas les données qui ont déclenché l’événement. Par exemple, un événement avertit les consommateurs qu’un fichier a été créé. Il peut contenir des informations générales sur le fichier, mais pas le fichier lui-même. Les événements discrets conviennent parfaitement aux solutions [sans serveur](http://azure.com/serverless) qui ont besoin d’être mises à l’échelle.
+Les événements discrets signalent un changement d’état et sont actionnables. Pour passer à l’étape suivante, le consommateur a uniquement besoin de savoir que quelque chose s’est produit. Les données d’événement contiennent des informations sur ce qui est arrivé, mais ne comportent pas les données qui ont déclenché l’événement. Par exemple, un événement avertit les consommateurs qu’un fichier a été créé. Il peut contenir des informations générales sur le fichier, mais pas le fichier lui-même. Les événements discrets conviennent parfaitement aux solutions [sans serveur](https://azure.com/serverless) qui ont besoin d’être mises à l’échelle.
 
 Les événements en série signalent une condition et sont analysables. Ces événements sont chronologiques et liés entre eux. Le consommateur a besoin de la série séquencée des événements pour analyser ce qui s’est passé.
 

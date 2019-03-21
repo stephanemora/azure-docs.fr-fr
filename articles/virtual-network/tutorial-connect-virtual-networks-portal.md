@@ -17,14 +17,14 @@ ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 8b1290c2030835af1435e9a21602d3d2334a6737
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: e66747cd350d10a5a66ec54b9aae9e9b485b0ba2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41917695"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58014510"
 ---
-# <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Tutoriel : Connecter des réseaux virtuels à l’aide de l’appairage de réseaux virtuels en utilisant le portail Azure
+# <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Didacticiel : Connecter des réseaux virtuels à l’aide de l’appairage de réseaux virtuels en utilisant le portail Azure
 
 Vous pouvez connecter des réseaux virtuels entre eux à l’aide de l’appairage de réseaux virtuels. Ces réseaux virtuels peuvent appartenir à la même région ou à des régions différentes (connexion également appelée Global VNet Peering). Une fois que les deux réseaux virtuels sont appairés, leurs ressources peuvent communiquer entre elles avec les mêmes bande passante et latence, comme si elles se trouvaient sur le même réseau virtuel. Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -50,7 +50,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
     |Paramètre|Valeur|
     |---|---|
-    |NOM|myVirtualNetwork1|
+    |Nom|myVirtualNetwork1|
     |Espace d’adressage|10.0.0.0/16|
     |Abonnement| Sélectionnez votre abonnement.|
     |Groupe de ressources| Sélectionnez **Créer** et entrez *myResourceGroup*.|
@@ -64,7 +64,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
     |Paramètre|Valeur|
     |---|---|
-    |NOM|myVirtualNetwork2|
+    |Nom|myVirtualNetwork2|
     |Espace d’adressage|10.1.0.0/16|
     |Groupe de ressources| Sélectionnez **Utiliser l’existant**, puis **myResourceGroup**.|
     |Plage d’adresses de sous-réseau|10.1.0.0/24|
@@ -80,7 +80,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
     |Paramètre|Valeur|
     |---|---|
-    |NOM|myVirtualNetwork1-myVirtualNetwork2|
+    |Nom|myVirtualNetwork1-myVirtualNetwork2|
     |Abonnement| Sélectionnez votre abonnement.|
     |Réseau virtuel|myVirtualNetwork2 : Pour sélectionner le réseau virtuel *myVirtualNetwork2*, sélectionnez **Réseau virtuel**, puis **myVirtualNetwork2**. Vous pouvez sélectionner un réseau virtuel figurant dans la même région ou dans une région différente.|
 
@@ -97,7 +97,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
     |Paramètre|Valeur|
     |---|---|
-    |NOM|myVirtualNetwork2-myVirtualNetwork1|
+    |Nom|myVirtualNetwork2-myVirtualNetwork1|
     |Réseau virtuel|myVirtualNetwork1|
 
     **L’ÉTAT D’APPAIRAGE** est *Connecté*. Azure a également changé l’état *Initié* de l’appairage *myVirtualNetwork2-myVirtualNetwork1* en *Connecté*. L’appairage de réseaux virtuels n’est pas entièrement établi tant que l’état d’appairage pour les deux réseaux virtuels n’est pas *Connecté*. 
@@ -114,13 +114,14 @@ Créez une machine virtuelle sur chaque réseau virtuel afin de pouvoir établir
 
     |Paramètre|Valeur|
     |---|---|
-    |NOM|myVm1|
+    |Nom|myVm1|
     |Nom d'utilisateur| Entrez un nom d’utilisateur de votre choix.|
     |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Groupe de ressources| Sélectionnez **Utiliser l’existant**, puis **myResourceGroup**.|
     |Emplacement| Sélectionnez **USA Est**.|
 4. Sélectionnez une taille de machine virtuelle sous **Choisir une taille**.
 5. Dans **Paramètres**, sélectionnez les valeurs suivantes, puis sélectionnez **OK** :
+
     |Paramètre|Valeur|
     |---|---|
     |Réseau virtuel| myVirtualNetwork1 : S’il n’est pas déjà sélectionné, sélectionnez **Réseau virtuel**, puis **myVirtualNetwork1** sous **Choisir un réseau virtuel**.|
@@ -136,7 +137,7 @@ Effectuez à nouveau les étapes 1 à 6, avec les modifications suivantes :
 
 |Paramètre|Valeur|
 |---|---|
-|NOM | myVm2|
+|Nom | myVm2|
 |Réseau virtuel | myVirtualNetwork2|
 
 La création des machines virtuelles peut prendre plusieurs minutes. Attendez que les deux machines virtuelles aient été créées avant de passer aux étapes restantes.
@@ -173,7 +174,7 @@ La création des machines virtuelles peut prendre plusieurs minutes. Attendez qu
     
 9. Déconnectez vos sessions RDP sur *myVm1* et *myVm2*.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Quand vous n’avez plus besoin du groupe de ressources, supprimez-le ainsi que toutes les ressources qu’il contient : 
 

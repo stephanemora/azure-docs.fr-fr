@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 9361c8b17d1b43b4ef63aca6ab4660571efddcde
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: a40619000998d7222781094db2829aabcc6a7fb2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492784"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100766"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-azure-resource-manager-templates"></a>Didacticiel : Déployer des extensions de machines virtuelles avec des modèles Azure Resource Manager
 
@@ -68,13 +68,13 @@ Le référentiel Modèles de démarrage rapide Azure contient les modèles Resou
 1. Pour ouvrir le fichier, sélectionnez **Ouvrir**.  
     Le modèle définit cinq ressources :
 
-    * **Microsoft.Storage/storageAccounts**. Consultez la [référence de modèle](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
-    * **Microsoft.Network/publicIPAddresses**. Consultez la [référence de modèle](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
-    * **Microsoft.Network/virtualNetworks**. Consultez la [référence de modèle](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
-    * **Microsoft.Network/networkInterfaces**. Consultez la [référence de modèle](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
-    * **Microsoft.Compute/virtualMachines**. Consultez la [référence de modèle](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+   * **Microsoft.Storage/storageAccounts**. Consultez la [référence de modèle](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
+   * **Microsoft.Network/publicIPAddresses**. Consultez la [référence de modèle](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
+   * **Microsoft.Network/virtualNetworks**. Consultez la [référence de modèle](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
+   * **Microsoft.Network/networkInterfaces**. Consultez la [référence de modèle](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
+   * **Microsoft.Compute/virtualMachines**. Consultez la [référence de modèle](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
 
-    Il est préférable d’avoir des notions de base sur ce modèle avant de le personnaliser.
+     Il est préférable d’avoir des notions de base sur ce modèle avant de le personnaliser.
 
 1. Enregistrez une copie du fichier sur votre ordinateur local sous le nom *azuredeploy.json* en sélectionnant **Fichier** > **Enregistrer sous**.
 
@@ -108,7 +108,7 @@ Ajoutez une ressource d’extension de machine virtuelle au modèle existant ave
 
 Pour plus d’informations sur la définition de cette ressource, consultez les [informations de référence sur les extensions](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines/extensions). Voici quelques éléments importants :
 
-* **nom** : étant donné que la ressource d’extension est une ressource enfant de l’objet de machine virtuelle, le nom doit être composé du préfixe du nom de la machine virtuelle. Voir [Ressources enfants](./resource-manager-templates-resources.md#child-resources).
+* **nom** : étant donné que la ressource d’extension est une ressource enfant de l’objet de machine virtuelle, le nom doit être composé du préfixe du nom de la machine virtuelle. Voir [Ressources enfants](./resource-group-authoring-templates.md#child-resources).
 * **dependsOn** : créez la ressource d’extension après avoir créé la machine virtuelle.
 * **fileUris** : il s’agit des emplacements où sont stockés les fichiers de script. Si vous choisissez de ne pas utiliser l’emplacement fourni, vous devez mettre à jour les valeurs.
 * **commandToExecute** : cette commande appelle le script.  

@@ -17,14 +17,14 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b50b8f6c54cbefde2120dd61643c23f5175927c9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e8706e839005d43ab9fa2662d13d7d3c3994c136
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211748"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077749"
 ---
-# <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account-preview"></a>Tutoriel : Archiver des journaux Azure AD dans un compte de stockage Azure (préversion)
+# <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account-preview"></a>Didacticiel : Archiver des journaux Azure AD dans un compte de stockage Azure (préversion)
 
 Dans ce didacticiel, vous découvrez comment configurer les paramètres de diagnostic Azure Monitor pour acheminer des journaux Azure Active Directory (Azure AD) vers un compte de stockage Azure.
 
@@ -45,11 +45,11 @@ Pour utiliser cette fonctionnalité, vous avez besoin des éléments suivants :
 3. Sélectionnez **Paramètres d’exportation**. 
 
 4. Dans le volet **Paramètres de diagnostic**, effectuez l’une des opérations suivantes :
-    * Pour modifier les paramètres existants, sélectionnez **Modifier le paramètre**.
-    * Pour ajouter de nouveaux paramètres, sélectionnez **Ajouter un paramètre de diagnostic**.  
-      Vous pouvez avoir jusqu’à trois paramètres. 
+   * Pour modifier les paramètres existants, sélectionnez **Modifier le paramètre**.
+   * Pour ajouter de nouveaux paramètres, sélectionnez **Ajouter un paramètre de diagnostic**.  
+     Vous pouvez avoir jusqu’à trois paramètres. 
 
-    ![Paramètres d’exportation](./media/quickstart-azure-monitor-route-logs-to-storage-account/ExportSettings.png)
+     ![Paramètres d’exportation](./media/quickstart-azure-monitor-route-logs-to-storage-account/ExportSettings.png)
 
 5. Entrez un nom convivial pour le paramètre afin de vous rappeler son rôle (par exemple, *Envoyer à un compte de stockage Azure*). 
 

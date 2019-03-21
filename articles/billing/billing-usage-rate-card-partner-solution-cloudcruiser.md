@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 10/09/2017
 ms.author: erikre
-ms.openlocfilehash: 79582e59d9ad9396acf29d6e35d640edcb20dca3
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
-ms.translationtype: HT
+ms.openlocfilehash: bae35f9e153227ddcca6e0d20ce862317b968eb1
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275953"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536009"
 ---
 # <a name="cloud-cruiser-and-microsoft-azure-billing-api-integration"></a>Intégration des API Microsoft Azure Billing par Cloud Cruiser
 Cet article décrit la façon dont les informations collectées à partir des nouvelles API Microsoft Azure Billing sont utilisables dans Cloud Cruiser à des fins de simulation et d’analyse des coûts de flux de travail.
@@ -113,7 +113,7 @@ Le graphique supérieur affiche une comparaison des coûts par service, qui comp
 Le graphique inférieur présente les mêmes données, mais réparties par service. Les coûts d’exécution des charges de travail de chaque service sur WAP et Azure, ainsi que leurs différences, apparaissent dans la barre Savings (verte).
 
 ## <a name="azure-usage-api"></a>API Azure Usage
-### <a name="introduction"></a>Introduction
+### <a name="introduction"></a>Présentation
 Microsoft a récemment introduit l'API Azure Usage qui permet aux abonnés d'extraire des données d'utilisation par programmation afin d'obtenir des informations sur leur consommation. Les clients Cloud Cruiser peuvent tirer parti du jeu de données plus riche disponible à l’aide de cette API.
 
 Cloud Cruiser peut exploiter l’intégration dans l’API d’utilisation de plusieurs manières. La granularité (informations d'utilisation par heure) et les informations de métadonnées de ressources disponibles via l'API fournissent le jeu de données nécessaire pour prendre en charge des modèles de récupération des données de facturation ou de facturation interne flexibles. 
@@ -137,7 +137,7 @@ Avec la nouvelle API Azure Usage, Cloud Cruiser peut extraire les informations s
 Pour ce qui est de la tarification, Cloud Cruiser automatise le processus de récupération des données de facturation / de facturation interne et peut utiliser les informations de balisage pour associer l’utilisation au consommateur approprié (département, division, projet, etc.). Cette automatisation représente une amélioration majeure et  garantit un processus de facturation cohérent et vérifiable.
 
 ### <a name="creating-a-resource-group-with-tags-on-microsoft-azure"></a>Création d'un groupe de ressources avec des balises dans Microsoft Azure
-La première étape de ce didacticiel consiste à créer un groupe de ressources sur le Portail Azure, puis à créer des balises à associer aux ressources. Pour cet exemple, nous créons les balises suivantes : département, environnement, propriétaire, projet.
+La première étape de ce didacticiel consiste à créer un groupe de ressources sur le Portail Azure, puis à créer des balises à associer aux ressources. Pour cet exemple, nous créons les balises suivantes : Département, environnement, propriétaire, projet.
 
 La capture d’écran suivante montre un exemple de groupe de ressources avec les balises associées.
 
@@ -200,7 +200,7 @@ Nous devons maintenant simplement ajouter une étape pour publier les données d
 Et vous n'avez à exécuter ce processus qu'une seule fois ! Lorsque le classeur est terminé, vous n’avez qu’à simplement l’ajouter au planificateur, et il s’exécute toutes les heures ou tous les jours à l’heure planifiée. Il ne s’agit plus alors que de créer des rapports ou de personnaliser les rapports existants, afin d’analyser les données pour obtenir des informations pertinentes sur votre utilisation du cloud.
 
 ### <a name="next-steps"></a>Étapes suivantes
-* Pour découvrir la procédure détaillée de création de classeurs et de rapports Cloud Cruiser, reportez-vous à la [documentation](http://docs.cloudcruiser.com/) en ligne de Cloud Cruiser (ID de connexion valide requis).  Pour obtenir plus d’informations sur Cloud Cruiser, contactez [info@cloudcruiser.com](mailto:info@cloudcruiser.com).
+* Pour découvrir la procédure détaillée de création de classeurs et de rapports Cloud Cruiser, reportez-vous à la [documentation](https://docs.cloudcruiser.com/) en ligne de Cloud Cruiser (ID de connexion valide requis).  Pour obtenir plus d’informations sur Cloud Cruiser, contactez [info@cloudcruiser.com](mailto:info@cloudcruiser.com).
 * Pour découvrir une présentation des API Azure Resource Usage et RateCard, voir [Obtenir une vue d’ensemble de votre consommation des ressources Microsoft Azure](billing-usage-rate-card-overview.md) .
 * Pour plus d’informations sur ces deux API, qui font partie intégrante de l’ensemble d’API fourni par Azure Resource Manager, consultez la [Référence des API REST Azure Billing](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) .
 * Si vous souhaitez vous plonger directement dans l'exemple de code, consultez nos exemples de code d'API de facturation Microsoft Azure sur [Exemples de code Azure](https://azure.microsoft.com/documentation/samples/?term=billing).

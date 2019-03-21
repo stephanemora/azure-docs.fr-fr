@@ -10,12 +10,12 @@ author: garyericson
 ms.author: garye
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: 803a52994536d2d6f39a064f97af7831af0cebb6
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 0819c232412e1619f82a25476a8318d26c8087da
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453169"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105724"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Démarrage rapide : Créer votre première expérience de science des données dans Azure Machine Learning Studio
 
@@ -95,21 +95,21 @@ Nous commençons par ajouter un module qui supprime toute la colonne **normalize
 
 1. Cliquez sur le module [Sélectionner des colonnes dans le jeu de données][select-columns], puis cliquez sur **Lancer le sélecteur de colonne** dans le volet **Propriétés**.
 
-    - Sur la gauche, cliquez sur **With rules**
-    - Sous **Commencer par**, cliquez sur **Toutes les colonnes**. Ces règles indiquent au module [Sélectionner des colonnes dans le jeu de données][select-columns] de transmettre toutes les colonnes, sauf celles que nous nous apprêtons à exclure.
-    - Dans les listes déroulantes, sélectionnez **Exclure** et **Noms des colonnes**, puis cliquez dans la zone de texte. Une liste de colonnes s’affiche. Sélectionnez la colonne **normalized-losses**, qui est alors ajoutée à la zone de texte.
-    - Cliquez sur le bouton en forme de coche (OK) pour fermer le sélecteur de colonne (en bas à droite).
+   - Sur la gauche, cliquez sur **With rules**
+   - Sous **Commencer par**, cliquez sur **Toutes les colonnes**. Ces règles indiquent au module [Sélectionner des colonnes dans le jeu de données][select-columns] de transmettre toutes les colonnes, sauf celles que nous nous apprêtons à exclure.
+   - Dans les listes déroulantes, sélectionnez **Exclure** et **Noms des colonnes**, puis cliquez dans la zone de texte. Une liste de colonnes s’affiche. Sélectionnez la colonne **normalized-losses**, qui est alors ajoutée à la zone de texte.
+   - Cliquez sur le bouton en forme de coche (OK) pour fermer le sélecteur de colonne (en bas à droite).
 
-    ![Lancez le sélecteur de colonne et excluez la colonne « normalized-losses »](./media/create-experiment/launch-column-selector.png)
+     ![Lancez le sélecteur de colonne et excluez la colonne « normalized-losses »](./media/create-experiment/launch-column-selector.png)
 
-    À présent, le volet de propriétés du module **Sélectionner des colonnes dans le jeu de données** indique qu’il transmettra toutes les colonnes du jeu de données, à l’exception de **normalized-losses**.
+     À présent, le volet de propriétés du module **Sélectionner des colonnes dans le jeu de données** indique qu’il transmettra toutes les colonnes du jeu de données, à l’exception de **normalized-losses**.
 
-    ![Le volet Propriétés indique que la colonne « normalized-losses » est exclue](./media/create-experiment/showing-excluded-column.png)
+     ![Le volet Propriétés indique que la colonne « normalized-losses » est exclue](./media/create-experiment/showing-excluded-column.png)
 
-    > [!TIP] 
-    > Vous pouvez ajouter un commentaire dans un module en double-cliquant sur ce module, puis en saisissant du texte. Ceci peut vous aider à voir d'un seul coup d'œil ce que fait chaque module dans votre expérience. Dans ce cas, double-cliquez sur le module [Sélectionner des colonnes dans le jeu de données][select-columns] et saisissez le commentaire suivant : « Exclure les pertes normalisées ».
+     > [!TIP] 
+     > Vous pouvez ajouter un commentaire dans un module en double-cliquant sur ce module, puis en saisissant du texte. Ceci peut vous aider à voir d'un seul coup d'œil ce que fait chaque module dans votre expérience. Dans ce cas, double-cliquez sur le module [Sélectionner des colonnes dans le jeu de données][select-columns] et saisissez le commentaire suivant : « Exclure les pertes normalisées ».
 
-    ![Double-cliquez sur un module pour ajouter un commentaire](./media/create-experiment/add-comment.png)
+     ![Double-cliquez sur un module pour ajouter un commentaire](./media/create-experiment/add-comment.png)
 
 1. Faites glisser le module [Nettoyer les données manquantes][clean-missing-data] vers la zone de dessin de l’expérience et connectez-le au module [Sélectionner des colonnes dans le jeu de données][select-columns]. Dans le volet **Propriétés**, sélectionnez **Supprimer toute la ligne** sous **Mode de nettoyage**. Ces options indiquent au module [Nettoyage des données manquantes][clean-missing-data] de nettoyer les données en supprimant les lignes où il manque des valeurs. Double-cliquez sur le module et saisissez le commentaire suivant : « Supprimer les lignes de valeur manquantes ».
 

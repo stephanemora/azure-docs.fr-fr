@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: monhaber
-ms.openlocfilehash: 8662539257422289053e75beeadd07c63d8d3f4d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 6e8c10ecb85addf2ef6a995e3c0b8ac611343cfa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106628"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110339"
 ---
-# <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Tutoriel : Protéger vos ressources avec Azure Security Center
+# <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Didacticiel : Protéger vos ressources avec Azure Security Center
 Security Center limite votre exposition aux menaces en utilisant des contrôles d’accès et d’applications pour bloquer les activités malveillantes. L’accès juste-à-temps (JIT) aux machines virtuelles réduit votre exposition aux attaques en vous permettant de refuser l’accès persistant aux machines virtuelles. À la place, vous fournissez un accès contrôlé et audité aux machines virtuelles uniquement en cas de besoin. Les contrôles d’applications adaptatifs permettent de renforcer la protection contre les logiciels malveillants en contrôlant les applications qui peuvent s’exécuter sur les machines virtuelles. Security Center utilise le machine learning pour analyser les processus en cours d’exécution sur la machine virtuelle et exploite ces informations pour vous aider à appliquer les règles de mise en liste verte.
 
 Ce didacticiel vous montre comment effectuer les opérations suivantes :
@@ -43,30 +43,30 @@ Les ports de gestion n’ont pas besoin d’être toujours ouverts. Ils doivent 
 
 1. Dans le menu principal de Security Center, sélectionnez **Accès juste-à-temps aux machines virtuelles** sous **DÉFENSE DE CLOUD AVANCÉE**.
 
-  ![Accès juste-à-temps aux machines virtuelles][1]
+   ![Accès juste-à-temps aux machines virtuelles][1]
 
-  La section **Accès juste-à-temps aux machines virtuelles** fournit des informations sur l’état de vos machines virtuelles :
+   La section **Accès juste-à-temps aux machines virtuelles** fournit des informations sur l’état de vos machines virtuelles :
 
-  - **Configuré** : machines virtuelles configurées pour prendre en charge l’accès Juste à temps à la machine virtuelle.
-  - **Recommandé** : machines virtuelles qui peuvent prendre en charge l’accès Juste à temps à la machine virtuelle, mais n’ont pas été configurées dans cette optique.
-  - **Aucune recommandation** : voici les raisons pour lesquelles une machine virtuelle peut ne pas être recommandée :
+   - **Configuré** : machines virtuelles configurées pour prendre en charge l’accès Juste à temps à la machine virtuelle.
+   - **Recommandé** : machines virtuelles qui peuvent prendre en charge l’accès Juste à temps à la machine virtuelle, mais n’ont pas été configurées dans cette optique.
+   - **Aucune recommandation** : voici les raisons pour lesquelles une machine virtuelle peut ne pas être recommandée :
 
-    - Groupe de sécurité réseau manquant : la solution Juste à temps nécessite la présence d’un groupe de sécurité réseau.
-    - Machine virtuelle classique : l’accès Juste à temps à la machine virtuelle Security Center prend en charge uniquement les machines virtuelles déployées par le biais d’Azure Resource Manager.
-    - Autre : catégorie d’une machine virtuelle si la solution Juste à temps est désactivée dans la stratégie de sécurité de l’abonnement ou du groupe de ressources, ou si la machine virtuelle ne dispose pas d’une adresse IP publique ni d’un groupe de sécurité réseau.
+     - Groupe de sécurité réseau manquant : la solution Juste à temps nécessite la présence d’un groupe de sécurité réseau.
+     - Machine virtuelle classique : l’accès Juste à temps à la machine virtuelle Security Center prend en charge uniquement les machines virtuelles déployées par le biais d’Azure Resource Manager.
+     - Autre : catégorie d’une machine virtuelle si la solution Juste à temps est désactivée dans la stratégie de sécurité de l’abonnement ou du groupe de ressources, ou si la machine virtuelle ne dispose pas d’une adresse IP publique ni d’un groupe de sécurité réseau.
 
 2. Sélectionnez une machine virtuelle recommandée et cliquez sur **Activer juste-à-temps sur 1 machine virtuelle** pour configurer une stratégie juste-à-temps pour cette machine virtuelle :
 
-  Vous pouvez enregistrer les ports par défaut que vous recommande Security Center, ou vous pouvez ajouter et configurer un nouveau port sur lequel activer la solution juste-à-temps. Dans ce didacticiel, nous ajoutons un port en sélectionnant **Ajouter**.
+   Vous pouvez enregistrer les ports par défaut que vous recommande Security Center, ou vous pouvez ajouter et configurer un nouveau port sur lequel activer la solution juste-à-temps. Dans ce didacticiel, nous ajoutons un port en sélectionnant **Ajouter**.
 
-  ![Ajouter la configuration du port][2]
+   ![Ajouter la configuration du port][2]
 
 3. Sous **Ajouter la configuration du port**, vous identifiez :
 
-  - Le port
-  - Le type de protocole
-  - Les adresses IP sources autorisées : plages d’adresses IP autorisées à accéder par le biais d’une demande approuvée
-  - La durée maximale de la demande : fenêtre de temps maximale pendant laquelle un port spécifique peut être ouvert
+   - Le port
+   - Le type de protocole
+   - Les adresses IP sources autorisées : plages d’adresses IP autorisées à accéder par le biais d’une demande approuvée
+   - La durée maximale de la demande : fenêtre de temps maximale pendant laquelle un port spécifique peut être ouvert
 
 4. Sélectionnez **OK** pour enregistrer.
 
@@ -79,22 +79,22 @@ Cette fonctionnalité est uniquement disponible pour les ordinateurs Windows.
 
    ![Contrôles d’application adaptative][3]
 
-  La section **Groupes de ressources** contient trois onglets :
+   La section **Groupes de ressources** contient trois onglets :
 
-  - **Configuré** : liste des groupes de ressources contenant les machines virtuelles qui ont été configurées avec le contrôle d’application.
-  - **Recommandée** : liste des groupes de ressources pour lesquels le contrôle d’application est recommandé.
-  - **Aucune recommandation** : liste des groupes de ressources contenant des machines virtuelles sans recommandations de contrôle d’application. Par exemple, les machines virtuelles dont les applications sont toujours en cours de modification et qui n’ont pas atteint un état stable.
+   - **Configuré** : liste des groupes de ressources contenant les machines virtuelles qui ont été configurées avec le contrôle d’application.
+   - **Recommandée** : liste des groupes de ressources pour lesquels le contrôle d’application est recommandé.
+   - **Aucune recommandation** : liste des groupes de ressources contenant des machines virtuelles sans recommandations de contrôle d’application. Par exemple, les machines virtuelles dont les applications sont toujours en cours de modification et qui n’ont pas atteint un état stable.
 
 2. Sélectionnez l’onglet **Recommandé** pour obtenir la liste des groupes de ressources avec des recommandations de contrôle d’applications.
 
-  ![Recommandations de contrôle d’applications][4]
+   ![Recommandations de contrôle d’applications][4]
 
 3. Sélectionnez un groupe de ressources pour ouvrir l’option **Créer des règles de contrôle d’applications**. Dans **Sélectionner les machines virtuelles**, examinez la liste des machines virtuelles recommandées et décochez celles pour lesquelles vous ne souhaitez pas appliquer le contrôle d’application. Dans **Sélectionner les processus des règles de mise en liste verte**, examinez la liste des applications recommandées et décochez celles que vous ne souhaitez pas appliquer. Cette liste comprend les éléments suivants :
 
-  - **NOM** : chemin complet de l’application
-  - **PROCESSUS** : nombre d’applications dans chaque chemin
-  - **COMMUN** : la valeur « Oui » indique que ces processus ont été exécutés sur la plupart des machines virtuelles de ce groupe de ressources
-  - **EXPLOITABLE** : une icône d’avertissement indique si les applications peuvent être utilisées par un attaquant pour ignorer la liste verte d’applications. Nous vous recommandons de vérifier ces applications avant de les valider.
+   - **NOM** : chemin complet de l’application
+   - **PROCESSUS** : nombre d’applications dans chaque chemin
+   - **COMMUN** : la valeur « Oui » indique que ces processus ont été exécutés sur la plupart des machines virtuelles de ce groupe de ressources
+   - **EXPLOITABLE** : une icône d’avertissement indique si les applications peuvent être utilisées par un attaquant pour ignorer la liste verte d’applications. Nous vous recommandons de vérifier ces applications avant de les valider.
 
 4. Une fois que vous avez terminé vos sélections, sélectionnez **Créer**.
 

@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 244dfa6089ac6263abfedb398a8f58c4d307543c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 7287dc176f230f2d5440abdf1c4a3e364dcf96e7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55854895"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890982"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-java-in-computer-vision"></a>Démarrage rapide : Générer une miniature avec l’API REST et Java dans la Vision par ordinateur
 
-Dans ce guide de démarrage rapide, vous générez une miniature d’une image en utilisant l’API REST de Vision par ordinateur. Avec la méthode [Obtenir une miniature](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb), vous pouvez générer une miniature d’une image. Vous spécifiez la hauteur et la largeur, qui peuvent différer des proportions de l’image d’entrée. L’API Vision par ordinateur utilise le rognage intelligent pour identifier la zone d’intérêt et générer des coordonnées de rognage en fonction de cette région.
+Dans ce guide de démarrage rapide, vous générez une miniature d’une image en utilisant l’API REST de Vision par ordinateur. Vous spécifiez la hauteur et la largeur, qui peuvent différer des proportions de l’image d’entrée. L’API Vision par ordinateur utilise le rognage intelligent pour identifier la zone d’intérêt et générer des coordonnées de rognage en fonction de cette région.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) avant de commencer.
 
@@ -166,10 +166,6 @@ public class Main {
 ## <a name="examine-the-response"></a>Examiner la réponse
 
 Une réponse correcte est retournée sous forme de données binaires qui représentent les données d’image de la miniature. Si la requête aboutit, la miniature est générée à partir des données binaires de la réponse, et est affichée dans une fenêtre distincte, créée par l’exemple d’application. Si la requête échoue, la réponse s’affiche dans la fenêtre de la console. La réponse associée à l’échec de la requête contient un code d’erreur et un message indiquant la cause du problème.
-
-## <a name="clean-up-resources"></a>Supprimer des ressources
-
-Quand vous n’en avez plus besoin, supprimez le projet Java, y compris la classe compilée et les bibliothèques importées.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

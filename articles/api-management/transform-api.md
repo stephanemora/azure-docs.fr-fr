@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 06/15/2018
+ms.date: 02/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 4aa4c69857bfd1ab99945cb0f5f748e60cff9978
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: e50c5d942bdbafc60bf0e2b8c74b008ac12b3bc6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417328"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58084978"
 ---
-# <a name="transform-and-protect-your-api"></a>Transformer et protéger votre API 
+# <a name="transform-and-protect-your-api"></a>Transformer et protéger votre API
 
 Le didacticiel vous montre comment transformer votre API de manière à ce qu’elle ne divulgue pas d’informations confidentielles du serveur principal. Par exemple, il se peut que vous vouliez masquer certaines informations relatives à la pile de technologies exécutée sur le serveur principal. De la même manière, vous pourriez avoir intérêt à protéger les URL d’origine qui apparaissent dans le corps de la réponse HTTP de l’API, en les redirigeant vers la passerelle APIM.
 
@@ -30,19 +30,20 @@ Ce didacticiel vous montre par ailleurs combien il est facile d’ajouter une pr
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-> * Transformer une API pour supprimer des en-têtes de réponse
-> * Remplacer les URL d’origine dans le corps de la réponse de l’API par les URL de la passerelle APIM
-> * Protéger une API en ajoutant une stratégie de limite de débit (limitation)
-> * Tester les transformations
+>
+> -   Transformer une API pour supprimer des en-têtes de réponse
+> -   Remplacer les URL d’origine dans le corps de la réponse de l’API par les URL de la passerelle APIM
+> -   Protéger une API en ajoutant une stratégie de limite de débit (limitation)
+> -   Tester les transformations
 
 ![Stratégies](./media/transform-api/api-management-management-console.png)
 
 ## <a name="prerequisites"></a>Prérequis
 
-+ Apprenez la [terminologie relative à Gestion des API Azure](api-management-terminology.md).
-+ Comprendre le [concept des stratégies dans Gestion des API Azure](api-management-howto-policies.md).
-+ Suivez ce guide de démarrage rapide : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
-+ Effectuez également toutes les étapes du tutoriel suivant : [Importer et publier votre première API](import-and-publish.md).
+-   Apprenez la [terminologie relative à Gestion des API Azure](api-management-terminology.md).
+-   Comprendre le [concept des stratégies dans Gestion des API Azure](api-management-howto-policies.md).
+-   Suivez ce guide de démarrage rapide : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
+-   Effectuez également toutes les étapes du tutoriel suivant : [Importer et publier votre première API](import-and-publish.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -50,8 +51,8 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 Cette section vous montre comment masquer les en-têtes HTTP que vous ne souhaiter pas divulguer à vos utilisateurs. Dans cet exemple, les en-têtes suivants ont été supprimés de la réponse HTTP :
 
-* **X-Powered-By**
-* **X-AspNet-Version**
+-   **X-Powered-By**
+-   **X-AspNet-Version**
 
 ### <a name="test-the-original-response"></a>Tester la réponse d’origine
 
@@ -78,13 +79,14 @@ La réponse originale est de ce type :
 5. Placez le curseur à l’intérieur de l’élément **&lt;sortant&gt;**.
 6. Dans la fenêtre de droite, sous **Stratégies de transformation**, cliquez deux fois sur **+ Set HTTP header** (afin d’insérer deux extraits de stratégie).
 
-    ![Stratégies](./media/transform-api/transform-api.png)
+   ![Stratégies](./media/transform-api/transform-api.png)
+
 7. Modifiez votre code **<outbound>** afin qu’il ressemble à ceci :
 
-        <set-header name="X-Powered-By" exists-action="delete" />
-        <set-header name="X-AspNet-Version" exists-action="delete" />
+       <set-header name="X-Powered-By" exists-action="delete" />
+       <set-header name="X-AspNet-Version" exists-action="delete" />
 
-    ![Stratégies](./media/transform-api/set-policy.png)
+   ![Stratégies](./media/transform-api/set-policy.png)
 
 8. Cliquez sur le bouton **Enregistrer** .
 
@@ -99,7 +101,7 @@ Pour consulter la réponse d’origine :
 1. Sélectionnez **API de conférence de démonstration**.
 2. Cliquez sur l’onglet **Test**, sur la partie supérieure de l’écran.
 3. Sélectionnez l’opération **GetSpeakers**.
-4. Appuyez sur le bouton **Envoyer**, sur la partie inférieure de l’écran. 
+4. Appuyez sur le bouton **Envoyer**, sur la partie inférieure de l’écran.
 
     Comme vous pouvez le voir, la réponse se présente ainsi :
 
@@ -107,13 +109,13 @@ Pour consulter la réponse d’origine :
 
 ### <a name="set-the-transformation-policy"></a>Définir la stratégie de transformation
 
-1. Sélectionnez **API de conférence de démonstration**.
-2. Sélectionnez **Toutes les opérations**.
-3. Sélectionnez l’onglet **Conception** en haut de l’écran.
-4. Dans le **Traitement sortant**, cliquez sur l’icône **</>**.
-5. Placez le curseur à l’intérieur de l’élément **&lt;sortant&gt;**.
-6. Dans la fenêtre de droite, sous **Stratégies de transformation**, cliquez sur **+ Find and replace string in body**.
-7. Modifiez votre code **find-and-replace** (dans l’élément **\<outbound\>**) afin de remplacer l’URL par une instance correspondant à celle de la passerelle APIM. Par exemple : 
+1.  Sélectionnez **API de conférence de démonstration**.
+2.  Sélectionnez **Toutes les opérations**.
+3.  Sélectionnez l’onglet **Conception** en haut de l’écran.
+4.  Dans le **Traitement sortant**, cliquez sur l’icône **</>**.
+5.  Placez le curseur à l’intérieur de l’élément **&lt;sortant&gt;**.
+6.  Dans la fenêtre de droite, sous **Stratégies de transformation**, cliquez sur **+ Find and replace string in body**.
+7.  Modifiez votre code **find-and-replace** (dans l’élément **\<outbound\>**) afin de remplacer l’URL par une instance correspondant à celle de la passerelle APIM. Par exemple : 
 
         <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
 
@@ -123,18 +125,18 @@ Cette section vous montre comment ajouter une protection pour votre API principa
 
 ![Définir une stratégie entrante](./media/transform-api/04-ProtectYourAPI-01-SetPolicy-Inbound.png)
 
-1. Sélectionnez **API de conférence de démonstration**.
-2. Sélectionnez **Toutes les opérations**.
-3. Sélectionnez l’onglet **Conception** en haut de l’écran.
-4. Dans la section **Traitement entrant**, cliquez sur l’icône **</>**.
-5. Placez le curseur à l’intérieur de l’élément **&lt;sortant&gt;**.
-6. Dans la fenêtre de droite, sous **Accès aux stratégies de restriction**, cliquez sur **+ Limit call rate per key**.
-7. Remplacez votre code **rate-limit-by-key** (dans l’élément **\<inbound\>**) par le code suivant :
+1.  Sélectionnez **API de conférence de démonstration**.
+2.  Sélectionnez **Toutes les opérations**.
+3.  Sélectionnez l’onglet **Conception** en haut de l’écran.
+4.  Dans la section **Traitement entrant**, cliquez sur l’icône **</>**.
+5.  Placez le curseur à l’intérieur de l’élément **&lt;sortant&gt;**.
+6.  Dans la fenêtre de droite, sous **Accès aux stratégies de restriction**, cliquez sur **+ Limit call rate per key**.
+7.  Remplacez votre code **rate-limit-by-key** (dans l’élément **\<inbound\>**) par le code suivant :
 
         <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
 
 ## <a name="test-the-transformations"></a>Tester les transformations
-        
+
 À ce stade, si vous examinez le code dans l’éditeur de code, vos stratégies ressemblent à ceci :
 
     <policies>
@@ -148,6 +150,7 @@ Cette section vous montre comment ajouter une protection pour votre API principa
         <outbound>
             <set-header name="X-Powered-By" exists-action="delete" />
             <set-header name="X-AspNet-Version" exists-action="delete" />
+            <find-and-replace from="://conferenceapi.azurewebsites.net:443" to="://apiphany.azure-api.net/conference"/>
             <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
             <base />
         </outbound>
@@ -202,10 +205,11 @@ Le reste de cette section est dédié au test des transformations de stratégies
 Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
-> * Transformer une API pour supprimer des en-têtes de réponse
-> * Remplacer les URL d’origine dans le corps de la réponse de l’API par les URL de la passerelle APIM
-> * Protéger une API en ajoutant une stratégie de limite de débit (limitation)
-> * Tester les transformations
+>
+> -   Transformer une API pour supprimer des en-têtes de réponse
+> -   Remplacer les URL d’origine dans le corps de la réponse de l’API par les URL de la passerelle APIM
+> -   Protéger une API en ajoutant une stratégie de limite de débit (limitation)
+> -   Tester les transformations
 
 Passez au tutoriel suivant :
 

@@ -11,14 +11,14 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: d333eb6baa41321fdf7daca3c545d5d5e3ed5fe4
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: b9ddd82d18b7f67f61e5c1589511ea6db4fa18a3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56732702"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100290"
 ---
-# <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Didacticiel : Extraire des noms avec une entité simple et une liste d’expressions
+# <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Tutoriel : Extraire des noms avec une entité simple et une liste d’expressions
 
 Dans ce tutoriel, vous allez extraire les données de nom de poste de travail issues du machine learning à partir d’un énoncé utilisant l’entité **Simple**. Pour augmenter la précision de l’extraction, ajoutez une liste d’expressions dont les termes sont spécifiques à l’entité simple.
 
@@ -127,7 +127,7 @@ Les entités simples ont besoin de nombreux exemples pour avoir un niveau de con
     |Je postule pour le travail de pose de carreaux.|vignette|
     |Ci-joint mon C.V. d’architecte paysagiste.|architecte paysagiste|
     |Vous trouverez ci-joint mon curriculum vitae de professeur de biologie.|professeur de biologie|
-    |J’aimerais postuler au poste dans la photographie.|photographie|git 
+    |J’aimerais postuler au poste dans la photographie.|photographie|
 
 ## <a name="mark-job-entity-in-other-intents"></a>Marquer une entité de poste dans d’autres intentions
 

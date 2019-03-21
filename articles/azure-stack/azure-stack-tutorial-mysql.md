@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: 8fc3246c76d7d09ea4518b5c548d5dbe05cc7a84
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ff1b137fb6461c4ebd17451b89a180364d833d4e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164258"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116790"
 ---
 # <a name="tutorial-offer-highly-available-mysql-databases"></a>Tutoriel : Offrir des bases de données MySQL à haute disponibilité
 
@@ -67,7 +67,7 @@ Utilisez les étapes décrites dans cette section pour déployer le cluster MySQ
 - Trois machines virtuelles Linux pour héberger le cluster MySQL
 
 1. 
-[!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
+   [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. Sélectionnez **\+** **Créer une ressource** > **Calcul**, puis **MySQL with Replication**.
 
@@ -168,7 +168,7 @@ Une fois que le cluster MySQL a été créé, configuré et ajouté en tant que 
 > Effectuez ces étapes à partir du portail utilisateur Azure Stack en tant qu’utilisateur du locataire, avec un abonnement fournissant des fonctionnalités MySQL Server (service Microsoft.MySQLAdapter).
 
 1. 
-[!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
+   [!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
 
 2. Cliquez sur **\+** **Créer une ressource** > **Données\+Stockage**, puis sur **Base de données MySQL**.<br><br>Spécifiez les informations des propriétés de base de données nécessaires, notamment le nom, le classement, l’abonnement et l’emplacement à utiliser pour le déploiement. 
 

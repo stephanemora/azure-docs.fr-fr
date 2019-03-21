@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 02/25/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 53cc987d13479fc0d9276ec80f33a163a2a6ded7
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: f7f235ce709fd81c4bb4c367774b4a96cd920e13
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817029"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120344"
 ---
 # <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>Tutoriel : Sécuriser des artefacts dans les déploiements de modèles Azure Resource Manager
 
@@ -126,11 +126,11 @@ Un conteneur d’objets blob est requis avant de télécharger tous les fichiers
 3. Sélectionnez **Générer un jeton et une URL SAP d’objet blob**.
 4. Faites une copie de l'**URL SAP d'objet blob**. Au milieu de l’URL se trouve le nom de fichier **SQLDatabaseExtension.bacpac**.  Le nom de fichier divise l’URL en trois parties :
 
-    - **Emplacement de l’artefact** : https://xxxxxxxxxxxxxx.blob.core.windows.net/sqlbacpac/. Assurez-vous que l’emplacement se termine par un « / ».
-    - **Nom du fichier BACPAC** : SQLDatabaseExtension.bacpac.
-    - **Jeton SAS de l’emplacement des artefacts** : Assurez-vous que le jeton est précédé d'un « ? ».
+   - **Emplacement de l’artefact** : https://xxxxxxxxxxxxxx.blob.core.windows.net/sqlbacpac/. Assurez-vous que l’emplacement se termine par un « / ».
+   - **Nom du fichier BACPAC** : SQLDatabaseExtension.bacpac.
+   - **Jeton SAS de l’emplacement des artefacts** : Assurez-vous que le jeton est précédé d'un « ? ».
 
-    Vous avez besoin de ces trois valeurs dans [Déployer le modèle](#deploy-the-template).
+     Vous avez besoin de ces trois valeurs dans [Déployer le modèle](#deploy-the-template).
 
 ## <a name="open-an-existing-template"></a>Ouvrir un modèle existant
 
@@ -146,13 +146,13 @@ Dans cette session, vous modifiez le modèle que vous avez créé dans [Tutoriel
 
     Il existe cinq ressources définies dans le modèle :
 
-    * `Microsoft.Sql/servers`. Consultez la [référence de modèle](https://docs.microsoft.com/azure/templates/microsoft.sql/2015-05-01-preview/servers).
-    * `Microsoft.SQL/servers/securityAlertPolicies`. Consultez la [référence de modèle](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/securityalertpolicies).
-    * `Microsoft.SQL/servers/filewallRules`. Consultez la [référence de modèle](https://docs.microsoft.com/azure/templates/microsoft.sql/2015-05-01-preview/servers/firewallrules).
-    * `Microsoft.SQL/servers/databases`.  Consultez la [référence de modèle](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
-    * `Microsoft.SQL/server/databases/extensions`.  Consultez la [référence de modèle](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/extensions).
+   * `Microsoft.Sql/servers`. Consultez la [référence de modèle](https://docs.microsoft.com/azure/templates/microsoft.sql/2015-05-01-preview/servers).
+   * `Microsoft.SQL/servers/securityAlertPolicies`. Consultez la [référence de modèle](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/securityalertpolicies).
+   * `Microsoft.SQL/servers/filewallRules`. Consultez la [référence de modèle](https://docs.microsoft.com/azure/templates/microsoft.sql/2015-05-01-preview/servers/firewallrules).
+   * `Microsoft.SQL/servers/databases`.  Consultez la [référence de modèle](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
+   * `Microsoft.SQL/server/databases/extensions`.  Consultez la [référence de modèle](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/extensions).
 
-    Il est préférable de comprendre quelques notions basiques du modèle avant de le personnaliser.
+     Il est préférable de comprendre quelques notions basiques du modèle avant de le personnaliser.
 4. Sélectionnez **Fichier**>**Enregistrer sous** pour enregistrer une copie du fichier sur votre ordinateur local avec le nom **azuredeploy.json**.
 
 ## <a name="edit-the-template"></a>Modifier le modèle

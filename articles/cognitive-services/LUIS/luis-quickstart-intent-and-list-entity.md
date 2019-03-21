@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 23a94f7b2054692feedb3b7755dad1e840809be7
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 5417c1c008b5abaada158530c7c29c67e0dc1ca0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734116"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119664"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>Tutoriel : Obtenir des données exactes correspondant au texte d’un énoncé
 
@@ -134,7 +134,7 @@ Le nom _canonique_ principal pour chaque élément est le nom de service. Voici 
 
 1. Accédez à la fin de l’URL dans la barre d’adresses, puis entrez `shift Joe Smith to IT`. Le dernier paramètre de la chaîne de requête est `q`, l’énoncé est **q**uery. Comme cet énoncé est différent des énoncés étiquetés, c’est un bon test qui doit retourner l’intention `TransferEmployeeToDepartment` avec `Department` extrait.
 
-  ```json
+   ```json
     {
       "query": "shift Joe Smith to IT",
       "topScoringIntent": {
@@ -165,7 +165,7 @@ Le nom _canonique_ principal pour chaque élément est le nom de service. Voici 
         }
       ]
     }
-  ```
+   ```
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

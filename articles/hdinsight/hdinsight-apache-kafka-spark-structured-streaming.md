@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,seodec18
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4dcf482e02d38e18b7b86fc57565a47510627d44
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: e470f9d6f33e8b534be22132881f4806bed85f5d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652862"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078361"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>Tutoriel : Utiliser Apache Spark Structured Streaming avec Apache Kafka sur HDInsight
 
@@ -131,12 +131,12 @@ Pour créer un réseau virtuel Azure puis les clusters Kafka et Spark qu’il co
 
     Ce modèle crée les ressources suivantes :
 
-    * Un cluster Kafka sur HDInsight 3.6.
-    * Un cluster Spark 2.2.0 sur HDInsight 3.6.
-    * Un réseau virtuel Azure, qui contient les clusters HDInsight.
+   * Un cluster Kafka sur HDInsight 3.6.
+   * Un cluster Spark 2.2.0 sur HDInsight 3.6.
+   * Un réseau virtuel Azure, qui contient les clusters HDInsight.
 
-    > [!IMPORTANT]  
-    > Le bloc-notes de diffusion en continu structurée utilisé dans ce didacticiel nécessite Spark 2.2.0 sur HDInsight 3.6. Si vous utilisez une version antérieure de Spark sur HDInsight, vous recevez des erreurs lors de l’utilisation du bloc-notes.
+     > [!IMPORTANT]  
+     > Le bloc-notes de diffusion en continu structurée utilisé dans ce didacticiel nécessite Spark 2.2.0 sur HDInsight 3.6. Si vous utilisez une version antérieure de Spark sur HDInsight, vous recevez des erreurs lors de l’utilisation du bloc-notes.
 
 2. Utilisez les informations suivantes pour renseigner les entrées dans la section **Modèle personnalisé** :
 

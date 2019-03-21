@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 08/27/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: a4b8d930a2176c16bb9d1cbcd3b67e6f919575ed
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 0a0f7cc8e3810a28fdbec914a9f37808c33ab878
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53162220"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880585"
 ---
 # <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>Didacticiel : Configurer un environnement Jenkins pour activer l’intégration/le déploiement continus (CI/CD) pour une application Java sur Service Fabric
 
@@ -72,15 +72,15 @@ Vous pouvez configurer Jenkins à l’intérieur ou en dehors d’un cluster Ser
     * Après vous être connecté pour la première fois, vous pouvez créer votre propre compte utilisateur ou utiliser le compte administrateur.
 
 1. Configurez GitHub pour utiliser Jenkins, en suivant les étapes présentées dans [Generating a new SSH key and adding it to the SSH agent](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/) (Génération d’une clé SSH et ajout de celle-ci à l’agent SSH). Étant donné que les commandes sont exécutées à partir du conteneur Docker, suivez les instructions pour l’environnement Linux.
-    * Utilisez les instructions fournies par GitHub pour générer la clé SSH. Ensuite, ajoutez la clé SSH pour le compte GitHub qui héberge le référentiel.
-    * Exécutez les commandes mentionnées dans le lien ci-dessus dans le shell Jenkins Docker (et non sur l’hôte).
-    * Pour vous connecter au shell Jenkins depuis votre hôte, utilisez les commandes suivantes :
+   * Utilisez les instructions fournies par GitHub pour générer la clé SSH. Ensuite, ajoutez la clé SSH pour le compte GitHub qui héberge le référentiel.
+   * Exécutez les commandes mentionnées dans le lien ci-dessus dans le shell Jenkins Docker (et non sur l’hôte).
+   * Pour vous connecter au shell Jenkins depuis votre hôte, utilisez les commandes suivantes :
 
-    ```sh
-    docker exec -t -i [first-four-digits-of-container-ID] /bin/bash
-    ```
+     ```sh
+     docker exec -t -i [first-four-digits-of-container-ID] /bin/bash
+     ```
 
-    Vérifiez que le cluster ou la machine hébergeant l’image de conteneur Jenkins possède une adresse IP publique. Le fait d’avoir une adresse IP publique permet à l’instance Jenkins de recevoir des notifications de GitHub.
+     Vérifiez que le cluster ou la machine hébergeant l’image de conteneur Jenkins possède une adresse IP publique. Le fait d’avoir une adresse IP publique permet à l’instance Jenkins de recevoir des notifications de GitHub.
 
 ## <a name="create-and-configure-a-jenkins-job"></a>Créer et configurer un travail Jenkins
 
@@ -146,7 +146,7 @@ Vous pouvez configurer Jenkins à l’intérieur ou en dehors d’un cluster Ser
 
     ```xml
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
-    <ApplicationManifest xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VotingApplicationType" ApplicationTypeVersion="2.0.0">
+    <ApplicationManifest xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VotingApplicationType" ApplicationTypeVersion="2.0.0">
       <Description>Voting Application</Description>
       <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="VotingWebPkg" ServiceManifestVersion="2.0.0"/>

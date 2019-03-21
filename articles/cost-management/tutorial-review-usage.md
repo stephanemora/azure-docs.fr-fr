@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 03/18/2019
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: e240cbadbee87938107c4a9bf034c47db42acf92
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: bb5a4b3a3019007948a9996ed6715e755f284f9e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098644"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58175165"
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
@@ -97,14 +97,14 @@ Les alertes vous permettent d’avertir automatiquement des parties prenantes en
 
 Cet exemple utilise le rapport des **coûts réels dans le temps** pour envoyer une notification quand vos dépenses sur une machine virtuelle Azure s’approchent de votre budget total. Dans ce scénario, vous disposez d’un budget total de 20 000 $, et souhaitez recevoir une notification quand les coûts sont proches de la moitié de votre budget, 9 000 $, et une alerte supplémentaire quand ils atteignent 10 000 $.
 
-1. Dans le menu en haut du portail Cloudyn, sélectionnez **Coûts** > **Analyse des coûts** > **Rapport des coûts réels dans le temps**. 
-2. Définissez **Groups (Groupes)** sur **Service** et **filtrez le service** sur **Azure/VM**. 
+1. Dans le menu en haut du portail Cloudyn, sélectionnez **Coûts** > **Analyse des coûts** > **Rapport des coûts réels dans le temps**.
+2. Définissez **Groups (Groupes)** sur **Service** et **filtrez le service** sur **Azure/VM**.
 3. Dans le coin supérieur droit du rapport, sélectionnez **Actions**, puis sélectionnez **Planifier le rapport**.
-4. Pour recevoir un e-mail du rapport à intervalle planifié, sélectionnez l’onglet **Planification** dans la boîte de dialogue **Enregistrer ou planifier ce rapport**. Veillez à sélectionner **Envoyer par e-mail**. Tous les regroupements, filtrages et balises que vous utilisez sont inclus dans le rapport envoyé par e-mail. 
-5. Sélectionnez l’onglet **Seuil**, puis **Actual Cost vs. Threshold** (Coût réel vs seuil). 
-   1. Dans le seuil **Alerte rouge**, entrez 10000. 
-   2. Dans le seuil **Alerte jaune**, entrez 9000. 
-   3. Dans la zone **Nombre d’alertes consécutives**, entrez le nombre d’alertes consécutives à recevoir. Quand vous aurez reçu le nombre total d’alertes que vous avez spécifié, vous ne recevrez plus d’autres alertes. 
+4. Pour recevoir un e-mail du rapport à intervalle planifié, sélectionnez l’onglet **Planification** dans la boîte de dialogue **Enregistrer ou planifier ce rapport**. Veillez à sélectionner **Envoyer par e-mail**. Tous les regroupements, filtrages et balises que vous utilisez sont inclus dans le rapport envoyé par e-mail.
+5. Sélectionnez l’onglet **Seuil**, puis **Actual Cost vs. Threshold** (Coût réel vs seuil).
+   1. Dans le seuil **Alerte rouge**, entrez 10000.
+   2. Dans le seuil **Alerte jaune**, entrez 9000.
+   3. Dans la zone **Nombre d’alertes consécutives**, entrez le nombre d’alertes consécutives à recevoir. Quand vous aurez reçu le nombre total d’alertes que vous avez spécifié, vous ne recevrez plus d’autres alertes.
 6. Sélectionnez **Enregistrer**.
 
 ![Exemple illustrant les alertes rouges et jaunes basées sur les seuils de dépenses](./media/tutorial-review-usage/schedule-alert01.png)

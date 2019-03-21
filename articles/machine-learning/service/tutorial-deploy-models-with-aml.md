@@ -6,19 +6,18 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-author: hning86
-ms.author: haining
-ms.reviewer: sgilley
+author: sdgilley
+ms.author: sgilley
 ms.date: 01/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0f596f40cdea095ea152785e656c44eaa062e28c
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: a8f3a5c6a1c7adaff620f8675fcffa4018eb9874
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564032"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58133091"
 ---
-# <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Tutoriel : Déployer un modèle de classification d’images dans Azure Container Instances
+# <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Didacticiel : Déployer un modèle de classification d’images dans Azure Container Instances
 
 Ce tutoriel est le **deuxième d’une série de deux**. Dans le [tutoriel précédent](tutorial-train-models-with-aml.md), vous avez entraîné des modèles Machine Learning, puis vous avez inscrit un modèle dans votre espace de travail sur le cloud.  
 
@@ -41,7 +40,7 @@ Container Instances est une excellente solution pour comprendre et tester le wor
 ## <a name="prerequisites"></a>Prérequis
 Passez à la section [Configurer l’environnement de développement](#start) pour lire les étapes liées au notebook.  
 
-Pour exécuter le notebook, effectuez tout d’abord l’entraînement du modèle dans le [Tutoriel (partie 1) : Entraîner un modèle de classification d’images avec Azure Machine Learning Service](tutorial-train-models-with-aml.md).   Exécutez ensuite le notebook **tutorials/img-classification-part2-deploy.ipynb** sur le même serveur de notebooks.
+Pour exécuter le notebook, effectuez tout d’abord l’entraînement du modèle dans le [Tutoriel (partie 1) : Effectuer l’apprentissage d’un modèle de classification d’images avec Azure Machine Learning Service](tutorial-train-models-with-aml.md).   Exécutez ensuite le notebook **tutorials/img-classification-part2-deploy.ipynb** sur le même serveur de notebooks.
 
 
 ## <a name="start"></a>Configurer l’environnement

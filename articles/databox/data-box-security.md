@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 0b4e7165f30364ba61b583cf5d2f55e8826b9cf3
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 90004c27463a61de1b36eaea6754215f911f7483
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092123"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095855"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Protection des données et sécurité Azure Data Box
 
@@ -75,16 +75,16 @@ Azure Data Box collecte et affiche des informations personnelles dans les instan
 
 - **Détails de la commande** : une fois la commande créée, l’adresse de livraison, l’adresse e-mail, et les informations de contact des utilisateurs sont stockées dans le portail Azure. Les informations enregistrées incluent :
 
-    - Nom du contact
-    - Numéro de téléphone
-    - Email
-    - Adresse postale
-    - City
-    - Code postal
-    - État
-    - Pays/Province/Région
-    - Numéro de compte du transporteur
-    - Numéro de suivi d’expédition
+  - Nom du contact
+  - Numéro de téléphone
+  - Email
+  - Adresse postale
+  - City
+  - Code postal
+  - État
+  - Pays/Province/Région
+  - Numéro de compte du transporteur
+  - Numéro de suivi d’expédition
 
     Les détails de la commande sont supprimés par le service Data Box lorsque la tâche est terminée ou quand vous supprimez la commande.
 
@@ -99,11 +99,11 @@ Les consignes de sécurité suivantes sont implémentées dans Data Box :
 
 |Instruction   |Description   |
 |---------|---------|
-|[IEC 60529 IP52](http://www.iec.ch/)    | Pour la protection contre l’eau et la poussière         |
+|[IEC 60529 IP52](https://www.iec.ch/)    | Pour la protection contre l’eau et la poussière         |
 |[ISTA 2A](https://ista.org/docs/2Aoverview.pdf)     | Pour résister à des conditions de transport défavorables          |
-|[NIST SP 800-147](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-147.pdf)      | Pour la mise à jour sécurisée du microprogramme         |
+|[NIST SP 800-147](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-147.pdf)      | Pour la mise à jour sécurisée du microprogramme         |
 |[FIPS 140-2 niveau 2](https://csrc.nist.gov/csrc/media/publications/fips/140/2/final/documents/fips1402.pdf)      | Pour la protection des données         |
-|[NIST SP 800-88r1](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf)      | Pour le nettoyage des données         |
+|[NIST SP 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf)      | Pour le nettoyage des données         |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

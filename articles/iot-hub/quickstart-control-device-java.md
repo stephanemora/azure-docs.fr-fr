@@ -1,21 +1,21 @@
 ---
 title: Démarrage rapide (Java) pour contrôler un appareil à partir d’Azure IoT Hub | Microsoft Docs
 description: Dans ce guide de démarrage rapide, vous exécutez deux exemples d’applications Java. Une application est une application back-end qui peut contrôler à distance des appareils connectés à votre concentrateur. L’autre application simule un appareil connecté à votre concentrateur qui peut être contrôlé à distance.
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/22/2019
-ms.author: dobett
-ms.openlocfilehash: 30c5026c0f7c8fcce3cee8780622f4c835f043ce
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: ce451ebb6b4a9afb10b9213a3d50c24c586887aa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670942"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58164890"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-java"></a>Démarrage rapide : Contrôler un appareil connecté à un hub IoT (Java)
 
@@ -103,7 +103,7 @@ Vous avez également besoin d’une _chaîne de connexion de service_ pour activ
 **YourIoTHubName** : Remplacez l’espace réservé ci-dessous par le nom que vous avez choisi pour votre hub IoT.
 
 ```azurecli-interactive
-az iot hub show-connection-string --hub-name YourIoTHubName --output table
+az iot hub show-connection-string --name YourIoTHubName --output table
 ```
 
 Notez la chaîne de connexion de service, qui ressemble à ce qui suit :

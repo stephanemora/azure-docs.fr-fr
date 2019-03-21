@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/07/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7967459e1318e85e1e179e21bc803bf00ee329cd
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
-ms.translationtype: HT
+ms.openlocfilehash: ff6601042c82cef2b0101833117f17aca8b463dc
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743791"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223255"
 ---
 # <a name="monitor-apache-hadoop-clusters-in-hdinsight-using-the-apache-ambari-api"></a>Surveiller les clusters Apache Hadoop dans HDInsight à l'aide de l'API Apache Ambari
 Découvrez comment surveiller les clusters HDInsight à l'aide des API Apache Ambari.
@@ -137,7 +137,7 @@ Le tableau suivant répertorie certains des appels d'API de surveillance Ambari 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous avez appris à utiliser les appels d'API de surveillance Apache Ambari. Pour plus d'informations, consultez les rubriques suivantes :
 
-* [Gestion des clusters HDInsight à l’aide du portail Azure][hdinsight-admin-portal]
+* [Gérer des clusters Apache Hadoop dans HDInsight avec le portail Azure](hdinsight-administer-use-portal-linux.md)
 * [Gestion des clusters HDInsight à l’aide d’Azure PowerShell][hdinsight-admin-powershell]
 * [Gestion de clusters HDInsight à l’aide de l’interface de ligne de commande][hdinsight-admin-cli]
 * [Documentation HDInsight][hdinsight-documentation]
@@ -155,7 +155,6 @@ Vous avez appris à utiliser les appels d'API de surveillance Apache Ambari. Pou
 [powershell-script]: https://technet.microsoft.com/library/ee176949.aspx
 
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
-[hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-admin-cli]: hdinsight-administer-use-command-line.md
 [hdinsight-documentation]: https://docs.microsoft.com/azure/hdinsight/
 [hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md

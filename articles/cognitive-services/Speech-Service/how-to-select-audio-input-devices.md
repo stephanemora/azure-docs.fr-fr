@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: e02c99edcc1774510f9d10a5d19f49c4fc0530a9
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: e8e2bd34ebb5b789bb3e9ba4a419ab424d3fdf5a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594081"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550672"
 ---
 # <a name="select-an-audio-input-device-with-the-speech-sdk"></a>Sélectionner un périphérique d’entrée audio avec le SDK Speech
 
@@ -223,7 +223,7 @@ Voici un exemple d’ID de périphérique : `\\\\?\\SWD#MMDEVAPI#{0.0.1.0000000
 
 Les ID de périphérique sont sélectionnés à l’aide des ID de périphérique ALSA standard.
 Les ID des entrées attachées au système sont contenus dans la sortie de la commande `arecord -L`.
-Vous pouvez également les obtenir à l’aide de la [bibliothèque ALSA C](http://www.alsa-project.org/alsa-doc/alsa-lib/).
+Vous pouvez également les obtenir à l’aide de la [bibliothèque ALSA C](https://www.alsa-project.org/alsa-doc/alsa-lib/).
 Voici des exemples d’ID : `hw:1,0` et `hw:CARD=CC,DEV=0`.
 
 ## <a name="audio-device-ids-on-macos"></a>ID de périphériques audio sur macOS

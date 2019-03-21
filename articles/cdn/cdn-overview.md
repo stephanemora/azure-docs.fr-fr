@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 05/09/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: bdc98a87a71dc7f8552f4bf869ec035409e0535e
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 9692d495ada8a311fd5037a4f17f24ed6da9243a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091536"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57843672"
 ---
 # <a name="what-is-a-content-delivery-network-on-azure"></a>Qu’est-ce qu’un réseau de distribution de contenu sur Azure ?
 Un réseau de diffusion de contenu (CDN) est un réseau distribué de serveurs capables de fournir efficacement du contenu web aux utilisateurs. Il stocke le contenu en cache sur des serveurs Edge dans un point de présente (POP) proches des utilisateurs finaux afin de réduire la latence. 
@@ -59,7 +59,7 @@ Chaque abonnement Azure comprend des limites par défaut pour les ressources sui
  - Le nombre de points de terminaison qui peuvent être créés dans un profil CDN. 
  - Le nombre de domaines personnalisés qui peuvent être mappés à un point de terminaison.
 
-Pour plus d’informations sur les limites d’abonnement CDN, consultez [Limites de CDN](https://docs.microsoft.com/azure/azure-subscription-service-limits#cdn-limits).
+Pour plus d’informations sur les limites d’abonnement CDN, consultez [Limites de CDN](https://docs.microsoft.com/azure/azure-subscription-service-limits).
     
 ## <a name="azure-cdn-features"></a>Fonctionnalités d’Azure CDN
 Azure CDN offre les fonctionnalités suivantes :
@@ -79,4 +79,3 @@ Pour obtenir la liste complète des fonctionnalités prises en charge par chaque
 - Apprenez à automatiser Azure CDN avec [.NET](cdn-app-dev-net.md) ou [Node.js](cdn-app-dev-node.md).
 - Pour voir Azure CDN en action, regardez les [vidéos Azure CDN](https://azure.microsoft.com/resources/videos/index/?services=cdn&sort=newest).
 - Pour plus d’informations sur les dernières fonctionnalités d’Azure CDN, consultez le [blog d’Azure CDN](https://azure.microsoft.com/blog/tag/azure-cdn/).
-

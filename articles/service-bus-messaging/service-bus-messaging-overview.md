@@ -11,16 +11,16 @@ ms.topic: overview
 ms.date: 09/22/2018
 ms.custom: mvc
 ms.author: aschhab
-ms.openlocfilehash: 1c99c680371d9d9601637ebeb52d9299de71b0ec
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 8217eddd6f31a30b9113b178d74b59afb94f42af
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338803"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57900860"
 ---
 # <a name="what-is-azure-service-bus"></a>Qu’est-ce qu’Azure Service Bus ?
 
-Microsoft Azure Service Bus est un courtier de messages d’[intégration](http://azure.com/integration) d’entreprise entièrement géré. Service Bus est généralement utilisé pour dissocier des applications et des services, et est une plateforme fiable et sécurisée pour le transfert d’état et de données asynchrones. Les données sont transférées entre différents services et applications à l’aide de *messages*. Un message est au format binaire, qui peut contenir un JSON, un XML, ou juste du texte. 
+Microsoft Azure Service Bus est un courtier de messages d’[intégration](https://azure.com/integration) d’entreprise entièrement géré. Service Bus est généralement utilisé pour dissocier des applications et des services, et est une plateforme fiable et sécurisée pour le transfert d’état et de données asynchrones. Les données sont transférées entre différents services et applications à l’aide de *messages*. Un message est au format binaire, qui peut contenir un JSON, un XML, ou juste du texte. 
 
 Les scénarios de messagerie courants sont :
 

@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: bd9cb76557c65832de5d249cdccdc36101edf646
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: ff8ef576a0dae0f03cc0c80f83ce0c24cf3945a2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821284"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093733"
 ---
-# <a name="tutorial-perform-manual-failover-for-an-iot-hub-public-preview"></a>Tutoriel : Effectuer un basculement manuel pour un hub IoT (préversion publique)
+# <a name="tutorial-perform-manual-failover-for-an-iot-hub-public-preview"></a>Didacticiel : Effectuer un basculement manuel pour un hub IoT (préversion publique)
 
 Basculement manuel est une fonctionnalité du service IoT Hub qui permet aux clients le[basculement](https://en.wikipedia.org/wiki/Failover) des opérations de leur hub à partir d’une région primaire vers la région Azure associée géographiquement correspondante. Basculement manuel est possible en cas de sinistre régional ou une panne de service étendue. Vous pouvez également effectuer un basculement planifié pour tester vos capacités de récupération d’urgence, mais nous vous recommandons d’utiliser un IoT hub de test plutôt que celui en cours d’exécution en production. La fonctionnalité de basculement manuel est proposée aux clients sans coût supplémentaire.
 
@@ -138,4 +138,4 @@ Dans ce didacticiel, vous avez appris comment configurer et effectuer un bascule
 Passez au didacticiel suivant pour découvrir comment gérer l’état d’un appareil IoT. 
 
 > [!div class="nextstepaction"]
-[Gérer l’état d’un appareil IoT](tutorial-device-twins.md)
+> [Gérer l’état d’un appareil IoT](tutorial-device-twins.md)

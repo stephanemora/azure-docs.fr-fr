@@ -10,26 +10,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/28/2019
+ms.date: 03/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 74061eb081fcc7c2c84707f2414a2edfbfde3289
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: c64842dc89c9519c738701558f510940f4cc148d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299535"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103908"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Copier des données à partir de SAP Business Warehouse via Open Hub à l'aide d'Azure Data Factory
 
 Cet article explique comment utiliser l'activité de copie d'Azure Data Factory pour copier des données à partir d'un SAP Business Warehouse (BW) via Open Hub. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
-
-## <a name="sap-bw-open-hub-integration"></a>Intégration de SAP BW Open Hub 
-
-Le service [SAP BW Open Hub](https://wiki.scn.sap.com/wiki/display/BI/Overview+of+Open+Hub+Service) permet d'extraire efficacement des données à partir de SAP BW. Le schéma suivant illustre l'un des flux typiques dont disposent les clients dans leur système SAP, et dans lequel les données circulent comme suit : SAP ECC -> PSA -> DSO -> Cube.
-
-La destination SAP BW Open Hub (OHD) définit la cible vers laquelle les données SAP sont relayées. Tous les objets pris en charge par le processus de transfert de données (DTP) SAP peuvent être utilisés comme sources de données Open Hub, par exemple, DSO, InfoCube, MultiProvider, DataSource, etc. Les types de destination Open Hub, où les données relayées sont stockées, peuvent être des tables de bases de données (locales ou distantes) et des fichiers plats. Ce connecteur SAP BW Open Hub prend en charge la copie de données de la table OHD locale dans BW. Si vous utilisez d'autres types, vous pouvez vous connecter directement à la base de données ou au système de fichiers à l'aide d'autres connecteurs.
-
-![SAP BW Open Hub](./media/connector-sap-business-warehouse-open-hub/sap-bw-open-hub.png)
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
@@ -37,12 +29,43 @@ Vous pouvez copier des données de SAP Business Warehouse vers une banque de don
 
 Plus précisément, ce connecteur SAP Business Warehouse Open Hub prend en charge ce qui suit :
 
-- SAP Business Warehouse **version 7.30 ou ultérieure (dans une pile SAP Support Package Stack postérieure à 2015)**.
+- SAP Business Warehouse **version 7.01 ou une version ultérieure (dans une récente SAP prise en charge de Package pile publiée après l’année 2015)**.
 - Copie de données via la table OHD locale qui peut être DSO, InfoCube, MultiProvider, DataSource, etc.
 - Copie de données en utilisant une authentification de base.
 - Connexion au serveur d'applications.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="sap-bw-open-hub-integration"></a>Intégration de SAP BW Open Hub 
+
+Le service [SAP BW Open Hub](https://wiki.scn.sap.com/wiki/display/BI/Overview+of+Open+Hub+Service) permet d'extraire efficacement des données à partir de SAP BW. Le schéma suivant illustre l'un des flux typiques dont disposent les clients dans leur système SAP, et dans lequel les données circulent comme suit : SAP ECC -> PSA -> DSO -> Cube.
+
+La destination SAP BW Open Hub (OHD) définit la cible vers laquelle les données SAP sont relayées. Les objets pris en charge par processus de transfert des données de SAP (DTP) peuvent être utilisés comme sources de données hub open, par exemple, DSO, InfoCube, source de données, etc. Les types de destination Open Hub, où les données relayées sont stockées, peuvent être des tables de bases de données (locales ou distantes) et des fichiers plats. Ce connecteur SAP BW Open Hub prend en charge la copie de données de la table OHD locale dans BW. Si vous utilisez d'autres types, vous pouvez vous connecter directement à la base de données ou au système de fichiers à l'aide d'autres connecteurs.
+
+![SAP BW Open Hub](./media/connector-sap-business-warehouse-open-hub/sap-bw-open-hub.png)
+
+## <a name="delta-extraction-flow"></a>Flux d’extraction de delta
+
+ADF SAP BW Connector Open Hub offre deux propriétés facultatives : `excludeLastRequest` et `baseRequestId` qui peut être utilisé pour gérer la charge de delta à partir de Open Hub. 
+
+- **excludeLastRequestId**: Indique s'il faut exclure les enregistrements de la dernière requête. Valeur par défaut est true. 
+- **baseRequestId**: ID de requête pour le chargement delta. Une fois qu’il est défini, seules les données avec ID de demande supérieur à la valeur de cette propriété seront récupérées. 
+
+En général, l’extraction à partir de SAP InfoProviders à Azure Data Factory (ADF) consistant en 2 étapes : 
+
+1. **Données de transfert de processus (DTP) pour SAP BW** cette étape copie les données à partir d’un fournisseur d’infos SAP BW dans une table de SAP BW Open Hub 
+
+1. **Copie des données ADF** dans cette étape, la table Open Hub est lu par le connecteur ADF 
+
+![Flux d’extraction de delta](media/connector-sap-business-warehouse-open-hub/delta-extraction-flow.png)
+
+Dans la première étape, un processus DTP est exécutée. Chaque exécution crée un nouvel ID de demande SAP. L’ID de demande est stocké dans la table Open Hub et est ensuite utilisé par le connecteur ADF pour identifier le delta. Les deux étapes exécutent de façon asynchrone : le processus DTP est déclenché par SAP, et la copie des données ADF est déclenchée par le biais ADF. 
+
+Par défaut, ADF ne lit pas la dernière delta à partir de la table Open Hub (option « exclude dernière demande » est true). Les présentes, les données dans ADF ne sont pas à jour avec les données dans le tableau Open Hub (le dernier delta est manquant) à 100 %. En retour, cette procédure permet de s’assurer qu’aucune ligne ne dissimulées provoquée par l’extraction asynchrone. Cela fonctionne bien même lorsque ADF lit la table Open Hub pendant le processus DTP est toujours écrit dans la même table. 
+
+En général, vous stockez l’ID de demande copié max dans la dernière exécution par ADF dans un magasin de données intermédiaire (par exemple, Azure Blob dans diagramme ci-dessus). Par conséquent, la même demande sans être lu une deuxième fois par ADF dans l’exécution ultérieure. Pendant ce temps, notez que les données ne sont pas automatiquement supprimées de la table Open Hub.
+
+Delta appropriée la manipulation des ne sont pas autorisée pour avoir des ID à partir de différents PDT de demande dans la même table Open Hub. Par conséquent, vous ne devez pas créer plusieurs DTP pour chaque Destination de Hub Open (OHD). Lorsque vous avez besoin d’extraction complète et Delta à partir du même fournisseur d’infos, vous devez créer deux OHDs pour le même fournisseur d’infos. 
+
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour utiliser ce connecteur SAP Business Warehouse Open Hub, vous devez suivre les instructions ci-dessous :
 
@@ -60,6 +83,10 @@ Pour utiliser ce connecteur SAP Business Warehouse Open Hub, vous devez suivre l
 - Créez le type de destination Open Hub en le définissant sur **Table de base de données** et en cochant l'option « Clé technique ».  Il est également recommandé de ne pas cocher la case Suppression des données de la table, bien que cela ne soit pas obligatoire. Utilisez le DTP (exécution directe ou intégration dans la chaîne de processus existante) pour transférer les données de l'objet source (tel que le cube) que vous avez choisi vers la table de destination Open Hub.
 
 ## <a name="getting-started"></a>Prise en main
+
+> [!TIP]
+>
+> Pour obtenir une description de l’utilisation du connecteur de SAP BW Open Hub, consultez [charger des données à partir de SAP Business Warehouse (BW) à l’aide d’Azure Data Factory](load-sap-bw-data.md).
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 

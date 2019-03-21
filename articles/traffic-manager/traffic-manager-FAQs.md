@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 02/26/2019
 ms.author: kumud
-ms.openlocfilehash: 309c69862d475a0ef76ab0a24ed804b363ba33c0
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: c26117bf298d5fe7fd8a14e0aa2b14834e412328
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696793"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009934"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Forum Aux Questions (FAQ) relatif à Traffic Manager
 
@@ -59,14 +59,7 @@ La méthode de Performance route le trafic vers le point de terminaison disponib
 Comme expliqué dans la section [Fonctionnement de Traffic Manager](../traffic-manager/traffic-manager-how-it-works.md), Traffic Manager fonctionne au niveau du DNS. Une fois la recherche DNS terminée, les clients se connectent au point de terminaison d’application directement, et non via Traffic Manager. Par conséquent, la connexion peut utiliser n’importe quel protocole d’application. Si vous sélectionnez TCP comme protocole de surveillance, la surveillance de l’intégrité du point de terminaison de Traffic Manager peut s’effectuer sans protocole d’application. Si vous choisissez de vérifier l’intégrité avec un protocole d’application, le point de terminaison doit pouvoir répondre aux requêtes HTTP ou HTTPS GET.
 
 ### <a name="can-i-use-traffic-manager-with-a-naked-domain-name"></a>Puis-je utiliser Traffic Manager avec un nom de domaine « nu » ?
-
- Non. Les normes DNS n’autorisent pas la coexistence d’enregistrements CNAME avec d’autres enregistrements DNS du même nom. Le sommet (ou racine) d’une zone DNS contient toujours deux enregistrements DNS existants : la SOA et les enregistrements NS faisant autorité. Cela signifie qu’un enregistrement CNAME ne peut pas être créé au sommet de la zone sans violer les normes DNS.
-
-Traffic Manager nécessite un enregistrement CNAME DNS pour mapper le nom DNS personnel. Par exemple, vous mappez `www.contoso.com` au nom DNS du profil Traffic Manager `contoso.trafficmanager.net`. En outre, le profil Traffic Manager renvoie un deuxième CNAME DNS pour indiquer le point de terminaison auquel le client doit se connecter.
-
-Pour contourner ce problème, nous vous recommandons d’utiliser une redirection HTTP pour diriger le trafic du nom de domaine nu vers une autre URL, qui peut ensuite utiliser Traffic Manager. Par exemple, le domaine nu « contoso.com » peut rediriger les utilisateurs vers l’enregistrement CNAME « www.contoso.com » qui pointe vers le nom DNS de Traffic Manager.
-
-La prise en charge complète des domaines nus dans Traffic Manager est suivie dans notre backlog de fonctionnalités. Vous pouvez inscrire votre prise en charge pour cette demande de fonctionnalité en [votant pour celle-ci sur le site de commentaires de notre communauté](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly).
+Oui. Pour savoir comment créer un enregistrement d’alias pour votre apex de nom de domaine référencer un profil Azure Traffic Manager, consultez [configurer un enregistrement d’alias pour prendre en charge les noms de domaine apex avec Traffic Manager](../dns/tutorial-alias-tm.md).
 
 ### <a name="does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries"></a>Traffic Manager considère-t-il l’adresse de sous-réseau client lors du traitement des requêtes DNS ? 
 Oui, dans le cadre de recherches pour les méthodes de routage géographique, basé sur les performances et le sous-réseau, Traffic Manager tient compte, en plus de l’adresse IP source de la requête DNS qu’il reçoit (en général l’adresse IP du programme de résolution DNS), de l’adresse de sous-réseau du client si celle-ci est incluse dans la requête par le programme de résolution qui effectue la demande pour le compte de l’utilisateur final.  
@@ -347,6 +340,7 @@ Non, Traffic Manager ne permet pas de combiner des types d’adressage de point 
 Lors de la réception d’une requête sur un profil, Traffic Manager commence par rechercher le point de terminaison à renvoyer en fonction de la méthode de routage spécifiée et l’état d’intégrité des points de terminaison. Il examine ensuite le type d’enregistrement demandé dans la requête entrante et le type d’enregistrement associé au point de terminaison avant de renvoyer une réponse basée sur le tableau ci-dessous.
 
 Pour les profils avec une méthode de routage différente de MultiValue :
+
 |Requête entrante|    Type de point de terminaison|  Réponse fournie|
 |--|--|--|
 |TOUTES |  A / AAAA / CNAME |  Point de terminaison cible| 
@@ -357,6 +351,7 @@ Pour les profils avec une méthode de routage différente de MultiValue :
 |CNAME |    CNAME | Point de terminaison cible|
 |CNAME  |A / AAAA | NODATA |
 |
+
 Pour les profils avec la méthode de routage MultiValue :
 
 |Requête entrante|    Type de point de terminaison | Réponse fournie|

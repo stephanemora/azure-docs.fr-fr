@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.date: 08/15/2018
 ms.author: danlep
 ROBOTS: NOINDEX
-ms.openlocfilehash: 78c743448a7f7439875d3598d6ba5d4eb6dc12fc
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 49e78f1774a2998de7070453f7c098aef1761242
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408933"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093226"
 ---
 # <a name="quickstart-create-a-cluster-for-batch-ai-training-jobs-using-the-azure-portal"></a>Démarrage rapide : Créer un cluster pour les travaux de formation Batch AI à l’aide du portail Azure
 
@@ -59,7 +59,7 @@ Commencez par créer un espace de travail Batch AI pour organiser vos ressources
 
 3. Entrez les valeurs **Nom de l’espace de travail** et **Groupe de ressources**. Si vous le souhaitez, sélectionnez des options **Abonnement** et **Emplacement** différentes pour l’espace de travail. Sélectionnez **Créer un espace de travail**.
 
-  ![Créer un espace de travail Batch AI](./media/quickstart-create-cluster-portal/create-workspace.png)
+   ![Créer un espace de travail Batch AI](./media/quickstart-create-cluster-portal/create-workspace.png)
 
 Lorsque le message **Déploiement réussi** s’affiche, accédez à la ressource que vous avez créée et sélectionnez l’espace de travail.
 
@@ -73,7 +73,7 @@ Un serveur de fichiers Batch AI est un NFS à nœud unique, qui peut être mont�
 
 3. Entrez un **Nom d’utilisateur administrateur** et copiez le contenu de votre fichier de clé publique SSH dans **Clé SSH**. Acceptez les valeurs par défaut pour les autres valeurs et sélectionnez **Créer le serveur de fichiers**.
 
-  ![Créer le serveur de fichiers Batch AI](./media/quickstart-create-cluster-portal/create-file-server.png)
+   ![Créer le serveur de fichiers Batch AI](./media/quickstart-create-cluster-portal/create-file-server.png)
 
 Le déploiement du serveur de fichiers ne nécessite que quelques minutes.
 

@@ -11,14 +11,14 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 1805d54e66187a97bf598734801f0d94895e7490
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 0e61f6a914c33842f4f42b2e1e4206b370a11dd4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880347"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099033"
 ---
-# <a name="tutorial--get-sentiment-of-utterance"></a>Tutoriel :  Obtenir le sentiment d’un énoncé
+# <a name="tutorial--get-sentiment-of-utterance"></a>Didacticiel :  Obtenir le sentiment d’un énoncé
 
 Dans ce tutoriel, vous allez créer une application montrant comment déterminer le sentiment positif, négatif et neutre des énoncés. Le sentiment est déterminé à partir de l’énoncé entier.
 
@@ -61,9 +61,9 @@ S’agissant d’un paramètre de publication, vous ne le voyez pas sur les page
 
 1. Sélectionnez l’entité suivante dans la liste des entités prédéfinies, puis sélectionnez **Terminé** :
 
-    * **[PersonName](luis-reference-prebuilt-person.md)** 
+   * **[PersonName](luis-reference-prebuilt-person.md)** 
 
-    ![Capture d’écran de la sélection du nombre dans la boîte de dialogue des entités prédéfinies](./media/luis-quickstart-intent-and-sentiment-analysis/add-personname-prebuilt-entity.png)
+     ![Capture d’écran de la sélection du nombre dans la boîte de dialogue des entités prédéfinies](./media/luis-quickstart-intent-and-sentiment-analysis/add-personname-prebuilt-entity.png)
 
 ## <a name="create-an-intent-to-determine-employee-feedback"></a>Créer une intention pour déterminer le feedback des employés
 

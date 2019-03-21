@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: cshoe
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 4c9f92f80275d04cd1bab408213fd02abf5c9139
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 5e0ef8287b7ce257cd551a1ace043ccbed72b50b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279396"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087089"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Créer une fonction qui s’intègre avec Azure Logic Apps
 
@@ -125,7 +125,7 @@ Les fonctions offrent un excellent moyen de se décharger des tâches de traitem
     ```
     Le code de cette fonction renvoie une catégorie de couleur en fonction du score des sentiments reçu dans la requête. 
 
-4. Pour tester la fonction, cliquez sur **Test** tout à droite pour développer l’onglet de test. Tapez la valeur `0.2` pour le **corps de la requête`0.2`, puis cliquez sur **Exécuter**. La valeur **RED** est renvoyée dans le corps de la réponse. 
+4. Pour tester la fonction, cliquez sur **Test** tout à droite pour développer l’onglet de test. Tapez la valeur `0.2` pour le **corps de la requête**, puis cliquez sur **Exécuter**. La valeur **RED** est renvoyée dans le corps de la réponse. 
 
     ![Testez la fonction dans le portail Azure](./media/functions-twitter-email/07-function-test.png)
 
@@ -242,7 +242,7 @@ La dernière partie du flux de travail consiste à déclencher un courrier élec
 | **Objet** | Sentiment de tweet négatif détecté  | La ligne d’objet de la notification par courrier électronique.  |
 | **Corps** | Texte du tweet, Emplacement | Cliquez sur les paramètres **Texte du tweet** et **Emplacement**. |
 
-5.  Cliquez sur **Enregistrer**.
+1. Cliquez sur **Enregistrer**.
 
 Maintenant que le flux de travail est terminé, vous pouvez activer l’application logique et observer la fonction en action.
 

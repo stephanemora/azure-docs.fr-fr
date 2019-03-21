@@ -9,12 +9,12 @@ ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: a73568fd1dd7ed6b6cd3a7938768db4982725658
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 99f5b09d0b5dfc144dca7f19efff3f0656a82b35
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497876"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093243"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Utiliser le portail Azure pour sauvegarder plusieurs machines virtuelles
 
@@ -77,16 +77,16 @@ Une fois le coffre Recovery Services créé, l’étape suivante consiste à con
     ![Sélectionner la charge de travail](./media/tutorial-backup-vm-at-scale/create-new-policy.png)
 
 5. Dans le menu **Stratégie de sauvegarde**, pour **Nom de la stratégie**, tapez *Finance*. Entrez les modifications suivantes pour la stratégie de sauvegarde :
-    - Pour **Fréquence de sauvegarde**, définissez le fuseau horaire *Central*. Le complexe sportif étant situé au Texas, son propriétaire souhaite que le calcul du temps soit local. Laissez la fréquence de sauvegarde définie sur Chaque jour à 3:30.
-    - Pour **Rétention du point de sauvegarde quotidien**, définissez une période de 90 jours.
-    - Pour **Rétention du point de sauvegarde hebdomadaire**, choisissez le point de restauration *lundi* et la rétention de 52  semaines.
-    - Pour **Rétention du point de sauvegarde mensuel**, choisissez le point de restauration Premier dimanche de chaque mois et la rétention de 36 mois.
-    - Désactivez l’option **Rétention du point de sauvegarde annuel**. Le responsable financier ne souhaite pas conserver les données plus de 36 mois.
-    - Cliquez sur **OK** pour créer la stratégie de sauvegarde.
+   - Pour **Fréquence de sauvegarde**, définissez le fuseau horaire *Central*. Le complexe sportif étant situé au Texas, son propriétaire souhaite que le calcul du temps soit local. Laissez la fréquence de sauvegarde définie sur Chaque jour à 3:30.
+   - Pour **Rétention du point de sauvegarde quotidien**, définissez une période de 90 jours.
+   - Pour **Rétention du point de sauvegarde hebdomadaire**, choisissez le point de restauration *lundi* et la rétention de 52  semaines.
+   - Pour **Rétention du point de sauvegarde mensuel**, choisissez le point de restauration Premier dimanche de chaque mois et la rétention de 36 mois.
+   - Désactivez l’option **Rétention du point de sauvegarde annuel**. Le responsable financier ne souhaite pas conserver les données plus de 36 mois.
+   - Cliquez sur **OK** pour créer la stratégie de sauvegarde.
 
-    ![Sélectionner la charge de travail](./media/tutorial-backup-vm-at-scale/set-new-policy.png)
+     ![Sélectionner la charge de travail](./media/tutorial-backup-vm-at-scale/set-new-policy.png)
 
-    Après avoir créé la stratégie de sauvegarde, associez-la aux machines virtuelles.
+     Après avoir créé la stratégie de sauvegarde, associez-la aux machines virtuelles.
 
 6. Dans la boîte de dialogue **Sélectionner les machines virtuelles**, sélectionnez *myVM*, puis cliquez sur **OK** pour déployer la stratégie de sauvegarde pour les machines virtuelles.
 

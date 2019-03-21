@@ -17,12 +17,12 @@ ms.topic: quickstart
 ms.custom: H1Hack27Feb2017
 ms.date: 03/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 0a9975b6f44a97d198dc308e263879c3358aab82
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: a2081bab2aebf0d49f3bde2467dac1fa683452ab
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672693"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58008714"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Démarrage rapide : Créer un groupe de machines virtuelles identiques dans le portail Azure
 Un groupe de machines virtuelles identiques vous permet de déployer et de gérer un ensemble de machines virtuelles identiques prenant en charge la mise à l’échelle automatique. Vous pouvez mettre à l’échelle manuellement le nombre de machines virtuelles du groupe identique ou définir des règles de mise à l’échelle automatique en fonction de l’utilisation des ressources telles que l’UC, la demande de mémoire ou le trafic réseau. Un équilibreur de charge Azure distribue ensuite le trafic vers les instances de machine virtuelle du groupe identique. Dans ce guide de démarrage rapide, vous créez un groupe de machines virtuelles identiques dans le portail Azure.
@@ -31,7 +31,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure
-Connectez-vous au portail Azure sur http://portal.azure.com.
+Connectez-vous au portail Azure sur https://portal.azure.com.
 
 
 ## <a name="create-virtual-machine-scale-set"></a>Créer un groupe de machines virtuelles identiques
@@ -43,10 +43,10 @@ Vous pouvez déployer un groupe identique avec une image Windows Server ou une i
 4. Sélectionnez le type de système d’exploitation approprié, par exemple, *Windows Server 2016 Datacenter*.
 5. Entrez le nom souhaité pour votre groupe de ressources (par exemple, *myResourceGroup*) ainsi que son emplacement (par exemple, *USA Est*).
 6. Entrez le nom d’utilisateur de votre choix, puis sélectionnez le type d’authentification que vous préférez.
-    - Un **mot de passe** doit comporter au moins 12 caractères, avec au moins trois des quatre caractères suivants : une minuscule, une majuscule, un chiffre et un caractère spécial. Pour plus d’informations, consultez les [critères de nom d’utilisateur et de mot de passe](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm).
-    - Si vous sélectionnez une image de disque du système d’exploitation Linux, vous pouvez choisir à la place **Clé publique SSH**. Entrez uniquement votre clé publique, comme *~/.ssh/id_rsa.pub*. Vous pouvez utiliser Azure Cloud Shell à partir du portail pour [créer et utiliser des clés SSH](../virtual-machines/linux/mac-create-ssh-keys.md).
+   - Un **mot de passe** doit comporter au moins 12 caractères, avec au moins trois des quatre caractères suivants : une minuscule, une majuscule, un chiffre et un caractère spécial. Pour plus d’informations, consultez les [critères de nom d’utilisateur et de mot de passe](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm).
+   - Si vous sélectionnez une image de disque du système d’exploitation Linux, vous pouvez choisir à la place **Clé publique SSH**. Entrez uniquement votre clé publique, comme *~/.ssh/id_rsa.pub*. Vous pouvez utiliser Azure Cloud Shell à partir du portail pour [créer et utiliser des clés SSH](../virtual-machines/linux/mac-create-ssh-keys.md).
 
-    ![Détails de base pour créer un groupe de machines virtuelles identiques dans le portail Azure](./media/virtual-machine-scale-sets-create-portal/create-scale-set-basic-details.png)
+     ![Détails de base pour créer un groupe de machines virtuelles identiques dans le portail Azure](./media/virtual-machine-scale-sets-create-portal/create-scale-set-basic-details.png)
 1. Sélectionnez une option d’équilibrage de charge, comme *Équilibreur de charge*, sous **Choisir les options d’équilibrage de charge**. Entrez les autres détails pour l’option d’équilibrage de charge choisie. Par exemple, pour l’option *Équilibreur de charge*, entrez le **Nom de l’adresse IP publique** et l’**Étiquette du nom de domaine**.
 1. Entrez les détails des réseaux virtuels sous **Configurer les réseaux virtuels**. Par exemple, créez un réseau virtuel (*myVirtualNetwork*) et un sous-réseau (*default*).
 1. Pour confirmer les options du groupe identique, sélectionnez **Créer**.

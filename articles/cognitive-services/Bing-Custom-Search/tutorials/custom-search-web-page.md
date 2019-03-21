@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Créer une page web de recherche personnalisée - Recherche personnalisée Bing'
+title: 'Didacticiel : Créer une page web de recherche personnalisée - Recherche personnalisée Bing'
 titlesuffix: Azure Cognitive Services
 description: Décrit la configuration d’une instance de recherche personnalisée et son intégration à une page web.
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: tutorial
-ms.date: 10/16/2017
+ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: c1124e710c3bb2cc4d00595989ccb95e584025c4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 6f44d4e6e5a0ee940394e09ceff8a425700d34e1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884492"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100728"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Tutoriel : Créer une page web Recherche personnalisée
 
@@ -49,11 +49,11 @@ Pour créer une instance Recherche personnalisée Bing :
   
 4. Une fois connecté, cliquez sur **New custom search** (Nouvelle recherche personnalisée). Dans la fenêtre **Create a new custom search instance** (Créer une nouvelle instance de recherche personnalisée), entrez un nom explicite et décrivez le type de contenu que la recherche retourne. Vous pouvez modifier le nom à tout moment.  
   
-  ![Capture d’écran de la boîte de dialogue de création d’une instance de recherche personnalisée](../media/newCustomSrch.png)  
+   ![Capture d’écran de la boîte de dialogue de création d’une instance de recherche personnalisée](../media/newCustomSrch.png)  
   
 5. Cliquez sur OK, spécifiez une URL et précisez s’il faut inclure les sous-pages de l’URL.  
   
-  ![Capture d’écran de la page de définition de l’URL](../media/newCustomSrch1-a.png)  
+   ![Capture d’écran de la page de définition de l’URL](../media/newCustomSrch1-a.png)  
 
 
 ## <a name="add-active-entries"></a>Ajout d’entrées actives
@@ -97,28 +97,28 @@ La Recherche personnalisée fournit une IU hébergée pour restituer la réponse
   
 2. Sélectionnez une disposition.  
   
-  ![Capture d’écran de l’étape de sélection de la disposition de l’interface utilisateur hébergée](./media/custom-search-hosted-ui-select-layout.png)  
+   ![Capture d’écran de l’étape de sélection de la disposition de l’interface utilisateur hébergée](./media/custom-search-hosted-ui-select-layout.png)  
   
 3. Sélectionnez un thème de couleur.  
   
-  ![Capture d’écran de la sélection du thème de couleur de l’interface utilisateur hébergée](./media/custom-search-hosted-ui-select-color-theme.png)  
+   ![Capture d’écran de la sélection du thème de couleur de l’interface utilisateur hébergée](./media/custom-search-hosted-ui-select-color-theme.png)  
 
-  Si vous avez besoin de régler le thème de couleur pour mieux l’intégrer à votre application web, cliquez sur **Customize theme** (Personnaliser le thème). Certaines configurations de couleur ne s’appliquent pas à tous les thèmes de disposition. Pour changer une couleur, entrez la valeur HEX RVB de la couleur (par exemple, #366eb8) dans la zone de texte correspondante. Sinon, cliquez sur le bouton de couleur, puis sur la nuance qui vous convient. Pensez toujours à l’accessibilité quand vous sélectionnez des couleurs.
+   Si vous avez besoin de régler le thème de couleur pour mieux l’intégrer à votre application web, cliquez sur **Customize theme** (Personnaliser le thème). Certaines configurations de couleur ne s’appliquent pas à tous les thèmes de disposition. Pour changer une couleur, entrez la valeur HEX RVB de la couleur (par exemple, #366eb8) dans la zone de texte correspondante. Sinon, cliquez sur le bouton de couleur, puis sur la nuance qui vous convient. Pensez toujours à l’accessibilité quand vous sélectionnez des couleurs.
   
-  ![Capture d’écran de la personnalisation du thème de couleur de l’interface utilisateur hébergée](./media/custom-search-hosted-ui-customize-color-theme.png)  
+   ![Capture d’écran de la personnalisation du thème de couleur de l’interface utilisateur hébergée](./media/custom-search-hosted-ui-customize-color-theme.png)  
 
   
 4. Spécifiez des options de configuration supplémentaires.  
   
-  ![Capture d’écran de l’étape des configurations supplémentaires de l’interface utilisateur hébergée](./media/custom-search-hosted-ui-additional-configurations.png)  
+   ![Capture d’écran de l’étape des configurations supplémentaires de l’interface utilisateur hébergée](./media/custom-search-hosted-ui-additional-configurations.png)  
   
-  Pour obtenir des configurations avancées, cliquez sur **Show advanced configurations** (Afficher les configurations avancées). S’ajoutent alors les configurations *Link target* (Lier la cible) aux options de recherche web, *Enable filters* (Activer les filtres) aux options des images et des vidéos, et *Search box text placeholder* (Espace réservé du texte de la zone de recherche) aux options diverses.
+   Pour obtenir des configurations avancées, cliquez sur **Show advanced configurations** (Afficher les configurations avancées). S’ajoutent alors les configurations *Link target* (Lier la cible) aux options de recherche web, *Enable filters* (Activer les filtres) aux options des images et des vidéos, et *Search box text placeholder* (Espace réservé du texte de la zone de recherche) aux options diverses.
 
-  ![Capture d’écran de l’étape des configurations avancées de l’interface utilisateur hébergée](./media/custom-search-hosted-ui-advanced-configurations.png)  
+   ![Capture d’écran de l’étape des configurations avancées de l’interface utilisateur hébergée](./media/custom-search-hosted-ui-advanced-configurations.png)  
   
 5. Dans les listes déroulantes, sélectionnez vos clés d’abonnement. Vous pouvez aussi entrer la clé d’abonnement manuellement. Pour plus d’informations sur l’obtention de clés, consultez [Essayez Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api).  
   
-  ![Capture d’écran de l’étape des configurations supplémentaires de l’interface utilisateur hébergée](./media/custom-search-hosted-ui-subscription-key.png)
+   ![Capture d’écran de l’étape des configurations supplémentaires de l’interface utilisateur hébergée](./media/custom-search-hosted-ui-subscription-key.png)
 
 [!INCLUDE [publish or revert](../includes/publish-revert.md)]
 
@@ -140,66 +140,66 @@ Le reste de ce tutoriel illustre l’**Option 1 : Extrait de code Javascript**.
   
 3. Dans la fenêtre **Nouveau projet**, sélectionnez **Visual C# / Web / Application web ASP.NET Core**, nommez votre projet, puis cliquez sur **OK**.  
   
-  ![Capture d’écran de la fenêtre Nouveau projet](./media/custom-search-new-project.png)  
+   ![Capture d’écran de la fenêtre Nouveau projet](./media/custom-search-new-project.png)  
   
 4. Dans la fenêtre **Nouvelle application ASP.NET Core**, sélectionnez **Application web** et cliquez sur **OK**.  
   
-  ![Capture d’écran de la fenêtre Nouveau projet](./media/custom-search-new-webapp.png)  
+   ![Capture d’écran de la fenêtre Nouveau projet](./media/custom-search-new-webapp.png)  
 
 ## <a name="edit-indexcshtml"></a>Éditer index.cshtml
 
 1. Dans l’**Explorateur de solutions**, développez **Pages** et double-cliquez sur **index.cshtml** pour ouvrir le fichier.  
   
-  ![Capture d’écran de l’Explorateur de solutions, où Pages est développé et index.cshtml sélectionné](./media/custom-search-visual-studio-webapp-solution-explorer-index.png)  
+   ![Capture d’écran de l’Explorateur de solutions, où Pages est développé et index.cshtml sélectionné](./media/custom-search-visual-studio-webapp-solution-explorer-index.png)  
   
 2. Dans index.cshtml, supprimez tout le contenu à partir de la ligne 7 et en dessous.  
   
-  ```razor
-  @page
-  @model IndexModel
-  @{
+   ```razor
+   @page
+   @model IndexModel
+   @{
       ViewData["Title"] = "Home page";
-  }    
-  ```  
+   }    
+   ```  
   
 3. Ajoutez un élément de saut de ligne et un élément div pour servir de conteneur.  
   
-  ```html
-  @page
-  @model IndexModel
-  @{
+   ```html
+   @page
+   @model IndexModel
+   @{
       ViewData["Title"] = "Home page";
-  }
-  <br />
-  <div id="customSearch"></div>
-  ```  
+   }
+   <br />
+   <div id="customSearch"></div>
+   ```  
   
 4. Dans la page **Hosted UI** (IU hébergée), faites défiler jusqu’à la section intitulée **Consuming the UI** (Consommation de l’IU). Cliquez sur les *Points de terminaison* pour accéder à l’extrait de code JavaScript. Vous pouvez aussi obtenir l’extrait de code en cliquant sur **Production**, puis sur l’onglet **Hosted UI**.
   
-  <!-- Get new screenshot after prod gets new bits
-  ![Screenshot of the Hosted UI save button](./media/custom-search-hosted-ui-consuming-ui.png)  
-  -->
+   <!-- Get new screenshot after prod gets new bits
+   ![Screenshot of the Hosted UI save button](./media/custom-search-hosted-ui-consuming-ui.png)  
+   -->
   
 5. Collez l’élément de script dans le conteneur que vous avez ajouté.  
   
-  ``` html
-  @page
-  @model IndexModel
-  @{
+   ``` html
+   @page
+   @model IndexModel
+   @{
       ViewData["Title"] = "Home page";
-  }
-  <br />
-  <div id="customSearch">
+   }
+   <br />
+   <div id="customSearch">
       <script type="text/javascript" 
           id="bcs_js_snippet"
           src="https://ui.customsearch.ai /api/ux/rendering-js?customConfig=<YOUR-CUSTOM-CONFIG-ID>&market=en-US&safeSearch=Moderate&version=latest&q=">
       </script>
-  </div>
-  ```  
+   </div>
+   ```  
   
 6. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur **wwwroot** et cliquez sur **Afficher dans le navigateur**.  
   
-  ![Capture d’écran de l’Explorateur de solutions, avec sélection de l’option Afficher dans le navigateur dans le menu contextuel de wwwroot](./media/custom-search-webapp-view-in-browser.png)  
+   ![Capture d’écran de l’Explorateur de solutions, avec sélection de l’option Afficher dans le navigateur dans le menu contextuel de wwwroot](./media/custom-search-webapp-view-in-browser.png)  
 
 Votre nouvelle page web de recherche personnalisée doit ressembler à ceci :
 

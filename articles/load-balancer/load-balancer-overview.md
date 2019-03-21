@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/11/2019
 ms.author: kumud
-ms.openlocfilehash: 9ca8e6876b67167429dbc0b5e6c3f5b454878c2a
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: c2f6a614524f0dfb242db11618fda94ce57e6e6a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382682"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111529"
 ---
 # <a name="what-is-azure-load-balancer"></a>Qu’est-ce qu’Azure Load Balancer ?
 
@@ -94,8 +94,8 @@ Load Balancer offre les fonctionnalités de base suivantes pour les applications
 
     Tous les flux sortants circulant d’adresses IP privées à l’intérieur de votre réseau virtuel vers des adresses IP publiques sur Internet peuvent être traduites en une adresse IP de serveur frontal de l’équilibreur de charge. Quand un serveur frontal public est lié à une machine virtuelle de serveur principal par le biais d’une règle d’équilibrage de charge, Azure programme la traduction automatique des connexions sortantes en adresse IP du serveur frontal public.
 
-    * Il permet une mise à niveau et une récupération d’urgence simples des services, étant donné que le serveur frontal peut être dynamiquement mappé à une autre instance du service.
-    * Il facilite la gestion des listes de contrôle d’accès (ACL). Les ACL exprimées sous forme d’adresses IP de serveur frontal ne changent pas quand les services montent en puissance, descendent en puissance ou sont redéployés.  La traduction des connexions sortantes en un plus petit nombre d’adresses IP que de machines peut réduire la charge liée à la création d’une liste verte.
+  * Il permet une mise à niveau et une récupération d’urgence simples des services, étant donné que le serveur frontal peut être dynamiquement mappé à une autre instance du service.
+  * Il facilite la gestion des listes de contrôle d’accès (ACL). Les ACL exprimées sous forme d’adresses IP de serveur frontal ne changent pas quand les services montent en puissance, descendent en puissance ou sont redéployés.  La traduction des connexions sortantes en un plus petit nombre d’adresses IP que de machines peut réduire la charge liée à la création d’une liste verte.
 
     Pour plus d’informations, consultez [Connexions sortantes](load-balancer-outbound-connections.md).
 
