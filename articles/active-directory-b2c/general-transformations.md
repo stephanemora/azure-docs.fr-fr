@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 4e28dff6235e869c9275a8b0ba8d80252a9ea792
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 6a9a819e75e487999a2b50ae758b8d9c6c716a4f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167374"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084893"
 ---
 # <a name="general-claims-transformations"></a>Transformations de revendications générales
 
@@ -48,7 +48,7 @@ Utilisez cette transformation de revendication pour vérifier si une revendicati
 ### <a name="example"></a>Exemples
 
 - Revendications d’entrée :
-    - **inputClaim** : someone@contoso.com
+  - **inputClaim** : someone@contoso.com
 - Revendications de sortie : 
     - **outputClaim** : true
 
@@ -58,10 +58,10 @@ Hache le texte brut fourni à l’aide de la valeur salt et d’un secret.
 
 | Item | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | plaintext | chaîne | Revendication d’entrée à chiffrer. |
-| InputClaim | salt | chaîne | Paramètre salt. Vous pouvez créer une valeur aléatoire à l’aide de la transformation des revendication `CreateRandomString`. |
-| InputParameter | randomizerSecret | chaîne | Pointe vers une **clé de stratégie** Azure AD B2C existante. Pour en créer une nouvelle : Dans votre locataire Azure AD B2C, sélectionnez **Paramètres B2C > Identity Experience Framework**. Sélectionnez **Clés de stratégie** pour afficher les clés qui sont disponibles dans votre locataire. Sélectionnez **Ajouter**. Pour **Options**, sélectionnez **Manuel**. Fournissez un nom (il est possible que le préfixe B2C_1A_ soit ajouté automatiquement). Dans la zone Secret, entrez un secret à utiliser, tel que 1234567890. Pour Utilisation de la clé, sélectionnez **Secret**. Sélectionnez **Créer**. |
-| OutputClaim | Hachage | chaîne | ClaimType généré après que cette transformation de revendication a été appelée. Revendication configurée dans l’inputClaim `plaintext`. |
+| InputClaim | plaintext | string | Revendication d’entrée à chiffrer. |
+| InputClaim | salt | string | Paramètre salt. Vous pouvez créer une valeur aléatoire à l’aide de la transformation des revendication `CreateRandomString`. |
+| InputParameter | randomizerSecret | string | Pointe vers une **clé de stratégie** Azure AD B2C existante. Pour en créer une nouvelle : Dans votre locataire Azure AD B2C, sélectionnez **Paramètres B2C > Identity Experience Framework**. Sélectionnez **Clés de stratégie** pour afficher les clés qui sont disponibles dans votre locataire. Sélectionnez **Ajouter**. Pour **Options**, sélectionnez **Manuel**. Fournissez un nom (il est possible que le préfixe B2C_1A_ soit ajouté automatiquement). Dans la zone Secret, entrez un secret à utiliser, tel que 1234567890. Pour Utilisation de la clé, sélectionnez **Secret**. Sélectionnez **Créer**. |
+| OutputClaim | Hachage | string | ClaimType généré après que cette transformation de revendication a été appelée. Revendication configurée dans l’inputClaim `plaintext`. |
 
 ```XML
 <ClaimsTransformation Id="HashPasswordWithEmail" TransformationMethod="Hash">

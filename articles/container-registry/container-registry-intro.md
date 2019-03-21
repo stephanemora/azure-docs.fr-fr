@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/25/2018
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 0ffad78afd6acdfbcea8df970358c639706f14b8
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: befac6f1429d5099f68f0c2ba0a90bb1217f8b6f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814246"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530260"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Présentation des registres de conteneurs Docker privés dans Azure
 
@@ -27,7 +27,7 @@ Pour en savoir plus Docker et les conteneurs, consultez [l’aperçu de Docker](
 
 Extrayez des images à partir d’un registre de conteneur Azure pour différents objectifs de déploiement :
 
-* Des **systèmes d’orchestration évolutifs** qui gèrent des applications en conteneur sur des clusters d’hôtes, y compris de [Kubernetes](http://kubernetes.io/docs/), [du contrôleur de domaine/système d’exploitation](https://docs.mesosphere.com/) et de [Docker Swarm](https://docs.docker.com/swarm/).
+* Des **systèmes d’orchestration évolutifs** qui gèrent des applications en conteneur sur des clusters d’hôtes, y compris de [Kubernetes](https://kubernetes.io/docs/), [du contrôleur de domaine/système d’exploitation](https://docs.mesosphere.com/) et de [Docker Swarm](https://docs.docker.com/swarm/).
 * Des **services Azure** qui prennent en charge la création et l’exécution des applications à grande échelle, y compris [Azure Kubernetes Service (AKS)](../aks/index.yml), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/) et d’autres services.
 
 Les développeurs peuvent également effectuer un push vers un registre de conteneur dans le cadre d’un flux de travail de développement de conteneur. Par exemple, ciblez un registre de conteneur à partir d’un outil de développement et d’intégration continu comme [Azure DevOps Services](https://docs.microsoft.com/azure/devops/) ou [Jenkins](https://jenkins.io/).

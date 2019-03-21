@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 01/06/2019
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: 01c88b9bc64bc1541e97aff26e41c360acfaf6bd
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 1fa9eaa5f4ba399622e0b8889ab722e4a4e130a0
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54809970"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57770474"
 ---
 # <a name="what-is-azure-event-grid"></a>Qu'est-ce qu'Azure Event Grid ?
 
@@ -44,6 +44,7 @@ Pour plus d’informations sur les fonctionnalités de chaque source ainsi que l
 * Service Bus
 * Storage Blob
 * Stockage à usage général v2 (GPv2)
+* Azure Maps
 
 ## <a name="event-handlers"></a>Gestionnaires d’événements
 
@@ -87,7 +88,7 @@ Pour comparer les services Event Grid, Event Hubs et Service Bus, consultez [Cho
 
 ## <a name="what-can-i-do-with-event-grid"></a>Que puis-je faire avec Event Grid ?
 
-Azure Event Grid fournit plusieurs fonctionnalités qui améliorent considérablement les fonctions serverless, l'automatisation des opérations et le travail d'[intégration](http://azure.com/integration) : 
+Azure Event Grid fournit plusieurs fonctionnalités qui améliorent considérablement les fonctions serverless, l'automatisation des opérations et le travail d'[intégration](https://azure.com/integration) : 
 
 ### <a name="serverless-application-architectures"></a>Architectures d’application sans serveur
 

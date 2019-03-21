@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2016
-ms.openlocfilehash: d017a2758ccd1530c4558f3dc92559f807df36b9
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: 1ad9661d85c7ec91f361cdc4d126e0a91e376b66
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332096"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57853288"
 ---
 # <a name="scp-programming-guide"></a>Guide de programmation SCP
 SCP est une plateforme permettant de développer des applications de traitement de données en temps réel, fiables, cohérentes et aux performances élevées. Elle est basée sur [Apache Storm](https://storm.incubator.apache.org/) , système de traitement par flux conçu par la communauté OSS. Storm est conçu par Nathan Marz et a été diffusé en open source par Twitter. Il exploite [Apache ZooKeeper](https://zookeeper.apache.org/), un autre projet Apache pour fournir une coordination et une gestion d’état très fiables. 
@@ -32,7 +32,7 @@ Dans Storm, une topologie d'application définit un graphique de calcul. Chaque 
 
 SCP prend en charge les types de traitement de données Meilleur effort, Une fois au minimum et Exactement une. Dans une application distribuée de traitement de diffusion en continu, diverses erreurs peuvent se produire pendant le traitement des données, telles qu’une erreur de code utilisateur, la défaillance d’un ordinateur ou une panne du réseau. Le type de traitement Une fois au minimum garantit que toutes les données sont traitées au moins une fois en relisant automatiquement les mêmes données quand une erreur se produit. Le type de traitement Une fois au minimum est simple et fiable et s'adapte à de nombreuses applications. Cependant, lorsqu'une application requiert un comptage exact, le traitement Une fois au minimum n'est pas suffisant, car les mêmes données peuvent potentiellement être lues dans la topologie de l'application. Dans ce cas, le type de traitement Exactement une est conçu pour garantir l'exactitude du résultat, même lorsque les données peuvent être relues et traitées plusieurs fois.
 
-SCP permet aux développeurs .NET de développer des applications de traitement de données en temps réel tout en exploitant le projet Storm avec JVM (Java Virtual Machine). .NET et JVM communiquent via des sockets locaux TCP. Fondamentalement, chaque Spout/Bolt constitue une paire de processus .Net/Java, où la logique utilisateur s'exécute dans un processus .Net en tant que plug-in.
+SCP permet aux développeurs .NET de développer des applications de traitement de données en temps réel tout en exploitant le projet Storm avec JVM (Java Virtual Machine). .NET et JVM communiquent via des sockets locaux TCP. En fait chaque Spout/Bolt est une paire de processus .NET/Java, où la logique utilisateur s’exécute dans un processus .NET en tant qu’un plug-in.
 
 Pour générer une application de traitement de données sur SCP, vous devez suivre plusieurs étapes :
 
@@ -71,7 +71,7 @@ ISCPSpout est l'interface pour les composants spout non transactionnels.
 
 Quand `NextTuple()` est appelé, le code utilisateur C\# peut émettre un ou plusieurs tuples. S'il n'y a rien à émettre, cette méthode doit effectuer un renvoi sans émettre quoi que ce soit. Notez que `NextTuple()`, `Ack()` et `Fail()` sont toutes appelées dans une boucle étroite d’un thread unique dans un processus C\#. Quand il n'y a aucun tuple à émettre, il est recommandé de mettre NextTuple en veille pour un bref instant (10 millisecondes par exemple) pour ne pas gaspiller trop de ressources processeur.
 
-`Ack()` et `Fail()` sont appelées uniquement quand le mécanisme d’accusé de réception (ack) est activé dans le fichier spec. `seqId` est utilisé pour identifier le tuple qui a été reçu ou qui a échoué. Donc, si l'accusé de réception est activé dans une topologie non transactionnelle, la fonction d'émission suivante doit être utilisée dans Spout :
+`Ack()` et `Fail()` sont appelées uniquement quand le mécanisme d’accusé de réception (ack) est activé dans le fichier spec. Le `seqId` est utilisé pour identifier le tuple qui est accepté ou a échoué. Donc, si l'accusé de réception est activé dans une topologie non transactionnelle, la fonction d'émission suivante doit être utilisée dans Spout :
 
     public abstract void Emit(string streamId, List<object> values, long seqId); 
 
@@ -431,7 +431,7 @@ Deux méthodes ont été ajoutées dans l'objet Context de SCP.NET. Elles permet
 L’émission vers un flux qui n’existe pas entraîne des exceptions de runtime.
 
 ### <a name="fields-grouping"></a>Regroupement de champs
-Le regroupement de champs intégré à Storm ne fonctionne pas correctement dans SCP.NET. Sur le côté du proxy Java, tous les types de données de champs correspondent à la sémantique byte[], et le regroupement de champs utilise le code de hachage d’objet byte pour effectuer le regroupement. Le code de hachage d'objet byte[] correspond à l'adresse de cet objet en mémoire. Le regroupement sera donc incorrect pour deux objets byte[] partageant le même contenu mais pas la même adresse.
+Le regroupement de champs intégrés dans Storm ne fonctionne pas correctement dans SCP.NET. Sur le côté du proxy Java, tous les types de données de champs correspondent à la sémantique byte[], et le regroupement de champs utilise le code de hachage d’objet byte pour effectuer le regroupement. Le code de hachage d'objet byte[] correspond à l'adresse de cet objet en mémoire. Le regroupement sera donc incorrect pour deux objets byte[] partageant le même contenu mais pas la même adresse.
 
 SCP.NET ajoute une méthode de regroupement personnalisée et utilise le contenu de byte[] pour procéder au regroupement. Dans le fichier **SPEC** , la syntaxe correspond à :
 
@@ -450,7 +450,7 @@ Ici,
 3. [0,1] représente un hashset d'ID de champ, commençant à 0.
 
 ### <a name="hybrid-topology"></a>Topologie hybride
-Le Storm natif est écrit en Java. En outre, SCP.Net l’a amélioré pour permettre aux développeurs C\# d’écrire du code C\# pour gérer leur logique métier. Mais nous prenons également en charge les topologies hybrides, qui contiennent des spouts/bolts C\#, ainsi que des spouts/bolts Java.
+Le Storm natif est écrit en Java. Et SCP.NET a amélioré pour permettre la C\# aux développeurs d’écrire C\# code pour gérer leur logique métier. Mais nous prenons également en charge les topologies hybrides, qui contiennent des spouts/bolts C\#, ainsi que des spouts/bolts Java.
 
 ### <a name="specify-java-spoutbolt-in-spec-file"></a>Indiquer le spout/bolt Java dans le fichier spec
 Vous pouvez également utiliser « scp-spout » et « scp-bolt » dans le fichier spec pour spécifier les spouts et les bolts Java. Par exemple :
@@ -562,7 +562,7 @@ En mode d'hébergement, le code utilisateur est compilé en tant que DLL, puis a
 
 ## <a name="scp-programming-examples"></a>Exemples de programmation SCP
 ### <a name="helloworld"></a>HelloWorld
-**HelloWorld** est un exemple simple qui offre un avant-goût de SCP.Net. Il emploie une topologie non transactionnelle, avec un spout appelé **generator**, et deux bolts appelés **splitter** et **counter**. Le spout **generator** génère des phrases aléatoirement, avant de les émettre vers **splitter**. Le bolt **splitter** divise les phrases en mots et les émet vers le bolt **counter**. Le bolt « counter » utilise un dictionnaire pour enregistrer le nombre d’occurrences de chaque mot.
+**HelloWorld** est un exemple simple un avant-goût de SCP.NET. Il emploie une topologie non transactionnelle, avec un spout appelé **generator**, et deux bolts appelés **splitter** et **counter**. Le spout **generator** génère des phrases aléatoirement, avant de les émettre vers **splitter**. Le bolt **splitter** divise les phrases en mots et les émet vers le bolt **counter**. Le bolt « counter » utilise un dictionnaire pour enregistrer le nombre d’occurrences de chaque mot.
 
 L’exemple contient deux fichiers spec, **HelloWorld.spec** et **HelloWorld\_EnableAck.spec**. Dans le code C\#, vous pouvez savoir si le mécanisme d'accusé de réception (ack) est activé en récupérant le pluginConf côté Java.
 
@@ -573,7 +573,7 @@ L’exemple contient deux fichiers spec, **HelloWorld.spec** et **HelloWorld\_En
     }
     Context.Logger.Info("enableAck: {0}", enableAck);
 
-Dans le spout, si le ack est activé, un dictionnaire est utilisé pour mettre en cache les tuples n'ayant pas été reçus. Si Fail() est appelée, les tuples ayant échoué sont relus :
+Dans le spout, si l’accusé de réception est activé, un dictionnaire est utilisé pour mettre en cache les tuples qui n’ont pas été acceptées. Si Fail() est appelée, les tuples ayant échoué sont relus :
 
     public void Fail(long seqId, Dictionary<string, Object> parms)
     {

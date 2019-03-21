@@ -1,7 +1,7 @@
 ---
 title: Ajouter des entités
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Ajoutez des entités (données clés dans le domaine de l’application) dans les applications Language Understanding (LUIS).
+description: Créer des entités pour extraire des données de clé énoncés utilisateur dans les applications de reconnaissance vocale (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,26 +9,26 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 03/11/2019
 ms.author: diberry
-ms.openlocfilehash: d98896ab86c1dbbc988d44e3c8cf6545ba5d5d3c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 784fe19d1ae40a7cdff3cc853726d4c62265e0f1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859791"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106931"
 ---
 # <a name="create-entities-without-utterances"></a>Créer des entités sans énoncés
 
-L’entité représente un mot ou une phrase dans l’énoncé que vous souhaitez extraire. Un énoncé peut inclure plusieurs entités ou aucune. Une entité représente une classe, notamment une collection d’objets similaires (lieux, choses, personnes, événements ou concepts). Les entités décrivent des informations relatives à l’intention, et sont parfois essentiels pour que votre application effectue sa tâche. 
-
-Vous pouvez créer des entités avant de créer des intentions ou en tant qu’opération distincte.
+L’entité représente un mot ou une phrase dans l’énoncé que vous souhaitez extraire. Une entité représente une classe, notamment une collection d’objets similaires (lieux, choses, personnes, événements ou concepts). Les entités décrivent des informations relatives à l’intention, et sont parfois essentiels pour que votre application effectue sa tâche. Vous pouvez créer des entités lorsque vous ajoutez un énoncé à une intention ou les unes des autres à partir de (avant ou après) Ajout d’un énoncé à une intention.
 
 La **liste des entités** de la page **Entities** permet d’ajouter, de modifier et de supprimer des entités dans une application LUIS. LUIS propose deux grands types d’entités : les [entités prédéfinies](luis-reference-prebuilt-entities.md) et les [entités personnalisées](luis-concept-entity-types.md#types-of-entities).
 
-Une fois qu’une entité est créée, elle peut être marquée dans l’exemple d’énoncé d’une intention à partir de la page de détails **Intent**. 
+Une fois qu’une entité de la machine a appris est créée, vous devez marquer cette entité dans tous les énoncé de l’exemple de toutes les intentions dans qu'il se trouve.
 
-## <a name="add-prebuilt-entity"></a>Ajouter une entité prédéfinie
+<a name="add-prebuilt-entity"></a>
+
+## <a name="add-a-prebuilt-entity-to-your-app"></a>Ajouter une entité prédéfinie à votre application
 
 Celles qui sont le plus souvent ajoutées aux applications sont *number* et *datetimeV2*. 
 
@@ -40,7 +40,9 @@ Celles qui sont le plus souvent ajoutées aux applications sont *number* et *dat
 
     ![Capture d’écran de la boîte de dialogue Ajouter des entités prédéfinies](./media/add-entities/list-of-prebuilt-entities.png)
 
-## <a name="add-simple-entities"></a>Ajouter des entités simples
+<a name="add-simple-entities"></a>
+
+## <a name="add-simple-entities-for-single-concepts"></a>Ajouter des entités simples pour les concepts uniques
 
 Une entité simple décrit un concept unique. Appliquez la procédure suivante pour créer une entité qui extrait des noms de services d’entreprise tels que *Human resources* ou *Operations*.   
 
@@ -52,7 +54,9 @@ Une entité simple décrit un concept unique. Appliquez la procédure suivante p
 
     Une [liste d’expressions](luis-concept-feature.md) est couramment utilisée pour améliorer le signal d’une entité simple.
 
-## <a name="add-regular-expression-entities"></a>Ajouter des entités d’expression régulière
+<a name="add-regular-expression-entities"></a>
+
+## <a name="add-regular-expression-entities-for-highly-structured-concepts"></a>Ajouter des entités d’expression régulière pour les concepts très structurées
 
 Une entité d’expression régulière sert à extraire des données de l’énoncé suivant l’expression régulière fournie. 
 
@@ -60,7 +64,7 @@ Une entité d’expression régulière sert à extraire des données de l’éno
 
 1. Dans la boîte de dialogue contextuelle, entrez `Human resources form name` dans la zone **Nom de l’entité**, sélectionnez **Expression régulière** dans la liste **Type d’entité**, entrez l’expression régulière `hrf-[0-9]{6}`, puis sélectionnez **Terminé**. 
 
-    Ces caractères littéraux d’expression régulière `hrf-`, sont suivis de six chiffres pour représenter un numéro de formulaire pour un formulaire de ressources humaines.
+    Cette expression régulière correspond à des caractères littéraux `hrf-`, puis à 6 chiffres pour représenter un formulaire numéro pour un formulaire de ressources humaines.
 
 ## <a name="add-hierarchical-entities"></a>Ajouter des entités hiérarchiques
 
@@ -85,7 +89,9 @@ Pour ajouter des entités hiérarchiques, suivez les étapes ci-dessous :
 
     Une fois cette entité créée, accédez à toutes les intentions qui ont des exemples d’énoncés contenant l’entité. Sélectionnez le texte dans l’exemple d’énoncé et marquez-le en tant qu’entité. 
 
-## <a name="add-composite-entities"></a>Ajouter des entités composites
+<a name="add-composite-entities"></a>
+
+## <a name="add-composite-entities-to-group-into-a-parent-child-relationship"></a>Ajouter des entités composites à regrouper dans une relation parent-enfant
 
 Vous pouvez définir des relations entre des entités de différents types en créant une entité composite. Dans l’exemple suivant, l’entité contient une expression régulière et une entité prédéfinie correspondant au nom.  
 
@@ -107,7 +113,9 @@ Dans l’énoncé `Send hrf-123456 to John Smith`, le texte `hrf-123456` est mis
 
 1. Sélectionnez **Terminé**.
 
-## <a name="add-patternany-entities"></a>Ajouter des entités Pattern.any
+<a name="add-pattern-any-entities"></a>
+
+## <a name="add-patternany-entities-to-capture-free-form-entities"></a>Ajouter des entités Pattern.any pour capturer des entités de forme libre
 
 Les entités [Pattern.Any](luis-concept-entity-types.md) sont valides uniquement dans les [modèles](luis-how-to-model-intent-pattern.md), et non dans les intentions. Ce type d’entité aide LUIS à trouver la fin des entités présentant une longueur variable et différents choix de mots. Cette entité étant utilisée dans un modèle, LUIS sait où se trouve la fin de l’entité dans le modèle d’énoncé.
 
@@ -123,7 +131,9 @@ Dans l’énoncé `Where is Request relocation from employee new to the company 
 
     Si vous constatez que votre modèle, quand il comporte une entité Pattern.any, extrait mal les entités, utilisez une [liste explicite](luis-concept-patterns.md#explicit-lists) pour corriger ce problème. 
 
-## <a name="add-a-role-to-pattern-based-entity"></a>Ajouter un rôle à une entité reposant sur un modèle
+<a name="add-a-role-to-pattern-based-entity"></a>
+
+## <a name="add-a-role-to-distinguish-different-contexts"></a>Ajouter un rôle pour distinguer les différents contextes
 
 Un rôle est un sous-type nommé d’une entité en fonction du contexte. Il s’apparente à une entité [hiérarchique](#add-hierarchical-entities), à ceci près qu’il ne peut être utilisé que dans un [modèle](luis-how-to-model-intent-pattern.md). 
 
@@ -141,7 +151,9 @@ La syntaxe d’un rôle est **{nom_entité:nom_rôle}**, le nom de l’entité �
 
     ![Capture d’écran d’ajout du rôle Origin à l’entité Location](./media/add-entities/roles-enter-role-name-text.png)
 
-## <a name="add-list-entities"></a>Ajouter des entités de liste
+<a name="add-list-entities"></a>
+
+## <a name="add-list-entities-for-exact-matches"></a>Ajouter des entités de la liste des correspondances exactes
 
 Les entités de liste représentent un ensemble fixe et fermé de mots liés les uns aux autres. 
 
@@ -184,12 +196,15 @@ Pour une application de ressources humaines, vous pouvez avoir une liste de tous
     ]  
     ```
 
+<a name="change-entity-type"></a>
 
-## <a name="change-entity-type"></a>Changer le type d’entité
+## <a name="do-not-change-entity-type"></a>Ne modifiez pas le type d’entité
 
 LUIS n’autorise pas la modification du type de l’entité, car il ne sait pas quoi ajouter ou supprimer pour construire cette entité. Pour modifier le type, il est préférable de créer une nouvelle entité du bon type avec un nom légèrement différent. Ensuite, supprimez l’ancien nom d’entité étiqueté et ajoutez le nouveau nom d’entité dans chaque énoncé. Une fois tous les énoncés réétiquetés, supprimez l’ancienne entité. 
 
-## <a name="create-a-pattern-from-an-utterance"></a>Créer un modèle à partir d’un énoncé
+<a name="create-a-pattern-from-an-utterance"></a>
+
+## <a name="create-a-pattern-from-an-example-utterance"></a>Créer un modèle à partir d’un énoncé de l’exemple
 
 Voir [Ajouter un modèle à partir d’un énoncé existant sur une page d’intention ou d’entité](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page).
 

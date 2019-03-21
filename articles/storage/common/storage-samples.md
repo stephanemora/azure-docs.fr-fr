@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/03/2017
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: d1eac8f79ea53643659f8780ee03f8ced13c7dcd
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 411b43ec631c77246da1ee55f2532486f8b55ffc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452224"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58006632"
 ---
 # <a name="azure-storage-samples"></a>Exemples relatifs à Microsoft Azure Storage
 
@@ -63,8 +63,8 @@ Pour explorer les exemples C++, téléchargez la [bibliothèque cliente de stoc
 |----------|---------------|-------------|
 | .NET | [Référence de la bibliothèque cliente .NET](https://msdn.microsoft.com/library/azure/mt347887.aspx) | [Code source de la bibliothèque cliente de stockage .NET](https://github.com/Azure/azure-storage-net) |
 | Java | [Référence de la bibliothèque cliente Java](https://docs.microsoft.com/java/api/overview/azure/storage) | [Code source de la bibliothèque cliente de stockage Java](https://github.com/azure/azure-storage-java) |
-| Node.js | [Référence de la bibliothèque cliente Node.js](http://azure.github.io/azure-storage-node) | [Code source de la bibliothèque cliente de stockage Node.js](https://github.com/Azure/azure-storage-node) |
-| C++ | [Référence de la bibliothèque cliente C++](http://azure.github.io/azure-storage-cpp/) | [Code source de la bibliothèque cliente de stockage C++](https://github.com/Azure/azure-storage-cpp)|
+| Node.js | [Référence de la bibliothèque cliente Node.js](https://azure.github.io/azure-storage-node) | [Code source de la bibliothèque cliente de stockage Node.js](https://github.com/Azure/azure-storage-node) |
+| C++ | [Référence de la bibliothèque cliente C++](https://azure.github.io/azure-storage-cpp/) | [Code source de la bibliothèque cliente de stockage C++](https://github.com/Azure/azure-storage-cpp)|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2018
 ms.author: shvija
-ms.openlocfilehash: 432f2495dd1b4c8aeb761d12904adf26f3c24c0b
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: dcfc2480cd9a62b57255163132373998db328034
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660695"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075797"
 ---
 # <a name="available-event-hubs-apis"></a>API Event Hubs disponibles
 
@@ -54,7 +54,7 @@ La [bibliothèque Node.js](https://github.com/Azure/azure-event-hubs-node) est a
 Le tableau suivant répertorie toutes les bibliothèques dédiées à la gestion actuellement disponibles. Aucune de ces bibliothèques ne contient d’opérations de runtime. Elles sont uniquement destinées à la gestion des entités Event Hubs.
 
 | Langage/Plateforme | Gestion des packages | Référentiel |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | .NET Standard | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.EventHub) | [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/ResourceManagement/EventHub) |
 
 ## <a name="next-steps"></a>Étapes suivantes

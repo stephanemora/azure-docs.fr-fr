@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: a33dfe2e20cdb6c1944d4be89692ec1da5a5482e
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: b439b702fb5ae4990c8c31838fe9677cb882d2a2
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889662"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546309"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-c"></a>Démarrage rapide : Vérifier l’orthographe avec l’API REST Vérification orthographique Bing et C#
 
@@ -25,7 +25,7 @@ Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l�
 
 * N’importe quelle édition de [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 * Le framework [Json.NET](https://www.newtonsoft.com/json), disponible sous forme de package NuGet.
-* Si vous utilisez Linux/MacOS, cette application peut être exécutée à l’aide de [Mono](http://www.mono-project.com/).
+* Si vous utilisez Linux/MacOS, cette application peut être exécutée à l’aide de [Mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 

@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 07/16/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d08b1f3889136fadee68b3aa95d879b0495bddb1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: fce7653770d0fb3134f266137e167125b9161865
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198407"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097591"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-yonyx-interactive-guides"></a>Didacticiel : Intégration d'Azure Active Directory à Yonyx Interactive Guides
+# <a name="tutorial-azure-active-directory-integration-with-yonyx-interactive-guides"></a>Tutoriel : Intégration d'Azure Active Directory à Yonyx Interactive Guides
 
 Ce didacticiel explique comment intégrer Yonyx Interactive Guides avec Azure Active Directory (Azure AD).
 
@@ -35,7 +35,7 @@ L’intégration de Yonyx Interactive Guides à Azure AD vous offre les avantage
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD à Yonyx Interactive Guides, vous avez besoin des éléments suivants :
 
@@ -174,8 +174,8 @@ L’objectif de cette section est de créer un utilisateur appelé Britta Simon 
 
 Vous n’avez aucune opération à effectuer dans cette section. Un utilisateur est créé lors d’une tentative d’accès à Yonyx Interactive Guides s’il n’existe pas déjà.
 
->[!NOTE]
->Si vous devez créer un utilisateur manuellement, contactez l’équipe du support technique de Yonyx Interactive Guides à l’adresse <mailto:support@yonyx.com>. 
+> [!NOTE]
+> Si vous devez créer un utilisateur manuellement, contactez l’équipe du support technique de Yonyx Interactive Guides à l’adresse <mailto:support@yonyx.com>. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

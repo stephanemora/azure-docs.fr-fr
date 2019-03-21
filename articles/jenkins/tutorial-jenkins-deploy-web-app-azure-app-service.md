@@ -8,16 +8,16 @@ ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.openlocfilehash: b0f909bb7f4b59e083f0ef1c8a19c11d5d9fb312
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 90f89f9ffb1d55e7621c87f168375251c78d9730
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821301"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533491"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>Didacticiel : Effectuer un déploiement sur Azure App Service à partir de GitHub avec l’intégration continue et le déploiement continu Jenkins
 
-Ce tutoriel explique comment déployer un exemple d’application web Java de GitHub sur [Azure App Service sur Linux](/azure/app-service/containers/app-service-linux-intro), en configurant l’intégration continue (CI) et le déploiement continu (CD) dans Jenkins. Lorsque vous mettez à jour l’application en envoyant (push) des validations à GitHub, Jenkins génère et republie automatiquement votre application dans Azure App Service. L’exemple d’application de ce tutoriel a été développé avec le framework [Spring Boot](http://projects.spring.io/spring-boot/). 
+Ce tutoriel explique comment déployer un exemple d’application web Java de GitHub sur [Azure App Service sur Linux](/azure/app-service/containers/app-service-linux-intro), en configurant l’intégration continue (CI) et le déploiement continu (CD) dans Jenkins. Lorsque vous mettez à jour l’application en envoyant (push) des validations à GitHub, Jenkins génère et republie automatiquement votre application dans Azure App Service. L’exemple d’application de ce tutoriel a été développé avec le framework [Spring Boot](https://projects.spring.io/spring-boot/). 
 
 ![Vue d’ensemble](media/tutorial-jenkins-deploy-web-app-azure-app-service/overview.png)
 
@@ -193,7 +193,7 @@ Dans Jenkins, créez le travail de pipeline pour générer et déployer votre ap
 
    1. Dans la zone **Properties Content** (Contenu des propriétés) qui s’affiche, ajoutez ces variables d’environnement et leurs valeurs. 
 
-      ```text
+      ```ini
       AZURE_CRED_ID=yourAzureServicePrincipalName
       RES_GROUP=yourWebAppAzureResourceGroupName
       WEB_APP=yourWebAppName
@@ -212,7 +212,7 @@ Ensuite, créez les scripts de génération et de déploiement pour Jenkins.
 1. Dans le dossier `src/main/resources/` de votre duplication (fork) GitHub, créez un fichier de configuration d’application nommé `web.config`, contenant le code XML suivant, mais où `gs-spring-boot-0.1.0.jar` remplace `$(JAR_FILE_NAME)` :
 
    ```xml
-   <?xml version="1.0" encoding="UTF-8">
+   <?xml version="1.0" encoding="UTF-8"?>
    <configuration>
       <system.webServer>
          <handlers>
@@ -225,7 +225,7 @@ Ensuite, créez les scripts de génération et de déploiement pour Jenkins.
 
 1. Dans le dossier racine de votre duplication (fork) GitHub, créez un script de génération et de déploiement nommé `Jenkinsfile`, contenant le texte suivant ([voir la source dans GitHub](https://github.com/Microsoft/todo-app-java-on-azure/blob/master/doc/resources/jenkins/Jenkinsfile-webapp-se)) :
 
-   ```text  
+   ```groovy
    node {
       stage('init') {
          checkout scm

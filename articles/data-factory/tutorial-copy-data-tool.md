@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: jingwang
-ms.openlocfilehash: ebc0f93055a014888d01fa9bffc7702b99380234
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 553e87cacf407da2333da3105647719679feaabf
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417463"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544203"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Copier des données à partir du Stockage Blob Azure vers une base de données SQL en utilisant l’outil Copier les données
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -54,7 +54,7 @@ Préparez votre stockage d'objets blob et votre base de données SQL pour ce did
     Jane|Doe
     ```
 
-1. Créez un conteneur nommé **adfv2tutorial** et chargez le fichier inputEmp.txt dedans. Vous pouvez utiliser différents outils pour effectuer ces tâches, comme l’[Explorateur Stockage Azure](http://storageexplorer.com/).
+1. Créez un conteneur nommé **adfv2tutorial** et chargez le fichier inputEmp.txt dedans. Vous pouvez utiliser différents outils pour effectuer ces tâches, comme l’[Explorateur Stockage Azure](https://storageexplorer.com/).
 
 #### <a name="create-a-sink-sql-table"></a>Créer une table SQL de récepteur
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 30a7eea751a9fbfa0ee95a7edb039a13860be7f8
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 2aabe3d1fa8a6034c2dab38c8d6fa6da4b00ac1b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115468"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080337"
 ---
 # <a name="azure-network-security-overview"></a>Vue d’ensemble de la sécurité du réseau Azure
 
@@ -61,8 +61,8 @@ Azure prend en charge plusieurs types de contrôle d’accès réseau, tels que 
 
 Tout déploiement sécurisé requiert certaines mesures de contrôle d’accès réseau. L’objectif du contrôle d’accès réseau est de restreindre les communications des machines virtuelles aux systèmes nécessaires. Les autres tentatives de communication sont bloquées.
 
->[!NOTE]
-Les pare-feux de stockage sont détaillés dans l’article [Vue d’ensemble des fonctionnalités de sécurité du stockage Azure](security-storage-overview.md)
+> [!NOTE]
+> Les pare-feux de stockage sont détaillés dans l’article [Vue d’ensemble des fonctionnalités de sécurité du stockage Azure](security-storage-overview.md)
 
 #### <a name="network-security-rules-nsgs"></a>Règles de sécurité réseau (NSG)
 
@@ -178,7 +178,7 @@ Pour ce faire, vous pouvez utiliser un [VPN de site à site](https://www.techope
 En savoir plus :
 
 * [Créer un réseau virtuel de gestionnaire de ressources avec une connexion VPN de site à site à l’aide du portail Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-* [Planification et conception de la passerelle VPN](../vpn-gateway/vpn-gateway-plan-design.md)
+* [À propos de la passerelle VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md)
 
 ### <a name="connect-your-on-premises-network-to-a-virtual-network-with-a-dedicated-wan-link"></a>Connecter votre réseau local à un réseau virtuel à l’aide d’une liaison réseau étendu dédiée
 
@@ -324,7 +324,7 @@ Microsoft offre une protection DDoS **De base** dans le cadre de la plateforme A
 * **Optimisation adaptative :** Le profilage intelligent du trafic étudie le trafic de votre application au fil du temps pour sélectionner et mettre à jour le profil le plus adapté pour votre service. Le profil s’ajuste en fonction des modifications du trafic au fil du temps. Protection des couches 3 à 7 : Offre une protection DDoS de pile complète, quand elle est utilisée avec un pare-feu d’application web.
 * **Échelle de prévention étendue :** Plus de 60 types d’attaques différents peuvent être contrées, avec une protection globale contre les attaques DDoS les plus connues.
 * **Métriques des attaques :** Des métriques récapitulatives de chaque attaque sont accessibles via Azure Monitor.
-* **Alerte d’attaque :** Vous pouvez configurer des alertes pour le début et la fin d’une attaque, ainsi que pendant qu’elle se produit, avec des métriques d’attaque intégrées. Les alertes s’intègrent à vos logiciels opérationnels tel que Microsoft Azure Log Analytics, Splunk, Stockage Azure, votre messagerie électronique et le portail Azure.
+* **Alerte d’attaque :** Vous pouvez configurer des alertes pour le début et la fin d’une attaque, ainsi que pendant qu’elle se produit, avec des métriques d’attaque intégrées. Les alertes s’intègrent à vos logiciels opérationnels tels que les journaux Microsoft Azure Monitor, Splunk, stockage Azure, E-mail et le portail Azure.
 * **Maîtrise des coûts :**  Si vous documentez les attaques DDoS, vous bénéficiez en retour de crédits pour les services de scale-out d’application et de transfert de données.
 * **DDoS Rapid Response** : les clients du service Protection DDoS standard peuvent désormais contacter l’équipe du service Rapid Response pendant une attaque active. Le service DRR peut aider en enquêtant sur l’attaque, en personnalisant les atténuations des risques pendant une attaque et en publiant une analyse de cette dernière.
 
@@ -365,8 +365,8 @@ La [Vue Groupes de sécurité](../network-watcher/network-watcher-security-group
 
 Pour plus d’informations sur Network Watcher et pour savoir comment commencer à tester certaines fonctionnalités dans vos laboratoires, consultez la [présentation de la surveillance Azure Network Watcher](../network-watcher/network-watcher-monitoring-overview.md).
 
->[!NOTE]
-Pour les notifications les plus récentes sur la disponibilité et l’état de ce service, consultez [la page relative aux mises à jour d’Azure](https://azure.microsoft.com/updates/?product=network-watcher).
+> [!NOTE]
+> Pour les notifications les plus récentes sur la disponibilité et l’état de ce service, consultez [la page relative aux mises à jour d’Azure](https://azure.microsoft.com/updates/?product=network-watcher).
 
 ### <a name="azure-security-center"></a>Azure Security Center
 
@@ -401,4 +401,4 @@ La journalisation au niveau du réseau est un élément clé de tout scénario d
 Vous pouvez également utiliser [Microsoft Power BI](https://powerbi.microsoft.com/what-is-power-bi/), un puissant outil de visualisation de données, pour afficher et analyser ces journaux.
 En savoir plus :
 
-* [Analyse de journaux pour les groupes de sécurité réseau (NSG)](../virtual-network/virtual-network-nsg-manage-log.md)
+* [Journaux d’analyse Azure pour les groupes de sécurité réseau (NSG)](../virtual-network/virtual-network-nsg-manage-log.md)

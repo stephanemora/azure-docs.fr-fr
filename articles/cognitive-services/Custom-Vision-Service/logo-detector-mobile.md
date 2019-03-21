@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Utiliser le détecteur de logo personnalisé pour reconnaître les services Azure - Vision personnalisée'
+title: 'Tutoriel : Utiliser le détecteur de logo personnalisé pour reconnaître les services Azure - Vision personnalisée'
 titlesuffix: Azure Cognitive Services
 description: Dans ce tutoriel, vous allez examiner un exemple d’application qui utilise le service Vision personnalisée d’Azure dans le cadre d’un scénario de détection de logo. Découvrez comment le service Vision personnalisée est utilisé avec d’autres composants pour fournir une application de bout en bout.
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 03/11/2019
 ms.author: pafarley
-ms.openlocfilehash: 5b749a85295e85ecde8d283ca02066a31be33666
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 259787a90b61b171f391dc02276214f17a57d0d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673067"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838814"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Tutoriel : Reconnaître les logos des services Azure dans les images de l’appareil photo
 
@@ -101,7 +101,6 @@ Ensuite, ouvrez le fichier *Source\VisualProvision\AppSettings.cs* et affectez d
 
 [!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=28-32)]
 
-
 ## <a name="create-a-service-principal"></a>Créer un principal du service
 
 L’application nécessite un compte de principal de service Azure pour déployer des services dans le cadre de votre abonnement Azure. Un principal de service vous permet de déléguer des autorisations spécifiques à une application à l’aide du contrôle d’accès en fonction du rôle. Pour en savoir plus, consultez le [guide des principaux du service](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-create-service-principals).
@@ -131,6 +130,7 @@ Après cela, vous devriez voir la sortie JSON suivante contenant les information
   ...
 }
 ```
+
 Notez les valeurs `clientId` et `tenantId`. Ajoutez-les dans les champs appropriés, dans le fichier *Source\VisualProvision\AppSettings.cs*.
 
 [!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=8-16)]
@@ -138,9 +138,10 @@ Notez les valeurs `clientId` et `tenantId`. Ajoutez-les dans les champs appropri
 ## <a name="run-the-app"></a>Exécution de l'application
 
 À ce stade, vous avez donné à l’application l’accès :
-* à un modèle Custom Vision entraîné
-* au service Vision par ordinateur
-* à un compte de principal du service 
+
+- à un modèle Custom Vision entraîné
+- au service Vision par ordinateur
+- à un compte de principal du service
 
 Pour exécuter l’application, procédez comme suit :
 
@@ -163,7 +164,6 @@ Pour exécuter l’application, procédez comme suit :
 
     ![Écran de l’application avec un champ de liste déroulante pour l’abonnement Azure cible](media/azure-logo-tutorial/app-az-subscription.png)
 
-    
 
 1. L’appareil photo est activé sur votre appareil. Prenez une photo de l’un des logos des services Azure que vous avez utilisés pour l’entraînement. Une fenêtre de déploiement doit vous inviter à sélectionner une région et un groupe de ressources pour les nouveaux services (comme vous le feriez si vous les déployiez à partir du portail Azure). 
 
@@ -171,7 +171,7 @@ Pour exécuter l’application, procédez comme suit :
 
     ![Écran de l’application montrant les champs pour la région de déploiement et le groupe de ressources](media/azure-logo-tutorial/app-deployment-options.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources 
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Si vous avez suivi toutes les étapes de ce scénario et utilisé l’application pour déployer des services Azure sur votre compte, accédez au [portail Azure](https://ms.portal.azure.com/). Là, annulez les services que vous ne voulez pas utiliser.
 

@@ -16,16 +16,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/14/2017
 ms.author: seanmck
-ms.openlocfilehash: 6e2fa77273ef35fae6c3b232cb36fa913faf879d
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
-ms.translationtype: HT
+ms.openlocfilehash: 9a0b12ec9d825fc665bd5beb89e911b80ed3889f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299047"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013880"
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Déployer votre première application dans Cloud Foundry sur Microsoft Azure
 
-[Cloud Foundry](http://cloudfoundry.org) est une plateforme d’applications open source populaire disponible sur Microsoft Azure. Dans cet article, nous montrons comment déployer et gérer une application dans Cloud Foundry dans un environnement Azure.
+[Cloud Foundry](https://cloudfoundry.org) est une plateforme d’applications open source populaire disponible sur Microsoft Azure. Dans cet article, nous montrons comment déployer et gérer une application dans Cloud Foundry dans un environnement Azure.
 
 ## <a name="create-a-cloud-foundry-environment"></a>Création d’un environnement Cloud Foundry
 
@@ -33,7 +33,7 @@ Il existe plusieurs façons de créer un environnement Cloud Foundry sur Azure 
 
 - Utilisez [l’offre Pivotal Cloud Foundry][pcf-azuremarketplace] disponible sur la Place de marché Microsoft Azure pour créer un environnement standard qui inclut PCF Ops Manager et Azure Service Broker. Vous trouverez des [instructions complètes][pcf-azuremarketplace-pivotaldocs] pour déployer l’offre de la Place de marché dans la documentation Pivotal.
 - Créez un environnement personnalisé en [déployant manuellement Pivotal Cloud Foundry][pcf-custom].
-- [Déployez les packages open source Cloud Foundry directement][oss-cf-bosh] en configurant un directeur [BOSH](http://bosh.io) (une machine virtuelle qui coordonne le déploiement de l’environnement Cloud Foundry).
+- [Déployez les packages open source Cloud Foundry directement][oss-cf-bosh] en configurant un directeur [BOSH](https://bosh.io) (une machine virtuelle qui coordonne le déploiement de l’environnement Cloud Foundry).
 
 > [!IMPORTANT] 
 > Si vous déployez PCF à partir de la Place de marché Microsoft Azure, notez l’URL SYSTEMDOMAINURL et les informations d’identification administrateur requises pour accéder à Pivotal Apps Manager. Elles sont décrites dans le guide de déploiement de la Place de marché. Elles sont nécessaires pour suivre ce didacticiel. Pour les déploiements de la Place de marché, l’URL SYSTEMDOMAINURL se présente sous la forme https://system.*ip-address*.cf.pcfazure.com.
@@ -77,7 +77,7 @@ Désormais, lorsque vous déployez une application, elle est automatiquement cr�
 
 ## <a name="deploy-an-application"></a>Déployer une application
 
-Nous allons utiliser un exemple d’application Cloud Foundry appelée Hello Spring Cloud. Cette application est écrite en langage Java et basée sur le [Spring Framework](http://spring.io) et le [Spring Boot](http://projects.spring.io/spring-boot/).
+Nous allons utiliser un exemple d’application Cloud Foundry appelée Hello Spring Cloud. Cette application est écrite en langage Java et basée sur le [Spring Framework](https://spring.io) et le [Spring Boot](https://projects.spring.io/spring-boot/).
 
 ### <a name="clone-the-hello-spring-cloud-repository"></a>Clonage du référentiel Hello Spring Cloud
 
@@ -90,7 +90,7 @@ cd hello-spring-cloud
 
 ### <a name="build-the-application"></a>Création de l'application
 
-Générez l’application à l’aide [d’Apache Maven](http://maven.apache.org).
+Générez l’application à l’aide [d’Apache Maven](https://maven.apache.org).
 
 ```bash
 mvn clean package
@@ -158,7 +158,7 @@ L’exécution de la commande `cf app` sur l’application montre que Cloud Foun
 [cloudshell-docs]: https://docs.microsoft.com/azure/cloud-shell/overview
 [cf-orgs-spaces-docs]: https://docs.cloudfoundry.org/concepts/roles.html
 [spring-boot]: https://projects.spring.io/spring-boot/
-[spring-framework]: http://spring.io
+[spring-framework]: https://spring.io
 [cf-push-docs]: https://docs.cloudfoundry.org/concepts/how-applications-are-staged.html
 [cloudfoundry-docs]: https://docs.cloudfoundry.org
 [vsts-plugin]: https://github.com/Microsoft/vsts-cloudfoundry

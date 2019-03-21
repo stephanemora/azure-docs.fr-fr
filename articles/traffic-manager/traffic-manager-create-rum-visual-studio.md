@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: eec13db8bdbe1f40a51df14077adb8740e977f5d
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
-ms.translationtype: HT
+ms.openlocfilehash: 1a5b883a8c9688d4545c0e98c00f78a2e982a611
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138410"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079710"
 ---
 # <a name="how-to-send-real-user-measurements-to-traffic-manager-with-visual-studio-mobile-center"></a>Comment envoyer les mesures des utilisateurs réels à Traffic Manager avec Visual Studio Mobile Center
 
@@ -28,27 +28,27 @@ Vous pouvez configurer votre application mobile développée à l’aide de Visu
 
 Pour configurer les mesures d’utilisateurs réels, vous devez obtenir une clé et instrumenter votre application avec le package de mesures des utilisateurs réels.
 
-## <a name="step-1-obtain-a-key"></a>Étape 1 : Obtenir une clé
+## <a name="step-1-obtain-a-key"></a>Étape 1 : Obtenir une clé
     
 Les mesures que vous prenez et envoyez à Traffic Manager à partir de votre application cliente sont identifiées par le service à l’aide d’une chaîne unique, que l’on nomme « clé de mesures des utilisateurs réels ». Vous pouvez obtenir une clé de mesures des utilisateurs réels via le portail Azure, une API REST, PowerShell ou Azure CLI.
 
 Pour obtenir la clé de mesures des utilisateurs réels via le portail Azure, utilisez la procédure suivante :
-   1. Dans un navigateur, connectez-vous au portail Azure. Si vous n’avez pas encore de compte, vous pouvez vous inscrire pour bénéficier d’un essai gratuit d’un mois.
-   2. Dans la barre de recherche du portail, recherchez le nom du profil Traffic Manager que vous souhaitez modifier, puis cliquez sur le profil Traffic Manager dans les résultats affichés.
-   3. Dans la page du profil Traffic Manager, cliquez sur **Mesures des utilisateurs réels** sous **Paramètres**.
-   4. Cliquez sur **Générer une clé** pour créer une clé de mesures des utilisateurs réels.
+1. Dans un navigateur, connectez-vous au portail Azure. Si vous n’avez pas encore de compte, vous pouvez vous inscrire pour bénéficier d’un essai gratuit d’un mois.
+2. Dans la barre de recherche du portail, recherchez le nom du profil Traffic Manager que vous souhaitez modifier, puis cliquez sur le profil Traffic Manager dans les résultats affichés.
+3. Dans la page du profil Traffic Manager, cliquez sur **Mesures des utilisateurs réels** sous **Paramètres**.
+4. Cliquez sur **Générer une clé** pour créer une clé de mesures des utilisateurs réels.
         
    ![Générer une clé de mesures des utilisateurs réels](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
 
-   **Figure 1 : Génération de la clé de mesures des utilisateurs réels**
+   **Figure 1 : Génération de la clé de mesures des utilisateurs réelle**
 
-   5.   La page affiche maintenant la clé de mesures des utilisateurs réels générée et un extrait de code JavaScript qui doit être incorporé à votre page HTML.
+5. La page affiche maintenant la clé de mesures des utilisateurs réels générée et un extrait de code JavaScript qui doit être incorporé à votre page HTML.
  
    ![Code JavaScript pour la clé de mesures des utilisateurs réels](./media/traffic-manager-create-rum-visual-studio/rum-key.png)
 
-   **Figure 2 : Clé de mesures des utilisateurs réels et code JavaScript de mesure**
+   **Figure 2 : Clé de mesures utilisateur réelles et code JavaScript de mesure**
  
-   6. Cliquez sur le bouton **Copier** pour copier la clé de mesures des utilisateurs réels. 
+6. Cliquez sur le bouton **Copier** pour copier la clé de mesures des utilisateurs réels. 
 
 ## <a name="step-2-instrument-your-app-with-the-rum-package-of-mobile-center-sdk"></a>Étape 2 : Instrumenter votre application avec le package de mesures des utilisateurs réels du SDK Mobile Center
 
@@ -72,7 +72,7 @@ Pour utiliser des mesures d’utilisateurs réels, effectuez la procédure suiva
     Dans votre fichier **app/build.gradle**, ajoutez les lignes suivantes :
 
     ```groovy
-    dependencies {   
+    dependencies {
      
         def mobileCenterSdkVersion = '0.12.1-16+3fe5b08'
         compile "com.microsoft.azure.mobile:mobile-center-rum:${mobileCenterSdkVersion}"

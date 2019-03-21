@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: e2f0fb6333f3786b29c2a7516e46a4599d6e89ed
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: 36b60b3784739a884b887a29f3dd53c61c44cd6f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961007"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57851344"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Comment enregistrer et configurer votre configuration du service Gestion des API à l’aide de Git
 
@@ -53,9 +53,9 @@ Pour afficher et configurer vos paramètres de configuration Git, cliquez sur le
 ![Activer GIT][api-management-enable-git]
 
 > [!IMPORTANT]
-> Tous les secrets qui ne sont pas définis en tant que propriétés sont stockés dans le dépôt et demeurent dans son historique jusqu’à ce que vous désactiviez et réactiviez l’accès à Git. Les propriétés fournissent un emplacement sécurisé pour gérer les valeurs de chaîne constante, notamment les secrets, dans toutes les stratégies et configurations de l’API ; vous n’êtes donc pas obligé de les stocker directement dans les instructions de votre stratégie. Pour plus d’informations, consultez [Utilisation des propriétés dans les stratégies Gestion des API Azure](api-management-howto-properties.md).
-> 
-> 
+> Tous les secrets qui ne sont pas définies en tant que valeurs nommé seront stockées dans le référentiel et resteront dans son historique jusqu'à ce que vous désactivez et réactivez l’accès de Git. Valeurs nommées fournissent un emplacement sécurisé pour gérer les valeurs de chaîne constante, notamment des secrets, dans toutes les stratégies et configuration de l’API afin que vous n’êtes pas obligé de les stocker directement dans vos instructions de stratégie. Pour plus d’informations, consultez [l’utilisation de valeurs nommé dans les stratégies de gestion des API Azure](api-management-howto-properties.md).
+>
+>
 
 Pour plus d’informations sur l’activation ou la désactivation de l’accès à Git en utilisant l’API REST, consultez [Activer ou désactiver l’accès à Git à l’aide de l’API REST](https://msdn.microsoft.com/library/dn781420.aspx#EnableGit).
 
@@ -73,13 +73,13 @@ Pour plus d’informations sur l’exécution de cette opération avec l’API R
 
 ## <a name="to-clone-the-repository-to-your-local-machine"></a>Pour cloner le dépôt sur votre ordinateur local
 
-Pour cloner un dépôt, vous avez besoin de l’URL de votre dépôt, d’un nom d’utilisateur et d’un mot de passe. Pour obtenir le nom d’utilisateur et d’autres informations d’identification, cliquez sur **Informations d’identification d’accès** dans la partie supérieure de la page.  
- 
+Pour cloner un dépôt, vous avez besoin de l’URL de votre dépôt, d’un nom d’utilisateur et d’un mot de passe. Pour obtenir le nom d’utilisateur et d’autres informations d’identification, cliquez sur **Informations d’identification d’accès** dans la partie supérieure de la page.
+
 Pour générer un mot de passe, vérifiez d’abord que le champ **Expiration** est défini sur la date et l’heure d’expiration souhaitées, puis cliquez sur **Générer**.
 
 > [!IMPORTANT]
 > Notez ce mot de passe. Une fois que vous quittez cette page, le mot de passe ne s’affiche plus.
-> 
+>
 
 Les exemples suivants utilisent l’outil Git Bash de [Git pour Windows](https://www.git-scm.com/downloads) , mais vous pouvez utiliser n’importe quel outil Git auquel vous êtes habitué.
 
@@ -172,12 +172,12 @@ Ces fichiers peuvent être créés, supprimés, modifiés et gérés dans votre 
 
 > [!NOTE]
 > Les entités suivantes ne se trouvent pas dans le dépôt Git et ne peuvent pas être configurées à l’aide de Git.
-> 
-> * Utilisateurs
-> * Abonnements
-> * properties
+>
+> * [Utilisateurs](https://docs.microsoft.com/en-us/rest/api/apimanagement/user)
+> * [Abonnements](https://docs.microsoft.com/en-us/rest/api/apimanagement/subscription)
+> * [Valeurs nommées](https://docs.microsoft.com/en-us/rest/api/apimanagement/property)
 > * Entités du portail des développeur autres que les styles
-> 
+>
 
 ### <a name="root-api-management-folder"></a>Dossier api-management racine
 Le dossier `api-management` racine contient un fichier `configuration.json` qui renferme des informations de premier niveau sur l’instance de service dans le format suivant.
@@ -223,7 +223,7 @@ Le dernier paramètre, `$ref-policy`, correspond au fichier d’instructions de 
 ### <a name="apis-folder"></a>Dossier apis
 Le dossier `apis` contient un dossier pour chaque API dans l’instance de service, qui renferme les éléments suivants.
 
-* `apis\<api name>\configuration.json` : cet élément représente la configuration de l’API et contient des informations sur l’URL du service principal et sur les opérations. Vous pouvez obtenir les mêmes informations en appelant l’opération [Obtenir une API spécifique](https://docs.microsoft.com/rest/api/apimanagement/api/get) avec `export=true` au format `application/json`.
+* `apis\<api name>\configuration.json` : cet élément représente la configuration de l’API et contient des informations sur l’URL du service principal et sur les opérations. Vous pouvez obtenir les mêmes informations en appelant l’opération [Obtenir une API spécifique](https://docs.microsoft.com/rest/api/apimanagement/apis/get) avec `export=true` au format `application/json`.
 * `apis\<api name>\api.description.html` : cet élément décrit l’API et correspond à la propriété `description` de [l’entité API](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._entity_property).
 * `apis\<api name>\operations\` : ce dossier contient des fichiers `<operation name>.description.html` correspondant aux opérations dans l’API. Chaque fichier contient la description d’une opération unique dans l’API, qui correspond à la propriété `description` de [l’entité Operation](https://docs.microsoft.com/rest/api/visualstudio/operations/list#operationproperties) dans l’API REST.
 

@@ -5,17 +5,16 @@ description: Utilisez PowerShell pour créer et gérer des espaces de travail Az
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
-ms.custom: previous-ms.author=haining, previous-author=hning86
 ms.date: 01/25/2019
-ms.openlocfilehash: b6080e6e81b6cedce4d08cf20e082c87e5cecade
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: bd3a82f326cdf7f51e8842e45333ff2bd647c260
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55489816"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092750"
 ---
 # <a name="powershell-modules-for-azure-machine-learning-studio"></a>Modules PowerShell pour Azure Machine Learning Studio
 
@@ -58,7 +57,7 @@ Pour bien démarrer avec PowerShell classique, téléchargez le [package de la v
 ## <a name="support-table"></a> Tableau de prise en charge PowerShell
 
  **Espaces de travail Studio** | **Az** |  **AzureRM** | **PowerShell Classic** |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | Créer/supprimer des espaces de travail | [Modèles Microsoft Azure Resource Manager](https://docs.microsoft.com/azure/machine-learning/studio/deploy-with-resource-manager-template) | [Modèles Microsoft Azure Resource Manager](https://docs.microsoft.com/azure/machine-learning/studio/deploy-with-resource-manager-template) |  |
 | Gérer les utilisateurs de l’espace de travail |  |  | [Add-AmlWorkspaceUsers](https://github.com/hning86/azuremlps#add-amlworkspaceusers)|
 | Gérer les plans d’engagement | [New-AzMlCommitmentPlan](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlcommitmentplan) | [New-AzureRmMlCommitmentPlan](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/new-azurermmlcommitmentplan) |

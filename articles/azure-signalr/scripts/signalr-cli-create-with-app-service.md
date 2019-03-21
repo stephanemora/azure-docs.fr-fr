@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 04/20/2018
 ms.author: zhshang
 ms.custom: mvc
-ms.openlocfilehash: 007bf58c06d28f4445b3e57c5d692e3ee19b5b8c
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 5fd9e593a9a5158b35d3c0e17436d54bc7c1bd03
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257741"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57547774"
 ---
 # <a name="create-a-signalr-service-with-an-app-service"></a>Créer un service SignalR avec App Service
 
@@ -56,4 +56,4 @@ Chaque commande du tableau renvoie à une documentation spécifique. Ce script u
 
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](/cli/azure).
 
-Des exemples supplémentaires de script de l’interface CLI du service Azure SignalR sont disponibles dans la [documentation sur le service Azure SignalR](../signalr-cli-samples.md).
+Des exemples supplémentaires de script de l’interface CLI du service Azure SignalR sont disponibles dans la [documentation sur le service Azure SignalR](../signalr-reference-cli.md).

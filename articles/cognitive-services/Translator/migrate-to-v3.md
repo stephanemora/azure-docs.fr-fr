@@ -10,17 +10,19 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 04d7bfcf0527b490bc18f6d85977d899823d5e69
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: 1857cd7c4fe6102f94487dbb2cc5ad5c43c18f99
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301874"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101174"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Migration de l’API de traduction de texte Translator Text de la v2 à la v3
 
 > [!NOTE]
 > La V2 a été dépréciée le 30 avril 2018 et sera supprimée le 30 avril 2019.
+> 
+> Microsoft Translator Hub seront supprimé le 30 avril 2019. [Afficher des dates et des informations sur la migration important](https://www.microsoft.com/translator/business/hub/).  
 
 L’équipe Microsoft Translator a publié la version 3 (v3) de l’API de traduction de texte Translator Text. Cette version inclut de nouvelles fonctionnalités, les méthodes déconseillées et un nouveau format pour l’envoi et la réception de données à partir du service de traduction de Microsoft. Ce document fournit des informations sur la modification des applications pour utiliser la V3. 
 
@@ -49,8 +51,8 @@ La liste suivante des méthodes V2 et V3 identifie les méthodes V3 et les API q
 | `Speak`     | [Service Microsoft Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
 | `Detect`     | [Detect](reference/v3-0-detect.md)         |
 | `DetectArray`     | [Detect](reference/v3-0-detect.md)         |
-| `AddTranslation`     | [API Microsoft Translator Hub](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)         |
-| `AddTranslationArray`    | [API Microsoft Translator Hub](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)          |
+| `AddTranslation`     | Cette fonctionnalité n’est plus prise en charge       |
+| `AddTranslationArray`    | Cette fonctionnalité n’est plus prise en charge          |
 | `BreakSentences`      | [BreakSentence](reference/v3-0-break-sentence.md)       |
 | `GetTranslations`      | Cette fonctionnalité n’est plus prise en charge         |
 | `GetTranslationsArray`      | Cette fonctionnalité n’est plus prise en charge         |
@@ -106,14 +108,18 @@ Globale
 
 ## <a name="compatibility-and-customization"></a>Compatibilité et personnalisation
 
+> [!NOTE]
+> 
+> Microsoft Translator Hub seront supprimé le 30 avril 2019. [Afficher des dates et des informations sur la migration important](https://www.microsoft.com/translator/business/hub/).   
+
 Microsoft Translator V3 utilise par défaut la traduction automatique neuronale. Par conséquent, il ne peut pas être utilisé avec Microsoft Translator Hub. Translator Hub prend uniquement en charge la traduction automatique statistique héritée. La personnalisation de la traduction neuronale est désormais disponible à l’aide du traducteur personnalisé. [En savoir plus sur la personnalisation de la traduction automatique neuronale](custom-translator/overview.md)
 
 La traduction neuronale avec l'API de texte v3 ne prend pas en charge l'utilisation des catégories standard (SMT, speech, tech, generalnn).
 
 | |Point de terminaison|    Conformité du processeur au RGPD|  Utiliser Translator Hub| Utiliser Custom Translator (préversion)|
 |:-----|:-----|:-----|:-----|:-----|
-|API de traduction de texte Translator Text version 2| api.microsofttranslator.com|    Non   |OUI    |Non |
-|API de traduction de texte Translator Text version 3| api.cognitive.microsofttranslator.com|  OUI|    Non | OUI|
+|API de traduction de texte Translator Text version 2| api.microsofttranslator.com|    Non   |Oui    |Non |
+|API de traduction de texte Translator Text version 3| api.cognitive.microsofttranslator.com|  Oui|    Non | Oui|
 
 **API de traduction de texte Translator Text version 3**
 * Est généralement disponible et entièrement prise en charge.
@@ -130,13 +136,13 @@ Vous utilisez la version 3 de l’API de traduction de texte Translator Text si
 * Donne accès aux systèmes de traduction personnalisés créés à l’aide de Microsoft Translator Hub.
 * Vous utilisez la version 2 de l’API de traduction de texte Translator Text si vous utilisez le point de terminaison api.microsofttranslator.com.
 
-Aucune version de l’API Translator ne crée un enregistrement de vos traductions. Vos traductions ne sont jamais partagées avec des tiers. Vous trouverez plus d’informations dans la page [Aucune trace](http://www.aka.ms/NoTrace) du site web Translator.
+Aucune version de l’API Translator ne crée un enregistrement de vos traductions. Vos traductions ne sont jamais partagées avec des tiers. Vous trouverez plus d’informations dans la page [Aucune trace](https://www.aka.ms/NoTrace) du site web Translator.
 
 ## <a name="links"></a>Liens
 
 * [Politique de confidentialité Microsoft](https://privacy.microsoft.com/privacystatement)
 * [Informations légales relatives à Microsoft Azure](https://azure.microsoft.com/support/legal)
-* [Conditions d’utilisation des services en ligne](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)
+* [Conditions d’utilisation des services en ligne](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

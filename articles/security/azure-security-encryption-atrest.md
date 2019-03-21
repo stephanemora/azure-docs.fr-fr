@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: barclayn
-ms.openlocfilehash: c9e3a98b1073a2b198a341f31a320bba670b0596
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 4ced712b1b2716d85f0366ea892460053db598b8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117899"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076902"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Chiffrement des données au repos d’Azure
 
@@ -258,32 +258,32 @@ Le chiffrement côté client des données d’Azure SQL Database est pris en cha
 |                                  |                    | **Modèle de chiffrement et gestion des clés** |                    |
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
 |                                  | **Côté serveur à l’aide d’une clé gérée par le service**     | **Côté serveur à l’aide d’un coffre de clés géré par le client**             | **Côté client à l’aide d’une gestion par le client**      |
-| **Stockage et bases de données**        |                    |                    |                    |                    |
+| **Stockage et bases de données**        |                    |                    |                    |
 | Disque (IaaS)                      | -                  | Oui, RSA 2048 bits  | -                  |
-| SQL Server (IaaS)                | OUI                | Oui, RSA 2048 bits  | OUI                |
-| Azure SQL (Database/Data Warehouse) | OUI                | Oui, RSA 2048 bits  | OUI                |
-| Azure SQL (Database Managed Instance) | OUI                | Préversion, RSA 2048 bits  | OUI                |
-| Stockage Azure (Objets blob de blocs/pages) | OUI                | Oui, RSA 2048 bits  | OUI                |
-| Stockage Azure (Fichiers)            | OUI                | Oui, RSA 2048 bits  | -                  |
-| Stockage Azure (Tables, Files d’attente)   | OUI                | -                  | OUI                |
-| Cosmos DB (Document DB)          | OUI                | -                  | -                  |
-| StorSimple                       | OUI                | -                  | OUI                |
-| Sauvegarde                           | -                  | -                  | OUI                |
+| SQL Server (IaaS)                | Oui                | Oui, RSA 2048 bits  | Oui                |
+| Azure SQL (Database/Data Warehouse) | Oui                | Oui, RSA 2048 bits  | Oui                |
+| Azure SQL (Database Managed Instance) | Oui                | Préversion, RSA 2048 bits  | Oui                |
+| Stockage Azure (Objets blob de blocs/pages) | Oui                | Oui, RSA 2048 bits  | Oui                |
+| Stockage Azure (Fichiers)            | Oui                | Oui, RSA 2048 bits  | -                  |
+| Stockage Azure (Tables, Files d’attente)   | Oui                | -                  | Oui                |
+| Cosmos DB (Document DB)          | Oui                | -                  | -                  |
+| StorSimple                       | Oui                | -                  | Oui                |
+| Sauvegarde                           | Oui                | -                  | Oui                |
 | **Décisionnel &amp; Analytique**   |                    |                    |                    |
-| Azure Data Factory               | OUI                | -                  | -                  |
+| Azure Data Factory               | Oui                | -                  | -                  |
 | Azure Machine Learning           | -                  | Préversion, RSA 2048 bits | -                  |
-| Azure Stream Analytics           | OUI                | -                  | -                  |
-| HDInsight (Azure Blob Storage)   | OUI                | -                  | -                  |
-| HDInsight (Data Lake Storage)    | OUI                | -                  | -                  |
-| Apache Kafka pour HDInsight       | OUI                | Préversion, toutes les longueurs RSA | -                  |
-| Azure Data Lake Store            | OUI                | Oui, RSA 2048 bits  | -                  |
-| Azure Data Catalog               | OUI                | -                  | -                  |
-| Power BI                         | OUI                | -                  | -                  |
+| Azure Stream Analytics           | Oui                | -                  | -                  |
+| HDInsight (Azure Blob Storage)   | Oui                | -                  | -                  |
+| HDInsight (Data Lake Storage)    | Oui                | -                  | -                  |
+| Apache Kafka pour HDInsight       | Oui                | Préversion, toutes les longueurs RSA | -                  |
+| Azure Data Lake Store            | Oui                | Oui, RSA 2048 bits  | -                  |
+| Azure Data Catalog               | Oui                | -                  | -                  |
+| Power BI                         | Oui                | -                  | -                  |
 | **Services IoT**                 |                    |                    |                    |
-| IoT Hub                          | -                  | -                  | OUI                |
-| Service Bus                      | OUI                | -                  | OUI                |
-| Event Hubs                       | OUI                | -                  | -                  |
-| Event Grid                       | OUI                | -                  | -                  |
+| IoT Hub                          | -                  | -                  | Oui                |
+| Service Bus                      | Oui                | -                  | Oui                |
+| Event Hubs                       | Oui                | -                  | -                  |
+| Event Grid                       | Oui                | -                  | -                  |
 
 
 ## <a name="conclusion"></a>Conclusion

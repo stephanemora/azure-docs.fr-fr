@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 91ff85d8c32c0bcfa984cc690382d09765a068a2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 2ea5b4e3af6591e6e25a863998baa7cecb3e29e8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004638"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079109"
 ---
 # <a name="joins-in-azure-monitor-log-queries"></a>Utilisation de jointures dans les requêtes de journal Azure Monitor
 
 > [!NOTE]
-> Vous devez terminer [Bien démarrer avec Azure Monitor Log Analytics](get-started-portal.md) et [Requêtes de journal Azure Monitor](get-started-queries.md) avant de suivre cette leçon.
+> Vous devez effectuer [prise en main Azure Monitor Log Analytique](get-started-portal.md) et [des requêtes de journal Azure Monitor](get-started-queries.md) avant la fin de cette leçon.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -101,7 +101,7 @@ Tenez compte des points suivants pour optimiser les performances :
 
 - Utilisez un filtre de temps sur chaque table pour réduire le nombre d’enregistrements qui doivent être évalués pour la jointure.
 - Utilisez `where` et `project` pour réduire le nombre de lignes et de colonnes dans les tables d’entrée avant la jointure.
-* Si une table est toujours plus petite que l’autre, utilisez-la pour le côté gauche de la jointure.
+- Si une table est toujours plus petite que l’autre, utilisez-la pour le côté gauche de la jointure.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

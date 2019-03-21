@@ -10,18 +10,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 02/22/2019
 ms.author: jingwang
-ms.openlocfilehash: bed076ac1bd81d90d367d18315a4d0de12468ec8
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: c2257dac60ed92859e3df3360ce55558b176de91
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660202"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010211"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copier des données depuis/vers Azure SQL Data Warehouse à l’aide d’Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
-> * [Version1 ](v1/data-factory-azure-sql-data-warehouse-connector.md)
+> * [Version1](v1/data-factory-azure-sql-data-warehouse-connector.md)
 > * [Version actuelle](connector-azure-sql-data-warehouse.md)
 
 Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour copier des données vers ou à partir d’Azure SQL Data Warehouse. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
@@ -59,7 +59,7 @@ Les propriétés prises en charge pour le service lié Azure SQL Data Warehouse 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété de type doit être définie sur **AzureSqlDW** | Oui |
-| connectionString | Spécifiez les informations requises pour la connexion à l’instance Azure SQL Data Warehouse pour la propriété **connectionString**. <br/>Marquez ce champ comme SecureString pour le stocker de façon sécurisée dans Data Factory. Vous pouvez également stocker un mot de passe/une clé de principal de service dans Azure Key Vault et, en cas d’authentification SQL, extraire la configuration `password` de la chaîne de connexion. Consultez l’exemple JSON décrit sous le tableau et l’article [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md) pour plus de détails. | Oui |
+| connectionString | Spécifiez les informations requises pour la connexion à l’instance Azure SQL Data Warehouse pour la propriété **connectionString**. <br/>Marquez ce champ comme SecureString pour le stocker de façon sécurisée dans Data Factory. Vous pouvez également stocker un mot de passe/une clé de principal de service dans Azure Key Vault et, en cas d'authentification SQL, extraire la configuration `password` de la chaîne de connexion. Pour plus d'informations, reportez-vous à l'exemple JSON décrit sous le tableau et à l'article [Stocker des informations d'identification dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 | servicePrincipalId | Spécifiez l’ID client de l’application. | Oui, quand vous utilisez l’authentification Azure AD avec le principal de service. |
 | servicePrincipalKey | Spécifiez la clé de l’application. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui, quand vous utilisez l’authentification Azure AD avec le principal de service. |
 | locataire | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. Vous pouvez le récupérer en pointant la souris dans le coin supérieur droit du Portail Azure. | Oui, quand vous utilisez l’authentification Azure AD avec le principal de service. |
@@ -136,7 +136,7 @@ Pour utiliser l’authentification du jeton d’application Azure AD basée sur 
     - Clé de l'application
     - ID client
 
-1. **[Provisionnez un administrateur Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** pour votre serveur Azure SQL sur le portail Azure, si ce n’est pas déjà fait. L’administrateur Azure AD peut être un utilisateur Azure AD ou un groupe Azure AD. Si vous accordez au groupe avec MSI un rôle d’administrateur, ignorez les étapes 3 et 4. L’administrateur aura un accès complet à la base de données.
+1. **[Provisionnez un administrateur Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** pour votre serveur Azure SQL sur le portail Azure, si ce n’est pas déjà fait. L’administrateur Azure AD peut être un utilisateur Azure AD ou un groupe Azure AD. Si vous accordez au groupe avec l’identité gérée un rôle d’administrateur, ignorez les étapes 3 et 4. L’administrateur aura un accès complet à la base de données.
 
 1. **[Créez des utilisateurs de base de données autonome](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** pour le principal de service. Connectez-vous à l’entrepôt de données vers lequel ou à partir duquel vous souhaitez copier des données à l’aide d’outils tels que SSMS, avec une identité Azure AD qui a au moins l’autorisation ALTER ANY USER. Exécutez le code T-SQL suivant :
     
@@ -182,22 +182,22 @@ Pour utiliser l’authentification du jeton d’application Azure AD basée sur 
 
 ### <a name="managed-identity"></a> Identités managées pour authentifier les ressources Azure
 
-Une fabrique de données peut être associée à une [identité managée pour les ressources Azure](data-factory-service-identity.md), laquelle représente cette même fabrique. Vous pouvez utiliser cette identité de service pour l’authentification Azure SQL Data Warehouse. La fabrique désignée peut accéder et copier des données vers ou à partir de votre entrepôt de données à l’aide de cette identité.
+Une fabrique de données peut être associée à une [identité managée pour les ressources Azure](data-factory-service-identity.md), laquelle représente cette même fabrique. Vous pouvez utiliser cette identité gérée pour l’authentification Azure SQL Data Warehouse. La fabrique désignée peut accéder et copier des données vers ou à partir de votre entrepôt de données à l’aide de cette identité.
 
 > [!IMPORTANT]
-> Notez que PolyBase n’est pas pris en charge actuellement pour l’authentification MSI.
+> Notez que PolyBase n’est pas actuellement pris en charge pour l’authentification d’identité gérée.
 
-Pour utiliser l’authentification du jeton d’application Azure AD basée sur une MSI, effectuez les étapes suivantes :
+Pour utiliser l’authentification d’identité gérée, procédez comme suit :
 
-1. **Créez un groupe dans Azure AD.** Faites de la fabrique MSI un membre du groupe.
+1. **Créez un groupe dans Azure AD.** Vérifiez l’identité gérée à un membre du groupe.
 
-    1. Recherchez l’identité du service de la fabrique de données sur le portail Azure. Accédez aux **Propriétés** de votre fabrique de données. Copiez l’ID de l’identité du service.
+   1. Rechercher l’identité de géré de fabrique de données à partir du portail Azure. Accédez aux **Propriétés** de votre fabrique de données. Copiez l’ID de l’identité du service.
 
-    1. Installez le module [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2). Connectez-vous à l’aide de la commande `Connect-AzureAD`. Exécutez les commandes suivantes pour créer un groupe et ajouter la MSI de fabrique de données en tant que membre.
-    ```powershell
-    $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
-    Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
-    ```
+   1. Installez le module [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2). Connectez-vous à l’aide de la commande `Connect-AzureAD`. Exécutez les commandes suivantes pour créer un groupe et ajouter l’identité gérée en tant que membre.
+      ```powershell
+      $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
+      Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory managed identity object ID>"
+      ```
 
 1. **[Provisionnez un administrateur Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** pour votre serveur Azure SQL sur le portail Azure, si ce n’est pas déjà fait.
 
@@ -215,7 +215,7 @@ Pour utiliser l’authentification du jeton d’application Azure AD basée sur 
 
 1. **Dans Azure Data Factory, configurez un service lié Azure SQL Data Warehouse.**
 
-#### <a name="linked-service-example-that-uses-msi-authentication"></a>Exemple de service lié qui utilise l’authentification MSI
+**Exemple :**
 
 ```json
 {
@@ -386,9 +386,9 @@ Pour copier des données vers Azure SQL Data Warehouse, définissez **SqlDWSink*
 | rejectType | Indique si l’option **rejectValue** est une valeur littérale ou un pourcentage.<br/><br/>Les valeurs autorisées sont **Value** (par défaut) et **Percentage**. | Non  |
 | rejectSampleValue | Détermine le nombre de lignes à extraire avant que PolyBase recalcule le pourcentage de lignes rejetées.<br/><br/>Les valeurs autorisées sont 1, 2, et ainsi de suite. | Oui, si **rejectType** est **percentage** |
 | useTypeDefault | Spécifie comment gérer les valeurs manquantes dans les fichiers texte délimités lorsque PolyBase extrait des données à partir du fichier texte.<br/><br/>Pour plus d’informations sur cette propriété, consultez la section Arguments dans [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Les valeurs autorisées sont **True** et **False** (par défaut). | Non  |
-| writeBatchSize | Insère des données dans la table SQL quand la taille de la mémoire tampon atteint **writeBatchSize**. S’applique uniquement quand PolyBase n’est pas utilisé.<br/><br/>La valeur autorisée est **integer** (nombre de lignes). |  Non. La valeur par défaut est 10000. |
+| writeBatchSize | Insère des données dans la table SQL quand la taille de la mémoire tampon atteint **writeBatchSize**. S’applique uniquement quand PolyBase n’est pas utilisé.<br/><br/>La valeur autorisée est **integer** (nombre de lignes). | Non. La valeur par défaut est 10000. |
 | writeBatchTimeout | Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer. S’applique uniquement quand PolyBase n’est pas utilisé.<br/><br/>La valeur autorisée est **timespan**. Exemple : “00:30:00” (30 minutes). | Non  |
-| preCopyScript | Spécifiez une requête SQL pour l’activité de copie à exécuter avant l’écriture de données dans Azure SQL Data Warehouse à chaque exécution. Utilisez cette propriété pour nettoyer les données préchargées. | Non  | (#repeatability-during-copy). | Une instruction de requête. | Non  |
+| preCopyScript | Spécifiez une requête SQL pour l’activité de copie à exécuter avant l’écriture de données dans Azure SQL Data Warehouse à chaque exécution. Utilisez cette propriété pour nettoyer les données préchargées. | Non  |
 
 #### <a name="sql-data-warehouse-sink-example"></a>Exemple de récepteur SQL Data Warehouse
 
@@ -437,8 +437,8 @@ Si les critères ne sont pas remplis, Azure Data Factory contrôle les paramètr
    5. `escapeChar`, `quoteChar` et `skipLineCount` ne sont pas spécifiés. PolyBase est capable d’ignorer la ligne d’en-tête ; cela peut être paramétré en tant que `firstRowAsHeader` dans ADF.
    6. `compression` peut être **aucune compression**, **GZip** ou **Deflate**.
 
-    ```json
-    "typeProperties": {
+      ```json
+      "typeProperties": {
         "folderPath": "<blobpath>",
         "format": {
             "type": "TextFormat",
@@ -452,8 +452,8 @@ Si les critères ne sont pas remplis, Azure Data Factory contrôle les paramètr
             "type": "GZip",
             "level": "Optimal"
         }
-    },
-    ```
+      },
+      ```
 
 ```json
 "activities":[

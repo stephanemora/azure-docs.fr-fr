@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/17/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5431372abb9a1157b322a8af4a07ba5fa15d8e8e
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: b207d9e3123245e5cb7dddb625f7488886591ae5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720457"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089860"
 ---
 # <a name="configuring-a-custom-domain-name-for-a-web-app-in-azure-app-service-using-traffic-manager"></a>Configuration d’un nom de domaine personnalisé pour une application web dans Azure App Service utilisant Traffic Manager
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
@@ -56,11 +56,9 @@ Pour associer votre domaine personnalisé à une application web dans Azure App 
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records-no-h.md)]
 
 Bien que les spécificités de chaque fournisseur de domaine varient, vous mappez généralement *depuis* votre nom de domaine personnalisé (comme **contoso.com**) *vers* le nom de domaine Traffic Manager (**contoso.trafficmanager.net**) qui est intégré à votre application web.
-   
+
 > [!NOTE]
-> Si un enregistrement est déjà utilisé et que vous devez y lier préventivement vos applications, vous pouvez créer un enregistrement CNAME supplémentaire. Par exemple, pour lier **www.contoso.com** à votre application web à titre préventif, créez un enregistrement CNAME entre **awverify.www** et **contoso.trafficmanager.net**. Vous pouvez ensuite ajouter « www.contoso.com » à votre application web sans modifier l’enregistrement CNAME « www ». Pour plus d’informations, consultez [Créer des enregistrements DNS pour une application web dans un domaine personnalisé][CREATEDNS].
-> 
-> 
+> Si un enregistrement est déjà utilisé et que vous devez y lier préventivement vos applications, vous pouvez créer un enregistrement CNAME supplémentaire. Par exemple, pour y lier préventivement **www\.contoso.com** à votre application web, créez un enregistrement CNAME à partir de **awverify.www** à **contoso.trafficmanager.net**. Vous pouvez ensuite ajouter « www\.contoso.com » à votre application Web sans modifier l’enregistrement CNAME « www ». Pour plus d’informations, consultez [Créer des enregistrements DNS pour une application web dans un domaine personnalisé][CREATEDNS].
 
 Quand vous avez terminé l’ajout ou la modification des enregistrements DNS auprès de votre fournisseur de domaine, enregistrez les modifications.
 
