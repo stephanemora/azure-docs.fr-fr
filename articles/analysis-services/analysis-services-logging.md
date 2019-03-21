@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9f9a6511d63e57c6cbfa5ee2453f8038bb259047
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 2303d385d3d688050a8d82c07e78a68588f41e88
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428990"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010920"
 ---
 # <a name="setup-diagnostic-logging"></a>Configurer la journalisation des diagnostics
 
@@ -21,6 +21,7 @@ Une des fonctions importantes d’une solution Analysis Services est d’analyse
 
 ![Journalisation des diagnostics dans le Stockage, Event Hubs ou les journaux Azure Monitor](./media/analysis-services-logging/aas-logging-overview.png)
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="whats-logged"></a>Éléments journalisés :
 
@@ -82,7 +83,7 @@ La catégorie Métriques journalise les mêmes [métriques serveur](analysis-ser
 
     * **Archive vers un compte de stockage**. Pour utiliser cette option, vous avez besoin d’un compte de stockage existant auquel vous connecter. Voir [Créer un compte de stockage](../storage/common/storage-create-storage-account.md). Suivez les instructions pour créer un compte Resource Manager à usage général, puis sélectionnez votre compte de stockage en retournant sur cette page du portail. L’affichage des comptes de stockage nouvellement créés dans le menu déroulant peut prendre quelques minutes.
     * **Transmettre à un Event Hub**. Pour utiliser cette option, vous avez besoin d’un espace de noms Event Hub existant et d’un Event Hub auquel vous connecter. Pour plus d’informations, consultez [Créer un espace de noms Event Hubs et un concentrateur d’événements avec le portail Azure](../event-hubs/event-hubs-create.md). Puis revenez à cette page dans le portail pour sélectionner l’espace de noms Event Hub et le nom de la stratégie.
-    * **Envoyer à Azure Monitor (espace de travail Log Analytics)**. Pour utiliser cette option, servez-vous d’un espace de travail existant ou [créez une ressource d’espace de travail](../azure-monitor/learn/quick-create-workspace.md) sur le portail. Pour savoir comment afficher vos journaux, voir [Afficher les journaux dans l’espace de travail Log Analytics](#view-logs-in-log-analytics) dans cet article.
+    * **Envoyer à Azure Monitor (espace de travail Log Analytics)**. Pour utiliser cette option, servez-vous d’un espace de travail existant ou [créez une ressource d’espace de travail](../azure-monitor/learn/quick-create-workspace.md) sur le portail. Pour savoir comment afficher vos journaux, voir [Afficher les journaux dans l’espace de travail Log Analytics](#view-logs-in-log-analytics-workspace) dans cet article.
 
     * **Moteur**. Sélectionnez cette option pour journaliser les événements XEvent. Si vous effectuez un archivage dans un compte de stockage, vous pouvez sélectionner la période de rétention des journaux de diagnostic. Les journaux sont supprimés automatiquement après l’expiration de la période de rétention.
     * **Service**. Sélectionnez cette option pour journaliser les événements de niveau Service. Si vous effectuez un archivage dans un compte de stockage, vous pouvez sélectionner la période de rétention des journaux de diagnostic. Les journaux sont supprimés automatiquement après l’expiration de la période de rétention.
@@ -103,7 +104,7 @@ Pour activer la journalisation des métriques et diagnostics à l’aide de Powe
 - Pour activer le stockage des journaux de diagnostic dans un compte de stockage, utilisez cette commande :
 
    ```powershell
-   Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
+   Set-AzDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
    ```
 
    L’ID de compte de stockage est l’ID de ressource du compte de stockage où vous souhaitez envoyer les journaux.
@@ -111,7 +112,7 @@ Pour activer la journalisation des métriques et diagnostics à l’aide de Powe
 - Pour activer le streaming des journaux de diagnostic vers un hub d’événements, utilisez cette commande :
 
    ```powershell
-   Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
+   Set-AzDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
    ```
 
    L’ID de règle Azure Service Bus est une chaîne au format suivant :
@@ -123,13 +124,13 @@ Pour activer la journalisation des métriques et diagnostics à l’aide de Powe
 - Pour activer l’envoi des journaux de diagnostic vers un espace de travail Log Analytics, utilisez cette commande :
 
    ```powershell
-   Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
+   Set-AzDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
    ```
 
 - Vous pouvez obtenir l’ID de ressource de votre espace de travail Log Analytics à l’aide de la commande suivante :
 
    ```powershell
-   (Get-AzureRmOperationalInsightsWorkspace).ResourceId
+   (Get-AzOperationalInsightsWorkspace).ResourceId
    ```
 
 Vous pouvez combiner ces paramètres pour activer plusieurs options de sortie.
@@ -187,9 +188,9 @@ Il existe des centaines de requêtes que vous pouvez utiliser. Pour plus d’inf
 
 ## <a name="turn-on-logging-by-using-powershell"></a>Activer la journalisation à l’aide de PowerShell
 
-Dans ce bref didacticiel, vous créez un compte de stockage dans le même abonnement et le même groupe de ressources que votre serveur Analysis Services. Ensuite, vous utilisez la requête Set-AzureRmDiagnosticSetting pour activer la journalisation des diagnostics et envoyer la sortie au nouveau compte de stockage.
+Dans ce bref didacticiel, vous créez un compte de stockage dans le même abonnement et le même groupe de ressources que votre serveur Analysis Services. Vous montre ensuite comment utiliser Set-AzDiagnosticSetting pour activer les diagnostics de journalisation, l’envoi de la sortie vers le nouveau compte de stockage.
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables
 Pour suivre ce didacticiel, vous avez besoin des ressources suivantes :
 
 * Un serveur Azure Analysis Services. Pour plus d’informations sur la création d’une ressource du serveur, consultez [Création d’un serveur Azure Analysis Services dans le portail Azure](analysis-services-create-server.md) ou [Créer un serveur Azure Analysis Services à l’aide de PowerShell](analysis-services-create-powershell.md).
@@ -199,7 +200,7 @@ Pour suivre ce didacticiel, vous avez besoin des ressources suivantes :
 Démarrez une session Azure PowerShell et connectez-vous à votre compte Azure avec la commande suivante :  
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 Dans la fenêtre contextuelle de votre navigateur, entrez votre nom d’utilisateur et votre mot de passe Azure. Azure PowerShell obtient alors tous les abonnements associés à ce compte et utilise par défaut le premier.
@@ -207,13 +208,13 @@ Dans la fenêtre contextuelle de votre navigateur, entrez votre nom d’utilisat
 Si vous disposez de plusieurs abonnements, vous devrez peut-être en spécifier un en particulier, celui qui a été utilisé pour créer votre Azure Key Vault. Tapez la commande suivante pour afficher les abonnements de votre compte :
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
 Ensuite, pour spécifier l’abonnement associé au compte Azure Analysis Services que vous journalisez, tapez :
 
 ```powershell
-Set-AzureRmContext -SubscriptionId <subscription ID>
+Set-AzContext -SubscriptionId <subscription ID>
 ```
 
 > [!NOTE]
@@ -228,7 +229,7 @@ Vous pouvez utiliser un compte de stockage pour vos journaux, à condition qu’
 Vous utilisez également le même groupe de ressources que celui qui contient votre serveur Analysis Services. Remplacez les valeurs de `awsales_resgroup`, `awsaleslogs` et `West Central US` par les vôtres :
 
 ```powershell
-$sa = New-AzureRmStorageAccount -ResourceGroupName awsales_resgroup `
+$sa = New-AzStorageAccount -ResourceGroupName awsales_resgroup `
 -Name awsaleslogs -Type Standard_LRS -Location 'West Central US'
 ```
 
@@ -237,16 +238,16 @@ $sa = New-AzureRmStorageAccount -ResourceGroupName awsales_resgroup `
 Définissez le nom du compte dans une variable nommée **account**, où ResourceName est le nom du compte.
 
 ```powershell
-$account = Get-AzureRmResource -ResourceGroupName awsales_resgroup `
+$account = Get-AzResource -ResourceGroupName awsales_resgroup `
 -ResourceName awsales -ResourceType "Microsoft.AnalysisServices/servers"
 ```
 
 ### <a name="enable-logging"></a>Activation de la journalisation
 
-Pour activer la journalisation, utilisez l’applet de commande Set-AzureRmDiagnosticSetting avec les variables du nouveau compte de stockage, du compte du serveur et de la catégorie. Exécutez la commande suivante, en définissant l’indicateur **-Enabled** sur **$true** :
+Pour activer la journalisation, utilisez l’applet de commande Set-AzDiagnosticSetting ainsi que les variables pour le nouveau compte de stockage, compte de serveur et la catégorie. Exécutez la commande suivante, en définissant l’indicateur **-Enabled** sur **$true** :
 
 ```powershell
-Set-AzureRmDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories Engine
+Set-AzDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories Engine
 ```
 
 Le résultat suivant doit ressembler à ce qui suit :
@@ -293,7 +294,7 @@ Cette sortie confirme que la journalisation est maintenant activée pour le serv
 Vous pouvez également définir une stratégie de rétention qui supprime automatiquement vos anciens journaux. Par exemple, définissez une stratégie de rétention en attribuant à l’indicateur **-RetentionEnabled** la valeur **$true** et en réglant le paramètre **-RetentionInDays** sur **90**. Ainsi, les journaux de plus de 90 jours sont automatiquement supprimés.
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
+Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
  -StorageAccountId $sa.Id -Enabled $true -Categories Engine`
   -RetentionEnabled $true -RetentionInDays 90
 ```
@@ -302,4 +303,4 @@ Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
 
 En savoir plus sur la [journalisation des diagnostics de ressources Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
 
-Consultez [Set-AzureRmDiagnosticSetting](https://docs.microsoft.com/powershell/module/azurerm.insights/Set-AzureRmDiagnosticSetting) dans l’aide de PowerShell.
+Consultez [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) dans l’aide de PowerShell.

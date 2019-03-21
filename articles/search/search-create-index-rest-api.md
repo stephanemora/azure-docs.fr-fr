@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 6e3b1e3d501355994cd81c5eb9d712a684474524
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 0524bd224e3da3e6a9b18a4225c88e9c43d07606
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136188"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223408"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-powershell-and-the-rest-api"></a>Démarrage rapide : Créer un index Azure Search à l’aide de PowerShell et l’API REST
 > [!div class="op_single_selector"]
@@ -25,7 +25,7 @@ ms.locfileid: "58136188"
 > * [Portal](search-create-index-portal.md)
 > 
 
-Cet article vous guide dans le processus de création, de charger et d’interroger une recherche Azure [index](search-what-is-an-index.md) à l’aide de PowerShell et le [API REST de Service Azure Search](https://docs.microsoft.com/rest/api/searchservice/). La définition d’index et le contenu est contenue dans le corps de la requête sous la forme d’un contenu JSON correct.
+Cet article vous guide dans le processus de création, de charger et d’interroger une recherche Azure [index](search-what-is-an-index.md) à l’aide de PowerShell et le [API REST de Service Azure Search](https://docs.microsoft.com/rest/api/searchservice/). La définition d’index et le contenu de recherche est fourni dans le corps de la demande en tant qu’un contenu JSON correct.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
@@ -35,13 +35,13 @@ Cet article vous guide dans le processus de création, de charger et d’interro
 
 Un point de terminaison URL et de l’administrateur la clé api de votre service de recherche. Un service de recherche est créé avec les deux. Ainsi, si vous avez ajouté votre abonnement à la fonction Recherche Azure, procédez comme suit pour obtenir les informations nécessaires :
 
-  1. Dans le portail Azure, dans votre service de recherche **vue d’ensemble** page, obtenez l’URL. Voici un exemple de point de terminaison : `https://my-service-name.search.windows.net`.
+1. Dans le portail Azure, dans votre service de recherche **vue d’ensemble** page, obtenez l’URL. Un point de terminaison exemple peut se présenter comme https :\//my-service-name.search.windows.net.
 
-  2. Dans **paramètres** > **clés**, obtenir une clé d’administration pour les droits d’accès complets sur le service. Il existe deux clés d’administration interchangeables, fournies pour la continuité au cas où vous deviez interchanger. Vous pouvez utiliser la clé primaire ou secondaire sur les demandes d’ajout, modification et suppression d’objets.
+2. Dans **paramètres** > **clés**, obtenir une clé d’administration pour les droits d’accès complets sur le service. Il existe deux clés d’administration interchangeables, fournies pour la continuité au cas où vous deviez interchanger. Vous pouvez utiliser la clé primaire ou secondaire sur les demandes d’ajout, modification et suppression d’objets.
 
-  ![Obtenir une clé d’accès et le point de terminaison HTTP](media/search-fiddler/get-url-key.png "obtenir une clé d’accès et le point de terminaison HTTP")
+   ![Obtenir une clé d’accès et le point de terminaison HTTP](media/search-fiddler/get-url-key.png "obtenir une clé d’accès et le point de terminaison HTTP")
 
-  Toutes les demandes nécessitent une clé d’api sur chaque demande envoyée à votre service. L’utilisation d’une clé valide permet d’établir, en fonction de chaque demande, une relation de confiance entre l’application qui envoie la demande et le service qui en assure le traitement.
+   Toutes les demandes nécessitent une clé d’api sur chaque demande envoyée à votre service. L’utilisation d’une clé valide permet d’établir, en fonction de chaque demande, une relation de confiance entre l’application qui envoie la demande et le service qui en assure le traitement.
 
 ## <a name="connect-to-azure-search"></a>Se connecter à recherche Azure
 
@@ -83,7 +83,7 @@ Sauf si vous utilisez le portail, un index doit exister sur le service avant de 
 
 Les éléments requis d’un index incluent un nom et une collection de champs. La collection fields définit la structure d’un *document*. Chaque champ a un nom, type et les attributs qui déterminent la façon dont il est utilisé (par exemple, si elle est en texte intégral consultable, filtrable ou récupérables dans les résultats de la recherche). Dans un index, l’un des champs de type `Edm.String` doit être désigné comme le *clé* pour l’identité du document.
 
-Cet index est nommé « hotels » et a les définitions de champ que vous voyez ci-dessous. La définition d’index spécifie un [analyseurs de langage](index-add-language-analyzers.md) pour le `description_fr` champ, car il est destiné à stocker du texte Français, que nous allons ajouter dans un autre exemple.
+Cet index est nommé « hotels » et a les définitions de champ que vous voyez ci-dessous. La définition d’index spécifie un [analyseur linguistique](index-add-language-analyzers.md) pour le `description_fr` champ, car il est destiné à stocker du texte Français, que nous allons ajouter dans un autre exemple.
 
 Collez cet exemple dans PowerShell pour créer un **$body** objet contenant le schéma d’index.
 
@@ -344,7 +344,7 @@ $url = 'https://mydemo.search.windows.net/indexes/hotels/docs?api-version=2017-1
 ```
 ## <a name="clean-up"></a>Nettoyer 
 
-Vous devez supprimer l’index si vous n’avez plus besoin. Un service gratuit est limité à trois index. Vous souhaiterez peut-être supprimer n’importe quel index que vous n’utilisez pas activement.
+Vous devez supprimer l’index si vous n’avez plus besoin. Un service gratuit est limité à trois index. Vous souhaiterez peut-être supprimer n’importe quel index que vous n’utilisez pas activement afin que vous pouvez parcourir d’autres didacticiels.
 
 ```powershell
 # Set the URI to the hotel index

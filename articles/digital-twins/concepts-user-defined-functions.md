@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: alinast
-ms.openlocfilehash: 897a350c345e6e284f30040c0d4fcf07d5a6f466
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
-ms.translationtype: HT
+ms.openlocfilehash: 4db515a931bc7f423eb11ae31b7304a602f0da46
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106839"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531732"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Traitement des données et fonctions définies par l’utilisateur
 
@@ -40,7 +40,7 @@ Dans Azure Digital Twins, le traitement des données consiste à définir les tr
 
 ### <a name="matchers"></a>Détecteurs
 
-Les détecteurs définissent un ensemble de conditions qui évaluent les actions qui auront lieu en fonction des données de télémétrie entrantes du capteur. Les conditions pour déterminer une correspondance incluent les propriétés du capteur, l’appareil parent du capteur et l’espace parent du capteur. Les conditions sont exprimées sous forme de comparaisons à un [chemin JSON](http://jsonpath.com/), comme dans cet exemple :
+Les détecteurs définissent un ensemble de conditions qui évaluent les actions qui auront lieu en fonction des données de télémétrie entrantes du capteur. Les conditions pour déterminer une correspondance incluent les propriétés du capteur, l’appareil parent du capteur et l’espace parent du capteur. Les conditions sont exprimées sous forme de comparaisons à un [chemin JSON](https://jsonpath.com/), comme dans cet exemple :
 
 - tous les capteurs de type de données **température** représentés par la valeur de chaîne avec séquence d’échappement `\"Temperature\"`
 - Avoir un port qui comprend `01`

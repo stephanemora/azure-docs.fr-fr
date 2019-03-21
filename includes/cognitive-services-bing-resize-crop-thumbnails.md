@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: nitinme
-ms.openlocfilehash: b1cf3dc24482da70372f775d0ba63a203df1b285
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
-ms.translationtype: HT
+ms.openlocfilehash: f96c3a693ce8fc099374c998b35ce2fa90f4bb3f
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572125"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56753607"
 ---
 Certaines réponses Bing incluent des URL vers les images miniatures fournies par Bing. Vous pouvez redimensionner et rogner les images miniatures. 
 
@@ -17,11 +17,11 @@ Certaines réponses Bing incluent des URL vers les images miniatures fournies pa
 > Vérifiez que la taille et le rognage de la miniature fournissent un scénario de recherche et respectent les droits tiers, comme requis par les conditions d’utilisation et d’affichage de l’API Recherche Bing.
 
 
-Pour redimensionner une image, insérez les paramètres de requête w (largeur) et h (hauteur) dans l’URL de la miniature. Spécifiez la largeur et la hauteur en pixels. Par exemple :   
+Pour redimensionner une image, inclure la requête w (largeur) ou les deux dans les URL de la miniature de requête paramètre h (hauteur). Spécifiez la largeur et la hauteur en pixels. Par exemple :   
   
 `https://<host>/th?id=JN.5l3yzwy%2f%2fHj59U6XhssIQ&pid=Api&w=200&h=200`  
   
-Si vous redimensionnez l’image, ses proportions sont conservées. Pour conserver les proportions, vous pouvez ajouter une marge intérieure blanche à la bordure de l’image. Exemple : si vous redimensionnez une image de 480x359 sur 200x200 sans la rogner, la largeur totale contient l’image, mais la hauteur contient une marge intérieure blanche de 25 pixels en haut et en bas de l’image. Il en serait de même si l’image avait une taille de 359x480, mais les bordures gauche et droite contiendraient une marge intérieure blanche. Si vous rognez l’image, aucune marge intérieure blanche n’est ajoutée.  
+Si vous ne spécifiez que la largeur ou uniquement le paramètre de requête de hauteur, Bing conserve les proportions de l’image. Si vous spécifiez la largeur et hauteur, et vous ne conservez pas les proportions d’origine de l’image, Bing ajoute une marge intérieure blanche à la bordure de l’image. Exemple : si vous redimensionnez une image de 480x359 sur 200x200 sans la rogner, la largeur totale contient l’image, mais la hauteur contient une marge intérieure blanche de 25 pixels en haut et en bas de l’image. Il en serait de même si l’image avait une taille de 359x480, mais les bordures gauche et droite contiendraient une marge intérieure blanche. Si vous rognez l’image, aucune marge intérieure blanche n’est ajoutée.  
 
  
 L’illustration suivante présente la taille d’origine d’une image miniature (480x300).  

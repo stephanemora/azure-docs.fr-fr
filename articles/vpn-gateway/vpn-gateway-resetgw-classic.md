@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 02/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: 6e57979e2c43cc47504495cce23947b93abb4020
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 54b89b74017b8d5d6e4bd1b52c6b3986d2802702
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56414931"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118797"
 ---
 # <a name="reset-a-vpn-gateway"></a>Réinitialiser une passerelle VPN
 
@@ -47,7 +47,7 @@ Vous pouvez réinitialiser une passerelle VPN Resource Manager à l’aide du po
 1. Ouvrez le [portail Azure](https://portal.azure.com) et accédez à la passerelle de réseau virtuel Resource Manager que vous souhaitez réinitialiser.
 2. Dans le panneau de la passerelle de réseau virtuel, cliquez sur « Réinitialiser ».
 
-  ![Panneau Réinitialiser la passerelle VPN](./media/vpn-gateway-howto-reset-gateway/reset-vpn-gateway-portal.png)
+   ![Panneau Réinitialiser la passerelle VPN](./media/vpn-gateway-howto-reset-gateway/reset-vpn-gateway-portal.png)
 3. Dans le panneau Réinitialiser, cliquez sur le bouton **Réinitialiser**.
 
 ## <a name="ps"></a>PowerShell
@@ -56,7 +56,7 @@ Vous pouvez réinitialiser une passerelle VPN Resource Manager à l’aide du po
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-La cmdlet permettant de réinitialiser une passerelle est **Reset-AzVirtualNetworkGateway**. Avant d’effectuer une réinitialisation, vérifiez que vous disposez de la dernière version des [cmdlets PowerShell Resource Manager](https://docs.microsoft.com/powershell/azure/azurerm/install-Az-ps?view=azurermps-4.0.0). L’exemple suivant réinitialise une passerelle de réseau virtuel nommée VNet1GW dans le groupe de ressources TestRG1 :
+La cmdlet permettant de réinitialiser une passerelle est **Reset-AzVirtualNetworkGateway**. Avant d’effectuer une réinitialisation, vérifiez que vous disposez de la dernière version de la [applets de commande PowerShell Az](https://docs.microsoft.com/powershell/module/az.network). L’exemple suivant réinitialise une passerelle de réseau virtuel nommée VNet1GW dans le groupe de ressources TestRG1 :
 
 ```powershell
 $gw = Get-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1

@@ -14,18 +14,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: ca0eaf9e47b88bc0df8e7f050d8558c23d884f78
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 7e951b9f2c2fda3c63f154b5b144addcbf65aacf
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999300"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530329"
 ---
 # <a name="enable-offline-sync-for-your-xamarinandroid-mobile-app"></a>Activation de la synchronisation hors connexion pour votre application mobile Xamarin Android
 
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Ce didacticiel présente la fonctionnalité de synchronisation hors connexion des applications mobiles Azure pour Xamarin.Android. La synchronisation hors connexion permet aux utilisateurs finaux d’interagir avec une application mobile pour afficher, ajouter ou modifier des données, même lorsqu’il n’existe aucune connexion réseau. Les modifications sont stockées dans une base de données locale.
 Une fois l'appareil de nouveau en ligne, ces modifications sont synchronisées avec le service distant.
@@ -131,7 +131,7 @@ Le projet client Xamarin que vous avez téléchargé pendant l’exécution du d
 <!-- URLs. -->
 [Création d’une application Xamarin Android]: app-service-mobile-xamarin-android-get-started.md
 [Synchronisation des données hors connexion dans Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
-[Xamarin Studio]: http://xamarin.com/download
-[Xamarin extension]: http://xamarin.com/visual-studio
+[Xamarin Studio]: https://xamarin.com/download
+[Xamarin extension]: https://xamarin.com/visual-studio
 [SyncContext]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.synccontext(v=azure.10).aspx
 [8]: app-service-mobile-dotnet-how-to-use-client-library.md

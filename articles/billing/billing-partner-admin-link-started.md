@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: c38b28a247feb94efd5f4b73e690d30aac9ed73a
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: 4857b1771ae66cbee25765bb5173a638cbcd223e
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54900236"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008591"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Lier un ID partenaire à vos comptes Azure
 
@@ -138,3 +138,25 @@ Le lien entre l’ID partenaire et le compte est établi pour chaque locataire c
 **D’autres partenaires ou clients peuvent-ils modifier ou supprimer le lien vers l’ID partenaire ?**
 
 Le lien est associé au niveau du compte d'utilisateur. Vous seul pouvez modifier ou supprimer le lien vers l’ID partenaire. Le client et les autres partenaires ne peuvent pas modifier le lien vers l’ID partenaire. 
+
+
+**Les ID MPN dois-je utiliser si ma société possède plusieurs ?**
+
+Vous pouvez utiliser n’importe quel ID MPN valide à l’exception virtuelle orgnization(v-org) ID MPN. La plupart des partenaires choisissent d’utiliser l’ID MPN pour la zone géographique dans lequel est basé le client ou les services sont remis.
+
+**Où puis-je trouver influencé chiffre d’affaires reporting pour l’ID de partenaire lié ?**
+
+Vous pouvez trouver des rapports de ventes influencé chez [tableau de bord Insights Mes](https://partner.microsoft.com/membership/reports/myinsights). Vous devez sélectionner le lien d’administrateur partenaire en tant que le type d’association de partenaire.
+
+**Pourquoi ne puis-je pas voir mon client dans les rapports ?**
+
+Vous ne voyez pas le client dans les rapports en raison des raisons suivantes
+
+1. Le compte d’utilisateur lié n’a pas [accès en fonction de rôle ](https://docs.microsoft.com/azure/role-based-access-control/overview) sur n’importe quel abonnement Azure du client ou de la ressource.
+
+2. L’abonnement Azure où l’utilisateur a [accès en fonction de rôle ](https://docs.microsoft.com/azure/role-based-access-control/overview) toute utilisation n’a pas accès.
+
+**Fournit un lien partenaire QU'ID fonctionne avec Azure Stack ?**
+
+Oui, vous pouvez lier votre ID partenaire pour Azure Stack.
+

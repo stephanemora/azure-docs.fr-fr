@@ -3,7 +3,7 @@ title: Signaler et contrôler l’intégrité avec Azure Service Fabric | Micros
 description: Découvrez comment envoyer des rapports d’intégrité à partir de votre code de service et comment contrôler l’intégrité de votre service avec les outils de contrôle d’intégrité fournis par Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: mfussell
 editor: ''
 ms.assetid: 7c712c22-d333-44bc-b837-d0b3603d9da8
@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/2/2017
-ms.author: dekapur
-ms.openlocfilehash: d374886efb708797db1dd6352aa063a56aff4f44
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: HT
+ms.date: 02/25/2019
+ms.author: srrengar
+ms.openlocfilehash: 2126157f49bd978d2218986601245cae2e4157b6
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39427306"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821676"
 ---
 # <a name="report-and-check-service-health"></a>Signaler et contrôler l’intégrité du service
 Lorsque vos services rencontrent des problèmes, votre capacité à réagir et à résoudre les incidents et les pannes induits dépend de votre capacité à détecter les problèmes rapidement. En signalant les problèmes et les pannes au gestionnaire de contrôle d’intégrité Azure Service Fabric à partir de votre code de service, vous pouvez utiliser les outils standard de contrôle d’intégrité fournis par Service Fabric pour contrôler l’état d’intégrité.
@@ -34,7 +34,7 @@ Il existe trois méthodes pour signaler l’intégrité à partir du service :
 
 Cet article vous présente un exemple de rapports d’intégrité du code de service. L’exemple montre également comment les outils fournis par Service Fabric peuvent être utilisés pour vérifier l’état d’intégrité. Cet article constitue une présentation rapide des fonctionnalités de contrôle d’intégrité de Service Fabric. Pour plus d’informations, vous pouvez lire la série d’articles détaillés sur l’intégrité, à commencer par le lien situé à la fin de cet article.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Les éléments suivants doivent être installés :
 
 * Visual Studio 2015 ou Visual Studio 2017

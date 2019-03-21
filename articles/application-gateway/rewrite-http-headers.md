@@ -7,27 +7,29 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: 2babb6ff7b93ad9cf7c93565cadce9453a3b96ca
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: aedd81af8b5821b1f8032faad1896790804df2a0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103426"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119290"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Réécrire des en-têtes HTTP dans Azure Application Gateway (préversion publique)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Les en-têtes HTTP permettent au client et au serveur de passer des informations supplémentaires avec la requête ou la réponse. La réécriture de ces en-têtes HTTP permet de prendre en charge plusieurs scénarios importants, notamment l’ajout de champs d’en-tête liés à la sécurité comme HSTS/ X-XSS-Protection ou la suppression de champs d’en-tête de réponse pouvant révéler des informations sensibles comme le nom du serveur principal.
 
 Application Gateway permet désormais de réécrire des en-têtes de requêtes HTTP entrantes et de réponses HTTP sortantes. Vous pouvez ajouter, supprimer ou mettre à jour les en-têtes de requête et de réponse HTTP pendant le déplacement des paquets de requête/réponse entre les pools client et principal. Vous pouvez réécrire les champs d’en-tête standard et non standard.
 
-> [!NOTE] 
->
+> [!NOTE]
+> 
 > La prise en charge de la réécriture d’en-tête HTTP n’est disponible que pour la [nouvelle référence SKU [Standard_V2\]](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
 
 La prise en charge de la réécriture d’en-tête Application Gateway offre ce qui suit :
 
 - **Réécriture d’en-tête global** : Vous pouvez réécrire des en-têtes spécifiques pour toutes les demandes et réponses en lien avec le site.
-- **Réécriture d’en-tête basé sur un chemin d’accès** : ce type de réécriture permet de réécrire un en-tête uniquement pour les demandes et réponses qui ont trait uniquement à une zone de site spécifique, par exemple, une zone de panier d’achat indiquée par /cart/*.
+- **Réécriture de l’en-tête basé sur le chemin**: ce type de réécriture permet la réécriture d’en-tête uniquement pour les demandes et réponses qui se rapportent à uniquement sur une zone de site spécifique, par exemple une zone de panier d’achat indiqués par /cart/\*.
 
 Avec cette modification, vous devez :
 
@@ -48,7 +50,7 @@ Vous pouvez réécrire la valeur dans les en-têtes pour :
   *Exemple :* 
 
   ```azurepowershell-interactive
-  $responseHeaderConfiguration = New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Strict-Transport-Security" -  HeaderValue "max-age=31536000")
+  $responseHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Strict-Transport-Security" -  HeaderValue "max-age=31536000")
   ```
 
 - Valeur d’un autre en-tête. 
@@ -56,7 +58,7 @@ Vous pouvez réécrire la valeur dans les en-têtes pour :
   *Exemple 1 :* 
 
   ```azurepowershell-interactive
-  $requestHeaderConfiguration= New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-New-RequestHeader" -HeaderValue {http_req_oldHeader}
+  $requestHeaderConfiguration= New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-New-RequestHeader" -HeaderValue {http_req_oldHeader}
   ```
 
   > [!Note] 
@@ -65,7 +67,7 @@ Vous pouvez réécrire la valeur dans les en-têtes pour :
   *Exemple 2 :*
 
   ```azurepowershell-interactive
-  $responseHeaderConfiguration= New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-New-ResponseHeader" -HeaderValue {http_resp_oldHeader}
+  $responseHeaderConfiguration= New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-New-ResponseHeader" -HeaderValue {http_resp_oldHeader}
   ```
 
   > [!Note] 
@@ -76,7 +78,7 @@ Vous pouvez réécrire la valeur dans les en-têtes pour :
   *Exemple :* 
 
   ```azurepowershell-interactive
-  $requestHeaderConfiguration = New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Ciphers-Used" -HeaderValue "{var_ciphers_used}"
+  $requestHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Ciphers-Used" -HeaderValue "{var_ciphers_used}"
   ```
 
   > [!Note] 

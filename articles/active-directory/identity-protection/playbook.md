@@ -17,12 +17,12 @@ ms.date: 06/27/2018
 ms.author: markvi
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d52d89d577d0bf50168104e9dae1ddc2a5278ff0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: bc2f2f90029918955f00771acaac10b3cf5f4416
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201565"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868270"
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Manuel d’Azure Active Directory Identity Protection
 
@@ -148,7 +148,7 @@ Pour plus d’informations, consultez le [Guide pratique pour configurer la stra
 
 **Pour tester une stratégie de risque à la connexion, procédez comme suit :**
 
-1. Connectez-vous à [https://portal.azure.com ](https://portal.azure.com) à l’aide des informations d’identification d’administrateur général pour votre locataire.
+1. Connectez-vous à [https://portal.azure.com](https://portal.azure.com) à l’aide des informations d’identification d’administrateur général pour votre locataire.
 
 2. Accédez à **Azure AD Identity Protection**.
 

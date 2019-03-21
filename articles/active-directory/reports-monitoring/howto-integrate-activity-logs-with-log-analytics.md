@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2e9c1b2513f769b065883dc98b649a68d565ccc
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 7d8259cdb61d2481805dd2e07c11b539e057215c
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456484"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817063"
 ---
 # <a name="integrate-azure-ad-logs-with-azure-monitor-logs-preview"></a>Intégrer des journaux Azure AD aux journaux Azure Monitor (préversion)
 
@@ -38,6 +38,8 @@ La vidéo suivante issue d’une session Ignite montre les avantages de l’util
 
 Cet article explique comment intégrer des journaux Azure Active Directory (Azure AD) à Azure Monitor.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 ## <a name="supported-reports"></a>Rapports pris en charge
 
 Vous pouvez acheminer les journaux d’activité d’audit et authentifier des journaux d’activité vers les journaux Azure Monitor en vue d’une analyse ultérieure. 
@@ -49,7 +51,7 @@ Vous pouvez acheminer les journaux d’activité d’audit et authentifier des j
 > Les journaux d’activité d’audit et de connexions associés à B2C ne sont pas pris en charge pour le moment.
 >
 
-## <a name="prerequisites"></a>Prérequis 
+## <a name="prerequisites"></a>Conditions préalables 
 
 Pour utiliser cette fonctionnalité, vous avez besoin des éléments suivants :
 

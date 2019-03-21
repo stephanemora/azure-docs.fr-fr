@@ -9,19 +9,29 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/17/2019
+ms.date: 02/27/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 52e7fdf6de25300d4f78ee9822aca4ad83f646e9
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
-ms.translationtype: HT
+ms.openlocfilehash: de2c60d4449762c4a8fcc3e2f486130f3df37c7c
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408423"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243617"
 ---
 # <a name="encoding-with-media-services"></a>Encodage avec Media Services
 
-Azure Media Services vous permet d’encoder vos fichiers multimédias numériques haute définition dans des formats pouvant être lus sur un large choix de navigateurs et d’appareils. Par exemple, vous pouvez streamer votre contenu au format HLS ou MPEG DASH d’Apple. Cette rubrique vous explique comment encoder votre contenu avec Media Services v3.
+Azure Media Services vous permet d’encoder vos fichiers multimédias numériques de haute qualité dans des fichiers MP4 à débit adaptatif donc votre contenu peut être lu sur un large éventail de navigateurs et appareils. Un travail d’encodage Media Services réussi crée une sortie d’élément multimédia avec un ensemble de débit adaptatif MP4s et diffusion en continu de fichiers de configuration. Les fichiers de configuration incluent .ism, .ismc, .mpi et autres fichiers que vous ne devez pas modifier. Une fois que le travail d’encodage est terminé, vous pouvez tirer parti de [empaquetage dynamique](dynamic-packaging-overview.md) et démarrer la diffusion en continu.
+
+Pour rendre les vidéos dans la sortie disponible pour les clients pour la lecture de la ressource, vous devez créer un **localisateur de diffusion en continu** et générer l’URL de diffusion. Ensuite, selon le format spécifié dans le manifeste, vos clients reçoivent le flux conforme au protocole choisi.
+
+Le diagramme suivant illustre la diffusion en continu à la demande avec les flux d’empaquetage dynamique.
+
+![Empaquetage dynamique](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
+
+Cette rubrique vous explique comment encoder votre contenu avec Media Services v3.
+
+## <a name="transforms-and-jobs"></a>Transformations et travaux
 
 Pour encoder avec Media Services v3, vous devez créer une [transformation](https://docs.microsoft.com/rest/api/media/transforms) et un [travail](https://docs.microsoft.com/rest/api/media/jobs). Une transformation définit la recette à appliquer pour vos paramètres et sorties d’encodage, et la tâche est une instance de la recette. Pour plus d’informations, consultez [Transformations et travaux](transforms-jobs-concept.md).
 
@@ -60,9 +70,11 @@ Media Services prend entièrement en charge la personnalisation de toutes les va
 
 ## <a name="scaling-encoding-in-v3"></a>Mise à l’échelle de l’encodage dans v3
 
-Actuellement, les clients doivent utiliser le portail Azure ou des API Media Services v2 pour définir des unités de demande (comme décrit dans [Mise à l’échelle du traitement multimédia](../previous/media-services-scale-media-processing-overview.md). 
+Pour mettre à l’échelle le traitement multimédia, consultez [mise à l’échelle avec CLI](media-reserved-units-cli-how-to.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Transformations et travaux](transforms-jobs-concept.md)
+* [Encoder à partir d’une URL HTTPS à l’aide de paramètres prédéfinis intégrés](job-input-from-http-how-to.md)
+* [Encoder un fichier local à l’aide de paramètres prédéfinis intégrés](job-input-from-local-file-how-to.md)
+* [Créer un paramètre prédéfini pour cibler vos exigences de scénario ou un périphérique spécifiques](customize-encoder-presets-how-to.md)
 * [Charger, encoder et diffuser en continu à l’aide de Media Services](stream-files-tutorial-with-api.md)

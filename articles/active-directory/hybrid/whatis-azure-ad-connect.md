@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/30/2019
+ms.date: 02/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d364421794452f8ccf95a60ec86a161934c87528
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: a29a00c34d4c60e6ba2b4fd6b0b413873301af5c
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167981"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888370"
 ---
 # <a name="what-is-azure-ad-connect"></a>Qu’est-ce qu’Azure AD Connect ?
 
@@ -57,7 +57,7 @@ Avantages clés et bonnes pratiques :
 
 |Principaux avantages|Bonnes pratiques|
 |-----|-----|
-|Sécurité améliorée|[Tendances de verrouillage extranet](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)</br>[Rapport sur les échecs de connexions](how-to-connect-health-adfs.md#risky-ip-report-public-preview)</br>[Conformité aux réglementations relatives à la confidentialité](reference-connect-health-user-privacy.md)|
+|Sécurité améliorée|[Tendances de verrouillage extranet](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)</br>[Rapport sur les échecs de connexions](how-to-connect-health-adfs-risky-ip.md)</br>[Conformité aux réglementations relatives à la confidentialité](reference-connect-health-user-privacy.md)|
 |Obtention d’alertes pour tous les [problèmes critiques liés au système ADFS](how-to-connect-health-alert-catalog.md#alerts-for-active-directory-federation-services)|Configuration et disponibilité de serveur</br>[Performances et connectivité](how-to-connect-health-adfs.md#performance-monitoring-for-ad-fs)</br>Maintenance régulière|
 |Facilité de déploiement et de gestion|[Installation d’agent rapide](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)</br>Mise à niveau automatique d’agent vers la dernière version</br>Données disponibles dans le portail en quelques minutes|
 [Métriques d’utilisation](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs) enrichies|Utilisation des principales applications</br>Emplacements réseau et connexion TCP</br>Demandes de jetons par serveur|

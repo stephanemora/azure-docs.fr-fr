@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d3b3702ca2daad002bde1b4e64bf9d43a03028d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: cb64debca10cf7be6e2e328a1f401f125b67d940
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180434"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447164"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workrite"></a>Tutoriel : Intégration d’Azure Active Directory à Workrite
 
@@ -35,7 +35,7 @@ L’intégration de Workrite à Azure AD vous offre les avantages suivants :
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD à Workrite, vous avez besoin des éléments suivants :
 
@@ -184,7 +184,7 @@ L’objectif de cette section est de créer un utilisateur appelé Britta Simon 
 
 1. Dans la boîte de dialogue **Create User** , procédez comme suit :
    
-    ![Boîte de dialogue Create User][402]
+    ![Créer la boîte de dialogue utilisateur][402]
     
     a. Dans la zone de texte **Email**, tapez l’adresse e-mail d’un utilisateur, par exemple, Brittasimon@contoso.com.
 

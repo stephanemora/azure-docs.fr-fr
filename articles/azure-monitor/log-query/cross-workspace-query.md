@@ -13,18 +13,25 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: magoedte
-ms.openlocfilehash: ccc9a74c4e238ebfcab0fc05a3bf825000917843
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: d69ddcd44fd947f3d1dc61ac960e7b55258c163e
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998936"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872010"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Effectuer des requêtes de journal inter-ressources dans Azure Monitor  
 
 Auparavant, Azure Monitor vous permettait d’analyser les données uniquement dans l’espace de travail actif, ce qui limitait votre capacité à interroger plusieurs espaces de travail définis dans votre abonnement.  De plus, vos recherches ne pouvaient porter que sur les éléments de télémétrie recueillis par votre application web avec Application Insights directement dans Application Insights ou à partir de Visual Studio.  Cela compliquait aussi l’analyse simultanée des données opérationnelles et d’application en mode natif.   
 
-Maintenant, vous pouvez interroger non seulement plusieurs espaces de travail Log Analytics, mais également des données d’une application Application Insights spécifique dans le même groupe de ressources, un autre groupe de ressources ou un autre abonnement. Cela vous donne une vue de vos données à l’échelle du système.  Vous ne pouvez effectuer ces types de requêtes que dans [Log Analytics](portals.md). Le nombre de ressources (espaces de travail Log Analytics et applications Application Insights) que vous pouvez inclure dans une seule requête est limité à 100. 
+Maintenant, vous pouvez interroger non seulement plusieurs espaces de travail Log Analytics, mais également des données d’une application Application Insights spécifique dans le même groupe de ressources, un autre groupe de ressources ou un autre abonnement. Cela vous donne une vue de vos données à l’échelle du système.  Vous ne pouvez effectuer ces types de requêtes que dans [Log Analytics](portals.md).
+
+## <a name="cross-resource-query-limits"></a>Limites de requête d’inter-ressources 
+
+* Le nombre de ressources Application Insights que vous pouvez inclure dans une requête unique est limité à 100.
+* Inter-ressources requête n’est pas pris en charge dans le Concepteur de vue. Vous pouvez créer une requête dans Log Analytique et l’épingler au tableau de bord Azure et [visualiser une recherche de journal](../../azure-monitor/learn/tutorial-logs-dashboards.md#visualize-a-log-search). 
+* Requête inter-ressources dans les alertes de journal est prise en charge dans le nouveau [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Par défaut, Azure Monitor utilise l'[API Alerte Log Analytics héritée](../platform/api-alerts.md) pour créer de nouvelles règles d'alerte de journal à partir du portail Azure, sauf si vous basculez depuis l'[API Alertes de journal héritée](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Après le basculement, la nouvelle API devient la valeur par défaut des nouvelles règles d'alerte du portail Azure et vous permet de créer des règles d'alertes de journal pour les requêtes inter-ressources. Vous pouvez créer des règles d’alerte de journal des requêtes d’inter-ressources sans apporter le commutateur à l’aide de la [modèle ARM pour scheduledQueryRules API](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) – mais cette règle d’alerte est cependant facile à gérer [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) et non à partir de portail Azure.
+
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Interrogation de plusieurs espaces de travail Log Analytics à partir d’Application Insights
 Pour référencer un autre espace de travail dans votre requête, utilisez l’identificateur [*workspace*](https://docs.microsoft.com/azure/log-analytics/query-language/workspace-expression). Pour une application Application Insights, utilisez l’identificateur [*app*](https://docs.microsoft.com/azure/log-analytics/query-language/app-expression).  

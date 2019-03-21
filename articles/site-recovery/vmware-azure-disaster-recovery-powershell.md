@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 11/27/2018
 ms.topic: conceptual
 ms.author: sutalasi
-ms.openlocfilehash: 1b97ff461dc3a4f7dcba0a3dbfad71a25cb3f1e9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: aa8292aac82f478422f9214c26d974825872eed6
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840197"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226333"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Configurer la reprise d’activité des machines virtuelles VMware sur Azure avec PowerShell
 
@@ -26,9 +26,9 @@ Vous allez apprendre à effectuer les actions suivantes :
 > - Configurer la réplication, y compris une stratégie de réplication. Ajouter un serveur vCenter et détecter des machines virtuelles. 
 > - Ajouter un serveur vCenter et effectuer des opérations de détection 
 > - Créer des comptes de stockage pour conserver les données de réplication, et répliquer les machines virtuelles.
-> - Effectuer un basculement. Configurer les paramètres de basculement pour la réplication des machines virtuelles.
+> - Effectuer un basculement. Configurer les paramètres de basculement, effectuer des paramètres pour la réplication des machines virtuelles.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Avant de commencer :
 
@@ -61,7 +61,7 @@ Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
    ProvisioningState : Succeeded
    Tags              :
    ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/VMwareDRtoAzurePS
-```
+   ```
    
 2. Créez un coffre Recovery Services. Dans l’exemple ci-dessous, le coffre Recovery Services est nommé VMwareDRToAzurePs et créé dans la région Asie Est, ainsi que dans le groupe de ressources créé à l’étape précédente.
 
@@ -348,8 +348,8 @@ Maintenant, répliquez les machines virtuelles suivantes à l’aide des paramè
 |Machine virtuelle  |Serveur de traitement        |Compte de stockage              |Compte de stockage de journal  |Stratégie           |Compte pour l’installation du service Mobilité|Groupe de ressources cible  | Réseau virtuel cible  |Sous-réseau cible  |
 |-----------------|----------------------|-----------------------------|---------------------|-----------------|-----------------------------------------|-----------------------|-------------------------|---------------|
 |Win2K12VM1       |ScaleOut-ProcessServer|premiumstorageaccount1       |logstorageaccount1   |ReplicationPolicy|WindowsAccount                           |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |
-|CentOSVM1       |ConfigurationServer   |replicationstdstorageaccount1| N/A                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |   
-|CentOSVM2       |ConfigurationServer   |replicationstdstorageaccount1| N/A                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |   
+|CentOSVM1       |ConfigurationServer   |replicationstdstorageaccount1| S.O.                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |   
+|CentOSVM2       |ConfigurationServer   |replicationstdstorageaccount1| S.O.                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |   
 
  
 ```azurepowershell
@@ -487,4 +487,4 @@ Errors           : {}
 2. Après le basculement, vous pouvez valider cette opération et configurer la réplication inverse depuis Azure vers le site VMware local.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Découvrez comment automatiser plusieurs tâches à l’aide de la [référence Azure Site Recovery PowerShell ](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery).
+Découvrez comment automatiser davantage de tâches à l’aide de la [référence Azure Site Recovery PowerShell](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery).

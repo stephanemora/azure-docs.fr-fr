@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 11/14/2018
+ms.date: 02/21/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: c1a9b526f08f330d62c30dd1d676e95460aee6c2
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
-ms.translationtype: HT
+ms.openlocfilehash: eb4b87a008b9e43de7e7a5f7895449303f1e44a6
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712345"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593979"
 ---
 # <a name="using-the-azure-blockchain-workbench-rest-api"></a>Utilisation de l’API REST Azure Blockchain Workbench
 
@@ -210,8 +210,8 @@ Content-type: application/json
 
 Une fois qu’un utilisateur a décidé d’approfondir un contrat, le client blockchain peut lui présenter les actions utilisateur disponibles en fonction de l’état du contrat. Dans cet exemple, l’utilisateur recherche toutes les actions disponibles pour un nouveau contrat intelligent créé :
 
-* Modifier : permet à l’utilisateur de modifier la description et le prix d’une ressource.
-* Terminer : permet à l’utilisateur de mettre fin au contrat de la ressource.
+* Modifier : Permet à l’utilisateur de modifier la description et le prix d’une ressource.
+* Terminer : Permet à l’utilisateur à la fin du contrat de l’élément multimédia.
 
 Utilisez [l’API Contract Action GET](/rest/api/azure-blockchain-workbench/contractsv2/contractactionget) :
 
@@ -277,8 +277,8 @@ Content-type: application/json
 
 Un utilisateur peut ensuite décider d’intervenir pour l’instance de contrat intelligent spécifiée. Dans ce cas, imaginons qu’un utilisateur souhaite modifier la description et le prix d’une ressource pour ce qui suit :
 
-* Description : "My updated car"
-* Prix : 54321
+* Description : « Ma voiture mis à jour »
+* Tarif : 54321
 
 Utilisez [l’API Contract Action POST](/rest/api/azure-blockchain-workbench/contractsv2/contractactionpost) :
 

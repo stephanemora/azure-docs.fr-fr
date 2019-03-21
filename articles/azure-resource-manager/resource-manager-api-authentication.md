@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2018
 ms.author: dugill
-ms.openlocfilehash: a81c1d20e0f7b58c132a5ece04f05d6740c2308f
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 138367eb7eb0d4be2e0a7bec57d1bce551a5e829
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56266991"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107050"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Utiliser l’API d’authentification de Resource Manager pour accéder aux abonnements
 
@@ -234,7 +234,8 @@ Vous disposez d’un jeton d’accès pour Azure Resource Manager uniquement. Il
 <a id="app-azure-ad-graph" />
 
 ### <a name="get-app-only-access-token-for-azure-ad-graph-api"></a>Obtenir un jeton d’accès d’application uniquement pour l’API Microsoft Azure AD Graph
-Pour authentifier votre application et obtenir un jeton pour l’API Azure AD Graph, envoyez une demande de jeton de flux OAuth2.0 pour l’octroi d’informations d’identification du client au point de terminaison de jeton Azure AD (**https://login.microsoftonline.com/{directory_domain_name}/OAuth2/Token**).
+
+Pour authentifier votre application et obtenir un jeton pour l’API Graph Azure AD, émettre une demande de jeton de flux OAuth2.0 pour l’octroi d’informations d’identification Client à un point de terminaison de jeton Azure AD (**https :\//login.microsoftonline.com/{directory_domain_name}/OAuth2/Token** ).
 
 La méthode [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs) de l’exemple d’application MVC ASP.NET permet d’obtenir un jeton d’accès d’application uniquement pour l’API Graph, via la bibliothèque d’authentification Active Directory Authentication Library (ADAL) pour .NET.
 

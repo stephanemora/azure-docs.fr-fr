@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 3/14/2019
 ms.author: mayg
-ms.openlocfilehash: 7504d23cbaf8a497e6ea86b5a383413474c0d034
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: cd486fa504ac819684d8c547e7a0f740b3eed4e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329965"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109625"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analyser le rapport du Planificateur de déploiement Azure Site Recovery pour la récupération d’urgence VMware sur Azure
 
@@ -41,6 +41,9 @@ La feuille de calcul du résumé local fournit une vue d’ensemble de l’envir
 **Activité type des donnée observée par jour (Go)**  : activité moyenne des données observée tous les jours de profilage. Ce nombre est utilisé comme nombre d’entrées pour déterminer le nombre de serveurs de processus supplémentaires et de serveurs de configuration à utiliser dans le déploiement.
 
 ## <a name="recommendations"></a>Recommandations
+
+>[!Note]
+>Lors de la réplication directement vers des disques gérés, ignorer la recommandation pour le nombre de comptes de stockage.
 
 La feuille de recommandations de VMware pour le rapport Azure présente les détails suivants selon le RPO sélectionné :
 
@@ -155,6 +158,9 @@ Vous pouvez vous trouver dans une situation dans laquelle vous ne pouvez pas con
 ![RPO possible pour une bande passante de 500 Mbits/s](media/site-recovery-vmware-deployment-planner-analyze-report/achievable-rpo-v2a.png)
 
 ## <a name="vm-storage-placement"></a>VM-storage placement
+
+>[!Note]
+>Lors de la réplication directement vers des disques gérés, vous n’avez pas besoin à vous soucier de nombre de comptes de stockage. Pour le stockage, utilisez uniquement la recommandation sur le type de stockage (Standard ou Premium). Le même type s’applique aux disques gérés.
 
 ![VM-storage placement](media/site-recovery-vmware-deployment-planner-analyze-report/vm-storage-placement-v2a.png)
 

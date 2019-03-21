@@ -13,12 +13,12 @@ ms.date: 09/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1285a9262221dbd8e46d07e384697ddea853f9fc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: ee64fe8643362c6a75e288d78e163317fd8a44d8
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163051"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193147"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Feuille de route pour l’installation d’Azure AD Connect et d’Azure AD Connect Health
 
@@ -46,10 +46,10 @@ Vous pouvez trouver le téléchargement d’Azure AD Connect sur le [Centre de t
 |Installation à l’aide des paramètres Express | [Installation rapide pour Azure AD Connect](./how-to-connect-install-express.md)|
 |Installation à l’aide des paramètres personnalisés | [Installation personnalisée d’Azure AD Connect](./how-to-connect-install-custom.md)|
 |Effectuer une mise à niveau à partir de DirSync | [Effectuer une mise à niveau à partir de l’outil de synchronisation Azure AD (DirSync)](./how-to-dirsync-upgrade-get-started.md)|
-|Après l’installation | [Vérification de l’installation et affectation des licences ](how-to-connect-post-installation.md)|
+|Après l’installation | [Vérifier l’installation et attribuer des licences](how-to-connect-post-installation.md)|
 
 ### <a name="learn-more-about-install-azure-ad-connect"></a>En savoir plus sur l’installation d’Azure AD Connect
-Il peut également être judicieux de se préparer aux préoccupations [opérationnelles](how-to-connect-sync-operations.md) . Vous pouvez souhaiter disposer d’un serveur de secours afin de pouvoir facilement basculer en cas de [sinistre](how-to-connect-sync-operations.md#disaster-recovery). Si vous envisagez d’effectuer des modifications de configuration fréquentes, vous devriez planifier un serveur en [mode intermédiaire](how-to-connect-sync-operations.md#staging-mode) .
+Il peut également être judicieux de se préparer aux préoccupations [opérationnelles](how-to-connect-sync-operations.md) . Vous pouvez souhaiter disposer d’un serveur de secours afin de pouvoir facilement basculer en cas de [sinistre](how-to-connect-sync-staging-server.md#disaster-recovery). Si vous envisagez d’effectuer des modifications de configuration fréquentes, vous devriez planifier un serveur en [mode intermédiaire](how-to-connect-sync-staging-server.md) .
 
 |Rubrique |Lien|  
 | --- | --- |

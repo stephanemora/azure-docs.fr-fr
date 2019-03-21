@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78c9d31d9a9b5a878b0e0d5c61dc0fd79ee0c55e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 438f4f60c80cb798c3c40f57e22c9194a9fd5f86
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206597"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110849"
 ---
 # <a name="error-on-an-applications-page-after-signing-in"></a>Erreur dans la page d’une application après la connexion
 
@@ -39,23 +39,23 @@ Plusieurs raisons peuvent expliquer pourquoi l’application n’a pas accepté 
 
 Pour ajouter un attribut dans la configuration Azure AD à envoyer dans la réponse Azure AD, procédez comme suit :
 
-1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général** ou que **Coadministrateur**.
+1. Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général** ou que **Coadministrateur**.
 
-2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
+2. Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
 
-3.  Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
+3. Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
 
-4.  Cliquez sur **Applications d’entreprise** dans le menu de navigation de gauche d’Azure Active Directory.
+4. Cliquez sur **Applications d’entreprise** dans le menu de navigation de gauche d’Azure Active Directory.
 
-5.  Cliquez sur **Toutes les applications** pour afficher la liste complète de vos applications.
+5. Cliquez sur **Toutes les applications** pour afficher la liste complète de vos applications.
 
    * Si l’application que vous recherchez ne figure pas dans la liste, utilisez la commande **Filtre** en haut de la **liste de toutes les applications** et définissez l’option **Afficher** sur **Toutes les applications.**
 
-6.  Sélectionnez l’application pour laquelle vous souhaitez configurer l’authentification unique.
+6. Sélectionnez l’application pour laquelle vous souhaitez configurer l’authentification unique.
 
-7.  Une fois l’application chargée, cliquez sur **Authentification unique** dans le menu de navigation de gauche de l’application.
+7. Une fois l’application chargée, cliquez sur **Authentification unique** dans le menu de navigation de gauche de l’application.
 
-8.  Cliquez sur **Afficher et modifier tous les autres attributs utilisateur** sous **Attributs utilisateur** pour modifier les attributs à envoyer à l’application dans le jeton SAML lorsque les utilisateurs se connectent.
+8. Cliquez sur **Afficher et modifier tous les autres attributs utilisateur** sous **Attributs utilisateur** pour modifier les attributs à envoyer à l’application dans le jeton SAML lorsque les utilisateurs se connectent.
 
    Pour ajouter un attribut :
 
@@ -63,7 +63,7 @@ Pour ajouter un attribut dans la configuration Azure AD à envoyer dans la répo
 
    * Cliquez sur **Enregistrer.** Le nouvel attribut s’affiche dans le tableau.
 
-9.  Enregistrez la configuration.
+9. Enregistrez la configuration.
 
 La prochaine fois que l’utilisateur se connectera à l’application, Azure AD enverra le nouvel attribut dans la réponse SAML.
 
@@ -75,23 +75,23 @@ La connexion à l’application échoue parce que la réponse SAML ne comprend p
 
 Pour modifier la valeur de l’identificateur d’utilisateur, procédez comme suit :
 
-1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général** ou que **Coadministrateur**.
+1. Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général** ou que **Coadministrateur**.
 
-2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
+2. Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
 
-3.  Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
+3. Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
 
-4.  Cliquez sur **Applications d’entreprise** dans le menu de navigation de gauche d’Azure Active Directory.
+4. Cliquez sur **Applications d’entreprise** dans le menu de navigation de gauche d’Azure Active Directory.
 
-5.  Cliquez sur **Toutes les applications** pour afficher la liste complète de vos applications.
+5. Cliquez sur **Toutes les applications** pour afficher la liste complète de vos applications.
 
    * Si l’application que vous recherchez ne figure pas dans la liste, utilisez la commande **Filtre** en haut de la **liste de toutes les applications** et définissez l’option **Afficher** sur **Toutes les applications.**
 
-6.  Sélectionnez l’application pour laquelle vous souhaitez configurer l’authentification unique.
+6. Sélectionnez l’application pour laquelle vous souhaitez configurer l’authentification unique.
 
-7.  Une fois l’application chargée, cliquez sur **Authentification unique** dans le menu de navigation de gauche de l’application.
+7. Une fois l’application chargée, cliquez sur **Authentification unique** dans le menu de navigation de gauche de l’application.
 
-8.  Sous **Attributs d’utilisateur**, sélectionnez l’identificateur unique de vos utilisateurs dans la liste déroulante **Identificateur de l’utilisateur**.
+8. Sous **Attributs d’utilisateur**, sélectionnez l’identificateur unique de vos utilisateurs dans la liste déroulante **Identificateur de l’utilisateur**.
 
 ## <a name="change-entityid-user-identifier-format"></a>Changer le format d’EntityID (identificateur d’utilisateur)
 
@@ -103,31 +103,31 @@ Azure AD sélectionne le format de l’attribut NameID (identificateur d’utili
 
 Pour modifier les parties du jeton SAML qui sont signées numériquement par Azure Active Directory. Procédez comme suit :
 
-1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général** ou que **Coadministrateur**.
+1. Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général** ou que **Coadministrateur**.
 
-2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
+2. Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
 
-3.  Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
+3. Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
 
-4.  Cliquez sur **Applications d’entreprise** dans le menu de navigation de gauche d’Azure Active Directory.
+4. Cliquez sur **Applications d’entreprise** dans le menu de navigation de gauche d’Azure Active Directory.
 
-5.  Cliquez sur **Toutes les applications** pour afficher la liste complète de vos applications.
+5. Cliquez sur **Toutes les applications** pour afficher la liste complète de vos applications.
 
-  * Si l’application que vous recherchez ne figure pas dans la liste, utilisez la commande **Filtre** en haut de la **liste de toutes les applications** et définissez l’option **Afficher** sur **Toutes les applications.**
+   * Si l’application que vous recherchez ne figure pas dans la liste, utilisez la commande **Filtre** en haut de la **liste de toutes les applications** et définissez l’option **Afficher** sur **Toutes les applications.**
 
-6.  Sélectionnez l’application pour laquelle vous souhaitez configurer l’authentification unique.
+6. Sélectionnez l’application pour laquelle vous souhaitez configurer l’authentification unique.
 
-7.  Une fois l’application chargée, cliquez sur **Authentification unique** dans le menu de navigation de gauche de l’application.
+7. Une fois l’application chargée, cliquez sur **Authentification unique** dans le menu de navigation de gauche de l’application.
 
-8.  Cliquez sur **Afficher les paramètres avancés de signature de certificat** dans la section **Certificat de signature SAML**.
+8. Cliquez sur **Afficher les paramètres avancés de signature de certificat** dans la section **Certificat de signature SAML**.
 
-9.  Sélectionnez l’**Option de signature** appropriée attendue par l’application :
+9. Sélectionnez l’**Option de signature** appropriée attendue par l’application :
 
-  * Signer la réponse SAML
+   * Signer la réponse SAML
 
-  * Signer la réponse et l’assertion SAML
+   * Signer la réponse et l’assertion SAML
 
-  * Signer l’assertion SAML
+   * Signer l’assertion SAML
 
 La prochaine fois que l’utilisateur se connectera à l’application, Azure AD signera la partie de la réponse SAML sélectionnée.
 
@@ -137,25 +137,25 @@ Par défaut, Azure AD signe le jeton SAML à l’aide de l’algorithme le plus 
 
 Pour modifier l’algorithme de signature, procédez comme suit :
 
-1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général** ou que **Coadministrateur**.
+1. Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général** ou que **Coadministrateur**.
 
-2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
+2. Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
 
-3.  Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
+3. Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
 
-4.  Cliquez sur **Applications d’entreprise** dans le menu de navigation de gauche d’Azure Active Directory.
+4. Cliquez sur **Applications d’entreprise** dans le menu de navigation de gauche d’Azure Active Directory.
 
-5.  Cliquez sur **Toutes les applications** pour afficher la liste complète de vos applications.
+5. Cliquez sur **Toutes les applications** pour afficher la liste complète de vos applications.
 
    * Si l’application que vous recherchez ne figure pas dans la liste, utilisez la commande **Filtre** en haut de la **liste de toutes les applications** et définissez l’option **Afficher** sur **Toutes les applications.**
 
-6.  Sélectionnez l’application pour laquelle vous souhaitez configurer l’authentification unique.
+6. Sélectionnez l’application pour laquelle vous souhaitez configurer l’authentification unique.
 
-7.  Une fois l’application chargée, cliquez sur **Authentification unique** dans le menu de navigation de gauche de l’application.
+7. Une fois l’application chargée, cliquez sur **Authentification unique** dans le menu de navigation de gauche de l’application.
 
-8.  Cliquez sur **Afficher les paramètres avancés de signature de certificat** dans la section **Certificat de signature SAML**.
+8. Cliquez sur **Afficher les paramètres avancés de signature de certificat** dans la section **Certificat de signature SAML**.
 
-9.  Sélectionnez SHA-1 dans **Algorithme de signature**.
+9. Sélectionnez SHA-1 dans **Algorithme de signature**.
 
 La prochaine fois que l’utilisateur se connectera à l’application, Azure AD signera le jeton SAML à l’aide de l’algorithme SHA-1.
 

@@ -1,9 +1,9 @@
 ---
-title: Surveiller les conteneurs dans Azure Service Fabric avec Log Analytics | Microsoft Docs
-description: Utilisez Log Analytics pour surveiller les conteneurs qui sont exécutés dans les clusters Azure Service Fabric.
+title: Surveiller les conteneurs sur Azure Service Fabric avec les journaux Azure Monitor | Microsoft Docs
+description: Utilisez les journaux Azure Monitor pour surveiller les conteneurs en cours d’exécution sur des clusters Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -12,27 +12,29 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/1/2017
-ms.author: dekapur
-ms.openlocfilehash: d5fd55ec93ce07e30e4c6f123f9be8492581053c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.date: 02/25/2019
+ms.author: srrengar
+ms.openlocfilehash: d5840db718191c9b67a8b28a2efccd55146ae510
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972250"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57246931"
 ---
-# <a name="monitor-containers-with-log-analytics"></a>Surveiller les conteneurs avec Log Analytics
+# <a name="monitor-containers-with-azure-monitor-logs"></a>Surveiller les conteneurs avec les journaux Azure Monitor
  
-Cet article traite des étapes nécessaires pour configurer la solution de supervision de conteneurs Azure Log Analytics, qui permet de visualiser les événements de conteneur. Pour configurer votre cluster afin de collecter les événements de conteneur, consultez ce [tutoriel pas à pas](service-fabric-tutorial-monitoring-wincontainers.md). 
+Cet article décrit les étapes requises pour configurer le conteneur de journaux Azure Monitor solution de surveillance pour afficher les événements de conteneur. Pour configurer votre cluster afin de collecter les événements de conteneur, consultez ce [tutoriel pas à pas](service-fabric-tutorial-monitoring-wincontainers.md). 
 
 [!INCLUDE [log-analytics-agent-note.md](../../includes/log-analytics-agent-note.md)]
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="set-up-the-container-monitoring-solution"></a>Configurer la solution de surveillance des conteneurs
 
 > [!NOTE]
-> Vous devez avoir configuré Log Analytics pour votre cluster et déployé l’agent Log Analytics sur vos nœuds. Si ce n’est pas le cas, commencez par suivre les procédures des articles indiquant comment [configurer Log Analytics](service-fabric-diagnostics-oms-setup.md) et [ajouter l’agent Log Analytics à un cluster](service-fabric-diagnostics-oms-agent.md).
+> Vous devez disposer d’Azure Monitor journaux configurée pour votre cluster, ainsi que déployer sur vos nœuds de l’agent Log Analytique. Si vous ne faites pas, suivez les étapes de [configuré des journaux d’Azure Monitor](service-fabric-diagnostics-oms-setup.md) et [ajouter l’agent d’Analytique de journal à un cluster](service-fabric-diagnostics-oms-agent.md) première.
 
-1. Une fois votre cluster configuré avec Log Analytics et l’agent Log Analytics, déployez vos conteneurs. Attendez que vos conteneurs soient déployés avant de passer à l’étape suivante.
+1. Une fois que votre cluster est configuré avec les journaux d’Azure Monitor et de l’agent d’Analytique de journal, déployez vos conteneurs. Attendez que vos conteneurs soient déployés avant de passer à l’étape suivante.
 
 2. Dans la Place de marché Azure, recherchez *Solution Container Monitoring*, puis cliquez sur la ressource **Solution Container Monitoring** qui doit s’afficher sous la catégorie Surveillance + Gestion.
 
@@ -42,7 +44,7 @@ Cet article traite des étapes nécessaires pour configurer la solution de super
 
     ![Tableau de bord Log Analytics de base](./media/service-fabric-diagnostics-event-analysis-oms/oms-containers-dashboard.png)
 
-L’agent permet de collecter plusieurs journaux propres aux conteneurs qui peuvent être interrogés dans Log Analytics ou utilisés pour visualiser les indicateurs de performance. Les types de journaux collectés sont :
+L’agent permet de collecter plusieurs journaux spécifiques aux conteneurs qui peuvent être interrogés dans les journaux Azure Monitor ou permettent de visualiser les indicateurs de performance. Les types de journaux collectés sont :
 
 * ContainerInventory : affiche des informations sur les images, le nom et l’emplacement du conteneur
 * ContainerImageInventory : informations sur les images déployées, ID ou tailles compris
@@ -53,7 +55,7 @@ L’agent permet de collecter plusieurs journaux propres aux conteneurs qui peuv
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Apprenez-en davantage sur la [solution Container Monitoring de Log Analytics](../azure-monitor/insights/containers.md).
+* En savoir plus sur [Azure Monitor enregistre la solution conteneurs](../azure-monitor/insights/containers.md).
 * En savoir plus sur l’orchestration des conteneurs dans Service Fabric : [Service Fabric et conteneurs](service-fabric-containers-overview.md)
-* Familiarisez-vous avec les fonctionnalités de [requêtes et recherches dans les journaux](../log-analytics/log-analytics-log-searches.md) offertes dans le cadre de Log Analytics
-* Configurez Log Analytics pour paramétrer des règles d’[alerte automatisée](../log-analytics/log-analytics-alerts.md) afin de faciliter la détection et les diagnostics
+* Familiarisez-vous avec les [journal des requêtes et recherches](../log-analytics/log-analytics-log-searches.md) fonctionnalités offertes dans le cadre des journaux d’Azure Monitor
+* Configurer les journaux Azure Monitor pour configurer [alerte automatisée](../log-analytics/log-analytics-alerts.md) règles afin de faciliter la détection et les diagnostics

@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 2775ceb3cf27b6feedfd73cd43855204490ebc31
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: d55d8f8f945e30402cb772c7e26b234e3e460698
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471196"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217867"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Modèles de location de base de données SaaS multi-locataire
 
@@ -99,7 +99,7 @@ Quand des bases de données sont déployées dans le même groupe de ressources,
 
 ![Conception d’une application multi-locataire avec une base de données par locataire, à l’aide d’un pool élastique.][image-mt-app-db-per-tenant-pool-153p]
 
-Azure SQL Database fournit les outils nécessaires pour configurer, surveiller et gérer le partage.  Les métriques de performances au niveau du pool et de la base de données sont disponibles dans le portail Azure et par le biais de Log Analytics.  Les métriques peuvent donner d’excellents insights sur les performances agrégées et celles spécifiques au locataire.  Vous pouvez déplacer les bases de données individuelles entre pools pour fournir des ressources réservées à un locataire spécifique.  Ces outils vous permettent de garantir un bon niveau de performance de façon rentable.
+Azure SQL Database fournit les outils nécessaires pour configurer, surveiller et gérer le partage.  Des mesures de performances au niveau du pool et le niveau de la base de données sont disponibles dans le portail Azure et via les journaux Azure Monitor.  Les métriques peuvent donner d’excellents insights sur les performances agrégées et celles spécifiques au locataire.  Vous pouvez déplacer les bases de données individuelles entre pools pour fournir des ressources réservées à un locataire spécifique.  Ces outils vous permettent de garantir un bon niveau de performance de façon rentable.
 
 #### <a name="operations-scale-for-database-per-tenant"></a>Mise à l’échelle des opérations pour le modèle de base de données par locataire
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 18853d10c4acf1573772d72a8fb2c347cce545df
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: c27244af6da01163fa9ab554b6b9c1d9c99bab23
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730167"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104571"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>Migrer des données d’un appareil StorSimple 5000-7000 vers Azure File Sync
 
@@ -57,7 +57,7 @@ Vous trouverez ci-dessous les prérequis pour la migration d’appareils d’anc
 - L’hôte a une capacité de stockage local suffisante pour contenir vos données en cache local.
 - L’accès au niveau propriétaire à l’abonnement Azure que vous allez utiliser pour déployer Azure File Sync. Vous pouvez rencontrer des problèmes lors de la création d’un point de terminaison cloud pour votre groupe de synchronisation si vous n’avez pas d’autorisations de niveau propriétaire ou administrateur.
 - Accédez à un [compte de stockage à usage général v2](https://docs.microsoft.com/azure/storage/common/storage-account-overview) avec un partage de fichiers Azure vers lequel vous souhaitez effectuer la synchronisation. Pour plus d’informations, consultez la rubrique [Création d’un compte de stockage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) .
- - L’article [Créer un partage de fichiers via le portail Azure](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
+  - L’article [Créer un partage de fichiers via le portail Azure](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 
 ## <a name="migration-process"></a>Processus de migration
 
@@ -87,7 +87,7 @@ Procédez comme suit pour migrer le partage de fichiers Windows configuré sur l
     Ignorez cette étape et passez à l’étape suivante si vous utilisez un autre hôte Windows Server. Si vous utilisez le même serveur de fichiers Windows pour AFS, un temps d’arrêt de quelques minutes a lieu. 
     - **Début du temps d’arrêt** : supprimez le point de terminaison de serveur que vous avez créé au cours de *l’étape 1F*. 
     - Créez un point de terminaison de serveur avec le chemin d’accès où vous souhaitez que les données qui s’y trouvent aillent.
-    - Une fois que le point de terminaison de serveur affiche l’état « Sain » (cela peut prendre quelques minutes), vous verrez les données dans ce nouvel emplacement. Vous pouvez désormais configurer votre hôte Windows Server pour traiter les fichiers à partir de ce nouvel emplacement. - **Fin du temps d’arrêt**.
+    - Une fois que le point de terminaison de serveur affiche l’état « Sain » (cela peut prendre quelques minutes), vous verrez les données dans ce nouvel emplacement. Vous pouvez désormais configurer votre hôte Windows Server pour traiter les fichiers à partir de ce nouvel emplacement. -**Fin du temps d’arrêt**.
 5.  Si vous utilisez un autre serveur de fichiers Windows pour Azure File Sync, il n’y aura aucun temps d’arrêt. 
     - Ajoutez un autre point de terminaison de serveur au chemin d’accès du stockage local que vous êtes prêt à utiliser en tant que cache à la place de l’appareil StorSimple. 
     - Vous serez en mesure de voir les fichiers dans le nouveau serveur après quelques minutes. Vous êtes libre de basculer de votre appareil StorSimple à ce nouvel emplacement sur l’hôte à tout moment.

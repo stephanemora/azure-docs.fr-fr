@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7278eba1c9039c180f75cdd2dfd1e18a77baf423
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: dc30b28203ad416370f1304436e7e6e642921be9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416783"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441506"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Gérer les pré-scripts et les post-scripts (préversion)
 
-Les pré-scripts et post-scripts vous permettent d’exécuter des runbooks PowerShell dans votre compte Automation avant (tâche préalable) et après (tâche postérieure) un déploiement de mises à jour. Les pré/post-scripts s’exécutent dans le contexte Azure, et non localement. Les scripts préliminaires s’exécutent au début du déploiement de la mise à jour. Les scripts postérieurs s’exécutent à la fin du déploiement et après chaque redémarrage qui a été configuré.
+Les pré-scripts et post-scripts vous permettent d’exécuter des runbooks PowerShell dans votre compte Automation avant (tâche préalable) et après (tâche postérieure) un déploiement de mises à jour. Les pré/post-scripts s’exécutent dans le contexte Azure, et non localement. Les scripts s’exécutent au début du déploiement de mise à jour. Les scripts postérieurs s’exécutent à la fin du déploiement et après chaque redémarrage qui a été configuré.
 
 ## <a name="runbook-requirements"></a>Exigences en matière de runbook
 

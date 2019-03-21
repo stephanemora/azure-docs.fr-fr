@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/11/2019
-ms.openlocfilehash: a999553d7ba26daba674534b1656e90ad0de4f5f
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
-ms.translationtype: HT
+ms.openlocfilehash: 7211ffddf82b38ca27b776ecfd12bca25ebbb0f6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54243965"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58121942"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql"></a>Utiliser le portail Azure pour configurer des alertes sur les métriques pour Azure Database pour PostgreSQL 
 
@@ -48,7 +48,7 @@ Vous pouvez configurer et obtenir des informations sur les règles d’alerte à
    
    ![Sélectionner la métrique](./media/howto-alert-on-metric/6-configure-signal-logic.png)
 
-7. Configurez la logique d’alerte, notamment les éléments **Condition** (par exemple, « Supérieur à »), **Seuil** (par exemple, 85 %), **Agrégation de temps**, **Période** de temps pendant laquelle la règle de métrique doit être satisfaite pour que l’alerte se déclenche (par exemple, « Au cours des 30 dernières minutes ») et **Fréquence**.
+7. Configurez la logique d’alerte, notamment les éléments **Condition** (par exemple, « Supérieur à »), **Seuil** (par exemple, 85 %), **Agrégation de temps**, **Période** de temps pendant laquelle la règle de métrique doit être satisfaite pour que l’alerte se déclenche (par exemple, « Au cours des 30 dernières minutes ») et **Frequency**.
    
    Sélectionnez **Terminé** lorsque vous avez terminé.
 
@@ -60,21 +60,21 @@ Vous pouvez configurer et obtenir des informations sur les règles d’alerte à
 
 10. Configurez un type d'action **E-mail/SMS/Push/Voix**.
     
-   Choisissez « Envoyer un e-mail au rôle Azure Resource Manager » pour sélectionner les propriétaires de l'abonnement, les contributeurs et les lecteurs qui recevront les notifications.
+    Choisissez « Envoyer un e-mail au rôle Azure Resource Manager » pour sélectionner les propriétaires de l'abonnement, les contributeurs et les lecteurs qui recevront les notifications.
    
-   Vous pouvez aussi fournir un URI valide dans le champ **Webhook** si vous souhaitez qu’il soit appelé lorsque l’alerte se déclenche.
+    Vous pouvez aussi fournir un URI valide dans le champ **Webhook** si vous souhaitez qu’il soit appelé lorsque l’alerte se déclenche.
 
-   Sélectionnez **OK** lorsque vous avez terminé.
+    Sélectionnez **OK** lorsque vous avez terminé.
 
-   ![Groupe d’actions](./media/howto-alert-on-metric/10-action-group-type.png)
+    ![Groupe d’actions](./media/howto-alert-on-metric/10-action-group-type.png)
 
 11. Spécifiez un nom de règle d’alerte, une description et une gravité.
 
-   ![Groupe d’actions](./media/howto-alert-on-metric/11-name-description-severity.png) 
+    ![Groupe d’actions](./media/howto-alert-on-metric/11-name-description-severity.png) 
 
 12. Sélectionnez **Créer une règle d’alerte** pour créer l’alerte.
 
-   Après quelques minutes, l’alerte est active et se déclenche comme décrit précédemment.
+    Après quelques minutes, l’alerte est active et se déclenche comme décrit précédemment.
 
 ## <a name="manage-your-alerts"></a>Gérez vos alertes
 Une fois que vous avez créé une alerte, vous pouvez la sélectionner et exécuter les actions suivantes :

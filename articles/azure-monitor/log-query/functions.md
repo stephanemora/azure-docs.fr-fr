@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: bwren
-ms.openlocfilehash: 6c6bd31961022957ec1a09fef6058ad32476e1c7
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 7eb5f090026b415e3c980116a9317594f4ca8115
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005095"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750767"
 ---
 # <a name="using-functions-in-azure-monitor-log-queries"></a>Utilisation de fonctions dans les requêtes de journal Azure Monitor
 
@@ -32,7 +32,7 @@ Pour utiliser une requête de journal avec une autre requête, vous pouvez l’e
 
 ## <a name="create-a-function"></a>Créer une fonction
 
-Pour créer une fonction dans Log Analytics sur le portail Azure, cliquez sur **Enregistrer**, puis fournissez les informations indiquées dans le tableau suivant.
+Créer une fonction avec l’Analytique de journal dans le portail Azure en cliquant sur **enregistrer** , puis en fournissant les informations contenues dans le tableau suivant.
 
 | Paramètre | Description |
 |:---|:---|

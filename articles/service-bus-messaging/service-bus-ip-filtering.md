@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: a8d29e7cae20c37adfeccaef01e1625b6ab3e0d0
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 52475a3976ef8897ffed07c499eb06e7476c0156
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852675"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58136291"
 ---
 # <a name="use-firewall-rules"></a>Utiliser des règles de pare-feu
 
@@ -60,7 +60,7 @@ Les règles de filtre IP sont appliquées dans l’ordre et la première règle 
 ### <a name="creating-a-virtual-network-and-firewall-rule-with-azure-resource-manager-templates"></a>Création d’une règle de pare-feu et de réseau virtuel avec des modèles Azure Resource Manager
 
 > [!IMPORTANT]
-> Les réseaux virtuels sont pris en charge uniquement dans le niveau **Premium** de Service Bus.
+> Les pare-feux et réseaux virtuels sont prises en charge uniquement dans le **premium** niveau de Service Bus.
 
 Le modèle Resource Manager suivant permet d’ajouter une règle de réseau virtuel à un espace de noms Service Bus.
 

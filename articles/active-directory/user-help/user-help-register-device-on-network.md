@@ -1,5 +1,5 @@
 ---
-title: Inscrire votre appareil personnel sur le réseau de votre organisation - Azure Active Directory | Microsoft Docs
+title: Inscrire des appareils personnels sur un réseau d’entreprise - Azure Active Directory | Microsoft Docs
 description: Découvrez comment inscrire votre appareil personnel sur le réseau de votre organisation afin de pouvoir accéder à des ressources protégées de votre organisation.
 services: active-directory
 author: eross-msft
@@ -12,13 +12,14 @@ ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: lizross
 ms.reviewer: jairoc
+ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70cae464531dee86f7a4c9ec2396b90787825ec2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 041c8bb6b4de2bbe2cbeb4c1a89e452239ae57bd
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172295"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439738"
 ---
 # <a name="register-your-personal-device-on-your-organizations-network"></a>Inscrire votre appareil personnel sur le réseau de votre organisation
 Inscrivez votre appareil personnel (généralement un téléphone ou une tablette) sur le réseau de votre organisation. Une fois votre appareil inscrit, il peut accéder aux ressources restreintes de votre organisation.

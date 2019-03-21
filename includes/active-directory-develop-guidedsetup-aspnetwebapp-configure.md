@@ -3,8 +3,8 @@ title: Fichier Include
 description: Fichier Include
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
+author: jmprieur
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
@@ -12,20 +12,20 @@ ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/04/2018
-ms.author: andret
+ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 15db2192703971a8056df34343c427db11c8411a
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
-ms.translationtype: HT
+ms.openlocfilehash: cce0bb9d1a9317396d197d182a424a45c8448f1b
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988505"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203610"
 ---
 ## <a name="register-your-application"></a>Inscrivez votre application
 
 Pour inscrire votre application et ajouter les informations d’inscription de l’application à votre solution, deux options s’offrent à vous :
 
-### <a name="option-1-express-mode"></a>Option 1 : mode Express
+### <a name="option-1-express-mode"></a>Option 1 : Mode Express
 
 Vous pouvez inscrire rapidement votre application en procédant comme suit :
 
@@ -34,7 +34,7 @@ Vous pouvez inscrire rapidement votre application en procédant comme suit :
 3. Assurez-vous que la case de l’option Assistant Installation est cochée.
 4. Suivez les instructions pour ajouter une URL de redirection à votre application.
 
-### <a name="option-2-advanced-mode"></a>Option 2 : mode Avancé
+### <a name="option-2-advanced-mode"></a>Option 2 : Mode Avancé
 
 Pour inscrire votre application et ajouter les informations d’inscription de l’application à votre solution, procédez comme suit :
 

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8d5ecd33f0bc67b6e0ec2e559a8475da490369e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 10a78df5169741371c122971afa47cb53ecc5a64
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210660"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450666"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Règles d’appartenance de groupe dynamique dans Azure Active Directory
 
@@ -137,7 +137,7 @@ Si vous souhaitez comparer la valeur d’un attribut utilisateur par rapport à 
  Dans l’exemple suivant, l’expression est vraie si la valeur de user.department est égale à l’une des valeurs dans la liste :
 
 ```
-   user.department -in ["50001","50002","50003",“50005”,“50006”,“50007”,“50008”,“50016”,“50020”,“50024”,“50038”,“50039”,“51100”]
+   user.department -in ["50001","50002","50003","50005","50006","50007","50008","50016","50020","50024","50038","50039","51100"]
 ```
 
 
@@ -283,7 +283,7 @@ La règle de collaborateurs directs est construite à l’aide de la syntaxe sui
 Direct Reports for "{objectID_of_manager}"
 ```
 
-Voici un exemple de règle valide où « 62e19b97-8b3d-4d4a-a106-4ce66896a863 » est l’ID d’objet du responsable :
+Voici un exemple d’une règle valide, où « 62e19b97-8b3d-4d4a-a106-4ce66896a863 » est l’ID d’objet du Gestionnaire de :
 
 ```
 Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
@@ -300,17 +300,17 @@ Les conseils suivants peuvent vous aider à utiliser la règle correctement.
 
 Vous pouvez créer un groupe contenant tous les utilisateurs d’un client à l’aide d’une règle d’appartenance. Lors de l’ajout ou de la suppression ultérieurs d’utilisateurs dans le client, l’appartenance du groupe est ajustée automatiquement.
 
-La règle « Tous les utilisateurs » est construite à l’aide d’une expression unique en utilisant l’opérateur -ne et la valeur null. Cette règle ajoute au groupe les utilisateurs invités B2B, ainsi que les utilisateurs membres.
+La règle « Tous les utilisateurs » est construite à l’aide d’une expression unique à l’aide de l’opérateur - ne et la valeur null. Cette règle ajoute au groupe les utilisateurs invités B2B, ainsi que les utilisateurs membres.
 
 ```
 user.objectid -ne null
 ```
 
-### <a name="create-an-all-devices-rule"></a>Créer une règle « Tous les appareils »
+### <a name="create-an-all-devices-rule"></a>Créer une règle de « Tous les appareils »
 
 Vous pouvez créer un groupe contenant tous les appareils d’un client à l’aide d’une règle d’appartenance. Lors de l’ajout ou de la suppression ultérieurs d’appareils dans le client, l’appartenance du groupe est ajustée automatiquement.
 
-La règle « Tous les utilisateurs » est construite à l’aide d’une expression unique en utilisant l’opérateur -ne et la valeur null :
+La règle « Tous les appareils » est construite à l’aide d’une expression unique à l’aide de l’opérateur - ne et la valeur null :
 
 ```
 device.objectid -ne null
@@ -318,7 +318,7 @@ device.objectid -ne null
 
 ## <a name="extension-properties-and-custom-extension-properties"></a>Attributs d’extension et propriétés d’extension personnalisée
 
-Les attributs d’extension et les propriétés d’extension personnalisée sont pris en charge en tant que propriétés de chaîne dans les règles d’appartenance dynamique. Les attributs d’extension sont synchronisés à partir de Windows Server AD local et prennent le format « ExtensionAttributeX », lorsque X est égal à 1-15. Voici en exemple de règle utilisant un attribut d’extension en tant que propriété :
+Attributs d’extension et les propriétés d’extension personnalisés sont pris en charge en tant que propriétés de chaîne dans les règles d’appartenance dynamique. Les attributs d’extension sont synchronisés à partir de Windows Server AD local et prennent le format « ExtensionAttributeX », lorsque X est égal à 1-15. Voici en exemple de règle utilisant un attribut d’extension en tant que propriété :
 
 ```
 (user.extensionAttribute15 -eq "Marketing")

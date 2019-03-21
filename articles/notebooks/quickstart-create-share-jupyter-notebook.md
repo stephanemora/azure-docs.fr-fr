@@ -6,40 +6,40 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 5add60ad-0b4b-4fd5-adf5-eb50ce072d00
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 96eb6a823299521a071edc87b5bce95409405ffb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 3f03202d0f4416b3bf08a33e5d997d7149eda9f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096271"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104401"
 ---
 # <a name="quickstart-create-and-share-a-notebook"></a>Démarrage rapide : Créer et partager un notebook
 
-1. Accédez à [Azure Notebooks](https://notebooks.azure.com) et connectez-vous. (Pour plus d’informations, consultez la rubrique de [démarrage rapide sur la connexion à Azure Notebooks](quickstart-sign-in-azure-notebooks.md).)
+1. Accédez à [Azure Notebooks](https://notebooks.azure.com) et connectez-vous. (Pour plus d’informations, consultez la rubrique [Démarrage rapide sur la connexion à Azure Notebooks](quickstart-sign-in-azure-notebooks.md).)
 
 1. En haut de votre page de profil public, sélectionnez **Mes projets** :
 
     ![Lien Mes projets en haut de la fenêtre du navigateur](media/quickstarts/my-projects-link.png)
 
-1. Sur la page **Mes projets**, sélectionnez **+ Nouveau projet** (raccourci clavier : n). Le bouton peut apparaître uniquement sous la forme **+** si la fenêtre du navigateur est étroite :
+1. Dans la page **Mes projets**, sélectionnez **+ Nouveau projet** (raccourci clavier : n). Le bouton peut apparaître uniquement sous la forme **+** si la fenêtre du navigateur est étroite :
 
-    ![Commande Nouveau projet sur la page Mes projets](media/quickstarts/new-project-command.png)
+    ![Commande Nouveau projet dans la page Mes projets](media/quickstarts/new-project-command.png)
 
 1. Dans la fenêtre contextuelle **Créer un projet** qui s’affiche, entrez ou définissez les détails suivants, puis sélectionnez **Créer** :
 
-    - **Nom du projet** : Hello World dans Python
-    - **ID du projet** : hello-world-python
-    - **Projet public** : (désactivé)
-    - **Créer un fichier README.md** : (désactivé)
+   - **Nom du projet** : Hello World dans Python
+   - **ID du projet** : hello-world-python
+   - **Projet public** : (désactivé)
+   - **Créer un fichier README.md** : (désactivé)
 
-    ![Fenêtre contextuelle Nouveau projet avec les détails remplis](media/quickstarts/new-project-popup.png)
+     ![Fenêtre contextuelle Nouveau projet avec les détails remplis](media/quickstarts/new-project-popup.png)
 
 1. Après quelques instants, Azure Notebooks accède au nouveau projet. Pour ajouter un notebook au projet, sélectionnez la liste déroulante **+ Nouveau** (qui peut apparaître seulement sous la forme **+**), puis **Notebook** :
 
@@ -93,7 +93,7 @@ ms.locfileid: "53096271"
 
     ![Icône Enregistrer dans la barre d’outils du notebook Jupyter](media/quickstarts/hello-results-save-icon.png)
 
-1. Sélectionnez la commande de menu **Fichier** > **Arrêter et fermer** pour arrêter le serveur et fermer la fenêtre du navigateur.
+1. Sélectionnez le **fichier** > **fermer et arrêter** commande de menu pour arrêter le serveur et de fermer la fenêtre du navigateur.
 
 ## <a name="share-the-notebook"></a>Partager le notebook
 
@@ -106,4 +106,4 @@ Sur la page des projets, vous pouvez également utiliser le menu **Partager** po
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Didacticiel : créer et exécuter un notebook Jupyter pour effectuer une régression linéaire](tutorial-create-run-jupyter-notebook.md)
+> [Tutoriel : Créer et exécuter un notebook Jupyter pour effectuer une régression linéaire](tutorial-create-run-jupyter-notebook.md)

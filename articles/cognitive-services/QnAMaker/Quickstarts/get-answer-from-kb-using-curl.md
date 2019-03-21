@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 03/04/2019
 ms.author: diberry
-ms.openlocfilehash: b269785d41931ce68827e2b48cc543d35ee47597
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 3b728984b2bda836d3d4924b93f1b11a5d05d8bb
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870280"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342460"
 ---
 # <a name="quickstart-get-answer-from-knowledge-base-using-curl"></a>Démarrage rapide : Obtenir une réponse d’une base de connaissances en utilisant cURL
 
 Ce démarrage rapide basé sur cURL vous montre pas à pas comment obtenir une réponse de votre base de connaissances.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Dernière version de [**cURL**](https://curl.haxx.se/).
 * Vous devez disposer d’un [service QnA Maker](../How-To/set-up-qnamaker-service-azure.md) et d’une [base de connaissances avec des questions et des réponses](../Tutorials/create-publish-query-in-portal.md).

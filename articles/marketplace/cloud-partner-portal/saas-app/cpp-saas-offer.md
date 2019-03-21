@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 74f6d5989d86cc92371b060caf164f895b75511f
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: 9d8b425ff73672ce8989e235c4a2c130c763716c
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263626"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213549"
 ---
 # <a name="azure-saas-application-offer"></a>Offre d’application Azure SaaS
 
@@ -35,7 +35,10 @@ Voici quelques-uns des avantages qu’offre la publication de vos applications s
 
 - Extension de votre équipe de vente : atteint des utilisateurs professionnels dans le monde entier et obtient un canal de vente qui implique les utilisateurs finaux, ce qui vous aide à générer des prospects et initie des conversations avec de nouveaux clients dans de multiples secteurs.
 
-- Obtention d’informations détaillées exploitables : nous partagerons des informations détaillées sur les performances de votre application sur AppSource, ce qui fonctionne bien, et comment améliorer vos procédures de ventes.
+- Obtention d’informations détaillées exploitables : nous partagerons des informations détaillées sur les performances de votre application sur AppSource, ce qui fonctionne bien, et les améliorations potentielles à apporter à vos procédures de ventes.
+ 
+>[!Note]
+>Cloud fournisseurs de solutions partenaires canal opt-in est désormais disponible.  Consultez [les fournisseurs de solutions de Cloud](../../cloud-solution-providers.md) canaux du partenaire pour plus d’informations sur le marketing de votre offre via le CSP de Microsoft.
 
 ## <a name="publishing-process-workflow"></a>Flux de travail du processus de publication 
 
