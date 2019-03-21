@@ -1,6 +1,6 @@
 ---
-title: Configurer Azure Key Vault avec un audit et une rotation des clés de bout en bout - Azure Key Vault | Microsoft Docs
-description: Utilisez cette procédure pour configurer la rotation des clés et la surveillance des journaux de Key Vault.
+title: Configuration d’Azure Key Vault avec une rotation des clés et un audit de bout en bout | Microsoft Docs
+description: Utilisez ce guide pratique pour vous aider à configurer la rotation des clés et surveillez les journaux de coffre de clés.
 services: key-vault
 documentationcenter: ''
 author: barclayn
@@ -13,44 +13,44 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: deb50a71b179c3cb03d5da22e336c42b26fe0bfa
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 68fd33dc3e9def11f72b7aec14f83f86b8bb74d0
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106118"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56749703"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Configurer Azure Key Vault avec une rotation des clés et un audit
 
-## <a name="introduction"></a>Introduction
+## <a name="introduction"></a>Présentation
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Une fois que vous avez un coffre de clés, vous pouvez commencer à l’utiliser pour stocker les clés et les secrets. Vos applications ne doivent plus nécessairement conserver vos clés et secrets, mais peuvent les demander au coffre en cas de besoin. Cela vous permet de mettre à jour les clés et les secrets sans affecter le comportement de votre application, et de disposer ainsi de toute une multitude de possibilités de gestion des clés et secrets.
+Une fois que vous avez un coffre de clés, vous pouvez commencer à l’utiliser pour stocker les clés et les secrets. Vos applications ne doivent plus nécessairement conserver vos clés et secrets, mais peuvent les demander au coffre en cas de besoin. Un coffre de clés vous permet de mettre à jour des clés et secrets sans affecter le comportement de votre application, toute une multitude de possibilités pour votre clé et la gestion des secrets.
 
 >[!IMPORTANT]
-> Les exemples de cet article sont fournis à titre d’illustration uniquement. Ils ne sont pas conçus pour être utilisés pour la production. 
+> Les exemples de cet article sont fournis à titre d’illustration uniquement. Ils ne sont pas conçus pour la production. 
 
 Cet article vous guide tout au long des procédures suivantes :
 
-- Un exemple d’utilisation d’Azure Key Vault pour stocker un secret. Dans ce didacticiel, le secret stocké est la clé de compte de stockage Azure qui fait l’objet d’un accès par une application. 
-- Il vous propose également une démonstration d’implémentation d’une rotation planifiée de cette clé de compte de stockage.
-- Il démontre comment contrôler les journaux d’audit du coffre de clés et déclencher des alertes en cas de requêtes inattendues.
+- Un exemple d’utilisation d’Azure Key Vault pour stocker un secret. Dans cet article, le secret stocké est la clé de compte de stockage Azure accédée par une application. 
+- Comment implémenter une rotation planifiée de cette clé de compte de stockage.
+- Guide pratique pour surveiller la clé de journaux d’audit du coffre et déclencher des alertes lors de requêtes inattendues.
 
 > [!NOTE]
-> Ce didacticiel n’a pas pour vocation d’expliquer en détail la configuration initiale de votre coffre de clés. Pour en savoir plus, consultez la page [Qu’est-ce qu’Azure Key Vault ?](key-vault-overview.md) Pour connaître la marche à suivre avec l’interface de ligne de commande interplateforme, consultez la rubrique [Gestion de Key Vault à l’aide de l’interface de ligne de commande (CLI)](key-vault-manage-with-cli2.md).
->
->
+> Cet article n’explique en détail la configuration initiale de votre coffre de clés. Pour en savoir plus, consultez [Présentation d'Azure Key Vault](key-vault-overview.md). Pour obtenir des instructions de l’interface de ligne de commande multiplateforme, consultez [gestion de Key Vault à l’aide de l’interface CLI](key-vault-manage-with-cli2.md).
 
 ## <a name="set-up-key-vault"></a>Configuration d’Azure Key Vault
 
-Pour qu’une application puisse récupérer un secret dans Key Vault, vous devez tout d’abord créer le secret et le télécharger dans votre coffre. Procédez en démarrant une session Azure PowerShell et en vous connectant à votre compte Azure avec la commande suivante :
+Pour qu’une application puisse récupérer un secret dans Key Vault, vous devez tout d’abord créer le secret et le télécharger dans votre coffre.
+
+Démarrez une session Azure PowerShell et connectez-vous à votre compte Azure avec la commande suivante :
 
 ```powershell
 Connect-AzAccount
 ```
 
-Dans la fenêtre contextuelle de votre navigateur, entrez votre nom d’utilisateur et votre mot de passe Azure. PowerShell obtient alors tous les abonnements associés à ce compte. PowerShell utilise le premier par défaut.
+Dans la fenêtre du navigateur contextuelle, entrez le nom d’utilisateur et le mot de passe pour votre compte Azure. PowerShell obtient alors tous les abonnements associés à ce compte. PowerShell utilise le premier par défaut.
 
 Si vous disposez de plusieurs abonnements, vous devrez peut-être spécifier celui qui a été utilisé pour créer votre coffre de clés. Entrez la commande suivante pour afficher les abonnements de votre compte :
 
@@ -58,7 +58,7 @@ Si vous disposez de plusieurs abonnements, vous devrez peut-être spécifier cel
 Get-AzSubscription
 ```
 
-Pour spécifier l’abonnement associé au coffre de clés que vous allez consigner, entrez :
+Pour spécifier l’abonnement associé au coffre de clés que vous allez vous connecter, entrez :
 
 ```powershell
 Set-AzContext -SubscriptionId <subscriptionID>
@@ -70,7 +70,7 @@ Cet article présentant le stockage d’une clé de compte de stockage sous la f
 Get-AzStorageAccountKey -ResourceGroupName <resourceGroupName> -Name <storageAccountName>
 ```
 
-Une fois votre secret récupéré (votre clé de compte de stockage dans notre exemple), vous devez le convertir en une chaîne sécurisée, puis créer un secret avec cette valeur dans votre coffre de clés.
+Après avoir récupéré votre secret (dans ce cas, il s’agit de votre clé de compte de stockage), vous devez convertir cette clé en une chaîne sécurisée et ensuite créer un secret avec cette valeur dans votre coffre de clés.
 
 ```powershell
 $secretvalue = ConvertTo-SecureString <storageAccountKey> -AsPlainText -Force
@@ -78,7 +78,7 @@ $secretvalue = ConvertTo-SecureString <storageAccountKey> -AsPlainText -Force
 Set-AzKeyVaultSecret -VaultName <vaultName> -Name <secretName> -SecretValue $secretvalue
 ```
 
-Ensuite, obtenez l’URI pour le secret que vous avez créé. Il sera utilisé dans une étape ultérieure lorsque vous appellerez le coffre de clés pour récupérer votre secret. Exécutez la commande PowerShell suivante et notez la valeur de l’ID, qui correspond à l’URI du secret :
+Ensuite, obtenez l’URI pour le secret que vous avez créé. Vous aurez besoin de cet URI dans une étape ultérieure pour appeler le coffre de clés et récupérer votre secret. Exécutez la commande PowerShell suivante et notez la valeur d’ID, les URI du secret :
 
 ```powershell
 Get-AzKeyVaultSecret –VaultName <vaultName>
@@ -86,36 +86,36 @@ Get-AzKeyVaultSecret –VaultName <vaultName>
 
 ## <a name="set-up-the-application"></a>Configurer d’application
 
-Maintenant que vous disposez d’une clé secrète stockée, vous pouvez utiliser le code pour la récupérer et l’utiliser. Quelques étapes sont nécessaires pour y parvenir. La première et la plus importante d’entre elles consiste à enregistrer votre application dans Azure Active Directory et à fournir à Key Vault des informations sur votre application afin qu’il autorise les requêtes provenant de votre application.
+Maintenant que vous avez une clé secrète stockée, vous pouvez utiliser le code pour récupérer et l’utiliser après avoir effectué quelques étapes supplémentaires.
+
+Tout d’abord, vous devez inscrire votre application avec Azure Active Directory. Puis indiquer à Key Vault informations de votre application afin qu’il autorise les demandes à partir de votre application.
 
 > [!NOTE]
 > Votre application doit être créée sur le même client Azure Active Directory que votre coffre de clés.
->
->
 
-1. Accédez à Azure Active Directory.
-2. Choisissez **Inscriptions d’applications** 
-3. Choisissez **Nouvelle inscription d’application** pour ajouter une application à votre Azure Active Directory.
+1. Ouvrez **Azure Active Directory**.
+2. Sélectionnez **Inscriptions d’applications**. 
+3. Sélectionnez **nouvelle inscription d’application** pour ajouter une application à Azure Active Directory.
 
     ![Ouvrir des applications dans Azure Active Directory](./media/keyvault-keyrotation/azure-ad-application.png)
 
-4. Dans la section **Créer**, conservez le type d’application **APPLICATION WEB ET/OU API WEB** et donnez un nom à votre application. Attribuez à votre application une **URL DE CONNEXION**. Vous pouvez utiliser ce que vous voulez dans le cadre de cette démonstration.
+4. Sous **créer**, laissez le type d’application **application Web / API** et donnez un nom à votre application. Donnez à votre application un **Sign-on URL**. Cette URL peut être tout ce que vous souhaitez pour cette démonstration.
 
     ![Créer une inscription d’application](./media/keyvault-keyrotation/create-app.png)
 
-5. Une fois l’application ajoutée à Azure Active Directory, vous accédez à la page de l’application. Sélectionnez **Paramètres**, puis sélectionnez des propriétés. Copiez la valeur figurant dans **ID de l’application**. Il sera nécessaire dans des étapes ultérieures.
+5. Une fois que l’application est ajoutée à Azure Active Directory, la page d’application s’ouvre. Sélectionnez **paramètres**, puis sélectionnez **propriétés**. Copiez la valeur figurant dans **ID de l’application**. Vous en aurez besoin dans les étapes ultérieures.
 
-Ensuite, générez une clé pour votre application afin qu’elle puisse interagir avec votre Azure Active Directory. Vous pouvez créer une clé en accédant à la section **Clés** sous **Paramètres**. Notez la clé générée par votre application Azure Active Directory pour pouvoir l’utiliser dans une étape ultérieure. Notez que la clé ne sera plus disponible lorsque vous aurez quitté cette section. 
+Ensuite, générez une clé pour votre application afin qu’il peut interagir avec Azure Active Directory. Pour créer une clé, sélectionnez **clés** sous **paramètres**. Prenez note de la clé qui vient d’être générée pour votre application Azure Active Directory. Vous en aurez besoin dans une étape ultérieure. La clé n’est pas disponible après avoir quitté cette section. 
 
 ![Clés d’application Azure Active Directory](./media/keyvault-keyrotation/create-key.png)
 
-Avant de créer des appels de votre coffre de clés par votre application, vous devez fournir au coffre de clés des informations sur votre application et ses autorisations. La commande suivante récupère le nom du coffre et l’ID de l’application dans votre application Azure Active Directory et accorde à l’application un accès **Get** à votre coffre de clés.
+Avant d’établir des appels à partir de votre application dans le coffre de clés, vous devez indiquer le coffre de clés sur votre application et ses autorisations. La commande suivante utilise le nom du coffre et l’ID d’application à partir de votre application Azure Active Directory pour accorder à l’application **obtenir** accès à votre coffre de clés.
 
 ```powershell
 Set-AzKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <clientIDfromAzureAD> -PermissionsToSecrets Get
 ```
 
-À ce stade, vous êtes prêt à créer vos appels d’application. Dans votre application, vous devez installer les packages NuGet nécessaires pour interagir avec Azure Key Vault et Azure Active Directory. Entrez les commandes suivantes dans la console du gestionnaire de package Visual Studio. Au moment de la rédaction de cet article, la version du package Azure Active Directory est la version 3.10.305231913. Nous vous conseillons donc de vérifier que vous disposez de la dernière version et de mettre à jour si nécessaire.
+Vous êtes maintenant prêt à commencer à créer votre application appelle. Dans votre application, vous devez installer les packages NuGet qui sont requises pour interagir avec Azure Key Vault et Azure Active Directory. Entrez les commandes suivantes dans la console du gestionnaire de package Visual Studio. Au moment de la rédaction de cet article, la version actuelle du package Azure Active Directory est la version 3.10.305231913, par conséquent, vérifiez la version la plus récente et mettre à jour en fonction des besoins.
 
 ```powershell
 Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 3.10.305231913
@@ -123,13 +123,13 @@ Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 3.10.30
 Install-Package Microsoft.Azure.KeyVault
 ```
 
-Dans votre code d’application, créez une classe qui contiendra la méthode d’authentification de votre Azure Active Directory. Dans cet exemple, la classe est appelée **Utils**. Ajoutez les instructions using suivantes :
+Dans votre code d’application, créez une classe qui contiendra la méthode d’authentification de votre Azure Active Directory. Dans cet exemple, la classe est appelée **Utils**. Ajoutez l'instruction `using` suivante :
 
 ```csharp
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 ```
 
-Ajoutez ensuite la méthode suivante pour récupérer le jeton JWT d’Azure Active Directory. Pour faciliter la maintenance, vous souhaiterez peut-être déplacer les valeurs de chaîne codées en dur dans votre configuration web ou d’application.
+Ajoutez ensuite la méthode suivante pour récupérer le jeton JWT d’Azure Active Directory. Pour faciliter la maintenance, vous souhaiterez déplacer les valeurs de chaîne codées en dur dans votre configuration web ou application.
 
 ```csharp
 public async static Task<string> GetToken(string authority, string resource, string scope)
@@ -148,13 +148,13 @@ public async static Task<string> GetToken(string authority, string resource, str
 }
 ```
 
-Ajoutez le code nécessaire pour appeler Key Vault et récupérer votre valeur secrète. Vous devez tout d’abord ajouter l’instruction « using » suivante :
+Ajoutez le code nécessaire pour appeler Key Vault et récupérer votre valeur secrète. Vous devez tout d’abord, ajoutez le code suivant `using` instruction :
 
 ```csharp
 using Microsoft.Azure.KeyVault;
 ```
 
-Ajoutez les appels de méthode pour appeler Key Vault et récupérer votre secret. Dans cette méthode, vous fournissez l’URI de secret que vous avez enregistré dans une étape précédente. Notez l’utilisation de la méthode **GetToken** à partir de la classe **Utils** créée précédemment.
+Ajoutez les appels de méthode pour appeler Key Vault et récupérer votre secret. Dans cette méthode, vous fournissez l’URI de secret que vous avez enregistré dans une étape précédente. Notez l’utilisation de la **GetToken** méthode à partir de la **Utils** classe que vous avez créé précédemment.
 
 ```csharp
 var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetToken));
@@ -166,13 +166,19 @@ Lorsque vous exécutez votre application, vous devez désormais vous authentifie
 
 ## <a name="key-rotation-using-azure-automation"></a>Rotation des clés à l’aide d’Azure Automation
 
-Diverses options de mise en œuvre d’une stratégie de rotation sont possibles pour les valeurs que vous stockez sous forme de secrets Azure Key Vault. La rotation des secrets peut être manuelle, elle peut également être effectuée par programmation à l’aide d’appels d’API ou à l’aide d’un script Automation. Dans cet article, vous utiliserez Azure PowerShell et Azure Automation pour modifier une clé d’accès de compte de stockage Azure. Ensuite, vous mettrez à jour un secret de coffre de clés avec cette nouvelle clé.
+Vous êtes maintenant prêt à configurer une stratégie de rotation pour les valeurs que vous stockez en tant que secrets de coffre de clés. La rotation des secrets peut être de plusieurs façons :
 
-Pour qu’Azure Automation puisse définir des valeurs secrètes dans votre coffre de clés, vous devez obtenir l’ID client pour la connexion nommée AzureRunAsConnection créée pendant la définition de votre instance Azure Automation. Vous pouvez obtenir cet ID en choisissant **Actifs** dans votre instance Azure Automation. Sélectionnez ensuite **Connexions**, puis le principal du service **AzureRunAsConnection**. Notez **l’ID d’application**.
+- Dans le cadre d’un processus manuel
+- Par programmation en utilisant des appels d’API
+- Via un script d’automatisation d’Azure
+
+Dans le cadre de cet article, vous utiliserez PowerShell et Azure Automation pour modifier la clé d’accès d’un compte de stockage Azure. Vous allez ensuite mettre à jour un secret de coffre de clés avec cette nouvelle clé.
+
+Pour permettre à Azure Automation pour définir des valeurs secrètes dans votre coffre de clés, vous devez obtenir l’ID client pour la connexion nommée **AzureRunAsConnection**. Cette connexion a été créée lorsque vous avez établi votre instance Azure Automation. Pour rechercher cet ID, sélectionnez **ressources** à partir de votre instance Azure Automation. À partir de là, sélectionnez **connexions**, puis sélectionnez le **AzureRunAsConnection** principal du service. Prenez note de la **ApplicationId** valeur.
 
 ![ID client Azure Automation](./media/keyvault-keyrotation/Azure_Automation_ClientID.png)
 
-Dans **Actifs**, choisissez **Modules**. Sous **Modules**, sélectionnez **Galerie**, puis recherchez et **importez** les versions à jour de chacun des modules suivants :
+Dans **actifs**, sélectionnez **Modules**. Sélectionnez **galerie**, puis recherchez et importez les versions mises à jour de chacun des modules suivants :
 
     Azure
     Azure.Storage
@@ -181,19 +187,16 @@ Dans **Actifs**, choisissez **Modules**. Sous **Modules**, sélectionnez **Galer
     AzureRM.Automation
     AzureRM.Storage
 
-
 > [!NOTE]
-> Au moment de la rédaction de cet article, seuls les modules mentionnés précédemment devaient être mis à jour pour le script suivant. Si vous constatez un échec de votre tâche d’automatisation, vérifiez que tous les modules nécessaires et leurs dépendances ont été importés.
->
->
+> Au moment de la rédaction de cet article, seuls les modules mentionnés précédemment devaient être mis à jour pour le script suivant. Si votre tâche d’automatisation échoue, vérifiez que vous avez importé tous les modules nécessaires et leurs dépendances.
 
-Une fois que vous avez récupéré l’ID d’application pour votre connexion Azure Automation, vous devez indiquer à votre coffre de clés que cette application est autorisée à accéder aux secrets dans votre coffre pour les mettre à jour. Cela peut être effectué avec la commande PowerShell suivante :
+Une fois que vous avez récupéré l’ID d’application pour votre connexion Azure Automation, vous devez indiquer votre coffre de clés que cette application est autorisé à mettre à jour les clés secrètes dans votre coffre. Utilisez la commande PowerShell suivante :
 
 ```powershell
 Set-AzKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <applicationIDfromAzureAutomation> -PermissionsToSecrets Set
 ```
 
-Sélectionnez ensuite **Runbooks** sous votre instance Azure Automation, puis **Ajouter un runbook**. Sélectionnez **Création rapide**. Donnez un nom à votre runbook et sélectionnez **PowerShell** comme type de runbook. Vous avez la possibilité d’ajouter une description. Pour finir, cliquez sur **Créer**.
+Ensuite, sélectionnez **Runbooks** sous votre instance Azure Automation, puis sélectionnez **ajouter des runbooks**. Sélectionnez **Création rapide**. Nommez votre runbook, puis sélectionnez **PowerShell** comme type de runbook. Vous pouvez ajouter une description. Pour finir, sélectionnez **Créer**.
 
 ![Créer un runbook](./media/keyvault-keyrotation/Create_Runbook.png)
 
@@ -203,7 +206,7 @@ Collez le script PowerShell suivant dans le volet de l’éditeur de votre nouve
 $connectionName = "AzureRunAsConnection"
 try
 {
-    # Get the connection "AzureRunAsConnection "
+    # Get the connection "AzureRunAsConnection"
     $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
 
     "Logging in to Azure..."
@@ -225,7 +228,7 @@ catch {
     }
 }
 
-#Optionally you may set the following as parameters
+# Optionally you can set the following as parameters
 $StorageAccountName = <storageAccountName>
 $RGName = <storageAccountResourceGroupName>
 $VaultName = <keyVaultName>
@@ -240,12 +243,13 @@ $secretvalue = ConvertTo-SecureString $SAKeys[1].Value -AsPlainText -Force
 $secret = Set-AzKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secretvalue
 ```
 
-Dans le volet de l’éditeur, choisissez le volet **Test** pour tester votre script. Une fois le script exécutez sans erreur, vous pouvez sélectionner **Publier**, puis appliquer une planification du runbook dans le volet de configuration du runbook.
+Dans le volet de l’éditeur, sélectionnez **volet de Test** pour tester votre script. Une fois que le script s’exécute sans erreur, vous pouvez sélectionner **publier**, et vous pouvez ensuite appliquer une planification pour le runbook dans le panneau de configuration de runbook.
 
 ## <a name="key-vault-auditing-pipeline"></a>Pipeline d’audit de Key Vault
-Lorsque vous configurez un coffre de clés, vous pouvez activer la fonction d’audit afin de collecter des journaux de demandes d’accès au coffre de clés. Ces journaux sont stockés dans un compte de stockage Azure spécifié et peuvent être récupérés, contrôlés et analysés. Le scénario suivant utilise des fonctions Azure, des applications logiques Azure et des journaux d’audit du coffre de clés afin de créer un pipeline pour envoyer un e-mail lorsqu’une application qui ne correspond pas à l’ID de l’application web récupère des secrets dans le coffre.
 
-Vous devez tout d’abord activer la journalisation sur votre coffre de clés. Vous pouvez utiliser pour cela les commandes PowerShell suivantes (pour plus de détails, consultez [key-vault-logging](key-vault-logging.md)) :
+Lorsque vous configurez un coffre de clés, vous pouvez activer la fonction d’audit afin de collecter des journaux de demandes d’accès au coffre de clés. Ces journaux sont stockés dans un compte de stockage Azure désigné et peut être récupérés, contrôlés et analysés. Le scénario suivant utilise Azure functions, Azure logic apps et les journaux d’audit de coffre de clés pour créer un pipeline qui envoie un e-mail quand une application qui ne correspond pas à l’ID d’application de l’application web récupère les secrets du coffre.
+
+Vous devez tout d’abord activer la journalisation sur votre coffre de clés. Utilisez les commandes PowerShell suivantes. (Vous pouvez afficher les détails complets dans [cet article sur la journalisation de coffre de clé](key-vault-logging.md).)
 
 ```powershell
 $sa = New-AzStorageAccount -ResourceGroupName <resourceGroupName> -Name <storageAccountName> -Type Standard\_LRS -Location 'East US'
@@ -253,25 +257,23 @@ $kv = Get-AzKeyVault -VaultName '<vaultName>'
 Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent
 ```
 
-Une fois cette option activée, les journaux d’audit commencent la collecte dans le compte de stockage spécifié. Ces journaux contiennent des événements indiquant la méthode et la date/l’heure d’accès à vos coffres de clés, et qui y a accédé.
+Une fois que la journalisation est activée, les journaux d’audit démarrer en cours stockées dans le compte de stockage désigné. Ces journaux contiennent des événements indiquant la méthode et la date/l’heure d’accès à vos coffres de clés, et qui y a accédé.
 
 > [!NOTE]
-> Vous pouvez accéder aux informations de journalisation 10 minutes après l’opération sur le coffre de clés. Elles sont généralement disponibles plus rapidement.
->
->
+> Vous pouvez accéder aux informations de journalisation 10 minutes après l’opération sur le coffre de clés. Il souvent sera disponible plus tôt que.
 
-L’étape suivante consiste à [créer une file d’attente Azure Service Bus](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md). C’est dans celle-ci que les journaux d’audit de coffre de clés sont envoyés. Lorsque les messages du journal d’audit se trouvent dans la file d’attente, l’application logique les récupère et agit en conséquence. Procédez comme suit pour créer un Service Bus :
+L’étape suivante consiste à [créer une file d’attente Azure Service Bus](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md). Cette file d’attente est où les journaux d’audit de coffre de clés sont envoyés. Lorsque les messages de journal d’audit se trouvent dans la file d’attente, l’application logique les récupère et agit en conséquence. Créer une instance de Service Bus avec les étapes suivantes :
 
-1. Créez un espace de noms Service Bus (si vous en avez déjà un et souhaitez l’utiliser ici, passez à l’étape 2).
-2. Recherchez le Service Bus dans le portail Azure, puis sélectionnez l’espace de noms dans lequel vous souhaitez créer la file d’attente.
-3. Sélectionnez **Créer une ressource**, **Intégration Entreprise**, **Service Bus**, puis entrez les informations requises.
-4. Sélectionnez les informations de connexion Service Bus en choisissant l’espace de noms et en cliquant sur **Informations de connexion**. Vous aurez besoin de ces informations dans la section suivante.
+1. Créer un espace de noms Service Bus (si vous avez déjà une que vous souhaitez utiliser, passez à l’étape 2).
+2. Accédez à l’instance de Service Bus dans le portail Azure et sélectionnez l’espace de noms que vous souhaitez créer la file d’attente.
+3. Sélectionnez **créer une ressource** > **Enterprise Integration** > **Service Bus**, puis entrez les informations requises.
+4. Rechercher les informations de connexion de Service Bus en sélectionnant l’espace de noms, puis **informations de connexion**. Vous aurez besoin de ces informations pour la section suivante.
 
-Ensuite, [créez une fonction Azure](../azure-functions/functions-create-first-azure-function.md) pour interroger les journaux de coffre de clés dans le compte de stockage et récupérer les nouveaux événements. Il s’agit d’une fonction déclenchée de manière planifiée.
+Ensuite, [créer une fonction Azure](../azure-functions/functions-create-first-azure-function.md) pour interroger les journaux de coffre de clés au sein du compte de stockage et récupérer les nouveaux événements. Cette fonction est déclenchée selon une planification.
 
-Pour créer une fonction Azure, choisissez **Créer une ressource**, recherchez _Function App_ sur la Place de Marché, puis cliquez sur **Créer**. Lors de la création, vous pouvez utiliser un plan d’hébergement existant ou en créer un nouveau. Vous pouvez également opter pour un hébergement dynamique. Vous trouverez plus d’informations sur les options d’hébergement de fonction dans la rubrique [Mise à l’échelle d’Azure Functions](../azure-functions/functions-scale.md).
+Pour créer une application de fonction Azure, sélectionnez **créer une ressource**, rechercher la place de marché **Function App**, puis sélectionnez **créer**. Lors de la création, vous pouvez utiliser un plan d’hébergement existant ou en créer un nouveau. Vous pouvez également opter pour un hébergement dynamique. Pour plus d’informations sur les options d’hébergement pour Azure Functions, consultez [mise à l’échelle Azure Functions](../azure-functions/functions-scale.md).
 
-Une fois la fonction Azure créée, accédez-y, choisissez une fonction de minuteur et C\#. Cliquez ensuite sur **Créer cette fonction**.
+Une fois l’application de fonction Azure est créée, accédez à ce dernier, puis sélectionnez le **minuteur** scénario et **C\#**  pour la langue. Puis sélectionnez **créer cette fonction**.
 
 ![Panneau d’accueil d’Azure Functions](./media/keyvault-keyrotation/Azure_Functions_Start.png)
 
@@ -348,7 +350,7 @@ public static void Run(TimerInfo myTimer, TextReader inputBlob, TextWriter outpu
 
             dynamic dynJson = JsonConvert.DeserializeObject(text);
 
-            //required to order by time as they may not be in the file
+            //Required to order by time as they might not be in the file
             var results = ((IEnumerable<dynamic>) dynJson.records).OrderBy(p => p.time);
 
             foreach (var jsonItem in results)
@@ -386,19 +388,20 @@ static string GetContainerSasUri(CloudBlockBlob blob)
 }
 ```
 
-
 > [!NOTE]
-> Veillez à remplacer les variables du code précédent de façon à ce qu’elles pointent vers votre compte de stockage dans lequel les journaux de coffre de clés sont écrits, le Service Bus que vous avez créé précédemment, et le chemin d’accès spécifique des journaux de stockage du coffre de clés.
->
->
+> Modifier les variables dans le code précédent pour pointer vers votre compte de stockage où sont écrits les journaux de coffre de clés, à l’instance de Service Bus que vous avez créé précédemment et le chemin d’accès spécifiques dans les journaux de stockage de coffre de clés.
 
-La fonction récupère le dernier fichier journal du compte de stockage dans lequel les journaux de coffre de clés sont écrits, extrait les événements les plus récents de ce fichier et les place dans une file d’attente Service Bus. Étant donné qu’un même fichier peut comporter plusieurs événements, vous devez créer un fichier sync.txt que la fonction examine également pour déterminer l’horodatage du dernier événement récupéré. Cela vous permet de vous assurer que le même événement n’est pas envoyé plusieurs fois. Ce fichier sync.txt contient l’horodatage du dernier événement rencontré. Les journaux, une fois chargés, doivent être triés en fonction de l’horodatage pour s’assurer qu’ils sont classés correctement.
+La fonction récupère le dernier fichier journal du compte de stockage dans lequel les journaux de coffre de clés sont écrits, extrait les événements les plus récents de ce fichier et les place dans une file d’attente Service Bus. 
 
-Pour cette fonction, nous faisons référence à deux bibliothèques supplémentaires qui ne sont pas disponibles dans Azure Functions. Pour pouvoir les inclure, Azure Functions doit le faire à l’aide de NuGet. Choisissez l’option **Afficher les fichiers**.
+Comme un seul fichier peut avoir plusieurs événements, vous devez créer un fichier sync.txt que la fonction examine également pour déterminer l’horodatage du dernier événement récupéré. À l’aide de ce fichier permet de s’assurer que vous n’envoyez le même événement plusieurs fois. 
 
-![Option Afficher les fichiers](./media/keyvault-keyrotation/Azure_Functions_ViewFiles.png)
+Le fichier sync.txt contient un horodatage pour l’événement rencontré en dernier. Lorsque les journaux sont chargées, elles doivent être triées en fonction de leur traitement par horodatages pour vous assurer qu’ils sont correctement ordonnés.
 
-Et ajoutez un fichier appelé project.json avec le contenu suivant :
+Pour cette fonction, nous référencer deux bibliothèques supplémentaires qui ne sont pas disponibles dès le départ dans Azure Functions. Pour inclure ces bibliothèques, nous avons besoin d’Azure Functions à les extraire à l’aide de NuGet. Sous le **Code** boîte, sélectionnez **afficher les fichiers**.
+
+![Option « Afficher les fichiers »](./media/keyvault-keyrotation/Azure_Functions_ViewFiles.png)
+
+Ajoutez un fichier appelé project.json avec le contenu suivant :
 
 ```json
     {
@@ -413,38 +416,38 @@ Et ajoutez un fichier appelé project.json avec le contenu suivant :
     }
 ```
 
-Lorsque vous cliquez sur **Enregistrer**, Azure Functions télécharge les fichiers binaires nécessaires.
+Une fois que vous sélectionnez **enregistrer**, Azure Functions télécharge les fichiers binaires nécessaires.
 
-Basculez vers l’onglet **Intégration** et donnez un nom explicite au paramètre du minuteur à utiliser dans la fonction. Dans le code précédent, le minuteur est appelé *myTimer*. Spécifiez une [expression CRON](../app-service/webjobs-create.md#CreateScheduledCRON) comme suit : 0 \* \* \* \* \* pour le minuteur qui activera l’exécution de la fonction une fois par minute.
+Basculez vers l’onglet **Intégration** et donnez un nom explicite au paramètre du minuteur à utiliser dans la fonction. Dans le code précédent, la fonction attend le minuteur est appelé *myTimer*. Spécifiez un [expression CRON](../app-service/webjobs-create.md#CreateScheduledCRON) de la minuterie comme suit : `0 * * * * *`. Cette expression provoque la fonction à exécuter une fois par minute.
 
-Dans ce même onglet **Intégration**, ajoutez une entrée de type **Stockage Blob Azure**. Elle pointera vers le fichier sync.txt contenant l’horodatage du dernier événement examiné par la fonction. Elle sera disponible dans la fonction en tant que nom de paramètre. Dans le code précédent, l’entrée Azure Blob Storage attend le nom de paramètre *inputBlob*. Choisissez le compte de stockage dans lequel se trouvera le fichier sync.txt (il peut s’agir du même compte de stockage ou d’un autre). Dans le champ Chemin d’accès, indiquez le chemin d’accès au fichier au le format {container-name}/path/to/sync.txt.
+Sur le même **intégrer** onglet, ajoutez une entrée du type **stockage Blob Azure**. Cette entrée pointe vers le fichier sync.txt contenant l’horodatage du dernier événement examiné par la fonction. Cette entrée est accessible au sein de la fonction en utilisant le nom de paramètre. Dans le code précédent, l’entrée de stockage d’objets Blob Azure nécessite que le nom de paramètre *inputBlob*. Sélectionnez le compte de stockage où se trouvera le fichier sync.txt (il peut être le même ou un autre compte de stockage). Dans le champ de chemin d’accès, indiquez le chemin d’accès au fichier dans le format `{container-name}/path/to/sync.txt`.
 
-Ajoutez une sortie de type *Stockage Blob Azure*. Elle pointe vers le fichier sync.txt que vous avez défini dans l’entrée. Elle est utilisée par la fonction pour écrire l’horodatage du dernier événement examiné. Dans le code précédent, le paramètre doit être appelé *outputBlob*.
+Ajouter une sortie du type **stockage Blob Azure**. Cette sortie pointera vers le fichier sync.txt que vous avez défini dans l’entrée. Cette sortie est utilisée par la fonction pour écrire l’horodatage du dernier événement examiné. Dans le code précédent, le paramètre doit être appelé *outputBlob*.
 
-À ce stade, la fonction est prête. N’oubliez pas de revenir à l’onglet **Développement** et d’enregistrer le code. Dans la fenêtre de résultat, recherchez d’éventuelles erreurs de compilation et corrigez-les. S’il est compilé, le code doit maintenant vérifier les journaux du coffre de clés chaque minute et placer tout nouvel événement dans la file d’attente Service Bus définie. Vous devez voir des informations de journalisation dans la fenêtre du journal à chaque déclenchement de la fonction.
+La fonction est maintenant prête. N’oubliez pas de revenir à l’onglet **Développement** et d’enregistrer le code. Consultez la fenêtre Sortie pour les erreurs de compilation et corrigez-les en fonction des besoins. Si le code se compile, puis le code doit maintenant être consultant les journaux de coffre de clés chaque minute et placer tout nouvel événement dans la file d’attente Service Bus définie. Vous devez voir des informations de journalisation dans la fenêtre du journal à chaque déclenchement de la fonction.
 
 ### <a name="azure-logic-app"></a>Application logique Azure
 
-Vous devez ensuite créer une application logique Azure qui sélectionne les événements que la fonction place dans la file d’attente Service Bus, analyse le contenu et envoie un e-mail lorsqu’une condition est remplie.
+Ensuite, vous devez créer une application logique Azure qui sélectionne les événements que la fonction place dans la file d’attente Service Bus, analyse le contenu et envoie un e-mail selon une condition est remplie.
 
-[Créez une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md) en accédant à **Nouveau &gt; Application logique**.
+[Créer une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md) en sélectionnant **créer une ressource** > **intégration** > **application logique**.
 
-Une fois l’application logique créée, accédez à celle-ci et choisissez **Modifier**. Dans l’éditeur d’application logique, choisissez la **File d’attente Service Bus** et entrez vos informations d’identification Service Bus pour la connecter à la file d’attente.
+Une fois l’application logique est créée, accédez à ce dernier, puis sélectionnez **modifier**. Dans l’éditeur d’application logique, sélectionnez **file d’attente de Bus de Service** et entrez vos informations d’identification de Service Bus pour vous connecter à la file d’attente.
 
 ![Service Bus d’application logique Azure](./media/keyvault-keyrotation/Azure_LogicApp_ServiceBus.png)
 
-Choisissez ensuite **Ajouter une condition**. Dans la condition, basculez vers l’éditeur avancé, puis entrez le code suivant, en remplaçant l’APP_ID par le véritable APP_ID réel de votre application web :
+Sélectionnez **Ajouter une condition**. Dans la condition, basculez vers l’éditeur avancé et entrez le code suivant. Remplacez *APP_ID* avec l’ID d’application réel de votre application web :
 
 ```
 @equals('<APP_ID>', json(decodeBase64(triggerBody()['ContentData']))['identity']['claim']['appid'])
 ```
 
-Cette expression retourne essentiellement la valeur **false** si *l’appid* de l’événement entrant (à savoir le corps du message Service Bus) ne correspond pas à *l’appid* de l’application.
+Cette expression retourne essentiellement **false** si le *appid* à partir de l’événement entrant (qui est le corps du message Service Bus) n’est pas le *appid* de l’application.
 
-Créez maintenant une action sous **Si non, ne rien faire**.
+Maintenant, créez une action sous **si non, ne rien faire**.
 
-![Choisir une action d’application logique Azure](./media/keyvault-keyrotation/Azure_LogicApp_Condition.png)
+![Azure Logic Apps choisissez action](./media/keyvault-keyrotation/Azure_LogicApp_Condition.png)
 
-Pour l’action, choisissez **Office 365 - Envoyer un message électronique**. Renseignez les champs pour créer un e-mail à envoyer lorsque la condition définie retourne **false**. Si vous n’avez pas Office 365, vous pouvez rechercher des alternatives pour parvenir aux mêmes résultats.
+Pour l’action, sélectionnez **Office 365 - envoyer un e-mail**. Renseignez les champs pour créer un e-mail à envoyer lorsque la condition définie retourne **false**. Si vous n’avez pas Office 365, recherchez des alternatives obtenir les mêmes résultats.
 
-À ce stade, vous disposez d’un pipeline de bout en bout qui recherche les nouveaux journaux d’audit de coffre de clés une fois par minute. Il place les nouveaux journaux qu’il trouve dans une file d’attente Service Bus. L’application logique est déclenchée lorsqu’un nouveau message arrive dans la file d’attente. Si *l’appid* au sein de l’événement ne correspond pas à l’ID d’application de l’application appelante, il envoie un e-mail.
+Vous disposez maintenant d’un pipeline de bout en bout qui recherche les nouveaux journaux d’audit de coffre de clés une fois par minute. Il place les nouveaux journaux qu’il trouve une file d’attente Service Bus. L’application logique est déclenchée lorsqu’un nouveau message arrive dans la file d’attente. Si le *appid* au sein de l’événement ne correspond pas à l’ID d’application de l’application appelante, il envoie un message électronique.

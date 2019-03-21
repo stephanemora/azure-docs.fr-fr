@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: e7f8eef2c3422084846462e2f6159a8b8be7167f
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: 76944d98d6a5fe7c3f83ce12bb2fdf1a34d5e234
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301823"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57839098"
 ---
 # <a name="azure-security-technical-capabilities"></a>Fonctionnalités techniques de la sécurité Azure
 
@@ -75,7 +75,7 @@ Azure Active Directory (Azure AD) présente de nombreux avantages en termes de s
 
 - Accès à distance sécurisé aux applications web locales via le proxy d’application Azure AD
 
-Le [portail Azure Active Directory](http://aad.portal.azure.com/) fait partie du portail Azure. À partir de ce tableau de bord, vous pouvez obtenir une vue d’ensemble de l’état de votre organisation et vous plonger facilement dans la gestion des accès aux annuaires, aux utilisateurs ou aux applications.
+Le [portail Azure Active Directory](https://aad.portal.azure.com/) fait partie du portail Azure. À partir de ce tableau de bord, vous pouvez obtenir une vue d’ensemble de l’état de votre organisation et vous plonger facilement dans la gestion des accès aux annuaires, aux utilisateurs ou aux applications.
 
 ![Azure Active Directory](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig2.png)
 
@@ -113,7 +113,7 @@ Non seulement les utilisateurs n’ont plus besoin de gérer plusieurs noms d’
 
 Vous pouvez protéger votre entreprise grâce à la surveillance de la sécurité, aux alertes et aux rapports Machine Learning qui identifient les comportements d’accès incohérents. Vous pouvez utiliser les rapports d'accès et d'utilisation Azure Active Directory pour obtenir une visibilité complète sur l'intégrité et la sécurité du répertoire de votre société. Grâce à ces informations, un administrateur de répertoire est capable de déterminer plus précisément les risques de sécurité potentiels et donc de les atténuer au maximum.
 
-Dans le portail Azure ou le [portail Azure Active Directory](http://aad.portal.azure.com/), les [rapports](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) sont classés comme suit :
+Dans le portail Azure ou le [portail Azure Active Directory](https://aad.portal.azure.com/), les [rapports](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) sont classés comme suit :
 
 - Rapports d’anomalies : contiennent les événements de connexion qui peuvent nous sembler anormaux. Notre objectif est de vous faire part de ces activités et de vous permettre de décider si un événement est suspect.
 
@@ -169,7 +169,7 @@ Les abonnements sont également associés à un annuaire. L’annuaire définit 
 
 Les entreprises orientées sécurité doivent s’efforcer de donner aux employés les autorisations exactes dont ils ont besoin. Un trop grand nombre d’autorisations peut exposer un compte aux attaquants. Si le nombre d’autorisations est trop faible, les employés ne peuvent pas effectuer leur travail efficacement. Le [contrôle d’accès en fonction du rôle (RBAC) dans Azure](https://docs.microsoft.com/azure/role-based-access-control/overview) permet de résoudre ce problème en offrant une gestion précise de l’accès pour Azure.
 
-![Accès des ressources sécurisées ](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig4.png)
+![Accès des ressources sécurisées](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig4.png)
 
 Avec le contrôle d’accès en fonction du rôle, vous pouvez séparer les tâches au sein de votre équipe et accorder aux utilisateurs uniquement les accès nécessaires pour accomplir leur travail. Plutôt que de donner à tous des autorisations illimitées au sein de votre abonnement ou de vos ressources Azure, vous pouvez autoriser uniquement certaines actions. Par exemple, vous pouvez utiliser le RBAC pour permettre à un employé donné de gérer les machines virtuelles dans un abonnement, tandis qu’un autre pourra gérer les bases de données SQL au sein du même abonnement.
 
@@ -192,8 +192,8 @@ Prend en charge au moins un des modèles de chiffrement recommandés qui sont r�
 | Modèles de chiffrement |  |  |  |
 | ----------------  | ----------------- | ----------------- | --------------- |
 | Chiffrement serveur | Chiffrement serveur | Chiffrement serveur | Chiffrement client
-| Chiffrement côté serveur à l’aide de clés gérés par le service | Chiffrement côté serveur à l’aide de clés gérées par le client dans Azure Key Vault | Chiffrement côté serveur à l’aide de clés gérés par le client local |
-| • Les fournisseurs de ressources Azure effectuent les opérations de chiffrement et de déchiffrement <br> • Microsoft gère les clés <br>• Fonctionnalité cloud complète | • Les fournisseurs de ressources Azure effectuent les opérations de chiffrement et de déchiffrement<br>• Le client contrôle les clés par le biais d’Azure Key Vault<br>• Fonctionnalité cloud complète | • Les fournisseurs de ressources Azure effectuent les opérations de chiffrement et de déchiffrement <br>• Le client contrôle les clés localement <br> • Fonctionnalité cloud complète| • Les services Azure ne peuvent pas voir les données déchiffrées <br>• Les clients conservent les clés localement (ou dans d’autres banques d’informations sécurisées). Les clés ne sont pas disponibles pour les services Azure <br>• Fonctionnalité cloud réduite|
+| Chiffrement côté serveur à l’aide de clés gérés par le service | Chiffrement côté serveur à l’aide de clés gérées par le client dans Azure Key Vault | Clés gérées par le chiffrement côté serveur à l’aide sur le client local |
+| • Les fournisseurs de ressources Azure effectuent les opérations de chiffrement et de déchiffrement <br> • Microsoft gère les clés <br>• Fonctionnalité cloud complète | • Les fournisseurs de ressources Azure effectuent les opérations de chiffrement et de déchiffrement<br>• Le client contrôle les clés par le biais d’Azure Key Vault<br>• Fonctionnalité cloud complète | • Les fournisseurs de ressources Azure effectuent les opérations de chiffrement et de déchiffrement <br>• Le client contrôle les clés en local <br> • Fonctionnalité cloud complète| • Les services Azure ne peuvent pas voir les données déchiffrées <br>• Les clients conservent les clés localement (ou dans d’autres banques d’informations sécurisées). Les clés ne sont pas disponibles pour les services Azure <br>• Fonctionnalité cloud réduite|
 
 ### <a name="enabling-encryption-at-rest"></a>Activation du chiffrement au repos
 
@@ -274,7 +274,7 @@ Vous pouvez en savoir plus sur l’option de VPN Azure en lisant l’article [Pl
 
 [Azure RMS](https://technet.microsoft.com/library/jj585026.aspx) utilise des stratégies de chiffrement, d’identité et d’autorisation pour vous aider à sécuriser vos fichiers et vos e-mails. Azure RMS peut fonctionner sur plusieurs appareils (téléphones, tablettes et PC), en protégeant les données au sein de votre organisation et en dehors de cette dernière. Cette fonctionnalité est possible, car Azure RMS ajoute un niveau de protection qui reste avec les données, même lorsqu’elles quittent les limites de votre organisation.
 
-Quand vous utilisez Azure RMS pour protéger vos fichiers, vous recourez au chiffrement standard avec prise en charge complète de la norme [FIPS 140-2](http://csrc.nist.gov/groups/STM/cmvp/standards.html). Lorsque vous tirez parti d’Azure RMS pour la protection des données, vous avez l’assurance que la protection reste avec le fichier, même s’il est copié sur un stockage qui n’est pas sous le contrôle du département informatique (service de stockage cloud, par exemple). Il en va de même pour les fichiers partagés par e-mail ; ils sont protégés en tant que pièces jointes à un message électronique. Des instructions expliquant comment ouvrir la pièce jointe protégée sont fournies.
+Quand vous utilisez Azure RMS pour protéger vos fichiers, vous recourez au chiffrement standard avec prise en charge complète de la norme [FIPS 140-2](https://csrc.nist.gov/groups/STM/cmvp/standards.html). Lorsque vous tirez parti d’Azure RMS pour la protection des données, vous avez l’assurance que la protection reste avec le fichier, même s’il est copié sur un stockage qui n’est pas sous le contrôle du département informatique (service de stockage cloud, par exemple). Il en va de même pour les fichiers partagés par e-mail ; ils sont protégés en tant que pièces jointes à un message électronique. Des instructions expliquant comment ouvrir la pièce jointe protégée sont fournies.
 Si vous planifiez l’adoption d’Azure RMS, nous vous recommandons de suivre les conseils ci-après :
 
 - Installez l’[application de partage RMS](https://technet.microsoft.com/library/dn339006.aspx) Cette application s’intègre avec les applications Office en installant un complément Office, afin que les utilisateurs puissent directement protéger leurs fichiers, en toute simplicité.
@@ -398,19 +398,19 @@ Par ailleurs, la liste de vérifications préalables :
 
 Azure Operational Security repose sur un framework qui intègre les connaissances acquises par le biais de diverses possibilités spécifiques à Microsoft, notamment Microsoft Security Development Lifecycle (SDL), le programme Microsoft Security Response Center et une connaissance approfondie des cybermenaces.
 
-### <a name="microsoft-azure-log-analytics"></a>Microsoft Azure Log Analytics
+### <a name="microsoft-azure-monitor"></a>Microsoft Azure Monitor
 
-[Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) est la solution de gestion informatique pour le cloud hybride. Utilisée seule ou pour étendre votre déploiement System Center existant, la solution Log Analytics vous donne le maximum de flexibilité et de contrôle pour gérer votre infrastructure sur le cloud.
+[Azure Monitor](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) est la solution de gestion informatique pour le cloud hybride. Utilisé seul, ou pour étendre votre déploiement de System Center existant, des journaux d’Azure Monitor vous donne la flexibilité et le contrôle pour la gestion de votre infrastructure cloud.
 
-![Log Analytics](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig8.png)
+![Azure Monitor](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig8.png)
 
-Avec Log Analytics, vous pouvez gérer n’importe quelle instance dans n’importe quel cloud, notamment local, Azure, AWS, Windows Server, Linux, VMware et OpenStack, à moindre coût par rapport aux solutions concurrentes. Conçu pour les environnements cloud, Log Analytics offre une nouvelle approche de la gestion de votre entreprise, qui constitue le moyen le plus rapide et le plus économique pour répondre aux nouveaux défis métiers et pour gérer les nouvelles charges de travail, applications et environnements cloud.
+Avec Azure Monitor, vous pouvez gérer n’importe quelle instance dans n’importe quel cloud, notamment en local, Azure, AWS, Windows Server, Linux, VMware et OpenStack, à moindre coût que les solutions concurrentes. Conçu pour les environnements cloud, Azure Monitor offre une nouvelle approche de gestion de votre entreprise est le moyen le plus rapide, plus économique pour répondre aux nouveaux défis commerciaux et de prendre en charge de nouvelles charges de travail, applications et les environnements de cloud.
 
-### <a name="log-analytics"></a>Log Analytics
+### <a name="azure-monitor-logs"></a>Journaux Azure Monitor
 
-[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics) assure des services de surveillance en collectant les données de ressources gérées et en les regroupant dans un référentiel central. Ces données peuvent comprendre des événements, des données de performances ou des données personnalisées fournies par le biais de l’API. Une fois collectées, les données sont disponibles pour les fonctions de génération d’alertes, d’analyse et d’exportation.
+[Journaux d’analyse Azure](https://azure.microsoft.com/documentation/services/log-analytics) fournit des services de surveillance en collectant des données à partir de ressources managées dans un référentiel central. Ces données peuvent comprendre des événements, des données de performances ou des données personnalisées fournies par le biais de l’API. Une fois collectées, les données sont disponibles pour les fonctions de génération d’alertes, d’analyse et d’exportation.
 
-![Log Analytics](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig9.png)
+![Journaux Azure Monitor](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig9.png)
 
 Cette méthode vous permet de regrouper les données issues de différentes sources, et de combiner des données de vos services Azure avec votre environnement local existant. En outre, cette approche dissocie clairement la collecte des données de l’exécution d’actions sur ces dernières, de sorte que toutes les actions sont disponibles sur tous les types de données.
 

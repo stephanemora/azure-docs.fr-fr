@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.openlocfilehash: 15f280b16e362a4b39cb9fc0e4baaf67d0e31942
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: ce9804a4ecad4cd0f2e797038dc10c71b50de9bf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661698"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122711"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mariadb"></a>Utiliser le portail Azure pour configurer des alertes sur des métriques pour Azure Database for MariaDB
 
@@ -60,21 +60,21 @@ Vous pouvez configurer et obtenir des informations sur les règles d’alerte à
 
 10. Configurez un type d'action **E-mail/SMS/Push/Voix**.
     
-   Choisissez « Envoyer un e-mail au rôle Azure Resource Manager » pour sélectionner les propriétaires de l'abonnement, les contributeurs et les lecteurs qui recevront les notifications.
+    Choisissez « Envoyer un e-mail au rôle Azure Resource Manager » pour sélectionner les propriétaires de l'abonnement, les contributeurs et les lecteurs qui recevront les notifications.
    
-   Vous pouvez aussi fournir un URI valide dans le champ **Webhook** si vous souhaitez qu’il soit appelé lorsque l’alerte se déclenche.
+    Vous pouvez aussi fournir un URI valide dans le champ **Webhook** si vous souhaitez qu’il soit appelé lorsque l’alerte se déclenche.
 
-   Sélectionnez **OK** lorsque vous avez terminé.
+    Sélectionnez **OK** lorsque vous avez terminé.
 
-   ![Groupe d’actions](./media/howto-alert-metric/10-action-group-type.png)
+    ![Groupe d’actions](./media/howto-alert-metric/10-action-group-type.png)
 
 11. Spécifiez un nom de règle d’alerte, une description et une gravité.
 
-   ![Groupe d’actions](./media/howto-alert-metric/11-name-description-severity.png) 
+    ![Groupe d’actions](./media/howto-alert-metric/11-name-description-severity.png) 
 
 12. Sélectionnez **Créer une règle d’alerte** pour créer l’alerte.
 
-   Après quelques minutes, l’alerte est active et se déclenche comme décrit précédemment.
+    Après quelques minutes, l’alerte est active et se déclenche comme décrit précédemment.
 
 ## <a name="manage-your-alerts"></a>Gérez vos alertes
 Une fois que vous avez créé une alerte, vous pouvez la sélectionner et exécuter les actions suivantes :

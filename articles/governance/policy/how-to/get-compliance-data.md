@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 40d0250101e4653cd5ab2a3610473d9c577d8998
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: df5b6268a2ecd7062969aac9d663ee751eeab130
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114108"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535204"
 ---
 # <a name="getting-compliance-data"></a>Obtention de données de conformité
 
@@ -28,7 +28,7 @@ Il existe plusieurs façons d’accéder aux informations de conformité génér
 Avant d’examiner les méthodes de rapport sur la conformité, voyons à quel moment les informations de conformité sont mises à jour et passons en revue la fréquence et les événements qui déclenchent un cycle d’évaluation.
 
 > [!WARNING]
-> Si l’état de conformité indiqué est **Non inscrit**, vérifiez que le fournisseur de ressources **Microsoft.PolicyInsights** est inscrit et que l’utilisateur dispose d’autorisations de contrôle d’accès en fonction du rôle (RBAC) appropriées, comme décrit [ici](../overview.md#rbac-permissions-in-azure-policy).
+> Si l’état de conformité est signalé comme **ne pas inscrit**, vérifiez que le **Microsoft.PolicyInsights** (de contrôle de fournisseur de ressources est inscrit et que l’utilisateur dispose de l’accès approprié en fonction du rôle Les autorisations RBAC) comme décrit dans [RBAC dans Azure Policy](../overview.md#rbac-permissions-in-azure-policy).
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
@@ -142,25 +142,11 @@ Cliquez avec le bouton droit sur la ligne de l’événement pour lequel vous so
 
 ![Journal d’activité de la stratégie de conformité](../media/getting-compliance-data/compliance-activitylog.png)
 
-### <a name="change-history-preview"></a>Historique des changements (préversion)
+### <a name="understand-non-compliance"></a>Comprendre la non-conformité
 
-Dans le cadre d'une nouvelle **préversion publique**, l'historique des modifications des quatorze derniers jours est disponible pour une ressource non conforme. L'historique des modifications indique quand une modification a été détectée et fournit un _différentiel visuel_ pour chaque modification. Une détection de modification est déclenchée lorsque les propriétés Resource Manager d'une ressource non conforme sont ajoutées, supprimées ou modifiées.
+<a name="change-history-preview"></a>
 
-1. Lancez le service Azure Policy dans le portail Azure en cliquant sur **Tous les services**, puis en recherchant et en cliquant sur **Stratégie**.
-
-1. Sur la page **Vue d'ensemble** ou **Conformité**, sélectionnez une stratégie _Non conforme_.
-
-1. Sous l'onglet **Conformité des ressources** de la page **Conformité à la stratégie**, sélectionnez une ressource _Non conforme_.
-
-1. Sélectionnez l'onglet **Historique des modifications (préversion)** de la page **Conformité des ressources**. La liste des modifications détectées, le cas échéant, s'affiche.
-
-   ![Historique des modifications de la stratégie - Onglet](../media/getting-compliance-data/change-history-tab.png)
-
-1. Sélectionnez une des modifications détectées. Le _différentiel visuel_ de la ressource non conforme est présenté sur la page **Historique des modifications**.
-
-   ![Historique des modifications de la stratégie - Différentiel visuel](../media/getting-compliance-data/change-history-visual-diff.png)
-
-Le _différentiel visuel_ aide à identifier les modifications apportées à une ressource. Les modifications détectées peuvent ne pas être liées à la raison pour laquelle la ressource n'est pas conforme à la stratégie sélectionnée.
+Lorsqu’une ressource est déterminé comme étant **non conformes**, il existe plusieurs raisons. Pour déterminer la cause est une ressource **non conformes** ou pour rechercher la responsable de la modification, consultez [déterminer une non-conformité](./determine-non-compliance.md).
 
 ## <a name="command-line"></a>Ligne de commande
 
@@ -430,7 +416,7 @@ Trent Baker
 
 ## <a name="azure-monitor-logs"></a>Journaux Azure Monitor
 
-Si vous disposez d'un [espace de travail Log Analytics](../../../log-analytics/log-analytics-overview.md) dans lequel la solution `AzureActivity` est liée à votre abonnement, vous pouvez également afficher les résultats de non-conformité du cycle d'évaluation en utilisant des requêtes Azure Data Explorer simples et la table `AzureActivity`. Grâce aux informations des journaux Azure Monitor, des alertes peuvent être configurées de manière à signaler les problèmes de non-conformité.
+Si vous avez un [espace de travail Analytique de journal](../../../log-analytics/log-analytics-overview.md) avec `AzureActivity` à partir de la [solution d’Analytique de journal d’activité](../../../azure-monitor/platform/collect-activity-logs.md) liée à votre abonnement, vous pouvez également afficher les résultats de non-conformité du cycle d’évaluation à l’aide requêtes Kusto simples et `AzureActivity` table. Grâce aux informations des journaux Azure Monitor, des alertes peuvent être configurées de manière à signaler les problèmes de non-conformité.
 
 ![Conformité aux stratégies à l'aide des journaux Azure Monitor](../media/getting-compliance-data/compliance-loganalytics.png)
 

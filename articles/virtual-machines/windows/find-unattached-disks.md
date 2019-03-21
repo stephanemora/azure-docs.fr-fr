@@ -4,7 +4,7 @@ description: Comment rechercher et supprimer les disques (disques durs virtuels/
 services: virtual-machines-windows
 documentationcenter: ''
 author: ramankumarlive
-manager: jeconnoc
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,21 +13,21 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 02/22/2019
 ms.author: ramankum
 ms.subservice: disks
-ms.openlocfilehash: 15b82455813c75ca14903f019a17828156638569
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: cb52956afe085c076f0a9a7c2d6810f3def32e3f
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55983557"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57568955"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks"></a>Rechercher et supprimer les disques managés et non managés Azure non attachés
-Par défaut, lorsque vous supprimez une machine virtuelle dans Azure, tous les disques qui sont attachés à cette machine ne sont pas supprimés. Cette fonctionnalité permet d’éviter une perte de données causée par la suppression involontaire de machines virtuelles. Après la suppression d’une machine virtuelle, vous continuez de payer pour les disques non attachés. Cet article explique comment rechercher et supprimer tous les disques non attachés pour réduire les coûts inutiles. 
 
+Par défaut, lorsque vous supprimez une machine virtuelle dans Azure, tous les disques qui sont attachés à cette machine ne sont pas supprimés. Cette fonctionnalité permet d’éviter une perte de données causée par la suppression involontaire de machines virtuelles. Après la suppression d’une machine virtuelle, vous continuez de payer pour les disques non attachés. Cet article explique comment rechercher et supprimer tous les disques non attachés pour réduire les coûts inutiles.
 
-## <a name="managed-disks-find-and-delete-unattached-disks"></a>Disques managés : Rechercher et supprimer les disques non attachés 
+## <a name="managed-disks-find-and-delete-unattached-disks"></a>Disques managés : Rechercher et supprimer les disques non attachés
 
 Le script suivant recherche des [disques managés](managed-disks-overview.md) non attachés en examinant la valeur de la propriété **ManagedBy**. Lorsqu’un disque managé est attaché à une machine virtuelle, la propriété **ManagedBy** contient l’ID de ressource de la machine virtuelle. Lorsqu’un disque managé est non attaché, la propriété **ManagedBy** a la valeur null. Le script examine tous les disques managés dans un abonnement Azure. Lorsque le script localise un disque managé dont la propriété **ManagedBy** a la valeur null, il détermine que le disque n’est pas attaché.
 
@@ -35,42 +35,28 @@ Le script suivant recherche des [disques managés](managed-disks-overview.md) no
 >En premier lieu, exécutez le script en définissant la variable **deleteUnattachedDisks** sur 0. Cette action vous permet de rechercher et d’afficher tous les disques managés non attachés.
 >
 >Après avoir examiné tous les disques non attachés, exécutez de nouveau le script et définissez la valeur de la variable **deleteUnattachedDisks** sur 1. Cette action vous permet de supprimer tous les disques managés non attachés.
->
 
 ```azurepowershell-interactive
-
 # Set deleteUnattachedDisks=1 if you want to delete unattached Managed Disks
 # Set deleteUnattachedDisks=0 if you want to see the Id of the unattached Managed Disks
 $deleteUnattachedDisks=0
-
 $managedDisks = Get-AzDisk
-
 foreach ($md in $managedDisks) {
-    
     # ManagedBy property stores the Id of the VM to which Managed Disk is attached to
     # If ManagedBy property is $null then it means that the Managed Disk is not attached to a VM
     if($md.ManagedBy -eq $null){
-
         if($deleteUnattachedDisks -eq 1){
-            
             Write-Host "Deleting unattached Managed Disk with Id: $($md.Id)"
-
             $md | Remove-AzDisk -Force
-
             Write-Host "Deleted unattached Managed Disk with Id: $($md.Id) "
-
         }else{
-
             $md.Id
-
         }
-           
     }
-     
- } 
+ }
 ```
 
-## <a name="unmanaged-disks-find-and-delete-unattached-disks"></a>Disques non managés : Rechercher et supprimer les disques non attachés 
+## <a name="unmanaged-disks-find-and-delete-unattached-disks"></a>Disques non managés : Rechercher et supprimer les disques non attachés
 
 Les disques non managés sont des fichiers VHD qui sont stockés en tant [qu’objets blob de pages](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-page-blobs) dans des [comptes de stockage Azure](../../storage/common/storage-create-storage-account.md). Le script suivant recherche les disques non managés non attachés (objets blob de pages) en examinant la valeur de la propriété **LeaseStatus**. Lorsqu’un disque non managé est attaché à une machine virtuelle, la valeur de la propriété **LeaseStatus** est définie sur **Locked**. Lorsqu’un disque non managé est non attaché, la valeur de la propriété **LeaseStatus** est définie sur **Unlocked**. Le script examine tous les disques non managés dans l’ensemble des comptes de stockage Azure d’un abonnement Azure. Lorsque le script localise un disque non managé dont une propriété **LeaseStatus** a la valeur**Unlocked**, il détermine que le disque n’est pas attaché.
 
@@ -78,60 +64,36 @@ Les disques non managés sont des fichiers VHD qui sont stockés en tant [qu’o
 >En premier lieu, exécutez le script en définissant la variable **deleteUnattachedVHDs** sur 0. Cette action vous permet de rechercher et d’afficher tous les disques durs virtuels non managés non attachés.
 >
 >Après avoir examiné tous les disques non attachés, exécutez de nouveau le script et définissez la valeur de la variable **deleteUnattachedVHDs** sur 1. Cette action vous permet de supprimer tous les disques durs virtuels non managés non attachés.
->
 
 ```azurepowershell-interactive
-   
 # Set deleteUnattachedVHDs=1 if you want to delete unattached VHDs
 # Set deleteUnattachedVHDs=0 if you want to see the Uri of the unattached VHDs
 $deleteUnattachedVHDs=0
-
 $storageAccounts = Get-AzStorageAccount
-
 foreach($storageAccount in $storageAccounts){
-
     $storageKey = (Get-AzStorageAccountKey -ResourceGroupName $storageAccount.ResourceGroupName -Name $storageAccount.StorageAccountName)[0].Value
-
-    $context = New-AzureStorageContext -StorageAccountName $storageAccount.StorageAccountName -StorageAccountKey $storageKey
-
-    $containers = Get-AzureStorageContainer -Context $context
-
+    $context = New-AzStorageContext -StorageAccountName $storageAccount.StorageAccountName -StorageAccountKey $storageKey
+    $containers = Get-AzStorageContainer -Context $context
     foreach($container in $containers){
-
-        $blobs = Get-AzureStorageBlob -Container $container.Name -Context $context
-
+        $blobs = Get-AzStorageBlob -Container $container.Name -Context $context
         #Fetch all the Page blobs with extension .vhd as only Page blobs can be attached as disk to Azure VMs
         $blobs | Where-Object {$_.BlobType -eq 'PageBlob' -and $_.Name.EndsWith('.vhd')} | ForEach-Object { 
-        
             #If a Page blob is not attached as disk then LeaseStatus will be unlocked
             if($_.ICloudBlob.Properties.LeaseStatus -eq 'Unlocked'){
-              
-                  if($deleteUnattachedVHDs -eq 1){
-
+                    if($deleteUnattachedVHDs -eq 1){
                         Write-Host "Deleting unattached VHD with Uri: $($_.ICloudBlob.Uri.AbsoluteUri)"
-
-                        $_ | Remove-AzureStorageBlob -Force
-
+                        $_ | Remove-AzStorageBlob -Force
                         Write-Host "Deleted unattached VHD with Uri: $($_.ICloudBlob.Uri.AbsoluteUri)"
-                  }
-                  else{
-
+                    }
+                    else{
                         $_.ICloudBlob.Uri.AbsoluteUri
-
-                  }
-
+                    }
             }
-        
         }
-
     }
-
 }
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations, consultez [Supprimer le compte de stockage](../../storage/common/storage-create-storage-account.md) et [Identify Orphaned Disks Using PowerShell](https://blogs.technet.microsoft.com/ukplatforms/2018/02/21/azure-cost-optimisation-series-identify-orphaned-disks-using-powershell/) (Identifier les disques orphelins à l’aide de PowerShell)
-
-
-

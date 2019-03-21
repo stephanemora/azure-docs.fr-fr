@@ -3,7 +3,7 @@ title: Groupes de disponibilité SQL Server - Machines virtuelles Azure - Didact
 description: Ce didacticiel montre comment créer un groupe de disponibilité AlwaysOn SQL Server sur des machines virtuelles Azure.
 services: virtual-machines
 documentationCenter: na
-authors: MikeRayMSFT
+author: MikeRayMSFT
 manager: craigg
 editor: monicar
 tags: azure-service-management
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: 65ccf45ea8ea1f8f553be0b2c599f5c1433fc3e8
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
-ms.translationtype: HT
+ms.openlocfilehash: d86538fca907f7181bf58ff236bba8de186641fb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359712"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003453"
 ---
-# <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configurer manuellement des groupes de disponibilité AlwaysOn dans une machine virtuelle Azure
+# <a name="tutorial-configure-always-on-availability-group-in-azure-vm-manually"></a>Tutoriel : Configurer manuellement des groupes de disponibilité AlwaysOn dans une machine virtuelle Azure
 
 Ce didacticiel montre comment créer un groupe de disponibilité AlwaysOn SQL Server sur des machines virtuelles Azure. Il crée un groupe de disponibilité avec un réplica de base de données sur deux serveurs SQL Server.
 
@@ -33,7 +33,7 @@ Ce schéma illustre ce que vous allez créer dans ce didacticiel.
 
 ![Groupe de disponibilité](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/00-EndstateSampleNoELB.png)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Ce didacticiel suppose que vous avez des notions de base sur les groupes de disponibilité AlwaysOn SQL Server. Pour plus d’informations, consultez [Vue d’ensemble des groupes de disponibilité AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
 
@@ -53,7 +53,7 @@ Le tableau suivant répertorie les conditions requises que vous devez remplir av
 Avant de commencer ce didacticiel, vous devez [remplir les conditions préalables pour la création de groupes de disponibilité AlwaysOn sur des machines virtuelles Azure](virtual-machines-windows-portal-sql-availability-group-prereq.md). Si ces conditions préalables sont déjà remplies, vous pouvez passer à l’étape [Création d’un cluster](#CreateCluster).
 
   >[!NOTE]
-  > De nombreuses étapes de ce tutoriel peuvent être automatisées à l’aide d’un modèle de démarrage rapide Azure. Pour plus d’informations, consultez [Créer un cluster WSFC, un écouteur, puis configurer un équilibreur de charge interne pour un groupe de disponibilité Always On sur une machine virtuelle SQL Server à l’aide d’un modèle de démarrage rapide Azure](virtual-machines-windows-sql-availability-group-quickstart-template.md).
+  > Parmi les étapes fournies dans ce didacticiel peuvent maintenant être automatisées avec [CLI de machine virtuelle SQL Azure](virtual-machines-windows-sql-availability-group-cli.md) et [Azure Quickstart Templates](virtual-machines-windows-sql-availability-group-quickstart-template.md).
 
 
 <!--**Procedure**: *This is the first “step”. Make titles H2’s and short and clear – H2’s appear in the right pane on the web page and are important for navigation.*-->
@@ -415,6 +415,7 @@ Pour configurer l’équilibrage de charge, vous devez créer un pool principal 
 1. Cliquez sur l’équilibrage de charge, sur **Règles d’équilibrage de charge** et sur **+Ajouter**.
 
 1. Configurez les règles d’équilibrage de charge de l’écouteur comme suit.
+
    | Paramètre | Description | Exemples
    | --- | --- |---
    | **Nom** | Texte | SQLAlwaysOnEndPointListener |
@@ -455,6 +456,7 @@ L’adresse IP du cluster WSFC doit également se trouver sur l’équilibreur d
 1. Configurez les règles d’équilibrage de charge. Cliquez sur **Règles d’équilibrage de charge**, puis sur **+Ajouter**.
 
 1. Définissez les règles d’équilibrage de charge de l’adresse IP du cluster principal comme suit.
+
    | Paramètre | Description | Exemples
    | --- | --- |---
    | **Nom** | Texte | WSFCEndPoint |
@@ -505,15 +507,15 @@ Pour tester la connexion :
 
 1. Utilisez l’utilitaire **sqlcmd** pour tester la connexion. Par exemple, le script suivant établit une connexion **sqlcmd** avec le réplica principal au moyen de l’écouteur avec une authentification Windows :
 
-  ```cmd
-  sqlcmd -S <listenerName> -E
-  ```
+   ```cmd
+   sqlcmd -S <listenerName> -E
+   ```
 
-  Si l’écouteur utilise un port autre que le port par défaut (1433), spécifiez le port dans la chaîne de connexion. Par exemple, la commande sqlcmd suivante se connecte à un écouteur sur le port 1435 :
+   Si l’écouteur utilise un port autre que le port par défaut (1433), spécifiez le port dans la chaîne de connexion. Par exemple, la commande sqlcmd suivante se connecte à un écouteur sur le port 1435 :
 
-  ```cmd
-  sqlcmd -S <listenerName>,1435 -E
-  ```
+   ```cmd
+   sqlcmd -S <listenerName>,1435 -E
+   ```
 
 La connexion SQLCMD se connecte automatiquement à l’instance SQL Server hébergeant le réplica principal.
 

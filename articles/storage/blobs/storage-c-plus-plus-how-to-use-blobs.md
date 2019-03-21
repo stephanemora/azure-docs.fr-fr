@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: michaelhauss
 ms.subservice: blobs
-ms.openlocfilehash: a9b7d15bebdef40c983eaf4d5eee6953b5a10994
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: d86b2c71515900405b0e7714d2c36cd8e4cbc7fc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55236936"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993223"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>Utilisation du stockage d’objets blob à partir de C++
 
-Ce guide explique le déroulement des scénarios courants dans le cadre de l’utilisation du Stockage Blob Azure. Les exemples illustrent comment charger, lister, télécharger et supprimer des objets blob. Les exemples ont été écrits en C++ et utilisent la [bibliothèque cliente Azure Storage pour C++](http://github.com/Azure/azure-storage-cpp/blob/master/README.md).   
+Ce guide explique le déroulement des scénarios courants dans le cadre de l’utilisation du Stockage Blob Azure. Les exemples illustrent comment charger, lister, télécharger et supprimer des objets blob. Les exemples ont été écrits en C++ et utilisent la [bibliothèque cliente Azure Storage pour C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md).   
 
 Pour en savoir plus sur le Stockage Blob, consultez [Présentation du Stockage Blob Azure](storage-blobs-introduction.md).
 
 > [!NOTE]
-> Ce guide cible la bibliothèque cliente Azure Storage pour C++ version 1.0.0 et les versions ultérieures. Microsoft recommande d’utiliser la dernière version de la bibliothèque cliente pour C++, disponible via [NuGet](http://www.nuget.org/packages/wastorage) ou [GitHub](https://github.com/Azure/azure-storage-cpp).
+> Ce guide cible la bibliothèque cliente Azure Storage pour C++ version 1.0.0 et les versions ultérieures. Microsoft recommande d’utiliser la dernière version de la bibliothèque cliente pour C++, disponible via [NuGet](https://www.nuget.org/packages/wastorage) ou [GitHub](https://github.com/Azure/azure-storage-cpp).
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
@@ -34,7 +34,7 @@ Pour ce faire, vous devez installer la bibliothèque cliente Azure Storage pour 
 Pour installer la bibliothèque cliente Azure Storage pour C++, vous pouvez procéder comme suit :
 
 * **Linux :** suivez les instructions disponibles dans la page [Azure Storage Client Library for C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) .  
-* **Windows :** Dans Visual Studio, cliquez sur **Outils > Gestionnaire de package NuGet > Console du gestionnaire de package**. Entrez la commande suivante dans la [console du gestionnaire du package NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) et appuyez sur **ENTRÉE**.  
+* **Windows :** Dans Visual Studio, cliquez sur **Outils > Gestionnaire de package NuGet > Console du gestionnaire de package**. Entrez la commande suivante dans la [console du gestionnaire du package NuGet](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) et appuyez sur **ENTRÉE**.  
   
      Install-Package wastorage
 
@@ -258,7 +258,7 @@ Maintenant que vous connaissez les bases du stockage d'objets blob, consultez le
 * [Utilisation du service de stockage de files d'attente à partir de C++](../storage-c-plus-plus-how-to-use-queues.md)
 * [Utilisation du stockage de tables à partir de C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
 * [Listage des ressources Azure Storage en C++](../storage-c-plus-plus-enumeration.md)
-* [Référence de la bibliothèque cliente de stockage pour C++](http://azure.github.io/azure-storage-cpp)
+* [Référence de la bibliothèque cliente de stockage pour C++](https://azure.github.io/azure-storage-cpp)
 * [Documentation d’Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
 * [Transfert de données avec l’utilitaire de ligne de commande AzCopy](../storage-use-azcopy.md)
 

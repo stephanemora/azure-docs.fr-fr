@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2018
+ms.date: 03/20/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: f8941f84e85f330713cb4b263f2154acb80b520c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 51be74d0adbd5ce75234be2a5b7c99fcd36ca91c
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57532395"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295264"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quotas et limites du service Batch
 
@@ -65,6 +65,7 @@ Si vous avez créé un compte Batch avec le mode d’allocation de pool défini 
 | [Tâches simultanées](batch-parallel-node-tasks.md) par nœud de calcul | 4 x nombre de cœurs de nœud |
 | [Applications](batch-application-packages.md) par compte Batch | 20 |
 | Packages d’applications par application | 40 |
+| Packages d’applications par pool | 10 |
 | Durée de vie maximale de la tâche | 180 jours<sup>1</sup> |
 
 <sup>1</sup> La durée de vie maximale d’une tâche, entre le moment où elle est ajoutée au travail et la fin de son exécution, est de 180 jours. Les tâches terminées sont conservées pendant sept jours. Les données de tâches non terminées pendant la durée de vie maximale ne sont pas accessibles.

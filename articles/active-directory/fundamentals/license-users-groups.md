@@ -14,12 +14,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10346ea0aa292be33f820bd4e92434e2c58a89ab
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 1e7a3f80067adb3093bd27e34a45b3afd72b4993
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194306"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286854"
 ---
 # <a name="assign-or-remove-licenses-using-the-azure-active-directory-portal"></a>Assigner ou supprimer des licences à l’aide du portail Azure Active Directory
 De nombreux services Azure Active Directory (Azure AD) nécessitent que vous activiez un produit Azure AD et que vous assigniez une licence à chacun de vos utilisateurs ou groupes (et membres associés) pour ce produit. Seuls les utilisateurs disposant de licences actives seront en mesure d’accéder et d’utiliser les services Azure AD sous licence.
@@ -47,7 +47,7 @@ Vous pouvez afficher les produits disponibles, y compris les licences individuel
 
     La page **Licences** s’affiche.
 
-    ![Page Licences, indique le nombre de produits achetés et de licences affectées](media/license-users-groups/license-details-blade.png)
+    ![Page des licences, avec le nombre de produits achetés et les licences attribuées](media/license-users-groups/license-details-blade.png)
     
 3. Sélectionnez le lien **Produits achetés** pour afficher la page **Produits** et les informations **Assigné**, **Disponible**, et **Arrive bientôt à expiration** pour chaque édition spécifique du produit.
 
@@ -76,7 +76,7 @@ Assurez-vous que toutes les personnes devant utiliser un service Azure AD sous l
 
 4. Sélectionnez **Options d’affectation**. Assurez-vous que les options de licence appropriées sont activées, puis sélectionnez **OK**.
 
-    ![Page Options de licence, affiche toutes les options disponibles dans l’édition](media/license-users-groups/license-option-blade-assignments.png)
+    ![Page d’options de licence, avec toutes les options disponibles dans l’édition](media/license-users-groups/license-option-blade-assignments.png)
 
     La page **Affecter une licence** s’actualise pour indiquer qu’un utilisateur est sélectionné et que les attributions sont configurées.
 
@@ -102,7 +102,7 @@ Assurez-vous que toutes les personnes devant utiliser un service Azure AD sous l
 
 4. Sélectionnez **Options d’affectation**. Assurez-vous que les options de licence appropriées sont activées, puis sélectionnez **OK**.
 
-    ![Page Options de licence, affiche toutes les options disponibles dans l’édition](media/license-users-groups/license-option-blade-group-assignments.png)
+    ![Page d’options de licence, avec toutes les options disponibles dans l’édition](media/license-users-groups/license-option-blade-group-assignments.png)
 
     La page **Affecter une licence** s’actualise pour indiquer qu’un utilisateur est sélectionné et que les attributions sont configurées.
 
@@ -112,7 +112,6 @@ Assurez-vous que toutes les personnes devant utiliser un service Azure AD sous l
 5. Sélectionnez **Attribuer**.
 
     Le groupe est ajouté à la liste des groupes sous licence et tous les membres ont accès aux services Azure AD inclus.
-
 
 ## <a name="remove-a-license"></a>Supprimer une licence
 Vous pouvez supprimer une licence d’un utilisateur ou d’un groupe depuis la page **Licences**.

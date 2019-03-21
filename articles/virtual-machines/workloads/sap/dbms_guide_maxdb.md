@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4d770e091c8786972e3f15a03fc5af9ec9445002
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 36534388b02a283db744c6ef362878f6232c5ecb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327797"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57990688"
 ---
 # <a name="sap-maxdb-livecache-and-content-server-deployment-on-azure-vms"></a>Déploiement Content Server, liveCache et SAP MaxDB sur les machines virtuelles Azure
 
@@ -158,7 +158,7 @@ ms.locfileid: "56327797"
 [deploy-template-portal]:../../../resource-group-template-deploy-portal.md
 [deploy-template-powershell]:../../../resource-group-template-deploy.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 [getting-started-dbms]:get-started.md#1343ffe1-8021-4ce6-a08d-3a1553a4db82
@@ -172,7 +172,7 @@ ms.locfileid: "56327797"
 [getting-started-windows-classic-ha-sios]:../../virtual-machines-windows-classic-sap-get-started.md#4bb7512c-0fa0-4227-9853-4004281b1037
 [getting-started-windows-classic-planning]:../../virtual-machines-windows-classic-sap-get-started.md#f2a5e9d8-49e4-419e-9900-af783173481c
 
-[ha-guide-classic]:http://go.microsoft.com/fwlink/?LinkId=613056
+[ha-guide-classic]:https://go.microsoft.com/fwlink/?LinkId=613056
 
 [install-extension-cli]:virtual-machines-linux-enable-aem.md
 
@@ -440,7 +440,7 @@ Pour découvrir la version de Windows prise en charge pour SAP Content Server su
 Il est vivement recommandé d’utiliser la version la plus récente de Microsoft Windows Server.
 
 ### <a name="sap-content-server-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Instructions de configuration SAP Content Server pour les installations SAP sur des machines virtuelles Azure
-#### <a name="storage-configuration-foir-content-server-in-azure"></a>Configuration du stockage de Content Server dans Azure
+#### <a name="storage-configuration-for-content-server-in-azure"></a>Configuration du stockage pour le serveur de contenu dans Azure
 Si vous configurez SAP Content Server pour stocker des fichiers dans la base de données SAP MaxDB, l’ensemble des recommandations en matière de meilleures pratiques de stockage Azure mentionnées pour SAP MaxDB dans ce document sont également valides pour le scénario SAP Content Server. 
 
 Si vous configurez SAP Content Server pour stocker les fichiers dans le système de fichiers, il est recommandé d’utiliser un lecteur logique dédié. L’utilisation des espaces de stockage Windows vous permet d’augmenter également la taille du disque logique et le débit d’E/S par seconde, comme décrit dans [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) (Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP). 

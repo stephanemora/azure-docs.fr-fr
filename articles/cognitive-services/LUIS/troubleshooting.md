@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 02/15/2019
 ms.author: diberry
-ms.openlocfilehash: 71fb289f03467147acb2ef254ab87a2c753bc75c
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: b9304e151bbce691b752f12aeec8a5376e517a8d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416545"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120769"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Forum aux questions (FAQ) sur Language Understanding
 
@@ -102,10 +102,12 @@ Si vous ne voyez pas les accès de point de terminaison mis à jour sur le table
 
 ### <a name="is-there-a-powershell-command-get-to-the-endpoint-quota"></a>Existe-t-il une commande PowerShell pour connaître le quota de points de terminaison ?
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Vous pouvez utiliser une commande PowerShell pour afficher le quota de points de terminaison :
 
 ```powershell
-Get-AzureRmCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Name <your-resource-name>
+Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Name <your-resource-name>
 ``` 
 
 ### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>Mon application LUIS fonctionnait hier, et aujourd’hui j’obtiens des erreurs 403. Je n’ai pas modifié l’application. Comment la corriger ?
@@ -145,7 +147,7 @@ Voir le didacticiel [Tests par lot](luis-tutorial-batch-testing.md).
 
 ### <a name="when-an-app-is-exported-then-reimported-into-a-new-app-with-a-new-app-id-the-luis-prediction-scores-are-different-why-does-this-happen"></a>Quand une application est exportée, puis réimportée dans une nouvelle application (avec un nouvel ID d’application), les scores de prédiction LUIS sont différents. Pourquoi cela se produit-il ?
 
-Voir [Différences de prédiction entre les copies d’une même application](luis-concept-prediction-score.md#differences-with-predictions).
+Voir [Différences de prédiction entre les copies d’une même application](luis-concept-prediction-score.md#review-intents-with-similar-scores).
 
 ### <a name="some-utterances-go-to-the-wrong-intent-after-i-made-changes-to-my-app-the-issue-seems-to-disappear-at-random-how-do-i-fix-it"></a>Après avoir apporté des modifications à mon application, l'intention de certains énoncés est erronée. Le problème semble disparaître de façon aléatoire. Comment la corriger ? 
 

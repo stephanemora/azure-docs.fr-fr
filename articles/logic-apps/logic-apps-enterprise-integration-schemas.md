@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 56c5846c-5d8c-4ad4-9652-60b07aa8fc3b
 ms.date: 02/06/2019
-ms.openlocfilehash: 03ac2e0f42ff05165aa2313d823710a71c7dffec
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: 3cca995b353b88cc481cbda68df4211a724f7f09
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768303"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727312"
 ---
 # <a name="validate-xml-with-schemas-in-azure-logic-apps-with-enterprise-integration-pack"></a>Valider des documents XML avec des schémas dans Azure Logic Apps avec Enterprise Integration Pack
 
@@ -23,7 +23,7 @@ Pour vérifier que les documents utilisent du code XML valide et qu’ils conti
 
 Pour connaître les limites associées aux comptes d’intégration et aux artefacts tels que les schémas, consultez [Limites et informations de configuration pour Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez <a href="https://azure.microsoft.com/free/" target="_blank">vous inscrire pour obtenir un compte Azure gratuitement</a>.
 
@@ -89,7 +89,7 @@ En fonction de la taille de votre schéma (.xsd), suivez les étapes de chargeme
 
 ### <a name="add-schemas-more-than-2-mb"></a>Ajouter des schémas de taille supérieure à 2 Mo
 
-Pour ajouter des schémas plus volumineux, vous pouvez charger votre schéma dans un conteneur d’objets blob Azure de votre compte de stockage Azure. Les étapes pour ajouter des mappages varient selon que votre conteneur d’objets blob dispose ou non d’un accès en lecture public. Effectuez donc les étapes suivantes pour vérifier si votre conteneur d’objets blob dispose d’un accès en lecture public : [Définir le niveau d’accès public pour le conteneur d’objets blob](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
+Pour ajouter des schémas plus volumineux, vous pouvez charger votre schéma dans un conteneur d’objets blob Azure de votre compte de stockage Azure. Les étapes pour l’ajout de schémas varient en fonction de si votre conteneur d’objets blob a un accès en lecture public. Effectuez donc les étapes suivantes pour vérifier si votre conteneur d’objets blob dispose d’un accès en lecture public : [Définir le niveau d’accès public pour le conteneur d’objets blob](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
 
 #### <a name="check-container-access-level"></a>Vérifier le niveau d’accès du conteneur
 

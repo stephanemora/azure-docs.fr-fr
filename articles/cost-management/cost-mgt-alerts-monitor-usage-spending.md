@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2019
+ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: alavital
 ms.custom: ''
-ms.openlocfilehash: 813ec8f74371b6ae76ac306aea2c462f0beea1fb
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: feb7fcdd9005ef131acadfc63defbe4caeaca014
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55772601"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57991927"
 ---
 # <a name="use-cost-alerts-to-monitor-usage-and-spending"></a>Utiliser les alertes de coût pour surveiller l’utilisation et les dépenses
 
@@ -23,7 +23,7 @@ Cet article vous aide à comprendre et à utiliser des alertes de gestion des co
 
 ## <a name="budget-alerts"></a>Alertes budgétaires
 
-Les alertes budgétaires vous avertissent quand les dépenses, selon l’utilisation ou le coût, atteignent ou dépassent la quantité définie dans la [condition d’alerte du budget](tutorial-acm-create-budgets.md). Les budgets de gestion des coûts sont créés à l’aide du Portail Microsoft Azure ou de l’API [Azure Consumption](https://docs.microsoft.com/rest/api/consumption). 
+Les alertes budgétaires vous avertissent quand les dépenses, selon l’utilisation ou le coût, atteignent ou dépassent la quantité définie dans la [condition d’alerte du budget](tutorial-acm-create-budgets.md). Les budgets de gestion des coûts sont créés à l’aide du Portail Microsoft Azure ou de l’API [Azure Consumption](https://docs.microsoft.com/rest/api/consumption).
 
 Dans le Portail Microsoft Azure, les budgets sont définis par coût. À l’aide de l’API Azure Consumption, les budgets sont définis par le coût ou par l’utilisation de la consommation. Les alertes de budget prennent en charge à la fois les budgets basés sur le coût et ceux basés sur l’utilisation. Les alertes de budget sont générées automatiquement chaque fois que les conditions d’alertes budgétaires sont remplies. Vous pouvez afficher toutes les alertes de coût dans le Portail Microsoft Azure. Chaque fois qu’une alerte est générée, elle est affichée dans les alertes de coût. Un e-mail d’alerte est également envoyé aux personnes de la liste de destinataires d’alertes du budget.
 
@@ -35,9 +35,21 @@ Les alertes de crédit vous préviennent lorsque les engagements monétaires de 
 
 Les alertes de quota de dépense du service vous avertissent lorsque les dépenses du service atteignent un seuil fixe du quota. Les quotas de dépenses sont configurés dans le portail EA. Chaque fois qu’un seuil est atteint, un e-mail est envoyé aux propriétaires de service et cela apparaît dans les alertes de coût. Par exemple, 50 % ou 75 % du quota.
 
+## <a name="supported-alert-features-by-offer-categories"></a>Prise en charge des fonctionnalités d’alerte par catégories de l’offre
+
+Prise en charge des types d’alerte varie selon le type de compte Azure que vous avez (Microsoft) offrent. Le tableau suivant présente les fonctionnalités d’alerte qui sont pris en charge par les différentes offres de Microsoft. Vous pouvez afficher la liste complète des offres de Microsoft à [les données de gestion des coûts comprendre](understand-cost-mgt-data.md).
+
+| Type d’alerte | Contrat Entreprise | Contrat client Microsoft | Web direct/paiement-As-You-Go |
+|---|---|---|---|
+| Budget | ✔ | ✔ | ✔ |
+| Crédit | ✔ |✘ | ✘ |
+| Quota de dépenses du service | ✔ | ✘ | ✘ |
+
+
+
 ## <a name="view-cost-alerts"></a>Afficher les alertes de coût
 
-Dans le portail Azure, cliquez sur **Gestion des coûts + Facturation** dans la liste des services. Ensuite, dans la liste sous **Azure Cost Management**, sélectionnez **Alertes de coût**.
+Pour afficher les alertes de coût, ouvrez l’étendue souhaitée dans le portail Azure et sélectionnez **Budgets** dans le menu. Utilisez le **étendue** pilule pour basculer vers une étendue différente. Sélectionnez **coût alertes** dans le menu. Pour plus d’informations sur les étendues, consultez [comprendre et utiliser des étendues](understand-work-scopes.md).
 
 ![Exemple d’images d’alertes affichées dans Azure Cost Management](./media/cost-mgt-alerts-monitor-usage-spending/budget-alerts-fullscreen.png)
 

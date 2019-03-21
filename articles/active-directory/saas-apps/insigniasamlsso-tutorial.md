@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/28/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5cb0822380fd375c111f8acb8b28132727a7c048
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8ee74c5caed04d2626fea27d3419d0b0d685d675
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188305"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57840339"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insignia-saml-sso"></a>Tutoriel : Intégration d’Azure Active Directory à Insignia SAML SSO
 
@@ -35,7 +35,7 @@ L’intégration d’Insignia SAML SSO dans Azure AD vous offre les avantages su
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD à Insignia SAML SSO, vous avez besoin des éléments suivants :
 
@@ -112,6 +112,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     ![Informations d’authentification unique dans Domaine et URL Insignia SAML SSO](./media/insigniasamlsso-tutorial/tutorial_insigniasamlsso_url.png)
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant :
+    
     | |
     |--|
     | `https://<customername>.insigniails.com/ils` |

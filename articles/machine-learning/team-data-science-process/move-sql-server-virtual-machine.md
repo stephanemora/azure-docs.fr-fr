@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 7c87a0f478b6efbe7ae9ff07def8b4d0d730b111
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 47a77def43a9577e5a3506899da47db2f684b495
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478489"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835110"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Déplacer des données vers SQL Server sur une machine virtuelle Azure
 
@@ -50,7 +50,7 @@ Ce didacticiel part du principe que vous disposez de :
 Si vos données se trouvent dans un fichier plat (au format ligne/colonne), les méthodes suivantes permettent de les copier dans l’instance SQL Server VM on Azure :
 
 1. [Utilitaire de copie en bloc à ligne de commande (BCP)](#insert-tables-bcp)
-2. [Requête SQL Bulk Insert ](#insert-tables-bulkquery)
+2. [Requête SQL Bulk Insert](#insert-tables-bulkquery)
 3. [Utilitaires graphiques intégrés dans SQL Server (Importation/Exportation, SSIS)](#sql-builtin-utilities)
 
 ### <a name="insert-tables-bcp"></a>Utilitaire de copie en bloc à ligne de commande (BCP)
@@ -58,7 +58,7 @@ BCP est un utilitaire à ligne de commande, installé avec SQL Server. C’est l
 
 > [!NOTE]
 > **Où mes données doivent-elles se trouver pour BCP ?**  
-> Ce n’est pas une obligation, mais le transfert est plus rapide si les fichiers contenant les données source résident sur la même machine que l’instance SQL Server cible (débit du réseau par rapport au débit d’E/S du disque local). Vous pouvez déplacer les fichiers plats contenant les données vers la machine hébergeant SQL Server, en utilisant différents outils de copie, tels que [AZCopy](../../storage/common/storage-use-azcopy.md), [Explorateur de stockage Azure](http://storageexplorer.com/) ou le copier/coller Windows via le protocole RDP (Remote Desktop Protocol).
+> Ce n’est pas une obligation, mais le transfert est plus rapide si les fichiers contenant les données source résident sur la même machine que l’instance SQL Server cible (débit du réseau par rapport au débit d’E/S du disque local). Vous pouvez déplacer les fichiers plats contenant les données vers la machine hébergeant SQL Server, en utilisant différents outils de copie, tels que [AZCopy](../../storage/common/storage-use-azcopy.md), [Explorateur de stockage Azure](https://storageexplorer.com/) ou le copier/coller Windows via le protocole RDP (Remote Desktop Protocol).
 >
 >
 
@@ -75,10 +75,10 @@ CREATE TABLE <tablename>
 )
 ```
 
-2. Générez le fichier de format qui décrit le schéma de la table, en exécutant la commande suivante dans la ligne de commande de la machine où BCP est installé.
+1. Générez le fichier de format qui décrit le schéma de la table, en exécutant la commande suivante dans la ligne de commande de la machine où BCP est installé.
 
     `bcp dbname..tablename format nul -c -x -f exportformatfilename.xml -S servername\sqlinstance -T -t \t -r \n`
-3. Insérez les données dans la base de données, en utilisant la commande BCP suivante. Cette commande fonctionne à partir de la ligne de commande, si SQL Server est installé sur la même machine :
+1. Insérez les données dans la base de données, en utilisant la commande BCP suivante. Cette commande fonctionne à partir de la ligne de commande, si SQL Server est installé sur la même machine :
 
     `bcp dbname..tablename in datafilename.tsv -f exportformatfilename.xml -S servername\sqlinstancename -U username -P password -b block_size_to_move_in_single_attempt -t \t -r \n`
 
@@ -142,7 +142,7 @@ Voici quelques exemples de requêtes Bulk Insert :
 ```sql
 SET DATEFORMAT ymd;
 ```
-2. Importez des données avec des instructions import en bloc :
+1. Importez des données avec des instructions import en bloc :
 
 ```sql
 BULK INSERT <tablename>
@@ -195,7 +195,7 @@ Plusieurs méthodes peuvent être utilisées pour exporter en bloc des données 
 4. Utilisez l’une des méthodes décrites dans la section [Fichiers plats](#filesource_to_sqlonazurevm) pour déplacer les données de fichiers plats vers une instance SQL Server.
 
 ### <a name="sql-migration"></a>Assistant Migration de la base de données SQL
-[Assistant Migration de la base de données SQL Server](http://sqlazuremw.codeplex.com/) fournit une manière conviviale pour déplacer des données entre deux instances de SQL Server. Il permet à l’utilisateur de mapper le schéma de données entre les tables sources et cibles, de choisir les types de colonne et d’utiliser d’autres fonctionnalités. Il exécute BCP en arrière-plan. Voici une copie de l’écran d’accueil de SQL Database Migration Wizard :  
+[Assistant Migration de la base de données SQL Server](https://sqlazuremw.codeplex.com/) fournit une manière conviviale pour déplacer des données entre deux instances de SQL Server. Il permet à l’utilisateur de mapper le schéma de données entre les tables sources et cibles, de choisir les types de colonne et d’utiliser d’autres fonctionnalités. Il exécute BCP en arrière-plan. Voici une copie de l’écran d’accueil de SQL Database Migration Wizard :  
 
 ![Assistant Migration de SQL Server][2]
 

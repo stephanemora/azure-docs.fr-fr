@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: 4784ac8ac619a1b9a00f2e869d796d05dd9658df
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 4747d824dcf531ed883d476a0daad182ea081c39
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434408"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314447"
 ---
 # <a name="tutorial-create-an-application-gateway-and-rewrite-http-headers"></a>Tutoriel : Créer une passerelle d’application et réécrire des en-têtes HTTP
 
@@ -35,9 +35,9 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
-Pour ce didacticiel, vous devez exécuter Azure PowerShell localement. Vous devez avoir installé la version du module Az 1.0.0 ou version ultérieure. Exécutez `Import-Module Az`, puis`Get-Module Az` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps). Après avoir vérifié la version PowerShell, exécutez `Login-AzAccount` pour créer une connexion avec Azure.
+Pour ce didacticiel, vous devez exécuter Azure PowerShell localement. Vous devez avoir installé la version du module Az 1.0.0 ou version ultérieure. Exécutez `Import-Module Az`, puis`Get-Module Az` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps). Après avoir vérifié la version PowerShell, exécutez `Login-AzAccount` pour créer une connexion avec Azure.
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
@@ -162,7 +162,7 @@ $appgw = New-AzApplicationGateway -Name "AutoscalingAppGw" -Zone 1,2,3 -Resource
 
 ## <a name="test-the-application-gateway"></a>Tester la passerelle d’application
 
-Utilisez Get-AzureRmPublicIPAddress pour obtenir l'adresse IP publique de la passerelle d'application. Copiez l’adresse IP publique ou le nom DNS, puis collez cette donnée dans la barre d’adresses de votre navigateur.
+Utilisez Get-AzPublicIPAddress pour obtenir l’adresse IP publique de la passerelle d’application. Copiez l’adresse IP publique ou le nom DNS, puis collez cette donnée dans la barre d’adresses de votre navigateur.
 
 ```azurepowershell
 Get-AzPublicIPAddress -ResourceGroupName $rg -Name AppGwVIP

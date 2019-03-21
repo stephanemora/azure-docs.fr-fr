@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 1e714faa04717ac8e6687db3c074b8a77d649fb2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 65104503af2e177f1898d8509c2d82bd9b58c266
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217205"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446960"
 ---
 # <a name="service-fabric-application-lifecycle"></a>Cycle de vie des applications Service Fabric
 Comme pour les autres plateformes, une application sur Azure Service Fabric passe généralement par les phases suivantes : conception, développement, test, déploiement, mise à niveau, maintenance et suppression. Service Fabric offre une excellente prise en charge du cycle de vie complet des applications cloud : du développement au retrait éventuel, en passant par le déploiement, la gestion quotidienne et la maintenance. Le modèle de service permet à différents rôles de participer indépendamment au cycle de vie des applications. Cet article fournit une vue d'ensemble des API et de la façon dont elles sont utilisées par les différents rôles pendant les phases du cycle de vie des applications Service Fabric.
@@ -29,7 +29,7 @@ Comme pour les autres plateformes, une application sur Azure Service Fabric pass
 ## <a name="service-model-roles"></a>Rôles de modèle de service
 Les rôles de modèle de service sont les suivants :
 
-* **Développeur de service** : développe des services génériques et modulaires qui peuvent être ajustés et utilisés dans plusieurs applications du même type ou de différents types. Par exemple, un service de file d'attente peut être utilisé pour la création d'une application de gestion de tickets (support technique) ou d'une application de commerce électronique (panier).
+* **Développeur de service** : Développe des services génériques et modulaires qui peuvent être réaffectés et utilisés dans plusieurs applications du même type ou de différents types. Par exemple, un service de file d'attente peut être utilisé pour la création d'une application de gestion de tickets (support technique) ou d'une application de commerce électronique (panier).
 * **Développeur d’application** : crée des applications en intégrant un ensemble de services pour répondre à des scénarios ou exigences spécifiques. Par exemple, un site web de commerce électronique peut intégrer un service frontal sans état JSON, un service sans état d’enchères et un service avec état de file d’attente pour créer une solution de vente aux enchères.
 * **Administrateur d’application** : prend des décisions sur la configuration de l’application (indication des paramètres de modèle de configuration), le déploiement (mappage aux ressources disponibles) et la qualité de service. Par exemple, un administrateur d’application détermine la langue locale de l’application (anglais pour les États-Unis ou japonais pour le Japon, par exemple). Une application déployée différente peut avoir différents paramètres.
 * **Opérateur** : déploie des applications basées sur la configuration et les spécifications définies par l’administrateur d’application. Par exemple, un opérateur met en service et déploie l'application et s'assure qu'elle s'exécute dans Azure. Les opérateurs surveillent les informations d'intégrité et de performances des applications et gèrent l'infrastructure physique en fonction des besoins.

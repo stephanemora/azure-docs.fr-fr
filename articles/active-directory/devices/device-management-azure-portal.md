@@ -17,12 +17,12 @@ ms.date: 10/26/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 830825c6ad54a6ff300fb7ee223b32ee0571a55a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: bb244cb03ed5419762541e93784bb72fcf252676
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58163532"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258052"
 ---
 # <a name="how-to-manage-devices-using-the-azure-portal"></a>Comment gérer les appareils dans le portail Azure
 
@@ -83,7 +83,7 @@ La page Paramètres de l’appareil vous permet de configurer les options suivan
 
 - **Les utilisateurs peuvent synchroniser les paramètres et les données d’application sur différents appareils** : par défaut, ce paramètre est défini sur **AUCUN**. La sélection de certains utilisateurs ou groupes, ou de TOUS, permet aux paramètres et aux données d’application de l’utilisateur d’être synchronisés sur ses appareils Windows 10. Découvrez comment fonctionne la synchronisation dans Windows 10.
 Cette option est une fonctionnalité de l’édition Premium disponible dans les produits comme Azure AD Premium ou EMS (Enterprise Mobility Suite).
- 
+
 
 
 
@@ -119,7 +119,7 @@ Pour certains appareils iOS, les noms d’appareils qui contiennent des apostrop
 
 ## <a name="device-management-tasks"></a>Tâches de gestion des appareils
 
-En tant qu’administrateur général, vous pouvez gérer les appareils inscrits ou joints. Les administrateurs de service Intune peuvent :
+En tant qu’un administrateur général ou un administrateur de l’appareil cloud, vous pouvez gérer les appareils inscrits ou joints. Les administrateurs de service Intune peuvent :
  
 - Mettre à jour les appareils – Les opérations quotidiennes telles que l’activation et la désactivation d’appareils en sont des exemples
 
@@ -151,7 +151,7 @@ Pour activer/désactiver un appareil, vous avez deux options :
 
 **Remarques :**
 
-- Vous devez être administrateur général dans Azure AD pour activer/désactiver un appareil. 
+- Vous devez être un administrateur général ou administrateur de l’appareil de cloud dans Azure AD pour activer / désactiver un appareil. 
 - Désactivation d’un périphérique empêche un appareil de s’authentifier correctement avec Azure AD, ce qui empêche l’appareil à partir de l’accès à vos ressources Azure AD qui sont protégées par une autorité de certification d’appareil ou à l’aide de vos informations d’identification WH4B. 
 
 

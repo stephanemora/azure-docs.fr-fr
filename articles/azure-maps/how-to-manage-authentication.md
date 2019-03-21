@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: fe0e325543d245e4415fea925fcdade32eb00614
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 414ca7156fd59ec1dc08e45c73e9eb30835078d4
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570502"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259922"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Gérer l’authentification dans Azure Maps
 
@@ -32,7 +32,7 @@ Vous pouvez afficher les détails de votre authentification sur le portail Azure
 
 Après avoir créé un compte Azure Maps, vous devez établir un lien entre votre client Azure AD et la ressource Azure Maps.
 
-1. Accédez au panneau Azure AD et créer une inscription d’application. Fournissez un nom pour l’inscription. Dans le **Sign-on URL** zone, fournissez la page d’accueil de l’application web / API (par exemple, https://localhost/). Si vous disposez déjà d’une application inscrite, passez à l’étape 2.
+1. Accédez au panneau Azure AD et créer une inscription d’application. Fournissez un nom pour l’inscription. Dans le **Sign-on URL** zone, fournissez la page d’accueil de l’application web / API (par exemple, https :\//localhost/). Si vous disposez déjà d’une application inscrite, passez à l’étape 2.
 
     ![Inscription d'application](./media/how-to-manage-authentication/app-registration.png)
 

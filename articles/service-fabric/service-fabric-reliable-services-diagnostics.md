@@ -7,19 +7,19 @@ author: dkkapur
 manager: timlt
 editor: ''
 ms.assetid: ae0e8f99-69ab-4d45-896d-1fa80ed45659
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/24/2018
 ms.author: dekapur
-ms.openlocfilehash: a7ba92d871bb440b7b8c8a12c1e90f9aa10df3be
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
-ms.translationtype: HT
+ms.openlocfilehash: c3116b42e8696ae0bb2457a3c64320cb187b7447
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43105339"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890710"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Fonctionnalité de diagnostic pour Reliable Services avec état
 La classe StatefulServiceBase de Reliable Services avec état dans Azure Service Fabric émet des événements [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) qui peuvent être utilisés pour déboguer le service, fournir des informations sur le fonctionnement du runtime et vous aider lors du dépannage.
@@ -27,10 +27,10 @@ La classe StatefulServiceBase de Reliable Services avec état dans Azure Service
 ## <a name="eventsource-events"></a>Événements EventSource
 Le nom EventSource de la classe StatefulServiceBase de Reliable Services avec état est « Microsoft-ServiceFabric-Services ». Les événements issus de cette source d’événements s’affichent dans la fenêtre [Événements de diagnostics](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) lorsque le service est en cours de [débogage dans Visual Studio](service-fabric-debugging-your-application.md).
 
-[PerfView](http://www.microsoft.com/download/details.aspx?id=28567), [Diagnostics Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) et [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent) sont des exemples d’outils et de technologies permettant de collecter et/ou d’afficher des événements EventSource.
+[PerfView](https://www.microsoft.com/download/details.aspx?id=28567), [Diagnostics Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) et [Microsoft TraceEvent Library](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent) sont des exemples d’outils et de technologies permettant de collecter et/ou d’afficher des événements EventSource.
 
 ## <a name="events"></a>Événements
-| Nom de l'événement | ID de l’événement | Level | Description de l’événement |
+| Nom de l'événement | ID de l’événement | Niveau | Description de l’événement |
 | --- | --- | --- | --- |
 | StatefulRunAsyncInvocation |1 |Informations |Émis lorsque la tâche de service RunAsync est démarrée |
 | StatefulRunAsyncCancellation |2 |Informations |Émis lorsque la tâche de service RunAsync est annulée |

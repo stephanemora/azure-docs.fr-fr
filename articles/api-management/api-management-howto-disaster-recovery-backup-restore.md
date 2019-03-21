@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 7da97b763c532a2189ef058cbb8ffb14c5b150f9
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: 56d0b8ced4a0eed3c2bf215ed0e5fc77c343f7fd
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968371"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728639"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Comment implémenter une récupération d'urgence à l'aide d'une sauvegarde de service et la récupérer dans Gestion des API Azure
 
@@ -32,6 +32,8 @@ Ce guide vous montre comment authentifier les demandes d’Azure Resource Manage
 > Le processus de sauvegarde et de restauration d'une instance de service de gestion des API pour la récupération d'urgence permet également de répliquer les instances de service de gestion des API dans les scénarios intermédiaires.
 >
 > Chaque sauvegarde expire au bout de 30 jours. Si vous essayez de restaurer une sauvegarde après l’expiration de la période de 30 jours, la restauration échoue avec un message `Cannot restore: backup expired`.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -207,7 +209,7 @@ La récupération est une opération de longue durée qui peut prendre jusqu'à 
 <!-- Dummy comment added to suppress markdown lint warning -->
 
 > [!NOTE]
-> Vous pouvez aussi effectuer les opérations de sauvegarde et de restauration avec les commandes PowerShell *Backup-AzureRmApiManagement* and *Restore-AzureRmApiManagement*, respectivement.
+> Opérations de sauvegarde et de restauration peuvent également être effectuées avec PowerShell *sauvegarde-AzApiManagement* et *AzApiManagement de restauration* commandes respectivement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/17/2019
+ms.date: 03/05/2019
 ms.author: juliako
-ms.openlocfilehash: 4127b6b2b2601b640a6fda4ccb60960d1762ee81
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: e7f39b6298dd950147fea7ac21969c53e1b58e2e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56414742"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877868"
 ---
 # <a name="upload-and-index-your-videos"></a>Charger et indexer vos vidéos  
 
@@ -26,15 +26,17 @@ Lorsque vous chargez des vidéos avec l’API Video Indexer, vous disposez des d
 
 L’article montre comment utiliser l’API [Charger une vidéo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) pour charger et indexer vos vidéos selon une URL. L’exemple de code dans l’article inclut le code commenté qui montre comment charger le tableau d’octets. <br/>L’article aborde également certains des paramètres que vous pouvez définir sur l’API pour en modifier le processus et la sortie.
 
-Une fois votre vidéo chargée, Video Indexer peut éventuellement l’encoder (opération décrite dans cet article). Lorsque vous créez un compte Video Indexer, vous pouvez choisir un compte d’essai gratuit (où vous obtenez un certain nombre de minutes d’indexation gratuites) ou une option payante (où vous n’êtes pas limités par le quota). Avec l’essai gratuit, Video Indexer fournit jusqu’à 600 heures d’indexation gratuite aux utilisateurs du site web et jusqu’à 2 400 heures d’indexation gratuite aux utilisateurs de l’API. Avec l’option payante, vous créez un compte Video Indexer [connecté à votre abonnement Azure et un compte Azure Media Services](connect-to-azure.md). Vous payez pour les minutes indexées, ainsi que pour les frais liés au compte média. 
+Une fois votre vidéo chargée, Video Indexer peut éventuellement l’encoder (opération décrite dans cet article). Lorsque vous créez un compte Video Indexer, vous pouvez choisir un compte d’essai gratuit (où vous obtenez un certain nombre de minutes d’indexation gratuites) ou une option payante (où vous n’êtes pas limités par le quota). Avec l’essai gratuit, Video Indexer fournit jusqu’à 600 heures d’indexation gratuite aux utilisateurs du site web et jusqu’à 2 400 heures d’indexation gratuite aux utilisateurs de l’API. Avec l’option payante, vous créez un compte Video Indexer [connecté à votre abonnement Azure et un compte Azure Media Services](connect-to-azure.md). Vous payez pour les minutes indexées, ainsi que pour les frais liés au compte média. 
 
 ## <a name="uploading-considerations"></a>Éléments à prendre en compte pour le chargement
 
 - Lors du chargement de votre vidéo à partir de l’URL (par défaut), le point de terminaison doit être sécurisé avec TLS 1.2 (ou version ultérieure)
-- La taille du chargement avec l’option URL est limitée à 25 Go
+- La taille de téléchargement avec l’option d’URL est limitée à 30 Go
+- Dans la plupart des navigateurs, la longueur de l’URL est limitée à 2 000 caractères
 - La taille du chargement avec l’option Tableau d'octets est limitée à 2 Go
 - L’option Tableau d’octets expire après 30 minutes
 - L’URL fournie dans le paramètre `videoURL` doit être encodée
+- L’indexation des éléments multimédias Media Services a la même restriction que l’indexation à partir d’URL
 
 > [!Tip]
 > Il est recommandé d’utiliser la version 4.6.2 du .NET Framework. ou une version ultérieure, car les anciens .NET Framework ne sont pas définis par défaut sur TLS 1.2.
@@ -62,16 +64,16 @@ URL qui est utilisée pour notifier le client (à l’aide d’une requête POST
         |state|État de la vidéo|  
     - Exemple : https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
 - Personne identifiée dans la vidéo :
-    - properties
+  - properties
     
-        |Nom|Description|
-        |---|---|
-        |id| L'ID de la vidéo|
-        |faceId|ID de visage qui apparaît dans l’index de la vidéo|
-        |knownPersonId|ID de la personne qui est unique au sein d’un modèle de visage|
-        |personName|Nom de la personne|
+      |Nom|Description|
+      |---|---|
+      |id| L'ID de la vidéo|
+      |faceId|ID de visage qui apparaît dans l’index de la vidéo|
+      |knownPersonId|ID de la personne qui est unique au sein d’un modèle de visage|
+      |personName|Nom de la personne|
         
-     - Exemple : https://test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
+    - Exemple : https://test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
 
 #### <a name="notes"></a>Notes
 

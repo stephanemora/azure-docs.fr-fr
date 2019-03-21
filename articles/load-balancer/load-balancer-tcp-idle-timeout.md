@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 24a7d2354693e362d7709b8817c438555caae0e3
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
+ms.openlocfilehash: 0c57eec4d739da13d98099a6b2f01fbf0ad0051c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256194"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57857536"
 ---
 # <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>Configuration des paramètres de délai d’inactivité et d’expiration TCP pour Azure Load Balancer
 
@@ -122,7 +122,7 @@ Vous pouvez configurer le délai d’inactivité TCP à l’aide de l’API Gest
 ### <a name="response"></a>response
 
 ```xml
-<LoadBalancedEndpointList xmlns="http://schemas.microsoft.com/windowsazure" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+<LoadBalancedEndpointList xmlns="http://schemas.microsoft.com/windowsazure" xmlns:i="https://www.w3.org/2001/XMLSchema-instance">
     <InputEndpoint>
     <LoadBalancedEndpointSetName>endpoint-set-name</LoadBalancedEndpointSetName>
     <LocalPort>local-port-number</LocalPort>

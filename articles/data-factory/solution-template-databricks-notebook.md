@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: 3d7fd9b3e7ab8e5f193fd3b34a804b9ed0780d66
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 54b440ee76fe36a83284b8ce769bb31012781a35
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105686"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295757"
 ---
 # <a name="transform-data-by-using-databricks-in-azure-data-factory"></a>Transformer des données à l’aide de Databricks dans Azure Data Factory
 
@@ -33,13 +33,13 @@ Pour plus de simplicité, ce modèle ne crée aucun déclencheur planifié. Vous
 
 ![1](media/solution-template-Databricks-notebook/Databricks-tutorial-image01.png)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 1.  Créez un **compte de stockage d’objets blob** et un conteneur appelé `sinkdata` à utiliser comme **récepteur**. Notez le **nom du compte de stockage**, le **nom du conteneur** et la **clé d’accès** dans la mesure où ils sont référencés plus loin dans le modèle.
 
 2.  Vérifiez que vous disposez d’un **espace de travail Azure Databricks** ou créez-en un.
 
-1.  **Importez le notebook pour ETL**. Importez le notebook Transform ci-dessous dans l’espace de travail Databricks. (Il ne doit pas nécessairement se trouver au même endroit que dans l’exemple ci-dessous, mais souvenez-vous du chemin choisi pour la suite.) Importez le notebook à partir de l’URL suivante. Pour cela, entrez cette URL dans le champ URL : `https://Data Factorylabstaging1.blob.core.windows.net/share/Transformations.html`. Sélectionnez **Importer**.
+1.  **Importez le notebook pour ETL**. Importez le notebook Transform ci-dessous dans l’espace de travail Databricks. (Il ne doit pas nécessairement se trouver au même endroit que dans l’exemple ci-dessous, mais souvenez-vous du chemin choisi pour la suite.) Importez le notebook à partir de l’URL suivante. Pour cela, entrez cette URL dans le champ URL : `https://DataFactorylabstaging1.blob.core.windows.net/share/Transformations.html`. Sélectionnez **Importer**.
 
     ![2](media/solution-template-Databricks-notebook/Databricks-tutorial-image02.png)
 
@@ -54,9 +54,9 @@ Pour plus de simplicité, ce modèle ne crée aucun déclencheur planifié. Vous
 
     try:  
       dbutils.fs.mount(  
-        source = "wasbs://sinkdata\@"+storageName+".blob.core.windows.net/",  
-        mount_point = "/mnt/Data Factorydata",  
-        extra_configs = {"fs.azure.account.key."+storageName+".blob.core.windows.net": accessKey})  
+        source = "wasbs://sinkdata\@"+storageName+".blob.core.windows.net/",  
+        mount_point = "/mnt/Data Factorydata",  
+        extra_configs = {"fs.azure.account.key."+storageName+".blob.core.windows.net": accessKey})  
 
     except Exception as e:  
       # The error message has a long stack track. This code tries to print just the relevant line indicating what failed.

@@ -3,22 +3,22 @@ title: Gérer les inscriptions d’appareil avec les SDK du service Azure Device
 description: Guide pratique pour gérer les inscriptions d’appareil dans le service IoT Hub Device Provisioning à l’aide des SDK du service
 author: yzhong94
 ms.author: yizhon
-ms.date: 04/04/18
+ms.date: 04/04/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: arjmands
-ms.openlocfilehash: 1c7fa798c2e767aa6a21b3c56da6f69b4d3a1406
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: c73a40e46d86632732454ae16ea4f83e3ffa0281
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732346"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674750"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Guide pratique pour gérer les inscriptions d’appareil avec les SDK du service de provisionnement des appareils Azure
 Une *inscription d’appareil* crée un enregistrement d’un appareil ou d’un groupe d’appareils susceptibles d’être inscrits au service de provisionnement des appareils à un moment donné. L’enregistrement contient la configuration initiale souhaitée pour le ou les appareils dans le cadre de cette inscription, y compris le hub IoT souhaité. Cet article explique comment gérer les inscriptions d’appareils pour votre service de provisionnement par programmation en utilisant les SDK du service de provisionnement des appareils Azure IoT.  Les SDK sont disponibles sur GitHub dans le même dépôt que les SDK Azure IoT.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 * Récupérez la chaîne de connexion à partir de votre instance du service Device Provisioning.
 * Récupérez des artefacts de sécurité des appareils pour le [mécanisme d’attestation](concepts-security.md#attestation-mechanism) utilisé :
     * [**Module de plateforme sécurisée (TPM)**](/azure/iot-dps/concepts-security#trusted-platform-module) :

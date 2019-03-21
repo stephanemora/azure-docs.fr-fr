@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: a52c5bf1a52a4d598986664c41e80273e0b26788
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f3534f3001de1c3e58f0be3fb7bc9639b7dfcd03
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58014091"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295419"
 ---
 # <a name="install-and-run-face-containers"></a>Installer et exécuter des conteneurs de visage
 
@@ -48,11 +48,12 @@ Vous devez respecter les prérequis suivants avant d’utiliser les conteneurs d
 
 Le tableau suivant décrit la quantité minimale et recommandée de cœurs de processeur et de mémoire à allouer pour chaque conteneur de l’API Visage.
 
-| Conteneur | Minimale | Recommandé |
-|-----------|---------|-------------|
-|Face | 1 cœur, 2 Go de mémoire | 1 cœur, 4 Go de mémoire |
+| Conteneur | Minimale | Recommandé | TPS<br>(Au minimum, Maximum)|
+|-----------|---------|-------------|--|
+|Face | 1 cœur, 2 Go de mémoire | 1 cœur, 4 Go de mémoire |10, 20|
 
-Chaque cœur doit être cadencé à au moins 2,6 gigahertz (GHz).
+* Chaque cœur doit être cadencé à au moins 2,6 gigahertz (GHz).
+* Programmes transactionnels - transactions par seconde
 
 Le nombre de cœurs et la quantité de mémoire correspondent aux paramètres `--cpus` et `--memory` qui sont utilisés dans le cadre de la commande `docker run`.
 

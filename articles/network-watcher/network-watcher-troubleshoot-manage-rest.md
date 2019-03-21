@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: e3c172a0e88988acfb0244fff4603dc644aee03f
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
-ms.translationtype: HT
+ms.openlocfilehash: 0889476d84bbeaf620d9fc952efe102601a1eaf8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091021"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57857842"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher"></a>Résoudre les problèmes liés à la passerelle de réseau virtuel et aux connexions à l’aide d’Azure Network Watcher
 
 > [!div class="op_single_selector"]
-> - [Portail](diagnose-communication-problem-between-networks.md)
+> - [Portal](diagnose-communication-problem-between-networks.md)
 > - [PowerShell](network-watcher-troubleshoot-manage-powershell.md)
-> - [interface de ligne de commande Azure](network-watcher-troubleshoot-manage-cli.md)
+> - [Interface de ligne de commande Azure](network-watcher-troubleshoot-manage-cli.md)
 > - [API REST](network-watcher-troubleshoot-manage-rest.md)
 
 Le service Network Watcher offre de nombreuses fonctionnalités en lien avec la bonne compréhension de vos ressources réseau dans Azure. Il permet notamment de résoudre les problèmes liés aux ressources. Vous pouvez appeler la solution de résolution des problèmes de ressources par le biais du portail, de PowerShell, de l’interface de ligne de commande ou de l’API REST. Lorsque cette fonctionnalité est appelée, Network Watcher inspecte l’intégrité d’une passerelle de réseau virtuel ou d’une connexion et renvoie ses résultats.
@@ -44,7 +44,7 @@ Ce scénario suppose que vous ayez déjà suivi la procédure décrite dans [Cre
 
 Vous trouverez la liste des types de passerelles pris en charge sur la page [Types de passerelles pris en charge](network-watcher-troubleshoot-overview.md#supported-gateway-types).
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Les fonctionnalités de dépannage de Network Watcher permettent de résoudre les problèmes qui surviennent avec les passerelles de réseau virtuel et les connexions. Lorsqu’une demande de résolution des problèmes liés aux ressources est effectuée, les journaux sont interrogés et inspectés. Lorsque l’inspection est terminée, les résultats sont renvoyés. L’exécution des demandes de l’API de résolution des problèmes nécessite un certain temps : vous devrez peut-être patienter plusieurs minutes avant d’obtenir un résultat. Les journaux sont stockés dans un conteneur sur un compte de stockage.
 
@@ -161,7 +161,7 @@ Les réponses ci-après sont des exemples de réponses dégradées classiques re
         },
         {
           "actionText": "If your VPN gateway isn't up and running by the expected resolution time, contact support",
-          "actionUri": "http://azure.microsoft.com/support",
+          "actionUri": "https://azure.microsoft.com/support",
           "actionUriText": "contact support"
         }
       ]
@@ -178,7 +178,7 @@ Les réponses ci-après sont des exemples de réponses dégradées classiques re
         },
         {
           "actionText": "If you are experiencing problems you believe are caused by Azure, contact support",
-          "actionUri": "http://azure.microsoft.com/support",
+          "actionUri": "https://azure.microsoft.com/support",
           "actionUriText": "contact support"
         }
       ]
@@ -295,7 +295,7 @@ is a transient state while the Azure platform is being updated.",
         },
         {
           "actionText": "If your VPN Connection isn't up and running by the expected resolution time, contact support",
-          "actionUri": "http://azure.microsoft.com/support",
+          "actionUri": "https://azure.microsoft.com/support",
           "actionUriText": "contact support"
         }
       ]
@@ -312,7 +312,7 @@ is a transient state while the Azure platform is being updated.",
         },
         {
           "actionText": "If you are experiencing problems you believe are caused by Azure, contact support",
-          "actionUri": "http://azure.microsoft.com/support",
+          "actionUri": "https://azure.microsoft.com/support",
           "actionUriText": "contact support"
         }
       ]
@@ -325,7 +325,7 @@ is a transient state while the Azure platform is being updated.",
 
 Le texte d’action fournit des indications générales sur la façon de résoudre le problème. Si une action peut être entreprise pour résoudre le problème, un lien est fourni avec des indications supplémentaires. En l’absence d’indications supplémentaires, la réponse fournit l’URL permettant d’ouvrir un dossier de support.  Pour plus d’informations sur les propriétés de la réponse et sur ce qu’elle contient, consultez [Network Watcher Troubleshoot overview (Vue d’ensemble de la résolution des problèmes Network Watcher)](network-watcher-troubleshoot-overview.md)
 
-Pour obtenir des instructions de téléchargement des fichiers à partir des comptes de stockage Azure, consultez [Prise en main du stockage d’objets blob Azure à l’aide de .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). L’explorateur de stockage peut aussi être utilisé. Pour en savoir plus sur l’explorateur de stockage, cliquez sur le lien suivant : [Explorateur de stockage](http://storageexplorer.com/)
+Pour obtenir des instructions de téléchargement des fichiers à partir des comptes de stockage Azure, consultez [Prise en main du stockage d’objets blob Azure à l’aide de .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). L’explorateur de stockage peut aussi être utilisé. Pour en savoir plus sur l’Explorateur Stockage, cliquez sur le lien suivant : [Explorateur Stockage](https://storageexplorer.com/)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -11,12 +11,12 @@ ms.author: shipatel
 author: shivp950
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: b65bc1dc510a02144e57e9d057254963d0c398ed
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: c7dd2fba852881680b43ceabafec2ac6b2751df4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244332"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839591"
 ---
 # <a name="create-and-manage-azure-machine-learning-service-workspaces"></a>Créer et gérer les espaces de travail du service Azure Machine Learning
 
@@ -24,7 +24,7 @@ Dans cet article, vous créez, affichez et supprimez des [**espaces de travail d
 
 ## <a name="create-a-workspace"></a>Créer un espace de travail 
 
-Pour créer un espace de travail, vous avez besoin d’un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez dès aujourd'hui la [version gratuite ou payante d’Azure Machine Learning service](http://aka.ms/AMLFree).
+Pour créer un espace de travail, vous avez besoin d’un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez dès aujourd'hui la [version gratuite ou payante d’Azure Machine Learning service](https://aka.ms/AMLFree).
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 

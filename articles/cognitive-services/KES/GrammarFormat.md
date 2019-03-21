@@ -10,16 +10,16 @@ ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 72dec3effe5e350818c01cf65c9140e778effd17
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 844bd9a88c52fd398fc66c71e59da513c0d7d90d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860284"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544322"
 ---
 # <a name="grammar-format"></a>Format de grammaire
 
-La grammaire est un fichier XML qui spécifie le jeu pondéré des requêtes en langage naturel que le service peut interpréter, ainsi que la façon dont ces requêtes en langage naturel sont traduites en expressions de requête sémantique.  La syntaxe de grammaire est basée sur [SRGS](http://www.w3.org/TR/speech-grammar/), une norme W3C pour les grammaires de reconnaissance vocale, avec des extensions pour prendre en charge l’intégration des index de données et les fonctions sémantiques.
+La grammaire est un fichier XML qui spécifie le jeu pondéré des requêtes en langage naturel que le service peut interpréter, ainsi que la façon dont ces requêtes en langage naturel sont traduites en expressions de requête sémantique.  La syntaxe de grammaire est basée sur [SRGS](https://www.w3.org/TR/speech-grammar/), une norme W3C pour les grammaires de reconnaissance vocale, avec des extensions pour prendre en charge l’intégration des index de données et les fonctions sémantiques.
 
 Le présent article décrit chacun des éléments syntaxiques qui peuvent être utilisés dans une grammaire.  Pour obtenir une grammaire complète qui illustre l’utilisation de ces éléments en contexte, consultez [cet exemple](#example).
 

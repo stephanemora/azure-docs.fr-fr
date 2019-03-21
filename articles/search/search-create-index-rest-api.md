@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 0524bd224e3da3e6a9b18a4225c88e9c43d07606
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: HT
+ms.openlocfilehash: 87da5cdd31abb41a774a46d3891006eb58ac5e4d
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223408"
+ms.locfileid: "58285125"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-powershell-and-the-rest-api"></a>Démarrage rapide : Créer un index Azure Search à l’aide de PowerShell et l’API REST
 > [!div class="op_single_selector"]
@@ -77,7 +77,7 @@ Si le service est vide et ne possède aucun index, les résultats sont similaire
 }
 ```
 
-## <a name="1---create-an-index"></a>1 - créer un index
+## <a name="1---create-an-index"></a>1 - Créer un index
 
 Sauf si vous utilisez le portail, un index doit exister sur le service avant de pouvoir charger des données. Cette étape définit l’index et l’intègre au service. Le [Create Index (API REST)](https://docs.microsoft.com/rest/api/searchservice/create-index) est utilisée pour cette étape.
 
@@ -162,6 +162,8 @@ Résultats doivent ressembler à ceci (tronquée pour les deux premiers champs p
 
 > [!Tip]
 > Pour la vérification, vous pourrez également vérifier la liste des index dans le portail, ou réexécutez la commande utilisée pour vérifier la connexion de service pour voir les *hôtels* index répertoriés dans la collection d’index.
+
+<a name="load-documents"></a>
 
 ## <a name="2---load-documents"></a>2 - charger des documents
 
@@ -253,7 +255,7 @@ Résultats doivent ressembler à l’exemple suivant. Vous devriez voir un code 
 }
 ```
 
-## <a name="3---search-an-index"></a>3 - rechercher dans un index
+## <a name="3---search-an-index"></a>3 - Rechercher dans un index
 
 Cette étape vous montre comment interroger un index à l’aide de la [recherche Documents API](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 

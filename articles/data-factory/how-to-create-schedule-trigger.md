@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: shlo
-ms.openlocfilehash: 70f8533843668a86607e31a551e6ebf9abeab6c4
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 62c9a8e6375f6ac7db86ae81cdd4e5c9eb445770
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016628"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432819"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Créer un déclencheur qui exécute un pipeline selon une planification
 Cet article fournit des informations sur le déclencheur de planification et les étapes pour créer, démarrer et surveiller un déclencheur de planification. Pour les autres types de déclencheurs, consultez [Exécution du pipeline et déclencheurs](concepts-pipeline-execution-triggers.md).
@@ -66,6 +66,9 @@ Vous pouvez créer un **déclencheur de planification** afin de planifier l’ex
     ![Surveiller les exécutions du déclencheur](./media/how-to-create-schedule-trigger/monitor-trigger-runs.png)
 
 ## <a name="azure-powershell"></a>Azure PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Cette section montre comment utiliser Azure PowerShell pour créer, démarrer et surveiller un déclencheur de planification. Pour voir cet exemple en fonctionnement, commencez par suivre le [Guide de démarrage rapide : Créer une fabrique de données à l’aide d’Azure PowerShell](quickstart-create-data-factory-powershell.md). Ensuite, ajoutez le code suivant à la méthode main : il crée et lance un déclencheur de planification qui s’exécute toutes les 15 minutes. Le déclencheur est associé à un pipeline nommé **Adfv2QuickStartPipeline**, créé dans le cadre du guide de démarrage rapide.
 
 1. Créez un fichier JSON nommé **MyTrigger.json** dans le dossier C:\ADFv2QuickStartPSH\ avec le contenu suivant :
@@ -108,34 +111,34 @@ Cette section montre comment utiliser Azure PowerShell pour créer, démarrer et
     - Le déclencheur est associé au pipeline **Adfv2QuickStartPipeline**. Pour associer plusieurs pipelines à un déclencheur, ajoutez d’autres sections **pipelineReference**.
     - Le pipeline du guide de démarrage rapide prend deux valeurs de **paramètres** : **inputPath** et **outputPath**. Par conséquent, les valeurs de ces paramètres sont transmises à partir du déclencheur.
 
-2. Créez un déclencheur avec la cmdlet **Set-AzureRmDataFactoryV2Trigger** :
+2. Créer un déclencheur à l’aide de la **Set-AzDataFactoryV2Trigger** applet de commande :
 
     ```powershell
-    Set-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
+    Set-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
     ```
 
-3. Vérifiez que l’état du déclencheur est **Stopped** avec la cmdlet **Get-AzureRmDataFactoryV2Trigger** :
+3. Vérifiez que l’état du déclencheur est **arrêté** à l’aide de la **Get-AzDataFactoryV2Trigger** applet de commande :
 
     ```powershell
-    Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
+    Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-4. Démarrez le déclencheur avec la cmdlet **Start-AzureRmDataFactoryV2Trigger**.
+4. Démarrez le déclencheur à l’aide de la **Start-AzDataFactoryV2Trigger** applet de commande :
 
     ```powershell
-    Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
+    Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-5. Vérifiez que l’état du déclencheur est **Started** avec la cmdlet **Get-AzureRmDataFactoryV2Trigger** :
+5. Vérifiez que l’état du déclencheur est **démarré** à l’aide de la **Get-AzDataFactoryV2Trigger** applet de commande :
 
     ```powershell
-    Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
+    Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-6.  Récupérez les exécutions du déclencheur dans Azure PowerShell avec la cmdlet **Get-AzureRmDataFactoryV2TriggerRun**. Pour obtenir les d’informations relatives aux exécutions du déclencheur, exécutez la commande suivante régulièrement. Mettez à jour les valeurs **TriggerRunStartedAfter** et **TriggerRunStartedBefore** pour qu’elles correspondent aux valeurs spécifiées dans la définition du déclencheur :
+6.  Get, le déclencheur s’exécute dans Azure PowerShell à l’aide de la **Get-AzDataFactoryV2TriggerRun** applet de commande. Pour obtenir les d’informations relatives aux exécutions du déclencheur, exécutez la commande suivante régulièrement. Mettez à jour les valeurs **TriggerRunStartedAfter** et **TriggerRunStartedBefore** pour qu’elles correspondent aux valeurs spécifiées dans la définition du déclencheur :
 
     ```powershell
-    Get-AzureRmDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
+    Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
     ```
     
     Pour surveiller les exécutions du déclencheur et du pipeline dans le portail Azure, consultez [Surveiller des exécutions de pipelines](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
@@ -322,7 +325,7 @@ Le tableau suivant présente une vue d’ensemble globale des principaux éléme
 
 ### <a name="schema-defaults-limits-and-examples"></a>Valeurs par défaut, limites et exemples du schéma
 
-| Propriété JSON | type | Obligatoire | Valeur par défaut | Valeurs valides | Exemples |
+| Propriété JSON | Type | Obligatoire | Valeur par défaut | Valeurs valides | Exemples |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **startTime** | Chaîne | Oui | Aucun | Dates-Heures ISO-8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
 | **recurrence** | Object | Oui | Aucun | Objet de périodicité | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |

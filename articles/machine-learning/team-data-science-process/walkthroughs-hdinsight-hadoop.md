@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8db11759ce501929e5cfd7b721c5e9dc80f9e01a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: d3c3278a058162632a6ba7ea9731e5f233190700
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473185"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57843706"
 ---
 # <a name="hdinsight-hadoop-data-science-walkthroughs-using-hive-on-azure"></a>Guides de la science des données HDInsight Hadoop avec Hive sur Azure 
 
@@ -36,7 +36,7 @@ Le scénario est implémenté avec Hive et un [cluster Azure HDInsight Hadoop](h
 
 ## <a name="predict-advertisement-clicks-using-hive-with-hdinsight-hadoop"></a>Prédire les clics publicitaires avec Hive et HDInsight Hadoop
 
-Le guide [Utiliser des clusters Azure HDInsight Hadoop sur un jeu de données de 1 To](hive-criteo-walkthrough.md) utilise un jeu de données de clics [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) public pour prédire si un pourboire sera laissé, ainsi que la distribution attendue des montants. Le scénario est implémenté avec Hive et un [cluster Azure HDInsight Hadoop](https://azure.microsoft.com/services/hdinsight/) pour stocker, explorer et sous-échantillonner des données, ainsi qu’effectuer du feature engineering. Il utilise Azure Machine Learning pour générer, entraîner et évaluer un modèle de classification binaire qui prédit si un utilisateur cliquera sur une publicité. Le guide se conclut en expliquant comment publier un de ces modèles en tant que service web.
+Le guide [Utiliser des clusters Azure HDInsight Hadoop sur un jeu de données de 1 To](hive-criteo-walkthrough.md) utilise un jeu de données de clics [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) public pour prédire si un pourboire sera laissé, ainsi que la distribution attendue des montants. Le scénario est implémenté avec Hive et un [cluster Azure HDInsight Hadoop](https://azure.microsoft.com/services/hdinsight/) pour stocker, explorer et sous-échantillonner des données, ainsi qu’effectuer du feature engineering. Il utilise Azure Machine Learning pour générer, entraîner et évaluer un modèle de classification binaire qui prédit si un utilisateur cliquera sur une publicité. Le guide se conclut en expliquant comment publier un de ces modèles en tant que service web.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

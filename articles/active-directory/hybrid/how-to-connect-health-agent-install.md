@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a52b78b62395f571e448a73b8c34847ef16b2613
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 6d6e453819ad749972de89658fa695d803d8e222
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429534"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898820"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Installation de l'agent Azure AD Connect Health
 Ce document vous guide à travers l’installation et la configuration des agents Azure AD Connect Health. Vous pouvez télécharger les agents [ici](how-to-connect-install-roadmap.md#download-and-install-azure-ad-connect-health-agent):
@@ -119,7 +119,7 @@ Pour que la fonctionnalité d’analyse de l’utilisation puisse collecter et a
 1. Cliquez sur **Démarrer**, pointez sur **Programmes**, pointez sur **Outils d’administration**, puis cliquez sur **Stratégie de sécurité locale**.
 2. Accédez au dossier **Security Settings\Local Policies\User Rights Assignment**, puis double-cliquez sur **Générer des audits de sécurité**.
 3. Sous l’onglet **Paramètre de sécurité locale** , vérifiez que le compte de service AD FS 2.0 est répertorié. S’il n’est pas présent, cliquez sur **Ajouter un utilisateur ou un groupe** et ajoutez-le à la liste, puis cliquez sur **OK**.
-4. Pour activer l’audit, ouvrez une invite de commandes avec des privilèges élevés et exécutez la commande suivante : <code>auditpol.exe /set /subcategory:"0CCE9222-69AE-11D9-BED3-505054503030" /failure:enable /success:enable</code>
+4. Pour activer l’audit, ouvrez une invite de commandes avec des privilèges élevés et exécutez la commande suivante : <code>auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable</code>
 5. Fermez **Stratégie de sécurité locale**.
 <br />   -- **Les étapes suivantes sont requises uniquement pour les serveurs AD FS principaux.** -- <br />
 6. Fermez le composant logiciel enfichable **Gestion AD FS**. Pour ouvrir le composant logiciel enfichable Gestion AD FS, cliquez sur **Démarrer**, pointez sur **Programmes**, pointez sur **Outils d’administration**, puis cliquez sur **Gestion AD FS 2.0**.
@@ -132,7 +132,7 @@ Pour que la fonctionnalité d’analyse de l’utilisation puisse collecter et a
 1. Ouvrez **Stratégie de sécurité locale** en ouvrant **Gestionnaire de serveur** sur l’écran d’accueil, ou Gestionnaire de serveur dans la barre des tâches sur le bureau, puis cliquez sur **Outils/Stratégie de sécurité locale**.
 2. Accédez au dossier **Security Settings\Local Policies\User Rights Assignment**, puis double-cliquez sur **Générer des audits de sécurité**.
 3. Sous l’onglet **Paramètre de sécurité locale** , vérifiez que le compte de service AD FS est répertorié. S’il n’est pas présent, cliquez sur **Ajouter un utilisateur ou un groupe** et ajoutez-le à la liste, puis cliquez sur **OK**.
-4. Pour activer l’audit, ouvrez une invite de commandes avec des privilèges élevés et exécutez la commande suivante : ```auditpol.exe /set /subcategory:"0CCE9222-69AE-11D9-BED3-505054503030" /failure:enable /success:enable```.
+4. Pour activer l’audit, ouvrez une invite de commandes avec des privilèges élevés et exécutez la commande suivante : ```auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable```.
 5. Fermez **Stratégie de sécurité locale**.
 <br />   -- **Les étapes suivantes sont requises uniquement pour les serveurs AD FS principaux.** -- <br />
 6. Ouvrez le composant logiciel enfichable **Gestion AD FS** (dans le Gestionnaire de serveur, cliquez sur Outils, puis sélectionnez Gestion AD FS).
@@ -144,7 +144,7 @@ Pour que la fonctionnalité d’analyse de l’utilisation puisse collecter et a
 1. Ouvrez **Stratégie de sécurité locale** en ouvrant **Gestionnaire de serveur** sur l’écran d’accueil, ou Gestionnaire de serveur dans la barre des tâches sur le bureau, puis cliquez sur **Outils/Stratégie de sécurité locale**.
 2. Accédez au dossier **Security Settings\Local Policies\User Rights Assignment**, puis double-cliquez sur **Générer des audits de sécurité**.
 3. Sous l’onglet **Paramètre de sécurité locale** , vérifiez que le compte de service AD FS est répertorié. S’il n’est pas présent, cliquez sur **Ajouter un utilisateur ou un groupe** et ajoutez le compte de service AD FS à la liste, puis cliquez sur **OK**.
-4. Pour activer l’audit, ouvrez une invite de commandes avec des privilèges élevés et exécutez la commande suivante : <code>auditpol.exe /set /subcategory:"0CCE9222-69AE-11D9-BED3-505054503030" /failure:enable /success:enable.</code>.
+4. Pour activer l’audit, ouvrez une invite de commandes avec des privilèges élevés et exécutez la commande suivante : <code>auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable.</code>.
 5. Fermez **Stratégie de sécurité locale**.
 <br />   -- **Les étapes suivantes sont requises uniquement pour les serveurs AD FS principaux.** -- <br />
 6. Ouvrez le composant logiciel enfichable **Gestion AD FS** (dans le Gestionnaire de serveur, cliquez sur Outils, puis sélectionnez Gestion AD FS).
@@ -235,6 +235,28 @@ Si vous avez terminé la configuration, ces services doivent déjà être en cou
 
 ![Vérifier Azure AD Connect Health](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install5.png)
 
+### <a name="quick-agent-installation-in-multiple-servers"></a>Installation de l’agent rapide dans plusieurs serveurs
+1. Créer un compte d’utilisateur dans Azure AD avec un mot de passe.
+2. Affecter le **propriétaire** rôle pour ce compte AAD local dans Azure AD Connect Health via le portail. Suivez les étapes [ici](how-to-connect-health-operations.md#manage-access-with-role-based-access-control). Attribuez le rôle à toutes les instances de service. 
+3. Téléchargez le fichier MSI .exe dans le contrôleur de domaine local pour l’installation.
+4. Exécutez le script suivant à l’inscription. Remplacez les paramètres avec le nouveau compte d’utilisateur créé et son mot de passe. 
+
+```
+AdHealthAddsAgentSetup.exe /quiet
+sleep 30
+$userName = "NEWUSER@DOMAIN"
+$secpasswd = ConvertTo-SecureString "PASSWORD" -AsPlainText -Force
+$myCreds = New-Object System.Management.Automation.PSCredential ($userName, $secpasswd)
+import-module "C:\Program Files\Azure Ad Connect Health Adds Agent\PowerShell\AdHealthAdds"
+ 
+Register-AzureADConnectHealthADDSAgent -UserPrincipalName $USERNAME -Credential $password
+
+```
+1. Une fois que vous avez terminé, vous pouvez supprimer l’accès pour le compte local en effectuant l’une ou plusieurs des opérations suivantes : 
+    * Supprimer l’attribution de rôle pour le compte local pour AAD Connect Health
+    * Faire pivoter le mot de passe du compte local. 
+    * Désactiver le compte local AAD
+    * Supprimer le compte local AAD  
 
 ## <a name="agent-registration-using-powershell"></a>Inscription de l’agent à l’aide de PowerShell
 Après avoir installé le fichier setup.exe de l’agent approprié, vous pouvez effectuer l’étape d’inscription de l’agent à l’aide des commandes PowerShell suivantes, en fonction du rôle. Ouvrez une fenêtre PowerShell et exécutez la commande appropriée :

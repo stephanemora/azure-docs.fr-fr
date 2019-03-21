@@ -4,22 +4,22 @@ description: Fichier Include
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/17/2018
+ms.date: 03/20/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: d7f268618888eb1f3fcd98b13b67635d9e2d056d
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
-ms.translationtype: HT
+ms.openlocfilehash: bb28862ad6452eab3130eeb2dc0b4c269839d306
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988190"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203172"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Appeler l’API Microsoft Graph à partir d’une application de bureau Windows
 
@@ -32,7 +32,7 @@ Ce guide explique comment une application de bureau Windows .NET (XAML) native p
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Fonctionnement de l’exemple d’application de ce guide
 
-![Fonctionnement de ce guide](./media/active-directory-develop-guidedsetup-windesktop-intro/windesktophowitworks.png)
+![Montre comment l’exemple d’application généré par cette fonctionne didacticiels](./media/active-directory-develop-guidedsetup-windesktop-intro/windesktophowitworks-updated.png)
 
 L’exemple d’application que vous créez avec ce guide permet à une application de bureau Windows d’interroger l’API Microsoft Graph ou une API web qui accepte les jetons à partir d’un point de terminaison Azure Active Directory v2.0. Pour ce scénario, vous ajoutez un jeton aux requêtes HTTP via l’en-tête d’autorisation. La bibliothèque d’authentification Microsoft (MSAL) gère l’acquisition et le renouvellement de jetons.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/29/2019
 ms.author: kumud
-ms.openlocfilehash: 18e4a7ae5010730054dd110828c63e8418b93f39
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: 52524e6291faae8ccc27c0d53e9e38ab63a4c8d5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296917"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58132427"
 ---
 # <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>Load Balancer avec réinitialisation TCP au terme du délai d’inactivité (préversion publique)
 
@@ -27,7 +27,7 @@ Vous pouvez utiliser [Standard Load Balancer](load-balancer-standard-overview.md
 ![Réinitialisation TCP de Load Balancer](media/load-balancer-tcp-reset/load-balancer-tcp-reset.png)
 
 >[!NOTE] 
->La fonctionnalité Load Balancer avec réinitialisation TCP pendant un délai d’inactivité est pour l’instant disponible en préversion publique dans un ensemble limité de [régions](#regions). Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>Équilibreur de charge avec la réinitialisation sur la fonctionnalité de délai d’inactivité TCP est disponible en version préliminaire publique pour l’instant. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
  
 Vous modifiez ce comportement par défaut et activez l’envoi des réinitialisations TCP pendant un délai d’inactivité, sur des règles NAT entrantes, des règles d’équilibrage de charge et des [règles de trafic sortant](https://aka.ms/lboutboundrules).  Lorsqu’il est activé par règle, Load Balancer envoie une réinitialisation TCP bidirectionnelle (paquets TCP RST) aux points de terminaison client et serveur pendant un délai d’inactivité de tous les flux correspondants.
 

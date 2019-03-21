@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 3/11/2019
+ms.date: 3/19/2019
 ms.author: barclayn
-ms.openlocfilehash: cd3228b66dbbf19b574c390733340c0ea2fb5a78
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: b28d9607bf35d37e252d7d0bc59d1ce808e38665
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57846886"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259990"
 ---
 # <a name="frequently-asked-questions-faq"></a>Forum Aux Questions (FAQ)
 
@@ -164,7 +164,7 @@ Oui. Vous pouvez envoyer des journaux de l’appliance HSM vers un serveur syslo
 
 ### <a name="q-is-it-possible-to-configure-high-availability-in-the-same-region-or-across-multiple-regions"></a>Q : Puis-je configurer la haute disponibilité dans une même région ou dans plusieurs régions ?
 
-Oui. La haute disponibilité s’installe et se configure dans le logiciel client HSM fourni par Gemalto. Modules de sécurité matériels à partir du même réseau virtuel ou d’autres réseaux virtuels dans la même région ou dans différentes régions ou sur site HSM connecté à un réseau virtuel à l’aide de site à site ou VPN de point à point peut être ajouté à la même configuration de haute disponibilité.
+Oui. La haute disponibilité s’installe et se configure dans le logiciel client HSM fourni par Gemalto. Modules de sécurité matériels à partir du même réseau virtuel ou d’autres réseaux virtuels dans la même région ou dans différentes régions ou sur site HSM connecté à un réseau virtuel à l’aide de site à site ou VPN de point à point peut être ajouté à la même configuration de haute disponibilité. Il convient de noter que cette opération synchronise uniquement matériel de clé et les éléments de configuration non spécifiques tels que les rôles.
 
 ### <a name="q-can-i-add-hsms-from-my-on-premises-network-to-a-high-availability-group-with-azure-dedicated-hsm"></a>Q : Le service HSM dédié Azure me permet-il d’ajouter des modules HSM de mon réseau local à un groupe de haute disponibilité ?
 
@@ -176,13 +176,13 @@ Non.
 
 ### <a name="q-how-many-hsms-can-i-add-to-the-same-high-availability-configuration-from-one-single-application"></a>Q : Combien de HSM puis-je ajouter à une même configuration de haute disponibilité pour une seule application ?
 
-16\.
+16 membres d’un groupe de haute disponibilité a disparu sous exceptionnelle tests avec d’excellents résultats.
 
 ## <a name="support"></a>Support
 
 ### <a name="q-what-is-the-sla-for-dedicated-hsm-service"></a>Q : Quel est le contrat SLA du service HSM dédié ?
 
-À l’heure actuelle, le service HSM dédié n’offre pas de contrat SLA. Cependant, comme Microsoft garantit un accès de niveau réseau à l’appareil, ce sont les contrats SLA de gestion réseau Azure standard qui s’appliquent.
+Il n’existe aucun garantir des temps d’activité spécifiques fournie pour le service HSM dédié. Cependant, comme Microsoft garantit un accès de niveau réseau à l’appareil, ce sont les contrats SLA de gestion réseau Azure standard qui s’appliquent.
 
 ### <a name="q-how-are-the-hsms-used-in-azure-dedicated-hsm-protected"></a>Q : Comment les modules HSM utilisés dans le service HSM dédié Azure sont-ils protégés ?
 
@@ -198,15 +198,19 @@ Il est vivement recommandé d’utiliser une unité de sauvegarde HSM locale pou
 
 ### <a name="q-how-do-i-get-support-for-dedicated-hsm"></a>Q : Comment bénéficier du support pour un HSM dédié ?
 
-De la même façon que pour tous les autres services Azure. Selon le cas, l’équipe de support Azure transmettra votre demande au support Gemalto.
+Prise en charge est fournie par Microsoft et Gemalto.  Si vous avez un problème avec le matériel ou accès réseau, à déclencher une demande de support auprès de Microsoft et si vous rencontrez un problème avec le développement d’application, de logiciels et de configuration de HSM, veuillez rasie une prise en charge de requête avec Gemalto. Si vous rencontrez un problème d’indéterminé, déclencher un withg de demande de support technique Microsoft et puis Gemalto peut être engagé comme requis. 
 
-### <a name="q-how-do-i-get-access-to-dedicated-hsm-client-software-documentation-firmware-images"></a>Q : Comment accéder au logiciel client, à la documentation et aux images de microprogramme du HSM dédié ?
+### <a name="q-how-do-i-get-the-client-software-documentation-and-access-to-integration-guidance-for-the-safenet-luna-7-hsm"></a>Q : Comment obtenir le client logiciel, la documentation et accès à des conseils d’intégration pour le module de HSM SafeNet Luna 7 ?
 
-Le client doit passer directement par Gemalto pour accéder au logiciel client, à la documentation et aux images de système d’exploitation/microprogramme du module HSM.
+Après avoir inscrit pour le service, un ID de client Gemalto sera fournie pour l’inscription dans le portail de support client Gemalto. Cela active l’accès à tous les logiciels et documentation ainsi que l’activation des demandes de support directement avec Gemalto.
 
-### <a name="q-if-there-is-a-security-vulnerability-found-and-a-patch-is-released-by-gemalto-who-is-responsible-for-upgradingpatching-osfirmware"></a>Q : Si une faille de sécurité est détectée et qu’un correctif est publié par Gemalto, qui est chargé de la mise à niveau/mise à jour corrective du système d’exploitation ou du microprogramme ?
+### <a name="q-if-there-is-a-security-vulnerability-found-and-a-patch-is-released-by-gemalto-who-is-responsible-for-upgradingpatching-osfirmware"></a>Q : Si une faille de sécurité est détectée et qu’un correctif est publié par Gemalto, qui est chargé de la mise à niveau/mise à jour corrective du système d’exploitation ou du microprogramme ?
 
 Microsoft n’a pas la possibilité de se connecter aux modules HSM alloués aux clients. Les clients doivent eux-mêmes mettre à niveau et corriger leurs modules HSM.
+
+### <a name="q-what-if-i-need-to-reboot-my-hsm"></a>Q : Que se passe-t-il si j’ai besoin de redémarrer mon HSM ?
+
+ Le module HSM dispose d’une option de redémarrage de ligne de commande et il convient de noter que l’option « redémarrer » doit être utilisée. En cas d’échec pour une raison quelconque, déclenche une demande de support avec Microsoft et nous pouvons avoir l’appareil physiquement redémarré. 
 
 ## <a name="cryptography-and-standards"></a>Chiffrement et standards
 
@@ -262,15 +266,13 @@ Le service HSM dédié provisionne des appliances SafeNet Network HSM 7 (modèl
 
 ### <a name="q-how-many-partitions-can-be-created-in-dedicated-hsm"></a>Q : Combien de partitions peut-on créer dans un HSM dédié ?
 
-Selon le modèle de module HSM utilisé, les partitions disponibles sont au nombre de 10.
+Le modèle de SafeNet Luna HSM 7 qu'a790 utilisée inclut une licence pour 10 partitions dans le coût du service. L’appareil a une limite de 100 partitions et ajout de partitions jusqu'à cette limite est entraînent des coûts de licences supplémentaire et nécessitent l’installation d’un nouveau fichier de licence sur l’appareil.
 
-### <a name="q-how-many-keys-can-be-supported-in-dedicated-hsm"></a>Q : Combien de clés un HSM dédié prend-il en charge ?
+### <a name="q-how-many-keys-can-be-supported-in-dedicated-hsm"></a>Q : Combien de clés un HSM dédié prend-il en charge ?
 
-Nombre maximal de clés. Ces nombres valent aussi pour les paires de clés quand des clés asymétriques sont utilisées.
+Le nombre maximal de clés est une fonction de la mémoire disponible. Le modèle de SafeNet Luna 7 A790 en cours d’utilisation a 32 Mo de mémoire. Les numéros suivants sont également applicables aux paires de clés si à l’aide de clés asymétriques.
 
 * RSA-2048 - 19 000
 * ECC-P256 - 91 000
-* AES-256 - 218 000
 
 La capacité varie en fonction des attributs de clé spécifiques définis dans le modèle de génération de clés et du nombre de partitions.
-

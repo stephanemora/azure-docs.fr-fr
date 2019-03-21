@@ -5,27 +5,27 @@ description: Étude de cas de développement d’un modèle intégré pour l’a
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: a00548bd5eb88c95ea83d492524e2ae10f274bba
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 320dd28ba22d7919e3f3afdcd8baa47780f363dd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453985"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57856110"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio"></a>Analyse de l’attrition des clients à l’aide d’Azure Machine Learning Studio
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Cet article présente une implémentation de référence d’un projet d’analyse de l’attrition des clients, créé à l’aide de Microsoft Azure Machine Learning Studio. Il aborde différents modèles génériques associés afin d’apporter une résolution holistique au problème de l’attrition des clients. Nous mesurons également la précision des modèles générés à l’aide de Machine Learning (ML), en déterminant des directions à suivre pour la suite du développement.  
 
 ### <a name="acknowledgements"></a>Remerciements
 Cette expérience a été développée et testée par Serge Berger, spécialiste des données chez Microsoft, et Roger Barga, anciennement chef de produits pour Microsoft Azure Machine Learning Studio. L’équipe de documentation Azure leur sait gré de leur expertise et les remercie pour ce livre blanc.
 
 > [!NOTE]
-> Les données utilisées pour cette expérience ne sont pas disponibles publiquement. Pour obtenir un exemple montrant comment créer un modèle Machine Learning pour l’analyse de l’attrition, consultez : [Modèle d’attrition Retail](https://gallery.azure.ai/Collection/Retail-Customer-Churn-Prediction-Template-1) dans [Azure AI Gallery](http://gallery.azure.ai/)
+> Les données utilisées pour cette expérience ne sont pas disponibles publiquement. Pour obtenir un exemple montrant comment créer un modèle Machine Learning pour l’analyse de l’attrition, consultez : [Modèle d’attrition Retail](https://gallery.azure.ai/Collection/Retail-Customer-Churn-Prediction-Template-1) dans [Azure AI Gallery](https://gallery.azure.ai/)
 > 
 > 
 
@@ -106,7 +106,7 @@ Les schémas suivants illustrent les données utilisées :
  
 
 > Notez que ces données sont privées et que, par conséquent, le modèle et les données ne peuvent pas être partagés.
-> Toutefois, pour un modèle similaire utilisant des données disponibles publiquement, consultez cet exemple d’expérience dans la [galerie Azure AI](http://gallery.azure.ai/) : [Attrition des clients Telco](http://gallery.azure.ai/Experiment/31c19425ee874f628c847f7e2d93e383).
+> Toutefois, pour un modèle similaire utilisant des données disponibles publiquement, consultez cet exemple d’expérience dans la [galerie Azure AI](https://gallery.azure.ai/) : [Attrition des clients Telco](https://gallery.azure.ai/Experiment/31c19425ee874f628c847f7e2d93e383).
 > 
 > Pour plus d’informations sur la façon dont vous pouvez implémenter un modèle d’analyse de l’attrition à l’aide de Cortana Intelligence Suite, nous vous recommandons également de regarder [cette vidéo](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) proposée par le responsable de programme principal Wee Hyong Tok. 
 > 
@@ -213,13 +213,13 @@ Ce document détaille une approche rationnelle pour la gestion d’un problème 
 ## <a name="references"></a>Références
 [1] Analyse prédictive : Beyond the Predictions, W. McKnight, Information Management, juillet/août 2011, p.18-20.  
 
-[2] Article Wikipedia : [Exactitude et précision](http://en.wikipedia.org/wiki/Accuracy_and_precision)
+[2] Article Wikipedia : [Exactitude et précision](https://en.wikipedia.org/wiki/Accuracy_and_precision)
 
-[3] [CRISP-DM 1.0 : Step-by-Step Data Mining Guide](http://www.the-modeling-agency.com/crisp-dm.pdf)   
+[3] [CRISP-DM 1.0 : Step-by-Step Data Mining Guide](https://www.the-modeling-agency.com/crisp-dm.pdf)   
 
 [4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [Modèle d’attrition de Telco](http://gallery.azure.ai/Experiment/Telco-Customer-Churn-5) dans la [galerie Azure AI](http://gallery.azure.ai/) 
+[5] [Modèle d’attrition de Telco](https://gallery.azure.ai/Experiment/Telco-Customer-Churn-5) dans la [galerie Azure AI](https://gallery.azure.ai/) 
  
 
 ## <a name="appendix"></a>Annexe

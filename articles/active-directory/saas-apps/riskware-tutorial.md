@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Riskware | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Riskware | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Riskware.
 services: active-directory
 documentationCenter: na
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cab9750620d6d7c34de1d6e3404b4ea721f330ed
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 3de8422efdbb7802e0532503e2733518e8050f6d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203911"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842530"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-riskware"></a>Tutoriel : Intégration d’Azure Active Directory à Riskware
 
@@ -110,6 +110,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     ![Informations d’authentification unique dans Domaine et URL Riskware](./media/riskware-tutorial/tutorial_riskware_url.png)
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant :
+
     | Environnement| Modèle d’URL|
     |--|--|
     | UAT|  `https://riskcloud.net/uat?ccode=<COMPANYCODE>` |
@@ -118,6 +119,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     |||
 
     b. Dans la zone de texte **Identificateur (ID d’entité)**, tapez une URL :
+    
     | Environnement| Modèle d’URL|
     |--|--|
     | UAT| `https://riskcloud.net/uat` |
@@ -247,7 +249,7 @@ Pour se connecter à Riskware, les utilisateurs Azure AD doivent être provision
 
     a. Dans la section **Authentication**, sélectionnez le mode **Authentication**, que vous avez configuré comme Configuration d’Azure pour l’authentification unique.
 
-    b. Dans la section **Logon Details**, dans la zone de texte **User ID**, entrez l’adresse e-mail d’un utilisateur comme **brittasimon@contoso.com**.
+    b. Sous **les détails d’ouverture de session** section, dans le **ID utilisateur** zone de texte, entrez l’adresse e-mail de l’utilisateur, par exemple **brittasimon\@contoso.com**.
 
     c. Dans la zone de texte **Password**, tapez le mot de passe de l’utilisateur.
 

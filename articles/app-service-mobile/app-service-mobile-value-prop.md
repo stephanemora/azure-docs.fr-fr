@@ -11,15 +11,15 @@ ms.service: app-service-mobile
 ms.workload: na
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 5df59e886a2a4950e2ca6e1ef96487d3d59e7524
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: f3eb781e7f84e8cf03a975f7cb77f6a7ef074d44
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53718127"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57771799"
 ---
 # <a name="getting-started"></a>À propos de Mobile Apps dans Azure App Service
 Azure App Service est une offre de [plateforme en tant que service](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) entièrement gérée pour les développeurs professionnels. Ce service apporte un ensemble riche de fonctionnalités pour les scénarios web, mobiles et les scénarios d’intégration. 

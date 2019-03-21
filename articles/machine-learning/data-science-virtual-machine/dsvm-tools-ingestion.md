@@ -16,16 +16,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 824793c9897d7d728f621182a02a6092edc69e89
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 92ff5d21fc30d8fcafe97a2b452ff157a2cd5f86
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452377"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57997025"
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Outils d’ingestion de données de la machine virtuelle DSVM
 
-L’une des premières étapes techniques dans un projet de science de données ou d’intelligence artificielle consiste à identifier les jeux de données à utiliser, puis à les importer dans votre environnement analytique. La machine virtuelle DSVM (Data Science Virtual Machine) fournit des outils et des bibliothèques pour importer des données de différentes sources dans un stockage de données analytiques sur la machine DSVM ou dans une plateforme de données sur le cloud ou localement. 
+L’une des premières étapes techniques dans un projet de science de données ou d’intelligence artificielle consiste à identifier les jeux de données à utiliser, puis à les importer dans votre environnement analytique. La Machine virtuelle de science des données (DSVM) fournit des outils et bibliothèques pour afficher des données provenant de différentes sources dans un stockage des données analytiques localement sur la machine virtuelle DSVM ou dans une plateforme de données ou dans le cloud en local. 
 
 Voici quelques outils de déplacement de données que nous vous avons fournis sur la machine virtuelle DSVM. 
 
@@ -34,7 +34,7 @@ Voici quelques outils de déplacement de données que nous vous avons fournis su
 |    |           |
 | ------------- | ------------- |
 | Qu’est-ce que c’est ?   | Outil permettant de copier des données d’objets blob du stockage Azure vers Azure Data Lake Store. Il peut également copier des données entre deux comptes Azure Data Lake Store.      |
-| Versions DSVM prises en charge      |  Windows      |
+| Versions DSVM prises en charge      | Windows      |
 | Utilisations classiques      | Importation de plusieurs objets blob du stockage Azure vers Azure Data Lake Store.      |
 |  Comment l’utiliser/l’exécuter ?    |   Ouvrez une invite de commandes et tapez `adlcopy` pour obtenir de l’aide.    |
 | Liens vers des exemples      | [Utilisation d’AdlCopy](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
@@ -57,7 +57,7 @@ Voici quelques outils de déplacement de données que nous vous avons fournis su
 |    |           |
 | ------------- | ------------- |
 | Qu’est-ce que c’est ?   | Outil permettant de copier des données vers et depuis des fichiers locaux, des objets blob, des fichiers et des tables de stockage Azure.      |
-| Versions DSVM prises en charge      |  Windows      |
+| Versions DSVM prises en charge      | Windows      |
 | Utilisations classiques      | Copie de fichiers vers le stockage d’objets blob, copie d’objets blob entre plusieurs comptes.      |
 |  Comment l’utiliser/l’exécuter ?    |   Ouvrez une invite de commandes et tapez `azcopy` pour obtenir de l’aide.    |
 | Liens vers des exemples      | [AzCopy sur Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy)      |
@@ -69,7 +69,7 @@ Voici quelques outils de déplacement de données que nous vous avons fournis su
 |    |           |
 | ------------- | ------------- |
 | Qu’est-ce que c’est ?   | Outil permettant d’importer des données dans Azure Cosmos DB à partir de différentes sources, notamment des fichiers JSON, des fichiers CSV, SQL, MongoDB, Stockage Table Azure, Amazon DynamoDB et les collections d’API SQL Azure Cosmos DB.      |
-| Versions DSVM prises en charge      |  Windows      |
+| Versions DSVM prises en charge      | Windows      |
 | Utilisations classiques      | Importation de fichiers à partir d’une machine virtuelle vers CosmosDB, importation de données à partir du stockage Table Azure vers CosmosDB ou importation de données à partir d’une base de données SQL Server vers CosmosDB.     |
 |  Comment l’utiliser/l’exécuter ?    |   Pour utiliser la version en ligne de commande, ouvrez une invite de commandes et tapez `dt`. Pour utiliser l’outil GUI, ouvrez une invite de commandes et tapez `dtui`.    |
 | Liens vers des exemples      | [Importation de données dans CosmosDB](https://docs.microsoft.com/azure/cosmos-db/import-data)      |
@@ -81,7 +81,7 @@ Voici quelques outils de déplacement de données que nous vous avons fournis su
 |    |           |
 | ------------- | ------------- |
 | Qu’est-ce que c’est ?   | Outil SQL Server permettant de copier des données entre SQL Server et un fichier de données.      |
-| Versions DSVM prises en charge      |  Windows      |
+| Versions DSVM prises en charge      | Windows      |
 | Utilisations classiques      | Importation d’un fichier CSV dans une table SQL Server, exportation d’une table SQL Server dans un fichier.      |
 |  Comment l’utiliser/l’exécuter ?    |   Ouvrez une invite de commandes et tapez `bcp` pour obtenir de l’aide.    |
 | Liens vers des exemples      | [Utilitaire de copie en bloc](https://docs.microsoft.com/sql/tools/bcp-utility)      |
@@ -104,7 +104,7 @@ Voici quelques outils de déplacement de données que nous vous avons fournis su
 |    |           |
 | ------------- | ------------- |
 | Qu’est-ce que c’est ?   | Outil permettant de connecter des sources de données locales à des services cloud en vue de leur consommation.      |
-| Versions DSVM prises en charge      |  Windows      |
+| Versions DSVM prises en charge      | Windows      |
 | Utilisations classiques      | Connexion d’une machine virtuelle à une source de données locale      |
 |  Comment l’utiliser/l’exécuter ?    |   Démarrez « Passerelle de gestion des données Microsoft » à partir du menu Démarrer.    |
 | Liens vers des exemples      | [Passerelle de gestion de données](https://msdn.microsoft.com/library/dn879362.aspx)      |

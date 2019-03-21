@@ -1,21 +1,21 @@
 ---
-title: Interpréter les résultats de modèle dans Machine Learning Studio
+title: Interpréter des résultats de modèle
 titleSuffix: Azure Machine Learning Studio
 description: Sélection du paramètre optimal défini pour un algorithme en utilisant et visualisant des sorties de modèle de notation.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: 0940cb9e42588990e2109d02fda462f343443876
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: c46f22fb5c906aaffa48f39a0c643ca2a48573f9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456076"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877273"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio"></a>Interpréter les résultats de modèle dans Azure Machine Learning Studio
 Cette rubrique vous explique comment visualiser et interpréter les résultats de prédiction dans Azure Machine Learning Studio. Après avoir formé un modèle et effectué des prédictions sur celui-ci (c’est-à-dire « noté le modèle »), vous avez besoin de comprendre et d’interpréter les résultats de prédiction.
@@ -52,7 +52,7 @@ Azure Machine Learning Studio propose différents modules pour traiter chacun de
 ### <a name="two-class-classification"></a>Classification double classe.
 **Exemple d'expérience**
 
-Un exemple de problème de classification double classe est la classification de fleurs d’iris. La tâche consiste à classer les fleurs d’iris en fonction de leurs caractéristiques. Le jeu de données Iris fourni dans Azure Machine Learning Studio constitue un sous-ensemble de ce fameux [Jeu de données Iris](http://en.wikipedia.org/wiki/Iris_flower_data_set) contenant des instances d’uniquement deux espèces de fleur (classes 0 et 1). Chaque fleur comporte quatre caractéristiques (la longueur des sépales, la largeur des sépales, la longueur des pétales et la largeur des pétales).
+Un exemple de problème de classification double classe est la classification de fleurs d’iris. La tâche consiste à classer les fleurs d’iris en fonction de leurs caractéristiques. Le jeu de données Iris fourni dans Azure Machine Learning Studio constitue un sous-ensemble de ce fameux [Jeu de données Iris](https://en.wikipedia.org/wiki/Iris_flower_data_set) contenant des instances d’uniquement deux espèces de fleur (classes 0 et 1). Chaque fleur comporte quatre caractéristiques (la longueur des sépales, la largeur des sépales, la longueur des pétales et la largeur des pétales).
 
 ![Capture d’écran de l’expérience iris](./media/interpret-model-results/1.png)
 

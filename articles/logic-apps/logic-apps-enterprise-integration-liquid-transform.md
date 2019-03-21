@@ -9,18 +9,18 @@ ms.reviewer: estfan, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/16/2018
-ms.openlocfilehash: 3441350a07047676ac43de23262be6c54912162c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5472a8ce2670a34174d6d39f0d90faca8a7002ad
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58104163"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58292884"
 ---
 # <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>Effectuez des transformations JSON avancées avec des modèles Liquid dans Azure Logic Apps
 
-Vous pouvez effectuer des transformations JSON de base dans vos applications logiques par le biais d’actions d’opérations de données natives telles que **Compose** ou **Parse JSON**. Pour effectuer des transformations JSON avancées, vous pouvez créer des modèles ou des mappages avec [Liquid](https://shopify.github.io/liquid/), qui est un langage de modèle open source destiné aux applications web flexibles. Les modèles Liquid vous permettent de déterminer comment transformer des sorties JSON et soutenir des transformations JSON plus complexes (itérations, flux de contrôle, variables, etc.). 
+Vous pouvez effectuer des transformations JSON de base dans vos applications logiques par le biais d’actions d’opérations de données natives telles que **Compose** ou **Parse JSON**. Pour effectuer des transformations JSON avancées, vous pouvez créer des modèles ou des mappages avec [Liquid](https://shopify.github.io/liquid/), qui est un langage de modèle open source destiné aux applications web flexibles. Un modèle Liquid définit comment transformer la sortie JSON et prend en charge les transformations JSON plus complexes, telles que les itérations, flux de contrôle, variables et ainsi de suite. 
 
-Par conséquent, avant de pouvoir effectuer une transformation Liquid dans votre application logique, vous devez définir le mappage JSON à JSON avec un modèle Liquid et le stocker dans votre compte d’intégration. Cet article vous montre comment créer et utiliser ce modèle ou ce mappage Liquid. 
+Avant de pouvoir effectuer une transformation Liquid dans votre application logique, vous devez d’abord définir le code JSON au mappage JSON avec un modèle Liquid et le stocker dans votre compte d’intégration. Cet article vous montre comment créer et utiliser ce modèle ou ce mappage Liquid. 
 
 ## <a name="prerequisites"></a>Conditions préalables
 
@@ -28,13 +28,16 @@ Par conséquent, avant de pouvoir effectuer une transformation Liquid dans votre
 
 * Des connaissances de base en [création d’applications logiques](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* Un [compte d’intégration](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) de base
+* Base [compte d’intégration](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
 
 * Des connaissances de base sur le [langage de gabarit Liquid.](https://shopify.github.io/liquid/)
 
 ## <a name="create-liquid-template-or-map-for-your-integration-account"></a>Créer un mappage ou un modèle Liquid pour votre compte d’intégration
 
-1. Pour cet exemple, créez l’exemple de modèle Liquid décrit à cette étape. Dans votre modèle Liquid, vous pouvez utiliser [Liquid filtre](https://shopify.github.io/liquid/basics/introduction/#filters), qui utilisent [DotLiquid](https://dotliquidmarkup.org/) et C# conventions de nommage. Toutefois, assurez-vous que vous *commencer les noms des filtres par des caractères majuscules*, pas les caractères minuscules. 
+1. Pour cet exemple, créez l’exemple de modèle Liquid décrit à cette étape. Dans votre modèle Liquid, vous pouvez utiliser [Liquid filtre](https://shopify.github.io/liquid/basics/introduction/#filters), qui utilisent [DotLiquid](https://dotliquidmarkup.org/) et C# conventions de nommage. 
+
+   > [!NOTE]
+   > Assurez-vous que les noms de filtre utiliser *casse de la phrase* dans votre modèle. Sinon, les filtres ne fonctionneront pas.
 
    ```json
    {%- assign deviceList = content.devices | Split: ', ' -%}

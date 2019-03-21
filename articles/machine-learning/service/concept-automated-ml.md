@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 12/12/2018
 ms.custom: seodec18
-ms.openlocfilehash: a489d1a282c924ec1df658a0244745b225f7123e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: bf010e33a5ef77fcfde2506bfef9760a09667a9d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251263"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867250"
 ---
 # <a name="what-is-automated-machine-learning"></a>Qu’est-ce que le machine learning automatisé ?
 
@@ -41,13 +41,13 @@ Le machine learning automatisé est le processus consistant à prendre des donn�
 
 1. Configurez la [cible de calcul](how-to-set-up-training-targets.md) qui sert à entraîner le modèle.
 
-1. Définissez la configuration du machine learning automatisé. Ceci contrôle les paramètres utilisés quand Azure Machine Learning effectue une itération sur différents modèles, les valeurs des hyperparamètres et les métriques à examiner lors de la détermination du meilleur modèle. 
+1. Définissez la configuration du machine learning automatisé. Ceci contrôle les paramètres utilisés quand Azure Machine Learning effectue une itération sur différents modèles, les valeurs des hyperparamètres et les métriques à examiner lors de la détermination du meilleur modèle.
 
 1. Soumettez une exécution d’entraînement.
 
 Pendant l’entraînement, le service Azure Machine Learning crée plusieurs pipelines qui essaient différents paramètres et algorithmes. Il s’arrête une fois qu’il a atteint la limite d’itération que vous avez spécifiée, ou quand il a atteint la valeur cible de la métrique que vous avez spécifiée.
 
-[ ![Machine learning automatisé](./media/how-to-automated-ml/automated-machine-learning.png) ](./media/how-to-automated-ml/automated-machine-learning.png#lightbox)
+[![Apprentissage automatique](./media/how-to-automated-ml/automated-machine-learning.png)](./media/how-to-automated-ml/automated-machine-learning.png#lightbox)
 
 Vous pouvez inspecter les informations d’exécution consignées dans le journal, qui contient les métriques collectées pendant l’exécution. L’exécution de l’entraînement produit aussi un objet sérialisé Python (fichier `.pkl`) contenant le modèle et le prétraitement des données.
 
@@ -58,9 +58,13 @@ Un piège courant du machine learning automatisé est une incapacité à voir le
 1. La connaissance du pipeline de machine learning et de toutes les étapes impliquées, notamment le prétraitement et la caractérisation des données, et les valeurs des hyperparamètres.
 1. La compréhension de la relation entre les variables d’entrée (également appelées « caractéristiques ») et la sortie du modèle.  Le fait de connaître à la fois l’importance et la nature de l’impact de chaque caractéristique sur la valeur prédite aide à mieux comprendre et expliquer le modèle. On parle de « l’importance des caractéristiques ».
 
-Vous pouvez activer l’importance des caractéristiques globale à la demande après l’entraînement pour le pipeline de votre choix, ou bien l’activer pour tous les pipelines dans le cadre de l’entraînement du machine learning automatisé.  Il s’agit d’une fonctionnalité en préversion : nous continuons à investir pour vous fournir des informations plus détaillées qui vous aident à mieux comprendre vos modèles ML.  
+Vous pouvez activer la formation de la demande post importance de fonctionnalité globale pour le pipeline de votre choix, ou activer pour tous les pipelines d’apprentissage machine automatisés dans le cadre. Dans les secteurs fortement réglementés, comme les soins de santé et des informations bancaires, cela est essentiel pour se conformer aux réglementations et les meilleures pratiques.  Voici quelques scénarios réels pour illustrer :
 
-Suivez cet [exemple de notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/model-explanation/auto-ml-model-explanation.ipynb) pour expérimenter les explications des modèles dans Azure Machine Learning.
+1. Une société de fabrication à l’aide de machine learning pour prédire l’échec de l’instrument futures, par conséquent, ils peuvent effectuer de manière proactive activité de maintenance. Une fois que vous connaissez qu'un instrument est sur le point d’échec, ce qui est la cause la plus probable passe afin que la maintenance préventive peut être effectuée rapidement ?
+1. Une institution financière à l’aide de machine learning pour l’emprunt de processus ou applications de carte de crédit. Comment savoir si le modèle fait l’attitude, et si un client demande pour plus d’informations sur pourquoi leur application a été rejetée, comment vous répondra leur ?
+1. Un détaillant en ligne ou un fournisseur de logiciels indépendants à l’aide de machine learning pour prédire l’ATTRITION des clients. Quels sont les principaux contributeurs au client d’évolution, et comment empêcher les clients à partir du produit ?
+
+Il s’agit d’une fonctionnalité en préversion et nous continuerons à investir dans la fourniture des informations plus détaillées pour vous aider à mieux comprendre vos modèles machine learning. Suivez cet [exemple de notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/model-explanation/auto-ml-model-explanation.ipynb) pour expérimenter les explications des modèles dans Azure Machine Learning.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 4da6f5c4513477d1adbf4d7645a66de112eeab23
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
-ms.translationtype: HT
+ms.openlocfilehash: a0ab88b1375f5178ca6f41689de8d2f30f8d7808
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36307483"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728129"
 ---
 # <a name="guidelines"></a>Instructions  
 
 <!--
 ## Guidelines for AppSource  
 -->
----  
+---
 
 ## <a name="guidelines-for-azure-marketplace"></a>Instructions pour la Place de marché Azure  
 
@@ -35,7 +35,7 @@ Si plusieurs personnes nécessite l’accès au même ID Microsoft que celui uti
 
 >[!IMPORTANT]
 >Pour autoriser plusieurs utilisateurs à accéder à votre compte Centre de développement Microsoft, Microsoft vous recommande d’utiliser Azure Active Directory (Azure AD) pour affecter des rôles aux utilisateurs individuels. Chaque utilisateur peut accéder au compte en se connectant avec des informations d’identification Azure AD individuelles. Créez votre ID Microsoft à l’aide d’une adresse e-mail dans un domaine enregistré auprès de votre société. Microsoft recommande que l’adresse e-mail ne soit pas assignée à une personne. Par exemple `windowsapps@fabrikam.com`.  
->*   Pour plus d’informations, consultez la section [Problème : ID Microsoft dans un domaine fédéré Azure AD](#issue-microsoft-id-in-an-azure-ad-federated-domain).  
+>*   Pour plus d’informations, visitez le [problème : ID Microsoft dans un compte Azure AD un domaine fédéré](#issue-microsoft-id-in-an-azure-ad-federated-domain) section.  
 
 *   Limitez l’accès à l’ID Microsoft au plus petit nombre possible de développeurs. 
 *   Configurez une liste de distribution électronique d’entreprise incluant tous les utilisateurs qui doivent accéder à votre compte Centre de développement. Ajoutez l’adresse e-mail de la liste de distribution à vos informations de sécurité. La liste de distribution permet à tous les employés sur la liste de recevoir les codes de sécurité si nécessaire, et gérer les informations de sécurité de votre ID Microsoft. Si la création d’une liste de distribution n’est pas possible, alors le détenteur du compte de messagerie doit être disponible pour accéder aux codes de sécurité et les partager quand cela est nécessaire.  
@@ -49,9 +49,9 @@ Si plusieurs personnes nécessite l’accès au même ID Microsoft que celui uti
 Votre compte Centre de développement doit être principalement accessible à partir d’ordinateurs approuvés. Il est essentiel que vous y accédiez à partir d’ordinateurs approuvés, car il existe une limite du nombre de codes générés par le compte Centre de développement par semaine. L’utilisation d’ordinateurs approuvés permet également d’obtenir l’expérience utilisateur la plus sécurisée et cohérente. 
 *   Pour plus d’informations sur les instructions et la sécurité relatives au compte Centre de développement, consultez la page Ouvrir un compte de développeur à l’adresse [docs.microsoft.com/windows/uwp/publish/opening-a-developer-account](https://docs.microsoft.com/windows/uwp/publish/opening-a-developer-account). 
 
----  
+---
 
-#### <a name="issue-microsoft-id-in-an-azure-ad-federated-domain"></a>Problème : ID Microsoft dans un domaine fédéré Azure AD  
+#### <a name="issue-microsoft-id-in-an-azure-ad-federated-domain"></a>Problème : ID Microsoft dans un domaine fédéré Azure AD  
 Votre compte d’entreprise peut être fédéré via Azure Active Directory (Azure AD). Si vous essayez de créer un ID Microsoft à l’aide d’une adresse e-mail d’entreprise qui est fédérée avec Azure AD, vous recevrez une erreur. Si vous recevez une erreur, vous devez vérifier auprès de votre équipe informatique pour confirmer que votre compte est fédéré via Azure AD. Un e-mail fédéré Azure AD est un problème connu et Microsoft travaille à sa résolution.  
 *   Pour plus d’informations sur Azure AD, consultez la page Documentation Azure Active Directory à l’adresse [docs.microsoft.com/azure/active-directory](https://docs.microsoft.com/azure/active-directory).
 
@@ -75,4 +75,4 @@ Microsoft vous recommande une solution de contournement. Procédez comme suit po
 ## <a name="next-steps"></a>Étapes suivantes
 *   Consultez la page [Guide de l’éditeur Place de marché Azure et AppSource](./marketplace-publishers-guide.md).  
  
----  
+---

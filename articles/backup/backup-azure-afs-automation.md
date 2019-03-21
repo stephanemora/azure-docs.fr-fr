@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: pullabhk
-ms.openlocfilehash: 489de7b2fe87d1bb218e3fce39f269d866d66dd7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 83fe8d17699c19d442fd734d71d828eb9fd9d6ed
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57845169"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258358"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>Sauvegarder et restaurer des fichiers Azure avec PowerShell
 
@@ -240,9 +240,9 @@ testAzureFS       ConfigureBackup      Completed            11/12/2018 2:15:26 P
 
 Utilisez [AzRecoveryServicesBackupItem de sauvegarde](https://docs.microsoft.com/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem?view=azps-1.4.0) pour exécuter une sauvegarde à la demande pour un partage de fichiers Azure protégé.
 
-1. Récupérer le compte de stockage et partage de fichiers à partir du conteneur dans le coffre qui contient vos données de sauvegarde avec [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices.backup/get-Azrecoveryservicesbackupcontainer).
-2. Pour démarrer un travail de sauvegarde, vous obtenez des informations sur la machine virtuelle avec [Get-AzRecoveryServicesBackupItem](/powershell/module/Az.RecoveryServices.Backup/Get-AzRecoveryServicesBackupItem).
-3. Exécuter une sauvegarde à la demande avec[AzRecoveryServicesBackupItem de sauvegarde](/powershell/module/az.recoveryservices.backup/backup-Azrecoveryservicesbackupitem).
+1. Récupérer le compte de stockage et partage de fichiers à partir du conteneur dans le coffre qui contient vos données de sauvegarde avec [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-Azrecoveryservicesbackupcontainer).
+2. Pour démarrer un travail de sauvegarde, vous obtenez des informations sur la machine virtuelle avec [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem).
+3. Exécuter une sauvegarde à la demande avec[AzRecoveryServicesBackupItem de sauvegarde](/powershell/module/az.recoveryservices/backup-Azrecoveryservicesbackupitem).
 
 Exécutez la sauvegarde à la demande comme suit :
     

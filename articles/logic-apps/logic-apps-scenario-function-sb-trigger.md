@@ -5,22 +5,23 @@ services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
+ms.author: estfan
 ms.reviewer: jehollan, klam, LADocs
 ms.topic: article
 ms.assetid: 19cbd921-7071-4221-ab86-b44d0fc0ecef
 ms.date: 08/25/2018
-ms.openlocfilehash: 69a4e4c59038599a7375466c46878bdd017582fa
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: 1d3c4039ae823d3797e768af5892333d4d925268
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231608"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57789939"
 ---
-# <a name="scenario-trigger-logic-apps-with-azure-functions-and-azure-service-bus"></a>Scénario : déclencher des applications logiques avec Azure Functions et Azure Service Bus
+# <a name="scenario-trigger-logic-apps-with-azure-functions-and-azure-service-bus"></a>Scénario : Déclencher des applications logiques avec Azure Functions et Azure Service Bus
 
 Vous pouvez utiliser Azure Functions afin de créer un déclencheur pour une application logique lorsque vous avez besoin de déployer un écouteur ou une tâche de longue durée. Par exemple, vous pouvez créer une fonction qui écoute une file d’attente, puis déclenche immédiatement une application logique en tant que déclencheur d’émission.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>. 
 
@@ -34,9 +35,9 @@ Dans cet exemple, une fonction est en cours d’exécution pour chaque applicati
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com) et créez une application logique vide. 
 
-   Si vous débutez avec les applications logiques, consultez la page [Démarrage rapide : Créer sa première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+   Si vous débutez avec logic apps, consultez [Guide de démarrage rapide : Créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-1. Dans la zone de recherche, entrez « http request ». Dans la liste des déclencheurs, sélectionnez **Lors de la réception d’une requête HTTP**.
+1. Dans la zone de recherche, entrez « http request ». Dans la liste des déclencheurs, sélectionnez ce déclencheur : **Lors de la réception d’une requête HTTP**
 
    ![Sélectionner le déclencheur](./media/logic-apps-scenario-function-sb-trigger/when-http-request-received-trigger.png)
 
@@ -98,7 +99,7 @@ Maintenant, créez la fonction qui agit comme déclencheur et écoute la file d�
 
 1. Sur le Portail Azure, ouvrez et développez votre application de fonction, si ce n’est pas déjà le cas. 
 
-1. Sous le nom de votre application de fonction, développez **Fonctions**. Dans le volet **Fonction**, choisissez **Nouvelle fonction**. Sélectionnez ce modèle : **Déclencheur de file d’attente Service Bus – C#**.
+1. Sous le nom de votre application de fonction, développez **Fonctions**. Dans le volet **Fonction**, choisissez **Nouvelle fonction**. Sélectionnez ce modèle : **Déclencheur de file d’attente de Bus de service :C#**
    
    ![Sélectionner le portail Azure Functions](./media/logic-apps-scenario-function-sb-trigger/newqueuetriggerfunction.png)
 
@@ -114,14 +115,14 @@ Maintenant, créez la fonction qui agit comme déclencheur et écoute la file d�
    
    private static string logicAppUri = @"https://prod-05.westus.logic.azure.com:443/.........";
    
+   // Re-use instance of http clients if possible - https://docs.microsoft.com/en-us/azure/azure-functions/manage-connections
+   private static HttpClient httpClient = new HttpClient();
+   
    public static void Run(string myQueueItem, TraceWriter log)
    {
        log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
 
-       using (var client = new HttpClient())
-       {
-           var response = client.PostAsync(logicAppUri, new StringContent(myQueueItem, Encoding.UTF8, "application/json")).Result;
-       }
+       var response = httpClient.PostAsync(logicAppUri, new StringContent(myQueueItem, Encoding.UTF8, "application/json")).Result;
    }
    ```
 

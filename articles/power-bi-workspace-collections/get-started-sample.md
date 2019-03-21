@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: fdbbfaf4a4c3df90302b0b69e4964b7a073f2fa4
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 222c2983d83fe2373159ea542260be7b5a8d8ce5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237958"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57885179"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Exemple de prise en main des collections d’espaces de travail Power BI
 
@@ -28,7 +28,7 @@ Avant de poursuivre, vous souhaitez enregistrer les ressources suivantes. Elles 
 
 * [Exemple d’application web d’espace de travail](https://go.microsoft.com/fwlink/?LinkId=761493)
 * [Informations de référence sur les API des collections d’espaces de travail Power BI](https://msdn.microsoft.com/library/azure/mt711507.aspx)
-* [Kit de développement logiciel (SDK) .NET Power BI](https://go.microsoft.com/fwlink/?LinkId=746472) (disponible par le biais de NuGet)
+* [Power BI .NET SDK](https://go.microsoft.com/fwlink/?LinkId=746472) (disponible via NuGet)
 * [Exemple de rapport JavaScript intégré](https://microsoft.github.io/PowerBI-JavaScript/demo)
 
 > [!NOTE]
@@ -93,7 +93,7 @@ Une fois que vous avez cliqué sur un rapport, l’application web **EmbedSample
 
 ## <a name="explore-the-sample-code"></a>Explorer l’exemple de code
 
-L’exemple de **collections d’espaces de travail Microsoft Power BI** est un exemple d’application web qui vous indique comment intégrer des rapports **Power BI** dans votre application. Il utilise un modèle de conception MVC (Model-View-Controller) pour illustrer les meilleures pratiques. Cette section met en évidence les parties de l’exemple de code que vous pouvez explorer dans la solution d’application web **PowerBI-embedded**. Le modèle MVC (Model-View-Controller) sépare la modélisation du domaine, la présentation et les actions basées sur l’entrée de l’utilisateur en trois classes distinctes : modèle, affichage et contrôle. Pour plus d’informations sur MVC, consultez [En savoir plus sur ASP.NET](http://www.asp.net/mvc).
+L’exemple de **collections d’espaces de travail Microsoft Power BI** est un exemple d’application web qui vous indique comment intégrer des rapports **Power BI** dans votre application. Il utilise un modèle de conception MVC (Model-View-Controller) pour illustrer les meilleures pratiques. Cette section met en évidence les parties de l’exemple de code que vous pouvez explorer dans la solution d’application web **PowerBI-embedded**. Le modèle MVC (Model-View-Controller) sépare la modélisation du domaine, la présentation et les actions basées sur l’entrée de l’utilisateur en trois classes distinctes : modèle, affichage et contrôle. Pour plus d’informations sur MVC, consultez [En savoir plus sur ASP.NET](https://www.asp.net/mvc).
 
 L’exemple de code relatif aux **collections d’espaces de travail Microsoft Power BI** inclut les sections suivantes. Chacune d’elles inclut le nom de fichier dans la solution PowerBI-embedded.sln afin que vous puissiez facilement trouver le code dans l’exemple.
 
@@ -270,4 +270,4 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [Exemple d’incorporation JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 
-Des questions ? [Essayer la communauté Power BI](http://community.powerbi.com/)
+Des questions ? [Essayer la communauté Power BI](https://community.powerbi.com/)

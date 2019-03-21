@@ -9,14 +9,15 @@ ms.date: 10/29/2018
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa6f0aeaa39114efbf3bd5587eac5744db386672
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 860a059f57578965045ff8e7f404c3b072df03a1
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58105231"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293819"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>FAQ sur Azure Active Directory B2B Collaboration
 
@@ -59,9 +60,9 @@ Absolument. Pour plus d’informations, consultez [Ajouter des utilisateurs invi
  Oui. Lorsque vous configurez cette stratégie, faites attention à ne pas bloquer accidentellement l’accès aux membres et aux administrateurs.
 Pour bloquer l’accès d’un utilisateur invité au [portail Azure](https://portal.azure.com), utilisez une stratégie d’accès conditionnel dans l’API Modèle de déploiement Azure Classic :
 1. Modifiez le groupe **Tous les utilisateurs** pour qu’il contienne uniquement les membres.
-   ![capture d’écran - modifier le groupe](media/faq/modify-all-users-group.png)
+   ![Capture d’écran montrant groupe tous les utilisateurs où UserType n’est pas égale invité ](media/faq/modify-all-users-group.png)
 2. Créez un groupe dynamique contenant des utilisateurs invités.
-   ![capture d’écran - créer un groupe](media/faq/group-with-guest-users.png)
+   ![Capture d’écran montrant un nouveau groupe de tous les utilisateurs invités](media/faq/group-with-guest-users.png)
 3. Configurez une stratégie d’accès conditionnel pour empêcher les utilisateurs invités d’accéder au portail, comme le montre la vidéo suivante :
   
    > [!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user/Player] 

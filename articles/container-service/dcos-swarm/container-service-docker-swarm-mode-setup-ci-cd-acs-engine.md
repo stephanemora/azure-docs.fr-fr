@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/27/2017
 ms.author: diegomrtnzg
 ms.custom: mvc
-ms.openlocfilehash: a2ecc2b0b8bfcf65d2ba566b8524a0c37c89ab78
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 8aa62e4ed65f8223071786ac165f8343cb6901d5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980548"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079092"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>(DÉPRÉCIÉ) Pipeline CI/CD complet pour déployer une application à plusieurs conteneurs sur Azure Container Service, avec le moteur ACS et le mode Docker Swarm par le biais d’Azure DevOps
 
@@ -46,7 +46,7 @@ Voici une brève explication de ces étapes :
 7. Le mode Docker Swarm sur le cluster extrait la dernière version des images 
 8. La nouvelle version de l’application est déployée à l’aide de Docker Stack 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Avant de commencer ce didacticiel, vous devez effectuer les tâches suivantes :
 
@@ -163,21 +163,21 @@ Il vous faut deux étapes Docker pour chaque image, une pour créer l’image et
 
    ![Azure DevOps - Ajouter une tâche en ligne de commande](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-command-task.png)
 
-      1. Une tâche de ligne de commande qui utilise un script bash pour remplacer l’occurrence *RegistryURL* dans le fichier docker-compose.yml par la variable RegistryURL. 
+   1. Une tâche de ligne de commande qui utilise un script bash pour remplacer l’occurrence *RegistryURL* dans le fichier docker-compose.yml par la variable RegistryURL. 
     
-          ```-c "sed -i 's/RegistryUrl/$(RegistryURL)/g' src/docker-compose-v3.yml"```
+       ```-c "sed -i 's/RegistryUrl/$(RegistryURL)/g' src/docker-compose-v3.yml"```
 
-          ![Azure DevOps - Mettre à jour le fichier Compose avec l’URL du Registre](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-replace-registry.png)
+       ![Azure DevOps - Mettre à jour le fichier Compose avec l’URL du Registre](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-replace-registry.png)
 
-      2. Une tâche de ligne de commande qui utilise un script bash pour remplacer l’occurrence *AgentURL* dans le fichier docker-compose.yml par la variable AgentURL.
+   2. Une tâche de ligne de commande qui utilise un script bash pour remplacer l’occurrence *AgentURL* dans le fichier docker-compose.yml par la variable AgentURL.
   
-          ```-c "sed -i 's/AgentUrl/$(AgentURL)/g' src/docker-compose-v3.yml"```
+       ```-c "sed -i 's/AgentUrl/$(AgentURL)/g' src/docker-compose-v3.yml"```
 
-     3. Une tâche qui supprime le fichier Compose mis à jour comme un artefact de build afin qu’il puisse être utilisé dans la mise en production. Consultez l’écran suivant pour plus de détails.
+      1. Une tâche qui supprime le fichier Compose mis à jour comme un artefact de build afin qu’il puisse être utilisé dans la mise en production. Consultez l’écran suivant pour plus de détails.
 
-         ![Azure DevOps - Publier un artefact](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish.png) 
+      ![Azure DevOps - Publier un artefact](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish.png) 
 
-         ![Azure DevOps - Publier le fichier Compose](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish-compose.png) 
+      ![Azure DevOps - Publier le fichier Compose](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish-compose.png) 
 
 5. Cliquez sur **Enregistrer et mettre en file d’attente** pour tester le pipeline de build.
 
@@ -187,7 +187,7 @@ Il vous faut deux étapes Docker pour chaque image, une pour créer l’image et
 
 6. Si la **build** est correcte, cet écran doit appaître :
 
-  ![Azure DevOps - Build réussie](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-succeeded.png) 
+   ![Azure DevOps - Build réussie](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-succeeded.png) 
 
 ## <a name="step-3-create-the-release-pipeline"></a>Étape 3 : Créer le pipeline de mise en production
 
@@ -235,14 +235,14 @@ Le flux de travail de mise en production est composé de deux tâches que vous a
 
     La commande exécutée sur le nœud principal utilise les interfaces de ligne de commande Docker et Docker-Compose pour effectuer les tâches suivantes :
 
-    - Connexion au registre de conteneurs Azure Container Registry (il utilise trois variables de build qui sont définies sous l’onglet **Variables**)
-    - définition de la variable **DOCKER_HOST** pour fonctionner avec le point de terminaison Swarm (:2375) ;
-    - accès au dossier *deploy* qui a été créé par la tâche de copie sécurisée précédente et qui contient le fichier docker-compose.yml ; 
-    - Exécution des commandes `docker stack deploy` qui extraient les nouvelles images et créent les conteneurs.
+   - Connexion au registre de conteneurs Azure Container Registry (il utilise trois variables de build qui sont définies sous l’onglet **Variables**)
+   - définition de la variable **DOCKER_HOST** pour fonctionner avec le point de terminaison Swarm (:2375) ;
+   - accès au dossier *deploy* qui a été créé par la tâche de copie sécurisée précédente et qui contient le fichier docker-compose.yml ; 
+   - Exécution des commandes `docker stack deploy` qui extraient les nouvelles images et créent les conteneurs.
 
-    >[!IMPORTANT]
-    > Comme indiqué dans l’écran précédent, laissez la case **Échec sur STDERR** désactivée. Ce paramètre permet de compléter le processus de mise en production, car `docker-compose` imprime plusieurs messages de diagnostic, par exemple pour les conteneurs en cours d’arrêt ou de suppression, sur la sortie d’erreur standard. Si vous activez la case à cocher, Azure DevOps signale que des erreurs se sont produites lors de la mise en production, même si tout s’est bien passé.
-    >
+     >[!IMPORTANT]
+     > Comme indiqué dans l’écran précédent, laissez la case **Échec sur STDERR** désactivée. Ce paramètre permet de compléter le processus de mise en production, car `docker-compose` imprime plusieurs messages de diagnostic, par exemple pour les conteneurs en cours d’arrêt ou de suppression, sur la sortie d’erreur standard. Si vous activez la case à cocher, Azure DevOps signale que des erreurs se sont produites lors de la mise en production, même si tout s’est bien passé.
+     >
 3. Enregistrez ce nouveau pipeline de mise en production.
 
 ## <a name="step-4-test-the-cicd-pipeline"></a>Étape 4 : test du pipeline CI/CD

@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 0171b3ae2f45d46769b13ac0849593944c6a6209
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 081acf572c5b23d52ec0b8b7de1918edc9536c60
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124992"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58305197"
 ---
 Les problèmes de diagnostic avec un service cloud Microsoft Azure nécessitent la collecte des fichiers journaux du service sur les machines virtuelles au fur et à mesure que les problèmes surviennent. Vous pouvez utiliser l’extension AzureLogCollector à la demande pour exécuter une collecte unique de journaux à partir d’une ou de plusieurs machines virtuelles de service cloud (à partir des rôles web et de travail) et transférer les fichiers collectés dans un compte de stockage Azure, le tout sans connexion à distance à l’une des machines virtuelles.
 
@@ -360,7 +360,7 @@ if ($AdditionDataLocationList -ne $null )
 $publicConfigJSON = $publicConfig | ConvertTo-Json
 "publicConfig is:  $publicConfigJSON"
 
-#we just provide a empty privateConfig object
+#we just provide an empty privateConfig object
 $privateconfig = "{
 }"
 
@@ -452,7 +452,7 @@ $publicConfigJSON = $publicConfig | ConvertTo-Json
 Write-Output "PublicConfiguration is: \r\n$publicConfigJSON"
 
 #
-#we just provide a empty privateConfig object
+#we just provide an empty privateConfig object
 #
 $privateconfig = "{
 }"

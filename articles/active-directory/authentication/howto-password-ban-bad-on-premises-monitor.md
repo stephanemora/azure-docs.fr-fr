@@ -1,5 +1,5 @@
 ---
-title: Supervision et journalisation dans la protection par mot de passe Azure AD (préversion)
+title: Surveillance et la journalisation dans la Protection de mot de passe Azure AD
 description: Comprendre la supervision et la journalisation dans la protection par mot de passe Azure AD
 services: active-directory
 ms.service: active-directory
@@ -11,23 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1f946eceab68b0fe49ea67dc33a7094458cd14c
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: b1e12addc15afe0c0745e0e8d5a9b6718483d477
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451484"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293717"
 ---
-# <a name="preview-azure-ad-password-protection-monitoring-and-logging"></a>Aperçu : Supervision et journalisation dans la protection par mot de passe Azure AD
-
-|     |
-| --- |
-| La protection par mot de passe Azure AD est une fonctionnalité en préversion publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+# <a name="azure-ad-password-protection-monitoring-and-logging"></a>Supervision et journalisation dans la protection par mot de passe Azure AD
 
 Après le déploiement de la protection par mot de passe Azure AD, la supervision et la génération de rapports sont des tâches essentielles. Cet article détaillé vous aide à comprendre plusieurs techniques de supervision, notamment en vous expliquant où chaque service journalise les informations et en vous montrant comment créer des rapports sur l’utilisation de la protection par mot de passe Azure AD.
 
-# <a name="dc-agent-event-logging"></a>Journalisation des événements de l’agent de contrôleur de domaine (DC)
+## <a name="dc-agent-event-logging"></a>Journalisation des événements de l’agent de contrôleur de domaine (DC)
 
 Sur chaque contrôleur de domaine, le logiciel du service d’agent DC écrit les résultats de chacune des opérations de validation de mot de passe (et un autre état) dans un journal d’événements local :
 

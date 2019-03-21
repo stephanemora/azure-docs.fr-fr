@@ -9,20 +9,20 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017
-ms.openlocfilehash: 164d705a16dd82a1c5f3ff6f5e6982f80eb40dab
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 180cbb9c31d14c36679bb84f92b3c9892ee3602d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330866"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58011152"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Transmission de votre première image vers un Registre de conteneur Docker privé à l’aide de l’interface de ligne de commande (CLI) Docker
 
-Un Registre de conteneur Azure stocke et gère les images privées du conteneur [Docker](http://hub.docker.com), de la même manière que [Docker Hub](https://hub.docker.com/) stocke les images publiques du Docker. Vous pouvez utiliser [l’interface de ligne de commande Docker](https://docs.docker.com/engine/reference/commandline/cli/) (interface CLI Docker) pour la [connexion (login)](https://docs.docker.com/engine/reference/commandline/login/), la [poussée (push)](https://docs.docker.com/engine/reference/commandline/push/), le [tirage (pull)](https://docs.docker.com/engine/reference/commandline/pull/) et autres opérations sur le registre du conteneur.
+Un Registre de conteneur Azure stocke et gère les images privées du conteneur [Docker](https://hub.docker.com), de la même manière que [Docker Hub](https://hub.docker.com/) stocke les images publiques du Docker. Vous pouvez utiliser [l’interface de ligne de commande Docker](https://docs.docker.com/engine/reference/commandline/cli/) (interface CLI Docker) pour la [connexion (login)](https://docs.docker.com/engine/reference/commandline/login/), la [poussée (push)](https://docs.docker.com/engine/reference/commandline/push/), le [tirage (pull)](https://docs.docker.com/engine/reference/commandline/pull/) et autres opérations sur le registre du conteneur.
 
 Dans les étapes suivantes, téléchargez une [image Nginx](https://store.docker.com/images/nginx) officielle à partir du registre Docker Hub public, étiquetez-la pour votre registre de conteneurs Azure privé, poussez-la dans votre registre, puis tirez-la du registre.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * **Azure Container Registry** : créez un Registre de conteneur dans votre abonnement Azure. Par exemple, utilisez le [portail Azure](container-registry-get-started-portal.md) ou [Azure CLI](container-registry-get-started-azure-cli.md).
 * **Docker CLI** : Docker doit également être installé en local. Docker fournit des packages qui le configurent facilement sur n’importe quel système [macOS][docker-mac], [Windows][docker-windows] ou [Linux][docker-linux].
@@ -62,7 +62,7 @@ Exécutez la commande [docker run](https://docs.docker.com/engine/reference/run/
 docker run -it --rm -p 8080:80 nginx
 ```
 
-Accédez à [http://localhost:8080](http://localhost:8080) pour afficher la page web par défaut servie par Nginx dans le conteneur en cours d’exécution. Une page similaire à celle ci-dessous doit s'afficher :
+Accédez à `http://localhost:8080` pour afficher la page web par défaut servie par Nginx dans le conteneur en cours d’exécution. Une page similaire à celle ci-dessous doit s'afficher :
 
 ![Nginx sur un ordinateur local](./media/container-registry-get-started-docker-cli/nginx.png)
 
@@ -104,7 +104,7 @@ Utilisez la commande [docker run](https://docs.docker.com/engine/reference/run/)
 docker run -it --rm -p 8080:80 myregistry.azurecr.io/samples/nginx
 ```
 
-Accédez à [http://localhost:8080](http://localhost:8080) pour afficher le conteneur en cours d’exécution.
+Accédez à `http://localhost:8080` pour afficher le conteneur en cours d’exécution.
 
 Pour arrêter et supprimer le conteneur, appuyez sur `Control`+`C`.
 

@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/09/2018
+ms.date: 03/05/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 0a4be349bfd8ce546ee2a27c206a7bd86306c27a
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 91a776ba13ffaeeb4f8184371ae45a80d829ae46
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493556"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550622"
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitation des requêtes de Resource Manager
 
@@ -35,7 +35,7 @@ Lorsque vous atteignez la limite, vous recevez le code d’état HTTP **429 Trop
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="remaining-requests"></a>Requêtes restantes
-Vous pouvez déterminer le nombre de requêtes restantes en examinant les en-têtes de réponse. Chaque demande contient des valeurs pour le nombre de requêtes de lecture et d’écriture restantes. Le tableau suivant décrit les en-têtes de réponse que vous pouvez examiner pour ces valeurs :
+Vous pouvez déterminer le nombre de requêtes restantes en examinant les en-têtes de réponse. Demandes de lecture retournent une valeur dans l’en-tête pour le nombre de demandes de lecture restants. Écrire des demandes incluent une valeur pour le nombre de requêtes d’écriture restantes. Le tableau suivant décrit les en-têtes de réponse que vous pouvez examiner pour ces valeurs :
 
 | En-tête de réponse | Description |
 | --- | --- |
@@ -82,7 +82,7 @@ OK
 
 Headers:
 Pragma                        : no-cache
-x-ms-ratelimit-remaining-subscription-reads: 14999
+x-ms-ratelimit-remaining-subscription-reads: 11999
 ```
 
 Pour obtenir des limites d’écriture, utilisez une opération d’écriture : 
@@ -121,7 +121,7 @@ msrest.http_logger :     'Content-Type': 'application/json; charset=utf-8'
 msrest.http_logger :     'Content-Encoding': 'gzip'
 msrest.http_logger :     'Expires': '-1'
 msrest.http_logger :     'Vary': 'Accept-Encoding'
-msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-reads': '14998'
+msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-reads': '11998'
 ```
 
 Pour obtenir des limites d’écriture, utilisez une opération d’écriture : 

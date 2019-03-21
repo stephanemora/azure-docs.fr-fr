@@ -3,20 +3,20 @@ title: Environnements de calcul pris en charge par Azure Data Factory | Microsof
 description: Découvrez les environnements de calcul que vous pouvez utiliser dans les pipelines Azure Data Factory (tels qu’Azure HDInsight) pour transformer ou traiter les données.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/15/2019
-ms.author: douglasl
-ms.openlocfilehash: 5e620b03f5588369fc73a62f2019d857766596fd
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: b4078303a0fabf70fe8bda82875dd312714f73de
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321940"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576886"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Environnements de calcul pris en charge par Azure Data Factory
 Cet article décrit les différents environnements de calcul que vous pouvez utiliser pour traiter ou transformer des données. Il fournit également des détails sur les différentes configurations (à la demande ou de type « apporter votre propre configuration ») prises en charge par Data Factory lors de la configuration des services liés qui relient ces environnements de calcul à Azure Data Factory.
@@ -91,7 +91,7 @@ Le JSON suivant définit un service lié HDInsight à la demande sous Linux. Le 
 > [!IMPORTANT]
 > Le cluster HDInsight crée un **conteneur par défaut** dans le stockage d’objets blob que vous avez spécifié dans le JSON (**linkedServiceName**). HDInsight ne supprime pas ce conteneur lorsque le cluster est supprimé. Ce comportement est normal. Avec le service lié HDInsight à la demande, un cluster HDInsight est créé à chaque fois qu’une tranche doit être traitée, à moins qu’il n’existe un cluster activé (**timeToLive**), et est supprimé une fois le traitement activé. 
 >
-> Pendant la poursuite de l’activité, vous voyez de nombreux conteneurs dans votre Stockage Blob Azure. Si vous n’en avez pas besoin pour dépanner les travaux, il se peut que vous deviez les supprimer pour réduire les frais de stockage. Les noms de ces conteneurs sont conformes au modèle suivant : `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Utilisez des outils tels que [Microsoft Storage Explorer](http://storageexplorer.com/) pour supprimer des conteneurs dans votre stockage d’objets blob Azure.
+> Pendant la poursuite de l’activité, vous voyez de nombreux conteneurs dans votre Stockage Blob Azure. Si vous n’en avez pas besoin pour dépanner les travaux, il se peut que vous deviez les supprimer pour réduire les frais de stockage. Les noms de ces conteneurs sont conformes au modèle suivant : `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Utilisez des outils tels que [Microsoft Storage Explorer](https://storageexplorer.com/) pour supprimer des conteneurs dans votre stockage d’objets blob Azure.
 >
 > 
 
@@ -304,13 +304,15 @@ Vous pouvez créer un service lié Azure HDInsight pour inscrire votre propre cl
 
 ## <a name="azure-batch-linked-service"></a>Service lié Azure Batch
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Vous pouvez créer un service lié Azure Batch pour inscrire un pool de machines virtuelles (VM) Batch à une fabrique de données. Vous pouvez exécuter l’activité personnalisée à l’aide d’Azure Batch.
 
 Consultez les rubriques suivantes si vous ne connaissez pas le service Azure Batch :
 
 * [Présentation de base d’Azure Batch](../batch/batch-technical-overview.md) pour une vue d’ensemble du service Azure Batch.
-* Applet de commande [New-AzureRmBatchAccount](/powershell/module/azurerm.batch/New-AzureRmBatchAccount?view=azurermps-4.3.1) pour créer un compte Azure Batch (ou) [Portail Azure](../batch/batch-account-create-portal.md) pour créer le compte Azure Batch à l’aide du portail Azure. Pour obtenir des instructions détaillées sur l'utilisation de l'applet de commande, consultez la rubrique [Utilisation de PowerShell pour gérer un compte Azure Batch](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) .
-* [New-AzureBatchPool](/powershell/module/azurerm.batch/New-AzureBatchPool?view=azurermps-4.3.1) pour créer un pool Azure Batch.
+* [Nouvelle AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) applet de commande pour créer un compte Azure Batch (ou) [Azure portal](../batch/batch-account-create-portal.md) pour créer le compte Azure Batch à l’aide du portail Azure. Pour obtenir des instructions détaillées sur l'utilisation de l'applet de commande, consultez la rubrique [Utilisation de PowerShell pour gérer un compte Azure Batch](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) .
+* [Nouvelle AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) applet de commande pour créer un pool Azure Batch.
 
 ### <a name="example"></a>Exemples
 
@@ -380,7 +382,7 @@ Vous créez un service lié Azure Machine Learning pour inscrire un point de ter
 ### <a name="properties"></a>properties
 | Propriété               | Description                              | Obligatoire                                 |
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
-| type                   | La propriété de type doit être définie sur : **AzureML**. | Oui                                      |
+| Type                   | La propriété de type doit être définie sur : **AzureML**. | Oui                                      |
 | mlEndpoint             | L'URL de la notation par lot.                   | Oui                                      |
 | apiKey                 | L'API du modèle d'espace de travail publié.     | Oui                                      |
 | updateResourceEndpoint | URL des ressources de mise à jour pour un point de terminaison du service web Azure Machine Learning utilisé pour mettre à jour le service web prédictif avec le fichier de modèle formé | Non                                        |

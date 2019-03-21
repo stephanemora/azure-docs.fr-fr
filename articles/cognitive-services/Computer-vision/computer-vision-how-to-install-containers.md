@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 3/19/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 2a786d383d103f9b45ea7b13de24b8de9c9e9f5e
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 665e6651db37cc04693d68bd2de2ede6e595eab4
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445370"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293390"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>Installer et exécuter des conteneurs Reconnaître le texte
 
@@ -26,7 +26,7 @@ Le composant Reconnaître le texte de Vision par ordinateur est également dispo
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 L’utilisation des conteneurs Reconnaître le texte est soumise aux prérequis suivants :
 
@@ -50,14 +50,14 @@ L’utilisation des conteneurs Reconnaître le texte est soumise aux prérequis 
 
 Le tableau suivant décrit la quantité minimale et recommandée de cœurs de processeur et de mémoire à allouer pour chaque conteneur Reconnaître le texte.
 
-| Conteneur | Minimale | Recommandé |
-|-----------|---------|-------------|
-|Reconnaître le texte|1 cœur, 8 Go de mémoire, 0,5 TPS|2 cœurs, 8 Go de mémoire, 1 TPS|
+| Conteneur | Minimale | Recommandé |TPS<br>(Au minimum, Maximum)|
+|-----------|---------|-------------|--|
+|Reconnaître le texte|1 cœur, 8 Go de mémoire, 0,5 TPS|2 cœurs, 8 Go de mémoire, 1 TPS|0.5, 1|
 
-Chaque cœur doit être cadencé à au moins 2,6 gigahertz (GHz).
+* Chaque cœur doit être cadencé à au moins 2,6 gigahertz (GHz).
+* Programmes transactionnels - transactions par seconde
 
 Le nombre de cœurs et la quantité de mémoire correspondent aux paramètres `--cpus` et `--memory` qui sont utilisés dans le cadre de la commande `docker run`.
-
 
 ## <a name="get-the-container-image-with-docker-pull"></a>Obtenir l’image conteneur avec `docker pull`
 
@@ -116,11 +116,14 @@ D’autres [exemples](./computer-vision-resource-container-config.md#example-doc
 > [!IMPORTANT]
 > Vous devez spécifier les options `Eula`, `Billing` et `ApiKey` pour exécuter le conteneur, sinon il ne démarrera pas.  Pour plus d'informations, consultez [Facturation](#billing).
 
+[!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
+
+
 ## <a name="query-the-containers-prediction-endpoint"></a>Interroger le point de terminaison de prédiction du conteneur
 
 Le conteneur fournit des API de point de terminaison de prédiction de requête basées sur REST. 
 
-Utilisez l’hôte, https://localhost:5000, pour les API de conteneur.
+Utilisez l’hôte, `https://localhost:5000`, pour les API de conteneur.
 
 ### <a name="asynchronous-text-recognition"></a>Reconnaissance de texte asynchrone
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: e11ac55afe41231fcbc3aabb3ef54b46108eb49c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: bbee63888e3edbd1e8395593ac34009bbe73e87e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185841"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880639"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Mise à niveau d’applications Service Fabric à l’aide de PowerShell
 > [!div class="op_single_selector"]
@@ -59,7 +59,7 @@ Vous pouvez utiliser l’option *Edit Manifest Files* (Modifier les fichiers du 
 Une fois les modifications effectuées, le manifeste doit se présenter comme suit (les parties en surbrillance présentent les modifications) :
 
 ```xml
-<ServiceManifestName="VisualObjects.ActorService" Version="2.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ServiceManifestName="VisualObjects.ActorService" Version="2.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
 
 <CodePackageName="Code" Version="2.0">
 ```
@@ -67,7 +67,7 @@ Une fois les modifications effectuées, le manifeste doit se présenter comme su
 À présent, le fichier *ApplicationManifest.xml* (situé sous le projet **VisualObjects**, sous la solution **VisualObjects**) est mis à niveau vers la version 2.0 du projet **VisualObjects.ActorService**. En outre, la version de l’application est mise à jour de 1.0.0.0 vers 2.0.0.0. Le fichier *ApplicationManifest.xml* doit ressembler à l’extrait de code suivant :
 
 ```xml
-<ApplicationManifestxmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VisualObjects" ApplicationTypeVersion="2.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifestxmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VisualObjects" ApplicationTypeVersion="2.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
 
  <ServiceManifestRefServiceManifestName="VisualObjects.ActorService" ServiceManifestVersion="2.0" />
 ```

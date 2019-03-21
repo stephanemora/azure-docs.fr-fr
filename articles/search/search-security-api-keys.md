@@ -8,15 +8,14 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 03/19/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 6ba63fa776e92dd2f8035cfbbdb8cea2860d106f
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: a59451c659effb55a2e16236b359b7601eb31cd4
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316914"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286599"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>Créer et gérer des clés API pour un service Recherche Azure
 
@@ -42,19 +41,35 @@ Deux types de clés sont utilisés pour accéder à votre service de recherche 
 > [!NOTE]  
 >  L’insertion de données sensibles comme une `api-key` dans l’URI de requête est considérée comme une pratique peu sécurisée. C’est pourquoi Recherche Azure accepte uniquement une clé de requête sous forme de `api-key` dans la chaîne de requête, et il est conseillé de procéder autrement, sauf si le contenu de l'index doit être accessible au public. En règle générale, nous vous recommandons de transmettre votre `api-key` en tant qu'en-tête de demande.  
 
-## <a name="find-api-keys-for-your-service"></a>Rechercher des clés API pour votre service
+## <a name="find-existing-keys"></a>Rechercher des clés existantes
 
 Vous pouvez obtenir les clés d’accès dans le portail ou via l’[API REST de gestion](https://docs.microsoft.com/rest/api/searchmanagement/). Pour plus d’informations, consultez la page [Gérer les clés API d’administration et de requête](search-security-api-keys.md).
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Répertoriez les [services de recherche](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) pour votre abonnement.
-3. Sélectionnez le service, puis sur la page du service, recherchez **Paramètres** >**Clés** pour afficher les clés d’administration et de requête.
+3. Sélectionnez le service et dans la page Vue d’ensemble, cliquez sur **paramètres** >**clés** pour afficher les clés d’administration et de requête.
 
-![Page du portail, section Paramètres\Clés](media/search-security-overview/settings-keys.png)
+   ![Page du portail, section Paramètres\Clés](media/search-security-overview/settings-keys.png)
+
+## <a name="create-query-keys"></a>Créer des clés de requête
+
+Clés de requête sont utilisés pour l’accès en lecture seule à des documents dans un index. Restriction des accès et des opérations dans les applications clientes est essentiel à protéger les ressources de recherche sur votre service. Toujours utiliser une clé de requête plutôt que d’une clé d’administration pour toute requête d’origine à partir d’une application cliente.
+
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+2. Répertoriez les [services de recherche](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) pour votre abonnement.
+3. Sélectionnez le service et dans la page Vue d’ensemble, cliquez sur **paramètres** >**clés**.
+4. Cliquez sur **gérer les clés de requête**.
+5. Utilisez la requête déjà générée pour votre service, ou créer de nouvelles clés de requête jusqu'à 50. La clé de requête par défaut n’est pas nommée, mais les clés de requête supplémentaires peuvent être nommés pour la facilité de gestion.
+
+   ![Créer ou utiliser une clé de requête](media/search-security-overview/create-query-key.png) 
+
+
+> [!Note]
+> Vous trouverez un exemple de code illustrant l’utilisation de la clé de requête dans [interroger un index Azure Search dans C# ](search-query-dotnet.md).
 
 ## <a name="regenerate-admin-keys"></a>Régénération des clés d’administration
 
-Deux clés d’administration sont créées pour chaque service afin que vous puissiez substituer la clé principale et utiliser la clé secondaire pour un accès permanent.
+Deux clés d’administration sont créés pour chaque service afin que vous pouvez faire pivoter une clé primaire, à l’aide de la clé secondaire pour un accès permanent.
 
 Si vous régénérez les clés principale et secondaire en même temps, les applications utilisant l’une des clés pour accéder aux opérations de service n’ont plus accès au service.
 

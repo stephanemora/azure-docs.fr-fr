@@ -1,18 +1,18 @@
 ---
 title: Reprotéger des machines virtuelles à partir d’Azure vers un site local lors de la récupération d’urgence de machines virtuelles VMware et de serveurs physiques | Microsoft Docs
 description: Après un basculement vers Azure lors d’une récupération d’urgence de machines virtuelles VMware et de serveurs physiques, découvrez comment effectuer une reprise automatique à partir d’Azure vers le site local.
-author: rajani-janaki-ram
-manager: gauravd
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/17/2018
-ms.author: rajanaki
-ms.openlocfilehash: 06337e205c472d26024289222dc8876d23b4184f
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.date: 3/12/2019
+ms.author: mayg
+ms.openlocfilehash: 4202d95b540efb98b526f8a8abd17da22a908ebe
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791875"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57771807"
 ---
 # <a name="reprotect-and-fail-back-machines-to-an-on-premises-site-after-failover-to-azure"></a>Reprotéger et effectuer une reprise automatique des machines vers un site local après le basculement vers Azure
 
@@ -114,7 +114,6 @@ Notez les informations suivantes :
 
 ## <a name="common-issues"></a>Problèmes courants
 
-- Actuellement, Site Recovery prend en charge la restauration uniquement sur une banque de données VMFS ou vSAN. Les banques de données NFS ne sont pas prises en charge. En raison de cette limitation, l’entrée de la sélection de banques de données sur l’écran de reprotection est vide pour les banques de données NFS, ou elle affiche la banque de données vSAN mais échoue lors du travail. Si vous voulez une restauration automatique, vous pouvez créer une banque de données VMFS locale, puis opérer la restauration automatique sur celle-ci. Cette restauration entraîne le téléchargement complet du VMDK.
 - Si vous effectuez une découverte utilisateur vCenter en mode lecture seule et protégez des machines virtuelles, la protection réussit et le basculement fonctionne. Lors de la reprotection, le basculement échoue parce que les banques de données ne peuvent pas être découvertes. L’un des symptômes est que les banques de données ne sont pas répertoriées lors de la reprotection. Pour résoudre ce problème, vous pouvez mettre à jour les informations d’identification vCenter avec un compte approprié qui dispose des autorisations, puis réessayez le travail. 
 - Lorsque vous restaurez automatiquement une machine virtuelle Linux et l’exécutez en local, vous pouvez constater que le package du Gestionnaire de réseau est désinstallé de la machine. Cette désinstallation se produit parce que le package du Gestionnaire de réseau est supprimé quand la machine virtuelle est restaurée dans Azure.
 - Lorsqu’une machine virtuelle Linux est configurée avec une adresse IP statique puis restaurée automatiquement vers Azure, l’adresse IP est obtenue à partir de DHCP. Lorsque vous basculez en local, la machine virtuelle continue d’utiliser DHCP pour obtenir l’adresse IP. Connectez-vous manuellement à la machine et redéfinissez l’adresse IP avec une adresse statique, si nécessaire. Une machine virtuelle Windows peut reprendre son adresse IP statique.

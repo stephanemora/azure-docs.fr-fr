@@ -1,33 +1,30 @@
 ---
-title: Gérer les services web Machine Learning Studio à l'aide de la Gestion des API
+title: Gérer les services web à l’aide de la gestion des API
 titleSuffix: Azure Machine Learning Studio
 description: Guide montrant comment gérer les services web AzureML à l’aide de la gestion des API Gérez vos points de terminaison d’API REST en définissant l’accès utilisateur, la limitation d’utilisation et la surveillance du tableau de bord.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: 915b972774fb418a454d8a3acd2a61f25af7a6aa
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 0d79bc167ea0416218a4d4822bcd6221699643ca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488507"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852881"
 ---
 # <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>Gérer les services web Azure Machine Learning Studio à l’aide de Gestion des API
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Ce guide décrit la prise en main rapide de la gestion de vos services web Azure Machine Learning Studio grâce à Gestion des API.
 
 ## <a name="what-is-azure-api-management"></a>Qu’est-ce que Gestion des API Azure ?
-Gestion des API Azure est un service Azure qui vous permet de gérer vos points de terminaison d’API REST en définissant l’accès utilisateur, la limitation d’utilisation et la surveillance du tableau de bord. Cliquez [ici](https://azure.microsoft.com/services/api-management/) pour plus d’informations sur Gestion des API Azure. Cliquez [ici](../../api-management/api-management-get-started.md) pour débuter avec Gestion des API Azure. Cet autre guide, sur lequel ce guide est basé, couvre plus de rubriques, notamment les configurations de notification, la tarification, la gestion des réponses, l’authentification des utilisateurs, la création de produits, les abonnements pour développeur et le tableau de bord d’utilisation.
+Gestion des API Azure est un service Azure qui vous permet de gérer vos points de terminaison d’API REST en définissant l’accès utilisateur, la limitation d’utilisation et la surveillance du tableau de bord. Cliquez [ici](https://azure.microsoft.com/services/api-management/) pour plus d’informations sur Gestion des API Azure. Cliquez [ici](/azure/api-management/import-and-publish) pour débuter avec Gestion des API Azure. Cet autre guide, sur lequel ce guide est basé, couvre plus de rubriques, notamment les configurations de notification, la tarification, la gestion des réponses, l’authentification des utilisateurs, la création de produits, les abonnements pour développeur et le tableau de bord d’utilisation.
 
-## <a name="what-is-azureml"></a>Présentation d’AzureML
-AzureML est un service Azure d’apprentissage automatique qui vous permet de facilement générer, déployer et partager des solutions d’analyse avancée. Cliquez [ici](https://azure.microsoft.com/services/machine-learning/) pour plus d’informations sur AzureML.
-
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Pour utiliser ce guide, il vous faut :
 
 * Un compte Azure. Si vous n’avez pas de compte Azure, cliquez [ici](https://azure.microsoft.com/pricing/free-trial/) pour plus d’informations sur la création d’un compte d’essai gratuit.
@@ -185,11 +182,11 @@ Renommez-la **SimpleFeatureHashingExperiment**. Développez **Datasets enregistr
 
 Développez **Transformation des données** et **Manipulation** et faites glisser **Sélectionner des colonnes dans le jeu de données** sur votre expérimentation. Connectez **Critiques de livres d’Amazon** à **Sélectionner des colonnes dans le jeu de données**.
 
-![select-columns](./media/manage-web-service-endpoints-using-api-management/project-columns.png)
+![Connectez le module de jeu de données de révisions de livre à un module de colonnes de projet](./media/manage-web-service-endpoints-using-api-management/project-columns.png)
 
 Cliquez sur **Sélectionner des colonnes dans le jeu de données**, puis sur **Exécuter le sélecteur de colonne** et sélectionnez **Col2**. Cliquez sur la coche pour appliquer ces modifications.
 
-![select-columns](./media/manage-web-service-endpoints-using-api-management/select-columns.png)
+![Sélectionnez les colonnes à l’aide des noms de colonnes](./media/manage-web-service-endpoints-using-api-management/select-columns.png)
 
 Développez **Analyse de texte** et faites glisser **Fonction de hachage** sur l’expérimentation. Connectez **Sélectionner des colonnes dans le jeu de données** à **Fonction de hachage**.
 

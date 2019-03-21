@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 90b6798f7b7ab3acc552135c73bb1e491e4a0111
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 85296b4549d7c9499b8d0b815ddf1cd2e85e2b1b
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835518"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259582"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problèmes de configuration et de gestion pour Azure Cloud Services : Forum Aux Questions (FAQ)
 
@@ -109,7 +109,7 @@ Vous pouvez automatiser cette tâche à l’aide d’un script de démarrage (ba
 
 ### <a name="what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate"></a>Qu’est l’objectif du certificat « Microsoft Azure Service Management pour MachineKey » ?
 
-Ce certificat est utilisé pour chiffrer les clés de machine sur les rôles web Azure. Pour plus d’informations, consultez ces conseils [https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731].
+Ce certificat est utilisé pour chiffrer les clés de machine sur les rôles web Azure. Pour plus d’informations, consultez [cet avis](https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731).
 
 Pour plus d’informations, consultez les articles suivants :
 - [Comment configurer et exécuter des tâches de démarrage pour un service cloud](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)

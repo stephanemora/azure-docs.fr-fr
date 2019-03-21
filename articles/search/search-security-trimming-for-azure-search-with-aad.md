@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 11/07/2017
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 3f55b3b099cc22fda2bebf0dcb8d3e9c1a580f02
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: 410727022b092e2dd8ab8b05e628e25fd60ab833
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099692"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102524"
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Utilisation de filtres de sécurité pour tronquer les résultats de Recherche Azure à l’aide d’identités Active Directory
 
@@ -22,16 +22,16 @@ Cet article explique comment utiliser les identités de sécurité Azure Active 
 
 Cet article décrit les tâches suivantes :
 > [!div class="checklist"]
-- Créer des utilisateurs et des groupes AAD
-- Associer l’utilisateur au groupe que vous avez créé
-- Mettre en cache les nouveaux groupes
-- Indexer les documents avec les groupes associés
-- Émettre une demande de recherche avec un filtre d’identificateurs de groupe
-
->[!NOTE]
+> - Créer des utilisateurs et des groupes AAD
+> - Associer l’utilisateur au groupe que vous avez créé
+> - Mettre en cache les nouveaux groupes
+> - Indexer les documents avec les groupes associés
+> - Émettre une demande de recherche avec un filtre d’identificateurs de groupe
+> 
+> [!NOTE]
 > Dans cet article, les exemples d’extraits de code sont écrits en C#. L’intégralité du code source est disponible [sur GitHub](https://aka.ms/search-dotnet-howto). 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Votre index dans Recherche Azure doit avoir un [champ de sécurité](search-security-trimming-for-azure-search.md) pour stocker la liste des identités de groupe disposant d’un accès en lecture pour le document. Ce cas d’usage implique une correspondance exacte entre un élément sécurisable (par exemple l’application d’un établissement scolaire) et un champ de sécurité spécifiant qui a accès à cet élément (personnel en charge des admissions).
 

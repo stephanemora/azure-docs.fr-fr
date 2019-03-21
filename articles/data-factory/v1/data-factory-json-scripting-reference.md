@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f65b9904b15815c997c1608940109ad296ee6007
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 7a3819eedc57e1e349814c9105a0880bf3d4d9ec
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822865"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57891254"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - Référence de script JSON
 > [!NOTE]
@@ -26,6 +26,8 @@ ms.locfileid: "55822865"
 
 
 Cet article fournit des schémas JSON et des exemples pour la définition des entités Azure Data Factory (pipeline, activité, jeu de données et service lié).
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="pipeline"></a>Pipeline
 La structure de haut niveau d’une définition de pipeline est la suivante :
@@ -50,7 +52,7 @@ Le tableau suivant décrit les propriétés dans la définition JSON du pipeline
 | Nom | Nom du pipeline. Spécifiez un nom qui représente l’action que l’activité ou le pipeline est configuré(e) à exécuter<br/><ul><li>Nombre maximal de caractères : 260</li><li>Doit commencer par une lettre, un chiffre ou un trait de soulignement (\_)</li><li>Les caractères suivants ne sont pas autorisés : « . », « + », « ? », « / », « < », « > », « * », « % », « & », « : », « \\ »</li></ul> |Oui |
 | description |Texte décrivant la raison motivant l’activité ou le pipeline. | Non  |
 | activités | Contient une liste d’activités. | Oui |
-| start |Date et heure de début du pipeline. Doit se trouver au [format ISO](http://en.wikipedia.org/wiki/ISO_8601). Par exemple :  2014-10-14T16:32:41. <br/><br/>Il est possible de spécifier une heure locale, par exemple une heure EST. Voici un exemple : `2016-02-27T06:00:00**-05:00`, qui correspond à 6h EST.<br/><br/>Ensemble, les propriétés de début et de fin spécifient la période active du pipeline. Les tranches de sortie sont uniquement générées pendant cette période active. |Non <br/><br/>Si vous spécifiez une valeur pour la propriété end, vous devez en spécifier une pour la propriété start.<br/><br/>Les heures de début et de fin peuvent être toutes les deux non renseignées pour créer un pipeline. Vous devez spécifier les deux valeurs pour définir une période active d’exécution du pipeline. Si vous ne spécifiez pas d’heures de début et de fin lors de la création d’un pipeline, vous pouvez les définir à l’aide de l’applet de commande Set-AzureRmDataFactoryPipelineActivePeriod ultérieurement. |
+| start |Date et heure de début du pipeline. Doit se trouver au [format ISO](https://en.wikipedia.org/wiki/ISO_8601). Par exemple :  2014-10-14T16:32:41. <br/><br/>Il est possible de spécifier une heure locale, par exemple une heure EST. Voici un exemple : `2016-02-27T06:00:00**-05:00`, qui correspond à 6h EST.<br/><br/>Ensemble, les propriétés de début et de fin spécifient la période active du pipeline. Les tranches de sortie sont uniquement générées pendant cette période active. |Non <br/><br/>Si vous spécifiez une valeur pour la propriété end, vous devez en spécifier une pour la propriété start.<br/><br/>Les heures de début et de fin peuvent être toutes les deux non renseignées pour créer un pipeline. Vous devez spécifier les deux valeurs pour définir une période active d’exécution du pipeline. Si vous ne spécifiez pas les heures de début et de fin lorsque vous créez un pipeline, vous pouvez les définir à l’aide de l’applet de commande Set-AzDataFactoryPipelineActivePeriod plus tard. |
 | end |Date et heure de fin du pipeline. Si spécifiée, doit être au format ISO. Par exemple :  2014-10-14T17:32:41 <br/><br/>Il est possible de spécifier une heure locale, par exemple une heure EST. Voici un exemple : `2016-02-27T06:00:00**-05:00`, qui correspond à 6h EST.<br/><br/>Pour exécuter le pipeline indéfiniment, spécifiez 9999-09-09 comme valeur pour la propriété end. |Non  <br/><br/>Si vous spécifiez une valeur pour la propriété start, vous devez en spécifier une pour la propriété end.<br/><br/>Consultez les remarques relatives à la propriété **start** . |
 | isPaused |Si la valeur est true, le pipeline ne s’exécute pas. Valeur par défaut = false. Vous pouvez utiliser cette propriété pour activer ou désactiver. |Non  |
 | pipelineMode |La méthode de planification des exécutions pour le pipeline. Les valeurs autorisées sont : scheduled (par défaut) et onetime.<br/><br/>« scheduled » indique que le pipeline s’exécute selon un intervalle de temps spécifié en fonction de sa période active (heure de début et de fin). « Onetime » indique que le pipeline ne s’exécute qu’une seule fois. Une fois créés, les pipelines de type onetime ne peuvent pas être modifiés ni mis à jour pour le moment. Consultez la page [Pipeline onetime](data-factory-create-pipelines.md#onetime-pipeline) pour plus d’informations sur le paramètre onetime. |Non  |
@@ -2230,13 +2232,13 @@ Pour définir un service lié SAP Business Warehouse (BW), définissez le **type
 
 Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
-serveur | Nom du serveur sur lequel réside l’instance SAP BW. | chaîne | Oui
+serveur | Nom du serveur sur lequel réside l’instance SAP BW. | string | Oui
 systemNumber | Numéro de système du système SAP BW. | Nombre décimal à deux chiffres représenté sous forme de chaîne. | Oui
 clientId | ID client du client dans le système SAP W. | Nombre décimal à trois chiffres représenté sous forme de chaîne. | Oui
-username | Nom de l’utilisateur qui a accès au serveur SAP | chaîne | Oui
-password | Mot de passe pour l’utilisateur. | chaîne | Oui
-gatewayName | Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à l’instance SAP BW locale. | chaîne | Oui
-Encryptedcredential | La chaîne d’informations d’identification chiffrée. | chaîne | Non 
+username | Nom de l’utilisateur qui a accès au serveur SAP | string | Oui
+password | Mot de passe pour l’utilisateur. | string | Oui
+gatewayName | Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à l’instance SAP BW locale. | string | Oui
+Encryptedcredential | La chaîne d’informations d’identification chiffrée. | string | Non 
 
 #### <a name="example"></a>Exemples
 
@@ -2340,12 +2342,12 @@ Pour définir un service lié SAP HANA, définissez le **type** du service lié 
 
 Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
-serveur | Le nom du serveur sur lequel réside l’instance SAP HANA. Si votre serveur utilise un port personnalisé, spécifiez `server:port`. | chaîne | Oui
+serveur | Le nom du serveur sur lequel réside l’instance SAP HANA. Si votre serveur utilise un port personnalisé, spécifiez `server:port`. | string | Oui
 authenticationType | Type d'authentification. | chaîne. « Basic » ou « Windows » | Oui
-username | Nom de l’utilisateur qui a accès au serveur SAP | chaîne | Oui
-password | Mot de passe pour l’utilisateur. | chaîne | Oui
-gatewayName | Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à l’instance SAP HANA locale. | chaîne | Oui
-Encryptedcredential | La chaîne d’informations d’identification chiffrée. | chaîne | Non 
+username | Nom de l’utilisateur qui a accès au serveur SAP | string | Oui
+password | Mot de passe pour l’utilisateur. | string | Oui
+gatewayName | Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à l’instance SAP HANA locale. | string | Oui
+Encryptedcredential | La chaîne d’informations d’identification chiffrée. | string | Non 
 
 #### <a name="example"></a>Exemples
 
@@ -2458,7 +2460,7 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 | username |Spécifiez le nom d’utilisateur si vous utilisez l’authentification Windows. Exemple : **domainname\\username**. |Non  |
 | password |Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. |Non  |
 
-Vous pouvez chiffrer les informations d’identification à l’aide de l’applet de commande **New-AzureRmDataFactoryEncryptValue** et les utiliser dans la chaîne de connexion comme indiqué dans l’exemple suivant (propriété **EncryptedCredential**) :
+Vous pouvez chiffrer les informations d’identification à l’aide de la **New-AzDataFactoryEncryptValue** applet de commande et les utiliser, comme illustré dans l’exemple suivant, dans la chaîne de connexion (**EncryptedCredential** propriété) :
 
 ```json
 "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
@@ -3151,7 +3153,7 @@ Pour définir un service lié Amazon S3, définissez le **type** du service lié
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | --- | --- | --- | --- |
-| accessKeyID |ID de la clé d’accès secrète. |chaîne |Oui |
+| accessKeyID |ID de la clé d’accès secrète. |string |Oui |
 | secretAccessKey |La clé d’accès secrète elle-même. |Chaîne secrète chiffrée |Oui |
 
 #### <a name="example"></a>Exemples
@@ -3319,10 +3321,11 @@ Vous pouvez lier un système de fichiers local à une fabrique de données Azure
 | host |Spécifie le chemin d’accès racine du dossier que vous souhaitez copier. Utilisez le caractère d’échappement « \ » pour les caractères spéciaux contenus dans la chaîne. Pour obtenir des exemples, consultez la section Exemples de définitions de jeux de données et de services liés. |Oui |
 | userId |Spécifiez l’ID de l’utilisateur qui a accès au serveur. |Non (si vous choisissez encryptedcredential) |
 | password |Spécifiez le mot de passe de l’utilisateur (userid). |Non (si vous choisissez encryptedcredential) |
-| Encryptedcredential |Spécifiez les informations d’identification chiffrées que vous pouvez obtenir en exécutant l’applet de commande New-AzureRmDataFactoryEncryptValue. |Non (si vous choisissez de spécifier un nom d'utilisateur et un mot de passe en texte brut) |
+| Encryptedcredential |Spécifiez les informations d’identification chiffrées que vous pouvez obtenir en exécutant l’applet de commande New-AzDataFactoryEncryptValue. |Non (si vous choisissez de spécifier un nom d'utilisateur et un mot de passe en texte brut) |
 | gatewayName |Spécifie le nom de la passerelle que Data Factory doit utiliser pour se connecter au serveur de fichiers local. |Oui |
 
 #### <a name="sample-folder-path-definitions"></a>Exemples de définitions de chemin d’accès du dossier
+
 | Scénario | Hôte dans la définition du service lié | folderPath dans la définition du jeu de données |
 | --- | --- | --- |
 | Dossier local sur l’ordinateur passerelle de gestion des données :  <br/><br/>Exemples : D:\\\* ou D:\dossier\sous-dossier\\* |D:\\\\ (pour la passerelle de gestion des données 2.0 et versions ultérieures) <br/><br/> hôte local (pour les versions de la passerelle de gestion des données antérieures à 2.0) |.\\\\ ou dossier\\\\sous-dossier (pour la passerelle de gestion des données 2.0 et versions ultérieures) <br/><br/>D:\\\\ ou D:\\\\dossier\\\\sous-dossier (pour les versions de la passerelle antérieures à 2.0) |
@@ -3494,6 +3497,7 @@ Si vous copiez des données dans un système de fichiers, définissez le **type 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
 | copyBehavior |Cette propriété définit le comportement de copie lorsque la source est BlobSource ou FileSystem. |**PreserveHierarchy :** conserve la hiérarchie des fichiers dans le dossier cible. Le chemin d’accès relatif du fichier source vers le dossier source est identique au chemin d’accès relatif du fichier cible vers le dossier cible.<br/><br/>**FlattenHierarchy :** tous les fichiers du dossier source sont créés au premier niveau du dossier cible. Les fichiers cibles sont créés avec un nom généré automatiquement.<br/><br/>**MergeFiles :** fusionne tous les fichiers du dossier source dans un seul fichier. Si le nom d’objet blob ou le nom de fichier est spécifié, le nom de fichier fusionné est le nom spécifié. Dans le cas contraire, il s’agit d’un nom de fichier généré automatiquement. |Non  |
+
 auto-
 
 #### <a name="example"></a>Exemples
@@ -3732,7 +3736,7 @@ Pour définir un service lié HDFS, définissez le **type** du service lié sur 
 | userName |Nom d’utilisateur de l’authentification Windows |Oui (pour l’authentification Windows) |
 | password |Mot de passe de l’authentification Windows |Oui (pour l’authentification Windows) |
 | gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter au système HDFS. |Oui |
-| Encryptedcredential |[New-AzureRMDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) des informations d’accès. |Non  |
+| Encryptedcredential |[Nouvelle AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) sortie de l’information d’identification d’accès. |Non  |
 
 #### <a name="example-using-anonymous-authentication"></a>Exemple : Utilisation de l’authentification anonyme
 
@@ -3861,7 +3865,7 @@ Pour plus d'informations, consultez l'article Connecteur HDFS.
 Pour définir un service lié SFTP, définissez le **type** du service lié sur **Sftp** et spécifiez les propriétés suivantes dans la section **typeProperties** :
 
 | Propriété | Description | Obligatoire |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | host | Nom ou adresse IP du serveur SFTP. |OUI |
 | port |Port sur lequel le serveur SFTP écoute. La valeur par défaut est : 21 |Non  |
 | authenticationType |Spécification du type d’authentification. Valeurs autorisées : **Basic**, **SshPublicKey**. <br><br> Reportez-vous aux sections Utilisation de l'authentification de base et [Utilisation de l'authentification par clé publique SSH](#using-ssh-public-key-authentication) contenant respectivement des propriétés supplémentaires et des exemples JSON. |Oui |
@@ -3875,7 +3879,7 @@ Pour définir un service lié SFTP, définissez le **type** du service lié sur 
 Pour utiliser l’authentification de base, définissez `authenticationType` sur `Basic` et spécifiez les propriétés suivantes en plus des propriétés génériques du connecteur SFTP présentées dans la dernière section :
 
 | Propriété | Description | Obligatoire |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | username | Utilisateur ayant accès au serveur SFTP. |OUI |
 | password | Mot de passe de l’utilisateur (nom d’utilisateur). | Oui |
 
@@ -3924,7 +3928,7 @@ Pour utiliser l’authentification de base, définissez `authenticationType` sur
 Pour utiliser l’authentification de base, définissez `authenticationType` sur `SshPublicKey` et spécifiez les propriétés suivantes en plus des propriétés génériques du connecteur SFTP présentées dans la dernière section :
 
 | Propriété | Description | Obligatoire |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | username |Utilisateur ayant accès au serveur SFTP |OUI |
 | privateKeyPath | Spécifiez le chemin absolu au fichier de clé privée auquel la passerelle peut accéder. | Spécifiez soit la propriété `privateKeyPath`, soit la propriété `privateKeyContent`. <br><br> S’applique uniquement pour la copie de données à partir d’un serveur SFTP local. |
 | privateKeyContent | Une chaîne sérialisée du contenu de la clé privée. L’Assistant de copie peut lire le fichier de clé privée et extraire le contenu de clé privée automatiquement. Si vous utilisez tout autre outil/SDK, utilisez plutôt la propriété privateKeyPath. | Spécifiez soit la propriété `privateKeyPath`, soit la propriété `privateKeyContent`. |
@@ -4272,7 +4276,7 @@ Pour définir un service lié OData, définissez le **type** du service lié sur
 | username |Spécifiez le nom d’utilisateur si vous utilisez l’authentification de base. |Oui (uniquement si vous utilisez l’authentification de base) |
 | password |Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. |Oui (uniquement si vous utilisez l’authentification de base) |
 | authorizedCredential |Si vous utilisez OAuth, cliquez sur le bouton **Autoriser** de l’Assistant de copie Data Factory ou de l’éditeur et entrez vos informations d’identification. La valeur de cette propriété sera alors générée automatiquement. |Oui (uniquement si vous utilisez l’authentification OAuth) |
-| gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter au service OData local. Indiquez uniquement si vous copiez des données à partir de la source OData locale. |Non  |
+| gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter au service OData local. Spécifiez uniquement si vous copiez des données à partir de la source OData de site. |Non  |
 
 #### <a name="example---using-basic-authentication"></a>Exemple : utilisation de l’authentification de base
 ```json
@@ -4281,7 +4285,7 @@ Pour définir un service lié OData, définissez le **type** du service lié sur
     "properties": {
         "type": "OData",
         "typeProperties": {
-            "url": "http://services.odata.org/OData/OData.svc",
+            "url": "https://services.odata.org/OData/OData.svc",
             "authenticationType": "Basic",
             "username": "username",
             "password": "password"
@@ -4298,7 +4302,7 @@ Pour définir un service lié OData, définissez le **type** du service lié sur
     "properties": {
         "type": "OData",
         "typeProperties": {
-            "url": "http://services.odata.org/OData/OData.svc",
+            "url": "https://services.odata.org/OData/OData.svc",
             "authenticationType": "Anonymous"
         }
     }
@@ -4462,7 +4466,7 @@ Pour définir un service lié ODBC, définissez le **type** du service lié sur 
 }
 ```
 #### <a name="example---using-basic-authentication-with-encrypted-credentials"></a>Exemple : utilisation de l’authentification de base avec des informations d’identification chiffrées
-Vous pouvez chiffrer les informations d’identification à l’aide de l’applet de commande [New-AzureRMDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) (version 1.0 d’Azure PowerShell) ou [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (version 0.9 ou antérieure d’Azure PowerShell).
+Vous pouvez chiffrer les informations d’identification à l’aide de la [New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) applet de commande.
 
 ```json
 {
@@ -5062,7 +5066,7 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 | username |Spécifiez le nom d’utilisateur si vous utilisez l’authentification Windows. Exemple : **domainname\\username**. |Non  |
 | password |Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. |Non  |
 
-Vous pouvez chiffrer les informations d’identification à l’aide de l’applet de commande **New-AzureRmDataFactoryEncryptValue** et les utiliser dans la chaîne de connexion comme indiqué dans l’exemple suivant (propriété **EncryptedCredential**) :
+Vous pouvez chiffrer les informations d’identification à l’aide de la **New-AzDataFactoryEncryptValue** applet de commande et les utiliser, comme illustré dans l’exemple suivant, dans la chaîne de connexion (**EncryptedCredential** propriété) :
 
 ```JSON
 "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
@@ -5396,7 +5400,7 @@ Notez les points suivants :
 Pour plus d’informations sur l’activité, consultez l’article [Spark Activity (activité Spark)](data-factory-spark.md).
 
 ## <a name="machine-learning-batch-execution-activity"></a>Activité d’exécution par lot Machine Learning
-Vous pouvez spécifier les propriétés suivantes dans une définition JSON d’activité d’exécution par lots Azure Machine Learning Studio. La propriété de type de l’activité doit être : **AzureMLBatchExecution**. Vous devez d’abord créer un service lié Azure Machine Learning, puis spécifier le nom de celui-ci en tant que valeur de la propriété **linkedServiceName**. Les propriétés suivantes sont prises en charge dans la section **typeProperties** lorsque vous définissez le type d’activité sur AzureMLBatchExecution :
+Vous pouvez spécifier les propriétés suivantes dans une définition JSON d’activité de l’exécution de lot de Azure Machine Learning studio. La propriété de type de l’activité doit être : **AzureMLBatchExecution**. Vous devez créer un service Azure Machine Learning lié tout d’abord et spécifiez le nom de celui-ci en tant que valeur pour le **linkedServiceName** propriété. Les propriétés suivantes sont prises en charge dans la section **typeProperties** lorsque vous définissez le type d’activité sur AzureMLBatchExecution :
 
 Propriété | Description | Obligatoire
 -------- | ----------- | --------
@@ -5452,7 +5456,7 @@ Dans l’exemple JSON, le service web Azure Machine Learning déployé utilise u
 > Seules les entrées et sorties de l’activité AzureMLBatchExecution peuvent être transmises en tant que paramètres au service web. Par exemple, dans l’extrait de code JSON ci-dessus, MLSqlInput est une entrée de l’activité AzureMLBatchExecution, qui est transmise comme entrée au service web via le paramètre webServiceInput.
 
 ## <a name="machine-learning-update-resource-activity"></a>Activité des ressources de mise à jour de Machine Learning
-Vous pouvez spécifier les propriétés suivantes dans une définition JSON d’activité des ressources de mise à jour Azure Machine Learning Studio. La propriété de type de l’activité doit être : **AzureMLUpdateResource**. Vous devez d’abord créer un service lié Azure Machine Learning, puis spécifier le nom de celui-ci en tant que valeur de la propriété **linkedServiceName**. Les propriétés suivantes sont prises en charge dans la section **typeProperties** lorsque vous définissez le type d’activité sur AzureMLUpdateResource :
+Vous pouvez spécifier les propriétés suivantes dans une définition JSON d’activité de ressources de mise à jour de Azure Machine Learning studio. La propriété de type de l’activité doit être : **AzureMLUpdateResource**. Vous devez créer un service Azure Machine Learning lié tout d’abord et spécifiez le nom de celui-ci en tant que valeur pour le **linkedServiceName** propriété. Les propriétés suivantes sont prises en charge dans la section **typeProperties** lorsque vous définissez le type d’activité sur AzureMLUpdateResource :
 
 Propriété | Description | Obligatoire
 -------- | ----------- | --------

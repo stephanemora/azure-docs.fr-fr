@@ -11,13 +11,13 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: b13becf8530f478a5e58b46a1b422593051c95cf
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.date: 03/06/2019
+ms.openlocfilehash: e872c29712c3fadca676ec87870bcc5c4eb58565
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478166"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727397"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Réglage automatique dans Azure SQL Database
 
@@ -66,11 +66,13 @@ Pour obtenir une vue d’ensemble du fonctionnement du réglage automatique et d
 
 Les options de réglage automatique disponibles dans Azure SQL Database sont les suivantes :
 
- 1. **CREATE INDEX** identifie les index qui peuvent améliorer les performances de votre charge de travail, crée des index et vérifie automatiquement que les performances des requêtes sont améliorées.
- 2. **DROP INDEX** : identifie quotidiennement les index redondants et en double, excepté pour les index uniques, ainsi que les index qui n’ont pas été utilisés depuis longtemps (>90 jours). Notez que l’option à ce stade n’est pas compatible avec les applications utilisant la commutation de partition et les conseils d’index.
- 3. **FORCE LAST GOOD PLAN** identifie les requêtes SQL utilisant le plan d’exécution qui est plus lent que le plan correct précédent, ainsi que les requêtes utilisant le dernier plan correct connu au lieu du plan de régression.
+| Option de réglage automatique | Prise en charge d’une base de données unique et d’une base de données en pool | Support de base de données d’instance |
+| :----------------------------- | ----- | ----- |
+| **CREATE INDEX** -identifie les index qui peuvent améliorer les performances de votre charge de travail, crée des index et vérifie automatiquement le gain de performances des requêtes. | Oui | Non  | 
+| **DROP INDEX** -identifie les index en doublons et redondants quotidiennement, à l’exception des index uniques et qui n’ont pas été utilisés pendant une longue période (> 90 jours). Notez que l’option à ce stade n’est pas compatible avec les applications utilisant la commutation de partition et les conseils d’index. | Oui | Non  |
+| **FORCE LAST GOOD PLAN** - requêtes SQL identifie à l’aide du plan d’exécution qui est plus lent que le plan précédent et les requêtes à l’aide du dernier plan correct connu au lieu du plan de régression. | Oui | Oui |
 
-Le réglage automatique identifie les recommandations**CREATE INDEX**, **DROP INDEX** et **FORCE LAST GOOD PLAN** qui peuvent optimiser les performances de votre base de données, les affiche dans le [portail Azure](sql-database-advisor-portal.md), puis les expose à l’aide de [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) et de l’[API REST](https://docs.microsoft.com/rest/api/sql/serverautomatictuning).
+Le réglage automatique identifie les recommandations**CREATE INDEX**, **DROP INDEX** et **FORCE LAST GOOD PLAN** qui peuvent optimiser les performances de votre base de données, les affiche dans le [portail Azure](sql-database-advisor-portal.md), puis les expose à l’aide de [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) et de l’[API REST](https://docs.microsoft.com/rest/api/sql/serverautomatictuning). 
 
 Vous pouvez soit appliquer manuellement les recommandations de réglage à l’aide du portail, soit laisser le réglage automatique les appliquer en toute autonomie pour vous. L’avantage de laisser le système appliquer de manière autonome les recommandations de réglage pour vous est qu’il valide automatiquement qu’il existe un accroissement des performances de la charge de travail. En revanche, si une régression est détectée, il annule automatiquement les recommandations de réglage. Notez qu’en cas de requêtes affectées par des recommandations de réglage qui ne sont pas exécutées fréquemment, la phase de validation peut, par nature, prendre jusqu’à 72 heures. Si vous appliquez manuellement les recommandations de réglage, les mécanismes de validation automatique des performances et d’annulation ne sont pas disponibles.
 

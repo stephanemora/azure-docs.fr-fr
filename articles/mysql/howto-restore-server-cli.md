@@ -7,19 +7,19 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.openlocfilehash: 801f6dddfb3aaea850d76c80d43de93181c3d41c
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
+ms.openlocfilehash: f3850623f5918ea9405131edb1821b941019ac34
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913476"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532322"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Comment sauvegarder et restaurer un serveur dans Azure Database pour MySQL à l’aide d’Azure CLI
 
 ## <a name="backup-happens-automatically"></a>La sauvegarde s’effectue automatiquement
 Les serveurs Azure Database pour MySQL sont sauvegardés régulièrement pour activer les fonctionnalités de restauration. À l’aide de cette fonctionnalité, vous pouvez restaurer le serveur et toutes ses bases de données à un point dans le temps antérieur, sur un nouveau serveur.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Pour utiliser ce guide pratique, il vous faut :
 - Un [serveur et une base de données Azure Database pour MySQL](quickstart-create-mysql-server-database-using-azure-cli.md)
 
@@ -94,14 +94,14 @@ Pour créer un serveur à l’aide d’une sauvegarde géo-redondante, utilisez 
 Pour géo-restaurer le serveur, à l’invite de commande de l’interface de ligne de commande Azure, entrez la commande suivante :
 
 ```azurecli-interactive
-az mysql server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location eastus --sku-name GP_Gen4_8 
+az mysql server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location eastus --sku-name GP_Gen5_8 
 ```
-Cette commande crée un nouveau serveur appelé *mydemoserver-georestored* dans la région USA Est appartenant à *myresourcegroup*. Il s’agit d’un serveur à usage général, de 4e génération avec 8 vCores. Le serveur est créé à partir de la sauvegarde géo-redondante *mydemoserver*, qui est également dans le groupe de ressources *myresourcegroup*
+Cette commande crée un nouveau serveur appelé *mydemoserver-georestored* dans la région USA Est appartenant à *myresourcegroup*. Il s’agit d’un serveur à usage général, de 5e génération avec 8 vCores. Le serveur est créé à partir de la sauvegarde géo-redondante *mydemoserver*, qui est également dans le groupe de ressources *myresourcegroup*
 
 Si vous souhaitez créer le nouveau serveur dans un autre groupe de ressources du serveur existant, dans le paramètre `--source-server`, vous devez qualifier le nom du serveur comme dans l’exemple suivant :
 
 ```azurecli-interactive
-az mysql server georestore --resource-group newresourcegroup --name mydemoserver-georestored --source-server "/subscriptions/$<subscription ID>/resourceGroups/$<resource group ID>/providers/Microsoft.DBforMySQL/servers/mydemoserver" --location eastus --sku-name GP_Gen4_8
+az mysql server georestore --resource-group newresourcegroup --name mydemoserver-georestored --source-server "/subscriptions/$<subscription ID>/resourceGroups/$<resource group ID>/providers/Microsoft.DBforMySQL/servers/mydemoserver" --location eastus --sku-name GP_Gen5_8
 
 ```
 
@@ -113,7 +113,7 @@ La commande `az mysql server georestore` requiert les paramètres suivants :
 |Nom | mydemoserver-georestored | Le nom du nouveau serveur. |
 |source-server | mydemoserver | Le nom du serveur existant dont les sauvegardes géo-redondantes sont utilisées. |
 |location | eastus | L’emplacement du nouveau serveur. |
-|sku-name| GP_Gen4_8 | Ce paramètre définit le niveau tarifaire, la génération de calculs et le nombre de vCores du nouveau serveur. GP_Gen4_8 mappe sur un serveur d’usage général, 4e génération avec 8 vCores.|
+|sku-name| GP_Gen5_8 | Ce paramètre définit le niveau tarifaire, la génération de calculs et le nombre de vCores du nouveau serveur. GP_Gen5_8 mappe sur un serveur d’usage général, 5e génération avec 8 vCores.|
 
 
 >[!Important]

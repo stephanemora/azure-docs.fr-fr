@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 9967893e855770b693f0d581a07fe2910df4a3cb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 117d58f6f56fe1b24539c7bfe950f1a23d6de51a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55186941"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003605"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Accès aux journaux d’audit Azure AD B2C
 
@@ -26,6 +26,7 @@ Azure Active Directory B2C (Azure AD B2C) produit des journaux d’audit contena
 
 ## <a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>Vue d’ensemble des activités disponibles dans la catégorie B2C des journaux d’audit
 La catégorie **B2C** des journaux d’audit contient les types d’activités suivants :
+
 |Type d’activité |Description  |
 |---------|---------|
 |Authorization |Activités relatives à l’autorisation d’un utilisateur d’accéder à des ressources B2C (par exemple, un administrateur qui accède à la liste des stratégies B2C)         |
@@ -33,7 +34,7 @@ La catégorie **B2C** des journaux d’audit contient les types d’activités s
 |Application | Opérations CRUD sur des applications B2C |
 |Clé |Opérations CRUD sur les clés stockées dans le conteneur de clé B2C |
 |Ressource |Opérations CRUD sur les ressources B2C (par exemple, stratégies et fournisseurs d’identité)
-|Authentification |Validation des informations d’identification des utilisateurs et de l’émission des jetons|
+|Authentication |Validation des informations d’identification des utilisateurs et de l’émission des jetons|
 
 > [!NOTE]
 > Pour les activités CRUD des objets utilisateur, reportez-vous à la catégorie **Annuaire principal**.
@@ -65,7 +66,7 @@ La liste des activités journalisées pendant les sept derniers jours apparaît.
 ## <a name="accessing-audit-logs-through-the-azure-ad-reporting-api"></a>Accès aux journaux d’audit par le biais de l’API de création de rapports Azure AD
 Les journaux d’audit sont publiés dans le même pipeline que les autres activités Azure Active Directory, afin d’être accessibles par le biais de l’[API de création de rapports Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-audit-reference).
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables
 Pour vous authentifier auprès de l’API de création de rapports Azure AD, vous devez tout d’abord inscrire une application. Veillez à suivre les étapes indiquées dans [Prérequis pour accéder à l’API de création de rapports Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/).
 
 ### <a name="accessing-the-api"></a>Accès à l’API

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 5ef84f6dbabbfed802a61306eeae09e0b0ccf36f
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: a1743e677e1005e5b4479c1d431b6b8bdbe77c8f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456163"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57848692"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Se connecter à une machine virtuelle Linux dans Azure via l’authentification Azure Active Directory (préversion)
 
@@ -49,7 +49,7 @@ Les distributions Linux suivantes sont actuellement prises en charge dans la pr�
 | Debian | Debian 9 |
 | openSUSE | openSUSE Leap 42.3 |
 | RedHat Enterprise Linux | RHEL 6, RHEL 7 | 
-| SUSE Linux Enteprise Server | SLES 12 |
+| SUSE Linux Enterprise Server | SLES 12 |
 | Serveur Ubuntu | Ubuntu 14.04 LTS, Ubuntu Server 16.04 et Ubuntu Server 18.04 |
 
 
@@ -186,7 +186,7 @@ Access denied
 
 Si vous effectuez correctement l’étape d’authentification dans un navigateur web, vous pouvez immédiatement être invité à vous reconnecter avec un nouveau code. Cette erreur est généralement due à une incompatibilité entre le nom de connexion spécifié à l’invite SSH et le compte avec lequel vous vous êtes connecté à Azure AD. Pour corriger ce problème :
 
-- Vérifiez que le nom de connexion spécifié à l’invite SSH est correct. Une faute de frappe dans le nom de connexion peut provoquer une incompatibilité entre le nom de connexion spécifié à l’invite SSH et le compte avec lequel vous vous êtes connecté à Azure AD. Exemple : vous avez tapé *azuresuer@contoso.onmicrosoft.com* à la place de *azureuser@contoso.onmicrosoft.com*.
+- Vérifiez que le nom de connexion spécifié à l’invite SSH est correct. Une faute de frappe dans le nom de connexion peut provoquer une incompatibilité entre le nom de connexion spécifié à l’invite SSH et le compte avec lequel vous vous êtes connecté à Azure AD. Par exemple, que vous avez tapé *azuresuer\@contoso.onmicrosoft.com* au lieu de *azureuser\@contoso.onmicrosoft.com*.
 - Si vous possédez plusieurs comptes d’utilisateurs, veillez à ne pas indiquer un autre compte d’utilisateur dans la fenêtre du navigateur lorsque vous vous connectez à Azure AD.
 - Linux est un système d’exploitation qui respecte la casse. La différence entre « Azureuser@contoso.onmicrosoft.com » et « azureuser@contoso.onmicrosoft.com » peut entraîner une incompatibilité. Assurez-vous que vous spécifiez l’UPN en respectant la casse appropriée à l’invite SSH.
 

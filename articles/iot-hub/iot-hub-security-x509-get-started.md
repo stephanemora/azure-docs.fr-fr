@@ -1,25 +1,25 @@
 ---
 title: Didacticiel pour la sécurité X.509 dans Azure IoT Hub | Microsoft Docs
 description: Commencez à utiliser la sécurité X.509 dans votre Azure IoT Hub dans un environnement simulé.
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/10/2017
-ms.author: dobett
-ms.openlocfilehash: b190390840a765953a2125348c3c9188f6bf7d37
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 80d3d3cf5f386c5f21e1e8fed1071a12c10235cd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452027"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091611"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Configurer la sécurité X.509 dans votre Azure IoT Hub
 
 Ce didacticiel simule la procédure que vous devez suivre pour sécuriser votre Azure IoT Hub à l’aide de *l’authentification de certificat X.509*. À titre d’illustration, nous indiquons ici comment utiliser l’outil open source OpenSSL pour créer des certificats localement sur votre machine Windows. Nous vous recommandons de n’utiliser ce didacticiel qu’à des fins de test. Pour un environnement de production, vous devez acheter les certificats auprès d’une *autorité de certification racine (CA)*. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Pour suivre ce didacticiel, vous devez disposer des ressources suivantes :
 
 - Vous avez créé un IoT Hub avec votre abonnement Azure. Pour découvrir la procédure détaillée correspondante, consultez l’article [Création d’un IoT Hub à l’aide du portail Azure](iot-hub-create-through-portal.md). 
@@ -65,7 +65,7 @@ Cette section décrit la procédure d’ajout d’une nouvelle autorité de cert
 
 10. Une fois le chargement du certificat terminé, cliquez sur **Vérifier**. Dans le panneau **Certificats**, la colonne **ÉTAT** de votre certificat prend la valeur **_Vérifié_**. Si le panneau ne se met pas à jour automatiquement, cliquez sur **Actualiser**.
 
-   ![Charger la vérification du certificat](./media/iot-hub-security-x509-get-started/upload-cert-verification.png)  
+    ![Charger la vérification du certificat](./media/iot-hub-security-x509-get-started/upload-cert-verification.png)  
 
 
 <a id="createdevice"></a>

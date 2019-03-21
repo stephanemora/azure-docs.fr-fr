@@ -15,12 +15,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb89d3eee87c0796bcd21914e719784756bc288e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 22bf80c13ef3b18ab3119b6b35e529c8ad32f504
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165737"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285092"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Obtenir de l’aide et ouvrir un ticket de support pour Azure Active Directory
 Microsoft propose des services de support pour les problèmes techniques, de prévente, de facturation et d’abonnements relatifs à Azure Active Directory (Azure AD). Le support est disponible en ligne et par téléphone pour les abonnements d’évaluation et payants Microsoft Azure. L’assistance téléphonique et le support de facturation en ligne sont disponibles dans plusieurs langues. 
@@ -31,7 +31,7 @@ Avant de créer un ticket de support, consultez les réponses et les information
 
 * Pour obtenir du contenu tel que des procédures ou des exemples de code à destination des professionnels de l’informatique et des développeurs, consultez la [documentation technique sur docs.microsoft.com](https://docs.microsoft.com/azure/active-directory/).
 
-* [Microsoft Tech Community](https://techcommunity.microsoft.com/) est l’endroit idéal pour les informaticiens des entreprises partenaires et clientes qui souhaitent collaborer, partager et apprendre. Dans le [Centre d’information Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Community-Info-Center/ct-p/Community-Info-Center), vous trouverez des annonces, des billets de blog, des espaces d’échanges avec des experts et bien plus encore. Vous pouvez aussi [rejoindre la communauté pour nous soumettre vos idées](https://techcommunity.microsoft.com/t5/Communities/ct-p/communities).
+* Le [communauté technique Microsoft](https://techcommunity.microsoft.com/) est ici que nos informaticiens des entreprises partenaires et les clients à collaborer, partager et apprendre. Le [Microsoft Technical Community Info Center](https://techcommunity.microsoft.com/t5/Community-Info-Center/ct-p/Community-Info-Center) est utilisé pour les annonces, billets de blog, demandez-me-quoi que ce soit des interactions (AMA) avec des experts et bien plus encore. Vous pouvez aussi [rejoindre la communauté pour nous soumettre vos idées](https://techcommunity.microsoft.com/t5/Communities/ct-p/communities).
 
 
 ## <a name="open-a-support-ticket"></a>Ouverture d’un ticket de support
@@ -41,7 +41,7 @@ Si vous ne parvenez pas à trouver de réponses dans les ressources d’auto-ass
 ### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-azure-portal"></a>Comment ouvrir un ticket de support pour Azure AD dans le portail Azure
 
 > [!NOTE]
-> Pour les problèmes de facturation ou d’abonnement, vous devez utiliser le [centre d’administration Office 365](https://portal.office.com).
+> Pour les problèmes de facturation ou d’abonnement, vous devez utiliser le [centre d’administration Microsoft 365](https://admin.microsoft.com).
 > 
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) et ouvrez **Azure Active Directory**.
@@ -59,24 +59,22 @@ Si vous ne parvenez pas à trouver de réponses dans les ressources d’auto-ass
 7. Détaillez un peu plus votre problème, puis cliquez sur **Suivant**.
   
 8. Indiquez vos coordonnées et sélectionnez **Créer**.
-  ![capture d’écran d’auto-assistance en fonction de la catégorie du problème](./media/active-directory-troubleshooting-support-howto/open-support-ticket.png)
+  ![Capture d’écran de problème catégorie auto-assistance](./media/active-directory-troubleshooting-support-howto/open-support-ticket.png)
 
-### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-office-365-portal"></a>Comment ouvrir un ticket de support pour Azure AD dans le portail Office 365
+### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-microsoft-365-admin-center"></a>Comment ouvrir un ticket de support pour Azure AD dans le centre d’administration Microsoft 365
 
 > [!NOTE]
-> Dans le centre d’administration Office 365, seuls les administrateurs peuvent bénéficier d’un support pour Azure AD.
-> 
+> Prise en charge pour Azure AD dans le [centre d’administration Microsoft 365](https://admin.microsoft.com) est disponible uniquement pour les administrateurs. 
 
-1. Connectez-vous au [centre d’administration Office 365](https://portal.office.com) avec un compte qui dispose d’une licence Enterprise Mobility + Security (EMS).
+1. Se connecter à la [centre d’administration Microsoft 365](https://admin.microsoft.com) avec un compte qui dispose d’une entreprise licence Mobility + Security (EMS).
 
-2. Sur la vignette **Support**, sélectionnez **Nouvelle demande de service** : ![Capture d’écran du portail Office 365](./media/active-directory-troubleshooting-support-howto/office-portal.png)
+2. Sur la vignette **Support**, sélectionnez **Nouvelle demande de service** :
 
-3. Sur la page **Vue d’ensemble du support**, sélectionnez **Gestion des identités** ou **Gestion des utilisateurs et du domaine** : ![Capture d’écran des catégories de support Azure AD](./media/active-directory-troubleshooting-support-howto/select-identity.png)
+3. Sur la page **Vue d’ensemble du support**, sélectionnez **Gestion des identités** ou **Gestion des utilisateurs et du domaine** :
 
 4. Pour **Fonctionnalité**, sélectionnez la fonctionnalité Azure AD pour laquelle vous souhaitez obtenir du support.
 
 5. Pour **Symptôme**, sélectionnez le symptôme approprié, résumez votre problème en fournissant des détails pertinents, puis sélectionnez **Suivant**.
-  ![capture d’écran d’auto-assistance pour une fonctionnalité et un symptôme](./media/active-directory-troubleshooting-support-howto/open-service-request.png)
 
 6. Sélectionnez l’une des ressources d’auto-assistance proposées ou sélectionnez **Oui, continuer** ou **Non, annuler la demande**.
 

@@ -12,22 +12,22 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 74aea3ad4c3dda8abc69275ad4d683fbcf485ccc
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: f6f1a3a7f0a406e1dbb40f4bfc6a358da7ac68fa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722904"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999536"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Prise en main du stockage de files d'attente Azure et des services connectés Visual Studio (projets WebJob)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Cet article explique comment prendre en main Stockage File d’attente Azure dans un projet WebJob Visual Studio Azure après avoir créé ou référencé un compte de stockage Azure à l’aide de la boîte de dialogue **Ajouter des services connectés** de Visual Studio. Quand vous ajoutez un compte de stockage à un projet de tâche web à l’aide de la boîte de dialogue **Ajouter des services connectés** de Visual Studio, le package NuGet d’Azure Storage approprié est installé, les références .NET appropriées sont ajoutées au projet et les chaînes de connexion pour le compte de stockage sont mises à jour dans le fichier App.config.  
 
 Cet article fournit des exemples de code C# qui indiquent comment utiliser la version 1.x du Kit de développement logiciel (SDK) WebJobs Azure avec le service de stockage de files d’attente Azure.
 
-Les files d’attente de stockage Azure sont un service permettant de stocker un grand nombre de messages accessibles depuis n’importe où dans le monde via des appels authentifiés avec HTTP ou HTTPS. Un simple message de file d’attente peut avoir une taille de 64 Ko et une file d’attente peut contenir des millions de messages, jusqu’à la limite de capacité totale d’un compte de stockage. Pour plus d’informations, consultez la section [Prise en main d’Azure Queue Storage à l’aide de .NET](../storage/queues/storage-dotnet-how-to-use-queues.md) . Pour plus d’informations sur ASP.NET, voir le site [ASP.NET](http://www.asp.net)(en anglais).
+Les files d’attente de stockage Azure sont un service permettant de stocker un grand nombre de messages accessibles depuis n’importe où dans le monde via des appels authentifiés avec HTTP ou HTTPS. Un simple message de file d’attente peut avoir une taille de 64 Ko et une file d’attente peut contenir des millions de messages, jusqu’à la limite de capacité totale d’un compte de stockage. Pour plus d’informations, consultez la section [Prise en main d’Azure Queue Storage à l’aide de .NET](../storage/queues/storage-dotnet-how-to-use-queues.md) . Pour plus d’informations sur ASP.NET, voir le site [ASP.NET](https://www.asp.net)(en anglais).
 
 ## <a name="how-to-trigger-a-function-when-a-queue-message-is-received"></a>Déclenchement d'une fonction à la réception d'un message de file d'attente
 Pour écrire une fonction que le Kit de développement logiciel (SDK) WebJobs appelle durant la réception d'un message en file d'attente, utilisez l'attribut **QueueTrigger** . Le constructeur d’attribut prend un paramètre de chaîne qui spécifie le nom de la file d’attente à interroger. Pour découvrir comment définir de manière dynamique le nom de la file d’attente, consultez la section [Définition des options de configuration](#how-to-set-configuration-options).
@@ -44,7 +44,7 @@ public static void ProcessQueueMessage([QueueTrigger("logqueue")] string logMess
 
 Outre **string**, le paramètre peut être un tableau d’octets, un objet **CloudQueueMessage** ou un objet POCO que vous définissez.
 
-### <a name="poco-plain-old-clr-objecthttpenwikipediaorgwikiplainoldclrobject-queue-messages"></a>Messages en file d’attente POCO [(Plain Old CLR Object](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
+### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplainoldclrobject-queue-messages"></a>Messages en file d’attente POCO [(Plain Old CLR Object](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
 Dans l’exemple suivant, le message de file d’attente contient JSON pour un objet **BlobInformation** qui inclut une propriété **BlobName**. Le Kit de développement logiciel (SDK) désérialise automatiquement l’objet.
 
 ```csharp
@@ -54,7 +54,7 @@ public static void WriteLogPOCO([QueueTrigger("logqueue")] BlobInformation blobI
 }
 ```
 
-Le Kit de développement logiciel (SDK) utilise le package [NuGet Newtonsoft.Json](http://www.nuget.org/packages/Newtonsoft.Json) pour sérialiser et désérialiser les messages. Si vous créez des messages en file d’attente dans un programme qui n’utilise pas le Kit de développement logiciel (SDK) WebJobs, vous pouvez écrire le code comme dans l’exemple suivant, afin de créer un message en file d’attente POCO que le Kit de développement logiciel (SDK) peut analyser.
+Le Kit de développement logiciel (SDK) utilise le package [NuGet Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json) pour sérialiser et désérialiser les messages. Si vous créez des messages en file d’attente dans un programme qui n’utilise pas le Kit de développement logiciel (SDK) WebJobs, vous pouvez écrire le code comme dans l’exemple suivant, afin de créer un message en file d’attente POCO que le Kit de développement logiciel (SDK) peut analyser.
 
 ```csharp
 BlobInformation blobInfo = new BlobInformation() { BlobName = "log.txt" };
@@ -72,7 +72,7 @@ public async static Task ProcessQueueMessageAsync([QueueTrigger("logqueue")] str
 }
 ```
 
-Les fonctions asynchrones peuvent prendre un [jeton d’annulation](http://www.asp.net/mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4#CancelToken), comme illustré dans l’exemple suivant, qui copie un objet blob. (Pour obtenir une explication de l'espace réservé **queueTrigger** , consultez la section [Objets blob](#how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message) ).
+Les fonctions asynchrones peuvent prendre un [jeton d’annulation](https://www.asp.net/mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4#CancelToken), comme illustré dans l’exemple suivant, qui copie un objet blob. (Pour obtenir une explication de l'espace réservé **queueTrigger** , consultez la section [Objets blob](#how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message) ).
 
 ```csharp
 public async static Task ProcessQueueMessageAsyncCancellationToken(
@@ -201,7 +201,7 @@ public static void CreateQueueMessage(
 }
 ```
 
-### <a name="poco-plain-old-clr-objecthttpenwikipediaorgwikiplainoldclrobject-queue-messages"></a>Messages en file d’attente POCO [(Plain Old CLR Object](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
+### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplainoldclrobject-queue-messages"></a>Messages en file d’attente POCO [(Plain Old CLR Object](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
 Pour créer un message de file d'attente qui contient un objet POCO plutôt qu'une chaîne, passez le type POCO en tant que paramètre de sortie au constructeur d'attribut **Queue** .
 
 ```csharp
@@ -296,7 +296,7 @@ public static void DeleteBlob(
 }
 ```
 
-### <a name="poco-plain-old-clr-objecthttpenwikipediaorgwikiplainoldclrobject-queue-messages"></a>Messages en file d’attente POCO [(Plain Old CLR Object](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
+### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplainoldclrobject-queue-messages"></a>Messages en file d’attente POCO [(Plain Old CLR Object](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
 Pour un objet POCO stocké au format JSON dans le message de file d’attente, vous pouvez utiliser des espaces réservés qui nomment les propriétés de nom de l’objet dans le paramètre **blobPath** de l’attribut **Queue**. Vous pouvez également utiliser des noms de propriété de métadonnées de file d'attente comme espaces réservés. Consultez la section [Obtention des métadonnées de file d’attente ou de message de file d’attente](#get-queue-or-queue-message-metadata).
 
 L’exemple suivant copie un objet blob dans un nouvel objet blob, avec une autre extension. Le message de la file d’attente est un objet **BlobInformation** qui inclut les propriétés **BlobName** et **BlobNameWithoutExtension**. Les noms de propriété sont utilisés en tant qu'espaces réservés dans le chemin de l'objet blob pour les attributs **blob** .
@@ -311,7 +311,7 @@ public static void CopyBlobPOCO(
 }
 ```
 
-Le Kit de développement logiciel (SDK) utilise le package [NuGet Newtonsoft.Json](http://www.nuget.org/packages/Newtonsoft.Json) pour sérialiser et désérialiser les messages. Si vous créez des messages en file d’attente dans un programme qui n’utilise pas le Kit de développement logiciel (SDK) WebJobs, vous pouvez écrire le code comme dans l’exemple suivant, afin de créer un message en file d’attente POCO que le Kit de développement logiciel (SDK) peut analyser.
+Le Kit de développement logiciel (SDK) utilise le package [NuGet Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json) pour sérialiser et désérialiser les messages. Si vous créez des messages en file d’attente dans un programme qui n’utilise pas le Kit de développement logiciel (SDK) WebJobs, vous pouvez écrire le code comme dans l’exemple suivant, afin de créer un message en file d’attente POCO que le Kit de développement logiciel (SDK) peut analyser.
 
 ```csharp
 BlobInformation blobInfo = new BlobInformation() { BlobName = "boot.log", BlobNameWithoutExtension = "boot" };

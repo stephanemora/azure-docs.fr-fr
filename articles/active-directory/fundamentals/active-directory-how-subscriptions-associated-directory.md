@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 262f46b3d0b61923352f3ff98b08cb5e4f6d5e75
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f8c5cb04c17e508409e67f0441daee4bc44c29d5
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993895"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285004"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associer ou ajouter un abonnement Azure à votre locataire Azure Active Directory
 
@@ -62,11 +62,10 @@ Avant de pouvoir associer ou ajouter votre abonnement, vous devez effectuer les 
 
     Le répertoire est modifié pour l’abonnement et un message de réussite s’affiche.
 
-    ![Message de réussite](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)    
+    ![Message de réussite sur le changement de répertoire](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)    
+4. Utilisez le **sélecteur de répertoire** pour accéder à votre nouveau répertoire. 10 minutes peuvent être nécessaire pour tout afficher correctement.
 
-4. Utilisez le sélecteur de répertoire pour passer à votre nouveau répertoire. 10 minutes peuvent être nécessaire pour tout afficher correctement.
-
-    ![Page Sélecteur de répertoire](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
+    ![Page de sélecteur de répertoire, avec les informations de l’exemple](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 
 La modification du répertoire de l’abonnement est une opération de niveau de service. Elle n’affecte donc pas la propriété de facturation de l’abonnement. L’administrateur du compte peut toujours changer l’administrateur du service depuis le [centre du compte](https://account.azure.com/subscriptions). Pour supprimer le répertoire d’origine, vous devez transférer la propriété de facturation de l’abonnement à un nouvel administrateur du compte. Pour en savoir plus sur le transfert de la propriété de facturation, consultez [Transfert de la propriété d’un abonnement Azure à un autre compte](../../billing/billing-subscription-transfer.md). 
 

@@ -16,19 +16,19 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a40159a43db6f83029ed6eacd37d2a4eff28aa09
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 1d5f4dec48d81b032de293bb6c68ad62ac48d475
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203843"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193056"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Synchronisation d’Azure AD Connect : Scheduler
 Cette rubrique décrit le planificateur intégré dans Azure AD Connect Sync (également appelé moteur de synchronisation).
 
 Cette fonctionnalité a été introduite avec la version 1.1.105.0 (publiée en février 2016).
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 La synchronisation Azure AD Connect synchronise les modifications dans votre répertoire local à l’aide d’un planificateur. Il existe deux processus de planificateur, l’un pour la synchronisation de mot de passe et l’autre pour la synchronisation d’attribut/d’objet, ainsi que des tâches de maintenance. Cette rubrique couvre ce dernier.
 
 Dans les versions antérieures, le planificateur utilisé pour les objets et attributs était externe au moteur de synchronisation. Il utilisait le Planificateur de tâches Windows ou un service Windows distinct pour déclencher le processus de synchronisation. Le planificateur de la version 1.1 est intégré au moteur de synchronisation et permet de personnaliser certains aspects. La nouvelle valeur de la fréquence de synchronisation par défaut est de 30 minutes.
@@ -55,7 +55,7 @@ Si le message **La commande de synchronisation ou l’applet de commande n’est
 * **PurgeRunHistoryInterval**. Durée pendant laquelle les journaux des opérations doivent être conservés. Ces journaux peuvent être consultés dans Synchronization Service Manager. La valeur de conservation des journaux par défaut est de 7 jours.
 * **SyncCycleEnabled**. Indique si le planificateur exécute les processus d’importation, de synchronisation et d’exportation dans le cadre de son fonctionnement.
 * **MaintenanceEnabled**. Indique si le processus de maintenance est activé. Met à jour les certificats/clés et vide le journal des opérations.
-* **StagingModeEnabled**. Indique si le [mode intermédiaire](how-to-connect-sync-operations.md#staging-mode) est activé. Si ce paramètre est activé, les exportations ne sont plus exécutées. Cependant, l’importation et la synchronisation sont toujours exécutées.
+* **StagingModeEnabled**. Indique si le [mode intermédiaire](how-to-connect-sync-staging-server.md) est activé. Si ce paramètre est activé, les exportations ne sont plus exécutées. Cependant, l’importation et la synchronisation sont toujours exécutées.
 * **SchedulerSuspended**. Défini par Connect pendant une mise à niveau pour bloquer temporairement le l’exécution du planificateur.
 
 Vous pouvez modifier certains de ces paramètres avec `Set-ADSyncScheduler`. Les paramètres suivants peuvent être modifiés :

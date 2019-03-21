@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: kgremban
-ms.openlocfilehash: 295f96258b2f5d6612ae7c5f86c9f360232111f6
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: 0fe2b33bc5f9a0b599934c4cabb065d4c97ea61b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507839"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549882"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Charger des fichiers sur le cloud à partir d’un appareil avec IoT Hub
 
@@ -159,11 +159,11 @@ Dans ce didacticiel, vous avez appris à utiliser les fonctionnalités de télé
 * [Kits de développement logiciel (SDK) Azure IoT][lnk-sdks]
 
 <!-- Links -->
-[Centre de développement Azure IoT]: http://azure.microsoft.com/develop/iot
+[Centre de développement Azure IoT]: https://azure.microsoft.com/develop/iot
 
 [lnk-create-hub]: iot-hub-rm-template-powershell.md
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
 [lnk-sdks]: iot-hub-devguide-sdks.md
 [lnk-python-download]: https://www.python.org/downloads/
-[lnk-visual-c-redist]: http://www.microsoft.com/download/confirmation.aspx?id=48145
+[lnk-visual-c-redist]: https://www.microsoft.com/download/confirmation.aspx?id=48145
 [lnk-install-pip]: https://pip.pypa.io/en/stable/installing/

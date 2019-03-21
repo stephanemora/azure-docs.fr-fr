@@ -1,6 +1,6 @@
 ---
-title: Déployer la protection de mot de passe Azure AD (préversion)
-description: Déployer la version préliminaire de protection de mot de passe Azure AD pour interdire les mauvais mots de passe en local
+title: Déployer la protection par mot de passe d’Azure AD
+description: Déployer la protection de mot de passe Azure AD pour interdire les mauvais mots de passe en local
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,19 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 832f29d16e5976493da56b304c3de0288b83c9b6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 54d2d600771316b0a88ea0a2486c0dedd0f84594
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57848743"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286531"
 ---
-# <a name="preview-deploy-azure-ad-password-protection"></a>Aperçu : Déployer la protection par mot de passe d’Azure AD
-
-|     |
-| --- |
-| Protection de mot de passe Azure Active Directory (Azure AD) est une fonctionnalité en préversion publique d’Azure AD. Pour plus d’informations sur les versions préliminaires, consultez [conditions d’utilisation supplémentaires pour les versions préliminaires de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+# <a name="deploy-azure-ad-password-protection"></a>Déployer la protection par mot de passe d’Azure AD
 
 Maintenant que vous comprenez [comment appliquer la protection de mot de passe Azure AD pour Windows Server Active Directory](concept-password-ban-bad-on-premises.md), l’étape suivante consiste à planifier et exécuter votre déploiement.
 

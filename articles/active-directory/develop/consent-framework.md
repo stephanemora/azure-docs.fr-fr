@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbac6fe421864f9479c9a4ee7eecde97c13f6052
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0200aa917894f4b7f1a45a9d3bd15b128aaf27a2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200528"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124174"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Infrastructure de consentement d’Azure Active Directory
 
@@ -58,14 +58,14 @@ Les étapes suivantes vous montrent comment l’expérience de consentement fonc
 
     **Pour donner son consentement pour les autorisations déléguées d’une application**
 
-    1. Accédez à la page **Paramètres** de votre application
-    1. Sélectionnez **Autorisations requises**.
-    1. Cliquez sur le bouton **Accorder des autorisations**.
+   1. Accédez à la page **Paramètres** de votre application
+   1. Sélectionnez **Autorisations requises**.
+   1. Cliquez sur le bouton **Accorder des autorisations**.
 
-    ![Accorder des autorisations pour un consentement administrateur explicite](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
+      ![Accorder des autorisations pour un consentement administrateur explicite](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
 
-  > [!IMPORTANT]
-  > Pour les applications monopages (SPA) qui utilisent ADAL.js, vous devez accorder un consentement explicite à l’aide du bouton **Accorder des autorisations**. Sinon, l’application échoue lorsque le jeton d’accès est demandé.
+   > [!IMPORTANT]
+   > Pour les applications monopages (SPA) qui utilisent ADAL.js, vous devez accorder un consentement explicite à l’aide du bouton **Accorder des autorisations**. Sinon, l’application échoue lorsque le jeton d’accès est demandé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

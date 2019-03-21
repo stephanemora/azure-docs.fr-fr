@@ -9,18 +9,18 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/29/2017
+ms.date: 03/11/2019
 ms.author: mbullwin
-ms.openlocfilehash: eaac042a9b3433a37428316a35855165c05da98a
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
-ms.translationtype: HT
+ms.openlocfilehash: 61215adc2aee5cef3693d119bf0efb36526d748b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53755932"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855144"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatiser les processus Application Insights en utilisant Logic Apps
 
-Vous devez exécuter à plusieurs reprises les mêmes requêtes sur vos données de télémétrie pour vérifier le bon fonctionnement de votre service ? Cherchez-vous à automatiser ces requêtes pour rechercher les tendances et les anomalies, puis générer vos propres flux de travail autour d’elles ? Le connecteur Azure Application Insights (préversion) pour Logic Apps est l’outil qu’il vous faut pour atteindre cet objectif.
+Vous devez exécuter à plusieurs reprises les mêmes requêtes sur vos données de télémétrie pour vérifier le bon fonctionnement de votre service ? Cherchez-vous à automatiser ces requêtes pour rechercher les tendances et les anomalies, puis générer vos propres flux de travail autour d’elles ? Le connecteur Azure Application Insights pour Logic Apps est l’outil adapté à cet effet.
 
 Avec cette intégration, vous pouvez automatiser de nombreux processus sans écrire la moindre ligne de code. Vous pouvez créer une application logique avec le connecteur Application Insights pour automatiser rapidement tous les processus Application Insights. 
 
@@ -34,42 +34,44 @@ Dans ce didacticiel, vous allez apprendre à créer une application logique qui 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 1. Cliquez sur **Créer une ressource**, sélectionnez **Web + Mobile**, puis sélectionnez **Application logique**.
 
-    ![Fenêtre Nouvelle application logique](./media/automate-with-logic-apps/logicapp1.png)
+    ![Fenêtre Nouvelle application logique](./media/automate-with-logic-apps/1createlogicapp.png)
 
 ### <a name="step-2-create-a-trigger-for-your-logic-app"></a>Étape 2 : Créer un déclencheur pour votre application logique
 1. Dans la fenêtre **Concepteur d’application logique**, sous **Démarrer avec un déclencheur courant**, sélectionnez **Récurrence**.
 
-    ![Fenêtre Concepteur d’application logique](./media/automate-with-logic-apps/logicapp2.png)
+    ![Fenêtre Concepteur d’application logique](./media/automate-with-logic-apps/2logicappdesigner.png)
 
-1. Dans la zone **Fréquence**, sélectionnez **Jour**, puis, dans la zone **Intervalle**, tapez **1**.
+1. Dans le **intervalle** , tapez **1** , puis,**fréquence** boîte, sélectionnez **jour**.
 
-    ![Fenêtre « Récurrence » du Concepteur d’application logique](./media/automate-with-logic-apps/step2b.png)
+    ![Fenêtre « Récurrence » du Concepteur d’application logique](./media/automate-with-logic-apps/3recurrence.png)
 
 ### <a name="step-3-add-an-application-insights-action"></a>Étape 3 : Ajouter une action Application Insights
-1. Cliquez sur **Nouvelle étape**, puis sur **Ajouter une action**.
+1. Cliquez sur **nouvelle étape**.
 
 1. Dans la zone de recherche **Choisir une action**, tapez **Azure Application Insights**.
 
-1. Sous **Actions**, cliquez sur **Azure Application Insights – Visualize Analytics query Preview** (Azure Application Insights – Visualiser la requête Analytics Préversion).
+1. Sous **Actions**, cliquez sur **Azure Application Insights - requête de visualiser une Analytique**.
 
-    ![Fenêtre de « Choisir une action » du Concepteur d’application logique](./media/automate-with-logic-apps/flow2.png)
+    ![Fenêtre de « Choisir une action » du Concepteur d’application logique](./media/automate-with-logic-apps/4visualize.png)
 
 ### <a name="step-4-connect-to-an-application-insights-resource"></a>Étape 4 : Se connecter à une ressource Application Insights
 
 Pour cette étape, vous avez besoin d’un ID d’application et d’une clé d’API pour votre ressource. Vous pouvez les récupérer sur le portail Azure, comme illustré dans le schéma suivant :
 
-![ID d’application dans le portail Azure](./media/automate-with-logic-apps/appid.png) 
+![ID d’application dans le portail Azure](./media/automate-with-logic-apps/5apiaccess.png)
+
+![ID d’application dans le portail Azure](./media/automate-with-logic-apps/6apikey.png)
 
 Renseignez le nom de votre connexion, l’ID d’application et la clé d’API.
 
-![Fenêtre de connexion de flux du Concepteur d’application logique](./media/automate-with-logic-apps/flow3.png)
+![Fenêtre de connexion de flux du Concepteur d’application logique](./media/automate-with-logic-apps/7connection.png)
 
 ### <a name="step-5-specify-the-analytics-query-and-chart-type"></a>Étape 5 : Spécifier le type de requête et de graphique Analytics
 Dans l’exemple suivant, la requête sélectionne les requêtes ayant échoué au cours du dernier jour et les met en corrélation avec les exceptions qui se sont produites dans le cadre de l’opération. Analytics met en corrélation les requêtes ayant échoué en fonction de l’identificateur operation_Id. La requête segmente ensuite les résultats à l’aide de l’algorithme de cluster automatique. 
 
 Lorsque vous créez vos propres requêtes, vérifiez qu’elles fonctionnent correctement dans Analytics avant de les ajouter à votre flux.
 
-1. Dans la zone **Requête**, ajoutez la requête Analytics suivante : 
+1. Dans la zone **Requête**, ajoutez la requête Analytics suivante :
 
     ```
     requests
@@ -84,17 +86,17 @@ Lorsque vous créez vos propres requêtes, vérifiez qu’elles fonctionnent cor
 
 1. Dans la zone **Type de graphique**, sélectionnez **Table HTML**.
 
-    ![Fenêtre de configuration de requête Analytics](./media/automate-with-logic-apps/flow4.png)
+    ![Fenêtre de configuration de requête Analytics](./media/automate-with-logic-apps/8query.png)
 
 ### <a name="step-6-configure-the-logic-app-to-send-email"></a>Étape 6 : Configurer l’application logique pour envoyer un e-mail
 
-1. Cliquez sur **Nouvelle étape**, puis sélectionnez **Ajouter une action**.
+1. Cliquez sur **nouvelle étape**.
 
 1. Dans la zone de recherche, tapez **Office 365 Outlook**.
 
 1. Cliquez sur **Office 365 Outlook - Envoyer un message électronique**.
 
-    ![Sélection d’Office 365 Outlook](./media/automate-with-logic-apps/flow2b.png)
+    ![Sélection d’Office 365 Outlook](./media/automate-with-logic-apps/9sendemail.png)
 
 1. Dans la fenêtre **Envoyer un message électronique**, effectuez les étapes suivantes :
 
@@ -103,10 +105,12 @@ Lorsque vous créez vos propres requêtes, vérifiez qu’elles fonctionnent cor
    b. Tapez l’objet de l’e-mail.
 
    c. Cliquez n’importe où dans la zone **Corps**, puis, dans le menu de contenu dynamique qui s’ouvre sur la droite, sélectionnez **Corps**.
+    
+   d. Cliquez sur le **ajouter un nouveau paramètre** vers le bas et sélectionnez HTML et des pièces jointes.
 
-   d. Cliquez sur **Afficher les options avancées**.
+      ![Configuration d’Office 365 Outlook](./media/automate-with-logic-apps/10emailbody.png)
 
-      ![Configuration d’Office 365 Outlook](./media/automate-with-logic-apps/flow5.png)
+      ![Configuration d’Office 365 Outlook](./media/automate-with-logic-apps/11emailparameter.png)
 
 1. Dans le menu de contenu dynamique, effectuez les étapes suivantes :
 
@@ -116,14 +120,14 @@ Lorsque vous créez vos propres requêtes, vérifiez qu’elles fonctionnent cor
     
     c. Dans la zone **Is HTML** (Est HTML), sélectionnez **Oui**.
 
-      ![Écran de configuration d’e-mail Office 365](./media/automate-with-logic-apps/flow7.png)
+      ![Écran de configuration d’e-mail Office 365](./media/automate-with-logic-apps/12emailattachment.png)
 
 ### <a name="step-7-save-and-test-your-logic-app"></a>Étape 7 : Enregistrer et tester votre application logique
 * Cliquez sur **Enregistrer** pour enregistrer vos modifications.
 
 Vous pouvez attendre que le déclencheur exécute l’application logique ou vous pouvez l’exécuter immédiatement en sélectionnant **Exécuter**.
 
-![Écran de création d’application logique](./media/automate-with-logic-apps/step7.png)
+![Écran de création d’application logique](./media/automate-with-logic-apps/13save.png)
 
 Lorsque votre application logique s’exécute, les destinataires que vous avez spécifiés dans la liste des e-mails reçoivent un e-mail similaire à :
 
