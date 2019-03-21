@@ -12,18 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 65625fcc12143a8ea53ff2ab7d1dfcb43a0def8d
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 92fc63ed45b6f1ea377138744d19137645c916e7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992141"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57882724"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Génération d'une application Windows Store de diffusion en continu lisse  
 
-Le Kit de développement logiciel (SDK) du client de diffusion en continu lisse pour Windows 8 permet aux développeurs de générer des applications Windows Store pour la lecture de contenu de diffusion en continu lisse à la demande et en direct. Outre la lecture de contenu de diffusion en continu lisse, le Kit de développement logiciel propose également des fonctionnalités avancées comme la protection Microsoft PlayReady, la limitation du niveau de qualité, le magnétoscope numérique en direct (Live DVR), la commutation des flux audio, l'écoute des mises à jour d'état (par exemple, les modifications des niveaux de qualité), les événements d'erreur, etc. Pour plus d'informations sur les fonctionnalités prises en charge, consultez les [notes de publicationn](http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes). Pour plus d’informations, consultez [Player Framework for Windows 8](http://playerframework.codeplex.com/). 
+Le Kit de développement logiciel (SDK) du client de diffusion en continu lisse pour Windows 8 permet aux développeurs de générer des applications Windows Store pour la lecture de contenu de diffusion en continu lisse à la demande et en direct. Outre la lecture de contenu de diffusion en continu lisse, le Kit de développement logiciel propose également des fonctionnalités avancées comme la protection Microsoft PlayReady, la limitation du niveau de qualité, le magnétoscope numérique en direct (Live DVR), la commutation des flux audio, l'écoute des mises à jour d'état (par exemple, les modifications des niveaux de qualité), les événements d'erreur, etc. Pour plus d'informations sur les fonctionnalités prises en charge, consultez les [notes de publicationn](https://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes). Pour plus d’informations, consultez [Player Framework for Windows 8](https://playerframework.codeplex.com/). 
 
 Le didacticiel se compose de quatre leçons :
 
@@ -32,13 +32,13 @@ Le didacticiel se compose de quatre leçons :
 3. Sélection des flux de diffusion en continu lisse
 4. Sélection des pistes de diffusion en continu lisse
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 > [!NOTE]
 > Les projets Windows Store version 8.1 et versions antérieures ne sont pas pris en charge dans Visual Studio 2017.  Pour en savoir plus, consultez [Plateforme cible et compatibilité dans Visual Studio 2017](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs).
 
 * Windows 8 32 bits ou 64 bits.
 * Visual Studio versions 2012 à 2015.
-* [Kit de développement logiciel (SDK) du client Microsoft de diffusion en continu lisse pour Windows 8](https://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home).
+* [Kit de développement logiciel (SDK) du client Microsoft de diffusion en continu lisse pour Windows 8](https://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home https://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home).
 
 Vous pouvez télécharger la solution terminée pour chaque leçon sur le site d'exemples de code développeur MSDN (galerie de code) : 
 
@@ -85,7 +85,7 @@ Pour plus d'informations sur le développement d'une application Windows Store, 
 | Nom | Valeur |
 | --- | --- |
 | Groupe de référence |Windows/Extensions |
-| Informations de référence |Sélectionnez le Kit de développement logiciel (SDK) du client de diffusion en continu lisse pour Windows 8 et le package Runtime Microsoft Visual C++ |
+| Référence |Sélectionnez le Kit de développement logiciel (SDK) du client de diffusion en continu lisse pour Windows 8 et le package Runtime Microsoft Visual C++ |
 
 1. Cliquez sur **OK**. 
 
@@ -107,7 +107,7 @@ Après l'ajout des références, vous devez sélectionner la plateforme ciblée 
 
          <StackPanel Name="spMediaControl" Grid.Row="1" Orientation="Horizontal">
             <TextBlock x:Name="tbSource" Text="Source :  " FontSize="16" FontWeight="Bold" VerticalAlignment="Center" />
-            <TextBox x:Name="txtMediaSource" Text="http://ecn.channel9.msdn.com/o9/content/smf/smoothcontent/elephantsdream/Elephants_Dream_1024-h264-st-aac.ism/manifest" FontSize="10" Width="700" Margin="0,4,0,10" />
+            <TextBox x:Name="txtMediaSource" Text="https://ecn.channel9.msdn.com/o9/content/smf/smoothcontent/elephantsdream/Elephants_Dream_1024-h264-st-aac.ism/manifest" FontSize="10" Width="700" Margin="0,4,0,10" />
             <Button x:Name="btnSetSource" Content="Set Source" Width="111" Height="43" Click="btnSetSource_Click"/>
             <Button x:Name="btnPlay" Content="Play" Width="111" Height="43" Click="btnPlay_Click"/>
             <Button x:Name="btnPause" Content="Pause"  Width="111" Height="43" Click="btnPause_Click"/>
@@ -203,7 +203,7 @@ Dans le fichier XAML, certains gestionnaires d'événements sont associés aux c
          }
          # endregion
    ```
-Le gestionnaire d'événements sliderProgress_PointerPressed est défini ici.  Pour qu'il fonctionne, il est nécessaire d'effectuer d'autres procédures qui seront décrites dans la leçon suivante de ce didacticiel.
+   Le gestionnaire d'événements sliderProgress_PointerPressed est défini ici.  Pour qu'il fonctionne, il est nécessaire d'effectuer d'autres procédures qui seront décrites dans la leçon suivante de ce didacticiel.
 6. Appuyez sur **Ctrl+S** pour enregistrer le fichier.
 
 Le fichier code-behind terminé doit ressembler à ceci :
@@ -807,7 +807,7 @@ La diffusion en continu lisse permet de diffuser du contenu en continu proposant
             changeStreams(selectedStreams);
         }
    ```
-**Pour compiler et tester l'application**
+   **Pour compiler et tester l'application**
 
 1. Appuyez sur **F6** pour compiler le projet. 
 2. Appuyez sur **F5** pour exécuter l'application.
@@ -1009,7 +1009,7 @@ Une présentation de diffusion en continu lisse peut contenir plusieurs fichiers
             changeStreams(selectedStreams);
          }
    ```
-**Pour compiler et tester l'application**
+   **Pour compiler et tester l'application**
 
 1. Appuyez sur **F6** pour compiler le projet. 
 2. Appuyez sur **F5** pour exécuter l'application.
@@ -1026,8 +1026,8 @@ Vous avez terminé la leçon 4.  Dans cette leçon, vous avez ajouté la foncti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="other-resources"></a>Autres ressources :
-* [Développement d'une application JavaScript de diffusion en continu lisse pour Windows 8 dotée de fonctionnalités avancées](http://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx)
-* [Présentation technique de la diffusion en continu lisse](http://www.iis.net/learn/media/on-demand-smooth-streaming/smooth-streaming-technical-overview)
+* [Développement d'une application JavaScript de diffusion en continu lisse pour Windows 8 dotée de fonctionnalités avancées](https://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx)
+* [Présentation technique de la diffusion en continu lisse](https://www.iis.net/learn/media/on-demand-smooth-streaming/smooth-streaming-technical-overview)
 
 [PlayerApplication]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
