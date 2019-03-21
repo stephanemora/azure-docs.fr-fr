@@ -16,21 +16,21 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
-ms.openlocfilehash: a99fb959ae1ac1434bedffd782a7c4e0a302d361
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: HT
+ms.openlocfilehash: c59fcf43cb4767f1d95d769dfce4d5c8755e45ee
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431406"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57990495"
 ---
 # <a name="deploy-sap-s4hana-or-bw4hana-on-azure"></a>Déploiement de SAP S/4HANA ou BW/4HANA sur Azure
 Cet article explique comment déployer S/4HANA sur Azure en utilisant SAP Cloud Appliance Library (SAP CAL) 3.0. Procédez de la même façon pour déployer d’autres solutions SAP HANA, comme BW/4HANA.
 
 > [!NOTE]
-Pour plus d’informations sur SAP CAL, accédez au site web [SAP Cloud Appliance Library](https://cal.sap.com/). Il existe également un blog SAP sur [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience).
-
+> Pour plus d’informations sur SAP CAL, accédez au site web [SAP Cloud Appliance Library](https://cal.sap.com/). Il existe également un blog SAP sur [SAP Cloud Appliance Library 3.0](https://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience).
+> 
 > [!NOTE]
-Depuis le 29 mai 2017, vous pouvez utiliser le modèle de déploiement Azure Resource Manager en plus du modèle de déploiement Classic (moins recommandé) pour déployer SAP CAL. Nous vous recommandons d’utiliser le nouveau modèle de déploiement Resource Manager et d’ignorer le modèle de déploiement Classic.
+> Depuis le 29 mai 2017, vous pouvez utiliser le modèle de déploiement Azure Resource Manager en plus du modèle de déploiement Classic (moins recommandé) pour déployer SAP CAL. Nous vous recommandons d’utiliser le nouveau modèle de déploiement Resource Manager et d’ignorer le modèle de déploiement Classic.
 
 ## <a name="step-by-step-process-to-deploy-the-solution"></a>Procédure pas à pas de déploiement de la solution
 
@@ -49,8 +49,8 @@ La page **Solutions** montre certaines solutions SAP CAL HANA disponibles sur Az
 
     c. Accordez à SAP CAL l’autorisation d’effectuer des déploiements dans votre abonnement Azure.
 
-    > [!NOTE]
-    Les étapes suivantes montrent comment créer un compte SAP CAL pour les déploiements Resource Manager. Si vous disposez déjà d’un compte SAP CAL lié au modèle de déploiement Classic, vous *devez* suivre ces étapes pour créer un nouveau compte SAP CAL. Le nouveau compte SAP CAL doit être déployé dans le modèle Resource Manager.
+   > [!NOTE]
+   >  Les étapes suivantes montrent comment créer un compte SAP CAL pour les déploiements Resource Manager. Si vous disposez déjà d’un compte SAP CAL lié au modèle de déploiement Classic, vous *devez* suivre ces étapes pour créer un nouveau compte SAP CAL. Le nouveau compte SAP CAL doit être déployé dans le modèle Resource Manager.
 
 1. Créez un compte SAP CAL. La page **Accounts** (Comptes) affiche trois possibilités pour Azure : 
 
@@ -96,10 +96,10 @@ Vous avez correctement créé un compte SAP CAL capable d’effectuer les tâch
 Vous pouvez à présent commencer à déployer S/4HANA dans votre abonnement utilisateur dans Azure.
 
 > [!NOTE]
-Avant de poursuivre, déterminez si vous êtes lié à des quotas de processeurs virtuels pour les machines virtuelles Azure série H. Pour le moment, SAP CAL utilise des machines virtuelles Azure série H pour déployer certaines solutions SAP HANA. Il se peut que votre abonnement Azure ne soit pas associé à des quotas de processeurs virtuels pour la série H. Dans ce cas, vous devrez peut-être contacter le support Azure pour obtenir un quota d’au moins 16 processeurs virtuels de série H.
-
+> Avant de poursuivre, déterminez si vous êtes lié à des quotas de processeurs virtuels pour les machines virtuelles Azure série H. Pour le moment, SAP CAL utilise des machines virtuelles Azure série H pour déployer certaines solutions SAP HANA. Il se peut que votre abonnement Azure ne soit pas associé à des quotas de processeurs virtuels pour la série H. Dans ce cas, vous devrez peut-être contacter le support Azure pour obtenir un quota d’au moins 16 processeurs virtuels de série H.
+> 
 > [!NOTE]
-Lorsque vous déployez une solution sur Azure dans SAP CAL, vous constaterez peut-être que vous ne pouvez choisir qu’une seule région Azure. Pour effectuer un déploiement dans des régions Azure autres que celle suggérée par SAP CAL, vous devez acheter un abonnement CAL auprès de SAP. Vous devrez peut-être également ouvrir un message avec SAP pour que votre compte CAL puisse déployer dans des régions Azure autres que celles suggérées initialement.
+> Lorsque vous déployez une solution sur Azure dans SAP CAL, vous constaterez peut-être que vous ne pouvez choisir qu’une seule région Azure. Pour effectuer un déploiement dans des régions Azure autres que celle suggérée par SAP CAL, vous devez acheter un abonnement CAL auprès de SAP. Vous devrez peut-être également ouvrir un message avec SAP pour que votre compte CAL puisse déployer dans des régions Azure autres que celles suggérées initialement.
 
 ### <a name="deploy-a-solution"></a>Déployer une solution
 
@@ -120,7 +120,7 @@ Nous présentons ici la séquence de déploiement de base.
 
     d. Entrez un mot de passe principal pour la solution dans le champ **Password** (Mot de passe). Celui-ci doit comprendre huit ou neuf caractères. Le mot de passe est utilisé pour les administrateurs des différents composants.
 
-   ![Mode de base SAP CAL : créer une instance](./media/cal-s4h/s4h-pic10a.png)
+   ![Mode De base SAP CAL : Créer une instance](./media/cal-s4h/s4h-pic10a.png)
 
 1. Cliquez sur **Create** (Créer), puis, dans la boîte de message qui s’affiche, cliquez sur **OK**.
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: f7c422d560341e51fad582439117533b7d9cd4c8
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 5744ee76d36b1cea256cd2594bcbc07c954f38f7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327661"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993282"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrer vers le stockage Premium à l’aide d’Azure Site Recovery
 
@@ -65,7 +65,7 @@ Voici les prérequis Azure pour ce scénario de migration :
 * Un réseau virtuel Azure auquel les machines virtuelles se connectent quand elles sont créées au moment du basculement. Le réseau virtuel Azure doit se trouver dans la même région que celle dans laquelle s’exécute Site Recovery.
 * Un compte de stockage Azure standard pour stocker les journaux de réplication. Il peut s'agir du même compte de stockage que celui des disques de machine virtuelle en cours de migration.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Identifiez les composants de scénario de migration pertinents de la section précédente.
 * Planifiez votre temps d’arrêt en vous familiarisant avec le [basculement dans Site Recovery](../../site-recovery/site-recovery-failover.md).
@@ -216,7 +216,7 @@ Pour des scénarios propres à la migration de machines virtuelles, consultez le
 
 * [Migrer des machines virtuelles Azure entre les comptes de stockage](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
 * [Créer et charger un disque dur virtuel Windows Server dans Azure](upload-generalized-managed.md)
-* [Migration de machines virtuelles à partir d’Amazon AWS vers Microsoft Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
+* [Migration de machines virtuelles à partir d’Amazon AWS vers Microsoft Azure](https://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
 Consultez également les ressources suivantes pour en savoir plus sur Azure Storage et les machines virtuelles Azure :
 

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10d208cab8b39b777fea7809be418613f17751b1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b35470daf8ef037a72516690c75980a6d07e8e29
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170284"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097164"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Configurer des identités managées sur un groupe de machines virtuelles identiques en utilisant des appels d’API REST
 
@@ -33,7 +33,7 @@ Dans cet article, en utilisant CURL pour effectuer des appels au point de termin
 - Activer et désactiver l’identité managée affectée par le système sur un groupe de machines virtuelles identiques Azure
 - Ajouter et supprimer une identité managée affectée par l’utilisateur sur un groupe de machines virtuelles identiques Azure
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 - Si vous n’êtes pas familiarisé avec les identités managées pour ressources Azure, consultez la [section Vue d’ensemble](overview.md). **Veillez à consulter la [différence entre les identités managées affectées par le système et celles affectées par l’utilisateur](overview.md#how-does-it-work)**.
 - Si vous n’avez pas encore de compte Azure, [inscrivez-vous à un essai gratuit](https://azure.microsoft.com/free/) avant de continuer.
@@ -72,7 +72,7 @@ Pour créer un groupe de machines virtuelles identiques dans lequel une identit�
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
    ```
 
-3.  Récupérez un jeton d’accès de porteur, que vous allez utiliser à l’étape suivante dans l’en-tête d’autorisation pour créer votre groupe de machines virtuelles identiques avec une identité managée affectée par le système.
+3. Récupérez un jeton d’accès de porteur, que vous allez utiliser à l’étape suivante dans l’en-tête d’autorisation pour créer votre groupe de machines virtuelles identiques avec une identité managée affectée par le système.
 
    ```azurecli-interactive
    az account get-access-token
@@ -81,23 +81,23 @@ Pour créer un groupe de machines virtuelles identiques dans lequel une identit�
 4. Créez un groupe de machines virtuelles identiques à l’aide de CURL pour appeler le point de terminaison REST Azure Resource Manager. L’exemple suivant crée un groupe de machines virtuelles identiques nommé *myVMSS* dans *myResourceGroup* avec une identité managée affectée par le système, telle qu’identifiée dans le corps de la demande par la valeur `"identity":{"type":"SystemAssigned"}`. Remplacez `<ACCESS TOKEN>` par la valeur que vous avez reçue à l’étape précédente lorsque vous avez demandé un jeton d’accès du porteur et la valeur `<SUBSCRIPTION ID>` adaptée à votre environnement.
 
    ```bash   
-  curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PUT -d '{"sku":{"tier":"Standard","capacity":3,"name":"Standard_D1_v2"},"location":"eastus","identity":{"type":"SystemAssigned"},"properties":{"overprovision":true,"virtualMachineProfile":{"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"createOption":"FromImage"}},"osProfile":{"computerNamePrefix":"myVMSS","adminUsername":"azureuser","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaceConfigurations":[{"name":"myVMSS","properties":{"primary":true,"enableIPForwarding":true,"ipConfigurations":[{"name":"myVMSS","properties":{"subnet":{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"}}}]}}]}},"upgradePolicy":{"mode":"Manual"}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
-  ```
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PUT -d '{"sku":{"tier":"Standard","capacity":3,"name":"Standard_D1_v2"},"location":"eastus","identity":{"type":"SystemAssigned"},"properties":{"overprovision":true,"virtualMachineProfile":{"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"createOption":"FromImage"}},"osProfile":{"computerNamePrefix":"myVMSS","adminUsername":"azureuser","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaceConfigurations":[{"name":"myVMSS","properties":{"primary":true,"enableIPForwarding":true,"ipConfigurations":[{"name":"myVMSS","properties":{"subnet":{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"}}}]}}]}},"upgradePolicy":{"mode":"Manual"}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
+   ```
 
    ```HTTP
    PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
    ```
 
-  **En-têtes de requête**
+   **En-têtes de requête**
 
-  |En-tête de requête  |Description  |
-  |---------|---------|
-  |*Content-Type*     | Requis. Défini sur `application/json`.        |
-  |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide. | 
+   |En-tête de requête  |Description  |
+   |---------|---------|
+   |*Content-Type*     | Requis. Défini sur `application/json`.        |
+   |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide. | 
 
-  **Corps de la demande**
+   **Corps de la demande**
 
-  ```JSON
+   ```JSON
     {
        "sku":{
           "tier":"Standard",
@@ -158,7 +158,7 @@ Pour créer un groupe de machines virtuelles identiques dans lequel une identit�
           }
        }
     }  
-  ```  
+   ```  
 
 ### <a name="enable-system-assigned-managed-identity-on-a-existing-virtual-machine-scale-set"></a>Activer une identité managée affectée par le système sur un groupe de machines virtuelles identiques existant
 
@@ -331,7 +331,7 @@ Dans cette section, découvrez comment ajouter et supprimer une identité manag�
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
    ```
 
-3.  Récupérez un jeton d’accès de porteur, que vous allez utiliser à l’étape suivante dans l’en-tête d’autorisation pour créer votre groupe de machines virtuelles identiques avec une identité managée affectée par le système.
+3. Récupérez un jeton d’accès de porteur, que vous allez utiliser à l’étape suivante dans l’en-tête d’autorisation pour créer votre groupe de machines virtuelles identiques avec une identité managée affectée par le système.
 
    ```azurecli-interactive
    az account get-access-token

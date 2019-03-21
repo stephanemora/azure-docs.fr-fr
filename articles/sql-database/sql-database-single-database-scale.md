@@ -11,72 +11,63 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: 1eac1da2d8d9a289cb456fc08d7e7c2bc7784aa6
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.date: 03/20/2019
+ms.openlocfilehash: c6dc49204c0a7e1cb0d1116e29746eed2fe52f8d
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454019"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286259"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Mise à l'échelle de ressources de singletons Azure SQL Database unique
 
 Cet article décrit comment faire évoluer les ressources de calcul et de stockage disponibles pour un singleton dans Azure SQL Database.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Vous êtes facturé pour chaque heure d’existence de la base de données avec le niveau de service le plus élevé, la taille de calcul appliquée pendant cette heure quel que soit l’usage, ou si la base de données a été active pendant moins d’une heure. Par exemple, si vous avez créé une base de données unique et que vous l’avez supprimée cinq minutes après, votre facture mentionne le coût d’une heure de base de données.
+> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont pour le module Az.Sql. Pour ces applets de commande, consultez [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments pour les commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
 
-## <a name="vcore-based-purchasing-model-change-storage-size"></a>Modèle d’achat vCore : Modifier la taille de stockage
+## <a name="change-compute-resources-vcores-or-dtus"></a>Modification des ressources de calcul (vCores ou dtu)
 
-- Le stockage peut être approvisionné jusqu’à la limite de taille maximale par incréments de 1 Go. Le stockage de données minimum configurable est de 5 Go.
-- Vous pouvez configurer du stockage pour une base de données unique en augmentant ou en diminuant sa taille maximale à l’aide du [portail Azure](https://portal.azure.com), de [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), de [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [d’Azure CLI](/cli/azure/sql/db#az-sql-db-update) ou de [l’API REST](https://docs.microsoft.com/rest/api/sql/databases/update).
-- SQL Database alloue automatiquement 30 % de stockage supplémentaire pour les fichiers journaux et 32 Go par vCore pour TempDB, dans une limite de 384 Go. TempDB se trouve sur un SSD attaché pour tous les niveaux de service.
-- Le prix du stockage pour une base de données unique est égal à la somme des volumes de stockage des données et de stockage des journaux multipliée par le prix unitaire du stockage pour le niveau de service. Le coût de TempDB est inclus dans le prix de vCore. Pour plus d’informations sur le prix du stockage supplémentaire, consultez [Tarification des bases de données SQL](https://azure.microsoft.com/pricing/details/sql-database/).
-
-> [!IMPORTANT]
-> Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez l’article [Gérer l’espace du fichier de la base de données SQL Azure](sql-database-file-space-management.md).
-
-## <a name="vcore-based-purchasing-model-change-compute-resources"></a>Modèle d’achat vCore : Modifier les ressources de calcul
-
-Après la sélection initiale du nombre de vCore, vous pouvez mettre à l’échelle une base de données unique de façon dynamique en fonction de l’expérience réelle à l’aide du [portail Azure](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server), de [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), de [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [d’Azure CLI](/cli/azure/sql/db#az-sql-db-update) ou de [l’API REST](https://docs.microsoft.com/rest/api/sql/databases/update).
-
-La modification du niveau de service et/ou de la taille de calcul d’une base de données crée un réplica de la base de données d’origine à la nouvelle taille de calcul, puis bascule les connexions vers ce réplica. Aucune donnée n’est perdue lors de ce processus, mais pendant le bref instant où nous basculons vers le réplica, les connexions à la base de données sont désactivées, de sorte que certaines transactions en cours sont susceptibles d’être restaurées. Le délai de basculement peut varier, mais il est généralement inférieur à 30 secondes dans 99 % des cas. Ce délai peut se révéler supérieur, en particulier s’il existe un très grand nombre de transactions en cours au moment où les connexions sont désactivées.
-
-La durée de la totalité du processus de montée en puissance dépend généralement de la taille et du niveau de service de la base de données avant et après la modification. Par exemple, une taille de base de données qui modifie la taille de calcul du niveau de service Usage général doit se terminer sous quelques minutes. En revanche, la latence de changement de la taille de calcul du niveau de service Critique pour l'entreprise est  généralement de 90 minutes ou moins pour 100 Go.
-
-> [!TIP]
-> Pour surveiller des opérations en cours, voir : [Gérer des opérations à l’aide de l’API REST SQL](https://docs.microsoft.com/rest/api/sql/operations/list), [Gérer des opérations à l’aide de l’interface de ligne de commande](/cli/azure/sql/db/op), [Surveiller des opérations à l’aide de T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) et les deux commandes PowerShell suivantes : [Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) et [Stop-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity).
-
-- Si vous effectuez la mise à niveau vers un niveau de service ou une taille de calcul supérieurs, la taille maximale de la base de données n’augmente pas, à moins que vous n’en fassiez la demande (maxsize).
-- Pour pouvoir passer à une version antérieure, l’espace utilisé par la base de données doit être inférieur à la taille maximale autorisée pour le service cible et la taille de calcul.
-- Lors de la mise à niveau d’une base de données pour laquelle la [géoréplication](sql-database-geo-replication-portal.md) est activée, vous devez commencer par mettre à niveau les bases de données secondaires associées vers le niveau de service et la taille de calcul souhaités avant de procéder à la mise à niveau de la base de données primaire (conseil général pour de meilleures performances). Lors de la mise à niveau vers une version différente, il est nécessaire de mettre d’abord à niveau la base de données secondaire.
-- Lors de la mise à niveau descendante d’une base de données pour laquelle la [géoréplication](sql-database-geo-replication-portal.md) est activée, vous devez commencer par mettre à niveau les bases de données primaires associées vers le niveau de service et la taille de calcul inférieurs souhaités avant de procéder à la mise à niveau descendante de la base de données secondaire (conseil général pour de meilleures performances). Lors de la mise à niveau vers une version inférieure, il est nécessaire de mettre d’abord à niveau la base de données primaire.
-- Les nouvelles propriétés de la base de données ne sont appliquées qu’une fois les modifications terminées.
-
-## <a name="dtu-based-purchasing-model-change-storage-size"></a>Modèle d’achat DTU : Modifier la taille de stockage
-
-- Le prix des DTU pour une base de données unique inclut une certaine quantité de stockage sans coût supplémentaire. Un espace de stockage en plus du volume inclus peut être approvisionné pour un coût supplémentaire jusqu’à la limite de taille par incréments de 250 Go jusqu’à 1 To, puis par incréments de 256 Go au-delà de 1 To. Pour les quantités de stockage et limites de taille maximale incluses, voir l’article [Base de données unique : tailles de stockage et tailles de calcul](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes).
-- Vous pouvez approvisionner un espace de stockage supplémentaire pour une base de données unique en augmentant la taille maximale à l’aide du Portail Azure, de [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), de [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [d’Azure CLI](/cli/azure/sql/db#az-sql-db-update) ou de [l’API REST](https://docs.microsoft.com/rest/api/sql/databases/update).
-- Le prix de l’espace de stockage supplémentaire pour une base de données unique est égal au volume de stockage supplémentaire multiplié par le prix unitaire du stockage supplémentaire pour le niveau de service. Pour plus d’informations sur le prix du stockage supplémentaire, consultez [Tarification des bases de données SQL](https://azure.microsoft.com/pricing/details/sql-database/).
-
-> [!IMPORTANT]
-> Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez l’article [Gérer l’espace du fichier de la base de données SQL Azure](sql-database-file-space-management.md).
-
-## <a name="dtu-based-purchasing-model-change-compute-resources-dtus"></a>Modèle d’achat DTU : Modifier les ressources de calcul (DTU)
-
-Après la sélection initiale d’un niveau de service, d’une taille de calcul et d’une quantité de stockage, vous pouvez procéder à la montée ou descente en puissance d’une base de données de manière dynamique en fonction de l’expérience réelle à l’aide du Portail Azure, de [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), de [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [d’Azure CLI](/cli/azure/sql/db#az-sql-db-update) ou de [l’API REST](https://docs.microsoft.com/rest/api/sql/databases/update).
+Après la sélection initiale du nombre de dtu ou de vCores, vous pouvez faire évoluer une base de données unique ou descendre en puissance dynamiquement en fonction de l’expérience réelle à l’aide de la [Azure portal](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [ PowerShell](/powershell/module/az.sql/set-azsqldatabase), le [Azure CLI](/cli/azure/sql/db#az-sql-db-update), ou le [API REST](https://docs.microsoft.com/rest/api/sql/databases/update).
 
 La vidéo suivante montre la modification dynamique du niveau de service et de la taille de calcul pour augmenter les DTU disponibles pour une base de données unique.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
 >
 
-La modification du niveau de service et/ou de la taille de calcul d’une base de données crée un réplica de la base de données d’origine à la nouvelle taille de calcul, puis bascule les connexions vers ce réplica. Aucune donnée n’est perdue lors de ce processus, mais pendant le bref instant où nous basculons vers le réplica, les connexions à la base de données sont désactivées, de sorte que certaines transactions en cours sont susceptibles d’être restaurées. Le délai de basculement peut varier, mais il est inférieur à 30 secondes dans 99 % des cas. Ce délai peut se révéler supérieur, en particulier s’il existe un très grand nombre de transactions en cours au moment où les connexions sont désactivées.
+> [!IMPORTANT]
+> Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez l’article [Gérer l’espace du fichier de la base de données SQL Azure](sql-database-file-space-management.md).
 
-La durée de la totalité du processus de montée en puissance dépend de la taille et du niveau de service de la base de données avant et après la modification. Par exemple, le basculement d’une base de données de 250 Go vers, depuis ou dans un niveau de service Standard ne demande pas plus de six heures. Le changement des tailles de calcul d’une base de données de la même taille dans le niveau de service Premium doit s’effectuer en moins de trois heures.
+### <a name="impact-of-changing-service-tier-or-rescaling-compute-size"></a>Impact du changement de taille de service de niveau ou de remise à l’échelle de calcul
+
+Modification du service de niveau ou de calculer la taille d’une base de données implique principalement le service, procédez comme suit :
+
+1. Créer la nouvelle instance de calcul pour la base de données  
+
+    Une nouvelle instance de calcul pour la base de données est créée avec la taille de calcul et le niveau de service demandé. Pour certaines combinaisons de niveau de service et les modifications de taille de calcul, un réplica de la base de données doit être créé dans la nouvelle instance de calcul qui implique la copie des données et peut influencer fortement la latence globale. Tous les cas, la base de données reste en ligne pendant cette étape et connexions continuent à être dirigé vers la base de données dans l’instance de calcul d’origine.
+
+2. Basculer le routage des connexions à la nouvelle instance de calcul
+
+    Les connexions existantes à la base de données dans l’instance de calcul d’origine sont supprimées. De nouvelles connexions sont établies à la base de données dans la nouvelle instance de calcul. Pour certaines combinaisons de niveau de service et les modifications de taille de calcul, fichiers de base de données détachez et rattachez pendant ce basculement.  Malgré tout, le commutateur peut entraîner une brève interruption de service lors de la base de données n’est pas disponible généralement moins de 30 secondes et souvent que quelques secondes. S’il existe de longues transactions en cours d’exécution lorsque les connexions sont supprimées, la durée de cette étape peut prendre plus de temps pour permettre la récupération des transactions abandonnées. [Accélération de récupération de base de données](sql-database-accelerated-database-recovery.md) peuvent réduire l’impact de l’abandon de transactions de longue.
+
+> [!IMPORTANT]
+> Aucune donnée n’est perdue au cours de des étapes dans le flux de travail.
+
+### <a name="latency-of-changing-service-tier-or-rescaling-compute-size"></a>Latence de modification de la taille de service de niveau ou de remise à l’échelle de calcul
+
+La latence pour modifier le niveau de service ou de mettre à l’échelle la taille de calcul d’une base de données unique ou d’un pool élastique est paramétrée comme suit :
+
+|Niveau de service|Base de données unique simple,</br>Standard (S0-S1)|Pool élastique de base,</br>Standard (S2-S12), </br>Très grande échelle, </br>Général objectif seule base de données ou pool élastique|Pool élastique ou base de données unique Premium ou critique pour l’entreprise|
+|:---|:---|:---|:---|
+|**Base de données unique base,</br> Standard (S0-S1)**|&bull; &nbsp;Latence de temps constant indépendante de l’espace utilisé</br>&bull; &nbsp;En règle générale, moins de 5 minutes|&bull; &nbsp;Latence proportionnelle à l’espace de base de données utilisé en raison de la copie des données</br>&bull; &nbsp;En règle générale, moins de 1 minute par Go d’espace utilisé|&bull; &nbsp;Latence proportionnelle à l’espace de base de données utilisé en raison de la copie des données</br>&bull; &nbsp;En règle générale, moins de 1 minute par Go d’espace utilisé|
+|**Pool élastique de base, </br>Standard (S2-S12), </br>Hyperscale, </br>pool élastique ou base de données unique à usage général**|&bull; &nbsp;Latence proportionnelle à l’espace de base de données utilisé en raison de la copie des données</br>&bull; &nbsp;En règle générale, moins de 1 minute par Go d’espace utilisé|&bull; &nbsp;Latence de temps constant indépendante de l’espace utilisé</br>&bull; &nbsp;En règle générale, moins de 5 minutes|&bull; &nbsp;Latence proportionnelle à l’espace de base de données utilisé en raison de la copie des données</br>&bull; &nbsp;En règle générale, moins de 1 minute par Go d’espace utilisé|
+|**Pool élastique ou base de données unique Premium ou critique pour l’entreprise**|&bull; &nbsp;Latence proportionnelle à l’espace de base de données utilisé en raison de la copie des données</br>&bull; &nbsp;En règle générale, moins de 1 minute par Go d’espace utilisé|&bull; &nbsp;Latence proportionnelle à l’espace de base de données utilisé en raison de la copie des données</br>&bull; &nbsp;En règle générale, moins de 1 minute par Go d’espace utilisé|&bull; &nbsp;Latence proportionnelle à l’espace de base de données utilisé en raison de la copie des données</br>&bull; &nbsp;En règle générale, moins de 1 minute par Go d’espace utilisé|
 
 > [!TIP]
-> Pour surveiller des opérations en cours, voir : [Gérer des opérations à l’aide de l’API REST SQL](https://docs.microsoft.com/rest/api/sql/operations/list), [Gérer des opérations à l’aide de l’interface de ligne de commande](/cli/azure/sql/db/op), [Surveiller des opérations à l’aide de T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) et les deux commandes PowerShell suivantes : [Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) et [Stop-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity).
+> Pour surveiller des opérations en cours, voir : [Gérer des opérations à l’aide de l’API REST SQL](https://docs.microsoft.com/rest/api/sql/operations/list), [Gérer des opérations à l’aide de l’interface de ligne de commande](/cli/azure/sql/db/op), [Surveiller des opérations à l’aide de T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) et les deux commandes PowerShell suivantes : [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) et [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
+
+### <a name="additional-considerations-when-changing-service-tier-or-rescaling-compute-size"></a>Considérations supplémentaires lors de la modification de taille de calcul de niveau ou la remise à l’échelle du service
 
 - Si vous effectuez la mise à niveau vers un niveau de service ou une taille de calcul supérieurs, la taille maximale de la base de données n’augmente pas, à moins que vous n’en fassiez la demande (maxsize).
 - Pour pouvoir passer à une version antérieure, l’espace utilisé par la base de données doit être inférieur à la taille maximale autorisée pour le service cible et la taille de calcul.
@@ -86,15 +77,36 @@ La durée de la totalité du processus de montée en puissance dépend de la tai
 - Les offres de service de restauration sont différentes selon les niveaux de service. Si vous repassez au niveau de service **De base**, la rétention des fichiers de sauvegarde sera de plus courte durée. Consultez l’article relatif aux [sauvegardes Azure SQL Database](sql-database-automated-backups.md).
 - Les nouvelles propriétés de la base de données ne sont appliquées qu’une fois les modifications terminées.
 
+### <a name="billing-during-rescaling"></a>Au cours de remise à l’échelle de facturation
+
+Vous êtes facturé pour chaque heure d’existence de la base de données avec le niveau de service le plus élevé, la taille de calcul appliquée pendant cette heure quel que soit l’usage, ou si la base de données a été active pendant moins d’une heure. Par exemple, si vous avez créé une base de données unique et que vous l’avez supprimée cinq minutes après, votre facture mentionne le coût d’une heure de base de données.
+
+## <a name="change-storage-size"></a>Modifier la taille de stockage
+
+### <a name="vcore-based-purchasing-model"></a>Modèle d’achat vCore
+
+- Le stockage peut être approvisionné jusqu’à la limite de taille maximale par incréments de 1 Go. Le stockage de données minimum configurable est de 5 Go.
+- Vous pouvez configurer du stockage pour une base de données unique en augmentant ou en diminuant sa taille maximale à l’aide du [portail Azure](https://portal.azure.com), de [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), de [PowerShell](/powershell/module/az.sql/set-azsqldatabase), [d’Azure CLI](/cli/azure/sql/db#az-sql-db-update) ou de [l’API REST](https://docs.microsoft.com/rest/api/sql/databases/update).
+- SQL Database alloue automatiquement 30 % de stockage supplémentaire pour les fichiers journaux et 32 Go par vCore pour TempDB, dans une limite de 384 Go. TempDB se trouve sur un SSD attaché pour tous les niveaux de service.
+- Le prix du stockage pour une base de données unique est égal à la somme des volumes de stockage des données et de stockage des journaux multipliée par le prix unitaire du stockage pour le niveau de service. Le coût de TempDB est inclus dans le prix de vCore. Pour plus d’informations sur le prix du stockage supplémentaire, consultez [Tarification des bases de données SQL](https://azure.microsoft.com/pricing/details/sql-database/).
+
+> [!IMPORTANT]
+> Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez l’article [Gérer l’espace du fichier de la base de données SQL Azure](sql-database-file-space-management.md).
+
+### <a name="dtu-based-purchasing-model"></a>Modèle d’achat DTU
+
+- Le prix des DTU pour une base de données unique inclut une certaine quantité de stockage sans coût supplémentaire. Un espace de stockage en plus du volume inclus peut être approvisionné pour un coût supplémentaire jusqu’à la limite de taille par incréments de 250 Go jusqu’à 1 To, puis par incréments de 256 Go au-delà de 1 To. Pour les quantités de stockage et limites de taille maximale incluses, voir l’article [Base de données unique : tailles de stockage et tailles de calcul](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes).
+- Vous pouvez approvisionner un espace de stockage supplémentaire pour une base de données unique en augmentant la taille maximale à l’aide du Portail Azure, de [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), de [PowerShell](/powershell/module/az.sql/set-azsqldatabase), [d’Azure CLI](/cli/azure/sql/db#az-sql-db-update) ou de [l’API REST](https://docs.microsoft.com/rest/api/sql/databases/update).
+- Le prix de l’espace de stockage supplémentaire pour une base de données unique est égal au volume de stockage supplémentaire multiplié par le prix unitaire du stockage supplémentaire pour le niveau de service. Pour plus d’informations sur le prix du stockage supplémentaire, consultez [Tarification des bases de données SQL](https://azure.microsoft.com/pricing/details/sql-database/).
+
+> [!IMPORTANT]
+> Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez l’article [Gérer l’espace du fichier de la base de données SQL Azure](sql-database-file-space-management.md).
+
 ## <a name="dtu-based-purchasing-model-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb"></a>Modèle d’achat DTU : limitations de P11 et P15 lorsque la taille maximale est supérieure à 1 To
 
-Une taille maximale supérieure à 1 To pour une base de données P11 et P15 est prise en charge dans les régions suivantes : Australie Est, Australie Sud-Est, Brésil Sud, Canada Centre, Canada Est, USA Centre, France Centre, Allemagne Centre, Japon Est, Japon Ouest, Corée Centre, USA Centre Nord, Europe Nord, USA Centre Sud, Asie Sud-Est, Royaume-Uni Sud, Royaume-Uni Ouest, USA Est 2, USA Ouest, US Gov Virginie et Europe Ouest. Les considérations et limitations suivantes s’appliquent aux bases de données P11 et P15 avec une taille maximale supérieure à 1 To :
+Un espace de stockage supérieur à 1 To au niveau Premium est actuellement disponible dans les toutes régions sauf les suivantes : Chine Est, Chine Nord, Allemagne Centre, Allemagne Nord-Est, USA Centre-Ouest, US DoD et Gouvernement US Centre. Dans ces régions, l’espace de stockage maximal au niveau Premium est limité à 1 To. Pour plus d’informations, voir les [limitations actuelles P11-P15](sql-database-single-database-scale.md#dtu-based-purchasing-model-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb). Les considérations et limitations suivantes s’appliquent aux bases de données P11 et P15 avec une taille maximale supérieure à 1 To :
 
-- Si vous choisissez une taille maximale supérieure à 1 To lors de la création d’une base de données (avec une valeur de 4 To ou de 4096 Go), la commande de création échoue avec une erreur si la base de données est configurée dans une région non prise en charge.
-- Pour les bases de données P11/P15 existantes situées dans l’une des régions prises en charge, vous pouvez augmenter la taille maximale du stockage au-delà de 1 To par incréments de 256 Go jusqu’à 4 To. Pour voir si une plus grande taille est prise en charge dans votre région, utilisez la fonction [DATABASEPROPERTYEX](/sql/t-sql/functions/databasepropertyex-transact-sql) ou inspectez la taille de la base de données dans le portail Azure. La mise à niveau d’une base de données P11 ou P15 existante ne peut être effectuée que par le biais d’une connexion du principal au niveau du serveur ou par les membres du rôle de base de données dbmanager.
-- En cas d’exécution d’une mise à niveau dans une région prise en charge, la configuration est mise à jour immédiatement. La base de données reste en ligne pendant le processus de mise à niveau. Toutefois, vous ne pourrez pas utiliser la totalité du stockage au-delà de 1 To tant que les fichiers de base de données réels n’ont pas été mis à niveau vers la nouvelle taille maximale. La durée requise dépend de la taille de la base de données mise à niveau.
-- Lors de la création ou de la mise à jour d’une base de données P11 ou P15, vous n’avez le choix qu’entre les tailles maximales de 1 To à 4 To par incréments de 256 Go. Lorsque vous créez une base de données P11/P15, l’option de stockage par défaut de 1 To est présélectionnée. Pour les bases de données situées dans l’une des régions prises en charge, vous pouvez augmenter le stockage maximal d’une base de données unique (nouvelle ou existante) jusqu’à un maximum de 4 To. Pour toutes les autres régions, la taille maximale ne peut pas être supérieure à 1 To. Le prix ne change pas lorsque vous sélectionnez l’option de 4 To de stockage inclus.
-- Si la taille maximale d’une base de données est réglée sur une valeur supérieure à 1 To, alors elle ne peut pas être modifiée sur 1 To même si le stockage réel utilisé est inférieur à 1 To. Par conséquent, vous ne pouvez pas rétrograder un compte P11 ou P15 avec une taille maximale supérieure à 1 To vers un P11 ou P15 1 To, ou à une taille de calcul inférieure, comme P1-P6). Cette restriction s’applique également aux scénarios de restauration et de copie, notamment la limite de restauration dans le temps, la restauration géographique, la rétention de sauvegarde à long terme et la copie de bases de données. Une fois qu’une base de données est configurée avec une taille maximale supérieure à 1 To, toutes les opérations de restauration de cette base de données doivent s’effectuer vers une base de données P11/P15 avec une taille maximale supérieure à 1 To.
+- Si la taille maximale pour une base de données P11 ou P15 était jamais une valeur supérieure à 1 To, puis pouvez il uniquement être restauré ou copié vers une base de données P11 ou P15.  Par la suite, la base de données permettre être remises à l’échelle à une taille de calcul différente fournie par la quantité d’espace allouée au moment de l’opération de remise à l’échelle ne dépasse pas les limites de taille maximale de la nouvelle taille de calcul.
 - Pour les scénarios de géoréplication active :
   - Configuration d’une relation de géoréplication : Si la base de données primaire est de niveau P11 ou P15, la ou les bases de données secondaires doivent également être de niveau P11 ou P15. Les tailles de calcul inférieures sont rejetées pour les bases de données secondaires, car elles ne sont pas en mesure de prendre en charge plus de 1 To.
   - Mise à niveau de la base de données primaire dans une relation de géoréplication : Le fait de modifier la taille maximale de la base de données primaire pour plus de 1 To déclenche la même modification sur la base de données secondaire. Les deux mises à niveau doivent aboutir pour que la modification sur la base de données principale prenne effet. Des limitations de région pour les options de plus de 1 To s’appliquent. Si la base de données secondaire se situe dans une région qui ne prend pas en charge plus de 1 To, la base de données primaire n’est pas mise à niveau.

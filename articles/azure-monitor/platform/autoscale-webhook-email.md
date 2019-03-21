@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 94d49edb93e4c7b2daff3c58c02b349612f1ee92
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 25ef2541dfa0b4cbd6e11d64381da645acfe653a
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57998281"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259293"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Utilisation d’actions de mise à l’échelle automatique pour envoyer des notifications d’alerte webhook et par courrier électronique dans Azure Moonitor
 Cet article explique comment paramétrer des déclencheurs pour vous permettre d’appeler des URL web spécifiques ou d’envoyer des courriers électroniques en fonction d’actions de mise à l’échelle automatique dans Azure.  
@@ -71,7 +71,7 @@ Lorsque vous utilisez l’API REST ou le modèle Resource Manager, incluez l’�
 | properties |Oui |la valeur doit être vide {} ou peut contenir des paires clé-valeur |
 
 ## <a name="authentication-in-webhooks"></a>Authentification dans des webhooks
-Le webhook peut s’authentifier en utilisant l’authentification par jeton, où vous enregistrez l’URI du webhook avec un ID de jeton comme paramètre de requête. Par exemple, https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
+Le webhook peut s’authentifier en utilisant l’authentification par jeton, où vous enregistrez l’URI du webhook avec un ID de jeton comme paramètre de requête. Par exemple, https : \/ /mysamplealert/webcallback ? tokenid = sometokenid & someparameter = somevalue
 
 ## <a name="autoscale-notification-webhook-payload-schema"></a>Schéma de la charge utile du webhook de notification de mise à l’échelle automatique
 Lorsque la notification de mise à l’échelle automatique est générée, les métadonnées suivantes sont incluses dans la charge utile du webhook :

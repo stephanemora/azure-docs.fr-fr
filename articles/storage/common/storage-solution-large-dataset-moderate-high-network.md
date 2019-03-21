@@ -4,16 +4,16 @@ description: Votre environnement dispose d'une bande passante réseau modérée 
 services: storage
 author: alkohli
 ms.service: storage
-ms.subservice: blob
+ms.subservice: blobs
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: alkohli
-ms.openlocfilehash: bc5668d826395fb71ee70907f095303a43f1ec7f
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
-ms.translationtype: HT
+ms.openlocfilehash: 4a8a014b365974bb8c138c74197d3d89cc63e42e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214315"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57771978"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>Transférer des jeux de données volumineux avec une bande passante réseau modérée à élevée
  

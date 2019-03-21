@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
-ms.openlocfilehash: bb1616c7cbf5c9c4620aed3e31896e32fe0163f9
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: 6d11961f06a75341e633c7a8963e6b83ed37cf13
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606212"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076732"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Prise en charge des métadonnées OpenAPI 2.0 dans Azure Functions (préversion)
 La prise en charge des métadonnées OpenAPI 2.0 (anciennement Swagger) dans Azure Functions est une fonctionnalité en préversion que vous pouvez utiliser pour écrire une définition OpenAPI 2.0 dans une application de fonction. Vous pouvez ensuite héberger ce fichier à l’aide de l’application de fonction.
@@ -45,7 +45,7 @@ Pour des instructions détaillées, consultez le [didacticiel de prise en main](
 
 ### <a name="templates"></a>Modèles disponibles
 
-|NOM| Description |
+|Nom| Description |
 |:-----|:-----|
 |Définition générée|Une définition OpenAPI avec la quantité maximale d’informations pouvant être déduites à partir de métadonnées existantes de la fonction.|
 
@@ -72,9 +72,9 @@ Le tableau suivant représente les paramètres du portail Azure et les données 
  Vous devez activer l’hébergement de la définition d’API dans le portail avant d’activer le contrôle de code source pour modifier votre définition d’API à partir du contrôle de code source. Suivez ces instructions :
 
 1. Accédez à **Définition d’API (préversion)** dans vos paramètres d’application de fonction.
-  1. Définissez **Source de définition d’API** sur **Fonction**.
-  1. Cliquez sur **Générer le modèle de définition d’API**, puis sur **Enregistrer** pour créer une définition de modèle à modifier ultérieurement.
-  1. Notez votre URL de définition d’API et votre clé.
+   1. Définissez **Source de définition d’API** sur **Fonction**.
+   1. Cliquez sur **Générer le modèle de définition d’API**, puis sur **Enregistrer** pour créer une définition de modèle à modifier ultérieurement.
+   1. Notez votre URL de définition d’API et votre clé.
 1. [Configurez l’intégration continue/le déploiement continu (CI/CD)](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment#continuous-deployment-requirements).
 2. Modifiez swagger.json dans le contrôle de code source à l’adresse \site\wwwroot\.azurefunctions\swagger\swagger.json.
 

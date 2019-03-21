@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 18dc82880830b6f8d14a7fc01930f75e9e61e5b0
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: daeff897cf284df6e820afbcdd35ee54bf88db08
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300548"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405400"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell
 
@@ -30,11 +30,11 @@ Le déploiement d'un modèle s'effectue généralement en deux étapes :
 
 Cet article utilise cette méthode de déploiement en deux étapes.  L'autre option consiste à déployer un groupe de ressources et les ressources en même temps.  Pour plus d'informations, consultez [Créer un groupe de ressources et déployer des ressources](./deploy-to-subscription.md#create-resource-group-and-deploy-resources).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 À moins d'utiliser [Azure Cloud Shell](#deploy-templates-from-azure-cloud-shell) pour déployer les modèles, vous devez installer Azure PowerShell et vous connecter à Azure :
 - **Installez les cmdlets Azure PowerShell sur votre ordinateur local.** Pour plus d’informations, consultez [Bien démarrer avec Azure PowerShell](/powershell/azure/get-started-azureps).
-- **Connectez-vous à Azure à l'aide de [Connect-AZAccount](/powershell/module/az.accounts/connect-azaccount.md)**. Si vous disposez de plusieurs abonnements Azure, vous devrez peut-être également exécuter [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext.md). Pour plus d'informations, consultez [Utiliser plusieurs abonnements Azure](/powershell/azure/manage-subscriptions-azureps).
+- **Connectez-vous à Azure à l'aide de [Connect-AZAccount](/powershell/module/az.accounts/connect-azaccount)**. Si vous disposez de plusieurs abonnements Azure, vous devrez peut-être également exécuter [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext). Pour plus d'informations, consultez [Utiliser plusieurs abonnements Azure](/powershell/azure/manage-subscriptions-azureps).
 - * Téléchargez et enregistrez un [modèle de démarrage rapide](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json). Le nom du fichier local utilisé dans cet article est **c:\MyTemplates\azuredeploy.json**.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]

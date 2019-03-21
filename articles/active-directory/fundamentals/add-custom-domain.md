@@ -13,15 +13,15 @@ ms.author: lizross
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68655efaf9d6020489b7bc05ed1855ac181cd22f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9820fcae0dfb366c1722c50c95400c7de0fbeb12
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211935"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285783"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Ajouter votre nom de domaine personnalisé à l’aide du Portail Azure Active Directory
-Chaque nouveau locataire Azure AD est fourni avec un nom de domaine initial au format *nom_de_domaine*.onmicrosoft.com. Vous ne pouvez pas modifier ni supprimer le nom de domaine initial, mais vous pouvez ajouter des noms de votre organisation à la liste. L’ajout de noms de domaine personnalisés vous permet de créer des noms d’utilisateur qui sont familiers à vos utilisateurs, par exemple *alain@contoso.com*.
+Chaque nouveau locataire Azure AD est fourni avec un nom de domaine initial au format *nom_de_domaine*.onmicrosoft.com. Vous ne pouvez pas modifier ni supprimer le nom de domaine initial, mais vous pouvez ajouter des noms de votre organisation à la liste. Ajout des noms de domaines personnalisés vous aide à créer des noms d’utilisateur qui sont familiers à vos utilisateurs, tel que *alain\@contoso.com*.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 Avant de pouvoir ajouter un nom de domaine personnalisé, vous devez créer votre nom de domaine avec un bureau d’enregistrement de domaines. Pour trouver un bureau d’enregistrement de domaines agréé, consultez la page [ICANN-Accredited Registrars](https://www.icann.org/registrar-reports/accredited-list.html) (Bureaux d’enregistrement agréés par l’ICANN).
@@ -31,7 +31,7 @@ Après avoir obtenu votre nom de domaine, vous pouvez créer votre premier annua
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) de votre annuaire avec un compte disposant du rôle **Propriétaire** de l’abonnement, puis sélectionnez **Azure Active Directory**. Pour plus d’informations sur les rôles d’abonnement, consultez [Rôles d’administrateur d’abonnement classique, rôles RBAC Azure et rôles d’administrateur Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles).
 
-    ![Écran du Portail Azure](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
+    ![Écran du portail Azure, montrant l’option Azure AD](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
 
     >[!TIP]
     > Si vous envisagez de fédérer votre instance locale de Windows Server Active Directory avec Azure AD, vous devez cocher la case **Je prévois de configurer ce domaine pour l’authentification unique avec mon annuaire Active Directory local** lorsque vous exécutez l’outil Azure AD Connect pour synchroniser vos annuaires. Vous devez également inscrire le même nom de domaine que celui que vous comptez fédérer avec votre annuaire local lors de l’étape **Domaine Azure AD** de l’Assistant. Vous pouvez voir à quoi cette étape de l’assistant ressemble [dans ces instructions](../hybrid/how-to-connect-install-custom.md#verify-the-azure-ad-domain-selected-for-federation). Si vous ne disposez pas de l’outil Azure AD Connect, vous pouvez [le télécharger ici](https://go.microsoft.com/fwlink/?LinkId=615771).
@@ -46,7 +46,7 @@ Après avoir créé votre annuaire, vous pouvez ajouter votre nom de domaine per
 
 1. Sélectionnez **Noms de domaine personnalisés**, puis **Ajouter un domaine personnalisé**.
 
-    ![Page Fabrikam - Noms de domaine personnalisés avec l’option Ajouter un domaine personnalisé encadrée](media/add-custom-domain/add-custom-domain.png)
+    ![Page des noms de domaine personnalisé, à ajouter un domaine personnalisé indiqué](media/add-custom-domain/add-custom-domain.png)
 
 2. Tapez le nouveau nom de domaine de votre organisation dans la zone **Nom de domaine personnalisé** (par exemple, _contoso.com_), puis sélectionnez **Ajouter un domaine**.
 
@@ -55,7 +55,7 @@ Après avoir créé votre annuaire, vous pouvez ajouter votre nom de domaine per
     >[!Important]
     >Vous devez inclure .com, .net ou toute autre extension de niveau supérieur pour que le processus fonctionne correctement.
 
-    ![Page Fabrikam - Noms de domaine personnalisés avec le bouton Ajouter un domaine encadré](media/add-custom-domain/add-custom-domain-blade.png)
+    ![Page des noms de domaine personnalisé, avec la page Ajouter un domaine personnalisé](media/add-custom-domain/add-custom-domain-blade.png)
 
 4. Copiez les informations DNS de la page **Contoso**. Par exemple, MS=ms64983159.
 
@@ -87,9 +87,9 @@ Après avoir enregistré votre nom de domaine personnalisé, vous devez vous ass
 
 ## <a name="common-verification-issues"></a>Problèmes de vérification courants
 - Si Azure AD ne parvient pas à vérifier un nom de domaine personnalisé, suivez les suggestions ci-après :
-    - **Attendez au moins une heure et essayez à nouveau**. Les enregistrements DNS doivent être propagés pour qu’Azure AD puisse vérifier le domaine. Ce processus peut dure une heure, voire plus.
+  - **Attendez au moins une heure et essayez à nouveau**. Les enregistrements DNS doivent être propagés pour qu’Azure AD puisse vérifier le domaine. Ce processus peut dure une heure, voire plus.
 
-    - **Vérifiez que l’enregistrement DNS est correct.** Revenez sur le site du bureau d’enregistrement de noms de domaine. Assurez-vous que l’entrée y figure et qu’elle correspond aux informations d’entrée DNS fournies par Azure AD.
+  - **Vérifiez que l’enregistrement DNS est correct.** Revenez sur le site du bureau d’enregistrement de noms de domaine. Assurez-vous que l’entrée y figure et qu’elle correspond aux informations d’entrée DNS fournies par Azure AD.
 
     Si vous ne pouvez pas mettre à jour l’enregistrement sur le site du bureau d’enregistrement, vous devez partager l’entrée avec une personne qui dispose des autorisations appropriées pour ajouter l’entrée et vérifier qu’elle est exacte.
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/15/2018
 ms.author: ellacroi
-ms.openlocfilehash: 660120a1314c0071aa5b1cf3eae668e1626813a1
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: bbf9ab56bd7e070e40e2454a69f0a5e313597f14
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54073456"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57215368"
 ---
 # <a name="azure-applications-solution-template-offer-publishing-guide"></a>Applications Azure : Guide de publication d’offres de modèle de solution
 
@@ -38,7 +38,6 @@ Ces modèles de solution sont des offres de type Transaction qui sont déployée
 |Disque dur virtuel compatible avec Azure  |   Les machines virtuelles doivent être basées sur Windows ou Linux.  Pour plus d’informations, consultez [Créer un disque dur virtuel compatible avec Azure](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md). |
 | Attribution de l’utilisation de client | L’activation de l’attribution de l’utilisation de client est obligatoire pour tous les modèles de solution publiés dans la Place de marché Azure. Pour plus d’informations sur l’attribution de l’utilisation de client et sur son activation, consultez [Attribution de l’utilisation de client partenaire Azure](./azure-partner-customer-usage-attribution.md).  |
 |  |  |
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 Si vous ne l’avez pas déjà fait, [inscrivez-vous](https://azuremarketplace.microsoft.com/sell) sur la Place de marché.

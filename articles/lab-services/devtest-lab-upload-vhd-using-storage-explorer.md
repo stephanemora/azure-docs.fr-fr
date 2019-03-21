@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 55e8f536419f102f8f0fe69773ed486407c50cfb
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 12a21f4fdfb279df154b4995b6191aa0ed54ab43
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328858"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894476"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-microsoft-azure-storage-explorer"></a>Télécharger le fichier de disque dur virtuel dans le compte de stockage du laboratoire avec l’explorateur de stockage Microsoft Azure
 
@@ -31,7 +31,7 @@ Dans Azure DevTest Labs, les fichiers de disque dur virtuel peuvent être utilis
 
 Les étapes suivantes vous guident lors du téléchargement d’un fichier de disque dur virtuel dans Azure DevTest Labs avec l’[Explorateur de stockage Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
-1. [Téléchargez et installez la version la plus récente de l’Explorateur de stockage Microsoft Azure](http://www.storageexplorer.com).
+1. [Téléchargez et installez la version la plus récente de l’Explorateur de stockage Microsoft Azure](https://www.storageexplorer.com).
 
 1. Obtenez le nom du compte de stockage du laboratoire à l’aide du portail Azure :
 

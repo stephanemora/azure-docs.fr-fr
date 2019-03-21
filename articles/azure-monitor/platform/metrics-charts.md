@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: c71822f50879404ba943ef6e703364a09a80fbf3
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 576a7948d4df7957d934fb4c8888712fa94cb202
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310931"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337072"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure Monitor Metrics Explorer
 
@@ -21,7 +21,7 @@ Azure Monitor Metrics Explorer est un composant du portail Microsoft Azure qui p
 
 ## <a name="metrics-in-azure"></a>Métriques dans Azure
 
-Les [métriques dans Azure Monitor](data-collection.md#metrics) sont les séries de valeurs et de comptes mesurés qui sont collectées et stockées au fil du temps. Il existe des métriques standard (ou de « plateforme ») et des métriques personnalisées. Les métriques standards vous sont fournies par la plateforme Azure elle-même. Les métriques standards reflètent les statistiques d’intégrité et d’utilisation de vos ressources Azure. Tandis que des métriques personnalisées sont envoyés à Azure par vos applications à l’aide de l’[API Application Insights pour les événements personnalisés](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). Les métriques personnalisées sont stockées dans les ressources d’Application Insights avec d’autres métriques spécifiques d’application.
+Les [métriques dans Azure Monitor](data-collection.md#metrics) sont les séries de valeurs et de comptes mesurés qui sont collectées et stockées au fil du temps. Il existe des métriques standard (ou de « plateforme ») et des métriques personnalisées. Les métriques standards vous sont fournies par la plateforme Azure elle-même. Les métriques standards reflètent les statistiques d’intégrité et d’utilisation de vos ressources Azure. Tandis que les mesures personnalisées sont envoyés à Azure par vos applications à l’aide de la [API Application Insights pour les événements et mesures personnalisés](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics), [extension Windows Azure Diagnostics (WAD)](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-overview), ou par [Azure Surveiller les API REST](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-store-custom-rest-api).
 
 ## <a name="create-a-new-chart"></a>Créer un graphique
 
@@ -76,16 +76,16 @@ Vous pouvez appliquer des filtres à des graphiques qui montrent des métriques 
 
 5. Vous pouvez répéter les étapes 1 à 4 pour appliquer plusieurs filtres aux mêmes graphiques.
 
-## <a name="segment-a-chart"></a>Segmenter un graphique
+## <a name="apply-splitting-to-a-chart"></a>Appliquer le fractionnement à un graphique
 
 Vous pouvez fractionner une métrique par dimension afin de visualiser la façon dont les différents segments de la métrique se comparent entre eux, et d’identifier des segments éloignés d’une dimension. 
 
-### <a name="to-segment-a-chart"></a>Pour segmenter un graphique
+### <a name="to-apply-splitting"></a>Pour appliquer le fractionnement
 
 1. Cliquez sur **Appliquer un fractionnement** au-dessus du graphique.
  
    > [!NOTE]
-   > Vous pouvez avoir plusieurs filtres mais une seule valeur de fractionnement/segmentation sur un graphique unique.
+   > Fractionnement ne peut pas être utilisé avec des graphiques qui ont plusieurs métriques. En outre, vous pouvez avoir plusieurs filtres mais qu’une seule dimension fractionnement appliqué à n’importe quel graphique unique.
 
 2. Choisissez la dimension sur laquelle vous souhaitez segmenter votre graphique :
 

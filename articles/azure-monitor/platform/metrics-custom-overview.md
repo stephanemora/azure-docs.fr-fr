@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: cb1d08bb7b4c64d8dbcf39a667cb037ff30c38e7
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 8602027431fdf2c1378834419977606bab5c6921
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467892"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287262"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Métriques personnalisées dans Azure Monitor
 
@@ -29,7 +29,7 @@ Les métriques personnalisées peuvent être envoyées à Azure Monitor à l’a
 
 Lorsque vous envoyez des métriques personnalisées à Azure Monitor, chaque point de données (ou valeur) rapporté doit inclure les informations qui suivent.
 
-### <a name="authentication"></a>Authentification
+### <a name="authentication"></a>Authentication
 Pour soumettre des métriques personnalisées à Azure Monitor, l’entité qui soumet la métrique doit disposer d’un jeton Azure Active Directory (Azure AD) valide, figurant dans l’en-tête **porteur** de la requête. Il existe plusieurs moyens d’acquérir un jeton du porteur valide :
 1. [Identités managées pour les ressources Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Donne une identité à une ressource Azure, par exemple, une machine virtuelle. Managed Service Identity (MSI) est conçu pour accorder aux ressources des autorisations permettant d’effectuer certaines opérations. Il peut s’agir, par exemple, d’autoriser une ressource à générer des métriques à propos d’elle-même. Une ressource (ou son MSI) peut recevoir des autorisations **Surveillance de l’éditeur de métriques** pour une autre ressource. Avec cette autorisation, le MSI peut également générer des métriques sur d’autres ressources.
 2. [Principal du service Azure AD](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). Dans ce scénario, une application (ou service) Azure AD peut se voir accorder les autorisations nécessaires pour générer des métriques concernant une ressource Azure.
@@ -55,17 +55,17 @@ Cette propriété capture la région Azure dans laquelle est déployée la resso
 >
 
 ### <a name="timestamp"></a>Timestamp
-Chaque point de données envoyé à Azure Monitor doit être marqué par un timestamp. Cet horodatage capture la date et l’heure auxquelles la valeur de métrique a été mesurée ou collectée. Azure Monitor accepte les données métriques dont les horodatages ne datent pas de plus de 20 minutes et ne dépassent pas les 5 minutes à venir.
+Chaque point de données envoyé à Azure Monitor doit être marqué par un timestamp. Cet horodatage capture la date et l’heure auxquelles la valeur de métrique a été mesurée ou collectée. Azure Monitor accepte les données métriques dont les horodatages ne datent pas de plus de 20 minutes et ne dépassent pas les 5 minutes à venir. L’horodatage doit être au format ISO 8601.
 
 ### <a name="namespace"></a>Espace de noms
 Les espaces de noms offrent un moyen de grouper ou classer par catégorie des métriques similaires. Les espaces de noms permettent d’isoler les groupes de métriques collectant différents insights ou indicateurs de performances. Par exemple, vous pouvez avoir un espace de noms appelé **ContosoMemoryMetrics** qui effectue le suivi des métriques d’utilisation de la mémoire qui profile votre application. Un autre espace de noms appelé **ContosoAppTransaction** peut effectuer le suivi de toutes les métriques relatives aux transactions utilisateur de votre application.
 
-### <a name="name"></a>NOM
+### <a name="name"></a>Nom
 **Nom** correspond au nom de la métrique rapportée. Généralement, le nom est suffisamment descriptif pour identifier ce qui est mesuré. Par exemple, il peut s’agir d’une métrique qui mesure le nombre d’octets de mémoire utilisés sur une machine virtuelle donnée. Le nom de cette métrique pourrait être **Memory Bytes In Use** (Octets de mémoire en cours d’utilisation).
 
 ### <a name="dimension-keys"></a>Clés de dimension
 Une dimension est une paire de clés ou de valeurs qui décrivent des caractéristiques supplémentaires concernant la métrique collectée. Ces caractéristiques supplémentaires permettent de collecter plus d’informations sur la métrique, offrant des insights plus approfondis. Par exemple, la métrique **Memory Bytes In Use** peut disposer d’une clé de dimension nommée **Process**, qui capture le nombre d’octets de mémoire consommés par chaque processus sur une machine virtuelle. Cette clé vous permet de filtrer les résultats de cette métrique pour connaître la quantité de mémoire utilisée par certains processus ou pour identifier les cinq processus utilisant le plus de mémoire.
-Chaque métrique personnalisée peut avoir jusqu’à 10 dimensions.
+Les dimensions sont facultatives, pas toutes les métriques peuvent avoir des dimensions. Une mesure personnalisée peut avoir jusqu'à 10 dimensions.
 
 ### <a name="dimension-values"></a>Valeurs de dimension
 Lorsqu’un point de données de métrique est rapporté, chaque clé de dimension rapportée est associée à une valeur de dimension. Par exemple, vous pouvez souhaiter que la mémoire utilisée par l’application ContosoApp sur votre machine virtuelle soit rapportée :
@@ -75,6 +75,7 @@ Lorsqu’un point de données de métrique est rapporté, chaque clé de dimensi
 * La valeur de dimension sera **ContosoApp.exe**.
 
 Lorsque vous publiez une valeur de métrique, vous pouvez spécifier une valeur de dimension par clé de dimension uniquement. Si vous collectez une même utilisation de la mémoire pour plusieurs processus sur la machine virtuelle, vous pouvez rapporter plusieurs valeurs de métrique pour cet horodatage. Chaque valeur de métrique spécifiera une valeur de dimension différente pour la clé de dimension **Process**.
+Les dimensions sont facultatives, pas toutes les métriques peuvent avoir des dimensions. Si un billet métrique définit les clés de dimension, les valeurs de dimension correspondantes sont obligatoires.
 
 ### <a name="metric-values"></a>Valeurs de métrique
 Azure Monitor stocke toutes les métriques à intervalles réguliers (avec une granularité d’une minute). Nous savons qu’il peut être nécessaire d’échantillonner une métrique plusieurs fois au cours d’une minute donnée. C’est le cas, par exemple, avec l’utilisation du processeur. Vous pouvez également avoir besoin de mesurer une métrique pour de nombreux événements discrets. C’est le cas, par exemple, avec les latences de transaction de connexion. Pour limiter le nombre de valeurs brutes que vous devez émettre et payer dans Azure Monitor, vous pouvez pré-agréger les valeurs localement et les émettre :
@@ -169,13 +170,13 @@ Dans la préversion publique, la publication des métriques personnalisées n’
 
 |Région Azure|Préfixe du point de terminaison régional|
 |---|---|
-|USA Est|https://eastus.monitoring.azure.com/|
-|USA Centre Sud|https://southcentralus.monitoring.azure.com/|
-|USA Centre-Ouest|https://westcentralus.monitoring.azure.com/|
-|USA Ouest 2|https://westus2.monitoring.azure.com/|
-|Asie Sud-Est|https://southeastasia.monitoring.azure.com/|
-|Europe Nord|https://northeurope.monitoring.azure.com/|
-|Europe Ouest|https://westeurope.monitoring.azure.com/|
+|USA Est| https :\//eastus.monitoring.azure.com/ |
+|USA Centre Sud| https:\//southcentralus.monitoring.azure.com/ |
+|USA Centre-Ouest| https:\//westcentralus.monitoring.azure.com/ |
+|USA Ouest 2| https:\//westus2.monitoring.azure.com/ |
+|Asie Sud-Est| https :\//southeastasia.monitoring.azure.com/ |
+|Europe Nord| https:\//northeurope.monitoring.azure.com/ |
+|Europe Ouest| https:\//westeurope.monitoring.azure.com/ |
 
 ## <a name="quotas-and-limits"></a>Quotas et limites
 Azure Monitor impose les limites d’utilisation suivantes quant aux métriques personnalisées :
@@ -185,6 +186,7 @@ Azure Monitor impose les limites d’utilisation suivantes quant aux métriques 
 |Série chronologique active/abonnements/région|50 000|
 |Clés de dimension par métrique|10|
 |Longueur de chaîne pour les espaces de noms de métrique, les noms de métrique, les clés de dimension et les valeurs de dimension|256 caractères|
+
 Une série chronologique active se définit comme toute combinaison unique de métriques, clés de dimension ou valeurs de dimension pour laquelle des valeurs de métrique ont été publiées au cours des 12 dernières heures.
 
 ## <a name="next-steps"></a>Étapes suivantes

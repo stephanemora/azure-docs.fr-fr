@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: f972495fe1a5a0744cf6d7046b555349e5bc8c54
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: 596ac871067886ee3124c0f21beb35cb3b8fe1ae
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416424"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593809"
 ---
 # <a name="using-azure-resource-manager-support-with-azure-load-balancer"></a>Utilisation de la prise en charge d’Azure Resource Manager pour l’équilibrage de charge Azure
 
@@ -30,15 +30,15 @@ Avec Azure Resource Manager, Azure Load Balancer contient les ressources enfants
 
 * Configuration d’une adresse IP frontend : un équilibreur de charge peut inclure une ou plusieurs adresses IP frontend, également appelées « adresses IP virtuelles ». Ces adresses IP servent d'entrée pour le trafic.
 * Pool d’adresses backend : il s’agit des adresses IP associées à la carte d’interface réseau (NIC) des machines virtuelles vers lesquelles la charge est distribuée.
-* Règles d’équilibrage de charge : une propriété de règle mappe une paire adresse IP/port frontend vers une combinaison adresses IP/port backend. Un même équilibreur de charge peut avoir plusieurs règles d’équilibrage de charge. Chaque règle correspond à la combinaison d’une paire adresse IP/port frontend et d’une paire adresse IP/port backend associées aux machines virtuelles.
+* Règles d’équilibrage de charge : une propriété de règle mappe une adresse IP frontale donnée et la combinaison de port à un ensemble d’adresses IP de serveur principal et la combinaison port. Un même équilibreur de charge peut avoir plusieurs règles d’équilibrage de charge. Chaque règle est une combinaison d’une adresse IP frontale et port et back-end IP et port associés aux machines virtuelles.
 * Sondes : les sondes vous permettent d'effectuer le suivi de l'intégrité des instances de machine virtuelle. En cas d’échec d’une sonde d’intégrité, l’instance de machine virtuelle est automatiquement mise hors service.
-* Règles NAT de trafic entrant : règles NAT définissant le trafic entrant qui transite via l’adresse IP frontend et est distribué à l’adresse IP backend.
+* Les règles NAT entrantes : NAT règles définissant le trafic entrant transitant par l’adresse IP frontale et distribué à l’adresse IP de serveur principal.
 
 ![](./media/load-balancer-arm/load-balancer-arm.png)
 
 ## <a name="quickstart-templates"></a>Modèles de démarrage rapide
 
-Azure Resource Manager vous permet d’approvisionner vos applications à l'aide d'un modèle déclaratif. Dans un modèle unique, vous pouvez déployer plusieurs services ainsi que leurs dépendances. Le même modèle vous permet de déployer plusieurs fois votre application à chaque phase du cycle de vie de l’application.
+Azure Resource Manager vous permet d’approvisionner vos applications à l'aide d'un modèle déclaratif. Dans un modèle unique, vous pouvez déployer plusieurs services avec leurs dépendances. Le même modèle vous permet de déployer plusieurs fois votre application à chaque phase du cycle de vie de l’application.
 
 Les modèles peuvent inclure des définitions de machines virtuelles, de réseaux virtuels, de groupes à haute disponibilité, d’interfaces réseau (NIC), de comptes de stockage, d’équilibreurs de charge, de groupes de sécurité réseau et d’adresses IP publiques. Avec des modèles, vous pouvez créer tout ce dont vous avez besoin pour une application complexe. Le contrôle de version et la collaboration du fichier de modèle peuvent être vérifiés dans le système de gestion de contenu.
 
@@ -50,15 +50,15 @@ Pour obtenir des modèles de démarrage rapide qui utilisent Azure Load Balancer
 
 Exemples de modèles :
 
-* [2 machines virtuelles dans un équilibrage de charge et les règles d'équilibrage de charge](http://go.microsoft.com/fwlink/?LinkId=544799)
-* [2 machines virtuelles dans un réseau virtuel avec un équilibrage de charge interne et les règles d’équilibrage de charge](http://go.microsoft.com/fwlink/?LinkId=544800)
-* [2 machines virtuelles dans un équilibrage de charge et la configuration des règles NAT sur l'équilibrage de charge](http://go.microsoft.com/fwlink/?LinkId=544801)
+* [2 machines virtuelles dans un équilibrage de charge et les règles d'équilibrage de charge](https://go.microsoft.com/fwlink/?LinkId=544799)
+* [2 machines virtuelles dans un réseau virtuel avec un équilibrage de charge interne et les règles d’équilibrage de charge](https://go.microsoft.com/fwlink/?LinkId=544800)
+* [2 machines virtuelles dans un équilibrage de charge et la configuration des règles NAT sur l'équilibrage de charge](https://go.microsoft.com/fwlink/?LinkId=544801)
 
 ## <a name="setting-up-azure-load-balancer-with-a-powershell-or-cli"></a>Configuration de l'équilibrage de charge Azure avec PowerShell ou la CLI
 
 Prise en main des applets de commande, des outils de ligne de commande et des API REST Azure Resource Manager
 
-* [cmdlets de mise en réseau Azure](https://docs.microsoft.com/powershell/module/azurerm.network#networking) peuvent être utilisées pour créer un équilibrage de charge.
+* [cmdlets de mise en réseau Azure](https://docs.microsoft.com/powershell/module/az.network#networking) peuvent être utilisées pour créer un équilibrage de charge.
 * [Création d’un équilibrage de charge à l’aide d’Azure Resource Manager](load-balancer-get-started-ilb-arm-ps.md)
 * [Utilisation de la CLI Azure avec Azure Resource Manager](../xplat-cli-azure-resource-manager.md)
 * [API REST de l'équilibrage de charge](https://msdn.microsoft.com/library/azure/mt163651.aspx)

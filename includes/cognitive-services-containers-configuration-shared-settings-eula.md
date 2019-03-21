@@ -4,16 +4,16 @@ ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/02/2019
-ms.openlocfilehash: c4d6cfe983016c59ad5606591dba4a75c3e9899d
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
-ms.translationtype: HT
+ms.openlocfilehash: 04b7031382d7ed611822a3dd721dfa09f01bce74
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53977342"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56740770"
 ---
 Le paramètre `Eula` indique que vous avez accepté la licence pour le conteneur. Vous devez attribuer à ce paramètre de configuration une valeur qui doit être définie sur `accept`.
 
-|Obligatoire| NOM | Type de données | Description |
+|Obligatoire| Nom | Type de données | Description |
 |--|------|-----------|-------------|
 |Oui| `Eula` | Chaîne | Acceptation de la licence<br><br>Exemple :<br>`Eula=accept` |
 

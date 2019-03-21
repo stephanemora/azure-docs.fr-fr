@@ -11,19 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e9795be75fe80d83104101a5a41f96c46269bbd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 6e09127f8ed2e8e949711631a20fa5a9cd855311
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57863642"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58284797"
 ---
-# <a name="preview--azure-ad-password-protection-agent-version-history"></a>Aperçu :  Historique des versions de l’agent de protection par mot de passe Azure AD
-
-|     |
-| --- |
-| La protection par mot de passe Azure AD est une fonctionnalité en préversion publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+# <a name="azure-ad-password-protection-agent-version-history"></a>Historique des versions de l’agent de protection par mot de passe Azure AD
 
 ## <a name="121160"></a>1.2.116.0
 

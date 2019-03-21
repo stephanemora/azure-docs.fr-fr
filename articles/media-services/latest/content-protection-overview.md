@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 3ce24100a0780f313a00b80129601f4e8f344bde
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
-ms.translationtype: MT
+ms.openlocfilehash: 4d1a9ae622de103b459d256cb48c5823f5866a3b
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189765"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294074"
 ---
 # <a name="content-protection-with-dynamic-encryption"></a>Protection du contenu avec chiffrement dynamique
 
@@ -199,6 +199,13 @@ Pour protéger vos éléments au repos, les ressources doivent être chiffrées 
 |[Chiffrement de stockage côté client](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Chiffrement côté client proposé par le stockage Azure, clé gérée par un client dans un coffre de clés|Non pris en charge|
 
 <sup>1</sup> Dans Media Services v3, le chiffrement de stockage (chiffrement AES-256) est uniquement pris en charge pour la compatibilité descendante lorsque vos ressources ont été créées avec Media Services v2. Cela signifie que la version v3 fonctionne avec les ressources chiffrées du stockage existant mais qu’elle n’autorisera pas de nouvelles créations.
+
+## <a name="troubleshoot"></a>Résolution des problèmes
+
+Si vous obtenez le `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY` erreur, veillez à spécifier la stratégie appropriée de diffusion en continu.
+
+Si vous obtenez des erreurs qui se terminent par `_NOT_SPECIFIED_IN_URL`, assurez-vous que vous spécifiez le format de chiffrement dans l’URL. Par exemple, .../manifest (format = m3u8-cmaf, chiffrement = cbcs-aapl). Consultez [protocoles et types de chiffrement de diffusion en continu](#streaming-protocols-and-encryption types).
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

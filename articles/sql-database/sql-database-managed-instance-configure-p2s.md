@@ -11,29 +11,30 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab, bonova, jovanpop
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: 9133f7f4dde080700b2b11a4c09df6d0610869f6
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
-ms.translationtype: HT
+ms.date: 03/13/2019
+ms.openlocfilehash: 5830885a9502e716164f771771d88fb5d7e23047
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388035"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57840407"
 ---
 # <a name="quickstart-configure-a-point-to-site-connection-to-an-azure-sql-database-managed-instance-from-on-premises"></a>Démarrage rapide : Configurer une connexion point à site à Azure SQL Database Managed Instance à partir d’un emplacement local
 
 Ce guide de démarrage rapide vous montre comment vous connecter à Azure SQL Database Managed Instance à l’aide de [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) à partir d’un ordinateur client local via une connexion point à site. Pour plus d’informations sur les connexions point à site, consultez l’article [À propos des VPN point à site](../vpn-gateway/point-to-site-about.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Dans ce guide de démarrage rapide :
 
 - Utilise les ressources créées dans [Créer une instance gérée](sql-database-managed-instance-get-started.md) comme point de départ.
-- PowerShell 5.1 et Azure PowerShell 5.4.2 (ou versions ultérieures) doivent être installés sur votre ordinateur client local. Au besoin, consultez les instructions d’[installation du module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azurermps-6.13.0#install-the-azure-powershell-module).
+- Requiert PowerShell 5.1 et AZ PowerShell 1.4.0 ou version ultérieure sur votre ordinateur de client local. Au besoin, consultez les instructions d’[installation du module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps#install-the-azure-powershell-module).
 - La version la plus récente de [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) doit être installée sur votre ordinateur client local.
 
 ## <a name="attach-a-vpn-gateway-to-your-managed-instance-virtual-network"></a>Attacher une passerelle VPN à votre réseau virtuel Managed Instance
 
-1. Ouvrez PowerShell sur votre ordinateur client local.
+1. Ouvrez PowerShell sur votre ordinateur de client local.
+
 2. Copiez ce script PowerShell. Ce script attache une passerelle VPN au réseau virtuel Managed Instance que vous avez créé dans le guide de démarrage rapide [Créer une instance gérée](sql-database-managed-instance-get-started.md). Ce script effectue les opérations suivantes :
 
    - Il crée et installe des certificats sur l’ordinateur client.
@@ -51,12 +52,18 @@ Dans ce guide de démarrage rapide :
        certificateNamePrefix  = '<certificateNamePrefix>'
        }
 
-     Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/attachVPNGateway.ps1?t='+ [DateTime]::Now.Ticks)).Content)) -ArgumentList $parameters, $scriptUrlBase
+     Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/attachVPNGatewayAz.ps1?t='+ [DateTime]::Now.Ticks)).Content)) -ArgumentList $parameters, $scriptUrlBase
      ```
+
+     > [!IMPORTANT]
+     > Pour utiliser le module Azure PowerShell Resource Manager plutôt que le module Az, utilisez l’applet de commande suivante : `attachVPNGateway.ps1` plutôt que `attachVPNGatewayAz.ps1` applet de commande.
 
 3. Collez le script dans votre fenêtre PowerShell et indiquez les paramètres obligatoires. Les valeurs des paramètres `<subscriptionId>`, `<resourceGroup>` et `<virtualNetworkName>` doivent correspondre à celles que vous avez utilisées dans le guide de démarrage rapide [Créer une instance gérée](sql-database-managed-instance-get-started.md). Pour le paramètre `<certificateNamePrefix>`, vous pouvez saisir la chaîne de votre choix.
 
 4. Exécutez le script PowerShell.
+
+> [!IMPORTANT]
+> Ne continuez pas jusqu'à ce que le script PowerShell terminé.
 
 ## <a name="create-a-vpn-connection-to-your-managed-instance"></a>Créer une connexion VPN à votre instance Managed Instance
 
@@ -65,17 +72,17 @@ Dans ce guide de démarrage rapide :
 3. Sélectionnez **Configuration de point à site**, puis **Télécharger le client VPN**.
 
     ![Téléchargement du client VPN](./media/sql-database-managed-instance-configure-p2s/download-vpn-client.png)  
-4. Sur votre ordinateur client local, décompressez le fichier zip, puis ouvrez le dossier extrait.
-5. Ouvrez le dossier WindowsAmd64 et le fichier **VpnClientSetupAmd64.exe**.
-6. Si le message **Windows a protégé votre ordinateur** apparaît, sélectionnez **Informations complémentaires**, puis **Exécuter quand même**.
+4. Sur votre ordinateur client local, extrayez les fichiers à partir du fichier zip, puis ouvrez le dossier avec les fichiers extraits.
+5. Ouvrez le «**WindowsAmd64** dossier et ouvrez le **VpnClientSetupAmd64.exe** fichier.
+6. Si le message **Windows a protégé votre ordinateur** apparaît, cliquez sur **Informations complémentaires**, puis sur **Exécuter quand même**.
 
     ![Installer le client VPN](./media/sql-database-managed-instance-configure-p2s/vpn-client-defender.png)\
-7. Sélectionnez **Oui** dans la boîte de dialogue du contrôle de compte d’utilisateur pour continuer.
-8. Dans la boîte de dialogue concernant votre réseau virtuel, sélectionnez **Oui** pour installer le client VPN.
+7. Dans la boîte de dialogue contrôle de compte d’utilisateur, cliquez sur **Oui** pour continuer.
+8. Dans la boîte de dialogue faisant référence à votre réseau virtuel, sélectionnez **Oui** pour installer le Client VPN pour votre réseau virtuel.
 
 ## <a name="connect-to-the-vpn-connection"></a>Établir la connexion VPN
 
-1. Accédez aux connexions VPN sur votre ordinateur client local et sélectionnez votre réseau virtuel Managed Instance pour établir une connexion à ce réseau virtuel. Dans l’image suivante, le réseau virtuel est nommé **MyNewVNet**.
+1. Accédez à **VPN** dans **réseau & Internet** sur votre ordinateur de client sur site et sélectionnez votre réseau virtuel Managed Instance pour établir une connexion à ce réseau virtuel. Dans l’image suivante, le réseau virtuel est nommé **MyNewVNet**.
 
     ![Connexion VPN](./media/sql-database-managed-instance-configure-p2s/vpn-connection.png)  
 2. Sélectionnez **Connecter**.
@@ -89,12 +96,11 @@ Dans ce guide de démarrage rapide :
 
     ![Connexion VPN](./media/sql-database-managed-instance-configure-p2s/vpn-connection-succeeded.png)  
 
-
 ## <a name="use-ssms-to-connect-to-the-managed-instance"></a>Utiliser SSMS pour se connecter à l’instance managée
 
 1. Sur l’ordinateur client local, ouvrez SQL Server Management Studio (SSMS).
-2. Dans la boîte de dialogue **Se connecter au serveur**, entrez le **nom d’hôte** complet de votre instance managée dans la zone **Nom du serveur**. 
-1. Sélectionnez **Authentification SQL Server**, fournissez votre nom d’utilisateur et votre mot de passe, puis sélectionnez **Connecter**.
+2. Dans la boîte de dialogue **Se connecter au serveur**, entrez le **nom d’hôte** complet de votre instance managée dans la zone **Nom du serveur**.
+3. Sélectionnez **Authentification SQL Server**, fournissez votre nom d’utilisateur et votre mot de passe, puis sélectionnez **Connecter**.
 
     ![connecter ssms](./media/sql-database-managed-instance-configure-vm/ssms-connect.png)  
 

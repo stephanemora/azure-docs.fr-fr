@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/20/2019
 ms.author: willzhan;juliako;johndeu
-ms.openlocfilehash: ef81e0c4d04d57edbffa16b817b34af5f3bf8c26
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 4b6bd97d7e87832f774f7a09f7e0deeb4047e695
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995627"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294464"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>Utiliser l’authentification Azure AD pour accéder à l’API Media Services avec REST
 
@@ -43,7 +43,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > [!IMPORTANT]
 > À l’heure actuelle, Media Services prend en charge le modèle d’authentification des services Azure Access Control. Toutefois, l’authentification Access Control sera déconseillée à compter du 1er juin 2018. Nous vous recommandons de migrer vers le modèle d’authentification Azure AD dès que possible.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 - Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
 - [Créez un compte Azure Media Services avec le portail Azure](media-services-portal-create-account.md).
@@ -54,14 +54,14 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="get-the-authentication-information-from-the-azure-portal"></a>Obtenir les informations d’authentification à partir du portail Azure
 
-### <a name="overview"></a>Vue d’ensemble
+### <a name="overview"></a>Présentation
 
 Pour accéder aux API Media Services, vous devez collecter des points de données suivants.
 
 |Paramètre|Exemples|Description|
 |---|-------|-----|
-|Domaine du locataire Azure Active Directory|microsoft.onmicrosoft.com|Azure AD en tant que point de terminaison Secure Token Service (STS) est créé au format suivant : https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD émet un JWT pour accéder aux ressources (jeton d’accès).|
-|Point de terminaison d'API REST|https://amshelloworld.restv2.westus.media.azure.net/api/|Il s’agit du point de terminaison vis-à-vis duquel tous les appels d’API REST Media Services dans votre application sont effectués.|
+|Domaine du locataire Azure Active Directory|microsoft.onmicrosoft.com|Azure AD en tant que point de terminaison Secure Token Service (STS) est créé au format suivant : <https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token>. Azure AD émet un JWT pour accéder aux ressources (jeton d’accès).|
+|Point de terminaison d'API REST|<https://amshelloworld.restv2.westus.media.azure.net/api/>|Il s’agit du point de terminaison vis-à-vis duquel tous les appels d’API REST Media Services dans votre application sont effectués.|
 |ID client (ID d’application)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|ID (client) d’application Azure AD. L’ID client est nécessaire pour obtenir le jeton d’accès. |
 |Clé secrète client|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Clés d’application Azure AD (clé secrète client). La clé secrète client est nécessaire pour obtenir le jeton d’accès.|
 
@@ -69,7 +69,7 @@ Pour accéder aux API Media Services, vous devez collecter des points de donnée
 
 Pour obtenir les informations, procédez comme suit :
 
-1. Connectez-vous au [portail Azure](http://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Accédez à votre instance AMS.
 3. Sélectionnez **Accès d’API**.
 4. Cliquez sur **Se connecter à l'API Azure Media Services avec le principal de service**.
@@ -83,33 +83,33 @@ Pour obtenir les informations, procédez comme suit :
 
     Si vous devez créer une application AD, procédez comme suit :
     
-    1. Cliquez sur **Créer**.
-    2. Entrez un nom.
-    3. Cliquez de nouveau sur **Créer**.
-    4. Appuyez sur **Enregistrer**.
+   1. Cliquez sur **Créer**.
+   2. Entrez un nom.
+   3. Cliquez de nouveau sur **Créer**.
+   4. Appuyez sur **Enregistrer**.
 
-    ![Accès d’API](./media/connect-with-rest/new-app.png)
+      ![Accès d’API](./media/connect-with-rest/new-app.png)
 
-    La nouvelle application s’affiche sur la page.
+      La nouvelle application s’affiche sur la page.
 
 6. Obtenez l’**ID client** (ID d’application).
     
-    1. Sélectionnez l’application.
-    2. Obtenez l’**ID client** dans la fenêtre de droite. 
+   1. Sélectionnez l’application.
+   2. Obtenez l’**ID client** dans la fenêtre de droite. 
 
-    ![Accès d’API](./media/connect-with-rest/existing-client-id.png)
+      ![Accès d’API](./media/connect-with-rest/existing-client-id.png)
 
-7.  Obtenez la **clé** de l’application (clé secrète client). 
+7. Obtenez la **clé** de l’application (clé secrète client). 
 
-    1. Cliquez sur le bouton **Gérer l'application** (notez que les informations sur l’ID client se trouvent sous **ID d’application**). 
-    2. Cliquez sur **Clés**.
+   1. Cliquez sur le bouton **Gérer l'application** (notez que les informations sur l’ID client se trouvent sous **ID d’application**). 
+   2. Cliquez sur **Clés**.
     
-        ![Accès d’API](./media/connect-with-rest/manage-app.png)
-    3. Pour générer la clé d’application (clé secrète client), renseignez les champs **DESCRIPTION** et **DATE D’EXPIRATION** et cliquez sur **Enregistrer**.
+       ![Accès d’API](./media/connect-with-rest/manage-app.png)
+   3. Pour générer la clé d’application (clé secrète client), renseignez les champs **DESCRIPTION** et **DATE D’EXPIRATION** et cliquez sur **Enregistrer**.
     
-        Après avoir cliqué sur le bouton **Enregistrer**, la valeur de la clé s’affiche. Copiez la valeur de la clé avant de quitter le panneau.
+       Après avoir cliqué sur le bouton **Enregistrer**, la valeur de la clé s’affiche. Copiez la valeur de la clé avant de quitter le panneau.
 
-    ![Accès d’API](./media/connect-with-rest/connect-with-rest03.png)
+   ![Accès d’API](./media/connect-with-rest/connect-with-rest03.png)
 
 Vous pouvez ajouter à votre fichier web.config ou app.config des valeurs pour les paramètres de connexion AD, en vue d’une utilisation ultérieure dans votre code.
 

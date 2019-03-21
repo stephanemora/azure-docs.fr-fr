@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 12/31/2018
+ms.date: 03/02/2019
 ms.author: ellacroi
-ms.openlocfilehash: c420b1b5fc15f89bd14b8ae42919f24de97da4fc
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 5ac8e35614d6f0514f60932bc34aa8cab2c0ad11
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894154"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542146"
 ---
 # <a name="marketplace-faqs"></a>Questions fréquentes (FAQ) sur la Place de marché
 
@@ -66,10 +66,11 @@ Avec la Place de marché Microsoft Azure, les clients peuvent découvrir des app
 
 Les offres de la Place de marché Microsoft Azure peuvent être achetées par les moyens suivants :
 
-* la [vitrine Web](https://azuremarketplace.microsoft.com/marketplace/apps),
-* le [portail de gestion Microsoft Azure](https://portal.azure.com/) ou via l’[interface de ligne de commande (CLI) d’Azure Marketplace](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
+* [vitrine Web](https://azuremarketplace.microsoft.com/marketplace/apps)
+* [Portail de gestion de Microsoft Azure](https://portal.azure.com/), ou via le [Interface de ligne de commande de la place de marché Azure (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
 
-Remarque : Des crédits prépayés et autres formes d’engagements financiers ne peuvent pas être utilisés pour payer des frais de licence de logiciels, mais peuvent l’être pour payer des frais d’utilisation d’Azure associés.  Les exceptions sont répertoriées dans [Engagement monétaire Azure](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/).
+>[!Note]
+>Des crédits prépayés et autres formes d’engagements financiers ne peuvent pas être utilisés pour payer des frais de licence de logiciels, mais peuvent l’être pour payer des frais d’utilisation d’Azure associés.  Les exceptions sont répertoriées dans [Engagement monétaire Azure](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/).
 
 **Puis-je choisir les régions Microsoft Azure où déployer mes achats effectués sur la Place de marché Microsoft Azure ?**
 
@@ -93,9 +94,11 @@ Actuellement, seules les offres de la Place de marché gratuites et BYOL (apport
 
 **Quels pays sont pris en charge pour l’achat d’applications et de services approvisionnés/vendus via la Place de marché Azure ?**
 
-La Place de marché Azure est accessible aux clients Microsoft Azure dans les pays suivants :
+Place de marché Azure est disponible aux clients de Microsoft Azure dans les pays répertoriés dans le [politiques](https://docs.microsoft.com/legal/marketplace/participation-policy).
 
-Afrique du Sud, Algérie, Allemagne, Arabie Saoudite, Argentine, Australie, Autriche, Bahreïn, Belarus, Belgique, Brésil, Bulgarie, Canada, Chili, Colombie, Corée du Sud, Costa Rica, Croatie, Danemark, Égypte, Émirats arabes unis, El Salvador, Équateur, Espagne, Estonie, États-Unis, Finlande, France, République de Chypre, République tchèque, République dominicaine, Grèce, Guatemala, Hong Kong R.A.S., Hongrie, Inde, Indonésie, Irlande, Islande, Israël, Italie, Japon, Jordanie, Kazakhstan, Kenya, Koweït, Lettonie, Liechtenstein, Lituanie, Luxembourg, Macédoine, ancienne République yougoslave de, Malaisie, Malte, Maroc, Mexique, Monténégro, Nigéria, Norvège, Nouvelle-Zélande, Pakistan, Panama, Paraguay, Pays-Bas, Pérou, Philippines, Pologne, Porto Rico, Portugal, Oman, Qatar, Roumanie, Royaume-Uni, Russie, Serbie, Singapour, Slovaquie, Slovénie, Sri Lanka, Suède, Suisse, Thaïlande, Taïwan, Trinité-et-Tobago, Tunisie, Turquie, Ukraine, Uruguay, Venezuela.
+**Quelles devises sont prises en charge par la place de marché Azure ?**
+
+Transactions peuvent être effectuées dans les 17 devises suivantes : AUD, BRL, CAO, CHF, DKK, EUR, GBP, INR, JPY, KRW, NOK, NZD, RUB, SEK, TWD, USD, RMB.
 
 ### <a name="deploying-a-solution-from-azure-marketplace"></a>Déploiement d’une solution à partir de la Place de marché Microsoft Azure
 
@@ -160,7 +163,7 @@ Un abonnement « Essai gratuit » est perpétuellement gratuit.  Une offre «�
 
 **Un instrument de paiement est-il requis (par exemple, une carte de crédit) pour déployer des offres du niveau Gratuit ou de type BYOL (apportez votre propre licence) ?**
 
- Non. Aucun instrument de paiement n’est requis pour déployer des offres de niveau Gratuit ou BYOL (apportez votre propre licence). En revanche, un instrument de paiement est nécessaire pour les offres d’essai gratuit. Les référencements incluant les boutons **Obtenir maintenant** ou **Essai logiciel gratuit** sont déployés dans l’abonnement Azure sélectionné.  Ces référencements sont facturés à l’aide du mode de paiement enregistré du compte sélectionné. Les frais d’utilisation d’Azure sont facturés séparément des frais de licence du logiciel.
+Non. Aucun instrument de paiement n’est requis pour déployer des offres de niveau Gratuit ou BYOL (apportez votre propre licence). En revanche, un instrument de paiement est nécessaire pour les offres d’essai gratuit. Les référencements incluant les boutons **Obtenir maintenant** ou **Essai logiciel gratuit** sont déployés dans l’abonnement Azure sélectionné.  Ces référencements sont facturés à l’aide du mode de paiement enregistré du compte sélectionné. Les frais d’utilisation d’Azure sont facturés séparément des frais de licence du logiciel.
 
 **S’ils ont des questions sur la tarification des offres commercialisées via la Place de marché Azure, à qui les clients disposant d’un Contrat Enterprise indirect peuvent-ils s’adresser ?**
 
@@ -176,21 +179,21 @@ Des offres de la Place de marché Azure spécifiques peuvent utiliser des crédi
 
 **Les remises sur les contrats de licence en volume s’appliquent-elles aux achats effectués dans la Place de marché Azure ?**
 
- Non. L’éditeur possédant des solutions sur la Place de marché Azure peut fixer ses tarifs.  Les remises de licences en volume Microsoft standard ne s’appliquent pas aux achats de la Place de marché Azure.
+Non. L’éditeur possédant des solutions sur la Place de marché Azure peut fixer ses tarifs.  Les remises de licences en volume Microsoft standard ne s’appliquent pas aux achats de la Place de marché Azure.
 
 **Comment régler ces abonnements ? Les achats effectués dans la Place de marché Azure apparaissent-ils sur la facture Azure ou sur une facture distincte ?**
 
-Les achats effectués sur la Place de marché Azure se font avec le même mode de paiement que votre abonnement Azure.  Ils sont facturés séparément de votre utilisation d’Azure, sauf s’ils sont autorisés à consommer l’engagement financier.
+MOSP - [programme d’abonnement en ligne Microsoft](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en) (web directs) clients sont facturés sur la même carte de crédit enregistrée pour leur profil d’abonnement Azure. Si vous n’avez enregistré aucune carte de crédit, vous ne pouvez pas effectuer d’achats sur la Place de marché Azure. Dans ce cas, vous avez reçu une dispense spéciale pour que les frais Azure vous soient facturés directement.
 
-Les clients du Programme d’abonnement en ligne Microsoft (MOSP) (par les personnes abonnées directement via le web) sont facturés sur la carte de crédit enregistrée pour leur profil d’abonnement Azure. Un client n’ayant pas de carte de crédit enregistrée (une dérogation spéciale pour faire facturer les frais Azure) ne peut pas acheter sur la Place de marché Microsoft Azure.
-
-Les clients disposant d’un Contrat Entreprise sont facturés sur la base de ce contrat. Les offres spécifiques de la Place de marché Azure énumérées dans [Engagement monétaire Azure](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/) sont d’abord déduites de l’engagement financier disponible, puis facturées en tant que dépassement sur une facture trimestrielle. Les clients sous Contrat Entreprise indirect, dans les secteurs éducatif et public, sont facturés par leur fournisseur de solutions de licence.
+Les clients disposant d’un Contrat Entreprise sont facturés sur la base de ce contrat. Les offres spécifiques de la Place de marché Azure énumérées ici sont d’abord déduites de l’engagement financier disponible, puis facturées en tant que dépassement sur une facture trimestrielle. Les clients sous Contrat Entreprise indirect, dans les secteurs éducatif et public, sont facturés par leur fournisseur de solutions de licence.
 
 **Où puis-je obtenir des informations sur mon abonnement et la facturation Place de marché Azure ?**
 
-Les clients du Programme d’abonnement en ligne Microsoft (abonnés directement via le web) peuvent consulter les détails de leur abonnement de la Place de marché dans le menu Place de marché du portail de facturation Azure. Les clients qui ont acheté des machines virtuelles à partir de la Place de marché peuvent connaître l’état des frais cumulés dans le portail de gestion Microsoft Azure.
+MOSP - [programme d’abonnement en ligne Microsoft](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en) clients de (web directs) peuvent consulter des détails de l’achat Marketplace dans l’onglet factures de la gestion des coûts + section facturation du portail de gestion Azure.
 
-Les clients disposant d’un Contrat Entreprise peuvent consulter les détails de leur abonnement Place de marché dans l’onglet Place de marché Azure dans l’affichage de facturation et de gestion du compte du portail Enterprise. Remarque : Les clients disposant d’un Contrat Entreprise indirect voient uniquement les informations relatives à l’offre et l’utilisation. Les détails de la tarification ne seront pas disponibles dans le portail Enterprise.
+Les clients de contrat entreprise (EA) peuvent consulter les détails de l’achat Marketplace dans l’onglet factures de la gestion des coûts + section facturation du portail de gestion Azure.
+
+Les partenaires cloud Solution Provider (CSP) peuvent afficher des détails de l’achat Marketplace pour chaque client de partenaires au sein de l’onglet de l’historique des commandes après avoir sélectionné une société dans la vue des clients.
 
 **Comment annuler un complément de la Place de marché Azure ajouté à la machine virtuelle Azure ?**
 
@@ -198,9 +201,9 @@ Comme le complément est associé à la machine virtuelle Azure, pour annuler l�
 
 **À quelle fréquence sont facturés les achats effectués dans la Place de marché Azure ?**
 
-Pour les clients possédant un Contrat Entreprise, pour les [services spécifiques décrits](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/), les engagements financiers disponibles sont tout d’abord diminués du coût total de ces services le mois où ils sont consommés. Toutes les offres de la Place de marché Azure qui ne sont pas déduites de l’engagement financier seront facturées trimestriellement à terme échu.
+Les clients contrat entreprise, pour les services spécifiques décrits, tout d’abord avait prépayé disponibles diminué le coût total de ces services le mois qu'où ils sont consommés. Toutes les offres de la Place de marché Azure qui ne sont pas déduites de l’engagement financier seront facturées trimestriellement à terme échu. Abonnements annuels de SaaS sont facturés une fois pour les services d’un an.
 
-Les clients du Programme d’abonnement en ligne Microsoft, c’est-à-dire abonnés directement via le web, sont facturés mensuellement sur la carte de crédit enregistrée dans leur profil d’abonnement Azure.
+MOSP - [programme d’abonnement en ligne Microsoft](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en) les clients (web directs) sont facturés mensuellement sur la même carte de crédit enregistrée pour leur profil d’abonnement Azure. Abonnements annuels de SaaS sont facturés une fois pour les services d’un an.
 
 **Comment puis-je transférer mes achats sur la Place de marché Azure de mon abonnement MOSP vers mon abonnement Contrat Entreprise direct ?**
 
@@ -246,7 +249,7 @@ Pour tout support technique concernant un produit, contactez le fournisseur édi
 
 **Puis-je retourner un achat dont je ne suis pas satisfait ?**
 
-Les achats effectués sur la Place de marché Azure ne peuvent pas être retournés, mais ils peuvent être annulés ou supprimés. Après annulation ou suppression d’un abonnement, les mois suivants ne sont pas facturés.
+Les achats effectués sur [place de marché Azure](https://azuremarketplace.microsoft.com/) ne peut pas être retourné, mais peuvent être annulés ou supprimés. La consommation en fonction des offres sont facturés en fonction de l’utilisation, par conséquent, lorsqu’il s’arrête, les frais ainsi arrêter. Les abonnements sont annulées et ne seront pas facturées au-delà de la période de facturation actuelle. Si un abonnement est annulé peu après l’achat (24 heures pour tous les mois et 14 jours pour annuel), un remboursement intégral est fourni.
 
 Les clients doivent contacter directement l’éditeur pour tout problème technique lié à leur service ou achat Place de marché. Les coordonnées des éditeurs et/ou un lien vers le site web de support se trouvent sur la page des détails de la solution sur la Place de marché Azure.
 
@@ -335,6 +338,10 @@ Il n’y a pas de frais de publication à payer pour le chargement d’une liste
 **Des frais de transaction s’appliquent-ils aux achats via la Place de marché Microsoft Azure ?**
 
 Lorsque la licence de la solution est achetée sur la Place de marché Microsoft Azure, les revenus de la licence logicielle sont partagés entre l’éditeur et Microsoft.  Cela est conforme aux conditions générales du [Contrat pour les éditeurs de la Place de marché Microsoft Azure](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf). De plus, pour les solutions avec BYOL (apportez votre propre licence), les éditeurs ne sont pas soumis à des frais de transaction.
+
+**Qu’est un contrat Standard ?**
+
+Microsoft offre Standard termes du contrat qu’un serveur de publication peut sélectionner pour tirer parti, afin que les clients ont un simplifié d’approvisionnement et le processus de révision juridique.
 
 **Où trouver des instructions pour l’intégration de mon application à Azure Active Directory (AAD) ?**
 
@@ -491,6 +498,35 @@ La Place de marché Azure est accessible aux clients Microsoft Azure dans les pa
 
 Afrique du Sud, Algérie, Allemagne, Arabie Saoudite, Argentine, Australie, Autriche, Bahreïn, Belarus, Belgique, Brésil, Bulgarie, Canada, Chili, Colombie, Corée du Sud, Costa Rica, Croatie, Danemark, Égypte, Émirats arabes unis, El Salvador, Équateur, Espagne, Estonie, États-Unis, Finlande, France, République de Chypre, République tchèque, République dominicaine, Grèce, Guatemala, Hong Kong R.A.S., Hongrie, Inde, Indonésie, Irlande, Islande, Israël, Italie, Japon, Jordanie, Kazakhstan, Kenya, Koweït, Lettonie, Liechtenstein, Lituanie, Luxembourg, Macédoine, ancienne République yougoslave de, Malaisie, Malte, Maroc, Mexique, Monténégro, Nigéria, Norvège, Nouvelle-Zélande, Pakistan, Panama, Paraguay, Pays-Bas, Pérou, Philippines, Pologne, Porto Rico, Portugal, Oman, Qatar, Roumanie, Royaume-Uni, Russie, Serbie, Singapour, Slovaquie, Slovénie, Sri Lanka, Suède, Suisse, Thaïlande, Taïwan, Trinité-et-Tobago, Tunisie, Turquie, Ukraine, Uruguay, Venezuela.
 
+**Comment définir des mon disponibilité géographique pour activer la vente dans différents pays ?**
+
+1.  Dans le portail Cloud Partner, accédez à la référence (SKU) à laquelle vous souhaitez ajouter de nouveaux pays.  Dans « Informations de référence (SKU) », accédez à « Disponibilité de pays/région » et cliquez sur « Sélection de régions. »
+
+    ![Sélectionner des régions](media/marketplace-publishers-guide/FAQ-choose-geo.png)
+
+1.  Une liste s’affiche avec tous les pays disponibles pour les revendre à.  Cliquez sur la case à cocher en regard de chaque pays que vous souhaitez rendre cette référence (SKU) disponibles. Cliquez sur « OK ».
+
+    ![Sélectionnez la liste de pays](media/marketplace-publishers-guide/FAQ-select-countries.png)
+
+1.  Enfin, pour que les modifications à appliquer à votre offre en direct, cliquez sur « Publier ».  
+
+>[!Note]
+>Il prendra 24 heures pour que les modifications entrent en vigueur.
+
+<!---    ![Publish offer](media/marketplace-publishers-guide/FAQ-publish-offer.png) -->
+
+**Comment un serveur de publication peut modifier la disponibilité géographique pour une offre existante ?**
+
+L’éditeur peut modifier une offre existante, sélectionnez les nouveaux pays et utiliser la fonction de téléchargement/chargement de feuille de calcul pour définir la tarification.
+
+**Dans les pays dans lesquels les clients peuvent acheter des offres de la place de marché Azure ?**
+
+Place de marché Azure prend en charge 141 acheter à partir des zones géographiques comme défini par l’adresse de facturation du client. Consultez [politiques](https://docs.microsoft.com/legal/marketplace/participation-policy) pour obtenir la liste des pays.
+
+**Quelles devises sont prises en charge par la place de marché Azure ?**
+
+Transactions peuvent être effectuées dans les 17 devises suivantes : AUD, BRL, CAO, CHF, DKK, EUR, GBP, INR, JPY, KRW, NOK, NZD, RUB, SEK, TWD, USD.
+
 ### <a name="deploying-a-solution-from-azure-marketplace"></a>Déploiement d’une solution à partir de la Place de marché Microsoft Azure
 
 **J’ai déployé une machine virtuelle de la Place de marché Azure sur un abonnement et je souhaite maintenant migrer cet abonnement d’un compte Azure à un autre. Est-ce possible ?**
@@ -528,7 +564,7 @@ Un abonnement de niveau Gratuit est une offre perpétuelle gratuite.  Une offre 
 
 **Un instrument de paiement est-il requis (par exemple, une carte de crédit) pour déployer des offres du niveau Gratuit ou de type BYOL (apportez votre propre licence) ?**
 
- Non. Aucun instrument de paiement n’est requis pour déployer des offres de niveau Gratuit ou BYOL (apportez votre propre licence). En revanche, un instrument de paiement est nécessaire pour les offres d’essai gratuit.
+Non. Aucun instrument de paiement n’est requis pour déployer des offres de niveau Gratuit ou BYOL (apportez votre propre licence). En revanche, un instrument de paiement est nécessaire pour les offres d’essai gratuit.
 
 Les référencements avec les boutons « OBTENIR MAINTENANT » ou « ESSAI LOGICIEL GRATUIT » sont déployés dans votre abonnement Azure et facturés conformément au mode de paiement enregistré pour votre compte. Les frais d’utilisation d’Azure sont facturés séparément des frais de licence du logiciel.
 
@@ -550,7 +586,7 @@ Des offres de la Place de marché Azure spécifiques peuvent utiliser des crédi
 
 **Les remises sur les contrats de licence en volume s’appliquent-elles aux achats effectués dans la Place de marché Azure ?**
 
- Non. Les ISV qui possèdent des solutions sur la place de marché Microsoft Azure peuvent fixer leurs tarifs. Les remises de licences en volume Microsoft standard ne s’appliquent pas aux achats de la Place de marché Azure.
+Non. Les ISV qui possèdent des solutions sur la place de marché Microsoft Azure peuvent fixer leurs tarifs. Les remises de licences en volume Microsoft standard ne s’appliquent pas aux achats de la Place de marché Azure.
 
 **Comment régler ces abonnements ? Mes achats effectués sur la place de marché Azure apparaissent-ils sur la facture Azure ou sur une facture distincte ?**
 

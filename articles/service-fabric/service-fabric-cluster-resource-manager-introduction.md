@@ -7,26 +7,26 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: cfab735b-923d-4246-a2a8-220d4f4e0c64
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: f3f8cf88268498d20651eab40eb655313180cadc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 75aa960ff060d74d0a579b475e4334402992b3c3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203197"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903355"
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>Présentation de Service Fabric Cluster Resource Manager
 Jusqu’ici, pour gérer des systèmes informatiques ou des services en ligne, il fallait dédier des machines physiques ou virtuelles spécifiques à ces services ou systèmes spécifiques. Les services étaient conçus sous forme de niveaux : un niveau « web » et un niveau « données » ou « stockage ». Les applications comportaient un niveau de messagerie où les demandes étaient transmises ou reçues, ainsi qu’un ensemble de machines dédiées à la mise en cache. Chaque niveau ou type de charge de travail recevait des machines spécifiques dédiées : quelques machines pour la base de données, quelques-unes pour les serveurs web. Si un type particulier de charge de travail entraînait la surchauffe des machines sur lesquelles il était exécuté, alors vous ajoutiez davantage de machines avec cette même configuration à ce niveau. Toutefois, il n’était pas possible d’augmenter facilement toutes les charges de travail. Avec le niveau de données en particulier, vous deviez généralement remplacer les machines par des machines plus grandes. Facile. Si une machine venait à tomber en panne, cette partie de l’application globale s’exécutait alors à une capacité inférieure jusqu’à la restauration de la machine. Toujours aussi facile (mais pas forcément très amusant).
 
 Mais le monde de l’architecture des services et des logiciels a changé. Les applications adoptent souvent une conception de montée en puissance. Il est courant de créer des applications avec des conteneurs ou des microservices (voire les deux). Même si vous ne disposez toujours que de quelques machines, elles n’exécutent pas une seule instance d’une charge de travail. Elles peuvent même exécuter différentes charges de travail à la fois. Vous avez désormais des dizaines de types de services différents (aucun consommant des ressources équivalentes à une machine complète), voire des centaines d’instances différentes de ces services. Chaque instance nommée possède un(e) ou plusieurs instances ou réplicas pour la haute disponibilité (HA). Selon la taille et l’utilisation de ces charges de travail, vous risquez de vous retrouver avec des centaines voire des milliers de machines. 
 
-Tout à coup, la gestion de votre environnement se complique et ne se résume plus à quelques machines dédiées à des types de charges de travail uniques. Vos serveurs sont virtuels et n’ont plus de noms (vous êtes passé des [animaux domestiques (« pets ») au bétail (« cattle »)](http://www.slideshare.net/randybias/architectures-for-open-and-scalable-clouds/20) , voilà tout). La configuration est désormais axée davantage sur les services que sur les machines. Le matériel dédié à une seule instance d’une charge de travail fait partie du passé. Les services sont eux-mêmes devenus de petits systèmes distribués qui couvrent de nombreux plus petits éléments de machines de grande série.
+Tout à coup, la gestion de votre environnement se complique et ne se résume plus à quelques machines dédiées à des types de charges de travail uniques. Vos serveurs sont virtuels et n’ont plus de noms (vous êtes passé des [animaux domestiques (« pets ») au bétail (« cattle »)](https://www.slideshare.net/randybias/architectures-for-open-and-scalable-clouds/20) , voilà tout). La configuration est désormais axée davantage sur les services que sur les machines. Le matériel dédié à une seule instance d’une charge de travail fait partie du passé. Les services sont eux-mêmes devenus de petits systèmes distribués qui couvrent de nombreux plus petits éléments de machines de grande série.
 
 Étant donné que votre application n’est plus une série de monolithes répartis sur plusieurs niveaux, vous avez maintenant beaucoup plus de combinaisons à gérer. Qui détermine les types ou le nombre de charges de travail pouvant être exécutées sur du matériel spécifique ? Quelles charges de travail fonctionnent bien sur le même matériel, et lesquelles sont en conflit ? Lorsqu’une machine tombe en passe, comment savoir ce qui était en cours d’exécution sur cette machine ? Qui doit veiller à ce que la charge de travail redevienne opérationnelle ? Attendez-vous le retour de la machine (virtuelle ?), ou vos charges de travail basculent-elles automatiquement sur d’autres machines avant de continuer à s’exécuter ? Une intervention humaine est-elle nécessaire ? Qu’en est-il des mises à niveau dans cet environnement ?
 
@@ -54,7 +54,7 @@ Bien que certaines de ces stratégies présentent un intérêt, Service Fabric C
 Étant donné que Cluster Resource Manager est responsable du déplacement des services, il contient un ensemble de fonctionnalités différentes par rapport à ce que vous trouveriez dans un équilibrage de charge réseau. Les équilibreurs de charge réseau acheminent le trafic réseau à des services déjà présents, même si leur emplacement n’est pas idéal pour l’exécution du service proprement dit. Service Fabric Cluster Resource Manager utilise des stratégies très différentes pour s’assurer que les ressources dans le cluster sont utilisées efficacement.
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Pour plus d’informations sur l’architecture et le flux d’informations dans Cluster Resource Manager, consultez [cet article ](service-fabric-cluster-resource-manager-architecture.md)
+- Pour plus d’informations sur le flux de l’architecture et les informations dans Cluster Resource Manager, consultez [cet article](service-fabric-cluster-resource-manager-architecture.md)
 - Cluster Resource Manager comporte de nombreuses options permettant de décrire le cluster. Pour en savoir plus sur ces mesures, consultez cet article sur la [description d’un cluster Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md).
 - Pour plus d’informations sur la configuration des services, consultez la rubrique [En savoir plus sur la configuration des services](service-fabric-cluster-resource-manager-configure-services.md)
 - Les métriques représentent la façon dont Service Fabric Cluster Resource Manager gère la consommation et la capacité du cluster. Pour en savoir plus sur ces mesures et la façon de les configurer, consultez [cet article](service-fabric-cluster-resource-manager-metrics.md)

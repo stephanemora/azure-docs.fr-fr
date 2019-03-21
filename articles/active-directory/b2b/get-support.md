@@ -9,14 +9,15 @@ ms.date: 05/26/2017
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0ab999e2b2a8465b110874cca3d478c60c18099
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 7ae5ae6d742bc6b4420b886c9ea2bd4e023075f4
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58091135"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295519"
 ---
 # <a name="getting-support-for-b2b-collaboration"></a>Obtenir du support pour B2B Collaboration
 
@@ -28,7 +29,7 @@ Vous avez lu la documentation, vous avez fait tout ce qu’il fallait, mais quel
      - Service : Active Directory
      - Plan de support : Choisissez le plan de support approprié
 
-   ![nouvelle demande de support](media/get-support/new-support-request.png)
+   ![Capture d’écran montrant une nouvelle demande de support](media/get-support/new-support-request.png)
 
 2. Décrivez votre problème :
    - Choisissez le niveau de gravité approprié qui reflète vos besoins.
@@ -36,6 +37,6 @@ Vous avez lu la documentation, vous avez fait tout ce qu’il fallait, mais quel
    - Pour Catégorie, choisissez Ajout d’utilisateurs (B2B)
    - Incluez les messages d’erreur, tels que l’ID de mise en correspondance, les utilisateurs concernés, etc.
 
-   ![description du problème sur le ticket de support](media/get-support/problem-description.png)
+   ![Capture d’écran montrant une description de problème de ticket de support](media/get-support/problem-description.png)
 
 3. Ajoutez vos coordonnées et un technicien du support vous contactera pour toute résolution de problème supplémentaire.

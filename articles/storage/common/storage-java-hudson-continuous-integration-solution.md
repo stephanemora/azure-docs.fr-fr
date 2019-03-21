@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: seguler
 ms.subservice: common
-ms.openlocfilehash: 431a4ef4e84c88467dc7e36bb12d406309f9a8b7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: d00bf87a80e13808c42a5839ad0f4508ad7214b9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467830"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011110"
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Utilisation d’Azure Storage avec une solution d’intégration continue Hudson
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Les informations suivantes expliquent comment utiliser Blob Storage comme dépôt pour les artefacts de build créés par une solution d’intégration continue (CI) Hudson ou comme source de fichiers téléchargeables dans un processus de génération. Cela peut s'avérer utile dans plusieurs scénarios, notamment lorsque vous codez dans un environnement de développement agile (avec Java ou d'autres langages), que les builds s'exécutent sur la base d'une intégration continue et que vous avez besoin d'un référentiel pour vos artefacts de build, de manière, par exemple, à pouvoir les partager avec d'autres membres de l'organisation, vos clients, ou conserver une archive.  Il existe un autre scénario dans lequel votre tâche de build proprement dite requiert d'autres fichiers, comme des dépendances à télécharger dans le cadre de l'entrée de génération.
 
 Dans ce didacticiel, vous allez utiliser le plug-in Azure Storage pour Hudson CI mis à disposition par Microsoft.
@@ -25,7 +25,7 @@ Dans ce didacticiel, vous allez utiliser le plug-in Azure Storage pour Hudson CI
 ## <a name="introduction-to-hudson"></a>Présentation de Hudson
 Hudson rend possible l’intégration continue d’un projet de logiciel en permettant aux développeurs d’intégrer aisément les modifications de leur code et de créer automatiquement et fréquemment des builds, d’où une productivité accrue. Les versions des builds sont gérées et les artefacts de build peuvent être téléchargés dans divers référentiels. Dans cet article, vous allez apprendre à utiliser le stockage d'objets blob Azure comme référentiel des artefacts de build. Vous allez également apprendre à télécharger des dépendances depuis le stockage d'objets blob Azure.
 
-Pour plus d'informations sur Hudson, consultez la page de [présentation d'Hudson](http://wiki.eclipse.org/Hudson-ci/Meet_Hudson).
+Pour plus d'informations sur Hudson, consultez la page de [présentation d'Hudson](https://wiki.eclipse.org/Hudson-ci/Meet_Hudson).
 
 ## <a name="benefits-of-using-the-blob-service"></a>Avantages de l’utilisation du service BLOB
 L'utilisation du service BLOB pour héberger vos artefacts de build dans un environnement agile présente les avantages suivants :
@@ -35,7 +35,7 @@ L'utilisation du service BLOB pour héberger vos artefacts de build dans un envi
 * Performances lorsque vos clients et partenaires téléchargent vos artefacts de build.
 * Contrôle sur les stratégies d'accès utilisateur, avec choix entre accès anonyme, accès par signature d'accès partagé basé sur l'expiration, accès privé, etc.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Pour utiliser le service BLOB avec votre solution Hudson CI, vous avez besoin des éléments suivants :
 
 * Une solution d'intégration continue Hudson.
@@ -52,7 +52,7 @@ Pour utiliser le service BLOB avec votre solution Hudson CI, vous avez besoin de
   5. Une fois l’installation initiale effectuée, annulez l’instance en cours d’exécution du WAR Hudson, redémarrez-le, puis rouvrez le tableau de bord Hudson, `http://localhost:8080/`, que vous allez utiliser pour installer et configurer le plug-in Azure Storage.
      
       Une solution Hudson CI type serait configurée pour s’exécuter en tant que service, mais l’exécution du WAR Hudson depuis la ligne de commande est suffisante pour les besoins de ce didacticiel.
-* Un compte Azure. Vous pouvez vous inscrire pour un compte Azure sur <http://www.azure.com>.
+* Un compte Azure. Vous pouvez vous inscrire pour un compte Azure sur <https://www.azure.com>.
 * Un compte de stockage Azure. Si vous ne disposez pas déjà d’un compte de stockage, vous pouvez en créer un en suivant la procédure décrite dans la section [Créer un compte de stockage](../common/storage-quickstart-create-account.md).
 * Une bonne connaissance de la solution Hudson CI est recommandée, mais pas obligatoire, car le contenu suivant emploiera un exemple élémentaire pour décrire la procédure requise lorsque vous utilisez le service BLOB comme référentiel pour les artefacts de build Hudson CI.
 
@@ -134,7 +134,7 @@ La procédure suivante explique comment configurer une étape de génération po
 1. Dans la section **Build** (Générer) de la configuration de la tâche, cliquez sur **Add build step** (Ajouter une étape de génération) et choisissez **Download from Azure Blob storage** (Télécharger à partir du stockage d’objets blob Azure).
 2. Dans le champ **Nom du compte de stockage**, sélectionnez le compte de stockage à utiliser.
 3. Dans le champ **Nom du conteneur**, indiquez le nom du conteneur dans lequel se trouvent les objets blob que vous souhaitez télécharger. Vous pouvez utiliser des variables d'environnement.
-4. Dans le champ **Nom d'objet blob**, indiquez le nom de l'objet blob. Vous pouvez utiliser des variables d'environnement. Vous pouvez aussi utiliser un astérisque comme caractère générique après avoir indiqué la ou les premières lettres du nom de l’objet blob. Par exemple, **projet\*** désignera tous les objets blob dont le nom commence par **projet**.
+4. Dans le champ **Nom d'objet blob**, indiquez le nom de l'objet blob. Vous pouvez utiliser des variables d'environnement. Vous pouvez aussi utiliser un astérisque comme caractère générique après avoir indiqué la ou les premières lettres du nom de l’objet blob. Par exemple, **projet\\*** Spécifiez tous les objets BLOB dont le nom commence avec **projet**.
 5. [Facultatif] Dans le champ **Chemin de téléchargement**, indiquez l'emplacement de l'ordinateur Hudson où vous souhaitez télécharger les fichiers depuis le stockage d'objets blob Azure. Vous pouvez utiliser des variables d’environnement. Si vous n'entrez rien dans le champ **Chemin de téléchargement**, les fichiers du stockage d'objets blob Azure seront téléchargés dans l'espace de travail de la tâche.
 
 Si vous souhaitez télécharger d'autres éléments depuis le stockage d'objets blob Azure, vous pouvez créer des étapes de génération supplémentaires.
@@ -158,7 +158,7 @@ La section suivante présente les composants du service BLOB.
     `http://example.blob.core.windows.net/myjob/2014-05-01_11-56-22/1/hello.txt`
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Présentation d’Hudson](http://wiki.eclipse.org/Hudson-ci/Meet_Hudson)
+* [Présentation d’Hudson](https://wiki.eclipse.org/Hudson-ci/Meet_Hudson)
 * [Kit de développement logiciel (SDK) Azure Storage pour Java](https://github.com/azure/azure-storage-java)
 * [Référence du Kit de développement logiciel (SDK) du client Azure Storage](http://dl.windowsazure.com/storage/javadoc/)
 * [API REST des services d’Azure Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx)

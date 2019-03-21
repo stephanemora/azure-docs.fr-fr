@@ -1,7 +1,7 @@
 ---
 title: Sécuriser des services web avec SSL
 titleSuffix: Azure Machine Learning service
-description: Découvrez comment sécuriser un service web déployé avec le service Azure Machine Learning. Vous pouvez restreindre l’accès aux services web et sécuriser les données envoyées par les clients à l’aide de l’authentification SSL et l’authentification basée sur la clé.
+description: Découvrez comment sécuriser un service web déployé avec le service Azure Machine Learning en activant HTTPS. HTTPS sécurise les données soumises par les clients à l’aide de la sécurité de la couche transport (TLS), un remplacement pour les couches de socket sécurisé (SSL). Il est également utilisé par les clients pour vérifier l’identité du service web.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,27 +11,34 @@ ms.author: aashishb
 author: aashishb
 ms.date: 02/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 160bc0e67b2686d17357241887a207cb4a03002c
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: 1a6aa75f3d25cd88cd1edb9b2cdcfabc3b4ec8f9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56098100"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58103891"
 ---
 # <a name="use-ssl-to-secure-web-services-with-azure-machine-learning-service"></a>Utiliser SSL pour sécuriser des services web avec Azure Machine Learning service
 
-Dans cet article, vous allez découvrir comment sécuriser un service web déployé avec le service Azure Machine Learning. Vous pouvez restreindre l’accès aux services web et sécuriser les données envoyées par les clients à l’aide de l’authentification SSL et l’authentification basée sur la clé.
+Dans cet article, vous allez découvrir comment sécuriser un service web déployé avec le service Azure Machine Learning. Vous pouvez restreindre l’accès aux services web et sécuriser les données soumises par les clients à l’aide de [protocole sécurisé HTTPS (Hypertext Transfer)](https://en.wikipedia.org/wiki/HTTPS).
+
+HTTPS est utilisé pour sécuriser les communications entre un client et votre service web en chiffrant les communications entre les deux. Le chiffrement est géré à l’aide de [sécurité TLS (Transport Layer)](https://en.wikipedia.org/wiki/Transport_Layer_Security). Il est toujours parfois en tant que couche SSL (Secure Sockets), ce qui correspondait au prédécesseur TLS.
+
+> [!TIP]
+> Le Kit de développement logiciel Azure Machine Learning utilise le terme « SSL » pour les propriétés associée à l’activation des communications sécurisées. Cela ne signifie pas que TLS n’est pas utilisé par votre service web, simplement que SSL est le terme encore plus reconnaissable pour de nombreux lecteurs.
+
+TLS et SSL, les deux s’appuient sur __certificats numériques__, qui sont utilisées pour effectuer la vérification de chiffrement et d’identité. Pour plus d’informations sur leur travail de certificats, consultez la page Wikipedia sur [infrastructure à clé publique (PKI)](https://en.wikipedia.org/wiki/Public_key_infrastructure).
 
 > [!Warning]
-> Si vous n’activez pas le protocole SSL, n’importe quel utilisateur sur Internet sera en mesure de passer des appels au service web.
+> Si vous ne pas activer et utiliser le protocole HTTPS pour votre service web, les données envoyées vers et depuis le service peuvent être visibles à d’autres utilisateurs sur internet.
+>
+> HTTPS permet également au client de vérifier l’authenticité du serveur auquel il se connecte. Cela protège les clients contre [man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) les attaques.
 
-SSL chiffre les données transitant entre le client et le service web. Il est également utilisé par le client pour vérifier l’identité du serveur. L’authentification est activée uniquement pour les services qui ont fourni un certificat SSL et une clé.  Si vous activez SSL, une clé d’authentification est obligatoire pour accéder au service web.
-
-Que vous déployiez un service web activé avec SSL ou que vous activiez SSL pour le service web déployé existant, les étapes sont les mêmes :
+Le processus de sécurisation d’un service web nouveau ou existant est comme suit :
 
 1. Obtenir un nom de domaine.
 
-2. Obtenir un certificat SSL.
+2. Obtenir un certificat numérique.
 
 3. Déployer ou mettre à jour le service web avec le paramètre SSL activé.
 
@@ -41,16 +48,16 @@ La sécurisation des services web sur les [cibles de déploiement](how-to-deploy
 
 ## <a name="get-a-domain-name"></a>Obtenir un nom de domaine
 
-Si vous ne possédez pas déjà un nom de domaine, vous pouvez en acheter un auprès d’un __bureau d’enregistrement de noms de domaine__. La procédure et le coût varient selon les bureaux d’enregistrement. Le bureau d’enregistrement fournit également des outils qui vous permettent de gérer le nom de domaine. Ces outils sont utilisés pour mapper un nom de domaine complet (par exemple, www.contoso.com) à l’adresse IP sur laquelle votre service web est hébergé.
+Si vous ne possédez pas déjà un nom de domaine, vous pouvez en acheter un auprès d’un __bureau d’enregistrement de noms de domaine__. La procédure et le coût varient selon les bureaux d’enregistrement. Le bureau d’enregistrement fournit également des outils qui vous permettent de gérer le nom de domaine. Ces outils sont utilisés pour mapper un nom de domaine complet (tel que www\.contoso.com) à l’adresse IP qui héberge votre service web.
 
 ## <a name="get-an-ssl-certificate"></a>Obtenir un certificat SSL
 
-Il existe de nombreuses façons d’obtenir un certificat SSL. Le moyen le plus courant consiste à en acheter un auprès d’une __autorité de certification__ (CA). Quel que soit l’endroit où vous obtenez le certificat, vous avez besoin des fichiers suivants :
+Il existe de nombreuses façons pour obtenir un certificat SSL (numérique). Le moyen le plus courant consiste à en acheter un auprès d’une __autorité de certification__ (CA). Quel que soit l’endroit où vous obtenez le certificat, vous avez besoin des fichiers suivants :
 
 * Un __certificat__. Le certificat doit contenir la chaîne d’approbation et doit être codé en PEM.
 * Une __clé__. La clé doit être codée en PEM.
 
-Lorsque vous demandez un certificat, vous devez fournir le nom de domaine complet (FQDN) de l’adresse que vous envisagez d’utiliser pour le service web. Par exemple, contoso.com. L’adresse estampillée sur le certificat et l’adresse utilisée par les clients sont comparées pour valider l’identité du service web. Si les adresses ne correspondent pas, les clients reçoivent une erreur.
+Lorsque vous demandez un certificat, vous devez fournir le nom de domaine complet (FQDN) de l’adresse que vous envisagez d’utiliser pour le service web. Par exemple, www\.contoso.com. L’adresse estampillée sur le certificat et l’adresse utilisée par les clients sont comparées pour valider l’identité du service web. Si les adresses ne correspondent pas, les clients reçoivent une erreur.
 
 > [!TIP]
 > Si l’autorité de certification ne peut pas fournir le certificat et la clé sous forme de fichiers PEM, vous pouvez utiliser un utilitaire tel que [OpenSSL](https://www.openssl.org/) pour modifier le format.

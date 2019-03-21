@@ -12,19 +12,18 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/17/2018
+ms.date: 03/13/2019
 ms.author: pbutlerm
-ms.openlocfilehash: d2093760dcc17041f8fece19e6f3165b19f7d678
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: 3bbcf5c2b6fb0939c47e24f25c1d5d834eb07dfb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806001"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004259"
 ---
-<a name="bring-your-microsoft-dynamics-365-business-central-app-into-microsoft-appsource"></a>Placement de votre application Microsoft Dynamics 365 Business Central dans Microsoft AppSource
-===============================================================================
+# <a name="bring-your-microsoft-dynamics-365-business-central-app-into-microsoft-appsource"></a>Placement de votre application Microsoft Dynamics 365 Business Central dans Microsoft AppSource
 
-Les avantages à utiliser Dynamics 365 Business Central en tant que plateforme pour les concepteurs d’applications sont nombreux :
+Il existe beaucoup d’avantages de l’utilisation de Dynamics 365 Business Central en tant que plateforme de générateurs d’applications :
 
 -   enrichir Dynamics 365 Business Central, une solution Microsoft en ligne éprouvée, de votre savoir-faire ;
 -   tirer parti de la marque Dynamics 365, une marque que des millions d’utilisateurs connaissent et à laquelle ils font confiance ;
@@ -38,11 +37,18 @@ Pour placer votre application Microsoft Dynamics 365 Business Central dans Micro
 2.  Prenez contact avec nous pour nous faire part de votre idée d’application.
     - Développez les aspects techniques de votre application.
     - Développez les aspects marketing de votre application.
-4.  **Publiez votre application.**
+4.  *Publiez votre application.*
 
-Le processus d’application et la chronologie standard se déroulent comme suit : 
+
+## <a name="application-process-and-timeline"></a>Chronologie et des processus d’application
+
+Le processus d’application standard et de la chronologie est représenté dans le diagramme suivant : 
 
 ![Séquence de publication d’une application Dynamics 365 Business Central](./media/d365-financials/image001.png)
 
-Pour en savoir plus sur ce type d’application, consultez la page [Annonce de Dynamics 365 Business Central](https://dynamics.microsoft.com/business-central/finance-and-operations-business-edition-to-business-central/).
 
+## <a name="next-steps"></a>Étapes suivantes
+
+Pour en savoir plus sur ce type d’application, consultez la page [Annonce de Dynamics 365 Business Central](https://dynamics.microsoft.com/business-central/finance-and-operations-business-edition-to-business-central/).  En outre, si vous ne le n'avez pas déjà fait, passez en revue le [Office 365, Dynamics 365, PowerApps et Power BI offrent Guide de publication](../appsource-offer-publishing-guide.md)
+
+Après ces préparatifs, vous pouvez créer un nouveau [offre Microsoft Dynamics 365 Business Central](./d365-finance-create-new-offer.md).

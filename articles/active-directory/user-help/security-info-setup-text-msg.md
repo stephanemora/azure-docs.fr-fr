@@ -1,5 +1,5 @@
 ---
-title: Configurer les informations de sécurité (préversion) pour utiliser une messagerie texte - Azure Active Directory | Microsoft Docs
+title: Configurer les informations de sécurité (version préliminaire) pour utiliser la messagerie texte - Azure Active Directory | Microsoft Docs
 description: Procédure de configuration de vos informations de sécurité pour vérifier votre identité à l’aide de la messagerie texte et de votre appareil mobile.
 services: active-directory
 author: eross-msft
@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a130113c7e6052befdc61927589c1151a062bdb9
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: ea9e4ae21ecc6538b33aed1566c10ddcd22b86c7
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456093"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341032"
 ---
 # <a name="set-up-security-info-preview-to-use-text-messaging"></a>Configurer les informations de sécurité (préversion) pour utiliser la messagerie texte
-Procédez comme suit pour ajouter vos méthodes de vérification en deux étapes et de réinitialisation de mot de passe. Au terme de la configuration initiale, vous pourrez revenir à la page **Informations de sécurité** pour ajouter, mettre à jour ou supprimer vos informations de sécurité.
+Procédez comme suit pour ajouter vos méthodes de vérification en deux étapes et de réinitialisation de mot de passe. Au terme de la configuration initiale, vous pouvez revenir à la page **Informations de sécurité** pour ajouter, mettre à jour ou supprimer vos informations de sécurité.
 
 Si vous êtes invité à les configurer immédiatement après vous être connecté à votre compte professionnel ou scolaire, reportez-vous aux étapes détaillées de l’article [Configurer vos informations de sécurité à partir de l’invite de la page de connexion](security-info-setup-signin.md).
 
@@ -39,11 +39,11 @@ Selon les paramètres de votre organisation, vous pourrez peut-être utiliser la
 
 1. Connectez-vous à votre compte professionnel ou scolaire, puis accédez à votre page https://myprofile.microsoft.com/.
 
-    ![Page Mon profil, avec les liens des Informations de sécurité en surbrillance](media/security-info/securityinfo-myprofile.png)
+    ![Page Mon profil, avec les liens des informations de sécurité mis en évidence](media/security-info/securityinfo-myprofile-page.png)
 
-2. Sélectionnez **Informations de sécurité** à partir du volet de navigation de gauche ou du lien du bloc **Informations de sécurité**, puis sélectionnez **Ajouter une méthode** sur la page **Informations de sécurité**.
+2. Sélectionnez **Informations de sécurité** à partir du volet de navigation de gauche ou du lien du bloc **Informations de sécurité**, puis sélectionnez **Ajouter une méthode** dans la page **Informations de sécurité**.
 
-    ![Page Informations de sécurité, avec l’option Ajouter une méthode en surbrillance](media/security-info/securityinfo-myprofile-addmethod.png)
+    ![Page Informations de sécurité, avec l’option Ajouter une méthode en surbrillance](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
 3. Sur la page **Ajouter une méthode**, choisissez **Téléphone** dans la liste déroulante, puis sélectionnez **Ajouter**.
 
@@ -82,7 +82,7 @@ Pour utiliser la messagerie texte comme méthode par défaut lorsque vous vous c
 
 ### <a name="to-change-your-default-security-info-method"></a>Pour changer de méthode d’informations de sécurité par défaut
 
-1. Sur la page **Informations de sécurité**, sélectionnez le lien **Changer** en regard des informations relatives à la **Méthode de connexion par défaut**.
+1. Dans la page **Informations de sécurité**, sélectionnez le lien **Changer** en regard des informations relatives à la **Méthode de connexion par défaut**.
 
     ![Lien Changer pour la méthode de connexion par défaut](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
 

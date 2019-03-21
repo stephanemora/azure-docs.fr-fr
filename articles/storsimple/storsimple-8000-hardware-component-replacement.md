@@ -15,16 +15,16 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: 6de50c5031db59176bdf17ecc69b934559220f6a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e05a37122647d4979089f0ba00b1fc15f9b84b0f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108447"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433652"
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>Remplacer un composant matériel sur votre appareil StorSimple série 8000
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Présentation
 Les didacticiels de remplacement des composants matériels décrivent les composants matériels de votre appareil Microsoft Azure StorSimple 8000 series et les étapes nécessaires pour les retirer et les remplacer. Cet article décrit les icônes de sécurité, oriente vers les didacticiels détaillés et répertorie les composants remplaçables.
 
 > [!IMPORTANT]
@@ -67,7 +67,7 @@ Les principaux composants matériels de votre appareil sont résumés dans les t
 
 | Composants | Nombre présent | Module enfichable ? | Procédure de remplacement |
 |:--- |:--- |:--- |:--- |
-| Châssis |1 |Non |[Remplacer le châssis sur votre appareil StorSimple](storsimple-8000-chassis-replacement.md) |
+| Châssis |1 |Non  |[Remplacer le châssis sur votre appareil StorSimple](storsimple-8000-chassis-replacement.md) |
 | Contrôleurs principaux |2 |Oui |[Remplacer un module de contrôleur sur votre appareil StorSimple](storsimple-8000-controller-replacement.md) |
 | PCM (Module d’alimentation et de refroidissement) 764 W |2 |Oui |[Remplacer un module d’alimentation et de refroidissement (PCM, Power and Cooling Module) sur votre appareil StorSimple](storsimple-8000-power-cooling-module-replacement.md) |
 | Batterie de secours |2 |Oui |[Remplacer le module de batterie de secours sur votre appareil StorSimple](storsimple-8000-battery-replacement.md) |
@@ -79,7 +79,7 @@ Le boîtier principal et le boîtier EBOD diffèrent quant à leurs modules d’
 
 | Composants | Nombre présent | Module enfichable ? | Procédure de remplacement |
 |:--- |:--- |:--- |:--- |
-| Châssis |1 |Non |[Remplacer le châssis sur votre appareil StorSimple](storsimple-8000-chassis-replacement.md) |
+| Châssis |1 |Non  |[Remplacer le châssis sur votre appareil StorSimple](storsimple-8000-chassis-replacement.md) |
 | Contrôleurs EBOD |2 |Oui |[Remplacer un contrôleur EBOD sur votre appareil StorSimple](storsimple-8000-ebod-controller-replacement.md) |
 | PCM (Module d’alimentation et de refroidissement) 580 W |2 |Oui |[Remplacer un module d’alimentation et de refroidissement (PCM, Power and Cooling Module) sur votre appareil StorSimple](storsimple-8000-power-cooling-module-replacement.md) |
 | Lecteurs de disque |12 |Oui |[Remplacer un lecteur de disque sur votre appareil StorSimple](storsimple-8000-disk-drive-replacement.md) |
@@ -88,7 +88,7 @@ Le boîtier principal et le boîtier EBOD diffèrent quant à leurs modules d’
 
 Les modules enfichables sur l’appareil sont mis en surbrillance dans les diagrammes suivants représentant l’avant et l’arrière. Vous pouvez utiliser ces diagrammes pour déterminer l’emplacement des différents modules enfichables si un remplacement est nécessaire. Le diagramme de l’avant montre les lecteurs de disque, et les diagrammes de l’arrière du boîtier EBOD et du boîtier principal montrent les modules enfichables.
 
-![Face avant de l’appareil avec les lecteurs de disque](./media/storsimple-hardware-component-replacement/IC741028.png)
+![Panneau avant de l’appareil avec les lecteurs de disque](./media/storsimple-hardware-component-replacement/IC741028.png)
 
 **Figure 1** : Avant de l’appareil
 

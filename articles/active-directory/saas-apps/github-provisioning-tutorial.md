@@ -16,28 +16,28 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac25473ecce86c2721eda9ede01b6d299c4b727b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 31f10ba0c04ccbd9f52b95c43fea7cc551fe64ee
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56179329"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888013"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Didacticiel : Configurer GitHub pour l’approvisionnement automatique d’utilisateurs
 
 
 L’objectif de ce didacticiel est de vous indiquer les étapes à suivre dans GitHub et Azure AD pour approvisionner et déprovisionner automatiquement des comptes utilisateur d’Azure AD vers GitHub. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 *   Un client Azure Active Directory
-*   Un locataire GitHub avec le [Plan cloud d’entreprise](https://help.github.com/articles/organization-billing-plans/#github-business-cloud) ou supérieur 
-*   Un compte d’utilisateur dans GitHub avec des autorisations d’administrateur 
+*   Une organisation GitHub créée dans [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise), ce qui nécessite le [plan de facturation GitHub Enterprise](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)
+*   Un compte d’utilisateur dans GitHub avec des autorisations d’administrateur pour l’organisation
 
 > [!NOTE]
-> L’intégration de l’approvisionnement Azure AD s’appuie sur [l’API GitHub SCIM](https://developer.github.com/v3/scim/) disponible pour les équipes GitHub disposant du Plan d’entreprise ou supérieur.
+> Intégration de l’approvisionnement Azure AD s’appuie sur le [GitHub SCIM API](https://developer.github.com/v3/scim/), qui est disponible pour [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise) les clients sur le [plan de facturation GitHub Enterprise](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations) .
 
 ## <a name="assigning-users-to-github"></a>Attribution d’utilisateurs à GitHub
 

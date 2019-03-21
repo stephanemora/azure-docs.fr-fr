@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/01/2017
 ms.author: cherylmc
-ms.openlocfilehash: cf566811f1e5fe7fde20d148e68417acf6d42f54
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 0955d95ebfd9e1f72ed1da577bf3520a70b71624
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53073820"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58008331"
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>Configuration du tunneling forcé à l’aide du modèle de déploiement classique
 
@@ -28,7 +28,7 @@ Le tunneling forcé vous permet de rediriger ou de « forcer » tout le trafic I
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-Cet article vous guide dans la configuration du tunneling forcé pour les réseaux virtuels créés à l’aide du modèle de déploiement Classic. Le tunneling forcé peut être configuré à l’aide de PowerShell, et non pas dans le portail. Si vous souhaitez configurer le tunneling forcé pour le modèle de déploiement de Resource Manager, sélectionnez l’article Classique dans la liste déroulante suivante :
+Cet article vous guide dans la configuration du tunneling forcé pour les réseaux virtuels créés à l’aide du modèle de déploiement Classic. Le tunneling forcé peut être configuré à l’aide de PowerShell, et non pas dans le portail. Si vous souhaitez configurer le tunneling forcé pour le modèle de déploiement Resource Manager, sélectionnez l’article de Resource Manager à partir de la liste déroulante suivante :
 
 > [!div class="op_single_selector"]
 > * [PowerShell - Classique](vpn-gateway-about-forced-tunneling.md)
@@ -39,7 +39,7 @@ Cet article vous guide dans la configuration du tunneling forcé pour les résea
 ## <a name="requirements-and-considerations"></a>Conditions requises et éléments à prendre en compte
 Le tunneling forcé dans Azure est configuré par le biais d’itinéraires définis par l’utilisateur de réseau virtuel. La redirection du trafic vers un site local est exprimée comme un itinéraire par défaut vers la passerelle VPN Azure. La section suivante répertorie la limite actuelle de la table et des itinéraires de routage pour un réseau virtuel Azure :
 
-* Chaque sous-réseau du réseau virtuel dispose d’une table de routage système intégrée. La table de routage système comporte les trois groupes de routes suivants :
+* Chaque sous-réseau du réseau virtuel dispose d’une table de routage système intégrée. La table de routage système comporte les trois groupes d’itinéraires suivants :
 
   * **Routes de réseau virtuel local :** directement vers les machines virtuelles de destination sur le même réseau virtuel.
   * **Routes locales :** vers la passerelle VPN Azure.

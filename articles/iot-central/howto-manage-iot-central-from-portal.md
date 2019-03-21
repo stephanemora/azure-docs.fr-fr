@@ -8,20 +8,22 @@ ms.author: dobett
 ms.date: 01/14/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 89109dec83342a8f4b5962778b1803eb36656e42
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.openlocfilehash: f58d06cd191166f47d864241564bc57019b59132
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352209"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316572"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>Gérer IoT Central à l’aide du Portail Azure
+
+[!INCLUDE [iot-central-selector-manage](../../includes/iot-central-selector-manage.md)]
 
 Au lieu de créer et de gérer des applications IoT Central à partir de la page [Application Manager](https://aka.ms/iotcentral) d’IoT Central, vous pouvez utiliser le [portail Azure](https://portal.azure.com) pour gérer vos applications.
 
 ## <a name="create-iot-central-applications"></a>Créer des applications IoT Central
 
-Pour créer une application, accédez au [portail Azure](https://ms.portal.azure.com), puis cliquez sur **Créer une ressource** dans le menu de navigation principal situé sur la gauche.
+Pour créer une application, accédez à la [Azure portal](https://ms.portal.azure.com) et sélectionnez **créer une ressource** dans le menu de navigation principal sur la gauche.
 
 ![Portail de gestion : menu de navigation](media/howto-manage-iot-central-from-portal/image0.png)
 
@@ -29,11 +31,11 @@ Dans la barre de recherche, tapez **IoT Central**.
 
 ![Portail de gestion : recherche](media/howto-manage-iot-central-from-portal/image0a.png)
 
-Cliquez sur la ligne **Application IoT Central** dans les résultats de la recherche.
+Sélectionnez le **Application centrale IoT** ligne dans les résultats de recherche.
 
 ![Portail de gestion : résultats de la recherche](media/howto-manage-iot-central-from-portal/image0b.png)
 
-Cliquez sur le bouton **Créer**.
+À présent, sélectionnez **Créer**.
 
 ![Portail de gestion : Ressource IoT Central](media/howto-manage-iot-central-from-portal/image0c.png)
 
@@ -41,7 +43,7 @@ Renseignez tous les champs dans le formulaire. Ce formulaire ressemble à celui 
 
 ![Portail de gestion : créer une ressource IoT Central](media/howto-manage-iot-central-from-portal/image1.png)  
 
-Après avoir renseigné tous les champs, cliquez sur le bouton **Créer**.
+Après avoir renseigné tous les champs, sélectionnez **créer**.
 
 ## <a name="manage-existing-iot-central-applications"></a>Gérer des applications IoT Central existantes
 
@@ -50,19 +52,19 @@ Si vous disposez déjà d’une application Azure IoT Central, vous pouvez la su
 > [!NOTE]
 > Vous ne voyez pas les applications disponibles pour un essai gratuit dans le portail Azure, car celles-ci ne sont pas associées à votre abonnement.
 
-Pour commencer, cliquez sur **Toutes les ressources** dans le menu de navigation principal à gauche. Tapez le nom de votre application dans la zone de recherche pour la trouver dans la liste de vos ressources. Cliquez ensuite sur l’application IoT Central que vous souhaitez gérer.
+Pour commencer, sélectionnez **toutes les ressources** dans le menu de navigation principal sur la gauche. Tapez le nom de votre application dans la zone de recherche pour la trouver dans la liste de vos ressources. Sélectionnez ensuite l’application IoT Central que vous souhaitez gérer.
 
 ![Portail de gestion : gestion des ressources](media/howto-manage-iot-central-from-portal/image2.png)
 
-Pour accéder à l’application, cliquez sur l’URL de l’application IoT Central.
+Pour accéder à l’application, sélectionnez l’URL d’Application IoT Central.
 
 ![Portail de gestion : gestion des ressources](media/howto-manage-iot-central-from-portal/image3.png)
 
-Pour déplacer l’application vers un autre groupe de ressources, cliquez sur le lien **Modifier** à côté du groupe de ressources. Dans la page **Déplacer des ressources**, sélectionnez le groupe de ressources vers lequel vous souhaitez effectuer la migration de cette application.
+Pour déplacer l’application vers un autre groupe de ressources, sélectionnez **modifier** à côté du groupe de ressources. Dans la page **Déplacer des ressources**, sélectionnez le groupe de ressources vers lequel vous souhaitez effectuer la migration de cette application.
 
 ![Portail de gestion : gestion des ressources](media/howto-manage-iot-central-from-portal/image4.png)
 
-Pour déplacer l’application vers un autre abonnement, cliquez sur le lien **Modifier** à côté de l’abonnement. Dans la boîte de dialogue qui s’affiche, sélectionnez l’abonnement vers lequel vous souhaitez effectuer la migration de l’application.
+Pour déplacer l’application vers un autre abonnement, sélectionnez le **modifier** lien en regard de l’abonnement. Dans la boîte de dialogue qui s’affiche, sélectionnez l’abonnement vers lequel vous souhaitez effectuer la migration de l’application.
 
 ![Portail de gestion : gestion des ressources](media/howto-manage-iot-central-from-portal/image5.png)
 

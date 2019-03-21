@@ -12,19 +12,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 7dd056042b841e54c18ee1a667c44cfa11d77a61
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b046ce5a8647abe601a6327667241d98445ce1e4
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164598"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259888"
 ---
 # <a name="configure-a-content-key-authorization-policy"></a>Configurer une stratégie d’autorisation de clé de contenu
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
  Vous pouvez utiliser Microsoft Azure Media Services pour fournir des flux MPEG-DASH, Smooth Streaming et HLS (HTTP Live Streaming) protégés par AES (Advanced Encryption Standard) à l’aide de clés de chiffrement 128 bits ou de la [gestion des droits numériques (DRM) PlayReady](https://www.microsoft.com/playready/overview/). Avec Media Services, vous pouvez également diffuser des flux DASH chiffrés avec Widevine DRM. PlayReady et Widevine sont chiffrés conformément à la spécification de chiffrement commun (ISO/IEC 23001-7 CENC).
 
 Media Services fournit également un service de remise de clés/de licences à partir duquel les clients peuvent obtenir des clés AES ou des licences PlayReady/Widevine pour lire le contenu chiffré.
@@ -66,7 +66,7 @@ Quand vous configurez la stratégie de restriction par jeton, vous devez défini
 ### <a name="playready"></a>PlayReady
 Quand vous protégez votre contenu avec PlayReady, vous devez spécifier dans votre stratégie d’autorisation une chaîne XML qui définit le modèle de licence PlayReady. Par défaut, la stratégie suivante est définie :
 
-    <PlayReadyLicenseResponseTemplate xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1">
+    <PlayReadyLicenseResponseTemplate xmlns:i="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1">
           <LicenseTemplates>
             <PlayReadyLicenseTemplate><AllowTestDevices>true</AllowTestDevices>
               <ContentKey i:type="ContentEncryptionKeyFromHeader" />

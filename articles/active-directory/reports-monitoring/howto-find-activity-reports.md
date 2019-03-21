@@ -14,12 +14,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ff5b998222f9a7320384edea1ed69e7a65e9139
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 65e803ca373fb9853fc23d17f1a27ecadc6a209c
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171296"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295213"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Trouver les rapports d’activité sur le Portail Azure
 
@@ -48,15 +48,46 @@ Le rapport de journaux d’audit regroupe les rapports suivants :
 
 ### <a name="filtering-on-audit-logs"></a>Filtrage sur les journaux d’audit
 
-Vous pouvez appliquer le filtrage avancé au rapport d’audit pour accéder à une catégorie spécifique de données d’audit, en spécifiant celle-ci dans le filtre **Catégorie d’activité**. Par exemple, pour afficher toutes les activités en lien avec la réinitialisation de mot de passe en libre-service, sélectionnez la catégorie **Gestion de mot de passe en libre-service**. 
+Vous pouvez utiliser le filtrage avancé dans le rapport d’audit pour accéder à une catégorie spécifique de données d’audit, en spécifiant dans le **catégorie** filtre. Par exemple, pour afficher toutes les activités liées aux utilisateurs, sélectionnez le **usermanagement** catégorie. 
 
-Les catégories d’activités sont les suivantes :
+Catégories sont les suivantes :
 
+- Tous
+- AdministrativeUnit
+- ApplicationManagement
+- Authentication
+- Authorization
+- Contact
+- Appareil
+- DeviceConfiguration
+- DirectoryManagement
+- EntitlementManagement
+- GroupManagement
+- Autres
+- Stratégie
+- ResourceManagement
+- RoleManagement
+- UserManagement
+
+Vous pouvez également filtrer sur un service spécifique à l’aide de la **Service** filtre de liste déroulante. Par exemple, pour obtenir tous les événements d’audit liés à la gestion de mot de passe libre-service, sélectionnez le **gestion de mot de passe libre-service** filtre.
+
+Les services incluent :
+
+- Tous
+- Révisions d’accès
+- Approvisionnement des comptes 
+- Application SSO
+- Méthodes d’authentification
+- B2C
+- Accès conditionnel
 - Annuaire principal
-- Gestion des mots de passe en libre-service
+- Gestion des droits d'utilisation
+- Identity Protection
+- Utilisateurs invités
+- PIM
 - Gestion des groupes en libre-service
-- Approvisionnement des comptes
-
+- Gestion des mots de passe en libre-service
+- Conditions d’utilisation
 
 ## <a name="sign-ins-report"></a>Rapport de connexions 
 
@@ -122,11 +153,11 @@ J’ai téléchargé les journaux d’activité (d’audit ou de connexion) et t
  
 #### <a name="cause"></a>Cause :
 
-Lorsque vous téléchargez des journaux d’activité dans le portail Azure, nous limitons l’échelle à des enregistrements de 5 000 Ko, triés du plus récent au moins récent. 
+Lorsque vous téléchargez des journaux d’activité dans le portail Azure, nous limitons l’échelle à des 250000 enregistrements, triés selon le plus récent en premier. 
 
 #### <a name="resolution"></a>Résolution :
 
-Vous pouvez tirer parti des [API de création de rapports Azure AD](concept-reporting-api.md) pour extraire jusqu’à un million d’enregistrements pour un point donné. Nous vous recommandons [d’exécuter un script de façon planifiée](tutorial-signin-logs-download-script.md) qui appelle les API de création de rapports pour extraire des enregistrements de manière incrémentielle sur une période donnée (par exemple, quotidienne ou hebdomadaire). 
+Vous pouvez tirer parti des [API de création de rapports Azure AD](concept-reporting-api.md) pour extraire jusqu’à un million d’enregistrements pour un point donné.
 
 ### <a name="missing-audit-data-for-recent-actions-in-the-azure-portal"></a>Données d’audit manquantes pour des actions récentes dans le portail Azure
 

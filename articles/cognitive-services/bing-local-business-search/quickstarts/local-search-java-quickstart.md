@@ -6,16 +6,15 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.subservice: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: ada75f9ebe38615d17276c9e5b731924a45c8e75
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: ed98d40987645fdadff8cc628cfd08feca41d01f
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55148454"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57768261"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-java"></a>Démarrage rapide : Envoyer une requête à l’API Recherche d’entreprises locales Bing avec Java
 
@@ -23,7 +22,7 @@ Utilisez ce démarrage rapide pour commencer à envoyer des demandes à l’API 
 
 Cet exemple d’application récupère des données de réponse locales auprès de l’API pour la requête de recherche `hotel in Bellevue`.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Le [JDK (Java Development Kit)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 

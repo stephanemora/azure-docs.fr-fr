@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: a8e52af1a1feb8a01ed5556efb6e153c56b25cca
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: ca111623f6d3d7c61b1bfc4e1af328f9599c2440
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700585"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884504"
 ---
 # <a name="sample-application-for-use-with-dmzs"></a>Exemple d’application pour une utilisation avec des réseaux de périmètre
 [Revenir à la page Meilleures pratiques relatives aux frontières de sécurité][HOME]
@@ -42,7 +42,7 @@ Si vous utilisez les scripts suivants, l’ajout de cette règle de pare-feu est
 Ce script :
 
 1. ouvre IMCPv4 (Ping) sur le Pare-feu Windows du serveur local pour faciliter les tests ;
-2. installe IIS et le .NET Framework 4.5 ;
+2. Installer IIS et le .NET Framework 4.5
 3. crée une page web ASP.NET et un fichier Web.config ;
 4. modifie le pool d’applications par défaut pour faciliter l’accès aux fichiers ;
 5. affecte votre compte d’administrateur et votre mot de passe à l’utilisateur Anonyme.
@@ -61,7 +61,7 @@ Ce script PowerShell doit être exécuté localement, l’accès à IIS01 s’ef
     New-NetFirewallRule -Name Allow_ICMPv4 -DisplayName "Allow ICMPv4" -Protocol ICMPv4 -Enabled True -Profile Any -Action Allow
 
 # Install IIS
-    Write-Host "Installing IIS and .Net 4.5, this can take some time, like 15+ minutes..." -ForegroundColor Cyan
+    Write-Host "Installing IIS and .NET 4.5, this can take some time, like 15+ minutes..." -ForegroundColor Cyan
     add-windowsfeature Web-Server, Web-WebServer, Web-Common-Http, Web-Default-Doc, Web-Dir-Browsing, Web-Http-Errors, Web-Static-Content, Web-Health, Web-Http-Logging, Web-Performance, Web-Stat-Compression, Web-Security, Web-Filtering, Web-App-Dev, Web-ISAPI-Ext, Web-ISAPI-Filter, Web-Net-Ext, Web-Net-Ext45, Web-Asp-Net45, Web-Mgmt-Tools, Web-Mgmt-Console
 
 # Create Web App Pages
@@ -105,7 +105,7 @@ Ce script PowerShell doit être exécuté localement, l’accès à IIS01 s’ef
           <div style="border: 2px solid #8AC007; border-radius: 25px; padding: 20px; margin: 10px; width: 650px;">
             <b>Image File Linked from the Internet</b>:<br />
             <br />
-            <img src="http://sd.keepcalm-o-matic.co.uk/i/keep-calm-you-made-it-7.png" alt="You made it!" width="150" length="175"/></div>
+            <img src="https://sd.keepcalm-o-matic.co.uk/i/keep-calm-you-made-it-7.png" alt="You made it!" width="150" length="175"/></div>
         </div>
       </form>
     </body>
@@ -152,12 +152,12 @@ Ce script configure le serveur principal pour cette application simple. Ce scrip
 2. crée un répertoire pour le site web ;
 3. crée un fichier texte auquel la page web accédera à distance ;
 4. affecte au répertoire et au fichier des autorisations Anonyme pour autoriser l’accès ;
-5. désactive la sécurité renforcée d’Internet Explorer pour faciliter la navigation à partir de ce serveur. 
+5. désactive la sécurité renforcée d’Internet Explorer pour faciliter la navigation à partir de ce serveur.
 
 > [!IMPORTANT]
 > **Meilleure pratique** : ne désactivez jamais la sécurité renforcée d’Internet Explorer sur un serveur de production, et sachez qu’il est généralement déconseillé de surfer sur le web à partir d’un serveur de production. Sachez aussi que l’ouverture de partages de fichiers en vue d’un accès anonyme, bien que déconseillée, est effectuée ici par souci de simplicité.
-> 
-> 
+>
+>
 
 Ce script PowerShell doit être exécuté localement, l’accès à AppVM01 s’effectuant via RDP. PowerShell doit être exécuté avec des autorisations d’administrateur pour garantir la réussite de l’exécution.
 

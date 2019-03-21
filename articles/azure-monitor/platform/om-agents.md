@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/23/2018
 ms.author: magoedte
-ms.openlocfilehash: 722712d1e38efa3e1accc41abca5c9d88b3c1229
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 21294f61c77f0267601c5d0fc1fc9dcf213008e7
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58095923"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258821"
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Connexion d’Operations Manager à Log Analytics
 Pour préserver vos investissements existants dans [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/key-concepts?view=sc-om-1807) et utiliser des fonctionnalités étendues avec Log Analytics, vous pouvez intégrer Operations Manager à votre espace de travail Log Analytics. Cela vous permet de tirer parti des possibilités qu’offre Log Analytics, tout en continuant à utiliser Operations Manager pour :
@@ -132,7 +132,7 @@ Si un serveur proxy interne se trouve entre le groupe d’administration et le s
 1. Ouvrez la console Operations Manager, puis sélectionnez l'espace de travail **Administration** .
 1. Développez Operations Management Suite, puis cliquez sur **Connexions**.
 1. Dans la vue Connexion à OMS, cliquez sur **Configurer le serveur proxy**.
-1. Sur la page **Assistant Operations Management Suite : serveur proxy**, sélectionnez **Utiliser un serveur proxy pour accéder à Operations Management Suite**, puis saisissez l’URL avec le numéro de port, par exemple <http://corpproxy:80>, et cliquez sur **Terminer**.
+1. Sur la page **Assistant Operations Management Suite : Serveur proxy** page, sélectionnez **utiliser un serveur proxy pour accéder à Operations Management Suite**, puis tapez l’URL avec le numéro de port, par exemple, http :\//corpproxy:80, puis cliquez sur  **Terminer**.
 
 Si votre serveur proxy requiert une authentification, procédez comme suit pour configurer les informations d’identification et les paramètres qui doivent se propager sur les ordinateurs gérés qui envoient des rapports à Log Analytics dans le groupe d’administration.
 

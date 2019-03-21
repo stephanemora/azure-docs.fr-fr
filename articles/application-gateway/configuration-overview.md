@@ -5,14 +5,14 @@ services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/20/2019
 ms.author: absha
-ms.openlocfilehash: 515243cb043bac8e9f28a3c63808e4fbd9b8f525
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 61b3a9e066a3ee20effa97f1c6c7a0bd1ae90ac0
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57905032"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285836"
 ---
 # <a name="application-gateway-configuration-overview"></a>Vue d’ensemble de configuration Application Gateway
 
@@ -33,7 +33,9 @@ Application gateway est un déploiement dédié dans votre réseau virtuel. Au s
 
 #### <a name="size-of-the-subnet"></a>Taille du sous-réseau
 
-Dans le cas v1 référence (SKU), la passerelle d’application consomme une adresse IP privée par instance, ainsi qu’une autre adresse IP privée si une configuration IP frontale privée est configurée. En outre, Azure réserve les quatre premières et dernière adresses IP dans chaque sous-réseau à un usage interne. Par exemple, si une passerelle d’application est définie sur trois instances et aucune adresse IP frontale privée, un sous-réseau de taille /29 ou supérieure est nécessaire. Dans ce cas, la passerelle d’application utilise trois adresses IP. Si vous avez trois instances et une adresse IP pour la configuration IP frontale privée, un sous-réseau de taille /28 ou supérieure est nécessaire, car quatre adresses IP sont requises.
+Application Gateway utilise une adresse IP privée par instance, ainsi qu’une autre adresse IP privée si une configuration IP frontale privée est configurée. En outre, Azure réserve les quatre premières et dernière adresses IP dans chaque sous-réseau à un usage interne. Par exemple, si une passerelle d’application est définie sur trois instances et aucune adresse IP frontale privée, au moins huit adresses IP requises dans le sous-réseau - cinq adresses IP pour un usage interne et trois adresses IP pour les trois instances de la passerelle d’application. Par conséquent, dans ce cas, / 29 sous-réseau, taille ou version ultérieure est nécessaire. Si vous avez trois instances et une adresse IP pour la configuration IP frontale privée, puis neuf adresses IP sera nécessaire - trois adresses IP pour les trois instances de la passerelle d’application, une adresse IP pour l’adresse IP frontale privée et l’adresse IP de cinq adresses pour utilisation interne. Par conséquent, dans ce cas, un sous-réseau/28 sous-réseau, taille ou version ultérieure est nécessaire.
+
+Comme meilleure pratique, utilisez au moins un sous-réseau/28 taille du sous-réseau. Cela vous donne 11 adresses utilisables. Si votre charge de l’application nécessite plus de 10 instances, vous devez envisager / 27 ou/26 taille du sous-réseau.
 
 #### <a name="network-security-groups-supported-on-the-application-gateway-subnet"></a>Groupes de sécurité réseau pris en charge sur le sous-réseau de passerelle d’Application
 
@@ -41,7 +43,7 @@ Groupes de sécurité réseau (NSG) sont pris en charge sur le sous-réseau de p
 
 - Des exceptions doivent être définies pour le trafic entrant sur les ports 65503-65534 pour la référence SKU v1 d’Application Gateway et les ports 65200-65535 pour la référence SKU v2. Cette plage de ports est nécessaire pour la communication avec l’infrastructure Azure. Ils sont protégés (verrouillés) par des certificats Azure. Sans les certificats appropriés, les entités externes (notamment les clients de ces passerelles) ne peuvent initier aucun changement sur ces points de terminaison.
 
-- La connectivité Internet sortante ne peut pas être bloquée.
+- La connectivité Internet sortante ne peut pas être bloquée. Les règles de trafic sortant par défaut dans le groupe de sécurité réseau déjà autorisent la connectivité internet. Nous vous recommandons de ne pas supprimer les règles de trafic sortant par défaut et que vous ne créez pas autres règles de trafic sortant qui refusent la connectivité internet sortante.
 
 - Le trafic en provenance de la balise AzureLoadBalancer doit être autorisé.
 
@@ -57,11 +59,12 @@ Ce scénario est possible en utilisant des groupes de sécurité réseau dans le
 
 #### <a name="user-defined-routes-supported-on-the-application-gateway-subnet"></a>Itinéraires définis par l’utilisateur pris en charge sur le sous-réseau de passerelle d’Application
 
-En cas de référence (SKU) de v1, les itinéraires définis par l’utilisateur (UDR) sont pris en charge sur le sous-réseau de passerelle d’application, tant qu’elles ne modifient pas la communication de bout en bout demande/réponse.
-
-Par exemple, vous pouvez configurer un UDR dans le sous-réseau d’Application Gateway pour pointer vers une appliance de pare-feu pour l’inspection des paquets, mais vous devez vous assurer que le paquet peut atteindre l’inspection sa destination prévue après l’inspection. Cela peut entraîner un comportement de sonde d’intégrité ou de routage du trafic incorrect. Cela inclut les itinéraires appris ou les itinéraires 0.0.0.0/0 par défaut propagés par ExpressRoute ou des passerelles VPN dans le réseau virtuel.
+En cas de référence (SKU) de v1, les itinéraires définis par l’utilisateur (UDR) sont pris en charge sur le sous-réseau de passerelle d’application, tant qu’elles ne modifient pas la communication de bout en bout demande/réponse. Par exemple, vous pouvez configurer un UDR dans le sous-réseau d’Application Gateway pour pointer vers une appliance de pare-feu pour l’inspection des paquets, mais vous devez vous assurer que le paquet peut atteindre l’inspection sa destination prévue après l’inspection. Cela peut entraîner un comportement de sonde d’intégrité ou de routage du trafic incorrect. Cela inclut les itinéraires appris ou les itinéraires 0.0.0.0/0 par défaut propagés par ExpressRoute ou des passerelles VPN dans le réseau virtuel.
 
 En cas de v2 référence (SKU), UDR sur le sous-réseau de passerelle d’application ne sont pas pris en charge. Pour plus d’informations, voir [Passerelle d’application redondante interzone et avec mise à l’échelle automatique (préversion publique)](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#known-issues-and-limitations).
+
+> [!NOTE]
+> L’utilisation d’UDR sur le sous-réseau de passerelle d’application entraîne l’état d’intégrité dans le [l’affichage intégrité backend](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) sous forme de **inconnu** et entraîne la failue de génération de journaux de passerelle d’application et métriques. Il est recommandé de que vous n’utilisez pas UDR sur le sous-réseau de passerelle d’application pour être en mesure d’afficher l’intégrité du serveur principal, journaux et mesures.
 
 ## <a name="frontend-ip"></a>Adresse IP frontale
 
@@ -85,13 +88,13 @@ Vous pouvez choisir entre [écouteur de base ou de plusieurs sites](https://docs
 
 - Si vous hébergez un site unique derrière une passerelle d’Application, choisissez l’écouteur de base. En savoir plus [comment créer une passerelle d’application avec l’écouteur de base](https://docs.microsoft.com/azure/application-gateway/quick-create-portal).
 
-- Si vous configurez plusieurs applications web ou plusieurs sous-domaines du même domaine parent sur la même instance de passerelle d’application, puis choisissez écouteur multisite. Pour l’écouteur multisite, vous devez en outre à entrer un nom d’hôte. Il s’agit, car la passerelle d’Application s’appuie sur les en-têtes d’hôte HTTP 1.1 pour héberger plusieurs sites Web sur la même adresse IP publique et le port.![1551057450710](C:/Users/absha/AppData/Roaming/Typora/typora-user-images/1551057450710.png)
+- Si vous configurez plusieurs applications web ou plusieurs sous-domaines du même domaine parent sur la même instance de passerelle d’application, puis choisissez écouteur multisite. Pour l’écouteur multisite, vous devez en outre à entrer un nom d’hôte. Il s’agit, car la passerelle d’Application s’appuie sur les en-têtes d’hôte HTTP 1.1 pour héberger plusieurs sites Web sur la même adresse IP publique et le port.
 
+#### <a name="order-of-processing-listeners"></a>Ordre de traitement des écouteurs
 
-> [!NOTE]
-> En cas de références v1, les écouteurs sont traités dans l’ordre qu’ils sont affichés. Pour cette raison, si un écouteur de base correspond à une demande entrante, il la traite en premier. Par conséquent, les écouteurs multisites doivent être configurés avant un écouteur élémentaire pour garantir le trafic est acheminé vers le serveur principal approprié.
->
-> En cas de références v2, les écouteurs multisites sont traitées avant les écouteurs de base.
+En cas de références v1, les écouteurs sont traités dans l’ordre qu’ils sont affichés. Pour cette raison, si un écouteur de base correspond à une demande entrante, il la traite en premier. Par conséquent, les écouteurs multisites doivent être configurés avant un écouteur élémentaire pour garantir le trafic est acheminé vers le serveur principal approprié.
+
+En cas de références v2, les écouteurs multisites sont traitées avant les écouteurs de base.
 
 ### <a name="frontend-ip"></a>Adresse IP frontale
 
@@ -111,9 +114,9 @@ Vous devez choisir entre le protocole HTTP et HTTPS.
 
   Pour configurer l’arrêt de la couche SSL (Secure Sockets) et le chiffrement SSL de bout en bout, un certificat est nécessaire pour être ajouté à l’écouteur afin de permettre à la passerelle d’Application dériver une clé symétrique selon la spécification du protocole SSL. La clé symétrique est ensuite utilisée pour chiffrer et déchiffrer le trafic envoyé à la passerelle. Le certificat de passerelle doit être partagé au format Personal Information Exchange (PFX). Ce format de fichier permet d’exporter la clé privée requise par la passerelle d’application pour effectuer le chiffrement et le déchiffrement du trafic. 
 
-#### <a name="supported-certs"></a>Prise en charge des certificats
+#### <a name="supported-certificates"></a>Certificats pris en charge
 
-Les certificats auto-signés, les certificats d’autorité de certification, les génériques et les certificats de validation étendue sont pris en charge.
+Consultez [certificats pris en charge pour un arrêt SSL](https://docs.microsoft.com/azure/application-gateway/ssl-overview#certificates-supported-for-ssl-termination).
 
 ### <a name="additional-protocol-support"></a>Prise en charge de protocole supplémentaire
 
@@ -161,11 +164,11 @@ Vous pouvez choisir entre [règle basée sur le chemin d’accès ou une base](h
 - Choisissez l’écouteur basée sur le chemin d’accès si vous voulez acheminer les demandes avec l’URL du chemin d’accès spécifique des pools principaux spécifiques. Le modèle de chemin d’accès est appliqué uniquement pour le chemin d’accès de l’URL, pas à ses paramètres de requête.
 
 
-> [!NOTE]
->
-> En cas de références v1, la mise en correspondance de modèle de la requête entrante est traitée dans l’ordre dans lequel les chemins d’accès sont répertoriés dans le mappage de chemin d’accès d’URL de la règle basée sur le chemin d’accès. Pour cette raison, si une requête correspond au modèle dans deux ou plusieurs des chemins d’accès dans le mappage de chemin d’accès d’URL, puis le chemin d’accès qui se trouve tout d’abord à rechercher et la requête est transférée vers le serveur principal associé à ce chemin d’accès.
->
-> En cas de références v2, une correspondance exacte maintient une priorité plus élevée sur l’ordre dans lequel les chemins d’accès sont répertoriés dans le mappage de chemin d’accès d’URL. Pour cette raison, si une requête correspond au modèle dans deux ou plusieurs chemins, puis la requête est transférée vers le serveur principal associé à ce chemin d’accès qui correspond exactement à la demande. Si le chemin d’accès dans la demande entrante ne correspond pas exactement à n’importe quel chemin d’accès dans le mappage de chemin d’accès d’URL, mise en correspondance de modèle de la requête entrante est traitée dans l’ordre dans lequel les chemins d’accès sont répertoriés dans le mappage de chemin d’accès d’URL de la règle basée sur le chemin d’accès.
+#### <a name="order-of-processing-rules"></a>Ordre des règles de traitement
+
+En cas de références v1, la mise en correspondance de modèle de la requête entrante est traitée dans l’ordre dans lequel les chemins d’accès sont répertoriés dans le mappage de chemin d’accès d’URL de la règle basée sur le chemin d’accès. Pour cette raison, si une requête correspond au modèle dans deux ou plusieurs des chemins d’accès dans le mappage de chemin d’accès d’URL, puis le chemin d’accès qui se trouve tout d’abord à rechercher et la requête est transférée vers le serveur principal associé à ce chemin d’accès.
+
+En cas de références v2, une correspondance exacte maintient une priorité plus élevée sur l’ordre dans lequel les chemins d’accès sont répertoriés dans le mappage de chemin d’accès d’URL. Pour cette raison, si une requête correspond au modèle dans deux ou plusieurs chemins, puis la requête est transférée vers le serveur principal associé à ce chemin d’accès qui correspond exactement à la demande. Si le chemin d’accès dans la demande entrante ne correspond pas exactement à n’importe quel chemin d’accès dans le mappage de chemin d’accès d’URL, mise en correspondance de modèle de la requête entrante est traitée dans l’ordre dans lequel les chemins d’accès sont répertoriés dans le mappage de chemin d’accès d’URL de la règle basée sur le chemin d’accès.
 
 ### <a name="associated-listener"></a>Écouteur associé
 
@@ -177,7 +180,7 @@ Associer le pool principal contenant les cibles de back-end qui traitera les dem
 
 ### <a name="associated-backend-http-setting"></a>Paramètre HTTP de back-end associé
 
-Ajouter un paramètre HTTP de serveur principal pour chaque règle. Les demandes seront acheminées à partir de la passerelle d’Application vers les cibles de serveur principal en utilisant le numéro de port, protocole et autres paramètres spécifiés dans ce paramètre. Dans le cas d’une règle de base, qu’un seul paramètre de serveur principal HTTP est autorisé dans la mesure où toutes les requêtes sur l’écouteur associé sont transmises aux cibles de serveur principal correspondant à l’aide de ce paramètre HTTP. Dans le cas d’une règle basée sur le chemin d’accès, ajoutez plusieurs paramètres du serveur principal HTTP correspondant à chaque chemin d’URL. Les requêtes qui correspondent au chemin URL entré ici, sont transmises aux cibles back-end correspondante en utilisant les paramètres HTTP correspondant à chaque chemin d’URL. En outre, ajoutez un paramètres de HTTP par défaut dans la mesure où les requêtes qui ne correspondent pas à n’importe quel chemin d’accès entré dans cette règle sont transmises au pool principal par défaut à l’aide des paramètres HTTP par défaut.
+Ajouter un paramètre HTTP de serveur principal pour chaque règle. Les demandes seront acheminées à partir de la passerelle d’Application vers les cibles de serveur principal en utilisant le numéro de port, protocole et autres paramètres spécifiés dans ce paramètre. Dans le cas d’une règle de base, qu’un seul paramètre de serveur principal HTTP est autorisé dans la mesure où toutes les requêtes sur l’écouteur associé sont transmises aux cibles de serveur principal correspondant à l’aide de ce paramètre HTTP. Dans le cas d’une règle basée sur le chemin d’accès, ajoutez plusieurs paramètres du serveur principal HTTP correspondant à chaque chemin d’URL. Les requêtes qui correspondent au chemin URL entré ici, sont transmises aux cibles back-end correspondante en utilisant les paramètres HTTP correspondant à chaque chemin d’URL. En outre, ajouter un paramètre de HTTP par défaut dans la mesure où les requêtes qui ne correspondent pas à n’importe quel chemin d’accès entré dans cette règle sont transmises au pool principal par défaut à l’aide du paramètre HTTP par défaut.
 
 ### <a name="redirection-setting"></a>Paramètre de redirection
 
@@ -187,7 +190,7 @@ Pour plus d’informations sur la fonctionnalité de redirection, consultez [pr�
 
 - #### <a name="redirection-type"></a>Type de redirection
 
-  Choisissez le type de redirection requise à partir de : Permanent, temporaire, trouvé ou voir les autres.
+  Choisissez le type de redirection requise à partir de : Other(303) permanent(301), Temporary(307), Found(302) ou consultez.
 
 - #### <a name="redirection-target"></a>Cible de redirection
 
@@ -237,14 +240,14 @@ Le nombre de secondes de qu'attente de la passerelle d’application pour recevo
 
 Ce paramètre vous permet de configurer un chemin d’accès de transfert personnalisé facultatif à utiliser lors de la demande est transmise au serveur principal. Cette commande copie n’importe quelle partie du chemin entrant qui correspond au chemin personnalisé spécifié dans le **remplacer le chemin d’accès du serveur principal** champ pour le chemin d’accès transmis. Consultez le tableau ci-dessous pour comprendre le fonctionne de la fonctionnalité.
 
-- Lorsque les paramètres HTTP est attaché à une règle de routage de demande de base :
+- Lorsque le paramètre HTTP est attaché à une règle de routage de demande de base :
 
   | Demande d’origine  | Remplacer le chemin backend | Demande transmise au serveur principal |
   | ----------------- | --------------------- | ---------------------------- |
   | /Home/            | /override/            | /override/home/              |
   | /home/secondhome/ | /override/            | /override/home/secondhome/   |
 
-- Lorsque les paramètres HTTP est attaché à une règle de routage de demande basée sur le chemin d’accès :
+- Lorsque le paramètre HTTP est attaché à une règle de routage de demande basée sur le chemin d’accès :
 
   | Demande d’origine           | Règle de chemin d’accès       | Remplacer le chemin backend | Demande transmise au serveur principal |
   | -------------------------- | --------------- | --------------------- | ---------------------------- |

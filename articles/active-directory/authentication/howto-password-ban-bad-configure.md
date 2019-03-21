@@ -11,19 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30627994a8fe8cfe73e7945dadf2153ea60860b8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ef8f66cda7e80ffdafefbbac5de24d45f01401af
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175130"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286928"
 ---
 # <a name="configuring-the-custom-banned-password-list"></a>Configuration de la liste de mots de passe interdits personnalisée
-
-|     |
-| --- |
-| La protection par mot de passe Azure AD est une fonctionnalité de préversion publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
 
 Nombre d’organisations estiment que leurs utilisateurs créent des mots de passe à l’aide des mots locaux courants comme un établissement scolaire, une équipe de sport ou une personne célèbre, ce qui les rend faciles à deviner. La liste de mots de passe interdits personnalisée de Microsoft permet aux entreprises d’ajouter des chaînes à évaluer et bloquer, en plus de la liste de mots de passe interdits globale, lorsque des utilisateurs et administrateurs tentent de modifier ou de réinitialiser un mot de passe.
 
@@ -31,7 +26,7 @@ Nombre d’organisations estiment que leurs utilisateurs créent des mots de pas
 
 La configuration de la liste de mots de passe interdits personnalisée requiert une licence Azure Active Directory Premium P1 ou P2. Pour plus d’informations sur les licences Azure Active Directory, consultez la [page de tarification d’Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) et accédez à **Azure Active Directory**, **Méthodes d’authentification**, puis **Password protection (Preview)** (Protection par mot de passe (préversion)).
+1. Se connecter à la [Azure portal](https://portal.azure.com) et accédez à **Azure Active Directory**, **méthodes d’authentification**, puis **protection de mot de passe**.
 1. Définissez l’option **Enforce custom list** (Appliquer la liste personnalisée) sur **Oui**.
 1. Ajouter des chaînes à la **liste de mots de passe interdits personnalisée**, à raison d’une chaîne par ligne
    * La liste de mots de passe interdits personnalisé peut contenir jusqu’à 1 000 mots.

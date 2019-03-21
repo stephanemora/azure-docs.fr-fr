@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2019
 ms.author: jegeib
-ms.openlocfilehash: 8d3d2acb28a82f50f0255701fe6079ad444ce03f
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
-ms.translationtype: HT
+ms.openlocfilehash: bdf8b701567aaa3a0d9006333557bcec4f312723
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360477"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890914"
 ---
 # <a name="threat-modeling-tool-ga-release-71509112---9122018"></a>Version en disponibilité générale de Threat Modeling Tool v 7.1.50911.2 - 12/09/2018
 
@@ -90,7 +90,7 @@ Oui, vous pouvez ! L’[ensemble de stencils Azure est disponible sur github](h
 - Systèmes d'exploitation pris en charge
   - Microsoft Windows 10
 - Version .NET obligatoire
-  - .Net 3.5.2
+  - .NET 3.5.2
 - Conditions supplémentaires
   - Une connexion Internet est nécessaire pour recevoir les mises à jour de l’outil ainsi que les modèles.
 

@@ -1,26 +1,26 @@
 ---
-title: Tutoriel C# des synonymes - Recherche Azure
-description: Dans ce tutoriel C#, découvrez comment ajouter la fonctionnalité des synonymes à un index dans Recherche Azure. Une carte de synonymes est une liste de termes équivalents. Les champs avec prise en charge des synonymes étendent les requêtes afin d'inclure le terme fourni par l’utilisateur et tous les synonymes associés.
+title: Synonymes C# exemple - recherche Azure
+description: Dans ce C# exemple, découvrez comment ajouter la fonctionnalité de synonymes à un index dans recherche Azure. Une carte de synonymes est une liste de termes équivalents. Les champs avec prise en charge des synonymes étendent les requêtes afin d'inclure le terme fourni par l’utilisateur et tous les synonymes associés.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
-ms.topic: tutorial
-ms.date: 07/10/2018
+ms.topic: conceptual
+ms.date: 03/18/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: b239fdc176951066699c557eaae5f7fe08a6c26f
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: cb0d04e46834530c8fea29ef79a2156caabeeeff
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309227"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202365"
 ---
-# <a name="tutorial-add-synonyms-for-azure-search-in-c"></a>Tutoriel : Ajouter des synonymes pour le service Recherche Azure en C#
+# <a name="example-add-synonyms-for-azure-search-in-c"></a>Exemple : Ajouter des synonymes pour le service Recherche Azure en C#
 
 Les synonymes développent une requête en faisant correspondre les termes considérés comme sémantiquement équivalents à l’expression entrée. Par exemple, vous souhaiterez peut-être que le terme « voiture » vous permette de trouver des documents contenant les mots « automobile » ou « véhicule ». 
 
-Dans la Recherche Azure, les synonymes sont définis dans une *carte de synonymes*, via des *règles de mappage* qui associent des termes équivalents. Ce didacticiel décrit les étapes essentielles pour l’ajout et l’utilisation de synonymes avec un index existant. Vous allez apprendre à effectuer les actions suivantes :
+Dans la Recherche Azure, les synonymes sont définis dans une *carte de synonymes*, via des *règles de mappage* qui associent des termes équivalents. Cet exemple couvre les étapes essentielles pour l’ajout et l’utilisation de synonymes avec un index existant. Vous allez apprendre à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Activer des synonymes en créant et en publiant des règles de mappage 
@@ -31,7 +31,7 @@ Vous pouvez créer plusieurs cartes de synonymes, les valider en tant que ressou
 > [!NOTE]
 > Les synonymes sont pris en charge dans les dernières versions de l’API et du Kit de développement logiciel (SDK) (version de l’API : 2017-11-11 ; version du SDK : 5.0.0). Il n’existe aucune prise en charge sur le portail Azure pour l’instant. Si la prise en charge des synonymes par le portail Azure peut vous être utile, donnez-nous votre avis sur [UserVoice](https://feedback.azure.com/forums/263029-azure-search)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 La configuration requise du didacticiel est la suivante :
 
@@ -40,9 +40,9 @@ La configuration requise du didacticiel est la suivante :
 * [Bibliothèque .NET Microsoft.Azure.Search](https://aka.ms/search-sdk)
 * [Comment utiliser Azure Search à partir d'une application .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
-Les requêtes avant et après présentent la valeur des synonymes. Dans ce didacticiel, utilisez un exemple d’application qui exécute des requêtes et retourne des résultats sur un index d’exemples. L’exemple d’application crée un petit index nommé « hotels » comprenant deux documents. L’application exécute des requêtes de recherche à l’aide de termes et d’expressions qui n’apparaissent pas dans l’index, active la fonctionnalité de synonymes, puis lance les mêmes recherches une nouvelle fois. Le code ci-dessous montre le flux global.
+Les requêtes avant et après présentent la valeur des synonymes. Dans cet exemple, utilisons un exemple d’application qui exécute des requêtes et retourne des résultats sur un index des exemples. L’exemple d’application crée un petit index nommé « hotels » comprenant deux documents. L’application exécute des requêtes de recherche à l’aide de termes et d’expressions qui n’apparaissent pas dans l’index, active la fonctionnalité de synonymes, puis lance les mêmes recherches une nouvelle fois. Le code ci-dessous montre le flux global.
 
 ```csharp
   static void Main(string[] args)
@@ -114,7 +114,7 @@ no document matched
 L’activation des synonymes est un processus en deux étapes. Tout d’abord nous définissons et chargeons les règles de synonymes, puis nous configurons les champs pour les utiliser. Le processus est décrit dans `UploadSynonyms` et `EnableSynonymsInHotelsIndex`.
 
 1. Ajoutez une carte de synonymes à votre service de recherche. Dans `UploadSynonyms`, nous définissons quatre règles de notre carte de synonymes « desc-synonymmap » et effectuons le téléchargement vers le service.
-```csharp
+   ```csharp
     var synonymMap = new SynonymMap()
     {
         Name = "desc-synonymmap",
@@ -126,21 +126,21 @@ L’activation des synonymes est un processus en deux étapes. Tout d’abord no
     };
 
     serviceClient.SynonymMaps.CreateOrUpdate(synonymMap);
-```
-Une carte de synonymes doit être conforme au format `solr` standard Open Source. Le format est expliqué dans [Synonyms in Azure Search (Synonymes dans la Recherche Azure)](search-synonyms.md) sous la section `Apache Solr synonym format`.
+   ```
+   Une carte de synonymes doit être conforme au format `solr` standard Open Source. Le format est expliqué dans [Synonyms in Azure Search (Synonymes dans la Recherche Azure)](search-synonyms.md) sous la section `Apache Solr synonym format`.
 
 2. Configurez les champs pouvant faire l’objet d’une recherche pour utiliser la carte de synonymes dans la définition d’index. Dans `EnableSynonymsInHotelsIndex`, nous activons les synonymes sur deux champs `category` et `tags` en affectant à la propriété `synonymMaps` le nom de la carte de synonymes qui vient d’être téléchargée.
-```csharp
-  Index index = serviceClient.Indexes.Get("hotels");
-  index.Fields.First(f => f.Name == "category").SynonymMaps = new[] { "desc-synonymmap" };
-  index.Fields.First(f => f.Name == "tags").SynonymMaps = new[] { "desc-synonymmap" };
+   ```csharp
+   Index index = serviceClient.Indexes.Get("hotels");
+   index.Fields.First(f => f.Name == "category").SynonymMaps = new[] { "desc-synonymmap" };
+   index.Fields.First(f => f.Name == "tags").SynonymMaps = new[] { "desc-synonymmap" };
 
-  serviceClient.Indexes.CreateOrUpdate(index);
-```
-Lorsque vous ajoutez une carte de synonymes, les reconstructions d’index ne sont pas requises. Vous pouvez ajouter une carte de synonymes à votre service, puis modifier les définitions de champ existantes dans n’importe quel index pour utiliser la nouvelle carte de synonymes. L’ajout de nouveaux attributs n’a aucun impact sur la disponibilité de l’index. Il en va de même pour la désactivation de synonymes pour un champ. Vous pouvez simplement affecter à la propriété `synonymMaps` une liste vide.
-```csharp
-  index.Fields.First(f => f.Name == "category").SynonymMaps = new List<string>();
-```
+   serviceClient.Indexes.CreateOrUpdate(index);
+   ```
+   Lorsque vous ajoutez une carte de synonymes, les reconstructions d’index ne sont pas requises. Vous pouvez ajouter une carte de synonymes à votre service, puis modifier les définitions de champ existantes dans n’importe quel index pour utiliser la nouvelle carte de synonymes. L’ajout de nouveaux attributs n’a aucun impact sur la disponibilité de l’index. Il en va de même pour la désactivation de synonymes pour un champ. Vous pouvez simplement affecter à la propriété `synonymMaps` une liste vide.
+   ```csharp
+   index.Fields.First(f => f.Name == "category").SynonymMaps = new List<string>();
+   ```
 
 ## <a name="after-queries"></a>Requêtes « après »
 
@@ -161,18 +161,18 @@ Name: Roach Motel       Category: Budget        Tags: [motel, budget]
 ~~~
 La première requête trouve le document à partir de la règle `five star=>luxury`. La deuxième requête étend la recherche à l’aide de `internet,wifi` et la troisième avec à la fois `hotel, motel` et `economy,inexpensive=>budget` pour trouver les documents en correspondance.
 
-L’ajout de synonymes modifie complètement l’expérience de recherche. Dans ce didacticiel, les requêtes d’origine n’ont pas pu retourner de résultats significatifs même si les documents dans notre index étaient pertinents. En activant les synonymes, nous pouvons développer un index pour inclure les termes communément utilisés, sans modification de données sous-jacentes dans l’index.
+L’ajout de synonymes modifie complètement l’expérience de recherche. Dans cet exemple, les requêtes d’origine n’a pas retourné des résultats significatifs même si les documents dans notre index étaient pertinents. En activant les synonymes, nous pouvons développer un index pour inclure les termes communément utilisés, sans modification de données sous-jacentes dans l’index.
 
 ## <a name="sample-application-source-code"></a>Code source de l'exemple d'application
 Vous trouverez le code source complet de l’exemple d’application utilisé dans cette procédure sur [GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms).
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Le moyen le plus rapide de procéder à un nettoyage après un tutoriel consiste à supprimer le groupe de ressources contenant le service Recherche Azure. Vous pouvez maintenant supprimer le groupe de ressources pour supprimer définitivement tout ce qu’il contient. Sur le portail, le nom du groupe de ressources figure dans la page Vue d’ensemble du service Recherche Azure.
+Le moyen le plus rapide pour nettoyer une fois un exemple en supprimant le groupe de ressources contenant le service de recherche Azure. Vous pouvez maintenant supprimer le groupe de ressources pour supprimer définitivement tout ce qu’il contient. Sur le portail, le nom du groupe de ressources figure dans la page Vue d’ensemble du service Recherche Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Ce didacticiel a présenté [l’API REST Synonymes](https://aka.ms/rgm6rq) en code C# pour créer et publier des règles de mappage, puis appeler la carte de synonymes pour une requête. Vous trouverez des informations supplémentaires dans la documentation de référence du [Kit de développement logiciel (SDK) .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) et de [l’API REST](https://docs.microsoft.com/rest/api/searchservice/).
+Cet exemple a montré la [API REST de synonymes](https://aka.ms/rgm6rq) dans C# code pour créer et publier des règles de mappage, puis appelez la carte de synonymes pour une requête. Vous trouverez des informations supplémentaires dans la documentation de référence du [Kit de développement logiciel (SDK) .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) et de [l’API REST](https://docs.microsoft.com/rest/api/searchservice/).
 
 > [!div class="nextstepaction"]
 > [Utilisation des synonymes dans le service Recherche Azure](search-synonyms.md)

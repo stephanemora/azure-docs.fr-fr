@@ -12,22 +12,24 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/20/2019
 ms.author: milanga;cenkdin;juliako
-ms.openlocfilehash: 419e7b1ae05f92b5b97f5317c0315a71958eff9e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: c688169dc21304f234aead7196f377a3fa5fd633
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005163"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294924"
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>Mettre à jour Media Services après la substitution de clés d’accès de stockage 
 
 Quand vous créez un compte Azure Media Services (AMS), vous êtes également invité à sélectionner un compte de stockage Azure qui est utilisé pour stocker votre contenu multimédia. Vous pouvez ajouter plusieurs comptes de stockage à votre compte Media Services. Cet article explique comment orchestrer la rotation des clés de stockage. Elle montre également comment ajouter des comptes de stockage à un compte multimédia. 
 
-Pour effectuer les actions décrites dans cet article, vous devez utiliser des [API Azure Resource Manager](/rest/api/media/operations/azure-media-services-rest-api-reference) et [Powershell](https://docs.microsoft.com/powershell/module/azurerm.media).  Pour plus d’informations, consultez [Guide pratique pour gérer les ressources Azure avec PowerShell et Resource Manager](../../azure-resource-manager/powershell-azure-resource-manager.md).
+Pour effectuer les actions décrites dans cet article, vous devez utiliser des [API Azure Resource Manager](/rest/api/media/operations/azure-media-services-rest-api-reference) et [Powershell](https://docs.microsoft.com/powershell/module/az.media).  Pour plus d’informations, consultez [Guide pratique pour gérer les ressources Azure avec PowerShell et Resource Manager](../../azure-resource-manager/manage-resource-groups-powershell.md).
 
-## <a name="overview"></a>Vue d’ensemble
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+## <a name="overview"></a>Présentation
 
 Lors de la création d’un compte de stockage, Azure génère deux clés d’accès de stockage 512 bits, qui sont utilisées pour authentifier l’accès à votre compte de stockage. Pour sécuriser vos connexions de stockage, il est recommandé de régénérer et d’alterner périodiquement vos clés d’accès de stockage. Vous bénéficiez de deux clés d’accès (primaire et secondaire), ce qui vous permet de conserver vos connexions au compte de stockage à l’aide d’une clé d’accès lorsque vous régénérez l’autre clé. Cette procédure est également appelée « substitution des clés d’accès ».
 
@@ -42,15 +44,15 @@ Media Services dépend d'une clé de stockage qui lui est fournie. Plus précis�
 ## <a name="steps-to-rotate-storage-keys"></a>Étapes de régénération des clés de stockage 
  
  1. Modifiez la clé primaire du compte de stockage par le biais de l’applet de commande Powershell ou du portail [Azure](https://portal.azure.com/).
- 2. Appelez l’applet de commande Sync-AzureRmMediaServiceStorageKeys avec les paramètres appropriés pour forcer le compte multimédia à utiliser les clés de compte de stockage.
+ 2. Appelez l’applet de commande Sync-AzMediaServiceStorageKeys avec les paramètres appropriés pour forcer le compte multimédia à assimiler les clés de compte de stockage
  
     L’exemple suivant montre comment synchroniser des clés avec des comptes de stockage.
   
-         Sync-AzureRmMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
+         Sync-AzMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
   
  3. Attendez environ une heure. Vérifiez que les scénarios de streaming fonctionnent.
  4. Modifiez la clé secondaire du compte de stockage par le biais de l’applet de commande Powershell ou du portail Azure.
- 5. Appelez l’applet de commande Powershell Sync-AzureRmMediaServiceStorageKeys avec les paramètres appropriés pour forcer le compte multimédia à utiliser de nouvelles clés de compte de stockage. 
+ 5. Appelez powershell AzMediaServiceStorageKeys de synchronisation avec les paramètres appropriés pour forcer le compte multimédia à assimiler les nouvelles clés de compte de stockage. 
  6. Attendez environ une heure. Vérifiez que les scénarios de streaming fonctionnent.
  
 ### <a name="a-powershell-cmdlet-example"></a>Exemple d’applet de commande PowerShell 
@@ -63,7 +65,7 @@ L’exemple suivant montre comment obtenir le compte de stockage et le synchroni
     $storageAccountName = "skystorage"
     $storageAccountId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
 
-    Sync-AzureRmMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
+    Sync-AzMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
 
  
 ## <a name="steps-to-add-storage-accounts-to-your-ams-account"></a>Étapes à suivre pour ajouter des comptes de stockage à votre compte AMS

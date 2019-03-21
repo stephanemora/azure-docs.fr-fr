@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 05/01/2017
+ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: 075f08f89e0bbdefa76623a284971f46a1b3966a
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: 13379111706eaa816a8fa16cfe72711b7bf4d739
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119796"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58013296"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Surveiller vos services et applications Node.js avec Application Insights
 
@@ -29,13 +29,11 @@ Le kit de développement logiciel (SDK) Node.js peut automatiquement analyser le
 
 Vous pouvez utiliser l’API TelemetryClient pour instrumenter et surveiller manuellement des aspects supplémentaires de votre application et de votre système. L’API TelemetryClient est décrite plus en détail plus loin dans cet article.
 
-![Exemples de graphiques d’analyse des performances](./media/nodejs/10-perf.png)
-
 ## <a name="get-started"></a>Prise en main
 
 Terminez les tâches suivantes pour configurer la surveillance d’une application ou d’un service.
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables
 
 Avant de commencer, assurez-vous que vous disposez d’un abonnement Azure ou [obtenez-en un gratuitement][azure-free-offer]. Si votre organisation possède déjà un abonnement Azure, un administrateur peut suivre [ces instructions][add-aad-user] pour vous y ajouter.
 
@@ -49,11 +47,7 @@ Avant de commencer, assurez-vous que vous disposez d’un abonnement Azure ou [o
 1. Connectez-vous au [portail Azure][portal].
 2. Sélectionnez **Créer une ressource** > **Outils de développement** > **Application Insights**. La ressource inclut un point de terminaison permettant de recevoir les données de télémétrie, le stockage pour ces données, les rapports et tableaux de bord enregistrés, la configuration des règles et des alertes, etc.
 
-  ![Création d’une ressource Application Insights dans Azure](./media/nodejs/03-new_appinsights_resource.png)
-
 3. Sur la page de création de ressource, sélectionnez **Application Node.js** dans la zone **Application Type**. Le type d’application détermine les tableaux de bord et rapports créés par défaut. (Toutes les ressources Application Insights peuvent collecter des données à partir de n’importe quel langage et n’importe quelle plateforme.)
-
-  ![Nouveau formulaire ressource Application Insights](./media/nodejs/04-create_appinsights_resource.png)
 
 ### <a name="sdk"></a> Configurer le kit de développement logiciel (SDK) Node.js
 
@@ -61,29 +55,29 @@ Incluez le kit de développement logiciel dans votre application afin qu’il co
 
 1. Copiez la clé d’instrumentation de votre ressource (aussi appelée *iClé*) à partir du portail Azure. Application Insights utilise l’iClé pour mapper les données à votre ressource Azure. Avant que le kit de développement logiciel (SDK) ne puisse utiliser votre iClé, vous devez la spécifier dans une variable d’environnement ou dans votre code.  
 
-  ![Copier la clé d’instrumentation](./media/nodejs/05-appinsights_ikey_portal.png)
+   ![Copier la clé d’instrumentation](./media/nodejs/instrumentation-key-001.png)
 
 2. Ajoutez la bibliothèque de kit de développement logiciel (SDK) Node.js aux dépendances de votre application par le biais de package.json. À partir du dossier racine de votre application, exécutez :
 
-  ```bash
-  npm install applicationinsights --save
-  ```
+   ```bash
+   npm install applicationinsights --save
+   ```
 
 3. Chargez explicitement la bibliothèque dans votre code. Étant donné que le kit de développement logiciel (SDK) injecte l’instrumentation dans beaucoup d’autres bibliothèques, chargez-la dès que possible, même avant les autres instructions `require`. 
 
-  En haut de votre premier fichier .js, ajoutez le code suivant. La méthode `setup` configure l’iClé (et donc la ressource Azure) à utiliser par défaut pour tous les éléments suivis.
+   En haut de votre premier fichier .js, ajoutez le code suivant. La méthode `setup` configure l’iClé (et donc la ressource Azure) à utiliser par défaut pour tous les éléments suivis.
 
-  ```javascript
-  const appInsights = require("applicationinsights");
-  appInsights.setup("<instrumentation_key>");
-  appInsights.start();
-  ```
+   ```javascript
+   const appInsights = require("applicationinsights");
+   appInsights.setup("<instrumentation_key>");
+   appInsights.start();
+   ```
    
-  Vous pouvez également fournir une iClé par le biais de la variable d’environnement APPINSIGHTS\_INSTRUMENTATIONKEY au lieu de la transférer manuellement vers `setup()` ou `new appInsights.TelemetryClient()`. Cela vous permet de conserver les iClés en dehors du code source dédié et de spécifier des iClés différentes selon les environnements.
+   Vous pouvez également fournir une iClé par le biais de la variable d’environnement APPINSIGHTS\_INSTRUMENTATIONKEY au lieu de la transférer manuellement vers `setup()` ou `new appInsights.TelemetryClient()`. Cela vous permet de conserver les iClés en dehors du code source dédié et de spécifier des iClés différentes selon les environnements.
 
-  Pour des options de configuration supplémentaires, consultez les sections suivantes.
+   Pour des options de configuration supplémentaires, consultez les sections suivantes.
 
-  Vous pouvez essayer le kit de développement logiciel (SDK) sans envoyer de télémétrie en définissant `appInsights.defaultClient.config.disableAppInsights = true`.
+   Vous pouvez essayer le kit de développement logiciel (SDK) sans envoyer de télémétrie en définissant `appInsights.defaultClient.config.disableAppInsights = true`.
 
 ### <a name="monitor"></a> Surveiller votre application
 
@@ -91,15 +85,13 @@ Le kit de développement logiciel (SDK) recueille automatiquement les données d
 
 Ensuite, dans le [portail Azure][portal], allez dans la ressource Application Insights que vous avez créée. Dans la **Vue d’ensemble de la chronologie**, cherchez vos premiers points de données. Pour voir plus de données détaillées, sélectionnez des composants différents dans les graphiques.
 
-![Premiers points de données](./media/nodejs/12-first-perf.png)
-
 Pour consulter la topologie découverte pour votre application sélectionnez le bouton **Mappage d’application**. Sélectionnez les composants pour plus de détails.
 
-![Mise en correspondance d’une application simple](./media/nodejs/06-appinsights_appmap.png)
+![Mise en correspondance d’une application simple](./media/nodejs/application-map-002.png)
 
 Pour en savoir plus sur votre application et pour résoudre d’éventuels problèmes, sélectionnez les autres vues disponibles dans la section **EXAMINER**.
 
-![Section Examiner](./media/nodejs/07-appinsights_investigate_blades.png)
+![Section Examiner](./media/nodejs/007-investigate-pane.png)
 
 #### <a name="no-data"></a>Pas de données ?
 

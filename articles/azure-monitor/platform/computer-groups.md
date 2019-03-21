@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: bwren
-ms.openlocfilehash: 7e5d04f3ead4353c88a6b56ab530f41ff15022d1
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 0a29e453c723ecc9ac378ee337365525587aaef2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005384"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444121"
 ---
-# <a name="computer-groups-in-azure-monitor-log-quereies"></a>Groupes d’ordinateurs dans les requêtes de journal Azure Monitor
+# <a name="computer-groups-in-azure-monitor-log-queries"></a>Groupes d’ordinateurs dans les requêtes de journal Azure Monitor
 Les groupes d’ordinateurs d’Azure Monitor permettent de formuler des [requêtes de journal](../log-query/log-query-overview.md) portant sur un ensemble spécifique d’ordinateurs.  Vous peuplez chaque groupe d’ordinateurs soit à l’aide d’une requête que vous définissez, soit en important des groupes à partir de différentes sources.  Quand le groupe est inclus dans une requête de journal, les résultats sont limités aux enregistrements correspondant aux ordinateurs du groupe.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]

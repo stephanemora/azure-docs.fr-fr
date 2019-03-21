@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 3/14/2019
+ms.date: 3/20/2019
 ms.author: mayg
-ms.openlocfilehash: cd486fa504ac819684d8c547e7a0f740b3eed4e4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: cbea6785239c70a3cdb229d0811497f051224238
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109625"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286344"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analyser le rapport du Planificateur de déploiement Azure Site Recovery pour la récupération d’urgence VMware sur Azure
 
@@ -279,7 +279,7 @@ Disque Premium P10 ou P15 | 8 Ko  | 2 Mo/s | 168 Go par disque
 Disque Premium P10 ou P15 | 16 Ko | 4 Mo/s |  336 Go par disque
 Disque Premium P10 ou P15 | 32 Ko ou plus | 8 Mo/s | 672 Go par disque
 Disque Premium P20 ou P30 ou P40 ou P50 | 8 Ko    | 5 Mo/s | 421 Go par disque
-Disque Premium P20 ou P30 ou P40 ou P50 | 16 Ko ou plus |10 Mo/s | 842 Go par disque
+Disque Premium P20 ou P30 ou P40 ou P50 | 16 Ko ou plus | 20 Mo/s | 1684 Go par disque
 
 **Activité de données sources** | **Limite maximale**
 ---|---

@@ -2,19 +2,19 @@
 title: Gérer les journaux d’un cluster HDInsight - Azure HDInsight
 description: Déterminez les types, les tailles et les stratégies de rétention des fichiers journaux d’activité HDInsight.
 services: hdinsight
-author: ashishthaps
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/11/2018
-ms.author: ashishth
-ms.openlocfilehash: 7b6f9ca914e9fed48463d2134eeba1cd4c103690
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: HT
+ms.date: 03/19/2019
+ms.author: hrasheed
+ms.openlocfilehash: 0f0a22ea4a24a82cb4acf7a3b20a743ee7425c72
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225315"
+ms.locfileid: "58294907"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Gérer les journaux pour un cluster HDInsight
 
@@ -43,13 +43,12 @@ Les informations de cluster suivantes sont utiles pour collecter des information
 * État du cluster, y compris les détails de la dernière modification d’état
 * Type et nombre d’instances HDInsight spécifiés pour les nœuds maître, principaux et de tâche
 
-Vous pouvez obtenir la plupart de ces informations de niveau supérieur à l’aide du portail Azure.  Vous pouvez aussi utiliser Azure Classic CLI pour obtenir des informations sur chaque cluster HDInsight :
+Vous pouvez obtenir la plupart de ces informations de niveau supérieur à l’aide du portail Azure.  Vous pouvez également utiliser [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) pour obtenir des informations sur votre cluster HDInsight :
 
+```azurecli
+    az hdinsight list --resource-group <ResourceGroup>
+    az hdinsight show --resource-group <ResourceGroup> --name <ClusterName>
 ```
-    azure hdinsight cluster list
-    azure hdinsight cluster show <ClusterName>
-```
-[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 Vous pouvez également utiliser PowerShell pour afficher ces informations.  Pour en savoir plus, consultez [Gestion des clusters Apache Hadoop dans HDInsight au moyen d’Azure PowerShell](hdinsight-administer-use-powershell.md).
 
@@ -77,7 +76,7 @@ Un cluster HDInsight classique s’appuie sur plusieurs services et packages log
 
 ### <a name="view-cluster-configuration-settings-with-the-ambari-ui"></a>Vérifier les paramètres de configuration du cluster avec l’interface utilisateur Ambari
 
-Apache Ambari simplifie la gestion, la configuration et le monitoring d’un cluster HDInsight en fournissant une interface utilisateur web et une API REST. Ambari est inclus sur les clusters HDInsight sous Linux. Sélectionnez le **tableau de bord de Cluster** volet sur la page HDInsight du portail Azure pour ouvrir le**tableaux de bord de Cluster** page de lien.  Sélectionnez ensuite le volet **Tableau de bord du cluster HDInsight** pour ouvrir l’interface utilisateur Ambari.  Vous êtes invité à entrer les informations d’identification utilisées pour vous connecter au cluster.
+Apache Ambari simplifie la gestion, la configuration et le monitoring d’un cluster HDInsight en fournissant une interface utilisateur web et une API REST. Ambari est inclus sur les clusters HDInsight sous Linux. Sélectionnez le **tableau de bord de Cluster** volet sur la page HDInsight du portail Azure pour ouvrir le **tableaux de bord de Cluster** page de lien.  Sélectionnez ensuite le volet **Tableau de bord du cluster HDInsight** pour ouvrir l’interface utilisateur Ambari.  Vous êtes invité à entrer les informations d’identification utilisées pour vous connecter au cluster.
 
 Pour ouvrir une liste de vues du service, sélectionnez **Vues Ambari** sur la page du portail Azure pour HDInsight.  Cette liste varie selon les bibliothèques que vous avez installées.  Elle peut contenir par exemple YARN Queue Manager, Hive View et Tez View.  Sélectionnez le lien d’un service pour afficher des informations sur la configuration et le service.  La page **Pile et version** de l’interface utilisateur Ambari fournit des informations sur la configuration des services du cluster et sur l’historique de version des services. Pour accéder à cette section de l’interface utilisateur Ambari, sélectionnez le menu **Admin**, puis **Piles et versions**.  Sélectionnez l’onglet **Versions** pour afficher des informations sur la version du service.
 
@@ -99,7 +98,7 @@ L’étape suivante examine les fichiers journaux d’exécution des travaux des
 
 ### <a name="access-the-hadoop-log-files"></a>Accéder aux fichiers journaux Hadoop
 
-HDInsight stocke ses fichiers journaux dans le système de fichiers du cluster et dans le stockage Azure. Vous pouvez examiner les fichiers journaux dans le cluster en ouvrant une connexion SSH au cluster et en parcourant le système de fichiers, ou à l’aide du portail de statut de YARN Hadoop sur le serveur de nœud principal distant. Vous pouvez examiner les fichiers journaux dans le stockage Azure à l’aide d’outils qui peuvent parcourir et télécharger des données à partir du stockage Azure. AZCopy, CloudXplorer et l’Explorateur de serveurs Visual Studio en sont des exemples. Vous pouvez également utiliser PowerShell et les bibliothèques de client de stockage Azure ou les Kits de développement logiciel Azure .NET pour accéder aux données dans le stockage blob Azure.
+HDInsight stocke ses fichiers journaux dans le système de fichiers du cluster et dans le stockage Azure. Vous pouvez examiner les fichiers journaux dans le cluster en ouvrant un [SSH](/hdinsight-hadoop-linux-use-ssh-unix.md) connexion au cluster et la navigation sur le système de fichiers, ou à l’aide du portail de l’état YARN Hadoop sur le serveur de nœud principal distant. Vous pouvez examiner les fichiers journaux dans le stockage Azure à l’aide d’outils qui peuvent parcourir et télécharger des données à partir du stockage Azure. Sont des exemples [AzCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer)et l’Explorateur de serveurs Visual Studio. Vous pouvez également utiliser PowerShell et les bibliothèques de client de stockage Azure ou les Kits de développement logiciel Azure .NET pour accéder aux données dans le stockage blob Azure.
 
 Hadoop exécute les travaux en tant que *tentatives de tâches* sur différents nœuds du cluster. HDInsight peut initier des tentatives de tâches spéculatives, en arrêtant les tentatives de tâches qui ne se terminent. Cela génère une activité importante qui est journalisée dans le contrôleur, stderr et les fichiers journaux syslog à la volée. De plus, plusieurs tentatives de tâches sont exécutées simultanément, mais un fichier journal peut uniquement afficher des résultats de façon linéaire.
 
@@ -168,9 +167,9 @@ Pour contrôler la taille et le nombre des fichiers journaux conservés, défini
 
 ### <a name="other-log-management-techniques"></a>Autres techniques de gestion des journaux
 
-Pour éviter le manque d’espace disque, vous pouvez utiliser des outils du système d’exploitation, tels que `logrotate` pour gérer les fichiers journaux. Vous pouvez configurer `logrotate` pour s’exécuter sur une base quotidienne, en compressant les fichiers journaux et en supprimant les anciens. Votre approche dépend de vos besoins, tels que la durée pendant laquelle conserver les fichiers journaux sur les nœuds locaux. 
+Pour éviter de manquer d’espace disque, vous pouvez utiliser des outils du système d’exploitation, tel que [logrotate](https://linux.die.net/man/8/logrotate) pour gérer des fichiers journaux. Vous pouvez configurer `logrotate` pour s’exécuter sur une base quotidienne, en compressant les fichiers journaux et en supprimant les anciens. Votre approche dépend de vos besoins, tels que la durée pendant laquelle conserver les fichiers journaux sur les nœuds locaux.  
 
-Vous pouvez également vérifier si la journalisation DEBUG est activée pour un ou plusieurs services, ce qui augmente considérablement la taille de sortie des journaux. 
+Vous pouvez également vérifier si la journalisation DEBUG est activée pour un ou plusieurs services, ce qui augmente considérablement la taille de sortie des journaux.  
 
 Pour collecter les journaux de tous les nœuds dans un seul emplacement central, vous pouvez créer un flux de données, tel que l’ingestion de toutes les entrées de journal dans Solr.
 

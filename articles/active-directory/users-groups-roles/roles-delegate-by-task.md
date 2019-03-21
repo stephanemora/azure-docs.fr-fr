@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ea25510596903e4020e8237bc5bd389c584ead9
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 8e81d5513f43882093883256cf9eab4a22e9ca01
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268428"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57875272"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Rôles d'administrateur par tâche administrateur dans Azure Active Directory
 
@@ -144,18 +144,18 @@ Mettre à jour les propriétés de l’authentification unique | Propriétaire d
 
 Tâche | Rôle moins privilégié | Autres rôles
 ---- | --------------------- | ----------------
-Affecter une licence | Administrateur de compte d’utilisateur | 
-Créer un groupe | Administrateur de compte d’utilisateur | 
-Créer, mettre à jour ou supprimer la révision d’accès d’un groupe ou d’une application | Administrateur de compte d’utilisateur | 
-Gérer l’expiration des groupes | Administrateur de compte d’utilisateur | 
+Affecter une licence | Administrateur d’utilisateurs | 
+Créer un groupe | Administrateur d’utilisateurs | 
+Créer, mettre à jour ou supprimer la révision d’accès d’un groupe ou d’une application | Administrateur d’utilisateurs | 
+Gérer l’expiration des groupes | Administrateur d’utilisateurs | 
 Gérer les paramètres de groupe | Administrateur général | 
 Lire toutes les configurations (à l’exception de l’appartenance masquée) | Lecteurs d’annuaires | Rôle d’utilisateur par défaut ([consultez la documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
-Lire l’appartenance masquée | Membre de groupe | Propriétaire de groupe, administrateur de mot de passe, administrateur Exchange, administrateur SharePoint, administrateur Teams, administrateur de compte d’utilisateur
-Lire l’appartenance des groupes avec une appartenance masquée | Administrateur du support technique | Administrateur de compte d’utilisateur, administrateur Teams
-Révoquer une licence | Administrateur de licence | Administrateur de compte d’utilisateur
-Mettre à jour l’appartenance à un groupe | Propriétaire de groupe ([consultez la documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrateur de compte d’utilisateur
-Mettre à jour les propriétaires de groupe | Propriétaire de groupe ([consultez la documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrateur de compte d’utilisateur
-Mettre à jour les propriétés de groupe | Propriétaire de groupe ([consultez la documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrateur de compte d’utilisateur
+Lire l’appartenance masquée | Membre de groupe | Propriétaire du groupe, mots de passe administrateur, administrateur Exchange, SharePoint administrateur, administrateur d’équipes, administrateur de l’utilisateur
+Lire l’appartenance des groupes avec une appartenance masquée | Administrateur du support technique | Utilisateur, administrateur équipes
+Révoquer une licence | Administrateur de licence | Administrateur d’utilisateurs
+Mettre à jour l’appartenance à un groupe | Propriétaire de groupe ([consultez la documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrateur d’utilisateurs
+Mettre à jour les propriétaires de groupe | Propriétaire de groupe ([consultez la documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrateur d’utilisateurs
+Mettre à jour les propriétés de groupe | Propriétaire de groupe ([consultez la documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrateur d’utilisateurs
 
 ## <a name="identity-protection"></a>Identity Protection
 
@@ -176,9 +176,9 @@ Lire les vulnérabilités | Lecteur de sécurité |
 
 Tâche | Rôle moins privilégié | Autres rôles
 ---- | --------------------- | ----------------
-Affecter une licence | Administrateur de licence | Administrateur de compte d’utilisateur
+Affecter une licence | Administrateur de licence | Administrateur d’utilisateurs
 Lire toute la configuration | Lecteurs d’annuaires | Rôle d’utilisateur par défaut ([consultez la documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
-Révoquer une licence | Administrateur de licence | Administrateur de compte d’utilisateur
+Révoquer une licence | Administrateur de licence | Administrateur d’utilisateurs
 Tester ou acheter un abonnement | Administrateur de facturation | 
 
 
@@ -315,21 +315,21 @@ Lire les utilisateurs avec indicateur de risque | Lecteur de sécurité |
 Tâche | Rôle moins privilégié | Autres rôles
 ---- | --------------------- | ----------------
 Ajouter un utilisateur à un rôle d’annuaire | Administrateur de rôle privilégié | 
-Ajouter un utilisateur à un groupe | Administrateur de compte d’utilisateur | 
-Affecter une licence | Administrateur de licence | Administrateur de compte d’utilisateur
-Créer un utilisateur invité | Inviteur d’invités | Administrateur de compte d’utilisateur
-Créer un utilisateur | Administrateur de compte d’utilisateur | 
-Suppression d’utilisateurs | Administrateur de compte d’utilisateur | 
-Invalider les jetons d’actualisation des administrateurs limités (consultez la documentation) | Administrateur de compte d’utilisateur | 
-Invalider les jetons d’actualisation des non-administrateurs (consultez la documentation) | Administrateur de mots de passe | Administrateur de compte d’utilisateur
+Ajouter un utilisateur à un groupe | Administrateur d’utilisateurs | 
+Affecter une licence | Administrateur de licence | Administrateur d’utilisateurs
+Créer un utilisateur invité | Inviteur d’invités | Administrateur d’utilisateurs
+Créer un utilisateur | Administrateur d’utilisateurs | 
+Suppression d’utilisateurs | Administrateur d’utilisateurs | 
+Invalider les jetons d’actualisation des administrateurs limités (consultez la documentation) | Administrateur d’utilisateurs | 
+Invalider les jetons d’actualisation des non-administrateurs (consultez la documentation) | Administrateur de mots de passe | Administrateur d’utilisateurs
 Invalider les jetons d’actualisation des administrateurs privilégiés (consultez la documentation) | Administrateur général | 
 Lire la configuration de base | Rôle d’utilisateur par défaut ([consultez la documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | 
-Réinitialiser le mot de passe pour les administrateurs limités (consultez la documentation) | Administrateur de compte d’utilisateur | 
-Réinitialiser le mot de passe des non-administrateurs (consultez la documentation) | Administrateur de mots de passe | Administrateur de compte d’utilisateur
+Réinitialiser le mot de passe pour les administrateurs limités (consultez la documentation) | Administrateur d’utilisateurs | 
+Réinitialiser le mot de passe des non-administrateurs (consultez la documentation) | Administrateur de mots de passe | Administrateur d’utilisateurs
 Réinitialiser le mot de passe des administrateurs privilégiés | Administrateur général | 
-Révoquer une licence | Administrateur de licence | Administrateur de compte d’utilisateur
-Mettre à jour toutes les propriétés, sauf le nom d’utilisateur principal | Administrateur de compte d’utilisateur | 
-Mettre à jour le nom d’utilisateur principal pour les administrateurs limités (consultez la documentation) | Administrateur de compte d’utilisateur | 
+Révoquer une licence | Administrateur de licence | Administrateur d’utilisateurs
+Mettre à jour toutes les propriétés, sauf le nom d’utilisateur principal | Administrateur d’utilisateurs | 
+Mettre à jour le nom d’utilisateur principal pour les administrateurs limités (consultez la documentation) | Administrateur d’utilisateurs | 
 Mettre à jour la propriété Nom d’utilisateur principal sur les administrateurs privilégiés (consultez la documentation) | Administrateur général | 
 Mettre à jour les paramètres utilisateur | Administrateur général | 
 

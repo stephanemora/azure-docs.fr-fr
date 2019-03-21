@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/04/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1262ed841fe8f6f9c2d5339d79abf06c1ab15a25
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
-ms.translationtype: HT
+ms.openlocfilehash: 724a91b6ba0be030a2281bce366e4378892df59b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392871"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011580"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>Architecture réseau de SAP HANA (grandes instances)
 
@@ -27,7 +27,7 @@ L’architecture des services réseau Azure est un composant clé de la réussit
 
 - Des systèmes SAP déployés en local. En raison de leur taille, ces systèmes ne peuvent pas actuellement être hébergés dans Azure. Par exemple, un système ERP SAP qui s’exécute sur SQL Server (en tant que base de données) et qui nécessite plus de ressources UC ou de mémoire que les machines virtuelles peuvent offrir.
 - Des systèmes SAP basés sur SAP HANA déployés en local.
-- Des systèmes SAP déployés dans des machines virtuelles. Ces systèmes peuvent être des instances de développement, de test, de bac à sable ou de production pour toutes les applications basées sur SAP NetWeaver qui peuvent être déployées correctement dans Azure (sur des machines virtuelles), en fonction de la demande de mémoire et de consommation de ressources. Ces systèmes peuvent également reposer sur des bases de données telles que SQL Server. Pour plus d’informations, consultez [Remarque SAP n° 1928533 - Applications SAP sur Azure : produits et types de machines virtuelles Azure pris en charge](https://launchpad.support.sap.com/#/notes/1928533/E). Et ces systèmes peuvent également reposer sur des bases de données telles que SAP HANA. Pour plus d’informations, consultez [Plateformes IaaS certifiées SAP HANA](http://global.sap.com/community/ebook/2014-09-02-hana-hardware/enEN/iaas.html).
+- Des systèmes SAP déployés dans des machines virtuelles. Ces systèmes peuvent être des instances de développement, de test, de bac à sable ou de production pour toutes les applications basées sur SAP NetWeaver qui peuvent être déployées correctement dans Azure (sur des machines virtuelles), en fonction de la demande de mémoire et de consommation de ressources. Ces systèmes peuvent également reposer sur des bases de données telles que SQL Server. Pour plus d’informations, consultez [SAP Support Note #1928533 – applications SAP sur Azure : Produits et types de machines virtuelles Azure pris en charge](https://launchpad.support.sap.com/#/notes/1928533/E). Et ces systèmes peuvent également reposer sur des bases de données telles que SAP HANA. Pour plus d’informations, consultez [Plateformes IaaS certifiées SAP HANA](https://global.sap.com/community/ebook/2014-09-02-hana-hardware/enEN/iaas.html).
 - Des serveurs d’applications SAP déployés dans Azure (sur des machines virtuelles) qui utilisent SAP HANA sur Azure (grandes instances) dans des tampons de grande instance Azure.
 
 Un paysage SAP hybride avec quatre différents scénarios de déploiement ou plus est typique. Il existe également de nombreux cas client de paysages SAP complets qui s’exécutent dans Azure. Les machines virtuelles devenant plus puissantes, le nombre de clients qui passent toutes leurs solutions SAP vers Azure augmente.
@@ -79,7 +79,7 @@ Les différences dans les déploiements SAP dans Azure sont les suivantes :
 - L’architecture d’application SAP est plus sensible à la latence du réseau que les scénarios classiques dans lesquels les données sont échangées entre les machines locales et Azure.
 - La passerelle de réseau virtuel possède au moins deux connexions ExpressRoute. Les deux connexions partagent la bande passante maximale pour les données entrantes de la passerelle du réseau virtuel.
 
-La latence du réseau rencontrée entre les machines virtuelles et les unités de grande instance HANA peut être supérieure à la latence standard aller-retour sur un réseau de machine virtuelle à machine virtuelle. En fonction de la région Azure, les valeurs mesurées peuvent dépasser une latence aller-retour de 0,7 ms, classée en dessous de la moyenne dans [Remarque SAP n° 1100926 - FAQ : performances du réseau](https://launchpad.support.sap.com/#/notes/1100926/E). Selon la région Azure et l’outil utilisé pour mesurer la latence aller-retour entre une machine virtuelle Azure et une unité de grande instance SAP HANA, la latence mesurée peut avoisiner les 2 millisecondes maximum. Néanmoins, les clients déploient des applications SAP de production basées sur SAP HANA avec succès sur la grande instance SAP HANA. Vérifiez avoir testé minutieusement vos processus métier dans la Grande instance HANA Azure.
+La latence du réseau rencontrée entre les machines virtuelles et les unités de grande instance HANA peut être supérieure à la latence standard aller-retour sur un réseau de machine virtuelle à machine virtuelle. Sur la région Azure, les valeurs mesurées peuvent dépasser la latence aller-retour de 0,7 ms classée en dessous de la moyenne dans [Remarque SAP n° 1100926 - FAQ : Performances réseau](https://launchpad.support.sap.com/#/notes/1100926/E). Selon la région Azure et l’outil utilisé pour mesurer la latence aller-retour entre une machine virtuelle Azure et une unité de grande instance SAP HANA, la latence mesurée peut avoisiner les 2 millisecondes maximum. Néanmoins, les clients déploient des applications SAP de production basées sur SAP HANA avec succès sur la grande instance SAP HANA. Vérifiez avoir testé minutieusement vos processus métier dans la Grande instance HANA Azure.
  
 Afin d’offrir une latence réseau déterministe entre les machines virtuelles Azure et une grande instance HANA, le choix de la référence SKU de passerelle de réseau virtuel est essentiel. Contrairement aux modèles de trafic entre machines locales et machines virtuelles, le modèle de trafic entre les machines virtuelles et la grande instance HANA peut développer des pics courts mais élevés de requêtes et de volumes de données à transmettre. Pour bien gérer ces pics, nous vous recommandons fortement d’utiliser la référence SKU de passerelle UltraPerformance. Pour les références SKU de grande instance HANA de classe Type II, l’utilisation de la référence SKU de la passerelle UltraPerformance en tant que passerelle de réseau virtuel est obligatoire.
 
@@ -113,7 +113,7 @@ Pour une architecture réseau plus évolutive :
 - Utilisez plusieurs réseaux virtuels pour une couche Application SAP unique, plus grande.
 - Déployez un réseau virtuel distinct pour chaque système SAP déployé, plutôt que de combiner ces systèmes SAP en sous-réseaux séparés dans le même réseau virtuel.
 
- Une architecture réseau plus évolutive pour SAP HANA sur Azure (grandes instances) :
+  Une architecture réseau plus évolutive pour SAP HANA sur Azure (grandes instances) :
 
 ![Déployer la couche Application SAP sur plusieurs réseaux virtuels](./media/hana-overview-architecture/image4-networking-architecture.png)
 
@@ -132,12 +132,12 @@ Trois points importants sont à prendre en compte en matière de routage pour SA
 
 * Les unités SAP HANA sur Azure (grandes instances) ont une adresse IP assignée à partir de la plage d’adresses de pools IP du serveur que vous avez envoyée. Pour plus d’informations, consultez [Infrastructure et connectivité SAP HANA (grandes instances) sur Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Cette adresse IP est accessible via les abonnements Azure et ExpressRoute qui connectent des réseaux virtuels à HANA sur Azure (grandes instances). L’adresse IP assignée hors que plage d’adresses de pools IP du serveur est directement assignée à l’unité matérielle. Elle n’est *plus* assignée via la traduction d'adresses réseau, comme c’était le cas dans les premiers déploiements de cette solution. 
 
-> [!NOTE] 
+> [!NOTE]
 > Pour surmonter la restriction de routage temporaire, comme expliqué dans les premiers éléments de la liste ci-dessus, utilisez des composants supplémentaires pour le routage. Les composants qui peuvent être utilisés pour surmonter la restriction peuvent être :
-
+> 
 > * Un proxy inverse pour router les données, dans un sens et dans l’autre. Par exemple, F5 BIG-IP, NGINX avec Traffic Manager déployé dans Azure en tant que solution de routage de trafic/pare-feu virtuelle.
 > * Utilisation des [règles IPTables](http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_%3a_Ch14_%3a_Linux_Firewalls_Using_iptables#.Wkv6tI3rtaQ) sur une machine virtuelle Linux pour activer le routage entre des emplacements locaux et des unités de grande instance HANA ou entre des unités de grande instance HANA dans différentes régions.
-
+> 
 > N’oubliez pas que l’implémentation et la prise en charge des solutions personnalisées qui impliquent des appliances réseau ou IPTables tierces n’est pas fournie par Microsoft. La prise en charge doit être réalisée par le fournisseur du composant utilisé ou de l’intégrateur. 
 
 ## <a name="internet-connectivity-of-hana-large-instance"></a>Connectivité internet de la grande instance HANA

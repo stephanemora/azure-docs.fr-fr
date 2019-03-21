@@ -1,6 +1,6 @@
 ---
-title: Protection de mot de passe Azure AD (préversion)
-description: Exclure des mots de passe faibles dans Active Directory local à l’aide d’aperçu de protection de mot de passe Azure AD
+title: Protection de mot de passe Azure AD
+description: Exclure des mots de passe faibles dans Active Directory local à l’aide de protection de mot de passe Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,21 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fdf308ff6178dcb51ec73e46d43b853f62e7777
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: f1b3660d256e4beda948f723035aa75ca8a9ed2e
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57840951"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58284866"
 ---
-# <a name="preview-enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Aperçu : Appliquer la protection de mot de passe Azure AD pour Windows Server Active Directory
+# <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Appliquer la protection de mot de passe Azure AD pour Windows Server Active Directory
 
-|     |
-| --- |
-| Protection de mot de passe Azure Active Directory (Azure AD) et la liste de mots de passe interdits personnalisés sont des fonctionnalités de préversion publique d’Azure AD. Pour plus d’informations sur les préversions, consultez [conditions d’utilisation supplémentaires pour les versions préliminaires de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
-
-Protection de mot de passe Azure AD est une nouvelle fonctionnalité en version préliminaire publique qui améliore les stratégies de mot de passe dans une organisation. Protection de mot de passe de déploiement sur site utilise les deux les globales et personnalisées mot de passe interdits listes qui sont stockés dans Azure AD. Il effectue la même vérifications en local en tant qu’Azure AD pour les modifications de cloud.
+Protection de mot de passe Azure AD est une fonctionnalité qui améliore les stratégies de mot de passe dans une organisation. Protection de mot de passe de déploiement sur site utilise les deux les globales et personnalisées mot de passe interdits listes qui sont stockés dans Azure AD. Il effectue la même vérifications en local en tant qu’Azure AD pour les modifications de cloud.
 
 ## <a name="design-principles"></a>Principes de conception
 

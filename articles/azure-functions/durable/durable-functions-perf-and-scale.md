@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 170f20ae65a8ba58291a630dc76496cbdcdb36de
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3c9227a34c1b7208210b84b5b7d64ecdc8654a83
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58138114"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286378"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Performances et mise à l’échelle dans Fonctions durables (Azure Functions)
 
@@ -60,7 +60,7 @@ Le délai d’interrogation maximal est configurable via la `maxQueuePollingInte
 
 ## <a name="storage-account-selection"></a>Sélection du compte de stockage
 
-Les files d’attente, les tables et les blobs utilisés par Fonctions durables sont créés dans un compte de stockage Azure configuré. Le compte à utiliser peut être spécifié à l’aide du paramètre `durableTask/azureStorageConnectionStringName` dans le fichier **host.json**.
+Les files d’attente, les tables et les objets BLOB utilisés par les fonctions durables est créés dans un compte de stockage Azure configuré. Le compte à utiliser peut être spécifié à l’aide du paramètre `durableTask/azureStorageConnectionStringName` dans le fichier **host.json**.
 
 ### <a name="functions-1x"></a>Functions 1.x
 

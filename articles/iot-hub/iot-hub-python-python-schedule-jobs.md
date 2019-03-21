@@ -2,19 +2,19 @@
 title: Planifier des travaux avec Azure IoT Hub (Python) | Microsoft Docs
 description: Procédure de planification d’une tâche Azure IoT Hub pour appeler une méthode directe sur plusieurs appareils. Vous pouvez utiliser les SDK Azure IoT pour Python afin d’implémenter les applications d’appareil simulé et une application de service pour exécuter le travail.
 author: kgremban
-manager: timlt
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 02/16/2018
+ms.date: 02/16/2019
 ms.author: kgremban
-ms.openlocfilehash: add8253b870c7f1f6689534e11e7d57484248c4d
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
-ms.translationtype: HT
+ms.openlocfilehash: fe7c44df57b54fe3a152f4d35a2144fed8413314
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515571"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540111"
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>Planifier et diffuser des travaux (Python)
 
@@ -30,8 +30,8 @@ Sur le plan conceptuel, un travail encapsule l’une de ces actions et suit la p
 
 Pour en savoir plus sur chacune de ces fonctionnalités, consultez les articles suivants :
 
-* Représentation d’appareil et propriétés : [Prise en main des représentations d’appareil][lnk-get-started-twin] et [Tutorial: How to use device twin properties][lnk-twin-props] (Didacticiel : Utilisation des propriétés de représentation d’appareil)
-* Méthodes directes : [Guide du développeur IoT Hub - méthodes directes][lnk-dev-methods] et [Didacticiel : méthodes directes][lnk-c2d-methods]
+* Jumeau d’appareil et propriétés : [Bien démarrer avec les jumeaux d’appareil](iot-hub-python-twin-getstarted.md) et [didacticiel : Comment utiliser les propriétés des représentations](tutorial-device-twins.md)
+* Méthodes directes : [Guide du développeur IoT Hub - méthodes directes](iot-hub-devguide-direct-methods.md) et [didacticiel : méthodes directes](quickstart-control-device-python.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -48,9 +48,9 @@ Ce didacticiel vous explique les procédures suivantes :
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
-* [Python 2.x ou 3.x][lnk-python-download]. Veillez à utiliser l’installation 32 bits ou 64 bits comme requis par votre programme d’installation. Lorsque vous y êtes invité pendant l’installation, veillez à ajouter Python à votre variable d’environnement propre à la plateforme. Si vous utilisez Python 2.x, vous devrez peut-être [installer ou mettre à niveau *pip*, le système de gestion de package Python][lnk-install-pip].
-* Si vous utilisez le système d’exploitation Windows, utilisez le [package redistribuable Visual C++][lnk-visual-c-redist] pour autoriser l’utilisation de DLL natives de Python.
-* Un compte Azure actif. (Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit][lnk-free-trial] en quelques minutes.)
+* [Python 2.x ou 3.x](https://www.python.org/downloads/). Veillez à utiliser l’installation 32 bits ou 64 bits comme requis par votre programme d’installation. Lorsque vous y êtes invité pendant l’installation, veillez à ajouter Python à votre variable d’environnement propre à la plateforme. Si vous utilisez Python 2.x, vous devrez peut-être [installer ou mettre à niveau *pip*, le système de gestion des packages Python](https://pip.pypa.io/en/stable/installing/).
+* Si vous utilisez le système d’exploitation Windows, utilisez le [package redistribuable Visual C++](https://www.microsoft.com/download/confirmation.aspx?id=48145) pour autoriser l’utilisation de DLL natives de Python.
+* Un compte Azure actif. (Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) en quelques minutes seulement.)
 
 > [!NOTE]
 > Le **SDK Azure IoT pour Python** ne prend pas directement en charge la fonctionnalité de **travaux**. Au lieu de cela, ce didacticiel offre une solution alternative utilisant des minuteries et des threads asynchrones. Pour obtenir des mises à jour supplémentaires, consultez la liste des fonctionnalités du **SDK de client de service** dans la page du [SDK Azure IoT pour Python](https://github.com/Azure/azure-iot-sdk-python). 
@@ -324,23 +324,8 @@ Vous êtes maintenant prêt à exécuter les applications.
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce didacticiel, vous avez utilisé un travail pour planifier une méthode directe sur un appareil et la mise à jour des propriétés de représentation de l’appareil.
 
-Pour approfondir la prise en main d’IoT Hub et des modèles de gestion d’appareils, comme la mise à jour du microprogramme à distance, consultez :
+Pour continuer la mise en route avec IoT Hub et les modèles de gestion de périphérique, comme la mise à jour du microprogramme de distance, consultez [comment effectuer une mise à jour du microprogramme](tutorial-firmware-update.md).
 
-[Didacticiel : Mettre à jour un microprogramme][lnk-fwupdate]
-
-Afin d’approfondir l’apprentissage de IoT Hub, consultez [Getting started with Azure IoT Edge][lnk-iot-edge] (Bien démarrer avec Azure IoT Edge).
-
-[lnk-get-started-twin]: iot-hub-python-twin-getstarted.md
-[lnk-twin-props]: tutorial-device-twins.md
-[lnk-c2d-methods]: quickstart-control-device-python.md
-[lnk-dev-methods]: iot-hub-devguide-direct-methods.md
-[lnk-fwupdate]: tutorial-firmware-update.md
-[lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
-[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-python-download]: https://www.python.org/downloads/
-[lnk-visual-c-redist]: http://www.microsoft.com/download/confirmation.aspx?id=48145
-[lnk-install-pip]: https://pip.pypa.io/en/stable/installing/
-
+<!-- images -->
 [1]: ./media/iot-hub-python-python-schedule-jobs/1.png
 [2]: ./media/iot-hub-python-python-schedule-jobs/2.png

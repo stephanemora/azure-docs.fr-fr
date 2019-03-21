@@ -17,12 +17,12 @@ ms.date: 02/03/2019
 ms.author: markvi
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17b7f7fa4889742989a61f8cc076224d46f8eac2
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: de80825ccdd331f57dcd31d307196dc0b45b9cc9
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234100"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294584"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procédure : Planifier l’implémentation de la jonction Azure AD Hybride
 
@@ -37,10 +37,12 @@ En mettant vos appareils sur Azure AD, vous optimisez la productivité de vos ut
 Si vous disposez d’un environnement Active Directory local et que vous souhaitez lier à Azure AD vos appareils joints à un domaine, vous pouvez y parvenir en configurant simplement des appareils hybrides joints à Azure AD. Cet article présente les étapes à suivre pour implémenter une jointure Azure AD hybride dans un environnement. 
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Cet article suppose que vous avez lu la [Présentation de la gestion des appareils dans Azure Active Directory](../device-management-introduction.md).
 
+>[!NOTE]
+>  Le minimum requis fonctionnel de domaine et les niveaux fonctionnels de forêt pour une jointure hybrid Azure AD Windows 10 est Windows Server 2008 R2. Sur des versions inférieures, l’utilisateur peut ne pas obtenir un principal jeton d’actualisation au cours d’ouverture de session Windows en raison de problèmes LSA 
 
 ## <a name="plan-your-implementation"></a>Planifier l’implémentation
 
@@ -92,7 +94,7 @@ La première étape de la planification consiste à examiner l’environnement e
 
 Vous ne pouvez pas utiliser de jointure Azure AD hybride si votre environnement se compose d’une seule forêt qui synchronise les données d’identité sur plusieurs locataires Azure AD.
 
-En cas de dépendance vis-à-vis de l’Outil de préparation du système (Sysprep), veillez à créer des images à partir d’une installation de Windows sur laquelle la jointure Azure AD hybride n’a pas été configurée.
+Si vous comptez sur l’outil de préparation système (Sysprep), assurez-vous qu’images créées à partir d’une installation de Windows 10 1803 ou précédemment n'ont pas été configurées pour une jointure hybrid Azure AD.
 
 Si vous utilisez une capture instantanée de machine virtuelle pour créer des machines virtuelles supplémentaires, vérifiez qu’elle n’a pas été configurée pour la jointure Azure AD hybride.
 
@@ -114,8 +116,10 @@ La jointure Azure AD hybride est un processus qui consiste à inscrire automatiq
 
 Si vos appareils joints au domaine Windows 10 sont déjà [inscrits auprès d’Azure AD](https://docs.microsoft.com/azure/active-directory/devices/overview#azure-ad-registered-devices) sur votre locataire, nous vous recommandons vivement de supprimer cet état avant d’activer la jonction Azure AD Hybride. À partir de la version 1809 de Windows 10, les modifications suivantes ont été apportées pour éviter ce double état : 
  - Tout état existant inscrit à Azure AD est automatiquement supprimé dès lors que l’appareil est joint à Azure AD Hybride. 
- - Vous pouvez éviter que votre appareil joint au domaine soit inscrit à Azure AD en ajoutant cette clé de Registre - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001
+ - Vous pouvez empêcher votre appareil joint au domaine Azure AD inscrite en ajoutant cette clé de Registre - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, « BlockAADWorkplaceJoin » = DWORD : 00000001.
+ - Cette modification est désormais disponible pour Windows 10 1803 version avec KB4489894.
 
+Le module de plateforme sécurisée compatible FIPS ne sont pas pris en charge pour une jointure Hybrid Azure AD. Si vos appareils sont dotés de TPM compatible FIPS, vous devez les désactiver avant de procéder à une jointure Hybrid Azure AD. Microsoft ne fournit pas d’outils permettant de désactiver le mode FIPS pour le module de plateforme sécurisée car il dépend du fabricant du TPM. Veuillez contacter votre matériel OEM pour la prise en charge.
 
 ## <a name="review-how-to-control-the-hybrid-azure-ad-join-of-your-devices"></a>Guide pratique pour contrôler la jointure Azure AD hybride de vos appareils
 

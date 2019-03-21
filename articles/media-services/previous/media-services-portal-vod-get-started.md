@@ -11,15 +11,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 02/12/2019
+ms.topic: conceptual
+ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: d3c175bc4d2e5b25c8ce6d4a9b128f961e0af4aa
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 5ad846a3d8a304e01425407cb2bf5297c36615e7
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210745"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58257950"
 ---
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>Prise en main de la diffusion de contenus à la demande à l’aide du portail Azure
 
@@ -27,7 +27,7 @@ ms.locfileid: "56210745"
 
 Ce didacticiel explique comment implémenter un service de base de diffusion de contenu vidéo à la demande avec l’application Azure Media Services du portail Azure.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Les éléments suivants sont requis pour suivre le didacticiel :
 
 * Un compte Azure. Pour plus d’informations, consultez la page [Version d’évaluation gratuite d’Azure](https://azure.microsoft.com/pricing/free-trial/). 
@@ -151,7 +151,7 @@ Certaines considérations s’appliquent :
 
 * Pour commencer le streaming, démarrez l’exécution du point de terminaison de streaming par défaut.
 * Assurez-vous que la vidéo a été publiée.
-* Le lecteur multimédia du portail Azure effectue la lecture à partir du point de terminaison de streaming par défaut. Si vous souhaitez lire à partir d’un autre point de terminaison de streaming que celui par défaut, sélectionnez et copiez l’URL dans un autre lecteur. Par exemple, vous pouvez tester votre vidéo avec le lecteur [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+* Le lecteur multimédia du portail Azure effectue la lecture à partir du point de terminaison de streaming par défaut. Si vous souhaitez lire à partir d’un autre point de terminaison de streaming que celui par défaut, sélectionnez et copiez l’URL dans un autre lecteur. Par exemple, vous pouvez tester votre vidéo avec le lecteur [Azure Media Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

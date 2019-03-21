@@ -7,17 +7,17 @@ documentationcenter: na
 author: jimdial
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/08/2019
+ms.date: 03/05/2019
 ms.author: jdial
-ms.openlocfilehash: a71870115c3ea5e64c8b365d6c4aa64920bc6ca3
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.openlocfilehash: 9185bfea8bddff52f6183ac3e5395cdbc0b73bb1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56675039"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860769"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Types d’adresses IP et méthodes d’allocation dans Azure
 
@@ -71,7 +71,7 @@ Toutes les adresses IP publiques créées avant l’introduction de références
 Les adresses IP publiques de référence SKU standard :
 
 - Utilisent toujours la méthode d’allocation statique.
-- Ont un délai d’inactivité du flux entrant et sortant réglable de 4 à 30 minutes, avec une valeur par défaut de 4 minutes.
+- Dotées d’un délai d’inactivité du flux entrant réglable de 4 à 30 minutes, avec une valeur par défaut de 4 minutes et d’un délai d’inactivité du flux sortant fixe de 4 minutes.
 - Sont sécurisées par défaut et fermées au trafic entrant. Vous devez expliciter le trafic entrant autorisé sur liste verte avec un [groupe de sécurité réseau](security-overview.md#network-security-groups).
 - Sont assignées à des interfaces réseau, des équilibreurs de charge publics standard, des passerelles d’application ou des passerelles VPN. Pour plus d’informations sur Standard Load Balancer, consultez [Azure Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Sont par défaut redondantes interzones et éventuellement zonales (vous pouvez les créer zonales et les garantir dans une zone de disponibilité spécifique). Pour en savoir plus sur les zones de disponibilité, consultez [Vue d’ensemble des zones de disponibilité](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) et [Équilibreur de charge standard et zones de disponibilité](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
@@ -121,16 +121,16 @@ Une [passerelle VPN Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%
 
 ### <a name="application-gateways"></a>Passerelles d’application
 
-Vous pouvez associer une adresse IP publique à une [Application Gateway](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)Azure en l’affectant à la configuration **frontale** de la passerelle. Cette adresse IP publique sert d’adresse IP virtuelle à équilibrage de charge. Vous pouvez uniquement affecter une adresse IP publique de base *dynamique* à une configuration front-end V1 de passerelle d’application, et uniquement une adresse IP statique de base (ou référence SKU standard) à une configuration front-end V2.
+Vous pouvez associer une adresse IP publique à une [Application Gateway](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)Azure en l’affectant à la configuration **frontale** de la passerelle. Cette adresse IP publique sert d’adresse IP virtuelle à équilibrage de charge. Vous pouvez uniquement affecter une *dynamique* base adresse IP publique à une configuration frontale de passerelle V1 d’application et uniquement un *statique* adresse référence (SKU) standard pour une configuration frontale V2.
 
 ### <a name="at-a-glance"></a>Aperçu
 Le tableau ci-dessous présente la propriété spécifique par le biais de laquelle une adresse IP publique peut être associée à une ressource de niveau supérieur, ainsi que les méthodes d’allocation possibles (dynamique ou statique) utilisables.
 
 | Ressources de niveau supérieur | Association d’adresse IP | Dynamique | statique |
 | --- | --- | --- | --- |
-| Machine virtuelle |interface réseau |OUI |OUI |
-| Équilibreur de charge accessible sur Internet |Configuration frontale |OUI |OUI |
-| passerelle VPN |Configuration IP de la passerelle |OUI |OUI |
+| Machine virtuelle |interface réseau |Oui |Oui |
+| Équilibreur de charge accessible sur Internet |Configuration frontale |Oui |Oui |
+| passerelle VPN |Configuration IP de la passerelle |Oui |Oui |
 | passerelle d’application |Configuration frontale |Oui (V1 uniquement) |Oui (V2 uniquement) |
 
 ## <a name="private-ip-addresses"></a>Adresses IP privées
@@ -176,9 +176,9 @@ Le tableau ci-dessous présente la propriété spécifique par le biais de laque
 
 | Ressources de niveau supérieur | Association d’adresse IP | dynamique | statique |
 | --- | --- | --- | --- |
-| Machine virtuelle |interface réseau |OUI |OUI |
-| Équilibrage de charge |Configuration frontale |OUI |OUI |
-| passerelle d’application |Configuration frontale |OUI |OUI |
+| Machine virtuelle |interface réseau |Oui |Oui |
+| Équilibrage de charge |Configuration frontale |Oui |Oui |
+| passerelle d’application |Configuration frontale |Oui |Oui |
 
 ## <a name="limits"></a>limites
 Les limites imposées pour l’adressage IP sont indiquées dans l’ensemble des [limites pour la mise en réseau](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) dans Azure. Ces limites sont exprimées par région et par abonnement. Vous pouvez [contacter le support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour augmenter les limites par défaut jusqu’aux limites maximum en fonction des besoins de votre entreprise.

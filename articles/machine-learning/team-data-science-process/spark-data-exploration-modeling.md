@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b1e6884366300a4edfce1eb05971e50f673b3a22
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 4ddcd2429ce1b7e44670b52a0a7b7494d0400af7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457222"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860973"
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Exploration et modélisation des données avec Spark
 
@@ -29,8 +29,8 @@ Les modèles que nous utilisons incluent une régression logistique, une régres
 
 * [régression linéaire avec SGD](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) est un modèle de régression linéaire qui utilise la méthode SGD (Stochastic Gradient Descent), l’optimisation et la mise à l’échelle des caractéristiques pour prédire le montant des pourboires payés. 
 * [régression logistique avec LBFGS](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.classification.LogisticRegressionWithLBFGS) , ou régression « logit », est un modèle de régression qui s’utilise quand la variable dépendante est catégorielle, pour la classification des données. LBFGS est un algorithme d’optimisation de Quasi-Newton qui correspond approximativement à l’algorithme BFGS (Broyden–Fletcher–Goldfarb–Shanno) avec une quantité limitée de mémoire informatique et qui est largement utilisé dans l’apprentissage automatique (Machine Learning).
-* [forêts aléatoires](http://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) sont des ensembles d’arbres de décision.  Elles combinent de nombreux arbres de décision pour réduire le risque de surajustement. Les forêts aléatoires sont utilisées pour la régression et la classification, peuvent gérer des caractéristiques catégorielles, et peuvent être étendues au paramètre de classification multiclasse. Elles ne requièrent aucune mise à l’échelle des caractéristiques, et peuvent capturer des non-linéarités ainsi que des interactions entre caractéristiques. Les forêts aléatoires constituent l’un des modèles Machine Learning les plus performants pour la classification et la régression.
-* [Gradient Boosting Tree](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) ) sont des ensembles d’arbres de décision. Ils aident les arbres de décision à minimiser itérativement une fonction de perte. Utilisés pour la régression et la classification, les arbres GBT gèrent les caractéristiques catégorielles, ne requièrent aucune mise à l’échelle des caractéristiques et peuvent capturer les non-linéarités ainsi que les interactions entre les caractéristiques. Ils s’utilisent également dans le paramétrage de classification multiclasse.
+* [forêts aléatoires](https://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) sont des ensembles d’arbres de décision.  Elles combinent de nombreux arbres de décision pour réduire le risque de surajustement. Les forêts aléatoires sont utilisées pour la régression et la classification, peuvent gérer des caractéristiques catégorielles, et peuvent être étendues au paramètre de classification multiclasse. Elles ne requièrent aucune mise à l’échelle des caractéristiques, et peuvent capturer des non-linéarités ainsi que des interactions entre caractéristiques. Les forêts aléatoires constituent l’un des modèles Machine Learning les plus performants pour la classification et la régression.
+* [Gradient Boosting Tree](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) ) sont des ensembles d’arbres de décision. Ils aident les arbres de décision à minimiser itérativement une fonction de perte. Utilisés pour la régression et la classification, les arbres GBT gèrent les caractéristiques catégorielles, ne requièrent aucune mise à l’échelle des caractéristiques et peuvent capturer les non-linéarités ainsi que les interactions entre les caractéristiques. Ils s’utilisent également dans le paramétrage de classification multiclasse.
 
 Les étapes de modélisation contiennent également du code montrant comment former, évaluer et enregistrer chaque type de modèle. Python a été utilisé pour coder la solution et montrer les tracés correspondants.   
 
@@ -39,7 +39,7 @@ Les étapes de modélisation contiennent également du code montrant comment for
 > 
 > 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Vous avez besoin d’un compte Azure et d’un cluster HDInsight Spark 1.6 (ou Spark 2.0) pour effectuer cette procédure pas à pas. Pour obtenir des instructions sur la façon de satisfaire à ces exigences, voir [Vue d’ensemble de la science des données à l’aide de Spark sur Azure HDInsight](spark-overview.md). Cette rubrique contient également une description des données NYC 2013 Taxi utilisées ici, et des instructions sur l’exécution de code à partir d’un bloc-notes Jupyter sur le cluster Spark. 
 
 ## <a name="spark-clusters-and-notebooks"></a>Clusters et notebooks Spark
@@ -60,19 +60,17 @@ Les tâches de régression et de classification qui sont implémentées à l’a
 
 > [!NOTE]
 > Le jeu de données de compagnies aériennes a été ajouté aux notebooks Spark 2.0 pour mieux illustrer l’utilisation des algorithmes de classification. Consultez les liens suivants pour plus d’informations sur le jeu de données sur les compagnies aériennes et celui sur les données météorologiques :
-
->- Données de départs prévus de compagnie aérienne : [http://www.transtats.bts.gov/ONTIME/](http://www.transtats.bts.gov/ONTIME/)
-
->- Données météorologiques d’aéroport : [https://www.ncdc.noaa.gov/](https://www.ncdc.noaa.gov/) 
 > 
+> - Données de départs prévus de compagnie aérienne : [https://www.transtats.bts.gov/ONTIME/](https://www.transtats.bts.gov/ONTIME/)
 > 
+> - Données météorologiques d’aéroport : [https://www.ncdc.noaa.gov/](https://www.ncdc.noaa.gov/) 
 
 <!-- -->
 
 <!-- -->
 
 > [!NOTE]
-L’exécution des blocs-notes Spark 2.0 sur les jeux de données « NYC taxi and airline flight delay » peut prendre 10 minutes ou plus (selon la taille de votre cluster HDI). Le premier bloc-notes de la liste ci-dessus montre de nombreux aspects de l’exploration de données, de la visualisation et de l’apprentissage du modèle ML dans un bloc-notes dont l’exécution est moins longue avec un jeu de données New York sous-échantillonné, dans lequel les fichiers de courses et de taxi ont été rassemblés au préalable : [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb). Ce bloc-notes met beaucoup moins de temps à s’exécuter (deux ou trois minutes) et peut constituer un bon point de départ pour explorer rapidement le code fourni pour Spark 2.0. 
+> L’exécution des blocs-notes Spark 2.0 sur les jeux de données « NYC taxi and airline flight delay » peut prendre 10 minutes ou plus (selon la taille de votre cluster HDI). Le premier bloc-notes de la liste ci-dessus montre de nombreux aspects de l’exploration de données, de la visualisation et de l’apprentissage du modèle ML dans un bloc-notes dont l’exécution est moins longue avec un jeu de données New York sous-échantillonné, dans lequel les fichiers de courses et de taxi ont été rassemblés au préalable : [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb). Ce bloc-notes met beaucoup moins de temps à s’exécuter (deux ou trois minutes) et peut constituer un bon point de départ pour explorer rapidement le code fourni pour Spark 2.0. 
 
 <!-- -->
 
@@ -81,7 +79,7 @@ L’exécution des blocs-notes Spark 2.0 sur les jeux de données « NYC taxi a
 <!-- -->
 
 > [!NOTE]
-Les descriptions ci-dessous sont liées à l’utilisation de Spark 1.6. Pour les versions Spark 2.0, utilisez les notebooks décrits et référencés ci-dessus. 
+> Les descriptions ci-dessous sont liées à l’utilisation de Spark 1.6. Pour les versions Spark 2.0, utilisez les notebooks décrits et référencés ci-dessus. 
 
 <!-- -->
 
@@ -362,8 +360,8 @@ Ce code montre comment créer une nouvelle caractéristique en regroupant les he
 ### <a name="index-and-encode-categorical-features-for-input-into-modeling-functions"></a>Indexer et encoder les caractéristiques catégorielles à intégrer dans les fonctions de modélisation
 Cette section montre comment indexer ou encoder les caractéristiques catégorielles à intégrer dans les fonctions de modélisation. Les fonctions de modélisation et de prédiction de MLlib requièrent des caractéristiques avec des données d’entrée catégorielles à indexer ou à encoder avant leur utilisation. Selon le modèle, vous devez les indexer ou les encoder différemment :  
 
-* Une **modélisation arborescente** nécessite l’encodage des catégories en tant que valeurs numériques (par exemple, une caractéristique avec trois catégories peut être encodée avec 0, 1, 2). C’est ce que permet la fonction [StringIndexer](http://spark.apache.org/docs/latest/ml-features.html#stringindexer) de MLlib. Cette fonction encode une colonne de libellés en une colonne d’index de libellé, classés par fréquence de libellé. Bien qu’indexés par des valeurs numériques pour le traitement des entrées et des données, les algorithmes arborescents peuvent être configurés pour les traiter comme des catégories. 
-* Les **modèles de régression logistique et linéaire** nécessitent un encodage linéaire où, par exemple, une fonction avec trois catégories peut être développée en 0 colonnes de caractéristiques, chacune contenant 0 ou 1 en fonction de la catégorie d’une observation. MLlib fournit la fonction [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) permettant d’effectuer un encodage linéaire. Cet encodeur mappe une colonne d’index de libellé à une colonne de vecteurs binaires, contenant au plus une seule une valeur. Cet encodage autorise les algorithmes qui attentent des caractéristiques numériques, comme une régression logistique, à appliquer à des caractéristiques catégorielles.
+* Une **modélisation arborescente** nécessite l’encodage des catégories en tant que valeurs numériques (par exemple, une caractéristique avec trois catégories peut être encodée avec 0, 1, 2). C’est ce que permet la fonction [StringIndexer](https://spark.apache.org/docs/latest/ml-features.html#stringindexer) de MLlib. Cette fonction encode une colonne de libellés en une colonne d’index de libellé, classés par fréquence de libellé. Bien qu’indexés par des valeurs numériques pour le traitement des entrées et des données, les algorithmes arborescents peuvent être configurés pour les traiter comme des catégories. 
+* Les **modèles de régression logistique et linéaire** nécessitent un encodage linéaire où, par exemple, une fonction avec trois catégories peut être développée en 0 colonnes de caractéristiques, chacune contenant 0 ou 1 en fonction de la catégorie d’une observation. MLlib fournit la fonction [OneHotEncoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) permettant d’effectuer un encodage linéaire. Cet encodeur mappe une colonne d’index de libellé à une colonne de vecteurs binaires, contenant au plus une seule une valeur. Cet encodage autorise les algorithmes qui attentent des caractéristiques numériques, comme une régression logistique, à appliquer à des caractéristiques catégorielles.
 
 Voici le code permettant d’indexer et d’encoder des caractéristiques catégorielles :
 

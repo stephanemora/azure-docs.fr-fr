@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 2c3da9470668fa2987195c26e98eee51f14027f7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 7d95ae1f750c59c121e998c6f51f9439b1b0339a
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58136342"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287092"
 ---
 # <a name="data-import-overview---azure-search"></a>Importation de données, vue d’ensemble - recherche Azure
 
@@ -40,18 +40,25 @@ Pour une introduction à chaque méthode, consultez [Guide de démarrage rapide�
 
 <a name="indexing-actions"></a>
 
-### <a name="indexing-actions-upload-merge-uploadormerge-delete"></a>Actions d’indexation : téléchargement, fusion, uploadOrMerge, supprimer
+### <a name="indexing-actions-upload-merge-mergeorupload-delete"></a>Indexing actions: upload, merge, mergeOrUpload, delete
 
-Lorsque vous utilisez l’API REST, vous allez émettre des requêtes HTTP POST avec un corps de requête JSON à l’URL de point de terminaison de votre index Azure Search. L’objet JSON contenu dans le corps de la requête HTTP comporte un seul tableau JSON nommé « value », qui renferme les objets JSON représentant les documents que vous allez ajouter à votre index, mettre à jour ou supprimer.
+Vous pouvez contrôler le type d’action d’indexation sur une base par document, en spécifiant si le document doit être chargé dans complètes, fusionné avec le contenu de document existant ou supprimé.
 
-Chaque objet JSON du tableau « value » représente un document à indexer. Chacun de ces objets contient les clés du document et spécifie l’action d’indexation souhaitée (charger, fusionner, supprimer). Selon le type d’action que vous allez choisir, seuls certains champs doivent être inclus dans chaque document :
+Dans l’API REST, émettre des demandes de requête HTTP POST avec des corps de demande JSON à l’URL de point de terminaison de votre index Azure Search. Chaque objet JSON dans le tableau « value » contient les clés du document et spécifie une action d’indexation ajoute des mises à jour, ou supprime le contenu du document. Pour obtenir un exemple de code, consultez [charger des documents](search-create-index-rest-api.md#load-documents).
+
+Dans le SDK .NET, empaqueter vos données dans un `IndexBatch` objet. Un `IndexBatch` encapsule une collection de `IndexAction` objets, chacun d'entre eux contenant un document et une propriété qui indique à Azure Search les actions à effectuer sur ce document. Pour obtenir un exemple de code, consultez [IndexBatch construire](search-import-data-dotnet.md#construct-indexbatch).
+
 
 | @search.action | Description | Champs requis pour chaque document | Notes |
 | -------------- | ----------- | ---------------------------------- | ----- |
 | `upload` |Une action `upload` est similaire à celle d’un « upsert », où le document est inséré s’il est nouveau et mis à jour/remplacé s’il existe déjà. |une clé, ainsi que tout autre champ que vous souhaitez définir |Lors de la mise à jour ou du remplacement d’un document existant, un champ qui n’est pas spécifié dans la requête sera défini sur la valeur `null`, y compris lorsque le champ a été précédemment défini sur une valeur non null. |
-| `merge` |Met à jour un document existant avec les champs spécifiés. Si le document n’existe pas dans l’index, la fusion échoue. |une clé, ainsi que tout autre champ que vous souhaitez définir |N'importe quel champ que vous spécifiez dans une fusion remplace le champ existant dans le document. Cela inclut les champs de type `Collection(Edm.String)`. Par exemple, si le document contient un champ `tags` avec la valeur `["budget"]` et que vous exécutez une fusion avec la valeur `["economy", "pool"]` pour le champ `tags`, la valeur finale du champ `tags` sera `["economy", "pool"]`, et non `["budget", "economy", "pool"]`. |
+| `merge` |Met à jour un document existant avec les champs spécifiés. Si le document n’existe pas dans l’index, la fusion échoue. |une clé, ainsi que tout autre champ que vous souhaitez définir |N'importe quel champ que vous spécifiez dans une fusion remplace le champ existant dans le document. Dans le SDK .NET, cela inclut les champs de type `DataType.Collection(DataType.String)`. Dans l’API REST, cela inclut les champs de type `Collection(Edm.String)`. Par exemple, si le document contient un champ `tags` avec la valeur `["budget"]` et que vous exécutez une fusion avec la valeur `["economy", "pool"]` pour le champ `tags`, la valeur finale du champ `tags` sera `["economy", "pool"]`, et non `["budget", "economy", "pool"]`. |
 | `mergeOrUpload` |Cette action est similaire à celle d’une action `merge` s’il existe déjà dans l’index un document comportant la clé spécifiée. Dans le cas contraire, elle exécutera une action `upload` avec un nouveau document. |une clé, ainsi que tout autre champ que vous souhaitez définir |- |
 | `delete` |Cette action supprime de l’index le document spécifié. |clé uniquement |Tous les champs que vous spécifiez en dehors du champ de clé sont ignorés. Si vous souhaitez supprimer un champ individuel dans un document, utilisez plutôt `merge` et définissez simplement le champ de manière explicite sur la valeur null. |
+
+## <a name="decide-which-indexing-action-to-use"></a>Déterminer l’action d’indexation à utiliser
+Pour importer des données à l’aide du Kit de développement logiciel .NET, (téléchargement, fusion, delete et mergeOrUpload). Selon le type d’action que vous allez choisir, seuls certains champs doivent être inclus dans chaque document :
+
 
 ### <a name="formulate-your-query"></a>Formuler votre requête
 Deux méthodes permettent d’effectuer une [recherche dans un index à l’aide de l’API REST](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). L’une consiste à émettre une requête HTTP POST, dans laquelle vos paramètres de requête sont définis dans un objet JSON contenu dans le corps de la requête. L’autre consiste à émettre une requête HTTP GET, dans laquelle vos paramètres de requête seront définis à l’intérieur de l’URL de requête. Notez que les limites en matière de taille des paramètres de requête sont [plus souples](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) pour la méthode POST que pour la méthode GET. Pour cette raison, nous vous recommandons d’utiliser POST, à moins que la situation justifie l’utilisation de GET.

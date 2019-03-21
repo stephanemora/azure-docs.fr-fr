@@ -1,5 +1,5 @@
 ---
-title: 'Gestionnaire des ressources de cluster Service Fabric : coût du déplacement | Microsoft Docs'
+title: 'Service Fabric Cluster Resource Manager : Le coût du mouvement | Microsoft Docs'
 description: Présentation du coût du mouvement pour les services Service Fabric
 services: service-fabric
 documentationcenter: .net
@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: f022f258-7bc0-4db4-aa85-8c6c8344da32
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 74b61967a796fca22ab86918235f1def27a22f91
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: a4431f1d2e9a63ee7797100cc1092244d9a8b880
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34204921"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58101514"
 ---
 # <a name="service-movement-cost"></a>Coût du déplacement de services
 L’un des facteurs que Service Fabric Cluster Resource Manager prend en compte pour déterminer les modifications à apporter à un cluster est leur coût. La notion de « coût » est mise en balance avec la capacité d’amélioration du cluster. Le coût est pris en compte lors du déplacement de services à des fins d’équilibrage, de défragmentation ou autres. L’objectif est de répondre aux exigences en limitant les perturbations et le coût. 
@@ -76,10 +76,11 @@ this.Partition.ReportMoveCost(MoveCost.Medium);
 ```
 
 ## <a name="impact-of-move-cost"></a>Impact du coût de déplacement
-MoveCost a quatre niveaux : zéro, faible, moyen et élevé. À l’exception de zéro, ces niveaux MoveCost sont liés les uns aux autres. Un coût de déplacement de zéro signifie que le déplacement est gratuit et ne doit pas compter dans le score de la solution. Le fait de définir le coût élevé ne garantit *pas* que le réplica reste au même endroit.
+MoveCost a quatre niveaux : Zéro, faible, moyen et élevé. À l’exception de zéro, ces niveaux MoveCost sont liés les uns aux autres. Un coût de déplacement de zéro signifie que le déplacement est gratuit et ne doit pas compter dans le score de la solution. Le fait de définir le coût élevé ne garantit *pas* que le réplica reste au même endroit.
 
 <center>
-![Coût du déplacement comme facteur de sélection des réplicas pour les déplacements][Image1]
+
+![Coût du mouvement comme facteur de sélection des réplicas pour les déplacements][Image1]
 </center>
 
 MoveCost vous permet de rechercher les solutions qui provoquent globalement le moins de perturbations et qui sont les plus faciles à mettre en place tout en obtenant un équilibre équivalent. La notion de coût d’un service peut être liée à beaucoup de choses. Les facteurs les plus courants pour calculer le coût de déplacement sont :

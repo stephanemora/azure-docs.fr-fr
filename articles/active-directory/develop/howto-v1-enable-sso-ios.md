@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 602fba95b3cc69521fe3fe17d8c89cc332131566
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e79b73123b33a012c062a89fb9748fa101fabcea
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190226"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448677"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Activation Activer l’authentification unique entre applications sur iOS à l’aide de la bibliothèque ADAL
 
@@ -40,7 +40,7 @@ Cette procédure s’applique à :
 * Azure Active Directory B2B
 * Accès conditionnel Azure Active Directory
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Cette procédure suppose que vous savez comment :
 
@@ -231,7 +231,7 @@ Une fois que vous disposez des droits appropriés, un fichier nommé `entitlemen
 </plist>
 ```
 
-Une fois que l’éligibilité au trousseau a été activée dans chacune de vos applications et que vous êtes prêt à utiliser l’authentification unique, communiquez votre trousseau au Kit de développement logiciel d’identité en utilisant le paramètre suivant dans votre `ADAuthenticationSettings`, à l’aide du paramètre ci-dessous :
+Une fois que vous avez l’éligibilité de trousseau activée dans chacune de vos applications, et vous êtes prêt à utiliser l’authentification unique, informez l’identité du Kit de développement logiciel votre trousseau de clés à l’aide de la définition dans votre `ADAuthenticationSettings` avec le paramètre suivant :
 
 ```
 defaultKeychainSharingGroup=@"com.myapp.mycache";

@@ -7,12 +7,12 @@ ms.author: sngun
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 4b37b6cd35526d6a76625dd03d1325f1688e698e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: 4532962b6fd9f40fad625ab000116e5a617682e5
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044465"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258771"
 ---
 # <a name="connect-qlik-sense-to-azure-cosmos-db-and-visualize-your-data"></a>Connecter Qlik Sense à Azure Cosmos DB et visualiser vos données
 
@@ -34,7 +34,7 @@ Cet article décrit les détails de la connexion à l’API SQL de Cosmos DB ave
 
 Cet article décrit les détails de la connexion à l’API SQL de Cosmos DB avec le connecteur ODBC.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Avant de suivre les instructions de cet article, veillez à disposer des ressources suivantes :
 
@@ -42,9 +42,9 @@ Avant de suivre les instructions de cet article, veillez à disposer des ressour
 
 * Téléchargez les [données sur les jeux vidéo](https://www.kaggle.com/gregorut/videogamesales). Ces exemples de données sont au format CSV. Stockez ces données dans un compte Cosmos DB et visualisez-les dans Qlik Sense.
 
-* Créez un compte d’API SQL Azure Cosmos DB en suivant les étapes décrites dans la section [Créer un compte](create-sql-api-dotnet.md#create-a-database-account) de l’article de démarrage rapide.
+* Créez un compte d’API SQL Azure Cosmos DB en suivant les étapes décrites dans la section [Créer un compte](create-sql-api-dotnet.md#create-account) de l’article de démarrage rapide.
 
-* [Créez une base de données et une collection](create-sql-api-dotnet.md#add-a-collection) : vous pouvez utiliser la valeur du débit de la collection à 1 000 RU/s. 
+* [Créez une base de données et une collection](create-sql-api-dotnet.md#create-collection-database) : vous pouvez utiliser la valeur du débit de la collection à 1 000 RU/s. 
 
 * Chargez les exemples de données de ventes de jeux vidéo sur votre compte Cosmos DB. Vous pouvez importer les données avec l’outil de migration de données d’Azure Cosmos DB, en choisissant une importation des données [séquentielle](import-data.md#SQLSeqTarget) ou [en bloc](import-data.md#SQLBulkTarget). Environ 3 à 5 minutes sont nécessaires pour importer les données dans le compte Cosmos DB.
 

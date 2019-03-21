@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fed31d07f4bbe9fc47ce0d2c31f45fed288c4c4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6888a8787856ef23c459c7ffc18f8e2b4de17f6f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218021"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901133"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Stratégies et restrictions de mot de passe dans Azure Active Directory
 
@@ -36,20 +36,22 @@ La stratégie à deux verrous nécessite deux éléments de données d’authent
   * Administrateur de facturation
   * Prise en charge de niveau 1 de partenaire
   * Prise en charge de niveau 2 de partenaire
-  * Administrateur de services Exchange
-  * Administrateur de services Lync
-  * Administrateur de compte d’utilisateur
+  * Administrateur Exchange
+  * Administrateur Skype Entreprise
+  * Administrateur d’utilisateurs
   * Enregistreurs de répertoire
   * Administrateur général ou administrateur d’entreprise
-  * Administrateur de services SharePoint
+  * Administrateur SharePoint
   * Administrateur de conformité
   * Administrateur d’application
   * Administrateur de sécurité
   * Administrateur de rôle privilégié
-  * Administrateur de services Microsoft Intune
+  * Administrateur Intune
   * Administrateur de services de proxy d’application
-  * Administrateur de services CRM
+  * Administrateur Dynamics 365
   * Administrateur de services Power BI
+  * Administrateur d'authentification
+  * Administrateur de l’authentification privilégié
 
 * Si 30 jours se sont écoulés dans un abonnement d’essai ; ou
 * Un domaine personnel est présent, par exemple, contoso.com ; ou
@@ -75,13 +77,13 @@ Chaque compte d’utilisateur devant se connecter à Azure AD doit être doté 
 
 ## <a name="password-policies-that-only-apply-to-cloud-user-accounts"></a>Stratégies de mot de passe s’appliquant uniquement aux comptes d'utilisateur dans le cloud
 
-Le tableau suivant décrit les paramètres de stratégie de mot de passe disponibles pouvant être appliqués aux comptes d'utilisateurs créés et gérés dans Azure AD :
+Le tableau suivant décrit les paramètres de stratégie de mot de passe appliquées aux comptes d’utilisateur qui sont créés et gérés dans Azure AD :
 
 | Propriété | Configuration requise |
 | --- | --- |
-| Caractères autorisés |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ " ( ) ;</li></ul> |
-| Caractères non autorisés |<ul><li>Caractères Unicode.</li><li>Espaces.</li><li> Mots de passe forts uniquement : Ne peut pas contenir de point «. » Précédant immédiatement le symbole « \@\" ».</li></ul> |
-| Restrictions de mot de passe |<ul><li>8 caractères minimum et 16 caractères maximum.</li><li>Mots de passe forts uniquement : trois des quatre éléments suivants sont requis :<ul><li>Caractères minuscules.</li><li>Caractères majuscules.</li><li>Nombres (0-9).</li><li>Symboles (voir les restrictions de mot de passe précédentes).</li></ul></li></ul> |
+| Caractères autorisés |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / \` ~ " ( ) ;</li></ul> |
+| Caractères non autorisés |<ul><li>Caractères Unicode.</li><li>Espaces.</li><li> Ne peut pas contenir de point «. » précédant immédiatement le «\@ \" symbole ».</li></ul> |
+| Restrictions de mot de passe |<ul><li>8 caractères minimum et 16 caractères maximum.</li><li>trois des quatre éléments suivants sont requis :<ul><li>Caractères minuscules.</li><li>Caractères majuscules.</li><li>Nombres (0-9).</li><li>Symboles (voir les restrictions de mot de passe précédentes).</li></ul></li></ul> |
 | Délai d'expiration du mot de passe |<ul><li>Valeur par défaut : **90** jours.</li><li>La valeur peut être configurée à l’aide de l’applet de commande `Set-MsolPasswordPolicy` à partir du module Azure Active Directory pour Windows PowerShell.</li></ul> |
 | Notification d'expiration du mot de passe |<ul><li>Valeur par défaut : **14** jours (avant l’expiration du mot de passe).</li><li>La valeur peut être configurée à l’aide de l’applet de commande `Set-MsolPasswordPolicy`.</li></ul> |
 | Expiration du mot de passe |<ul><li>Valeur par défaut : **false** jours (indique que l’expiration du mot de passe est activée).</li><li>La valeur peut être configurée pour des comptes d’utilisateur individuels à l’aide de l’applet de commande `Set-MsolUser`.</li></ul> |
@@ -108,7 +110,7 @@ Pour commencer, vous devez [télécharger et installer le module Azure AD Powe
 1. Connectez-vous à Windows PowerShell à l’aide de vos informations d’identification d’administrateur d’entreprise.
 1. Exécutez l’une des commandes suivantes :
 
-   * Pour voir si le mot de passe d’un utilisateur donné est défini pour ne jamais expirer, exécutez l’applet de commande suivante en utilisant l’UPN (par exemple, *aprilr@contoso.onmicrosoft.com*) ou l’identifiant utilisateur de l’utilisateur à vérifier : `Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
+   * Pour voir si un seul mot de passe est défini pour ne jamais expirer, exécutez l’applet de commande suivante à l’aide de l’UPN (par exemple, *aprilr\@contoso.onmicrosoft.com*) ou l’ID d’utilisateur de l’utilisateur à vérifier : `Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
    * Pour afficher le paramètre **Le mot de passe n’expire jamais** pour tous les utilisateurs, exécutez l’applet de commande suivante : `Get-AzureADUser -All $true | Select-Object UserPrincipalName, @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
 
 ### <a name="set-a-password-to-expire"></a>Définir un mot de passe pour qu’il expire

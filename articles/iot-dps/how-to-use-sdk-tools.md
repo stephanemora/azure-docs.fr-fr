@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: arjmands
-ms.openlocfilehash: eb5eecaca65cc8394bcc12fc5a475cf5e762f1c9
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: dc8c29b1c7d4e5056cb6aeee6335e32687fd547f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729963"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123672"
 ---
 # <a name="how-to-use-tools-provided-in-the-sdks-to-simplify-development-for-provisioning"></a>Comment utiliser les outils fournis dans les SDK pour simplifier le développement pour l’approvisionnement
 Le service IoT Hub Device Provisioning Service simplifie le processus d’approvisionnement en assurant un [approvisionnement automatique](concepts-auto-provisioning.md) sans contact et juste-à-temps d’une manière sécurisée et évolutive.  Une attestation de sécurité sous la forme d’un certificat X.509 ou un module de plateforme sécurisée (TPM) est requise.  Microsoft collabore également avec d’[autres partenaires fournisseurs de matériel de sécurité](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) afin d’améliorer la fiabilité de la sécurisation des déploiements IoT. La compréhension des exigences de sécurité du matériel est un processus qui peut s’avérer complexe pour les développeurs. Un ensemble de SDK du service Azure IoT Provisioning est mis à disposition des développeurs, qui recourent à une couche de commodité pour l’écriture des clients interagissant avec le service de provisionnement. Les kits de développement logiciel fournissent également des exemples de scénarios communs ainsi qu’un ensemble d’outils simplifiant l’attestation de sécurité dans le développement.
@@ -23,9 +23,9 @@ Un module [TPM](https://docs.microsoft.com/azure/iot-dps/concepts-security) peut
 
 Les étapes de l’utilisation du simulateur TPM sont les suivantes :
 1. [Préparez l’environnement de développement](https://docs.microsoft.com/azure/iot-dps/quick-enroll-device-x509-java) et clonez le référentiel GitHub :
-```
-git clone https://github.com/Azure/azure-iot-sdk-java.git
-```
+   ```
+   git clone https://github.com/Azure/azure-iot-sdk-java.git
+   ```
 2. Accédez au dossier du simulateur TPM, sous ```azure-iot-sdk-java/provisioning/provisioning-tool/tpm-simulator/```.
 3. Exécutez le fichier Simulator.exe avant d’exécuter toute application cliente pour l’approvisionnement de l’appareil.
 4. Laissez le simulateur s’exécuter en arrière-plan tout au long du processus d’approvisionnement afin d’obtenir l’ID d’inscription et la paire de clés de type EK (Endorsement Key).  Les deux valeurs sont valides uniquement pour une instance de l’exécution.
@@ -47,18 +47,18 @@ Actuellement, l’émulateur DICE génère un certificat racine, un certificat i
 
 Pour générer un certificat X.509 à l’aide de ce générateur :
 1. [Préparez l’environnement de développement](https://docs.microsoft.com/azure/iot-dps/quick-enroll-device-x509-java) et clonez le référentiel GitHub :
-```
-git clone https://github.com/Azure/azure-iot-sdk-java.git
-```
+   ```
+   git clone https://github.com/Azure/azure-iot-sdk-java.git
+   ```
 2. Modifiez la racine en azure-iot-sdk-java.
 3. Exécutez ```mvn install -DskipTests=true``` pour télécharger l’ensemble des packages requis et compiler le SDK.
 4. Accédez à la racine du générateur de certificats X.509 dans ```azure-iot-sdk-java/provisioning/provisioning-tools/provisioning-x509-cert-generator```.
 5. Générez avec ```mvn clean install```.
 6. Exécutez l’outil en utilisant les commandes suivantes :
-```
-cd target
-java -jar ./provisioning-x509-cert-generator-{version}-with-deps.jar
-```
+   ```
+   cd target
+   java -jar ./provisioning-x509-cert-generator-{version}-with-deps.jar
+   ```
 7. Lorsque vous y êtes invité, vous pouvez également entrer un _nom commun_ pour vos certificats.
 8. L’outil génère localement un **certificat client**, la **clé privée du certificat client**, le **certificat intermédiaire** et le **certificat racine**.
 

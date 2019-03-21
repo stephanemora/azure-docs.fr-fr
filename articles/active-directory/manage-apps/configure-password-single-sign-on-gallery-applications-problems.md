@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: afe467d56d0247e17f73bb85a39246c4c04629cd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: f6c313cc654461ea22c126fede317ed230408b82
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173451"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079194"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Problème de configuration de l’authentification unique avec mot de passe pour une application de la galerie Azure AD
 
@@ -37,23 +37,23 @@ Bien que Microsoft dispose de technologies pour détecter automatiquement l’ar
 
 Pour résoudre ce problème, essayez d’abord ces actions :
 
--   En premier lieu, invitez l’utilisateur à **se connecter directement au site web de l’application** avec les informations d’identification qu’il a enregistrées.
+- En premier lieu, invitez l’utilisateur à **se connecter directement au site web de l’application** avec les informations d’identification qu’il a enregistrées.
 
   * Si la connexion fonctionne, demandez à l’utilisateur de cliquer sur le bouton **Mettre à jour les informations d’identification** sur la **vignette de l’application** dans la section **Applications** du [volet d’accès à l’application](https://myapps.microsoft.com/), afin de les mettre à jour avec les derniers nom d’utilisateur et mot de passe fonctionnels connus.
 
-   * Si vous ou un autre administrateur avez attribué les informations d’identification à cet utilisateur, recherchez l’affectation de l’application à l’utilisateur ou au groupe en accédant à l’onglet **Utilisateurs et groupes** de l’application, sélectionnez l’affectation, puis cliquez sur le bouton **Mettre à jour les informations d’identification**.
+  * Si vous ou un autre administrateur avez attribué les informations d’identification à cet utilisateur, recherchez l’affectation de l’application à l’utilisateur ou au groupe en accédant à l’onglet **Utilisateurs et groupes** de l’application, sélectionnez l’affectation, puis cliquez sur le bouton **Mettre à jour les informations d’identification**.
 
--   Si l’utilisateur s’est affecté ses propres informations d’identification, demandez-lui de **vérifier que son mot de passe pour l’application n’a pas expiré** et, le cas échéant, de **mettre à jour le mot de passe expiré** en se connectant directement à l’application.
+- Si l’utilisateur s’est affecté ses propres informations d’identification, demandez-lui de **vérifier que son mot de passe pour l’application n’a pas expiré** et, le cas échéant, de **mettre à jour le mot de passe expiré** en se connectant directement à l’application.
 
-   * Une fois le mot de passe mis à jour dans l’application, demandez à l’utilisateur de cliquer sur le bouton **Mettre à jour les informations d’identification** sur la **vignette de l’application** dans la section **Applications** du [volet d’accès à l’application](https://myapps.microsoft.com/), afin de les mettre à jour avec les derniers nom d’utilisateur et mot de passe fonctionnels connus.
+  * Une fois le mot de passe mis à jour dans l’application, demandez à l’utilisateur de cliquer sur le bouton **Mettre à jour les informations d’identification** sur la **vignette de l’application** dans la section **Applications** du [volet d’accès à l’application](https://myapps.microsoft.com/), afin de les mettre à jour avec les derniers nom d’utilisateur et mot de passe fonctionnels connus.
 
-   * Si vous ou un autre administrateur avez attribué les informations d’identification à cet utilisateur, recherchez l’affectation de l’application à l’utilisateur ou au groupe en accédant à l’onglet **Utilisateurs et groupes** de l’application, sélectionnez l’affectation, puis cliquez sur le bouton **Mettre à jour les informations d’identification**.
+  * Si vous ou un autre administrateur avez attribué les informations d’identification à cet utilisateur, recherchez l’affectation de l’application à l’utilisateur ou au groupe en accédant à l’onglet **Utilisateurs et groupes** de l’application, sélectionnez l’affectation, puis cliquez sur le bouton **Mettre à jour les informations d’identification**.
 
--   Invitez l’utilisateur à mettre à jour l’extension de navigateur du volet d’accès en suivant les étapes ci-dessous dans la section [Comment installer l’extension de navigateur du volet d’accès](#how-to-install-the-access-panel-browser-extension).
+- Invitez l’utilisateur à mettre à jour l’extension de navigateur du volet d’accès en suivant les étapes ci-dessous dans la section [Comment installer l’extension de navigateur du volet d’accès](#how-to-install-the-access-panel-browser-extension).
 
--   Vérifiez que l’extension de navigateur du volet d’accès est en cours d’exécution et activée dans le navigateur de l’utilisateur.
+- Vérifiez que l’extension de navigateur du volet d’accès est en cours d’exécution et activée dans le navigateur de l’utilisateur.
 
--   Vérifiez que vos utilisateurs ne tentent pas de se connecter à l’application à partir du volet d’accès alors qu’ils sont en **mode incognito, inPrivate ou privé**. Ces modes ne prennent pas en charge l’extension du volet d’accès.
+- Vérifiez que vos utilisateurs ne tentent pas de se connecter à l’application à partir du volet d’accès alors qu’ils sont en **mode incognito, inPrivate ou privé**. Ces modes ne prennent pas en charge l’extension du volet d’accès.
 
 Si les suggestions précédentes ne fonctionnent pas, il se pourrait qu’une modification ait eu lieu dans l’application et ait endommagé temporairement l’intégration de l’application avec Azure AD. Cela peut par exemple se produire lorsque le fournisseur de l’application introduit sur sa page un script qui se comporte différemment pour la saisie manuelle et pour la saisie automatique, ce qui engendre l’interruption des intégrations automatisées comme la nôtre. Heureusement, dans de nombreux cas, Microsoft peut collaborer avec les fournisseurs d’applications afin de résoudre rapidement les problèmes.
 
@@ -65,13 +65,13 @@ En outre, **si vous êtes en contact avec le fournisseur de l’application,** *
 
 Il existe deux causes principales à ce problème :
 
--   Selon les paramètres de sécurité activés dans Internet Explorer, si le site web ne fait pas partie d’une **zone approuvée**, il arrive parfois que l’exécution de l’application par notre script soit bloquée.
+- Selon les paramètres de sécurité activés dans Internet Explorer, si le site web ne fait pas partie d’une **zone approuvée**, il arrive parfois que l’exécution de l’application par notre script soit bloquée.
 
   *  Pour résoudre ce problème, demandez à l’utilisateur d’**ajouter le site web de l’application** à la liste des **sites de confiance** dans **les paramètres de sécurité Internet Explorer**. Pour obtenir des instructions détaillées, vos utilisateurs peuvent consulter l’article [Comment ajouter un site à la liste des sites de confiance](https://answers.microsoft.com/en-us/ie/forum/ie9-windows_7/how-do-i-add-a-site-to-my-trusted-sites-list/98cc77c8-b364-e011-8dfc-68b599b31bf5).
 
--   Dans de rares cas, la validation de la sécurité d’Internet Explorer peut provoquer un chargement de la page plus lent que l’exécution de notre script.
+- Dans de rares cas, la validation de la sécurité d’Internet Explorer peut provoquer un chargement de la page plus lent que l’exécution de notre script.
 
-   * Malheureusement, cette situation peut varier en fonction de la version du navigateur, de la vitesse de l’ordinateur ou du site visité. Dans ce cas, nous vous suggérons de contacter le support afin que nous puissions résoudre le problème d’intégration de cette application en particulier.
+  * Malheureusement, cette situation peut varier en fonction de la version du navigateur, de la vitesse de l’ordinateur ou du site visité. Dans ce cas, nous vous suggérons de contacter le support afin que nous puissions résoudre le problème d’intégration de cette application en particulier.
 
 En outre, **si vous êtes en contact avec le fournisseur de l’application,** **mettez-le en relation avec nous** afin que nous puissions collaborer pour intégrer nativement son application avec Azure Active Directory. Pour commencer, vous pouvez rediriger le fournisseur vers la page [Affichage de votre application dans la galerie d’applications Azure Active Directory](../develop/howto-app-gallery-listing.md).
 

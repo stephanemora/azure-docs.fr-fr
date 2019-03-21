@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 7daf76605d40495d6c9cb5076f0403a78819adfc
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: HT
+ms.openlocfilehash: aa97e60fe296190f3478d29bc80c70ea487e8955
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439161"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258579"
 ---
 # <a name="monitoring-at-scale-using-azure-monitor"></a>Surveillance à l’échelle à l’aide d’Azure Monitor
 
@@ -29,7 +29,7 @@ Le [intégrées de surveillance et génération d’alertes de l’article](back
 ## <a name="using-log-analytics-workspace"></a>À l’aide d’espace de travail Log Analytique
 
 > [!NOTE]
-> Données à partir de sauvegardes de machine virtuelle Azure, l’Agent MAB, System Center DPM (SC-DPM) sont en cours pompées à l’espace de travail Analytique de journal via les paramètres de diagnostic. Prise en charge pour les sauvegardes SQL dans Azure des machines virtuelles, les sauvegardes de partage de fichiers Azure, serveur de sauvegarde Microsoft Azure (MABS) sera bientôt disponible.
+> Données à partir de sauvegardes de machine virtuelle Azure, l’Agent MAB, System Center DPM (SC-DPM), les sauvegardes SQL dans des machines virtuelles Azure sont en cours pompées à l’espace de travail Analytique de journal via les paramètres de diagnostic. Prise en charge pour les sauvegardes de partage de fichiers Azure, serveur de sauvegarde Microsoft Azure (MABS) sera bientôt disponible.
 
 Nous exploitons les fonctionnalités de deux services Azure - **les paramètres de Diagnostic** (pour envoyer des données à partir de plusieurs ressources Azure Resource Manager à une autre ressource) et **Analytique de journal** (LA - générer alertes personnalisées dans laquelle vous pouvez définir des autres canaux de notification à l’aide de groupes d’actions) pour l’analyse à grande échelle. Les sections suivantes détaillent comment utiliser LA pour surveiller la sauvegarde Azure à grande échelle.
 

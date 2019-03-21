@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 03/20/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: eae1569cf6f7ada89f64b96fe81b154b84932a12
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: dd89d9645d2054f301ed999121fefc417ea5c6fa
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182844"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293904"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Montée en charge d’Azure Analysis Services
 
@@ -46,6 +46,8 @@ Lorsque vous effectuez une opération de montée en puissance ultérieure, par e
 * La synchronisation est autorisée même lorsqu’il n’existe aucun réplica dans le pool de requêtes. Si vous montent en puissance à partir de zéro à un ou plusieurs réplicas avec de nouvelles données à partir d’une opération de traitement sur le serveur principal, effectuez tout d’abord de la synchronisation sans aucun réplica dans le pool de requêtes et puis montée en puissance. Synchronisation avant la montée en puissance évite alimentation redondante des réplicas nouvellement ajoutés.
 
 * Lorsque vous supprimez une base de données model à partir du serveur principal, il ne pas automatiquement supprimé de réplicas dans le pool de requêtes. Vous devez effectuer une opération de synchronisation qui supprime le fichier/s pour cette base de données d’emplacement de stockage d’objets blob partagé du réplica, puis supprime la base de données model sur les réplicas dans le pool de requêtes.
+
+* Lorsque vous renommez une base de données sur le serveur principal, il existe une étape supplémentaire nécessaire pour garantir que la base de données est correctement synchronisé avec tous les réplicas. Après avoir renommé, effectuer une synchronisation en spécifiant le `-Database` paramètre avec l’ancien nom de base de données. Cette synchronisation supprime la base de données et les fichiers portant l’ancien nom de tous les réplicas. Puis effectuez une autre synchronisation spécification le `-Database` paramètre avec le nouveau nom de base de données. La synchronisation deuxième copie de la base de données qui vient d’être nommé dans le deuxième ensemble de fichiers et l’alimente tous les réplicas. Ces synchronisations ne peut pas être effectuées à l’aide de la commande de modèle de synchronisation dans le portail.
 
 ### <a name="separate-processing-from-query-pool"></a>Traitement distinct à partir du pool de requêtes
 

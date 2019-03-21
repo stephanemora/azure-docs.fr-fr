@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: genli
-ms.openlocfilehash: bd2b28a7f8d0a765e10ffa58b5a72b4bd5bc47b0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 543135db8df69db7e0e6182c9d52b9c956ee80b1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228179"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996983"
 ---
 # <a name="reserved-ip-addresses-classic-deployment"></a>Adresses IP réservées (déploiement classique)
 
@@ -28,7 +28,7 @@ ms.locfileid: "51228179"
 Pour empêcher la modification des adresses IP, vous pouvez réserver une adresse IP. Les adresses IP réservées peuvent uniquement servir d’adresse IP virtuelle, garantissant que l'adresse IP utilisée pour le service cloud reste la même, et ce même si les ressources sont arrêtées ou désallouées. Par ailleurs, vous pouvez convertir une adresse IP dynamique existante utilisée comme adresse IP virtuelle en adresse IP réservée.
 
 > [!IMPORTANT]
-> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Découvrez comment réserver une adresse IP publique statique à l’aide du [modèle de déploiement Resource Manager](virtual-network-ip-addresses-overview-arm.md).
+> Azure a deux modèles de déploiement différents pour créer et utiliser des ressources :  [Resource Manager et classique](../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Découvrez comment réserver une adresse IP publique statique à l’aide du [modèle de déploiement Resource Manager](virtual-network-ip-addresses-overview-arm.md).
 
 Pour en savoir plus sur les adresses IP dans Azure, voir l’article [Adresses IP](virtual-network-ip-addresses-overview-classic.md).
 
@@ -83,7 +83,7 @@ Sortie attendue :
     OperationStatus      : Succeeded
 
 >[!NOTE]
->Lorsque vous créez une adresse IP réservée avec PowerShell, vous ne pouvez pas spécifier un groupe de ressources pour y créer l’adresse IP réservée. Azure place automatiquement cette adresse dans un groupe de ressources nommé *Default-Networking*. Si vous créez l’adresse IP réservée à l’aide du [portail Azure](http://portal.azure.com), vous pouvez spécifier le groupe de ressources de votre choix. Cependant, si vous créez l’adresse IP réservée dans un groupe de ressources autres que *Default-Networking*, chaque fois que vous référencez l’adresse IP réservée avec des commandes telles que `Get-AzureReservedIP` et `Remove-AzureReservedIP`, vous devez référencer le nom *Group resource-group-name reserved-ip-name*.  Par exemple, si vous créez une adresse IP réservée nommée *myReservedIP* dans un groupe de ressources nommé *myResourceGroup*, vous devez référencer le nom de l’adresse IP réservée comme *Group myResourceGroup myReservedIP*.   
+>Lorsque vous créez une adresse IP réservée avec PowerShell, vous ne pouvez pas spécifier un groupe de ressources pour y créer l’adresse IP réservée. Azure place automatiquement cette adresse dans un groupe de ressources nommé *Default-Networking*. Si vous créez l’adresse IP réservée à l’aide du [portail Azure](https://portal.azure.com), vous pouvez spécifier le groupe de ressources de votre choix. Cependant, si vous créez l’adresse IP réservée dans un groupe de ressources autres que *Default-Networking*, chaque fois que vous référencez l’adresse IP réservée avec des commandes telles que `Get-AzureReservedIP` et `Remove-AzureReservedIP`, vous devez référencer le nom *Group resource-group-name reserved-ip-name*.  Par exemple, si vous créez une adresse IP réservée nommée *myReservedIP* dans un groupe de ressources nommé *myResourceGroup*, vous devez référencer le nom de l’adresse IP réservée comme *Group myResourceGroup myReservedIP*.   
 
 
 Une fois une adresse IP réservée, elle reste associée à votre abonnement jusqu'à ce que vous la supprimiez. Supprimez une adresse IP réservée, comme suit :

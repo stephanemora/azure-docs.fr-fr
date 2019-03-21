@@ -8,26 +8,97 @@ ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: 14b51f109ca76661ac10c99d42002dda45bc0500
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: 700e8e9fe0dac182d71df8ca66800fa03cf25a2e
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53318401"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295791"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>Exporter vos données dans Azure IoT Central
 
 *Cette rubrique s’applique aux administrateurs.*
 
-Cet article étudie en profondeur la façon d’utiliser la fonctionnalité d’exportation continue de données d’Azure IoT Central afin d’exporter vos données vers vos instances **Azure Event Hubs** et **Azure Service Bus**. Vous pouvez exporter des **mesures**, des **appareils** et des **modèles d’appareil** vers votre propre destination pour obtenir des informations et des analyses sur le chemin à chaud. Cela inclut le déclenchement de règles personnalisées dans Azure Stream Analytics, le déclenchement de workflows personnalisés dans Azure Logic Apps ou la transformation des données et leur transmission via Azure Functions. 
+Cet article décrit comment utiliser la fonctionnalité d’exportation continue des données dans Azure IoT Central pour exporter vos données vers votre propre **Azure Event Hubs**, et **Azure Service Bus** instances. Vous pouvez exporter des **mesures**, des **appareils** et des **modèles d’appareil** vers votre propre destination pour obtenir des informations et des analyses sur le chemin à chaud. Cela inclut le déclenchement de règles personnalisées dans Azure Stream Analytics, le déclenchement de workflows personnalisés dans Azure Logic Apps ou la transformation des données et leur transmission via Azure Functions. 
 
 > [!Note]
 > Une fois encore, quand vous activez l’exportation de données continue, vous obtenez seulement les données à partir de ce moment. Pour le moment, vous ne pouvez pas récupérer les données d’une période pendant laquelle l’exportation de données continue est désactivée. Pour conserver un historique des données plus étendu, activez l’exportation de données continue tôt dans le processus.
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 - Vous devez être administrateur dans votre application IoT Central
+
+## <a name="set-up-export-destination"></a>Définir la destination de l’exportation
+
+Si vous n’avez pas un Bus de Service/Hubs d’événements existant à exporter vers, procédez comme suit :
+
+## <a name="create-event-hubs-namespace"></a>Créer un espace de noms Event Hubs
+
+1. Créez un [espace de noms Event Hubs dans le Portail Azure](https://ms.portal.azure.com/#create/Microsoft.EventHub). Pour en savoir plus, consultez les [documents sur Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
+2. Choisissez un abonnement. 
+
+    > [!Note] 
+    > Vous pouvez maintenant exporter des données vers des abonnements autres, **différents** de celui de votre application de paiement à l’utilisation IoT Central. Vous vous connecterez à l’aide d’une chaîne de connexion dans ce cas.
+3. Créez un Event Hub dans votre espace de noms Event Hubs. Accédez à votre espace de noms, puis sélectionnez **+ Event Hub**, en haut, pour créer une instance Event Hub.
+
+## <a name="create-service-bus-namespace"></a>Créer un espace de noms Service Bus
+
+1. Créez un [espace de noms Service Bus dans le Portail Azure](https://ms.portal.azure.com/#create/Microsoft.ServiceBus.1.0.5). Pour en savoir plus, consultez les [documents sur Azure Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-create-namespace-portal).
+2. Choisissez un abonnement. 
+
+    > [!Note] 
+    > Vous pouvez maintenant exporter des données vers des abonnements autres, **différents** de celui de votre application de paiement à l’utilisation IoT Central. Vous vous connecterez à l’aide d’une chaîne de connexion dans ce cas.
+
+3. Accédez à votre espace de noms Service Bus, puis sélectionnez **+ File d’attente** ou **+ Rubrique**, en haut, pour créer une file d’attente ou une rubrique de destination d’exportation.
+
+
+## <a name="set-up-continuous-data-export"></a>Configurer l’exportation de données en continu
+
+Maintenant que vous avez une destination de Bus de Service/Hubs d’événements pour exporter des données, suivez ces étapes pour configurer l’exportation de données continues. 
+
+1. Connectez-vous à votre application IoT Central.
+
+2. Dans le menu de gauche, sélectionnez **exportation continue de données**.
+
+    > [!Note]
+    > Si vous ne voyez pas l’option d’exportation de données continue dans le menu de gauche, vous n’êtes pas administrateur de votre application. Contactez un administrateur pour configurer l’exportation de données.
+
+    ![Créer un Event Hub d’exportation de données continue](media/howto-export-data/export_menu.PNG)
+
+3. Sélectionnez le **+ nouveau** bouton dans le coin supérieur droit. Choisissez une des **Azure Event Hubs** ou **Azure Service Bus** comme destination de l’exportation. 
+
+    > [!NOTE] 
+    > Le nombre maximal d’exportations par application est de cinq. 
+
+    ![Créer une exportation de données continue](media/howto-export-data/export_new.PNG)
+
+4. Dans la zone de liste déroulante, sélectionnez votre **espace de noms Bus de Service/espace de noms Event Hubs**. Vous pouvez également choisir la dernière option de la liste : **Entrer une chaîne de connexion**. 
+
+    > [!NOTE] 
+    > Vous verrez seulement les comptes de stockage/espaces de noms Event Hubs/espaces de noms Service Bus se trouvant dans le **même abonnement que votre application IoT Central**. Si vous souhaitez exporter les données vers une destination en dehors de cet abonnement, choisissez **Entrer une chaîne de connexion** et reportez-vous à l’étape 5.
+
+    > [!NOTE] 
+    > Pour les applications d’évaluation de 7 jours, le seul moyen de configurer l’exportation des données est d’utiliser une chaîne de connexion. En effet, ces applications ne sont associées à aucun abonnement Azure.
+
+    ![Créer un Event Hub d’exportation de données continue](media/howto-export-data/export_create.PNG)
+
+5. (Facultatif) Si vous avez choisi **Entrer une chaîne de connexion**, une nouvelle zone vous permettant de coller votre chaîne de connexion s’affiche. Pour obtenir votre chaîne de connexion :
+    - Event Hubs ou Service Bus, accédez à l’espace de noms dans le portail Azure.
+        - Sous **paramètres**, sélectionnez **stratégies d’accès partagé**
+        - Choisissez la valeur par défaut **RootManageSharedAccessKey** ou créez-en une
+        - Copiez la chaîne de connexion primaire ou secondaire
+ 
+6. Choisissez un hub d’événements/file d’attente ou une rubrique dans la zone de liste déroulante.
+
+7. Sous **Données à exporter**, spécifiez chaque type de données à exporter en définissant le type avec la valeur **Activé**.
+
+6. Pour activer l’exportation des données continue, assurez-vous que l’option **Exportation de données** est définie sur **Activé**. Sélectionnez **Enregistrer**.
+
+  ![Configurer l’exportation de données continue](media/howto-export-data/export_list.PNG)
+
+7. Après quelques minutes, vos données s’affichent à la destination choisie.
+
 
 ## <a name="export-to-azure-event-hubs-and-azure-service-bus"></a>Exporter vers Azure Event Hubs et Azure Service Bus
 

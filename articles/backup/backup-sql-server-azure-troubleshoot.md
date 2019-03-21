@@ -6,22 +6,22 @@ author: anuragm
 manager: shivamg
 ms.service: backup
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 03/13/2019
 ms.author: anuragm
-ms.openlocfilehash: 0beb65d6ef7c036c8a294f53eeb3db327457ea84
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: e5565e257e511203043c84e499712cc6a0a78c3f
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428617"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286010"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Résoudre les problèmes de sauvegarde SQL Server sur Azure
 
 Cet article fournit des informations de dépannage pour la protection des machines virtuelles SQL Server sur Azure (préversion).
 
-## <a name="public-preview-limitations"></a>Limitations de la préversion publique
+## <a name="feature-consideration-and-limitations"></a>Fonctionnalité considérations et limitations
 
-Pour consulter les limitations relatives à la préversion publique, reportez-vous à l’article [Sauvegarder une base de données SQL Server dans Azure](backup-azure-sql-database.md#preview-limitations).
+Pour afficher la considération de fonctionnalité, consultez l’article [sauvegarde sur SQL Server dans Azure Virtual Machines](backup-azure-sql-database.md#feature-consideration-and-limitations).
 
 ## <a name="sql-server-permissions"></a>Autorisations SQL Server
 
@@ -37,7 +37,7 @@ Utilisez les informations des tableaux suivants pour résoudre les problèmes et
 
 | Severity | Description | Causes possibles | Action recommandée |
 |---|---|---|---|
-| Avertissement | Les paramètres actuels de cette base de données ne prennent pas en charge certains types de sauvegarde présents dans la stratégie associée. | <li>**Base de données master** : Seule une opération de sauvegarde de base de données complète peut être effectuée sur la base de données master : aucune sauvegarde **différentielle** ou sauvegarde de **journaux** de transaction n'est possible. </li> <li>Aucune base de données en **mode de récupération simple** n’autorise la sauvegarde de **journaux** de transaction.</li> | Modifiez les paramètres de la base de données de manière à ce que tous les types de sauvegarde de la stratégie soient pris en charge. Vous pouvez également modifier la stratégie actuelle de manière à inclure uniquement les types de sauvegarde pris en charge. Sinon, les types de sauvegarde non pris en charge seront ignorés lors de la sauvegarde planifiée ou le travail de sauvegarde échouera pour une sauvegarde ad hoc.
+| Avertissement | Les paramètres actuels de cette base de données ne prennent pas en charge certains types de sauvegarde présents dans la stratégie associée. | <li>**Base de données master** : Uniquement une opération de sauvegarde de base de données complète peut être effectuée sur la base de données master ; ni **différentielle** sauvegarde ni transaction **journaux** sauvegarde est possible. </li> <li>Aucune base de données en **mode de récupération simple** n’autorise la sauvegarde de **journaux** de transaction.</li> | Modifiez les paramètres de la base de données de manière à ce que tous les types de sauvegarde de la stratégie soient pris en charge. Vous pouvez également modifier la stratégie actuelle de manière à inclure uniquement les types de sauvegarde pris en charge. Sinon, les types de sauvegarde non pris en charge seront ignorées lors de la sauvegarde planifiée ou le travail de sauvegarde échoue pour une sauvegarde ad hoc.
 
 
 ## <a name="backup-failures"></a>Échecs de sauvegarde
@@ -61,7 +61,7 @@ Les tableaux suivants sont organisés par code d’erreur.
 
 | Message d’erreur | Causes possibles | Action recommandée |
 |---|---|---|
-| Log chain is broken. (La séquence de journaux de transactions consécutifs est altérée.) | La base de données ou la machine virtuelle est sauvegardée à l’aide d’une autre solution de sauvegarde, ce qui tronque la séquence de journaux de transactions consécutifs.|<ul><li>Vérifiez si un autre script ou une autre solution de sauvegarde est en cours d’utilisation. Si c’est le cas, arrêtez l’autre solution de sauvegarde. </li><li>Si la sauvegarde était de type sauvegarde de fichier journal ad hoc, déclenchez une sauvegarde complète pour commencer une nouvelle séquence de journaux de transactions consécutifs. Pour les sauvegardes de fichier journal planifiées, aucune action n’est requise étant donné que le service Sauvegarde Azure va automatiquement déclencher une sauvegarde complète pour corriger ce problème.</li>|
+| Log chain is broken. (La séquence de journaux de transactions consécutifs est altérée.) | La base de données ou la machine virtuelle est sauvegardée à l’aide d’une autre solution de sauvegarde, ce qui tronque la séquence de journaux de transactions consécutifs.|<ul><li>Vérifiez si un autre script ou une autre solution de sauvegarde est en cours d’utilisation. Si c’est le cas, arrêtez l’autre solution de sauvegarde. </li><li>Si la sauvegarde a été une sauvegarde de journal ad hoc, déclencher une sauvegarde complète pour démarrer une nouvelle séquence de journaux. Pour les sauvegardes de fichier journal planifiées, aucune action n’est requise étant donné que le service Sauvegarde Azure va automatiquement déclencher une sauvegarde complète pour corriger ce problème.</li>|
 
 ### <a name="usererroropeningsqlconnection"></a>UserErrorOpeningSQLConnection
 
@@ -73,14 +73,14 @@ Les tableaux suivants sont organisés par code d’erreur.
 
 | Message d’erreur | Causes possibles | Action recommandée |
 |---|---|---|
-| First full backup is missing for this data source. (La première sauvegarde complète est manquante pour cette source de données.) | La sauvegarde complète est manquante pour la base de données. Parent des sauvegardes différentielles et de fichier journal manquant sur une sauvegarde complète, des sauvegardes complètes doivent donc être effectuées avant de déclencher des sauvegardes différentielles ou de fichier journal. | Déclenchez une sauvegarde complète ad hoc.   |
+| First full backup is missing for this data source. (La première sauvegarde complète est manquante pour cette source de données.) | La sauvegarde complète est manquante pour la base de données. Parent des sauvegardes différentielles et de fichier journal manquant sur une sauvegarde complète, des sauvegardes complètes doivent donc être effectuées avant de déclencher des sauvegardes différentielles ou de fichier journal. | Déclencher une sauvegarde complète ad hoc.   |
 
 ### <a name="usererrorbackupfailedastransactionlogisfull"></a>UserErrorBackupFailedAsTransactionLogIsFull
 
 | Message d’erreur | Causes possibles | Action recommandée |
 |---|---|---|
 | Cannot take backup as transaction log for the data source is full. (Impossible de prendre la sauvegarde car le journal des transactions de la source de données est plein.) | L’espace dédié au journal des transactions de la base de données est plein. | Pour résoudre ce problème, reportez-vous à la [documentation SQL](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-9002-database-engine-error). |
-| This SQL database does not support the requested backup type. (Cette base de données SQL ne prend pas en charge le type de sauvegarde demandé.) | Les réplicas secondaires de groupes de disponibilité AlwaysOn ne prennent pas en charge les sauvegardes différentielles et complètes. | <ul><li>Si vous avez déclenché une sauvegarde ad hoc, déclenchez les sauvegardes sur le nœud principal.</li><li>Si la sauvegarde a été planifiée par une stratégie, vérifiez que le nœud principal est inscrit. Pour inscrire le nœud, [suivez les étapes pour détecter une base de données SQL Server](backup-azure-sql-database.md#discover-sql-server-databases).</li></ul> |
+| This SQL database does not support the requested backup type. (Cette base de données SQL ne prend pas en charge le type de sauvegarde demandé.) | Les réplicas secondaires de groupes de disponibilité AlwaysOn ne prennent pas en charge les sauvegardes différentielles et complètes. | <ul><li>Si vous avez déclenché une sauvegarde ad hoc, déclencher les sauvegardes sur le nœud principal.</li><li>Si la sauvegarde a été planifiée par une stratégie, vérifiez que le nœud principal est inscrit. Pour inscrire le nœud, [suivez les étapes pour détecter une base de données SQL Server](backup-sql-server-database-azure-vms.md#discover-sql-server-databases).</li></ul> |
 
 ## <a name="restore-failures"></a>Échecs de restauration
 
@@ -136,6 +136,35 @@ Les codes d’erreur suivants correspondent aux échecs de la configuration de s
 | Message d’erreur | Causes possibles | Action recommandée |
 |---|---|---|
 | L’intention de protection automatique a été supprimée ou n’est pas plus valide. | Lorsque vous activez la protection automatique sur une instance SQL, les tâches **Configurer la sauvegarde** s’exécutent pour toutes les bases de données de cette instance. Si vous désactivez la protection automatique pendant l’exécution des tâches, les tâches **En cours** sont annulées avec ce code d’erreur. | Activez la protection automatique de nouveau pour protéger toutes les bases de données restantes. |
+
+## <a name="re-registration-failures"></a>Échecs de réinscription
+
+Recherchez un ou plusieurs de la [symptômes](#symptoms) avant de déclencher l’opération enregistrer à nouveau.
+
+### <a name="symptoms"></a>Symptômes
+
+* Toutes les opérations telles que la sauvegarde, restauration et configurez la sauvegarde échouent sur la machine virtuelle avec l’un des codes d’erreur suivants : **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**
+* Le **état de la sauvegarde** pour la sauvegarde de l’élément est visible **n’est pas accessible**. Bien que vous devez éliminer toutes les autres raisons qui peuvent également entraîner le même état :
+
+  * Absence d’autorisation pour effectuer les opérations connexes de sauvegarde sur la machine virtuelle  
+  * Machine virtuelle a été arrêté en raison de ce qui ne peut pas effectuer des sauvegardes
+  * Problèmes de réseau  
+
+    ![RE-Register machine virtuelle](./media/backup-azure-sql-database/re-register-vm.png)
+
+* En cas de groupe de disponibilité always on, les sauvegardes échouent une fois que vous avez modifié la préférence de sauvegarde ou qu’il y a un basculement
+
+### <a name="causes"></a>Causes
+Ces problèmes peuvent survenir en raison d’une ou plusieurs des raisons suivantes :
+
+  * Extension a été supprimée ou désinstallée à partir du portail 
+  * Extension a été désinstallée de le **le panneau de configuration** de la machine virtuelle sous **désinstaller ou modifier un programme** l’interface utilisateur
+  * Machine virtuelle a été restaurée dans le temps à l’aide de la restauration de l’ou les disques sur place
+  * Machine virtuelle a été arrêté pendant une période prolongée en raison de laquelle la configuration d’extension dessus expiré
+  * Machine virtuelle a été supprimée et une autre machine virtuelle a été créée avec le même nom et du même groupe de ressources en tant que la machine virtuelle supprimée
+  * Un des nœuds du groupe de disponibilité n’a pas reçu la configuration de la sauvegarde complète, cela peut se produire au moment de l’inscription du groupe de disponibilité dans le coffre ou quand un nouveau nœud est ajouté  <br>
+    Dans les scénarios ci-dessus, il est recommandé pour déclencher l’opération de Re-register sur la machine virtuelle. Cette option est uniquement disponible via PowerShell et sera bientôt disponible dans le portail Azure également.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

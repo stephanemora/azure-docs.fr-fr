@@ -6,29 +6,27 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 03/20/2019
 ms.author: sogup
-ms.openlocfilehash: a618482b73e8e423bc00b7c9010c9282da69cd3d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 20f934ae418b0a5e37d3e619fabadc5cb6e23642
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57844707"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285545"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Améliorer les performances de sauvegarde et de restauration avec la fonctionnalité de restauration instantanée de Sauvegarde Azure
 
 > [!NOTE]
 > Suite aux commentaires des utilisateurs, nous avons renommé la **Pile de sauvegarde de machine virtuelle V2** **Restauration instantanée** pour éviter toute confusion avec les fonctionnalités Azure Stack.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 Le nouveau modèle pour la restauration instantanée fournit les améliorations de fonctionnalités suivantes :
 
 * Possibilité d’utiliser des instantanés pris dans le cadre d’une tâche de sauvegarde qui peut être récupérée sans attendre la fin du transfert des données dans le coffre. Cela réduit le temps d’attente pour la copie des instantanés dans le coffre avant de déclencher la restauration.
 * Réduit les temps de sauvegarde et de restauration en conservant les instantanés localement pendant deux jours par défaut. Cette valeur par défaut est configurable à volonté entre 1 et 5 jours.
 * Prise en charge des disques d’une taille maximale de 4 To
-* Prise en charge des disques SSD Standard
-*   Possibilité d’utiliser les comptes de stockage d’origine d’une machine virtuelle non gérée (par disque) lors de la restauration. Cette possibilité existe même quand la machine virtuelle a des disques répartis entre des comptes de stockage. Ceci accélère les opérations de restauration pour une grande variété de configurations de machines virtuelles.
+* Prend en charge les disques SSD Standard, ainsi que les disques de disque dur Standard et Premium SSD.
+*   Possibilité d’utiliser les comptes de stockage d’origine d’une machine virtuelle non gérée (par disque) lors de la restauration. Cette possibilité existe même quand la machine virtuelle a des disques répartis entre des comptes de stockage. Ceci accélère les opérations de restauration pour une grande variété de configurations de machine virtuelle.
 
 
 ## <a name="whats-new-in-this-feature"></a>Nouveautés de cette fonctionnalité
@@ -42,121 +40,44 @@ Un point de récupération est considéré comme créé seulement après l’ex�
 
 ![Tâche de sauvegarde dans le modèle de déploiement Resource Manager pour la pile de sauvegarde de machine virtuelle : stockage et coffre](./media/backup-azure-vms/instant-rp-flow.png)
 
-Par défaut, les instantanés sont conservés pendant deux jours. Cette fonctionnalité autorise les opérations de restauration à partir de ces instantanés en réduisant les durées de restauration. Elle réduit le temps nécessaire pour transformer et de copier des données depuis un coffre vers le compte de stockage de l’utilisateur pour les scénarios de disque non géré tandis que pour les utilisateurs de disque géré, il crée des disques gérés à partir de données Recovery Services.
+Par défaut, les instantanés sont conservés pendant deux jours. Cette fonctionnalité permet la restauration à partir de ces instantanés il en réduisant les délais de restauration. Il réduit le temps requis pour transformer et de copier des données depuis un coffre.
 
 ## <a name="feature-considerations"></a>Considérations sur la fonctionnalité
 
 * Les instantanés sont stockés avec les disques afin d’accélérer la création des points de récupération et les opérations de restauration. Vous voyez donc des coûts de stockage correspondant aux instantanés pris pendant cette période.
 * Les instantanés incrémentiels sont stockés sous la forme d’objets blob de pages. Tout utilisateur qui utilise des disques non managés est facturé pour les instantanés stockés dans son compte de stockage local. Étant donné que les collections de points de restauration utilisées par les sauvegardes de machine virtuelle managée utilisent des instantanés d’objet blob au niveau du stockage sous-jacent, pour les disques managés vous voyez les coûts correspondant au tarif de l’instantané d’objet blob et ils sont incrémentiels.
-* Dans le cas des comptes de stockage Premium, les instantanés pris pour les points de récupération instantanée comptent pour la limite de 10 To d’espace alloué.
+* Pour les comptes de stockage premium, les instantanés pris pour le nombre de points de récupération instantanée dans le nombre maximal de 10 To de l’espace alloué.
 * Vous pouvez configurer la rétention des instantanés en fonction des besoins de restauration. Selon vos exigences, vous pouvez définir la rétention des instantanés pendant au moins un jour dans le panneau de stratégie de sauvegarde, comme cela est expliqué ci-dessous. Cela peut vous aider à réduire les coûts de rétention des instantanés si vous n’effectuez pas fréquemment de restaurations.
 * Il s’agit d’une mise à un niveau directionnel, une fois mis à niveau vers la restauration instantanée, vous ne pouvez pas revenir en arrière.
 
-
 >[!NOTE]
 >Avec cette mise à niveau de restauration instantanée, la durée de rétention d’instantanés de tous les clients (**tant nouveaux et qu’existants**) est définie sur une valeur par défaut de deux jours. Vous pouvez cependant définir une durée de 1 à 5 jours en fonction de vos besoins.
-
 
 ## <a name="cost-impact"></a>Impact sur les coûts
 
 Les instantanés incrémentiels sont stockés dans le compte de stockage de la machine virtuelle et sont utilisés pour la récupération instantanée. Le fait que l’instantané soit incrémentiel signifie que l’espace occupé par un instantané est égal à l’espace occupé par les pages qui sont écrites après la création de l’instantané. La facturation concerne toujours l’espace utilisé (par Go) occupé par l’instantané, et le prix par Go est identique à celui mentionné dans la [page de tarification](https://azure.microsoft.com/pricing/details/managed-disks/).
 
+>[!NOTE]
+> Rétention des captures instantanées est fixée à 5 jours pour les stratégies hebdomadaire.
 
-## <a name="upgrading-to-instant-restore"></a>Mise à niveau vers la restauration instantanée
+## <a name="configure-snapshot-retention-using-the-azure-portal"></a>Configurer la rétention des captures instantanées à l’aide du portail Azure
 
-Si vous utilisez le portail Azure, une notification s’affichera sur le tableau de bord du coffre. Elle concerne la prise en charge des disques volumineux et les améliorations de la vitesse de sauvegarde et de restauration.
-Pour ouvrir un écran pour la mise à niveau vers la restauration instantanée, sélectionnez la bannière.
+**Tous les utilisateurs des sauvegarde Azure ont été mis à niveau à la restauration instantanée**.
 
-![Tâche de sauvegarde dans le modèle de déploiement Resource Manager pour la pile de sauvegarde de machine virtuelle : notification de prise en charge](./media/backup-azure-vms/instant-rp-banner.png)
-
-Cliquez sur **Mise à niveau** comme le montre la capture d'écran ci-dessous :
-
-![Tâche de sauvegarde dans le modèle de déploiement Resource Manager pour la pile de sauvegarde de machine virtuelle : mise à niveau](./media/backup-azure-vms/instant-rp.png)
-
-Vous pouvez aussi accéder à la page **Propriétés** du coffre pour accéder à l’option **Mise à niveau** sous **Pile de sauvegarde de machine virtuelle**.
-
-![Tâche de sauvegarde dans la pile de sauvegarde de machine virtuelle -- Page Propriétés](./media/backup-azure-vms/instant-restore-capability-properties.png)
-
-
-## <a name="configure-snapshot-retention-using-azure-portal"></a>Configurer la rétention d’instantanés à l’aide du portail Azure
-Tous les utilisateurs sur l’ensemble **zones géographiques publiques** ont été mis à niveau à la restauration instantanée.
-
-Pour les utilisateurs mis à niveau, dans le portail Azure vous voyez un champ ajouté au panneau **Stratégie de sauvegarde de machine virtuelle** sous la section **Restauration instantanée**. Vous pouvez modifier la durée de rétention des instantanés à partir du panneau **Stratégie de sauvegarde de machine virtuelle** pour toutes les machines virtuelles associées à la stratégie de sauvegarde spécifique.
+Dans le portail Azure, vous pouvez voir un champ ajouté dans le **stratégie de sauvegarde de machine virtuelle** panneau sous le **la restauration instantanée** section. Vous pouvez modifier la durée de rétention des instantanés à partir du panneau **Stratégie de sauvegarde de machine virtuelle** pour toutes les machines virtuelles associées à la stratégie de sauvegarde spécifique.
 
 ![Fonctionnalité de restauration instantanée](./media/backup-azure-vms/instant-restore-capability.png)
-
-## <a name="upgrade-to-instant-restore-using-powershell"></a>Mettre à niveau vers la restauration instantanée à l’aide de PowerShell
-
-Si vous souhaitez travailler en libre-service et effectuer une mise à niveau vers la restauration instantanée, exécutez les applets de commande suivantes à partir d’un terminal PowerShell avec élévation de privilèges :
-
-1.  Connectez-vous à votre compte Azure :
-
-    ```
-    PS C:> Connect-AzAccount
-    ```
-
-2.  Sélectionnez l’abonnement à inscrire :
-
-    ```
-    PS C:>  Get-AzSubscription –SubscriptionName "Subscription Name" | Select-AzSubscription
-    ```
-
-3.  Inscrivez cet abonnement :
-
-    ```
-    PS C:>  Register-AzProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
-    ```
-
-## <a name="upgrade-to-instant-restore-using-cli"></a>Mettre à niveau vers la restauration instantanée à l’aide de l’interface CLI
-
-À partir d'un interpréteur de commandes, exécutez les commandes suivantes :
-
-1.  Connectez-vous à votre compte Azure :
-
-    ```
-    az login
-    ```
-
-2.  Sélectionnez l’abonnement à inscrire :
-
-    ```
-    az account set --subscription "Subscription Name"
-    ```
-
-3.  Inscrivez cet abonnement :
-
-    ```
-    az feature register --namespace Microsoft.RecoveryServices --name InstantBackupandRecovery
-    ```
-
-## <a name="verify-that-the-upgrade-is-successful"></a>Vérifier si la mise à niveau a réussi
-
-### <a name="powershell"></a>PowerShell
-À partir d’un terminal PowerShell avec élévation des privilèges, exécutez l’applet de commande suivante :
-
-```
-Get-AzProviderFeature -FeatureName "InstantBackupandRecovery" -ProviderNamespace Microsoft.RecoveryServices
-```
-
-### <a name="cli"></a>Interface de ligne de commande
-À partir d’un interpréteur de commandes, exécutez la commande suivante :
-
-```
-az feature show --namespace Microsoft.RecoveryServices --name InstantBackupandRecovery
-```
-
-Si la sortie indique « Registered », votre abonnement est mis à niveau vers la restauration instantanée.
 
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
 ### <a name="what-are-the-cost-implications-of-instant-restore"></a>Quelles sont les implications en matière de coût de la restauration instantanée ?
 Les instantanés sont stockés avec les disques afin d’accélérer la création des points de récupération et les opérations de restauration. Ainsi, vous verrez des coûts de stockage qui correspondent à la conservation d’instantané sélectionnée dans le cadre de la stratégie de sauvegarde de machine virtuelle.
 
-### <a name="in-premium-storage-accounts-do-the-snapshots-taken-for-instant-recovery-point-occupy-the-10-tb-snapshot-limit"></a>Dans les comptes de stockage Premium, les instantanés créés pour un point de récupération instantanée occupent-ils la limite de 10 To ?
-Oui, pour les comptes de stockage Premium, les instantanés pris pour un point de récupération instantanée occupent 10 To d’espace d’instantané alloué.
+### <a name="in-premium-storage-accounts-do-the-snapshots-taken-for-instant-recovery-point-occupy-the-10-tb-snapshot-limit"></a>Dans les comptes de stockage Premium, les instantanés pris pour le point de récupération instantanée occupent la limite de capture instantanée de 10 To ?
+Oui, pour les comptes de stockage premium, les instantanés pris pour le point de récupération instantanée occupent 10 To d’espace de l’instantané alloué.
 
 ### <a name="how-does-the-snapshot-retention-work-during-the-five-day-period"></a>Comment fonctionne la conservation des instantanés pendant la période de cinq jours ?
-Chaque jour un nouvel instantané est pris, et il existe cinq instantanés incrémentiels. La taille de l’instantané dépend du taux d’activité des données, qui est dans la plupart des cas de deux à sept pour cent.
+Chaque jour un nouvel instantané est pris, et il existe cinq instantanés incrémentiels. La taille de l’instantané dépend de l’activité des données, qui se trouvent dans la plupart des cas environ 2 à 7 %.
 
 ### <a name="is-an-instant-restore-snapshot-an-incremental-snapshot-or-full-snapshot"></a>Un instantané de restauration instantanée est-il un instantané incrémentiel ou un instantané complet ?
 Les instantanés créés dans le cadre de la fonctionnalité de restauration instantanée sont des instantanés incrémentiels.

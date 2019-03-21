@@ -11,19 +11,19 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 179be5df8013d4e79eca473036d1a09875cbcc61
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 28b6732745947043847ce944243bc87398e159fc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865907"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892145"
 ---
 # <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>Charger des fichiers dans un compte Media Services à l’aide du service Aspera Server On Demand dans Azure 
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 **Aspera** est un logiciel de transfert de fichiers à haut débit. Le service **Aspera Server On Demand** pour Azure permet de charger et télécharger rapidement des fichiers volumineux directement dans un espace de stockage d’objets blob Azure. Pour plus d’informations sur **Aspera On Demand**, consultez le site [Aspera Cloud](http://cloud.asperasoft.com/). 
   
@@ -37,7 +37,7 @@ Vous trouverez un exemple qui montre comment utiliser les fonctions Azure avec A
 >Une limite est appliquée à la taille maximale des fichiers pris en charge pour le traitement dans les processeurs multimédias Azure Media Services. Consultez [cet](media-services-quotas-and-limitations.md) article pour en savoir plus sur les limites de taille des fichiers.
 >
 
-## <a name="prerequisites"></a>Prérequis 
+## <a name="prerequisites"></a>Conditions préalables 
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -89,44 +89,44 @@ Une fois connecté à la Place de marché Azure, suivez ces étapes pour finalis
 
     La capture d’écran qui suit décrit le processus de création d’accès. 
 
-   ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera010.png)
+    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera010.png)
 
     La capture d’écran suivante montre les interfaces de rapports d’utilisation dans le portail. 
 
-   ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera011.png)
+    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera011.png)
 
 ## <a name="upload-files-with-aspera"></a>Chargement de fichiers avec Aspera
 
 1. Téléchargez et installez le logiciel client Aspera :
     
-    * [Plug-in de navigateur](http://downloads.asperasoft.com/connect2/)
-    * [Client enrichi](http://downloads.asperasoft.com/en/downloads/2)
+    * [Plug-in de navigateur](https://downloads.asperasoft.com/connect2/)
+    * [Client enrichi](https://downloads.asperasoft.com/en/downloads/2)
 
 2. Effectuez votre premier transfert. Afin de pouvoir utiliser le client Aspera pour effectuer des transferts avec le service de transfert Aspera, vous devez effectuer les opérations suivantes : 
 
-    1. Créer une clé d’accès à l’aide du portail Aspera.  
-    2. Télécharger et installer le client Aspera, puis activer la licence (le logiciel est accessible depuis le portail Aspera).  
+   1. Créer une clé d’accès à l’aide du portail Aspera.  
+   2. Télécharger et installer le client Aspera, puis activer la licence (le logiciel est accessible depuis le portail Aspera).  
 
-    >[!NOTE]
-    >Pour obtenir des informations de configuration, veuillez consulter le guide du client Aspera.
+      >[!NOTE]
+      >Pour obtenir des informations de configuration, veuillez consulter le guide du client Aspera.
     
-    3. Récupérer des informations de votre compte de stockage associées à votre compte Azure Media à l’aide du [portail Azure](https://portal.azure.com/). Il s’agit plus précisément du nom et de la clé, ainsi que du nom de conteneur de stockage d’objets blob dans lequel vous souhaitez placer votre contenu. 
+   3. Récupérer des informations de votre compte de stockage associées à votre compte Azure Media à l’aide du [portail Azure](https://portal.azure.com/). Il s’agit plus précisément du nom et de la clé, ainsi que du nom de conteneur de stockage d’objets blob dans lequel vous souhaitez placer votre contenu. 
 
-        * Pour obtenir les informations de stockage à partir du portail : recherchez votre compte de stockage, cliquez sur les touches d’accès et copiez le nom et la clé de votre compte.
-        * Pour obtenir le nom du conteneur : recherchez votre compte de stockage, sélectionnez **Blobs**, puis sélectionnez le nom du conteneur dans lequel vous souhaitez charger du contenu. 
+       * Pour obtenir les informations de stockage à partir du portail : recherchez votre compte de stockage, cliquez sur les touches d’accès et copiez le nom et la clé de votre compte.
+       * Pour obtenir le nom du conteneur : recherchez votre compte de stockage, sélectionnez **Blobs**, puis sélectionnez le nom du conteneur dans lequel vous souhaitez charger du contenu. 
 
-    Vous trouverez ci-dessous la capture d’écran du client Aspera **Connection Manager**, où vous devez spécifier le type de stockage « Azure », les informations d’identification ainsi que le conteneur d’objets blob.
+      Vous trouverez ci-dessous la capture d’écran du client Aspera **Connection Manager**, où vous devez spécifier le type de stockage « Azure », les informations d’identification ainsi que le conteneur d’objets blob.
 
-    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera012.png)
+      ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera012.png)
 
 ## <a name="resources"></a>Ressources
 
 Les ressources suivantes ont été évoquées dans cet article. 
 
-* [Plug-in de connexion de navigateur](http://downloads.asperasoft.com/connect2/)
-* [Guide de connexion](http://downloads.asperasoft.com/en/documentation/8)
-* [Client Aspera](http://downloads.asperasoft.com/en/downloads/2)
-* [Guide client](http://downloads.asperasoft.com/en/documentation/2)
+* [Plug-in de connexion de navigateur](https://downloads.asperasoft.com/connect2/)
+* [Guide de connexion](https://downloads.asperasoft.com/en/documentation/8)
+* [Client Aspera](https://downloads.asperasoft.com/en/downloads/2)
+* [Guide client](https://downloads.asperasoft.com/en/documentation/2)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

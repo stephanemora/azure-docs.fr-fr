@@ -8,19 +8,19 @@ ms.author: saveenr
 ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 06/18/2017
-ms.openlocfilehash: a1a6208d3710c9610f9271ad19564abf2532f5d4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 9d9d5a7232529989901709013dcfac12f94afad0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994993"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433074"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-cli"></a>Prise en main d’Azure Data Lake Analytics à l’aide de l’interface de ligne de commande Azure
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Cet article explique comment utiliser l’interface de ligne de commande Azure CLI pour créer des comptes Azure Data Lake Analytics, envoyer des travaux USQL et utiliser des catalogues. Le travail lit un fichier TSV (valeurs séparées par des tabulations) et le convertit en fichier CSV (valeurs séparées par des virgules). 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Avant de débuter, vous avez besoin des éléments suivants :
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -66,7 +66,7 @@ az group create --name "<Resource Group Name>" --location "<Azure Location>"
 
 * **Nom du compte Data Lake Analytics**. Chaque compte Data Lake Analytics porte un nom.
 * **Emplacement**. Utilisez l’un des centres de données Azure prenant en charge Data Lake Analytics.
-* **Compte Data Lake Store par défaut** : chaque compte Data Lake Analytics possède un compte Data Lake Store par défaut.
+* **Compte de la valeur par défaut Data Lake Store**: Chaque compte Data Lake Analytics possède un compte Data Lake Store par défaut.
 
 Pour répertorier le compte Data Lake Store existant :
 
@@ -108,7 +108,7 @@ az dls fs list --account "<Data Lake Store Account Name>" --path "<Path>"
 Analytique Data Lake peut également accéder au stockage d’objets blobs Azure.  Pour télécharger des données dans le Blob Storage Azure, consultez [Utilisation de la CLI Microsoft Azure avec Microsoft Azure Storage](../storage/common/storage-azure-cli.md).
 
 ## <a name="submit-data-lake-analytics-jobs"></a>Envoyer des travaux Analytique Data Lake
-Les travaux Data Lake Analytics sont écrits en langage U-SQL. Pour en savoir plus sur U-SQL, consultez [Prise en main du langage U-SQL](data-lake-analytics-u-sql-get-started.md) et [Référence du langage U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
+Les travaux Data Lake Analytics sont écrits en langage U-SQL. Pour en savoir plus sur U-SQL, consultez [Prise en main du langage U-SQL](data-lake-analytics-u-sql-get-started.md) et [Référence du langage U-SQL](https://go.microsoft.com/fwlink/?LinkId=691348).
 
 **Pour créer un script de travail Analytique Data Lake**
 

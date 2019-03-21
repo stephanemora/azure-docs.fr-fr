@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/13/2019
+ms.date: 02/27/2019
 ms.author: tomfitz
-ms.openlocfilehash: bc28349e1bfc935ac8298f991575c1e0cb42d38c
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: 5213affe953636c46486614ee2a020d7727e1478
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56299225"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407510"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modes de déploiement Azure Resource Manager
 
@@ -26,7 +26,7 @@ Pour les deux modes, Resource Manager essaie de créer toutes les ressources sp�
 
 ## <a name="complete-mode"></a>Mode Complet
 
-En mode complet, le Gestionnaire des ressources **supprime** les ressources qui existent dans le groupe de ressources, mais qui ne sont pas spécifiées dans le modèle. Les ressources qui sont spécifiées dans le modèle, mais qui ne sont pas déployées du fait qu’une [condition](resource-manager-templates-resources.md#condition) a la valeur false, ne sont pas supprimées.
+En mode complet, le Gestionnaire des ressources **supprime** les ressources qui existent dans le groupe de ressources, mais qui ne sont pas spécifiées dans le modèle. Les ressources qui sont spécifiées dans le modèle, mais qui ne sont pas déployées du fait qu’une [condition](resource-group-authoring-templates.md#condition) a la valeur false, ne sont pas supprimées.
 
 Il existe des différences dans la manière dont les types de ressources traitent les suppressions en mode complet. Les ressources parentes sont automatiquement supprimées lorsqu'elles ne figurent pas dans un modèle déployé en mode complet. Certaines ressources enfants ne sont pas automatiquement supprimées lorsqu'elles ne figurent pas dans le modèle. Toutefois, ces ressources enfants sont supprimées si la ressource parent est supprimée. 
 
@@ -36,6 +36,10 @@ Pour plus d'informations sur la façon dont les types de ressources gèrent la s
 
 > [!NOTE]
 > Seuls les modèles de niveau racine prennent en charge le mode de déploiement complet. Pour les [modèles liés ou imbriqués](resource-group-linked-templates.md), vous pouvez utiliser le mode incrémentiel. 
+>
+> [Déploiements de niveau d’abonnement](deploy-to-subscription.md) ne prennent pas en charge le mode complet.
+>
+> Actuellement, le portail ne prend en charge le mode complet.
 >
 
 ## <a name="incremental-mode"></a>Mode incrémentiel

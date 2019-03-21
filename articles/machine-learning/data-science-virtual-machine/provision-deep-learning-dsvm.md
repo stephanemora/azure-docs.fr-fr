@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 53ddea5426d2adfa7b0ddfcbda3375efae8d0859
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 42430c847149f7eda2f0dbed1cff006a92f372ee
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250804"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57845186"
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Provisionner une machine virtuelle DLVM dans Azure 
 
@@ -49,10 +49,10 @@ Voici les étapes de création d’une instance Deep Learning Virtual Machine :
 > [!NOTE]
 > La machine virtuelle DLVM prend en charge toutes les instances de machine virtuelle GPU de série NC et ND. Lorsque vous approvisionnez la machine virtuelle DLVM, vous devez choisir l’un des emplacements d’Azure qui dispose de processeurs GPU. Dans la page [Azure Products by Region](https://azure.microsoft.com/regions/services/) (Produits Azure par région), consultez les emplacements disponibles et recherchez **Série NC**, **Série NCv2**, **Série NCv3** ou **Série ND** sous **Compute**. 
 
-   2. **Paramètres**: sélectionnez une taille de machine virtuelle GPU de série NC (NC, NCv2 ou NCv3) ou ND adaptée à vos exigences fonctionnelles et à votre budget. Créez un compte de stockage pour votre machine virtuelle.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
+1. **Paramètres**: sélectionnez une taille de machine virtuelle GPU de série NC (NC, NCv2 ou NCv3) ou ND adaptée à vos exigences fonctionnelles et à votre budget. Créez un compte de stockage pour votre machine virtuelle.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
    
-   3. **Résumé**: Vérifiez que toutes les informations que vous avez saisies sont correctes.
-   5. **Acheter**: cliquez sur **Acheter** pour commencer l’approvisionnement. Les conditions de la transaction vous sont communiquées via un lien. La machine virtuelle n'est pas assortie de frais supplémentaires au-delà du calcul de la taille de serveur que vous avez choisie à l'étape **Taille** . 
+1. **Résumé**: Vérifiez que toutes les informations que vous avez saisies sont correctes.
+1. **Acheter**: cliquez sur **Acheter** pour commencer l’approvisionnement. Les conditions de la transaction vous sont communiquées via un lien. La machine virtuelle n'est pas assortie de frais supplémentaires au-delà du calcul de la taille de serveur que vous avez choisie à l'étape **Taille** . 
 
 > [!NOTE]
 > L’approvisionnement prend environ 10 à 20 minutes. L’état de l’approvisionnement est affiché sur le portail Azure.
@@ -66,7 +66,7 @@ Une fois la machine virtuelle créée, vous pouvez vous y connecter à l’aide 
 
 ### <a name="linux-edition"></a>Édition Linux
 
-Une fois la machine virtuelle créée, vous pouvez vous y connecter avec SSH. Utilisez les informations d’identification de compte créées dans la section **Paramètres de base** de l’étape 3 de l’interface de l’interpréteur de commandes texte. Sur un client Windows, vous pouvez télécharger un outil client SSH tel que [Putty](http://www.putty.org). Si vous préférez un bureau graphique (système Windows X), vous pouvez utiliser le transfert X11 sur Putty ou installer le client X2Go.
+Une fois la machine virtuelle créée, vous pouvez vous y connecter avec SSH. Utilisez les informations d’identification de compte créées dans la section **Paramètres de base** de l’étape 3 de l’interface de l’interpréteur de commandes texte. Sur un client Windows, vous pouvez télécharger un outil client SSH tel que [Putty](https://www.putty.org). Si vous préférez un bureau graphique (système Windows X), vous pouvez utiliser le transfert X11 sur Putty ou installer le client X2Go.
 
 > [!NOTE]
 > Lors de tests, le client X2Go a obtenu de meilleures performances que le transfert X11. Nous recommandons d’utiliser le client X2Go pour une interface de bureau graphique.
@@ -76,7 +76,7 @@ Une fois la machine virtuelle créée, vous pouvez vous y connecter avec SSH. Ut
 #### <a name="installing-and-configuring-x2go-client"></a>Installation et configuration du client X2Go
 La machine virtuelle DLVM Linux est déjà provisionnée avec le serveur X2Go et elle est prête à accepter des connexions client. Pour vous connecter au bureau graphique de la machine virtuelle Linux, effectuez les opérations suivantes sur votre client :
 
-1. Téléchargez et installez le client X2Go pour votre plateforme cliente sur [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
+1. Téléchargez et installez le client X2Go pour votre plateforme cliente sur [X2Go](https://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
 2. Exécutez le client X2Go et sélectionnez **New Session**(Nouvelle session). Une fenêtre de configuration avec plusieurs onglets s’ouvre. Entrez les paramètres de configuration suivants :
    * **Onglet Session**:
      * **Hôte** : nom d’hôte ou adresse IP de votre machine virtuelle DSVM Linux.

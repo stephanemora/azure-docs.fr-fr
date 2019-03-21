@@ -11,19 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ccad4f9aaa85d528697c1bcf34e1b034eeabe9e1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: b7dcac665dadef7f3f192e7f0e359b6b7c244bde
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57996015"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287024"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Éliminer les mots de passe incorrects de votre organisation
-
-|     |
-| --- |
-| La protection de mot de passe Azure AD et la liste de mots de passe interdits personnalisée sont des fonctionnalités en préversion publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) (Conditions d’utilisation supplémentaires des préversions Microsoft Azure).|
-|     |
 
 Les leaders du secteur vous recommandent de ne pas utiliser le même mot de passe à plusieurs endroits, de le rendre complexe et de ne pas utiliser de mots de passe simples, tels que 123. Comment les organisations s’assurent que leurs utilisateurs suivent cette recommandation ? Comment peuvent-ils s’assurer que les utilisateurs n’utilisent pas de mots de passe courants ou de mots de passe connus dans des cas de violation de données ?
 
@@ -31,7 +26,7 @@ Les leaders du secteur vous recommandent de ne pas utiliser le même mot de pass
 
 Microsoft cherche toujours à garder une longueur d’avance sur les cybercriminels. Par conséquent, l’équipe Azure AD Identity Protection recherche en permanence les mots de passe couramment utilisés et compromis. Puis, ils bloquent ces mots de passe qui sont considérés comme étant trop courants dans ce que l’on appelle la liste globale de mots de passe interdits. Les cybercriminels utilisent également des stratégies semblables dans leurs attaques, par conséquent, Microsoft ne rend pas public le contenu de cette liste. Ces mots de passe vulnérables sont bloqués avant de devenir une véritable menace pour les clients de Microsoft. Pour plus d’informations sur les travaux en matière de sécurité actuels, consultez le [Rapport de renseignement sur la sécurité (SIR) de Microsoft](https://www.microsoft.com/security/operations/security-intelligence-report).
 
-## <a name="preview-custom-banned-password-list"></a>Aperçu : Liste personnalisée de mots de passe interdits
+## <a name="custom-banned-password-list"></a>Liste personnalisée de mots de passe interdits
 
 Il se peut que certaines organisations veulent pousser plus loin la sécurité en ajoutant leurs propres personnalisations à la liste de mots de passe interdits dans ce que Microsoft appelle la liste de mots de passe interdits personnalisée. Les clients d’entreprise, comme Contoso peuvent ensuite choisir de bloquer des variantes de leurs noms de marque, des conditions spécifiques de la société ou d’autres éléments.
 
@@ -41,7 +36,7 @@ La liste de mots de passe interdits personnalisée et la capacité à activer l�
 
 ## <a name="on-premises-hybrid-scenarios"></a>Scénarios hybrides locaux
 
-La protection des comptes cloud uniquement est utile, toutefois de nombreuses organisations conservent des scénarios hybrides incluant Windows Server Active Directory en local. Il est possible d’installer la protection de mot de passe Azure AD pour les agents Windows Server Active Directory (préversion) en local pour étendre les listes de mots de passe interdits à votre infrastructure existante. Maintenant, les utilisateurs et les administrateurs qui modifient, définissent ou réinitialisent des mots de passe localement doivent se conformer à la même stratégie de mot de passe que les utilisateurs cloud uniquement.
+La protection des comptes cloud uniquement est utile, toutefois de nombreuses organisations conservent des scénarios hybrides incluant Windows Server Active Directory en local. Il est possible d’installer la protection de mot de passe Azure AD pour Windows Server Active Directory agents sur site étendre les listes de mots de passe interdits à votre infrastructure existante. Maintenant, les utilisateurs et les administrateurs qui modifient, définissent ou réinitialisent des mots de passe localement doivent se conformer à la même stratégie de mot de passe que les utilisateurs cloud uniquement.
 
 ## <a name="how-are-passwords-evaluated"></a>Évaluation des mots de passe
 

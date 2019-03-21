@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: a6941e28bdfd922a68ff484c57031326a9aa5c0b
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 0ab14d41c149ec6e0ce76d24afb0e88a6af53935
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452630"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884555"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Analyse des performances avec l’extension Microsoft Azure Diagnostics
 
@@ -192,15 +192,15 @@ Voici un exemple de configuration avec le compteur pour le *Temps total du proce
  >[!NOTE]
  >Même si vous pouvez utiliser `*` pour spécifier des groupes de compteurs de performances portant un nom similaire, l’envoi de tous les compteurs via un récepteur (vers Application Insights) nécessite de les déclarer séparément. 
 
-4. Une fois que vous avez ajouté les compteurs de performances à collecter appropriés, vous devez mettre à niveau votre ressource de cluster afin que ces modifications soient répercutées dans le cluster en cours d’exécution. Enregistrez le `template.json` modifié, puis ouvrez PowerShell. Vous pouvez mettre à niveau votre cluster à l’aide de `New-AzureRmResourceGroupDeployment`. L’appel nécessite le nom du groupe de ressources, le fichier de modèle mis à jour et le fichier de paramètres. Ensuite, il demande à Resource Manager d’apporter les modifications nécessaires aux ressources que vous avez mises à jour. Une fois connecté à votre compte et au bon abonnement, utilisez la commande suivante pour exécuter la mise à niveau :
+1. Une fois que vous avez ajouté les compteurs de performances à collecter appropriés, vous devez mettre à niveau votre ressource de cluster afin que ces modifications soient répercutées dans le cluster en cours d’exécution. Enregistrez le `template.json` modifié, puis ouvrez PowerShell. Vous pouvez mettre à niveau votre cluster à l’aide de `New-AzureRmResourceGroupDeployment`. L’appel nécessite le nom du groupe de ressources, le fichier de modèle mis à jour et le fichier de paramètres. Ensuite, il demande à Resource Manager d’apporter les modifications nécessaires aux ressources que vous avez mises à jour. Une fois connecté à votre compte et au bon abonnement, utilisez la commande suivante pour exécuter la mise à niveau :
 
     ```sh
     New-AzureRmResourceGroupDeployment -ResourceGroupName <ResourceGroup> -TemplateFile <PathToTemplateFile> -TemplateParameterFile <PathToParametersFile> -Verbose
     ```
 
-5. Une fois la mise à niveau terminée (au bout de 15 à 45 minutes selon qu’il s’agisse du premier déploiement ou non, et selon la taille de votre groupe de ressources), WAD doit collecter les compteurs de performances et les envoyer à la table nommée WADPerformanceCountersTable dans le compte de stockage associé à votre cluster. Pour voir vos compteurs de performances dans Application Insights, [ajoutez le Récepteur IA au modèle Resource Manager](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-application-insights-sink-to-the-resource-manager-template).
+1. Une fois la mise à niveau terminée (au bout de 15 à 45 minutes selon qu’il s’agisse du premier déploiement ou non, et selon la taille de votre groupe de ressources), WAD doit collecter les compteurs de performances et les envoyer à la table nommée WADPerformanceCountersTable dans le compte de stockage associé à votre cluster. Pour voir vos compteurs de performances dans Application Insights, [ajoutez le Récepteur IA au modèle Resource Manager](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Collectez d’autres compteurs de performances pour votre cluster. Consultez [Mesures de performances](service-fabric-diagnostics-event-generation-perf.md) pour obtenir la liste des compteurs à collecter.
 * [Utilisez les fonctionnalités de surveillance et de diagnostics avec une machine virtuelle Windows et des modèles Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md) pour apporter des modifications à votre `WadCfg` (y compris pour la configuration de comptes de stockage supplémentaires vers lesquels envoyer des données de diagnostics).
-* Visitez le [générateur WadCfg](http://azure.github.io/azure-diagnostics-tools/config-builder/) pour créer un modèle à partir de zéro et veillez à ce que votre syntaxe soit correcte.
+* Visitez le [générateur WadCfg](https://azure.github.io/azure-diagnostics-tools/config-builder/) pour créer un modèle à partir de zéro et veillez à ce que votre syntaxe soit correcte.

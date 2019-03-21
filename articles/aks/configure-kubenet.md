@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: iainfou
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 6d2b6ce2804fce35af9c184c4a7c72c0b332f6fb
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: b80177d17e0dc5a4e54396907ecee61890ec523f
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55701515"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011345"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Utiliser la mise en réseau kubenet avec vos propres plages d’adresses IP dans Azure Kubernetes Service (AKS)
 
 Par défaut, les clusters AKS utilisent [kubenet][kubenet]. Par ailleurs, un réseau et un sous-réseau virtuels Azure sont automatiquement créés. Avec *kubenet*, les nœuds obtiennent une adresse IP du sous-réseau du réseau virtuel Azure. Les pods reçoivent une adresse IP du sous-réseau de réseau virtuel Azure des nœuds à partir d’un espace d’adressage logiquement différent. La traduction d’adresses réseau (NAT) est ensuite configurée afin que les pods puissent accéder aux ressources sur le réseau virtuel Azure. L’adresse IP source du trafic fait l’objet d’une opération NAT sur l’adresse IP principale du nœud. Cette approche réduit considérablement le nombre d’adresses IP que vous devez réserver dans votre espace réseau pour que les pods les utilisent.
 
-Avec l’interface [Azure Container Networking Interface (CNI)][cni-networking], chaque pod reçoit une adresse IP du sous-réseau et est accessible directement. Ces adresses IP doivent être uniques dans votre espace réseau et doivent être planifiées à l’avance. Chaque nœud possède un paramètre de configuration pour le nombre maximal de pods qu’il prend en charge. Le nombre équivalent d’adresses IP par nœud est alors réservé à l’avance pour ce nœud. Cette approche nécessite davantage de planification. De plus, elle conduit souvent à l’épuisement des adresses IP ou à la nécessité de regénérer les clusters dans un sous-réseau plus vaste à mesure que vos demandes d’applications augmentent.
+Avec l’interface [Azure Container Networking Interface (CNI)][cni-networking], chaque pod reçoit une adresse IP du sous-réseau et est accessible directement. Ces adresses IP doivent être uniques dans votre espace réseau, et être planifiées à l’avance. Chaque nœud possède un paramètre de configuration pour le nombre maximal de pods qu’il prend en charge. Le nombre équivalent d’adresses IP par nœud est alors réservé à l’avance pour ce nœud. Cette approche nécessite davantage de planification. De plus, elle conduit souvent à l’épuisement des adresses IP ou à la nécessité de regénérer les clusters dans un sous-réseau plus vaste à mesure que vos demandes d’applications augmentent.
 
 Cet article vous montre comment utiliser la mise en réseau *kubenet* pour créer et utiliser un sous-réseau de réseau virtuel pour un cluster AKS. Pour plus d’informations sur les options et considérations relatives au réseau, consultez [Concepts de réseau pour Kubernetes et AKS][aks-network-concepts].
 
@@ -78,6 +78,9 @@ Utilisez *Azure CNI* quand :
 - Vous ne voulez pas gérer les routes UDR.
 - Vous avez besoin de fonctionnalités avancées comme des nœuds virtuels ou une stratégie réseau.
 
+> [!NOTE]
+> Kuberouter permet d’activer la stratégie de réseau lors de l’utilisation de kubenet et peut être installé en tant que daemonset dans un cluster AKS. Sachez kube-routeur est toujours en version bêta et aucune prise en charge n’est proposé par Microsoft pour le projet.
+
 ## <a name="create-a-virtual-network-and-subnet"></a>Créer un réseau virtuel et un sous-réseau
 
 Pour bien commencer avec l’utilisation de *kubenet* et de votre propre sous-réseau de réseau virtuel, commencez par créer un groupe de ressources à l’aide de la commande [az group create][az-group-create]. L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus* :
@@ -126,7 +129,7 @@ VNET_ID=$(az network vnet show --resource-group myResourceGroup --name myAKSVnet
 SUBNET_ID=$(az network vnet subnet show --resource-group myResourceGroup --vnet-name myAKSVnet --name myAKSSubnet --query id -o tsv)
 ```
 
-Affectez maintenant le principal de service pour les autorisations de *Contributeur* de votre cluster AKS sur le réseau virtuel à l’aide de la commande [az role assignment create][az-role-assignment-create]. Fournissez votre propre */<appId/>* comme indiqué dans la sortie de la commande précédente pour créer le principal de service :
+Affectez maintenant le principal de service pour les autorisations de *Contributeur* de votre cluster AKS sur le réseau virtuel à l’aide de la commande [az role assignment create][az-role-assignment-create]. Fournissez votre propre  *\<appId >* comme indiqué dans la sortie de la commande précédente pour créer le principal du service :
 
 ```azurecli-interactive
 az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
@@ -134,7 +137,7 @@ az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
 
 ## <a name="create-an-aks-cluster-in-the-virtual-network"></a>Créer un cluster AKS dans le réseau virtuel
 
-Vous venez de créer un réseau virtuel et un sous-réseau. Vous avez également créé et attribué des autorisations pour un principal de service afin d’utiliser ces ressources réseau. Créez maintenant un cluster AKS dans votre réseau virtuel et sous-réseau à l’aide la commande [az aks create][az-aks-create]. Définissez votre propre */<appId/>* et */<password/>* de principal de service, comme indiqué dans la sortie de la commande précédente pour créer le principal de service.
+Vous venez de créer un réseau virtuel et un sous-réseau. Vous avez également créé et attribué des autorisations pour un principal de service afin d’utiliser ces ressources réseau. Créez maintenant un cluster AKS dans votre réseau virtuel et sous-réseau à l’aide la commande [az aks create][az-aks-create]. Définir votre propre principal de service  *\<appId >* et  *\<mot de passe >*, comme illustré dans la sortie de la commande précédente pour créer le principal du service.
 
 Les plages d’adresses IP suivantes sont également définies dans le cadre du processus de création du cluster :
 

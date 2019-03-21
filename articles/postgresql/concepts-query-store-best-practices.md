@@ -6,16 +6,16 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/26/2018
-ms.openlocfilehash: 0c962dc6d8aff63a3b7dd34133a40c7ff9feec4c
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: c4fcdc43e8c88bf307e4de5727df0641616d7b78
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540739"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448133"
 ---
 # <a name="best-practices-for-query-store"></a>Bonnes pratiques relatives au Magasin des requêtes
 
-**S’applique à :** Azure Database pour PostgreSQL 9.6 et 10
+**S’applique à :** Azure Database pour PostgreSQL 9.6 et 10
 
 > [!IMPORTANT]
 > La fonctionnalité Magasin des requêtes est en préversion publique.
@@ -28,7 +28,7 @@ Laissez le Magasin des requêtes capturer les données qui vous intéressent.
 
 |**pg_qs.query_capture_mode** | **Scénario**|
 |---|---|
-|_Tout_  |Analysez attentivement votre charge de travail concernant toutes les requêtes, leur fréquence d’exécution et d’autres statistiques. Identifiez les nouvelles requêtes dans votre charge de travail. Détectez si des requêtes ad hoc sont utilisées pour identifier les opportunités de paramétrage défini par l’utilisateur ou automatique. _All_ s’accompagne du coût de la consommation accrue des ressources. |
+|_Tout_  |Analysez attentivement votre charge de travail concernant toutes les requêtes, leur fréquence d’exécution et d’autres statistiques. Identifiez les nouvelles requêtes dans votre charge de travail. Détecter si les requêtes ad hoc sont utilisées pour identifier les opportunités de paramétrage utilisateur ou automatique. _All_ s’accompagne du coût de la consommation accrue des ressources. |
 |_Top_  |Concentrez votre attention sur les principales requêtes : celles émises par les clients.
 |_Aucun_ |Vous avez déjà capturé un ensemble de requêtes et une fenêtre de temps que vous souhaitez examiner, et vous voulez éliminer les distractions que d’autres requêtes peuvent introduire. _None_ est adapté pour les environnements de test et d’évaluation. _None_ doit être utilisé avec précaution, car vous risquez de laisser passer l’opportunité de suivre et d’optimiser d’importantes nouvelles requêtes. Vous ne pouvez pas récupérer des données sur ces fenêtres de temps. |
 

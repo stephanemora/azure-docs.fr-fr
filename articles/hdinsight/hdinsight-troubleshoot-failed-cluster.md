@@ -2,35 +2,35 @@
 title: Résoudre les problèmes d’un cluster HDInsight défaillant ou lent - Azure HDInsight
 description: Diagnostiquer et résoudre les problèmes d’un cluster HDInsight défaillant ou lent.
 services: hdinsight
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/11/2018
-ms.openlocfilehash: 05c6f1cbf5f7f20745fa837accdaa95e6c186b8b
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.date: 03/19/2019
+ms.openlocfilehash: 0129a09383b59aa5d213ef7ff1c78f23588472a7
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226612"
+ms.locfileid: "58295468"
 ---
 # <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>Résoudre les problèmes d’un cluster HDInsight défaillant ou lent
 
-En cas de ralentissement d’un cluster HDInsight ou d’échec du cluster avec un code d’erreur, vous disposez de plusieurs options de dépannage. Si l’exécution de vos travaux prend plus de temps que prévu ou si vous constatez généralement des temps de réponse assez longs, il est possible que ces problèmes soient imputables à des défaillances en amont à de votre cluster (par exemple, les services sur lesquels s’exécute le cluster). Mais une mise à l’échelle insuffisante est la cause la plus courante de ces ralentissements. Lorsque vous créez un nouveau cluster HDInsight, sélectionnez les [tailles de machine virtuelle](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters) appropriées.
+En cas de ralentissement d’un cluster HDInsight ou d’échec du cluster avec un code d’erreur, vous disposez de plusieurs options de dépannage. Si l’exécution de vos travaux prend plus de temps que prévu ou si vous constatez généralement des temps de réponse assez longs, il est possible que ces problèmes soient imputables à des défaillances en amont à de votre cluster (par exemple, les services sur lesquels s’exécute le cluster). Mais une mise à l’échelle insuffisante est la cause la plus courante de ces ralentissements. Lorsque vous créez un nouveau cluster HDInsight, sélectionnez l’option appropriée [tailles de machine virtuelle](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters).
 
 Pour diagnostiquer un cluster lent ou défaillant, essayez de recueillir des informations sur tous les aspects de l’environnement, notamment les services Azure associés, la configuration du cluster ou encore les informations relatives à l’exécution du travail. Pour diagnostiquer les problèmes, le mieux est d’essayer de reproduire l’état d’erreur sur un autre cluster.
 
-* Étape 1 : Recueillir des données sur le problème
-* Étape 2 : Valider l’environnement du cluster HDInsight 
-* Étape 3 : Contrôler l’état d’intégrité de votre cluster
-* Étape 4 : Examiner la pile et les versions de l’environnement
-* Étape 5 : Examiner les fichiers journaux du cluster
-* Étape 6 : Vérifier les paramètres de configuration
-* Étape 7 : Reproduire la défaillance sur un autre cluster 
+* Étape 1 : Collecter des données sur le problème.
+* Étape 2 : Valider l’environnement de cluster HDInsight.
+* Étape 3 : Afficher l’intégrité de votre cluster.
+* Étape 4 : Passez en revue les versions et la pile de l’environnement.
+* Étape 5 : Examinez les fichiers journaux de cluster.
+* Étape 6 : Vérifiez les paramètres de configuration.
+* Étape 7 : Reproduire la défaillance sur un autre cluster.
 
-## <a name="step-1-gather-data-about-the-issue"></a>Étape 1 : Recueillir des données sur le problème
+## <a name="step-1-gather-data-about-the-issue"></a>Étape 1 : Recueillir des données sur le problème
 
 HDInsight fournit de nombreux outils que vous pouvez utiliser pour identifier et résoudre les problèmes liés aux clusters. Les étapes suivantes vous guident tout au long de l’utilisation de ces outils et vous fournissent des suggestions pour localiser le problème.
 
@@ -57,13 +57,12 @@ Le portail Azure peut fournir les informations suivantes :
 
 ![Informations relatives au portail Azure HDInsight](./media/hdinsight-troubleshoot-failed-cluster/portal.png)
 
-Vous pouvez aussi utiliser Azure Classic CLI :
+Vous pouvez également utiliser [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest):
 
+```azurecli
+az hdinsight list --resource-group <ResourceGroup>
+az hdinsight show --resource-group <ResourceGroup> --name <ClusterName>
 ```
-    azure hdinsight cluster list
-    azure hdinsight cluster show <ClusterName>
-```
-[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 Une autre option consiste à utiliser PowerShell. Pour en savoir plus, consultez la page [Gestion des clusters Apache Hadoop dans HDInsight au moyen d’Azure PowerShell](hdinsight-administer-use-powershell.md).
 
@@ -73,10 +72,10 @@ Chaque cluster HDInsight s’appuie sur divers services Azure ainsi que sur des 
 
 ### <a name="service-details"></a>Détails du service
 
-* Vérifiez les versions de bibliothèques open source
-* Recherchez les [interruptions de service Azure](https://azure.microsoft.com/status/) 
-* Recherchez les limites d’utilisation des services Azure 
-* Vérifiez la configuration de sous-réseau du réseau virtuel Azure 
+* Vérifiez les versions de bibliothèque open source.
+* Recherchez [des interruptions de Service Azure](https://azure.microsoft.com/status/).  
+* Recherchez les limites d’utilisation du Service Azure. 
+* Vérifiez la configuration de sous-réseau de réseau virtuel Azure.  
 
 ### <a name="view-cluster-configuration-settings-with-the-ambari-ui"></a>Vérifier les paramètres de configuration du cluster avec l’interface utilisateur Ambari
 
@@ -124,7 +123,7 @@ Il arrive souvent que les travaux Apache Hive, Apache Pig ou Apache Sqoop échou
 Ce message générique est généré par les nœuds de la passerelle et représente le code d’état d’échec le plus courant. Il peut être imputé à un arrêt du service WebHCat sur le nœud principal actif. Pour vérifier cette possibilité, utilisez la commande CURL suivante :
 
 ```bash
-$ curl -u admin:{HTTP PASSWD} https://{CLUSTERNAME}.azurehdinsight.net/templeton/v1/status?user.name=admin
+curl -u admin:{HTTP PASSWD} https://{CLUSTERNAME}.azurehdinsight.net/templeton/v1/status?user.name=admin
 ```
 
 Ambari affiche une alerte indiquant les hôtes sur lesquels le service WebHCat est arrêté. Vous pouvez tenter de rétablir le service WebHCat en redémarrant le service sur son hôte.
@@ -153,7 +152,7 @@ Les sections suivantes décrivent les causes possibles de l’expiration des dé
 Lorsque WebHCat est chargé et que plus de 10 sockets sont ouverts, il met davantage de temps à établir de nouvelles connexions de socket, ce qui peut entraîner un délai d’attente. Pour répertorier les connexions réseau vers et depuis WebHCat, utilisez `netstat` sur le nœud principal actif actuel :
 
 ```bash
-$ netstat | grep 30111
+netstat | grep 30111
 ```
 
 30111 est le port qu’écoute WebHCat. Le nombre de sockets ouverts doit être inférieur à 10.
@@ -161,7 +160,7 @@ $ netstat | grep 30111
 Si aucun socket n’est ouvert, la commande précédente ne produit aucun résultat. Pour vérifier si Templeton est activé et à l’écoute sur le port 30111, utilisez :
 
 ```bash
-$ netstat -l | grep 30111
+netstat -l | grep 30111
 ```
 
 ##### <a name="yarn-level-timeout"></a>Délai d’expiration au niveau de YARN
@@ -190,9 +189,9 @@ Au niveau de YARN, il existe deux types de délais d’expiration :
 
 Pour diagnostiquer ces problèmes :
 
-    1. Déterminez l’intervalle de temps UTC pour résoudre les problèmes
-    2. Sélectionnez le ou les fichier(s) `webhcat.log` appropriés
-    3. Recherchez des messages d’avertissement et d’erreur pendant cette période
+1. Déterminez l’intervalle de temps UTC pour résoudre les problèmes
+2. Sélectionnez le ou les fichier(s) `webhcat.log` appropriés
+3. Recherchez des messages d’avertissement et d’erreur pendant cette période
 
 #### <a name="other-webhcat-failures"></a>Autres défaillances de WebHCat
 
@@ -215,8 +214,6 @@ La page **Pile et version** de l’interface utilisateur Ambari fournit des info
 ## <a name="step-5-examine-the-log-files"></a>Étape 5 : Examiner les fichiers journaux
 
 De nombreux types de fichiers journaux sont générés à partir des nombreux services et composants qui composent un cluster HDInsight. Les [fichiers journaux WebHCat](#check-your-webhcat-service) ont été décrits précédemment. Il existe d’autres fichiers journaux utiles que vous pouvez examiner pour réduire les problèmes liés à votre cluster, comme décrit ci-dessous.
-
-![Exemple de fichier journal HDInsight](./media/hdinsight-troubleshoot-failed-cluster/logs.png)
 
 * Les clusters HDInsight sont constitués de plusieurs nœuds, dont la plupart sont chargés d’exécuter les travaux soumis. Les travaux s’exécutent simultanément, mais les fichiers journaux peuvent uniquement afficher des résultats de façon linéaire. HDInsight exécute de nouvelles tâches, en mettant d’abord fin à celles qui ne parviennent pas à s’exécuter. Tous ces activités sont consignées dans les fichiers `stderr` et `syslog`.
 
@@ -259,7 +256,7 @@ Pour aider à diagnostiquer l’origine d’une erreur de cluster, démarrez un 
 1. Créez un nouveau cluster de test avec la même configuration que le cluster défaillant.
 2. Envoyez la première étape du travail vers le cluster de test.
 3. Une fois le traitement de l’étape terminé, recherchez les erreurs dans les fichiers journaux d’étapes. Connectez-vous au nœud principal du cluster de test et consultez les fichiers journaux qui s’y trouvent. Les fichiers journaux d’étapes apparaissent uniquement si l’étape s’exécute pendant un certain temps, se termine ou échoue.
-4. Si la première étape a réussi, exécutez l’étape suivante. En cas d’erreurs, examinez l’erreur dans les fichiers journaux. S’il s’agit d’une erreur de code, corrigez-la et exécutez de nouveau l’étape. 
+4. Si la première étape a réussi, exécutez l’étape suivante. En cas d’erreurs, examinez l’erreur dans les fichiers journaux. S’il s’agit d’une erreur de code, corrigez-la et exécutez de nouveau l’étape.
 5. Continuez ainsi jusqu’à ce que toutes les étapes s’exécutent sans erreur.
 6. Une fois le débogage du cluster de test terminé, supprimez-le.
 

@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 6fb8166893f0dada019ca633933833d17b95fee9
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 368e1f6b9501c677eca1cf80d24a06c0a6533e86
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811458"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817352"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métriques, alertes et journaux Batch pour l’évaluation de diagnostic et la surveillance
 
@@ -91,7 +91,7 @@ Autres destinations facultatives pour les journaux de diagnostic :
 
 * Diffusez les événements du journal de diagnostic Batch vers un service [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md). Le service Event Hubs peut traiter à chaque seconde des millions d’événements que vous pouvez transformer et stocker à l’aide de tout fournisseur d’analyses en temps réel. 
 
-* Envoyez les journaux de diagnostic à [Azure Log Analytics](../log-analytics/log-analytics-overview.md), où vous pouvez les analyser ou les importer pour analyse dans Power BI ou Excel.
+* Envoyer les journaux de diagnostic vers [Azure Monitor enregistre](../log-analytics/log-analytics-overview.md), où vous pouvez les analyser ou les exporter pour l’analyse dans Power BI ou Excel.
 
 > [!NOTE]
 > Vous risquez de payer des frais supplémentaires pour stocker ou traiter les données de journal de diagnostics avec les services Azure. 
@@ -101,7 +101,7 @@ Autres destinations facultatives pour les journaux de diagnostic :
 
 1. Dans le portail, cliquez sur **Tous les services** > **Comptes Batch**, puis sur le nom de votre compte Batch.
 2. Sous **Surveillance**, cliquez sur **Journaux de diagnostic** > **Activer les diagnostics**.
-3. Dans **Paramètres de diagnostic**, entrez un nom pour le paramètre et choisissez une destination de journal (compte de stockage existant, Event Hub ou Log Analytics). Sélectionnez **ServiceLog** et **AllMetrics**, ou l’un des deux.
+3. Dans **les paramètres de Diagnostic**, entrez un nom pour le paramètre et choisir une destination de journal (compte de stockage, concentrateur d’événements ou journaux Azure Monitor). Sélectionnez **ServiceLog** et **AllMetrics**, ou l’un des deux.
 
     Lorsque vous sélectionnez un compte de stockage, définissez éventuellement une stratégie de rétention. Si vous ne spécifiez pas de nombre de jours de rétention, les données sont conservées pendant la durée de vie du compte de stockage.
 

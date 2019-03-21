@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 03/12/2019
+ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5152058643b97e11c7487d470d4f7d3fc9d96b6e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 63d4f8e2f1b88084b2bac5f1a29514b5e289cbd4
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57878123"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286514"
 ---
 # <a name="appendix-for-azure-disk-encryption"></a>Annexe pour Azure Disk Encryption 
 
@@ -100,7 +100,7 @@ Avant de commencer, consultez l’article [Prérequis](azure-security-disk-encry
 - **Répertorier tous les secrets de chiffrement de disque utilisées pour chiffrer les machines virtuelles dans un coffre de clés** 
 
      ```azurepowershell-interactive
-     Get-AzureKeyVaultSecret -VaultName $KeyVaultName | where {$_.Tags.ContainsKey('DiskEncryptionKeyFileName')} | format-table @{Label="MachineName"; Expression={$_.Tags['MachineName']}}, @{Label="VolumeLetter"; Expression={$_.Tags['VolumeLetter']}}, @{Label="EncryptionKeyURL"; Expression={$_.Id}}
+     Get-AzKeyVaultSecret -VaultName $KeyVaultName | where {$_.Tags.ContainsKey('DiskEncryptionKeyFileName')} | format-table @{Label="MachineName"; Expression={$_.Tags['MachineName']}}, @{Label="VolumeLetter"; Expression={$_.Tags['VolumeLetter']}}, @{Label="EncryptionKeyURL"; Expression={$_.Id}}
      ```
 
 ### <a name="bkmk_prereq-script"></a> Exécution du script PowerShell de configuration d’Azure Disk Encryption
@@ -546,7 +546,7 @@ Lors du chiffrement avec une application Azure AD (version précédente), la cl�
 ``` 
 
 ### <a name="bkmk_SecretnoKEK"></a> Secret de chiffrement de disque non chiffré avec une clé KEK
-Pour configurer la clé secrète dans votre coffre de clés, utilisez [Set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret). Si vous disposez d’une machine virtuelle Windows, le fichier bek est encodé sous forme de chaîne en base64, puis téléchargé dans le coffre de clés à l’aide de l’applet de commande `Set-AzureKeyVaultSecret`. Pour Linux, la phrase secrète est encodée sous forme de chaîne en base64, puis téléchargée dans le coffre de clés. Assurez-vous également que les balises suivantes sont définies lors de la création de la clé secrète dans le coffre de clés.
+Pour configurer la clé secrète dans votre coffre de clés, utilisez [Set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret). Si vous disposez d’une machine virtuelle Windows, le fichier bek est encodé sous forme de chaîne en base64, puis téléchargé dans le coffre de clés à l’aide de l’applet de commande `Set-AzKeyVaultSecret`. Pour Linux, la phrase secrète est encodée sous forme de chaîne en base64, puis téléchargée dans le coffre de clés. Assurez-vous également que les balises suivantes sont définies lors de la création de la clé secrète dans le coffre de clés.
 
 #### <a name="windows-bek-file"></a>Fichier Windows BEK
 ```powershell
@@ -569,7 +569,7 @@ $FileContentEncoded = [System.convert]::ToBase64String((Get-Content -Path $BEKFi
 
 $SecretName = [guid]::NewGuid().ToString()
 $SecureSecretValue = ConvertTo-SecureString $FileContentEncoded -AsPlainText -Force
-$Secret = Set-AzureKeyVaultSecret -VaultName $VeyVaultName -Name $SecretName -SecretValue $SecureSecretValue -tags $tags
+$Secret = Set-AzKeyVaultSecret -VaultName $VeyVaultName -Name $SecretName -SecretValue $SecureSecretValue -tags $tags
 
 # Show the secret's URL and store it as a variable. This is used as -DiskEncryptionKeyUrl in Set-AzVMOSDisk when you attach your OS disk. 
 $SecretUrl=$secret.Id
@@ -587,7 +587,7 @@ $SecretUrl
  $secretValue = [Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes($passphrase))
  $secureSecretValue = ConvertTo-SecureString $secretValue -AsPlainText -Force
 
- $secret = Set-AzureKeyVaultSecret -VaultName $KeyVaultName -Name $secretName -SecretValue $secureSecretValue -tags $tags
+ $secret = Set-AzKeyVaultSecret -VaultName $KeyVaultName -Name $secretName -SecretValue $secureSecretValue -tags $tags
  $secretUrl = $secret.Id
 ```
 
@@ -601,8 +601,8 @@ Avant de télécharger la clé secrète dans le coffre de clés, vous pouvez év
     # This is the passphrase that was provided for encryption during the distribution installation
     $passphrase = "contoso-password"
 
-    Add-AzureKeyVaultKey -VaultName $KeyVaultName -Name "keyencryptionkey" -Destination Software
-    $KeyEncryptionKey = Get-AzureKeyVaultKey -VaultName $KeyVault.OriginalVault.Name -Name "keyencryptionkey"
+    Add-AzKeyVaultKey -VaultName $KeyVaultName -Name "keyencryptionkey" -Destination Software
+    $KeyEncryptionKey = Get-AzKeyVaultKey -VaultName $KeyVault.OriginalVault.Name -Name "keyencryptionkey"
 
     $apiversion = "2015-06-01"
 

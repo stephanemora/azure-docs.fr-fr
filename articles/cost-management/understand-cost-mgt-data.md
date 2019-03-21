@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/07/2019
+ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 1d7f58780819202eb02e3a48b4b5e0ac108a0432
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 40c08f87a1711ae57ceb8b288851686d1e2ad391
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447461"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993938"
 ---
 # <a name="understand-cost-management-data"></a>Comprendre les données Cost Management
 
@@ -62,8 +62,9 @@ Le tableau suivant présente les offres non prises en charge.
 | **Plans de support** | Support Professional Direct Azure Government | MS-AZR-USGOV-0042P |
 | **Plans de support** | Support Developer Support Azure Government | MS-AZR-USGOV-0043P |
 
-Pour les clients des catégories d'offre Paiement à l'utilisation, MSDN et Visual Studio, les données sont disponibles dans Cost Management à partir du 10/02/2018.
+Pour les clients des catégories d'offre Paiement à l'utilisation, MSDN et Visual Studio, les données sont disponibles dans Cost Management à partir du 10/02/2018. Pour accéder aux données de votre abonnement avant le 10/02/2018, vous pouvez utiliser la [centre des comptes Azure](https://account.azure.com/subscriptions) pour télécharger votre utilisation sur les détails dans un fichier CSV ou vous pouvez utiliser la [API détails d’utilisation](/rest/api/consumption/usagedetails).
 
+## <a name="determine-your-offer-type"></a>Déterminer votre type d’offre
 Si vous ne voyez pas de données pour un abonnement et que vous souhaitez déterminer si votre abonnement figure dans les offres prises en charge, vous pouvez valider que votre abonnement est pris en charge. Pour valider qu’un abonnement Azure est pris en charge, connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez ensuite **Tous les services** dans le volet du menu de gauche. Dans la liste des services, sélectionnez **Abonnements**. Dans le menu de la liste des abonnements, cliquez sur l’abonnement que vous souhaitez vérifier. Votre abonnement est affiché sous l’onglet Vue d’ensemble et vous pouvez voir les éléments **Offre** et **ID de l’offre**. L’image suivante en montre un exemple.
 
 ![Exemple de l’onglet Vue d’ensemble de l’abonnement montrant l’offre et l’ID de l’offre](./media/understand-cost-mgt-data/offer-and-offer-id.png)
@@ -94,7 +95,7 @@ Les tableaux suivants indiquent les données qui sont comprises ou non dans Cost
 
 ## <a name="rated-usage-data-refresh-schedule"></a>Planification d’actualisation des données sur l’utilisation estimée
 
-Les données de coût et d’utilisation sont disponibles dans Gestion des coûts + facturation dans le portail Azure et les [API de prise en charge](https://aka.ms/costmgmt/docs). Gardez à l’esprit les points suivants quand vous passez en revue les coûts :
+Les données de coût et d’utilisation sont disponibles dans Gestion des coûts + facturation dans le portail Azure et les [API de prise en charge](index.yml). Gardez à l’esprit les points suivants quand vous passez en revue les coûts :
 
 - Les frais estimés pour la période de facturation en cours sont mis à jour six fois par jour.
 - Les frais estimés pour la période de facturation en cours peuvent changer au fur et à mesure que votre utilisation augmente.

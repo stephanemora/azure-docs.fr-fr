@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: d1386900-b942-4abf-acfc-38d2ef826253
 ms.service: service-bus-relay
 ms.devlang: tbd
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 63961e978056a20e697872c0c1d892efaadcc627
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
-ms.translationtype: HT
+ms.openlocfilehash: 88d540f274d8b07bfbdbb566c670adf6ddfefd74
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612068"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57878696"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-net"></a>Bien démarrer avec les WebSockets de connexions hybrides Relay dans .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
@@ -34,11 +34,11 @@ Ce démarrage rapide comporte les étapes suivantes :
 4. Écrire une application de console (expéditeur) de client pour envoyer des messages.
 5. Exécuter les applications. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour effectuer ce didacticiel, vous avez besoin de ce qui suit :
 
-* [Visual Studio 2015 ou version ultérieure](http://www.visualstudio.com). Les exemples de ce didacticiel utilisent Visual Studio 2017.
+* [Visual Studio 2015 ou version ultérieure](https://www.visualstudio.com). Les exemples de ce didacticiel utilisent Visual Studio 2017.
 * Un abonnement Azure. Si vous n’en avez pas, [créez un compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="create-a-namespace"></a>Créer un espace de noms

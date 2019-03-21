@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 729287cfcc557e167a70d6f69a5b2b34909df836
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d7f047d784796b9e7c59d95863aa74b3f72da324
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180978"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995636"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silkroad-life-suite"></a>Tutoriel : Intégration d’Azure Active Directory à SilkRoad Life Suite
 
@@ -35,7 +35,7 @@ L’intégration de SilkRoad Life Suite à Azure AD offre les avantages suivants
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD avec SilkRoad Life Suite, vous avez besoin des éléments suivants :
 
@@ -114,12 +114,14 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<subdomain>.silkroad-eng.com/Authentication/`
 
     b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : 
+
     | |
     |--|
     | `https://<subdomain>.silkroad-eng.com/Authentication/SP` |
     | `https://<subdomain>.silkroad.com/Authentication/SP` |
 
     c. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : 
+    
     | |
     |--|
     | `https://<subdomain>.silkroad-eng.com/Authentication/` |

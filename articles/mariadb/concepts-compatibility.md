@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.openlocfilehash: 36628ed0749814b5bafe4b18278c8bcfe7265374
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 7a3d9a5f87a565625052fc54e3ecccc99fd928a7
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227630"
+ms.locfileid: "58259492"
 ---
 # <a name="mariadb-drivers-and-management-tools-compatible-with-azure-database-for-mariadb"></a>MariaDB pilotes et outils de gestion compatibles avec Azure Database pour MariaDB
 
@@ -29,7 +29,7 @@ PHP | https://secure.php.net/downloads.php | 5.5, 5.6, 7.x | 5.3 | Pour la conne
 .NET | [MySqlConnector sur GitHub](https://github.com/mysql-net/MySqlConnector) <br> [Package d’installation à partir de Nuget](https://www.nuget.org/packages/MySqlConnector/) | 0.27 et versions ultérieures | 0.26.5 et versions antérieures |
 Connecteur MySQL/NET | [Connecteur MySQL/NET](https://github.com/mysql/mysql-connector-net) | 8.0, 7.0, 6.10 |  | Un bogue d’encodage peut provoquer l’échec des connexions sur certains systèmes Windows non -UTF8.
 Node.js |  [MySQLjs sur GitHub](https://github.com/mysqljs/mysql/) <br> Package d’installation à partir de NPM :<br> Exécuter `npm install mysql` à partir de NPM | 2.15 | 2.14.1 et versions antérieures
-GO | https://github.com/go-sql-driver/mysql/releases | 1.3 | 1.2 et versions antérieures | Utiliser allowNativePasswords=true dans la chaîne de connexion
+GO | https://github.com/go-sql-driver/mysql/releases | 1.3, 1.4 | 1.2 et versions antérieures | Utilisez `allowNativePasswords=true` dans la chaîne de connexion pour la version 1.3. Version 1.4 contient un correctif et `allowNativePasswords=true` n’est plus nécessaire.
 Python | https://pypi.python.org/pypi/mysql-connector-python | 1.2.3, 2.0, 2.1, 2.2 | 1.2.2 et versions antérieures |
 Java | https://downloads.mariadb.org/connector-java/ | 2.1, 2.0, 1.6 | 1.5.5 et versions antérieures |
 

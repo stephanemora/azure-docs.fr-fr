@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Syncplicity | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Syncplicity | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Syncplicity.
 services: active-directory
 documentationCenter: na
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3df48fd42ca998e2a64f2fbe685047da16a8bae7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 5f6fcc4d2920841c730ef179497f9184b1f6649d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193478"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451950"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-syncplicity"></a>Tutoriel : Intégration d’Azure Active Directory à Syncplicity
 
@@ -34,7 +34,7 @@ L’intégration de Syncplicity dans Azure AD vous offre les avantages suivants�
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD à Syncplicity, vous avez besoin des éléments suivants :
 
@@ -206,7 +206,7 @@ Pour que les utilisateurs AAD puissent se connecter, ils doivent être approvisi
    
     ![Gestion des utilisateurs](./media/syncplicity-tutorial/ic769764.png "Gestion des utilisateurs")
 
-1. Entrez **l’adresse e-mail** d’un compte AAD que vous souhaitez approvisionner, sélectionnez **Utilisateur** pour **Rôle**, puis cliquez sur **SUIVANT**.
+1. Type de la **adresses de messagerie** d’un compte AAD que vous souhaitez approvisionner, sélectionnez **utilisateur** comme **rôle**, puis cliquez sur **suivant**.
    
     ![Informations du compte](./media/syncplicity-tutorial/ic769765.png "Informations du compte")
    

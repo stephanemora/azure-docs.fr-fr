@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5a4b8b2fd3e232d7b42b2f510075c3964ca50531
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: 5edd3e51e83b5ab324d1e110a1882b20d935a9b5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652572"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899126"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-azure-app-service"></a>Corriger les erreurs HTTP « 502 Passerelle incorrecte » et « 503 Service indisponible » sur Azure App Service
 Les erreurs « 502 Passerelle incorrecte » et « 503 Service indisponible » sont courantes dans les applications hébergées sur [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Cet article vous permet de résoudre ces erreurs.
@@ -76,7 +76,7 @@ Pour plus d'informations, consultez les pages suivantes :
 
 ### <a name="2-collect-data"></a>2. Collecter les données
 #### <a name="use-the-diagnostics-tool"></a>Utiliser l’outil de diagnostic
-App Service fournit une expérience interactive et intelligente pour vous aider à résoudre les problèmes liés à votre application sans configuration particulière. Si votre application rencontre des problèmes, l'outil de diagnostic vous en indique la nature afin de vous permettre d'accéder aux informations appropriées pour les résoudre plus facilement et plus rapidement.
+App Service fournit une expérience interactive et intelligente pour vous aider à résoudre les problèmes liés à votre application sans configuration particulière. Si votre application rencontre des problèmes, l’outil de diagnostic vous en indique la nature afin de vous permettre d’accéder aux informations appropriées pour les résoudre plus facilement et plus rapidement.
 
 Pour accéder aux diagnostics App Service, accédez à votre application App Service ou à votre environnement App Service dans le [portail Azure](https://portal.azure.com). Dans le volet de navigation de gauche, cliquez sur **Diagnostiquer et résoudre les problèmes**.
 
@@ -99,8 +99,8 @@ Pour plus d'informations sur les fonctionnalités disponibles dans Kudu, consult
 <a name="mitigate" />
 
 ### <a name="3-mitigate-the-issue"></a>3. Résoudre le problème
-#### <a name="scale-the-app"></a>Mettre l'application à l'échelle
-Dans Azure App Service, pour améliorer les performances et le débit, vous pouvez ajuster l’échelle à laquelle vous exécutez votre application. La mise à l'échelle d'une application implique deux actions associées : l'évolution de votre plan App Service vers un niveau tarifaire supérieur et la configuration de certains paramètres après le passage à ce niveau tarifaire supérieur.
+#### <a name="scale-the-app"></a>Mettre l’application à l’échelle
+Dans Azure App Service, pour améliorer les performances et le débit, vous pouvez ajuster l’échelle à laquelle vous exécutez votre application. La mise à l’échelle d’une application implique deux actions associées : l’évolution de votre plan App Service vers un niveau tarifaire supérieur et la configuration de certains paramètres après le passage à ce niveau tarifaire supérieur.
 
 Pour plus d'informations sur la mise à l'échelle, consultez [Mise à l'échelle des applications dans un environnement Azure App Service](web-sites-scale.md).
 
@@ -109,7 +109,7 @@ En outre, vous pouvez choisir d’exécuter votre application sur plusieurs inst
 Vous pouvez définir la mise à l’échelle pour qu’elle soit manuelle ou automatique.
 
 #### <a name="use-autoheal"></a>Utilisation de la correction automatique (AutoHeal)
-La correction automatique (AutoHeal) recycle le processus de travail pour votre application en fonction des paramètres que vous choisissez (comme les modifications de configuration, les requêtes, les limites de mémoire ou le temps nécessaire pour exécuter une requête). La plupart du temps, le recyclage du processus est le moyen le plus rapide pour résoudre un problème. Même si vous pouvez toujours redémarrer l'application à partir du portail Azure, la fonctionnalité de correction automatique (AutoHeal) s'en charge automatiquement pour vous. Il vous suffit d'ajouter des déclencheurs dans le fichier web.config racine pour votre application. Notez que ces paramètres fonctionnent de la même façon même si votre application n’est pas une application .Net.
+La correction automatique (AutoHeal) recycle le processus de travail pour votre application en fonction des paramètres que vous choisissez (comme les modifications de configuration, les requêtes, les limites de mémoire ou le temps nécessaire pour exécuter une requête). La plupart du temps, le recyclage du processus est le moyen le plus rapide pour résoudre un problème. Même si vous pouvez toujours redémarrer l'application à partir du portail Azure, la fonctionnalité de correction automatique (AutoHeal) s'en charge automatiquement pour vous. Il vous suffit d’ajouter des déclencheurs dans le fichier web.config racine pour votre application. Notez que ces paramètres fonctionnent de la même façon même si votre application n’est pas un .NET.
 
 Pour plus d'informations, consultez [Correction automatique de Sites Web Azure](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/).
 

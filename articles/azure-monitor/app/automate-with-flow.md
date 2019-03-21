@@ -9,18 +9,18 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/25/2017
+ms.date: 03/12/2019
 ms.author: mbullwin
-ms.openlocfilehash: 685ce54f75b20879230163f216246746b4a36922
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
-ms.translationtype: HT
+ms.openlocfilehash: cbb9cceef68febec0af991c3d8d5df3e3404f1c6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53755980"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834048"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Automatiser les processus Azure Application Insights avec le connecteur pour Microsoft Flow
 
-Vous devez exécuter à plusieurs reprises les mêmes requêtes sur vos données de télémétrie pour vérifier le bon fonctionnement de votre service ? Cherchez-vous à automatiser ces requêtes pour rechercher les tendances et les anomalies, puis générer vos propres flux de travail autour d’elles ? Le connecteur Azure Application Insights (préversion) pour Microsoft Flow est l’outil adapté à ces objectifs.
+Vous devez exécuter à plusieurs reprises les mêmes requêtes sur vos données de télémétrie pour vérifier le bon fonctionnement de votre service ? Cherchez-vous à automatiser ces requêtes pour rechercher les tendances et les anomalies, puis générer vos propres flux de travail autour d’elles ? Le connecteur Azure Application Insights pour Microsoft Flow est l’outil adapté à ces fins.
 
 Avec cette intégration, vous pouvez désormais automatiser de nombreux processus sans écrire la moindre ligne de code. Après avoir créé un flux à l’aide d’une action Application Insights, le flux exécute automatiquement votre requête Application Insights Analytics. 
 
@@ -34,38 +34,45 @@ Dans ce didacticiel, vous allez apprendre à créer un flux qui utilise l’algo
 
 ### <a name="step-1-create-a-flow"></a>Étape 1 : Créer un flux
 1. Connectez-vous à [Microsoft Flow](https://flow.microsoft.com), puis sélectionnez **Mes flux**.
-2. Cliquez sur **Créer un flux à partir de rien**.
+2. Cliquez sur **New** puis **créer entièrement**.
 
-### <a name="step-2-create-a-trigger-for-your-flow"></a>Étape 2 : Créer un déclencheur pour votre flux
-1. Sélectionnez **Planifier**, puis **Planification - Récurrence**.
-1. Dans la zone **Fréquence**, sélectionnez **Jour** et, dans la zone **Intervalle**, entrez **1**.
+    ![Créer un flux entièrement](./media/automate-with-flow/1createflow.png)
 
-    ![Boîte de dialogue du déclencheur de flux Microsoft Flow](./media/automate-with-flow/flow1.png)
+### <a name="step-2-create-a-trigger-for-your-flow"></a>Étape 2 : Créer un déclencheur pour votre flux
+1. Dans la Build-onglet sélectionnez **planification**, puis sélectionnez **planification - récurrence**.
+
+    ![Sélectionnez le planifier sous build](./media/automate-with-flow/2schedule.png)
+
+1. Dans le le **intervalle** , entrez **1**, puis, dans le **fréquence** boîte, sélectionnez **jour**.
+2. Cliquez sur **nouvelle étape**
+
+    ![Configurer la périodicité de planification à l’entrée de fréquence et l’intervalle](./media/automate-with-flow/3schedulerecurrence.png)
 
 
-### <a name="step-3-add-an-application-insights-action"></a>Étape 3 : Ajouter une action Application Insights
-1. Cliquez sur **Nouvelle étape**, puis sur **Ajouter une action**.
+### <a name="step-3-add-an-application-insights-action"></a>Étape 3 : Ajouter une action Application Insights
 1. Recherchez **Azure Application Insights**.
-1. Cliquez sur **Azure Application Insights – Visualiser la requête Analytics Préversion**.
+2. Cliquez sur **Azure Application Insights - requête de visualiser une Analytique**.
+ 
+    ![Choisir une action : Requête Analytique de visualiser des Insights d’Application Azure](./media/automate-with-flow/4visualize.png)
 
-    ![Fenêtre d’exécution de la requête Analytics](./media/automate-with-flow/flow2.png)
-
-### <a name="step-4-connect-to-an-application-insights-resource"></a>Étape 4 : Se connecter à une ressource Application Insights
+### <a name="step-4-connect-to-an-application-insights-resource"></a>Étape 4 : Se connecter à une ressource Application Insights
 
 Pour cette étape, vous avez besoin d’un ID d’application et d’une clé d’API pour votre ressource. Vous pouvez les récupérer sur le portail Azure, comme illustré dans le schéma suivant :
 
-![ID d’application dans le portail Azure](./media/automate-with-flow/appid.png) 
+![ID d’application dans le portail Azure](./media/automate-with-flow/5apiaccess.png)
+
+![Clé API dans le portail Azure](./media/automate-with-flow/6apikey.png)
 
 - Renseignez le nom de votre connexion, l’ID d’application et la clé d’API.
 
-    ![Fenêtre de connexion Microsoft Flow](./media/automate-with-flow/flow3.png)
+    ![Fenêtre de connexion Microsoft Flow](./media/automate-with-flow/7connection.png)
 
 ### <a name="step-5-specify-the-analytics-query-and-chart-type"></a>Étape 5 : Spécifier le type de requête et de graphique Analytics
 Cet exemple de requête sélectionne les requêtes ayant échoué au cours du dernier jour et les met en corrélation avec les exceptions qui se sont produites dans le cadre de l’opération. Analytics les met en corrélation en fonction de l’identificateur operation_Id. La requête segmente ensuite les résultats à l’aide de l’algorithme de cluster automatique. 
 
 Lorsque vous créez vos propres requêtes, vérifiez qu’elles fonctionnent correctement dans Analytics avant de les ajouter à votre flux.
 
-- Ajoutez la requête Analytics suivante, puis sélectionnez le type de graphique de tableau HTML. 
+- Ajoutez la requête Analytique suivante, puis sélectionnez le type de graphique de tableau HTML. Puis sélectionnez **nouvelle étape**.
 
     ```
     requests
@@ -78,15 +85,14 @@ Lorsque vous créez vos propres requêtes, vérifiez qu’elles fonctionnent cor
     | evaluate autocluster()
     ```
     
-    ![Fenêtre de configuration de requête Analytics](./media/automate-with-flow/flow4.png)
+    ![Fenêtre de configuration de requête Analytics](./media/automate-with-flow/8query.png)
 
 ### <a name="step-6-configure-the-flow-to-send-email"></a>Étape 6 : Configurer le flux pour envoyer un e-mail
 
-1. Cliquez sur **Nouvelle étape**, puis sur **Ajouter une action**.
 1. Recherchez **Office 365 Outlook**.
-1. Cliquez sur **Office 365 Outlook - Envoyer un message électronique**.
+2. Cliquez sur **Office 365 Outlook - Envoyer un message électronique**.
 
-    ![Fenêtre de sélection d’Office 365 Outlook](./media/automate-with-flow/flow2b.png)
+    ![Fenêtre de sélection d’Office 365 Outlook](./media/automate-with-flow/9outlookaction.png)
 
 1. Dans la fenêtre **Envoyer un message électronique**, effectuez les étapes suivantes :
 
@@ -98,7 +104,7 @@ Lorsque vous créez vos propres requêtes, vérifiez qu’elles fonctionnent cor
 
    d. Cliquez sur **Afficher les options avancées**.
 
-    ![Configuration d’Office 365 Outlook](./media/automate-with-flow/flow5.png)
+    ![Configuration d’Office 365 Outlook](./media/automate-with-flow/10sendemailbody.png)
 
 1. Dans le menu de contenu dynamique, effectuez les étapes suivantes :
 
@@ -108,12 +114,12 @@ Lorsque vous créez vos propres requêtes, vérifiez qu’elles fonctionnent cor
     
     c. Dans la zone **Is HTML** (Est HTML), sélectionnez **Oui**.
 
-    ![Fenêtre de configuration d’e-mail Office 365](./media/automate-with-flow/flow7.png)
+    ![Fenêtre de configuration d’e-mail Office 365](./media/automate-with-flow/11emailattachment.png)
 
 ### <a name="step-7-save-and-test-your-flow"></a>Étape 7 : Enregistrer et tester votre flux
-- Dans la zone **Nom du flux**, ajoutez un nom pour votre flux, puis cliquez sur **Créer un flux**.
+- Dans le **le nom du flux** zone, ajouter un nom pour votre flux, puis cliquez sur **enregistrer**.
 
-    ![Fenêtre de création de flux](./media/automate-with-flow/flow8.png)
+    ![Flux de nommer et enregistrer](./media/automate-with-flow/12nameflow.png)
 
 Vous pouvez attendre que le déclencheur exécute cette action ou vous pouvez exécuter immédiatement le flux en [exécutant le déclencheur à la demande](https://flow.microsoft.com/blog/run-now-and-six-more-services/).
 

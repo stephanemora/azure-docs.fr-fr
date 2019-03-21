@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 02/05/2019
+ms.date: 02/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 0effc6af1ddc3273f0c6e2bf9cbfd0f2ecadf0a2
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 067bb6b806ddd9b83d4ea755876a980ca45d76e9
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747320"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407624"
 ---
 # <a name="azure-data-box-disk-system-requirements"></a>Configuration système requise pour Azure Data Box Disk
 
@@ -29,7 +29,7 @@ Voici une liste des systèmes d’exploitation pris en charge pour le déverroui
 | **Système d’exploitation** | **Versions testées** |
 | --- | --- |
 | Windows Server |2008 R2 SP1 <br> 2012 <br> 2012 R2 <br> 2016 |
-|  Windows |7, 8, 10 |
+| Windows |7, 8, 10 |
 |Linux <br> <li> Ubuntu </li><li> Debian </li><li> Red Hat Enterprise Linux (RHEL) </li><li> CentOS| <br>14.04, 16.04, 18.04 <br> 8.11, 9 <br> 7.0 <br> 6.5, 6.9, 7.0, 7.5 |  
 
 ## <a name="other-required-software-for-windows-clients"></a>Autres logiciels requis pour les clients Windows
@@ -52,7 +52,7 @@ Pour les clients Linux, l’ensemble d’outils Data Box Disk installe les logic
 
 ## <a name="supported-connection"></a>Connexion prise en charge
 
-L’ordinateur client qui contient les données doit être doté d’un port USB 3.0 ou version ultérieure. Les disques se connectent à ce client à l’aide du câble fourni. 
+L’ordinateur client qui contient les données doit être doté d’un port USB 3.0 ou version ultérieure. Les disques se connectent à ce client à l’aide du câble fourni.
 
 ## <a name="supported-storage-accounts"></a>Comptes de stockage pris en charge
 
@@ -62,19 +62,22 @@ Voici une liste des types de stockage pris en charge pour le disque Data Box.
 | --- | --- |
 | Classique | standard |
 | Usage général  |Standard ; V1 et V2 sont pris en charge. Les niveaux chaud et froid sont tous les deux pris en charge. |
+| Compte de stockage BLOB | |
 
 >[!NOTE]
 > Les comptes Azure Data Lake Storage Gen 2 ne sont pas pris en charge.
 
 
-## <a name="supported-storage-types"></a>Types de stockage pris en charge
+## <a name="supported-storage-types-for-upload"></a>Types de stockage pris en charge pour le chargement
 
-Voici une liste des types de stockage pris en charge pour le disque Data Box.
+Voici une liste des types de stockage pris en charge pour téléchargé vers Azure à l’aide de disque Data Box.
 
 | **Format de fichier** | **Remarques** |
 | --- | --- |
 | Objet blob de blocs Azure | |
 | Objet blob de pages Azure  | |
+| Azure Files  | |
+| Managed Disks | |
 
 
 ## <a name="next-step"></a>Étape suivante

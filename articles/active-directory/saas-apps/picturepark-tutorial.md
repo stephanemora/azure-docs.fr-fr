@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Picturepark | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Picturepark | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Picturepark.
 services: active-directory
 documentationCenter: na
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/06/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e56dc54c2c296ee17b04070ac8ee68d2180b7046
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7b458632ddb6e23ab1ddf642752aa0cbfc11f1ce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56183443"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57839066"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-picturepark"></a>Tutoriel : Intégration d’Azure Active Directory à Picturepark
 
@@ -34,7 +34,7 @@ L’intégration de Picturepark avec Azure AD vous offre les avantages suivants�
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD avec Picturepark, vous avez besoin des éléments suivants :
 
@@ -224,7 +224,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Picturepark, vous de
    
     ![Créer un utilisateur](./media/picturepark-tutorial/ic795069.png "Créer un utilisateur")
    
-    a. Dans la zone de texte **Email Address** (Adresse e-mail), entrez l’**adresse e-mail** de l’utilisateur **BrittaSimon@contoso.com**.  
+    a. Dans le **adresse de messagerie** zone de texte, tapez le **adresse de messagerie** de l’utilisateur **BrittaSimon\@contoso.com**.  
    
     b. Dans les zones de texte **Password** (Mot de passe) et **Confirm Password** (Confirmer le mot de passe), entrez le **mot de passe** de BrittaSimon. 
    

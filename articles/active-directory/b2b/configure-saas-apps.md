@@ -9,14 +9,15 @@ ms.date: 05/23/2017
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03652329acaeb737cb7cb4010ef48938caa17acc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: c7a652ab4283321c5934b32fdc5478bb5d79e4a7
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096909"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293128"
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>Configurer des applications SaaS pour B2B Collaboration
 
@@ -53,7 +54,7 @@ Pour permettre aux utilisateurs de se connecter à l’aide de leur compte d’o
 
 5. Connectez-vous à Dropbox avec l’URL de connexion à partir de la page **Authentification unique**.
 
-   ![Page de connexion Dropbox](media/configure-saas-apps/sign-in-to-dropbox.png)
+   ![Capture d’écran montrant la page de connexion Dropbox](media/configure-saas-apps/sign-in-to-dropbox.png)
 
 6. Dans le menu, sélectionnez **Console d’administration**.
 
@@ -78,7 +79,7 @@ Vous pouvez autoriser les utilisateurs à authentifier les utilisateurs invités
 
 2. Configurez l’authentification unique dans l’ordre suivant :
 
-   ![Configurer l’authentification unique de Box](media/configure-saas-apps/configure-box-sso.png)
+   ![Capture d’écran montrant les paramètres de configuration de l’authentification unique](media/configure-saas-apps/configure-box-sso.png)
 
    a. Dans la zone **URL de connexion**, vérifiez que l’URL de connexion est définie correctement pour Box dans le portail Azure. Cette URL est celle de votre client Box.com. Elle doit suivre la convention d’affectation de noms *https://.box.com*.  
    L’**Identificateur** ne s’applique pas à cette application, mais apparaît toujours comme un champ obligatoire.

@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: b7abf7601dda8680ac439b94bfd2a6b9f995f0f7
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 23eb51428dcf4961febfb592bf957bb8beeeda57
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000777"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58257205"
 ---
 # <a name="scale-streaming-endpoints-with-the-azure-portal"></a>Mettre à l’échelle des points de terminaison de streaming avec le Portail Azure
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 > [!NOTE]
 > Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/). 

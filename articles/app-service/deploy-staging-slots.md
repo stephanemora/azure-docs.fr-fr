@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
-ms.openlocfilehash: 7c12b34f6d735579326d4ccdd95e7831fbb777d6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d9530d35bbaf608ae25e2a753685ee90e9e13501
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181420"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823295"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurer des environnements intermédiaires dans Azure App Service
 <a name="Overview"></a>
@@ -42,7 +42,7 @@ Chaque niveau de plan App Service prend en charge un nombre différent d’empla
 ## <a name="add-slot"></a>Ajouter un emplacement
 Pour que vous puissiez activer plusieurs emplacements de déploiement, l’application doit s’exécuter au niveau **Standard**, **Premium** ou **Isolé**.
 
-1. Dans le [portail Azure](https://portal.azure.com/), accédez à la [page de ressources](../azure-resource-manager/resource-group-portal.md#manage-resources) de votre application.
+1. Dans le [portail Azure](https://portal.azure.com/), accédez à la [page de ressources](../azure-resource-manager/manage-resources-portal.md#manage-resources) de votre application.
 
 2. Dans le volet de navigation gauche, choisissez l’option **Emplacements de déploiement (préversion)**, puis cliquez sur **Ajouter un emplacement**.
    
@@ -205,7 +205,9 @@ Quand vous utilisez [Échange automatique](#Auto-Swap), certaines applications p
         </applicationInitialization>
     </system.webServer>
 
-Vous pouvez également personnaliser le comportement d'initialisation en utilisant un ou plusieurs [paramètres d'application](https://github.com/MicrosoftDocs/azure-docs-pr/pull/web-sites-configure.md) suivants :
+Pour plus d’informations sur la personnalisation de la `applicationInitialization` élément, consultez [échecs échange d’emplacement de déploiement les plus courants et comment les résoudre](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/).
+
+Vous pouvez également personnaliser le comportement d'initialisation en utilisant un ou plusieurs [paramètres d'application](web-sites-configure.md) suivants :
 
 - `WEBSITE_SWAP_WARMUP_PING_PATH`: chemin d’accès pour effectuer un test ping afin d'initialiser votre site. Ajoutez ce paramètre d’application en spécifiant un chemin d’accès personnalisé qui commence par une barre oblique comme valeur. Par exemple : `/statuscheck`. La valeur par défaut est `/`. 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: Codes de réponse HTTP valides pour l’opération d'initialisation. Ajoutez ce paramètre d’application avec une liste séparée par des virgules de codes HTTP. Par exemple : `200,202`. Si le code d’état renvoyé ne figure pas dans la liste, les opérations d'initialisation et de basculement sont arrêtées. Par défaut, tous les codes de réponse sont valides.

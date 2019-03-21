@@ -5,17 +5,17 @@ description: 'Une pierre d’angle de la science des données : amener d’autre
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: garyericson
 ms.author: garye
 ms.custom: seodec18
 ms.date: 01/05/2018
-ms.openlocfilehash: 821ee126350d18102ec92de04436a76050734dc4
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: a179efe3c4dcd3b36fa8d86910f10c4ab4cdb0aa
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456824"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817811"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Copier le travail d’autres personnes pour des projets de science des données
 ## <a name="video-5-data-science-for-beginners-series"></a>Vidéo 5 : série Science des données pour les débutants
@@ -92,4 +92,4 @@ Nous vous invitons à consulter les autres vidéos de la série « Science des 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Menez votre première expérience de science des données avec Azure Machine Learning Studio](create-experiment.md)
-* [Consultez la présentation de Machine Learning sur Microsoft Azure](what-is-machine-learning.md)
+* [Consultez la présentation de Machine Learning sur Microsoft Azure](/azure/machine-learning/preview/overview-what-is-azure-ml)

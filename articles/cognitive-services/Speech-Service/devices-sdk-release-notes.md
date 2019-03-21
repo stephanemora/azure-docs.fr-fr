@@ -10,16 +10,30 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: gracez
-ms.openlocfilehash: 2e51bdd24f33789a95017c9fe5df88b0bb55de26
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 4d802b9f71edee1eec4b2c92881e2a8796db2865
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870705"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58005510"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>Notes de publication du Kit de développement logiciel (SDK) Speech Devices de Cognitive Services
 
 Les sections suivantes dressent la liste des modifications dans les versions les plus récentes.
+
+## <a name="cognitive-services-speech-devices-sdk-131-2019-mar-release"></a>Appareils de reconnaissance vocale de COGNITIVE Services SDK 1.3.1 : Version de mars de 2019 
+
+* Mise à jour le [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) composant vers la version 1.3.1. Pour plus d’informations, consultez ses [notes de publication](https://aka.ms/csspeech/whatsnew). 
+*   Word de mise en éveil mis à jour gestion, voir les modifications avec rupture.
+*   Exemple d’application ajoute le choix du langage pour la reconnaissance vocale et la traduction.
+
+**Dernières modifications** 
+
+*   [L’installation d’un mot de mise en éveil](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-qsg#run-a-sample-application) a été simplifié, il fait désormais partie de l’application et n’a pas besoin de l’installation distincte sur l’appareil.
+*   La reconnaissance de word de mise en éveil a changé, et deux événements sont pris en charge.
+    - RecognizingKeyword, indique le résultat de reconnaissance vocale contient du texte de mot clé (non vérifié).
+    - RecognizedKeyword, indique cette reconnaissance du mot clé terminée reconnaissant le mot-clé donné.
+
 
 ## <a name="cognitive-services-speech-devices-sdk-110-2018-nov-release"></a>Kit SDK Speech Devices de Cognitive Services version 1.1.0 : version de novembre 2018 
 

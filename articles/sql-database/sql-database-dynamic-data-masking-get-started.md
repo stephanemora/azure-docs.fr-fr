@@ -11,13 +11,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 7ca54117b014cb093b63e265864b0b0efa787865
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.date: 03/04/2019
+ms.openlocfilehash: 2be1f7bb6417834196da03b7cba22387744f8c19
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461217"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57876542"
 ---
 # <a name="sql-database-dynamic-data-masking"></a>Masquage de données dynamiques dans une base de données SQL
 
@@ -55,10 +55,10 @@ Le masquage des données dynamiques peut être configuré par les rôles d’adm
 
 Le moteur de recommandations DDM signale certains champs de votre base de données en tant que champs potentiellement sensibles, qui peuvent être de bons candidats au masquage. Dans le volet Masquage des données dynamiques du portail, vous verrez les colonnes recommandées pour votre base de données. Il vous suffit de cliquer sur **Ajouter un masque** pour une ou plusieurs colonnes, puis de cliquer sur **Enregistrer** pour appliquer un masque à ces champs.
 
-## <a name="set-up-dynamic-data-masking-for-your-database-using-powershell-cmdlets"></a>Configuration du masquage des données dynamiques pour votre base de données à l’aide des cmdlets Powershell
+## <a name="set-up-dynamic-data-masking-for-your-database-using-powershell-cmdlets"></a>Configuration des données dynamiques pour votre base de données à l’aide des applets de commande PowerShell de masquage
 
-Voir [Cmdlets de la base de données SQL Azure](https://docs.microsoft.com/powershell/module/azurerm.sql).
+Voir [Cmdlets de la base de données SQL Azure](https://docs.microsoft.com/powershell/module/az.sql).
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-rest-api"></a>Configuration du masquage des données dynamiques pour votre base de données à l’aide de l’API REST
 
-Voir [Opérations pour Azure SQL Database](https://msdn.microsoft.com/library/dn505719.aspx).
+Voir [Opérations pour Azure SQL Database](https://docs.microsoft.com/rest/api/sql/).

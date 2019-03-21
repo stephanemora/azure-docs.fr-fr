@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: cdcdcff8a5c016cfd3074a950ad6060e55b8b0fe
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 42227095c69924cd2922673d020b349aa29f2daa
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312580"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259514"
 ---
 # <a name="output-metadata"></a>Métadonnées de sortie
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Un travail d’encodage est associé à un élément multimédia d’entrée (ou plusieurs) sur lequel vous souhaitez effectuer des tâches d’encodage. Par exemple, encoder un fichier MP4 en ensembles de fichiers MP4 à vitesse de transmission adaptative H.264, créer une miniature, créer des superpositions. À l’achèvement d’une tâche, une ressource de sortie est générée.  L’élément multimédia de sortie contient la vidéo, l’audio, les miniatures, et ainsi de suite. L’élément multimédia de sortie contient également un fichier avec des métadonnées relatives à l’élément multimédia de sortie. Le nom du fichier XML de métadonnées a le format suivant : &lt;nom_fichier_source&gt;_manifest.xml (par exemple, BigBuckBunny_manifest.xml).  
 
 Media Services n’analyse pas préemptivement les éléments multimédia d’entrée pour générer des métadonnées. Les métadonnées d’entrée sont générées uniquement sous forme d’artefact lorsqu’un élément multimédia d’entrée est traité au sein d’un travail. Par conséquent, cet artefact est écrit dans l’élément multimédia de sortie. Différents outils sont utilisés pour générer les métadonnées pour les éléments multimédias d’entrée et de sortie. Ainsi, les métadonnées d’entrée présentent un schéma légèrement différent de celui des métadonnées de sortie.
@@ -33,7 +33,7 @@ Cet article décrit les éléments et types du schéma XML sur lesquels les mét
 
 Vous pouvez trouver le Code du schéma complet et un exemple de XML à la fin de cet article.  
 
-## <a name="AssetFiles "></a> Élément racine AssetFiles
+## <a name="AssetFiles"></a> Élément racine AssetFiles
 Collection d’entrées AssetFile pour le travail d’encodage.  
 
 ### <a name="child-elements"></a>Éléments enfants
@@ -41,7 +41,7 @@ Collection d’entrées AssetFile pour le travail d’encodage.
 | --- | --- |
 | **AssetFile**<br/><br/> minOccurs="0" maxOccurs="1" |Un élément AssetFile qui fait partie de la collection AssetFiles. |
 
-## <a name="AssetFile "></a> Élément AssetFile
+## <a name="AssetFile"></a> Élément AssetFile
 Vous trouverez un exemple de XML [Exemple de XML](#xml).  
 
 ### <a name="attributes"></a>Attributs
@@ -58,7 +58,7 @@ Vous trouverez un exemple de XML [Exemple de XML](#xml).
 | **VideoTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Chaque élément AssetFile physique peut contenir zéro ou plusieurs pistes vidéo entrelacées dans un format de conteneur approprié. Pour plus d’informations, consultez l’élément VideoTracks. |
 | **AudioTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Chaque élément AssetFile physique peut contenir zéro ou plusieurs pistes audio entrelacées dans un format de conteneur approprié. Il s’agit de la collection de toutes les pistes audio. Pour plus d’informations, consultez l’élément AudioTracks. |
 
-## <a name="Sources "></a> Sources (élément)
+## <a name="Sources"></a> Sources (élément)
 Collection de fichiers multimédias d’entrée/source qui a été traitée afin de produire cet AssetFile.  
 
 Vous trouverez un exemple de XML [Exemple de XML](#xml).  
@@ -68,7 +68,7 @@ Vous trouverez un exemple de XML [Exemple de XML](#xml).
 | --- | --- |
 | **Source**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Un fichier d’entrée/source utilisé lors de la génération de cette ressource. Pour plus d’informations, consultez la page Élément source. |
 
-## <a name="Source "></a> Élément source
+## <a name="Source"></a> Élément source
 Un fichier d’entrée/source utilisé lors de la génération de cette ressource.  
 
 Vous trouverez un exemple de XML [Exemple de XML](#xml).  
@@ -78,7 +78,7 @@ Vous trouverez un exemple de XML [Exemple de XML](#xml).
 | --- | --- | --- |
 | **Nom**<br/><br/> Obligatoire |**xs:string** |Nom du fichier source d’entrée. |
 
-## <a name="VideoTracks "></a> Élément VideoTracks
+## <a name="VideoTracks"></a> Élément VideoTracks
 Chaque élément AssetFile physique peut contenir zéro ou plusieurs pistes vidéo entrelacées dans un format de conteneur approprié. L’élément **VideoTracks** représente une collection de toutes les pistes vidéo.  
 
 Vous trouverez un exemple de XML [Exemple de XML](#xml).  
@@ -110,7 +110,7 @@ Vous trouverez un exemple de XML [Exemple de XML](#xml).
 | **TargetBitrate**<br/><br/> minInclusive ="0"<br/><br/> Obligatoire |**xs:int** |Vitesse de transmission cible moyenne pour cette piste vidéo, comme demandé via paramètres prédéfinis d’encodage, en kilobits par seconde. |
 | **MaxGOPBitrate**<br/><br/> minInclusive ="0" |**xs:int** |Vitesse de transmission moyenne GOP maximum pour cette piste vidéo, en kilobits par seconde. |
 
-## <a name="AudioTracks "></a> Élément AudioTracks
+## <a name="AudioTracks"></a> Élément AudioTracks
 Chaque élément AssetFile physique peut contenir zéro ou plusieurs pistes audio entrelacées dans un format de conteneur approprié. L’élément **AudioTracks** représente une collection de toutes les pistes audio.  
 
 Vous trouverez un exemple de XML [Exemple de XML](#xml).  
@@ -120,7 +120,7 @@ Vous trouverez un exemple de XML [Exemple de XML](#xml).
 | --- | --- |
 | **AudioTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Une piste audio spécifique dans l’élément AssetFile parent. Pour plus d’informations, consultez l’élément AudioTrack. |
 
-## <a name="AudioTrack "></a> Élément AudioTrack
+## <a name="AudioTrack"></a> Élément AudioTrack
 Une piste audio spécifique dans l’élément AssetFile parent.  
 
 Vous trouverez un exemple de XML [Exemple de XML](#xml).  
@@ -141,7 +141,7 @@ Vous trouverez un exemple de XML [Exemple de XML](#xml).
 | --- | --- |
 | **LoudnessMeteringResultParameters**<br/><br/> minOccurs="0" maxOccurs="1" |Paramètres de résultat de mesure du niveau sonore. Pour plus d’informations, consultez l’élément LoudnessMeteringResultParameters. |
 
-## <a name="LoudnessMeteringResultParameters "></a> Élément LoudnessMeteringResultParameters
+## <a name="LoudnessMeteringResultParameters"></a> Élément LoudnessMeteringResultParameters
 Paramètres de résultat de mesure du niveau sonore.  
 
 Vous trouverez un exemple de XML [Exemple de XML](#xml).  
@@ -162,7 +162,7 @@ Vous trouverez un exemple de XML [Exemple de XML](#xml).
 
 ## <a name="schema-code"></a>Code du schéma
     <?xml version="1.0" encoding="utf-8"?>  
-    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" version="1.2"  
+    <xs:schema xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" version="1.2"  
                xmlns="http://schemas.microsoft.com/windowsazure/mediaservices/2013/05/mediaencoder/metadata"  
                targetNamespace="http://schemas.microsoft.com/windowsazure/mediaservices/2013/05/mediaencoder/metadata"  
                elementFormDefault="qualified">  
@@ -513,7 +513,7 @@ Vous trouverez un exemple de XML [Exemple de XML](#xml).
 
 Le fichier XML suivant est un exemple de fichier de métadonnées de sortie.  
 
-    <AssetFiles xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"   
+    <AssetFiles xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="https://www.w3.org/2001/XMLSchema"   
                 xmlns="http://schemas.microsoft.com/windowsazure/mediaservices/2013/05/mediaencoder/metadata">  
       <AssetFile Name="BigBuckBunny_H264_3400kbps_AAC_und_ch2_96kbps.mp4" Size="4646283" Duration="PT8.4288444S">  
         <Sources>  

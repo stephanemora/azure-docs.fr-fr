@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: dbd9551027744d443613e32e0a082c10d4f357d5
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ms.openlocfilehash: 10f78b3b78e90fbb4f1d50cf581bfbce263f44aa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44052046"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57872719"
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Cycle de vie des acteurs, Garbage Collection automatique et suppression manuelle
 Un acteur est activé la première fois qu’un appel est effectué à l’une de ses méthodes. Un acteur est désactivé (fait l’objet d’un Garbage Collection par le runtime Actors) s’il n’est pas utilisé pendant une durée configurable. Un acteur et son état peuvent également être supprimés manuellement, à tout moment.
@@ -123,7 +123,7 @@ Le Garbage Collection des acteurs désactivés nettoie uniquement l’objet acte
 * [Diagnostics et surveillance des performances d’acteur](service-fabric-reliable-actors-diagnostics.md)
 * [Documentation de référence de l’API d’acteur](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [Exemple de code C#](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Exemple de code Java](http://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [Exemple de code Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png

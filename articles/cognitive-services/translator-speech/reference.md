@@ -10,12 +10,13 @@ ms.subservice: translator-speech
 ms.topic: reference
 ms.date: 05/18/2018
 ms.author: v-jansko
-ms.openlocfilehash: c68d9c3d40ffa3d4a5a5ae635fbc0ea0a010239c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 3493f6d25461836d8f6e48ce4213b0f5b78b6372
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874734"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56675107"
 ---
 # <a name="translator-speech-api"></a>API de traduction de conversation Translator Speech
 
@@ -90,7 +91,7 @@ Notez que la taille totale du fichier (octets 4-7) et la taille des « data »
 Après l’envoi de l’en-tête WAV (RIFF), le client envoie des blocs des données audio. Le client diffuse en général des blocs de taille fixe représentant une durée fixe (par exemple, 100 ms d’audio à la fois).
 
 ### <a name="signal-the-end-of-the-utterance"></a>Signaler la fin de l’énoncé
-L’API de traduction de conversation Translator Speech retourne la transcription et la traduction du flux audio au fur et à mesure que vous envoyez les données audio. La transcription finale, la traduction finale et les données audio traduites ne vous sont retournées qu’à la fin de l’énoncé. Dans certains cas, vous pouvez être amené à forcer la fin de l’énoncé. Envoyez 2,5 secondes de silence pour forcer la fin de l’énoncé. 
+L’API de traduction de conversation Translator Speech retourne la transcription et la traduction du flux audio au fur et à mesure que vous envoyez les données audio. La transcription finale, la traduction finale et les données audio traduites ne vous sont retournées qu’à la fin de l’énoncé. Dans certains cas, vous pouvez être amené à forcer la fin de l’énoncé. Envoyez 2,5 secondes de silence pour forcer la fin de l’énoncé.
 
 ### <a name="final-result"></a>Résultat final
 Un résultat final de reconnaissance vocale est généré à la fin d’un énoncé. Le service transmet au client un résultat à l’aide d’un message WebSocket de type Text. Le contenu du message est la sérialisation JSON d’un objet avec les propriétés suivantes :
@@ -112,7 +113,7 @@ Voici un exemple de résultat final :
 {
   type: "final"
   id: "23",
-  recognition: "what was said", 
+  recognition: "what was said",
   translation: "translation of what was said",
   audioStreamPosition: 319680,
   audioSizeBytes: 35840,
@@ -143,7 +144,7 @@ Voici un exemple de résultat final :
 {
   type: "partial"
   id: "23.2",
-  recognition: "what was", 
+  recognition: "what was",
   translation: "translation of what was",
   audioStreamPosition: 319680,
   audioSizeBytes: 25840,
@@ -167,72 +168,29 @@ Quand une application cliente a fini de diffuser l’audio et a reçu le dernier
 
 |Paramètre|Valeur|Description|Type de paramètre|Type de données|
 |:---|:---|:---|:---|:---|
-|api-version|1.0|Version de l’API demandée par le client. Valeurs autorisées : `1.0`.|query   |chaîne|
-|from|(empty)   |Spécifie la langue du flux vocal entrant. La valeur est l’un des identificateurs de langue de l’étendue `speech` dans la réponse de l’API Langues.|query|chaîne|
-|to|(empty)|Spécifie la langue dans laquelle traduire le texte transcrit. La valeur est l’un des identificateurs de langue de l’étendue `text` dans la réponse de l’API Langues.|query|chaîne|
-|features|(empty)   |Ensemble de fonctionnalités séparées par des virgules sélectionnées par le client. Les fonctionnalités disponibles sont les suivantes :<ul><li>`TextToSpeech` : spécifie que le service doit renvoyer l’audio traduit de la dernière phrase traduite.</li><li>`Partial` : spécifie que le service doit renvoyer les résultats intermédiaires de la reconnaissance pendant la diffusion de l’audio vers le service.</li><li>`TimingInfo` : spécifie que le service doit renvoyer les informations de durée associées à chaque reconnaissance.</li></ul>Par exemple, un client doit spécifier `features=partial,texttospeech` pour recevoir les résultats partiels et la synthèse vocale, mais aucune information de durée. Notez que les résultats finaux sont toujours diffusés vers le client.|query|chaîne|
-|voice|(empty)|Identifie la voix à utiliser pour la synthèse vocale du texte traduit. La valeur est l’un des identificateurs de voix de l’étendue de synthèse vocale dans la réponse de l’API Langues. Si aucune voix n’est spécifiée, le système choisit automatiquement quand la fonctionnalité de synthèse vocale est activée.|query|chaîne|
-|format|(empty)|Spécifie le format du flux audio de synthèse vocale renvoyé par le service. Options disponibles :<ul><li>`audio/wav`: flux audio Waveform. Le client doit utiliser l’en-tête WAV pour interpréter correctement le format audio. L’audio WAV pour la synthèse vocale est MIC sur canal unique 16 bits, avec un taux d’échantillonnage de 24 ou 16 kHz.</li><li>`audio/mp3`: flux audio MP3.</li></ul>La valeur par défaut est `audio/wav`.|query|chaîne|
-|ProfanityAction    |(empty)    |Spécifie comment le service doit traiter les vulgarités reconnues dans l’entrée vocale. Les actions valides sont les suivantes :<ul><li>`NoAction`: les vulgarités restent inchangées.</li><li>`Marked`: les vulgarités sont remplacées par un marqueur. Voir le paramètre `ProfanityMarker`.</li><li>`Deleted`: les vulgarités sont supprimées. Par exemple, si le mot `"jackass"` est traité comme une vulgarité, l’expression `"He is a jackass."` devient `"He is a .".`.</li></ul>La valeur par défaut est Marked.|query|chaîne|
-|ProfanityMarker|(empty)    |Spécifie comment les vulgarités détectées sont traitées quand `ProfanityAction` a la valeur `Marked`. Les options valides sont les suivantes :<ul><li>`Asterisk`: les vulgarités sont remplacées par la chaîne `***`. Par exemple, si le mot `"jackass"` est traité comme une vulgarité, la phrase `"He is a jackass."` devient `"He is a ***.".`.</li><li>`Tag`: toute vulgarité est entourée de balises XML indiquant sa présence. Par exemple, si le mot `"jackass"` est traité comme une vulgarité, la phrase `"He is a jackass."` devient `"He is a <profanity>jackass</profanity>."`.</li></ul>Par défaut, il s’agit de `Asterisk`.|query|chaîne|
-|Authorization|(empty)  |Spécifie la valeur du jeton du porteur du client. Utilisez le préfixe `Bearer` suivi par la valeur `access_token` renvoyée par le service de jetons d’authentification.|en-tête   |chaîne|
-|Ocp-Apim-Subscription-Key|(empty)|Obligatoire si l’en-tête `Authorization` n’est pas spécifié.|en-tête|chaîne|
-|access_token|(empty)   |Autre manière de passer un jeton d’accès OAuth valide. Le jeton du porteur est généralement fourni avec un en-tête `Authorization`. Certaines bibliothèques WebSocket n’autorisent pas le code client à définir des en-têtes. Dans ce cas, le client peut utiliser le paramètre de requête `access_token` pour passer un jeton valide. Lorsque vous utilisez un jeton d’accès pour l’authentification, si un en-tête `Authorization` n’est pas défini, `access_token` doit être défini. Si un en-tête et un paramètre de requête sont définis, le paramètre de requête est ignoré. Les clients ne doivent utiliser qu’une seule méthode pour passer le jeton.|query|chaîne|
-|subscription-key|(empty)   |Autre manière de passer une clé d’abonnement. Certaines bibliothèques WebSocket n’autorisent pas le code client à définir des en-têtes. Dans ce cas, le client peut utiliser le paramètre de requête `subscription-key` pour passer une clé d’abonnement valide. Lorsque vous utilisez une clé d’abonnement pour l’authentification, si un en-tête `Ocp-Apim-Subscription-Key` n’est pas défini, la clé d’abonnement doit être définie. Si un en-tête et un paramètre de requête sont définis, le paramètre de requête est ignoré. Les clients ne doivent utiliser qu’une seule méthode pour passer le `subscription key`.|query|chaîne|
-|X-ClientTraceId    |(empty)    |GUID généré par le client utilisé pour suivre une requête. À des fins de résolution appropriée des problèmes, les clients doivent fournir une nouvelle valeur avec chaque demande, et la journaliser.<br/>Au lieu d’utiliser un en-tête, cette valeur peut être passée avec le paramètre de requête `X-ClientTraceId`. Si un en-tête et un paramètre de requête sont définis, le paramètre de requête est ignoré.|en-tête|chaîne|
-|X-CorrelationId|(empty)    |Identificateur généré par le client utilisé pour mettre en corrélation plusieurs canaux dans une conversation. Plusieurs sessions de traduction vocale peuvent être créées pour permettre les conversations entre utilisateurs. Dans un tel scénario, toutes les sessions de traduction vocale utilisent le même ID de corrélation pour relier les canaux. Cela facilite le suivi et les diagnostics. L’identificateur doit être conforme à ceci : `^[a-zA-Z0-9-_.]{1,64}$`<br/>Au lieu d’utiliser un en-tête, cette valeur peut être passée avec le paramètre de requête `X-CorrelationId`. Si un en-tête et un paramètre de requête sont définis, le paramètre de requête est ignoré.|en-tête|chaîne|
-|X-ClientVersion|(empty)    |Identifie la version de l’application cliente. Exemple : « 2.1.0.123 ».<br/>Au lieu d’utiliser un en-tête, cette valeur peut être passée avec le paramètre de requête `X-ClientVersion`. Si un en-tête et un paramètre de requête sont définis, le paramètre de requête est ignoré.|en-tête|chaîne|
-|X-OsPlatform|(empty)   |Identifie le nom et la version du système d’exploitation sur lequel s’exécute l’application cliente. Exemples : « Android 5.0 », « iOs 8.1.3 », « Windows 8.1 ».<br/>Au lieu d’utiliser un en-tête, cette valeur peut être passée avec le paramètre de requête `X-OsPlatform`. Si un en-tête et un paramètre de requête sont définis, le paramètre de requête est ignoré.|en-tête|chaîne|
+|api-version|1.0|Version de l’API demandée par le client. Valeurs autorisées : `1.0`.|query   |string|
+|from|(empty)   |Spécifie la langue du flux vocal entrant. La valeur est l’un des identificateurs de langue de l’étendue `speech` dans la réponse de l’API Langues.|query|string|
+|to|(empty)|Spécifie la langue dans laquelle traduire le texte transcrit. La valeur est l’un des identificateurs de langue de l’étendue `text` dans la réponse de l’API Langues.|query|string|
+|features|(empty)   |Ensemble de fonctionnalités séparées par des virgules sélectionnées par le client. Les fonctionnalités disponibles sont les suivantes :<ul><li>`TextToSpeech` : spécifie que le service doit renvoyer l’audio traduit de la dernière phrase traduite.</li><li>`Partial` : spécifie que le service doit renvoyer les résultats intermédiaires de la reconnaissance pendant la diffusion de l’audio vers le service.</li><li>`TimingInfo` : spécifie que le service doit renvoyer les informations de durée associées à chaque reconnaissance.</li></ul>Par exemple, un client doit spécifier `features=partial,texttospeech` pour recevoir les résultats partiels et la synthèse vocale, mais aucune information de durée. Notez que les résultats finaux sont toujours diffusés vers le client.|query|string|
+|voice|(empty)|Identifie la voix à utiliser pour la synthèse vocale du texte traduit. La valeur est l’un des identificateurs de voix de l’étendue de synthèse vocale dans la réponse de l’API Langues. Si aucune voix n’est spécifiée, le système choisit automatiquement quand la fonctionnalité de synthèse vocale est activée.|query|string|
+|format|(empty)|Spécifie le format du flux audio de synthèse vocale renvoyé par le service. Options disponibles :<ul><li>`audio/wav`: flux audio Waveform. Le client doit utiliser l’en-tête WAV pour interpréter correctement le format audio. L’audio WAV pour la synthèse vocale est MIC sur canal unique 16 bits, avec un taux d’échantillonnage de 24 ou 16 kHz.</li><li>`audio/mp3`: flux audio MP3.</li></ul>La valeur par défaut est `audio/wav`.|query|string|
+|ProfanityAction    |(empty)    |Spécifie comment le service doit traiter les vulgarités reconnues dans l’entrée vocale. Les actions valides sont les suivantes :<ul><li>`NoAction`: les vulgarités restent inchangées.</li><li>`Marked`: les vulgarités sont remplacées par un marqueur. Voir le paramètre `ProfanityMarker`.</li><li>`Deleted`: les vulgarités sont supprimées. Par exemple, si le mot `"jackass"` est traité comme une vulgarité, l’expression `"He is a jackass."` devient `"He is a .".`.</li></ul>La valeur par défaut est Marked.|query|string|
+|ProfanityMarker|(empty)    |Spécifie comment les vulgarités détectées sont traitées quand `ProfanityAction` a la valeur `Marked`. Les options valides sont les suivantes :<ul><li>`Asterisk`: les vulgarités sont remplacées par la chaîne `***`. Par exemple, si le mot `"jackass"` est traité comme une vulgarité, la phrase `"He is a jackass."` devient `"He is a ***.".`.</li><li>`Tag`: toute vulgarité est entourée de balises XML indiquant sa présence. Par exemple, si le mot `"jackass"` est traité comme une vulgarité, la phrase `"He is a jackass."` devient `"He is a <profanity>jackass</profanity>."`.</li></ul>Par défaut, il s’agit de `Asterisk`.|query|string|
+|Authorization|(empty)  |Spécifie la valeur du jeton du porteur du client. Utilisez le préfixe `Bearer` suivi par la valeur `access_token` renvoyée par le service de jetons d’authentification.|en-tête   |string|
+|Ocp-Apim-Subscription-Key|(empty)|Obligatoire si l’en-tête `Authorization` n’est pas spécifié.|en-tête|string|
+|access_token|(empty)   |Autre manière de passer un jeton d’accès OAuth valide. Le jeton du porteur est généralement fourni avec un en-tête `Authorization`. Certaines bibliothèques WebSocket n’autorisent pas le code client à définir des en-têtes. Dans ce cas, le client peut utiliser le paramètre de requête `access_token` pour passer un jeton valide. Lorsque vous utilisez un jeton d’accès pour l’authentification, si un en-tête `Authorization` n’est pas défini, `access_token` doit être défini. Si un en-tête et un paramètre de requête sont définis, le paramètre de requête est ignoré. Les clients ne doivent utiliser qu’une seule méthode pour passer le jeton.|query|string|
+|subscription-key|(empty)   |Autre manière de passer une clé d’abonnement. Certaines bibliothèques WebSocket n’autorisent pas le code client à définir des en-têtes. Dans ce cas, le client peut utiliser le paramètre de requête `subscription-key` pour passer une clé d’abonnement valide. Lorsque vous utilisez une clé d’abonnement pour l’authentification, si un en-tête `Ocp-Apim-Subscription-Key` n’est pas défini, la clé d’abonnement doit être définie. Si un en-tête et un paramètre de requête sont définis, le paramètre de requête est ignoré. Les clients ne doivent utiliser qu’une seule méthode pour passer le `subscription key`.|query|string|
+|X-ClientTraceId    |(empty)    |GUID généré par le client utilisé pour suivre une requête. À des fins de résolution appropriée des problèmes, les clients doivent fournir une nouvelle valeur avec chaque demande, et la journaliser.<br/>Au lieu d’utiliser un en-tête, cette valeur peut être passée avec le paramètre de requête `X-ClientTraceId`. Si un en-tête et un paramètre de requête sont définis, le paramètre de requête est ignoré.|en-tête|string|
+|X-CorrelationId|(empty)    |Identificateur généré par le client utilisé pour mettre en corrélation plusieurs canaux dans une conversation. Plusieurs sessions de traduction vocale peuvent être créées pour permettre les conversations entre utilisateurs. Dans un tel scénario, toutes les sessions de traduction vocale utilisent le même ID de corrélation pour relier les canaux. Cela facilite le suivi et les diagnostics. L’identificateur doit être conforme à ceci : `^[a-zA-Z0-9-_.]{1,64}$`<br/>Au lieu d’utiliser un en-tête, cette valeur peut être passée avec le paramètre de requête `X-CorrelationId`. Si un en-tête et un paramètre de requête sont définis, le paramètre de requête est ignoré.|en-tête|string|
+|X-ClientVersion|(empty)    |Identifie la version de l’application cliente. Exemple : « 2.1.0.123 ».<br/>Au lieu d’utiliser un en-tête, cette valeur peut être passée avec le paramètre de requête `X-ClientVersion`. Si un en-tête et un paramètre de requête sont définis, le paramètre de requête est ignoré.|en-tête|string|
+|X-OsPlatform|(empty)   |Identifie le nom et la version du système d’exploitation sur lequel s’exécute l’application cliente. Exemples : « Android 5.0 », « iOs 8.1.3 », « Windows 8.1 ».<br/>Au lieu d’utiliser un en-tête, cette valeur peut être passée avec le paramètre de requête `X-OsPlatform`. Si un en-tête et un paramètre de requête sont définis, le paramètre de requête est ignoré.|en-tête|string|
 
 ### <a name="response-messages"></a>Messages de réponse
 
 |Code d’état HTTP|Motif|Modèle de réponse|headers|
 |:--|:--|:--|:--|
-|101    |Mise à niveau de WebSocket.|Exemple de valeur de modèle <br/> Object {}|X-RequestId<br/>Valeur identifiant la demande à des fins de dépannage.<br/>chaîne|
+|101    |Mise à niveau de WebSocket.|Exemple de valeur de modèle <br/> Object {}|X-RequestId<br/>Valeur identifiant la demande à des fins de dépannage.<br/>string|
 |400    |Demande incorrecte. Vérifiez les paramètres d’entrée pour vous assurer qu’ils sont valides. L’objet de la réponse inclut une description plus détaillée de l’erreur.|||
 |401    |Non autorisé. Vérifiez que les informations d’identification sont définies, qu’elles sont valides, et que votre abonnement Azure Data Market est en règle avec un solde disponible.|||
 |500    |Une erreur est survenue. Si l’erreur persiste, veuillez la signaler avec l’identificateur de trace client (X-ClientTraceId) ou l’identificateur (ID requête X) de demande.|||
 |503    |Serveur temporairement indisponible. Relancez la requête. Si l’erreur persiste, veuillez la signaler avec l’identificateur de trace client (X-ClientTraceId) ou l’identificateur (ID requête X) de demande.|||
-
-    
-
-
-    
-
-
-
-
-
-    
-    
-
-
-
-
-    
-
-
-
-
-    
-
-
-
-
-    
-
-            
-
-
-
-
-        
-
-
-
-
-
-
-
-
-

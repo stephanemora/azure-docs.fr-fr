@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 08/10/2018
+ms.date: 03/05/2019
 ms.author: aschhab
-ms.openlocfilehash: 23a0c731eea22a772d7423bc3047af1183d55b7f
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 2cba3744180a257638aca202d44fa433a5e1a2bc
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312887"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453403"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Utilisation de l’API Java Message Service (JMS) avec Service Bus et AMQP 1.0
 Advanced Message Queuing Protocol (AMQP) 1.0 est un protocole de messagerie « wire-level » efficace et fiable qui peut être utilisé pour créer des applications de messagerie interplateforme robustes.
@@ -341,6 +341,16 @@ MODIFIED_FAILED = 4; -> Abandon() which increases delivery count
 MODIFIED_FAILED_UNDELIVERABLE = 5; -> Defer()
 ```
 
+## <a name="jms-topics-vs-service-bus-topics"></a>Rubriques JMS vs. Rubriques de Service Bus
+À l’aide des rubriques Azure Service Bus et les abonnements via Java Message Service (JMS) API fournit base envoyer et recevoir des fonctionnalités. Il est un choix pratique lors du portage d’applications à partir d’autres courtiers de messages avec les API JMS conformes, même si les rubriques Service Bus diffèrent des rubriques JMS et nécessitent quelques ajustements. 
+
+Les rubriques Service Bus Azure acheminer les messages dans des abonnements nommés, partagées et durables qui sont gérés via l’interface de gestion des ressources Azure, les outils de ligne de commande Azure, ou via le portail Azure. Pour les règles de sélection jusqu'à 2000, chacun des susceptibles d’avoir une condition de filtre et, pour les filtres SQL, également une action de transformation de métadonnées permet à chaque abonnement. Chaque correspondance de condition de filtre sélectionne le message d’entrée doit être copié dans tehj abonnement.  
+
+Réception de messages à partir des abonnements est identique à recevoir les messages des files d’attente. Chaque abonnement a une file d’attente de lettres mortes associée, ainsi que la possibilité de transférer automatiquement les messages à une autre file d’attente ou rubriques. 
+
+Rubriques JMS permettent aux clients de créer dynamiquement des abonnés non durable et durables qui éventuellement autorisent le filtrage des messages avec les sélecteurs de message. Ces entités non partagées ne sont pas prises en charge par Service Bus. La syntaxe de règle de filtre SQL pour Service Bus est, toutefois, très similaire à la syntaxe du sélecteur de message pris en charge par JMS. 
+
+Le côté serveur de publication de rubrique JMS est compatible avec Service Bus, comme illustré dans cet exemple, mais ne sont pas abonnés dynamiques. Les API JMS topologie suivantes ne sont pas pris en charge avec Service Bus. 
 
 ## <a name="unsupported-features-and-restrictions"></a>Fonctionnalités non prises en charge et restrictions
 Les restrictions suivantes existent pour l’utilisation de JMS sur AMQP 1.0 avec Service Bus, à savoir :

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c7d643f0c7885e64636a107d22ce332b1ba9371c
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: ea3f26d70c4a4ce07c988612890687504a4cf5ac
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806054"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594676"
 ---
 <a name="go-live"></a>Go Live
 =======
@@ -33,7 +33,7 @@ Cette API démarre le processus de transmission de type push d’une application
 
 |  **Nom**      |   **Description**                                                           | **Type de données** |
 |  --------      |   ---------------                                                           | ------------- |
-| publisherid    | Identificateur du serveur de publication de l’offre à récupérer, par exemple `contoso`       |  Chaîne       |
+| publisherId    | Identificateur du serveur de publication de l’offre à récupérer, par exemple `contoso`       |  Chaîne       |
 | offerId        | Identificateur de l’offre à récupérer                                   |  Chaîne       |
 | api-version    | Version la plus récente de l’API                                                   |  Date         |
 |  |  |  |
@@ -67,7 +67,7 @@ Cette API démarre le processus de transmission de type push d’une application
 
 ### <a name="response-status-codes"></a>Codes d’état de réponse
 
-| **Code** |  ** Description**                                                                        |
+| **Code** |  **Description**                                                                        |
 | -------- |  ----------------                                                                        |
 |  202     | `Accepted` : la requête a été acceptée. La réponse contient un emplacement permettant de suivre l’état de l’opération. |
 |  400     | `Bad/Malformed request` : le corps de réponse contient des informations d’erreur supplémentaires. |

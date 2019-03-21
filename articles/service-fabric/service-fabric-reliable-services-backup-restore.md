@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: mcoskun
-ms.openlocfilehash: 986a7be49f8ae0f683b89596204845bb08eeaf2d
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: d01d2f18ed35d1752f97f405ae7f7bfb4708ca0d
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095768"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570043"
 ---
 # <a name="backup-and-restore-reliable-services-and-reliable-actors"></a>Sauvegarder et restaurer Reliable Services et Reliable Actors
 Azure Service Fabric est une plateforme haute disponibilité qui réplique l’état sur plusieurs nœuds afin de conserver cette haute disponibilité.  Ainsi, même si un nœud du cluster échoue, les services continuent à être disponibles. Bien que cette redondance intégrée fournie par la plateforme suffise pour certains, dans d’autres cas, il est souhaitable que le service sauvegarde les données (dans un magasin externe).
@@ -188,13 +188,13 @@ L’infrastructure Reliable Actors est basée sur Reliable Services. Le service 
 ```csharp
 class MyCustomActorService : ActorService
 {
-     public MyCustomActorService(StatefulServiceContext context, ActorTypeInformation actorTypeInfo)
-            : base(context, actorTypeInfo)
-     {                  
-     }
+    public MyCustomActorService(StatefulServiceContext context, ActorTypeInformation actorTypeInfo)
+          : base(context, actorTypeInfo)
+    {
+    }
     
     //
-   // Method overrides and other code.
+    // Method overrides and other code.
     //
 }
 ```
@@ -203,7 +203,7 @@ Lorsque vous créez une classe de service d’acteur personnalisée, vous devez 
 
 ```csharp
 ActorRuntime.RegisterActorAsync<MyActor>(
-   (context, typeInfo) => new MyCustomActorService(context, typeInfo)).GetAwaiter().GetResult();
+    (context, typeInfo) => new MyCustomActorService(context, typeInfo)).GetAwaiter().GetResult();
 ```
 
 Le fournisseur d’état par défaut de Reliable Actors est `KvsActorStateProvider`. La sauvegarde incrémentielle n’est pas activée par défaut pour `KvsActorStateProvider`. Vous pouvez activer la sauvegarde incrémentielle en créant `KvsActorStateProvider` avec le paramètre approprié dans son constructeur et en le transmettant au constructeur ActorService, comme l’indique l’extrait de code suivant :
@@ -211,13 +211,13 @@ Le fournisseur d’état par défaut de Reliable Actors est `KvsActorStateProvid
 ```csharp
 class MyCustomActorService : ActorService
 {
-     public MyCustomActorService(StatefulServiceContext context, ActorTypeInformation actorTypeInfo)
-            : base(context, actorTypeInfo, null, null, new KvsActorStateProvider(true)) // Enable incremental backup
-     {                  
-     }
+    public MyCustomActorService(StatefulServiceContext context, ActorTypeInformation actorTypeInfo)
+          : base(context, actorTypeInfo, null, null, new KvsActorStateProvider(true)) // Enable incremental backup
+    {
+    }
     
     //
-   // Method overrides and other code.
+    // Method overrides and other code.
     //
 }
 ```

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: jdial
-ms.openlocfilehash: a8cc730e6e03e3d1adce1a584a20e8111116f40c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 19fdf2e7e1c7c56b6bfe8ddbf7329d3722f4e8de
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58013062"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188609"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>FAQ sur les réseaux virtuels Azure
 
@@ -285,7 +285,7 @@ Non. L’homologation de réseau virtuel, qu’elle soit locale ou globale, n’
 ## <a name="virtual-network-tap"></a>TAP de réseau virtuel
 
 ### <a name="which-azure-regions-are-available-for-virtual-network-tap"></a>Quelles régions Azure sont disponibles pour le TAP de réseau virtuel ?
-Pendant la préversion pour développeurs, la fonctionnalité est disponible dans la région USA Centre-Ouest. Les interfaces réseau supervisées, la ressource TAP de réseau virtuel, ainsi que la solution du collecteur ou d’analyse doivent être déployées dans la même région.
+Version préliminaire TAP de réseau virtuel est disponible dans toutes les régions Azure. Les interfaces réseau supervisées, la ressource TAP de réseau virtuel, ainsi que la solution du collecteur ou d’analyse doivent être déployées dans la même région.
 
 ### <a name="does-virtual-network-tap-support-any-filtering-capabilities-on-the-mirrored-packets"></a>Le TAP de réseau virtuel prend-il en charge des fonctionnalités de filtrage sur les paquets mis en miroir ?
 Les fonctionnalités de filtrage ne sont pas prises en charge avec la préversion du TAP de réseau virtuel. Quand une configuration TAP est ajoutée à une interface réseau, une copie complète de tout le trafic entrant et sortant sur l’interface réseau est diffusée en continu vers la destination TAP.
@@ -298,7 +298,7 @@ Oui. La même ressource TAP de réseau virtuel peut être utilisée pour agrége
 
 ### <a name="are-there-any-performance-considerations-on-production-traffic-if-i-enable-a-virtual-network-tap-configuration-on-a-network-interface"></a>Existe-t-il des considérations relatives aux performances sur le trafic de production si j’active une configuration TAP de réseau virtuel sur une interface réseau ?
 
-Le TAP de réseau virtuel est disponible en préversion pour les développeurs. Pendant la période de préversion, il n’existe aucun contrat de niveau de service. La fonctionnalité ne doit pas être utilisée pour des charges de travail de production. Quand une interface réseau de machine virtuelle est activée avec une configuration TAP, les mêmes ressources sur l’hôte Azure allouées à la machine virtuelle pour envoyer le trafic de production sont utilisées pour exécuter la fonction de mise en miroir et envoyer les paquets mis en miroir. Sélectionnez la taille de machine virtuelle [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Windows](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) appropriée pour garantir que suffisamment de ressources sont disponibles pour que la machine virtuelle envoie le trafic de production et le trafic mis en miroir.
+Réseau virtuel TAP est disponible en version préliminaire. Pendant la période de préversion, il n’existe aucun contrat de niveau de service. La fonctionnalité ne doit pas être utilisée pour des charges de travail de production. Quand une interface réseau de machine virtuelle est activée avec une configuration TAP, les mêmes ressources sur l’hôte Azure allouées à la machine virtuelle pour envoyer le trafic de production sont utilisées pour exécuter la fonction de mise en miroir et envoyer les paquets mis en miroir. Sélectionnez la taille de machine virtuelle [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Windows](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) appropriée pour garantir que suffisamment de ressources sont disponibles pour que la machine virtuelle envoie le trafic de production et le trafic mis en miroir.
 
 ### <a name="is-accelerated-networking-for-linuxcreate-vm-accelerated-networking-climd-or-windowscreate-vm-accelerated-networking-powershellmd-supported-with-virtual-network-tap"></a>La mise en réseau accélérée pour [Linux](create-vm-accelerated-networking-cli.md) ou [Windows](create-vm-accelerated-networking-powershell.md) est-elle prise en charge avec le TAP de réseau virtuel ?
 

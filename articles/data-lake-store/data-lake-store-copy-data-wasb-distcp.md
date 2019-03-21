@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 9740de34fe7cf7d06af1803cc6d77d7e89bbb73f
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
-ms.translationtype: HT
+ms.openlocfilehash: 5c3f393278d3d51dd3a53cd19335cd242c15c6d8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391519"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58168705"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen1"></a>Utiliser Distcp pour copier des données entre des objets blob Stockage Azure et Azure Data Lake Storage Gen1
 > [!div class="op_single_selector"]
@@ -28,14 +28,11 @@ ms.locfileid: "44391519"
 
 Si vous avez un cluster HDInsight avec un accès à Azure Data Lake Storage Gen1, vous pouvez utiliser des outils de l’écosystème Hadoop comme Distcp pour copier des données **vers et à partir d’un** stockage de cluster HDInsight (WASB) dans un compte Data Lake Storage Gen1. Cet article fournit des instructions sur l’utilisation de l’outil Distcp.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Un compte Azure Data Lake Storage Gen1**. Pour savoir comment en créer un, consultez [Prise en main d’Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * **Cluster Azure HDInsight** avec accès à un compte Data Lake Storage Gen1. Voir [Créer un cluster HDInsight avec Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Veillez à activer le Bureau à distance pour le cluster.
-
-## <a name="do-you-learn-fast-with-videos"></a>Les vidéos vous permettent-elles d’apprendre rapidement ?
-[Regardez cette vidéo](https://mix.office.com/watch/1liuojvdx6sie) pour savoir comment copier des données entre des objets blob Azure Storage et Data Lake Storage Gen1 à l’aide de DistCp.
 
 ## <a name="use-distcp-from-an-hdinsight-linux-cluster"></a>Utiliser Distcp à partir d’un cluster HDInsight Linux
 
@@ -79,9 +76,9 @@ La granularité la plus basse de DistCp étant un fichier unique, la définition
 
 Voici quelques conseils à suivre.
 
-* **Étape 1 : Déterminer la quantité totale de mémoire YARN** : la première étape consiste à déterminer la mémoire YARN disponible pour le cluster sur lequel vous exécutez la tâche DistCp. Ces informations sont disponibles dans le portail de Ambari associé au cluster. Accédez à YARN et affichez l’onglet Configurations pour voir la mémoire YARN. Pour obtenir la mémoire YARN totale, multipliez la mémoire YARN par nœud par le nombre de nœuds dans votre cluster.
+* **Étape 1 : Déterminer la mémoire YARN totale** -la première étape consiste à déterminer la quantité de mémoire YARN disponible pour le cluster sur lequel vous exécutez la tâche DistCp. Ces informations sont disponibles dans le portail de Ambari associé au cluster. Accédez à YARN et affichez l’onglet Configurations pour voir la mémoire YARN. Pour obtenir la mémoire YARN totale, multipliez la mémoire YARN par nœud par le nombre de nœuds dans votre cluster.
 
-* **Étape 2 : Calculer le nombre de mappeurs** : la valeur de **m** est égale au quotient de la mémoire de YARN totale divisée par la taille du conteneur YARN. Les informations sur la taille du conteneur YARN sont également disponibles dans le portail Ambari. Accédez à YARN et affichez l’onglet Configurations. La taille du conteneur YARN s’affiche dans cette fenêtre. L’équation pour obtenir le nombre de mappeurs (**m**) est
+* **Étape 2 : Calculer le nombre de mappeurs** - La valeur de **m** est égale au quotient de la mémoire YARN totale divisée par la taille du conteneur YARN. Les informations sur la taille du conteneur YARN sont également disponibles dans le portail Ambari. Accédez à YARN et affichez l’onglet Configurations. La taille du conteneur YARN s’affiche dans cette fenêtre. L’équation pour obtenir le nombre de mappeurs (**m**) est
 
         m = (number of nodes * YARN memory for each node) / YARN container size
 

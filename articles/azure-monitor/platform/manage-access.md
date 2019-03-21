@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: magoedte
-ms.openlocfilehash: 66cef8369a314a76cf619e436cd25d6bdf628c45
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: be285b6a51ae5a0f4239b841ce64100f1875d785
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076302"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294346"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Gérer les données de journal et les espaces de travail dans Azure Monitor
 Azure Monitor stocke les données de journal dans un espace de travail Log Analytics, qui n'est autre qu'un conteneur de données et d'informations de configuration. Pour gérer l'accès aux données de journal, vous accomplissez diverses tâches administratives liées aux espaces de travail. Vous ou d’autres membres de votre organisation pouvez utiliser plusieurs espaces de travail pour gérer différents ensembles de données provenant de tout ou partie de votre infrastructure informatique.
@@ -136,15 +136,6 @@ Il s’agit du paramètre par défaut pour tous les espaces de travail créés a
 > [!NOTE]
 > Si un utilisateur dispose uniquement des autorisations de ressources à l’espace de travail, ils seulement seront en mesure d’accéder à l’espace de travail à l’aide à [mode centré sur les ressources](#access-modes).
 
-
-### <a name="define-access-control-mode-in-azure-portal"></a>Définir le mode de contrôle d’accès dans le portail Azure
-Vous pouvez afficher le mode de contrôle d’accès espace de travail actuel sur le **vue d’ensemble** page pour l’espace de travail dans le **espace de travail Analytique de journal** menu.
-
-![Mode de contrôle de vue espace de travail access](media/manage-access/view-access-control-mode.png)
-
-Vous pouvez modifier ce paramètre sur le **propriétés** page pour l’espace de travail. Modification du paramètre va être désactivée si vous n’êtes pas autorisé à configurer l’espace de travail.
-
-![Modifier le mode d’accès espace de travail](media/manage-access/change-access-control-mode.png)
 
 ### <a name="define-access-control-mode-in-azure-portal"></a>Définir le mode de contrôle d’accès dans le portail Azure
 Vous pouvez afficher le mode de contrôle d’accès espace de travail actuel sur le **vue d’ensemble** page pour l’espace de travail dans le **espace de travail Analytique de journal** menu.

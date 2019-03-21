@@ -1,20 +1,20 @@
 ---
 title: Bien démarrer avec les jumeaux d’appareil Azure IoT Hub (.NET/.NET) | Microsoft Docs
 description: Guide d’utilisation des jumeaux d’appareils Azure IoT Hub pour ajouter des balises, puis utiliser une requête IoT Hub. Vous utilisez le kit Azure IoT device SDK pour .NET pour implémenter l’application d’appareil simulé et le kit Azure IoT service SDK pour .NET pour implémenter une application de service qui ajoute des balises et exécute la requête IoT Hub.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: dobett
-ms.openlocfilehash: 1921395ed11c23ddb3d64d9d53124df7b7c8fd82
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
-ms.translationtype: HT
+ms.author: robin.shahan
+ms.openlocfilehash: 63ec161f2f0d8be4572acf456c81e19ca75bd856
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514857"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010733"
 ---
 # <a name="get-started-with-device-twins-netnet"></a>Bien démarrer avec les jumeaux d’appareils (.NET/.NET)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]

@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: eaef1c904b5404339c476d86c5b8c2a1740e5a3e
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 0bd19492c844e217dc520ae0c189ca467bb7ac0a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700075"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011087"
 ---
 # <a name="best-practices-for-securing-and-managing-workloads-migrated-to-azure"></a>Meilleures pratiques pour la sécurisation et la gestion des charges de travail migrées vers Azure
 
@@ -267,7 +267,7 @@ Il est fréquent que l’utilisation d’un seul nom de groupe de ressources li�
 
 - [Apprenez-en davantage](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) sur le balisage et les limitations des balises.
 - [Révisez](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags#powershell) les exemples PowerShell et de l’interface de ligne de commande pour configurer le balisage et pour appliquer les balises d’un groupe de ressources à ses ressources.
-- [Consultez](http://www.azurefieldnotes.com/2016/07/18/azure-resource-tagging-best-practices/) les meilleures pratiques du balisage Azure.
+- [Consultez](https://www.azurefieldnotes.com/2016/07/18/azure-resource-tagging-best-practices/) les meilleures pratiques du balisage Azure.
 
 
 ## <a name="best-practice-implement-blueprints"></a>Meilleure pratique : Implémenter des blueprints
@@ -588,7 +588,7 @@ Les ressources Azure génèrent un bon nombre de métriques de journalisation et
 
 - Par défaut, la journalisation des diagnostics n’est pas activée pour la plupart des types de ressources.
 - En activant la journalisation des diagnostics sur l’ensemble de vos ressources, vous pouvez interroger les données de journalisation et créer des alertes et des playbooks basés sur celles-ci.
-- Lorsque vous activez l’enregistrement de diagnostic, chaque ressource possède un ensemble spécifique de catégories. Vous sélectionnez une ou plusieurs catégories de journalisation et un emplacement pour les données de journalisation. Les journaux peuvent être envoyés à un compte de stockage, à un Event Hub ou à Log Analytics. 
+- Lorsque vous activez l’enregistrement de diagnostic, chaque ressource possède un ensemble spécifique de catégories. Vous sélectionnez une ou plusieurs catégories de journalisation et un emplacement pour les données de journalisation. Journaux peuvent être envoyés à un compte de stockage, concentrateur d’événements, ou dans les journaux d’Azure Monitor. 
 
 
 ![Journalisation des diagnostics](./media/migrate-best-practices-security-management/diagnostics.png)
@@ -679,7 +679,7 @@ Comme pour tout système de production, tout type de changement peut avoir un im
 Azure possède une solution Suivi des modifications dans Azure Automation :
 
 - La solution suit les modifications apportées aux logiciels et fichiers Windows et Linux, aux clés de Registre Windows, aux services Windows et aux démons Linux.
-- Les modifications apportées sur les serveurs supervisés sont envoyées au service Log Analytics dans le cloud pour traitement.
+- Modifications sur les serveurs surveillés sont envoyées au service Azure Monitor dans le cloud pour traitement.
 - La logique est appliquée aux données reçues et le service cloud enregistre les données.
 - Dans le tableau de bord de suivi des modifications, vous pouvez facilement voir les modifications apportées à votre infrastructure de serveur.
 

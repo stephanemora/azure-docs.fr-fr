@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: d41ec0bc959eb264564d49ae6ac31aa30b3be98a
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 32b9a00aa943813bec3c518c3c9dbf0e37a9bc63
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492757"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445923"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Connecter un appareil en aval à une passerelle Azure IoT Edge
 
@@ -28,7 +28,7 @@ Cet article identifie les problèmes courants liés aux connexions d’appareils
 
 Dans cet article, les termes *passerelle* et *passerelle IoT Edge* font référence à un appareil IoT Edge configuré comme passerelle transparente. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Avant de suivre les étapes décrites dans cet article, vous devez avoir deux appareils opérationnels :
 
@@ -40,7 +40,10 @@ Avant de suivre les étapes décrites dans cet article, vous devez avoir deux ap
 2. Un appareil en aval qui a reçu une identité d’appareil de la part d’IoT Hub. 
     Vous ne pouvez pas utiliser un appareil IoT Edge comme appareil en aval. Utilisez plutôt un appareil inscrit comme appareil IoT standard dans IoT Hub. Dans le portail, vous pouvez inscrire un nouvel appareil dans la section **Appareils IoT**. Ou vous pouvez utiliser l’interface de ligne de commande Azure pour [inscrire un appareil](../iot-hub/quickstart-send-telemetry-c.md#register-a-device). Copiez la chaîne de connexion et mettez-la à disposition pour les sections suivantes. 
 
-    Actuellement, seuls les appareils en aval avec authentification par clé symétrique peuvent se connecter via des passerelles IoT Edge. Les autorités de certification X.509 et les certificats auto-signés X.509 ne sont pas pris en charge actuellement. 
+    Actuellement, seuls les appareils en aval avec authentification par clé symétrique peuvent se connecter via des passerelles IoT Edge. Les autorités de certification X.509 et les certificats auto-signés X.509 ne sont pas pris en charge actuellement.
+    
+> [!NOTE]
+> Le « nom de passerelle » permet de créer les certificats dans cette instruction, doit être le même nom que celles utilisées en tant que nom d’hôte dans votre fichier de config.yaml IoT Edge et GatewayHostName dans la chaîne de connexion de l’appareil en aval. Le « nom de passerelle » doit être résolu en une adresse IP, à l’aide de DNS ou une entrée de fichier hôte. Communication basée sur le protocole utilisé (MQTTS:8883 / AMQPS:5671 / HTTPS:433) doit être possible entre l’appareil en aval et le soit transparent IoT Edge. Si un pare-feu est entre les deux, le port correspondant doit être ouvert.
 
 ## <a name="prepare-a-downstream-device"></a>Préparer un appareil en aval
 
@@ -89,7 +92,7 @@ sudo update-ca-certificates
 
 Vous devez voir un message indiquant « Updating certificates in /etc/ssl/certs... 1 added, 0 removed; done. » (Mise à jour des certificats dans /etc/ssl/certs... 1 ajouté, 0 supprimé ; terminé.)
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 Les étapes suivantes montrent un exemple d’installation d’un certificat d’autorité de certification sur un hôte Windows. Cet exemple suppose que vous utilisez le certificat **azure-iot-test-only.root.ca.cert.pem** à partir des articles de la configuration requise et que vous avez copié le certificat dans un emplacement sur l’appareil en aval.  
 

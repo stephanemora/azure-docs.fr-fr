@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 02/09/2019
-ms.openlocfilehash: dea0a38b1f543fbb17cb0cd98ee4f96144d07f4e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: HT
+ms.openlocfilehash: 8f24bab531143cad1974663eb71b173a20b6f51a
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432896"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287177"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Mettre à niveau votre entrepôt de données vers Gen2
 
@@ -43,8 +43,8 @@ Le tableau suivant récapitule par région le moment où le niveau de capacité 
 | Chine du Nord |\* |\* |
 | Chine Nord 2 |\* |\* |
 | Asie Est |Disponible |1er mai 2019 |
-| USA Est |Disponible |2 avril 2019 |
-| USA Est 2 |Disponible |2 avril 2019 |
+| USA Est |Disponible |1er mai 2019 |
+| USA Est 2 |Disponible |Le 1er mai. 2019 |
 | France Centre |\* |\* |
 | Centre de l’Allemagne |\* |\* |
 | Ouest-Centre de l’Allemagne |1 septembre 2019|2 janvier 2020 |
@@ -55,15 +55,15 @@ Le tableau suivant récapitule par région le moment où le niveau de capacité 
 | Centre de la Corée |2 avril 2019 |1er mai 2019 |
 | Corée du Sud |2 avril 2019 |1 juin 2019 |
 | USA Centre Nord |2 avril 2019 |1 juin 2019 |
-| Europe Nord |Disponible |2 avril 2019 |
+| Europe Nord |Disponible |1er mai 2019 |
 | USA Centre Sud |Disponible |1er mai 2019 |
-| Asie Sud-Est |Disponible |2 avril 2019 |
+| Asie Sud-Est |Disponible |1er mai 2019 |
 | Sud du Royaume-Uni |2 avril 2019 |1er mai 2019 |
 | Ouest du Royaume-Uni |\*|\* |
 | USA Centre-Ouest |2 septembre 2019 |2 janvier 2020|
-| Europe Ouest |Disponible |2 avril 2019 |
+| Europe Ouest |Disponible |1er mai 2019 |
 | USA Ouest |2 avril 2019 |1 juin 2019 |
-| USA Ouest 2 |Disponible |2 avril 2019 |
+| USA Ouest 2 |Disponible |1er mai 2019 |
 
 ## <a name="automatic-upgrade-process"></a>Processus de mise à niveau automatique
 
