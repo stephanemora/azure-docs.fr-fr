@@ -6,18 +6,18 @@ ms.service: sql-database
 ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
-ms.topic: howto
+ms.topic: conceptual
 author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: d8522967154a69b8473475932f2074bc98b4f24d
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 0c6bf22527278d0d2217a8b384eb8bcd2210856a
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731221"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57779508"
 ---
 # <a name="configure-threat-detection-preview-in-azure-sql-database-managed-instance"></a>Configurer la détection des menaces (préversion) dans une instance gérée Azure SQL Database
 
@@ -25,7 +25,7 @@ La [détection des menaces](sql-database-threat-detection-overview.md) pour une 
 
 Vous pouvez recevoir des notifications à propos des menaces détectées par l’intermédiaire de [notifications par e-mail](sql-database-threat-detection-overview.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event) ou du [portail Azure](sql-database-threat-detection-overview.md#explore-threat-detection-alerts-for-your-database-in-the-azure-portal).
 
-La [détection des menaces](sql-database-threat-detection-overview.md) fait partie de l’offre [Advanced Data Security](sql-database-advanced-data-security.md) (ADS), qui est un package unifié de fonctionnalités de sécurité SQL avancées. La détection des menaces est accessible et gérée via le portail SQL Advanced Data Security central. Le service de détection des menaces est facturé 15 USD par mois et par instance gérée, avec les 30 premiers jours gratuits.
+La [Détection des menaces](sql-database-threat-detection-overview.md) fait partie de l'offre [Advanced Data Security](sql-database-advanced-data-security.md) (ADS), qui est un package unifié de fonctionnalités de sécurité SQL avancées. La détection des menaces est accessible et gérée via le portail SQL Advanced Data Security central. Le service de détection des menaces est facturé 15 USD par mois et par instance gérée, avec les 30 premiers jours gratuits.
 
 ## <a name="set-up-threat-detection-for-your-managed-instance-in-the-azure-portal"></a>Configurer la détection des menaces pour votre instance gérée dans le portail Azure
 

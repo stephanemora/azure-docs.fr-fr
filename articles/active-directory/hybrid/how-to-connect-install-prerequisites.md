@@ -16,12 +16,12 @@ ms.date: 12/28/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9925f2ed9f5b24a4113c30f1d00eb3a5bbed8eb5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: bd3aac6a7fb0904089f135c9af7b136eda73701f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205339"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835467"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Conditions préalables pour Azure AD Connect
 Cette rubrique décrit les conditions préalables et la configuration matérielle requise pour Azure AD Connect.
@@ -50,7 +50,7 @@ Avant d’installer Azure AD Connect, voici ce dont vous avez besoin.
 ### <a name="azure-ad-connect-server"></a>Serveur Azure AD Connect
 * Vous ne pouvez pas installer Azure AD Connect sur Small Business Server ou Windows Server Essentials version antérieure à 2019 (Windows Server Essentials 2019 est pris en charge). Le serveur doit utiliser Windows Server Standard ou une version supérieure.
 * Le serveur Azure AD Connect doit disposer d’une interface utilisateur graphique complète. Il ne **peut pas être installé** sur Server Core.
-* Azure Active Directory Connect doit être installé sur Windows Server 2008 R2 ou version ultérieure. Ce serveur peut être un contrôleur de domaine ou un serveur membre lorsque vous utilisez la configuration rapide. Si vous utilisez des paramètres personnalisés, le serveur peut également être autonome et n’a pas besoin d’être joint à un domaine.
+* Azure Active Directory Connect doit être installé sur Windows Server 2008 R2 ou version ultérieure. Ce serveur doit être domaine joint et peut être un contrôleur de domaine ou un serveur membre.
 * Si vous installez Azure AD Connect sous Windows Server 2008 R2, veillez à appliquer les derniers correctifs à partir de Windows Update. L’installation ne pourra pas démarrer sur un serveur non corrigé.
 * Si vous prévoyez d’utiliser la fonctionnalité **Synchronisation de mot de passe**, le serveur Azure AD Connect doit être exécuté sous Windows Server 2008 R2 SP1 ou une version ultérieure.
 * Si vous envisagez d’utiliser un **compte de service administré de groupe**, le serveur Azure AD Connect doit se trouver sur Windows Server 2012 ou version ultérieure.
@@ -64,7 +64,7 @@ Avant d’installer Azure AD Connect, voici ce dont vous avez besoin.
 ### <a name="sql-server-used-by-azure-ad-connect"></a>SQL Server utilisé par Azure AD Connect
 * Azure AD Connect nécessite une base de données SQL Server pour stocker les données d’identité. Par défaut, une base de données SQL Server 2012 Express LocalDB (version légère de SQL Server Express) est installée. SQL Server Express a une limite de 10 Go qui vous permet de gérer environ 100 000 objets. Si vous avez besoin de gérer un volume plus important d’objets d’annuaire, vous devez pointer l’assistant d’installation vers une autre installation de SQL Server.
 * Si vous utilisez un serveur SQL Server distinct, ces conditions s’appliquent :
-  * Azure AD Connect prend en charge toutes les versions de Microsoft SQL Server à partir de SQL Server 2008 (avec le dernier Service Pack) et jusqu’à SQL Server 2017. La Base de données SQL Microsoft Azure n’est **pas prise en charge** comme base de données.
+  * Azure AD Connect prend en charge toutes les versions de Microsoft SQL Server à partir de 2008 R2 (avec le dernier Service Pack) pour SQL Server 2019. La Base de données SQL Microsoft Azure n’est **pas prise en charge** comme base de données.
   * Vous devez utiliser un classement SQL qui ne respecte pas la casse. Ces classements sont identifiés par un \_CI_ dans leur nom. L’utilisation d’un classement qui respecte la casse, identifié par \_CS_ dans le nom, **n’est pas prise en charge**.
   * Vous ne pouvez avoir qu’un seul moteur de synchronisation par instance SQL. Le partage de l’instance SQL avec FIM/MIM Sync, DirSync ou Azure AD Sync n’est **pas pris en charge**.
 
@@ -117,7 +117,7 @@ Pour plus d’informations lorsque vous avez des problèmes de connectivité, co
 * Facultatif : Un compte d’utilisateur test pour vérifier la synchronisation.
 
 ## <a name="component-prerequisites"></a>Configuration requise pour les composants
-### <a name="powershell-and-net-framework"></a>PowerShell et le .Net Framework
+### <a name="powershell-and-net-framework"></a>PowerShell et .NET Framework
 Azure AD Connect repose sur Microsoft PowerShell et le .NET Framework 4.5.1. Cette version ou une version ultérieure doit être installée sur votre serveur. Selon votre version de Windows Server, procédez comme suit :
 
 * Windows Server 2012 R2
@@ -129,20 +129,20 @@ Azure AD Connect repose sur Microsoft PowerShell et le .NET Framework 4.5.1. Cet
 
 
 ### <a name="enable-tls-12-for-azure-ad-connect"></a>Activer TLS 1.2 pour Azure AD Connect
-Avant la version 1.1.614.0, Azure AD Connect utilise TLS 1.0 par défaut pour le chiffrement de la communication entre le serveur de moteur de synchronisation et Azure AD. Vous pouvez modifier ce comportement en configurant les applications .Net pour qu’elles utilisent TLS 1.2 par défaut sur le serveur. Vous trouverez plus d’informations sur TLS 1.2 dans [l’Avis de sécurité Microsoft 2960358](https://technet.microsoft.com/security/advisory/2960358).
+Avant la version 1.1.614.0, Azure AD Connect utilise TLS 1.0 par défaut pour le chiffrement de la communication entre le serveur de moteur de synchronisation et Azure AD. Vous pouvez le modifier en configurant des applications .NET pour utiliser TLS 1.2 par défaut sur le serveur. Vous trouverez plus d’informations sur TLS 1.2 dans [l’Avis de sécurité Microsoft 2960358](https://technet.microsoft.com/security/advisory/2960358).
 
-1. TLS 1.2 ne peut pas être activé sur les versions Windows Server 2008 R2 ou ultérieures. Vérifiez que le correctif .Net 4.5.1 est installé pour votre système d’exploitation. Consultez [l’Avis de sécurité Microsoft 2960358](https://technet.microsoft.com/security/advisory/2960358). Il est possible que cette version du correctif ou une version ultérieure soit déjà installée sur votre serveur.
+1. TLS 1.2 ne peut pas être activé sur les versions Windows Server 2008 R2 ou ultérieures. Vérifiez que vous disposez de .NET 4.5.1 correctif est installé pour votre système d’exploitation, consultez [avis de sécurité Microsoft 2960358](https://technet.microsoft.com/security/advisory/2960358). Il est possible que cette version du correctif ou une version ultérieure soit déjà installée sur votre serveur.
 2. Si vous utilisez Windows Server 2008 R2, vérifiez que TLS 1.2 est activé. Sur le serveur Windows Server 2012 et les versions ultérieures, TLS 1.2 doit déjà être activé.
-   ```
-   [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
-   [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
-   [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
-   ```
+    ```
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
+    ```
 3. Pour tous les systèmes d’exploitation, définissez cette clé de Registre et redémarrez le serveur.
-   ```
-   HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319
-   "SchUseStrongCrypto"=dword:00000001
-   ```
+    ```
+    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319
+    "SchUseStrongCrypto"=dword:00000001
+    ```
 4. Si vous souhaitez également activer TLS 1.2 entre le serveur de moteur de synchronisation et un serveur SQL distant, vérifiez que vous disposez des versions requises pour la [prise en charge de TLS 1.2 pour Microsoft SQL Server](https://support.microsoft.com/kb/3135244).
 
 ## <a name="prerequisites-for-federation-installation-and-configuration"></a>Configuration requise pour l'installation et la configuration de la fédération

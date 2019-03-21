@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee6c6559b5dd6c6a6e357ff2f258bad79d57205c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9809993d47141b70484892103e318a6f55381a2e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192640"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57856258"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurer les paramètres d’Azure Multi-Factor Authentication
 
@@ -64,7 +64,7 @@ Utilisez la fonctionnalité de _blocage/déblocage_ pour empêcher les utilisate
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur.
 2. Accédez à **Azure Active Directory** > **MFA** > **Bloquer/débloquer des utilisateurs**.
 3. Sélectionnez **Ajouter** pour bloquer un utilisateur.
-4. Sélectionnez le **Groupe de réplication**. Entrez le nom d’utilisateur pour l’utilisateur bloqué sous la forme **username@domain.com**. Entrez un commentaire dans le champ **Motif**.
+4. Sélectionnez le **Groupe de réplication**. Entrez le nom d’utilisateur de l’utilisateur bloqué en tant que **nom d’utilisateur\@domaine.com**. Entrez un commentaire dans le champ **Motif**.
 5. Sélectionnez **Ajouter** pour achever de bloquer l’utilisateur.
 
 ### <a name="unblock-a-user"></a>Débloquer un utilisateur
@@ -154,7 +154,7 @@ La fonctionnalité de _contournement à usage unique_ permet à un utilisateur d
 2. Accédez à **Azure Active Directory** > **MFA** > **Contournement à usage unique**.
 3. Sélectionnez **Ajouter**.
 4. Si nécessaire, sélectionnez le groupe de réplication de ce contournement.
-5. Entrez le nom d’utilisateur sous la forme **username@domain.com**. Entrez la durée du contournement en secondes. Entrez le motif du contournement.
+5. Entrez le nom d’utilisateur en tant que **nom d’utilisateur\@domaine.com**. Entrez la durée du contournement en secondes. Entrez le motif du contournement.
 6. Sélectionnez **Ajouter**. La limite de temps entre immédiatement en vigueur. L’utilisateur doit se connecter avant que le délai de contournement à usage unique ne soit écoulé.
 
 ### <a name="view-the-one-time-bypass-report"></a>Afficher le rapport de contournement à usage unique
@@ -252,7 +252,7 @@ Par défaut, les utilisateurs ne peuvent pas créer des mots de passe d’applic
 
 Les utilisateurs peuvent créer des mots de passe d'application lors de leur inscription initiale. L’utilisateur a la possibilité de créer des mots de passe d’application à la fin du processus d’inscription.
 
-Les utilisateurs peuvent aussi créer des mots de passe d’application après l’inscription. Les mots de passe d’applications sont modifiables dans les paramètres du portail Azure ou du portail Office 365. Pour plus d’informations et pour connaître les étapes détaillées pour vos utilisateurs, consultez [Que sont les mots de passe d’application dans Azure Multi-Factor Authentication ?](../user-help/multi-factor-authentication-end-user-app-passwords.md).
+Les utilisateurs peuvent aussi créer des mots de passe d’application après l’inscription. Pour plus d’informations et pour connaître les étapes détaillées pour vos utilisateurs, consultez [Que sont les mots de passe d’application dans Azure Multi-Factor Authentication ?](../user-help/multi-factor-authentication-end-user-app-passwords.md).
 
 ## <a name="trusted-ips"></a>Adresses IP approuvées
 

@@ -5,17 +5,17 @@ description: Cette rubrique explique comment créer et déployer un module R pe
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 43691988e3f4f253c642702ad19272a5267c14cc
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 0dec86eff9b9df70514be6f32f3aad60bfb311ca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56457028"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120378"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio"></a>Définir des modules R personnalisés pour Azure Machine Learning Studio
 
@@ -123,7 +123,7 @@ Règles relatives aux limites de caractères dans les éléments Module :
 * Le contenu de l’élément **Description** ne doit pas dépasser 128 caractères.
 * Le contenu de l’élément **Owner** ne doit pas dépasser 32 caractères.
 
-Les résultats d’un module peuvent être déterministes ou non déterministes.** Par défaut, tous les modules sont considérés comme déterministes. Autrement dit, en présence d’un jeu de données et de paramètres d’entrée qui ne change pas, le module doit retourner les mêmes résultats chaque fois qu’il est exécuté. Étant donné ce comportement, Azure Machine Learning Studio ne réexécute les modules marqués comme étant déterministes que si un paramètre ou les données d’entrée ont été modifiés. Le renvoi des résultats mis en cache assure également une exécution bien plus rapide des expériences.
+Les résultats d’un module peuvent être déterministes ou non déterministes.** Par défaut, tous les modules sont considérés comme déterministes. Autrement dit, le module étant donné un jeu qui ne changent pas de paramètres d’entrée et de données, doit retourner la présence de résultats de la même ou une fonction de son exécution. Étant donné ce comportement, Azure Machine Learning Studio ne réexécute les modules marqués comme étant déterministes que si un paramètre ou les données d’entrée ont été modifiés. Le renvoi des résultats mis en cache assure également une exécution bien plus rapide des expériences.
 
 Il existe des fonctions non déterministes, notamment RAND ou une fonction qui retourne la date ou l’heure actuelle. Si votre module utilise une fonction non déterministe, vous pouvez spécifier que le module n’est pas déterministe en définissant l’attribut facultatif **isDeterministic** sur **FALSE**. Cela permet de s’assurer que le module est réexécuté à chaque exécution de l’expérience, même si le module d’entrée et les paramètres n’ont pas changé. 
 

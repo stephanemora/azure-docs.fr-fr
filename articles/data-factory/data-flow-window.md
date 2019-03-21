@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 329125d39c0da403ff078182af2eee74bcd9c84d
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 6f3f06ff54fc76416ba63f4f09835897d546f8dc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56271192"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57861908"
 ---
-# <a name="azure-data-factory-mapping-data-flow-window-transformation"></a>Azure Data Factory correspondant à la transformation de fenêtres de flux de données
+# <a name="azure-data-factory-window-transformation"></a>Transformation de fenêtre Azure Data Factory
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -39,10 +39,13 @@ Le curseur de la fenêtre a deux valeurs à définir : les valeurs avant la lig
 
 ![Options de fenêtre](media/data-flow/windows6.png "fenêtres 6")
 
-## <a name="window-columns"></a>Colonnes de fenêtres
+## <a name="window-columns"></a>Colonnes de la fenêtre
 Enfin, utilisez le Générateur d’expressions pour définir les agrégations que vous souhaitez utiliser avec les fenêtres de données, telles que RANK, COUNT, MIN, MAX, DENSE RANK, LEAD, LAG, etc.
 
 ![Options de fenêtre](media/data-flow/windows7.png "fenêtres 7")
 
 La liste complète d’agrégation et de fonctions analytiques disponibles que vous pouvez utiliser dans le langage d’expression de flux de données ADF via le Générateur d’expressions est répertoriée ici : https://aka.ms/dataflowexpressions.
 
+## <a name="next-steps"></a>Étapes suivantes
+
+Si vous cherchez une agrégation group by simple, utilisez la [transformation d’agrégation](data-flow-aggregate.md)

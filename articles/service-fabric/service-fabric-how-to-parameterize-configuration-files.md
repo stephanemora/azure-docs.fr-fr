@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/09/2018
 ms.author: mikhegn
-ms.openlocfilehash: 9057cdc22e277e4e12e9f439f3fbe0c5a5cda2a2
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
-ms.translationtype: HT
+ms.openlocfilehash: 0ab6e3f189d4a2e7e8f3bc96108d7979c99fffa8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48900511"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102667"
 ---
 # <a name="how-to-parameterize-configuration-files-in-service-fabric"></a>Guide pratique pour paramétrer les fichiers de configuration dans Service Fabric
 
@@ -30,24 +30,24 @@ Dans cet exemple, vous remplacez une valeur de configuration à l’aide de para
 1. Ouvrez le fichier  *<MyService>\PackageRoot\Config\Settings.xml* dans votre projet de service.
 1. Définissez un nom de paramètre de configuration et une valeur, par exemple la taille du cache égale à 25, en ajoutant le code XML suivant :
 
-  ```xml
+   ```xml
     <Section Name="MyConfigSection">
       <Parameter Name="CacheSize" Value="25" />
     </Section>
-  ```
+   ```
 
 1. Enregistrez et fermez le fichier.
 1. Ouvrez le fichier *<MyApplication>\ApplicationPackageRoot\ApplicationManifest.xml*.
 1. Dans le fichier ApplicationManifest.xml, déclarez une valeur de paramètre et une valeur par défaut dans l’élément `Parameters`.  Il est recommandé que le nom du paramètre contienne le nom du service (par exemple, « MyService »).
 
-  ```xml
+   ```xml
     <Parameters>
       <Parameter Name="MyService_CacheSize" DefaultValue="80" />
     </Parameters>
-  ```
+   ```
 1. Dans la section `ServiceManifestImport` du fichier ApplicationManifest.xml, ajoutez un élément `ConfigOverride`, qui référence le package de configuration, la section et le paramètre.
 
-  ```xml
+   ```xml
     <ConfigOverrides>
       <ConfigOverride Name="Config">
           <Settings>
@@ -57,7 +57,7 @@ Dans cet exemple, vous remplacez une valeur de configuration à l’aide de para
           </Settings>
       </ConfigOverride>
     </ConfigOverrides>
-  ```
+   ```
 
 > [!NOTE]
 > Si vous ajoutez un élément ConfigOverride, Service Fabric choisit toujours les paramètres d’application ou la valeur par défaut spécifiée dans le manifeste d’application.

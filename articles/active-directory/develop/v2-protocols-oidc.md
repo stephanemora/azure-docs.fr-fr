@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d94e64af362ef9698350b8231718cc841731f7e5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6c20ae6acaf600cdde6e168c6db96deb7a28e9fa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162830"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112702"
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory v2.0 et le protocole OpenID Connect
 
@@ -105,7 +105,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ```
 
 > [!TIP]
-> Cliquez sur le lien suivant pour exécuter cette requête. Une fois que vous êtes connecté, votre navigateur sera redirigé vers https://localhost/myapp/, avec un jeton d’ID dans la barre d’adresse. Notez que cette requête utilise `response_mode=fragment` (pour les besoins du didacticiel uniquement). Nous vous recommandons d'utiliser `response_mode=form_post`.
+> Cliquez sur le lien suivant pour exécuter cette requête. Une fois que vous êtes connecté, votre navigateur sera redirigé vers `https://localhost/myapp/`, avec un jeton d’ID dans la barre d’adresse. Notez que cette requête utilise `response_mode=fragment` (pour les besoins du didacticiel uniquement). Nous vous recommandons d'utiliser `response_mode=form_post`.
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 
 | Paramètre | Condition | Description |
@@ -178,7 +178,7 @@ Le tableau suivant décrit les codes d’erreur qui peuvent être retournés dan
 
 La réception du jeton id_token ne suffit pas à authentifier l’utilisateur. Vous devez valider la signature du jeton id_token et vérifier la conformité des revendications du jeton par rapport à la configuration requise de votre application. Le point de terminaison v2.0 utilise les [jetons web JSON (JWT)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) et le chiffrement de clés publiques pour signer les jetons et vérifier leur validité.
 
-Vous pouvez décider de valider l’élément `id_token` dans le code du client, mais une pratique courante consiste à envoyer l’élément `id_token` vers un serveur principal, afin d’y appliquer la validation. Une fois que vous avez validé la signature du jeton id_token, il vous faudra vérifier quelques revendications. Pour plus d’informations, consultez la page de [référence `id_token`](id-tokens.md), notamment les sections [Validation des jetons](id-tokens.md#validating-an-idtoken) et [Informations importantes sur la substitution des clés de signature](active-directory-signing-key-rollover.md). Nous vous recommandons d’utiliser une bibliothèque pour analyser et valider les jetons. Il en existe au moins une pour la plupart des langages et plateformes.
+Vous pouvez décider de valider l’élément `id_token` dans le code du client, mais une pratique courante consiste à envoyer l’élément `id_token` vers un serveur principal, afin d’y appliquer la validation. Une fois que vous avez validé la signature du jeton id_token, il vous faudra vérifier quelques revendications. Pour plus d’informations, consultez la page de [référence `id_token`](id-tokens.md), notamment les sections [Validation des jetons](id-tokens.md#validating-an-id_token) et [Informations importantes sur la substitution des clés de signature](active-directory-signing-key-rollover.md). Nous vous recommandons d’utiliser une bibliothèque pour analyser et valider les jetons. Il en existe au moins une pour la plupart des langages et plateformes.
 <!--TODO: Improve the information on this-->
 
 En fonction de votre scénario, vous pouvez également valider des revendications supplémentaires. Voici quelques validations courantes :
@@ -235,7 +235,7 @@ https%3A%2F%2Fgraph.microsoft.com%2Fuser.read
 ```
 
 > [!TIP]
-> Cliquez sur le lien suivant pour exécuter cette requête. Une fois que vous êtes connecté, votre navigateur est redirigé vers https://localhost/myapp/, avec un jeton d’ID et un code dans la barre d’adresse. Notez que cette requête utilise `response_mode=fragment` pour les besoins du didacticiel uniquement. Nous vous recommandons d'utiliser `response_mode=form_post`.
+> Cliquez sur le lien suivant pour exécuter cette requête. Une fois que vous êtes connecté, votre navigateur est redirigé vers `https://localhost/myapp/`, avec un jeton d’ID et un code dans la barre d’adresse. Notez que cette requête utilise `response_mode=fragment` pour les besoins du didacticiel uniquement. Nous vous recommandons d'utiliser `response_mode=form_post`.
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token%20code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=fragment&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fuser.read&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 > 
 > 
@@ -279,4 +279,4 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 Pour obtenir une description des codes d’erreur éventuels et connaître les réponses client recommandées associées, consultez [Codes d’erreur pour les erreurs de point de terminaison d’autorisation](#error-codes-for-authorization-endpoint-errors).
 
-Une fois que vous avez obtenu un code d'autorisation et un jeton d'ID, vous pouvez connecter l’utilisateur et obtenir des jetons d’accès pour son compte. Pour connecter l’utilisateur, vous devez valider le jeton d'ID [exactement comme décrit](id-tokens.md#validating-an-idtoken). Pour obtenir des jetons d’accès, suivez la procédure décrite dans la [documentation du flux de code OAuth](v2-oauth2-auth-code-flow.md#request-an-access-token).
+Une fois que vous avez obtenu un code d'autorisation et un jeton d'ID, vous pouvez connecter l’utilisateur et obtenir des jetons d’accès pour son compte. Pour connecter l’utilisateur, vous devez valider le jeton d'ID [exactement comme décrit](id-tokens.md#validating-an-id_token). Pour obtenir des jetons d’accès, suivez la procédure décrite dans la [documentation du flux de code OAuth](v2-oauth2-auth-code-flow.md#request-an-access-token).

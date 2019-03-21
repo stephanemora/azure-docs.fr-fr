@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: ff905f34ab63027e9708082c4690e4275220854f
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: HT
+ms.openlocfilehash: b422074c33f52a6819d2a05144a85768a2e484a0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53406791"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011920"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>Exécuter des tâches MapReduce avec Apache Hadoop sur HDInsight avec REST
 
-Découvrez comment utiliser l’API REST WebHCat Apache Hive pour exécuter des tâches MapReduce sur un Apache Hadoop sur le cluster HDInsight. Curl est utilisé pour illustrer comment interagir avec HDInsight en utilisant des requêtes HTTP brutes pour exécuter des tâches MapReduce.
+Découvrez comment utiliser l’API REST WebHCat d’Apache Hive pour exécuter des tâches MapReduce sur un Hadoop Apache sur un cluster HDInsight. Curl est utilisé pour illustrer comment interagir avec HDInsight en utilisant des requêtes HTTP brutes pour exécuter des tâches MapReduce.
 
 > [!NOTE]  
 > Si vous vous êtes déjà familiarisé avec l’utilisation de serveurs Hadoop sous Linux, mais que vous découvrez HDInsight, consultez le document [Ce qu’il faut savoir sur Apache Hadoop dans HDInsight sous Linux](../hdinsight-hadoop-linux-information.md).
@@ -107,10 +107,10 @@ Découvrez comment utiliser l’API REST WebHCat Apache Hive pour exécuter des 
     La fin de l’URI (/mapreduce/jar) indique à WebHCat que cette demande lance une tâche MapReduce à partir d’une classe dans un fichier jar. Les paramètres utilisés dans cette commande sont les suivants :
 
    * **-d** : étant donné que `-G` n’est pas utilisé, la demande passe par défaut à la méthode POST. `-d` spécifie les valeurs de données envoyées avec la demande.
-    * **user.name** : L’utilisateur qui exécute la commande
-    * **jar** : L’emplacement du fichier jar contenant la classe à exécuter
-    * **class** : La classe contenant la logique MapReduce
-    * **arg** : Les arguments à transmettre à la tâche MapReduce. Dans le cas présent, le fichier texte d’entrée et le répertoire utilisés pour la sortie
+     * **user.name** : L’utilisateur qui exécute la commande
+     * **jar** : L’emplacement du fichier jar contenant la classe à exécuter
+     * **class** : La classe contenant la logique MapReduce
+     * **arg** : Les arguments à transmettre à la tâche MapReduce. Dans le cas présent, le fichier texte d’entrée et le répertoire utilisés pour la sortie
 
    Cette commande doit retourner un ID de tâche qui peut être utilisé pour vérifier le statut de la tâche :
 

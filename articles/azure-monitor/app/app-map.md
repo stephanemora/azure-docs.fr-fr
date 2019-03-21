@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 12/17/2018
+ms.date: 03/14/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: f2bd1d863a7900b50712eb23c1088c6b271befa3
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 777bf38fbc8a90335af79bbd0fb2ce74310bd991
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755887"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58006796"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Cartographie d’application : trier des applications distribuées
 
@@ -42,13 +42,13 @@ Lorsque vous cliquez sur « Update map components » (Mettre à jour les composa
 
 Si tous les composants sont des rôles au sein d’une seule ressource Application Insights, cette étape de découverte n’est pas requise. La charge initiale pour une telle application aura tous ses composants.
 
-![Capture d’écran de la cartographie d’application](media/app-map/001.png)
+![Capture d’écran de la cartographie d’application](media/app-map/app-map-001.png)
 
 L’un des principaux objectifs de cette expérience est de permettre de visualiser des topologies complexes incluant des centaines de composants.
 
 Cliquez sur n’importe quel composant pour afficher des informations connexes ainsi que les performances et l’expérience de triage de défaillance de ce composant.
 
-![Menu volant](media/app-map/application-map-001.png)
+![Menu volant](media/app-map/application-map-002.png)
 
 ### <a name="investigate-failures"></a>Examiner les échecs
 

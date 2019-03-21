@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/20/2019
-ms.openlocfilehash: bfceb8feacdad428a6e4c23272fd9092a356f107
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 3333355b742d531cc814484bdefbd47e7ab6c75c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453322"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878004"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Transparent Data Encryption pour SQL Database et Data Warehouse
 
@@ -42,7 +42,7 @@ En outre, Microsoft déplace et gère en toute transparence les clés en fonctio
 
 ## <a name="customer-managed-transparent-data-encryption---bring-your-own-key"></a>Chiffrement transparent des données géré par le client - Bring Your Own Key
 
-[TDE avec clés managées dans Azure Key Vault](transparent-data-encryption-byok-azure-sql.md) vous permet de chiffrer la clé de chiffrement de la base de données (DEK) avec une clé asymétrique managée par le client et appelée protecteur TDE.  Cela s’appelle aussi généralement la prise en charge Bring Your Own Key (BYOK) pour Transparent Data Encryption. Dans le scénario BYOK, le protecteur TDE est stocké dans un coffre géré appartenant au client, [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), le système Azure de gestion de clés externes en cloud. Le protecteur TDE peut être [généré par le coffre de clés ou transféré vers le coffre de clés](https://docs.microsoft.com/en-us/azure/key-vault/about-keys-secrets-and-certificates#key-vault-keys) à partir d’un dispositif HSM local. La DEK de TDE, stockée dans la page de démarrage d’une base de données, est chiffrée et déchiffrée par le protecteur TDE, qui est stocké dans Azure Key Vault et qui ne quitte jamais le coffre de clés.  La base de données SQL doit être autorisée à déchiffrer et chiffrer la DEK dans le coffre de clés appartenant au client. Si des autorisations d’accès du serveur SQL logique au coffre de clés sont supprimées, une base de données devient inaccessible alors que toutes les données sont chiffrées. Pour Azure SQL Database, le protecteur TDE est défini au niveau du serveur SQL logique et il est hérité par toutes les bases de données associées à ce serveur. Pour [Azure SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-howto-managed-instance), le protecteur TDE est défini au niveau de l’instance et il est hérité par toutes les bases de données *chiffrées* sur cette instance. Le terme *serveur* fait référence à la fois au serveur et à l’instance tout au long de ce document, sauf indication contraire.
+[TDE avec clés managées dans Azure Key Vault](transparent-data-encryption-byok-azure-sql.md) vous permet de chiffrer la clé de chiffrement de la base de données (DEK) avec une clé asymétrique managée par le client et appelée protecteur TDE.  Cela s’appelle aussi généralement la prise en charge Bring Your Own Key (BYOK) pour Transparent Data Encryption. Dans le scénario BYOK, le protecteur TDE est stocké dans un coffre géré appartenant au client, [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), le système Azure de gestion de clés externes sur le cloud. Le protecteur TDE peuvent être [générées par le coffre de clés ou transférées vers le coffre de clés](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-keys) à partir d’un périphérique HSM sur site. La DEK de TDE, stockée dans la page de démarrage d’une base de données, est chiffrée et déchiffrée par le protecteur TDE, qui est stocké dans Azure Key Vault et qui ne quitte jamais le coffre de clés.  La base de données SQL doit être autorisée à déchiffrer et chiffrer la DEK dans le coffre de clés appartenant au client. Si des autorisations d’accès du serveur SQL logique au coffre de clés sont supprimées, une base de données devient inaccessible alors que toutes les données sont chiffrées. Pour Azure SQL Database, le protecteur TDE est défini au niveau du serveur SQL logique et il est hérité par toutes les bases de données associées à ce serveur. Pour [Azure SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-howto-managed-instance), le protecteur TDE est défini au niveau de l’instance et il est hérité par toutes les bases de données *chiffrées* sur cette instance. Le terme *serveur* fait référence à la fois au serveur et à l’instance tout au long de ce document, sauf indication contraire.
 
 Avec l’intégration de TDE à Azure Key Vault, les utilisateurs peuvent contrôler les tâches de gestion de clés, y compris les rotations de clés, les autorisations de coffre de clés, les sauvegardes de clés, ainsi que l’audit et le rapport sur tous les protecteurs TDE à l’aide de la fonctionnalité Azure Key Vault. Key Vault centralise la gestion des clés, utilise des modules de sécurité matériels étroitement surveillés (HSM) et permet la séparation des responsabilités entre la gestion de clés et des données pour aider à répondre aux exigences des stratégies de sécurité.
 Pour plus d’informations sur le chiffrement transparent des données avec intégration Azure Key Vault (prise en charge du service BYOK) pour Azure SQL Database, SQL Managed Instance et Data Warehouse, consultez l’article [Transparent data encryption with Azure Key Vault integration](transparent-data-encryption-byok-azure-sql.md) (Chiffrement transparent des données avec prise en charge d’Azure Key Vault).
@@ -83,6 +83,10 @@ Vous définissez la clé principale du chiffrement transparent des données, ég
 
 ## <a name="manage-transparent-data-encryption-by-using-powershell"></a>Gérer le chiffrement transparent des données à l’aide de PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont pour le module Az.Sql. Pour ces applets de commande, consultez [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments pour les commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
+
 Pour configurer le chiffrement transparent des données par le biais de PowerShell, vous devez être connecté en tant que Propriétaire, Contributeur ou Gestionnaire de sécurité SQL Azure.
 
 ### <a name="cmdlets-for-azure-sql-database-and-data-warehouse"></a>Cmdlets pour Azure SQL Database et Data Warehouse
@@ -91,14 +95,14 @@ Utilisez les cmdlets suivantes pour Azure SQL Database et Data Warehouse :
 
 | Applet de commande | Description |
 | --- | --- |
-| [Set-AzureRmSqlDatabaseTransparentDataEncryption](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasetransparentdataencryption) |Active ou désactive le chiffrement transparent des données pour une base de données|
-| [Get-AzureRmSqlDatabaseTransparentDataEncryption](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryption) |Obtient l’état du chiffrement transparent des données pour une base de données |
-| [Get-AzureRmSqlDatabaseTransparentDataEncryptionActivity](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryptionactivity) |Vérifie l’état d’avancement du chiffrement d’une base de données |
-| [Add-AzureRmSqlServerKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.sql/add-azurermsqlserverkeyvaultkey) |Ajoute une clé Key Vault à une instance SQL Server |
-| [Get-AzureRmSqlServerKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlserverkeyvaultkey) |Obtient les clés Key Vault d’un serveur Azure SQL Database  |
-| [Set-AzureRmSqlServerTransparentDataEncryptionProtector](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlservertransparentdataencryptionprotector) |Définit le protecteur du chiffrement transparent des données pour une instance SQL Server |
-| [Get-AzureRmSqlServerTransparentDataEncryptionProtector](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlservertransparentdataencryptionprotector) |Obtient le protecteur du chiffrement transparent des données |
-| [Remove-AzureRmSqlServerKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqlserverkeyvaultkey) |Supprime une clé Key Vault d’une instance SQL Server |
+| [Set-AzSqlDatabaseTransparentDataEncryption](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) |Active ou désactive le chiffrement transparent des données pour une base de données|
+| [Get-AzSqlDatabaseTransparentDataEncryption](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption) |Obtient l’état du chiffrement transparent des données pour une base de données |
+| [Get-AzSqlDatabaseTransparentDataEncryptionActivity](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasetransparentdataencryptionactivity) |Vérifie l’état d’avancement du chiffrement d’une base de données |
+| [Add-AzSqlServerKeyVaultKey](https://docs.microsoft.com/powershell/module/az.sql/add-azsqlserverkeyvaultkey) |Ajoute une clé Key Vault à une instance SQL Server |
+| [Get-AzSqlServerKeyVaultKey](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserverkeyvaultkey) |Obtient les clés Key Vault d’un serveur Azure SQL Database  |
+| [Set-AzSqlServerTransparentDataEncryptionProtector](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) |Définit le protecteur du chiffrement transparent des données pour une instance SQL Server |
+| [Get-AzSqlServerTransparentDataEncryptionProtector](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) |Obtient le protecteur du chiffrement transparent des données |
+| [Remove-AzSqlServerKeyVaultKey](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlserverkeyvaultkey) |Supprime une clé Key Vault d’une instance SQL Server |
 |  | |
 
 > [!IMPORTANT]

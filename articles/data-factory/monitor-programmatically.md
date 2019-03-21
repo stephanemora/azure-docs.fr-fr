@@ -3,28 +3,29 @@ title: Surveiller par programmation une fabrique de données Azure | Microsoft D
 description: Découvrez comment surveiller un pipeline dans une fabrique de données à l’aide de différents kits de développement logiciels (SDK).
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.author: douglasl
-ms.openlocfilehash: e004dc6b7d78849705f8d3fa3545efe7318d3911
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+author: gauravmalhot
+ms.author: gamal
+manager: craigg
+ms.openlocfilehash: ed1d6ab96a7658880a8784c5e03c3787cf87a8ba
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022799"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576308"
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Surveiller par programmation une fabrique de données Azure
 Cet article explique comment surveiller un pipeline dans une fabrique de données à l’aide de différents kits de développement logiciels (SDK). 
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="data-range"></a>Plage de données
 
-La fabrique de données stocke uniquement les données d’exécution du pipeline pendant 45 jours. Lorsque vous interrogez par programme les données sur les exécutions du pipeline de la fabrique de données, par exemple, avec la commande PowerShell `Get-AzureRmDataFactoryV2PipelineRun`, il n’existe aucune date maximale pour les paramètres `LastUpdatedAfter` et `LastUpdatedBefore` facultatifs. Mais si vous interrogez les données de l’année précédente, par exemple, la requête ne retourne pas d’erreur, mais renvoie uniquement des données d’exécution de pipeline des 45 derniers jours.
+La fabrique de données stocke uniquement les données d’exécution du pipeline pendant 45 jours. Lorsque vous interrogez par programme les données sur les exécutions du pipeline de la fabrique de données, par exemple, avec la commande PowerShell `Get-AzDataFactoryV2PipelineRun`, il n’existe aucune date maximale pour les paramètres `LastUpdatedAfter` et `LastUpdatedBefore` facultatifs. Mais si vous interrogez les données de l’année précédente, par exemple, la requête ne retourne pas d’erreur, mais renvoie uniquement des données d’exécution de pipeline des 45 derniers jours.
 
 Si vous souhaitez conserver les données d’exécution du pipeline pendant plus de 45 jours, configurez la journalisation de votre propre diagnostics avec [Azure Monitor](monitor-using-azure-monitor.md).
 
@@ -119,7 +120,7 @@ Pour obtenir une description complète de la création et de la surveillance d�
 
     ```powershell
     while ($True) {
-        $run = Get-AzureRmDataFactoryV2PipelineRun -ResourceGroupName $resourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $runId
+        $run = Get-AzDataFactoryV2PipelineRun -ResourceGroupName $resourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $runId
 
         if ($run) {
             if ($run.Status -ne 'InProgress') {
@@ -137,7 +138,7 @@ Pour obtenir une description complète de la création et de la surveillance d�
 
     ```powershell
     Write-Host "Activity run details:" -foregroundcolor "Yellow"
-    $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+    $result = Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
     $result
     
     Write-Host "Activity 'Output' section:" -foregroundcolor "Yellow"
@@ -147,7 +148,7 @@ Pour obtenir une description complète de la création et de la surveillance d�
     $result.Error -join "`r`n"
     ```
 
-Pour obtenir une documentation complète sur les applets de commande PowerShell, consultez la [référence aux applets de commande PowerShell de Data Factory](/powershell/module/azurerm.datafactoryv2/?view=azurermps-4.4.1).
+Pour obtenir une documentation complète sur les applets de commande PowerShell, consultez la [référence aux applets de commande PowerShell de Data Factory](/powershell/module/az.datafactory).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez l’article [Surveiller les pipelines à l’aide d’Azure Monitor](monitor-using-azure-monitor.md) pour découvrir comment utiliser Azure Monitor dans le cadre de la surveillance des pipelines Data Factory. 

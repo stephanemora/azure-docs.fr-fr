@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: xpouyat;anilmur;juliako
-ms.openlocfilehash: 267de581c04d67738399cd683f57dabda472c0f8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 608ca4bc3b58dd3c718d6239f90260154d2f6c3a
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994249"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189476"
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Utilisation de plusieurs fichiers d’entrée et propriétés du composant avec Premium Encoder
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Il existe des scénarios dans lesquels vous devrez peut-être personnaliser les propriétés du composant, spécifier le contenu du fichier XML de liste de séquences ou envoyer plusieurs fichiers d’entrée lorsque vous soumettez une tâche avec le processeur multimédia **Media Encoder Premium Workflow** . Voici quelques exemples :
 
 * Superposition de texte sur la vidéo et définition de la valeur du texte (par exemple, la date actuelle) au moment de l’exécution pour chaque vidéo d’entrée.

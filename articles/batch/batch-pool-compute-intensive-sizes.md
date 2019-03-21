@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: lahugh
-ms.openlocfilehash: 3c3d534392431e79feabe37fe940ea87f586c660
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 3974be886b57fbf685b211369094edf844d96ab6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051694"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57975557"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Utiliser des instances RDMA ou GPU dans des pools Batch
 
@@ -46,8 +46,9 @@ Les fonctionnalités RDMA ou GPU des tailles nécessitant beaucoup de ressources
 | Taille | Fonctionnalité | Systèmes d’exploitation | Logiciels requis | Paramètres de pool |
 | -------- | -------- | ----- |  -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Ubuntu 16.04 LTS ou<br/>HPC basé sur CentOS<br/>(Place de marché Azure) | Intel MPI 5<br/><br/>Pilotes RDMA Linux | Activer la communication entre les nœuds, désactiver l’exécution simultanée des tâches |
-| [Séries NC, NCv2, NCv3, NDv2](../virtual-machines/linux/n-series-driver-setup.md) | GPU NVIDIA Tesla (varie selon la série) | Ubuntu 16.04 LTS ou<br/>CentOS 7.3 ou 7.4<br/>(Place de marché Azure) | Pilotes NVIDIA CUDA ou CUDA Toolkit | N/A | 
-| [Séries NV, NVv2](../virtual-machines/linux/n-series-driver-setup.md) | GPU NVIDIA Tesla M60 | Ubuntu 16.04 LTS ou<br/>CentOS 7.3<br/>(Place de marché Azure) | Pilotes NVIDIA GRID | N/A |
+| [Séries NC, NCv2, NCv3, NDv2](../virtual-machines/linux/n-series-driver-setup.md) | GPU NVIDIA Tesla (varie selon la série) | Ubuntu 16.04 LTS ou<br/>CentOS 7.3 ou 7.4<br/>(Place de marché Azure) | Pilotes NVIDIA CUDA ou CUDA Toolkit | S.O. | 
+| [Séries NV, NVv2](../virtual-machines/linux/n-series-driver-setup.md) | GPU NVIDIA Tesla M60 | Ubuntu 16.04 LTS ou<br/>CentOS 7.3<br/>(Place de marché Azure) | Pilotes NVIDIA GRID | S.O. |
+
 <sup>*</sup>Les tailles de série N compatibles RDMA incluent également des GPU NVIDIA Tesla.
 
 ### <a name="windows-pools---virtual-machine-configuration"></a>Pools Windows - Configuration de machine virtuelle
@@ -55,8 +56,9 @@ Les fonctionnalités RDMA ou GPU des tailles nécessitant beaucoup de ressources
 | Taille | Fonctionnalité | Systèmes d’exploitation | Logiciels requis | Paramètres de pool |
 | -------- | ------ | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/windows/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Windows Server 2016, 2012 R2, ou<br/>2012 (Place de Marché Azure) | Microsoft MPI 2012 R2 ou ultérieur, ou<br/> Intel MPI 5<br/><br/>Pilotes RDMA Windows | Activer la communication entre les nœuds, désactiver l’exécution simultanée des tâches |
-| [Séries NC, NCv2, NCv3, ND, NDv2](../virtual-machines/windows/n-series-driver-setup.md) | GPU NVIDIA Tesla (varie selon la série) | Windows Server 2016 ou <br/>2012 R2 (Place de Marché Azure) | Pilotes NVIDIA CUDA ou CUDA Toolkit| N/A | 
-| [Séries NV, NVv2](../virtual-machines/windows/n-series-driver-setup.md) | GPU NVIDIA Tesla M60 | Windows Server 2016 ou<br/>2012 R2 (Place de Marché Azure) | Pilotes NVIDIA GRID | N/A |
+| [Séries NC, NCv2, NCv3, ND, NDv2](../virtual-machines/windows/n-series-driver-setup.md) | GPU NVIDIA Tesla (varie selon la série) | Windows Server 2016 ou <br/>2012 R2 (Place de Marché Azure) | Pilotes NVIDIA CUDA ou CUDA Toolkit| S.O. | 
+| [Séries NV, NVv2](../virtual-machines/windows/n-series-driver-setup.md) | GPU NVIDIA Tesla M60 | Windows Server 2016 ou<br/>2012 R2 (Place de Marché Azure) | Pilotes NVIDIA GRID | S.O. |
+
 <sup>*</sup>Les tailles de série N compatibles RDMA incluent également des GPU NVIDIA Tesla.
 
 ### <a name="windows-pools---cloud-services-configuration"></a>Pools Windows - Configuration des services cloud
@@ -100,7 +102,7 @@ Pour configurer une taille de machine virtuelle spécialisée pour votre pool Ba
 
 Pour exécuter des applications CUDA sur un pool de nœuds de contrôleur de réseau Windows, vous devez installer des pilotes NVDIA GPU. Les exemples d’étapes suivants utilisent un package d’application pour installer les pilotes NVIDIA GPU. Vous pouvez choisir cette option si votre charge de travail dépend d’une version de pilote GPU spécifique.
 
-1. Téléchargez un package d’installation pour les pilotes GPU sur Windows Server 2016 à partir du [site web NVIDIA](https://www.nvidia.com/Download/index.aspx), par exemple, la [version 411.82](http://us.download.nvidia.com/Windows/Quadro_Certified/411.82/411.82-tesla-desktop-winserver2016-international.exe). Enregistrez le fichier localement en utilisant un nom court, comme *GPUDriverSetup.exe*.
+1. Téléchargez un package d’installation pour les pilotes GPU sur Windows Server 2016 à partir du [site web NVIDIA](https://www.nvidia.com/Download/index.aspx), par exemple, la [version 411.82](https://us.download.nvidia.com/Windows/Quadro_Certified/411.82/411.82-tesla-desktop-winserver2016-international.exe). Enregistrez le fichier localement en utilisant un nom court, comme *GPUDriverSetup.exe*.
 2. Créez un fichier zip du package.
 3. Chargez le package sur votre compte Batch. Pour connaître les étapes nécessaires, consultez les instructions relatives aux [packages d’applications](batch-application-packages.md). Spécifiez un ID d’application (par exemple, *GPUDriver*) et une version (par exemple, *411.82*).
 1. À l’aide des API Batch ou du portail Azure, créez un pool dans la configuration de machine virtuelle avec le nombre de nœuds et l’échelle souhaités. Le tableau suivant présente des exemples de paramètres pour installer les pilotes NVIDIA GPU en mode silencieux à l’aide d’une tâche de démarrage :

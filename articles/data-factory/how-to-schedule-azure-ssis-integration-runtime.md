@@ -13,19 +13,21 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 9f1ee309156a39078ffdfeed2c75d86476ac8b48
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 0b84f02d11e278950e4e44874e7b1af9da58f83f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158650"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092444"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Guide pratique pour démarrer et arrêter Azure-SSIS Integration Runtime selon une planification
 Cet article explique comment planifier le démarrage et l’arrêt d’Azure-SSIS Integration Runtime avec Azure Data Factory. Azure-SSIS Integration Runtime est un ressource de calcul d’Azure Data Factory dédiée à l’exécution de packages SSIS (SQL Server Integration Services). Un coût est associé à l’exécution d’Azure-SSIS Integration Runtime. Il est donc généralement souhaitable d’exécuter votre runtime d’intégration seulement quand vous devez exécuter des packages SSIS dans Azure et de l’arrêter quand vous n’en avez plus besoin. Vous pouvez utiliser l’interface utilisateur/application Azure Data Factory ou Azure PowerShell pour [démarrer ou arrêter manuellement votre runtime d’intégration](manage-azure-ssis-integration-runtime.md)).
 
 Vous pouvez aussi créer des activités web dans des pipelines Azure Data Factory pour démarrer/arrêter votre runtime d’intégration sur la planification, par exemple en le démarrant le matin avant l’exécution de vos charges de travail ETL quotidiennes, et en l’arrêtant dans l’après-midi une fois qu’elles sont terminées.  Vous pouvez également chaîner une activité Exécuter un package SSIS entre deux activités web qui démarrent et arrêtent votre runtime d’intégration : votre runtime d’intégration démarre/s’arrête donc à la demande, juste à temps avant/après l’exécution du package. Pour plus d’informations sur l’activité Exécuter un package SSIS, consultez l’article [Exécuter un package SSIS avec l’activité Exécuter un package SSIS dans Azure Data Factory](how-to-invoke-ssis-package-ssis-activity.md).
 
-## <a name="prerequisites"></a>Prérequis
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
+
+## <a name="prerequisites"></a>Conditions préalables
 Si vous n’avez pas déjà provisionné votre runtime d’intégration Azure SSIS, provisionnez-le en suivant les instructions données dans ce [tutoriel](tutorial-create-azure-ssis-runtime-portal.md). 
 
 ## <a name="create-and-schedule-adf-pipelines-that-start-and-or-stop-azure-ssis-ir"></a>Créer et planifier des pipelines Azure Data Factory qui démarrent et/ou arrêtent Azure-SSIS Integration Runtime
@@ -70,11 +72,11 @@ Si vous créez un troisième déclencheur qui est planifié pour s’exécuter t
 9. Cliquez sur **Créer**.
 10. Sur le tableau de bord Azure, vous voyez la vignette suivante avec l’état : **Déploiement de Data Factory**. 
 
-   ![mosaïque déploiement de fabrique de données](media/tutorial-create-azure-ssis-runtime-portal/deploying-data-factory.png)
+    ![mosaïque déploiement de fabrique de données](media/tutorial-create-azure-ssis-runtime-portal/deploying-data-factory.png)
    
 11. Une fois la création terminée, vous pouvez voir votre page Azure Data Factory comme illustré ci-dessous.
    
-   ![Page d’accueil Data Factory](./media/tutorial-create-azure-ssis-runtime-portal/data-factory-home-page.png)
+    ![Page d’accueil Data Factory](./media/tutorial-create-azure-ssis-runtime-portal/data-factory-home-page.png)
    
 12. Cliquez sur **Créer et surveiller** pour lancer l’interface utilisateur/application Azure Data Factory sous un onglet distinct.
 
@@ -92,7 +94,7 @@ Si vous créez un troisième déclencheur qui est planifié pour s’exécuter t
   
     2. Pour **Méthode**, sélectionnez **POST**. 
     3. Pour **Corps**, entrez `{"message":"Start my IR"}`. 
-    4. Pour **Authentification**, sélectionnez **MSI** pour utiliser l’identité managée pour votre fabrique Azure Data Factor. Pour plus d’informations, consultez l’article [Identité du service Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) .
+    4. Pour **authentification**, sélectionnez **MSI** pour utiliser l’identité gérée pour votre ADF, consultez [identiy géré de fabrique de données](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) article pour plus d’informations.
     5. Pour **Ressource**, entrez `https://management.azure.com/`.
     
        ![Activité web Azure Data Factory - Planifier le runtime d’intégration SSIS](./media/how-to-schedule-azure-ssis-integration-runtime/adf-web-activity-schedule-ssis-ir.png)
@@ -187,21 +189,21 @@ Utilisez des scripts comme les exemples suivants pour superviser vos pipelines e
 
 1. Récupérez l’état d’une exécution de pipeline.
 
-  ```powershell
-  Get-AzureRmDataFactoryV2PipelineRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $myPipelineRun
-  ```
+   ```powershell
+   Get-AzDataFactoryV2PipelineRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $myPipelineRun
+   ```
 
 2. Obtenez des informations sur un déclencheur.
 
-  ```powershell
-  Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name  "myTrigger"
-  ```
+   ```powershell
+   Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name  "myTrigger"
+   ```
 
 3. Récupérez l’état d’une exécution de déclencheur.
 
-  ```powershell
-  Get-AzureRmDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "myTrigger" -TriggerRunStartedAfter "2018-07-15" -TriggerRunStartedBefore "2018-07-16"
-  ```
+   ```powershell
+   Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "myTrigger" -TriggerRunStartedAfter "2018-07-15" -TriggerRunStartedBefore "2018-07-16"
+   ```
 
 ## <a name="create-and-schedule-azure-automation-runbook-that-startsstops-azure-ssis-ir"></a>Créer et planifier un runbook Azure Automation qui démarre/arrête Azure-SSIS Integration Runtime
 
@@ -292,7 +294,7 @@ La section suivante indique comment créer un runbook PowerShell. Le script asso
         $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
     
         "Logging in to Azure..."
-        Connect-AzureRmAccount `
+        Connect-AzAccount `
             -ServicePrincipal `
             -TenantId $servicePrincipalConnection.TenantId `
             -ApplicationId $servicePrincipalConnection.ApplicationId `
@@ -312,12 +314,12 @@ La section suivante indique comment créer un runbook PowerShell. Le script asso
     if($Operation -eq "START" -or $operation -eq "start")
     {
         "##### Starting #####"
-        Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $AzureSSISName -Force
+        Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $AzureSSISName -Force
     }
     elseif($Operation -eq "STOP" -or $operation -eq "stop")
     {
         "##### Stopping #####"
-        Stop-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Force
+        Stop-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Force
     }  
     "##### Completed #####"    
     ```
@@ -328,7 +330,7 @@ La section suivante indique comment créer un runbook PowerShell. Le script asso
 
    ![Bouton Démarrer le runbook](./media/how-to-schedule-azure-ssis-integration-runtime/start-runbook-button.png)
     
-5. Dans le volet **Démarrer le Runbook**, effectuez les actions suivantes : 
+5. Dans **démarrer le Runbook** volet, effectuez les actions suivantes : 
 
     1. Pour **NOM DU GROUPE DE RESSOURCES**, entrez le nom du groupe de ressources ayant la fabrique Azure Data Factory avec Azure-SSIS Integration Runtime. 
     2. Pour **NOM DE LA FABRIQUE DE DONNÉES**, entrez le nom de votre fabrique Azure Data Factory avec Azure-SSIS Integration Runtime. 

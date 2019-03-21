@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3109c4e6190cd8e485ae9b28117c4688836dfc26
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: cdc37ace4687fe978030f528dcd5cbc87da596f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470312"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855935"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Science des données à l’aide de Scala et Spark sur Azure
 Ce article vous montre comment utiliser Scala pour les tâches d’apprentissage automatique supervisées avec la bibliothèque d’apprentissage automatique évolutif (MLlib) Spark et des packages SparkML sur un cluster Azure HDInsight Spark. Elle vous guide à travers les tâches qui constituent le [processus de science des données](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/): ingestion et exploration des données, visualisation, conception de fonctionnalités et consommation de modèles. Les modèles de cet article incluent la régression logistique et linéaire, les forêts aléatoires et les arbres GBT (Gradient Boosted Tree), en plus de deux tâches d’apprentissage automatique supervisées courantes :
@@ -26,9 +26,9 @@ Ce article vous montre comment utiliser Scala pour les tâches d’apprentissage
 
 Le processus de modélisation nécessite une formation et une évaluation sur des jeux de données de test avec des mesures de précision pertinentes. Cet article explique également comment stocker ces modèles dans le stockage d’objets blob Azure et comment noter et évaluer leurs performances de prédiction. Il couvre également les rubriques plus avancées liées à l’optimisation des modèles à l’aide de la validation croisée et du balayage hyperparamétrique. Les données utilisées représentent un échantillon du jeu de données NYC Taxi Trip and Fare 2013 disponible sur GitHub.
 
-[Scala](http://www.scala-lang.org/), un langage basé sur la machine virtuelle Java, intègre des concepts du langage fonctionnel et orienté objet. C’est un langage évolutif qui convient pour le traitement distribué dans le cloud et s’exécute sur des clusters Azure Spark.
+[Scala](https://www.scala-lang.org/), un langage basé sur la machine virtuelle Java, intègre des concepts du langage fonctionnel et orienté objet. C’est un langage évolutif qui convient pour le traitement distribué dans le cloud et s’exécute sur des clusters Azure Spark.
 
-[Spark](http://spark.apache.org/) est une infrastructure de traitement en parallèle open source qui prend en charge le traitement en mémoire pour accroître les performances des applications d’analytique de Big Data. Le moteur de traitement Spark est élaboré pour permettre des analyses rapides, simples d’utilisation et sophistiquées. De par ses capacités de calcul distribué en mémoire, Spark constitue le choix idéal pour les algorithmes itératifs utilisés dans l'apprentissage automatique et les calculs de graphiques. Le package [spark.ml](http://spark.apache.org/docs/latest/ml-guide.html) fournit un ensemble d’API de haut niveau basées sur des trames de données qui vous permettent de créer et d’ajuster des pipelines d’apprentissage automatique pratique. [MLlib](http://spark.apache.org/mllib/) est la bibliothèque évolutive d’apprentissage automatique de Spark. Elle apporte des fonctionnalités de modélisation à cet environnement distribué.
+[Spark](https://spark.apache.org/) est une infrastructure de traitement en parallèle open source qui prend en charge le traitement en mémoire pour accroître les performances des applications d’analytique de Big Data. Le moteur de traitement Spark est élaboré pour permettre des analyses rapides, simples d’utilisation et sophistiquées. De par ses capacités de calcul distribué en mémoire, Spark constitue le choix idéal pour les algorithmes itératifs utilisés dans l'apprentissage automatique et les calculs de graphiques. Le package [spark.ml](https://spark.apache.org/docs/latest/ml-guide.html) fournit un ensemble d’API de haut niveau basées sur des trames de données qui vous permettent de créer et d’ajuster des pipelines d’apprentissage automatique pratique. [MLlib](https://spark.apache.org/mllib/) est la bibliothèque évolutive d’apprentissage automatique de Spark. Elle apporte des fonctionnalités de modélisation à cet environnement distribué.
 
 [HDInsight Spark](../../hdinsight/spark/apache-spark-overview.md) est l’offre Azure de Spark Open Source. Il prend également en charge les notebooks Jupyter Scala sur le cluster Spark, qui peuvent exécuter des requêtes interactives SQL Spark pour transformer, filtrer et visualiser les données stockées dans les objets blob Azure. Les extraits de code Scala de cet article qui fournissent les solutions et montrent les tracés pertinents permettant de visualiser les données s’exécutent dans des notebooks Jupyter installés sur les clusters Spark. Les étapes de modélisation dans ces rubriques contiennent du code qui vous montre comment former, évaluer, enregistrer et consommer chaque type de modèle.
 
@@ -39,7 +39,7 @@ Les étapes d’installation et le code présentés dans cet article s’appliqu
 > 
 > 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 * Vous devez avoir un abonnement Azure. Si vous n’en avez pas, [obtenez une version d’évaluation gratuite Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Vous avez besoin d’un cluster Azure HDInsight 3.4 Spark 1.6 pour effectuer les procédures suivantes. Pour créer un cluster, consultez les instructions de l’article [Prise en main : Créer Apache Spark sur Azure HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Spécifiez le type et la version du cluster à partir du menu **Sélectionner le type de cluster** .
 
@@ -368,7 +368,7 @@ Ce code vous montre comment créer une nouvelle caractéristique en regroupant l
 ### <a name="indexing-and-one-hot-encoding-of-categorical-features"></a>Indexation et encodage « à chaud » des fonctionnalités catégorielles
 Les fonctions de modélisation et de prédiction de MLlib requièrent des caractéristiques avec des données d’entrée catégorielles à indexer ou à encoder avant leur utilisation. Cette section vous montre comment indexer ou encoder les caractéristiques catégorielles à intégrer dans les fonctions de modélisation.
 
-Selon le modèle, vous devez indexer ou encoder vos modèles différemment. Par exemple, les modèles de régression logistique et linéaire nécessitent un encodage « à chaud ». Par exemple, une fonction avec trois catégories peut être étendue sur trois colonnes de fonctionnalités. Chaque colonne contient la valeur 0 ou 1 selon la catégorie d’une observation. MLlib fournit la fonction [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) pour l’encodage « à chaud ». Cet encodeur mappe une colonne d’index de libellé à une colonne de vecteurs binaires, contenant au plus une seule une valeur. Avec cet encodage, les algorithmes qui attendent des caractéristiques numériques, comme la régression logistique, peuvent être appliqués à des variables catégorielles.
+Selon le modèle, vous devez indexer ou encoder vos modèles différemment. Par exemple, les modèles de régression logistique et linéaire nécessitent un encodage « à chaud ». Par exemple, une fonction avec trois catégories peut être étendue sur trois colonnes de fonctionnalités. Chaque colonne contient la valeur 0 ou 1 selon la catégorie d’une observation. MLlib fournit la fonction [OneHotEncoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) pour l’encodage « à chaud ». Cet encodeur mappe une colonne d’index de libellé à une colonne de vecteurs binaires, contenant au plus une seule une valeur. Avec cet encodage, les algorithmes qui attendent des caractéristiques numériques, comme la régression logistique, peuvent être appliqués à des variables catégorielles.
 
 Ici, vous transformez uniquement quatre variables pour afficher des exemples, qui sont des chaînes de caractères. Vous pouvez également indexer d’autres variables, telles que le jour de la semaine, représentées par des valeurs numériques, en tant que variables catégorielles.
 
@@ -853,7 +853,7 @@ Créez des tracés en utilisant matplotlib de Python.
 ### <a name="create-a-gbt-regression-model"></a>Créer un modèle de régression GBT
 Créez un modèle de régression GBT à l’aide de la fonction Spark ML `GBTRegressor()` puis évaluez le modèle de données de test.
 
-[Gradient Boosting Tree](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) ) sont des ensembles d’arbres de décision. Ils aident les arbres de décision à minimiser itérativement une fonction de perte. Vous pouvez utiliser les GBT pour la régression et la classification. Ils gèrent les caractéristiques catégorielles, ne requièrent aucune mise à l’échelle des caractéristiques et peuvent capturer les non-linéarités ainsi que les interactions entre les caractéristiques. Vous pouvez également les utiliser dans le paramétrage de classification multiclasse.
+[Gradient Boosting Tree](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) ) sont des ensembles d’arbres de décision. Ils aident les arbres de décision à minimiser itérativement une fonction de perte. Vous pouvez utiliser les GBT pour la régression et la classification. Ils gèrent les caractéristiques catégorielles, ne requièrent aucune mise à l’échelle des caractéristiques et peuvent capturer les non-linéarités ainsi que les interactions entre les caractéristiques. Vous pouvez également les utiliser dans le paramétrage de classification multiclasse.
 
     # RECORD THE START TIME
     val starttime = Calendar.getInstance().getTime()

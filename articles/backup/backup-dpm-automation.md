@@ -8,18 +8,17 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 1/23/2017
 ms.author: adigan
-ms.openlocfilehash: 5ef9d61e880d3252eae2d8ef924ff39a5d2f6acf
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 639ccb2a0680793b50af52dc16c6d06505d5079b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497908"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57899534"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Déployer et gérer une sauvegarde vers Azure pour des serveurs Data Protection Manager (DPM) à l’aide de PowerShell
 Cet article décrit comment utiliser PowerShell pour configurer Azure Backup sur un serveur DPM, ainsi que pour gérer les sauvegardes et la récupération.
 
 ## <a name="setting-up-the-powershell-environment"></a>Configuration de l’environnement PowerShell
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 Avant de pouvoir utiliser PowerShell pour gérer les sauvegardes de Data Protection Manager vers Azure, vous devez disposer de l’environnement approprié dans PowerShell. Au début de la session PowerShell, veillez à exécuter la commande suivante pour importer les modules adéquats et avoir la possibilité de référencer correctement les applets de commande DPM :
 
@@ -37,14 +36,10 @@ Sample DPM scripts: Get-DPMSampleScript
 ```
 
 ## <a name="setup-and-registration"></a>Installation et inscription
-Pour commencer :
 
-1. [Téléchargez la dernière version de PowerShell](https://github.com/Azure/azure-powershell/releases) (version minimale requise : 1.0.0)
-2. Activez les applets de commande Azure Backup en passant en mode *AzureResourceManager* via l’applet de commande **Switch-AzureMode** :
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-```
-PS C:\> Switch-AzureMode AzureResourceManager
-```
+Pour commencer, [télécharger la dernière version d’Azure PowerShell](/powershell/azure/install-az-ps).
 
 Les tâches de configuration et d’inscription ci-après peuvent être automatisées avec PowerShell :
 
@@ -57,20 +52,20 @@ Les tâches de configuration et d’inscription ci-après peuvent être automati
 ## <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
 Les étapes suivantes vous montrent comment créer un coffre Recovery Services. Un coffre Recovery Services diffère d’un coffre de sauvegarde.
 
-1. Si vous utilisez Sauvegarde Azure pour la première fois, vous devez recourir à l’applet de commande **Register-AzureRMResourceProvider** pour enregistrer le fournisseur Azure Recovery Service auprès de votre abonnement.
+1. Si vous utilisez le service Sauvegarde Azure pour la première fois, vous devez utiliser la cmdlet **Register-AzResourceProvider** pour associer le fournisseur Azure Recovery Service à votre abonnement.
 
     ```
-    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
+    PS C:\> Register-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
 2. Le coffre Recovery Services constituant une ressource ARM, vous devez le placer dans un groupe de ressources. Vous pouvez utiliser un groupe de ressources existant ou en créer un. Quand vous créez un groupe de ressources, spécifiez ses nom et emplacement.  
 
     ```
-    PS C:\> New-AzureRmResourceGroup –Name "test-rg" –Location "West US"
+    PS C:\> New-AzResourceGroup –Name "test-rg" –Location "West US"
     ```
-3. Utilisez l’applet de commande **New-AzureRmRecoveryServicesVault** pour créer un coffre. Spécifiez pour le coffre le même emplacement que pour le groupe de ressources.
+3. Utilisez le **New-AzRecoveryServicesVault** applet de commande pour créer un coffre. Spécifiez pour le coffre le même emplacement que pour le groupe de ressources.
 
     ```
-    PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
+    PS C:\> New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
     ```
 4. Spécifiez le type de redondance de stockage à utiliser : [Stockage localement redondant (LRS)](../storage/common/storage-redundancy-lrs.md) ou [Stockage géo-redondant (GRS)](../storage/common/storage-redundancy-grs.md). L’exemple suivant montre que l’option -BackupStorageRedundancy pour testVault a la valeur GeoRedundant.
 
@@ -80,17 +75,17 @@ Les étapes suivantes vous montrent comment créer un coffre Recovery Services. 
    >
 
     ```
-    PS C:\> $vault1 = Get-AzureRmRecoveryServicesVault –Name "testVault"
-    PS C:\> Set-AzureRmRecoveryServicesBackupProperties  -vault $vault1 -BackupStorageRedundancy GeoRedundant
+    PS C:\> $vault1 = Get-AzRecoveryServicesVault –Name "testVault"
+    PS C:\> Set-AzRecoveryServicesBackupProperties  -vault $vault1 -BackupStorageRedundancy GeoRedundant
     ```
 
 ## <a name="view-the-vaults-in-a-subscription"></a>Afficher les coffres dans un abonnement
-Utilisez **Get-AzureRmRecoveryServicesVault** pour afficher la liste de tous les coffres dans l’abonnement actuel. Vous pouvez utiliser cette commande pour vérifier qu’un coffre a été créé ou pour voir les coffres disponibles dans l’abonnement.
+Utilisez **Get-AzRecoveryServicesVault** pour afficher la liste de tous les coffres dans l’abonnement actuel. Vous pouvez utiliser cette commande pour vérifier qu’un coffre a été créé ou pour voir les coffres disponibles dans l’abonnement.
 
-Exécutez la commande Get-AzureRmRecoveryServicesVault ; tous les coffres dans l’abonnement sont alors répertoriés.
+Exécutez la commande, Get-AzRecoveryServicesVault, et tous les coffres dans l’abonnement sont répertoriés.
 
 ```
-PS C:\> Get-AzureRmRecoveryServicesVault
+PS C:\> Get-AzRecoveryServicesVault
 Name              : Contoso-vault
 ID                : /subscriptions/1234
 Type              : Microsoft.RecoveryServices/vaults
@@ -101,7 +96,7 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 ```
 
 
-## <a name="installing-the-azure-backup-agent-on-a-dpm-server"></a>Installation de l'agent Azure Backup sur un serveur DPM
+## <a name="installing-the-azure-backup-agent-on-a-dpm-server"></a>Installation de l'agent de sauvegarde Azure sur un serveur DPM
 Avant d’installer l'agent de sauvegarde Azure, vous devez avoir téléchargé le programme d’installation sur le serveur Windows. Vous pouvez obtenir la dernière version du programme d’installation à partir du [Centre de téléchargement Microsoft](https://aka.ms/azurebackup_agent) ou de la page Tableau de bord du coffre Recovery Services. Enregistrez le programme d’installation dans un emplacement auquel vous pouvez accéder facilement, par exemple *C:\Téléchargements\*.
 
 Pour installer l’agent, exécutez la commande ci-après dans une console PowerShell avec élévation de privilèges **sur le serveur DPM**:
@@ -143,7 +138,7 @@ Une fois que vous avez créé un coffre Recovery Services, téléchargez le dern
 
 ```
 PS C:\> $credspath = "C:\downloads"
-PS C:\> $credsfilename = Get-AzureRmRecoveryServicesVaultSettingsFile -Backup -Vault $vault1 -Path  $credspath
+PS C:\> $credsfilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $vault1 -Path  $credspath
 PS C:\> $credsfilename
 C:\downloads\testvault\_Sun Apr 10 2016.VaultCredentials
 ```
@@ -252,7 +247,7 @@ Vous pouvez obtenir la liste des serveurs sur lesquels l’agent DPM est install
 PS C:\> $server = Get-ProductionServer -DPMServerName "TestingServer" | where {($_.servername) –contains “productionserver01”}
 ```
 
-Extrayez à présent la liste des sources de données sur ```$server``` à l’aide de l’applet de commande [Get-DPMDatasource](https://technet.microsoft.com/library/hh881605). Dans cet exemple, nous filtrons le volume *D:\* que vous souhaitez configurer pour une sauvegarde. Cette source de données est ensuite ajoutée au groupe de protection à l’aide de l’applet de commande [Add-DPMChildDatasource](https://technet.microsoft.com/library/hh881732). N’oubliez pas d’utiliser l’objet de groupe de protection *modifiable* ```$MPG``` pour effectuer les ajouts.
+Extrayez à présent la liste des sources de données sur ```$server``` à l’aide de l’applet de commande [Get-DPMDatasource](https://technet.microsoft.com/library/hh881605). Dans cet exemple Nous filtrons le volume *D:\\*  que nous souhaitons configurer pour la sauvegarde. Cette source de données est ensuite ajoutée au groupe de protection à l’aide de l’applet de commande [Add-DPMChildDatasource](https://technet.microsoft.com/library/hh881732). N’oubliez pas d’utiliser l’objet de groupe de protection *modifiable* ```$MPG``` pour effectuer les ajouts.
 
 ```
 PS C:\> $DS = Get-Datasource -ProductionServer $server -Inquire | where { $_.Name -contains “D:\” }

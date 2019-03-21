@@ -8,24 +8,53 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/04/2019
-ms.openlocfilehash: 91b6808e5f74d82a980dc633b2fa2bb0fe6752f1
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: fa08d2fb2185bd4b6cd0e2e9d20e1c44a4a35eae
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301347"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58101480"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Comparer les options de stockage à utiliser avec les clusters Azure HDInsight
 
-Les utilisateurs Microsoft Azure HDInsight peuvent choisir parmi plusieurs options de stockage lors de la création de clusters HDInsight :
+Vous pouvez choisir entre quelques services de stockage Azure différent lors de la création des clusters HDInsight :
 
-* Azure Data Lake Storage Gen2
 * Stockage Azure
+* Azure Data Lake Storage Gen2
 * Azure Data Lake Storage Gen1
 
 Cet article fournit une vue d’ensemble de ces types de stockage, ainsi que de leurs caractéristiques uniques.
 
-## <a name="azure-data-lake-storage-gen2-with-apache-hadoop-in-azure-hdinsight"></a>Azure Data Lake Storage Gen2 avec des clusters Apache Hadoop dans Azure HDInsight
+Le tableau suivant récapitule les services de stockage Azure qui sont pris en charge avec différentes versions de HDInsight :
+
+| Service de stockage | Type de compte | Type de Namespace | Services pris en charge | Niveaux de performances pris en charge | Niveaux d’accès pris en charge | Version de HDInsight | Type de cluster |
+|---|---|---|---|---|---|---|---|
+|Azure Data Lake Storage Gen2| Universel v2 | Hiérarchique (système de fichiers) | Blob | standard | À chaud, froid, Archive | 3.6+ | Tous |
+|Stockage Azure| Universel v2 | Object | Blob | standard | À chaud, froid, Archive | 3.6+ | Tous |
+|Stockage Azure| Universel v1 | Object | Blob | standard | S.O. | Tous | Tous |
+|Stockage Azure| Stockage Blob | Object | Blob | standard | À chaud, froid, Archive | Tous | Tous |
+|Azure Data Lake Storage Gen1| S.O. | Hiérarchique (système de fichiers) | S.O. | N/A | S.O. | 3.6 uniquement | Tout sauf HBase |
+
+Pour plus d’informations sur les niveaux d’accès de stockage Azure, consultez [stockage Blob Azure : Premium (version préliminaire), les niveaux de stockage chaud, froid et Archive](../storage/blobs/storage-blob-storage-tiers.md)
+
+Vous pouvez créer un cluster à l’aide de différentes combinaisons de services pour le stockage secondaire principal et facultatif. Le tableau suivant résume les configurations de stockage de cluster qui sont actuellement pris en charge dans HDInsight :
+
+| Version de HDInsight | Stockage principal | Stockage secondaire | Pris en charge |
+|---|---|---|---|
+| 3.6 & 4.0 | Objet Blob standard | Objet Blob standard | Oui |
+| 3.6 & 4.0 | Objet Blob standard | Data Lake Storage Gen2 | Non  |
+| 3.6 & 4.0 | Objet Blob standard | Data Lake Storage Gen 1 | Oui |
+| 3.6 & 4.0 | Data Lake Storage Gen2 * | Data Lake Storage Gen2 | Oui |
+| 3.6 & 4.0 | Data Lake Storage Gen2 * | Objet Blob standard | Oui |
+| 3.6 & 4.0 | Data Lake Storage Gen2 | Data Lake Storage Gen 1 | Non  |
+| 3.6 | Data Lake Storage Gen 1 | Data Lake Storage Gen 1 | Oui |
+| 3.6 | Data Lake Storage Gen 1 | Objet Blob standard | Oui |
+| 3.6 | Data Lake Storage Gen 1 | Data Lake Storage Gen2 | Non  |
+| 4.0 | Data Lake Storage Gen 1 | Quelconque | Non  |
+
+* = Cela peut être un ou plusieurs comptes Data Lake Storage Gen2, tant qu’ils sont tous les paramètres à utiliser la même identité gérée pour l’accès au cluster.
+
+## <a name="use-azure-data-lake-storage-gen2-with-apache-hadoop-in-azure-hdinsight"></a>Utiliser Azure Data Lake Storage Gen2 avec des clusters Apache Hadoop dans Azure HDInsight
 
 Azure Data Lake Storage Gen2 offre les principales fonctionnalités d’Azure Data Lake Storage Gen1 et les intègre au Stockage Blob Azure. Ces fonctionnalités incluent un système de fichiers compatible avec Hadoop, Azure Active Directory (Azure AD) et les listes de contrôle d’accès (ACL) POSIX. Cette combinaison vous permet de tirer parti des performances d’Azure Data Lake Storage Gen1, tout en utilisant la hiérarchisation et la gestion du cycle de vie des données de Stockage Blob.
 
@@ -35,13 +64,13 @@ Pour plus d’informations sur Azure Data Lake Storage Gen2, consultez [Présent
 
 * **Accès compatible avec Hadoop :** dans Azure Data Lake Storage Gen2, vous pouvez gérer les données et y accéder comme vous le feriez avec un système de fichiers HDFS (Hadoop Distributed File System). Le pilote ABFS (Azure Blob Filesystem) est disponible dans tous les environnements Apache Hadoop, notamment Azure HDInsight et Azure Databricks. Utilisez ABFS pour accéder aux données stockées dans Data Lake Storage Gen2.
 
-* **Surensemble d’autorisations POSIX :** le modèle de sécurité pour Data Lake Gen2 prend en charge les autorisations ACL et POSIX, ainsi que certaines granularités supplémentaires spécifiques à Data Lake Storage Gen2. Les paramètres peuvent être configurés par le biais d’outils d’administration ou de frameworks comme Apache Hive et Apache Spark.
+* **Surensemble d’autorisations POSIX :** Le modèle de sécurité pour Data Lake Gen2 prend en charge les autorisations ACL et POSIX, ainsi que certaines granularités supplémentaires spécifiques à Data Lake Storage Gen2. Les paramètres peuvent être configurés par le biais d’outils d’administration ou de frameworks comme Apache Hive et Apache Spark.
 
 * **Rentabilité :** Data Lake Storage Gen2 offre une capacité de stockage et des transactions à bas coût. Des fonctionnalités comme le cycle de vie de Stockage Blob Azure vous aident à réduire les coûts en adaptant les frais facturés au fil du cheminement des données dans son cycle de vie.
 
 * **Compatibilité avec les outils, les frameworks et les applications de Stockage Blob :** Data Lake Storage Gen2 continue de fonctionner avec une large gamme d’outils, de frameworks et d’applications pour Stockage Blob.
 
-* **Pilote optimisé :** le pilote ABFS est optimisé spécifiquement pour l’analytique Big Data. Les API REST correspondantes sont exposées par le biais du point de terminaison DFS (Distributed File System), dfs.core.windows.net.
+* **Pilote optimisé :** Le pilote ABFS est optimisé spécifiquement pour l’analytique Big Data. Les API REST correspondantes sont exposées par le biais du point de terminaison DFS (Distributed File System), dfs.core.windows.net.
 
 ### <a name="whats-new-for-azure-data-lake-storage-gen-2"></a>Nouveautés d’Azure Data Lake Storage Gen2
 
@@ -89,21 +118,10 @@ Pour plus d’informations, consultez [Utiliser l’URI d’Azure Data Lake Stor
 
 Stockage Azure est une solution de stockage à la fois robuste et polyvalente qui s’intègre en toute transparence à HDInsight. HDInsight peut utiliser un conteneur d’objets blob dans le stockage Azure comme système de fichiers par défaut pour le cluster. Grâce à une interface HDFS, l’ensemble des composants de HDInsight peut opérer directement sur les données structurées ou non structurées stockées en tant qu’objets blob.
 
-Quand vous créez un compte Stockage Azure, vous pouvez choisir parmi plusieurs types de compte de stockage. Le tableau suivant fournit des informations sur les options prises en charge avec HDInsight.
-
-| **Type de compte de stockage** | **Services pris en charge** | **Niveaux de performances pris en charge** | **Niveaux d’accès pris en charge** |
-|----------------------|--------------------|-----------------------------|------------------------|
-| Universel v2   | Blob               | standard                    | Chaud, froid, Archive*    |
-| Universel v1   | Blob               | standard                    | N/A                    |
-| Stockage d'objets blob         | Blob               | standard                    | Chaud, froid, archive*    |
-
-* Le niveau d’accès Archive est un niveau hors connexion qui a une latence de récupération de plusieurs heures. N’utilisez pas ce niveau avec HDInsight. Pour plus d’informations, voir [Niveau d’accès archive](../storage/blobs/storage-blob-storage-tiers.md#archive-access-tier).
-
-> [!WARNING]  
-> Nous déconseillons l’utilisation du conteneur d’objets blob par défaut pour stocker des données d’entreprise. Le conteneur par défaut contient les journaux des applications et du système. Veillez à récupérer les journaux avant de supprimer le conteneur d’objets blob par défaut. Supprimez le conteneur d’objets blob après chaque utilisation, afin de réduire les coûts de stockage. N’oubliez pas non plus qu’un conteneur d’objets blob ne peut pas être utilisé en tant que système de fichiers par défaut pour plusieurs clusters.
-
+Nous vous recommandons d’utiliser des conteneurs de stockage distinct pour votre stockage de cluster par défaut et vos données d’entreprise, pour isoler les journaux de HDInsight et les fichiers temporaires à partir de vos propres données d’entreprise. Nous vous recommandons également de supprimer le conteneur d’objets blob par défaut, qui contient les journaux des applications et système, après chaque utilisation pour réduire le coût de stockage. Assurez-vous de récupérer les journaux avant de supprimer le conteneur.
 
 ### <a name="hdinsight-storage-architecture"></a>Architecture de stockage HDInsight
+
 Le schéma suivant résume l’architecture HDInsight de Stockage Azure :
 
 ![Schéma montrant comment les clusters Hadoop utilisent l’API HDFS pour accéder aux données structurées et non structurées et les stocker dans le stockage d’objets blob](./media/hdinsight-hadoop-compare-storage-options/HDI.WASB.Arch.png "Architecture de stockage HDInsight")

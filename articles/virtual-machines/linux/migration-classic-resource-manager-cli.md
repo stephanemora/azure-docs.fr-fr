@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: 0011ee646215c01e84aec71c7b992afca1ca3c2a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 34dad39e3784dd0bc73e3be108d6b31d4f479a1e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997163"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543268"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Migration de ressources IaaS d’un environnement Classic vers Azure Resource Manager à l’aide de l’interface de ligne de commande Azure
 Ces étapes vous montrent comment utiliser les commandes de l’interface de ligne de commande Azure (CLI) pour migrer des ressources d’infrastructure en tant que service (IaaS) à partir du modèle de déploiement Classic vers le modèle de déploiement Azure Resource Manager. Cet article nécessite [Azure Classic CLI](../../cli-install-nodejs.md). Étant donné que l’interface Azure CLI est applicable uniquement pour les ressources Azure Resource Manager, elle ne peut pas être utilisée pour cette migration.
@@ -35,7 +35,7 @@ Voici un diagramme de flux permettant d’identifier l’ordre dans lequel les �
 
 ![Screenshot that shows the migration steps](../windows/media/migration-classic-resource-manager/migration-flow.png)
 
-## <a name="step-1-prepare-for-migration"></a>Étape 1 : préparation de la migration
+## <a name="step-1-prepare-for-migration"></a>Étape 1 : Préparation de la migration
 Voici quelques bonnes pratiques recommandées lorsque vous évaluez la migration de ressources IaaS d’un environnement Classic vers Resource Manager.
 
 * Parcourez la liste des [configurations ou fonctionnalités non prises en charge](../windows/migration-classic-resource-manager-overview.md). Si vous avez des machines virtuelles qui utilisent des configurations ou fonctionnalités non prises en charge, nous vous conseillons d’attendre que leur prise en charge soit annoncée. Vous pouvez également supprimer cette fonctionnalité ou modifier cette configuration pour permettre la migration si cela répond à vos besoins.
@@ -48,7 +48,7 @@ Voici quelques bonnes pratiques recommandées lorsque vous évaluez la migration
 > 
 > 
 
-## <a name="step-2-set-your-subscription-and-register-the-provider"></a>Étape 2 : définition de votre abonnement et inscription du fournisseur
+## <a name="step-2-set-your-subscription-and-register-the-provider"></a>Étape 2 : Définissez votre abonnement et inscrire le fournisseur
 Pour les scénarios de migration, vous devez configurer votre environnement à la fois pour l’environnement Classic et pour Resource Manager. [Installez l’interface de ligne de commande Azure](../../cli-install-nodejs.md) et [sélectionnez votre abonnement](/cli/azure/authenticate-azure-cli).
 
 Connectez-vous à votre compte.
@@ -62,7 +62,7 @@ Sélectionnez votre abonnement Azure à l’aide de la commande suivante.
 > [!NOTE]
 > L’inscription constitue une étape unique, mais elle doit être effectuée une seule fois avant de tenter la migration. Sans vous inscrire, vous verrez le message suivant 
 > 
-> *Requête invalide : l’abonnement n’est pas inscrit pour la migration.* 
+> *BadRequest : L'abonnement n'est pas inscrit pour la migration.* 
 > 
 > 
 
@@ -78,14 +78,14 @@ Passez ensuite l’interface de ligne de commande en mode `asm` .
 
     azure config mode asm
 
-## <a name="step-3-make-sure-you-have-enough-azure-resource-manager-virtual-machine-vcpus-in-the-azure-region-of-your-current-deployment-or-vnet"></a>Étape 3 : vérification du nombre de processeurs virtuels de machines virtuelles Azure Resource Manager dans la région Azure de votre déploiement ou réseau virtuel actuel
+## <a name="step-3-make-sure-you-have-enough-azure-resource-manager-virtual-machine-vcpus-in-the-azure-region-of-your-current-deployment-or-vnet"></a>Étape 3 : vérifier le nombre de processeurs virtuels de machines virtuelles Azure Resource Manager dans la région Azure de votre déploiement ou réseau virtuel actuel
 Pour cette étape, vous devrez passer au mode `arm` . Pour ce faire, utilisez la commande suivante.
 
 ```
 azure config mode arm
 ```
 
-Vous pouvez utiliser la commande CLI suivante pour vérifier la quantité de processeurs virtuels dont vous disposez actuellement dans Azure Resource Manager. Pour en savoir plus sur les quotas de processeurs virtuels, consultez [Limites et Azure Resource Manager](../../azure-subscription-service-limits.md#limits-and-the-azure-resource-manager).
+Vous pouvez utiliser la commande CLI suivante pour vérifier la quantité de processeurs virtuels dont vous disposez actuellement dans Azure Resource Manager. Pour en savoir plus sur les quotas de processeurs virtuels, consultez [Limites et Azure Resource Manager](../../azure-subscription-service-limits.md#limits-and-azure-resource-manager).
 
 ```
 azure vm list-usage -l "<Your VNET or Deployment's Azure region"
@@ -96,7 +96,7 @@ Une fois que vous avez procédé à la vérification de cette étape, vous pouve
     azure config mode asm
 
 
-## <a name="step-4-option-1---migrate-virtual-machines-in-a-cloud-service"></a>Étape 4 : Option 1 - Migration de machines virtuelles dans un service cloud
+## <a name="step-4-option-1---migrate-virtual-machines-in-a-cloud-service"></a>Étape 4 : Option 1 : migrer des machines virtuelles dans un service cloud
 Obtenez la liste des services cloud à l’aide de la commande suivante, puis choisissez le service cloud que vous voulez migrer. Notez que vous obtiendrez un message d’erreur si les machines virtuelles du service cloud sont dans un réseau virtuel ou si elles ont des rôles Web/de travail.
 
     azure service list
@@ -135,7 +135,7 @@ Si la configuration préparée semble correcte, vous pouvez continuer et valider
 
 
 
-## <a name="step-4-option-2----migrate-virtual-machines-in-a-virtual-network"></a>Étape 4 : Option 2 - Migration de machines virtuelles dans un réseau virtuel
+## <a name="step-4-option-2----migrate-virtual-machines-in-a-virtual-network"></a>Étape 4 : Option 2 - migration de machines virtuelles dans un réseau virtuel
 Sélectionnez le réseau virtuel dont vous souhaitez effectuer la migration. Sachez que, si le réseau virtuel contient des rôles Web/de travail ou des machines virtuelles avec des configurations non prises en charge, vous obtiendrez un message d’erreur pour la validation.
 
 Récupérez tous les réseaux virtuels de l’abonnement à l’aide de la commande suivante.
@@ -166,7 +166,7 @@ Si la configuration préparée semble correcte, vous pouvez continuer et valider
 
     azure network vnet commit-migration <virtualNetworkName>
 
-## <a name="step-5-migrate-a-storage-account"></a>Étape 5 : migration d’un compte de stockage
+## <a name="step-5-migrate-a-storage-account"></a>Étape 5 : Migrer un compte de stockage
 Une fois que vous avez terminé la migration des machines virtuelles, nous vous recommandons de migrer le compte de stockage.
 
 Préparer le compte de stockage pour la migration à l’aide de la commande suivante

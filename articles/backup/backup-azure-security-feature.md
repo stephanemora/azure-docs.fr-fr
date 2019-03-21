@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2017
 ms.author: trinadhk
-ms.openlocfilehash: fcb5941c56eda19f9c524a2c078a76483426b862
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: 2ba94963238cd5ee96df5c178a072addc5ddd75e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54266992"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082923"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Fonctionnalités de sécurité pour la protection des sauvegardes hybrides ayant recours à la Sauvegarde Azure
 Les préoccupations en matière de risques de sécurité, comme les logiciels malveillants, le ransomware et les intrusions, sont de plus en plus nombreuses. Ces problèmes de sécurité peuvent coûter cher, à la fois en termes d’argent et de données. Pour vous protéger contre ces attaques, la Sauvegarde Azure fournit désormais des fonctionnalités de sécurité visant à protéger les sauvegardes hybrides. Cet article explique comment activer et utiliser ces fonctionnalités par le biais d’un agent Azure Recovery Services et du serveur de sauvegarde Azure. Voici quelques fonctionnalités :
@@ -82,7 +82,7 @@ Des vérifications ont été ajoutées pour que seuls les utilisateurs valides p
 Dans le cadre de l’ajout d’une couche d’authentification pour les opérations critiques, vous êtes invité à entrer un code PIN de sécurité lors de l’exécution des actions **Arrêter la protection avec les opérations Supprimer les données** et **Modifier la phrase secrète**.
 
 > [!NOTE]
-
+> 
 > Actuellement, le code PIN de sécurité n’est pas pris en charge pour **Arrêter la protection avec les opérations Supprimer les données** pour DPM et MABS.
 
 Pour recevoir ce code PIN :

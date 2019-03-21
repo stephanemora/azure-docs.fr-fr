@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 9d82ff29b988925f244fc33d7124fe43487895b8
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: c43d3b236a305f1e6d2bd392527a5206b6a5c974
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341233"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58074894"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Comment provisionner des appareils hérités avec des clés symétriques
 
@@ -29,7 +29,7 @@ Cet article suppose également que la mise à jour de l’appareil a lieu dans u
 Cet article traite d’une station de travail Windows. Toutefois, vous pouvez effectuer les procédures sur Linux. Pour obtenir un exemple sur Linux, consultez [Guide pratique du provisionnement pour la multilocation](how-to-provision-multitenant.md).
 
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Un ID d’inscription unique est défini pour chaque appareil en fonction des informations qui identifient cet appareil. Par exemple, l’adresse MAC ou un numéro de série.
 
@@ -40,7 +40,7 @@ Le code de l’appareil montré dans cet article suit le même modèle que le [D
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Avoir effectué les étapes décrites dans le guide de démarrage rapide [Configurer le service IoT Hub Device Provisioning avec le portail Azure](./quick-setup-auto-provision.md).
 * Visual Studio 2015 ou [Visual Studio 2017](https://www.visualstudio.com/vs/) avec la charge de travail [« Développement Desktop en C++ »](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) activée.
@@ -114,23 +114,23 @@ Le SDK inclut l’exemple de code pour l’appareil simulé. Cet appareil simul�
 
 ## <a name="create-a-symmetric-key-enrollment-group"></a>Créer un groupe d’inscription de clé symétrique
 
-1. Connectez-vous au [portail Azure](http://portal.azure.com) et ouvrez votre instance du service Device Provisioning.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) et ouvrez votre instance du service Device Provisioning.
 
 2. Sélectionnez l’onglet **Gérer les inscriptions**, puis cliquez sur le bouton **Ajouter un groupe d’inscriptions** en haut de la page. 
 
 3. Dans **Ajouter un groupe d’inscriptions**, entrez les informations suivantes, puis cliquez sur le bouton **Enregistrer**.
 
-    - **Nom du groupe** : entrez **mylegacydevices**.
+   - **Nom du groupe** : entrez **mylegacydevices**.
 
-    - **Type d’attestation** : sélectionnez **Clé symétrique**.
+   - **Type d’attestation** : sélectionnez **Clé symétrique**.
 
-    - **Générer automatiquement les clés** : activez cette case à cocher.
+   - **Générer automatiquement les clés** : activez cette case à cocher.
 
-    - **Sélectionner le mode d’affectation des appareils aux hubs** : sélectionnez **Configuration statique** afin de les affecter à un hub spécifique.
+   - **Sélectionner le mode d’affectation des appareils aux hubs** : sélectionnez **Configuration statique** afin de les affecter à un hub spécifique.
 
-    - **Sélectionner les hubs IoT auxquels ce groupe peut être attribué** : sélectionnez un de vos hubs.
+   - **Sélectionner les hubs IoT auxquels ce groupe peut être attribué** : sélectionnez un de vos hubs.
 
-    ![Ajouter un groupe d’inscription pour l’attestation de clé symétrique](./media/how-to-legacy-device-symm-key/symm-key-enrollment-group.png)
+     ![Ajouter un groupe d’inscription pour l’attestation de clé symétrique](./media/how-to-legacy-device-symm-key/symm-key-enrollment-group.png)
 
 4. Une fois que vous avez enregistré votre inscription, la **Clé primaire** et la **Clé secondaire** sont générées et ajoutées à l’entrée d’inscription. Votre groupe d’inscription de clé symétrique apparaît en tant que **mylegacydevices** sous la colonne *Nom du groupe* dans l’onglet *Groupes d’inscription*. 
 
@@ -294,7 +294,7 @@ Ne perdez pas de vue que ceci laisse la clé d’appareil dérivée incluse dans
 
 * Pour en savoir plus sur le reprovisionnement, consultez [Concepts du reprovisionnement d’appareils IoT Hub](concepts-device-reprovision.md) 
 * [Démarrage rapide : provisionner un appareil simulé avec des clés symétriques](quick-create-simulated-device-symm-key.md)
-* Pour en savoir plus sur le déprovisionnement, consultez [Guide pratique pour déprovisionner des appareils auparavant provisionnés automatiquement](how-to-unprovision-devices.md) 
+* Pour en savoir plus Deprovisioning, consultez [Guide pratique pour déprovisionner des appareils qui ont été provisionnés automatiquement](how-to-unprovision-devices.md) 
 
 
 

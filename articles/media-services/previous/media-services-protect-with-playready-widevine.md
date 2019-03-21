@@ -11,15 +11,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: e783dc8848a5aa7db17e3cb4d9019fd7f284e79e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: b8aaaaf1099bb100e45bce4f09aeb6434c132b88
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003752"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901608"
 ---
 # <a name="use-playready-andor-widevine-dynamic-common-encryption"></a>Utilisation du chiffrement commun dynamique PlayReady et/ou Widevine
 
@@ -33,7 +33,7 @@ ms.locfileid: "56003752"
 > Pour obtenir la dernière version du kit SDK Java et développer des applications avec Java, consultez [Prise en main du Kit SDK du client Java pour Azure Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
 > Pour télécharger le dernier kit SDK PHP pour Media Services, recherchez la version 0.5.7 du package Microsoft/WindowsAzure dans le [référentiel Packagist](https://packagist.org/packages/microsoft/windowsazure#v0.5.7). 
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
  Media Services vous permet de fournir des flux MPEG-DASH, Smooth Streaming et HLS (HTTP Live Streaming) protégés par [la gestion des droits numériques (DRM) PlayReady](https://www.microsoft.com/playready/overview/). Vous pouvez également l’utiliser pour diffuser des flux DASH chiffrés avec des licences Widevine DRM. PlayReady et Widevine sont chiffrés conformément à la spécification de chiffrement commun (ISO/IEC 23001-7 CENC). Vous pouvez utiliser le [SDK .NET Media Services](https://www.nuget.org/packages/windowsazure.mediaservices/) (à compter de la version 3.5.1) ou une API REST pour configurer votre AssetDeliveryConfiguration afin d’utiliser Widevine.
 
@@ -41,9 +41,9 @@ Media Services fournit un service de remise de licences DRM PlayReady et Widevin
 
 Vous pouvez utiliser les partenaires Media Services suivants pour vous aider à fournir des licences Widevine : 
 
-* [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/) 
-* [EZDRM](http://ezdrm.com/) 
-* [castLabs](http://castlabs.com/company/partners/azure/) 
+* [Axinom](https://www.axinom.com/press/ibc-axinom-drm-6/) 
+* [EZDRM](https://ezdrm.com/) 
+* [castLabs](https://castlabs.com/company/partners/azure/) 
 
 Pour plus d’informations, consultez : Intégration à [Axinom](media-services-axinom-integration.md) et [castLabs](media-services-castlabs-integration.md).
 
@@ -149,7 +149,7 @@ string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTem
 Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
 ```
 
-Vous pouvez utiliser le [lecteur Azure Media Services](http://amsplayer.azurewebsites.net/azuremediaplayer.html) pour tester votre flux.
+Vous pouvez utiliser le [lecteur Azure Media Services](https://amsplayer.azurewebsites.net/azuremediaplayer.html) pour tester votre flux.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Créer et configurer un projet Visual Studio
 
@@ -270,7 +270,7 @@ namespace DynamicEncryptionWithDRM
                 Console.WriteLine();
             }
 
-            // You can use the http://amsplayer.azurewebsites.net/azuremediaplayer.html player to test streams.
+            // You can use the https://amsplayer.azurewebsites.net/azuremediaplayer.html player to test streams.
             // Note that DASH works on Internet Explorer 11 (via PlayReady), Microsoft Edge (via PlayReady), and Chrome (via Widevine).
 
             string url = GetStreamingOriginLocator(encodedAsset);
@@ -620,5 +620,5 @@ namespace DynamicEncryptionWithDRM
 
 ## <a name="see-also"></a>Voir aussi
 * [Utilisez le chiffrement commun (CENC) avec multi-DRM et contrôle d’accès](media-services-cenc-with-multidrm-access-control.md)
-* [Configurer l’empaquetage Widevine avec Media Services](http://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)
+* [Configurer l’empaquetage Widevine avec Media Services](https://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)
 * [Annonce des services de distribution de licence Google Widevine dans Azure Media Services](https://azure.microsoft.com/blog/announcing-general-availability-of-google-widevine-license-services/)

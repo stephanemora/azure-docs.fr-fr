@@ -5,15 +5,16 @@ ms.topic: article
 ms.author: tarcher
 author: tarcher
 services: devops
+ms.service: storage
 custom: jenkins
 ms.date: 07/31/2018
 ms.subservice: common
-ms.openlocfilehash: 22db4690ccbd05b25f907e2d2134fa7ce5233d60
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 8ea80d557185f4489a96384b77ddd2519e7bd049
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476891"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992172"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Utilisation de Stockage Azure avec une solution d’intégration continue Jenkins
 
@@ -34,12 +35,12 @@ L'utilisation du service BLOB pour héberger vos artefacts de build dans un envi
 * Performances lorsque vos clients et partenaires téléchargent vos artefacts de build.
 * Contrôle sur les stratégies d'accès utilisateur, avec choix entre accès anonyme, accès par signature d'accès partagé basé sur l'expiration, accès privé, etc.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 * Une solution d’intégration continue Jenkins.
   
     Si vous ne disposez pas d'une solution Jenkins CI, vous pouvez en exécuter une à l'aide de la technique suivante :
   
-  1. Sur un ordinateur compatible Java, téléchargez le fichier jenkins.war à l’adresse <http://jenkins-ci.org>.
+  1. Sur un ordinateur compatible Java, téléchargez le fichier jenkins.war à l’adresse <https://jenkins-ci.org>.
   2. Accédez au dossier contenant le fichier jenkins.war, ouvrez une invite de commandes et exécutez la commande suivante :
      
       `java -jar jenkins.war`
@@ -47,7 +48,7 @@ L'utilisation du service BLOB pour héberger vos artefacts de build dans un envi
   3. Dans votre navigateur, ouvrez `http://localhost:8080/` pour accéder au tableau de bord Jenkins, que vous allez utiliser pour installer et configurer le plug-in Stockage Azure.
      
       Une solution Jenkins CI type serait configurée pour s'exécuter en tant que service, mais l'exécution du fichier .war Jenkins depuis la ligne de commande est suffisante pour les besoins de ce didacticiel.
-* Un compte Azure. Vous pouvez vous inscrire pour un compte Azure sur <http://www.azure.com>.
+* Un compte Azure. Vous pouvez vous inscrire pour un compte Azure sur <https://www.azure.com>.
 * Un compte de stockage Azure. Si vous ne disposez pas déjà d’un compte de stockage, vous pouvez en créer un en suivant la procédure décrite dans la section [Créer un compte de stockage](../common/storage-quickstart-create-account.md).
 * Une bonne connaissance de la solution Jenkins CI est recommandée, mais pas obligatoire, car le contenu suivant emploiera un exemple élémentaire pour décrire la procédure requise lorsque vous utilisez le service BLOB comme référentiel pour les artefacts de build Jenkins CI.
 
@@ -117,7 +118,7 @@ Les étapes suivantes expliquent comment configurer une étape de génération p
 1. Dans la section **Build** (Générer) de la configuration de la tâche, sélectionnez **Add build step** (Ajouter une étape de génération) et sélectionnez **Download from Azure Blob storage** (Télécharger à partir de Stockage Blob Azure).
 2. Dans le champ **Nom du compte de stockage**, sélectionnez le compte de stockage à utiliser.
 3. Dans le champ **Nom du conteneur**, indiquez le nom du conteneur dans lequel se trouvent les objets blob que vous souhaitez télécharger. Vous pouvez utiliser des variables d'environnement.
-4. Dans le champ **Nom d'objet blob**, indiquez le nom de l'objet blob. Vous pouvez utiliser des variables d'environnement. Vous pouvez aussi utiliser un astérisque comme caractère générique après avoir indiqué la ou les premières lettres du nom de l’objet blob. Par exemple, **projet\*** désignera tous les objets blob dont le nom commence par **projet**.
+4. Dans le champ **Nom d'objet blob**, indiquez le nom de l'objet blob. Vous pouvez utiliser des variables d'environnement. Vous pouvez aussi utiliser un astérisque comme caractère générique après avoir indiqué la ou les premières lettres du nom de l’objet blob. Par exemple, **projet\\*** Spécifiez tous les objets BLOB dont le nom commence avec **projet**.
 5. [Facultatif] Dans le champ **Chemin de téléchargement**, indiquez l'emplacement de l'ordinateur Jenkins où vous souhaitez télécharger les fichiers depuis le stockage d'objets blob Azure. Vous pouvez utiliser des variables d’environnement. Si vous n'entrez rien dans le champ **Chemin de téléchargement**, les fichiers du stockage d'objets blob Azure seront téléchargés dans l'espace de travail de la tâche.
 
 Si vous souhaitez télécharger d’autres éléments depuis le stockage d’objets blob Azure, vous pouvez créer des étapes de génération supplémentaires.

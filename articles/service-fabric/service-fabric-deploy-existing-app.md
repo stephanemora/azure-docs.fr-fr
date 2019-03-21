@@ -3,7 +3,7 @@ title: Déploiement d’un exécutable existant dans Azure Service Fabric | Micr
 description: Découvrez comment empaqueter une application existante en tant que fichier exécutable invité afin de la déployer sur un cluster Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: msfussell
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: d799c1c6-75eb-4b8a-9f94-bf4f3dadf4c3
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
-ms.author: mfussell
-ms.openlocfilehash: d8b78e42dc5909e6c80f100c9337880b1ad2d9e6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.author: aljo
+ms.openlocfilehash: 5831a21225b80e613f713a516d2f000f8b33f096
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168411"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57853152"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Empaqueter et déployer un fichier exécutable existant sur Service Fabric
 Lors de l’empaquetage d’un fichier exécutable en tant [qu’exécutable invité](service-fabric-guest-executables-introduction.md), vous pouvez choisir d’utiliser un modèle de projet Visual Studio ou de [créer le package d’application manuellement](#manually). À l’aide de Visual Studio, la structure de package d’application et les fichiers manifeste sont créés pour vous par le modèle de nouveau projet.
@@ -73,7 +73,7 @@ Le processus d’empaquetage manuel d’un exécutable invité est basé sur les
 -->
 
 ### <a name="create-the-package-directory-structure"></a>Création de la structure de répertoires du package
-Commencez par créer la structure de répertoires, comme décrit dans la section précédente, « Structure de fichier d’un package d’application ».
+Commencez par créer la structure de répertoire, comme décrit dans [empaqueter une application Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps).
 
 ### <a name="add-the-applications-code-and-configuration-files"></a>Ajout des fichiers de code et de configuration de l’application
 Après avoir créé la structure de répertoires, vous pouvez ajouter les fichiers de code et de configuration de l’application dans les répertoires code et config. Vous pouvez également créer d’autres répertoires ou sous-répertoires dans les répertoires code ou config.
@@ -96,7 +96,7 @@ Voici un exemple de fichier `ServiceManifest.xml` :
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ServiceManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="NodeApp" Version="1.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ServiceManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Name="NodeApp" Version="1.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
    <ServiceTypes>
       <StatelessServiceType ServiceTypeName="NodeApp" UseImplicitHost="true"/>
    </ServiceTypes>
@@ -207,7 +207,7 @@ Après avoir configuré le fichier `Servicemanifest.xml`, vous devez apporter de
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="NodeAppType" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="NodeAppType" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
    <ServiceManifestImport>
       <ServiceManifestRef ServiceManifestName="NodeApp" ServiceManifestVersion="1.0.0.0" />
    </ServiceManifestImport>

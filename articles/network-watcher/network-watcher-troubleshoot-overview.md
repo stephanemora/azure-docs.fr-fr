@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: 8048dde6158d9eaa9bf38a8c3020420b81bdd55b
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: aa7fce21228d4413dc4964d6e828bf60478aee27
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099774"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901829"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introduction à la résolution des problèmes des ressources dans Azure Network Watcher
 
@@ -107,7 +107,7 @@ Les fichiers journaux de dépannage des ressources sont stockés dans un compte 
 > [!NOTE]
 > Dans certains cas, seul un sous-ensemble des fichiers journaux est écrit dans l’espace de stockage.
 
-Pour obtenir des instructions de téléchargement des fichiers à partir des comptes de stockage Azure, consultez [Prise en main du stockage d’objets blob Azure à l’aide de .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). L’explorateur de stockage peut aussi être utilisé. Pour en savoir plus sur l’Explorateur Stockage, cliquez sur le lien suivant : [Explorateur Stockage](http://storageexplorer.com/)
+Pour obtenir des instructions de téléchargement des fichiers à partir des comptes de stockage Azure, consultez [Prise en main du stockage d’objets blob Azure à l’aide de .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). L’explorateur de stockage peut aussi être utilisé. Pour en savoir plus sur l’Explorateur Stockage, cliquez sur le lien suivant : [Explorateur Stockage](https://storageexplorer.com/)
 
 ### <a name="connectionstatstxt"></a>ConnectionStats.txt
 

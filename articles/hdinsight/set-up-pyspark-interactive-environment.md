@@ -9,12 +9,12 @@ ms.author: jejiang
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 1/17/2019
-ms.openlocfilehash: 45ba049717f2b9874bbac8d6493e13c2afc4b8f2
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
+ms.openlocfilehash: 8c0b40f0e6204d6cff59d3de3f20604d6913b9cb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54910646"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111631"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Définir l’environnement interactif de PySpark pour Visual Studio Code
 
@@ -30,8 +30,8 @@ Nous utilisons la commande **python/pip** pour créer un environnement virtuel a
  
         ![Version de Python et de pip](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
 
-    > [!NOTE]
-    > Il est recommandé d'installer manuellement Python plutôt que d'utiliser la version par défaut de MacOS.
+     > [!NOTE]
+     > Il est recommandé d'installer manuellement Python plutôt que d'utiliser la version par défaut de MacOS.
 
 
 2. Installez **virtualenv** en exécutant la commande ci-dessous.
@@ -71,4 +71,4 @@ Nous utilisons la commande **python/pip** pour créer un environnement virtuel a
 * [Utiliser des packages externes avec les blocs-notes Jupyter](spark/apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster (Installer Jupyter sur un ordinateur et se connecter au cluster Spark sur HDInsight)](spark/apache-spark-jupyter-notebook-install-locally.md)
 * [Visualiser des données Apache Hive à l’aide de Microsoft Power BI dans Azure HDInsight](hadoop/apache-hadoop-connect-hive-power-bi.md)
-* [Utiliser Apache Zeppelin pour exécuter des requêtes Apache Hive dans Azure HDInsight](hdinsight-connect-hive-zeppelin.md)
+* [Utilisez Apache Zeppelin pour exécuter des requêtes Apache Hive dans Azure HDInsight](hdinsight-connect-hive-zeppelin.md)

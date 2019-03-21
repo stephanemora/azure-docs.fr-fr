@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 89878b2774727d49d81ebec4c2a3c2cee355d8e8
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
-ms.translationtype: HT
+ms.openlocfilehash: 84251b16d91ca74e11298c7aa54c9a7a8b7fd6d6
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743661"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576716"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Disponibilité et fiabilité des clusters Apache Hadoop dans HDInsight
 
@@ -111,7 +111,50 @@ Lorsque vous arrivez sur la page Ambari, les services installés apparaissent à
 
 ![Services installés](./media/hdinsight-high-availability-linux/services.png)
 
-Une série d'icônes s'affichent en regard d'un service pour indiquer son état. Des alertes liées à un service peuvent être affichées à l'aide du lien **Alertes** situé en haut de la page. Vous pouvez sélectionner chaque service pour afficher plus d'informations sur ce dernier.
+Une série d'icônes s'affichent en regard d'un service pour indiquer son état. Des alertes liées à un service peuvent être affichées à l'aide du lien **Alertes** situé en haut de la page.  Ambari offre plusieurs alertes prédéfinies.
+
+Les alertes suivantes aident à surveiller la disponibilité d’un cluster :
+
+| Nom de l’alerte                               | Description                                                                                                                                                                                  |
+|------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| État de surveillance de métrique                    | Cette alerte indique l’état du processus d’analyse des métriques tel que déterminé par le script d’état du moniteur.                                                                                   |
+| Pulsation des agents d’Ambari                   | Cette alerte est déclenchée si le serveur a perdu le contact avec un agent.                                                                                                                        |
+| Processus de serveur zooKeeper                 | Cette alerte de niveau de l’hôte est déclenchée si le processus de serveur ZooKeeper ne peut pas être considéré comme étant des et à l’écoute sur le réseau.                                                               |
+| État du serveur IOCache métadonnées           | Cette alerte de niveau de l’hôte est déclenchée si le serveur de métadonnées IOCache ne peut pas être considéré comme étant des et répond aux demandes des clients                                                            |
+| JournalNode Web UI                       | Cette alerte de niveau de l’hôte est déclenchée si l’interface utilisateur Web de JournalNode est inaccessible.                                                                                                                 |
+| Serveur Thrift Spark2                     | Cette alerte de niveau de l’hôte est déclenchée si le serveur Thrift Spark2 ne peut pas être déterminé soient opérationnels.                                                                                                |
+| Processus de serveur de l’historique                   | Cette alerte de niveau de l’hôte est déclenchée si le processus de serveur d’historique ne peut pas être établie soient opérationnels et à l’écoute sur le réseau.                                                                |
+| Interface utilisateur de l’historique des serveur Web                    | Cette alerte de niveau de l’hôte est déclenchée si l’interface utilisateur de l’historique des serveur Web est inaccessible.                                                                                                              |
+| Interface utilisateur Web de ResourceManager                   | Cette alerte de niveau de l’hôte est déclenchée si l’interface utilisateur Web de ResourceManager est inaccessible.                                                                                                             |
+| Synthèse des États de NodeManager               | Cette alerte de niveau de service est déclenchée s’il existe des NodeManagers défectueux                                                                                                                    |
+| Interface utilisateur Web de Timeline application                      | Cette alerte de niveau de l’hôte est déclenchée si l’interface utilisateur Web d’application chronologie serveur est inaccessible.                                                                                                         |
+| Récapitulatif d’intégrité DataNode                  | Cette alerte de niveau de service est déclenchée si y est DataNodes défectueux                                                                                                                       |
+| Interface utilisateur Web de NameNode                          | Cette alerte de niveau de l’hôte est déclenchée si l’interface utilisateur Web de NameNode est inaccessible.                                                                                                                    |
+| Processus de basculer le contrôleur de zooKeeper    | Cette alerte de niveau de l’hôte est déclenchée si le processus du contrôleur de basculement ZooKeeper ne peut pas être confirmé soient opérationnels et à l’écoute sur le réseau.                                                   |
+| Oozie Server Web UI                      | Cette alerte de niveau de l’hôte est déclenchée si le serveur Oozie l’interface utilisateur Web est inaccessible.                                                                                                                |
+| État du serveur Oozie                      | Cette alerte de niveau de l’hôte est déclenchée si le serveur Oozie ne peut pas être considéré comme étant des et répond aux demandes des clients.                                                                      |
+| Processus de Metastore Hive                   | Cette alerte de niveau de l’hôte est déclenchée si le processus de Metastore Hive ne peut pas être considéré comme étant des et à l’écoute sur le réseau.                                                                 |
+| Processus de HiveServer2                      | Cette alerte de niveau de l’hôte est déclenchée si le Hive ne peut pas être considéré comme étant des et répond aux demandes des clients.                                                                        |
+| État du serveur WebHCat                    | Cette alerte de niveau de l’hôte est déclenchée si l’état du serveur templeton n’est pas sain.                                                                                                            |
+| Serveurs ZooKeeper pourcentage disponibles      | Cette alerte est déclenchée si le nombre de serveurs ZooKeeper dans le cluster est supérieur au seuil critique configuré. Il regroupe les résultats des vérifications de processus ZooKeeper.     |
+| Spark2 Livy Server                       | Cette alerte de niveau de l’hôte est déclenchée si le serveur Livy2 ne peut pas être déterminé soient opérationnels.                                                                                                        |
+| Serveur d’historique Spark2                    | Cette alerte de niveau de l’hôte est déclenchée si le serveur d’historique Spark2 ne peut pas être déterminé soient opérationnels.                                                                                               |
+| Processus de collecteur de métriques                | Cette alerte est déclenchée si le collecteur de métriques ne peut pas être confirmé soient opérationnels et à l’écoute sur le port configuré pour le nombre de secondes égales au seuil.                                 |
+| Collecteur de métriques - HBase Master processus | Cette alerte est déclenchée si les processus maîtres du collecteur de métriques HBase ne peut pas être confirmé soient opérationnels et à l’écoute sur le réseau pour le seuil critique configuré, exprimée en secondes. |
+| Analyses de métriques pourcentage disponibles       | Cette alerte est déclenchée si un pourcentage métriques du moniteur de processus ne sont opérationnel et à l’écoute sur le réseau pour les seuils critiques et d’avertissement configuré.                             |
+| NodeManagers pourcentage disponible           | Cette alerte est déclenchée si le nombre de bas NodeManagers dans le cluster est supérieur au seuil critique configuré. Il regroupe les résultats des vérifications de processus NodeManager.        |
+| Contrôle d’intégrité de NodeManager                       | Cette alerte de niveau de l’hôte vérifie la propriété de contrôle d’intégrité de nœud disponible à partir du composant de NodeManager.                                                                                              |
+| Interface utilisateur Web de NodeManager                       | Cette alerte de niveau de l’hôte est déclenchée si l’interface utilisateur Web de NodeManager est inaccessible.                                                                                                                 |
+| Intégrité de la disponibilité élevée de NameNode        | Cette alerte de niveau de service est déclenchée si NameNode actifs ou du NameNode de secours n’est pas exécutés.                                                                                     |
+| Processus de DataNode                         | Cette alerte de niveau de l’hôte est déclenchée si les processus DataNode individuels ne peut pas être établie soient opérationnels et à l’écoute sur le réseau.                                                         |
+| Interface utilisateur Web de DataNode                          | Cette alerte de niveau de l’hôte est déclenchée si l’interface utilisateur Web de DataNode est inaccessible.                                                                                                                    |
+| JournalNodes pourcentage disponible           | Cette alerte est déclenchée si le nombre de JournalNodes vers le bas dans le cluster est supérieur au seuil critique configuré. Il regroupe les résultats des vérifications de processus JournalNode.        |
+| DataNodes pourcentage disponible              | Cette alerte est déclenchée si le nombre de DataNodes vers le bas dans le cluster est supérieur au seuil critique configuré. Il regroupe les résultats des vérifications de processus DataNode.              |
+| État du serveur Zeppelin                   | Cette alerte de niveau de l’hôte est déclenchée si le serveur de Zeppelin ne peut pas être considéré comme étant des et répond aux demandes des clients.                                                                   |
+| Processus interactif de HiveServer2          | Cette alerte de niveau de l’hôte est déclenchée si le HiveServerInteractive ne peut pas être considéré comme étant des et répond aux demandes des clients.                                                             |
+| Application de LLAP                         | Cette alerte est déclenchée si l’Application LLAP ne peut pas être considéré comme étant des et répond aux demandes.                                                                                    |
+
+Vous pouvez sélectionner chaque service pour afficher plus d'informations sur ce dernier.
 
 La page de service fournit des informations sur l'état et la configuration de chaque service. Il ne fournit pas d'informations sur le nœud principal sur lequel le service s'exécute. Pour afficher ces informations, utilisez le lien **Hôtes** en haut de la page. Cette page affiche les hôtes au sein du cluster, notamment les nœuds principaux.
 

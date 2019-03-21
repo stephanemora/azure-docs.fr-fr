@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 2/20/2019
 ms.author: victorh
-ms.openlocfilehash: 09bb81b0382f18c9cb94e5e4d0932dc6597ae73c
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 86be94404e7ab492beeebd6a467d23e68e7bce6b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454292"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080165"
 ---
 # <a name="create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Créer et configurer une passerelle d’application pour héberger plusieurs sites web avec le Portail Azure
 
@@ -44,20 +44,20 @@ Un réseau virtuel est nécessaire pour la communication entre les ressources qu
 2. Sélectionnez **Mise en réseau**, puis sélectionnez **Application Gateway** dans la liste de suggestions.
 3. Entrez ces valeurs pour la passerelle d’application :
 
-    - *myAppGateway* : pour le nom de la passerelle d’application.
-    - *myResourceGroupAG* : pour le nouveau groupe de ressources.
+   - *myAppGateway* : pour le nom de la passerelle d’application.
+   - *myResourceGroupAG* : pour le nouveau groupe de ressources.
 
-    ![Créer une nouvelle passerelle d’application](./media/create-multiple-sites-portal/application-gateway-create.png)
+     ![Créer une nouvelle passerelle d’application](./media/create-multiple-sites-portal/application-gateway-create.png)
 
 4. Acceptez les valeurs par défaut pour les autres paramètres, puis cliquez sur **OK**.
 5. Cliquez sur **Choisir un réseau virtuel**, cliquez sur **Créer nouveau**, puis entrez ces valeurs pour le réseau virtuel :
 
-    - *myVNet* : pour le nom du réseau virtuel.
-    - *10.0.0.0/16* : pour l’espace d’adressage du réseau virtuel.
-    - *myAGSubnet* : pour le nom du sous-réseau.
-    - *10.0.0.0/24* : pour l’espace d’adressage du sous-réseau.
+   - *myVNet* : pour le nom du réseau virtuel.
+   - *10.0.0.0/16* : pour l’espace d’adressage du réseau virtuel.
+   - *myAGSubnet* : pour le nom du sous-réseau.
+   - *10.0.0.0/24* : pour l’espace d’adressage du sous-réseau.
 
-    ![Création d’un réseau virtuel](./media/create-multiple-sites-portal/application-gateway-vnet.png)
+     ![Création d’un réseau virtuel](./media/create-multiple-sites-portal/application-gateway-vnet.png)
 
 6. Cliquez sur **OK** pour créer le réseau virtuel et le sous-réseau.
 7. Cliquez sur **Choisir une adresse IP publique**, cliquez sur **Créer nouveau**, puis entrez le nom de l’adresse IP publique. Dans cet exemple, l’adresse IP publique est nommée *myAGPublicIPAddress*. Acceptez les valeurs par défaut pour les autres paramètres, puis cliquez sur **OK**.
@@ -94,6 +94,8 @@ Dans cet exemple, vous créez deux machines virtuelles à utiliser en tant que s
 
 ### <a name="install-iis"></a>Installer IIS
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 1. Ouvrez l’interpréteur de commandes interactif et assurez-vous qu’il est défini sur **PowerShell**.
 
     ![Installer l’extension personnalisée](./media/create-multiple-sites-portal/application-gateway-extension.png)
@@ -102,7 +104,7 @@ Dans cet exemple, vous créez deux machines virtuelles à utiliser en tant que s
 
     ```azurepowershell-interactive
     $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location eastus `
       -ExtensionName IIS `
@@ -113,7 +115,7 @@ Dans cet exemple, vous créez deux machines virtuelles à utiliser en tant que s
       -Settings $publicSettings
     ```
 
-3. Créez la deuxième machine virtuelle et installez IIS en suivant la procédure que vous venez de terminer. Entrez *fabrikamVM* comme nom et valeur de VMName dans Set-AzureRmVMExtension.
+3. Créez la deuxième machine virtuelle et installez IIS en suivant la procédure que vous venez de terminer. Entrez les noms de *fabrikamVM* pour le nom et la valeur de VMName dans Set-AzVMExtension.
 
 ## <a name="create-backend-pools-with-the-virtual-machines"></a>Créer des pools principaux avec les machines virtuelles
 
@@ -132,8 +134,8 @@ Dans cet exemple, vous créez deux machines virtuelles à utiliser en tant que s
 1. Cliquez sur  **Écouteurs** puis sur **Multisite**.
 2. Entrez ces valeurs pour l’écouteur :
     
-    - *contosoListener* : pour le nom de l’écouteur.
-    - *www.contoso.com* : remplacez cet exemple de nom d’hôte par votre nom de domaine.
+   - *contosoListener* : pour le nom de l’écouteur.
+   - *www.contoso.com* : remplacez cet exemple de nom d’hôte par votre nom de domaine.
 
 3. Cliquez sur **OK**.
 4. Créez un deuxième écouteur en utilisant le nom *fabrikamListener* et utilisez le nom de votre deuxième domaine. Dans cet exemple, *www.fabrikam.com* est utilisé.

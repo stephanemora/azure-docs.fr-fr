@@ -13,12 +13,12 @@ ms.author: carlrab
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/11/2019
-ms.openlocfilehash: f033a93c0e4fc2648e151572bee25db5463e32e3
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: 2feece21644f8b79b4e5fc74331944cdddbdee4a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56101342"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57996417"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Migration de base de données SQL Server vers Azure SQL Database
 
@@ -114,7 +114,7 @@ Vous pouvez rencontrer une grande variété de problèmes de compatibilité, sel
 - [Discontinued Database Engine Functionality in SQL Server 2008 R2 (Fonctionnalités du moteur de base de données non disponibles dans SQL Server 2008 R2)](https://msdn.microsoft.com/library/ms144262%28v=sql.105%29)
 - [Discontinued Database Engine Functionality in SQL Server 2005 (Fonctionnalités du moteur de base de données supprimées dans SQL Server 2005)](https://msdn.microsoft.com/library/ms144262%28v=sql.90%29)
 
-Outre les recherches sur Internet et ces ressources, utilisez les [forums de communauté MSDN SQL Server](https://social.msdn.microsoft.com/Forums/sqlserver/home?category=sqlserver) ou [StackOverflow](http://stackoverflow.com/).
+Outre les recherches sur Internet et ces ressources, utilisez les [forums de communauté MSDN SQL Server](https://social.msdn.microsoft.com/Forums/sqlserver/home?category=sqlserver) ou [StackOverflow](https://stackoverflow.com/).
 
 > [!IMPORTANT]
 > SQL Database Managed Instance vous permet de migrer une instance existante de SQL Server et ses bases de données avec peu voire pas de problèmes de compatibilité. Consultez [Qu’est-ce que Managed Instance ?](sql-database-managed-instance.md).

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2017
 ms.author: dineshmurthy
 ms.subservice: common
-ms.openlocfilehash: c45c70055817eeeed19f9c8a832a76b10beceaa6
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: ae6ceee33aa6d96c360782c33232e0c7561cf209
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467031"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58015331"
 ---
 # <a name="azure-storage-client-tools"></a>Outils clients d’Azure Storage
 Souvent, les utilisateurs d’Azure Storage veulent être en mesure d’afficher/d’interagir avec leurs données à l’aide d’un outil client d’Azure Storage. Dans les tableaux ci-dessous, nous répertorions un certain nombre d’outils qui vous permettent de le faire. Nous avons placé un « X » dans chaque bloc si l’outil offre la possibilité d’énumérer et/ou d’accéder à l’abstraction des données. Le tableau indique également si l’outil est gratuit ou non. La mention « Version d’évaluation » indique qu’il existe une version d’évaluation gratuite, mais que le produit complet n’est pas gratuit. La mention « O/N » indique qu’il existe une version disponible gratuitement, ainsi qu’une version différente disponible à l’achat.
@@ -36,7 +36,7 @@ Ceci n’est qu’un aperçu des outils clients Azure Storage disponibles. Ces o
   </tr>
   <tr>
     <td>Web</td>
-    <td> Windows</td>
+    <td>Windows</td>
     <td>OSX</td>
     <td>Linux</td>
   </tr>
@@ -55,7 +55,7 @@ Ceci n’est qu’un aperçu des outils clients Azure Storage disponibles. Ces o
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://storageexplorer.com/">Explorateur Stockage Microsoft Azure</a></td>
+    <td><a href="https://storageexplorer.com/">Explorateur Stockage Microsoft Azure</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>
@@ -102,12 +102,12 @@ Nous n’avons pas vérifié les fonctionnalités ni la qualité des outils tier
   </tr>
   <tr>
     <td>Web</td>
-    <td> Windows</td>
+    <td>Windows</td>
     <td>OSX</td>
     <td>Linux</td>
   </tr>
   <tr>
-    <td><a href="http://www.cerebrata.com/products/azure-management-studio/introduction">Cerabrata : Azure Management Studio</a></td>
+    <td><a href="https://www.cerebrata.com/products/azure-management-studio/introduction">Cerabrata : Azure Management Studio</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>
@@ -149,7 +149,7 @@ Nous n’avons pas vérifié les fonctionnalités ni la qualité des outils tier
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://www.cloudberrylab.com/explorer/microsoft-azure.aspx">CloudBerry Explorer</a></td>
+    <td><a href="https://www.cloudberrylab.com/explorer/microsoft-azure.aspx">CloudBerry Explorer</a></td>
     <td>X</td>
     <td>X</td>
     <td></td>
@@ -163,7 +163,7 @@ Nous n’avons pas vérifié les fonctionnalités ni la qualité des outils tier
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://www.gapotchenko.com/cloudcombine">Cloud Combine</a></td>
+    <td><a href="https://www.gapotchenko.com/cloudcombine">Cloud Combine</a></td>
     <td>X</td>
     <td>X</td>
     <td></td>
@@ -191,7 +191,7 @@ Nous n’avons pas vérifié les fonctionnalités ni la qualité des outils tier
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://www.gladinet.com/Azure-Storage/index.htm">Gladinet Cloud</a></td>
+    <td><a href="https://www.gladinet.com/Azure-Storage/index.htm">Gladinet Cloud</a></td>
     <td>X</td>
     <td></td>
     <td></td>

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 12/3/2018
 ms.author: pabouwer
-ms.openlocfilehash: f34d8c547738921374eaf5edcfcec4911423d9dc
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: d85b830b63e2d52f3eeb5df8645edccfccf43c76
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699209"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58138148"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Installer et utiliser Istio dans AKS (Azure Kubernetes Service)
 
@@ -38,7 +38,7 @@ Cet article répartit les instructions d’installation d’Istio en plusieurs �
 
 ## <a name="download-istio"></a>Télécharger Istio
 
-Tout d’abord, téléchargez et extrayez la dernière version d’Istio. Les étapes diffèrent légèrement selon que vous utilisez un interpréteur de commandes PowerShell ou un interpréteur de commandes bash sur MacOS, sur Linux ou sur le sous-système Windows pour Linux. Choisissez une des étapes d’installation suivantes en fonction de votre environnement :
+Tout d’abord, téléchargez et extrayez la dernière version d’Istio. Les étapes sont légèrement différentes pour un interpréteur de commandes bash sur MacOS, Linux ou sous-système Windows pour Linux et pour un interpréteur de commandes PowerShell. Choisissez une des étapes d’installation suivantes en fonction de votre environnement :
 
 * [Bash sur MacOS, Linux ou le sous-système Windows pour Linux](#bash)
 * [PowerShell](#powershell)
@@ -82,7 +82,7 @@ Expand-Archive -Path "istio-$ISTIO_VERSION.zip" -DestinationPath .
 Le binaire client `istioctl` s’exécute sur votre machine cliente et vous permet de gérer les stratégies et les règles de routage Istio. Là encore, les étapes d’installation diffèrent légèrement d’un système d’exploitation client à l’autre. Choisissez une des étapes d’installation suivantes en fonction de votre environnement.
 
 > [!IMPORTANT]
-> Exécutez toutes les étapes restantes à partir du dossier de niveau supérieur de la version d’Istio que vous avez téléchargée et extraite à la section précédente.
+> Assurez-vous que vous exécutez les étapes décrites dans cette section, à partir du dossier de niveau supérieur de la version d’Istio que vous avez téléchargé et extrait.
 
 ### <a name="macos"></a>MacOS
 
@@ -132,7 +132,7 @@ echo "source ~/completions/istioctl.bash" >> ~/.bashrc
 
 Maintenant, passez à la section [Installer les composants Kubernetes Istio](#install-the-istio-kubernetes-components).
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 Pour installer le binaire client `istioctl` Istio dans un interpréteur de commandes Powershell sur Windows, utilisez les commandes suivantes. Ces commandes copient le binaire client `istioctl` à un nouvel emplacement de programme utilisateur et le rendent accessible via votre `PATH`.
 
@@ -145,6 +145,12 @@ $PATH = [environment]::GetEnvironmentVariable("PATH", "User")
 ```
 
 ## <a name="install-the-istio-kubernetes-components"></a>Installer les composants Kubernetes Istio
+
+> [!IMPORTANT]
+> Assurez-vous que vous exécutez les étapes décrites dans cette section, à partir du dossier de niveau supérieur de la version d’Istio que vous avez téléchargé et extrait.
+
+> [!NOTE]
+> Version `1.0.6` et la plus récente du graphique Helm d’Istio comporte des changements importants. Si vous choisissez d’installer cette version, vous devez maintenant créer manuellement un secret pour Kiali. Vous devrez également créer manuellement une clé secrète pour Grafana, si vous avez défini `grafana.security.enabled=true`. Consultez le graphique Helm Istio [README.md](https://github.com/istio/istio/tree/master/install/kubernetes/helm/istio#installing-the-chart) pour plus d’informations sur la création de ces secrets.
 
 Pour installer les composants Istio dans votre cluster AKS, utilisez Helm. Installez les ressources Istio dans l’espace de noms `istio-system` et activez des options supplémentaires pour la sécurité et la supervision comme suit :
 

@@ -7,21 +7,21 @@ documentationcenter: na
 author: jimdial
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: jdial
-ms.openlocfilehash: 3f308c38e9fa23c36f964b117f620a39e56c9bbd
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
-ms.translationtype: HT
+ms.openlocfilehash: e32bc2f4697b5ac32993a5da66e5c38cb7add03f
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958182"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200580"
 ---
 # <a name="virtual-network-peering"></a>Homologation de réseaux virtuels
 
-L’homologation de réseaux virtuels vous permet de connecter deux [réseaux virtuels](virtual-networks-overview.md) Azure en toute transparence. Une fois homologués, les réseaux virtuels apparaissent comme un seul réseau à des fins de connectivité. Le trafic entre les machines virtuelles des réseaux virtuels homologués est acheminé via l’infrastructure principale de Microsoft de façon assez semblable au trafic entre des machines virtuelles d’un même réseau virtuel via des adresses IP *privées* seulement. Supports Azure :
+Homologation de réseaux virtuels vous permet de connecter de façon transparente Azure [réseaux virtuels](virtual-networks-overview.md). Une fois homologués, les réseaux virtuels apparaissent comme un seul réseau à des fins de connectivité. Le trafic entre les machines virtuelles des réseaux virtuels homologués est acheminé via l’infrastructure principale de Microsoft de façon assez semblable au trafic entre des machines virtuelles d’un même réseau virtuel via des adresses IP *privées* seulement. Supports Azure :
 * VNET Peering : connexion de réseaux virtuels dans la même région Azure
 * Global VNET Peering : connexion de réseaux virtuels entre des régions Azure
 
@@ -59,11 +59,12 @@ Chaque réseau virtuel, qu’il soit homologué ou non avec un autre réseau vir
 
 Lorsque les deux options d’interconnexion de réseaux virtuels sont configurées, le trafic entre les réseaux virtuels transite via la configuration d’homologation (c’est-à-dire via le réseau principal Azure).
 
-Lorsque des réseaux virtuels sont homologués dans la même région, vous pouvez également configurer la passerelle du réseau virtuel homologué en tant que point de transit vers un réseau local. Dans ce cas, le réseau virtuel qui utilise une passerelle distante ne peut pas posséder sa propre passerelle. Un réseau virtuel ne peut posséder qu’une seule passerelle. Il peut s’agir d’une passerelle locale ou distante (dans le réseau virtuel homologué), comme l’illustre l’image suivante :
+Lorsque des réseaux virtuels sont homologués, vous pouvez également configurer la passerelle du réseau virtuel homologué en tant que point de transit vers un réseau local. Dans ce cas, le réseau virtuel qui utilise une passerelle distante ne peut pas posséder sa propre passerelle. Un réseau virtuel ne peut posséder qu’une seule passerelle. Il peut s’agir d’une passerelle locale ou distante (dans le réseau virtuel homologué), comme l’illustre l’image suivante :
 
 ![Transit d’homologation de réseaux virtuels](./media/virtual-networks-peering-overview/figure04.png)
 
-Le transit de la passerelle n’est pas pris en charge dans la relation d’homologation entre les réseaux virtuels créés dans des régions différentes. Les deux réseaux virtuels homologués doivent appartenir à la même région pour que le transit de la passerelle fonctionne. Le transit de la passerelle entre les réseaux virtuels créés par le biais de modèles de déploiement différents (Resource Manager et classique) est pris en charge uniquement si la passerelle (VPN or ExpressRoute) se trouve dans le réseau virtuel (Resource Manager). Pour en savoir plus sur l’utilisation d’une passerelle pour le transit, consultez [Configure a VPN gateway for transit in a virtual network peering (Configurer une passerelle VPN pour le transit dans une homologation de réseaux virtuels)](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Transit de passerelle est pris en charge pour l’homologation de réseau virtuel et Global VNet Peering (version préliminaire). Vous pouvez utiliser des passerelles distantes ou autoriser le transit par passerelle dans les réseaux virtuels homologués dans le monde entier en version préliminaire. La version préliminaire est disponible dans toutes les régions Azure, les régions de cloud de Chine et régions de cloud Government. Aucune mise en liste verte n’est nécessaire. Vous pouvez tester en version préliminaire via l’interface CLI, PowerShell, des modèles ou des API. Portail n’est pas pris en charge dans la version préliminaire.
+Transit de passerelle entre réseaux virtuels créés via des modèles de déploiement différents (Resource Manager et classic) est pris en charge uniquement si la passerelle est dans le réseau virtuel (Resource Manager). Pour en savoir plus sur l’utilisation d’une passerelle pour le transit, consultez [Configure a VPN gateway for transit in a virtual network peering (Configurer une passerelle VPN pour le transit dans une homologation de réseaux virtuels)](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Lorsque des réseaux virtuels qui partagent une même connexion Azure ExpressRoute sont homologués, le trafic entre eux transite via la relation d’homologation (c’est-à-dire via le réseau principal Azure). Vous pouvez toujours utiliser des passerelles locales dans chaque réseau virtuel pour vous connecter au circuit local. Vous pouvez également utiliser une passerelle partagée et configurer le transit pour la connectivité locale.
 
@@ -78,8 +79,8 @@ Vous pouvez également essayer le [Utilitaire de dépannage pour les problèmes 
 ## <a name="requirements-and-constraints"></a>Exigences et contraintes
 
 Les contraintes ci-après s’appliquent uniquement quand des réseaux virtuels sont appairés à l’échelle mondiale :
-- Les ressources situées dans un réseau virtuel ne peuvent pas communiquer avec l’adresse IP frontale d’un équilibreur de charge interne Azure dans le réseau virtuel homologué à l’échelle mondiale. L’équilibreur de charge et les ressources qui communiquent avec lui doivent se trouver dans la même région.
-- Vous ne pouvez pas utiliser de passerelles distantes ni autoriser de transit via une passerelle. Pour utiliser des passerelles distantes ou autoriser un transit par passerelle, les réseaux virtuels homologués doivent appartenir à la même région.
+- Ressources dans un réseau virtuel ne peut pas communiquer avec l’adresse IP frontale d’un équilibreur de charge interne de base dans un réseau virtuel homologué dans le monde entier. Prise en charge pour l’équilibreur de charge existe uniquement dans la même région. Prise en charge pour l’équilibreur de charge Standard existe pour l’homologation globale.
+- Vous pouvez utiliser des passerelles distantes ou autoriser le transit par passerelle dans les réseaux virtuels homologués dans le monde entier en version préliminaire. La version préliminaire est disponible dans toutes les régions Azure, les régions de cloud de Chine et régions de cloud Government. Aucune mise en liste verte n’est nécessaire. Vous pouvez tester en version préliminaire via l’interface CLI, PowerShell, des modèles ou des API. Portail n’est pas pris en charge dans la version préliminaire.
 
 Pour en savoir plus sur les exigences et les contraintes, consultez la section correspondante de l’article [Créer, modifier ou supprimer une homologation de réseau virtuel](virtual-network-manage-peering.md#requirements-and-constraints). Pour en savoir plus sur les limites concernant le nombre d’homologations que vous pouvez créer pour un réseau virtuel, consultez [Abonnement Azure et limites, quotas et contraintes de service](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 
 

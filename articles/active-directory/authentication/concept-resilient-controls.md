@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5fb263819a5bb96175f636f53a16c28649a3f39
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: b006a4fbb8d1059f5096f5c1585853953b69042f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339547"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082141"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Créer une stratégie de gestion du contrôle d'accès résiliente avec Azure Active Directory
 
@@ -94,18 +94,18 @@ Votre organisation peut également créer des stratégies d'urgence. Pour créer
 Le fait de savoir à quoi vous vous exposez en cas d'interruption vous aidera à réduire les risques et constituera un élément essentiel de votre processus de planification. Pour créer votre plan d'urgence, commencez par déterminer les besoins de votre organisation :
 
 1. Identifiez à l'avance vos applications stratégiques : Quelles sont les applications qui doivent impérativement être accessibles, même avec un risque accru ou un niveau de sécurité plus faible ? Dressez la liste de ces applications et assurez-vous que les autres parties prenantes (commerciaux, sécurité, service juridique, dirigeants) s'accordent toutes à dire que si tous les contrôles d'accès disparaissent, ces applications doivent continuer à fonctionner. Les applications se décomposeront probablement en trois catégories :
-  * **Applications stratégiques de catégorie 1** qui ne peuvent pas être indisponibles pendant plus de quelques minutes, par exemple les applications dont dépendent directement les revenus de l'organisation.
-  * **Applications importantes de catégorie 2** qui doivent être accessibles en quelques heures.
-  * **Applications à faible priorité de catégorie 3** qui peuvent supporter une interruption de quelques jours.
+   * **Applications stratégiques de catégorie 1** qui ne peuvent pas être indisponibles pendant plus de quelques minutes, par exemple les applications dont dépendent directement les revenus de l'organisation.
+   * **Applications importantes de catégorie 2** qui doivent être accessibles en quelques heures.
+   * **Applications à faible priorité de catégorie 3** qui peuvent supporter une interruption de quelques jours.
 2. Pour les applications des catégories 1 et 2, Microsoft vous recommande de planifier à l'avance le type de niveau d'accès que vous souhaitez autoriser :
-  * Voulez-vous autoriser un accès total ou restreint, en limitant les téléchargements par exemple ?
-  * Voulez-vous autoriser l'accès à une partie de l'application, mais pas à l'ensemble de celle-ci ?
-  * Voulez-vous autoriser l'accès aux professionnels de l'information et bloquer l'accès aux administrateurs jusqu'à la restauration du contrôle d'accès ?
+   * Voulez-vous autoriser un accès total ou restreint, en limitant les téléchargements par exemple ?
+   * Voulez-vous autoriser l'accès à une partie de l'application, mais pas à l'ensemble de celle-ci ?
+   * Voulez-vous autoriser l'accès aux professionnels de l'information et bloquer l'accès aux administrateurs jusqu'à la restauration du contrôle d'accès ?
 3. Pour ces applications, Microsoft vous recommande également de planifier les voies d'accès que vous souhaitez ouvrir et fermer :
-  * Voulez-vous autoriser l'accès par navigateur uniquement et bloquer les clients capables d'enregistrer des données hors connexion ?
-  * Voulez-vous autoriser l'accès aux utilisateurs du réseau d'entreprise uniquement et bloquer les utilisateurs extérieurs ?
-  * Voulez-vous autoriser l'accès à partir de certains pays ou régions uniquement pendant l'interruption ?
-  * Voulez-vous que les stratégies associées aux stratégies d'urgence, en particulier pour les applications stratégiques, échouent ou aboutissent si aucun autre contrôle d'accès n'est disponible ?
+   * Voulez-vous autoriser l'accès par navigateur uniquement et bloquer les clients capables d'enregistrer des données hors connexion ?
+   * Voulez-vous autoriser l'accès aux utilisateurs du réseau d'entreprise uniquement et bloquer les utilisateurs extérieurs ?
+   * Voulez-vous autoriser l'accès à partir de certains pays ou régions uniquement pendant l'interruption ?
+   * Voulez-vous que les stratégies associées aux stratégies d'urgence, en particulier pour les applications stratégiques, échouent ou aboutissent si aucun autre contrôle d'accès n'est disponible ?
 
 #### <a name="microsoft-recommendations"></a>Recommandations de Microsoft
 
@@ -251,7 +251,7 @@ Une fois le service responsable de l’interruption restauré, annulez les modif
 Si votre organisation utilise des stratégies d'authentification multifacteur héritées par utilisateur, vous pouvez envisager l'alternative suivante :
 
 1. Si vous disposez de l'adresse IP sortante du réseau d'entreprise, vous pouvez l'ajouter en tant qu'adresse IP approuvée pour activer l'authentification sur le réseau d'entreprise uniquement.
- 2. Si vous ne disposez pas de l'inventaire des adresses IP sortantes ou si vous devez activer l'accès à l'intérieur et à l'extérieur du réseau d'entreprise, vous pouvez ajouter tout l'espace d'adressage IPv4 en tant qu'adresses IP approuvées en spécifiant 0.0.0.0/1 et 128.0.0.0/1.
+   1. Si vous ne disposez pas de l'inventaire des adresses IP sortantes ou si vous devez activer l'accès à l'intérieur et à l'extérieur du réseau d'entreprise, vous pouvez ajouter tout l'espace d'adressage IPv4 en tant qu'adresses IP approuvées en spécifiant 0.0.0.0/1 et 128.0.0.0/1.
 
 >[!IMPORTANT]
  > Si vous élargissez le champ des adresses IP approuvées pour débloquer l'accès, les événements à risque associés aux adresses IP (par exemple, un voyage impossible ou un emplacement inconnu) ne seront pas générés.
@@ -264,9 +264,9 @@ Si votre organisation utilise des stratégies d'authentification multifacteur h�
 * [Documentation Azure AD Authentication](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-iis)
 * [Gérer les comptes d’administration de l’accès d’urgence dans Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
 * [Configurer des emplacements nommés dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
- * [Set-MsolDomainFederationSettings](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
+  * [Set-MsolDomainFederationSettings](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
 * [Comment configurer des appareils hybrides joints à Azure Active Directory](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
 * [Guide de déploiement de Windows Hello Entreprise](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
- * [Aide sur les mots de passe - Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
+  * [Aide sur les mots de passe - Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
 * [Que sont les conditions dans l'accès conditionnel Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
 * [Que sont les contrôles d'accès dans l'accès conditionnel Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)

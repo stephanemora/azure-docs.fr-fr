@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: genli
-ms.openlocfilehash: 8b46839d26130f37f4f4ba5559f5699498b0e60f
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: 2cb70c67bc4719eb43c4fcb70edf574c57362f26
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599397"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013273"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Résolution des problèmes liés à l’état détérioré d’Azure Traffic Manager
 
@@ -41,7 +41,7 @@ Si le statut de l’intégrité de votre Traffic Manager est **Inactif**, les de
 
 Pour résoudre un problème d’échec d’analyse, vous avez besoin d’un outil qui affiche le code d’état HTTP retourné à partir de l’URL de la sonde. Il existe de nombreux outils qui affichent la réponse HTTP brute.
 
-* [Fiddler](http://www.telerik.com/fiddler)
+* [Fiddler](https://www.telerik.com/fiddler)
 * [curl](https://curl.haxx.se/)
 * [wget](http://gnuwin32.sourceforge.net/packages/wget.htm)
 
