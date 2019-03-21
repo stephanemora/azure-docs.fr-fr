@@ -12,18 +12,18 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: b6d821f8c4f2fa66e24e6a2409f58406820ef6d0
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: 4d3f27d48819a4bd997cbb62177f5aae4afc85eb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100770"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993154"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Résolution des différences de Transact-SQL durant la migration vers SQL Database
 
 Au moment de [migrer votre base de données](sql-database-single-database-migrate.md) SQL Server vers Azure SQL Server, vous découvrirez peut-être que sa conception est à revoir avant de pouvoir effectuer la migration. Cet article comprend des informations vous permettant d’apporter les révisions nécessaires et de comprendre les raisons sous-jacentes à ces changements. Pour détecter les incompatibilités, utilisez [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 La plupart des fonctionnalités Transact-SQL utilisées par les applications sont entièrement prises en charge dans Microsoft SQL Server et Azure SQL Database. Par exemple, les principaux composants SQL tels que les types de données, les opérateurs ainsi que les fonctions de chaîne, arithmétiques, logiques et de curseur, fonctionnent de la même façon dans SQL Server et SQL Database. Il existe toutefois quelques différences au niveau des éléments du langage de définition de données (DDL) et des éléments du langage de manipulation de données (DML). Ceux-ci génèrent en effet des instructions et des requêtes T-SQL qui ne sont que partiellement prises en charge (nous y reviendrons plus loin dans cet article).
 
@@ -85,7 +85,7 @@ Pour plus d'informations sur la grammaire, l'utilisation et les exemples Transac
 
 La référence sur Transact-SQL comprend des articles relatifs aux versions de SQL Server de 2008 jusqu'à présent. Sous le titre de l’article se trouve une barre d’icônes qui répertorie les quatre plateformes SQL Server et indique l’applicabilité. Par exemple, la fonction des groupes de disponibilité ont été introduits dans SQL Server 2012. L’article  [CREATE AVAILABILTY GROUP](https://msdn.microsoft.com/library/ff878399.aspx)  indique que l’instruction s’applique à  **SQL Server (à partir de 2012)**. L’instruction ne s’applique pas à SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure SQL Data Warehouse ni à Parallel Data Warehouse.
 
-Dans certains cas, le sujet général d'un article peut être utilisé dans un produit, mais il existe des différences mineures entre les produits. Les différences sont indiquées dans l’article comme il convient. Dans certains cas, le sujet général d'un article peut être utilisé dans un produit, mais il existe des différences mineures entre les produits. Les différences sont indiquées dans l’article comme il convient. Par exemple, l’article CREATE TRIGGER est disponible dans SQL Database. Mais l’option **ALL SERVER** pour les déclencheurs de niveau serveur indique que ces derniers ne peuvent pas être utilisés dans SQL Database. Utilisez plutôt des déclencheurs de niveau base de données.
+Dans certains cas, le sujet général d’un article peut être utilisé dans un produit, mais il existe des différences mineures entre les produits. Les différences sont indiquées dans l’article comme il convient. Dans certains cas, le sujet général d’un article peut être utilisé dans un produit, mais il existe des différences mineures entre les produits. Les différences sont indiquées dans l’article comme il convient. Par exemple, l’article CREATE TRIGGER est disponible dans SQL Database. Mais l’option **ALL SERVER** pour les déclencheurs de niveau serveur indique que ces derniers ne peuvent pas être utilisés dans SQL Database. Utilisez plutôt des déclencheurs de niveau base de données.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

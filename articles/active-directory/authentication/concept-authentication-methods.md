@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/31/2018
+ms.date: 02/20/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d57e3d647acfe9400d7b575f5635e2ab5254352
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 09f61f60a3885fbc58cddc4b46df11014057f54e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162218"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57999493"
 ---
 # <a name="what-are-authentication-methods"></a>Que sont les méthodes d’authentification ?
 
@@ -149,6 +149,8 @@ L'application Microsoft Authenticator ou une autre application tierce peut être
 > Quand une seule méthode est requise pour la réinitialisation de mot de passe en libre-service, le code de vérification est la seule option à la disposition des utilisateurs **pour garantir le niveau de sécurité le plus élevé**.
 >
 
+Les utilisateurs peuvent combiner jusqu'à 5 jetons matériels OATH ou des applications d'authentification, comme l'application Microsoft Authenticator, configurées pour une utilisation à tout moment.
+
 ## <a name="oath-hardware-tokens-public-preview"></a>Jetons matériels OATH (préversion publique)
 
 OATH est une norme ouverte qui spécifie le mode de génération des codes de mot de passe (OTP) à usage unique. Azure AD prendra maintenant en charge l’utilisation des jetons OATH-TOTP SHA-1 de 30 secondes ou 60 secondes. Les clients peuvent se procurer ces jetons auprès du fournisseur de leur choix. Notez que les secrets sont limités à 128 caractères et que cette limite peut ne pas être compatible avec tous les jetons.
@@ -196,6 +198,9 @@ Un SMS est envoyé au numéro de téléphone mobile. Il contient un code de vér
 
 Un appel vocal automatisé est passé au numéro de téléphone indiqué. Répondez à l’appel et appuyez sur la touche # du clavier du téléphone pour vous authentifier.
 
+> [!IMPORTANT]
+> À compter de mars de 2019 les options d’appel téléphonique ne sera pas disponible aux utilisateurs MFA et SSPR dans les locataires gratuit/essai Azure AD. Les messages SMS ne sont pas affectées par cette modification. Appel téléphonique continueront à être disponibles pour les utilisateurs dans payé des locataires Azure AD. Cette modification affecte uniquement les locataires gratuit/essai Azure AD.
+
 ## <a name="office-phone"></a>Téléphone de bureau
 
 Un appel vocal automatisé est passé au numéro de téléphone indiqué. Répondez à l’appel et appuyez sur la touche # du clavier du téléphone pour vous authentifier.
@@ -203,6 +208,9 @@ Un appel vocal automatisé est passé au numéro de téléphone indiqué. Répon
 Pour que tout fonctionne correctement, les numéros de téléphone doivent être au format *+CodePays NuméroTéléphone*, par exemple : +1 4255551234.
 
 L’attribut Téléphone de bureau est géré par l’administrateur.
+
+> [!IMPORTANT]
+> À compter de mars de 2019 les options d’appel téléphonique ne sera pas disponible aux utilisateurs MFA et SSPR dans les locataires gratuit/essai Azure AD. Les messages SMS ne sont pas affectées par cette modification. Appel téléphonique continueront à être disponibles pour les utilisateurs dans payé des locataires Azure AD. Cette modification affecte uniquement les locataires gratuit/essai Azure AD.
 
 > [!NOTE]
 > Il doit y avoir un espace entre l’indicatif du pays et le numéro de téléphone.
@@ -229,6 +237,6 @@ Si votre organisation est fédérée (SSO) avec Azure AD et si vous vous apprê
 
 [Activer Azure Multi-Factor Authentication pour votre organisation](howto-mfa-getstarted.md)
 
-[Activer l’inscription convergée pour Azure Multi-Factor Authentication et la réinitialisation de mot de passe en libre-service Azure AD](concept-registration-mfa-sspr-converged.md)
+[Activer l’inscription de combiné dans votre client](howto-registration-mfa-sspr-combined.md)
 
 [Documentation relative à la configuration de la méthode d’authentification de l’utilisateur final](https://aka.ms/securityinfoguide)

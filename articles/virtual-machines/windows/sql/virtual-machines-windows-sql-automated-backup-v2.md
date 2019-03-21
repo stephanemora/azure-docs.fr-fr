@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: e20599833d3073e4819dbc974d4b2afe962ba18a
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 540acd1735eb539ecaac468e74511ba5f751278f
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984305"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57780012"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Sauvegarde automatisée version 2 pour les machines virtuelles Azure (Resource Manager)
 
@@ -32,7 +32,7 @@ La sauvegarde automatisée version 2 configure automatiquement une [sauvegarde m
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Pour utiliser la sauvegarde automatisée version 2, passez en revue les conditions préalables suivantes :
 
 **Système d’exploitation**:
@@ -52,7 +52,7 @@ Pour utiliser la sauvegarde automatisée version 2, passez en revue les conditio
 
 - Les bases de données cibles doivent utiliser le modèle de récupération complète. Pour plus d’informations sur l’impact du modèle de récupération complète sur les sauvegardes, consultez [Sauvegarde en mode de récupération complète](https://technet.microsoft.com/library/ms190217.aspx).
 - Les bases de données système n’ont pas besoin d’utiliser le modèle de récupération complète. Mais si vous avez besoin de sauvegardes de journaux pour un modèle ou MSDB, vous devez utiliser le modèle de récupération complète.
-- Les bases de données cible doivent se trouver sur l’instance SQL Server par défaut. L’extension IaaS SQL Server ne prend pas en charge les instances nommées.
+- Bases de données cible doivent se trouver sur le soit l’instance par défaut SQL Server, ou un [correctement installé](virtual-machines-windows-sql-server-iaas-faq.md#administration) instance nommée. 
 
 > [!NOTE]
 > La sauvegarde automatisée utilise l’**extension de l’agent IaaS de SQL Server**. Les images actuelles de la galerie de machines virtuelles SQL ajoutent cette extension par défaut. Pour plus d’informations, consultez [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md)(Extension de l’agent IaaS SQL Server).

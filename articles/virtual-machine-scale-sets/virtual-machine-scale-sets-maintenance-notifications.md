@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: shants
-ms.openlocfilehash: d82e0aa1f803001cf3bab5ec133a59f1fe19e4aa
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 31d4829c6adaf4bd5392ef393dcaefbeb7dc6255
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981415"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992417"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Notifications de maintenance planifiées pour les groupes de machines virtuelles identiques
 
@@ -88,7 +88,7 @@ La colonne **Maintenance en libre-service** s’affiche désormais dans la liste
 
 | Valeur | Description |
 |-------|-------------|
-| OUI | Au moins une machine virtuelle dans votre groupe de machines virtuelles identiques est dans une fenêtre de libre-service. Vous pouvez démarrer la maintenance à tout moment pendant cette fenêtre de libre-service. | 
+| Oui | Au moins une machine virtuelle dans votre groupe de machines virtuelles identiques est dans une fenêtre de libre-service. Vous pouvez démarrer la maintenance à tout moment pendant cette fenêtre de libre-service. | 
 | Non  | Il n’y a aucune machine virtuelle définie dans une fenêtre de libre-service dans le groupe de machines virtuelles identiques affecté. | 
 | - | Vos groupes de machines virtuelles identiques ne font pas partie d’un cycle de maintenance planifiée.| 
 
@@ -126,14 +126,10 @@ Get-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -In
 ```
 
 Les propriétés suivantes sont retournées sous **MaintenanceRedeployStatus** : 
-| Valeur | Description   |
-|-------|---------------|
-| IsCustomerInitiatedMaintenanceAllowed | Indique si vous pouvez démarrer la maintenance sur la machine virtuelle à l’instant T. ||
-| PreMaintenanceWindowStartTime         | Début de la fenêtre de maintenance en libre-service au cours de laquelle vous pouvez démarrer la maintenance sur votre machine virtuelle. ||
-| PreMaintenanceWindowEndTime           | Fin de la fenêtre de maintenance en libre-service au cours de laquelle vous pouvez démarrer la maintenance sur votre machine virtuelle. ||
-| MaintenanceWindowStartTime            | Début de la maintenance planifiée pendant laquelle Azure lance la maintenance sur votre machine virtuelle. ||
-| MaintenanceWindowEndTime              | Fin de la fenêtre de maintenance planifiée pendant laquelle Azure lance la maintenance sur votre machine virtuelle. ||
-| LastOperationResultCode               | Résultat de la dernière tentative de lancement de la maintenance sur la machine virtuelle. ||
+
+| Valeur | Description |
+
+|-------|---------------| | IsCustomerInitiatedMaintenanceAllowed | Indique si vous pouvez démarrer la maintenance sur la machine virtuelle pour l’instant. | | PreMaintenanceWindowStartTime | Le début de la fenêtre de maintenance libre-service lorsque vous pouvez lancer la maintenance sur votre machine virtuelle. | | PreMaintenanceWindowEndTime | La fin de la fenêtre de maintenance libre-service lorsque vous pouvez lancer la maintenance sur votre machine virtuelle. | | MaintenanceWindowStartTime | Début de la maintenance planifiée pendant laquelle Azure lance la maintenance sur votre machine virtuelle. | | MaintenanceWindowEndTime | La fin de la fenêtre de maintenance planifiée pendant laquelle Azure lance la maintenance sur votre machine virtuelle. | | LastOperationResultCode | Le résultat de la dernière tentative de lancer la maintenance sur la machine virtuelle. |
 
 
 
@@ -156,14 +152,10 @@ az vmss list-instances -g rgName -n vmssName --expand instanceView
 ```
 
 Les propriétés suivantes sont retournées sous **MaintenanceRedeployStatus** pour chaque instance de machine virtuelle : 
-| Valeur | Description   |
-|-------|---------------|
-| IsCustomerInitiatedMaintenanceAllowed | Indique si vous pouvez démarrer la maintenance sur la machine virtuelle à l’instant T. ||
-| PreMaintenanceWindowStartTime         | Début de la fenêtre de maintenance en libre-service au cours de laquelle vous pouvez démarrer la maintenance sur votre machine virtuelle. ||
-| PreMaintenanceWindowEndTime           | Fin de la fenêtre de maintenance en libre-service au cours de laquelle vous pouvez démarrer la maintenance sur votre machine virtuelle. ||
-| MaintenanceWindowStartTime            | Début de la maintenance planifiée pendant laquelle Azure lance la maintenance sur votre machine virtuelle. ||
-| MaintenanceWindowEndTime              | Fin de la fenêtre de maintenance planifiée pendant laquelle Azure lance la maintenance sur votre machine virtuelle. ||
-| LastOperationResultCode               | Résultat de la dernière tentative de lancement de la maintenance sur la machine virtuelle. ||
+
+| Valeur | Description |
+
+|-------|---------------| | IsCustomerInitiatedMaintenanceAllowed | Indique si vous pouvez démarrer la maintenance sur la machine virtuelle pour l’instant. | | PreMaintenanceWindowStartTime | Le début de la fenêtre de maintenance libre-service lorsque vous pouvez lancer la maintenance sur votre machine virtuelle. | | PreMaintenanceWindowEndTime | La fin de la fenêtre de maintenance libre-service lorsque vous pouvez lancer la maintenance sur votre machine virtuelle. | | MaintenanceWindowStartTime | Début de la maintenance planifiée pendant laquelle Azure lance la maintenance sur votre machine virtuelle. | | MaintenanceWindowEndTime | La fin de la fenêtre de maintenance planifiée pendant laquelle Azure lance la maintenance sur votre machine virtuelle. | | LastOperationResultCode | Le résultat de la dernière tentative de lancer la maintenance sur la machine virtuelle. |
 
 
 ### <a name="start-maintenance-on-your-vm-instance-by-using-the-cli"></a>Démarrer la maintenance sur votre instance de machine virtuelle à l’aide de l’interface de ligne de commande

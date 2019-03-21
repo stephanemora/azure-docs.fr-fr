@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/03/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 66119ffab8c6117e223468834b59e6d6b19409a0
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: f9cbf5033d0ffb84959de94db052626dd1d131c8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54445060"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997954"
 ---
 # <a name="dynamics-365-for-customer-engagement-storefront-details-tab"></a>Onglet Détails de la vitrine Dynamics 365 for Customer Engagement
 
@@ -56,7 +56,7 @@ Le tableau suivant décrit les champs de cet onglet :
 |  Type d’application             | Sélectionnez le type d’essai activé pour l’application sur AppSource. **Gratuit** indique que votre application peut être utilisée sans frais, **Essai** indique que les clients peuvent essayer votre application pendant une courte période sans frais, et **Me contacter** indique que les clients peuvent demander un essai de l’application sur AppSource.  |
 | Lien d’aide pour votre application | URL de la documentation en ligne ou d’autres ressources d’aide pour l’application.  |
 | Pays/régions pris en charge | Une boîte de dialogue contextuelle permet de sélectionner les régions géographiques où l’application est disponible.  La distribution dans le monde entier est la valeur par défaut. |
-| Langues prises en charge   | Sélectionnez les langues prises en charge par votre application. Actuellement, seules quelques options de langue sont prises en charge.  (Si votre application prend en charge d’autres langues qui ne figurent pas dans cette liste, poursuivez la publication de votre offre et envoyez ces informations par e-mail à appsource@microsoft.com.)  |
+| Langues prises en charge   | Sélectionnez les langues prises en charge par votre application. Actuellement, seules quelques options de langue sont prises en charge.  (Si votre application prend en charge des langues supplémentaires qui ne sont pas dans cette liste, continuer à publier votre offre et envoyer par courrier électronique à ces informations pour : appsource\@microsoft.com.)  |
 | Version de l’application           | Numéro de version de l’application    |
 | Date de publication de l’application      | Date de publication de l’application |
 | Produits utilisés par votre application | Produits ou services avec lesquels votre application interagit. Vous pouvez indiquer au maximum trois produits. Pour lister un produit, cliquez sur **+ Nouveau** et entrez le nom d’un produit dans la zone de texte affichée.  |
@@ -77,7 +77,7 @@ Le tableau suivant décrit les champs de cet onglet :
 |  ---------------      |  ---------------               |
 | Logo de l’offre (format png, 48 x 48) | Chargez une image qui sera affichée dans la page de recherche de votre application. Elle doit être au format PNG et avoir une taille de 48 x 48 pixels. |
 | Logo de l’offre (format png, 216 x 216) | Chargez une image qui sera affichée dans la page de détails de votre application. Elle doit être au format PNG et avoir une taille de 216 x 216 pixels. |
-| vidéos                | Chargez des vidéos promotionnelles ou d’instructions pour l’application (maximum quatre).  Pour chaque vidéo, renseignez le nom de la vidéo, l’URL (YouTube ou Vimeo uniquement) et une miniature associée au format PNG et de dimension 1 280 x 720 pixels.  | 
+| Videos                | Chargez des vidéos promotionnelles ou d’instructions pour l’application (maximum quatre).  Pour chaque vidéo, renseignez le nom de la vidéo, l’URL (YouTube ou Vimeo uniquement) et une miniature associée au format PNG et de dimension 1 280 x 720 pixels.  | 
 | Documents             | Chargez des documents promotionnels ou d’instructions de produit au format PDF (maximum trois).  Spécifiez un nom pour chaque document.  |
 | Captures d’écran.           | Chargez un maximum de cinq images d’interface utilisateur de l’application au format PNG et de dimension 1 280 x 720 pixels.  Ces captures d’écran apparaîtront dans la page détaillée AppSource de votre application. |
 |  |  |

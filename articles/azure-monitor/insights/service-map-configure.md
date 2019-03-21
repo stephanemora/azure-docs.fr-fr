@@ -1,24 +1,24 @@
 ---
 title: Configurer Service Map dans Azure | Microsoft Docs
 description: Service Map est une solution comprise dans Azure qui détecte automatiquement les composants d’application sur les systèmes Windows et Linux et mappe la communication entre les services. Cet article fournit des informations sur le déploiement de Service Map dans votre environnement et son utilisation dans divers scénarios.
-services: monitoring
+services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
 ms.assetid: d3d66b45-9874-4aad-9c00-124734944b2e
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/01/2019
-ms.author: bwren
-ms.openlocfilehash: 60c43475fc044b0847e5d9bd495c0d53b562114e
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.date: 03/11/2019
+ms.author: magoedte
+ms.openlocfilehash: 26da504188a9060dbbb35330dbd8604bf5fe5e1b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822700"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995140"
 ---
 # <a name="configure-service-map-in-azure"></a>Configurer Service Map dans Azure
 La solution Service Map détecte automatiquement les composants d’application sur les systèmes Windows et Linux, et mappe la communication entre les services. Cette solution permet d’afficher les serveurs comme on se les représente, c’est-à-dire comme des systèmes interconnectés qui fournissent des services critiques. Service Map affiche les connexions entre les serveurs, les processus et les ports sur n’importe quelle architecture connectée par TCP, sans configuration requise autre que l’installation d’un agent.
@@ -28,8 +28,10 @@ Cet article décrit en détail la configuration de Carte de service et de l’in
 ## <a name="supported-azure-regions"></a>Régions Azure prises en charge
 Service Map est actuellement disponible dans les régions Azure suivantes :
 - USA Est
-- Europe Ouest
 - USA Centre-Ouest
+- Centre du Canada
+- Sud du Royaume-Uni
+- Europe Ouest
 - Asie Sud-Est
 
 ## <a name="supported-windows-operating-systems"></a>Systèmes d’exploitation Windows pris en charge
@@ -40,6 +42,7 @@ La section suivante répertorie les systèmes d’exploitation pris en charge pa
 >
 
 ### <a name="windows-server"></a>Windows Server
+- Windows Server 2019
 - Windows Server 2016 1803
 - Windows Server 2016
 - Windows Server 2012 R2
@@ -59,17 +62,13 @@ La section suivante répertorie les systèmes d’exploitation pris en charge po
 - Seules les versions du noyau SMP Linux et par défaut sont prises en charge.
 - Les versions non standard du noyau, par exemple PAE et Xen, ne sont prises en charge par aucune distribution Linux. Par exemple, un système avec la chaîne de version « 2.6.16.21-0.8-xen » n’est pas pris en charge.
 - Les noyaux personnalisés, y compris les recompilations de noyaux standard, ne sont pas pris en charge.
-- Le noyau CentOSPlus n’est pas pris en charge.
+- Le noyau CentOSPlus est pris en charge.
 - Oracle Unbreakable Enterprise Kernel (UEK) est traité dans une autre section, plus loin dans cet article.
 
 ### <a name="red-hat-linux-7"></a>Red Hat Linux 7
 
 | Version du SE | Version du noyau |
 |:--|:--|
-| 7.0 | 3.10.0-123 |
-| 7.1 | 3.10.0-229 |
-| 7,2 | 3.10.0-327 |
-| 7.3 | 3.10.0-514 |
 | 7.4 | 3.10.0-693 |
 | 7.5 | 3.10.0-862 |
 | 7.6 | 3.10.0-957 |
@@ -78,55 +77,42 @@ La section suivante répertorie les systèmes d’exploitation pris en charge po
 
 | Version du SE | Version du noyau |
 |:--|:--|
-| 6.0 | 2.6.32-71 |
-| 6.1 | 2.6.32-131 |
-| 6.2 | 2.6.32-220 |
-| 6.3 | 2.6.32-279 |
-| 6.4. | 2.6.32-358 |
-| 6.5 | 2.6.32-431 |
-| 6.6 | 2.6.32-504 |
-| 6.7 | 2.6.32-573 |
-| 6,8 | 2.6.32-642 |
 | 6.9 | 2.6.32-696 |
 | 6.10 | 2.6.32-754 |
+
+### <a name="centosplus"></a>CentOSPlus
+| Version du SE | Version du noyau |
+|:--|:--|
+| 6.9 | 2.6.32-696.18.7<br>2.6.32-696.30.1 |
+| 6.10 | 2.6.32-696.30.1<br>2.6.32-754.3.5 |
 
 ### <a name="ubuntu-server"></a>Serveur Ubuntu
 
 | Version du SE | Version du noyau |
 |:--|:--|
-| Ubuntu 18.04 | noyau 4.15.* |
+| Ubuntu 18.04 | noyau 4.15.\*<br>4.18* |
 | Ubuntu 16.04.3 | noyau 4.15.* |
 | 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
 | 14.04 | 3.13.\*<br>4.4.\* |
 
-### <a name="oracle-enterprise-linux-6-with-unbreakable-enterprise-kernel"></a>Oracle Enterprise Linux 6 avec noyau Unbreakable Enterprise
-| Version du SE | Version du noyau
-|:--|:--|
-| 6.2 | Oracle 2.6.32-300 (UEK R1) |
-| 6.3 | Oracle 2.6.39-200 (UEK R2) |
-| 6.4. | Oracle 2.6.39-400 (UEK R2) |
-| 6.5 | Oracle 2.6.39-400 (UEK R2 i386) |
-| 6.6 | Oracle 2.6.39-400 (UEK R2 i386) |
-
-### <a name="oracle-enterprise-linux-5-with-unbreakable-enterprise-kernel"></a>Oracle Enterprise Linux 5 avec noyau Unbreakable Enterprise
+### <a name="suse-linux-11-enterprise-server"></a>SUSE Linux 11 Enterprise Server
 
 | Version du SE | Version du noyau
 |:--|:--|
-| 5.10 | Oracle 2.6.39-400 (UEK R2) |
-| 5.11 | Oracle 2.6.39-400 (UEK R2) |
+| 11 SP4 | 3.0.* |
 
-## <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 Enterprise Server
+### <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 Enterprise Server
 
 | Version du SE | Version du noyau
 |:--|:--|
-|12 SP2 | 4.4.* |
-|12 SP3 | 4.4.* |
+| 12 SP2 | 4.4.* |
+| 12 SP3 | 4.4.* |
 
 ## <a name="dependency-agent-downloads"></a>Téléchargements de l’agent de dépendances
 
 | Fichier | SE | Version | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) |  Windows | 9.7.4 | A111B92AB6CF28EB68B696C60FE51F980BFDFF78C36A900575E17083972989E0 |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.7.4 | A111B92AB6CF28EB68B696C60FE51F980BFDFF78C36A900575E17083972989E0 |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.4 | AB58F3DB8B1C3DEE7512690E5A65F1DFC41B43831543B5C040FCCE8390F2282C |
 
 ## <a name="connected-sources"></a>Sources connectées
@@ -173,6 +159,8 @@ Pour plus d’informations sur la collecte et l’utilisation des données, cons
 
 ## <a name="installation"></a>Installation
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ### <a name="azure-vm-extension"></a>Extension de machine virtuelle Azure
 Une extension est disponible pour Windows (DependencyAgentWindows) et Linux (DependencyAgentLinux), et vous pouvez facilement déployer l’agent de dépendances sur vos machines virtuelles Azure à l’aide d’une [extension de machine virtuelle Azure](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-features).  Avec l’extension de machine virtuelle Azure, vous pouvez déployer l’agent de dépendances sur vos machines virtuelles Windows et Linux à l’aide d’un script PowerShell ou directement dans la machine virtuelle avec un modèle Azure Resource Manager.  Si vous déployez l’agent à l’aide de l’extension de machine virtuelle Azure, vos agents sont mis à jour automatiquement avec la dernière version.
 
@@ -188,7 +176,7 @@ $ExtPublisher = "Microsoft.Azure.Monitoring.DependencyAgent"
 $OsExtensionMap = @{ "Windows" = "DependencyAgentWindows"; "Linux" = "DependencyAgentLinux" }
 $rmgroup = "<Your Resource Group Here>"
 
-Get-AzureRmVM -ResourceGroupName $rmgroup |
+Get-AzVM -ResourceGroupName $rmgroup |
 ForEach-Object {
     ""
     $name = $_.Name
@@ -198,7 +186,7 @@ ForEach-Object {
     "${name}: ${os} (${location})"
     Date -Format o
     $ext = $OsExtensionMap.($os.ToString())
-    $result = Set-AzureRmVMExtension -ResourceGroupName $vmRmGroup -VMName $name -Location $location `
+    $result = Set-AzVMExtension -ResourceGroupName $vmRmGroup -VMName $name -Location $location `
     -Publisher $ExtPublisher -ExtensionType $ext -Name "DependencyAgent" -TypeHandlerVersion $version
     $result.IsSuccessStatusCode
 }

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: jdial
-ms.openlocfilehash: 360c0d9a96b8dac2f08b89caa8c1fd36e8a54b3f
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 32c4516c7dc68b04826b362d34841160936d682d
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020419"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244517"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Gérer le service Protection DDos Standard Azure à l’aide du portail Azure
 
@@ -44,7 +44,7 @@ La création de plusieurs plans n’est pas requise pour la plupart des organisa
 
     |Paramètre        |Valeur                                              |
     |---------      |---------                                          |
-    |NOM           | myDdosProtectionPlan                              |
+    |Nom           | myDdosProtectionPlan                              |
     |Abonnement   | Sélectionnez votre abonnement.                         |
     |Groupe de ressources | Sélectionnez **Créer** et entrez *myResourceGroup*. |
     |Lieu       | USA Est                                           |
@@ -98,7 +98,7 @@ Vous ne pouvez pas déplacer un réseau virtuel vers un autre groupe de ressourc
 
     |Paramètre                  |Valeur                                                                                               |
     |---------                |---------                                                                                           |
-    |NOM                     | myDdosAlert                                                                                        |
+    |Nom                     | myDdosAlert                                                                                        |
     |Abonnement             | Sélectionnez l’abonnement qui contient l’adresse IP publique pour laquelle vous souhaitez recevoir des alertes.        |
     |Groupe de ressources           | Sélectionnez le groupe de ressources qui contient l’adresse IP publique pour laquelle vous souhaitez recevoir des alertes.      |
     |Ressource                 | Sélectionnez la ressource qui contient l’adresse IP publique pour laquelle vous souhaitez recevoir des alertes. Le service DDoS surveille les adresses IP publiques affectées aux ressources dans un réseau virtuel. Si aucune ressource dans le réseau virtuel ne possède une adresse IP publique, vous devez d’abord créer une ressource dotée d’une adresse IP publique. Vous pouvez surveiller l’adresse IP publique de toutes les ressources déployées par le biais de Resource Manager (non classique) qui sont répertoriées dans [Réseau virtuel pour services Azure](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network), à l’exception des environnements Azure App Service et de la passerelle VPN Azure. Pour poursuivre ce tutoriel, vous pouvez créer rapidement une machine virtuelle [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).                   |
@@ -159,7 +159,7 @@ La fonctionnalité Rapports de prévention des attaques utilise les données de 
 
     - **Archivage dans un compte de stockage** : les données sont écrites dans un compte Stockage Azure. Pour en savoir plus sur cette option, consultez [Archiver les journaux de diagnostic](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - **Diffuser sur un hub d’événements** : permet à un récepteur de journal de sélectionner les journaux à l’aide d’un hub d’événements Azure. Les hubs d’événements permettent l’intégration à Splunk ou à d’autres systèmes SIEM. Pour en savoir plus sur cette option, consultez [Diffuser les journaux de diagnostic sur un hub d’événements](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Envoyer à Log Analytics** : écrit les journaux dans le service Azure Log Analytics. Pour en savoir plus sur cette option, consultez [Collecte des journaux à utiliser dans Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Envoyer à Log Analytics** : Écrit les journaux dans le service Azure Monitor. Pour en savoir plus sur cette option, consultez [collecter les journaux pour une utilisation dans les journaux Azure Monitor](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Le rapport incrémentiel et le rapport de prévention incluent tous les deux les champs suivants :
 - Vecteurs d’attaque
@@ -181,7 +181,7 @@ Les journaux de flux de prévention des attaques vous permettent de passer en re
 
     - **Archivage dans un compte de stockage** : les données sont écrites dans un compte Stockage Azure. Pour en savoir plus sur cette option, consultez [Archiver les journaux de diagnostic](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - **Diffuser sur un hub d’événements** : permet à un récepteur de journal de sélectionner les journaux à l’aide d’un hub d’événements Azure. Les hubs d’événements permettent l’intégration à Splunk ou à d’autres systèmes SIEM. Pour en savoir plus sur cette option, consultez [Diffuser les journaux de diagnostic sur un hub d’événements](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Envoyer à Log Analytics** : écrit les journaux dans le service Azure Log Analytics. Pour en savoir plus sur cette option, consultez [Collecte des journaux à utiliser dans Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Envoyer à Log Analytics** : Écrit les journaux dans le service Azure Monitor. Pour en savoir plus sur cette option, consultez [collecter les journaux pour une utilisation dans les journaux Azure Monitor](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 1. Pour afficher les données des journaux de flux dans le tableau de bord d’analyse Azure, vous pouvez importer l’exemple de tableau de bord à partir de https://github.com/Anupamvi/Azure-DDoS-Protection/raw/master/flowlogsbyip.zip
 
 Les journaux de flux comportent les champs suivants : 
@@ -207,7 +207,7 @@ Microsoft travaille en collaboration avec [BreakingPoint Cloud](https://www.ixia
 
 Pour que vous puissiez travailler avec des plans de protection DDoS, il est nécessaire que votre compte ait le rôle [contributeur réseau](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou un rôle [personnalisé](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) disposant des autorisations appropriées, listées dans le tableau suivant :
 
-| Action                                            | NOM                                     |
+| Action                                            | Nom                                     |
 | ---------                                         | -------------                            |
 | Microsoft.Network/ddosProtectionPlans/read        | Lire un plan de protection DDoS              |
 | Microsoft.Network/ddosProtectionPlans/write       | Créer ou mettre à jour un plan de protection DDoS  |

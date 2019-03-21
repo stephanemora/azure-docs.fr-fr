@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 0ca82da43ea53aed3fbcf858b34a3ad94d712661
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: d5d3d7031f9795db0ae04bc707bd9e7707137210
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864942"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530737"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Enregistrer des échantillons vocaux pour créer une voix personnalisée
 
@@ -150,7 +150,7 @@ Réglez les niveaux afin d’utiliser au maximum la plage dynamique disponible d
 
 Ici, la majeure partie de la plage (hauteur) est utilisée, mais les pics les plus élevés du signal n’atteignent pas le haut ou le bas de la fenêtre. Vous pouvez également constater que la latence dans l’enregistrement ressemble à une fine ligne horizontale, indiquant un faible niveau de bruit. Cet enregistrement comporte une plage dynamique et un rapport signal/bruit acceptables.
 
-Enregistrez directement sur l’ordinateur par le biais d’une interface audio de haute qualité ou d’un port USB, en fonction du micro que vous utilisez. Pour un système analogique, gardez une chaîne audio simple : micro, préampli, interface audio, ordinateur. Vous pouvez acheter à un prix raisonnable une licence des logiciels [Avid Pro Tools](http://www.avid.com/en/pro-tools) et [Adobe Audition](https://www.adobe.com/products/audition.html). Si votre budget est extrêmement serré, essayez la version gratuite d’[Audacity](https://www.audacityteam.org/).
+Enregistrez directement sur l’ordinateur par le biais d’une interface audio de haute qualité ou d’un port USB, en fonction du micro que vous utilisez. Pour un système analogique, gardez une chaîne audio simple : micro, préampli, interface audio, ordinateur. Vous pouvez acheter à un prix raisonnable une licence des logiciels [Avid Pro Tools](https://www.avid.com/en/pro-tools) et [Adobe Audition](https://www.adobe.com/products/audition.html). Si votre budget est extrêmement serré, essayez la version gratuite d’[Audacity](https://www.audacityteam.org/).
 
 Effectuez un enregistrement de type 44,1 kHz 16 bits monophonique (qualité CD) ou plus. Si votre équipement le permet, utilisez un échantillonnage 48 kHz 24 bits pour obtenir un son exceptionnel. Vous réduirez l’échantillonnage à 16 kHz 16 bits avant de l’envoyer au portail Custom Voice. Mais il est préférable de disposer d’un enregistrement original de haute qualité, si des modifications s’avèrent nécessaires.
 
@@ -204,7 +204,7 @@ Les studios d’enregistrement modernes travaillent sur ordinateur. À la fin de
 
 Le portail Custom Voice nécessite la création d’un fichier spécifique pour chaque énoncé. Chaque fichier audio fourni par le studio contient plusieurs énoncés. Par conséquent, la principale tâche de post-production consiste à diviser les enregistrements et à les préparer pour l’envoi. L’ingénieur du son de l’enregistrement peut avoir placé des marqueurs dans le fichier (ou créé un « cue sheet » distinct) pour indiquer où chaque énoncé commence.
 
-Utilisez vos notes pour identifier exactement vos prises, puis un utilitaire de montage comme [Avid Pro Tools](http://www.avid.com/en/pro-tools), [Adobe Audition](https://www.adobe.com/products/audition.html) ou la version gratuite d’[Audacity](https://www.audacityteam.org/) pour copier chaque énoncé dans un nouveau fichier.
+Utilisez vos notes pour identifier exactement vos prises, puis un utilitaire de montage comme [Avid Pro Tools](https://www.avid.com/en/pro-tools), [Adobe Audition](https://www.adobe.com/products/audition.html) ou la version gratuite d’[Audacity](https://www.audacityteam.org/) pour copier chaque énoncé dans un nouveau fichier.
 
 Laissez seulement environ 0,2 seconde de silence au début et à la fin de chaque clip, à l’exception du premier. Ce fichier doit commencer par cinq secondes de silence. N’utilisez pas d’éditeur audio pour supprimer les blancs du fichier. Ajoutez la « tonalité de la pièce » pour aider les algorithmes Custom Voice à atténuer les bruits de fond résiduels.
 

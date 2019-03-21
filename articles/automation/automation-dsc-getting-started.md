@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 19e1721a638dfc750938e09e1626c4e291367723
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 234d59f9d625af6d0309b2995cc734fad6028b1e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432443"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767037"
 ---
 # <a name="getting-started-with-azure-automation-state-configuration"></a>Prise en main d’Azure Automation State Configuration
 
@@ -22,7 +22,7 @@ Cette rubrique explique comment effectuer les tâches les plus courantes avec Az
 
 Cet article fournit des instructions détaillées sur l’utilisation d’Azure Automation State Configuration. Si vous souhaitez obtenir un exemple d’environnement préconfiguré sans suivre les étapes décrites dans cet article, vous pouvez utiliser le modèle Resource Manager suivant : [Azure Automation Managed Node](https://github.com/Azure/azure-quickstart-templates/tree/master/101-automation-configuration). Ce modèle configure un environnement Azure Automation State Configuration complet, comprenant une machine virtuelle Azure gérée par Azure Automation State Configuration.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour exécuter les exemples de cet article, vous devez disposer des éléments suivants :
 
@@ -157,7 +157,6 @@ Azure Automation State Configuration vous permet de gérer vos machines virtuell
    ![Capture d’écran du panneau Inscription](./media/automation-dsc-getting-started/RegisterVM.png)
 
    La configuration de nœud spécifiée s’applique à la machine virtuelle selon les intervalles spécifiés par la **Fréquence du mode de configuration**. La machine virtuelle recherche les mises à jour de la configuration du nœud selon les intervalles spécifiés par la **Fréquence d’actualisation**. Pour plus d’informations sur la façon dont ces valeurs sont utilisées, consultez [Configuration du Gestionnaire de configuration local](https://msdn.microsoft.com/PowerShell/DSC/metaConfig).
-1. Dans le panneau **Ajouter des machines virtuelles Azure**, cliquez sur **Créer**.
 
 Azure lance le processus d’intégration de la machine virtuelle. Une fois ce processus terminé, la machine virtuelle s’affiche sous l’onglet **Nœuds** de la page **Configuration d’état (DSC)** dans le compte Automation.
 

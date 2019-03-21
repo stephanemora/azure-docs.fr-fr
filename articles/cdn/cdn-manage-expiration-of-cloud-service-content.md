@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: magattus
-ms.openlocfilehash: 19f928d854618a5e29841dc45d7846faf7fb83b4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: b070b302917d69e0145c1a10c90685b55aa4dcc2
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253123"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540224"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Gérer l’expiration du contenu web dans Azure CDN
 > [!div class="op_single_selector"]
@@ -106,7 +106,7 @@ L’exemple de fichier de configuration XML suivant montre comment configurer l�
 </configuration>
 ```
 
-Pour utiliser l’attribut **cacheControlMaxAge**, vous devez définir la valeur de l’attribut **cacheControlMode** sur `UseMaxAge`. Ce paramètre a provoqué l’ajout de l’en-tête HTTP et de la directive `Cache-Control: max-age=<nnn>` à la réponse. Le format de la valeur de période pour l’attribut **cacheControlMaxAge** est `<days>.<hours>:<min>:<sec>`. Sa valeur est convertie en secondes et est utilisée comme valeur de la directive `Cache-Control` `max-age`. Pour plus d’informations sur l’élément `<clientCache>`, consultez [Cache client <clientCache>](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
+Pour utiliser l’attribut **cacheControlMaxAge**, vous devez définir la valeur de l’attribut **cacheControlMode** sur `UseMaxAge`. Ce paramètre a provoqué l’ajout de l’en-tête HTTP et de la directive `Cache-Control: max-age=<nnn>` à la réponse. Le format de la valeur de période pour l’attribut **cacheControlMaxAge** est `<days>.<hours>:<min>:<sec>`. Sa valeur est convertie en secondes et est utilisée comme valeur de la directive `Cache-Control` `max-age`. Pour plus d’informations sur l’élément `<clientCache>`, consultez [Cache client <clientCache>](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
 
 ## <a name="setting-cache-control-headers-programmatically"></a>Définition d’en-têtes Cache-Control par programme
 Pour les applications ASP.NET, contrôlez par programme le comportement de mise en cache dans CDN en définissant la propriété **HttpResponse.Cache** de l’API .NET. Pour plus d’informations sur la propriété **HttpResponse.Cache**, consultez les pages [HttpResponse.Cache, propriété](https://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) et [HttpCachePolicy, classe](https://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx).  
@@ -128,10 +128,10 @@ Response.Cache.SetLastModified(DateTime.Now);
 ```
 
 ## <a name="testing-the-cache-control-header"></a>Test de l’en-tête Cache-Control
-Vous pouvez facilement vérifier les paramètres de durée de vie de votre contenu web. Avec les [outils de développement](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) de votre navigateur, vérifiez que votre contenu web comprend l’en-tête de réponse `Cache-Control`. Vous pouvez également utiliser un outil tel que **wget**, [Postman](https://www.getpostman.com/) ou [Fiddler](http://www.telerik.com/fiddler) pour examiner les en-têtes de réponse.
+Vous pouvez facilement vérifier les paramètres de durée de vie de votre contenu web. Avec les [outils de développement](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) de votre navigateur, vérifiez que votre contenu web comprend l’en-tête de réponse `Cache-Control`. Vous pouvez également utiliser un outil tel que **wget**, [Postman](https://www.getpostman.com/) ou [Fiddler](https://www.telerik.com/fiddler) pour examiner les en-têtes de réponse.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Découvrir les détails de l’élément **clientCache**](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
+* [Découvrir les détails de l’élément **clientCache**](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
 * [Consulter la documentation de la propriété **HttpResponse.Cache**](https://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) 
 * [Lire la documentation concernant la **classe HttpCachePolicy**](https://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx)  
 * [En savoir plus sur les concepts de mise en cache](cdn-how-caching-works.md)

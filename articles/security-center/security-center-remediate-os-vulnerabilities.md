@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: a951e60b417167f2e1566efb689ea0f2d4e65374
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: f4558c6fdb1e5e4f0ffb7a4b4fdb1ab62eb4cfa9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111422"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121279"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Corriger les configurations de sécurité dans Azure Security Center
 Azure Security Center analyse quotidiennement le système d’exploitation de vos machines virtuelles et ordinateurs et recherche les configurations qui pourraient les rendre plus vulnérables aux attaques. Security Center vous recommande de résoudre les vulnérabilités lorsque la configuration du système d’exploitation ne correspond pas aux règles de configuration de sécurité recommandées et d’apporter des modifications à la configuration pour supprimer ces vulnérabilités.
@@ -31,34 +31,34 @@ La correction de l’incohérence des configurations de sécurité est présent�
 
 Dans cet exemple, nous allons examiner la recommandation de correction de l’incohérence des configurations de sécurité dans **Compute et applications**.
 1. Dans Security Center, dans le panneau de gauche, sélectionnez **Compute et applications**.  
-  La fenêtre **Compute et applications** s’ouvre.
+   La fenêtre **Compute et applications** s’ouvre.
 
    ![Corriger les configurations de sécurité][1]
 
 2. Sélectionnez **Corriger les configurations de sécurité**.  
-  La fenêtre **Configurations de la sécurité** s’ouvre.
+   La fenêtre **Configurations de la sécurité** s’ouvre.
 
    ![La fenêtre Configurations de la sécurité][2]
 
-  La section supérieure du tableau de bord affiche les éléments suivants :
+   La section supérieure du tableau de bord affiche les éléments suivants :
 
-  - **Règles ayant échoué par gravité** : nombre total de règles par niveau de gravité que la configuration du système d’exploitation de vos machines virtuelles et ordinateurs ne respecte pas.
-  - **Règles ayant échoué par type** : nombre total de règles par type que la configuration du système d’exploitation de vos machines virtuelles et ordinateurs ne respecte pas.
-  - **Règles Windows ayant échoué** : nombre total de règles que vos configurations de système d’exploitation Windows ne respectent pas.
-  - **Règles Linux ayant échoué** : nombre total de règles que vos configurations de système d’exploitation Linux ne respectent pas.
+   - **Règles ayant échoué par gravité** : nombre total de règles par niveau de gravité que la configuration du système d’exploitation de vos machines virtuelles et ordinateurs ne respecte pas.
+   - **Règles ayant échoué par type** : nombre total de règles par type que la configuration du système d’exploitation de vos machines virtuelles et ordinateurs ne respecte pas.
+   - **Règles Windows ayant échoué** : nombre total de règles que vos configurations de système d’exploitation Windows ne respectent pas.
+   - **Règles Linux ayant échoué** : nombre total de règles que vos configurations de système d’exploitation Linux ne respectent pas.
 
-  La partie inférieure du tableau de bord répertorie toutes les règles non respectées par vos ordinateurs et machines virtuelles, ainsi que le niveau de gravité de la mise à jour manquante. La liste comporte les éléments suivants :
+   La partie inférieure du tableau de bord répertorie toutes les règles non respectées par vos ordinateurs et machines virtuelles, ainsi que le niveau de gravité de la mise à jour manquante. La liste comporte les éléments suivants :
 
-  - **CCEID** : identificateur unique CCE pour la règle. Security Center utilise CCE (Common Configuration Enumeration) pour affecter des identificateurs uniques aux règles de configuration.
-  - **Nom** : nom de la règle non respectée.
-  - **Type de règle** : *Clé de Registre*, *Stratégie de sécurité*, *Stratégie d’audit* ou *IIS*.
-  - **Nombre de machines virtuelles et d’ordinateurs** : nombre total de machines virtuelles et d’ordinateurs ne respectant pas cette règle.
-  - **Gravité de la règle** : Valeur de gravité CCE *Critique*, *Important* ou *Avertissement*.
-  - **État** : état actuel de la recommandation :
+   - **CCEID** : identificateur unique CCE pour la règle. Security Center utilise CCE (Common Configuration Enumeration) pour affecter des identificateurs uniques aux règles de configuration.
+   - **Nom** : nom de la règle non respectée.
+   - **Type de règle** : *Clé de Registre*, *Stratégie de sécurité*, *Stratégie d’audit* ou *IIS*.
+   - **Nombre de machines virtuelles et d’ordinateurs** : nombre total de machines virtuelles et d’ordinateurs ne respectant pas cette règle.
+   - **Gravité de la règle** : Valeur de gravité CCE *Critique*, *Important* ou *Avertissement*.
+   - **État** : état actuel de la recommandation :
 
-    - **Ouverte** : la suggestion n’a pas encore été prise en compte.
-    - **En cours** : la suggestion est actuellement appliquée aux ressources ; aucune action de votre part n’est nécessaire.
-    - **Résolue** : la suggestion a été appliquée. Une fois problème résolu, l’entrée est grisée.
+     - **Ouverte** : la suggestion n’a pas encore été prise en compte.
+     - **En cours** : la suggestion est actuellement appliquée aux ressources ; aucune action de votre part n’est nécessaire.
+     - **Résolue** : la suggestion a été appliquée. Une fois problème résolu, l’entrée est grisée.
 
 3. Pour afficher les détails d’une règle non respectée, sélectionnez-la dans la liste.
 
@@ -79,17 +79,17 @@ Dans cet exemple, nous allons examiner la recommandation de correction de l’in
    - **Opération de la règle** : opération de règle utilisée par Security Center durant l’analyse de la configuration du système d’exploitation de votre machine virtuelle par rapport à la règle.
 
 4. Sur la partie supérieure de la fenêtre de vue détaillée, sélectionnez **Recherche**.  
-  Recherche ouvre la liste des espaces de travail ayant des machines virtuelles et des ordinateurs avec l’incohérence des configurations de sécurité sélectionnée. Ce panneau de sélection d’espaces de travail s’affiche uniquement si la règle sélectionnée s’applique à plusieurs machines virtuelles connectées à différents espaces de travail.
+   Recherche ouvre la liste des espaces de travail ayant des machines virtuelles et des ordinateurs avec l’incohérence des configurations de sécurité sélectionnée. Ce panneau de sélection d’espaces de travail s’affiche uniquement si la règle sélectionnée s’applique à plusieurs machines virtuelles connectées à différents espaces de travail.
 
    ![Espaces de travail répertoriés][4]
 
 5. Sélectionnez un espace de travail.  
-  Une requête de recherche Log Analytics filtrée sur l’espace de travail avec l’incohérence des configurations de sécurité s’ouvre.
+   Une requête de recherche de journaux Azure Monitor filtrée sur l’espace de travail avec l’incohérence des configurations de sécurité s’ouvre.
 
    ![Espace de travail avec vulnérabilité de système d’exploitation][5]
 
 6. Sélectionnez un ordinateur dans la liste.  
-  Un autre résultat de recherche s’ouvre avec les informations filtrées uniquement pour cet ordinateur.
+   Un autre résultat de recherche s’ouvre avec les informations filtrées uniquement pour cet ordinateur.
 
    ![Informations détaillées sur l’ordinateur sélectionné][6]
 

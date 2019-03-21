@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 564a0948d09e4726800d19858b4c23924fc56973
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 10a4078f49abbdf431f42c6cde7cf882112e5848
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187336"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839166"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Attributs de clichés instantanés du service de synchronisation Azure AD Connect
 La plupart des attributs sont représentés de la même façon dans Azure AD qu’ils le sont dans votre Active Directory local. Toutefois, certains attributs ont une gestion spéciale, et la valeur d’attribut dans Azure AD peut être différente de ce qu’Azure AD Connect synchronise.
@@ -58,7 +58,7 @@ Pour un utilisateur de boîte aux lettres, en local ou dans Exchange Online, seu
 | proxyAddresses local | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie.spencer@fabrikam.com</br>smtp:abbie@fabrikamonline.com |
 | proxyAddresses dans Exchange Online | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie@fabrikamonline.com</br>SIP:abbie.spencer@fabrikamonline.com |
 
-Dans ce cas **smtp:abbie.spencer@fabrikam.com** a été supprimée, car ce domaine n’a pas été vérifié. Mais Exchange a également ajouté **SIP:abbie.spencer@fabrikamonline.com**. Fabrikam n’a pas utilisé Lync/Skype en local, mais Azure AD et Exchange Online s’y préparent.
+Dans ce cas **smtp:abbie.spencer\@fabrikam.com** a été supprimée, car ce domaine n’a pas été vérifié. Mais Exchange a également ajouté **SIP:abbie.spencer\@fabrikamonline.com**. Fabrikam n’a pas utilisé Lync/Skype en local, mais Azure AD et Exchange Online s’y préparent.
 
 Cette logique pour proxyAddresses est appelée **ProxyCalc**. ProxyCalc est appelé à chaque modification d’un utilisateur lorsque :
 

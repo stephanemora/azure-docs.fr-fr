@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: jingwang
-ms.openlocfilehash: 82885c00557c85fefcf221789263632e21bd77da
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: ab6da597457fa94c171a1e2547c1d48cf35cd0f9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56344027"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893048"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Infrastructure Integration Runtime dans Azure Data Factory
 IR est l’infrastructure de calcul utilisée par Azure Data Factory pour fournir les fonctionnalités d’intégration de données suivantes entre différents environnements réseau :
@@ -51,7 +51,7 @@ Le schéma suivant montre comment les différents runtimes d’intégration peuv
 Un runtime d’intégration Azure peut :
 
 - Exécuter des activités de copie entre les magasins de données cloud
-- Répartir les activités de transformation suivantes dans un réseau public : activité Hive HDInsight, activité Pig HDInsight, activité MapReduce HDInsight, activité Spark HDInsight, activité de diffusion en continu HDInsight, activité d’exécution par lot Machine Learning, activités des ressources de mise à jour de Machine Learning, activité de procédure stockée, activité U-SQL Data Lake Analytics, activité personnalisée .Net, activité web, activité de recherche et activité d’obtention des métadonnées.
+- Répartir les activités de transformation suivantes dans un réseau public : Activité HDInsight Hive, activité Pig de HDInsight, activité MapReduce de HDInsight, activité HDInsight Spark, activité de diffusion en continu HDInsight, activité d’exécution de lot Machine Learning, activités de la ressource de mise à jour de Machine Learning, activité de procédure stockée, Activité U-SQL Lake Analytique de données, activité personnalisée .NET, activité Web, activité de recherche et activité d’obtenir les métadonnées.
 
 ### <a name="azure-ir-network-environment"></a>Environnement réseau du runtime d'intégration Azure
 L’infrastructure Azure Integration Runtime prend en charge les connexions aux magasins de données et aux services de calcul sur les réseaux publics comprenant des points de terminaison accessibles publiquement. Utilisez un runtime d’intégration auto-hébergé pour l’environnement du réseau virtuel Azure.
@@ -69,7 +69,7 @@ Pour en savoir plus sur la création et la configuration d’un runtime d’int�
 Un runtime d’intégration auto-hébergé peut :
 
 - Exécuter une activité de copie entre des magasins de données cloud et un magasin de données situé sur un réseau privé.
-- Répartir les activités de transformation suivantes selon les ressources de calcul dans le réseau local ou le réseau virtuel Azure : activité Hive HDInsight (BYOC - Bring Your Own Cluster), activité Pig HDInsight (BYOC), activité MapReduce HDInsight (BYOC), activité Spark HDInsight (BYOC), activité de diffusion en continu HDInsight (BYOC), activité d'exécution par lot Machine Learning, activités des ressources de mise à jour de Machine Learning, activité de procédure stockée, activité U-SQL Data Lake Analytics, activité personnalisée .Net, activité de recherche et activité d'obtention des métadonnées.
+- Répartir les activités de transformation suivantes selon les ressources de calcul dans le réseau local ou le réseau virtuel Azure : Activité Hive d’HDInsight (BYOC-Bring Your Own Cluster), activité Pig de HDInsight (BYOC), activité de MapReduce de HDInsight (BYOC), activité HDInsight Spark (BYOC), activité de diffusion en continu HDInsight (BYOC), activité de Machine Learning Batch Execution, Machine Learning Mettre à jour les activités de la ressource, activité de procédure stockée, activité U-SQL Data Lake Analytique, activité personnalisée .NET, activité de recherche et activité d’obtenir les métadonnées.
 
 > [!NOTE] 
 > Utilisez le runtime d’intégration auto-hébergé pour prendre en charge les magasins de données nécessitant l’utilisation de votre propre pilote tels que SAP, Hana, MySQL, etc.  Pour en savoir plus, consultez les [magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).

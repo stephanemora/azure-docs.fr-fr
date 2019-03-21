@@ -7,22 +7,22 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 7d91366ee0fec2930484f7aaa7468e6d1d62f233
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 4bd934c710d6300e95c60742d5873f5b71bdae59
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55701585"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58002189"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configurer un réseau Azure CNI dans AKS (Azure Kubernetes Service)
 
 Par défaut, les clusters AKS utilisent [kubenet][kubenet], et un réseau et un sous-réseau virtuels sont automatiquement créés. Avec *kubenet*, les nœuds obtiennent une adresse IP d’un sous-réseau du réseau virtuel. La traduction d’adresses réseau (NAT) est ensuite configurée sur les nœuds, et les pods reçoivent une adresse IP « cachée » derrière l’adresse IP du nœud. Cette approche réduit le nombre d’adresses IP que vous avez besoin de réserver dans votre espace réseau à l’usage des pods.
 
-Avec l’interface [Azure Container Networking Interface (CNI)][cni-networking], chaque pod reçoit une adresse IP du sous-réseau et est accessible directement. Ces adresses IP doivent être uniques dans votre espace réseau, et être planifiées à l’avance. Chaque nœud a un paramètre de configuration qui définit le nombre maximal de pods qu’il prend en charge. Le nombre équivalent d’adresses IP par nœud est alors réservé à l’avance pour ce nœud. Cette approche demande un plus grand travail de planification. De plus, elle conduit souvent à l’épuisement des adresses IP ou à la nécessité de regénérer les clusters dans un sous-réseau plus vaste à mesure que vos besoins d’applications augmentent.
+Avec l’interface [Azure Container Networking Interface (CNI)][cni-networking], chaque pod reçoit une adresse IP du sous-réseau et est accessible directement. Ces adresses IP doivent être uniques dans votre espace réseau, et être planifiées à l’avance. Chaque nœud possède un paramètre de configuration pour le nombre maximal de pods qu’il prend en charge. Le nombre équivalent d’adresses IP par nœud est alors réservé à l’avance pour ce nœud. Cette approche demande un plus grand travail de planification. De plus, elle conduit souvent à l’épuisement des adresses IP ou à la nécessité de regénérer les clusters dans un sous-réseau plus vaste à mesure que vos besoins d’applications augmentent.
 
 Cet article vous montre comment utiliser les réseaux *Azure CNI* afin de créer et d’utiliser un sous-réseau de réseau virtuel pour un cluster AKS. Pour plus d’informations sur les options et considérations relatives aux réseaux, consultez [Concepts de réseau pour Kubernetes et AKS][aks-network-concepts].
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Le réseau virtuel du cluster AKS doit autoriser les connexions Internet sortantes.
 * Ne créez pas plus d’un cluster AKS dans le même sous-réseau.
@@ -35,7 +35,7 @@ Cet article vous montre comment utiliser les réseaux *Azure CNI* afin de créer
 
 Les clusters configurés avec les réseaux Azure CNI nécessitent une planification supplémentaire. La taille de votre réseau virtuel et de son sous-réseau doit être suffisante pour prendre en charge le nombre de pods que vous envisagez d’exécuter, ainsi que le nombre de nœuds du cluster.
 
-Les adresses IP des pods et des nœuds de cluster sont affectées à partir du sous-réseau spécifié du réseau virtuel. Chaque nœud est configuré avec une adresse IP principale. Par défaut, 30 adresses IP supplémentaires sont préconfigurées par CNI Azure et affectées à des pods planifiés sur le nœud. Lorsque vous faites monter en charge votre cluster, chaque nœud est configuré de manière similaire avec des adresses IP du sous-réseau. Vous pouvez également voir le nombre [maximal de pods par nœud](#maximum-pods-per-node).
+Les adresses IP des pods et des nœuds de cluster sont affectées à partir du sous-réseau spécifié du réseau virtuel. Chaque nœud est configuré avec une adresse IP principale. Par défaut, 30 adresses IP supplémentaires sont préconfigurés par CNI Azure et affectées à des pods planifiés sur le nœud. Lorsque vous faites monter en charge votre cluster, chaque nœud est configuré de manière similaire avec des adresses IP du sous-réseau. Vous pouvez également voir le nombre [maximal de pods par nœud](#maximum-pods-per-node).
 
 > [!IMPORTANT]
 > Le nombre d’adresses IP requises doit prendre en compte des considérations relatives aux opérations de mise à niveau et à l’échelle. Si vous définissez la plage d’adresses IP pour prendre en charge uniquement un nombre fixe de nœuds, vous ne pouvez pas mettre à niveau ou à l’échelle votre cluster.
@@ -99,7 +99,7 @@ Bien qu’il soit techniquement possible de spécifier une plage d’adresses de
 
 **Adresse du pont Docker** : adresse IP et masque de réseau assignés au pont Docker. Le pont Docker permet aux nœuds AKS de communiquer avec la plateforme de gestion sous-jacente. Cette adresse IP ne doit pas être dans la plage d’adresses IP du réseau virtuel de votre cluster, ni chevaucher d’autres plages d’adresses actuellement utilisées sur votre réseau.
 
-## <a name="configure-networking---cli"></a>Configurer le réseau – Interface de ligne de commande
+## <a name="configure-networking---cli"></a>Configurer la mise en réseau – Interface de ligne de commande
 
 Lors de la création d’un cluster AKS avec Azure CLI, il est également possible de configurer un réseau Azure CNI. Utilisez les commandes suivantes pour créer un cluster AKS en activant un réseau Azure CNI.
 
@@ -114,7 +114,7 @@ $ az network vnet subnet list \
 /subscriptions/<guid>/resourceGroups/myVnet/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/default
 ```
 
-Utilisez la commande [az aks create][az-aks-create] avec l’argument `--network-plugin azure` pour créer un cluster avec un réseau avancé. Remplacez la valeur `--vnet-subnet-id` par l’ID du sous-réseau recueilli à l’étape précédente :
+Utilisez la commande [az aks create][az-aks-create] avec l’argument `--network-plugin azure` pour créer un cluster avec mise en réseau avancée. Remplacez la valeur `--vnet-subnet-id` par l’ID du sous-réseau recueilli à l’étape précédente :
 
 ```azurecli
 az aks create \
@@ -127,11 +127,11 @@ az aks create \
     --service-cidr 10.2.0.0/24
 ```
 
-## <a name="configure-networking---portal"></a>Configurer le réseau – Portail
+## <a name="configure-networking---portal"></a>Configurer la mise en réseau – Portail
 
 La capture d’écran suivante de votre portail Azure représente un exemple de configuration de ces paramètres durant la création du cluster AKS :
 
-![Configuration du réseau avancé dans le portail Azure][portal-01-networking-advanced]
+![Configuration de la mise en réseau avancée dans le portail Azure][portal-01-networking-advanced]
 
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
@@ -139,11 +139,11 @@ La série suivante de questions-réponses s’applique à la configuration de r�
 
 * *Puis-je déployer des machines virtuelles dans le sous-réseau de mon cluster ?*
 
-   Non. Le déploiement des machines virtuelles dans le sous-réseau utilisé par votre cluster Kubernetes n’est pas pris en charge. Les machines virtuelles peuvent être déployées dans le même réseau virtuel, mais dans un sous-réseau différent.
+  Non. Le déploiement des machines virtuelles dans le sous-réseau utilisé par votre cluster Kubernetes n’est pas pris en charge. Les machines virtuelles peuvent être déployées dans le même réseau virtuel, mais dans un sous-réseau différent.
 
 * *Puis-je configurer des stratégies de réseau spécifiques aux pods ?*
 
-   Non. Les stratégies de réseau spécifiques aux pods ne sont actuellement pas prises en charge.
+  Stratégie de réseau Kubernetes est actuellement disponible en version préliminaire dans ACS. Pour commencer, consultez [sécuriser le trafic entre les pods dans ACS à l’aide des stratégies de réseau][network-policy].
 
 * *Le nombre maximal de pods pouvant être déployés sur un nœud peut-il être configuré ?*
 
@@ -161,9 +161,9 @@ La série suivante de questions-réponses s’applique à la configuration de r�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-### <a name="networking-in-aks"></a>Réseaux dans AKS
+### <a name="networking-in-aks"></a>Mise en réseau dans AKS
 
-Pour plus d’informations sur les réseaux dans AKS, consultez les articles suivants :
+Pour plus d’informations sur la mise en réseau dans AKS, consultez les articles suivants :
 
 - [Utiliser une adresse IP statique avec l’équilibrage de charge d’Azure Kubernetes Service (AKS)](static-ip.md)
 - [Utiliser un équilibreur de charge interne avec Azure Container Service (AKS)](internal-lb.md)
@@ -201,3 +201,4 @@ Les clusters Kubernetes créés avec le moteur AKS prennent en charge les plug-i
 [aks-ingress-static-tls]: ingress-static-ip.md
 [aks-http-app-routing]: http-application-routing.md
 [aks-ingress-internal]: ingress-internal-ip.md
+[network-policy]: use-network-policies.md

@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae428f18a2b927f42716a1c00b55790fe73d81a4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b42a6b667a8708aeb2edeb0c80a5ab747b6c60a9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173400"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57891135"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Synchronisation d’Azure AD Connect : Présentation de la configuration par défaut
 Cet article présente les règles de configuration out-of-box. Il décrit les règles et l’impact que celles-ci ont sur la configuration. Il vous guide également tout au long de la configuration par défaut de la synchronisation Azure AD Connect. L’objectif est que le lecteur comprenne comment fonctionne le modèle de configuration, nommé approvisionnement déclaratif, dans un exemple réel. Cet article suppose que vous avez déjà installé et configuré la synchronisation Azure AD Connect à l’aide de l’Assistant d’installation.
@@ -151,7 +151,7 @@ Une règle de synchronisation comporte quatre sections de configuration : Descr
 #### <a name="description"></a>Description
 La première section fournit des informations de base telles que le nom et la description.
 
-![Onglet Description dans l’Éditeur de règles de synchronisation ](./media/concept-azure-ad-connect-sync-default-configuration/syncruledescription.png)
+![Onglet Description dans l’Éditeur de règles de synchronisation](./media/concept-azure-ad-connect-sync-default-configuration/syncruledescription.png)
 
 Vous y trouverez également des informations concernant le système connecté associé à cette règle, le type d’objet dans le système connecté auquel il s’applique et le type d’objet de métaverse. Le type d’objet du métaverse est toujours « person », que le type d’objet source soit un utilisateur, iNetOrgPerson ou un contact. Comme il ne doit jamais changer, il est créé en tant que type générique. Le type de lien peut être Join, StickyJoin ou Provision. Ce paramètre fonctionne avec la section Règles de jointure et il est traité plus loin dans ce document.
 
@@ -160,18 +160,18 @@ Vous pouvez également voir que cette règle de synchronisation est utilisée po
 #### <a name="scoping-filter"></a>Filtre d’étendue
 La section Filtre d’étendue sert à configurer à quel moment une règle de synchronisation doit s’appliquer. Comme le nom de la règle de synchronisation que vous examinez indique qu’elle ne doit être appliquée qu’aux utilisateurs activés, l’étendue est configurée de sorte que l’attribut AD **userAccountControl** ne doive pas avoir le bit 2 défini. Lorsque le moteur de synchronisation détecte un utilisateur dans Active Directory, il applique la synchronisation lorsque **userAccountControl** est défini sur la valeur décimale 512 (utilisateur normal activé). Il n’applique pas la règle lorsque l’utilisateur a **userAccountControl** défini sur 514 (utilisateur normal désactivé).
 
-![Onglet Étendue dans l’Éditeur de règles de synchronisation ](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilter.png)
+![Onglet Étendue dans l’Éditeur de règles de synchronisation](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilter.png)
 
 Le filtre d’étendue possède des groupes et des clauses qui peuvent être imbriqués. Toutes les clauses à l’intérieur d’un groupe doivent être satisfaites pour qu’une règle de synchronisation s’applique. Quand plusieurs groupes sont définis, au moins l’un d’entre eux doit être satisfait pour que la règle s’applique. C’est-à-dire qu’une opération OR logique est évaluée entre les groupes et qu’une opération AND logique est évaluée à l’intérieur d’un groupe. On trouve un exemple de cette configuration dans la règle de synchronisation sortante **Sortant vers AAD – Group Join**, indiquée ci-dessous. Il existe plusieurs groupes de filtres de synchronisation, par exemple, un pour les groupes de sécurité (`securityEnabled EQUAL True`) et un autre pour les groupes de distribution (`securityEnabled EQUAL False`).
 
-![Onglet Étendue dans l’Éditeur de règles de synchronisation ](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilterout.png)
+![Onglet Étendue dans l’Éditeur de règles de synchronisation](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilterout.png)
 
 Cette règle sert à définir les groupes qui doivent être approvisionnés dans Azure AD. Les groupes de distribution doivent être activés pour la messagerie électronique pour pouvoir être synchronisés avec Azure AD, mais pour les groupes de sécurité aucune adresse de messagerie n’est nécessaire.
 
 #### <a name="join-rules"></a>Règles de jointure
 La troisième section sert à configurer la relation entre les objets dans l’espace de connecteur et les objets dans le métaverse. La règle que vous avez examinée plus haut n’ayant aucune configuration pour Join Rules, vous allez plutôt examiner **Entrant depuis AD – User Join**.
 
-![Onglet Règles de jointure dans l’Éditeur de règles de synchronisation ](./media/concept-azure-ad-connect-sync-default-configuration/syncrulejoinrules.png)
+![Onglet Règles de jointure dans l’Éditeur de règles de synchronisation](./media/concept-azure-ad-connect-sync-default-configuration/syncrulejoinrules.png)
 
 Le contenu de la règle de jointure dépend de l’option de correspondance sélectionnée dans l’Assistant Installation. Pour une règle entrante, l’évaluation commence avec un objet dans l’espace de connecteur source et chaque groupe dans les règles de jointure est évalué de manière séquentielle. Si un objet source évalué correspond exactement à un objet dans le métaverse selon l’une des règles de jointure, les deux objets sont joints. Si toutes les règles ont été évaluées et qu’il n’existe aucune correspondance, le type de lien indiqué dans la page de description est utilisé. Si cette configuration a la valeur **Provision**, un nouvel objet est créé dans la cible, le métaverse. L’approvisionnement d’un nouvel objet dans le métaverse porte également le nom de **projection** .
 
@@ -184,7 +184,7 @@ Si vous examinez l’illustration ci-dessus, vous pouvez voir que la règle essa
 #### <a name="transformations"></a>Transformations
 La section Transformation définit tous les flux d’attributs qui s’appliquent à l’objet cible quand les objets sont joints et quand le filtre d’étendue est satisfait. Si vous revenez à la règle de synchronisation **Entrant depuis AD – Utilisateur AccountEnabled** , vous trouvez les transformations suivantes :
 
-![Onglet Transformations dans l’Éditeur de règles de synchronisation ](./media/concept-azure-ad-connect-sync-default-configuration/syncruletransformations.png)
+![Onglet Transformations dans l’Éditeur de règles de synchronisation](./media/concept-azure-ad-connect-sync-default-configuration/syncruletransformations.png)
 
 Pour mettre cette configuration en contexte, dans un déploiement de forêt Account-Resource, il devrait y avoir un compte activé dans la forêt de comptes et un compte désactivé dans la forêt de ressources avec des paramètres Exchange et Lync. La règle de synchronisation que vous examinez contient les attributs nécessaires pour la connexion et ceux-ci devraient circuler à partir de la forêt dans laquelle se trouve un compte activé. Tous ces flux d’attributs sont regroupés dans une règle de synchronisation.
 
@@ -201,7 +201,7 @@ Le langage d’expression étant VBA (Visual Basic pour Applications), les utili
 IIF(
 // (The evaluation for IIF) Is the attribute pwdLastSet present in AD?
 IsPresent([pwdLastSet]),
-// (The True part of IIF) If it is, then from right to left, convert the AD time format to a .Net datetime, change it to the time format used by Azure AD, and finally convert it to a string.
+// (The True part of IIF) If it is, then from right to left, convert the AD time format to a .NET datetime, change it to the time format used by Azure AD, and finally convert it to a string.
 CStr(FormatDateTime(DateFromNum([pwdLastSet]),"yyyyMMddHHmmss.0Z")),
 // (The False part of IIF) Nothing to contribute
 NULL

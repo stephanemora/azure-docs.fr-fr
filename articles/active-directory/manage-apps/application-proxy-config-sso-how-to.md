@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 03/12/2019
 ms.author: celested
-ms.reviewer: asteen
+ms.reviewer: japere, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7df7469a6975fa5e84b43487b524ca888718d7d2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 5f9c4f2c618851b596cd8f2dfa1fd45820a05049
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162320"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791679"
 ---
 # <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>Comment configurer l’authentification unique pour une application de proxy d’application
 
@@ -43,11 +43,16 @@ Configurez le type d’authentification unique spécifique. Les méthodes d’au
 
 -   **Authentification basée sur l’en-tête** : l’authentification basée sur l’en-tête est activée par le biais d’un partenariat. Elle passe par une configuration supplémentaire. Pour plus d’informations sur le partenariat et obtenir des instructions pas-à-pas sur la configuration de l’authentification unique pour une application utilisant des en-têtes pour l’authentification, consultez la [documentation sur PingAccess pour Azure AD](application-proxy-configure-single-sign-on-with-ping-access.md).
 
-Chacune de ces options est accessible dans votre application sous « Applications d’entreprise » (ouvrez la page **Authentification unique** dans le menu de gauche). Notez que si votre application a été créée dans l’ancien portail, vous ne verrez peut-être pas toutes ces options.
+-   **SAML SSO**: Avec SAML authentification unique, Azure AD s’authentifie l’application en utilisant le compte d’utilisateur Azure AD. Azure AD communique les informations d’authentification à l’application via un protocole de connexion. Avec l’authentification unique SAML, vous pouvez mapper les utilisateurs à des rôles d’application spécifiques en fonction de règles que vous définissez dans vos revendications SAML. Pour plus d’informations sur la configuration SAML SSO, consultez [SAML pour l’authentification unique avec le Proxy d’Application](application-proxy-configure-single-sign-on-on-premises-apps.md).
+
+Chacune de ces options est accessible dans votre application sous « Applications d’entreprise » (ouvrez la page **Authentification unique** dans le menu de gauche). Notez que si votre application a été créée dans l’ancien portail, vous ne voyiez pas toutes ces options.
 
 Cette page propose une autre option d’authentification : l’authentification liée. Cette option est également prise en charge par le proxy d’application. Toutefois, cette option n’ajoute pas l’authentification unique à l’application. Cela étant dit, il se peut que l’authentification unique soit déjà implémentée dans l’application par le biais d’un autre service tel qu’Active Directory Federation Services. 
 
 Cette option permet à l’administrateur de créer un lien vers une application présentée préalablement aux utilisateurs lorsqu’ils accèdent à l’application. Par exemple, s’il existe une application qui est configurée pour authentifier les utilisateurs avec Active Directory Federation Services 2.0, l’administrateur peut utiliser l’option d’authentification liée pour créer un lien vers cette application dans le panneau d’accès.
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Fournir une authentification unique à vos applications avec le proxy d’application](application-proxy-configure-single-sign-on-with-kcd.md)
+- [Authentification unique avec le proxy d’application](application-proxy-configure-single-sign-on-password-vaulting.md)
+- [Délégation contrainte Kerberos pour l’authentification unique à vos applications avec le proxy d’application](application-proxy-configure-single-sign-on-with-kcd.md)
+- [Authentification basée sur l’en-tête pour une authentification unique avec le Proxy d’application et PingAccess](application-proxy-configure-single-sign-on-with-ping-access.md) 
+- [SAML pour l’authentification unique avec le Proxy d’Application](application-proxy-configure-single-sign-on-on-premises-apps.md).

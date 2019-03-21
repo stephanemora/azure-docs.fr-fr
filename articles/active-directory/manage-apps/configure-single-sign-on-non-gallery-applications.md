@@ -12,12 +12,12 @@ ms.date: 01/08/2019
 ms.author: celested
 ms.reviewer: asmalser,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2804ebdbeb72bd35c7e63553184157066f9cfd32
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7dfef0e27dd3e38e5a965f47a47619671a3127b0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177292"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117657"
 ---
 # <a name="configure-single-sign-on-to-non-gallery-applications-in-azure-active-directory"></a>Configurer l’authentification unique sur des applications hors galerie dans Azure Active Directory
 
@@ -29,8 +29,8 @@ Ces fonctionnalités sont également disponibles, en fonction de votre contrat d
 
 - Intégration libre-service de toute application prenant en charge les fournisseurs d’identité SAML 2.0 (Initiée par le fournisseur de services ou par le fournisseur d’identité fédérée)
 - Intégration libre-service de toute application Web dont la page de connexion est basée sur le HTML et utilise une [authentification unique par mot de passe](what-is-single-sign-on.md#password-based-sso)
-* Connexion libre-service des applications qui utilisent le protocole SCIM pour l'affectation d'utilisateurs ([description ici](use-scim-to-provision-users-and-groups.md))
-* Possibilité d'ajouter des liens à n'importe quelle application dans le [Lanceur d'application Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) ou le [Panneau d'accès Azure AD](what-is-single-sign-on.md#linked-sso)
+- Connexion libre-service des applications qui utilisent le protocole SCIM pour l'affectation d'utilisateurs ([description ici](use-scim-to-provision-users-and-groups.md))
+- Possibilité d'ajouter des liens à n'importe quelle application dans le [Lanceur d'application Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) ou le [Panneau d'accès Azure AD](what-is-single-sign-on.md#linked-sso)
 
 Ceci peut inclure non seulement les applications SaaS que vous utilisez, mais qui n'ont pas encore été embarquées dans la galerie d'applications Azure AD, mais encore les applications Web tierces que votre organisation a déployées sur les serveurs que vous contrôlez, dans le cloud ou localement.
 
@@ -60,7 +60,7 @@ Pour configurer Azure AD, entrez la configuration SAML de base. Vous pouvez entr
 
   ![URL et domaine Litware](./media/configure-single-sign-on-non-gallery-applications/customapp4.png)
 
-- **URL de connexion (initiée par le fournisseur de services)** : où l’utilisateur se connecte à cette application. Si l’application est configurée pour effectuer une authentification unique initiée par le fournisseur de services, lorsque l’utilisateur accède à cette URL, le fournisseur de services effectue la redirection nécessaire vers Azure AD pour effectuer l’authentification et connecter l’utilisateur. Si ce champ est renseigné, Azure AD utilise cette URL pour lancer l’application à partir d’Office 365 et du panneau d’accès Azure AD. Si ce champ est omis, Azure AD effectuera une authentification initiée par le fournisseur d’identité lorsque l’application sera lancée à partir d’Office 365, du panneau d’accès Azure AD ou de l’URL d’authentification unique d’Azure AD (qui peut être copiée dans l’onglet Tableau de bord).
+- **URL de connexion (initiée par le fournisseur de services)** : où l’utilisateur se connecte à cette application. Si l’application est configurée pour effectuer une authentification unique initiée par le fournisseur de services, lorsque l’utilisateur accède à cette URL, le fournisseur de services effectue la redirection nécessaire vers Azure AD pour effectuer l’authentification et connecter l’utilisateur. Si ce champ est renseigné, Azure AD utilise cette URL pour lancer l’application à partir d’Office 365 et du panneau d’accès Azure AD. Si ce champ est omis, Azure AD effectuera fournisseur d’identité-authentification unique initiée par lorsque l’application est lancée à partir d’Office 365, le panneau d’accès Azure AD, ou à partir de l’URL Azure AD unique de session (peut être copié à partir de l’onglet tableau de bord).
 - **Identificateur** : doit identifier de façon unique l’application pour laquelle l’authentification unique est en cours de configuration. Cette valeur correspond à l’élément Émetteur dans la demande SAML AuthRequest envoyée par l’application. Cette valeur apparaît également comme **l’ID d’entité** dans les métadonnées SAML fournies par l’application. Consultez la documentation SAML de l’application pour plus d’informations sur ce que sont les valeurs d’ID d’entité ou d’audience. 
 
     Voici un exemple d’identificateur ou d’émetteur apparaissant dans la demande SAML envoyée par l’application à Azure AD :

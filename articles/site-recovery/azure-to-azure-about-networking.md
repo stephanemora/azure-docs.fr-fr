@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: 49b5ef6b0dca32baaf05959cc29bb2a8024b6d04
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 0e28792e49d588bfec8d1f09dec68ead7e9dfa49
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55693987"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58001082"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Mise en réseau dans Azure pour la réplication d’Azure
 
@@ -101,7 +101,8 @@ Les plages d’adresses IP Site Recovery sont les suivantes :
    France Sud | 52.136.139.227 |52.136.136.62
    Australie Centre| 20.36.34.70 | 20.36.46.142
    Centre de l’Australie 2| 20.36.69.62 | 20.36.74.130
-
+   Afrique du Sud Ouest | 102.133.72.51 | 102.133.26.128
+   Afrique du Sud Nord | 102.133.160.44 | 102.133.154.128
 ## <a name="example-nsg-configuration"></a>Exemple de configuration de groupe de sécurité réseau
 
 Cet exemple montre comment configurer des règles de groupes de sécurité réseau pour une machine virtuelle à répliquer.
@@ -163,4 +164,4 @@ Vous pouvez remplacer l’itinéraire système par défaut d’Azure pour le pr�
 ## <a name="next-steps"></a>Étapes suivantes
 - Commencer à protéger vos charges de travail en [répliquant des machines virtuelles Azure](site-recovery-azure-to-azure.md).
 - En savoir plus sur la [conservation des adresses IP](site-recovery-retain-ip-azure-vm-failover.md) pour le basculement de machines virtuelles Azure.
-- En savoir plus sur la récupération d’urgence de [machines virtuelles Azure via ExpressRoute](azure-vm-disaster-recovery-with-expressroute.md).
+- En savoir plus sur la récupération d’urgence de [machines virtuelles Azure avec ExpressRoute](azure-vm-disaster-recovery-with-expressroute.md).

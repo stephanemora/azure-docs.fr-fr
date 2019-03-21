@@ -3,21 +3,21 @@ title: Transformer des données avec Databricks Notebook - Azure | Microsoft Doc
 description: Découvrez comment traiter ou transformer des données en exécutant un bloc-notes Databricks.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.assetid: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.author: douglasl
-ms.openlocfilehash: 8ab6dad36bf47430a925d21ca2464286e7e70002
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+author: sharonlo101
+ms.author: shlo
+manager: craigg
+ms.openlocfilehash: 8036a8694bb8c8d0db236eba831f13dc2bf47d0a
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022068"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576818"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Transformer des données en exécutant un bloc-notes Databricks
 
@@ -96,7 +96,7 @@ Dans la définition d’activité Databricks ci-dessus, vous précisez ces types
         {
             "cran": {
                 "package": "ada",
-                "repo": "http://cran.us.r-project.org"
+                "repo": "https://cran.us.r-project.org"
             }
         }
     ]

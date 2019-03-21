@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: yegu
-ms.openlocfilehash: 15b7bae6116d05e7bf4cd76a1ba1b93bb127fef8
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: d4b8fd6ccb3fc7cb2627d4bd3e103239181e4d9d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313090"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994383"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Comment configurer la prise en charge de réseau virtuel pour un Cache Azure Premium pour Redis
 Le Cache Azure pour Redis offre différents types de caches permettant de choisir en toute flexibilité parmi plusieurs tailles et fonctionnalités de caches, notamment les fonctionnalités de niveau Premium telles que le clustering, la persistance et la prise en charge du réseau virtuel. Un réseau VNet est un réseau privé dans le cloud. Lorsqu’une instance de Cache Azure pour Redis est configurée avec un réseau virtuel, elle n’est pas adressable publiquement et est accessible uniquement à partir de machines virtuelles et d’applications sur le réseau virtuel. Cet article décrit comment configurer la prise en charge de réseau virtuel pour une instance Premium de Cache Azure pour Redis.
@@ -106,7 +106,7 @@ Lorsque le Cache Azure pour Redis est hébergé dans un réseau virtuel, les por
 
 Il existe sept configurations requises de port sortant.
 
-- Si vous le souhaitez, toutes les connexions sortantes vers Internet peuvent être effectuées via un appareil d’audit local du client.
+- Toutes les connexions sortantes à internet peuvent être effectuées via un client de l’appareil d’audit en local.
 - Trois des ports acheminent le trafic vers des points de terminaison Azure se chargeant du stockage Azure et d’Azure DNS.
 - Les plages de ports restantes et pour les communications internes du sous-réseau Redis. Aucune règle de groupe de sécurité réseau de sous-réseau n’est requise pour les communications sur sous-réseau Redis interne.
 
