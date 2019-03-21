@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 11/01/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 243697c20f10a019a73326c3bd79e23fc3342640
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: ddcaca46a2b8f9501337b3591d6ed666876e1de9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113598"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093767"
 ---
-# <a name="tutorial-install-azure-data-box-edge-preview"></a>Didacticiel : Installer Azure Data Box Edge (préversion)
+# <a name="tutorial-install-azure-data-box-edge-preview"></a>Tutoriel : Installer Azure Data Box Edge (préversion)
 
 Ce tutoriel explique comment installer un appareil physique Data Box Edge. La procédure d’installation comprend le déballage, le montage en rack et le câblage de l’appareil. 
 
@@ -94,15 +94,15 @@ L’appareil doit être installé sur un rack standard de 19 pouces. Effectuez l
     ![Installation des rails de montage en rack](./media/data-box-edge-deploy-install/rack-mount-rail-1.png)
 
 2. Installez les rails extérieurs sur les montants verticaux de l’armoire à rack. Afin de faciliter l’orientation, la mention **Avant** figure sur les glissières de rail pour indiquer que cette extrémité se positionne à l’avant du boîtier.    
-    1. Recherchez les ergots à l’avant et à l’arrière du rail. Allongez le rail pour qu’il s’insère entre les montants du rack. Fixez d’abord le rail extérieur à l’arrière du rack. Ajustez le support de montage arrière de façon à le positionner à l’intérieur des trous de montage du rack arrière.   
+   1. Recherchez les ergots à l’avant et à l’arrière du rail. Allongez le rail pour qu’il s’insère entre les montants du rack. Fixez d’abord le rail extérieur à l’arrière du rack. Ajustez le support de montage arrière de façon à le positionner à l’intérieur des trous de montage du rack arrière.   
 
-    2. Maintenez le déclencheur du support arrière enfoncé afin de dégager les crochets métalliques. Alignez et insérez le support arrière dans les trous de montage, puis relâchez le déclencheur.
+   2. Maintenez le déclencheur du support arrière enfoncé afin de dégager les crochets métalliques. Alignez et insérez le support arrière dans les trous de montage, puis relâchez le déclencheur.
 
-    3. Alignez le support avant avec le trou de montage.
+   3. Alignez le support avant avec le trou de montage.
 
-    4. Le support avant doit désormais être fixé sur le rack. Si nécessaire, vous pouvez utiliser des vis M5 X 10L pour fixer les rails sur les montants. 
+   4. Le support avant doit désormais être fixé sur le rack. Si nécessaire, vous pouvez utiliser des vis M5 X 10L pour fixer les rails sur les montants. 
 
-    ![Installation des rails de montage en rack](./media/data-box-edge-deploy-install/rack-mount-rail-2.png)
+      ![Installation des rails de montage en rack](./media/data-box-edge-deploy-install/rack-mount-rail-2.png)
 
 3. Pour fixer le rail intérieur sur le châssis, assurez-vous que les trous de fixation du rail intérieur sont alignés avec les goupilles de positionnement situées sur le côté du châssis. Veillez à ce que les têtes des goupilles de positionnement du châssis dépassent à travers les trous de fixation du rail intérieur. Tirez le rail vers l’avant du châssis jusqu’à ce qu’il se mette en place avec un clic audible. Répétez l’opération avec l’autre rail intérieur. Poussez le châssis avec le rail intérieur dans la glissière pour terminer le montage du rack.
 

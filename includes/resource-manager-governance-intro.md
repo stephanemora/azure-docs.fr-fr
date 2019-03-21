@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/19/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: 2c16e82ccf259a4cc5ae8fcf35b2dd6b5d50ee2d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0b3af1bd7b3ab48074432d9e39552d72c6664b98
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38740573"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58124729"
 ---
 Lorsque vous déployez des ressources vers Azure, il est extrêmement simple de décider quels types de ressources déployer, leur emplacement et leur mode de configuration. Toutefois, cette flexibilité peut offrir plus d’options que vous ne souhaitez autoriser dans votre organisation. Si vous envisagez de déployer des ressources vers Azure, vous vous demandez peut-être :
 
@@ -25,9 +25,9 @@ Lorsque vous déployez des ressources vers Azure, il est extrêmement simple de 
 Cet article répond à ces questions. Plus précisément, vous :
 
 > [!div class="checklist"]
-* assignez des utilisateurs aux rôles et les rôles à une étendue afin que les utilisateurs soient autorisés à effectuer des actions attendues, mais pas plus d’actions,
-* appliquez des stratégies qui définissent les conventions pour les ressources dans votre abonnement,
-* verrouillez les ressources importantes pour votre système,
-* balisez les ressources afin de les suivre selon la valeur qu’elles ont pour votre organisation.
+> * assignez des utilisateurs aux rôles et les rôles à une étendue afin que les utilisateurs soient autorisés à effectuer des actions attendues, mais pas plus d’actions,
+> * appliquez des stratégies qui définissent les conventions pour les ressources dans votre abonnement,
+> * verrouillez les ressources importantes pour votre système,
+> * balisez les ressources afin de les suivre selon la valeur qu’elles ont pour votre organisation.
 
 Cet article se concentre sur les tâches effectuez pour implémenter la gouvernance. Pour une description plus détaillée des concepts, consultez [Gouvernance dans Azure](../articles/security/governance-in-azure.md). 

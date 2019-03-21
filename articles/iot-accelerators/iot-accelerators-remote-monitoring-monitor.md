@@ -6,17 +6,17 @@ manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 11/08/2018
+ms.date: 03/08/2019
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 7dd7612817f83fe713759965fc28f6f86a0d624a
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: d6d850fa8f896809318be77529e10abddaf6ea9a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602526"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58173819"
 ---
-# <a name="tutorial-monitor-your-iot-devices"></a>Didacticiel : Superviser vos appareils IoT
+# <a name="tutorial-monitor-your-iot-devices"></a>Tutoriel : Superviser vos appareils IoT
 
 Dans ce tutoriel, vous utilisez l’accélérateur de solution Monitoring à distance pour surveiller vos appareils IoT connectés. Vous utilisez le tableau de bord des solutions pour afficher des données de télémétrie, des informations sur les appareils, des alertes et des indicateurs de performance clés.
 

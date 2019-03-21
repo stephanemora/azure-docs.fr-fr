@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: overview
 ms.date: 10/09/2018
 ms.author: alkohli
-ms.openlocfilehash: e4bc5de9345bcb65f82ca7ac0095b3e0fd3907e9
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: aefbe4265cb97a003b908c5631e1f9ed4e0192cc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165996"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58102108"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-data-box-gateway"></a>Utiliser le Portail Azure pour gérer les planifications de bande passante sur votre ressource Azure Data Box Gateway  
 
@@ -43,13 +43,13 @@ Pour ajouter une planification, procédez comme suit dans le Portail Azure.
 
 3. Dans le volet **Ajouter une planification** : 
 
-    1. Renseignez les champs **Jour de début**, **Jour de fin**, **Heure de début** et **Heure de fin** de la planification. 
-    2. Si cette planification doit s’exécuter sur la journée entière, vous pouvez sélectionner l’option **Toute la journée**. 
-    3. Le champ **Débit de bande passante** indique la bande passante en mégabits par seconde (Mbits/s) utilisée par votre appareil dans les opérations impliquant le cloud (à la fois pour les chargements et pour les téléchargements). Fournissez un nombre compris entre 1 et 1 000 pour ce champ. 
-    4. Si vous ne souhaitez pas limiter le chargement et le téléchargement de données, cochez la case **Bande passante illimitée**. 
-    5. Cliquez sur **Add**.
+   1. Renseignez les champs **Jour de début**, **Jour de fin**, **Heure de début** et **Heure de fin** de la planification. 
+   2. Si cette planification doit s’exécuter sur la journée entière, vous pouvez sélectionner l’option **Toute la journée**. 
+   3. Le champ **Débit de bande passante** indique la bande passante en mégabits par seconde (Mbits/s) utilisée par votre appareil dans les opérations impliquant le cloud (à la fois pour les chargements et pour les téléchargements). Fournissez un nombre compris entre 1 et 1 000 pour ce champ. 
+   4. Si vous ne souhaitez pas limiter le chargement et le téléchargement de données, cochez la case **Bande passante illimitée**. 
+   5. Cliquez sur **Add**.
 
-    ![Ajout d’une planification](media/data-box-gateway-manage-bandwidth-schedules/add-schedule-2.png)
+      ![Ajout d’une planification](media/data-box-gateway-manage-bandwidth-schedules/add-schedule-2.png)
 
 3. Une planification est créée avec les paramètres spécifiés. Le portail affiche alors cette planification dans la liste des planifications de bande passante.
 

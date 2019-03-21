@@ -17,12 +17,12 @@ ms.author: jeffgilb
 ms.reviewer: unknown
 ms.lastreviewed: 09/11/2018
 ms.custom: mvc
-ms.openlocfilehash: a24b7314775ea7667ab992742586e5b5c8bbb369
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 34ef200ff96b098969c74937934d6178cfaf81ea
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205154"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117130"
 ---
 # <a name="tutorial-make-virtual-machines-available-to-your-azure-stack-users"></a>Didacticiel : mettre des machines virtuelles à la disposition de vos utilisateurs Azure Stack
 
@@ -129,8 +129,8 @@ Maintenant que vous avez créé une offre, vous pouvez le tester. Vous allez vou
    À partir du portail utilisateur, vous pouvez approvisionner une machine virtuelle à l’aide du nouvel abonnement.
 
    a. Connectez-vous au portail utilisateur avec un compte d’utilisateur.
-      - Pour un système intégré, l’URL varie en fonction de la région et du nom de domaine externe de votre opérateur, et son format est https://portal.&lt;*région*&gt;.&lt;*FQDN*&gt;.
-   - Si vous utilisez le Kit de développement Azure Stack, l’adresse du portail est https://portal.local.azurestack.external.
+   - Pour un système intégré, l’URL varie en fonction de la région et du nom de domaine externe de votre opérateur, et son format est https://portal.&lt;*région*&gt;.&lt;*FQDN*&gt;.
+     - Si vous utilisez le Kit de développement Azure Stack, l’adresse du portail est https://portal.local.azurestack.external.
 
    b.  Dans le tableau de bord, sélectionnez **+ Créer une ressource** > **Calcul** > **Windows Server 2016 Datacenter Evaluation**, puis sélectionnez **Créer**.
 

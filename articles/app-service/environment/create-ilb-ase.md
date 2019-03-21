@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a707ae6959b035ae0bcc05ead027dabd528e1b59
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 99c6e7dc589a94880976a9c7abcde12377e4e5d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747507"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58101531"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Créer et utiliser un équilibreur de charge interne avec un environnement App Service #
 
@@ -80,11 +80,11 @@ Pour créer un ILB ASE :
 
    Vous pouvez [mapper un nom DNS existant à votre application][customdomain]. Le nom de domaine personnalisé utilisé pour les applications et le nom de domaine utilisé par votre ASE ne peut pas se chevaucher. Pour un ASE ILB dont le nom de domaine est _contoso.com_, vous ne pouvez pas utiliser pour vos applications des noms de domaine personnalisés tels que :
 
-    * www.contoso.com
+   * www\.contoso.com
 
-    * abcd.def.contoso.com
+   * abcd.def.contoso.com
 
-    * abcd.contoso.com
+   * abcd.contoso.com
 
    Si vous connaissez les noms de domaine personnalisés de vos applications, choisissez pour l’ASE ILB un domaine qui n’est pas en conflit avec ces noms de domaine personnalisés. Dans cet exemple, vous pouvez utiliser quelque chose comme *contoso-internal.com* pour le domaine de votre ASE, car cela n’est pas en conflit avec les noms de domaines personnalisés qui se terminent par *. contoso.com*.
 
@@ -222,7 +222,7 @@ Pour en savoir plus sur la configuration de votre ASE ILB avec un dispositif WA
 ## <a name="get-started"></a>Prise en main ##
 
 * Pour bien démarrer avec les ASE, voir [Présentation de l’environnement App Service Environment][Intro].
- 
+ 
 
 <!--Image references-->
 [1]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-network.png

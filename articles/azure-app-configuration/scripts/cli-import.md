@@ -14,12 +14,12 @@ ms.workload: azure-app-configuration
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 65fa09b779f656654411a1d0c3602598655f50c9
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 0df8e19d3c6f0680f1eb1b0157c3bee5c9841e4c
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56884360"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57575084"
 ---
 # <a name="import-to-an-azure-app-configuration-store"></a>Importer vers un magasin Azure App Configuration
 
@@ -52,7 +52,7 @@ Ce script utilise les commandes suivantes pour importer un magasin de configurat
 
 | Commande | Notes |
 |---|---|
-| [az appconfig import](/cli/azure/ext/appconfig/appconfig#ext-appconfig-az-appconfig-import) | Importe vers une ressource de magasin de configuration d’application. |
+| [az appconfig import](/cli/azure/ext/appconfig/appconfig) | Importe vers une ressource de magasin de configuration d’application. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -14,12 +14,12 @@ ms.date: 08/16/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc6d1d53fd292a936c833450fee3af91671eec86
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a51175d192a5afb1f84f8d0ed2de9796f198f82d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171162"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58102398"
 ---
 # <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Didacticiel : Fédérer un environnement de forêt AD unique dans le cloud
 
@@ -83,7 +83,7 @@ Pour terminer la création de la machine virtuelle, vous devez terminer l’inst
 
 1. Gestionnaire Hyper-V, double-clic sur la machine virtuelle
 2. Cliquez sur le bouton Démarrer.
-3.  Vous êtes invité à appuyer sur n’importe quelle touche pour démarrer à partir du CD ou DVD. Faites-le.
+3. Vous êtes invité à appuyer sur n’importe quelle touche pour démarrer à partir du CD ou DVD. Faites-le.
 4. Sur l’écran de démarrage Windows Server, sélectionnez votre langue et cliquez sur **Suivant**.
 5. Cliquez sur **Installer maintenant**.
 6. Saisissez votre clé de licence et cliquez sur **Suivant**.
@@ -281,9 +281,9 @@ Nous allons maintenant vérifier que les utilisateurs de l’annuaire local ont 
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Tester la connexion avec un des utilisateurs
 
-1.  Accédez à [https://myapps.microsoft.com](httpss://myapps.microsoft.com).
+1. Accédez à [https://myapps.microsoft.com](https://myapps.microsoft.com).
 2. Connectez-vous avec un compte d’utilisateur créé dans le nouveau locataire.  Vous devez vous connecter en utilisant le format suivant : (user@domain.onmicrosoft.com). Saisissez le même mot de passe que celui utilisé par l’utilisateur pour se connecter en local.
-![Vérifier](media/tutorial-password-hash-sync/verify1.png)
+   ![Vérifier](media/tutorial-password-hash-sync/verify1.png)
 
 Vous avez maintenant configuré un environnement d’identité hybride que vous pouvez utiliser à des fins de test et pour vous familiariser avec les fonctionnalités d’Azure.
 

@@ -17,12 +17,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 940ca126eb18b81fd31f1ee2876948563e9d97af
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1a8ff17656978e6e4e8741c19cda79743560481a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188374"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58080843"
 ---
 # <a name="quickstart-configure-an-application-to-expose-web-apis-preview"></a>Démarrage rapide : Configurer une application pour exposer les API web (préversion)
 
@@ -106,10 +106,10 @@ Pour exposer une nouvelle étendue via le manifeste de l'application vous devez.
       }
       ```
 
-  > [!NOTE]
-  > La valeur `id` doit être générée par programme ou en utilisant un outil de génération de GUID comme [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx). La valeur `id` représente un identificateur unique pour l’étendue comme exposée par l’API web. Une fois qu’un client est correctement configuré et possède les autorisations pour accéder à votre API web, Azure AD émet un jeton d’accès OAuth 20. Lorsque le client appelle l’API web, il présente le jeton d’accès dont la revendication de l’étendue (scp) a été configurée sur les autorisations demandées dans son inscription d’application.
-  >
-  > Vous pouvez exposer des étendues supplémentaires ultérieurement si nécessaire. Considérez que votre API web peut exposer plusieurs étendues associées à un éventail de fonctions différentes. Votre ressource peut contrôler l’accès à l’API web lors de l’exécution, en évaluant la/les revendication(s) de l’étendue (`scp`) dans le jeton d’accès OAuth 2.0 reçu.
+   > [!NOTE]
+   > La valeur `id` doit être générée par programme ou en utilisant un outil de génération de GUID comme [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx). La valeur `id` représente un identificateur unique pour l’étendue comme exposée par l’API web. Une fois qu’un client est correctement configuré et possède les autorisations pour accéder à votre API web, Azure AD émet un jeton d’accès OAuth 20. Lorsque le client appelle l’API web, il présente le jeton d’accès dont la revendication de l’étendue (scp) a été configurée sur les autorisations demandées dans son inscription d’application.
+   >
+   > Vous pouvez exposer des étendues supplémentaires ultérieurement si nécessaire. Considérez que votre API web peut exposer plusieurs étendues associées à un éventail de fonctions différentes. Votre ressource peut contrôler l’accès à l’API web lors de l’exécution, en évaluant la/les revendication(s) de l’étendue (`scp`) dans le jeton d’accès OAuth 2.0 reçu.
 
 1. Lorsque vous avez terminé, cliquez sur **Enregistrer**. Votre API web est maintenant configurée pour être utilisée par d’autres applications de votre répertoire.
 1. Suivez les étapes pour [vérifier que l’API web est exposée à d’autres applications](#verify-the-web-api-is-exposed-to-other-applications).

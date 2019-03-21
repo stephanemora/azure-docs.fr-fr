@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ce48e9a17ab6b63c7fb8caa752258e218ca51ba3
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 74329624b6e0f1b105349d87a6d166efad520076
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226381"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58010922"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrer des machines virtuelles Amazon Web Services (AWS) vers Azure
 
@@ -33,12 +33,12 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 - Assurez-vous que les machines virtuelles que vous voulez migrer exécutent une version du système d’exploitation prise en charge. Les versions prises en charge incluent : 
-      - Windows Server 2016 
-      - Windows Server 2012 R2
-      - Windows Server 2012 
-      - Version 64 bits de Windows Server 2008 R2 SP1 ou version ultérieure
-      - Red Hat Enterprise Linux 6.4 à 6.10, 7.1 à 7.6 (instances virtualisées HVM uniquement) *(Les instances exécutant des pilotes RedHat PV ne sont pas prises en charge.)*
-      - CentOS 6.4 à 6.10, 7.1 à 7.6 (instances virtualisées HVM uniquement)
+  - Windows Server 2016 
+  - Windows Server 2012 R2
+  - Windows Server 2012 
+  - Version 64 bits de Windows Server 2008 R2 SP1 ou version ultérieure
+  - Red Hat Enterprise Linux 6.4 à 6.10, 7.1 à 7.6 (instances virtualisées HVM uniquement) *(Les instances exécutant des pilotes RedHat PV ne sont pas prises en charge.)*
+  - CentOS 6.4 à 6.10, 7.1 à 7.6 (instances virtualisées HVM uniquement)
  
 - Le service Mobilité doit être installé sur chaque machine virtuelle que vous souhaitez répliquer. 
 
@@ -172,39 +172,39 @@ Activez la réplication pour chaque machine virtuelle que vous voulez migrer. Qu
 1. Accédez au [portail Azure](https://portal.azure.com).
 1. Dans la page correspondant à votre coffre, sous **Bien démarrer**, sélectionnez **Site Recovery**.
 2. Sous **Pour les ordinateurs locaux et les machines virtuelles Azure**, sélectionnez **Étape 1 : Répliquer l’application**. Remplissez les pages de l’Assistant avec les informations suivantes. Sélectionnez **OK** sur chaque page lorsque vous avez terminé :
-    - 1: Configurer la source
+   - 1: Configurer la source
 
-    |  |  |
-    |-----|-----|
-    | Source : | Sélectionnez **Locale**.|
-    | Emplacement source :| Entrez le nom de votre instance EC2 du serveur de configuration.|
-    |Type de machine : | Sélectionner **Machines physiques**.|
-    | Serveur de processus : | Sélectionnez le serveur de configuration dans la liste déroulante.|
+     |  |  |
+     |-----|-----|
+     | Source : | Sélectionnez **Locale**.|
+     | Emplacement source :| Entrez le nom de votre instance EC2 du serveur de configuration.|
+     |Type de machine : | Sélectionner **Machines physiques**.|
+     | Serveur de processus : | Sélectionnez le serveur de configuration dans la liste déroulante.|
 
-    - 2 : Configurer la cible
+   - 2 : Configurer la cible
 
-    |  |  |
-    |-----|-----|
-    | Cible : | Conservez la valeur par défaut.|
-    | Abonnement : | Sélectionnez l’abonnement que vous avez utilisé.|
-    | Groupe de ressources de post-basculement :| Utilisez le groupe de ressources que vous avez créé dans [Préparer les ressources Azure](#prepare-azure-resources).|
-    | Modèle de déploiement post-basculement : | Sélectionnez **Gestionnaire des ressources**.|
-    | Compte de stockage : | Sélectionnez le compte de stockage que vous avez créé dans [Préparer les ressources Azure](#prepare-azure-resources).|
-    | Réseau Azure : | Sélectionnez **Effectuez maintenant la configuration pour les machines sélectionnées**.|
-    | Réseau Azure post-basculement : | Choisissez le réseau que vous avez créé dans [Préparer les ressources Azure](#prepare-azure-resources).|
-    | Sous-réseau : | Sélectionnez la **valeur par défaut** dans la liste déroulante.|
+     |  |  |
+     |-----|-----|
+     | Cible : | Conservez la valeur par défaut.|
+     | Abonnement : | Sélectionnez l’abonnement que vous avez utilisé.|
+     | Groupe de ressources de post-basculement :| Utilisez le groupe de ressources que vous avez créé dans [Préparer les ressources Azure](#prepare-azure-resources).|
+     | Modèle de déploiement post-basculement : | Sélectionnez **Gestionnaire des ressources**.|
+     | Compte de stockage : | Sélectionnez le compte de stockage que vous avez créé dans [Préparer les ressources Azure](#prepare-azure-resources).|
+     | Réseau Azure : | Sélectionnez **Effectuez maintenant la configuration pour les machines sélectionnées**.|
+     | Réseau Azure post-basculement : | Choisissez le réseau que vous avez créé dans [Préparer les ressources Azure](#prepare-azure-resources).|
+     | Sous-réseau : | Sélectionnez la **valeur par défaut** dans la liste déroulante.|
 
-    - 3 : Sélectionner les machines physiques
+   - 3 : Sélectionner les machines physiques
 
-      Sélectionnez **Machine physique**, puis entrez les valeurs pour le **Nom**, l’**Adresse IP** et le **Type de système d’exploitation** de l’instance EC2 que vous voulez migrer. Sélectionnez **OK**.
+     Sélectionnez **Machine physique**, puis entrez les valeurs pour le **Nom**, l’**Adresse IP** et le **Type de système d’exploitation** de l’instance EC2 que vous voulez migrer. Sélectionnez **OK**.
 
-    - 4 : Configurer les propriétés
+   - 4 : Configurer les propriétés
 
-      Sélectionnez le compte que vous avez créé sur le serveur de configuration puis sélectionnez **OK**.
+     Sélectionnez le compte que vous avez créé sur le serveur de configuration puis sélectionnez **OK**.
 
-    - 5 : Configurer les paramètres de réplication
+   - 5 : Configurer les paramètres de réplication
 
-      Vérifiez que la stratégie de réplication sélectionnée dans la liste déroulante est **myReplicationPolicy**, puis cliquez sur **OK**.
+     Vérifiez que la stratégie de réplication sélectionnée dans la liste déroulante est **myReplicationPolicy**, puis cliquez sur **OK**.
 
 3. Quand l’Assistant est terminé, cliquez sur **Activer la réplication**.
 
@@ -245,10 +245,10 @@ Effectuez un basculement réel pour les instances EC2 pour les migrer vers des m
 1. Assurez-vous que la machine virtuelle apparaît dans **Éléments répliqués**.
 2. Cliquez avec le bouton droit sur chaque machine virtuelle, puis sélectionnez **Effectuer la migration**. Cette opération effectue les actions suivantes :
 
-    - Ceci termine le processus de migration, arrête la réplication pour la machine virtuelle AWS et arrête la facturation Site Recovery pour la machine virtuelle.
-    - Cette étape nettoie les données de réplication. Elle ne supprime pas les machines virtuelles migrées. 
+   - Ceci termine le processus de migration, arrête la réplication pour la machine virtuelle AWS et arrête la facturation Site Recovery pour la machine virtuelle.
+   - Cette étape nettoie les données de réplication. Elle ne supprime pas les machines virtuelles migrées. 
 
-    ![Terminer la migration](./media/migrate-tutorial-aws-azure/complete-migration.png)
+     ![Terminer la migration](./media/migrate-tutorial-aws-azure/complete-migration.png)
 
 > [!WARNING]
 > *N’annulez pas un basculement en cours*. Avant le démarrage du basculement, la réplication de la machine virtuelle est arrêtée. Si vous annulez un basculement en cours, le basculement s’arrête mais la machine virtuelle ne sera pas à nouveau répliquée.  

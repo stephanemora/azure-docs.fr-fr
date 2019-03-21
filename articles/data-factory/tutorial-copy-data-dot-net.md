@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 3cbfb29542f2c71f4308b63319e77b37093529d4
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 630b17a3467f372190004172b31b481dcb5af3ce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445898"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863132"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Copier des données à partir d’un objet blob Azure vers Azure SQL Database à l’aide d’Azure Data Factory
 Dans ce tutoriel, vous créez un pipeline Azure Data Factory qui copie des données depuis le Stockage Blob Azure vers Azure SQL Database. Le modèle de configuration de ce didacticiel s’applique à la copie depuis un magasin de données de fichiers vers un magasin de données relationnelles. Pour obtenir la liste des magasins de données pris en charge en tant que sources et récepteurs, consultez le tableau [Magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -57,7 +57,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
     Jane|Doe
     ```
 
-2. Utilisez des outils comme l’[explorateur Stockage Azure](http://storageexplorer.com/) pour créer le conteneur **adfv2tutorial** et charger le fichier **inputEmp.txt** sur ce dernier.
+2. Utilisez des outils comme l’[explorateur Stockage Azure](https://storageexplorer.com/) pour créer le conteneur **adfv2tutorial** et charger le fichier **inputEmp.txt** sur ce dernier.
 
 #### <a name="create-a-sink-sql-table"></a>Créer une table SQL de récepteur
 
@@ -236,7 +236,7 @@ Vous définissez un jeu de données qui représente les données sources dans l�
 - la structure de données, y compris les noms de colonne et les types de données qui dans ce cas sont mappés à la table SQL du récepteur.
 
 ```csharp
-// Create a Azure Blob dataset
+// Create an Azure Blob dataset
 Console.WriteLine("Creating dataset " + blobDatasetName + "...");
 DatasetResource blobDataset = new DatasetResource(
     new AzureBlobDataset
@@ -274,7 +274,7 @@ Ajoutez le code suivant à la méthode **Main** qui crée un **jeu de données A
 Vous définissez un jeu de données qui représente les données du récepteur dans Azure SQL Database. Ce jeu de données fait référence au service lié Azure SQL Database que vous avez créé à l’étape précédente. Il spécifie également la table SQL qui contient les données copiées. 
 
 ```csharp
-// Create a Azure SQL Database dataset
+// Create an Azure SQL Database dataset
 Console.WriteLine("Creating dataset " + sqlDatasetName + "...");
 DatasetResource sqlDataset = new DatasetResource(
     new AzureSqlTableDataset

@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 02/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 338907585ade0a33f74ca3e6337f1dd5cf8cc211
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: b40cd130039f7d55b69198b4be4af908dedbe8b7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820352"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58076885"
 ---
 # <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>Démarrage rapide : Utiliser Azure CLI pour créer une file d’attente Service Bus
 
@@ -61,31 +61,31 @@ Après l’exécution de la dernière commande, copiez et collez la chaîne de c
 
 Après avoir créé l’espace de noms et la file d’attente, et après avoir obtenu les informations d’identification nécessaires, vous êtes prêt à envoyer et recevoir des messages. Vous pouvez consulter le code dans [ce dossier d’exemples GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters).
 
-2. Clonez le [dépôt GitHub Service Bus](https://github.com/Azure/azure-service-bus/) sur votre ordinateur en exécutant la commande suivante :
+1. Clonez le [dépôt GitHub Service Bus](https://github.com/Azure/azure-service-bus/) sur votre ordinateur en exécutant la commande suivante :
 
    ```bash
    git clone https://github.com/Azure/azure-service-bus.git
    ```
 
-2. Remplacez votre répertoire actuel par un dossier d’exemples, en utilisant des barres obliques comme séparateurs de chemin :
+1. Remplacez votre répertoire actuel par un dossier d’exemples, en utilisant des barres obliques comme séparateurs de chemin :
 
    ```bash
    cd azure-service-bus/samples/Java/azure-servicebus/QueuesGettingStarted
    ```
 
-3. Exécutez la commande suivante pour créer l’application :
+1. Exécutez la commande suivante pour créer l’application :
    
    ```bash
    mvn clean package -DskipTests
    ```
 
-4. Pour exécuter le programme, exécutez la commande suivante après avoir remplacé la chaîne de connexion par la valeur que vous avez copiée précédemment :
+1. Pour exécuter le programme, exécutez la commande suivante après avoir remplacé la chaîne de connexion par la valeur que vous avez copiée précédemment :
 
    ```bash
    java -jar ./target/queuesgettingstarted-1.0.0-jar-with-dependencies.jar -c "<SERVICE BUS NAMESPACE CONNECTION STRING>" 
    ```
 
-6. Observez l’envoi de 10 messages à la file d’attente. L’ordre des messages n’est pas garanti, mais vous pouvez voir les messages envoyés, confirmés et reçus, ainsi que les données de charge utile :
+1. Observez l’envoi de 10 messages à la file d’attente. L’ordre des messages n’est pas garanti, mais vous pouvez voir les messages envoyés, confirmés et reçus, ainsi que les données de charge utile :
 
     ```
     Message sending: Id = 0

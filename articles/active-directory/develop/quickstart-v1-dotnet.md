@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b06ceb86e8406657766be1375889fcfe1b4673d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2b55f7e615f2c2edb604d5b9433db6cc48d9f36f
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204540"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223391"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-a-net-desktop-wpf-app"></a>Démarrage rapide : Connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application de bureau .NET (WPF)
 
@@ -77,9 +77,9 @@ Maintenant que vous disposez d’une application dans Azure AD, vous pouvez inst
 
 1. Dans le projet `DirectorySearcher`, ouvrez `app.config`.
 1. Remplacez les valeurs des éléments de la section `<appSettings>` afin qu’elles reflètent les valeurs que vous avez saisies dans le Portail Azure. Votre code se réfère à ces valeurs chaque fois qu’il utilise la bibliothèque ADAL.
-  * `ida:Tenant` correspond au domaine de votre locataire Azure AD (contoso.onmicrosoft.com, par exemple).
-  * `ida:ClientId` correspond à l’ID client de votre application, que vous avez copié à partir du portail.
-  * `ida:RedirectUri` correspond à l’URL de redirection que vous avez inscrite dans le portail.
+   * `ida:Tenant` correspond au domaine de votre locataire Azure AD (contoso.onmicrosoft.com, par exemple).
+   * `ida:ClientId` correspond à l’ID client de votre application, que vous avez copié à partir du portail.
+   * `ida:RedirectUri` correspond à l’URL de redirection que vous avez inscrite dans le portail.
 
 ## <a name="step-3-use-adal-to-get-tokens-from-azure-ad"></a>Étape 3 : Utiliser la bibliothèque ADAL pour obtenir des jetons à partir d’Azure AD
 
@@ -172,7 +172,7 @@ Le principe de base de la bibliothèque ADAL consiste simplement à appeler `aut
                 MessageBox.Show(ex.Message);
             }
 
-            // If user interaction is required, proceed to main page without singing the user in.
+            // If user interaction is required, proceed to main page without signing the user in.
             return;
         }
 

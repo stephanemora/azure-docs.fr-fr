@@ -1,6 +1,6 @@
 ---
 title: Approvisionner un appareil X.509 simulé auprès du service Azure IoT Hub à l’aide de Java | Microsoft Docs
-description: 'Démarrage rapide d’Azure : Créer et approvisionner un appareil X.509 simulé auprès du service IoT Hub Device Provisioning à l’aide du Java Device SDK'
+description: 'Démarrage rapide Azure : Créer et approvisionner un appareil X.509 simulé à l’aide du Kit de développement logiciel (SDK) d’appareil Java pour le service IoT Hub Device Provisioning. Ce démarrage rapide utilise des inscriptions individuelles.'
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/09/2018
@@ -10,23 +10,29 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 694c4fe10ec8f738131768d80dd70c5bd18fe223
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 52fbef24e8a1b9fd7e0ade404c23a587c81d6b0a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040735"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105996"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-sdk-for-iot-hub-device-provisioning-service"></a>Créer et approvisionner un appareil X.509 simulé auprès du service IoT Hub Device Provisioning à l’aide du Java Device SDK
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
 Ces étapes indiquent comment simuler un appareil X.509 sur votre ordinateur de développement exécutant le système d’exploitation Windows et comment utiliser l’exemple de code pour connecter cet appareil simulé au service Device Provisioning et à votre IoT hub. 
 
-Si vous ne connaissez pas le processus d’approvisionnement automatique, pensez à consulter également [Concepts de provisionnement automatique](concepts-auto-provisioning.md). Vérifiez également que vous avez suivi la procédure décrite dans [Configurer le service d’approvisionnement d’appareil IoT Hub avec le portail Azure](./quick-setup-auto-provision.md) avant de continuer. 
+Si vous ne connaissez pas le processus d’approvisionnement automatique, pensez à consulter également l’article [Concepts de provisionnement automatique](concepts-auto-provisioning.md). Vérifiez également que vous avez suivi la procédure décrite dans [Configurer le service d’approvisionnement d’appareil IoT Hub avec le portail Azure](./quick-setup-auto-provision.md) avant de continuer. 
+
+Le service Azure IoT Device Provisioning prend en charge deux types d’inscriptions :
+- [Groupes d’inscription](concepts-service.md#enrollment-group) : utilisés pour inscrire plusieurs appareils connexes.
+- [Inscriptions individuelles](concepts-service.md#individual-enrollment) : utilisées pour inscrire un seul appareil.
+
+Cet article présente les inscriptions individuelles.
 
 ## <a name="prepare-the-environment"></a>Préparer l’environnement 
 
-1. Assurez-vous que le [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) est bien installé sur votre ordinateur.
+1. Assurez-vous que le [Java SE Development Kit 8](https://aka.ms/azure-jdks) est bien installé sur votre ordinateur.
 
 2. Téléchargez et installez [Maven](https://maven.apache.org/install.html).
 
@@ -55,7 +61,7 @@ Si vous ne connaissez pas le processus d’approvisionnement automatique, pensez
 Dans cette section, vous allez utiliser un certificat X.509 auto-signé pour lequel il est important de garder à l’esprit les éléments suivants :
 
 * Les certificats auto-signés sont destinés aux tests uniquement et ne doivent pas être utilisés en production.
-* La date d’expiration par défaut d’un certificat auto-signé est de 1 an.
+* La date d’expiration par défaut d’un certificat auto-signé est d’un an.
 
 Vous allez utiliser l’exemple de code du [Kit de développement logiciel (SDK) Azure IoT pour Java](https://github.com/Azure/azure-iot-sdk-java.git) pour créer le certificat à utiliser avec l’entrée d’inscription individuelle de l’appareil simulé.
 
@@ -80,15 +86,15 @@ Vous allez utiliser l’exemple de code du [Kit de développement logiciel (SDK)
 6. Dans le panneau de résumé du service Device Provisioning, sélectionnez **Gérer les inscriptions**. Sélectionnez l’onglet **Inscriptions individuelles**, puis cliquez sur le bouton **Ajouter une inscription individuelle** dans la partie supérieure. 
 
 7. Dans le volet **Ajouter une inscription**, entrez les informations suivantes :
-    - Sélectionnez **X.509** comme *mécanisme* d’attestation d’identité.
-    - Sous le *fichier .pem ou .cer du certificat principal*, cliquez sur *Select a file* (Sélectionner un fichier) pour sélectionner le fichier de certificat **X509individual.pem** créé au cours des étapes précédentes.  
-    - Si vous le souhaitez, vous pouvez fournir les informations suivantes :
-      - Sélectionnez un hub IoT lié à votre service d’approvisionnement.
-      - Entrez un ID d’appareil unique. Veillez à éviter les données sensibles lorsque vous affectez un nom à votre appareil. 
-      - Mettez à jour l’**état du jumeau d’appareil initial** à l’aide de la configuration initiale de votre choix pour l’appareil.
-   - Cela fait, cliquez sur le bouton **Enregistrer**. 
+   - Sélectionnez **X.509** comme *mécanisme* d’attestation d’identité.
+   - Sous le *fichier .pem ou .cer du certificat principal*, cliquez sur *Select a file* (Sélectionner un fichier) pour sélectionner le fichier de certificat **X509individual.pem** créé au cours des étapes précédentes.  
+   - Si vous le souhaitez, vous pouvez fournir les informations suivantes :
+     - Sélectionnez un hub IoT lié à votre service d’approvisionnement.
+     - Entrez un ID d’appareil unique. Veillez à éviter les données sensibles lorsque vous affectez un nom à votre appareil. 
+     - Mettez à jour l’**état du jumeau d’appareil initial** à l’aide de la configuration initiale de votre choix pour l’appareil.
+     - Cela fait, cliquez sur le bouton **Enregistrer**. 
 
-    [![Ajouter une inscription individuelle pour l’attestation X.509 dans le portail](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)
+     [![Ajouter une inscription individuelle pour l’attestation X.509 dans le portail](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)
 
      Lorsque l’inscription aboutit, votre appareil X.509 apparaît en tant que **microsoftriotcore** sous la colonne *ID d’inscription* de l’onglet *Inscriptions individuelles*. 
 
@@ -163,7 +169,7 @@ Si vous envisagez de continuer à manipuler et explorer l’exemple de client d�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce Démarrage rapide, vous avez créé un appareil X.509 simulé sur votre machine Windows. Vous avez configuré son inscription dans votre instance Azure IoT Hub Device Provisioning Service, puis approvisionné automatiquement l’appareil sur votre IoT Hub. Pour savoir comment inscrire un appareil X.509 au moyen d’un programme, poursuivez avec le démarrage rapide correspondant. 
+Dans ce Démarrage rapide, vous avez créé un appareil X.509 simulé sur votre machine Windows. Vous avez configuré son inscription dans votre instance Azure IoT Hub Device Provisioning Service, puis approvisionné automatiquement l’appareil sur votre hub IoT. Pour savoir comment inscrire un appareil X.509 au moyen d’un programme, poursuivez avec le démarrage rapide correspondant. 
 
 > [!div class="nextstepaction"]
 > [Démarrage rapide d’Azure : Inscrire des appareils X.509 auprès du service Azure IoT Hub Device Provisioning](quick-enroll-device-x509-java.md)

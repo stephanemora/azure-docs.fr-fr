@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 961f231f9d8ab339d06e9521830c58d175c4a9e3
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 8a7c722944aacaca9780939a1726c6e47be79be1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492910"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58112039"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>Sauvegarder une machine virtuelle dans Azure avec l’interface de ligne de commande
 L’interface de ligne de commande (CLI) Azure permet de créer et gérer des ressources Azure à partir de la ligne de commande ou dans les scripts. Vous pouvez protéger vos données en effectuant des sauvegardes à intervalles réguliers. La sauvegarde Azure crée des points de récupération pouvant être stockés dans des coffres de récupération géo-redondants. Cet article explique comment sauvegarder une machine virtuelle (VM) dans Azure avec Azure CLI. Vous pouvez également effectuer ces étapes avec [Azure PowerShell](quick-backup-vm-powershell.md) ou dans le [portail Azure](quick-backup-vm-portal.md).
@@ -58,7 +58,7 @@ az backup protection enable-for-vm \
 ```
 
 > [!NOTE]
-Si la machine virtuelle n’est pas dans le même groupe de ressources que celui du coffre, alors myResourceGroup fait référence au groupe de ressources dans lequel le coffre a été créé. Au lieu du nom de la machine virtuelle, indiquez l’ID de la machine virtuelle comme indiqué ci-dessous.
+> Si la machine virtuelle n’est pas dans le même groupe de ressources que celui du coffre, alors myResourceGroup fait référence au groupe de ressources dans lequel le coffre a été créé. Au lieu du nom de la machine virtuelle, indiquez l’ID de la machine virtuelle comme indiqué ci-dessous.
 
 ```azurecli-interactive 
 az backup protection enable-for-vm \

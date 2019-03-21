@@ -16,16 +16,16 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: b099d1765f0ed56d6768501086bf8b9f83d5a86a
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: f5ac1c53a97fc2a3749582c5f48b967e3ce0c2c4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112267"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104265"
 ---
 # <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>Didacticiel : Présenter le basculement et la mise à l’échelle de services de conteneur avec Service Fabric
 
-Ce tutoriel est le troisième de la série. Dans ce didacticiel, vous découvrez la gestion du basculement au sein d’applications de conteneur dans Service Fabric. Vous apprenez également à mettre à l’échelle des conteneurs. Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :
+Ce didacticiel est le troisième de la série. Dans ce didacticiel, vous découvrez la gestion du basculement au sein d’applications de conteneur dans Service Fabric. Vous apprenez également à mettre à l’échelle des conteneurs. Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * En savoir plus sur le basculement de conteneur dans un cluster Service Fabric
@@ -63,8 +63,8 @@ Pour mettre à l’échelle le service web frontal, effectuez les étapes suivan
 
 Vous pouvez maintenant choisir de mettre à l’échelle le nombre d’instances du service web frontal.
 
-3. Définissez le nombre sur **2**, puis cliquez sur **Scale Service** (Mettre à l’échelle le service).
-4. Cliquez sur le nœud **fabric:/TestContainer/azurevotefront** dans l’arborescence, puis développez le nœud de la partition (représenté par un GUID).
+1. Définissez le nombre sur **2**, puis cliquez sur **Scale Service** (Mettre à l’échelle le service).
+1. Cliquez sur le nœud **fabric:/TestContainer/azurevotefront** dans l’arborescence, puis développez le nœud de la partition (représenté par un GUID).
 
 ![MiseÀL’échelleDeSfxEffectuée][sfxscaledone]
 

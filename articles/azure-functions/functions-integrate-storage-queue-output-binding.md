@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 15ef1905562d04c2732016dfd1340910b3a8f699
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 381eecefbba238e712820a09c8ec489706ef3751
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54900355"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106455"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Ajouter des messages au stockage de files d’attente Azure, à l’aide de Functions
 
@@ -122,7 +122,7 @@ Une nouvelle file d’attente nommée **outqueue** est créée dans votre compte
 
 Ignorez cette section si vous avez déjà installé et connecté l’Explorateur Stockage au compte de stockage que vous utilisez dans ce démarrage rapide.
 
-2. Exécutez [l’Explorateur de stockage Microsoft Azure](https://storageexplorer.com/), sélectionnez l’icône de connexion située sur la gauche, choisissez **Utiliser un nom et une clé de compte de stockage**, puis sélectionnez **Suivant**.
+1. Exécutez [l’Explorateur de stockage Microsoft Azure](https://storageexplorer.com/), sélectionnez l’icône de connexion située sur la gauche, choisissez **Utiliser un nom et une clé de compte de stockage**, puis sélectionnez **Suivant**.
 
     ![Exécutez l’outil Explorateur de compte de stockage.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-1.png)
 
@@ -140,13 +140,13 @@ Ignorez cette section si vous avez déjà installé et connecté l’Explorateur
  
 1. Cliquez sur l’icône d’affichage/de masquage en regard de **Clé du compte** pour afficher la valeur, puis copiez la valeur de **Clé du compte** et collez-la dans le champ **Clé du compte** de l’Explorateur Stockage.
   
-3. Sélectionnez **Suivant > Connecter**.
+1. Sélectionnez **Suivant > Connecter**.
 
    ![Collez les informations d’identification de stockage et connectez-vous.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-2.png)
 
 ### <a name="examine-the-output-queue"></a>Analyser la file d’attente de sortie
 
-4. Dans l’Explorateur Stockage, sélectionnez le compte de stockage que vous utilisez pour ce démarrage rapide.
+1. Dans l’Explorateur Stockage, sélectionnez le compte de stockage que vous utilisez pour ce démarrage rapide.
 
 1. Développez le nœud **Files d’attente**, puis sélectionnez la file d’attente nommée **outqueue**. 
 
@@ -154,7 +154,7 @@ Ignorez cette section si vous avez déjà installé et connecté l’Explorateur
 
     ![Message de file d’attente affiché dans l’Explorateur Stockage](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 
-2. Exécutez de nouveau la fonction, et vous verrez un nouveau message s’afficher dans la file d’attente.  
+1. Exécutez de nouveau la fonction, et vous verrez un nouveau message s’afficher dans la file d’attente.  
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

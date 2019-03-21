@@ -2,24 +2,24 @@
 title: Mise à jour d’un microprogramme d’appareil avec Azure IoT Hub | Microsoft Docs
 description: Implémentez un processus de mise à jour de microprogramme d’appareil à l’aide de tâches et de jumeaux d’appareils.
 services: iot-hub
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2019
-ms.author: dobett
 ms.custom: mvc
-ms.openlocfilehash: c387a7c10b962cfd27a7563c00ce58f58e97b9d5
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: faccebbd00b4ee9c8ecc257722ab87f0494d9466
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671826"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116688"
 ---
-# <a name="tutorial-implement-a-device-firmware-update-process"></a>Tutoriel : Implémenter un processus de mise à jour de microprogramme d’appareil
+# <a name="tutorial-implement-a-device-firmware-update-process"></a>Didacticiel : Implémenter un processus de mise à jour de microprogramme d’appareil
 
 Vous devrez peut-être mettre à jour le microprogramme sur les appareils connectés à votre hub IoT. Par exemple, il peut être nécessaire d’ajouter de nouvelles fonctionnalités au microprogramme ou d’appliquer des correctifs de sécurité. Dans de nombreux scénarios IoT, il est difficile d’intervenir physiquement puis d’appliquer manuellement les mises à jour du microprogramme à vos appareils. Ce tutoriel montre comment démarrer et surveiller le processus de mise à jour du microprogramme à distance via une application back-end connectée à votre hub.
 
@@ -73,7 +73,7 @@ az group create --name tutorial-iot-hub-rg --location $location
 az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku F1
 
 # Make a note of the service connection string, you need it later
-az iot hub show-connection-string --hub-name $hubname -o table
+az iot hub show-connection-string --name $hubname -o table
 
 ```
 
@@ -209,4 +209,4 @@ az group delete --name tutorial-iot-hub-rg
 Dans ce tutoriel, vous avez appris à implémenter un processus de mise à jour de microprogramme pour vos appareils connectés. Passez au tutoriel suivant pour apprendre à utiliser les outils du portail Azure IoT Hub et les commandes Azure CLI pour tester la connectivité de l’appareil.
 
 > [!div class="nextstepaction"]
-[Utiliser un appareil simulé pour tester la connectivité avec votre hub IoT](tutorial-connectivity.md)
+> [Utiliser un appareil simulé pour tester la connectivité avec votre hub IoT](tutorial-connectivity.md)

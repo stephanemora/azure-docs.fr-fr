@@ -1,19 +1,19 @@
 ---
 title: Créer, changer ou supprimer une table de routage Azure à l’aide d’Ansible
 description: Découvrir comment utiliser Ansible pour créer, modifier ou supprimer une table de routage
-ms.service: ansible
+ms.service: azure
 keywords: ansible, azure, devops, bash, playbook, réseaux, routes, table de routage
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/17/2018
-ms.openlocfilehash: 29672a75408e42fb9239e5d826784b46e7280805
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 025a8182d32a7d0d00a48795c848d356eb1c3d4e
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332266"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792444"
 ---
 # <a name="create-change-or-delete-an-azure-route-table-using-ansible"></a>Créer, changer ou supprimer une table de routage Azure à l’aide d’Ansible
 Azure achemine automatiquement le trafic entre les sous-réseaux, les réseaux virtuels et les réseaux locaux Azure. Si vous voulez changer un routage par défaut sur Azure, vous devez créer une [table de routage](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).

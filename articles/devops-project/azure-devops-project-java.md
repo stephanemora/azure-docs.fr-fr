@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 4f3f82f329e3ac8774978f6116629a4928c142ad
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 38be92a006ae6dbb7a550d2d91d886df820fb883
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261324"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093563"
 ---
 # <a name="create-a-cicd-pipeline-for-java-with-azure-devops-projects"></a>Créer un pipeline CI/CD pour Java avec Azure DevOps Projects
 
@@ -65,17 +65,17 @@ Les exemples Java offrent le choix entre plusieurs infrastructures d'application
 
     ![Vue du tableau de bord](_img/azure-devops-project-java/dashboardnopreview.png) 
     
- DevOps Projects a configuré automatiquement un déclencheur de build et de mise en production CI.  Vous êtes maintenant prêt à collaborer avec une équipe sur une application Java avec un processus CI/CD qui déploie automatiquement votre dernier travail sur votre site web.
+   DevOps Projects a configuré automatiquement un déclencheur de build et de mise en production CI.  Vous êtes maintenant prêt à collaborer avec une équipe sur une application Java avec un processus CI/CD qui déploie automatiquement votre dernier travail sur votre site web.
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>Valider les modifications de code et exécuter CI/CD
 
 DevOps Projects crée un dépôt Git dans Azure Repos ou dans GitHub. Pour voir le dépôt et modifier le code dans votre application, suivez les étapes ci-dessous :
 
 1. À gauche du tableau de bord DevOps Projects, sélectionnez le lien correspondant à votre branche master.  
-Ce lien ouvre une vue sur le dépôt Git récemment créé.
+Ce lien ouvre une vue sur le référentiel Git récemment créé.
 
 1. Pour afficher l’URL du clone du dépôt, sélectionnez **Cloner** en haut à droite du navigateur.   
-    Vous pouvez cloner votre dépôt Git dans votre environnement de développement intégré favori. Dans les prochaines étapes, vous allez utiliser le navigateur web pour effectuer des modifications de code directement dans la branche maîtresse et les valider.
+    Vous pouvez cloner votre référentiel Git dans votre environnement de développement intégré favori. Dans les prochaines étapes, vous allez utiliser le navigateur web pour effectuer des modifications de code directement dans la branche maîtresse et les valider.
 
 1. Sur la gauche du navigateur, accédez au fichier **src/main/webapp/index.html**.
 
@@ -122,7 +122,7 @@ En fonction de votre scénario, vous pouvez spécifier des stratégies pour cons
 Le pipeline de mise en production contient un pipeline qui définit le processus de mise en production.  
     
 12. Sous **Artefacts**, sélectionnez **Déposer**.  
-Le pipeline de build que vous avez examiné dans les étapes précédentes produit la sortie utilisée pour l’artefact. 
+Le pipeline de build que vous avez examiné aux étapes précédentes produit la sortie qui est utilisée pour l’artefact. 
 
 1. En regard de l’icône **Déposer**, sélectionnez le **déclencheur de déploiement continu**.  
 Ce pipeline de mise en production a un déclencheur CD activé, qui effectue un déploiement chaque fois qu’un nouvel artefact de build est disponible. Si vous le souhaitez, vous pouvez désactiver le déclencheur, vos déploiements nécessitant alors une exécution manuelle. 

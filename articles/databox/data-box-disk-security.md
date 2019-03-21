@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 569f89d389e4bc8c7f2d1f46f3713e9792d4e466
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: afb344418f843e54c3172c17d28bde7055e101b4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159687"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093454"
 ---
 # <a name="azure-data-box-disk-security-and-data-protection"></a>Protection des données et sécurité Azure Data Box Disk
 
@@ -71,17 +71,17 @@ Azure Data Box Disk collecte et affiche des informations personnelles dans les i
 
 - **Détails de la commande** : une fois la commande créée, l’adresse de livraison, l’adresse e-mail, et les informations de contact des utilisateurs sont stockées dans le portail Azure. Les informations enregistrées incluent :
 
-    - Nom du contact
-    - Numéro de téléphone
-    - Email
-    - Adresse postale
-    - City
-    - Code postal
-    - État
-    - Pays/Province/Région
-    - ID de lecteur de disque
-    - Numéro de compte du transporteur
-    - Numéro de suivi d’expédition
+  - Nom du contact
+  - Numéro de téléphone
+  - Email
+  - Adresse postale
+  - City
+  - Code postal
+  - État
+  - Pays/Province/Région
+  - ID de lecteur de disque
+  - Numéro de compte du transporteur
+  - Numéro de suivi d’expédition
 
     Les détails de la commande sont supprimés par le service Data Box lorsque la tâche est terminée ou quand vous supprimez la commande.
 

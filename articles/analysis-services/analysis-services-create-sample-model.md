@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 01/09/2019
+ms.date: 03/13/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 78b309336b21c3b6a58a37b1729f675db111c5d0
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 32c46f0a488d775275b3a367aa2913f034569041
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190542"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57903927"
 ---
 # <a name="tutorial-add-a-sample-model-from-the-portal"></a>Tutoriel : Ajouter un exemple de modèle à partir du portail
 
@@ -57,7 +57,7 @@ Connectez-vous au [portail](https://portal.azure.com/).
 
 Votre exemple de modèle utilise des ressources en mémoire cache. Si vous n’utilisez pas votre exemple de modèle à des fins de test, il est préférable de le supprimer de votre serveur.
 
-Ces étapes décrivent comment supprimer un modèle d’un serveur à l’aide de SSMS. Vous pouvez également supprimer un modèle à l’aide de la fonctionnalité du concepteur web en préversion.
+Ces étapes décrivent comment supprimer un modèle d’un serveur à l’aide de SSMS.
 
 1. Dans SSMS > **Explorateur d’objets**, cliquez sur **Se connecter** > **Analysis Services**.
 

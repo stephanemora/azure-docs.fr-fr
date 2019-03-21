@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: c247ef748628c14074c2b5ea37df251793840b16
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 6f775ffaf53019cc50bc38c294b4d5f40c8eca90
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876032"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58076749"
 ---
 # <a name="integrate-speech-service-with-your-language-understanding-app"></a>Intégrer le service Speech à votre Language Understanding
 Le [service de reconnaissance vocale](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) vous permet d’utiliser une seule requête pour recevoir de l’audio et retourner les objets JSON de prédiction de LUIS. Dans cet article, vous téléchargez et utilisez un projet C# dans Visual Studio pour prononcer un énoncé dans un microphone et recevoir les informations de prédiction de LUIS. Le projet utilise le package [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) Speech, déjà inclus comme référence. 
@@ -49,11 +49,11 @@ Après avoir importé l’application, sélectionnez **Entités**, puis **Ajoute
 
 3. Dans la page **Keys and endpoints**, affectez la clé LUIS créée dans la section [Create LUIS endpoint key (Créer une clé de point de terminaison LUIS)](#create-luis-endpoint-key).
 
-  Dans cette page, récupérez l’ID de l’application, la région de publication et l’ID d’abonnement de la clé LUIS créée dans la section [Create LUIS endpoint key](#create-luis-endpoint-key). Vous devez modifier le code pour utiliser ces valeurs plus tard dans cet article. 
+   Dans cette page, récupérez l’ID de l’application, la région de publication et l’ID d’abonnement de la clé LUIS créée dans la section [Create LUIS endpoint key](#create-luis-endpoint-key). Vous devez modifier le code pour utiliser ces valeurs plus tard dans cet article. 
   
-  N’utilisez **pas** la clé gratuite de démarrage pour cet exercice. Seule une clé **Language Understanding** créée dans le portail Azure fonctionne pour cet exercice. 
+   N’utilisez **pas** la clé gratuite de démarrage pour cet exercice. Seule une clé **Language Understanding** créée dans le portail Azure fonctionne pour cet exercice. 
 
-  https://**REGION**.api.cognitive.microsoft.com/luis/v2.0/apps/**APPID**?subscription-key=**LUISKEY**&q=
+   https://**REGION**.api.cognitive.microsoft.com/luis/v2.0/apps/**APPID**?subscription-key=**LUISKEY**&q=
 
 
 4. Publiez l’application LUIS en sélectionnant le bouton **Publish** dans la barre en haut à droite. 

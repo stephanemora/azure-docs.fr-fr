@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: bb0eac4f7de11c2b80412319227a00d5dbe6d8c6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 84f9472618322111ad2f669ebb172258837620fd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243400"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106064"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>Démarrage rapide : créer une machine virtuelle serveur Linux à l’aide d’Azure CLI dans Azure Stack
 
@@ -46,8 +46,8 @@ Vous pouvez créer une machine virtuelle sous Ubuntu Server 16.04 LTS à l’aid
 
 Un groupe de ressources est un conteneur logique dans lequel vous pouvez déployer et gérer des ressources Azure Stack. À partir de votre kit de développement ou du système intégré Azure Stack, exécutez la commande [az group create](/cli/azure/group#az-group-create) pour créer un groupe de ressources.
 
->[!NOTE]
- Des valeurs sont attribuées pour toutes les variables dans les exemples de code. Toutefois, vous pouvez attribuer de nouvelles valeurs si vous le souhaitez.
+> [!NOTE]
+>  Des valeurs sont attribuées pour toutes les variables dans les exemples de code. Toutefois, vous pouvez attribuer de nouvelles valeurs si vous le souhaitez.
 
 L’exemple suivant crée un groupe de ressources nommé myResourceGroup à l’emplacement local.
 
@@ -82,7 +82,7 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 
 ## <a name="use-ssh-to-connect-to-the-virtual-machine"></a>Utiliser SSH pour se connecter à la machine virtuelle
 
-À partir d’un ordinateur client disposant de SSH, connectez-vous à la machine virtuelle. Si vous travaillez sur un client Windows, utilisez [Putty](http://www.putty.org/) pour créer la connexion. Pour vous connecter à la machine virtuelle, utilisez la commande suivante :
+À partir d’un ordinateur client disposant de SSH, connectez-vous à la machine virtuelle. Si vous travaillez sur un client Windows, utilisez [Putty](https://www.putty.org/) pour créer la connexion. Pour vous connecter à la machine virtuelle, utilisez la commande suivante :
 
 ```bash
 ssh <publicIpAddress>

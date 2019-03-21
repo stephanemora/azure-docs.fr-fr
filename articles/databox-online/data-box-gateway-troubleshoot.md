@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: overview
 ms.date: 02/26/2019
 ms.author: alkohli
-ms.openlocfilehash: e6042d9a1d6dc0e737fb4cf7e55d2c6938f9b0f4
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: c07293971c4cadd8b7bccc608f69faa3baa19ba7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961042"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100851"
 ---
 # <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Résoudre les problèmes d’Azure Data Box Gateway 
 
@@ -67,16 +67,16 @@ Toutes les erreurs rencontrées lors des processus de chargement et d’actualis
 
 2. Cliquez sur le _dossier Microsoft Data Box Gateway_. Ce dossier comporte deux sous-dossiers :
 
-    - dossier Upload contenant les fichiers journaux des erreurs de chargement ;
-    - dossier Refresh stockant les fichiers journaux des erreurs d’actualisation.
+   - dossier Upload contenant les fichiers journaux des erreurs de chargement ;
+   - dossier Refresh stockant les fichiers journaux des erreurs d’actualisation.
 
-    Voici un exemple de fichier journal d’actualisation.
+     Voici un exemple de fichier journal d’actualisation.
 
-    ```
-    <root container="brownbag1" machine="VM15BS020663" timestamp="07/18/2018 00:11:10" />
-    <file item="test.txt" local="False" remote="True" error="16001" />
-    <summary runtime="00:00:00.0945320" errors="1" creates="2" deletes="0" insync="3" replaces="0" pending="9" />
-    ``` 
+     ```
+     <root container="brownbag1" machine="VM15BS020663" timestamp="07/18/2018 00:11:10" />
+     <file item="test.txt" local="False" remote="True" error="16001" />
+     <summary runtime="00:00:00.0945320" errors="1" creates="2" deletes="0" insync="3" replaces="0" pending="9" />
+     ``` 
 
 3. Lorsque ce fichier signale une erreur (présentée dans cet exemple), notez le code de l’erreur, 16001 dans le cas présent. Recherchez ci-après la description de ce code d’erreur en fonction de la référence de l’erreur.
 

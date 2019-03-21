@@ -4,17 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Vous pouvez créer une base de connaissances QnA Maker à partir de votre propre contenu, tel que des Questions fréquentes (FAQ) ou des manuels. La base de connaissances QnA Maker dans cet exemple est créée à partir d’une simple page web de FAQ afin de répondre aux questions sur la récupération de clé BitLocker.
 author: diberry
 manager: nitinme
+services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: 2ac6e6fcd73abddcee668b8f73184b923aeab5d3
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 3f7b24af3d48075150ae7c192ccf421b928a7aa3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876995"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113697"
 ---
 # <a name="create-train-and-publish-your-qna-maker-knowledge-base"></a>Créer, entraîner et publier votre base de connaissances QnA Maker
 
@@ -53,7 +54,7 @@ Vous pouvez créer une base de connaissances QnA Maker à partir de votre propre
 
 10. Dans le coin supérieur droit, sélectionnez **Add QnA pair** (Ajouter une paire QnA) pour ajouter une nouvelle ligne dans la section **Editorial** de la base de connaissances. Sous **Question**, entrez **Salut.** Sous **Answer**, entrez **Bonjour. Posez-moi des questions sur bitlocker.**
 
-   ![Ajouter une paire QnA](../media/qnamaker-quickstart-kb/add-qna-pair.png)
+    ![Ajouter une paire QnA](../media/qnamaker-quickstart-kb/add-qna-pair.png)
 
 11. Dans le coin supérieur droit, sélectionnez **Save and train** (Enregistrer et entraîner) pour enregistrer vos modifications et entraîner le modèle QnA Maker. Les modifications ne sont conservées que si elles sont enregistrées.
 
@@ -61,7 +62,7 @@ Vous pouvez créer une base de connaissances QnA Maker à partir de votre propre
 
 13. Sélectionnez **Inspect** pour examiner la réponse plus en détail. La fenêtre de test sert à tester vos modifications de la base de connaissances avant leur publication.
 
-   ![Panneau de test](../media/qnamaker-quickstart-kb/inspect-panel.png)
+    ![Panneau de test](../media/qnamaker-quickstart-kb/inspect-panel.png)
 
 14. Sélectionnez **Test** à nouveau pour fermer la fenêtre contextuelle **Test**.
 
@@ -69,7 +70,7 @@ Vous pouvez créer une base de connaissances QnA Maker à partir de votre propre
 
 16. Le service QnA Maker est désormais correctement publié. Vous pouvez utiliser le point de terminaison dans votre code d’application ou de bot.
 
-   ![Publish](../media/qnamaker-quickstart-kb/publish-sucess.png)
+    ![Publish](../media/qnamaker-quickstart-kb/publish-sucess.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

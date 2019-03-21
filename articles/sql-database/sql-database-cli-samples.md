@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/03/2019
-ms.openlocfilehash: 3b98214da259e9e429c938f8ca7963c9f525e862
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 74d322c9e7d45a26f9e095bd7ae9f2bbe506ba49
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55560819"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57306933"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database"></a>Exemples Azure CLI pour Azure SQL Database
 
@@ -45,15 +45,15 @@ Le tableau suivant comprend des liens vers des exemples de scripts Azure CLI po
 
 Découvrez-en plus sur l’[API de base de données unique Azure CLI ](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases).
 
-## <a name="managed-instance"></a>Instance managée
+## <a name="managed-instance"></a>Instance gérée
 
 Le tableau suivant comprend des liens vers des exemples de scripts Azure CLI pour Azure SQL Database - Managed Instance.
 
 | |  |
 |---|---|
-| [Créer une instance managée](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/create-azure-sql-managed-instance-using-azure-cli/) | Ce script CLI montre comment créer une instance managée. |
-| [Mettre à jour une instance managée](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/modify-azure-sql-database-managed-instance-using-azure-cli/) | Ce script CLI montre comment mettre à jour une instance managée. |
-| [Déplacer une base de données vers une autre instance managée](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/07/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/) | Ce script CLI montre comment restaurer une sauvegarde de base de données d’une instance vers une autre. |
+| [Créer une instance gérée](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../create-azure-sql-managed-instance-using-azure-cli/) | Ce script CLI montre comment créer une instance managée. |
+| [Mettre à jour une instance managée](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../modify-azure-sql-database-managed-instance-using-azure-cli/) | Ce script CLI montre comment mettre à jour une instance managée. |
+| [Déplacer une base de données vers une autre instance managée](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/) | Ce script CLI montre comment restaurer une sauvegarde de base de données d’une instance vers une autre. |
 |||
 
 Découvrez-en plus sur l’[API Managed Instance Azure CLI](sql-database-managed-instance-create-manage.md#azure-cli-create-and-manage-managed-instances) et consultez [d’autres exemples ici](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44).

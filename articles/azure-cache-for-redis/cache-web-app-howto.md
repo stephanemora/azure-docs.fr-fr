@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 8225f5a093724c00dcc336d5dc2195f4addc998b
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: f0972e840fab3c624616ba8aa70bae74be5b1dc2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237822"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58090472"
 ---
 # <a name="quickstart-create-an-aspnet-web-app"></a>Démarrage rapide : Créez une application web ASP.NET 
 
@@ -74,9 +74,9 @@ Vous devez maintenant créer le cache pour l’application.
 
 #### <a name="to-edit-the-cachesecretsconfig-file"></a>Pour modifier le fichier *CacheSecrets.config*
 
-3. Créez un fichier sur votre ordinateur nommé *CacheSecrets.config*. Placez-le dans un emplacement où il ne sera pas archivé avec le code source de votre exemple d’application. Pour ce démarrage rapide, le fichier *CacheSecrets.config* se trouve à l’emplacement suivant : *C:\AppSecrets\CacheSecrets.config*.
+1. Créez un fichier sur votre ordinateur nommé *CacheSecrets.config*. Placez-le dans un emplacement où il ne sera pas archivé avec le code source de votre exemple d’application. Pour ce démarrage rapide, le fichier *CacheSecrets.config* se trouve à l’emplacement suivant : *C:\AppSecrets\CacheSecrets.config*.
 
-4. Modifiez le fichier *CacheSecrets.config*. Ajoutez ensuite le contenu suivant :
+1. Modifiez le fichier *CacheSecrets.config*. Ajoutez ensuite le contenu suivant :
 
     ```xml
     <appSettings>
@@ -84,14 +84,14 @@ Vous devez maintenant créer le cache pour l’application.
     </appSettings>
     ```
 
-5. Remplacez `<cache-name>` par le nom d’hôte de votre cache.
+1. Remplacez `<cache-name>` par le nom d’hôte de votre cache.
 
-6. Remplacez `<access-key>` par la clé primaire de votre cache.
+1. Remplacez `<access-key>` par la clé primaire de votre cache.
 
     > [!TIP]
     > Vous pouvez utiliser la clé d’accès secondaire en tant que clé de remplacement lors de la rotation des clés pendant que vous régénérez la clé d’accès primaire.
->
-7. Enregistrez le fichier .
+   >
+1. Enregistrez le fichier .
 
 ## <a name="update-the-mvc-application"></a>Mettre à jour l’application MVC
 

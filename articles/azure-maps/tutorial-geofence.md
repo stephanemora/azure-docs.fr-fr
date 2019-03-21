@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 7bd4c261af4159429a91bd8b425180037eec8c23
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 112d0bd4b6802179692d0d177775027e552d1170
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670891"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085318"
 ---
 # <a name="set-up-a-geofence-by-using-azure-maps"></a>Configurer une limite géographique à l’aide d’Azure Maps
 
@@ -25,11 +25,11 @@ Pour plus d’informations sur Event Grid, consultez [Azure Event Grid](https://
 Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
-* Charger la limite géographique dans le service de données Azure Maps à l’aide de l’API Data Upload
-*   Définir une grille d’événements pour gérer les événements relatifs à la limite géographique
-*   Configurer le gestionnaire des événements relatifs à la limite géographique
-*   Configurer des alertes en réponse aux événements de la limite géographique à l’aide de Logic Apps
-*   Utiliser les API du service de limite géographique d’Azure Maps pour vérifier si le matériel se trouve ou non sur le site de construction.
+> * Charger la limite géographique dans le service de données Azure Maps à l’aide de l’API Data Upload
+> *   Définir une grille d’événements pour gérer les événements relatifs à la limite géographique
+> *   Configurer le gestionnaire des événements relatifs à la limite géographique
+> *   Configurer des alertes en réponse aux événements de la limite géographique à l’aide de Logic Apps
+> *   Utiliser les API du service de limite géographique d’Azure Maps pour vérifier si le matériel se trouve ou non sur le site de construction.
 
 
 ## <a name="prerequisites"></a>Prérequis
@@ -150,9 +150,9 @@ Ouvrez l’application Postman et suivez les étapes pour charger la limite géo
 
 5. Cliquez sur Send (Envoyer), puis examinez l’en-tête de la réponse. L’en-tête d’emplacement contient l’URI permettant d’accéder aux données ou de les télécharger pour une utilisation ultérieure. Il contient également la valeur unique `udId` pour les données chargées.
 
-  ```HTTP
-  https://atlas.microsoft.com/mapData/{udId}/status?api-version=1.0&subscription-key={Subscription-key}
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/mapData/{udId}/status?api-version=1.0&subscription-key={Subscription-key}
+   ```
 
 ## <a name="set-up-an-event-handler"></a>Configurer un gestionnaire d’événements
 
@@ -163,15 +163,15 @@ Pour plus d’informations, consultez tous les [gestionnaires d’événements p
 
 1. Créer une application logique dans le portail Azure
 
-  ![Créer des applications logiques](./media/tutorial-geofence/logic-app.png)
+   ![Créer des applications logiques](./media/tutorial-geofence/logic-app.png)
 
 2. Sélectionnez un déclencheur de requête HTTP, puis sélectionnez « Envoyer un e-mail » dans le connecteur Outlook.
   
-  ![Schéma des applications logiques](./media/tutorial-geofence/logic-app-schema.png)
+   ![Schéma des applications logiques](./media/tutorial-geofence/logic-app-schema.png)
 
 3. Enregistrez l’application logique pour générer le point de terminaison de l’URL HTTP, puis copiez l’URL.
 
-  ![Point de terminaison des applications logiques](./media/tutorial-geofence/logic-app-endpoint.png)
+   ![Point de terminaison des applications logiques](./media/tutorial-geofence/logic-app-endpoint.png)
 
 
 ## <a name="create-an-azure-maps-events-subscription"></a>Créer un abonnement aux événements Azure Maps
@@ -208,53 +208,53 @@ Voici cinq requêtes HTTP GET de l’API Geofence, avec différentes coordonné
  
 1. Emplacement 1 :
     
-  ```HTTP
-  https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.638237&lon=-122.1324831&searchBuffer=5&isAsync=True&mode=EnterAndExit
-  ```
-  ![Geofence - Requête 1](./media/tutorial-geofence/geofence-query1.png)
+   ```HTTP
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.638237&lon=-122.1324831&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   ```
+   ![Geofence - Requête 1](./media/tutorial-geofence/geofence-query1.png)
 
-  Dans la réponse ci-dessus, la distance négative par rapport à la limite géographique principale signifie que le matériel se trouve dans cette limite géographique, et la valeur positive par rapport à la limite géographique du sous-site signifie que le matériel se trouve en dehors de la limite du sous-site. 
+   Dans la réponse ci-dessus, la distance négative par rapport à la limite géographique principale signifie que le matériel se trouve dans cette limite géographique, et la valeur positive par rapport à la limite géographique du sous-site signifie que le matériel se trouve en dehors de la limite du sous-site. 
 
 2. Emplacement 2 : 
    
-  ```HTTP
-  https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63800&lon=-122.132531&searchBuffer=5&isAsync=True&mode=EnterAndExit
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63800&lon=-122.132531&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   ```
     
-  ![Geofence - Requête 2](./media/tutorial-geofence/geofence-query2.png)
+   ![Geofence - Requête 2](./media/tutorial-geofence/geofence-query2.png)
 
-  Si vous examinez attentivement la réponse JSON précédente, le matériel se trouve en dehors du sous-site, mais à l’intérieur de la limite principale. Dans cas, aucun événement n’est déclenché et aucun e-mail n’est envoyé.
+   Si vous examinez attentivement la réponse JSON précédente, le matériel se trouve en dehors du sous-site, mais à l’intérieur de la limite principale. Dans cas, aucun événement n’est déclenché et aucun e-mail n’est envoyé.
 
 3. Emplacement 3 : 
   
-  ```HTTP
-  https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63810783315048&lon=-122.13336020708084&searchBuffer=5&isAsync=True&mode=EnterAndExit
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63810783315048&lon=-122.13336020708084&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   ```
 
-  ![Geofence - Requête 3](./media/tutorial-geofence/geofence-query3.png)
+   ![Geofence - Requête 3](./media/tutorial-geofence/geofence-query3.png)
 
-  L’état du matériel a changé, car celui-ci se trouve à la fois en dehors du sous-site et en dehors du site principal. Dans ce cas, un événement et un e-mail de notification sont envoyés au responsable des opérations.
+   L’état du matériel a changé, car celui-ci se trouve à la fois en dehors du sous-site et en dehors du site principal. Dans ce cas, un événement et un e-mail de notification sont envoyés au responsable des opérations.
 
 4. Emplacement 4: 
 
-  ```HTTP
-  https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.637988&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.637988&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   ```
   
-  ![Geofence - Requête 4](./media/tutorial-geofence/geofence-query4.png)
+   ![Geofence - Requête 4](./media/tutorial-geofence/geofence-query4.png)
 
    Si on observe attentivement la réponse correspondante, on voit qu’aucun événement n’est publié, même si le matériel se trouve désormais en dehors de la limite géographique du matériel. Si vous regardez l’heure spécifiée par l’utilisateur dans la requête GET, vous pouvez voir que la limite du sous-site a expiré et que le matériel se trouve toujours dans la limite du site principal. Vous pouvez également voir l’ID de géométrie de la limite géographique du sous-site sous `expiredGeofenceGeometryId`, dans le corps de réponse.
 
 
 5. Emplacement 5 :
       
-  ```HTTP
-  https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63799&lon=-122.134505&userTime=2019-01-16&searchBuffer=5&isAsync=True&mode=EnterAndExit
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63799&lon=-122.134505&userTime=2019-01-16&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   ```
 
-  ![Geofence - Requête 5](./media/tutorial-geofence/geofence-query5.png)
+   ![Geofence - Requête 5](./media/tutorial-geofence/geofence-query5.png)
 
-  Vous pouvez voir que le matériel a quitté le site de construction principal. Dans ce cas, il s’agit d’une violation grave, qui provoque la publication d’un événement et l’envoi d’un e-mail au responsable des opérations.
+   Vous pouvez voir que le matériel a quitté le site de construction principal. Dans ce cas, il s’agit d’une violation grave, qui provoque la publication d’un événement et l’envoi d’un e-mail au responsable des opérations.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

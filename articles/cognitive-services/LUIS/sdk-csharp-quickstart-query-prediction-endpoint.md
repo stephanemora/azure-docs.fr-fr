@@ -5,16 +5,17 @@ description: Utilisez le SDK C# pour envoyer un énoncé utilisateur à LUIS et 
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
+services: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 02/14/2019
 ms.author: diberry
-ms.openlocfilehash: e009ef159a51a22c56409cd1564fa9fde3c67b55
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 086f55094474d4c06e52001d77630932cd04213c
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56344198"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404091"
 ---
 # <a name="quickstart-query-prediction-endpoint-with-c-net-sdk"></a>Démarrage rapide : Envoyer une requête à un point de terminaison de prédiction avec le SDK .NET C#
 

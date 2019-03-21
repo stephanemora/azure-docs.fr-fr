@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 5ce99e06ea1a8e72a8767367ddfd7bbb845c8400
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 3abe0511200bf5828b485b15a4b8a512731c4ffa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54318421"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58082124"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Créer des tableaux de bord d’indicateur de performance clé à l’aide d’Azure Application Insights
 
@@ -42,18 +42,18 @@ Connectez-vous au portail Azure à l’adresse [https://portal.azure.com](https:
 ## <a name="create-a-new-dashboard"></a>Créer un tableau de bord
 Un tableau de bord unique peut contenir des ressources de plusieurs applications, groupes de ressources et abonnements.  Démarrez le didacticiel en créant un tableau de bord pour votre application.  
 
-2.  Dans le volet du tableau de bord, sélectionnez **Nouveau tableau de bord**.
+1. Dans le volet du tableau de bord, sélectionnez **Nouveau tableau de bord**.
 
-    ![Nouveau tableau de bord](media/tutorial-app-dashboards/1newdashboard.png)
+   ![Nouveau tableau de bord](media/tutorial-app-dashboards/1newdashboard.png)
 
-3. Tapez un nom pour le tableau de bord.
-4. Examinez la **Galerie de vignettes** pour voir l’éventail des vignettes que vous pouvez ajouter à votre tableau de bord.  Outre l’ajout de vignettes de la galerie, vous pouvez épingler directement des graphiques et d’autres affichages d’Application Insights au tableau de bord.
-5. Recherchez la vignette **Markdown**, puis faites-la glisser sur votre tableau de bord.  Cette vignette permet d’ajouter du texte mis en forme dans markdown, ce qui est idéal pour l’ajout d’un texte descriptif à votre tableau de bord.
-6. Ajoutez du texte au propriétés de la vignette, puis redimensionnez celle-ci sur le canevas du tableau de bord.
+1. Tapez un nom pour le tableau de bord.
+1. Examinez la **Galerie de vignettes** pour voir l’éventail des vignettes que vous pouvez ajouter à votre tableau de bord.  Outre l’ajout de vignettes de la galerie, vous pouvez épingler directement des graphiques et d’autres affichages d’Application Insights au tableau de bord.
+1. Recherchez la vignette **Markdown**, puis faites-la glisser sur votre tableau de bord.  Cette vignette permet d’ajouter du texte mis en forme dans markdown, ce qui est idéal pour l’ajout d’un texte descriptif à votre tableau de bord.
+1. Ajoutez du texte au propriétés de la vignette, puis redimensionnez celle-ci sur le canevas du tableau de bord.
     
     ![Modifier une vignette markdown](media/tutorial-app-dashboards/2dashboard-text.png)
 
-6. Cliquez sur **Personnalisation terminée** en haut de l’écran pour quitter le mode de personnalisation des vignettes.
+1. Cliquez sur **Personnalisation terminée** en haut de l’écran pour quitter le mode de personnalisation des vignettes.
 
 ## <a name="add-health-overview"></a>Ajouter une vue d'ensemble de l'intégrité
 Un tableau de bord contenant uniquement du texte statique n’est pas très attrayant. Ajoutez donc une vignette d’Application Insights pour présenter les informations relatives à votre application.  Vous pouvez ajouter des vignettes d’Application Insights à partir de la Galerie de vignettes, ou les épingler directement à partir des écrans d’Application Insights.  Cela vous permet de configurer des graphiques et affichages qui vous sont déjà familiers avant de les épingler à votre tableau de bord.  Commencez par ajouter la vue d'ensemble standard de l'intégrité pour votre application.  Cela ne nécessite aucune configuration et permet une personnalisation minimale du tableau de bord.

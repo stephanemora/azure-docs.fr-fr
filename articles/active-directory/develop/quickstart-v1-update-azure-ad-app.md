@@ -17,12 +17,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e705bbbd08882f56020192a3b42c311e05bfa399
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: bee16ed8205453546702946628c98c73b0f34b15
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191723"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58103806"
 ---
 # <a name="quickstart-update-an-application-in-azure-active-directory"></a>Démarrage rapide : Mettre à jour une application dans Azure Active Directory
 
@@ -60,24 +60,24 @@ Avant qu’un client puisse accéder à une API web exposée par une application
    ![Mettre à jour l’inscription d’une application](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration.png)
 
 4. Vous accédez à la page d’inscription principale de l’application, qui inclut la page **Paramètres** pour l’application. Pour ajouter des informations d’identification à votre application web :
-  1. Sélectionnez la section **Clés** de la page **Paramètres**.
-  2. Pour ajouter un certificat :
-    - Sélectionnez **Télécharger la clé publique**.
-    - Sélectionnez le fichier que vous voulez charger. Il doit s’agir d’un fichier de type .cer, .pem ou .crt.
-  - Pour ajouter un mot de passe :
-    - Ajoutez une description pour votre clé.
-    - Sélectionnez une durée.
-    - Sélectionnez **Enregistrer**. La colonne située le plus à droite contient la valeur de clé, après avoir enregistré les modifications de configuration. **Veillez à copier la clé** pour une utilisation dans le code de votre application client, car elle n’est plus accessible après avoir quitté cette page.
+   1. Sélectionnez la section **Clés** de la page **Paramètres**.
+   1. Pour ajouter un certificat :
+      - Sélectionnez **Télécharger la clé publique**.
+      - Sélectionnez le fichier que vous voulez charger. Il doit s’agir d’un fichier de type .cer, .pem ou .crt.
+   1. Pour ajouter un mot de passe :
+      - Ajoutez une description pour votre clé.
+      - Sélectionnez une durée.
+      - Sélectionnez **Enregistrer**. La colonne située le plus à droite contient la valeur de clé, après avoir enregistré les modifications de configuration. **Veillez à copier la clé** pour une utilisation dans le code de votre application client, car elle n’est plus accessible après avoir quitté cette page.
 
 5. Pour ajouter des autorisations pour accéder aux API de ressources à partir de votre client
-  1. Sélectionnez la section **Autorisations requises** dans la page **Paramètres**, puis sélectionnez **Ajouter**.
-  1. Sélectionnez **Select an API** (Sélectionner une API) pour sélectionner le type de ressources souhaité.
-  1. Parcourez la liste des API disponibles ou utilisez la zone de recherche pour sélectionner une des applications de ressources qui exposent une API web disponibles dans votre répertoire. Sélectionnez la ressource qui vous intéresse, puis cliquez sur **Sélectionner**.
-  1. Dans la page **Activer l’accès**, sélectionnez les permissions d’application et/ou les permissions déléguées dont votre application a besoin lors de l’accès à l’API.
+   1. Sélectionnez la section **Autorisations requises** dans la page **Paramètres**, puis sélectionnez **Ajouter**.
+   1. Sélectionnez **Select an API** (Sélectionner une API) pour sélectionner le type de ressources souhaité.
+   1. Parcourez la liste des API disponibles ou utilisez la zone de recherche pour sélectionner une des applications de ressources qui exposent une API web disponibles dans votre répertoire. Sélectionnez la ressource qui vous intéresse, puis cliquez sur **Sélectionner**.
+   1. Dans la page **Activer l’accès**, sélectionnez les permissions d’application et/ou les permissions déléguées dont votre application a besoin lors de l’accès à l’API.
    
-  ![Mettre à jour l’inscription d’une application - API d’autorisation](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-api.png)
+   ![Mettre à jour l’inscription d’une application - API d’autorisation](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-api.png)
 
-  ![Mettre à jour l’inscription d’une application - Autorisations](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms.png)
+   ![Mettre à jour l’inscription d’une application - Autorisations](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms.png)
 
 6. Lorsque vous avez terminé, cliquez sur le bouton **Sélectionner** sur la page **Activer l’accès**, puis sur le bouton **Fait** sur la page **Ajouter un accès API**. Vous êtes redirigé sur la page **Autorisations requises**, où la nouvelle ressource est ajoutée à la liste des API.
 
@@ -98,8 +98,8 @@ La section suivante indique comment exposer les étendues d’accès en modifian
 4. Vous accédez à la page d’inscription principale de l’application, qui ouvre la page **Paramètres** pour l’application. Basculez vers la page **Modifier le manifeste** en cliquant sur **Manifeste** depuis la page d’inscription de l’application. Un éditeur de manifeste web s’ouvre, vous permettant de **Modifier** le manifeste depuis le portail. Si vous le souhaitez, vous pouvez cliquer sur **Télécharger** et le modifier localement, puis utiliser **Charger** afin de l’appliquer de nouveau à votre application.
 5. Dans cet exemple, nous allons exposer une nouvelle étendue appelée `Employees.Read.All` sur notre ressource/API, en ajoutant l’élément JSON suivant pour la collection `oauth2Permissions`. L’étendue `user_impersonation` existante est fournie par défaut lors de l’inscription. `user_impersonation`permet à une application cliente de demander l’autorisation d’accéder à la ressource, sous l’identité de l’utilisateur connecté. Veillez à ajouter la virgule après l’élément d’étendue `user_impersonation` existant, et modifiez les valeurs de propriété en fonction des besoins de votre ressource. 
 
-  ```json
-  {
+   ```json
+   {
     "adminConsentDescription": "Allow the application to have read-only access to all Employee data.",
     "adminConsentDisplayName": "Read-only access to Employee records",
     "id": "2b351394-d7a7-4a84-841e-08a6a17e4cb8",
@@ -108,17 +108,17 @@ La section suivante indique comment exposer les étendues d’accès en modifian
     "userConsentDescription": "Allow the application to have read-only access to your Employee data.",
     "userConsentDisplayName": "Read-only access to your Employee records",
     "value": "Employees.Read.All"
-  }
-  ```
+   }
+   ```
 
-  > [!NOTE]
-  > La valeur `id` doit être générée par programmation ou à l’aide d’un outil de génération de GUID comme [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx). La valeur `id` représente un identificateur unique pour l’étendue comme exposée par l’API web. Une fois qu’un client est correctement configuré avec les autorisations pour accéder à votre API web, Azure AD émet un jeton d’accès OAuth2.0. Lorsque le client appelle l’API web, il présente le jeton d’accès dont la revendication de l’étendue (scp) a été configurée sur les autorisations demandées dans son inscription d’application.
-  >
-  > Vous pouvez exposer des étendues supplémentaires ultérieurement si nécessaire. Considérez que votre API web peut exposer plusieurs étendues associées à un éventail de fonctions différentes. Votre ressource peut contrôler l’accès à l’API web lors de l’exécution, en évaluant la/les revendication(s) de l’étendue (`scp`) dans le jeton d’accès OAuth 2.0 reçu.
+   > [!NOTE]
+   > La valeur `id` doit être générée par programmation ou à l’aide d’un outil de génération de GUID comme [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx). La valeur `id` représente un identificateur unique pour l’étendue comme exposée par l’API web. Une fois qu’un client est correctement configuré avec les autorisations pour accéder à votre API web, Azure AD émet un jeton d’accès OAuth2.0. Lorsque le client appelle l’API web, il présente le jeton d’accès dont la revendication de l’étendue (scp) a été configurée sur les autorisations demandées dans son inscription d’application.
+   >
+   > Vous pouvez exposer des étendues supplémentaires ultérieurement si nécessaire. Considérez que votre API web peut exposer plusieurs étendues associées à un éventail de fonctions différentes. Votre ressource peut contrôler l’accès à l’API web lors de l’exécution, en évaluant la/les revendication(s) de l’étendue (`scp`) dans le jeton d’accès OAuth 2.0 reçu.
 
 6. Lorsque vous avez terminé, cliquez sur **Enregistrer**. Votre API web est maintenant configurée pour être utilisée par d’autres applications de votre répertoire.
 
-  ![Mettre à jour l’inscription d’une application](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-manifest.png)
+   ![Mettre à jour l’inscription d’une application](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-manifest.png)
 
 ### <a name="verify-the-web-api-is-exposed-to-other-applications-in-your-tenant"></a>Vérifier que l’API web est exposée à d’autres applications dans votre locataire
 
@@ -130,7 +130,7 @@ La section suivante indique comment exposer les étendues d’accès en modifian
 
 3. Sur la page **Activer l’accès**, vous devriez voir la nouvelle étendue, disponible pour les demandes d’autorisations clientes.
 
-  ![Les nouvelles autorisations sont affichées.](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms-newscopes.png)
+   ![Les nouvelles autorisations sont affichées.](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms-newscopes.png)
 
 ### <a name="more-on-the-application-manifest"></a>Informations complémentaires concernant le manifeste d’application
 
@@ -211,9 +211,9 @@ Par défaut, l’accord implicite OAuth 2.0 est désactivé pour les applicatio
 3. Dans le volet de navigation gauche, cliquez sur le service **Azure Active Directory**, cliquez sur **Inscriptions des applications**, puis trouvez/cliquez sur l’application que vous souhaitez configurer. Vous accédez à la page d’inscription principale de l’application, qui ouvre la page **Paramètres** pour l’application.
 4. Basculez vers la page **Modifier le manifeste**, en cliquant sur **Manifeste** depuis la page d’inscription de l’application. Un éditeur de manifeste web s’ouvre, vous permettant de **Modifier** le manifeste depuis le portail. Recherchez la valeur « oauth2AllowImplicitFlow » et définissez-la sur « true ». Par défaut, elle est définie sur « false ».
    
-  ```json
-  "oauth2AllowImplicitFlow": true,
-  ```
+   ```json
+   "oauth2AllowImplicitFlow": true,
+   ```
 5. Enregistrez le manifeste mis à jour. Une fois l’enregistrement effectué, votre API web est configurée pour utiliser l’accord implicite OAuth 2.0 pour authentifier les utilisateurs.
 
 ## <a name="next-steps"></a>Étapes suivantes
