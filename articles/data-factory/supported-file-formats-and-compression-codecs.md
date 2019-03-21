@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: jingwang
-ms.openlocfilehash: e1a928711a596c159ac920f11c123b73b72d3aa2
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: e21223bf3c50a98e039d0f19c51116c4a3cfbcc0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313413"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57875120"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formats de fichier et codecs de compression pris en charge dans Azure Data Factory
 
@@ -458,7 +458,7 @@ Exemple : donnez la valeur `-Xms256m -Xmx16g` à la variable `_JAVA_OPTIONS`. L
 | ByteArray | Binary | N/A | N/A |
 | Guid | Binary | Utf8 | Utf8 |
 | Char | Binary | Utf8 | Utf8 |
-| CharArray | Non pris en charge | N/A | N/A |
+| CharArray | Non pris en charge | N/A | S.O. |
 
 ## <a name="orc-format"></a>Format ORC
 
@@ -524,7 +524,7 @@ Pour utiliser le format Avro dans une table Hive, vous pouvez faire référence 
 
 Notez les points suivants :
 
-* [Les types de données complexes](http://avro.apache.org/docs/current/spec.html#schema_complex) ne sont pas pris en charge (enregistrements, enums, tables, cartes, unions et fixes).
+* [Les types de données complexes](https://avro.apache.org/docs/current/spec.html#schema_complex) ne sont pas pris en charge (enregistrements, enums, tables, cartes, unions et fixes).
 
 ## <a name="compression-support"></a>Prise en charge de la compression
 
@@ -573,6 +573,14 @@ La section **compression** a deux propriétés :
 
 > [!NOTE]
 > Les paramètres de compression ne sont pas pris en charge pour les données au format **AvroFormat**, **OrcFormat** ou **ParquetFormat**. Data Factory détecte et utilise le codec de compression se trouvant dans les métadonnées pour lire des fichiers présentant ces formats. Lors de l’écriture dans des fichiers présentant ces formats, Data Factory choisit le code de la compression par défaut pour ce format. Par exemple, ZLIB pour OrcFormat et SNAPPY pour ParquetFormat.
+
+## <a name="unsupported-file-types-and-compression-formats"></a>Types de fichiers non pris en charge et les formats de compression
+
+Vous pouvez utiliser les fonctionnalités d’extensibilité d’Azure Data Factory pour transformer les fichiers qui ne sont pas pris en charge. Deux options incluent Azure Functions et des tâches personnalisées à l’aide d’Azure Batch.
+
+Vous pouvez voir un exemple qui utilise une fonction Azure pour [extraire le contenu d’un fichier tar](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction). Pour plus d’informations, consultez [activité d’Azure Functions](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity).
+
+Vous pouvez également créer cette fonctionnalité à l’aide d’une activité personnalisée dotnet. Pour plus d’informations [ici](https://docs.microsoft.com/en-us/azure/data-factory/transform-data-using-dotnet-custom-activity)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -11,23 +11,23 @@ ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: be95a75e7cdcaa11ef3e90093ef52c5615608eac
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 4d74b122f3b5567e8291ec5f3ff4e1dda7ff68f0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458021"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835014"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Création de fonctionnalités pour les données dans un cluster Hadoop à l’aide de requêtes Hive
 Ce document montre comment créer des fonctionnalités pour des données stockées dans un cluster Hadoop Azure HDInsight à l’aide de requêtes Hive. Ces requêtes Hive utilisent les FDU (fonctions définies par l’utilisateur) Hive, dont les scripts sont intégrés.
 
 Les opérations nécessaires pour créer des fonctionnalités peuvent utiliser la mémoire de manière intensive. Les performances des requêtes Hive deviennent plus importantes dans ces cas-là et peuvent être améliorées en ajustant certains paramètres. Le réglage de ces paramètres est abordé dans la dernière section.
 
-Des exemples de requêtes propres aux scénarios mettant en œuvre le jeu de données [NYC Taxi Trip](http://chriswhong.com/open-data/foil_nyc_taxi/) sont également disponibles dans le [référentiel Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Le schéma de données de ces requêtes est déjà spécifié et elles sont exécutables en l’état. La dernière section présente également les paramètres que les utilisateurs peuvent ajuster pour accélérer le traitement des requêtes Hive.
+Des exemples de requêtes propres aux scénarios mettant en œuvre le jeu de données [NYC Taxi Trip](https://chriswhong.com/open-data/foil_nyc_taxi/) sont également disponibles dans le [référentiel Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Le schéma de données de ces requêtes est déjà spécifié et elles sont exécutables en l’état. La dernière section présente également les paramètres que les utilisateurs peuvent ajuster pour accélérer le traitement des requêtes Hive.
 
 Cette tâche est une étape du [processus TDSP (Team Data Science Process)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Cet article suppose que vous avez :
 
 * Créé un compte de stockage Azure. Pour des instructions, voir [Créer un compte Stockage Azure](../../storage/common/storage-quickstart-create-account.md).
@@ -130,7 +130,7 @@ Les champs utilisés dans cette requête sont des coordonnées GPS des emplacem
         and dropoff_latitude between 30 and 90
         limit 10;
 
-Les équations mathématiques calculant la distance entre deux coordonnées GPS sont disponibles sur le site <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a> de Peter Lapisu. Dans ce code Javascript, la fonction `toRad()` est simplement *lat_or_lon*pi/180*, qui convertit les degrés en radians. Ici, *lat_or_lon* est la latitude ou la longitude. Comme Hive ne fournit pas la fonction `atan2`, mais fournit la fonction `atan`, la fonction `atan2` est implémentée par la fonction `atan` dans la requête Hive ci-dessus, selon sa définition dans <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipédia</a>.
+Les équations mathématiques calculant la distance entre deux coordonnées GPS sont disponibles sur le site <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a> de Peter Lapisu. Dans ce code Javascript, la fonction `toRad()` est simplement *lat_or_lon*pi/180, qui convertit les degrés en radians. Ici, *lat_or_lon* est la latitude ou la longitude. Comme Hive ne fournit pas la fonction `atan2`, mais fournit la fonction `atan`, la fonction `atan2` est implémentée par la fonction `atan` dans la requête Hive ci-dessus, selon sa définition dans <a href="https://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipédia</a>.
 
 ![Créer un espace de travail](./media/create-features-hive/atan2new.png)
 
@@ -161,11 +161,11 @@ Les paramètres par défaut du cluster Hive peuvent ne pas convenir aux requête
    
     En général, la valeur par défaut de :
     
-    - *mapred.min.split.size* est 0, celle de
-    - *mapred.max.split.size* est **Long.MAX** et celle de 
-    - *dfs.block.size* est 64 Mo.
+   - *mapred.min.split.size* est 0, celle de
+   - *mapred.max.split.size* est **Long.MAX** et celle de 
+   - *dfs.block.size* est 64 Mo.
 
-    Comme nous pouvons le constater, vu la taille des données, l’ajustement de ces paramètres permet d’optimiser le nombre de mappeurs utilisés.
+     Comme nous pouvons le constater, vu la taille des données, l’ajustement de ces paramètres permet d’optimiser le nombre de mappeurs utilisés.
 
 4. Voici d’autres **options avancées** optimisant les performances de Hive. Elles permettent de configurer la mémoire allouée aux tâches de mappage et de réduction, et d’ajuster au mieux les performances. Gardez à l’esprit que *mapreduce.reduce.memory.mb* ne peut pas être supérieur à la mémoire physique de chaque nœud de travail du cluster Hadoop.
    

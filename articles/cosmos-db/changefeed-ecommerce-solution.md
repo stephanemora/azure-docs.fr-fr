@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: sngun
-ms.openlocfilehash: 90f9a13882e370d6d0c67826750b3edd27603ede
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 50ae4de8c9c1d10b0b17a9744ffa2340059fc298
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862290"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120514"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Utiliser le flux de modification Azure Cosmos DB pour visualiser l’Analytique données en temps réel
 
@@ -53,7 +53,7 @@ Le diagramme ci-après illustre le flux de données et les composants impliqués
 
 7. **Power BI :** Power BI permet de visualiser les données envoyées par Azure Stream Analytics. Vous pouvez générer un tableau de bord afin de visualiser l’évolution des métriques en temps réel.  
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Microsoft .NET Framework 4.7.1 ou une version ultérieure
 
@@ -105,7 +105,7 @@ Vous allez à présent créer une collection destinée à stocker les événemen
 
 3. Ensuite, créez une autre collection nommée **leases** (baux) pour le traitement du flux de modification. La collection de baux coordonne le traitement du flux de modification entre les différents threads de travail. Une collection distincte est utilisée pour stocker les baux avec un bail par partition.  
 
-4.  Réaccédez au volet **Explorateur de données**, sélectionnez **Nouvelle collection**, puis renseignez le formulaire avec les informations suivantes :
+4. Réaccédez au volet **Explorateur de données**, sélectionnez **Nouvelle collection**, puis renseignez le formulaire avec les informations suivantes :
 
    * Pour le champ **ID de base de données**, sélectionnez **Utiliser l’existante**, puis entrez **changefeedlabdatabase**.  
    * Pour le champ **ID de la collection**, entrez **leases**.  

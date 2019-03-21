@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
-ms.openlocfilehash: 0f6fff5047bc72fa1171e06bb2f160196ecef807
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: a878ab1937b06f06a27b18f793fc1bfa190969ed
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300606"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090336"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Kit de développement logiciel (SDK) du processeur de flux de modification .NET Téléchargement et notes de publication
 > [!div class="op_single_selector"]
@@ -44,8 +44,8 @@ ms.locfileid: "55300606"
 ### <a name="a-name226226"></a><a name="2.2.6"/>2.2.6
 * Gestion améliorée des exceptions de l’Observateur.
 * Informations plus détaillées sur les erreurs de l’Observateur :
- * Lorsqu’un Observateur est fermé en raison d'une exception levée par ProcessChangesAsync, CloseAsync reçoit alors le paramètre du motif qui est défini sur ChangeFeedObserverCloseReason.ObserverError.
- * Ajout de traces pour identifier les erreurs dans le code utilisateur d’un Observateur.
+  * Lorsqu’un Observateur est fermé en raison d'une exception levée par ProcessChangesAsync, CloseAsync reçoit alors le paramètre du motif qui est défini sur ChangeFeedObserverCloseReason.ObserverError.
+  * Ajout de traces pour identifier les erreurs dans le code utilisateur d’un Observateur.
 
 ### <a name="a-name225225"></a><a name="2.2.5"/>2.2.5
 * Ajout de la prise en charge de la gestion des collections fractionnées qui utilisent un débit de base de données partagé.
@@ -130,7 +130,7 @@ ms.locfileid: "55300606"
 
 ### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
 * Améliorations de la stabilité.
-  * Correctif pour résoudre le problème lié aux tâches annulées susceptibles de provoquer l’arrêt des observateurs dans certaines partitions.
+  * Correctif pour gérer le problème des tâches annulées qui peut-être entraîner des observateurs arrêtés sur certaines partitions.
 * Prise en charge des points de contrôle manuels.
 * Compatible avec les versions 1.21 et version ultérieure du [Kit de développement logiciel (SDK) SQL .NET](sql-api-sdk-dotnet.md).
 

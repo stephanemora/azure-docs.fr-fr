@@ -1,6 +1,6 @@
 ---
-title: Protection par mot de passe Azure AD (préversion) - Opérations et rapports
-description: Protection par mot de passe Azure AD (préversion) - Opérations et rapports post-déploiement
+title: Opérations de Protection de mot de passe AD et Azure reporting
+description: Opérations de post-déploiement de Protection de mot de passe AD Azure et création de rapports
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,19 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1fda79f16560a5c96e1283f4d9d9f14dbe503d61
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ac91a70465d79b235ae43681a1375d47e7691efe
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175240"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285800"
 ---
-# <a name="preview-azure-ad-password-protection-operational-procedures"></a>Aperçu : Protection par mot de passe Azure AD - Procédures opérationnelles
-
-|     |
-| --- |
-| La Protection par mot de passe Azure AD est une fonctionnalité d'évaluation publique d'Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+# <a name="azure-ad-password-protection-operational-procedures"></a>Protection par mot de passe Azure AD - Procédures opérationnelles
 
 Au terme de l'[installation locale de la Protection par mot de passe Azure AD](howto-password-ban-bad-on-premises-deploy.md), quelques éléments doivent être configurés sur le portail Azure.
 
@@ -33,7 +28,7 @@ Suivez les instructions dans l’article [Configurer la liste des mots de passe 
 
 ## <a name="enable-password-protection"></a>Activer la Protection par mot de passe
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) et accédez à **Azure Active Directory**, **Méthodes d'authentification**, puis **Protection par mot de passe (préversion)**.
+1. Se connecter à la [Azure portal](https://portal.azure.com) et accédez à **Azure Active Directory**, **méthodes d’authentification**, puis **Protection de mot de passe**.
 1. Définissez **Activer la Protection par mot de passe sur Windows Server Active Directory** sur**Oui**
 1. Comme mentionné dans le [Guide de déploiement](howto-password-ban-bad-on-premises-deploy.md#deployment-strategy), il est recommandé de régler de base le **Mode** sur **Audit**
    * Une fois que vous êtes familiarisé avec la fonctionnalité, vous pouvez basculer le **Mode** sur **Appliqué**

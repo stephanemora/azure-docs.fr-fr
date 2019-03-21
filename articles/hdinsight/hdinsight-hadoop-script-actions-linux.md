@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 6702bfabd27b56ce473fe8eb14aadc9dc6e8e7c9
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 4bef785a08d7482468630bc690d6c19b05bdf770
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338867"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202960"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Développement d’actions de script avec HDInsight
 
@@ -332,7 +332,6 @@ Pour plus d’informations sur l’utilisation de chaque méthode, consultez [Co
 Microsoft fournit des exemples de scripts pour installer des composants sur un cluster HDInsight. Consultez les liens suivants pour voir d’autres exemples d’action de script.
 
 * [Installer et utiliser Hue sur les clusters HDInsight](hdinsight-hadoop-hue-linux.md)
-* [Installer et utiliser Apache Solr sur les clusters HDInsight](hdinsight-hadoop-solr-install-linux.md)
 * [Installer et utiliser Apache Giraph sur les clusters HDInsight](hdinsight-hadoop-giraph-install-linux.md)
 * [Installer ou mettre à niveau Mono sur les clusters HDInsight](hdinsight-hadoop-install-mono.md)
 

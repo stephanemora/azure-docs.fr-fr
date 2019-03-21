@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 68f3fe0dbd16d3d71dc66af05de6f90156d67dfa
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: fb4b5dde63d8c7c75419d3202d9848cd6fde8b8a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246359"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57547637"
 ---
-# <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problèmes de disponibilité des applications et des services pour Azure Cloud Services : questions fréquentes (FAQ)
+# <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Application et les problèmes de disponibilité de service pour Azure Cloud Services : Forum Aux Questions (FAQ)
 
 Cet article comprend des questions fréquentes sur les problèmes de disponibilité des applications et des services pour [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). Vous pouvez également consulter la page [Taille de services cloud](cloud-services-sizes-specs.md) pour obtenir des informations sur la taille.
 
@@ -41,8 +41,8 @@ Quand le serveur web reçoit la première requête, il commence par recompiler l
 Les pools d’applications IIS (Internet Information Services) peuvent être recyclées régulièrement pour éviter des états instables susceptibles d’entraîner des blocages d’applications, une absence de réponse ou des fuites de mémoire.
 
 Les documents suivants vous aideront à comprendre et à limiter ce problème :
-* [Fixing slow initial load for IIS](http://stackoverflow.com/questions/13386471/fixing-slow-initial-load-for-iis) (Remédier à la lenteur du chargement initial pour IIS)
-* [IIS 7.5 web application first request after app-pool recycle very slow](http://stackoverflow.com/questions/13917205/iis-7-5-web-application-first-request-after-app-pool-recycle-very-slow) (Premier requête d’application web IIS 7.5 après une opération de recyclage de pool d’applications très lente)
+* [Fixing slow initial load for IIS](https://stackoverflow.com/questions/13386471/fixing-slow-initial-load-for-iis) (Remédier à la lenteur du chargement initial pour IIS)
+* [IIS 7.5 web application first request after app-pool recycle very slow](https://stackoverflow.com/questions/13917205/iis-7-5-web-application-first-request-after-app-pool-recycle-very-slow) (Premier requête d’application web IIS 7.5 après une opération de recyclage de pool d’applications très lente)
 
 Si vous voulez modifier le comportement par défaut d’IIS, vous devez avoir recours à des tâches de démarrage, car si vous appliquez manuellement des modifications aux instances de rôle web, les modifications seront perdues à la fin du processus.
 

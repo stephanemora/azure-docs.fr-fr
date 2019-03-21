@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e4b737117880393e24fe6ea00223fb0f719be4e4
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: c07f01acb95523171f0297f7e2fd531713f1facf
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980465"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550154"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Extensions et fonctionnalités de machine virtuelle pour Windows
 
@@ -34,14 +34,14 @@ Cet article offre une vue d’ensemble des extensions de machine virtuelle et de
 Plusieurs extensions de machine virtuelle Azure sont disponibles, chacune impliquant un cas d’utilisation spécifique. Voici quelques exemples :
 
 - Appliquer des configurations DSC (Desired State Configuration) PowerShell à une machine virtuelle avec l’extension DSC pour Windows. Pour plus d’informations sur l’extension DSC Azure, consultez [cette page](dsc-overview.md) (en anglais).
-- Configurer l’analyse d’une machine virtuelle avec l’extension de machine virtuelle Microsoft Monitoring Agent. Pour plus d’informations, consultez l’article [Connect Azure VMs to Log Analytics](../../log-analytics/log-analytics-azure-vm-extension.md) (Connecter des machines virtuelles Azure à Log Analytics).
+- Configurer l’analyse d’une machine virtuelle avec l’extension de machine virtuelle Microsoft Monitoring Agent. Pour plus d’informations, consultez [connecter des machines virtuelles Azure dans les journaux d’Azure Monitor](../../log-analytics/log-analytics-azure-vm-extension.md).
 - Configurer une machine virtuelle Azure à l’aide de Chef. Pour plus d’informations, consultez l’article [Automatisation du déploiement de machine virtuelle Azure avec Chef](../windows/chef-automation.md).
 - Configurer l’analyse de votre infrastructure Azure à l’aide de l’extension Datadog. Pour plus d’informations, consultez le [blog Datadog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
 
 En plus des extensions propres à des processus, une extension de script personnalisé est disponible pour les machines virtuelles Windows et Linux. L’extension de script personnalisé (CustomScript) pour Windows permet d’exécuter n’importe quel script PowerShell sur une machine virtuelle. Les scripts personnalisés s’avèrent utile pour concevoir des déploiements Azure qui nécessitent une configuration plus avancée que celle fournie par les outils Azure natifs. Pour plus d’informations sur l’extension de script personnalisé pour les machines virtuelles Windows, consultez [cet article](custom-script-windows.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour gérer l’extension de la machine virtuelle, vous devez installer l’agent Windows Azure. Certaines extensions spécifiques présentent des prérequis, tels que l’accès à des ressources ou dépendances.
 
@@ -366,7 +366,7 @@ La procédure de résolution des problèmes ci-après s’applique à toutes les
 
 ### <a name="view-extension-status"></a>Afficher l’état de l’extension
 
-Une fois qu’une extension de machine virtuelle a été exécutée sur une machine virtuelle, utilisez la commande [Get-AzVM ](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) pour récupérer l’état de l’extension. L’état *Substatuses[0]* indique que l’approvisionnement de l’extension s’est correctement déroulé, autrement dit que l’extension a été déployée sur la machine virtuelle, mais l’état *Substatuses[1]* signale que l’exécution de l’extension dans la machine virtuelle a échoué.
+Une fois une extension de machine virtuelle a été exécutée sur une machine virtuelle, utilisez [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) pour retourner l’état de l’extension. L’état *Substatuses[0]* indique que l’approvisionnement de l’extension s’est correctement déroulé, autrement dit que l’extension a été déployée sur la machine virtuelle, mais l’état *Substatuses[1]* signale que l’exécution de l’extension dans la machine virtuelle a échoué.
 
 ```powershell
 Get-AzVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status

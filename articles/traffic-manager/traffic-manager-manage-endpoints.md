@@ -6,17 +6,17 @@ documentationcenter: ''
 author: KumudD
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: kumud
-ms.openlocfilehash: 28ea626adf87ad9f115b5acc5452dfc91ad833c5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 0832010707fc9b5d5f435aac29940db6905d18d7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245002"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58009286"
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>Ajouter, désactiver, activer ou supprimer des points de terminaison
 
@@ -29,7 +29,7 @@ Vous pouvez également désactiver des points de terminaison individuels qui fon
 
 ## <a name="to-add-a-cloud-service-or-an-app-service-endpoint-to-a-traffic-manager-profile"></a>Pour ajouter un point de terminaison de service cloud ou App Service à un profil Traffic Manager
 
-1. Dans un navigateur, connectez-vous au [portail Azure](http://portal.azure.com).
+1. Dans un navigateur, connectez-vous au [portail Azure](https://portal.azure.com).
 2. Dans la barre de recherche du portail, recherchez le nom du **profil Traffic Manager** que vous souhaitez modifier et cliquez sur le profil Traffic Manager dans les résultats affichés.
 3. Dans le panneau **Profil Traffic Manager**, dans la section **Paramètres**, cliquez sur **Points de terminaison**.
 4. Dans le panneau **Points de terminaison** qui s’affiche, cliquez sur **Ajouter**.
@@ -49,7 +49,7 @@ Vous pouvez également désactiver des points de terminaison individuels qui fon
 
 ## <a name="to-disable-an-endpoint"></a>Pour désactiver un point de terminaison
 
-1. Dans un navigateur, connectez-vous au [portail Azure](http://portal.azure.com).
+1. Dans un navigateur, connectez-vous au [portail Azure](https://portal.azure.com).
 2. Dans la barre de recherche du portail, recherchez le nom du **profil Traffic Manager** que vous souhaitez modifier, puis cliquez sur le profil Traffic Manager dans les résultats affichés.
 3. Dans le panneau **Profil Traffic Manager**, dans la section **Paramètres**, cliquez sur **Points de terminaison**. 
 4. Cliquez sur le point de terminaison que vous souhaitez désactiver, puis, dans le panneau **Point de terminaison** qui s’affiche, cliquez sur **Modifier**.
@@ -58,7 +58,7 @@ Vous pouvez également désactiver des points de terminaison individuels qui fon
 
 ## <a name="to-enable-an-endpoint"></a>Pour activer un point de terminaison
 
-1. Dans un navigateur, connectez-vous au [portail Azure](http://portal.azure.com).
+1. Dans un navigateur, connectez-vous au [portail Azure](https://portal.azure.com).
 2. Dans la barre de recherche du portail, recherchez le nom du **profil Traffic Manager** que vous souhaitez modifier, puis cliquez sur le profil Traffic Manager dans les résultats affichés.
 3. Dans le panneau **Profil Traffic Manager**, dans la section **Paramètres**, cliquez sur **Points de terminaison**. 
 4. Cliquez sur le point de terminaison que vous souhaitez désactiver, puis, dans le panneau **Point de terminaison** qui s’affiche, cliquez sur **Modifier**.
@@ -67,7 +67,7 @@ Vous pouvez également désactiver des points de terminaison individuels qui fon
 
 ## <a name="to-delete-an-endpoint"></a>Pour supprimer un point de terminaison
 
-1. Dans un navigateur, connectez-vous au [portail Azure](http://portal.azure.com).
+1. Dans un navigateur, connectez-vous au [portail Azure](https://portal.azure.com).
 2. Dans la barre de recherche du portail, recherchez le nom du **profil Traffic Manager** que vous souhaitez modifier, puis cliquez sur le profil Traffic Manager dans les résultats affichés.
 3. Dans le panneau **Profil Traffic Manager**, dans la section **Paramètres**, cliquez sur **Points de terminaison**. 
 4. Cliquez sur le point de terminaison que vous souhaitez désactiver, puis, dans le panneau **Point de terminaison** qui s’affiche, cliquez sur **Modifier**.

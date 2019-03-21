@@ -3,7 +3,6 @@ title: Solution Azure SQL Analytics dans Log Analytics | Microsoft Docs
 description: La solution Azure SQL Analytics vous permet de gérer vos instances Azure SQL Database.
 services: log-analytics
 ms.service: log-analytics
-ms.subservice: performance
 ms.custom: ''
 ms.topic: conceptual
 author: danimir
@@ -11,12 +10,12 @@ ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: 02832ee84e02251239ab4364aac9ad0894c681b9
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: 66ab1fa9779aa378c4153adc0da81b3d172e1320
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884779"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58170222"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Superviser Azure SQL Database avec Azure SQL Analytics (préversion)
 
@@ -67,9 +66,13 @@ La page ci-dessus fournit également des instructions sur l’activation de la p
 
 ## <a name="using-the-solution"></a>Utilisation de la solution
 
-Lorsque vous ajoutez la solution à votre espace de travail, la vignette Azure SQL Analytics est également ajoutée ; elle apparaît dans la Vue d’ensemble. La vignette indique le nombre de bases de données SQL Azure, de pools élastiques, d’instances Managed Instance et de bases de données dans ces instances en provenance desquelles la solution reçoit des données de télémétrie de diagnostic.
+Lorsque vous ajoutez la solution à votre espace de travail, la vignette Azure SQL Analytics est également ajoutée ; elle apparaît dans la Vue d’ensemble. Sélectionnez le lien Afficher le résumé pour charger le contenu de la vignette.
 
-![Vignette Azure SQL Analytics](./media/azure-sql/azure-sql-sol-tile.png)
+![Vignette de résumé Analytique de SQL Azure](./media/azure-sql/azure-sql-sol-tile-01.png)
+
+Une fois chargé, la vignette affiche le nombre de bases de données SQL Azure, les pools élastiques, les Instances gérées et les bases de données dans les instances gérées recevant la solution de télémétrie de diagnostic à partir de.
+
+![Vignette Azure SQL Analytics](./media/azure-sql/azure-sql-sol-tile-02.png)
 
 La solution offre deux vues distinctes : l’une pour la supervision des instances Azure SQL Database et des pools élastiques, et l’autre pour la supervision des instances Managed Instance et de leurs bases de données.
 
@@ -146,14 +149,16 @@ Pour pouvoir utiliser Azure SQL Analytics, les utilisateurs doivent avoir au moi
 
 ### <a name="creating-a-custom-role-in-portal"></a>Création d’un rôle personnalisé dans le portail
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Sachant que certaines organisations appliquent un contrôle strict des autorisations dans Azure, le script PowerShell suivant permet de créer un rôle personnalisé « Opérateur de monitoring SQL Analytics » sur le Portail Azure avec les autorisations de lecture et d’écriture minimales requises pour pouvoir utiliser pleinement Azure SQL Analytics.
 
 Remplacez « {SubscriptionId} » dans le script ci-dessous par votre ID d’abonnement Azure, puis exécutez le script avec un rôle Propriétaire ou Contributeur dans Azure.
 
    ```powershell
-    Connect-AzureRmAccount
-    Select-AzureRmSubscription {SubscriptionId}
-    $role = Get-AzureRmRoleDefinition -Name Reader
+    Connect-AzAccount
+    Select-AzSubscription {SubscriptionId}
+    $role = Get-AzRoleDefinition -Name Reader
     $role.Name = "SQL Analytics Monitoring Operator"
     $role.Description = "Lets you monitor database performance with Azure SQL Analytics as a reader. Does not allow change of resources."
     $role.IsCustom = $true
@@ -172,7 +177,7 @@ Remplacez « {SubscriptionId} » dans le script ci-dessous par votre ID d’ab
     $role.Actions.Add("Microsoft.Sql/servers/advisors/recommendedActions/write");
     $role.Actions.Add("Microsoft.Resources/deployments/write");
     $role.AssignableScopes = "/subscriptions/{SubscriptionId}"
-    New-AzureRmRoleDefinition $role
+    New-AzRoleDefinition $role
    ```
 
 Une fois le nouveau rôle créé, attribuez ce rôle à chaque utilisateur ayant besoin de bénéficier d’une autorisation personnalisée pour utiliser Azure SQL Analytics.

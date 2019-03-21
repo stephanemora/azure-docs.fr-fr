@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: ff45ecc00d1c5c810015c8007d194b882f32f3da
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: 85fba27c856561eb1270e719dcf24b88d2d5a01f
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412566"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309908"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Connecter un appareil Windows IoT Core à votre application Azure IoT Central
 
@@ -51,7 +51,7 @@ Pour configurer un appareil Windows IoT Core, suivez le guide pas à pas de la s
 Dans votre application Azure IoT Central, ajoutez un appareil réel à partir du modèle d’appareil **Windows IoT Core** et notez les informations de connexion de l’appareil (**ID d’étendue, ID d’appareil et Clé primaire**). Pour plus d’informations, consultez [Ajouter un appareil réel à votre application Azure IoT Central](tutorial-add-device.md).
 
  > [!NOTE]
-   > Azure IoT Central utilise désormais le Service IoT Hub Device Provisioning (DPS) Azure pour toutes les connexions d’appareil. Suivez ces instructions pour [obtenir la chaîne de connexion d’appareil](concepts-connectivity.md#getting-device-connection-string) et continuer le didacticiel.
+   > Azure IoT Central est passée à l’aide du service Azure IoT Hub Device Provisioning (DPS) pour toutes les connexions d’appareil, suivez ces instructions pour [obtenir la chaîne de connexion de périphérique](concepts-connectivity.md#get-a-connection-string) et continuer avec le reste du didacticiel.
 
 ## <a name="prepare-the-windows-10-iot-core-device"></a>Préparer l’appareil Windows 10 IoT Core
 
@@ -72,10 +72,10 @@ Pour déployer l’application cliente de l’étape précédente sur votre appa
 Une fois que vous avez fait cela, vous devez ouvrir le [Portail d’appareil Windows](https://docs.microsoft.com/windows/iot-core/manage-your-device/deviceportal) en tapant http://[adresse_IP_appareil]:8080 dans n’importe quel navigateur.
 
 À partir d’ici, et comme montré dans l’illustration ci-dessous, vous devez :
-1. Développer le nœud « Applications » sur la gauche.
-2. Cliquer sur « Exemples d’exécution rapide ».
-3. Cliquer sur « Client Azure IoT Hub ».
-4. Cliquer sur « Déployer et exécuter ».
+1. Développez le **applications** nœud sur la gauche.
+2. Sélectionnez **exemples d’exécution rapide**.
+3. Sélectionnez **Azure IoT Hub Client**.
+4. Sélectionnez **déployer et exécuter**.
 
 ![Illustration montrant le Client Azure IoT Hub sur le Portail d’appareil Windows](./media/howto-connect-windowsiotcore/iothubapp.gif)
 
@@ -119,7 +119,7 @@ Paramètres numériques
 
 ### <a name="properties"></a>properties
 
-| type            | Nom complet | Nom du champ | Type de données |
+| Type            | Nom complet | Nom du champ | Type de données |
 | --------------- | ------------ | ---------- | --------- |
 | Propriété d’appareil | Numéro gravé   | dieNumber  | number    |
-| Texte            | Lieu     | location   | N/A       |
+| Texte            | Lieu     | location   | S.O.       |

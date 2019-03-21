@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 01/28/2019
-ms.openlocfilehash: a48e9a21c97ecb881798b0f944e91cfcf81f0a72
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: cf6122b45f82b9304acd28819861b9fda2dcb5ed
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55295761"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085726"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Utiliser le stockage Azure avec des clusters Azure HDInsight
 
@@ -32,7 +32,7 @@ Le stockage Azure est une solution de stockage à la fois robuste et polyvalente
 | Type de compte de stockage | Services pris en charge | Niveaux de performances pris en charge | Niveaux d’accès pris en charge |
 |----------------------|--------------------|-----------------------------|------------------------|
 | Universel v2   | Blob               | standard                    | Chaud, froid, Archive*    |
-| Universel v1   | Blob               | standard                    | N/A                    |
+| Universel v1   | Blob               | standard                    | S.O.                    |
 | Stockage d'objets blob         | Blob               | standard                    | Chaud, froid, archive*    |
 
 Nous vous déconseillons d’utiliser le conteneur d’objets blob par défaut pour stocker des données d’entreprise. Nous vous recommandons de supprimer le conteneur d’objets blob par défaut après chaque utilisation pour réduire les coûts de stockage. Le conteneur par défaut contient les journaux des applications et du système. Assurez-vous de récupérer les journaux avant de supprimer le conteneur.
@@ -197,7 +197,7 @@ example/jars/hadoop-mapreduce-examples.jar
 ### <a name="access-blobs-using-azure-powershell"></a> Utiliser Azure PowerShell
 
 > [!NOTE]
-
+> 
 > Les commandes de cette section présentent des exemples basiques d’utilisation de PowerShell pour accéder aux données stockées dans des objets blob. Pour un exemple plus complet personnalisé pour une utilisation avec HDInsight, consultez la section [Outils HDInsight](https://github.com/Blackmist/hdinsight-tools).
 
 Utilisez la commande suivante pour répertorier les cmdlets relatives aux objets blob :

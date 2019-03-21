@@ -12,12 +12,12 @@ ms.author: anjangsh
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: dbc3b7e2e013dc53a1e2524c44bd2229a6a1b18d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 7c2e3b2bea7ddef3dfbf69f85b499d9a60158689
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462968"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999124"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Bien démarrer avec les outils de base de données élastique
 
@@ -25,10 +25,10 @@ Ce document présente l’expérience du développeur dans la [bibliothèque cli
 
 ## <a name="elastic-database-tools-for-java"></a>Outils de base de données élastique pour Java
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables
 
 * JDK (Java Developer Kit) version 1.8 ou ultérieure
-* [Maven](http://maven.apache.org/download.cgi)
+* [Maven](https://maven.apache.org/download.cgi)
 * Serveur SQL Database dans Azure ou instance SQL Server locale
 
 ### <a name="download-and-run-the-sample-app"></a>Télécharger et exécuter l’exemple d’application
@@ -57,7 +57,7 @@ Pour générer les fichiers JAR et commencer avec l’exemple de projet, effectu
 
     ![Progress-java][5]
     
-Félicitations ! Vous avez correctement conçu et exécuté votre première application partitionnée à l’aide des outils de base de données élastique sur Azure SQL Database. Utilisez Visual Studio ou SQL Server Management Studio pour vous connecter à votre base de données SQL, et regardez rapidement les partitions créées dans l’exemple. Vous remarquerez de nouveaux exemples de bases de données de partitions, ainsi que la base de données de gestionnaire de carte de partitions créée par l’exemple. 
+Félicitations ! Vous avez correctement conçu et exécuté votre première application partitionnée à l’aide des outils de base de données élastique sur Azure SQL Database. Utilisez Visual Studio ou SQL Server Management Studio pour vous connecter à votre base de données SQL, et regardez rapidement les partitions créées dans l’exemple. Vous remarquerez de nouveaux exemples de bases de données de partitions, ainsi que la base de données de gestionnaire de carte de partitions créée par l’exemple. 
 
 Pour ajouter la bibliothèque cliente à votre propre projet Maven, ajoutez la dépendance suivante dans votre fichier POM :
 
@@ -71,10 +71,10 @@ Pour ajouter la bibliothèque cliente à votre propre projet Maven, ajoutez la d
 
 ## <a name="elastic-database-tools-for-net"></a>Outils de base de données élastique pour .NET
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables
 
 * Visual Studio 2012 ou ultérieur avec C#. Téléchargez une version gratuite à la page [Téléchargements Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
-* NuGet 2.7 ou ultérieur. Pour obtenir la toute dernière version, consultez la page [Installation de NuGet](http://docs.nuget.org/docs/start-here/installing-nuget).
+* NuGet 2.7 ou ultérieur. Pour obtenir la toute dernière version, consultez la page [Installation de NuGet](https://docs.nuget.org/docs/start-here/installing-nuget).
 
 ### <a name="download-and-run-the-sample-app"></a>Télécharger et exécuter l’exemple d’application
 
@@ -94,7 +94,7 @@ Pour télécharger et exécuter les exemples, procédez comme suit :
    
     ![Progression][4]
 
-Félicitations ! Vous avez correctement conçu et exécuté votre première application partitionnée à l’aide des outils de base de données élastique sur SQL Database. Utilisez Visual Studio ou SQL Server Management Studio pour vous connecter à votre base de données SQL, et regardez rapidement les partitions créées dans l’exemple. Vous remarquerez de nouveaux exemples de bases de données de partitions, ainsi que la base de données de gestionnaire de carte de partitions créée par l’exemple.
+Félicitations ! Vous avez correctement conçu et exécuté votre première application partitionnée à l’aide des outils de base de données élastique sur SQL Database. Utilisez Visual Studio ou SQL Server Management Studio pour vous connecter à votre base de données SQL, et regardez rapidement les partitions créées dans l’exemple. Vous remarquerez de nouveaux exemples de bases de données de partitions, ainsi que la base de données de gestionnaire de carte de partitions créée par l’exemple.
 
 > [!IMPORTANT]
 > Nous vous recommandons d’utiliser systématiquement la dernière version de Management Studio afin de rester en cohérence avec les mises à jour d’Azure et de SQL Database. [Mettre à jour SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
@@ -131,8 +131,8 @@ Pour plus d’informations sur les outils de base de données élastique, consul
   * Outils de base de données élastique ([.NET](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE), [Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22))
   * [Outils de base de données élastique pour Azure SQL - Intégration Entity Framework](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
   * [Partitionner l’élasticité sur le centre de scripts](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
-* Blog : [Annonce de la mise à l’échelle élastique](https://azure.microsoft.com/blog/2014/10/02/introducing-elastic-scale-preview-for-azure-sql-database/)
-* Channel 9 : [Vidéo de présentation de la mise à l’échelle élastique](http://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
+* Blog : [Annonce de la mise à l’échelle élastique](https://azure.microsoft.com/blog/20../../introducing-elastic-scale-preview-for-azure-sql-database/)
+* Channel 9 : [Vidéo de présentation de la mise à l’échelle élastique](https://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
 * Forum de discussion : [Forum Azure SQL Database](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)
 * Pour mesurer les performances : [Compteurs de performances pour le Gestionnaire de cartes de partitions](sql-database-elastic-database-client-library.md)
 

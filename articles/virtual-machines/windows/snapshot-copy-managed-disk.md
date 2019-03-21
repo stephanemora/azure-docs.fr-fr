@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 1015e6774dac1258820e3ca4b3d06786046a8554
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: dea8547905cb558cb0be7dc23f89099773e84ff0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980854"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074776"
 ---
 # <a name="create-a-snapshot"></a>Créer un instantané
 
@@ -48,41 +48,41 @@ Les étapes suivantes expliquent comment copier le disque dur virtuel, créer la
 
 1. Définissez certains paramètres : 
 
- ```azurepowershell-interactive
-$resourceGroupName = 'myResourceGroup' 
-$location = 'eastus' 
-$vmName = 'myVM'
-$snapshotName = 'mySnapshot'  
-```
+   ```azurepowershell-interactive
+   $resourceGroupName = 'myResourceGroup' 
+   $location = 'eastus' 
+   $vmName = 'myVM'
+   $snapshotName = 'mySnapshot'  
+   ```
 
 2. Obtenez la machine virtuelle :
 
- ```azurepowershell-interactive
-$vm = get-azvm `
+   ```azurepowershell-interactive
+   $vm = get-azvm `
    -ResourceGroupName $resourceGroupName 
    -Name $vmName
-```
+   ```
 
 3. Créez la configuration de capture instantanée. Pour cet exemple, la capture instantanée est celle du disque de système d’exploitation :
 
- ```azurepowershell-interactive
-$snapshot =  New-AzSnapshotConfig 
+   ```azurepowershell-interactive
+   $snapshot =  New-AzSnapshotConfig 
    -SourceUri $vm.StorageProfile.OsDisk.ManagedDisk.Id 
    -Location $location 
    -CreateOption copy
-```
+   ```
    
    > [!NOTE]
    > Si vous souhaitez stocker votre capture instantanée dans le stockage résilient aux zones, créez-la dans une région qui prend en charge des [zones de disponibilité](../../availability-zones/az-overview.md) et inclut le paramètre `-SkuName Standard_ZRS`.   
    
 4. Prenez la capture instantanée :
 
- ```azurepowershell-interactive
-New-AzSnapshot 
+   ```azurepowershell-interactive
+   New-AzSnapshot 
    -Snapshot $snapshot 
    -SnapshotName $snapshotName 
    -ResourceGroupName $resourceGroupName 
-```
+   ```
 
 
 ## <a name="next-steps"></a>Étapes suivantes

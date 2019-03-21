@@ -2,21 +2,21 @@
 title: Article sur les problèmes connus/limitations de migration dans le cadre des migrations en ligne vers Azure SQL Database | Microsoft Docs
 description: Apprenez-en plus sur les problèmes connus/limitations de migration dans le cadre des migrations en ligne vers Azure SQL Database.
 services: database-migration
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 01/11/2019
-ms.openlocfilehash: b066c7f6c32b6e9fe1c1f63b5db88b4deaa2edae
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.date: 03/05/2019
+ms.openlocfilehash: 38a59a3a390977c5a3fd22b185542f5f2ec33d79
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231816"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091492"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-db"></a>Problèmes connus/limitations de migration dans le cadre des migrations en ligne vers Azure SQL DB
 
@@ -62,9 +62,9 @@ Vous pouvez voir une exception SQL suggérer que ntext est incompatible avec le 
       select object_name(object_id) 'Table name' from sys.columns where system_type_id =240 and object_id in (select object_id from sys.objects where type='U')
       ``` 
 
- 2. Excluez ces tables à partir du panneau **Configure migration settings** (Configurer les paramètres de migration), dans lequel vous spécifiez les tables pour la migration.
+   1. Excluez ces tables à partir du panneau **Configure migration settings** (Configurer les paramètres de migration), dans lequel vous spécifiez les tables pour la migration.
 
- 3. Réexécutez l’activité de migration.
+   1. Réexécutez l’activité de migration.
 
 ### <a name="migration-failures-with-various-integrity-violations-with-active-triggers-in-the-schema-during-full-data-load-or-incremental-data-sync"></a>Échecs de migration avec différentes violations d’intégrité avec des déclencheurs actifs dans le schéma pendant le « chargement complet des données » ou la « synchronisation des données incrémentielles »
 
@@ -89,7 +89,7 @@ SELECT max(DATALENGTH(ColumnName)) as LEN from TableName
 
 **Solution de contournement**
 
-Si vous disposez d’une colonne LOB de plus de 32 Ko, contactez l’équipe d’ingénierie à l’adresse [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com).
+Si vous avez une colonne LOB qui est supérieure à 32 Ko, contactez l’équipe d’ingénierie à [poser de Migrations de base de données Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
 ### <a name="issues-with-timestamp-columns"></a>Problèmes avec les colonnes timestamp
 
@@ -99,7 +99,7 @@ DMS ne fait pas migrer la valeur timestamp source. En fait, DMS génère une nou
 
 **Solution de contournement**
 
-Si vous souhaitez que DMS fasse migrer la valeur timestamp exacte stockée dans la table source, contactez l’équipe d’ingénierie à l’adresse [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com).
+Si vous avez besoin de DMS pour migrer la valeur d’horodatage exact stockée dans la table source, contactez l’équipe d’ingénierie à [poser de Migrations de base de données Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
 ### <a name="data-migration-errors-do-not-provide-additional-details-on-the-database-detailed-status-blade"></a>Les erreurs de migration de données ne fournissent pas de détails supplémentaires sur le panneau d’état détaillé des bases de données.
 

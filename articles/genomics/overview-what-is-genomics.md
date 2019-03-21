@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: 4b4510a02c4212724f8a592c7318aecab3d06275
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
-ms.translationtype: HT
+ms.openlocfilehash: 1b52f47d692cf2fb2925ebb2a9882b9c79c29a87
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733259"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452638"
 ---
 # <a name="what-is-microsoft-genomics"></a>Qu’est-ce que Microsoft Genomics ?
 Microsoft Genomics offre l’implémentation cloud de Burrows-Wheeler Aligner (BWA) et de Genome Analysis Toolkit (GATK) pour une analyse secondaire. Le service est certifié ISO et conforme aux réglementations HIPAA et offre une prévisibilité des prix pour vos besoins de séquençage du génome. Découvrez comment utiliser le service Microsoft Genomics et l’intégration avec notre API en lisant nos procédures de démarrage rapide, didacticiels et documentations.

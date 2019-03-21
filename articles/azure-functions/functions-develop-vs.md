@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 43992d25590a58b24c48aad8bfbf6f91b17699ee
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 33ec96b3708bc89f3fbd415f892e0810fc468876
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098079"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092665"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Développer Azure Functions à l’aide de Visual Studio  
 
@@ -34,7 +34,7 @@ Cet article fournit des détails sur l’utilisation d’Azure Functions Tools p
 > [!IMPORTANT]
 > Ne mélangez pas un développement local avec un développement de portail dans une même application de fonction. Quand vous publiez à partir d’un projet local dans une application de fonction, le processus de déploiement remplace toutes les fonctions que vous avez développées dans le portail.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Azure Functions Tools est inclus dans la charge de travail de développement Azure de [Visual Studio 2017 version 15.5](https://www.visualstudio.com/vs/) et des versions ultérieures. Veillez à inclure la charge de travail de **développement Azure** lorsque vous installez Visual Studio 2017 :
 
@@ -143,7 +143,7 @@ Comme avec les déclencheurs, les liaisons d’entrée et de sortie sont ajouté
 
 1. Vérifiez que vous avez [configuré le projet pour un développement local](#configure-the-project-for-local-development).
 
-2. Ajoutez le package d’extension NuGet approprié pour la liaison spécifique. Pour plus d’informations, consultez [Local C# development using Visual Studio](functions-triggers-bindings.md#local-csharp) (Développement C# local à l’aide de Visual Studio) dans l’article relatifs aux déclencheurs et liaisons. Les exigences de package NuGet spécifique à la liaison sont indiquées dans l’article de référence pour la liaison. Par exemple, recherchez les exigences de package pour le déclencheur Event Hubs dans l’[article de référence de la liaison Event Hubs](functions-bindings-event-hubs.md).
+2. Ajoutez le package d’extension NuGet approprié pour la liaison spécifique. Pour plus d’informations, consultez [Local C# development using Visual Studio](./functions-bindings-register.md#local-csharp) (Développement C# local à l’aide de Visual Studio) dans l’article relatifs aux déclencheurs et liaisons. Les exigences de package NuGet spécifique à la liaison sont indiquées dans l’article de référence pour la liaison. Par exemple, recherchez les exigences de package pour le déclencheur Event Hubs dans l’[article de référence de la liaison Event Hubs](functions-bindings-event-hubs.md).
 
 3. Si la liaison requiert des paramètres de l’application, ajoutez-les à la collection **Valeurs** dans le [fichier de paramètres local](functions-run-local.md#local-settings-file). Ces valeurs sont utilisées lorsque la fonction s’exécute localement. Lorsque la fonction s’exécute dans l’application de fonction dans Azure, les [paramètres de l’application de fonction](#function-app-settings) sont utilisés.
 
@@ -163,7 +163,7 @@ Comme avec les déclencheurs, les liaisons d’entrée et de sortie sont ajouté
         }
     }
     ```
-La connexion au stockage de file d’attente est obtenue à partir du paramètre `AzureWebJobsStorage`. Pour plus d’informations, consultez l’article de référence pour la liaison spécifique. 
+   La connexion au stockage de file d’attente est obtenue à partir du paramètre `AzureWebJobsStorage`. Pour plus d’informations, consultez l’article de référence pour la liaison spécifique. 
 
 [!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
 
@@ -220,8 +220,6 @@ Pour configurer Application Insights pour votre application de fonction dans Azu
 Pour en savoir plus, consultez [Surveiller l’exécution des fonctions Azure](functions-monitoring.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-
-Pour plus d’informations sur Azure Functions Tools, consultez la section Common Questions (Questions courantes) de l’article de blog [Visual Studio 2017 Tools for Azure Functions](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/) (Visual Studio 2017 Tools pour Azure Functions).
 
 Pour en savoir plus sur Azure Functions Core Tools, consultez [Procédure locale de codage et de test d’Azure Functions](functions-run-local.md).
 

@@ -1,5 +1,5 @@
 ---
-title: Ajouter des utilisateurs B2B Collaboration à Azure Active Directory sans invitation | Microsoft Docs
+title: Ajouter des invités B2B sans un lien d’invitation ou l’e-mail - Azure Active Directory | Microsoft Docs
 description: Vous pouvez permettre à un utilisateur invité d’ajouter d’autres utilisateurs invités à votre Azure AD sans échanger d’invitation dans Azure Active Directory B2B Collaboration.
 services: active-directory
 documentationcenter: ''
@@ -12,14 +12,14 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90e156f1d1d7bbbb6c4f65a4762977d28a5a0b89
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 1dca03f84b821d20ee6fecbaec24a1aa840836b5
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182593"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294975"
 ---
-# <a name="add-b2b-collaboration-guest-users-without-an-invitation"></a>Ajouter des utilisateurs invités B2B Collaboration sans invitation
+# <a name="add-b2b-collaboration-guest-users-without-an-invitation-link-or-email"></a>Ajouter les utilisateurs invités B2B collaboration sans un lien d’invitation ou l’e-mail
 
 Vous pouvez désormais inviter des utilisateurs en leur envoyant un lien direct vers une application partagée. Grâce à cette méthode, les utilisateurs invités n’ont plus besoin d’utiliser l’e-mail d’invitation, sauf dans certains cas spéciaux. Un utilisateur invité clique sur le lien de l’application, passe en revue et accepte les termes du contrat de confidentialité et accède ensuite en toute transparence à l’application. Pour plus d’informations, consultez [Utilisation d'invitations B2B Collaboration](redemption-experience.md).   
 
@@ -33,7 +33,7 @@ Cette méthode d’origine fonctionne toujours. Toutefois, elle se comporte dés
 
 Si vous invitez un utilisateur dans le répertoire, l’utilisateur invité doit accéder directement à l’URL du portail Azure propre au client des ressources (tel que https://portal.azure.com/ *resourcetenant*.onmicrosoft.com) pour afficher et accepter les conditions de confidentialité.
 
-### <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Qu'est-ce que la collaboration B2B d'Azure AD ?](what-is-b2b.md)
 - [Utilisation d’une invitation B2B Collaboration](redemption-experience.md)

@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.openlocfilehash: 517afe21fbf9241e2b2423525e9caee12a5603f6
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 204ee1b812949311258be968de387dc5b66c4fc0
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56271186"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57726870"
 ---
-# <a name="azure-data-factory-data-flow-join-transformation"></a>Transformation de jointure (Join) de Data Flow d’Azure Data Factory
+# <a name="mapping-data-flow-join-transformation"></a>Mappage de Transformation de jointure de flux de données
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -24,11 +24,11 @@ Utilisez la transformation de jointure (Join) pour combiner les données de deux
 
 ## <a name="join-types"></a>Types de jointure
 
-La sélection du type de jointure est obligatoire pour la transformation de jointure (Join)
+En sélectionnant le Type de jointure est nécessaire pour la transformation de jointure.
 
 ### <a name="inner-join"></a>Jointure interne (Inner)
 
-La jointure interne (Inner) passe uniquement dans les lignes qui correspondent aux conditions de colonne des deux tables
+Jointure interne sera transmis directement uniquement les lignes qui correspondent aux conditions de colonne des deux tables.
 
 ### <a name="left-outer"></a>Externe gauche
 
@@ -40,11 +40,11 @@ Toutes les lignes du flux de droite ne respectant pas la condition de jointure s
 
 ### <a name="full-outer"></a>Externe entière
 
-L’opération Externe entière génère toutes les colonnes et lignes des deux côtés avec des valeurs NULL pour les colonnes qui sont absentes dans l’autre table
+Externe entière génère toutes les colonnes et lignes des deux côtés avec des valeurs NULL pour les colonnes qui sont absent de l’autre table.
 
 ### <a name="cross-join"></a>Jointure croisée
 
-Indiquer le produit croisé des deux flux avec une expression
+Spécifiez le produit croisé de deux flux de données avec une expression. Vous pouvez utiliser cela pour créer des conditions de jointure personnalisées.
 
 ## <a name="specify-join-conditions"></a>Spécifier les conditions de jointure
 
@@ -67,3 +67,7 @@ Vous pouvez obtenir des conditions de jointure réflexive dans ADF Data Flow à 
 ![Jointure réflexive](media/data-flow/selfjoin.png "Jointure réflexive")
 
 Dans le diagramme ci-dessus, la transformation de sélection (Select) se trouve en haut. Cette opération se contente d’applique l’alias « OrigSourceBatting » au flux d’origine. Dans la transformation de jointure (Join) mise en évidence en dessous, vous pouvez voir que nous utilisons ce flux d’alias de sélection (Select) en tant que jointure de droite, ce qui nous permet de faire référence à la même clé du côté gauche et du côté droit de la jointure interne (Inner).
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Après avoir joint les données, vous pouvez ensuite [créer de nouvelles colonnes](data-flow-derived-column.md) et [récepteur vos données vers un magasin de données de destination](data-flow-sink.md).

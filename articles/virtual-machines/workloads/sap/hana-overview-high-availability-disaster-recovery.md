@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 61f536ee5eb27982bd63daf0b278e6c7a836fe08
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
-ms.translationtype: HT
+ms.openlocfilehash: 4d60f6752bf369e875c350823f76854408fcb806
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44390737"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000592"
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>Haute disponibilité et récupération d’urgence des grandes instances SAP HANA sur Azure 
 
@@ -33,9 +33,9 @@ La haute disponibilité et la récupération d’urgence constituent des aspects
 
 Microsoft prend en charge certaines fonctionnalités de haute disponibilité de SAP HANA avec les grandes instances HANA. Ces fonctionnalités sont les suivantes :
 
-- **Réplication du stockage** : capacité du système de stockage à répliquer toutes les données à un autre tampon de grande instance HANA dans une autre région Azure. SAP HANA opère indépendamment de cette méthode. Cette fonctionnalité est le mécanisme de récupération d’urgence par défaut pour les grandes instances HANA.
-- **Réplication du système HANA** : La [réplication de toutes les données de SAP HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html) pour un système SAP HANA à part. L’objectif de délai de récupération est réduit grâce à une réplication des données à intervalles réguliers. SAP HANA prend en charge les modes asynchrone, synchrone en mémoire et synchrone. Le mode synchrone n’est utilisé que pour les systèmes SAP HANA situés dans le même centre de données ou à moins de 100 km de distance. Avec la conception actuelle des horodatages de grande instance HANA, la réplication de système HANA ne peut garantir la haute disponibilité que dans une région. La réplication de système HANA nécessite un composant de routage ou proxy inverse tiers pour les récupérations d’urgence dans une autre région Azure. 
-- **Basculement automatique de l’hôte** : solution de récupération après incident locale pour SAP HANA à utiliser comme alternative à la réplication de système HANA. Si le nœud principal n’est plus disponible, configurez un ou plusieurs nœuds SAP HANA de secours en mode montée en puissance parallèle, et SAP HANA bascule automatiquement vers un nœud de secours.
+- **Réplication du stockage**: Capacité du système de stockage pour répliquer toutes les données vers un autre tampon de grande Instance HANA dans une autre région Azure. SAP HANA opère indépendamment de cette méthode. Cette fonctionnalité est le mécanisme de récupération d’urgence par défaut pour les grandes instances HANA.
+- **Réplication de système HANA**: Le [réplication de toutes les données dans SAP HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html) sur un autre système SAP HANA. L’objectif de délai de récupération est réduit grâce à une réplication des données à intervalles réguliers. SAP HANA prend en charge les modes asynchrone, synchrone en mémoire et synchrone. Le mode synchrone n’est utilisé que pour les systèmes SAP HANA situés dans le même centre de données ou à moins de 100 km de distance. Avec la conception actuelle des horodatages de grande instance HANA, la réplication de système HANA ne peut garantir la haute disponibilité que dans une région. La réplication de système HANA nécessite un composant de routage ou proxy inverse tiers pour les récupérations d’urgence dans une autre région Azure. 
+- **Basculement automatique avec hôte**: Une solution de récupération après incident locale pour SAP HANA qui est une alternative à la réplication de système HANA. Si le nœud principal n’est plus disponible, configurez un ou plusieurs nœuds SAP HANA de secours en mode montée en puissance parallèle, et SAP HANA bascule automatiquement vers un nœud de secours.
 
 SAP HANA sur Azure (grandes instances) est disponible dans deux régions Azure qui couvrent quatre zones géopolitiques (États-Unis, Australie, Europe et Japon). Deux régions d’une zone géopolitique qui hébergent des horodatages de grande instance HANA sont connectées à des circuits réseau dédiés distincts. Ceux-ci servent à répliquer des captures instantanées de stockage pour fournir plusieurs méthodes de récupération après sinistre. La réplication n’est pas établie par défaut, mais configurée pour les client qui commandent la fonctionnalité de récupération d’urgence. La réplication de stockage dépend de l’utilisation des captures instantanées de stockage pour les grandes instances HANA. Il est impossible de choisir comme région de récupération d’urgence, une région Azure située dans une autre zone géopolitique. 
 
@@ -44,7 +44,7 @@ Le tableau suivant indique les combinaisons et méthodes de haute disponibilité
 | Scénario pris en charge dans les grandes instances HANA | Option de haute disponibilité | Option de récupération d’urgence | Commentaires |
 | --- | --- | --- | --- |
 | Nœud unique | Non disponible | Configuration de récupération d’urgence dédiée.<br /> Configuration de récupération d’urgence polyvalente. | |
-| Basculement automatique avec hôte : Scale-out (avec ou sans unité de secours)<br /> y compris 1+1 | Possible avec nœud de secours en rôle actif.<br /> Contrôle par HANA de la permutation des rôles. | Configuration de récupération d’urgence dédiée.<br /> Configuration de récupération d’urgence polyvalente.<br /> Synchronisation de la récupération d’urgence à l’aide de la réplication du stockage. | Des jeux de volumes HANA sont attachés à tous les nœuds.<br /> Le site de récupération d’urgence doit avoir le même nombre de nœuds. |
+| Hôte de basculement automatique : Montée en puissance (avec ou sans mise en veille)<br /> y compris 1+1 | Possible avec nœud de secours en rôle actif.<br /> Contrôle par HANA de la permutation des rôles. | Configuration de récupération d’urgence dédiée.<br /> Configuration de récupération d’urgence polyvalente.<br /> Synchronisation de la récupération d’urgence à l’aide de la réplication du stockage. | Des jeux de volumes HANA sont attachés à tous les nœuds.<br /> Le site de récupération d’urgence doit avoir le même nombre de nœuds. |
 | Réplication de système HANA | Possible avec configuration de réplica principal ou secondaire.<br /> Le réplica secondaire prend le rôle principal en cas de basculement.<br /> Réplication de système HANA et basculement du contrôle du système d’exploitation. | Configuration de récupération d’urgence dédiée.<br /> Configuration de récupération d’urgence polyvalente.<br /> Synchronisation de la récupération d’urgence à l’aide de la réplication du stockage.<br /> La récupération d’urgence à l’aide de la réplication de système HANA n’est pas possible sans composants tiers. | Des jeux distincts de volumes de disque sont attachés à chaque nœud.<br /> Seuls les volumes de disque de réplica secondaire sur le site de production sont répliqués à l’emplacement de la récupération d’urgence.<br /> Un jeu de volumes est requis sur le site de récupération d’urgence. | 
 
 L’expression « configuration de récupération d’urgence dédiée » désigne une configuration où l’unité de grande instance HANA sur le site de récupération d’urgence n’est pas utilisée pour exécuter d’autres charges de travail ou systèmes de non-production. L’unité est passive et est déployée uniquement si un basculement d’urgence est exécuté. Cependant, cette configuration n’est le choix préféré de nombreux clients.
@@ -59,9 +59,9 @@ L’expression « configuration de récupération d’urgence polyvalente » dé
 
 Vous trouverez plus d’informations sur la haute disponibilité de SAP HANA dans les articles SAP suivants : 
 
-- [SAP HANA High Availability Whitepaper (Livre blanc sur la haute disponibilité de SAP HANA)](http://go.sap.com/documents/2016/05/f8e5eeba-737c-0010-82c7-eda71af511fa.html)
-- [SAP HANA Administration Guide (Guide d’administration de SAP HANA)](http://help.sap.com/hana/SAP_HANA_Administration_Guide_en.pdf)
-- [SAP Academy Video on SAP HANA System Replication (Vidéo SAP Academy sur la réplication du système SAP HANA)](http://scn.sap.com/community/hana-in-memory/blog/2015/05/19/sap-hana-system-replication)
+- [SAP HANA High Availability Whitepaper (Livre blanc sur la haute disponibilité de SAP HANA)](https://go.sap.com/documents/2016/05/f8e5eeba-737c-0010-82c7-eda71af511fa.html)
+- [SAP HANA Administration Guide (Guide d’administration de SAP HANA)](https://help.sap.com/hana/SAP_HANA_Administration_Guide_en.pdf)
+- [SAP Academy Video on SAP HANA System Replication (Vidéo SAP Academy sur la réplication du système SAP HANA)](https://scn.sap.com/community/hana-in-memory/blog/2015/05/19/sap-hana-system-replication)
 - [SAP Support Note #1999880 – FAQ on SAP HANA System Replication (Note de support SAP n°1999880 – FAQ sur la réplication du système SAP HANA)](https://apps.support.sap.com/sap/support/knowledge/preview/en/1999880)
 - [SAP Support Note #2165547 – SAP HANA Back up and Restore within SAP HANA System Replication Environment (Note de support SAP n°2165547 – Sauvegarde et restauration SAP HANA dans l’environnement de réplication du système SAP HANA)](https://websmp230.sap-ag.de/sap(bD1lbiZjPTAwMQ==)/bc/bsp/sno/ui_entry/entry.htm?param=69765F6D6F64653D3030312669765F7361706E6F7465735F6E756D6265723D3231363535343726)
 - [SAP Support Note #1984882 – Using SAP HANA System Replication for Hardware Exchange with Minimum/Zero Downtime (Note de support SAP n°1984882 – Utilisation de la réplication du système SAP HANA pour l’échange de matériel avec un temps d’arrêt minime ou nul)](https://websmp230.sap-ag.de/sap(bD1lbiZjPTAwMQ==)/bc/bsp/sno/ui_entry/entry.htm?param=69765F6D6F64653D3030312669765F7361706E6F7465735F6E756D6265723D3139383438383226)
@@ -86,7 +86,7 @@ Outre les exigences précédentes pour configurer une récupération d’urgence
 - Commander du stockage supplémentaire sur le site de récupération d’urgence pour chacune de vos références SKU SAP HANA sur Azure (grandes instances) que vous souhaitez récupérer sur le site de récupération d’urgence. L’achat de stockage supplémentaire vous permet d’allouer les volumes de stockage. Vous pouvez allouer les volumes de stockage qui constituent la cible de la réplication de stockage entre votre région Azure de production et la région Azure de récupération d’urgence.
 - Dans ce cas, si l’installation de HSR a été réalisée sur le réplica principal et que vous configurez la réplication basée sur le stockage sur le site de récupération d’urgence, vous devez acheter du stockage supplémentaire au niveau du site de récupération d’urgence, pour que les données des nœuds principaux et secondaires soient répliquées sur le site de récupération d’urgence.
 
- **Étapes suivantes**
+  **Étapes suivantes**
 - Voir [Sauvegarde et restauration](hana-backup-restore.md).
 
 

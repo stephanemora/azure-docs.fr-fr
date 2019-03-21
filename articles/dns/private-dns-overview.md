@@ -5,26 +5,31 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 1/23/2019
+ms.date: 3/1/2019
 ms.author: victorh
-ms.openlocfilehash: f88cc44890277604411f482779a83ee266820ac8
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 7f5f377f34a43dfb01ea516e023bb98f118d0dd4
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816320"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247220"
 ---
 # <a name="use-azure-dns-for-private-domains"></a>Utilisation d’Azure DNS pour les domaines privés
 
 Le DNS (Domain Name System) se charge de traduire (ou résoudre) un nom de service en une adresse IP. Azure DNS est un service d’hébergement pour les domaines DNS qui offre une résolution de noms à l’aide de l’infrastructure Microsoft Azure. En plus de la prise en charge des domaines DNS accessibles sur Internet, Azure DNS prend désormais également en charge les domaines DNS privés en tant que fonctionnalité en préversion.
 
+[!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
+
 Azure DNS fournit un service DNS fiable et sécurisé pour gérer et résoudre les noms de domaine dans un réseau virtuel sans avoir à ajouter de solution DNS personnalisée. Grâce aux zones DNS privées, vous pouvez utiliser vos propres noms de domaine personnalisés au lieu des noms fournis par Azure actuellement disponibles. L’utilisation de noms de domaine personnalisés vous aide à adapter votre architecture de réseau virtuel en fonction des besoins de votre organisation. Elle offre une résolution de noms pour les machines virtuelles au sein d’un réseau virtuel et entre plusieurs réseaux virtuels. De plus, vous pouvez configurer des noms de zones avec une vue divisée qui permet à des zones DNS publique et privée de partager le nom.
+
+Pour publier une zone DNS privée sur votre réseau virtuel, vous spécifiez la liste des réseaux virtuels qui sont autorisés à résoudre les enregistrements dans la zone. On les appelle *résolution de réseaux virtuels*. Vous pouvez également spécifier un réseau virtuel pour lequel Azure DNS enregistre le nom d’hôte à chaque fois qu’une machine virtuelle est créée, change de protocole internet, ou est supprimée. Nous appelons cela un *réseau virtuel d’enregistrement*.
 
 Si vous spécifiez un réseau virtuel d’inscription, les enregistrements DNS pour les machines virtuelles de ce réseau virtuel qui sont inscrits dans la zone privée ne seront pas visibles ou récupérables à partir des API Azure Powershell et Azure CLI, mais les enregistrements de machine virtuelle sont tout de même enregistrés et résolus avec succès.
 
 ![Vue d’ensemble de DNS](./media/private-dns-overview/scenario.png)
 
-[!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
+> [!NOTE]
+> Comme meilleure pratique, n’utilisez pas un domaine .local pour votre zone DNS privée. Pas tous les systèmes d’exploitation prennent en charge.
 
 ## <a name="benefits"></a>Avantages
 

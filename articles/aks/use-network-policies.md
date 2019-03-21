@@ -1,45 +1,47 @@
 ---
 title: Sécuriser les pods avec des stratégies réseau dans Azure Kubernetes Service (AKS)
-description: Découvrez comment sécuriser le trafic qui transite par des pods à l’aide de stratégies réseau Kubernetes dans Azure Kubernetes Service (AKS)
+description: Apprenez à sécuriser le trafic qui transite vers et depuis des pods à l’aide de stratégies de réseau Kubernetes dans Azure Kubernetes Service (ACS)
 services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: iainfou
-ms.openlocfilehash: 250c4fc6e51bacc68c965394b9fd430b1b75a52c
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: a20dfcd9e2ef12252235b74455964d115d9aef9b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447172"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181484"
 ---
-# <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Sécuriser le trafic entre les pods avec des stratégies réseau dans Azure Kubernetes Service (AKS)
+# <a name="preview---secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Version préliminaire - sécuriser le trafic entre les pods à l’aide de stratégies de réseau dans Azure Kubernetes Service (ACS)
 
-Lorsque vous exécutez des applications modernes, basées sur des microservices dans Kubernetes, vous souhaitez la plupart du temps décider des composants qui peuvent communiquer entre eux. Le principe du privilège minimum doit être appliqué à la façon dont le trafic peut transiter entre les pods dans un cluster AKS. Par exemple, il y a de grandes chances que vous souhaitiez bloquer le trafic directement sur les applications backend. Dans Kubernetes, la fonctionnalité *Network Policy* (Stratégie réseau) vous permet de définir des règles de trafic d’entrée et de sortie entre les pods d’un cluster.
+Lorsque vous exécutez des applications modernes, basées sur des microservices dans Kubernetes, vous souhaitez la plupart du temps décider des composants qui peuvent communiquer entre eux. Le principe du moindre privilège doit être appliqué à la façon dont le trafic peut transiter entre les pods dans un cluster Azure Kubernetes Service (AKS). Supposons que vous avez probablement souhaitez bloquer le trafic directement vers les applications back-end. Le *stratégie réseau* fonctionnalité dans Kubernetes vous permet de définir les règles de trafic entrant et sortant entre les pods dans un cluster.
 
-Cet article vous montre comment utiliser des stratégies réseau pour contrôler le flux du trafic entre les pods dans AKS.
+Tricolore, une solution de sécurité réseau fondé par Tigera et de mise en réseau de l’open source offre un moteur de stratégie réseau qui peut implémenter des règles de stratégie de réseau Kubernetes. Cet article vous montre comment installer le moteur de stratégie réseau tricolore et créer des stratégies de réseau Kubernetes pour contrôler le flux du trafic entre les pods dans ACS.
 
 > [!IMPORTANT]
-> Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire. Les préversions sont à votre disposition, à la condition d’accepter les [conditions d’utilisation supplémentaires][terms-of-use]. Certains aspects de cette fonctionnalité sont susceptibles d’être modifiés avant la mise à disposition générale.
+> Fonctionnalités de préversion AKS sont libre-service et participer. Les préversions sont fournies pour recueillir des commentaires et des bogues à partir de notre communauté. Toutefois, ils ne sont pas pris en charge par le support technique Azure. Si vous créez un cluster, ou ajoutez ces fonctionnalités à des clusters existants, ce cluster est non pris en charge jusqu'à ce que la fonctionnalité n’est plus disponible en version préliminaire et atteignent à la disposition générale (GA).
+>
+> Si vous rencontrez des problèmes avec les fonctionnalités en version préliminaire, [de signaler un problème sur le référentiel GitHub d’AKS] [ aks-github] par le nom de la fonctionnalité d’aperçu dans le titre du bogue.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
 Azure CLI 2.0.56 (ou version ultérieure) doit être installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez  [Installation d’Azure CLI 2.0][install-azure-cli].
 
-Pour créer un AKS avec une stratégie réseau, activez tout d’abord un indicateur de fonctionnalité sur votre abonnement. Pour enregistrer l’indicateur de fonctionnalité *EnableNetworkPolicy*, utilisez la commande [az feature register][az-feature-register], comme indiqué dans l’exemple suivant :
+Pour créer un cluster AKS qui peut utiliser la stratégie réseau, d’abord activer un indicateur de fonctionnalité sur votre abonnement. Pour enregistrer l’indicateur de fonctionnalité *EnableNetworkPolicy*, utilisez la commande [az feature register][az-feature-register], comme indiqué dans l’exemple suivant :
 
 ```azurecli-interactive
 az feature register --name EnableNetworkPolicy --namespace Microsoft.ContainerService
 ```
 
-Quelques minutes sont nécessaires pour que l’état s’affiche *Registered* (Inscrit). Vous pouvez vérifier l'état de l'enregistrement à l'aide de la commande [az feature list][az-feature-list] :
+Quelques minutes sont nécessaires pour que l’état s’affiche *Registered* (Inscrit). Vous pouvez vérifier l’état d’inscription à l’aide de la [liste des fonctionnalités az] [ az-feature-list] commande :
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableNetworkPolicy')].{Name:name,State:properties.state}"
 ```
 
-Lorsque vous êtes prêt, actualisez l’inscription du fournisseur de ressources *Microsoft.ContainerService* à l’aide de la commande [az provider register][az-provider-register] :
+Lorsque vous êtes prêt, actualisez l’inscription de le *Microsoft.ContainerService* fournisseur de ressources à l’aide de la [register de fournisseur az] [ az-provider-register] commande :
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -47,11 +49,11 @@ az provider register --namespace Microsoft.ContainerService
 
 ## <a name="overview-of-network-policy"></a>Présentation de la stratégie réseau
 
-Par défaut, tous les pods d’un cluster AKS peuvent envoyer et recevoir du trafic sans aucune limite. Pour améliorer la sécurité, vous pouvez définir des règles qui contrôlent le flux du trafic. Par exemple, les applications backend ne sont souvent exposées qu’aux services frontend nécessaires, et les composants de base de données ne sont accessibles qu’aux couches d’application qui s’y connectent.
+Tous les pods dans un cluster ACS peuvent envoyer et recevoir du trafic sans limitations, par défaut. Pour améliorer la sécurité, vous pouvez définir des règles qui contrôlent le flux du trafic. Applications back-end sont souvent exposées seulement à des services frontaux requis, par exemple. Ou bien, les composants de base de données sont uniquement accessibles aux couches d’application qui s’y connecter.
 
-Les stratégies réseau sont des ressources Kubernetes qui vous permettent de contrôler le flux du trafic entre les pods. Vous pouvez choisir d’autoriser ou de refuser un trafic en fonction de paramètres, tels que des étiquettes attribuées, un espace de noms ou un port de trafic. Les stratégies réseau sont définies en tant que manifestes YAML et peuvent être intégrées à un manifeste plus vaste qui crée également un déploiement ou un service.
+Les stratégies réseau sont des ressources Kubernetes qui vous permettent de contrôler le flux du trafic entre les pods. Vous pouvez choisir autoriser ou refuser le trafic en fonction des paramètres tels que les étiquettes affectés, espace de noms ou le port de trafic. Stratégies de réseau sont définies comme YAML manifestes. Ces stratégies peuvent être inclus dans le cadre d’un manifeste plus large qui crée également un déploiement ou un service.
 
-Pour voir des stratégies réseau en action, nous allons créer, puis développer une stratégie qui définit le flux de trafic comme suit :
+Pour afficher les stratégies de réseau en action, nous allons créer, puis développer une stratégie qui définit le flux de trafic :
 
 * Refuser tout trafic sur un pod.
 * Autoriser le trafic en fonction des étiquettes de pod.
@@ -61,16 +63,16 @@ Pour voir des stratégies réseau en action, nous allons créer, puis développe
 
 La stratégie réseau n’est activable qu’une fois le cluster créé. Vous ne pouvez pas activer une stratégie réseau sur un cluster AKS existant. 
 
-Pour utiliser la stratégie réseau avec un cluster AKS, vous devez utiliser le [plug-in Azure CNI][azure-cni] et définir vos propre réseau et sous-réseaux virtuels. Pour de plus amples informations sur la façon de planifier les plages de sous-réseau nécessaires, consultez [Configurer le réseau avancé][use-advanced-networking].
+Pour utiliser la stratégie de réseau avec un cluster AKS, vous devez utiliser le [Azure CNI plug-in] [ azure-cni] et définir votre propre réseau virtuel et les sous-réseaux. Pour de plus amples informations sur la façon de planifier les plages de sous-réseau nécessaires, consultez [Configurer le réseau avancé][use-advanced-networking].
 
 L’exemple de script suivant :
 
 * Crée un réseau virtuel et un sous-réseau.
-* Crée un principal du service Azure Active Directory (AD) pour une utilisation avec le cluster AKS.
+* Crée un Azure Active Directory (Azure AD) principal de service pour une utilisation avec le cluster AKS.
 * Assigne des autorisations *Contributeur* pour le principal du service du cluster AKS sur le réseau virtuel.
-* Crée un cluster AKS dans le réseau virtuel défini et active la stratégie réseau.
+* Crée un cluster AKS dans le réseau virtuel défini et Active la stratégie de réseau.
 
-Fournissez votre propre *SP_PASSWORD* sécurisé. Si vous le souhaitez, remplacez les variables *RESOURCE_GROUP_NAME* et *CLUSTER_NAME* :
+Fournissez votre propre *SP_PASSWORD* sécurisé. Vous pouvez remplacer le *RESOURCE_GROUP_NAME* et *nom_cluster* variables :
 
 ```azurecli-interactive
 SP_PASSWORD=mySecurePassword
@@ -106,12 +108,12 @@ az role assignment create --assignee $SP_ID --scope $VNET_ID --role Contributor
 SUBNET_ID=$(az network vnet subnet show --resource-group $RESOURCE_GROUP_NAME --vnet-name myVnet --name myAKSSubnet --query id -o tsv)
 
 # Create the AKS cluster and specify the virtual network and service principal information
-# Enable network policy using the `--network-policy` parameter
+# Enable network policy by using the `--network-policy` parameter
 az aks create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $CLUSTER_NAME \
     --node-count 1 \
-    --kubernetes-version 1.12.4 \
+    --kubernetes-version 1.12.6 \
     --generate-ssh-keys \
     --network-plugin azure \
     --service-cidr 10.0.0.0/16 \
@@ -123,7 +125,7 @@ az aks create \
     --network-policy calico
 ```
 
-La création du cluster ne prend que quelques minutes. Ensuite, configurez `kubectl` afin de vous connecter à votre cluster Kubernetes au moyen de la commande [az aks get-credentials][az-aks-get-credentials]. Cette commande télécharge les informations d’identification et configure l’interface CLI Kubernetes pour les utiliser :
+La création du cluster ne prend que quelques minutes. Lorsque le cluster est prêt, configurer `kubectl` pour vous connecter à votre cluster Kubernetes à l’aide de la [az aks get-credentials] [ az-aks-get-credentials] commande. Cette commande télécharge les informations d’identification et configure l’interface CLI Kubernetes pour les utiliser :
 
 ```azurecli-interactive
 az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME
@@ -131,34 +133,34 @@ az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAM
 
 ## <a name="deny-all-inbound-traffic-to-a-pod"></a>Refuser tout trafic entrant sur un pod
 
-Avant de définir des règles autorisant un trafic réseau particulier, commencez par créer une stratégie réseau pour refuser tout trafic. Cette stratégie vous donne un point de départ pour l’établissement de la liste verte uniquement du trafic souhaité. Vous pouvez aussi constater aisément que le trafic est ignoré lorsque la stratégie réseau est appliquée.
+Avant de définir des règles autorisant un trafic réseau particulier, commencez par créer une stratégie réseau pour refuser tout trafic. Cette stratégie vous donne un point de départ pour commencer à la liste verte uniquement le trafic souhaité. Vous pouvez aussi constater aisément que le trafic est ignoré lorsque la stratégie réseau est appliquée.
 
-Pour notre exemple d’environnement d’application et de règles de trafic, nous allons tout d’abord créer un espace de noms nommé *development* (développement) pour exécuter nos exemples de pods :
+Pour les règles de trafic et l’environnement d’application exemple, nous allons tout d’abord créer un espace de noms appelé *développement* pour exécuter les pods d’exemple :
 
 ```console
 kubectl create namespace development
 kubectl label namespace/development purpose=development
 ```
 
-À présent, créez un exemple de pod backend qui exécute NGINX. Ce pod principal peut être utilisé pour simuler un exemple d’application web backend. Créez ce pod dans l’espace de noms *development* et ouvrez le port *80* pour gérer le trafic web. Étiquetez le pod avec *app=webapp,role=backend* de façon à pouvoir le cibler avec une stratégie réseau dans la section suivante :
+Créer un pod de back-end d’exemple qui exécute NGINX. Ce pod principal permet de simuler un exemple principal basée sur le web d’application. Créez ce pod dans l’espace de noms *development* et ouvrez le port *80* pour gérer le trafic web. Étiquetez le pod avec *app=webapp,role=backend* de façon à pouvoir le cibler avec une stratégie réseau dans la section suivante :
 
 ```console
 kubectl run backend --image=nginx --labels app=webapp,role=backend --namespace development --expose --port 80 --generator=run-pod/v1
 ```
 
-Pour vérifier que vous accédez correctement à la page web NGINX par défaut, créez un autre pod et attachez une session de terminal :
+Créez un autre module et attacher une session de terminal pour tester que vous pouvez accéder avec succès de la page Web NGINX de valeur par défaut :
 
 ```console
 kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
 ```
 
-Lorsque vous êtes dans l’invite de l’interpréteur de commandes, utilisez `wget` pour vérifier votre accès à la page web NGINX par défaut :
+À l’invite de shell, utilisez `wget` pour confirmer que vous pouvez accéder à la page Web NGINX de valeur par défaut :
 
 ```console
 wget -qO- http://backend
 ```
 
-L’exemple de sortie suivant montre que la page web NGINX par défaut est retournée :
+L’exemple de sortie suivant montre que la page Web NGINX de valeur par défaut est retournée :
 
 ```
 <!DOCTYPE html>
@@ -168,7 +170,7 @@ L’exemple de sortie suivant montre que la page web NGINX par défaut est retou
 [...]
 ```
 
-Quittez la session de terminal attachée. Le pod de test est automatiquement supprimé :
+Quittez la session de terminal attachée. Le pod de test est automatiquement supprimé.
 
 ```console
 exit
@@ -176,7 +178,7 @@ exit
 
 ### <a name="create-and-apply-a-network-policy"></a>Créer et appliquer une stratégie réseau
 
-À présent que vous avez vérifié votre accès à la page web NGINX de base dans l’exemple de pod backend, créez une stratégie réseau pour refuser tout trafic. Créez un fichier nommé `backend-policy.yaml` et collez le manifeste YAML suivant. Ce manifeste utilise *podSelector* pour attacher la stratégie aux pods dotés de l’étiquette *app:webapp,role:backend*, comme votre exemple de pod NGINX. Aucune règle n’est définie sous *ingress* (entrée), tout trafic entrant sur le pod est donc refusé :
+Maintenant que vous avez confirmé que vous pouvez utiliser la page Web NGINX de base sur le pod de back-end d’exemple, créez une stratégie de réseau pour refuser tout le trafic. Créez un fichier nommé `backend-policy.yaml` et collez le manifeste YAML suivant. Ce manifeste utilise un *podSelector* pour attacher la stratégie avec les pods qui ont le *app:webapp, rôle : principal* étiquette, comme votre pod NGINX d’exemple. Aucune règle n’est définie sous *ingress* (entrée), tout trafic entrant sur le pod est donc refusé :
 
 ```yaml
 kind: NetworkPolicy
@@ -192,7 +194,7 @@ spec:
   ingress: []
 ```
 
-Appliquez la stratégie réseau à l’aide de la commande [kubectl apply][kubectl-apply] et précisez le nom de votre manifeste YAML :
+Appliquer la stratégie de réseau à l’aide de la [kubectl appliquer] [ kubectl-apply] commande et spécifiez le nom de votre manifeste YAML :
 
 ```azurecli-interactive
 kubectl apply -f backend-policy.yaml
@@ -200,13 +202,14 @@ kubectl apply -f backend-policy.yaml
 
 ### <a name="test-the-network-policy"></a>Tester la stratégie réseau
 
-Voyons si vous pouvez accéder de nouveau à la page web NGINX sur le pod backend. Créez un autre pod de test et attachez une session de terminal :
+
+Nous allons voir si vous pouvez utiliser à nouveau la page Web NGINX sur le pod de back-end. Créez un autre pod de test et attachez une session de terminal :
 
 ```console
 kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
 ```
 
-Lorsque vous êtes dans l’invite de l’interpréteur de commandes, utilisez `wget` pour voir si vous pouvez accéder à la page web NGINX par défaut. Cette fois, définissez une valeur de délai d’attente sur *2* secondes. La stratégie réseau bloque à présent tout le trafic entrant, la page ne peut donc pas être chargée, comme illustré dans l’exemple suivant :
+À l’invite de shell, utilisez `wget` pour voir si vous pouvez accéder à la page Web NGINX de valeur par défaut. Cette fois, définissez une valeur de délai d’attente sur *2* secondes. La stratégie de réseau maintenant bloque tout le trafic entrant, la page ne peut pas être chargée, comme indiqué dans l’exemple suivant :
 
 ```console
 $ wget -qO- --timeout=2 http://backend
@@ -214,7 +217,7 @@ $ wget -qO- --timeout=2 http://backend
 wget: download timed out
 ```
 
-Quittez la session de terminal attachée. Le pod de test est automatiquement supprimé :
+Quittez la session de terminal attachée. Le pod de test est automatiquement supprimé.
 
 ```console
 exit
@@ -222,9 +225,9 @@ exit
 
 ## <a name="allow-inbound-traffic-based-on-a-pod-label"></a>Autoriser le trafic entrant en fonction d’une étiquette de pod
 
-À la section précédente, un pod backend NGINX a été planifié, et une stratégie réseau créée pour refuser tout trafic. À présent, nous allons créer un pod frontend et mettre à jour la stratégie réseau pour autoriser le trafic provenant de pods frontend.
+Dans la section précédente, un bloc NGINX principal a été planifié, et une stratégie de réseau a été créée pour refuser tout le trafic. Nous allons créer un pod frontal et mettre à jour de la stratégie de réseau pour autoriser le trafic des pods frontal.
 
-Mettez à jour la stratégie réseau pour autoriser le trafic provenant des pods étiquetés *app:webapp,role:frontend* et dans n’importe quel espace de noms. Modifiez le précédent fichier *back-end-policy.yaml*, puis ajoutez des règles d’entrée *matchLabels* afin que votre manifeste ressemble à l’exemple suivant :
+Mettez à jour la stratégie réseau pour autoriser le trafic provenant des pods étiquetés *app:webapp,role:frontend* et dans n’importe quel espace de noms. Modifier le précédent *back-end-policy.yaml* fichier, puis ajoutez *matchLabels* entrée règles afin que votre manifeste ressemble à l’exemple suivant :
 
 ```yaml
 kind: NetworkPolicy
@@ -247,27 +250,27 @@ spec:
 ```
 
 > [!NOTE]
-> Cette stratégie de réseau utilise un élément *namespaceSelector* et un élément *podSelector* pour la règle d’entrée. La syntaxe YAML est importante pour que les règles d’entrée soient additives ou non. Dans cet exemple, les deux éléments doivent correspondre pour que la règle d’entrée soit appliquée. Les versions de Kubernetes antérieures à *1.12* risquent de ne pas interpréter correctement ces éléments et de limiter le trafic réseau comme prévu. Pour plus d’informations, consultez [Comportement des sélecteurs To et From][policy-rules].
+> Cette stratégie de réseau utilise un élément *namespaceSelector* et un élément *podSelector* pour la règle d’entrée. La syntaxe YAML est importante pour les règles d’entrée soit additifs. Dans cet exemple, les deux éléments doivent correspondre pour que la règle d’entrée soit appliquée. Les versions antérieures à Kubernetes *1.12* ne peut pas interpréter ces éléments correctement et restreindre le trafic réseau comme prévu. Pour plus d’informations sur ce comportement, consultez [comportement de vers et depuis les sélecteurs][policy-rules].
 
-Appliquez la stratégie réseau mise à jour à l’aide de la commande [kubectl apply][kubectl-apply] et spécifiez le nom de votre manifeste YAML :
+Appliquer la stratégie de réseau mis à jour à l’aide de la [kubectl appliquer] [ kubectl-apply] commande et spécifiez le nom de votre manifeste YAML :
 
 ```azurecli-interactive
 kubectl apply -f backend-policy.yaml
 ```
 
-Maintenant, planifiez un pod portant l’étiquette *app=webapp,role=frontend* et attachez une session de terminal :
+Planifier un pod qui porte *app = webapp, rôle = frontend* et d’attachement d’une session de terminal :
 
 ```console
 kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development --generator=run-pod/v1
 ```
 
-Lorsque vous êtes dans l’invite de l’interpréteur de commandes, utilisez `wget` pour voir si vous pouvez accéder à la page web NGINX par défaut :
+À l’invite de shell, utilisez `wget` pour voir si vous pouvez accéder à la page Web NGINX de valeur par défaut :
 
 ```console
 wget -qO- http://backend
 ```
 
-À partir du moment où la règle d’entrée autorise le trafic avec les pods étiquetés *app: webapp,role: frontend*, le trafic provenant du pod frontend est autorisé. La sortie de l’exemple suivant montre la page web NGINX par défaut qui est retournée :
+Étant donné que la règle d’entrée autorise le trafic avec pods qui ont les étiquettes *application : application Web, rôle : serveur frontal*, le trafic à partir du bloc frontal est autorisé. L’exemple de sortie suivant montre la page Web NGINX par défaut retournée :
 
 ```
 <!DOCTYPE html>
@@ -277,7 +280,7 @@ wget -qO- http://backend
 [...]
 ```
 
-Quittez la session de terminal attachée. Le pod est automatiquement supprimé :
+Quittez la session de terminal attachée. Le pod est automatiquement supprimé.
 
 ```console
 exit
@@ -285,13 +288,13 @@ exit
 
 ### <a name="test-a-pod-without-a-matching-label"></a>Tester un pod sans étiquette correspondante
 
-La stratégie réseau autorise le trafic provenant des pods étiquetés *app: webapp,role: frontend*, mais doit refuser tout autre trafic. Nous allons vérifier qu’un autre pod sans cette étiquette ne peut pas accéder au pod backend NGINX. Créez un autre pod de test et attachez une session de terminal :
+La stratégie réseau autorise le trafic provenant des pods étiquetés *app: webapp,role: frontend*, mais doit refuser tout autre trafic. Nous allons le tester pour voir si un autre pod sans ces étiquettes peut accéder au pod NGINX back-end. Créez un autre pod de test et attachez une session de terminal :
 
 ```console
 kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
 ```
 
-Lorsque vous êtes dans l’invite de l’interpréteur de commandes, utilisez `wget` pour voir si vous pouvez accéder à la page web NGINX par défaut. La stratégie réseau bloque le trafic entrant et la page ne peut donc pas être chargée, comme montré dans l’exemple suivant :
+À l’invite de shell, utilisez `wget` pour voir si vous pouvez accéder à la page Web NGINX de valeur par défaut. La stratégie de réseau bloque le trafic entrant, la page ne peut pas être chargé, comme indiqué dans l’exemple suivant :
 
 ```console
 $ wget -qO- --timeout=2 http://backend
@@ -299,7 +302,7 @@ $ wget -qO- --timeout=2 http://backend
 wget: download timed out
 ```
 
-Quittez la session de terminal attachée. Le pod de test est automatiquement supprimé :
+Quittez la session de terminal attachée. Le pod de test est automatiquement supprimé.
 
 ```console
 exit
@@ -307,7 +310,7 @@ exit
 
 ## <a name="allow-traffic-only-from-within-a-defined-namespace"></a>Autoriser le trafic uniquement à partir d’un espace de noms défini
 
-Dans les exemples précédents, vous avez créé une stratégie réseau qui a refusé tout trafic, puis vous avez mis à jour la stratégie afin d’autoriser le trafic provenant de pods dotés d’une étiquette particulière. Il est également souvent utile de limiter le trafic à un seul espace de noms donné. Si les précédents exemples se rapportaient au trafic dans un espace de noms *development*, vous avez peut-être envie à présent de créer une stratégie réseau qui empêche le trafic provenant d’un autre espace de noms, tel que *production*, d’atteindre les pods.
+Les exemples précédents, vous avez créé une stratégie réseau qui a refusé tout le trafic et ensuite mis à jour la stratégie pour autoriser le trafic des pods avec une étiquette spécifique. Un autre besoin courant consiste à limiter le trafic vers uniquement au sein d’un espace de noms donné. Si les exemples précédents ont été pour le trafic dans un *développement* espace de noms, créez une stratégie de réseau qui empêche le trafic à partir d’un autre espace de noms, tel que *production*, d’atteindre les pods.
 
 En premier lieu, créez un espace de noms pour simuler un espace de noms de production :
 
@@ -322,13 +325,13 @@ Planifiez un pod de test dans l’espace de noms *production* qui est étiqueté
 kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production --generator=run-pod/v1
 ```
 
-Lorsque vous êtes dans l’invite de l’interpréteur de commandes, utilisez `wget` pour vérifier votre accès à la page web NGINX par défaut :
+À l’invite de shell, utilisez `wget` pour confirmer que vous pouvez accéder à la page Web NGINX de valeur par défaut :
 
 ```console
 wget -qO- http://backend.development
 ```
 
-Dans la mesure où les étiquettes des pods correspondent à ce qui est actuellement autorisé dans la stratégie réseau, le trafic est autorisé. La stratégie réseau n’examine pas les espaces de noms, elle ne tient compte que des étiquettes de pod. La sortie de l’exemple suivant montre la page web NGINX par défaut qui est retournée :
+Étant donné que les étiquettes pour le pod correspond à ce qui est actuellement autorisé dans la stratégie de réseau, le trafic est autorisé. La stratégie réseau n’examine pas les espaces de noms, elle ne tient compte que des étiquettes de pod. L’exemple de sortie suivant montre la page Web NGINX par défaut retournée :
 
 ```
 <!DOCTYPE html>
@@ -338,7 +341,7 @@ Dans la mesure où les étiquettes des pods correspondent à ce qui est actuelle
 [...]
 ```
 
-Quittez la session de terminal attachée. Le pod de test est automatiquement supprimé :
+Quittez la session de terminal attachée. Le pod de test est automatiquement supprimé.
 
 ```console
 exit
@@ -346,7 +349,7 @@ exit
 
 ### <a name="update-the-network-policy"></a>Mettre à jour la stratégie réseau
 
-À présent, nous allons mettre à jour la section *namespaceSelector* de la règle d’entrée pour n’autoriser que le trafic provenant de l’espace de noms *development*. Modifiez le fichier manifeste *backend-policy.yaml*, comme indiqué dans l’exemple suivant :
+Nous allons mettre à jour la règle d’entrée *namespaceSelector* section pour autoriser uniquement le trafic depuis le *développement* espace de noms. Modifiez le fichier manifeste *backend-policy.yaml*, comme indiqué dans l’exemple suivant :
 
 ```yaml
 kind: NetworkPolicy
@@ -370,9 +373,9 @@ spec:
           role: frontend
 ```
 
-Dans des exemples plus complexes, vous pouvez définir plusieurs règles d’entrée, par exemple pour utiliser un *namespaceSelector*, puis un *podSelector*.
+Dans les exemples plus complexes, vous pouvez définir plusieurs règles d’entrée, comme un *namespaceSelector* , puis un *podSelector*.
 
-Appliquez la stratégie réseau mise à jour à l’aide de la commande [kubectl apply][kubectl-apply] et spécifiez le nom de votre manifeste YAML :
+Appliquer la stratégie de réseau mis à jour à l’aide de la [kubectl appliquer] [ kubectl-apply] commande et spécifiez le nom de votre manifeste YAML :
 
 ```azurecli-interactive
 kubectl apply -f backend-policy.yaml
@@ -380,13 +383,13 @@ kubectl apply -f backend-policy.yaml
 
 ### <a name="test-the-updated-network-policy"></a>Tester la stratégie réseau mise à jour
 
-À présent, planifiez un autre pod dans l’espace de noms *production* et attachez une session de terminal :
+Planifier un autre pod dans le *production* espace de noms et d’attachement d’une session de terminal :
 
 ```console
 kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production --generator=run-pod/v1
 ```
 
-Lorsque vous êtes dans l’invite de l’interpréteur de commandes, utilisez `wget` pour voir la stratégie réseau refuser désormais le trafic :
+À l’invite de shell, utilisez `wget` pour voir que la stratégie réseau refuse maintenant le trafic :
 
 ```console
 $ wget -qO- --timeout=2 http://backend.development
@@ -400,19 +403,19 @@ Quittez le pod de test :
 exit
 ```
 
-En maintenant le refus sur le trafic provenant de l’espace de noms *production*, replanifiez à présent un pod de test dans l’espace de noms *development* et attachez une session de terminal :
+Avec le trafic refusé à partir de la *production* espace de noms, la planification de nouveau un pod test la *développement* espace de noms et d’attachement d’une session de terminal :
 
 ```console
 kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development --generator=run-pod/v1
 ```
 
-Lorsque vous êtes dans l’invite de l’interpréteur de commandes, utilisez `wget` pour voir la stratégie réseau autoriser le trafic :
+À l’invite de shell, utilisez `wget` pour voir que la stratégie de réseau autorise le trafic :
 
 ```console
 wget -qO- http://backend
 ```
 
-Dès lors que le pod est planifié dans l’espace de noms qui correspond à ce qui est autorisé dans la stratégie réseau, le trafic est autorisé. La sortie de l’exemple suivant montre la page web NGINX par défaut qui est retournée :
+Le trafic est autorisé, car le pod est planifié dans l’espace de noms que correspond à ce qui est autorisé dans la stratégie de réseau. L’exemple de sortie suivant montre la page Web NGINX par défaut retournée :
 
 ```
 <!DOCTYPE html>
@@ -422,7 +425,7 @@ Dès lors que le pod est planifié dans l’espace de noms qui correspond à ce 
 [...]
 ```
 
-Quittez la session de terminal attachée. Le pod de test est automatiquement supprimé :
+Quittez la session de terminal attachée. Le pod de test est automatiquement supprimé.
 
 ```console
 exit
@@ -430,7 +433,7 @@ exit
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Dans cet article, nous avons créé deux espaces de noms et appliqué une stratégie réseau. Pour nettoyer ces ressources, utilisez la commande [kubectl deletet][kubectl-delete] et spécifiez les noms des ressources comme suit :
+Dans cet article, nous avons créé deux espaces de noms et appliqué de stratégie réseau. Pour nettoyer ces ressources, utilisez le [kubectl supprimer] [ kubectl-delete] commande et spécifier les noms de ressources :
 
 ```console
 kubectl delete namespace production
@@ -439,9 +442,9 @@ kubectl delete namespace development
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur les ressources réseau, voir [Concepts de réseau pour les applications dans AKS (Azure Kubernetes Service)][concepts-network].
+Pour plus d’informations sur les ressources réseau, consultez [réseau concepts pour les applications dans Azure Kubernetes Service (ACS)][concepts-network].
 
-Pour en savoir plus sur l’utilisation de stratégies, consultez [Stratégies de réseau Kubernetes][kubernetes-network-policies].
+Pour en savoir plus sur les stratégies, consultez [stratégies de réseau Kubernetes][kubernetes-network-policies].
 
 <!-- LINKS - external -->
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
@@ -450,6 +453,7 @@ Pour en savoir plus sur l’utilisation de stratégies, consultez [Stratégies d
 [azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [policy-rules]: https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors
+[aks-github]: https://github.com/azure/aks/issues]
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli

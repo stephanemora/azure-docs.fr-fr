@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: ranjithr
 ms.custom: seodec18
-ms.openlocfilehash: aad31e72682e15c49fb3d6dce64e7ef46525cb66
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 323de505bc1bfa9747f372033392a9fd6e08462c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051850"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898854"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Bonnes pratiques et guide de résolution des problèmes pour les applications Node sur Azure App Service
 
@@ -90,7 +90,7 @@ En outre, pour les applications de streaming, vous devez également définir le 
 
 ### <a name="watchedfiles"></a>watchedFiles
 
-Liste de fichiers séparés par des points-virgules dont les modifications font l’objet d’une surveillance. Toute modification apportée à un fichier entraînera un recyclage de l’application. Chaque entrée se compose d’un nom de répertoire facultatif, ainsi que d’un nom de fichier obligatoire. Ces noms dépendent du répertoire où se trouve le point d’entrée principal de l’application. Les caractères génériques sont autorisés uniquement dans la partie de nom de fichier. La valeur par défaut est `*.js;web.config`.
+Liste de fichiers séparés par des points-virgules dont les modifications font l’objet d’une surveillance. Toute modification apportée à un fichier entraînera un recyclage de l’application. Chaque entrée se compose d’un nom de répertoire facultatif, ainsi que d’un nom de fichier obligatoire. Ces noms dépendent du répertoire où se trouve le point d’entrée principal de l’application. Les caractères génériques sont autorisés uniquement dans la partie de nom de fichier. La valeur par défaut est `*.js;iisnode.yml`.
 
 ### <a name="recyclesignalenabled"></a>recycleSignalEnabled
 
@@ -118,7 +118,7 @@ La valeur par défaut est false. Quand la valeur est définie sur true, iisnode 
 
 ### <a name="debuggingenabled-do-not-enable-on-live-production-site"></a>debuggingEnabled (ne pas activer ce paramètre sur un site de production en direct)
 
-Ce paramètre contrôle la fonctionnalité de débogage. iisnode est intégré à node-inspector. En activant ce paramètre, vous activez le débogage de votre application node. Une fois ce paramètre activé, iisnode crée des fichiers node-inspector dans le répertoire « debuggerVirtualDir » à la première demande de débogage transmise à votre application node. Vous pouvez charger le fichier node-inspector en envoyant une demande à http://yoursite/server.js/debug. Vous pouvez contrôler le segment d’URL de débogage à l’aide du paramètre « debuggerPathSegment ». Par défaut, debuggerPathSegment=’debug’. Vous pouvez définir `debuggerPathSegment` sur un GUID par exemple, afin qu’il soit plus difficilement découvrable par les autres utilisateurs.
+Ce paramètre contrôle la fonctionnalité de débogage. iisnode est intégré à node-inspector. En activant ce paramètre, vous activez le débogage de votre application node. Une fois ce paramètre activé, iisnode crée des fichiers node-inspector dans le répertoire « debuggerVirtualDir » à la première demande de débogage transmise à votre application node. Vous pouvez charger le fichier node-inspector en envoyant une demande à `http://yoursite/server.js/debug`. Vous pouvez contrôler le segment d’URL de débogage à l’aide du paramètre « debuggerPathSegment ». Par défaut, debuggerPathSegment=’debug’. Vous pouvez définir `debuggerPathSegment` sur un GUID par exemple, afin qu’il soit plus difficilement découvrable par les autres utilisateurs.
 
 Lisez [Debug node.js applications on Windows](https://tomasz.janczuk.org/2011/11/debug-nodejs-applications-on-windows.html) (Déboguer des applications node.js sur Windows) pour plus d’informations sur le débogage.
 
@@ -133,7 +133,7 @@ Le module agentkeepalive garantit que les sockets sont réutilisés sur la machi
 Exemple de configuration [d’agentKeepALive](https://www.npmjs.com/package/agentkeepalive) :
 
 ```nodejs
-var keepaliveAgent = new Agent({
+let keepaliveAgent = new Agent({
     maxSockets: 40,
     maxFreeSockets: 10,
     timeout: 60000,
@@ -155,9 +155,9 @@ Si vous pensez que votre application node consomme trop de ressources processeur
 Par exemple, supposons que vous disposez d’une application hello world que vous souhaitez profiler comme suit :
 
 ```nodejs
-var http = require('http');
+const http = require('http');
 function WriteConsoleLog() {
-    for(var i=0;i<99999;++i) {
+    for(let i=0;i<99999;++i) {
         console.log('hello world');
     }
 }
@@ -173,7 +173,7 @@ http.createServer(function (req, res) {
 }).listen(process.env.PORT);
 ```
 
-Accédez au site de la console de débogage https://yoursite.scm.azurewebsites.net/DebugConsole.
+Accédez au site de la console de débogage `https://yoursite.scm.azurewebsites.net/DebugConsole`.
 
 Allez dans votre répertoire site/wwwroot. Il contient une invite de commande, comme illustré dans l’exemple suivant :
 
@@ -185,12 +185,12 @@ Cette commande installe le programme v8-profiler sous le répertoire node\_modul
 À présent, modifiez votre fichier server.js pour profiler votre application.
 
 ```nodejs
-var http = require('http');
-var profiler = require('v8-profiler');
-var fs = require('fs');
+const http = require('http');
+const profiler = require('v8-profiler');
+const fs = require('fs');
 
 function WriteConsoleLog() {
-    for(var i=0;i<99999;++i) {
+    for(let i=0;i<99999;++i) {
         console.log('hello world');
     }
 }

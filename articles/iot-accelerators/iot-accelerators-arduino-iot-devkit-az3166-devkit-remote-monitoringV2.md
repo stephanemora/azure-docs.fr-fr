@@ -9,12 +9,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: isacabe
-ms.openlocfilehash: eb2a6692c0b00dc4419c601228453a8cfc44c02a
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 3551d088c1d02715bf9ace09d7eb0048bc10111e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156780"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105248"
 ---
 # <a name="connect-an-iot-devkit-device-to-the-remote-monitoring-solution-accelerator"></a>Connecter un appareil IoT DevKit à l’accélérateur de solution de supervision à distance
 
@@ -40,7 +40,7 @@ Pour ouvrir l’exemple de supervision à distance dans VS Code :
 
 1. Cherchez **Supervision à distance** et cliquez sur **Ouvrir l’exemple**. Une nouvelle fenêtre VS Code s’ouvre sur le dossier de projet :
 
-  ![IoT Workbench : sélectionner l’exemple de supervision à distance](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-workbench-example.png)
+   ![IoT Workbench : sélectionner l’exemple de supervision à distance](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-workbench-example.png)
 
 ## <a name="configure-the-device"></a>Configurer l’appareil
 
@@ -79,7 +79,7 @@ Pour vérifier que l’exemple d’application que vous avez chargé sur l’app
 
 Lorsque l’exemple d’application s’exécute, l’appareil DevKit envoie par Wi-Fi les données de télémétrie de ses capteurs à votre accélérateur de solution. Pour afficher les données de télémétrie :
 
-1. Accédez au tableau de bord de votre solution, puis cliquez sur **Appareils**.
+1. Accédez à votre tableau de bord de solution, puis cliquez sur **Device Explorer**.
 
 1. Cliquez sur le nom de votre appareil DevKit. Sous l’onglet de droite, les données de télémétrie de l’appareil DevKit s’affichent en temps réel :
 
@@ -87,7 +87,7 @@ Lorsque l’exemple d’application s’exécute, l’appareil DevKit envoie par
 
 ### <a name="control-the-devkit-device"></a>Contrôler l’appareil DevKit
 
-L’accélérateur de solution de supervision à distance permet de contrôler l’appareil à distance. L’exemple de code implémente trois méthodes, que vous pouvez consulter dans la section **Méthode** si vous sélectionnez l’appareil sur la page **Appareils** :
+L’accélérateur de solution de supervision à distance permet de contrôler l’appareil à distance. L’exemple de code implémente trois méthodes que vous pouvez le voir dans le **méthode** section lorsque vous sélectionnez l’appareil sur le **Device Explorer** page :
 
 ![Méthodes IoT DevKit](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-methods.png)
 
@@ -99,11 +99,11 @@ Pour modifier la couleur d’une des LED de l’appareil DevKit, utilisez la mé
 
 1. Configurez les tâches avec les valeurs suivantes et cliquez sur **Appliquer** :
 
-    * Sélectionner un travail : **Exécuter une méthode**
-    * Nom de la méthode : **LedColor**
-    * Nom du travail : **ChangeLedColor**
+   * Sélectionner un travail : **Exécuter une méthode**
+   * Nom de la méthode : **LedColor**
+   * Nom du travail : **ChangeLedColor**
 
-    ![Paramètres d’un travail](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-suite-change-color.png)
+     ![Paramètres d’un travail](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-suite-change-color.png)
 
 1. Au bout de quelques secondes, la couleur de la LED RVB (sous le bouton A) de votre appareil DevKit change :
 
@@ -122,7 +122,7 @@ Si vous n’avez plus besoin de l’accélérateur de solution, supprimez-le de 
 Si vous rencontrez des problèmes, consultez les [FAQ IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) ou contactez-nous sur les canaux suivants :
 
 * [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
-* [Dépassement de capacité de la pile](https://stackoverflow.com/questions/tagged/iot-devkit)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -4,7 +4,7 @@ description: Bonnes pratiques relatives à la supervision des clusters et des ap
 services: service-fabric
 documentationcenter: .net
 author: peterpogorski
-manager: jeanpaul.connock
+manager: chackdan
 editor: ''
 ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 5e3cfad70dd0cc0c53f6971c9ddce44f0ca25ecd
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: d90daaf18e5161053e00671b7667d05ec8e5db76
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104340"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242919"
 ---
 # <a name="monitoring-and-diagnostics"></a>Surveillance et diagnostics
 
@@ -33,13 +33,13 @@ Le monitoring des applications permet de suivre l’utilisation des fonctionnali
 
 L’un des objectifs de Service Fabric est d’assurer le bon fonctionnement des applications, même en cas de défaillances matérielles. Cet objectif repose sur la capacité des services système de la plateforme à détecter les problèmes d’infrastructure et à basculer rapidement les charges de travail sur d’autres nœuds du cluster. Mais que se passe-t-il si les services système subissent eux aussi des problèmes ? Que se passe-t-il si, durant une tentative de déploiement ou de déplacement d’une charge de travail, les règles de placement des services sont enfreintes ? Dans ce cas, Service Fabric fournit des diagnostics pour vous informer de la façon dont la plateforme Service Fabric interagit avec vos applications, services, conteneurs et nœuds.
 
-Pour les clusters Windows, il est recommandé de définir la supervision des clusters avec l’[agent de diagnostics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad) et [Log Analytics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-setup).
+Pour les clusters Windows, il est recommandé de définir la surveillance de cluster avec [Agent de Diagnostics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad) et [Azure Monitor enregistre](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-setup).
 
-Quant aux clusters Linux, Log Analytics est également l’outil recommandé pour la plateforme Azure et la supervision de l’infrastructure. Les diagnostics de plateforme Linux nécessitent une configuration différente, comme indiqué dans [Événements de cluster Linux Service Fabric dans Syslog](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-syslog).
+Pour les clusters Linux, les journaux d’Azure Monitor est également l’outil recommandé pour la plateforme Azure et la surveillance de l’infrastructure. Les diagnostics de plateforme Linux nécessitent une configuration différente, comme indiqué dans [Événements de cluster Linux Service Fabric dans Syslog](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-syslog).
 
 ## <a name="infrastructure-monitoring"></a>Supervision des infrastructures
 
-[Log Analytics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-agent) est recommandé pour la supervision des événements au niveau du cluster. Une fois que vous aurez configuré l’agent Log Analytics avec votre espace de travail comme décrit dans le lien précédent, vous pourrez collecter des métriques de performances telles que l’utilisation du processeur, des compteurs de performances .NET tels que l’utilisation du processeur au niveau du processus, des compteurs performances Service Fabric tels que le nombre d’exceptions d’un service fiable, et des métriques de conteneur, telles que l’utilisation du processeur.  Vous devez écrire les journaux des conteneurs dans stdout ou stderr pour les rendre disponibles dans Log Analytics.
+[Journaux d’analyse Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-agent) est recommandé pour la surveillance des événements de niveau de cluster. Une fois que vous aurez configuré l’agent Log Analytics avec votre espace de travail comme décrit dans le lien précédent, vous pourrez collecter des métriques de performances telles que l’utilisation du processeur, des compteurs de performances .NET tels que l’utilisation du processeur au niveau du processus, des compteurs performances Service Fabric tels que le nombre d’exceptions d’un service fiable, et des métriques de conteneur, telles que l’utilisation du processeur.  Vous devez écrire des journaux de conteneurs dans stdout ou stderr afin qu’elles seront disponibles dans les journaux Azure Monitor.
 
 ## <a name="watchdogs"></a>Agents de surveillance
 
@@ -50,7 +50,7 @@ En général, un agent de surveillance est un service distinct capable de survei
 * Pour instrumenter vos applications : [Événements au niveau de l’application et génération de journaux](service-fabric-diagnostics-event-generation-app.md).
 * Suivez les étapes de configuration d’Application Insights pour votre application dans [Surveiller et diagnostiquer une application ASP.NET Core dans Service Fabric](service-fabric-tutorial-monitoring-aspnet.md).
 * Pour plus d’informations sur la supervision de la plateforme et les événements fournis par Service Fabric : [Événements au niveau de la plateforme et génération de journaux](service-fabric-diagnostics-event-generation-infra.md).
-* Pour configurer l’intégration de Log Analytics à Service Fabric : [Configurer Log Analytics pour un cluster](service-fabric-diagnostics-oms-setup.md)
-* Découvrez comment configurer Log Analytics pour la supervision des conteneurs : [Supervision et diagnostic des conteneurs Windows dans Azure Service Fabric](service-fabric-tutorial-monitoring-wincontainers.md).
+* Configurer l’intégration des journaux Azure Monitor avec Service Fabric : [Configurer les journaux Azure Monitor pour un cluster](service-fabric-diagnostics-oms-setup.md)
+* Découvrez comment configurer les journaux Azure Monitor pour surveiller les conteneurs : [Supervision et diagnostic des conteneurs Windows dans Azure Service Fabric](service-fabric-tutorial-monitoring-wincontainers.md).
 * Pour consulter des exemples de problèmes de diagnostic et de solutions Service Fabric : [Diagnostiquer des scénarios courants](service-fabric-diagnostics-common-scenarios.md)
 * Découvrez les recommandations générales sur la supervision des ressources Azure : [Bonnes pratiques : Supervision et diagnostics](https://docs.microsoft.com/azure/architecture/best-practices/monitoring).

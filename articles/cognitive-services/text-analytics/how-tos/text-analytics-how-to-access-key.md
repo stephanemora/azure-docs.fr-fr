@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: fc594a660efe1bf90daeffa79826057a8e66c60c
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 512417a228ed99a2f5b516f14084a5785bc0c1dd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245165"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096739"
 ---
 # <a name="how-to-find-endpoints-and-access-keys-for-the-text-analytics-cognitive-service"></a>Chercher des points de terminaison et des clés d’accès pour l’API Analyse de texte de Cognitive Service
 
@@ -33,7 +33,7 @@ Si vous avez besoin d’aide pour trouver la clé, ou pour déterminer si votre 
 
 4. Cliquez sur le lien pour ouvrir le panneau du service. Vous pouvez désormais obtenir une clé à partir de **Ressources > Clés** ou en cliquant sur **Afficher les clés d’accès** dans le volet Essentials. Le point de terminaison est également visible dans le volet Essentials.
 
- ![Page du portail avec le point de terminaison et les clés](../media/portal-keys-endpoint.png)
+   ![Page du portail avec le point de terminaison et les clés](../media/portal-keys-endpoint.png)
 
 ## <a name="see-also"></a>Voir aussi 
 

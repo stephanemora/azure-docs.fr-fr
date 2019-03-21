@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: e5ebfae5-c8f7-4d6c-9173-3e22a9730552
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: a35ae5933729615d634359e64e31d43536d81431
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 6c15526169a984ffdaee826fec6ac21fc42647e9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205074"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086783"
 ---
 # <a name="defragmentation-of-metrics-and-load-in-service-fabric"></a>Défragmentation des mesures et de la charge dans Service Fabric
 La stratégie par défaut de Service Fabric Cluster Resource Manager pour la gestion des mesures de charge dans le cluster consiste à répartir la charge. S’assurer que les nœuds sont utilisés de façon uniforme évite les points chauds et les points froids qui entraînent des problèmes de contention et gaspillage des ressources. La distribution des charges de travail dans le cluster est également la configuration la plus sûre afin de surmonter les défaillances, car elle permet de s’assurer qu’une défaillance n’affecte pas un trop grand pourcentage d’une charge de travail donnée. 
@@ -41,7 +41,8 @@ La défragmentation peut augmenter la probabilité que les défaillances aient u
 Le diagramme suivant offre une représentation visuelle de deux clusters, l’un défragmenté et l’autre non. 
 
 <center>
-![Comparaison de clusters équilibré et défragmenté][Image1]
+
+![Comparaison de Clusters équilibré et défragmenté][Image1]
 </center>
 
 Dans le cas équilibré, tenez compte du nombre de mouvements qui seraient nécessaires pour placer un des plus grands objets de service. Dans le cluster défragmenté, la charge de travail volumineuse peut être placée sur les nœuds 4 ou 5 sans avoir à attendre le déplacement d’autres services.

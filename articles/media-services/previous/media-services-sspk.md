@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/20/2019
 ms.author: xpouyat
-ms.openlocfilehash: 1954ccf07badbd4632c653bb1af4d6e96153e1fb
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 505def9cde7cddf2ddcc23408fa3159de886167a
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000071"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294567"
 ---
 # <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Licence du kit de portage du client de diffusion en continu lisse Microsoft® 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Le kit de portage client Smooth Streaming Microsoft (**SSPK** en abrégé) est une implémentation du client Smooth Streaming optimisée pour aider les fabricants de périphériques intégrés, les opérateurs mobiles et du câble, les fournisseurs de services de contenu, les fabricants de combinés, les éditeurs de logiciels indépendants (ISV) et les fournisseurs de solutions à créer des produits et des services pour diffuser du contenu adaptatif dans un format Smooth Streaming. SSPK est une implémentation Smooth Streaming cliente indépendante de l’appareil et de la plateforme pouvant être transférée par le titulaire de la licence vers n’importe quel appareil ou plateforme. 
 
 Vous trouverez ci-après une architecture de haut niveau, et le package du kit de portage Smooth Streaming IIS est l’implémentation de client Smooth Streaming fournie par Microsoft. Il inclut la logique de base pour une lecture de contenu Smooth Streaming. Ce contenu est ensuite transféré par des partenaires pour un appareil ou une plateforme spécifique, grâce à l’implémentation des interfaces appropriées. 
@@ -125,8 +125,9 @@ Les titulaires de licence SSPK intermédiaire ou finale peuvent soumettre des qu
 * Dongguan Digital AV Technology Corp., Ltd.
 * EchoStar Purchasing Corporation
 * Enseo, Inc.
-* Filmflex Movies Limited
+* FilmFlex films limitée
 * Fluendo S.A.
+* FUNAI ELECTRIC CO., LTD
 * Gibson Innovations Limited
 * Haier Information Applicantion S.R.L
 * HANDAN BroadInfoCom Co., Ltd.
@@ -158,7 +159,6 @@ Les titulaires de licence SSPK intermédiaire ou finale peuvent soumettre des qu
 * VIZIO, Inc.
 * Wistron Corporation
 * ZTE Corporation
-
 
 ## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

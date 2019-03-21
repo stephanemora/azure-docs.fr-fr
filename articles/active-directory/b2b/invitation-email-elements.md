@@ -12,18 +12,18 @@ manager: daveba
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43fa8148fff1389982d967b2e69f4a9425841c91
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7015abcfe3c53e2180d617bd2c78ecd44c42af7a
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014915"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295621"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Éléments de l’e-mail d’invitation de collaboration B2B - Azure Active Directory
 
 Les e-mails d’invitation sont un composant essentiel pour intégrer des partenaires comme utilisateurs de collaboration B2B dans Azure AD. Vous pouvez les utiliser pour augmenter le niveau de confiance du destinataire. Vous pouvez ajouter de la légitimité et une preuve sociale à l’e-mail de sorte ce que le destinataire sélectionne sans crainte le bouton **Prise en main** pour accepter l’invitation. Cette approbation est un élément clé pour réduire les problèmes de partage. Et elle vous permet aussi d’envoyer de superbes e-mails !
 
-![E-mail d’invitation Azure AD B2b](media/invitation-email-elements/invitation-email.png)
+![Capture d’écran montrant l’e-mail d’invitation B2B](media/invitation-email-elements/invitation-email.png)
 
 ## <a name="explaining-the-email"></a>Explication de l’e-mail
 Examinons quelques-uns des éléments de l’e-mail pour savoir comment utiliser au mieux ces fonctionnalités.
@@ -51,12 +51,12 @@ Le nom d’affichage de l’inviteur est inclus dans l’e-mail. En outre, si vo
 
 Si vous n’avez pas encore configuré votre image de profil, une icône comportant les initiales de l’inviteur remplace l’image, comme ceci :
 
-  ![affichage des initiales de l’inviteur](media/invitation-email-elements/inviters-initials.png)
+  ![Capture d’écran montrant l’invitation avec l’inviteur initiales affichées](media/invitation-email-elements/inviters-initials.png)
 
 ### <a name="body"></a>body
 Le corps contient le message composé par l’inviteur pour [inviter un utilisateur invité dans un répertoire, un groupe ou une application](add-users-administrator.md) ou [avec l’API d’invitation](customize-invitation-api.md). Il s’agit d’une simple zone de texte qui ne traite pas les balises HTML pour des raisons de sécurité.
 
-  ![image du corps de l’e-mail](media/invitation-email-elements/invitation-email-body.png)
+  ![Capture d’écran montrant le corps de l’e-mail d’invitation](media/invitation-email-elements/invitation-email-body.png)
 
 ### <a name="footer-section"></a>Section Pied de page
 Le pied de page contient la marque de la société Microsoft et permet au destinataire de savoir si l’e-mail a été envoyé à partir d’un alias non surveillé. 
@@ -65,12 +65,12 @@ Cas particuliers :
 
 - L’inviteur n’a pas d’adresse e-mail dans la location de l’inviteur
 
-  ![image de l’inviteur sans adresse e-mail dans la location de l’inviteur](media/invitation-email-elements/inviter-no-email.png)
+  ![Capture d’écran lors de la messagerie n’a pas un inviteur dans la location d’invitation](media/invitation-email-elements/inviter-no-email.png)
 
 
 - Le destinataire n’a pas besoin de réclamer l’invitation
 
-  ![quand le destinataire n’a pas besoin de réclamer l’invitation](media/invitation-email-elements/when-recipient-doesnt-redeem.png)
+  ![Capture d’écran lorsque le destinataire n’a pas besoin de réclamer l’invitation](media/invitation-email-elements/when-recipient-doesnt-redeem.png)
 
 ## <a name="how-the-language-is-determined"></a>Comment la langue est-elle déterminée ?
 Les paramètres suivants déterminent la langue présentée à l’utilisateur invité dans l’e-mail d’invitation. Ces paramètres sont répertoriés par ordre de priorité. Si un paramètre n’est pas configuré, le paramètre suivant de la liste détermine la langue. 

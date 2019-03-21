@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 576d3d4b9c793c564410335ce35ddd4c40697e4a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 291b3d506993cfea89be072684835c0d4efe75f6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197400"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095447"
 ---
 # <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>Étapes suivantes et gestion d’Azure AD Connect
 Utilisez les procédures opérationnelles dans cet article pour personnaliser Azure Active Directory (Azure AD) Connect pour l’adapter aux besoins et aux spécifications de votre organisation.  
@@ -51,12 +51,16 @@ Utilisez le portail Azure pour vérifier l’état d’une synchronisation.
 4. En haut de la page du répertoire, sélectionnez **Intégration du répertoire**.
 5. Sous **l’intégration à un Active Directory local**, notez l’heure de la dernière synchronisation.
 
-<center>![Heure de synchronisation d’annuaires](./media/how-to-connect-post-installation/verify.png)</center>
+<center>
+
+![Heure de synchronisation d’annuaire](./media/how-to-connect-post-installation/verify.png)</center>
 
 ## <a name="start-a-scheduled-synchronization-task"></a>Lancement d’une tâche de synchronisation planifiée
 Si vous devez exécuter une tâche de synchronisation, vous pouvez le faire en l’exécutant une nouvelle fois depuis l’Assistant Azure AD Connect.  Vous devez fournir vos informations d’identification Azure AD.  Dans l’Assistant, sélectionnez la tâche **Personnalisation des options de synchronisation** et cliquez sur **Suivant** pour terminer l’Assistant. À la fin, vérifiez que la case **Démarrez le processus de synchronisation dès que la configuration initiale est terminée** est cochée.
 
-<center>![Démarrage de la synchronisation](./media/how-to-connect-post-installation/startsynch.png)</center>
+<center>
+
+![Démarrer la synchronisation](./media/how-to-connect-post-installation/startsynch.png)</center>
 
 Pour plus d’informations sur le planificateur de synchronisation Azure AD Connect, consultez [Planificateur Azure AD Connect](how-to-connect-sync-feature-scheduler.md).
 

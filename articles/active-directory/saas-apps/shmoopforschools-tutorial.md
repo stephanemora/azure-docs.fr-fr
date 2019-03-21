@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 095aff293b23f4589dce9f71890b5e9bfd8636d4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 4091b20e97ca76629260a7420beecb77412b0d39
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201854"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453012"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shmoop-for-schools"></a>Tutoriel : Intégration d’Azure Active Directory à Shmoop For Schools
 
@@ -35,7 +35,7 @@ L’intégration de Shmoop For Schools à Azure AD vous offre les avantages suiv
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD à Shmoop For Schools, vous avez besoin des éléments suivants :
 
@@ -47,7 +47,7 @@ Pour configurer l’intégration d’Azure AD à Shmoop For Schools, vous avez 
 
 Pour tester les étapes de ce didacticiel, voici quelques recommandons :
 
-- N’utilisez votre environnement de production que si nécessaire.
+- À l’aide de votre environnement de production uniquement s’il est nécessaire.
 - Obtenez un [essai d’un mois](https://azure.microsoft.com/pricing/free-trial/) si vous n’avez pas déjà un environnement d’essai Azure AD.
 
 ## <a name="scenario-description"></a>Description du scénario
@@ -131,7 +131,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     a. Pour ouvrir la boîte de dialogue **Ajouter un attribut**, cliquez sur **Ajouter un attribut**.
     
-    ![Configurer l’authentification unique ](./media/shmoopforschools-tutorial/tutorial_attribute_04.png)
+    ![Configurer l’authentification unique](./media/shmoopforschools-tutorial/tutorial_attribute_04.png)
     
     ![Configurer l’authentification unique](./media/shmoopforschools-tutorial/tutorial_attribute_05.png)
     

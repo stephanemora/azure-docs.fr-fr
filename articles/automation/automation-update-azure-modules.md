@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/08/2019
+ms.date: 03/11/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d8f57310cf4dbc2a27761fc44cfde6c8fd2791a2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 03174e6336589f8aa49a7fc7197da1301ff54400
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005537"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009784"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Guide de mise à jour des modules Azure PowerShell dans Azure Automation
 
@@ -41,7 +41,7 @@ Voici quelques éléments à prendre en compte lors de l’utilisation de ce pro
 
 * Si vous importez ce runbook avec le nom d’origine `Update-AutomationAzureModulesForAccount`, il remplace le runbook interne portant ce nom. Par conséquent, le runbook importé s’exécutera lorsque le bouton **Mettre à jour les modules Azure** est actionné ou lorsque ce runbook est appelé directement par le biais de l’API Azure Resource Manager pour ce compte Automation.
 
-* Seuls les modules `Azure` et `AzureRM.*` sont actuellement pris en charge. Les nouveaux [modules Azure PowerShell Az](/powershell/azure/new-azureps-module-az) ne sont pas encore pris en charge.
+* Ce runbook prend en charge la mise à jour uniquement la **Azure** et **AzureRm** modules actuellement. [Les modules Azure PowerShell Az](/powershell/azure/new-azureps-module-az) sont pris en charge dans les comptes Automation, mais ne peut pas être mis à jour avec ce runbook.
 
 * Évitez de démarrer ce runbook sur les comptes Automation qui contiennent des modules Az.
 
@@ -58,32 +58,36 @@ Voici quelques éléments à prendre en compte lors de l’utilisation de ce pro
 
 1. Dans la page Modules de votre compte Automation, vous avez une option appelée **Mettre à jour les modules Azure**. Elle est toujours activée.<br><br> ![Option Mettre à jour les modules Azure dans la page Modules](media/automation-update-azure-modules/automation-update-azure-modules-option.png)
 
-  > [!NOTE]
-  > Avant de mettre à jour vos modules Azure, nous vous recommandons de le faire dans un compte Automation de test pour vérifier que vos scripts existants fonctionnent comme prévu.
-  >
-  > Le bouton **Mettre à jour les modules Azure** est uniquement disponible dans le cloud public. Il n’est pas disponible dans les [régions souveraines](https://azure.microsoft.com/global-infrastructure/). Utilisez le runbook  **Update-AutomationAzureModulesForAccount** pour mettre à jour vos modules Azure. Vous pouvez le télécharger à partir du [référentiel de runbook Mettre à jour les modules Azure](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update). Pour en savoir plus sur l’utilisation du runbook open source, consultez [Mettre à jour les modules Azure avec le runbook open source](#open-source).
+   > [!NOTE]
+   > Avant de mettre à jour vos modules Azure, nous vous recommandons de le faire dans un compte Automation de test pour vérifier que vos scripts existants fonctionnent comme prévu.
+   >
+   > Le bouton **Mettre à jour les modules Azure** est uniquement disponible dans le cloud public. Il n’est pas disponible dans les [régions souveraines](https://azure.microsoft.com/global-infrastructure/). Utilisez le runbook  **Update-AutomationAzureModulesForAccount** pour mettre à jour vos modules Azure. Vous pouvez le télécharger à partir du [référentiel de runbook Mettre à jour les modules Azure](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update). Pour en savoir plus sur l’utilisation du runbook open source, consultez [Mettre à jour les modules Azure avec le runbook open source](#open-source).
 
 2. Cliquez sur **Mettre à jour les modules Azure**, un message de confirmation s’affiche pour vous demander si vous souhaitez continuer.<br><br> ![Notification de mise à jour des modules Azure](media/automation-update-azure-modules/automation-update-azure-modules-popup.png)
 
 3. Cliquez sur **Oui** et le processus de mise à jour du module commence. Le processus de mise à jour prend environ 15 à 20 minutes pour les modules suivants :
 
-  * Microsoft Azure
-  * Azure.Storage
-  * AzureRm.Automation
-  * AzureRm.Compute
-  * AzureRm.Profile
-  * AzureRm.Resources
-  * AzureRm.Sql
-  * AzureRm.Storage
+   * Microsoft Azure
+   * Azure.Storage
+   * AzureRm.Automation
+   * AzureRm.Compute
+   * AzureRm.Profile
+   * AzureRm.Resources
+   * AzureRm.Sql
+   * AzureRm.Storage
 
-    Si les modules sont déjà à jour, le processus se termine en quelques secondes. Vous êtes averti quand le processus de mise à jour est effectué.<br><br> ![Mise à jour d’état de mise à jour des modules Azure](media/automation-update-azure-modules/automation-update-azure-modules-updatestatus.png)
+     Si les modules sont déjà à jour, le processus se termine en quelques secondes. Vous êtes averti quand le processus de mise à jour est effectué.<br><br> ![Mise à jour d’état de mise à jour des modules Azure](media/automation-update-azure-modules/automation-update-azure-modules-updatestatus.png)
 
-    Les modules AzureRm .NET Core (AzureRm.*.Core) ne sont pas pris en charge dans Azure Automation et ne peuvent pas être importés.
+     Les modules AzureRm .NET Core (AzureRm.*.Core) ne sont pas pris en charge dans Azure Automation et ne peuvent pas être importés.
 
 > [!NOTE]
 > Azure Automation utilise les modules les plus récents de votre compte Automation durant l’exécution d’un nouveau travail planifié.  
 
 Si vous utilisez des cmdlets à partir de ces modules Azure PowerShell dans des runbooks, vous devez effectuer cette mise à jour chaque mois pour être certain d’avoir les derniers modules. Azure Automation utilise la connexion `AzureRunAsConnection` pour l’authentification pendant la mise à jour des modules. Si le principal de service a expiré ou n’existe plus au niveau de l’abonnement, la mise à jour du module échoue.
+
+## <a name="known-issues"></a>Problèmes connus
+
+Il existe un problème connu avec la mise à jour les modules AzureRM dans un compte Automation qui se trouve dans un groupe de ressources avec un nom numérique qui commence par 0. Pour mettre à jour vos modules Azure dans votre compte Automation, il doit être dans un groupe de ressources qui a un nom d’alphanumériques. Groupes de ressources avec des noms numériques commençant par 0 ne peuvent pas mettre à jour les modules AzureRM pour l’instant.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

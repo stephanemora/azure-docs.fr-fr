@@ -10,12 +10,12 @@ ms.date: 05/30/2018
 ms.service: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: bb84c7d5e483b0a2abc3b7d1a37de8760513d203
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
-ms.translationtype: HT
+ms.openlocfilehash: e525e5584e4835b0f2b73203c818c3f799b77cf5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063214"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075712"
 ---
 # <a name="create-variables-for-saving-and-managing-values-in-azure-logic-apps"></a>Créer des variables pour l’enregistrement et la gestion de valeurs dans Azure Logic Apps
 
@@ -35,7 +35,7 @@ Les variables existent et sont globales uniquement au sein de l’instance d’a
 
 Si vous n’avez pas encore d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour suivre cet article, voici les éléments que vous avez besoin :
 
@@ -414,10 +414,11 @@ Pour les variables qui stockent des chaînes ou des tableaux, vous pouvez insér
 
 1. Recherchez et sélectionnez une des actions suivantes, selon que votre variable est une chaîne ou un tableau : 
 
-  * **Variables - Ajouter à une variable chaîne**
-  * **Variables - Ajouter à une variable tableau** 
+   * **Variables - Ajouter à une variable chaîne**
+   * **Variables - Ajouter à une variable tableau** 
 
-2. Spécifiez la valeur à ajouter à la fin de la chaîne ou du tableau. Cette valeur est obligatoire. 
+2. Spécifiez la valeur à ajouter à la fin de la chaîne ou du tableau. 
+   Cette valeur est obligatoire. 
 
 Voici les propriétés disponibles pour les actions **Ajouter à...**  :
 

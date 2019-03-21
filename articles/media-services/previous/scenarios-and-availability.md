@@ -10,15 +10,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 731e8453c9735ef1e7819f1b851d0a13ceaec43a
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: f62e2d482ca6258821cb800d2650a5f0c6a27e7c
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55996200"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762518"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scénarios et disponibilité des fonctionnalités Media Services dans les centres de données
 
@@ -28,9 +28,9 @@ AMS fonctionne dans plusieurs centres de données à travers le monde. Ces centr
 
 Cette rubrique décrit les scénarios courants pour distribuer votre contenu [en direct](#live_scenarios) ou à la demande. Cette rubrique présente également des informations sur la disponibilité des fonctionnalités et services dans les centres de données.
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables
 
 Pour commencer à utiliser Azure Media Services, vous devez disposer des éléments suivants :
 

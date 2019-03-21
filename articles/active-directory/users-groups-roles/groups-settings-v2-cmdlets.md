@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1f0b99c3a388dcfd0dabaf874e03f276c494553
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7287616dbad1aa77a6e4aaa110ade39dcea4f195
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176864"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082617"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Cmdlets d’Azure Active Directory version 2 pour la gestion de groupe
 
@@ -218,15 +218,15 @@ Pour désactiver la création d’un groupe pour les utilisateurs non-administra
 
 1. Vérifiez que les utilisateurs non-administrateurs sont autorisés à créer des groupes :
    
-  ```
-  PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
-  ```
+   ```
+   PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
+   ```
   
 2. Si la commande retourne `UsersPermissionToCreateGroupsEnabled : True`, les utilisateurs non-administrateurs peuvent créer des groupes. Pour désactiver cette fonctionnalité :
   
-  ``` 
-  Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
-  ```
+   ``` 
+   Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
+   ```
   
 ## <a name="manage-owners-of-groups"></a>Gérer les propriétaires de groupes
 Pour ajouter des propriétaires à un groupe, utilisez l’applet de commande Add-AzureADGroupOwner :
@@ -251,7 +251,7 @@ Si vous souhaitez supprimer un propriétaire d’un groupe, utilisez l’applet 
 
 ## <a name="reserved-aliases"></a>Alias réservés 
 Quand un groupe est créé, certain points de terminaison autorisent l’utilisateur final à spécifier un mailNickname ou alias à utiliser dans l’adresse e-mail du groupe. Les groupes avec les alias de messagerie hautement privilégiés suivants peuvent uniquement être créés par un administrateur général Azure AD. 
-  
+  
 * abuse 
 * admin 
 * administrator 

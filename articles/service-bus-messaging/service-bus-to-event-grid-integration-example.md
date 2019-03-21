@@ -11,15 +11,15 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: spelluru
-ms.openlocfilehash: a1c0078cf2359de7fa018af749c61880caa8fcdd
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 7c38de9c1dbb5e8a286fa1b72d0461dd74ed6f25
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821804"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57770525"
 ---
 # <a name="azure-service-bus-to-azure-event-grid-integration-examples"></a>Exemples d’intégration d’Azure Service Bus et d’Azure Event Grid
 
@@ -33,7 +33,7 @@ L’exemple que vous créez suppose que la rubrique Service Bus a deux abonnemen
 
 Dans l’exemple, vous envoyez des messages à la rubrique Service Bus et vérifiez que l’événement a été généré pour cet abonnement Service Bus. L’application logique ou la fonction reçoit les messages de l’abonnement Service Bus, puis le renseigne.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Avant de commencer, assurez-vous que vous avez effectué les étapes décrites dans les deux sections suivantes.
 
 ### <a name="create-a-service-bus-namespace"></a>Création d’un espace de noms Service Bus

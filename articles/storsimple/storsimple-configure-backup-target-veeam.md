@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2016
 ms.author: hkanna
-ms.openlocfilehash: f06b74493bad546997f82ed6eef0a89cffb7c75b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: e7659cca9081834d41f64ef0fbd8ea3686044bfd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261976"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011997"
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>StorSimple comme cible de sauvegarde avec Veeam
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Azure StorSimple est une solution de stockage cloud hybride de Microsoft. StorSimple s’attaque à la complexité de la croissance exponentielle des données en utilisant un compte de stockage Azure en tant qu’extension de la solution locale et en hiérarchisant automatiquement les données sur le stockage local et sur le stockage cloud.
 
@@ -81,7 +81,7 @@ StorSimple offre les avantages suivants :
 
 Bien que StorSimple présente deux principaux scénarios de déploiement (cible de sauvegarde principale et secondaire), il s’agit essentiellement d’un dispositif de stockage de bloc. StorSimple exécute la totalité des tâches de compression et de déduplication. Il envoie et récupère de façon transparente les données entre le cloud, l’application et le système de fichiers.
 
-Pour plus d’informations sur StorSimple, consultez l’article [StorSimple série 8000 : une solution de stockage de cloud hybride](storsimple-overview.md). En outre, vous pouvez consulter les [caractéristiques techniques de StorSimple série 8000](storsimple-technical-specifications-and-compliance.md).
+Pour plus d'informations sur StorSimple, consultez l'article [StorSimple série 8000 : une solution de stockage cloud hybride](storsimple-overview.md). En outre, vous pouvez consulter les [caractéristiques techniques de StorSimple série 8000](storsimple-technical-specifications-and-compliance.md).
 
 > [!IMPORTANT]
 > L’utilisation d’un appareil StorSimple comme cible de sauvegarde n’est prise en charge que pour StorSimple 8000 Update 3 et les versions ultérieures.
@@ -104,7 +104,7 @@ Les tableaux ci-après contiennent les informations d’aide initiales concernan
 | Scénario de sauvegarde  | Capacité de stockage local  | Capacité de stockage cloud  |
 |---|---|---|
 | Sauvegarde principale  | Sauvegardes récentes stockées sur le stockage local afin d’accélérer la récupération pour se conformer à l’objectif de point de récupération (RPO) | Capacité du cloud adaptée à l’historique des sauvegardes (RPO) |
-| Sauvegarde secondaire | Possibilité de stocker une copie secondaire des données de sauvegarde dans la capacité du cloud  | N/A  |
+| Sauvegarde secondaire | Possibilité de stocker une copie secondaire des données de sauvegarde dans la capacité du cloud  | S.O.  |
 
 ## <a name="storsimple-as-a-primary-backup-target"></a>Utiliser StorSimple comme cible de sauvegarde principale
 
@@ -186,7 +186,7 @@ Dans cette section, nous fournissons quelques exemples de configuration. Les exe
 
 | Tâches de déploiement StorSimple  | Commentaires supplémentaires |
 |---|---|
-| Déploiement de votre appareil StorSimple local | Versions prises en charge : Update 3 et versions ultérieures. |
+| Déploiement de votre appareil StorSimple local | Versions prises en charge : Update 3 et versions ultérieures. |
 | Activez la cible de sauvegarde. | Utilisez ces commandes pour activer ou désactiver le mode de cible de sauvegarde et pour obtenir l’état. Pour plus d’informations, consultez l’article [Connexion à distance à un appareil StorSimple](storsimple-remote-connect.md).</br> Pour activer le mode de sauvegarde : `Set-HCSBackupApplianceMode -enable`. </br> Pour désactiver le mode de sauvegarde : `Set-HCSBackupApplianceMode -disable`. </br> Pour obtenir l’état actuel des paramètres de mode de sauvegarde : `Get-HCSBackupApplianceMode`. |
 | Création d’un conteneur de volumes commun pour votre volume qui stocke les données de sauvegarde. Toutes les données d’un conteneur de volumes sont dédupliquées. | Les conteneurs de volumes StorSimple définissent les domaines de déduplication.  |
 | Créez les volumes StorSimple. | Créez des volumes en les dimensionnant le plus conformément possible à l’usage que vous prévoyez d’en faire, car la taille du volume a une incidence sur la durée des captures instantanées cloud. Pour plus d’informations sur la taille d’un volume, consultez les [stratégies de rétention](#retention-policies).</br> </br> Utilisez les volumes hiérarchisés StorSimple et cochez la case **Utiliser ce volume pour les données d’archivage auxquelles vous accédez moins souvent**. </br> L’utilisation de volumes épinglés localement uniquement n’est pas prise en charge. |
@@ -209,16 +209,16 @@ Configurez votre solution en respectant les instructions dans les sections suiva
 
 ### <a name="operating-system-best-practices"></a>Meilleures pratiques concernant le système d’exploitation
 
--   Désactivez le chiffrement et la déduplication Windows Server pour le système de fichiers NTFS.
--   Désactivez la défragmentation Windows Server sur les volumes StorSimple.
--   Désactivez l’indexation Windows Server sur les volumes StorSimple.
--   Exécutez une analyse antivirus au niveau de l’hôte source (et non par rapport aux volumes StorSimple).
--   Désactivez l’activité [Maintenance Windows Server](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx) par défaut dans le Gestionnaire des tâches. Pour ce faire, procédez de l’une des manières suivantes :
-    - Désactivez le programme de configuration de l’activité de maintenance dans le Planificateur de tâches Windows.
-    - Téléchargez [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx) à partir de Windows Sysinternals. Après avoir téléchargé PsExec, exécutez Windows PowerShell en tant qu’administrateur, puis tapez :
-      ```powershell
-      psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
-      ```
+- Désactivez le chiffrement et la déduplication Windows Server pour le système de fichiers NTFS.
+- Désactivez la défragmentation Windows Server sur les volumes StorSimple.
+- Désactivez l’indexation Windows Server sur les volumes StorSimple.
+- Exécutez une analyse antivirus au niveau de l’hôte source (et non par rapport aux volumes StorSimple).
+- Désactivez l’activité [Maintenance Windows Server](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx) par défaut dans le Gestionnaire des tâches. Pour ce faire, procédez de l’une des manières suivantes :
+  - Désactivez le programme de configuration de l’activité de maintenance dans le Planificateur de tâches Windows.
+  - Téléchargez [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx) à partir de Windows Sysinternals. Après avoir téléchargé PsExec, exécutez Windows PowerShell en tant qu’administrateur, puis tapez :
+    ```powershell
+    psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
+    ```
 
 ### <a name="storsimple-best-practices"></a>Meilleures pratiques concernant StorSimple
 
@@ -265,6 +265,7 @@ Sur la base des hypothèses qui précèdent, créez un volume hiérarchisé Stor
 | Complète annuelle | 1  | 10 | 10 |
 | Exigence GFS |   | 38 |   |
 | Quota supplémentaire  | 4  |   | 42 au total pour l’exigence GFS  |
+
 \* Le multiplicateur GFS est le nombre de copies que vous devez protéger et conserver pour vous conformer à vos stratégies de sauvegarde.
 
 ## <a name="set-up-veeam-storage"></a>Configurer le stockage Veeam
@@ -319,7 +320,7 @@ Voici un exemple de planification de rotation GFS pour quatre semaines, mensuell
 |---|---|---|
 | Hebdomadaire (semaines 1-4) | Samedi | Lundi-vendredi |
 | Mensuelle  | Samedi  |   |
-| Annuelle | Samedi  |   |   |
+| Annuelle | Samedi  |   |
 
 
 ### <a name="assign-storsimple-volumes-to-a-veeam-backup-job"></a>Affecter des volumes StorSimple à un travail de sauvegarde Veeam
@@ -384,6 +385,7 @@ Le tableau suivant montre comment configurer des sauvegardes à exécuter sur le
 | Complète mensuelle |Disque StorSimple (long terme) | 1 | 12 | 12 |
 | Complète annuelle |Disque StorSimple (long terme) | 1 | 1 | 1 |
 |Exigence en matière de taille des volumes GFS |  |  |  | 18*|
+
 \* La capacité totale inclut 17 Tio de disques StorSimple et 1 Tio de volume RAID local.
 
 
@@ -398,7 +400,7 @@ planification de rotation GFS hebdomadaire, mensuelle et annuelle
 | Semaine 3 | StorSimple semaines 2 à 4 |   |   |   |   |   |
 | Semaine 4 | StorSimple semaines 2 à 4 |   |   |   |   |   |
 | Mensuelle | StorSimple mensuelle |   |   |   |   |   |
-| Annuelle | StorSimple annuelle  |   |   |   |   |   |   |
+| Annuelle | StorSimple annuelle  |   |   |   |   |   |
 
 ### <a name="assign-storsimple-volumes-to-a-veeam-copy-job"></a>Affecter des volumes StorSimple à un travail de copie Veeam
 
@@ -469,9 +471,9 @@ La section ci-après décrit comment créer un bref script pour déclencher et s
 1. [Installez Azure PowerShell](/powershell/azure/overview).
 2. Téléchargez et installez le script PowerShell [Manage-CloudSnapshots.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1).
 3. Sur le serveur qui exécute le script, exécutez PowerShell en tant qu’administrateur. Vérifiez que vous exécutez le script avec `-WhatIf $true` pour voir les modifications qu’il apporte. Une fois la validation terminée, passez `-WhatIf $false`. Exécutez la commande ci-dessous :
-```powershell
-.\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
-```
+   ```powershell
+   .\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
+   ```
 4. Pour ajouter le script à votre travail de sauvegarde, modifiez les options avancées de votre travail Veeam.
 
     ![Paramètres avancés de sauvegarde Veeam, onglet Scripts](./media/storsimple-configure-backup-target-using-veeam/veeamimage22.png)
@@ -510,7 +512,7 @@ Un sinistre peut être dû à plusieurs facteurs. Le tableau ci-après répertor
 Les documents référencés dans cet article sont les suivants :
 
 - [StorSimple multipath I/O setup (Configuration de StorSimple MPIO)](storsimple-configure-mpio-windows-server.md)
-- [Storage scenarios: Thin provisioning (Scénarios de stockage : allocation dynamique)](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
+- [Scénarios de stockage : Allocation dynamique](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
 - [Using GPT drives (Utilisation de disques de table de partition GUID)](https://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
 - [Set up shadow copies for shared folders (Configurer des clichés instantanés de dossiers partagés)](https://technet.microsoft.com/library/cc771893.aspx)
 

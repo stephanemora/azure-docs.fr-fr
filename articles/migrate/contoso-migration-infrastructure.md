@@ -8,12 +8,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/1/2018
 ms.author: raynew
-ms.openlocfilehash: 17ec8eb779dec560cfc5350fecc0fb819e89195a
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 5dfe768ddb3509f896b90f913ffecdf33907357a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340125"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57876678"
 ---
 # <a name="contoso---deploy-a-migration-infrastructure"></a>Contoso - Déployer une infrastructure de migration
 
@@ -45,7 +45,7 @@ Article 2 : Déployer une infrastructure Azure | Contoso prépare son infrastr
 Dans cet article, Contoso configure tous les éléments d’infrastructure nécessaires à tous les scénarios de migration. 
 
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Avant de pouvoir effectuer la migration vers Azure, Contoso doit impérativement préparer une infrastructure Azure.  Généralement, Contoso doit prendre en compte cinq points essentiels :
 
@@ -101,10 +101,10 @@ Après avoir payé pour Azure, Contoso doit déterminer comment gérer les abonn
 - L’inscription d’une entreprise Azure définit la forme et l’utilisation des services Azure en son sein et la structure de gouvernance principale.
 - Dans un premier temps, Contoso a déterminé une structure (appelée structure d’entreprise) pour l’inscription de l’entreprise. Contoso a utilisé [cet article](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-subscription-governance) pour comprendre et concevoir cette structure.
 - Pour l’instant, Contoso a décidé d’utiliser une approche fonctionnelle pour gérer ses abonnements.
-    - Dans l’entreprise, un seul service informatique contrôle le budget Azure. Ce sera le seul groupe avec des abonnements.
-    - Contoso étendra ce modèle à l’avenir pour que d’autres groupes d’entreprise (services) puissent être ajoutés dans l’inscription de l’entreprise.
-    - Au sein du service informatique, Contoso a structuré deux abonnements, Production et Développement.
-    - Si Contoso a besoin de nouveaux abonnements à l’avenir, l’entreprise devra gérer l’accès, les stratégies et la conformité de ces abonnements. Elle peut le faire en introduisant des [groupes d’administration Azure](https://docs.microsoft.com/azure/azure-resource-manager/management-groups-overview), sous forme de couche supplémentaire au-dessus des abonnements.
+  - Dans l’entreprise, un seul service informatique contrôle le budget Azure. Ce sera le seul groupe avec des abonnements.
+  - Contoso étendra ce modèle à l’avenir pour que d’autres groupes d’entreprise (services) puissent être ajoutés dans l’inscription de l’entreprise.
+  - Au sein du service informatique, Contoso a structuré deux abonnements, Production et Développement.
+  - Si Contoso a besoin de nouveaux abonnements à l’avenir, l’entreprise devra gérer l’accès, les stratégies et la conformité de ces abonnements. Elle peut le faire en introduisant des [groupes d’administration Azure](https://docs.microsoft.com/azure/azure-resource-manager/management-groups-overview), sous forme de couche supplémentaire au-dessus des abonnements.
 
     ![Structure de l’entreprise](./media/contoso-migration-infrastructure/enterprise-structure.png) 
 
@@ -146,7 +146,7 @@ L’octroi et le contrôle de l’accès utilisateur à des ressources Azure ave
 
 Contoso utilise l’édition Azure Active Directory Free incluse avec un abonnement Azure. Les administrateurs de Contoso configurent un annuaire Active Directory de la façon suivante :
 
-1. Dans le [portail Azure](http://portal.azure.com/), ils accèdent à **Créer une ressource** > **Identité** > **Azure Active Directory**.
+1. Dans le [portail Azure](https://portal.azure.com/), ils accèdent à **Créer une ressource** > **Identité** > **Azure Active Directory**.
 2. Dans **Créer un annuaire**, elle spécifie le nom de l’annuaire, un nom de domaine initial et la région dans laquelle l’annuaire Azure AD doit être créé.
 
     ![Créer une application Azure AD](./media/contoso-migration-infrastructure/azure-ad-create.png) 
@@ -310,7 +310,7 @@ Une fois la conception des régions définie, Contoso peut élaborer une straté
 
 Contoso a étudié [plusieurs architectures](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/) pour créer un réseau hybride entre Azure et le centre de données local. [En savoir plus](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/considerations) sur la comparaison des options.
 
-Pour rappel, l’infrastructure du réseau local de Contoso se compose actuellement du centre de données à New York et de branches locales dans la partie est des États-Unis.  Tous les emplacements disposent d’une connexion Internet de qualité professionnelle.  Chacune des branches est ensuite connectée au centre de données via un tunnel VPN IPSec sur Internet.
+Pour rappel, l’infrastructure du réseau local de Contoso se compose actuellement du centre de données à New York et de branches locales dans la partie est des États-Unis.  Tous les emplacements disposent d’une connexion Internet de qualité professionnelle.  Chacune des branches est ensuite connecté au centre de données via un tunnel VPN IPSec via internet.
 
 ![Réseau Contoso](./media/contoso-migration-infrastructure/contoso-networking.png) 
 
@@ -451,7 +451,7 @@ Les composants IaaS Azure sont situés dans le réseau de production. Chaque niv
 **PROD-FE-EUS2** | 10.245.32.0/22 | 1019 | Machines virtuelles de niveau front-end/web
 **PROD-APP-EUS2** | 10.245.36.0/22 | 1019 | Machines virtuelles de niveau application
 **PROD-DB-EUS2** | 10.245.40.0/23 | 507 | Machines virtuelles de base de données
-**PROD-DC-EUS2** | 10.245.42.0/23 | 251 | Machines virtuelles de contrôleur de domaine
+**PROD-DC-EUS2** | 10.245.42.0/24 | 251 | Machines virtuelles de contrôleur de domaine
 
 
 ![Architecture réseau du hub](./media/contoso-migration-infrastructure/azure-networks-eus2.png)
@@ -581,18 +581,18 @@ Après la mise à jour des paramètres du réseau, les administrateurs de Contos
 
 1. Dans le portail Azure, elle déploie une nouvelle machine virtuelle Windows Server sur le réseau virtuel approprié.
 2. Elle crée des ensembles à haute disponibilité dans chaque emplacement pour la machine virtuelle. Les ensembles de disponibilité effectuent les tâches suivantes :
-    - Vérifier que la structure Azure sépare les machines virtuelles dans différentes infrastructures dans la région Azure. 
-    -  Permet à Contoso de bénéficier d’un contrat SLA à 99,95 % pour les machines virtuelles dans Azure.  [Plus d’informations](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets)
+   - Vérifier que la structure Azure sépare les machines virtuelles dans différentes infrastructures dans la région Azure. 
+   - Permet à Contoso de bénéficier d’un contrat SLA à 99,95 % pour les machines virtuelles dans Azure.  [Plus d’informations](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets)
 
-    ![Groupe de disponibilité](./media/contoso-migration-infrastructure/availability-group.png) 
+     ![Groupe de disponibilité](./media/contoso-migration-infrastructure/availability-group.png) 
 3. Une fois la machine virtuelle déployée, ils ouvrent l’interface réseau pour la machine virtuelle. Ils définissent l’adresse IP privée sur statique et spécifient une adresse valide.
 
     ![Carte réseau de machine virtuelle](./media/contoso-migration-infrastructure/vm-nic.png)
 
 4. Elle attache maintenant un nouveau disque de données à la machine virtuelle. Ce disque contient la base de données Active Directory et le partage sysvol. 
-    - La taille du disque déterminera le nombre d’IOPS pris en charge.
-    - Au fil du temps, la taille du disque devra éventuellement être augmentée à mesure que l’environnement se développe.
-    - Le lecteur ne doit pas être défini en lecture-écriture pour la mise en cache de l’hôte. Les bases de données Active Directory ne prennent pas en charge cette configuration.
+   - La taille du disque déterminera le nombre d’IOPS pris en charge.
+   - Au fil du temps, la taille du disque devra éventuellement être augmentée à mesure que l’environnement se développe.
+   - Le lecteur ne doit pas être défini en lecture-écriture pour la mise en cache de l’hôte. Les bases de données Active Directory ne prennent pas en charge cette configuration.
 
      ![Disque Active Directory](./media/contoso-migration-infrastructure/ad-disk.png)
 

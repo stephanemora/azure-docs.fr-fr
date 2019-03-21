@@ -9,11 +9,11 @@ ms.date: 01/08/2019
 ms.author: yuemlu
 ms.custom: include file
 ms.openlocfilehash: ad57d373422e0fc310e51ac31f2a2e76999abf22
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193369"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "58114740"
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>Stockage Standard économique et disques de machine virtuelle Azure gérés et non gérés
 
@@ -117,7 +117,7 @@ Les tailles signalées par un astérisque sont actuellement en préversion.
 
 | **Type de disque managé<br> HDD Standard** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60*** | **S70*** | **S80*** |
 |------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
-| Taille du disque        | 32 Gio  | 64 Gio  | 128 Go | 256 Gio | 512 Go | 1 024 Gio (1 Tio) | 2 048 Gio (2 Tio) | 4 095 Gio (4 Tio) | 8 192 Gio (8 Tio) | 16 385 Gio (16 Tio) | 32 767 Gio (32 Tio) |
+| Taille du disque        | 32 Gio  | 64 Gio  | 128 Go | 256 Gio | 512 Go | 1 024 Gio (1 Tio) | 2 048 Gio (2 Tio) | 4 095 Gio (4 Tio) | 8 192 Gio (8 Tio) | 16 385 Gio (16 Tio) | 32 767 Gio (32 Tio) |
 
 
 **Instantanés** : Les instantanés des disques Standard sont facturés en fonction de la capacité supplémentaire qu’ils utilisent. Pour plus d'informations sur les captures instantanées, consultez [Création d'un instantané d'objet blob](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).

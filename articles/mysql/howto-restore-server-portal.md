@@ -6,19 +6,19 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.openlocfilehash: e1545e830ac04000920c3881486b2add79744201
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: d76a644de8cb55da5e743e482d14946d371c3dfe
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548865"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867227"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Comment sauvegarder et restaurer un serveur dans Azure Database pour MySQL à l’aide du Portail Azure
 
 ## <a name="backup-happens-automatically"></a>La sauvegarde s’effectue automatiquement
 Les serveurs Azure Database pour MySQL sont sauvegardés régulièrement pour activer les fonctionnalités de restauration. À l’aide de cette fonctionnalité, vous pouvez restaurer le serveur et toutes ses bases de données à un point dans le temps antérieur, sur un nouveau serveur.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Pour utiliser ce guide pratique, il vous faut :
 - Un [serveur et une base de données Azure Database pour MySQL](quickstart-create-mysql-server-database-using-azure-portal.md)
 
@@ -61,7 +61,7 @@ Les étapes suivantes restaurent l’exemple de serveur à un point dans le temp
 
 3. Remplissez le formulaire Restaurer avec les informations requises :
 
-   ![Azure Database pour MySQL - Informations de restauration ](./media/howto-restore-server-portal/3-restore.png)
+   ![Azure Database pour MySQL - Informations de restauration](./media/howto-restore-server-portal/3-restore.png)
    - **Point de restauration** : sélectionnez le point dans le temps vers lequel vous souhaitez restaurer.
    - **Serveur cible** : Entrez un nom pour le nouveau serveur.
    - **Emplacement** : vous ne pouvez pas sélectionner la région. Par défaut, elle est identique à celle du serveur source.

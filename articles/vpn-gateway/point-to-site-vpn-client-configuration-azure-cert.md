@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 02/13/2019
+ms.date: 03/20/2019
 ms.author: cherylmc
-ms.openlocfilehash: 58936fa85567dcac624b15e95bbd84e68e0ae117
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: c8bc0ad7c5113f8ffdcda0ae9e6b1df43975bbcb
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58009899"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294941"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Créer et installer des fichiers de configuration du client VPN avec des configurations d’authentification par certificat de connexions P2S Azure natives
 
@@ -74,7 +74,7 @@ Suivez les étapes suivantes pour configurer le client VPN Windows natif pour un
 
 ## <a name="installmac"></a>Mac (OS X)
 
- Vous devez configurer manuellement le client VPN IKEv2 natif sur chaque Mac qui se connectera à Azure. Azure ne fournit pas de fichier mobileconfig pour l’authentification par certificat Azure native. Le dossier **Générique** contient toutes les informations dont vous avez besoin pour la configuration. Si vous ne voyez pas le dossier Générique dans votre téléchargement, il est probable qu’IKEv2 n’était pas sélectionné comme type de tunnel. Une fois IKEv2 sélectionné, générez à nouveau le fichier zip pour récupérer le dossier Générique.<br>Ce dossier contient les fichiers suivants :
+ Vous devez configurer manuellement le client VPN IKEv2 natif sur chaque Mac qui se connectera à Azure. Azure ne fournit pas de fichier mobileconfig pour l’authentification par certificat Azure native. Le dossier **Générique** contient toutes les informations dont vous avez besoin pour la configuration. Si vous ne voyez pas le dossier Générique dans votre téléchargement, il est probable qu’IKEv2 n’était pas sélectionné comme type de tunnel. Notez que la référence SKU de base de passerelle VPN ne prend pas en charge IKEv2. Une fois IKEv2 sélectionné, générez à nouveau le fichier zip pour récupérer le dossier Générique.<br>Ce dossier contient les fichiers suivants :
 
 * Le fichier **VpnSettings.xml**, qui contient d’importants paramètres tels que l’adresse et le type de tunnel du serveur. 
 * Le fichier **VpnServerRoot.cer**, qui contient le certificat racine requis pour valider la passerelle VPN Azure lors de la configuration de la connexion P2S.

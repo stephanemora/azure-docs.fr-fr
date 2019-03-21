@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: 08e80a9baa4c6841b6d88d1c5f2ba69992ffa7ef
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
-ms.translationtype: HT
+ms.openlocfilehash: 693da06ce14a4854d5db49f588fa29d791060166
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977056"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108101"
 ---
 # <a name="add-an-email-action"></a>Ajouter une action de messagerie
 
@@ -31,7 +31,7 @@ Effectuez les étapes suivantes pour ajouter une action de messagerie à une rè
 
 1. À partir du **tableau de bord**, accédez à la page **Règles** :
 
-    ![Page Règles](./media/iot-accelerators-remote-monitoring-email-actions/rules.png)
+    ![Page Règles](./media/iot-accelerators-remote-monitoring-email-actions/rules-email.png)
 
 1. Cliquez sur la case à cocher en regard de la règle existante à modifier, puis sur **Modifier** en haut. Un panneau **Règle** modifiable s’affiche.
 
@@ -41,7 +41,7 @@ Effectuez les étapes suivantes pour ajouter une action de messagerie à une rè
 
 1. Entrez une adresse e-mail dans la zone de destinataire et appuyez sur la touche **Entrée** pour chaque adresse e-mail à ajouter :
 
-    ![Entrée d’adresse](./media/iot-accelerators-remote-monitoring-email-actions/address.png)
+    ![Entrée d’adresse](./media/iot-accelerators-remote-monitoring-email-actions/address-email.png)
 
 1. Entrez l’objet de l’e-mail.
 
@@ -59,7 +59,7 @@ Effectuez les étapes suivantes pour ajouter une action de messagerie quand vous
 
 1. À partir du **tableau de bord**, accédez à la page **Règles** :
 
-    ![Page Règles](./media/iot-accelerators-remote-monitoring-email-actions/rules.png)
+    ![Page Règles](./media/iot-accelerators-remote-monitoring-email-actions/rules-email.png)
 
 1. Effectuez les étapes de la [section Créer une règle](iot-accelerators-remote-monitoring-automate.md#create-a-rule). Effectuez ensuite les étapes de la section [Créer une règle avancée](iot-accelerators-remote-monitoring-automate.md#create-an-advanced-rule) jusqu’au stade où vous définissez un **niveau de gravité**. Ne cliquez pas encore sur **Appliquer**.
 
@@ -69,7 +69,7 @@ Effectuez les étapes suivantes pour ajouter une action de messagerie quand vous
 
 1. Entrez une adresse e-mail dans la zone de destinataire et appuyez sur la touche **Entrée** pour chaque adresse e-mail à ajouter :
 
-    ![Entrée d’adresse](./media/iot-accelerators-remote-monitoring-email-actions/address.png)
+    ![Entrée d’adresse](./media/iot-accelerators-remote-monitoring-email-actions/address-email.png)
 
 1. Entrez l’objet de l’e-mail.
 
@@ -128,7 +128,7 @@ Les étapes suivantes vous aident à vous connecter et configurer les actions de
 
 1. Cliquez pour vous connecter à Outlook. Vous êtes redirigé vers le portail Azure :
 
-  ![Se connecter à Outlook](./media/iot-accelerators-remote-monitoring-email-actions/owneroutlook.png)
+   ![Se connecter à Outlook](./media/iot-accelerators-remote-monitoring-email-actions/owneroutlook-email.png)
 
 1. Cliquez sur **Autoriser**. Vous êtes invité à vous connecter. Le compte que vous utilisez pour vous connecter doit être l’adresse e-mail que l’application utilise pour envoyer des notifications par e-mail :
 
@@ -136,7 +136,7 @@ Les étapes suivantes vous aident à vous connecter et configurer les actions de
 
 1. Si vous avez correctement configuré la notification par e-mail, vous voyez ce message :
 
-  ![Connexion à Outlook réussie](./media/iot-accelerators-remote-monitoring-email-actions/success.png)
+   ![Connexion à Outlook réussie](./media/iot-accelerators-remote-monitoring-email-actions/success-email.png)
 
 ## Personnaliser le modèle HTML d’e-mail <a name="htmledit"></a>
 
@@ -168,7 +168,7 @@ Les étapes suivantes vous montrent comment modifier le modèle d’e-mail HTML.
 
 L’accélérateur de solution de supervision à distance utilise Outlook pour envoyer des notifications par e-mail. Outlook limite le nombre d’e-mails envoyés à [30 e-mails par minute](https://docs.microsoft.com/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits#receiving-and-sending-limits). Les clients de messagerie qui reçoivent les e-mails peuvent également limiter le nombre d’e-mails reçus par minute. Vérifiez les limitations auprès de votre client de messagerie spécifique. Quand vous configurez la notification par e-mail pour une règle, la règle doit calculer les valeurs moyennes sur une période d’au moins une minute et non utiliser des valeurs instantanées :
 
-![Calcul de la moyenne](./media/iot-accelerators-remote-monitoring-email-actions/calculation.png)
+![Calcul de la moyenne](./media/iot-accelerators-remote-monitoring-email-actions/calculation-email.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

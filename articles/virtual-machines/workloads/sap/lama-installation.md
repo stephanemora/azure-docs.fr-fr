@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 17/07/2018
+ms.date: 11/17/2018
 ms.author: sedusch
-ms.openlocfilehash: d5d344f47fa46e9fe0adea048db200ec67a3fadc
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 432dcf4608d23f269c5005b86d2c58b7f70b3068
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262577"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007580"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Connecteur SAP LaMa pour Azure
 
@@ -77,7 +77,7 @@ Le connecteur Azure est fourni à partir de la version SAP LaMa 3.0 SP05. Nous v
 1. Ouvrez le panneau Azure Active Directory
 1. Cliquez sur Inscriptions des applications.
 1. Cliquez sur Ajouter.
-1. Entrez un nom, sélectionnez le type d’application « Application/API web », entrez une URL de connexion (par exemple, http://localhost), puis cliquez sur Créer.
+1. Entrez un nom, sélectionnez le Type d’Application « Application/API Web », entrez une URL de connexion (par exemple `http://localhost`), puis cliquez sur Créer
 1. L’URL de connexion n’est pas utilisée et peut être une URL valide
 1. Sélectionnez la nouvelle application, puis cliquez sur Clés dans l’onglet Paramètres.
 1. Entrez une description pour la nouvelle clé, sélectionnez « N’expire jamais », puis cliquez sur Enregistrer.
@@ -237,7 +237,7 @@ Avant de démarrer SAP Software Provisioning Manager (SWPM), vous devez monter l
 /usr/sap/hostctrl/exe/sapacext -a ifup -i eth0 -h ah1-ascs -n 255.255.255.128
 ```
 
-![ Windows][Logo_Windows]  Windows
+![Windows][Logo_Windows] Windows
 
 ```bash
 # C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>
@@ -277,7 +277,7 @@ Avant de démarrer SAP Software Provisioning Manager (SWPM), vous devez monter l
 /usr/sap/hostctrl/exe/sapacext -a ifup -i eth0 -h ah1-di-0 -n 255.255.255.128
 ```
 
-![ Windows][Logo_Windows]  Windows
+![Windows][Logo_Windows] Windows
 
 ```bash
 # C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>

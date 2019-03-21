@@ -8,12 +8,12 @@ ms.date: 03/01/2019
 ms.author: normesta
 ms.topic: article
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 0a658d47f850537f18c976ab0933105b57692673
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 1c0a04a074cfbd96423502ac92dd5821bade78e1
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57344313"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258528"
 ---
 # <a name="use-azure-data-box-to-migrate-data-from-an-on-premises-hdfs-store-to-azure-storage"></a>Utiliser Azure Data Box pour migrer des données à partir d’un magasin HDFS en local vers le stockage Azure
 
@@ -59,7 +59,7 @@ Suivez ces étapes pour copier des données via le stockage REST API de/objet Bl
 
 2. Dans le compte de stockage d’accès et le chargement de données boîte de dialogue, copiez la **point de terminaison de service Blob** et **clé de compte de stockage**. Du point de terminaison de service blob, omettez le `https://` et la barre oblique de fin.
 
-    Dans ce cas, le point de terminaison est : `https://mystorageaccount.blob.mydataboxno.microsoftdatabox.com/`. La partie hôte de l’URI que vous allez utiliser est : `mystorageaccount.blob.mydataboxno.microsoftdatabox.com`. Pour obtenir un exemple, consultez Comment [se connecter à REST sur http](/azure/databox/data-box-deploy-copy-data-via-rest.md). 
+    Dans ce cas, le point de terminaison est : `https://mystorageaccount.blob.mydataboxno.microsoftdatabox.com/`. La partie hôte de l’URI que vous allez utiliser est : `mystorageaccount.blob.mydataboxno.microsoftdatabox.com`. Pour obtenir un exemple, consultez Comment [se connecter à REST sur http](/azure/databox/data-box-deploy-copy-data-via-rest). 
 
      ![Boîte de dialogue « Accéder aux compte de stockage et charger des données »](media/data-lake-storage-migrate-on-premises-HDFS-cluster/data-box-connection-string-http.png)
 

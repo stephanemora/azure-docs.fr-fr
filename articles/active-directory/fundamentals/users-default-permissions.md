@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1a3204e70fdde162d953c9c2241e9d71877cf78
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 26178066b2f5353cba99c5965bb2f3055556784c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428922"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894272"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Quelles sont les autorisations d’utilisateur par défaut dans Azure Active Directory ?
 Dans Azure Active Directory (Azure AD), tous les utilisateurs bénéficient d’un jeu d’autorisations par défaut. L’accès d’un utilisateur se compose du type d’utilisateur, de ses [attributions de rôles](active-directory-users-assign-role-azure-portal.md) et de sa possession d’objets individuels. Cet article décrit ces autorisations par défaut et compare celles des utilisateurs membres et celles des utilisateurs invités. Les autorisations d’utilisateur par défaut ne peuvent être modifiées que dans les paramètres utilisateur dans Azure AD.
@@ -49,8 +49,8 @@ Vous pouvez restreindre les autorisations par défaut des utilisateurs membres d
 
 Autorisation | Explication du paramètre
 ---------- | ------------
-Possibilité de créer des groupes de sécurité | Définir cette option sur Non empêche les utilisateurs de créer des groupes de sécurité. Les administrateurs généraux et les administrateurs de comptes d’utilisateur peuvent toujours créer des groupes de sécurité. Pour connaître la marche à suivre, consultez [Configuration des paramètres de groupe avec les applets de commande Azure Active Directory](../users-groups-roles/groups-settings-cmdlets.md).
-Possibilité de créer des groupes Office 365 | Définir cette option sur Non empêche les utilisateurs de créer des groupes Office 365. Définir cette option sur Certain(e)s permet à un ensemble d’utilisateurs spécifique de créer des groupes Office 365. Les administrateurs généraux et les administrateurs de comptes d’utilisateur peuvent toujours créer des groupes Office 365. Pour connaître la marche à suivre, consultez [Configuration des paramètres de groupe avec les applets de commande Azure Active Directory](../users-groups-roles/groups-settings-cmdlets.md).
+Possibilité de créer des groupes de sécurité | Définir cette option sur Non empêche les utilisateurs de créer des groupes de sécurité. Les administrateurs généraux et les administrateurs d’utilisateurs peuvent toujours créer des groupes de sécurité. Pour connaître la marche à suivre, consultez [Configuration des paramètres de groupe avec les applets de commande Azure Active Directory](../users-groups-roles/groups-settings-cmdlets.md).
+Possibilité de créer des groupes Office 365 | Définir cette option sur Non empêche les utilisateurs de créer des groupes Office 365. Définir cette option sur Certain(e)s permet à un ensemble d’utilisateurs spécifique de créer des groupes Office 365. Les administrateurs généraux et les administrateurs de l’utilisateur sera en mesure de créer des groupes Office 365. Pour connaître la marche à suivre, consultez [Configuration des paramètres de groupe avec les applets de commande Azure Active Directory](../users-groups-roles/groups-settings-cmdlets.md).
 Limiter l’accès au portail d’administration Azure AD | Définir cette option sur Non empêche les utilisateurs d’accéder à Azure Active Directory.
 Possibilité de lire d’autres utilisateurs | Ce paramètre est uniquement disponible dans PowerShell. Définir ce paramètre sur $false empêche tous les utilisateurs non administrateurs de lire les informations utilisateur du répertoire. Cela n’empêche pas de lire les informations utilisateur dans d’autres services Microsoft comme Exchange Online. Ce paramètre est destiné à des circonstances particulières et le définir sur $false n’est pas recommandé.
 
@@ -65,7 +65,7 @@ When a user adds a new enterprise application, they are automatically added as a
 
 ### <a name="group-owner-permissions"></a>Autorisations de propriétaire de groupe
 
-Quand un utilisateur crée un groupe, il est automatiquement ajouté en tant que propriétaire de ce groupe. En tant que tel, il peut gérer les propriétés du groupe telles que le nom, ainsi que gérer l’appartenance au groupe. Un propriétaire peut également ajouter ou supprimer des propriétaires. Contrairement aux administrateurs globaux et aux administrateurs de comptes d’utilisateur, les propriétaires ne peuvent gérer que les groupes qu’ils possèdent. Pour assigner un propriétaire de groupe, consultez [Gestion des propriétaires d’un groupe](active-directory-accessmanagement-managing-group-owners.md).
+Quand un utilisateur crée un groupe, il est automatiquement ajouté en tant que propriétaire de ce groupe. En tant que tel, il peut gérer les propriétés du groupe telles que le nom, ainsi que gérer l’appartenance au groupe. Un propriétaire peut également ajouter ou supprimer des propriétaires. Contrairement aux administrateurs généraux et les administrateurs de l’utilisateur, les propriétaires peuvent gérer uniquement les groupes qu’ils possèdent. Pour assigner un propriétaire de groupe, consultez [Gestion des propriétaires d’un groupe](active-directory-accessmanagement-managing-group-owners.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

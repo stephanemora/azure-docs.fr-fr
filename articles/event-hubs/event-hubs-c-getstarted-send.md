@@ -15,35 +15,35 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 8c134ae9944517d6ae66fcd22e06bbfc599912b4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 6cb1f788f41fe07516d759b177e1d76405dd2bf8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076390"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57529706"
 ---
 # <a name="send-events-to-azure-event-hubs-using-c"></a>Envoyer des événements vers Azure Event Hubs avec C
 
-## <a name="introduction"></a>Introduction
+## <a name="introduction"></a>Présentation
 Azure Event Hubs est une plateforme de diffusion de données volumineuses et un service d’ingestion d’événements, capable de recevoir et de traiter des millions d’événements par seconde. Les concentrateurs d’événements peuvent traiter et stocker des événements, des données ou la télémétrie produits par des logiciels et appareils distribués. Les données envoyées à un concentrateur d’événements peuvent être transformées et stockées à l’aide d’adaptateurs de traitement par lot/stockage ou d’un fournisseur d’analyse en temps réel. Pour une présentation détaillée d’Event Hubs, consultez [Vue d’ensemble d’Event Hubs](event-hubs-about.md) et [Fonctionnalités d’Event Hubs](event-hubs-features.md).
 
 Ce didacticiel explique comment envoyer des événements vers un Event Hub à l’aide d’une application console en C. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un environnement de développement en C. Ce didacticiel présuppose que la pile GCC est sur une machine virtuelle Linux Azure dotée du système d’exploitation Ubuntu 14.04.
 * [Microsoft Visual Studio](https://www.visualstudio.com/).
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Création d’un espace de noms Event Hubs et d’un concentrateur d’événements
-La première étape consiste à utiliser le [portail Azure](https://portal.azure.com) pour créer un espace de noms de type Event Hubs et obtenir les informations de gestion nécessaires à votre application pour communiquer avec le concentrateur d’événements. Pour créer un espace de noms et un hub d'événements, suivez la procédure décrite dans [cet article](event-hubs-create.md).
+La première étape consiste à utiliser le [portail Azure](https://portal.azure.com) pour créer un espace de noms de type Event Hubs et obtenir les informations de gestion nécessaires à votre application pour communiquer avec le concentrateur d’événements. Pour créer un espace de noms et un hub d’événements, suivez la procédure décrite dans [cet article](event-hubs-create.md).
 
-Obtenez la valeur de la clé d’accès du hub d'événements en suivant les instructions de l’article : [Obtenir la chaîne de connexion](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Vous utilisez la clé d’accès dans le code que vous écrivez plus loin dans ce tutoriel. Le nom de clé par défaut est : **RootManageSharedAccessKey**.
+Obtenez la valeur de la clé d’accès du hub d’événements en suivant les instructions de l’article : [Obtenir la chaîne de connexion](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Vous utilisez la clé d’accès dans le code que vous écrivez plus loin dans ce tutoriel. Le nom de clé par défaut est : **RootManageSharedAccessKey**.
 
 Maintenant, continuez avec les étapes suivantes du tutoriel.
 
 ## <a name="write-code-to-send-messages-to-event-hubs"></a>Écrire du code pour envoyer des messages à Event Hubs
-Cette section explique comment écrire une application en C pour envoyer des événements à votre hub d’événements. Le code utilise la bibliothèque Proton AMQP du [projet Apache Qpid](http://qpid.apache.org/). Cette approche est similaire à l’utilisation de rubriques et de files d’attente Service Bus avec AMQP en partant du langage C comme indiqué dans [cet exemple](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). Pour plus d’informations, consultez la [Documentation Qpid Proton](http://qpid.apache.org/proton/index.html).
+Cette section explique comment écrire une application en C pour envoyer des événements à votre hub d’événements. Le code utilise la bibliothèque Proton AMQP du [projet Apache Qpid](https://qpid.apache.org/). Cette approche est similaire à l’utilisation de rubriques et de files d’attente Service Bus avec AMQP en partant du langage C comme indiqué dans [cet exemple](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). Pour plus d’informations, consultez la [Documentation Qpid Proton](https://qpid.apache.org/proton/index.html).
 
 1. Dans la [page Qpid AMQP Messenger](https://qpid.apache.org/proton/messenger.html), suivez les instructions d’installation de Qpid Proton correspondant à votre environnement.
 2. Pour compiler la bibliothèque Proton, installez les packages suivants :
@@ -51,10 +51,10 @@ Cette section explique comment écrire une application en C pour envoyer des év
     ```shell
     sudo apt-get install build-essential cmake uuid-dev openssl libssl-dev
     ```
-3. Téléchargez la [bibliothèque Qpid Proton](http://qpid.apache.org/proton/index.html) et effectuez son extraction, par exemple :
+3. Téléchargez la [bibliothèque Qpid Proton](https://qpid.apache.org/proton/index.html) et effectuez son extraction, par exemple :
    
     ```shell
-    wget http://archive.apache.org/dist/qpid/proton/0.7/qpid-proton-0.7.tar.gz
+    wget https://archive.apache.org/dist/qpid/proton/0.7/qpid-proton-0.7.tar.gz
     tar xvfz qpid-proton-0.7.tar.gz
     ```
 4. Créez un répertoire de build, compilez-le et installez-le :
@@ -66,7 +66,7 @@ Cette section explique comment écrire une application en C pour envoyer des év
     cmake -DCMAKE_INSTALL_PREFIX=/usr ..
     sudo make install
     ```
-5. Dans le répertoire de travail, créez un fichier nommé **sender.c** avec le code suivant. N’oubliez pas de remplacer les valeurs pour votre nom/clé SAS, votre nom de hub d’événements et votre espace de noms. Vous devez également remplacer une version codée URL de la clé pour le **SendRule** précédemment créé. Vous pouvez la coder par URL [ici](http://www.w3schools.com/tags/ref_urlencode.asp).
+5. Dans le répertoire de travail, créez un fichier nommé **sender.c** avec le code suivant. N’oubliez pas de remplacer les valeurs pour votre nom/clé SAS, votre nom de hub d’événements et votre espace de noms. Vous devez également remplacer une version codée URL de la clé pour le **SendRule** précédemment créé. Vous pouvez la coder par URL [ici](https://www.w3schools.com/tags/ref_urlencode.asp).
    
     ```c
     #include "proton/message.h"
@@ -158,7 +158,7 @@ Cette section explique comment écrire une application en C pour envoyer des év
 
 Utiliser l'application pour envoyer des messages à l’Event Hub 
 
-Félicitations ! Vous venez d’envoyer des messages à un concentrateur d’événements.
+Félicitations ! Vous venez d’envoyer des messages à un concentrateur d’événements.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur la réception d'événements à partir de l'Event Hub, cliquez sur le langage de réception approprié sous le nœud **Recevoir des événements d'un Event Hub** dans la table des matières.

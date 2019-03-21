@@ -10,18 +10,20 @@ ms.workload: na
 ms.date: 11/20/2018
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 01bfd10b2f37a7990ab9a1badfcb09422baa391a
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 8e887409c35619261544b92395301ce06a033e8b
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342199"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56992734"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Créer des groupes d’administration pour la gestion et l’organisation des ressources
 
 Les groupes d’administration sont des conteneurs qui vous aident à gérer l’accès, la stratégie et la conformité dans plusieurs abonnements. Créez ces conteneurs pour construire une hiérarchie efficace utilisable avec [Azure Policy](../policy/overview.md) et les [contrôles d’accès en fonction du rôle Azure](../../role-based-access-control/overview.md). Pour plus d’informations sur les groupes d’administration, consultez [Organiser vos ressources avec des groupes d’administration Azure](overview.md).
 
 La création du premier groupe d’administration dans l’annuaire peut nécessiter jusqu’à 15 minutes. En effet, des processus s’exécutent la première fois pour configurer le service des groupes d’administration dans Azure pour votre annuaire. Vous recevez une notification quand le processus est terminé.
+
+[!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
 ## <a name="create-a-management-group"></a>Créer un groupe d’administration
 
@@ -48,10 +50,10 @@ Vous pouvez créer un groupe d’administration en utilisant le portail, PowerSh
 
 ### <a name="create-in-powershell"></a>Créer dans PowerShell
 
-Dans PowerShell, utilisez l’applet de commande New-AzureRmManagementGroup :
+Dans PowerShell, vous utilisez l’applet de commande New-AzManagementGroup :
 
 ```azurepowershell-interactive
-New-AzureRmManagementGroup -GroupName 'Contoso'
+New-AzManagementGroup -GroupName 'Contoso'
 ```
 
 **GroupName** est un identificateur unique créé. Cet ID est utilisé par d’autres commandes pour faire référence à ce groupe et il ne peut pas être modifié ultérieurement.
@@ -59,7 +61,7 @@ New-AzureRmManagementGroup -GroupName 'Contoso'
 Si vous voulez afficher un autre nom pour le groupe d’administration dans le portail Azure, ajoutez le paramètre **DisplayName** avec la chaîne. Par exemple, pour créer un groupe d’administration dont l’identificateur GroupName est Contoso et le nom d’affichage « Contoso Group », utilisez l’applet de commande suivante :
 
 ```azurepowershell-interactive
-New-AzureRmManagementGroup -GroupName 'Contoso' -DisplayName 'Contoso Group' -ParentId 'ContosoTenant'
+New-AzManagementGroup -GroupName 'Contoso' -DisplayName 'Contoso Group' -ParentId '/providers/Microsoft.Management/managementGroups/ContosoTenant'
 ```
 
 Utilisez le paramètre **ParentId** pour que ce groupe d’administration soit créé sous un autre groupe d’administration.
@@ -78,6 +80,6 @@ Pour en savoir plus sur les groupes d’administration, consultez :
 
 - [Créer des groupes d’administration pour organiser les ressources Azure](create.md)
 - [Guide pratique pour modifier, supprimer ou gérer vos groupes d’administration](manage.md)
-- [Consulter les groupes d’administration dans le module Azure PowerShell Resources](https://aka.ms/mgPSdocs)
-- [Consulter les groupes d’administration dans l’API REST](https://aka.ms/mgAPIdocs)
-- [Consulter les groupes d’administration dans Azure CLI](https://aka.ms/mgclidoc)
+- [Consulter les groupes d’administration dans le module Azure PowerShell Resources](/powershell/module/az.resources#resources)
+- [Consulter les groupes d’administration dans l’API REST](/rest/api/resources/managementgroups)
+- [Consulter les groupes d’administration dans Azure CLI](/cli/azure/account/management-group)

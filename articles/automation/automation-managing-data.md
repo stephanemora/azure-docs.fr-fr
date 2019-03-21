@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b133947a7daf1977f084ee4008599882b51d9e8b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 3e217e0e3367c6e1200567f589749fec9e626da8
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54428475"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817454"
 ---
 # <a name="managing-azure-automation-data"></a>Gestion des données Azure Automation
 Cet article contient plusieurs rubriques concernant la gestion d’un environnement Azure Automation.
@@ -39,7 +39,7 @@ Le tableau suivant récapitule la stratégie de rétention pour les différentes
 
 La stratégie de rétention s’applique à tous les utilisateurs et ne peut actuellement pas être personnalisée.
 
-Toutefois, si vous souhaitez conserver les données pendant une période plus longue, vous pouvez transférer les journaux de travail de runbook vers Log Analytics.  Pour plus d’informations, voir [Transférer des données de travaux Azure Automation à Log Analytics](automation-manage-send-joblogs-log-analytics.md).   
+Toutefois, si vous souhaitez conserver les données pendant une longue période de temps, vous pouvez transférer les runbook journaux de tâches pour les journaux Azure Monitor.  Pour plus d’informations, consultez [transférer des données de travail Azure Automation dans les journaux d’Azure Monitor](automation-manage-send-joblogs-log-analytics.md).   
 
 ## <a name="backing-up-azure-automation"></a>Sauvegarde d’Azure Automation
 Lorsque vous supprimez un compte Automation dans Microsoft Azure, tous les objets du compte sont supprimés, notamment les Runbooks, les modules, les configurations, les paramètres, les tâches et les éléments multimédia. Il est impossible de récupérer les objets une fois que le compte a été supprimé.  Vous pouvez utiliser les informations suivantes pour sauvegarder le contenu de votre compte Automation avant de le supprimer. 

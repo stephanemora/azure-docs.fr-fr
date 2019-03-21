@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/04/2018
 ms.author: ryanwi
-ms.openlocfilehash: a030860bcef41d7276e1356553b984f55e27ae1e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 65fccada665743cf293b4ee4bb8f786a4c01c58a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55164153"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093903"
 ---
 # <a name="create-unit-tests-for-stateful-services"></a>Créer des tests unitaires pour les services avec état
 Les tests unitaires sur les services avec état Service Fabric permettent d’identifier des erreurs courantes qui ne seraient pas forcément interceptées par les tests unitaires conventionnels propres à une application ou à un domaine. Lors du développement des tests unitaires pour les services avec état, vous devez tenir compte de certains points.
@@ -42,13 +42,13 @@ Cet article part du principe que vous avez lu [Tests unitaires des services avec
 Dans le cadre de la partie « disposition » du test, un jeu de réplicas et un gestionnaire d’état fictifs seront créés. Le jeu de réplicas sera ensuite propriétaire de la création d’une instance du service testé pour chaque réplica. Il sera également propriétaire de l’exécution des événements de cycle de vie comme `OnChangeRole` et `RunAsync`. Le gestionnaire d’état fictif garantit que les opérations effectuées sur le gestionnaire d’état sont exécutées et conservées comme le ferait le gestionnaire d’état réel.
 
 1. Créez un délégué de fabrique de service qui instanciera le service testé. Il doit être similaire ou identique au rappel de fabrique de service que l’on trouve généralement dans `Program.cs` pour un service ou un acteur Service Fabric. Il doit respecter la signature suivante :
-```csharp
-MyStatefulService CreateMyStatefulService(StatefulServiceContext context, IReliableStateManagerReplica2 stateManager)
-```
+   ```csharp
+   MyStatefulService CreateMyStatefulService(StatefulServiceContext context, IReliableStateManagerReplica2 stateManager)
+   ```
 2. Créez une instance de la classe `MockReliableStateManager`. Elle simulera toutes les interactions avec le gestionnaire d’état.
 3. Créez une instance de `MockStatefulServiceReplicaSet<TStatefulService>` où `TStatefulService` est le type du service testé. Cela nécessitera le délégué créé à l’étape 1 et le gestionnaire d’état instancié à l’étape 2.
 4. Ajoutez des réplicas au jeu de réplicas. Spécifiez le rôle (par exemple Primary, ActiveSecondary, IdleSecondary) et l’ID du réplica.
-> Prenez note des ID de réplicas. Vous les utiliserez sans doute durant les parties « action » et « assertion » d’un test unitaire.
+   > Prenez note des ID de réplicas. Vous les utiliserez sans doute durant les parties « action » et « assertion » d’un test unitaire.
 
 ```csharp
 //service factory to instruct how to create the service instance

@@ -18,12 +18,12 @@ ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3521ea7599aecd20784bd925492649b86921c567
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 57b7f540ccf80c6d25a7dfcfcad1ba7ca6698167
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182304"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113229"
 ---
 # <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Procédure : Exiger des applications clientes approuvées pour l’accès aux applications cloud avec l’accès conditionnel 
 
@@ -31,7 +31,7 @@ Vos employés utilisent des appareils mobiles pour des tâches à la fois person
 
 Cette rubrique explique comment configurer des stratégies d’accès conditionnel qui exigent des applications clientes approuvées.
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Avec l’[accès conditionnel Azure AD](overview.md), vous pouvez préciser les méthodes d’accès des utilisateurs autorisés aux ressources. Par exemple, vous pouvez limiter l’accès à vos applications cloud aux appareils approuvés.
 
@@ -67,7 +67,7 @@ Cette rubrique part du principe que vous connaissez :
 - La [migration des stratégies d’accès conditionnel](best-practices.md#policy-migration).
  
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour créer une stratégie d’accès conditionnel basé sur les applications, vous devez avoir un abonnement à Enterprise Mobility + Security ou à Azure Active Directory Premium, et les utilisateurs doivent disposer d’une licence pour EMS ou Azure AD. 
 
@@ -97,7 +97,7 @@ Ce scénario part du principe qu’un utilisateur :
 
 - Est en mesure d’accéder aux e-mails
 
-Les stratégies de protection d’application Intune sont activées au moment de l’accès aux données d’entreprise, et peuvent inviter l’utilisateur à redémarrer l’application, à utiliser un code PIN supplémentaire, etc. (si ceci est configuré pour l’application et la plateforme).
+Les stratégies de protection d’application Intune sont activées au moment les données d’entreprise d’accès et peuvent inviter l’utilisateur à redémarrer l’application, utilisez un etc. PIN supplémentaires (si configuré pour l’application et la plateforme).
 
 ### <a name="configuration"></a>Configuration 
 
@@ -292,13 +292,13 @@ Pour la stratégie d’accès conditionnel de cette étape, vous devez configure
 
 5. Comme **Contrôles d’accès**, vous devez sélectionner les éléments suivants :
 
-    - **Exiger que l’appareil soit marqué comme conforme**
+   - **Exiger que l’appareil soit marqué comme conforme**
 
-    - **Demander une application cliente approuvée (préversion)**
+   - **Demander une application cliente approuvée (préversion)**
 
-    - **Demander un des contrôles sélectionnés**   
+   - **Demander un des contrôles sélectionnés**   
  
-    ![Accès conditionnel](./media/app-based-conditional-access/11.png)
+     ![Accès conditionnel](./media/app-based-conditional-access/11.png)
 
 
 
@@ -388,13 +388,13 @@ Pour la stratégie d’accès conditionnel de cette étape, vous devez configure
 
 5. Comme **Contrôles d’accès**, vous devez sélectionner les éléments suivants :
 
-    - **Exiger que l’appareil soit marqué comme conforme**
+   - **Exiger que l’appareil soit marqué comme conforme**
 
-    - **Demander une application cliente approuvée (préversion)**
+   - **Demander une application cliente approuvée (préversion)**
 
-    - **Demander tous les contrôles sélectionnés**   
+   - **Demander tous les contrôles sélectionnés**   
  
-    ![Accès conditionnel](./media/app-based-conditional-access/13.png)
+     ![Accès conditionnel](./media/app-based-conditional-access/13.png)
 
 
 
@@ -420,13 +420,13 @@ Pour la stratégie d’accès conditionnel de cette étape, vous devez configure
 
 5. Comme **Contrôles d’accès**, vous devez sélectionner les éléments suivants :
 
-    - **Exiger que l’appareil soit marqué comme conforme**
+   - **Exiger que l’appareil soit marqué comme conforme**
 
-    - **Demander une application cliente approuvée (préversion)**
+   - **Demander une application cliente approuvée (préversion)**
 
-    - **Demander tous les contrôles sélectionnés**   
+   - **Demander tous les contrôles sélectionnés**   
  
-    ![Accès conditionnel](./media/app-based-conditional-access/64.png)
+     ![Accès conditionnel](./media/app-based-conditional-access/64.png)
 
 
 

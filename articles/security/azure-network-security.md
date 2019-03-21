@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a405583503b75a64dda2bf277a4a50be4e926d28
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: f684a9d7bca77a8aa3aa60f5079dda0ce3b58a1c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111286"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121585"
 ---
 # <a name="azure-network-security"></a>Azure Network Security
 
@@ -90,7 +90,7 @@ Vous pouvez connecter des réseaux virtuels entre eux, permettant aux ressources
 
 - **Appairage :** Permet à des ressources connectées à différents réseaux virtuels Azure d’un même emplacement Azure de communiquer entre elles. La bande passante et la latence entre les réseaux virtuels sont les mêmes que si les ressources étaient connectées au même réseau virtuel. Pour en savoir plus sur les homologations, lisez l’article [Homologation de réseaux virtuels](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
 
- ![Homologation](media/azure-network-security/azure-network-security-fig-3.png)
+  ![Homologation](media/azure-network-security/azure-network-security-fig-3.png)
 
 - **Connexion de réseau virtuel à réseau virtuel :** Permet à des ressources connectées à un autre réseau virtuel Azure d’un même emplacement Azure ou de différents emplacements. Contrairement à l’homologation, la bande passante est limitée entre les réseaux virtuels car le trafic doit passer par une passerelle VPN Azure.
 
@@ -318,19 +318,19 @@ Le tunneling forcé dans Azure est configuré par le biais d’itinéraires déf
 
 La section suivante répertorie la limite actuelle de la table et des itinéraires de routage pour un réseau virtuel Azure :
 
--   Chaque sous-réseau du réseau virtuel dispose d’une table de routage système intégrée. La table de routage système comporte les trois groupes d’itinéraires suivants :
+- Chaque sous-réseau du réseau virtuel dispose d’une table de routage système intégrée. La table de routage système comporte les trois groupes d’itinéraires suivants :
 
- -  **Routes de réseau virtuel local :** Directement vers les machines virtuelles de destination sur le même réseau virtuel
+  -  **Routes de réseau virtuel local :** Directement vers les machines virtuelles de destination sur le même réseau virtuel
 
- - **Itinéraires locaux :** Vers la passerelle VPN Azure
+  - **Itinéraires locaux :** Vers la passerelle VPN Azure
 
- -  **Route par défaut :** directement vers Internet. Les paquets destinés aux adresses IP privées non couvertes par les deux itinéraires précédents sont supprimés.
+  -  **Route par défaut :** directement vers Internet. Les paquets destinés aux adresses IP privées non couvertes par les deux itinéraires précédents sont supprimés.
 
--   Les itinéraires définis par l’utilisateur vous permettent de créer une table de routage pour ajouter un itinéraire par défaut, puis d’associer à cette table à vos sous-réseaux de réseau virtuel pour activer le tunneling forcé sur ces derniers.
+- Les itinéraires définis par l’utilisateur vous permettent de créer une table de routage pour ajouter un itinéraire par défaut, puis d’associer à cette table à vos sous-réseaux de réseau virtuel pour activer le tunneling forcé sur ces derniers.
 
--   Vous devez définir un « site par défaut » parmi les sites locaux intersites connectés au réseau virtuel.
+- Vous devez définir un « site par défaut » parmi les sites locaux intersites connectés au réseau virtuel.
 
--   Le tunneling forcé doit être associé à un réseau virtuel équipé d'une passerelle VPN à routage dynamique (pas de passerelle statique).
+- Le tunneling forcé doit être associé à un réseau virtuel équipé d'une passerelle VPN à routage dynamique (pas de passerelle statique).
 
 - Le tunneling forcé ExpressRoute n'est pas configuré de cette manière, mais il est activé par la publication d’un itinéraire par défaut via les sessions d'homologation BGP ExpressRoute.
 
@@ -393,7 +393,7 @@ Par ailleurs, le pare-feu WAF Application Gateway vous aide à surveiller les ap
 
 Ce journal au format JSON est directement intégré au compte de stockage du client. Vous bénéficiez d’un contrôle total sur ces journaux et pouvez appliquer vos propres stratégies de rétention.
 
-Vous pouvez aussi ingérer ces journaux dans votre propre système analytique via l’[intégration des journaux Azure](https://aka.ms/AzLog). Les journaux WAF étant également intégrés à [Log Analytics](../log-analytics/log-analytics-overview.md), vous pouvez utiliser Log Analytics pour exécuter des requêtes précises et sophistiquées.
+Vous pouvez aussi ingérer ces journaux dans votre propre système analytique via l’[intégration des journaux Azure](https://aka.ms/AzLog). Journaux WAF étant également intégrés à [Azure Monitor enregistre](../log-analytics/log-analytics-overview.md) afin de pouvoir utiliser les journaux Azure Monitor pour exécuter des requêtes précises et sophistiquées.
 
 #### <a name="azure-web-application-firewall-waf"></a>Pare-feu d’applications web (WAF) Azure
 
@@ -507,7 +507,7 @@ Azure propose de nombreux outils destinés à surveiller, prévenir, détecter e
 
 -   Surveillance au niveau des ressources réseau
 
--   Log Analytics
+-   Journaux Azure Monitor
 
 ### <a name="network-watcher"></a>Network Watcher
 
@@ -597,17 +597,17 @@ Les métriques sont des indicateurs et des compteurs de performances collectés 
 
 #### <a name="diagnostic-logs"></a>Journaux de diagnostic
 
-Les événements périodiques et spontanés sont créés par les ressources réseau et journalisés dans les comptes de stockage, puis envoyés à un hub d’événements ou à Log Analytics. Ces journaux fournissent des informations sur l’intégrité d’une ressource. Ces journaux peuvent être affichés dans des outils tels que Power BI et Log Analytics. Pour savoir comment afficher les journaux de diagnostic, consultez [Solutions d’analyse réseaux Azure dans Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics).
+Les événements périodiques et spontanés sont créés par les ressources réseau et enregistrés dans les comptes de stockage, envoyés à un concentrateur d’événements ou journaux Azure Monitor. Ces journaux fournissent des informations sur l’intégrité d’une ressource. Ces journaux peuvent être affichés dans les outils tels que les journaux de Power BI et Azure Monitor. Pour savoir comment afficher les journaux de diagnostic, consultez [Azure Monitor enregistre](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics).
 
 Les journaux de diagnostic sont disponibles pour [l’équilibrage de charge](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log), [les groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log), les itinéraires, et [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics).
 
 Network Watcher permet d’afficher les journaux de diagnostic. Cet affichage contient toutes les ressources réseau qui prennent en charge la journalisation des diagnostics. À partir de celui-ci, vous pouvez activer et désactiver les ressources réseau facilement et rapidement.
 
-### <a name="log-analytics"></a>Log Analytics
+### <a name="azure-monitor-logs"></a>Journaux Azure Monitor
 
-[Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) est un service d’Azure qui surveille vos environnements cloud et locaux et assure leur disponibilité et leurs performances. Il collecte les données générées par les ressources de votre cloud et de vos environnements locaux et d’autres outils d’analyse pour fournir une analyse sur plusieurs sources.
+[Journaux d’analyse Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) est un service dans Azure qui surveille votre cloud locales et dans des environnements pour maintenir leur disponibilité et leurs performances. Il collecte les données générées par les ressources de votre cloud et de vos environnements locaux et d’autres outils d’analyse pour fournir une analyse sur plusieurs sources.
 
-Log Analytics propose les solutions suivantes pour la surveillance de vos réseaux :
+Journaux d’Azure Monitor propose les solutions suivantes pour la surveillance de vos réseaux :
 
 -   Analyseur de performances réseau (NPM)
 
@@ -627,7 +627,7 @@ Elle est utilisée pour contrôler la connectivité entre :
 -   les sous-réseaux hébergeant différents niveaux d’une application multiniveau.
 
 
-#### <a name="azure-application-gateway-analytics-in-log-analytics"></a>Azure Application Gateway Analytics dans Log Analytics
+#### <a name="azure-application-gateway-analytics-in-azure-monitor-logs"></a>Analytique de passerelle d’application Azure dans les journaux Azure Monitor
 
 Les journaux pris en charge pour les passerelles d’application sont les suivants :
 
@@ -641,7 +641,7 @@ Les métriques prises en charge pour les passerelles d’application sont les su
 
 -   Débit sur 5 minutes
 
-#### <a name="azure-network-security-group-analytics-in-log-analytics"></a>Azure Network Security Group Analytics dans Log Analytics
+#### <a name="azure-network-security-group-analytics-in-azure-monitor-logs"></a>Analytique de groupe de sécurité réseau Azure dans les journaux Azure Monitor
 
 Les journaux suivants sont pris en charge pour les [groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) :
 
@@ -652,7 +652,7 @@ Les journaux suivants sont pris en charge pour les [groupes de sécurité résea
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur la sécurité, lisez nos rubriques détaillées sur la sécurité :
 
--   [Log Analytics pour les groupes de sécurité réseau (NSG)](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)
+-   [Journaux d’analyse Azure pour les groupes de sécurité réseau (NSG)](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)
 
 -   [Les innovations en matière de réseau qui bouleversent le cloud](https://azure.microsoft.com/blog/networking-innovations-that-drive-the-cloud-disruption/)
 

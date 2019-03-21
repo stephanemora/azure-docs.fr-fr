@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: ff73982b706fa2d353be818f5022de8fbfec42fb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1306b97ce7fcf2cd429be31bc99d022de53805d6
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58167437"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259854"
 ---
 # <a name="set-up-a-device-template-new-ui-design"></a>Configurer un modèle d’appareil (refonte de l’interface utilisateur)
 
@@ -78,6 +78,8 @@ Par exemple, vous pouvez ajouter une nouvelle mesure de télémétrie de tempér
 ![Formulaire « Créer une télémétrie » contenant des détails sur la mesure de température](./media/howto-set-up-template/measurementsform.png)
 
 Après avoir sélectionné **Enregistrer**, la mesure **Température** figure dans la liste des mesures. Au bout de quelques instants, vous voyez la visualisation des données de température de l’appareil simulé.
+
+Lors de l’affichage des données de télémétrie, vous pouvez choisir parmi les options d’agrégation suivantes : Moyenne, Minimum, Maximum, Sum et Count. **Moyenne** est sélectionné en tant que l’agrégation par défaut sur le graphique. 
 
 > [!NOTE]
 > La mesure de télémétrie est représentée par un nombre à virgule flottante.

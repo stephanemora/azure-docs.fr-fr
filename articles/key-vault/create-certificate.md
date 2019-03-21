@@ -3,7 +3,7 @@ title: Méthodes de création de certificats
 description: Modes de création d’un certificat dans Key Vault.
 services: key-vault
 documentationcenter: ''
-author: bryanla
+author: msmbaldwin
 manager: barbkess
 tags: azure-resource-manager
 ms.assetid: e17b4c9b-4ff3-472f-8c9d-d130eb443968
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.author: bryanla
-ms.openlocfilehash: 3258683b950b537dd106323fe95105289034f727
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.author: mbaldwin
+ms.openlocfilehash: 53b4d03ac8f5d22595d3a4e840a04583f7ec963d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114856"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995522"
 ---
 # <a name="certificate-creation-methods"></a>Méthodes de création de certificats
 
@@ -35,7 +35,7 @@ Les descriptions suivantes correspondent aux étapes écrites en vert dans le di
 1. Dans le diagramme ci-dessus, votre application crée un certificat qui commence en interne par la création d’une clé dans votre coffre de clés.
 2. Key Vault retourne une demande de signature de certificat (CSR) à votre application.
 3. Votre application transmet la demande CSR à l’autorité de certification que vous avez choisie.
-4. L’autorité de certification choisie répond avec un certificat X509.
+4. Autorité de certification choisi répond avec un X509 certificat.
 5. Votre application termine la création du certificat par le biais d’une fusion avec le certificat X509 provenant de votre autorité de certification.
 
 -   **Créer un certificat avec un fournisseur émetteur connu :** cette méthode requiert une tâche unique consistant à créer un objet émetteur. Une fois qu’un objet émetteur est créé dans votre coffre de clés, son nom peut être référencé dans la stratégie du certificat KV. La demande de création d’un tel certificat KV crée une paire de clés dans le coffre et communique avec le service de fournisseur émetteur à l’aide des informations dans l’objet émetteur référencé pour obtenir un certificat X509. Le certificat X509 est récupéré à partir du service de l’émetteur et fusionné avec la paire de clés pour terminer la création du certificat KV.  
@@ -94,6 +94,6 @@ Notez que lorsqu’une commande est passée auprès du fournisseur émetteur, el
 
  Autorisation : nécessite l’autorisation de création/certificats.
 
- ## <a name="see-also"></a>Voir aussi
+## <a name="see-also"></a>Voir aussi
  - [Présentation des clés, des secrets et des certificats](about-keys-secrets-and-certificates.md)
  - [Surveiller et gérer la création de certificats](create-certificate-scenarios.md)

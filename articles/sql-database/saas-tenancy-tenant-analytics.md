@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: f7c482a0308d3c2b2583d99cf4079040065b80c0
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 9f88314bbf507dc3b4e282532acfa079c2a63cce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561372"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890540"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Analytique entre locataires à l’aide des données extraites – Application monolocataire
  
@@ -65,7 +65,7 @@ Comprendre comment chaque client utilise le service pour explorer les options de
 
 ## <a name="setup"></a>Paramétrage
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables
 
 Pour suivre ce didacticiel, vérifiez que les conditions préalables ci-dessous sont bien satisfaites :
 
@@ -93,7 +93,7 @@ Dans les étapes suivantes, vous déployez le magasin d’analytique, qui est ap
     - Pour utiliser une base de données SQL avec magasin de colonnes, définissez **$DemoScenario** = **3**  
 3. Appuyez sur **F5** pour exécuter le script de démonstration (qui appelle le script *Deploy-TenantAnalytics<XX>.ps1*), qui crée la base de données d’analyse du locataire. 
 
-Maintenant que vous avez déployé l’application et l’avez remplie de données client intéressantes, utilisez [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) pour connecter les serveurs **tenants1-dpt-&lt;Utilisateur&gt;** et **catalogue-dpt-&lt;Utilisateur&gt;** à l’aide de l’identifiant *developer* et du mot de passe *P@ssword1*. Consultez le [didacticiel d’introduction](saas-dbpertenant-wingtip-app-overview.md) pour plus d’informations.
+Maintenant que vous avez déployé l’application et rempli de données client intéressantes, utilisez [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) pour se connecter **tenants1-dpt -&lt;utilisateur&gt;**  et **catalog-dpt -&lt;utilisateur&gt;**  serveurs à l’aide de la connexion = *développeur*, mot de passe = *P\@ssword1*. Consultez le [didacticiel d’introduction](saas-dbpertenant-wingtip-app-overview.md) pour plus d’informations.
 
 ![architectureOverView](media/saas-tenancy-tenant-analytics/ssmsSignIn.png)
 
@@ -175,13 +175,13 @@ Utilisez les étapes suivantes pour vous connecter à Power BI et importer les v
 
     ![signinpowerbi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. Sélectionnez **Base de données** dans le volet gauche, puis entrez la valeur de *developer*, puis le mot de passe *P@ssword1*. Cliquez sur **Connecter**.  
+5. Sélectionnez **base de données** dans le volet gauche, puis entrez nom d’utilisateur = *développeur*, puis entrez le mot de passe = *P\@ssword1*. Cliquez sur **Connecter**.  
 
     ![databasesignin](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 
 6. Dans le volet **Navigateur**, sous la base de données analytique, sélectionnez les tables du schéma en étoile : fact_Tickets, dim_Events, dim_Venues, dim_Customers et dim_Dates. Sélectionnez ensuite **Charger**. 
 
-Félicitations ! Vous avez correctement chargé les données dans Power BI. Maintenant, vous pouvez commencer l’exploration des visualisations intéressantes pour aider à obtenir des informations sur vos clients. Vous verrez ensuite comment les analyses peuvent vous permettre de fournir des recommandations basées sur les données à l’équipe de professionnels de Wingtip Tickets. Les recommandations peuvent aider à optimiser l’expérience client et le modèle d’affaires.
+Félicitations ! Vous avez correctement chargé les données dans Power BI. Maintenant, vous pouvez commencer l’exploration des visualisations intéressantes pour aider à obtenir des informations sur vos clients. Vous verrez ensuite comment les analyses peuvent vous permettre de fournir des recommandations basées sur les données à l’équipe de professionnels de Wingtip Tickets. Les recommandations peuvent aider à optimiser l’expérience client et le modèle d’affaires.
 
 Vous commencez en analysant les données de ventes de ticket pour afficher la variation de l’utilisation sur les systèmes. Sélectionnez les options suivantes dans Power BI pour tracer un graphique à barres du nombre total de tickets vendus par emplacement. En raison d’une variation aléatoire dans le générateur de tickets, vos résultats peuvent être différents.
  
@@ -236,7 +236,7 @@ Dans ce tutoriel, vous avez appris à :
 > - Interrogé une base de données analytique 
 > - Utilisé Power BI pour la visualisation des données afin d’observer les tendances dans les données client 
 
-Félicitations !
+Félicitations !
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/03/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97e294a8b0e34e1fac24d0cbe01791e2eb290a43
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 334f5fa2309c44bebe8583f497fdaa3c7578e5ae
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162576"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433414"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-te-express"></a>Tutoriel : Intégration d’Azure Active Directory à T&E Express
 
@@ -34,7 +34,7 @@ L’intégration de T&E Express à Azure AD vous offre les avantages suivants :
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD à T&E Express, vous avez besoin des éléments suivants :
 
@@ -134,7 +134,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l'authentification unique](./media/tyeexpress-tutorial/tye-SAML.png)
 
-1. Changez l’option **Activar (Activer)** de **No (Non)** à **SI (Oui)**. Dans la zone de texte des **métadonnées du fournisseur d’identité**, collez les métadonnées XML que vous avez téléchargées à partir du portail Azure.
+1. Changez l’option **Activar (Activer)** de **No (Non)** à **SI (Oui)**. Dans le **Identity Provider Metadata** zone de texte, collez les métadonnées XML que vous avez téléchargé à partir du portail Azure.
 
     ![Configurer l'authentification unique](./media/tyeexpress-tutorial/tyeAdmin.png)
 

@@ -1,32 +1,19 @@
 ---
-title: Personnaliser les règles de pare-feu d’applications web dans Azure Application Gateway -PowerShell | Microsoft Docs
+title: Personnaliser les règles de pare-feu d’applications web dans Azure Application Gateway - PowerShell
 description: Cet article fournit des informations sur la personnalisation des règles de pare-feu d’applications web dans Application Gateway avec PowerShell.
-documentationcenter: na
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.custom: ''
-ms.workload: infrastructure-services
-ms.date: 07/26/2017
+ms.date: 2/22/2019
 ms.author: victorh
-ms.openlocfilehash: dfcd82a17a399f213f5c4e32326a8995d26e8458
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
-ms.translationtype: HT
+ms.openlocfilehash: f96395a54f66b787878faeee057f02818f956ade
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218267"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316997"
 ---
 # <a name="customize-web-application-firewall-rules-through-powershell"></a>Personnaliser les règles de pare-feu d’applications web par le biais de PowerShell
-
-> [!div class="op_single_selector"]
-> * [Portail Azure](application-gateway-customize-waf-rules-portal.md)
-> * [PowerShell](application-gateway-customize-waf-rules-powershell.md)
-> * [Interface de ligne de commande Azure](application-gateway-customize-waf-rules-cli.md)
 
 Le pare-feu d’applications web (WAF) Azure Application Gateway fournit une protection pour les applications web. Ces protections sont fournies par le jeu de règles (Core Rule Set, CRS) de l’Open Web Application Security Project (OWASP). Certaines règles peuvent entraîner des faux positifs et bloquer le trafic réel. Par conséquent, Application Gateway permet de personnaliser des règles et des groupes de règles. Pour plus d’informations sur les règles et groupes de règles spécifiques, consultez la [List of web application firewall CRS Rule groups and rules](application-gateway-crs-rulegroups-rules.md) (Liste de règles et groupes de règles CRS de pare-feu d’applications web).
 
@@ -39,7 +26,7 @@ Voici des exemples de code montrant comment afficher les règles et les groupes 
 L’exemple suivant montre comment afficher les groupes de règles :
 
 ```powershell
-Get-AzureRmApplicationGatewayAvailableWafRuleSets
+Get-AzApplicationGatewayAvailableWafRuleSets
 ```
 
 Voici un extrait de réponse issu de l’exemple précédent :
@@ -99,10 +86,23 @@ OWASP (Ver. 3.0):
 L’exemple suivant montre comment désactiver les règles `911011` et `911012` sur une passerelle d’application :
 
 ```powershell
-$disabledrules=New-AzureRmApplicationGatewayFirewallDisabledRuleGroupConfig -RuleGroupName REQUEST-911-METHOD-ENFORCEMENT -Rules 911011,911012
-Set-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -ApplicationGateway $gw -Enabled $true -FirewallMode Detection -RuleSetVersion 3.0 -RuleSetType OWASP -DisabledRuleGroups $disabledrules
-Set-AzureRmApplicationGateway -ApplicationGateway $gw
+$disabledrules=New-AzApplicationGatewayFirewallDisabledRuleGroupConfig -RuleGroupName REQUEST-911-METHOD-ENFORCEMENT -Rules 911011,911012
+Set-AzApplicationGatewayWebApplicationFirewallConfiguration -ApplicationGateway $gw -Enabled $true -FirewallMode Detection -RuleSetVersion 3.0 -RuleSetType OWASP -DisabledRuleGroups $disabledrules
+Set-AzApplicationGateway -ApplicationGateway $gw
 ```
+
+## <a name="mandatory-rules"></a>Règles obligatoires
+
+La liste suivante contient des conditions qui entraînent le WAF bloquer la demande en mode de prévention (en Mode de détection ils sont enregistrés en tant qu’exceptions). Il ne peut pas être configurées ou désactivés :
+
+* Échec d’analyser le corps de la requête entraîne la demande est bloquée, à moins que l’inspection du corps est mis sous tension (XML, JSON, les données de formulaire)
+* Longueur de données de corps (avec aucun fichier) de la demande est supérieure à la limite configurée
+* Demande de corps (y compris les fichiers) est supérieure à la limite
+* Une erreur interne s’est produite dans le moteur de WAF
+
+CRS 3.x spécifiques :
+
+* Trafic entrant de seuil du score dépassé d’anomalie
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,6 +1,6 @@
 ---
-title: Transférer des données de rapport Azure Automation State Configuration à Log Analytics
-description: Cet article montre comment envoyer des données de rapport DSC (Desired State Configuration) d’Azure Automation State Configuration à Log Analytics, pour fournir des insights supplémentaires et simplifier la gestion.
+title: Transférer des données de rapport dans les journaux d’Azure Monitor la Configuration d’état Azure Automation
+description: Cet article montre comment envoyer Desired State Configuration (DSC) données de rapports de Configuration d’état Azure Automation dans les journaux d’Azure Monitor pour fournir une gestion et obtenir des informations supplémentaires.
 services: automation
 ms.service: automation
 ms.subservice: dsc
@@ -9,16 +9,19 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2450ffcbd9fa7bebd5a1b862aa9c35baa5dbdc95
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 8898280e887392591873f1fc832bfd0c105689fe
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54425173"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097284"
 ---
-# <a name="forward-azure-automation-state-configuration-reporting-data-to-log-analytics"></a>Transférer des données de rapport Azure Automation State Configuration à Log Analytics
+# <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>Transférer des données de rapport dans les journaux d’Azure Monitor la Configuration d’état Azure Automation
 
-Azure Automation State Configuration peut envoyer des données sur l’état des nœuds DSC (Desired State Configuration) à votre espace de travail Log Analytics. L’état de conformité est visible dans le portail Azure, ou avec PowerShell, pour les nœuds et les ressources DSC individuelles dans les configurations de nœud. Avec Log Analytics, vous pouvez :
+Configuration de l’état d’Automation Azure conserve les données d’état de nœud pendant 30 jours.
+Vous pouvez envoyer des données d’état de nœud à votre espace de travail Analytique de journal si vous préférez conserver ces données pendant une période plus longue.
+L’état de conformité est visible dans le portail Azure, ou avec PowerShell, pour les nœuds et les ressources DSC individuelles dans les configurations de nœud.
+Avec les journaux d’Azure Monitor, vous pouvez :
 
 - Obtenir des informations de conformité pour les nœuds gérés et les ressources individuelles
 - Déclencher un e-mail ou une alerte en fonction de l’état de conformité
@@ -26,41 +29,43 @@ Azure Automation State Configuration peut envoyer des données sur l’état des
 - Mettre en corrélation l’état de conformité dans les comptes Automation
 - Visualiser votre historique de conformité associé aux nœuds au fil du temps
 
-## <a name="prerequisites"></a>Prérequis
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Pour commencer à envoyer vos rapports Automation State Configuration à Log Analytics, vous devez disposer des éléments suivants :
+## <a name="prerequisites"></a>Conditions préalables
+
+Pour commencer à envoyer vos rapports de Configuration d’état Automation dans les journaux d’Azure Monitor, vous devez :
 
 - Version de novembre 2016 ou une version ultérieure d’[Azure PowerShell](/powershell/azure/overview) (v2.3.0).
 - Un compte Azure Automation. Pour plus d’informations, consultez la page [Prise en main d’Azure Automation](automation-offering-get-started.md).
-- Un espace de travail Log Analytics avec une offre de service **Automation & Control**. Pour plus d’informations, consultez l’article [Prise en main de Log Analytics](../log-analytics/log-analytics-get-started.md).
+- Un espace de travail Log Analytics avec une offre de service **Automation & Control**. Pour plus d’informations, consultez [prise en main Azure Monitor journaux](../log-analytics/log-analytics-get-started.md).
 - Au moins un nœud Azure Automation State Configuration. Pour plus d’informations, consultez [Intégration des machines pour la gestion avec Azure Automation State Configuration](automation-dsc-onboarding.md).
 
-## <a name="set-up-integration-with-log-analytics"></a>Configurer l’intégration avec Log Analytics
+## <a name="set-up-integration-with-azure-monitor-logs"></a>Configurer l’intégration avec les journaux d’Azure Monitor
 
-Pour commencer l’importation des données à partir d’Azure Automation DSC dans Log Analytics, procédez comme suit :
+Pour commencer l’importation de données à partir d’Azure Automation DSC dans les journaux Azure Monitor, procédez comme suit :
 
 1. Dans PowerShell, connectez-vous à votre compte Azure. Consultez [Log in with Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-4.0.0) (Se connecter avec Azure PowerShell).
 1. Obtenez le _ResourceId_ de votre compte Automation en exécutant la commande PowerShell suivante : (si vous avez plusieurs comptes Automation, choisissez le _ResourceID_ du compte que vous souhaitez configurer).
 
-  ```powershell
-  # Find the ResourceId for the Automation Account
-  Get-AzureRmResource -ResourceType 'Microsoft.Automation/automationAccounts'
-  ```
+   ```powershell
+   # Find the ResourceId for the Automation Account
+   Get-AzureRmResource -ResourceType 'Microsoft.Automation/automationAccounts'
+   ```
 
 1. Obtenez le _ResourceId_ de votre espace de travail Log Analytics en exécutant la commande PowerShell suivante : (si vous avez plusieurs espaces de travail, choisissez le _ResourceID_ de l’espace de travail que vous souhaitez configurer).
 
-  ```powershell
-  # Find the ResourceId for the Log Analytics workspace
-  Get-AzureRmResource -ResourceType 'Microsoft.OperationalInsights/workspaces'
-  ```
+   ```powershell
+   # Find the ResourceId for the Log Analytics workspace
+   Get-AzureRmResource -ResourceType 'Microsoft.OperationalInsights/workspaces'
+   ```
 
 1. Exécutez la commande PowerShell suivante, en remplaçant `<AutomationResourceId>` et `<WorkspaceResourceId>` par les valeurs _ResourceId_ de chacune des étapes précédentes :
 
-  ```powershell
-  Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $true -Categories 'DscNodeStatus'
-  ```
+   ```powershell
+   Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $true -Categories 'DscNodeStatus'
+   ```
 
-Si vous souhaitez arrêter l’importation de données à partir d’Azure Automation State Configuration dans Log Analytics, exécutez la commande PowerShell suivante :
+Si vous souhaitez arrêter l’importation de données à partir de la Configuration d’état Azure Automation dans les journaux Azure Monitor, exécutez la commande PowerShell suivante :
 
 ```powershell
 Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $false -Categories 'DscNodeStatus'
@@ -68,7 +73,7 @@ Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Wo
 
 ## <a name="view-the-state-configuration-logs"></a>Afficher les journaux State Configuration
 
-Après avoir configuré l’intégration à Log Analytics pour vos données Automation State Configuration, un bouton **Recherche dans les journaux** s’affiche dans le panneau **Nœuds DSC** de votre compte Automation. Cliquez sur le bouton **Recherche dans les journaux** pour afficher les journaux des données de nœud DSC.
+Après avoir configuré l’intégration avec les journaux d’Azure Monitor pour vos données de Configuration d’état Automation, un **recherche dans les journaux** bouton s’affiche sur le **les nœuds DSC** Panneau de votre compte automation. Cliquez sur le bouton **Recherche dans les journaux** pour afficher les journaux des données de nœud DSC.
 
 ![Bouton Recherche dans les journaux](media/automation-dsc-diagnostics/log-search-button.png)
 
@@ -78,7 +83,8 @@ L’opération **DscResourceStatusData** contient des informations d’erreur po
 
 Cliquez sur chaque opération dans la liste pour afficher les données correspondant à cette opération.
 
-Vous pouvez également afficher les journaux en effectuant une recherche dans Log Analytics. Consultez [Recherche de données à l’aide de recherches de journal](../log-analytics/log-analytics-log-searches.md).
+Vous pouvez également afficher les journaux en effectuant une recherche dans les journaux Azure Monitor.
+Consultez [Recherche de données à l’aide de recherches de journal](../log-analytics/log-analytics-log-searches.md).
 Tapez la requête suivante pour rechercher vos journaux State Configuration : `Type=AzureDiagnostics ResourceProvider='MICROSOFT.AUTOMATION' Category='DscNodeStatus'`
 
 Vous pouvez également affiner la requête par nom d’opération. Par exemple : `Type=AzureDiagnostics ResourceProvider='MICROSOFT.AUTOMATION' Category='DscNodeStatus' OperationName='DscNodeStatusData'`
@@ -89,19 +95,19 @@ L’une des demandes majeures de nos clients est de pouvoir envoyer un e-mail ou
 
 Pour créer une règle d’alerte, vous commencez par créer une recherche dans les journaux pour les enregistrements de rapport State Configuration qui doivent appeler l’alerte. Cliquez sur le bouton **+ Nouvelle règle d’alerte** pour créer et configurer la règle d’alerte.
 
-1. Dans la page de présentation de Log Analytics, cliquez sur **Recherche de journal**.
+1. Dans la page de vue d’ensemble d’espace de travail Analytique de journal, cliquez sur **journaux**.
 1. Créez une requête de recherche dans les journaux pour votre alerte en tapant la recherche suivante dans le champ de requête : `Type=AzureDiagnostics Category='DscNodeStatus' NodeName_s='DSCTEST1' OperationName='DscNodeStatusData' ResultType='Failed'`.
 
    Si vous avez configuré des journaux dans votre espace de travail à partir de plusieurs abonnements ou comptes Automation, vous pouvez également regrouper vos alertes par abonnement ou par compte Automation.  
    Le nom du compte Automation peut être dérivé du champ Ressource dans la recherche de DscNodeStatusData.  
-1. Pour ouvrir l’écran **Créer une règle**, cliquez sur **+ Nouvelle règle d’alerte** en haut de la page. Pour plus d’informations sur les options de configuration de l’alerte, consultez [Créer une règle d’alerte](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
+1. Pour ouvrir l’écran **Créer une règle**, cliquez sur **+ Nouvelle règle d’alerte** en haut de la page. Pour plus d’informations sur les options de configuration de l’alerte, consultez [créer une règle d’alerte](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
 
 ### <a name="find-failed-dsc-resources-across-all-nodes"></a>Rechercher les ressources DSC ayant échoué dans tous les nœuds
 
-L’un des avantages de l’utilisation de Log Analytics est que vous pouvez rechercher les vérifications ayant échoué dans les nœuds.
+L’un des avantages de l’utilisation des journaux Azure Monitor sont que vous pouvez rechercher les vérifications ayant échoué sur les nœuds.
 Pour rechercher toutes les instances de ressources DSC ayant échoué.
 
-1. Dans la page de présentation de Log Analytics, cliquez sur **Recherche de journal**.
+1. Dans la page de vue d’ensemble d’espace de travail Analytique de journal, cliquez sur **journaux**.
 1. Créez une requête de recherche dans les journaux pour votre alerte en tapant la recherche suivante dans le champ de requête : `Type=AzureDiagnostics Category='DscNodeStatus' OperationName='DscResourceStatusData' ResultType='Failed'`.
 
 ### <a name="view-historical-dsc-node-status"></a>Afficher l’état de nœud DSC historique
@@ -113,9 +119,9 @@ Vous pouvez utiliser cette requête pour rechercher l’état de votre nœud DSC
 
 Cela affichera un graphique de l’état du nœud au fil du temps.
 
-## <a name="log-analytics-records"></a>Enregistrements Log Analytics
+## <a name="azure-monitor-logs-records"></a>Azure Monitor enregistre des enregistrements
 
-La fonction de diagnostic d’Azure Automation crée deux catégories d’enregistrements dans Log Analytics.
+Diagnostic d’Azure Automation crée deux catégories d’enregistrements dans les journaux Azure Monitor.
 
 ### <a name="dscnodestatusdata"></a>DscNodeStatusData
 
@@ -139,7 +145,7 @@ La fonction de diagnostic d’Azure Automation crée deux catégories d’enregi
 | ReportStartTime_t |Date et heure auxquelles le rapport a été commencé. |
 | ReportEndTime_t |Date et heure auxquelles le rapport a été terminé. |
 | NumberOfResources_d |Le nombre de ressources DSC appelées dans la configuration appliquée au nœud. |
-| SourceSystem | Manière dont Log Analytics a collecté les données. Toujours *Azure* pour les diagnostics Azure. |
+| SourceSystem | Fonctionnement des journaux Azure Monitor collecte des données. Toujours *Azure* pour les diagnostics Azure. |
 | ResourceId |Spécifie le compte Azure Automation. |
 | resultDescription | La description de cette opération. |
 | SubscriptionId | ID d’abonnement Azure (GUID) du compte Automation. |
@@ -170,7 +176,7 @@ La fonction de diagnostic d’Azure Automation crée deux catégories d’enregi
 | ErrorCode_s | Le code d’erreur en cas d’échec de la ressource. |
 | ErrorMessage_s |Le message d’erreur en cas d’échec de la ressource. |
 | DscResourceDuration_d |La durée, en secondes, d’exécution de la ressource DSC. |
-| SourceSystem | Manière dont Log Analytics a collecté les données. Toujours *Azure* pour les diagnostics Azure. |
+| SourceSystem | Fonctionnement des journaux Azure Monitor collecte des données. Toujours *Azure* pour les diagnostics Azure. |
 | ResourceId |Spécifie le compte Azure Automation. |
 | resultDescription | La description de cette opération. |
 | SubscriptionId | ID d’abonnement Azure (GUID) du compte Automation. |
@@ -181,12 +187,12 @@ La fonction de diagnostic d’Azure Automation crée deux catégories d’enregi
 
 ## <a name="summary"></a>Résumé
 
-L’envoi de vos données Automation State Configuration à Log Analytics vous permet d’obtenir plus d’informations sur l’état de vos nœuds Automation State Configuration en :
+En envoyant vos données de Configuration d’état Automation dans les journaux d’Azure Monitor, vous pouvez obtenir plus de détails sur l’état de vos nœuds de la Configuration d’état Automation par :
 
 - Configurant des alertes pour vous avertir lorsqu’il y a un problème
 - Utilisant des vues et des requêtes de recherche personnalisées pour visualiser les résultats de votre runbook, l’état du travail de runbook et d’autres indicateurs ou mesures clés associées.  
 
-Log Analytics offre une plus grande visibilité opérationnelle sur vos données Automation State Configuration et peut vous aider à traiter les incidents plus rapidement.
+Journaux d’Azure Monitor offre une plus grande visibilité opérationnelle à vos données de Configuration d’état Automation et peuvent aider à traiter les incidents plus rapidement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -195,6 +201,6 @@ Log Analytics offre une plus grande visibilité opérationnelle sur vos données
 - Pour savoir comment compiler des configurations DSC pour les affecter à des nœuds cibles, consultez [Compilation de configurations dans Azure Automation State Configuration](automation-dsc-compile.md)
 - Pour obtenir des informations de référence sur les applets de commande PowerShell, consultez [Applets de commande d’Azure Automation State Configuration](/powershell/module/azurerm.automation/#automation)
 - Pour obtenir des informations sur les prix, consultez [Tarification d’Azure Automation State Configuration](https://azure.microsoft.com/pricing/details/automation/)
-- Pour voir un exemple d’utilisation d’Azure Automation State Configuration dans un pipeline de déploiement continu, consultez [Déploiement continu à l’aide d’Azure Automation State Configuration et de Chocolatey](automation-dsc-cd-chocolatey.md).
-- Pour plus d’informations sur la façon de construire différentes requêtes de recherche et sur la manière de consulter les journaux Automation State Configuration avec Log Analytics, consultez [Recherches dans les journaux dans Log Analytics](../log-analytics/log-analytics-log-searches.md).
-- Pour en savoir plus sur Log Analytics et sur les sources de collecte de données, consultez [Vue d’ensemble de la collecte des données de stockage Azure dans Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md)
+- Pour voir un exemple d’utilisation d’Azure Automation State Configuration dans un pipeline de déploiement continu, consultez [Déploiement continu à l’aide d’Azure Automation State Configuration et de Chocolatey](automation-dsc-cd-chocolatey.md)
+- Pour en savoir plus sur la façon de construire différentes requêtes de recherche et consulter les journaux de Configuration d’état Automation avec les journaux Azure Monitor, consultez [recherches de journal dans les journaux Azure Monitor](../log-analytics/log-analytics-log-searches.md)
+- Pour en savoir plus sur les journaux d’Azure Monitor et les sources de collecte de données, consultez [présentation des journaux de collecte stockage des données Azure dans Azure Monitor](../azure-monitor/platform/collect-azure-metrics-logs.md)

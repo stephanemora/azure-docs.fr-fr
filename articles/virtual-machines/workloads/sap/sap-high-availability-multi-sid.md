@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 05fda1b4f71f67714b4723e15533d3555d497249
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+ms.openlocfilehash: e5d8357d17f8a6b463546789dd4627b74924a763
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321668"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080996"
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>Créer une configuration SAP NetWeaver multi-SID
 
@@ -55,7 +55,7 @@ Dans le cas d’un déploiement SAP, vous pouvez utiliser un équilibrage de cha
 Cet article met l’accent sur le passage d’une installation ASCS/SCS unique à une configuration SAP multi-SID en installant des instances SAP ASCS/SCS en cluster supplémentaires dans un cluster de basculement Windows Server (WSFC) existant. Lorsque ce processus est terminé, vous aurez configuré un cluster multi-SID SAP.
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Vous avez déjà configuré un cluster WSFC qui est utilisé pour une instance SAP ASCS/SCS, comme indiqué dans le [Guide de haute disponibilité SAP NetWeaver sur machines virtuelles Windows][sap-ha-guide] et comme illustré dans ce diagramme.
 
 ![Instance SAP ASCS/SCS à haute disponibilité][sap-ha-guide-figure-6001]
@@ -114,7 +114,7 @@ Vous pouvez installer des instances SAP ASCS/SCS supplémentaire dans le cluster
 Vous pouvez créer une entrée DNS pour le nom d’hôte virtuel de l’instance ASCS/SCS en utilisant les paramètres suivants :
 
 | Nouveau nom d’hôte virtuel SAP ASCS/SCS | Adresse IP associée |
-| --- | --- | --- |
+| --- | --- |
 |pr5-sap-cl |10.0.0.50 |
 
 Le nouveau nom d’hôte et l’adresse IP apparaissent dans le Gestionnaire DNS, comme illustré dans la capture d’écran suivante :

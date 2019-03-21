@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 7b91f63057fa8b781fdfab17e0837a9f5547c1eb
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: d20fc0cee6bce1389649e6287170b1963e799ccf
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55988032"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58187725"
 ---
 # <a name="advanced-encoding-with-media-encoder-premium-workflow"></a>Encodage avancé avec Media Encoder Premium Workflow
 > [!NOTE]
@@ -28,7 +28,7 @@ ms.locfileid: "55988032"
 
 Pour des questions relatives à l’encodeur premium, envoyez un e-mail à mepd@microsoft.com.
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Microsoft Azure Media Services lance le processeur multimédia **Media Encoder Premium Workflow** . Ce processeur offre des fonctionnalités d’encodage avancées pour vos flux de travail à la demande premium.
 
 Vous trouverez dans les rubriques suivantes des détails concernant **Media Encoder Premium Workflow**:
@@ -62,12 +62,12 @@ Les étapes à exécuter sont les suivantes :
     Dans la plupart des cas, la chaîne de configuration de la tâche est vide (comme dans l'exemple suivant). Il existe des scénarios avancés (qui nécessitent de définir dynamiquement les propriétés d'exécution) auquel cas, vous fournissez une chaîne XML à la tâche d'encodage. La création d'une superposition, l'assemblage parallèle ou séquentiel multimédia, le sous-titrage sont des exemples de ces scénarios.
 5. Ajoutez deux ressources d’entrée à la tâche.
 
-    1. En premier lieu, la ressource de flux de travail.
-    2. En second lieu, la ressource vidéo.
+   1. En premier lieu, la ressource de flux de travail.
+   2. En second lieu, la ressource vidéo.
 
-    >[!NOTE]
-    >La ressource de flux de travail doit être ajoutée à la tâche avant la ressource multimédia.
-   La chaîne de configuration de cette tâche doit être vide.
+      >[!NOTE]
+      >La ressource de flux de travail doit être ajoutée à la tâche avant la ressource multimédia.
+      La chaîne de configuration de cette tâche doit être vide.
    
 6. Soumettez le travail d’encodage.
 

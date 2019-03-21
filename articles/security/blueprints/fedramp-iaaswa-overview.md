@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 6dd413a6b6550e18551db1105d306f8a0bdaf9c2
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 1ba5b813843ce2f5d31f337ab4d3d94e521b0e0c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106747"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864471"
 ---
 # <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-fedramp"></a>Blueprint de sécurité et de conformité Azure : Application web IaaS pour FedRAMP
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 [FedRAMP (Federal Risk and Authorization Management Program)](https://www.fedramp.gov) est un programme déployé à l’échelle de l’administration américaine, visant à rationaliser l’approche en matière d’évaluation de la sécurité, d’autorisation et de surveillance continue des services et produits cloud. Cette solution Azure Blueprint Security & Compliance fournit des conseils pour le déploiement d’un environnement IaaS (Infrastructure as a Service) conforme à FedRAMP adapté à une application web simple accessible sur Internet. Cette solution automatise le déploiement et la configuration des ressources Azure pour une architecture de référence commune, illustrant diverses façons dont les clients peuvent satisfaire à des exigences de conformité et de sécurité spécifiques, et sert de base aux clients souhaitant générer et configurer leurs propres solutions sur Azure. La solution implémente un sous-ensemble des contrôles définis dans le document FedRAMP High Baseline, basé sur la publication NIST SP 800-53. Pour plus d’informations sur les exigences de FedRAMP et cette solution, consultez la [documentation sur la conformité](#compliance-documentation).
 > [!NOTE]
@@ -72,8 +72,7 @@ Cette solution utilise les services Azure suivants. Les informations détaillée
 - Azure Key Vault
 - Azure Active Directory (Azure AD)
 - Azure Resource Manager
-- Log Analytics
-- Azure Monitor
+- Azure Monitor (journaux)
 
 ## <a name="deployment-architecture"></a>Architecture de déploiement
 
@@ -148,11 +147,11 @@ Les technologies suivantes fournissent des fonctionnalités de gestion des ident
 
 ### <a name="logging-and-auditing"></a>Journalisation et audit
 
-Log Analytics fournit une journalisation complète de l’activité système et utilisateur, ainsi que de l’intégrité du système. La solution [Log Analytics](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) collecte et analyse les données générées par les ressources dans les environnements Azure et locaux.
+Journaux d’Azure Monitor fournit une journalisation complète de l’activité système et utilisateur, ainsi que l’intégrité du système. Le [Azure Monitor enregistre](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) solution collecte et analyse les données générées par les ressources dans Azure et environnements locaux.
 
 - **Journaux d’activité :**  les [journaux d’activité](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fournissent des insights sur les opérations ayant été effectuées sur les ressources d’un abonnement. Les journaux d’activité peuvent aider à déterminer l’initiateur, l’heure d’exécution et l’état d’une opération.
 - **Journaux de diagnostic :**  Les [journaux de diagnostic](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) correspondent à l’ensemble des journaux émis par chaque ressource. Ces journaux incluent les journaux système des événements Windows, les journaux de stockage Azure, les journaux d’audit Key Vault, ainsi que les journaux de pare-feu et d’accès Application Gateway.
-- **Archivage des journaux** :  Tous les journaux de diagnostic sont consignés dans un compte de stockage Azure centralisé et chiffré pour l’archivage. L’utilisateur peut configurer la rétention jusqu’à 730 jours pour répondre aux exigences de rétention spécifiques de l’entreprise. Ces journaux se connectent à Azure Log Analytics à des fins de traitement, de stockage et de génération de rapports de tableau de bord.
+- **Archivage des journaux** :  Tous les journaux de diagnostic sont consignés dans un compte de stockage Azure centralisé et chiffré pour l’archivage. L’utilisateur peut configurer la rétention jusqu’à 730 jours pour répondre aux exigences de rétention spécifiques de l’entreprise. Ces journaux se connecter aux journaux d’Azure Monitor pour traitement, de stockage et les rapports de tableau de bord.
 
 Les solutions de surveillance suivantes sont également incluses dans cette architecture. Notez qu’il incombe au client de configurer ces solutions pour s’aligner avec les contrôles de sécurité FedRAMP :
 -   [AD Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment) : la solution Active Directory Health Check évalue les risques et l’intégrité des environnements de serveur à intervalles réguliers, et fournit une liste hiérarchisée de suggestions spécifiques pour l’infrastructure de serveur déployée.
@@ -192,7 +191,7 @@ Cette solution Azure Security and Compliance Blueprint Automation se compose de 
 
 3. Cliquez sur le bouton ci-dessous, connectez-vous au portail Azure, entrez les paramètres de modèle ARM requis, puis cliquez sur **Acheter**.
 
-    [![Déployer sur Azure](http://azuredeploy.net/AzureGov.png)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Ffedramp-iaas-webapp%2Fmaster%2Fazuredeploy.json)
+    [![Déployer sur Azure](https://azuredeploy.net/AzureGov.png)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Ffedramp-iaas-webapp%2Fmaster%2Fazuredeploy.json)
 
 ## <a name="guidance-and-recommendations"></a>Instructions et recommandations
 ### <a name="vpn-and-expressroute"></a>VPN et ExpressRoute

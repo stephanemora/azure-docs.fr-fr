@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 969821c8b83b8ef554c67f99e3a16e827b53e647
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ba6a352d965f3f90a122f5277ad23ec5f92907eb
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57845118"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258460"
 ---
 # <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Utiliser la bibliothèque de l’exécuteur en bloc .NET pour effectuer des opérations en bloc dans Azure Cosmos DB
 
@@ -30,7 +30,7 @@ Actuellement, la bibliothèque de l’exécuteur en bloc est prise en charge uni
 
 * Vous pouvez [essayer Azure Cosmos DB gratuitement](https://azure.microsoft.com/try/cosmosdb/) sans abonnement Azure, libre de tous frais et engagements. Vous pouvez également utiliser l'[émulateur Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/local-emulator) avec le point de terminaison `https://localhost:8081`. La clé primaire est fournie dans des [requêtes d’authentification](local-emulator.md#authenticating-requests).
 
-* Créez un compte d’API SQL Azure Cosmos DB en suivant les étapes décrites dans la section [Créer un compte de base de données](create-sql-api-dotnet.md#create-a-database-account) de l’article de démarrage rapide .NET. 
+* Créez un compte d’API SQL Azure Cosmos DB en suivant les étapes décrites dans la section [Créer un compte de base de données](create-sql-api-dotnet.md#create-account) de l’article de démarrage rapide .NET. 
 
 ## <a name="clone-the-sample-application"></a>Clonage de l’exemple d’application
 
@@ -72,7 +72,7 @@ L’application « BulkImportSample » génère des documents aléatoires et l
    connectionPolicy)
    ```
 
-4. L’objet BulkExecutor est initialisé avec des valeurs de nouvelle tentative élevées pour la durée d’attente et les requêtes limitées. Ensuite, elles sont définies sur 0 pour passer le contrôle de congestion à BulkExecutor pendant sa durée de vie.  
+4. L’objet BulkExecutor est initialisé avec une valeur élevée de nouvelle tentative pour les temps d’attente et des demandes limitées. Ensuite, elles sont définies sur 0 pour passer le contrôle de congestion à BulkExecutor pendant sa durée de vie.  
 
    ```csharp
    // Set retry options high during initialization (default values).
@@ -102,7 +102,7 @@ L’application « BulkImportSample » génère des documents aléatoires et l
    
    |**Paramètre**  |**Description** |
    |---------|---------|
-   |enableUpsert    |   Indicateur permettant d’activer les opérations d’upsert des documents. Si un document avec l’ID donné existe déjà, il est mis à jour. Par défaut, cet indicateur a la valeur false.      |
+   |enableUpsert    |   Un indicateur pour activer des upserts de documents. Si un document avec l’ID donné existe déjà, il est mis à jour. Par défaut, cet indicateur a la valeur false.      |
    |disableAutomaticIdGeneration    |    Indicateur permettant de désactiver la génération automatique d’ID. Par défaut, il est défini sur true.     |
    |maxConcurrencyPerPartitionKeyRange    | Degré maximal de concurrence par plage de clés de partition. Si vous lui affectez la valeur null, la bibliothèque utilise la valeur par défaut 20. |
    |maxInMemorySortingBatchSize     |  Nombre maximal de documents extraits à partir de l’énumérateur de documents qui est passé à l’appel d’API à chaque étape.  Pour la phase de tri pré-traitement en mémoire avant l’importation en bloc, si vous lui affectez la valeur null, la bibliothèque utilise la valeur par défaut min(documents.count, 1000000).       |
@@ -173,7 +173,7 @@ Pour bénéficier de meilleures performances lors de l’utilisation de la bibli
 
 * Il est recommandé d’instancier un seul objet BulkExecutor pour l’ensemble de l’application dans une même machine virtuelle correspondant à un conteneur Cosmos DB spécifique.  
 
-* L’exécution d’une API d’opération en bloc consomme une grande partie des E/S réseau et du processeur de l’ordinateur client. Cela est dû à la génération automatique de plusieurs tâches en interne. Évitez de générer plusieurs tâches simultanées dans votre processus d’application, exécutant chacune des appels d’API d’opérations en bloc. Si un appel d’API d’opération en bloc en cours d’exécution sur une seule machine virtuelle ne peut pas consommer le débit complet de votre conteneur (si le débit de votre conteneur est supérieur à 1 million RU/s), il est préférable de créer des machines virtuelles distinctes pour exécuter simultanément les appels d’API d’opérations en bloc.  
+* L’exécution d’une API d’opération en bloc consomme une grande partie des E/S réseau et du processeur de l’ordinateur client. Cela est dû à la génération automatique de plusieurs tâches en interne. Évitez de générer plusieurs tâches simultanées dans votre processus d’application, exécutant chacune des appels d’API d’opérations en bloc. Si un appel d’API d’opération en bloc unique qui s’exécute sur une seule machine virtuelle ne peut pas consommer le débit de votre conteneur entier (si débit > 1 votre conteneur millions de RU/s), il est préférable de créer plusieurs machines virtuelles distinctes à exécuter en même temps appels d’API d’opération en bloc.  
 
 * Vérifiez qu’InitializeAsync() est appelé après l’instanciation d’un objet BulkExecutor pour extraire le mappage de partition de conteneur Cosmos DB cible.  
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: f37e1ed2c7dd720e4a77076c8587fdf540b29ca5
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
-ms.translationtype: HT
+ms.openlocfilehash: d791148e6ee023239b0a6bf49c705c2da4eea9a2
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44713950"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56881870"
 ---
 # <a name="service-fabric-programming-model-overview"></a>Vue d’ensemble des modèles de programmation Service Fabric
 Service Fabric offre plusieurs méthodes pour écrire et gérer vos services. Les services peuvent choisir d’utiliser les API de Service Fabric pour tirer pleinement parti des infrastructures d’application et des fonctionnalités de la plateforme. Les services peuvent également être n’importe quel programme exécutable compilé, écrit dans n’importe quel langage ou code exécuté dans un conteneur hébergé sur un cluster Service Fabric.
@@ -65,7 +65,7 @@ Reposant sur Reliable Services, l'infrastructure Reliable Actor est une infrastr
 
 [Vue d’ensemble de Reliable Actors](service-fabric-reliable-actors-introduction.md)
 
-[ASP.NET Core et Service Fabric ](service-fabric-reliable-services-communication-aspnetcore.md)
+[Service Fabric et ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 
 
 

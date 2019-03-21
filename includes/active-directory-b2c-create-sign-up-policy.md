@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/30/2018
 ms.author: patricka
 ms.openlocfilehash: 17c0213d63879687e9c6d5f8dca06b9113c44af8
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
-ms.translationtype: HT
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52742567"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "58115693"
 ---
 Si vous souhaitez uniquement activer l’inscription dans votre application, vous utilisez un flux utilisateur **d’inscription**. Ce flux utilisateur décrit les expériences clients lors de l’inscription, ainsi que le contenu des jetons que l’application reçoit en cas de réussite de l’opération.
 

@@ -5,23 +5,19 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 1/30/2019
-ms.openlocfilehash: 03e0db822e38cc6823fc32aa915dc9283fa46cbe
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.date: 02/26/2019
+ms.openlocfilehash: 6e33c7571dc735ce9984a0ce1b37275a6c4c7eca
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493046"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888464"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Réplicas en lecture dans Azure Database pour MySQL
 
-> [!IMPORTANT]
-> La fonctionnalité de réplica en lecture est en préversion publique.
-
 La fonctionnalité de réplica en lecture vous permet de répliquer des données d’un serveur Azure Database pour MySQL (maître) sur jusqu’à cinq serveurs en lecture seule (réplicas) dans la même région Azure. Les réplicas en lecture seule sont mis à jour de manière asynchrone à l’aide de la technologie de réplication selon la position du fichier journal binaire (binlog) native au moteur MySQL. Pour en savoir plus sur la réplication binlog, consultez la [vue d’ensemble de la réplication binlog MySQL](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
-Les réplicas créés dans le service Azure Database pour MySQL sont de nouveaux serveurs pouvant être gérés de la même façon que les serveurs MySQL normaux/autonomes. Pour chaque réplica en lecture, vous êtes facturé pour la capacité de calcul provisionnée dans les vCores et le stockage provisionné en Go/mois. 
-
+Les réplicas créés dans le service Azure Database pour MySQL sont de nouveaux serveurs pouvant être gérés de la même façon que les serveurs MySQL normaux/autonomes. Pour chaque réplica en lecture, vous êtes facturé pour la capacité de calcul provisionnée dans les vCores et le stockage provisionné en Go/mois.
 
 Pour découvrir plus en détail les fonctionnalités et les problèmes de la réplication MySQL, consultez la [documentation de la réplication MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
 
@@ -39,7 +35,7 @@ Les réplicas en lecture ne sont actuellement disponibles que dans les niveaux t
 
 ### <a name="master-server-restart"></a>Redémarrage du serveur maître
 
-Avec cette préversion, lorsque vous créez un réplica pour un serveur maître qui ne dispose d’aucun réplica existant, le maître commence par redémarrer pour se préparer pour la réplication. Veuillez prendre cela en compte et effectuer ces opérations pendant une période creuse.
+Lorsque vous créez un réplica pour un maître qui a des réplicas existants, le maître va redémarrer tout d’abord pour se préparer pour la réplication. Veuillez prendre cela en compte et effectuer ces opérations pendant une période creuse.
 
 ### <a name="stopping-replication"></a>Arrêt de la réplication
 

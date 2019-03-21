@@ -3,21 +3,20 @@ title: Surveiller le runtime d’intégration dans Azure Data Factory | Microsof
 description: Découvrez comment surveiller plusieurs types de runtime d’intégration dans Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/25/2018
-ms.author: douglasl
-ms.openlocfilehash: 8c3883ae6dd2928fb6cc4f22510e7992daac7793
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+author: gauravmalhot
+ms.author: gamal
+manager: craigg
+ms.openlocfilehash: b62cbe75730da8c5764839d41887deb7e6cd0e90
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015302"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576327"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Surveiller un runtime d’intégration dans Azure Data Factory  
 Le **runtime d’intégration** est l’infrastructure de calcul utilisée par Azure Data Factory pour fournir des capacités d’intégration de données entre différents environnements réseau. Azure Data Factory propose trois types de runtimes d’intégration :
@@ -26,23 +25,25 @@ Le **runtime d’intégration** est l’infrastructure de calcul utilisée par A
 - Runtime d’intégration auto-hébergé
 - Runtime d’intégration Azure SSIS
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Pour obtenir l’état d’une instance de runtime d’intégration (IR), exécutez la commande PowerShell suivante : 
 
 ```powershell
-Get-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName MyDataFactory -ResourceGroupName MyResourceGroup -Name MyAzureIR -Status
+Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName MyDataFactory -ResourceGroupName MyResourceGroup -Name MyAzureIR -Status
 ``` 
 
 Cette cmdlet renvoie des informations différentes en fonction du type de runtime d’intégration. Cet article explique les propriétés et les états de chacun des types de runtime d’intégration.  
 
 ## <a name="azure-integration-runtime"></a>Runtime d’intégration Azure
-La ressource de calcul d’un runtime d’intégration Azure est entièrement gérée dans Azure, en toute flexibilité. Le tableau suivant fournit des descriptions des propriétés renvoyées par la commande **Get-AzureRmDataFactoryV2IntegrationRuntime** :
+La ressource de calcul d’un runtime d’intégration Azure est entièrement gérée dans Azure, en toute flexibilité. Le tableau suivant fournit des descriptions des propriétés renvoyées par le **Get-AzDataFactoryV2IntegrationRuntime** commande :
 
 ### <a name="properties"></a>properties
 Le tableau suivant fournit des descriptions des propriétés renvoyées par la cmdlet pour un runtime d’intégration Azure :
 
 | Propriété | Description |
 -------- | ------------- | 
-| NOM | Nom du runtime d’intégration Azure. |  
+| Nom | Nom du runtime d’intégration Azure. |  
 | État | État du runtime d’intégration Azure. | 
 | Lieu | Emplacement du runtime d’intégration Azure. Pour plus d’informations sur l’emplacement d’un runtime d’intégration d’Azure, voir [Introduction au runtime d’intégration](concepts-integration-runtime.md). |
 | DataFactoryName | Nom de la fabrique de données à laquelle le runtime d’intégration Azure appartient. | 
@@ -58,7 +59,7 @@ Le tableau suivant indique les états possibles d’un runtime d’intégration 
 | Hors ligne | Le runtime d’intégration Azure est hors connexion en raison d’une erreur interne. |
 
 ## <a name="self-hosted-integration-runtime"></a>Runtime d’intégration auto-hébergé
-Le tableau suivant fournit des descriptions des propriétés renvoyées par la cmdlet Get-AzureRmDataFactoryV2IntegrationRuntime. 
+Cette section fournit les descriptions des propriétés renvoyées par l’applet de commande Get-AzDataFactoryV2IntegrationRuntime. 
 
 > [!NOTE] 
 > Les propriétés renvoyées et l’état contiennent des informations sur le runtime d’intégration auto-hébergé dans son ensemble et sur chacun des nœuds du runtime.  
@@ -69,7 +70,7 @@ Le tableau suivant fournit des descriptions des propriétés de surveillance pou
 
 | Propriété | Description | 
 | -------- | ----------- | 
-| NOM | Nom du runtime d’intégration auto-hébergé et des nœuds qui lui sont associés. Le nœud est un ordinateur Windows local sur lequel le runtime d’intégration auto-hébergé est installé. |  
+| Nom | Nom du runtime d’intégration auto-hébergé et des nœuds qui lui sont associés. Le nœud est un ordinateur Windows local sur lequel le runtime d’intégration auto-hébergé est installé. |  
 | Statut | État du runtime d’intégration auto-hébergé dans son ensemble et de chacun des nœuds. Exemple : En ligne/Hors connexion/Limité/etc. Pour plus d’informations sur ces états, voir la section suivante. | 
 | Version | Version du runtime d’intégration auto-hébergé et de chacun des nœuds. La version du runtime d’intégration auto-hébergé est déterminée d’après la version de la majorité des nœuds dans le groupe. S’il existe des nœuds de différentes versions dans la configuration du runtime d’intégration auto-hébergé, seuls les nœuds dont le numéro de version est identique à celui du runtime d’intégration auto-hébergé logique fonctionnent correctement. Les autres sont en mode limité et ont besoin d’une mise à jour manuelle (uniquement si la mise à jour automatique échoue). | 
 | Mémoire disponible | Mémoire disponible dans un nœud de runtime d’intégration auto-hébergé. Cette valeur est un instantané en quasi temps réel. | 
@@ -86,7 +87,7 @@ La valeur par défaut de la limite de tâches simultanées est définie selon la
 
 Vous montez en charge en augmentant le nombre de nœuds. Lorsque vous augmentez le nombre de nœuds, la limite de tâches simultanées est constituée par la somme des valeurs de limite de tâches simultanées de tous les nœuds disponibles.  Par exemple, si un seul nœud vous permet d’exécuter un maximum de douze tâches simultanées, l’ajout de trois nœuds similaires supplémentaires vous permet d’exécuter un maximum de 48 tâches simultanées (c’est-à-dire 4 x 12). Nous vous recommandons d’augmenter la limite de tâches simultanées uniquement lorsque vous constatez une faible utilisation des ressources avec des valeurs par défaut sur chaque nœud.
 
-Vous pouvez remplacer la valeur par défaut calculée dans le portail Azure. Sélectionnez Auteur > Connexions > Runtimes d’intégration > Modifier > Nœuds > Modifier la valeur de tâches simultanées par nœud. Vous pouvez également utiliser la commande PowerShell [update-azurermdatafactoryv2integrationruntimenode](https://docs.microsoft.com/powershell/module/azurerm.datafactoryv2/update-azurermdatafactoryv2integrationruntimenode?view=azurermps-6.4.0#examples).
+Vous pouvez remplacer la valeur par défaut calculée dans le portail Azure. Sélectionnez Auteur > Connexions > Runtimes d’intégration > Modifier > Nœuds > Modifier la valeur de tâches simultanées par nœud. Vous pouvez également utiliser la commande PowerShell [Azdatafactoryv2integrationruntimenode de mise à jour](https://docs.microsoft.com/powershell/module/az.datafactory/update-Azdatafactoryv2integrationruntimenode#examples) commande.
   
 ### <a name="status-per-node"></a>État (par nœud)
 Le tableau suivant indique les états possibles d’un nœud de runtime d’intégration Azure auto-hébergé :
@@ -111,10 +112,10 @@ Le tableau suivant indique les états possibles d’un runtime d’intégration 
 | Hors ligne | Aucun nœud n’est en ligne. |
 | Limité | L’état de tous les nœuds de ce runtime d’intégration auto-hébergé n’est pas sain. Cet état sert d’avertissement. Il peut indiquer que certains nœuds sont en panne. Cela peut être dû à un problème de synchronisation des informations d’identification sur le nœud répartiteur ou le nœud rôle de travail. |
 
-Utilisez la cmdlet **Get-AzureRmDataFactoryV2IntegrationRuntimeMetric**. Il s’agit d’extraire la charge utile JSON qui contient les propriétés détaillées du runtime d’intégration auto-hébergé et les valeurs des instantanés pendant toute la durée d’exécution de la cmdlet.
+Utilisez le **Get-AzDataFactoryV2IntegrationRuntimeMetric** propriétés du runtime d’intégration auto-hébergé sur applet de commande pour extraire la charge utile JSON qui contient les informations détaillées et les valeurs des instantanés pendant la durée d’exécution de l’applet de commande.
 
 ```powershell
-Get-AzureRmDataFactoryV2IntegrationRuntimeMetric -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName  | | ConvertTo-Json 
+Get-AzDataFactoryV2IntegrationRuntimeMetric -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName  | | ConvertTo-Json 
 ```
 
 Exemple de sortie (suppose que deux nœuds sont associés à ce runtime d’intégration auto-hébergé) :
@@ -174,10 +175,10 @@ Le runtime d’intégration Azure-SSIS est un cluster entièrement géré de mac
 | VNetId | ID de ressource de réseau virtuel que votre runtime d’intégration Azure-SSIS doit rejoindre. |
 | Sous-réseau | Nom du sous-réseau que pour votre runtime d’intégration Azure-SSIS doit rejoindre. |
 | ID | ID de ressource de votre runtime d’intégration Azure-SSIS. |
-| type | Type (managé/auto-hébergé) de votre runtime d’intégration Azure-SSIS. |
+| Type | Type (managé/auto-hébergé) de votre runtime d’intégration Azure-SSIS. |
 | ResourceGroupName | Nom du groupe de ressources Azure dans lequel votre fabrique de données et le runtime d’intégration Azure-SSIS ont été créés. |
 | DataFactoryName | Nom de votre service Azure Data Factory. |
-| NOM | Nom de votre runtime d’intégration Azure-SSIS. |
+| Nom | Nom de votre runtime d’intégration Azure-SSIS. |
 | Description | Description de votre runtime d’intégration Azure-SSIS. |
 
   
@@ -213,7 +214,7 @@ Les captures d’écran suivantes montrent comment sélectionner le runtime d’
 Utilisez un script tel que l’exemple suivant pour vérifier l’état du runtime d’intégration Azure-SSIS.
 
 ```powershell
-Get-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Status
+Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Status
 ```
 
 ### <a name="more-info-about-the-azure-ssis-integration-runtime"></a>Plus d’informations sur le runtime d’intégration Azure-SSIS

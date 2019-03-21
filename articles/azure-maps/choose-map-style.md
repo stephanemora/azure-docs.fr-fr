@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 78e3f6a5f4a55fd4bf1925672205eb490e7c6b24
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: ffed12b9184c7b6a690c30db9826f031fe6c9f9b
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695691"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259786"
 ---
 # <a name="choose-a-map-style-in-azure-maps"></a>Choisir un style de carte dans Azure Maps
 
@@ -21,14 +21,14 @@ Azure Maps offre le choix entre quatre styles de carte. Pour plus d’informatio
 
 ## <a name="set-style-on-map-load"></a>Définir un style lors du chargement de carte
 
-<iframe height='500' scrolling='no' title='Définition du style lors du chargement de carte' src='//codepen.io/azuremaps/embed/WKOQRq/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Voir la page <a href='https://codepen.io/azuremaps/pen/WKOQRq/'>Définition du style lors du chargement de carte</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Définition du style lors du chargement de carte' src='//codepen.io/azuremaps/embed/WKOQRq/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Voir la page <a href='https://codepen.io/azuremaps/pen/WKOQRq/'>Définition du style lors du chargement de carte</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 Le bloc de code ci-dessus définit la clé d’abonnement et crée un objet carte sans définir le style sur grayscale_dark. Pour obtenir des instructions sur la création d’une carte, consultez [Créer une carte](./map-create.md).
 
 ## <a name="update-the-style"></a>Mettre à jour le style
 
-<iframe height='500' scrolling='no' title='Mise à jour du style' src='//codepen.io/azuremaps/embed/yqXYzY/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Voir la page <a href='https://codepen.io/azuremaps/pen/yqXYzY/'>Mise à jour du style</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Mise à jour du style' src='//codepen.io/azuremaps/embed/yqXYzY/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Voir la page <a href='https://codepen.io/azuremaps/pen/yqXYzY/'>Mise à jour du style</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 Le bloc de code ci-dessus définit la clé d’abonnement et crée un objet carte sans prédéfinir le style. Pour obtenir des instructions sur la création d’une carte, consultez [Créer une carte](./map-create.md).
@@ -37,12 +37,12 @@ La deuxième bloc de code utilise la méthode [setStyle](https://docs.microsoft.
 
 ## <a name="add-the-style-picker"></a>Ajouter le sélecteur de styles
 
-<iframe height='500' scrolling='no' title='Ajout du sélecteur de styles' src='//codepen.io/azuremaps/embed/OwgyvG/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Voir la page <a href='https://codepen.io/azuremaps/pen/OwgyvG/'>Ajout du sélecteur de styles</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Ajout du sélecteur de styles' src='//codepen.io/azuremaps/embed/OwgyvG/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Voir la page <a href='https://codepen.io/azuremaps/pen/OwgyvG/'>Ajout du sélecteur de styles</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 Le premier bloc de code dans les ensembles de code ci-dessus définit la clé d’abonnement et crée un objet carte avec le style de carte prédéfini sur grayscale_dark. Pour obtenir des instructions sur la création d’une carte, consultez [Créer une carte](./map-create.md).
 
-Le deuxième bloc de code construit un sélecteur de styles à l’aide du constructeur [StyleControl](/javascript/api/azure-maps-control/atlas.controls.stylecontrol) Atlas.
+Le deuxième bloc de code construit un sélecteur de styles à l’aide du constructeur [StyleControl](/javascript/api/azure-maps-control/atlas.control.stylecontrol) Atlas.
 
 Un sélecteur de styles permet de sélectionner un style pour la carte. Le troisième bloc de code ajoute le sélecteur de styles à la carte en utilisant la méthode [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) de la carte. Le sélecteur de styles se situe dans le **détecteur d’événements** de la carte pour garantir le chargement une fois que la carte est entièrement chargée.
 

@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.topic: conceptual
 ms.date: 02/09/2018
-ms.openlocfilehash: 5ebd543000c8927f714e5345dfd8eb6033c6301a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 5042d89f1cb5e928444e4b3c9a23db7bb1d66585
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820366"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531604"
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Utiliser Azure Data Lake Tools pour Visual Studio Code
 
@@ -22,7 +22,7 @@ Dans cet article, vous allez apprendre à utiliser Azure Data Lake Tools pour Vi
 
 <a href="https://channel9.msdn.com/Series/AzureDataLake/Azure-Data-Lake-Tools-for-VSCode?term=ADL%20Tools%20for%20VSCode"><img src="./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-video.png"></a>
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Azure Data Lake Tools pour VS Code prend en charge Windows, Linux et MacOS. L’exécution locale et le débogage local de U-SQL fonctionnent uniquement pour les utilisateurs de Windows.
 
@@ -30,7 +30,7 @@ Azure Data Lake Tools pour VS Code prend en charge Windows, Linux et MacOS. L�
 
 Pour MacOS et Linux :
 - [Kit SDK .NET Core 2.0](https://www.microsoft.com/net/download/core)
-- [Mono 5.2.x](http://www.mono-project.com/download/)
+- [Mono 5.2.x](https://www.mono-project.com/download/)
 
 ## <a name="install-azure-data-lake-tools"></a>Installer les outils Azure Data Lake
 

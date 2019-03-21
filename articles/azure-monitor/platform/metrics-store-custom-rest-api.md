@@ -4,16 +4,16 @@ description: Envoyer les métriques personnalisées d’une ressource Azure à u
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: ed810726a0709c80034412eba437c05e76f65758
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: c7ec3ba960929250f2d23d09b9a5ab06e3f6cd38
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54460377"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095413"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>Envoyer les métriques personnalisées d’une ressource Azure à un magasin de métriques Azure Monitor à l’aide d’une API REST
 
@@ -78,13 +78,13 @@ Enregistrez le jeton d’accès de la réponse.
     ``` 
 
 1. Dans la fenêtre d’invite de commandes, publiez les données métriques : 
-    - **azureRegion**. Doit correspondre à la région de déploiement de la ressource pour laquelle vous générez des métriques. 
-    - **resourceID**.  ID de ressource de la ressource Azure pour laquelle vous suivez les métriques.  
-    - **AccessToken**. Collez le jeton que vous avez acquis précédemment.
+   - **azureRegion**. Doit correspondre à la région de déploiement de la ressource pour laquelle vous générez des métriques. 
+   - **resourceID**.  ID de ressource de la ressource Azure pour laquelle vous suivez les métriques.  
+   - **AccessToken**. Collez le jeton que vous avez acquis précédemment.
 
-    ```Shell 
-    curl -X POST curl -X POST https://<azureRegion>.monitoring.azure.com/<resourceId>/metrics -H "Content-Type: application/json" -H "Authorization: Bearer <AccessToken>" -d @custommetric.json 
-    ```
+     ```Shell 
+     curl -X POST https://<azureRegion>.monitoring.azure.com/<resourceId>/metrics -H "Content-Type: application/json" -H "Authorization: Bearer <AccessToken>" -d @custommetric.json 
+     ```
 1. Modifiez le timestamp et les valeurs dans le fichier JSON. 
 1. Répétez les deux étapes précédentes plusieurs fois afin d’obtenir des données pendant plusieurs minutes.
 

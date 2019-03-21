@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 75e85ae15ded81faf372ba018829a185e8badd60
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: HT
+ms.openlocfilehash: 6709bb2beae6dd1964f475ce2ba07b569b9ad4ab
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224615"
+ms.locfileid: "58285069"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Sauvegarder des bases de données SQL Server sur des machines virtuelles Azure
 
@@ -31,9 +31,9 @@ Cet article vous explique comment sauvegarder dans un coffre Recovery Services d
 
 Pour pouvoir sauvegarder votre base de données SQL Server, vérifiez les conditions suivantes :
 
-1. Identifier ou [créer](backup-azure-sql-database.md#create-a-recovery-services-vault) un coffre Recovery Services dans la même région ou paramètres régionaux que la machine virtuelle qui héberge l’instance de SQL Server.
-2. [Vérifiez les autorisations de la machine virtuelle](#fix-sql-sysadmin-permissions) qui sont nécessaires pour sauvegarder les bases de données SQL.
-3. Vérifiez que la machine virtuelle dispose d’une [connectivité réseau](backup-azure-sql-database.md#establish-network-connectivity).
+1. Identifier ou [créer](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) un coffre Recovery Services dans la même région ou paramètres régionaux que la machine virtuelle qui héberge l’instance de SQL Server.
+2. [Vérifiez les autorisations de la machine virtuelle](backup-azure-sql-database.md#fix-sql-sysadmin-permissions) qui sont nécessaires pour sauvegarder les bases de données SQL.
+3. Vérifiez que la machine virtuelle dispose d’une [connectivité réseau](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
 4. Vérifiez que les bases de données SQL Server sont nommées conformément aux [instructions de nommage](#verify-database-naming-guidelines-for-azure-backup) pour la sauvegarde Azure.
 5. Vérifiez que vous n’avez aucune autre solution de sauvegarde activée pour la base de données. Désactivez tous les autres sauvegardes SQL Server avant de configurer ce scénario. Vous pouvez activer la Sauvegarde Azure pour une machine virtuelle Azure en même temps que la Sauvegarde Azure pour une base de données SQL Server s’exécutant sur la machine virtuelle, sans aucun conflit.
 
@@ -60,7 +60,7 @@ La sauvegarde Azure effectue un certain nombre de choses lorsque vous configurez
 - Lors de la découverte des bases de données sur la machine virtuelle, la Sauvegarde Azure crée le compte **NT SERVICE\AzureWLBackupPluginSvc**. Ce compte est utilisé pour la sauvegarde et la restauration, il doit disposer d’autorisations sysadmin SQL.
 - La sauvegarde Azure utilise le compte **NT AUTHORITY\SYSTEM** pour la détection et l’interrogation des bases de données. Ce compte doit donc être une connexion publique sur SQL.
 
-Si vous n’avez pas créé la machine virtuelle SQL Server à partir de la Place de marché Azure, vous pouvez recevoir une erreur **UserErrorSQLNoSysadminMembership**. Si cela se produit, [suivez ces instructions](#fix-sql-sysadmin-permissions).
+Si vous n’avez pas créé la machine virtuelle SQL Server à partir de la Place de marché Azure, vous pouvez recevoir une erreur **UserErrorSQLNoSysadminMembership**. Si cela se produit, [suivez ces instructions](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
 
 ### <a name="verify-database-naming-guidelines-for-azure-backup"></a>Vérifier les instructions de nommage des bases de données pour la sauvegarde Azure
 

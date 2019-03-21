@@ -9,11 +9,11 @@ ms.date: 04/09/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: aa740cfb203f50dc97a06359774dae367a20252b
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55148017"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "58116014"
 ---
 ## <a name="about-vhds"></a>À propos des VHD
 
@@ -69,7 +69,7 @@ Le tableau suivant offre une comparaison des niveaux HDD Standard, SSD Standard 
 |    | Disque Premium Azure |Disque SSD Standard Azure | Disque HDD Standard Azure
 |--- | ------------------ | ------------------------------- | -----------------------
 | Type de disque | SSD (Solid State Drive) | SSD (Solid State Drive) | Disques durs  
-| Vue d’ensemble  | Stockage hautes performances et à faible latence sur disque SSD pour les machines virtuelles qui exécutent des charges de travail nécessitant de nombreuses E/S ou qui hébergent un environnement de production stratégique |Performances et fiabilité plus homogènes qu’un HDD. Optimisé pour les charges de travail à faibles E/S| Disque basé sur HDD économique pour l’accès peu fréquent
+| Présentation  | Stockage hautes performances et à faible latence sur disque SSD pour les machines virtuelles qui exécutent des charges de travail nécessitant de nombreuses E/S ou qui hébergent un environnement de production stratégique |Performances et fiabilité plus homogènes qu’un HDD. Optimisé pour les charges de travail à faibles E/S| Disque basé sur HDD économique pour l’accès peu fréquent
 | Scénario  | Charges de travail de production et sensibles aux performances |Serveurs web, applications d’entreprise peu utilisées et Dev/Test| Sauvegarde, non critique, accès peu fréquent
 | Taille du disque | P4 : 32 Gio (disques managés uniquement)<br>P6 : 64 Gio (disques managés uniquement)<br>P10 : 128 Go<br>P15 : 256 Gio (disques managés uniquement)<br>P20 : 512 Go<br>P30 : 1 024 Gio<br>P40 : 2 048 Gio<br>P50 : 4 095 Gio<br>P60 : 8 192 Gio * (8 Tio)<br>P70 : 16 384 Gio * (16 Tio)<br>P80 : 32 767 Gio * (32 Tio) |Disques managés uniquement :<br>E4 : 32 Gio<br>E6 : 64 Gio<br>E10 : 128 Go<br>E15 : 256 Gio<br>E20 : 512 Go<br>E30 : 1 024 Gio<br>E40 : 2 048 Gio<br>E50 : 4 095 Gio<br>E60 : 8 192 Gio * (8 Tio)<br>E70 : 16 384 Gio * (16 Tio)<br> E80 : 32 767 Gio * (32 Tio) | Disques non managés : 1 Gio – 4 Tio (4 095 Gio) <br><br>Disques gérés :<br> S4 : 32 Gio <br>S6 : 64 Gio <br>S10 : 128 Go <br>S15 : 256 Gio <br>S20 : 512 Go <br>S30 : 1 024 Gio <br>S40 : 2 048 Gio<br>S50 : 4 095 Gio<br>S60 : 8 192 Gio * (8 Tio)<br>S70 : 16 384 Gio * (16 Tio)<br>S80 : 32 767 Gio * (32 Tio)
 | Débit max. par disque | P4 : 25 Mio/s<br> P6 : 50 Mio/s<br> P10 : 100 Mio/s<br> P15 : 125 Mio/s<br> P20 : 150 Mio/s<br> P30 : 200 Mio/s<br> P40-P50 : 250 Mio/s<br> P60 : 480 Mio/s *<br> P70-P80 : 750 Mio/s * | E10-E50 : Jusqu’à 60 Mio/s<br> E60 : Jusqu’à 300 Mio/s *<br> E70-E80 : 500 Mio/s *| S4 - S50 : Jusqu’à 60 Mio/s<br> S60 : Jusqu’à 300 Mio/s *<br> S70-S80 : Jusqu’à 500 Mio/s *

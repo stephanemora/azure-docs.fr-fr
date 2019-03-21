@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/26/2018
 ms.author: victorh
-ms.openlocfilehash: 108045c691d711dfdd12df39fe72e536f842f68f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 10bc4e4c440e5495afd820f588270b7990108b68
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993213"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259259"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Créer une passerelle d’application avec des règles d’acheminement par chemin d’accès à l’aide du portail Azure
 
@@ -34,6 +34,8 @@ Dans cet article, vous apprendrez comment :
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="log-in-to-azure"></a>Connexion à Azure
 
 Connectez-vous au portail Azure à l’adresse [https://portal.azure.com](https://portal.azure.com)
@@ -46,20 +48,20 @@ Un réseau virtuel est nécessaire pour la communication entre les ressources qu
 2. Sélectionnez **Mise en réseau**, puis sélectionnez **Application Gateway** dans la liste de suggestions.
 3. Entrez ces valeurs pour la passerelle d’application :
 
-    - *myAppGateway* : pour le nom de la passerelle d’application.
-    - *myResourceGroupAG* : pour le nouveau groupe de ressources.
+   - *myAppGateway* : pour le nom de la passerelle d’application.
+   - *myResourceGroupAG* : pour le nouveau groupe de ressources.
 
-    ![Créer une nouvelle passerelle d’application](./media/application-gateway-create-url-route-portal/application-gateway-create.png)
+     ![Créer une nouvelle passerelle d’application](./media/application-gateway-create-url-route-portal/application-gateway-create.png)
 
 4. Acceptez les valeurs par défaut pour les autres paramètres, puis cliquez sur **OK**.
 5. Cliquez sur **Choisir un réseau virtuel**, cliquez sur **Créer nouveau**, puis entrez ces valeurs pour le réseau virtuel :
 
-    - *myVNet* : pour le nom du réseau virtuel.
-    - *10.0.0.0/16* : pour l’espace d’adressage du réseau virtuel.
-    - *myAGSubnet* : pour le nom du sous-réseau.
-    - *10.0.0.0/24* : pour l’espace d’adressage du sous-réseau.
+   - *myVNet* : pour le nom du réseau virtuel.
+   - *10.0.0.0/16* : pour l’espace d’adressage du réseau virtuel.
+   - *myAGSubnet* : pour le nom du sous-réseau.
+   - *10.0.0.0/24* : pour l’espace d’adressage du sous-réseau.
 
-    ![Création d’un réseau virtuel](./media/application-gateway-create-url-route-portal/application-gateway-vnet.png)
+     ![Création d’un réseau virtuel](./media/application-gateway-create-url-route-portal/application-gateway-vnet.png)
 
 6. Cliquez sur **OK** pour créer le réseau virtuel et le sous-réseau.
 7. Cliquez sur **Choisir une adresse IP publique**, cliquez sur **Créer nouveau**, puis entrez le nom de l’adresse IP publique. Dans cet exemple, l’adresse IP publique est nommée *myAGPublicIPAddress*. Acceptez les valeurs par défaut pour les autres paramètres, puis cliquez sur **OK**.
@@ -104,7 +106,7 @@ Dans cet exemple, vous créez trois machines virtuelles à utiliser en tant que 
 
     ```azurepowershell-interactive
     $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location eastus `
       -ExtensionName IIS `
@@ -115,7 +117,7 @@ Dans cet exemple, vous créez trois machines virtuelles à utiliser en tant que 
       -Settings $publicSettings
     ```
 
-3. Créez deux autres machines virtuelles et installez IIS à l’aide de la procédure que vous venez de terminer. Entrez les noms *myVM2* et *myVM3* pour les noms et les valeurs de VMName dans Set-AzureRmVMExtension.
+3. Créez deux autres machines virtuelles et installez IIS à l’aide de la procédure que vous venez de terminer. Entrez les noms de *myVM2* et *myVM3* pour les noms et les valeurs de VMName dans Set-AzVMExtension.
 
 ## <a name="create-backend-pools-with-the-virtual-machines"></a>Créer des pools principaux avec les machines virtuelles
 
@@ -154,7 +156,7 @@ Dans cet exemple, vous créez trois machines virtuelles à utiliser en tant que 
 
     ![Enregistrer l’adresse IP publique de la passerelle d’application](./media/application-gateway-create-url-route-portal/application-gateway-record-ag-address.png)
 
-2. Copiez l’adresse IP publique, puis collez-la dans la barre d’adresses de votre navigateur. Par exemple, http:// http://40.121.222.19.
+2. Copiez l’adresse IP publique, puis collez-la dans la barre d’adresses de votre navigateur. Par exemple, http :\//40.121.222.19.
 
     ![Tester l’URL de base dans la passerelle d’application](./media/application-gateway-create-url-route-portal/application-gateway-iistest.png)
 

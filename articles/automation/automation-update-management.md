@@ -6,21 +6,23 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/19/2019
+ms.date: 03/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: df4ae4b0c3f230947e0b9a5885070049f32a4b2f
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 85b920767cbdc5ba60c2046563c32e87f6ad7ef8
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429860"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259395"
 ---
 # <a name="update-management-solution-in-azure"></a>Solution Update Management dans Azure
 
-Vous pouvez utiliser la solution Update Management dans Azure Automation pour gérer les mises à jour du système d’exploitation de vos ordinateurs Windows et Linux déployés dans Azure, des environnements locaux ou d’autres fournisseurs cloud. Vous pouvez rapidement évaluer l’état des mises à jour disponibles sur tous les ordinateurs d’agent et gérer le processus d’installation des mises à jour requises pour les serveurs.
+Vous pouvez utiliser la solution de gestion de la mise à jour dans Azure Automation pour gérer les mises à jour du système d’exploitation pour vos ordinateurs Windows et Linux dans Azure, dans les environnements locaux ou dans d’autres fournisseurs de cloud. Vous pouvez rapidement évaluer l’état des mises à jour disponibles sur tous les ordinateurs d’agent et gérer le processus d’installation des mises à jour requises pour les serveurs.
 
 Vous pouvez activer Update Management pour les machines virtuelles directement depuis votre compte Azure Automation. Pour découvrir comment activer Update Management pour les machines virtuelles depuis votre compte Automation, consultez l’article [Gérer les mises à jour pour plusieurs machines virtuelles](manage-update-multi.md). Vous pouvez également activer Update Management pour une machine virtuelle à partir de sa page dans le Portail Azure. Ce scénario est disponible pour les machines virtuelles [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) et [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management).
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="solution-overview"></a>Vue d’ensemble de la solution
 
@@ -33,13 +35,13 @@ Les ordinateurs gérés par Update Management utilisent les configurations suiva
 
 Le schéma suivant présente une vue conceptuelle du comportement et du flux de données liés à l’évaluation des mises à jour de sécurité par la solution et à leur application à tous les ordinateurs Windows Server et Linux connectés dans un espace de travail :
 
-![Flux du processus Update Management](media/automation-update-management/update-mgmt-updateworkflow.png)
+![Flux du processus Update Management](./media/automation-update-management/update-mgmt-updateworkflow.png)
 
 Update Management peut être utilisé pour intégrer des machines en mode natif dans plusieurs abonnements du même locataire.
 
 Après la publication d’un CVE, comptez un délai de deux à trois heures avant l’affichage du correctif pour l’évaluation sur des machines Linux.  Sur les machines Windows, ce délai est de 12 à 15 heures.
 
-Après qu’une machine a terminé l’analyse de conformité de la mise à jour, l’agent transfère les informations en bloc à Azure Log Analytics. Sur une machine Windows, l’analyse de conformité est effectuée toutes les 12 heures par défaut.
+Une fois un ordinateur effectue une analyse de conformité de mise à jour, l’agent transfère les informations en bloc dans les journaux d’Azure Monitor. Sur une machine Windows, l’analyse de conformité est effectuée toutes les 12 heures par défaut.
 
 En plus de l’analyse planifiée, l’analyse de conformité de mise à jour est lancée dans les 15 minutes si MMA est redémarré, avant et après l’installation de la mise à jour.
 
@@ -58,7 +60,7 @@ Les mises à jour sont installées par des Runbooks dans Azure Automation. Vou
 
 À la date et l’heure spécifiées dans le déploiement de mises à jour, les ordinateurs cibles exécutent le déploiement en parallèle. Avant l’installation, une analyse est lancée pour vérifier que les mises à jour sont encore requises. Pour les ordinateurs clients WSUS, si les mises à jour ne sont pas approuvées dans WSUS, leur déploiement échoue.
 
-L’inscription d’une machine auprès du service Update Management dans plusieurs espaces de travail Log Analytics (multihébergement) n’est pas prise en charge.
+Présence d’un ordinateur inscrit pour la gestion de mise à jour dans plusieurs espaces de travail Analytique de journal (multihébergement) n’est pas prise en charge.
 
 ## <a name="clients"></a>Clients
 
@@ -70,7 +72,7 @@ Le tableau suivant répertorie la liste des systèmes d’exploitation pris en c
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Prend uniquement en charge les évaluations de mises à jour.         |
 |Windows Server 2008 R2 SP1 et versions ultérieures (y compris Windows Server 2012 et 2016)    |.NET Framework 4.5.1 ou version ultérieure est requis. ([Télécharger .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 4.0 ou une version ultérieure est nécessaire. ([Télécharger WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1 est recommandé pour accroître la fiabilité.  ([Télécharger WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
-|CentOS 6 (x86/x64) et 7 (x64)      | Les agents Linux doivent avoir accès à un référentiel de mise à jour. La mise à jour corrective basée sur la classification nécessite que 'yum' retourne les données de sécurité que CentOS n’a pas directement.         |
+|CentOS 6 (x86/x64) et 7 (x64)      | Les agents Linux doivent avoir accès à un référentiel de mise à jour. La mise à jour corrective basée sur la classification nécessite que 'yum' retourne les données de sécurité que CentOS n’a pas directement. Pour plus d’informations sur la classification basée mise à jour corrective sur CentOS, consultez [mettre à jour les classifications sur Linux](#linux-2)          |
 |Red Hat Enterprise 6 (x86/x64) et 7 (x64)     | Les agents Linux doivent avoir accès à un référentiel de mise à jour.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) et 12 (x64)     | Les agents Linux doivent avoir accès à un référentiel de mise à jour.        |
 |Ubuntu 14.04 LTS, 16.04 LTS et 18.04 (x86/x64)      |Les agents Linux doivent avoir accès à un référentiel de mise à jour.         |
@@ -94,7 +96,7 @@ Les agents Windows doivent être configurés pour communiquer avec un serveur 
 
 Pour Linux, la machine doit avoir accès à un référentiel de mises à jour, qui peut être privé ou public. TLS 1.1 ou TLS 1.2 est exigé pour interagir avec Update Management. La configuration de Log Analytics Agent pour Linux afin d’envoyer des rapports à plusieurs espaces de travail Log Analytics n’est pas prise en charge avec cette solution.
 
-Pour savoir comment installer Log Analytics Agent pour Linux et comment télécharger la dernière version, consultez [Agent Operations Management Suite pour Linux](https://github.com/microsoft/oms-agent-for-linux). Pour savoir comment installer Log Analytics Agent pour Windows et comment télécharger la dernière version, consultez [Agent Operations Management Suite pour Windows](../log-analytics/log-analytics-windows-agent.md).
+Pour plus d’informations sur la façon d’installer l’Agent d’Analytique de journal pour Linux et pour télécharger la dernière version, consultez [Agent d’Analytique de journal pour Linux](https://github.com/microsoft/oms-agent-for-linux). Pour plus d’informations sur l’installation de l’Agent pour Windows journal Analytique, consultez [Microsoft Monitoring Agent pour Windows](../log-analytics/log-analytics-windows-agent.md).
 
 ## <a name="permissions"></a>Autorisations
 
@@ -120,10 +122,13 @@ Si votre groupe d’administration System Center Operations Manager est connect�
 * Microsoft.IntelligencePack.UpdateAssessment.Configuration (Microsoft.IntelligencePack.UpdateAssessment.Configuration)
 * Pack d’administration du déploiement des mises à jour
 
-Pour plus d’informations sur la façon dont ces packs d’administration de solution sont mis à jour, consultez [Connecter Operations Manager à Log Analytics](../azure-monitor/platform/om-agents.md).
+> [!NOTE]
+> Si vous avez un groupe d’administration Operations Manager 1807 avec des agents configurés au niveau du groupe d’administration à associer à un espace de travail, la solution actuelle pour qu’ils s’affichent consiste à substituer **IsAutoRegistrationEnabled** à **True** dans le **Microsoft.IntelligencePacks.AzureAutomation.HybridAgent.Init** règle.
+
+Pour plus d’informations sur la façon dont les packs d’administration de solution sont mis à jour, consultez [ouvre une connexion d’Operations Manager à Azure Monitor](../azure-monitor/platform/om-agents.md).
 
 > [!NOTE]
-> Pour les systèmes dotés de l’agent Operations Manager, pour pouvoir être entièrement gérés par Update Management, l’agent doit être mis à jour vers Microsoft Monitoring Agent. Pour savoir comment mettre à jour l’agent, consultez [Guide pratique pour mettre à niveau un agent Operations Manager](https://docs.microsoft.com/system-center/scom/deploy-upgrade-agents).
+> Pour les systèmes dotés de l’agent Operations Manager, pour pouvoir être entièrement gérés par Update Management, l’agent doit être mis à jour vers Microsoft Monitoring Agent. Pour savoir comment mettre à jour l’agent, consultez [Guide pratique pour mettre à niveau un agent Operations Manager](https://docs.microsoft.com/system-center/scom/deploy-upgrade-agents). Pour les environnements à l’aide d’Operations Manager, il est nécessaire que vous exécutez System Center Operations Manager 2012 R2 UR 14 ou version ultérieure.
 
 ## <a name="onboard"></a>Activer Update Management
 
@@ -136,7 +141,7 @@ Pour commencer à appliquer des correctifs aux systèmes, vous devez activer la 
   
 ### <a name="confirm-that-non-azure-machines-are-onboarded"></a>Vérifier que les ordinateurs non-Azure sont intégrés
 
-Pour confirmer que les ordinateurs directement connectés communiquent avec Log Analytics, vous pouvez exécuter l’une des recherches suivantes dans les journaux au bout de quelques minutes.
+Pour confirmer que les ordinateurs directement connectés communiquent avec les journaux d’Azure Monitor, après quelques minutes, vous pouvez exécutez une les recherches de journal suivante.
 
 #### <a name="linux"></a>Linux
 
@@ -152,12 +157,12 @@ Heartbeat
 | where OSType == "Windows" | summarize arg_max(TimeGenerated, *) by SourceComputerId | top 500000 by Computer asc | render table
 ```
 
-Sur un ordinateur Windows, vous pouvez vérifier les informations suivantes pour tester la connectivité de l’agent avec Log Analytics :
+Sur un ordinateur Windows, vous pouvez consulter les informations suivantes pour vérifier la connectivité de l’agent avec les journaux d’Azure Monitor :
 
 1. Dans le Panneau de configuration, ouvrez **Microsoft Monitoring Agent**. Sous l’onglet **Azure Log Analytics**, l’agent affiche le message suivant : **Microsoft Monitoring Agent s’est correctement connecté à Log Analytics.**
 2. Ouvrez le journal des événements Windows. Accédez à **Application and Services Logs\Operations Manager**, puis recherchez l’ID d’événement 3000 et 5002 à partir du **connecteur de service** source. Ces événements indiquent que l’ordinateur est enregistré sur l’espace de travail Log Analytics et qu’il reçoit la configuration.
 
-Si l’agent ne parvient pas à communiquer avec Log Analytics et s’il est configuré pour communiquer avec Internet par le biais d’un pare-feu ou d’un serveur proxy, vérifiez que le pare-feu ou le serveur proxy est correctement configuré. Pour savoir comment vérifier la configuration du pare-feu ou du serveur proxy, consultez [Configuration réseau de l’agent Windows](../azure-monitor/platform/agent-windows.md) ou [Configuration réseau de l’agent Linux](../log-analytics/log-analytics-agent-linux.md).
+Si l’agent ne peut pas communiquer avec Azure Monitor enregistre et l’agent est configuré pour communiquer avec internet via un pare-feu ou un serveur proxy, vérifiez le pare-feu ou serveur proxy est configuré correctement. Pour savoir comment vérifier la configuration du pare-feu ou du serveur proxy, consultez [Configuration réseau de l’agent Windows](../azure-monitor/platform/agent-windows.md) ou [Configuration réseau de l’agent Linux](../log-analytics/log-analytics-agent-linux.md).
 
 > [!NOTE]
 > Si vos systèmes Linux sont configurés pour communiquer avec un proxy ou Log Analytics Gateway et que vous intégrez cette solution, vous devez mettre à jour les autorisations *proxy.conf* pour accorder au groupe omiuser une autorisation d’accès en lecture sur le fichier. Pour cela, exécutez les commandes suivantes :
@@ -167,7 +172,7 @@ Si l’agent ne parvient pas à communiquer avec Log Analytics et s’il est con
 
 Les nouveaux agents Linux ajoutés affichent l’état **Mis à jour** après l’exécution d’une évaluation. Ce processus peut prendre jusqu’à 6 heures.
 
-Pour vérifier qu’un groupe d’administration Operations Manager communique avec Log Analytics, consultez la rubrique [Validation de l’intégration entre Operations Manager et Log Analytics](../azure-monitor/platform/om-agents.md#validate-operations-manager-integration-with-log-analytics).
+Pour vérifier qu’un groupe d’administration Operations Manager communique avec les journaux Azure Monitor, consultez [intégration valider Operations Manager avec Azure Monitor journaux](../azure-monitor/platform/om-agents.md#validate-operations-manager-integration-with-log-analytics).
 
 ## <a name="data-collection"></a>Collecte des données
 
@@ -177,9 +182,9 @@ Le tableau suivant décrit les sources connectées qui sont prises en charge par
 
 | Source connectée | Prise en charge | Description |
 | --- | --- | --- |
-| Agents Windows |OUI |La solution collecte des informations sur les mises à jour système auprès des agents Windows et lance l’installation des mises à jour obligatoires. |
-| Agents Linux |OUI |La solution collecte des informations sur les mises à jour système auprès des agents Linux et lance l’installation des mises à jour obligatoires sur les versions prises en charge. |
-| Groupe d’administration d’Operations Manager |OUI |La solution collecte des informations sur les mises à jour système des agents dans un groupe d’administration connecté.<br/>Une connexion directe entre l’agent Operations Manager et Log Analytics n’est pas obligatoire. Les données sont transférées du groupe d’administration à l’espace de travail Log Analytics. |
+| Agents Windows |Oui |La solution collecte des informations sur les mises à jour système auprès des agents Windows et lance l’installation des mises à jour obligatoires. |
+| Agents Linux |Oui |La solution collecte des informations sur les mises à jour système auprès des agents Linux et lance l’installation des mises à jour obligatoires sur les versions prises en charge. |
+| Groupe d’administration d’Operations Manager |Oui |La solution collecte des informations sur les mises à jour système des agents dans un groupe d’administration connecté.<br/>Une connexion directe à partir de l’agent Operations Manager dans les journaux d’Azure Monitor n’est pas nécessaire. Les données sont transférées du groupe d’administration à l’espace de travail Log Analytics. |
 
 ### <a name="collection-frequency"></a>Fréquence de collecte
 
@@ -189,7 +194,7 @@ Une analyse est effectuée toutes les 3 heures sur chaque ordinateur Linux gé
 
 L’affichage sur le tableau de bord des données mises à jour provenant des ordinateurs gérés peut prendre entre 30 minutes et 6 heures.
 
-La consommation moyenne de données Log Analytics d'une machine utilisant la solution Update Management est d'environ 25 Mo par mois. Cette valeur est approximative et sujette à modification en fonction de votre environnement. Nous vous recommandons de surveiller votre environnement pour connaître votre consommation exacte.
+L’utilisation de données de journaux Azure Monitor pour un ordinateur à l’aide de la gestion de la mise à jour de la moyenne est approximativement 25 Mo par mois. Cette valeur est approximative et sujette à modification en fonction de votre environnement. Nous vous recommandons de surveiller votre environnement pour connaître votre consommation exacte.
 
 ## <a name="viewing-update-assessments"></a>Afficher les évaluations des mises à jour
 
@@ -203,7 +208,7 @@ Pour exécuter une recherche dans les journaux qui permet de retourner des infor
 
 ## <a name="install-updates"></a>Installer les mises à jour
 
-Une fois les mises à jour évaluées pour tous les ordinateurs Linux et Windows dans votre espace de travail, vous pouvez installer les mises à jour obligatoires en créant une opération de *déploiement de mises à jour*. Un déploiement de mises à jour est une installation planifiée de mises à jour obligatoires pour un ou plusieurs ordinateurs. Vous pouvez spécifier la date et l’heure du déploiement ainsi qu’un ordinateur ou groupe d’ordinateurs à inclure dans un déploiement. Pour en savoir plus sur les groupes d’ordinateurs, consultez [Groupes d’ordinateurs dans Log Analytics](../azure-monitor/platform/computer-groups.md).
+Une fois les mises à jour évaluées pour tous les ordinateurs Linux et Windows dans votre espace de travail, vous pouvez installer les mises à jour obligatoires en créant une opération de *déploiement de mises à jour*. Un déploiement de mises à jour est une installation planifiée de mises à jour obligatoires pour un ou plusieurs ordinateurs. Vous pouvez spécifier la date et l’heure du déploiement ainsi qu’un ordinateur ou groupe d’ordinateurs à inclure dans un déploiement. Pour en savoir plus sur les groupes d’ordinateurs, consultez [groupes d’ordinateurs dans les journaux Azure Monitor](../azure-monitor/platform/computer-groups.md).
 
  Lorsque vous incluez des groupes d’ordinateurs dans votre déploiement de mises à jour, l’appartenance au groupe n’est évaluée qu’une seule fois au moment de la création de la planification. Les modifications ultérieures apportées à un groupe ne sont pas répercutées. Pour contourner ce problème, utilisez des [groupes dynamiques](#using-dynamic-groups), qui sont résolus au moment du déploiement et sont définis par une requête.
 
@@ -221,7 +226,7 @@ Pour créer un déploiement de mises à jour, sélectionnez **Planifier le dépl
 | Nom |Nom unique identifiant le déploiement de mises à jour. |
 |Système d’exploitation| Linux ou Windows|
 | Groupes à mettre à jour (préversion)|Définissez une requête basée sur une combinaison de l’abonnement, des groupes de ressources, des emplacements et des étiquettes pour créer un groupe dynamique de machines virtuelles Azure à inclure dans votre déploiement. Pour plus d’informations, consultez [Groupes dynamiques](automation-update-management.md#using-dynamic-groups)|
-| Ordinateurs à mettre à jour |Sélectionnez une recherche enregistrée, un groupe importé ou choisissez un ordinateur dans la liste déroulante, puis sélectionnez des ordinateurs individuels. Si vous choisissez **Machines**, l’état de préparation de la machine est indiqué dans la colonne **PRÉPARATION À LA MISE À JOUR DE L’AGENT**.</br> Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans Log Analytics, consultez [Groupes d’ordinateurs dans Log Analytics](../azure-monitor/platform/computer-groups.md) |
+| Ordinateurs à mettre à jour |Sélectionnez une recherche enregistrée, un groupe importé ou choisissez un ordinateur dans la liste déroulante, puis sélectionnez des ordinateurs individuels. Si vous choisissez **Machines**, l’état de préparation de la machine est indiqué dans la colonne **PRÉPARATION À LA MISE À JOUR DE L’AGENT**.</br> Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans les journaux Azure Monitor, consultez [Groupes d’ordinateurs dans les journaux Azure Monitor](../azure-monitor/platform/computer-groups.md). |
 |Classifications des mises à jour|Sélectionnez toutes les classifications des mises à jour dont vous avez besoin.|
 |Inclure/exclure des mises à jour|La page **Inclure/Exclure** s’ouvre. Les mises à jour à inclure ou à exclure sont sous des onglets distincts. Pour plus d’informations sur la façon dont l’inclusion est gérée, consultez [Comportement d’inclusion](automation-update-management.md#inclusion-behavior) |
 |Paramètres de planification|Sélectionnez l’heure de début, puis la périodicité.|
@@ -290,7 +295,7 @@ sudo yum -q --security check-update
 
 Il n’existe actuellement aucune méthode prise en charge permettant d’activer la disponibilité des données de classification natives sur CentOS. Pour le moment, seule une prise en charge au mieux est proposée aux clients l’ayant activé eux-mêmes.
 
-## <a name="firstparty-predownload"></a>Mise à jour corrective interne et prétéléchargement
+## <a name="firstparty-predownload"></a>Paramètres avancés
 
 Update Management s’appuie sur Windows Update pour télécharger et installer les mises à jour de Windows. Par conséquent, nous respectons la plupart des paramètres utilisés par Windows Update. Si vous utilisez des paramètres pour activer les mises à jour non-Windows, Update Management gérera également ces mises à jour. Si vous souhaitez activer le téléchargement des mises à jour avant le déploiement de mises à jour, le déploiement des mise à jour peut être plus rapide et être moins susceptible de dépasser la fenêtre de maintenance.
 
@@ -306,9 +311,18 @@ $WUSettings.NotificationLevel = 3
 $WUSettings.Save()
 ```
 
+### <a name="disable-automatic-installation"></a>Désactiver l’installation automatique
+
+Les machines virtuelles Azure ont une installation automatique des mises à jour est activée par défaut. Cela peut entraîner des mises à jour à installer avant de planifier pour être installés par la gestion de la mise à jour. Vous pouvez désactiver ce comportement en définissant le `NoAutoUpdate` clé de Registre `1`. L’extrait de code PowerShell suivant montre une façon de procéder.
+
+```powershell
+$AutoUpdatePath = "HKLM:SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU"
+Set-ItemProperty -Path $AutoUpdatePath -Name NoAutoUpdate -Value 1
+```
+
 ### <a name="enable-updates-for-other-microsoft-products"></a>Activer les mises à jour pour d’autres produits Microsoft
 
-Par défaut, Windows Update fournit uniquement des mises à jour pour Windows. Si vous activez l’option **Me communiquer les mises à jour d’autres produits Microsoft lorsque je mets à jour Windows**, les mises à jour des autres produits vous sont fournies, y compris les correctifs de sécurité pour SQL Server ou d’autres logiciels. Cette option ne peut pas être configurée par la stratégie de groupe. Exécutez la commande PowerShell suivante sur les systèmes sur lesquels vous souhaitez activer d’autres correctifs tiers. Update Management appliquera ce paramètre.
+Par défaut, Windows Update fournit uniquement des mises à jour pour Windows. Si vous activez **me communiquer des mises à jour pour d’autres produits Microsoft lors de la mise à jour Windows**, vous bénéficiez avec mises à jour pour d’autres produits, y compris les correctifs de sécurité pour SQL Server ou d’autres logiciels tiers premier. Cette option ne peut pas être configurée par la stratégie de groupe. Exécutez la commande PowerShell suivante sur les systèmes sur lesquels vous souhaitez activer d’autres correctifs tiers. Update Management appliquera ce paramètre.
 
 ```powershell
 $ServiceManager = (New-Object -com "Microsoft.Update.ServiceManager")
@@ -350,7 +364,7 @@ Les sections suivantes fournissent des exemples de requêtes de journal pour les
 
 #### <a name="single-azure-vm-assessment-queries-windows"></a>Requêtes d’évaluation de la machine virtuelle Azure unique (Windows)
 
-Remplacez la valeur VMUUID par le GUID VM de la machine virtuelle que vous interrogez. Pour trouver le VMUUID à utiliser, exécutez la requête suivante dans Log Analytics : `Update | where Computer == "<machine name>" | summarize by Computer, VMUUID`
+Remplacez la valeur VMUUID par le GUID VM de la machine virtuelle que vous interrogez. Vous pouvez trouver le VMUUID qui doit être utilisé en exécutant la requête suivante dans les journaux Azure Monitor : `Update | where Computer == "<machine name>" | summarize by Computer, VMUUID`
 
 ##### <a name="missing-updates-summary"></a>Récapitulatif des mises à jour manquantes
 
@@ -379,7 +393,7 @@ Update
 
 #### <a name="single-azure-vm-assessment-queries-linux"></a>Requêtes d’évaluation de la machine virtuelle Azure unique (Linux)
 
-Pour certaines versions de Linux, il existe une incompatibilité de [mode Endian](https://en.wikipedia.org/wiki/Endianness) entre la valeur VMUUID qui provient d’Azure Resource Manager, et ce qui est stocké dans Log Analytics. La requête suivante recherche une correspondance sur l’un des modes Endian. Remplacez les valeurs VMUUID avec le format big-endian et little-endian du GUID afin de retourner correctement les résultats. Pour trouver le VMUUID à utiliser, exécutez la requête suivante dans Log Analytics : `Update | where Computer == "<machine name>"
+Pour certaines distributions Linux, il existe un [endianness](https://en.wikipedia.org/wiki/Endianness) incompatibilité avec la valeur VMUUID qui provient d’Azure Resource Manager et ce qui est stocké dans les journaux Azure Monitor. La requête suivante recherche une correspondance sur l’un des modes Endian. Remplacez les valeurs VMUUID avec le format big-endian et little-endian du GUID afin de retourner correctement les résultats. Vous pouvez trouver le VMUUID qui doit être utilisé en exécutant la requête suivante dans les journaux Azure Monitor : `Update | where Computer == "<machine name>"
 | summarize by Computer, VMUUID`
 
 ##### <a name="missing-updates-summary"></a>Récapitulatif des mises à jour manquantes
@@ -553,7 +567,7 @@ Update
 
 ## <a name="using-dynamic-groups"></a>Utilisation de groupes dynamiques (préversion)
 
-Update Management permet de cibler un groupe dynamique de machines virtuelles Azure pour les déploiements de mises à jour. Ces groupes sont définis par une requête et, au démarrage d’un déploiement de mise à jour, les membres de ce groupe sont évalués. Quand vous définissez votre requête, les éléments suivants peuvent être utilisés ensemble pour remplir le groupe dynamique
+Update Management permet de cibler un groupe dynamique de machines virtuelles Azure pour les déploiements de mises à jour. Ces groupes sont définis par une requête et, au démarrage d’un déploiement de mise à jour, les membres de ce groupe sont évalués. Groupes dynamiques ne fonctionnent pas avec les machines virtuelles classiques. Quand vous définissez votre requête, les éléments suivants peuvent être utilisés ensemble pour remplir le groupe dynamique
 
 * Abonnement
 * Groupes de ressources
@@ -596,7 +610,7 @@ Dans Red Hat Enterprise Linux, le nom du package à exclure est : redhat-releas
 
 Lorsque vous déployez des mises à jour sur un ordinateur Linux, vous pouvez sélectionner des classifications. Vous pouvez ainsi filtrer les mises à jour afin d’appliquer à la machine uniquement celles qui remplissent les critères de classification spécifiés. Ce filtre est appliqué localement sur l’ordinateur lorsque la mise à jour est déployée.
 
-Comme Update Management enrichit les mises à jour dans le cloud, certaines mises à jour peuvent être signalées dans Update Management comme ayant un impact sur la sécurité quand bien même l’ordinateur local n’a pas ces informations. Ainsi, si vous appliquez des mises à jour critiques à un ordinateur Linux, certaines mises à jour, non signalées comme ayant un impact sur la sécurité pour cet ordinateur, peuvent ne pas être appliquées.
+Étant donné que Update Management effectue enrichissement de la mise à jour dans le cloud, certaines mises à jour peuvent être jugés dans Update Management impact sur la sécurité, même si l’ordinateur local n’a pas ces informations. Ainsi, si vous appliquez des mises à jour critiques à un ordinateur Linux, certaines mises à jour, non signalées comme ayant un impact sur la sécurité pour cet ordinateur, peuvent ne pas être appliquées.
 
 Toutefois, Update Management peut quand même signaler que cet ordinateur n’est pas conforme car il contient des informations supplémentaires sur la mise à jour concernée.
 
@@ -608,10 +622,6 @@ Pour supprimer une machine virtuelle de Update Management :
 
 * Dans votre espace de travail Log Analytics, supprimez la machine virtuelle de la rechercher enregistrée pour la configuration d’étendue `MicrosoftDefaultScopeConfig-Updates`. Les recherches enregistrées se trouvent sous la section **Général** de votre espace de travail.
 * Supprimez l’agent [Microsoft Monitoring agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) ou l’[agent Log Analytics pour Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
-  
-## <a name="troubleshoot"></a>Résolution des problèmes
-
-Pour savoir comment résoudre les problèmes de Update Management, consultez [Résolution des problèmes de Update Management](troubleshoot/update-management.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -620,8 +630,8 @@ Poursuivez avec le didacticiel pour apprendre à gérer les mises à jour de vos
 > [!div class="nextstepaction"]
 > [Gérer les mises à jour et les correctifs pour vos machines virtuelles Windows Azure](automation-tutorial-update-management.md)
 
-* Utilisez les recherches de journaux de [Log Analytics](../log-analytics/log-analytics-log-searches.md) pour afficher des données détaillées sur les mises à jour.
+* Utiliser des recherches dans les journaux [Azure Monitor enregistre](../log-analytics/log-analytics-log-searches.md) pour afficher les données détaillées de mises à jour.
 * [Créez des alertes](automation-tutorial-update-management.md#configure-alerts) pour connaître l’état de déploiement des mises à jour.
 
 * Pour savoir comment utiliser Update Management avec l’API REST, consultez [Configurations des mises à jour logicielles](/rest/api/automation/softwareupdateconfigurations)
-
+* Pour savoir comment résoudre les problèmes de Update Management, consultez [Résolution des problèmes de Update Management](troubleshoot/update-management.md).

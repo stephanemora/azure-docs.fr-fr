@@ -16,12 +16,12 @@ ms.date: 11/14/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c15b42572648f875ac4bda2eae5813f0cf6b17ef
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8de47aab231c66f3539c2d2f0f0e4c535a04038a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187183"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085369"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Authentification unique transparente Azure Active Directory : Questions fréquentes (FAQ)
 
@@ -37,7 +37,7 @@ L’authentification unique transparente est une fonctionnalité gratuite et il 
 
 ## <a name="is-seamless-sso-available-in-the-microsoft-azure-germany-cloudhttpswwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>L’authentification unique transparente est-elle disponible dans le [cloud Microsoft Azure Allemagne](https://www.microsoft.de/cloud-deutschland) et le [cloud Microsoft Azure Government](https://azure.microsoft.com/features/gov/) ?
 
- Non. L’authentification unique transparente est uniquement disponible dans l’instance à l’échelle mondiale d’Azure AD.
+Non. L’authentification unique transparente est uniquement disponible dans l’instance à l’échelle mondiale d’Azure AD.
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>Quelles sont les applications qui tirent parti des paramètres `domain_hint` et `login_hint` de l’authentification unique transparente ?
 
@@ -47,9 +47,9 @@ Vous trouverez ci-dessous une liste non exhaustive des applications qui envoient
 | -- | -- |
 | Panneau d’accès | https://myapps.microsoft.com/contoso.com |
 | Outlook sur le Web | https://outlook.office365.com/contoso.com |
-| Portails Office 365 | https://portal.office.com?domain_hint=contoso.com, https://www.office.com?domain_hint=contoso.com |
+| Portails Office 365 | <https://portal.office.com?domain_hint=contoso.com>, <https://www.office.com?domain_hint=contoso.com> |
 
-En outre, les utilisateurs obtiennent également une expérience de connexion silencieuse si une application envoie des requêtes aux points de terminaison desquels Azure AD est abonné, c'est-à-dire, https://login.microsoftonline.com/contoso.com/<..> ou https://login.microsoftonline.com/<tenant_ID>/<..>, au lieu du point de terminaison commun d’Azure AD, c'est-à-dire, https://login.microsoftonline.com/common/<...>. Vous trouverez ci-dessous une liste non exhaustive d’applications qui rendent ces types de requêtes de connexion.
+En outre, les utilisateurs obtiennent une expérience d’authentification en mode silencieux si une application envoie des demandes de connexion aux points de terminaison d’Azure AD configurés en tant que clients - autrement dit, https://login.microsoftonline.com/contoso.com/<..> ou https://login.microsoftonline.com/<tenant_ID>/<..> : au lieu point de terminaison commun d’Azure AD - autrement dit, https://login.microsoftonline.com/common/<...>. Vous trouverez ci-dessous une liste non exhaustive d’applications qui rendent ces types de requêtes de connexion.
 
 | Nom de l’application | URL d’application à utiliser |
 | -- | -- |
@@ -95,8 +95,8 @@ Procédez comme suit sur le serveur local où vous exécutez Azure AD Connect :
 
 1. Appelez `$creds = Get-Credential`. Quand vous y êtes invité, entrez les informations d’identification d’administrateur de domaine pour la forêt AD souhaitée.
 
-    >[!NOTE]
-    >Nous utilisons le nom d’utilisateur de l’administrateur de domaine, fourni dans le format des noms d’utilisateurs principaux (UPN) (johndoe@contoso.com), ou dans celui du nom de compte SAM de domaine complet (contoso\johndoe ou contoso.com\johndoe), pour rechercher la forêt AD souhaitée. Si vous utilisez le nom de compte SAM de domaine complet, nous utilisons la partie domaine du nom d’utilisateur pour [localiser le contrôleur de domaine de l’administrateur de domaine à l’aide de DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Si vous utilisez un UPN à la place, nous [le convertissons en nom de compte SAM de domaine complet](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) avant de trouver le contrôleur de domaine approprié.
+   > [!NOTE]
+   > Nous utilisons le nom d’utilisateur de l’administrateur de domaine, fourni dans le format des noms d’utilisateurs principaux (UPN) (johndoe@contoso.com), ou dans celui du nom de compte SAM de domaine complet (contoso\johndoe ou contoso.com\johndoe), pour rechercher la forêt AD souhaitée. Si vous utilisez le nom de compte SAM de domaine complet, nous utilisons la partie domaine du nom d’utilisateur pour [localiser le contrôleur de domaine de l’administrateur de domaine à l’aide de DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Si vous utilisez un UPN à la place, nous [le convertissons en nom de compte SAM de domaine complet](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) avant de trouver le contrôleur de domaine approprié.
 
 2. Appelez `Update-AzureADSSOForest -OnPremCredentials $creds`. Cette commande met à jour la clé de déchiffrement de Kerberos pour le `AZUREADSSOACC` compte de l’ordinateur et la forêt AD spécifique et dans Azure AD.
 3. Répétez les étapes précédentes pour chaque forêt AD dans laquelle vous avez configuré la fonctionnalité.

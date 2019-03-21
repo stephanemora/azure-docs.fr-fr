@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 357cf832f8878364965c8d8a85d7af8c5a2bc21c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 9b8ae86a5c13573fbe80c8f06d5ce97c72d8e341
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992078"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58257668"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Utiliser le chiffrement dynamique AES-128 et le service de distribution des clés
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.locfileid: "55992078"
 > Pour obtenir la dernière version du kit SDK Java et développer des applications avec Java, consultez [Prise en main du Kit SDK du client Java pour Azure Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
 > Pour télécharger le dernier kit SDK PHP pour Media Services, recherchez la version 0.5.7 du package Microsoft/WindowsAzure dans le [référentiel Packagist](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 > [!NOTE]
 > Pour plus d’informations sur la façon de chiffrer le contenu avec Advanced Encryption Standard (AES) afin de le transmettre à Safari sur macOS, consultez [ce billet de blog](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
 > Pour une vue d’ensemble sur la façon de protéger votre contenu multimédia avec le chiffrement AES, regardez [cette vidéo](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-Protecting-your-Media-Content-with-AES-Encryption).
@@ -140,7 +140,7 @@ Obtenez un jeton de test basé sur la restriction par jeton utilisée pour la st
     Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
 ```
 
-Vous pouvez utiliser le [lecteur Azure Media Services](http://amsplayer.azurewebsites.net/azuremediaplayer.html) pour tester votre flux.
+Vous pouvez utiliser le [lecteur Azure Media Services](https://amsplayer.azurewebsites.net/azuremediaplayer.html) pour tester votre flux.
 
 ## <a id="client_request"></a>Comment votre client peut-il demander une clé à partir du service de distribution des clés ?
 Dans l'étape précédente, vous avez construit l'URL qui pointe vers un fichier manifeste. Votre client doit extraire les informations nécessaires à partir des fichiers manifeste de diffusion en continu afin d'effectuer une demande au service de distribution des clés.

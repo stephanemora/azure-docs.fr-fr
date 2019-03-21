@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b958a8d7aa8566c62d5fdaf6b5b51064e4e5123
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 32720669ae9d8941abce4429471c13608a18cbc5
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183745"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294890"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapports d’activité de connexion dans le portail Azure Active Directory
 
@@ -149,7 +149,7 @@ Si vous ajoutez des champs à votre affichage de connexions, ils sont automatiqu
 
 ## <a name="download-sign-in-activities"></a>Télécharger les activités de connexion
 
-Vous pouvez [télécharger les données de connexion](quickstart-download-sign-in-report.md) pour les utiliser en dehors du portail Azure. En cliquant sur **télécharger** vous donne la possibilité de créer un fichier CSV ou JSCON 250 000 enregistrements plus récente.  
+Vous pouvez [télécharger les données de connexion](quickstart-download-sign-in-report.md) pour les utiliser en dehors du portail Azure. En cliquant sur **télécharger** vous donne la possibilité de créer un fichier CSV ou JSON des enregistrements de 250 000 plus récents.  
 
 ![Télécharger](./media/concept-sign-ins/71.png "Télécharger")
 
@@ -168,7 +168,7 @@ En plus d’Azure AD, le portail Azure vous offre d’autres points d’entré
 
 ### <a name="users-sign-ins-data-in-identity-security-protection"></a>Données de connexion des utilisateurs dans la protection de la sécurité des identités
 
-Le graphique des connexions des utilisateurs figurant sur la page **Protection de la sécurité des identités** affiche les agrégations hebdomadaires des connexions de tous les utilisateurs au cours d’une période donnée. La valeur par défaut de cette période est de 30 jours.
+Le graphique des connexions utilisateur dans le **Identity protection de sécurité** page Vue d’ensemble présente les agrégations hebdomadaires des connexions pour tous les utilisateurs dans une période donnée. La valeur par défaut de cette période est de 30 jours.
 
 ![Activité de connexion](./media/concept-sign-ins/06.png "Activité de connexion")
 
@@ -214,7 +214,7 @@ Les 3 principales applications de votre organisation dans le rapport sur les 30 
 
 ![Activité de connexion](./media/concept-sign-ins/10.png "Activité de connexion")
 
-Le graphique d’utilisation des applications affiche les agrégations hebdomadaires des connexions pour vos 3 principales applications au cours d’une période donnée. La valeur par défaut de cette période est de 30 jours.
+L’application utilisation graphique les agrégations hebdomadaires des connexions pour vos 3 principales applications dans une période donnée. La valeur par défaut de cette période est de 30 jours.
 
 ![Activité de connexion](./media/concept-sign-ins/47.png "Activité de connexion")
 

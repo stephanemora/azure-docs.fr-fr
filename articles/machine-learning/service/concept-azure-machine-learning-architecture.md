@@ -6,17 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: haining
-author: hning86
-ms.reviewer: larryfr
+ms.author: larryfr
+author: Blackmist
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1b2934ceb402dab5e9cf98e7e0a53b1b438c66a8
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 1640b1cdb9410f33f6556667f36aafcfe575a082
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111847"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58080320"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Voici comment Azure Machine Learning service fonctionne : Architecture et concepts
 
@@ -118,7 +117,7 @@ Une cible de calcul est une ressource de calcul que vous utilisez pour exécuter
 | Votre ordinateur local | ✓ | &nbsp; |
 | Capacité de calcul Azure Machine Learning | ✓ | &nbsp; |
 | Une machine virtuelle Linux dans Azure</br>(par exemple Data Science Virtual Machine) | ✓ | &nbsp; |
-| Azure Databricks | ✓ | &nbsp; | &nbsp; |
+| Azure Databricks | ✓ | &nbsp; |
 | Service Analytique Azure Data Lake | ✓ | &nbsp; |
 | Apache Spark pour HDInsight | ✓ | &nbsp; |
 | Azure Container Instances | &nbsp; | ✓ |

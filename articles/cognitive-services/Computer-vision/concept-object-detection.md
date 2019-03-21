@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 12/03/2018
+ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: ee85e6bd171fc9415e5c7606d6e18a7a22fa6570
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: cc5b40b6a800ff185c6c52652435b558fabe091f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55866914"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57873884"
 ---
 # <a name="object-detection"></a>Détection d’objets
 
-La détection d’objets est similaire au [balisage](concept-tagging-images.md), mais l’API retourne les coordonnées de cadre englobant (en pixels) pour chaque objet trouvé. Par exemple, si une image contient un chien, un chat et une personne, l’opération de détection liste ces objets ainsi que leurs coordonnées dans l’image. Vous pouvez utiliser cette fonctionnalité pour traiter les relations entre les objets dans une image. Elle vous permet également de déterminer s’il existe plusieurs instances de la même balise dans une image.
+La détection d’objets est similaire au [balisage](concept-tagging-images.md), mais l’API retourne les coordonnées de cadre englobant (en pixels) pour chaque objet trouvé. Par exemple, si une image contient un chien, un chat et une personne, l’opération de détection liste ces objets ainsi que leurs coordonnées dans l’image. Vous pouvez utiliser cette fonctionnalité pour traiter les relations entre les objets dans une image. Il vous permet également de déterminer s’il existe plusieurs instances de la même balise dans une image.
 
-L’API Détection applique des balises en fonction des objets ou éléments vivants identifiés dans l’image. Notez qu’à ce stade il n’existe aucune relation formelle entre la taxonomie utilisée pour le balisage et la taxonomie utilisée pour la détection d’objets. À un niveau conceptuel, l’API Détection recherche uniquement les objets et les éléments vivants, tandis que l’API Balise peut également inclure des termes contextuels tels que « intérieur », qui ne peuvent pas être localisés avec des cadres englobants.
+L’API Détection applique des balises en fonction des objets ou éléments vivants identifiés dans l’image. À ce stade, il n’existe aucune relation formelle entre la taxonomie de balises et la taxonomie de détection d’objet. À un niveau conceptuel, l’API détecter la recherche uniquement les objets et les choses de la vie, tandis que l’API de la balise peut également inclure des termes contextuelles telles que « intérieur », qui ne peut pas être localisés avec zones englobantes.
 
 ## <a name="object-detection-example"></a>Exemple de détection d’objet
 
@@ -89,13 +89,15 @@ La réponse JSON suivante illustre ce que retourne Vision par ordinateur lors de
 
 ## <a name="limitations"></a>Limites
 
-Les limites de la fonctionnalité de détection d'objet doivent impérativement être prises en compte afin d'éviter ou d'atténuer les effets des faux négatifs (objets manqués) et des détails limités.
-* Les tout petits objets (moins de 5 % de l'image) ne sont généralement pas détectés.
-* Les objets très proches les uns des autres (piles d'assiettes, par exemple) ne sont généralement pas détectés.
+Il est important de noter les limitations de la détection d’objets afin d’éviter ou atténuer les effets de faux négatifs (objets manquées) et les détails limités.
+
+* Les objets ne sont généralement pas détectés s’ils sont petits (moins de 5 % de l’image).
+* Objets ne sont généralement pas détectées si leur disposition étroitement ensemble (une pile d’assiettes, par exemple).
 * Les objets ne sont pas différenciés par marque ou nom de produit (différents types de sodas sur une étagère de magasin, par exemple). Toutefois, vous pouvez obtenir des informations sur les marques figurant sur une image à l'aide de la fonctionnalité [Détection de marque](concept-brand-detection.md).
 
 ## <a name="use-the-api"></a>Utilisation de l’API
-La fonctionnalité de détection d'objet fait partie de l'API [Analyser l'image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa). Vous pouvez appeler cette API via un kit de développement logiciel (SDK) natif ou via des appels REST. Lorsque vous obtenez la réponse JSON complète, analysez simplement la chaîne de contenu de la section `"objects"`.
+
+La fonctionnalité de détection d'objet fait partie de l'API [Analyser l'image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa). Vous pouvez appeler cette API via un SDK natif ou via des appels REST. Lorsque vous obtenez la réponse JSON complète, analyser la chaîne pour le contenu de la `"objects"` section.
 
 * [Démarrage rapide : Analyser une image (SDK .NET)](./quickstarts-sdk/csharp-analyze-sdk.md)
 * [Démarrage rapide : Analyser une image (API REST)](./quickstarts/csharp-analyze.md)

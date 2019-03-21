@@ -1,5 +1,5 @@
 ---
-title: API et personnalisation d’Azure Active Directory B2B Collaboration | Microsoft Docs
+title: B2B collaboration API et personnalisation - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory B2B Collaboration prend en charge les relations interentreprises en permettant aux partenaires commerciaux d’accéder de façon sélective à vos applications d’entreprise
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a475c9032d2c4062b506c1e6ebcadd1901c946b6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 610d81912ac0244f25bc39c41690ab7e7ea8897c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177425"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111308"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>API et personnalisation d’Azure Active Directory B2B Collaboration
 
@@ -44,7 +44,7 @@ L’API offre les fonctionnalités suivantes :
     "sendInvitationMessage": true
     ```
 
-  accompagné d’un message au destinataire que vous pouvez personnaliser
+   accompagné d’un message au destinataire que vous pouvez personnaliser
 
     ```
     "customizedMessageBody": "Hello Sam, let's collaborate!"
@@ -58,7 +58,7 @@ L’API offre les fonctionnalités suivantes :
     "sendInvitationMessage": false
     ```
 
-  Dans ce cas, vous obtenez une URL d’échange de la part de l’API que vous pouvez incorporer dans un modèle d’e-mail, un message instantané ou toute autre méthode de distribution de votre choix.
+   Dans ce cas, vous obtenez une URL d’échange de la part de l’API que vous pouvez incorporer dans un modèle d’e-mail, un message instantané ou toute autre méthode de distribution de votre choix.
 
 6. Enfin, si vous êtes un administrateur, vous pouvez choisir d’inviter l’utilisateur en tant que membre.
 

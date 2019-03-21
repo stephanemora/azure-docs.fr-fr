@@ -11,15 +11,15 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: 47b9d25f8db2241bb578528780e28f43d56371e5
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: bb43a75b6a221c15c8724302797d04c22e04c8d2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55963078"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113637"
 ---
 # <a name="create-a-netapp-account"></a>Créer un compte NetApp
 La création d’un compte NetApp vous permet de configurer un pool de capacité et par la suite de créer un volume. Le panneau Azure NetApp Files permet de créer un nouveau compte NetApp.
@@ -33,29 +33,29 @@ Vous devez avoir inscrit votre abonnement pour l’utilisation du fournisseur de
 
 1. Connectez-vous au portail Azure. 
 2. Accédez à Azure NetApp Files à l’aide d’une des méthodes suivantes :  
-  * Recherchez **Azure NetApp Files** dans la zone de recherche du portail Azure.  
-  * Cliquez sur **Tous les services** dans la navigation, puis filtrez sur Azure NetApp Files.  
+   * Recherchez **Azure NetApp Files** dans la zone de recherche du portail Azure.  
+   * Cliquez sur **Tous les services** dans la navigation, puis filtrez sur Azure NetApp Files.  
 
-  Vous pouvez placer le panneau Azure NetApp Files dans vos Favoris en cliquant sur l’icône représentant une étoile en regard de celui-ci. 
+   Vous pouvez placer le panneau Azure NetApp Files dans vos Favoris en cliquant sur l’icône représentant une étoile en regard de celui-ci. 
 
 3. Cliquez sur **+Ajouter** pour créer un nouveau compte NetApp.  
-  La nouvelle fenêtre de compte NetApp s’affiche.  
+   La nouvelle fenêtre de compte NetApp s’affiche.  
 
 4. Fournissez les informations suivantes pour votre compte NetApp : 
-  * **Nom du compte**  
-    Indiquez un nom unique pour l’abonnement.
-  *  **Abonnement**  
-    Sélectionnez un abonnement à partir de vos abonnements existants.
-  * **Groupe de ressources**   
-    Utilisez un groupe de ressources existant ou créez-en un.
-  * **Lieu**  
-    Sélectionnez la région dans laquelle vous souhaitez que le compte et ses ressources enfants soient situés.  
+   * **Nom du compte**  
+     Indiquez un nom unique pour l’abonnement.
+   * **Abonnement**  
+     Sélectionnez un abonnement à partir de vos abonnements existants.
+   * **Groupe de ressources**   
+     Utilisez un groupe de ressources existant ou créez-en un.
+   * **Lieu**  
+     Sélectionnez la région dans laquelle vous souhaitez que le compte et ses ressources enfants soient situés.  
 
-    ![Nouveau compte NetApp](../media/azure-netapp-files/azure-netapp-files-new-netapp-account.png)
+     ![Nouveau compte NetApp](../media/azure-netapp-files/azure-netapp-files-new-netapp-account.png)
 
 
 5. Cliquez sur **Créer**.     
-  Le compte NetApp que vous avez créé apparaît désormais dans le panneau Azure NetApp Files. 
+   Le compte NetApp que vous avez créé apparaît désormais dans le panneau Azure NetApp Files. 
 
 ## <a name="next-steps"></a>Étapes suivantes  
 

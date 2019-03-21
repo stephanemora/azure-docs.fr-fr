@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Spotinst | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Spotinst | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Spotinst.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 679284783ac93662c1c96e813f9f028fffb434f0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: f0bffdf439a192fb10fe695fbfa18e8c7abf8077
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173655"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57846682"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-spotinst"></a>Didacticiel : Intégration d’Azure Active Directory à Spotinst
+# <a name="tutorial-azure-active-directory-integration-with-spotinst"></a>Tutoriel : Intégration d’Azure Active Directory à Spotinst
 
 L’objectif de ce tutoriel est de vous montrer comment intégrer Spotinst à Azure Active Directory (Azure AD).
 
@@ -34,7 +34,7 @@ L’intégration de Spotinst à Azure AD vous offre les avantages suivants :
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD à Spotinst, vous avez besoin des éléments suivants :
 
@@ -221,7 +221,7 @@ L’objectif de cette section est de créer un utilisateur appelé Britta Simon 
 
     * Dans la zone de texte **Full Name** (Nom complet), entrez le nom entier d’un utilisateur, par exemple **Britta Simon**.
 
-    * Dans la zone de texte **Email** (E-mail), entrez l’adresse e-mail de l’utilisateur, par exemple **brittasimon@contoso.com**.
+    * Dans le **E-mail** zone de texte, entrez l’adresse e-mail de l’utilisateur, par exemple **brittasimon\@contoso.com**.
 
     * Sélectionnez les détails propres à votre organisation pour **Organization Role (Rôle de l’organisation), Account Role (Rôle de compte) et Accounts (Comptes)**.
 

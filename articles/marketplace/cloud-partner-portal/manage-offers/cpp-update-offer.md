@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 690ce08aa15a9677b04931ed1965ef819614ee84
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.openlocfilehash: 76b607502324c3ca25b3536d5197a97dbb80399d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355081"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102143"
 ---
 # <a name="update-azure-marketplace-and-appsource-offers"></a>Mettre à jour des offres sur la Place de marché Microsoft Azure et AppSource
 
@@ -68,19 +68,19 @@ Pour implémenter ces modifications, effectuez les étapes suivantes.
 
 Pour les offres de la Place de marché Microsoft Azure :
 
-2. Sélectionnez l’onglet **Références**.  Sélectionnez la référence SKU à modifier.
-3. Cliquez sur le bouton **Select Countries** sous le champ **Country/Region availability** (Disponibilité par pays/région).
-4. Dans la boîte de dialogue, ajoutez ou supprimez les régions pour cette référence SKU.
+1. Sélectionnez l’onglet **Références**.  Sélectionnez la référence SKU à modifier.
+1. Cliquez sur le bouton **Select Countries** sous le champ **Country/Region availability** (Disponibilité par pays/région).
+1. Dans la boîte de dialogue, ajoutez ou supprimez les régions pour cette référence SKU.
 
 Pour les offres AppSource :
 
-2. Sélectionnez l’onglet **Storefront Details** (Informations sur les vitrines).
-3. À côté de l’étiquette **Supported countries/regions** (Pays/régions pris en charge), cliquez sur **Supported countries/regions**. 
-4. Dans la boîte de dialogue, ajoutez ou supprimez des régions pour cette offre.
+1. Sélectionnez l’onglet **Storefront Details** (Informations sur les vitrines).
+1. À côté de l’étiquette **Supported countries/regions** (Pays/régions pris en charge), cliquez sur **Supported countries/regions**. 
+1. Dans la boîte de dialogue, ajoutez ou supprimez des régions pour cette offre.
 
 Pour les deux places de marché :
 
-5. Cliquez sur **Publish** pour démarrer le processus de publication. 
+1. Cliquez sur **Publish** pour démarrer le processus de publication. 
 
 Si une référence SKU est proposée dans une nouvelle région, vous devez spécifier les tarifs pour cette région particulière en **exportant les données tarifaires**. Si vous ajoutez une région qui était disponible, vous ne pouvez pas mettre à jour son prix car les modifications de prix ne sont pas autorisées.
 

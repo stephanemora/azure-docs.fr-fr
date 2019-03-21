@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 797ac714d3205a271fe6590a3a320e1b9e2a073e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 908ae768ae471ab6f49452c99323c31d34772d45
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194731"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201842"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Gestion des noms de domaine personnalisés dans Azure Active Directory
 
@@ -33,11 +33,11 @@ Lors de la création du répertoire, le nom de domaine initial, par exemple « c
 2. Sélectionnez **Azure Active Directory**.
 3. Sélectionnez **Noms de domaine personnalisés**.
   
-   ![Ouvrir la gestion des utilisateurs](./media/domains-manage/add-custom-domain.png)
+   ![Ouverture de la page de gestion d’utilisateur](./media/domains-manage/add-custom-domain.png)
 4. Sélectionnez le nom du domaine que vous souhaitez choisir comme domaine principal.
 5. Sélectionnez la commande **Définir comme principal**. Confirmez votre choix lorsque vous y êtes invité.
   
-   ![Créer un nom de domaine principal](./media/domains-manage/make-primary-domain.png)
+   ![Rendre un domaine nom principal](./media/domains-manage/make-primary-domain.png)
 
 Vous pouvez modifier le nom de domaine principal de votre répertoire par n’importe quel domaine personnalisé vérifié qui n’est pas fédéré. La modification du domaine principal de votre répertoire ne change pas le nom des utilisateurs existants.
 
@@ -90,7 +90,7 @@ Une erreur est renvoyée quand :
 **Q : Pourquoi la suppression du domaine échoue-t-elle avec une erreur indiquant que je dispose de groupes Exchange contrôlés sur ce nom de domaine ?** <br>
 **R :** Aujourd'hui, certains groupes tels que les groupes de sécurité à extension messagerie et les listes distribuées sont approvisionnés par Exchange et doivent être nettoyés manuellement dans le [Centre d'administration Exchange](https://outlook.office365.com/ecp/). Des éléments ProxyAddresses, qui reposent sur le nom de domaine personnalisé, peuvent être en attente et devront être mis à jour manuellement vers un autre nom de domaine. 
 
-**Q : Je suis connecté en tant que admin@contoso.com mais je ne peux pas supprimer le nom de domaine « contoso.com » ?**<br>
+**Q : Je suis connecté en tant qu’administrateur\@contoso.com, mais je ne pouvons pas supprimer le nom de domaine « contoso.com » ?**<br>
 **R :** Vous ne pouvez pas référencer le nom de domaine personnalisé que vous cherchez à supprimer dans votre nom de compte d'utilisateur. Assurez-vous que le compte d’administrateur général utilise le nom de domaine par défaut initial (.onmicrosoft.com) comme admin@contoso.onmicrosoft.com. Connectez-vous avec un compte d’administrateur général différent comme admin@contoso.onmicrosoft.com ou un autre nom de domaine personnalisé comme « fabrikam.com » où le compte est admin@fabrikam.com.
 
 **Q : J'ai cliqué sur le bouton Supprimer un domaine et je vois l'état `In Progress` pour l'opération de suppression. Combien de temps cela prend-il ? Que se passe-t-il en cas d’échec ?**<br>

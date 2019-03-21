@@ -10,13 +10,14 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9493f7ee3278bb42dc21574cd008fbe2f4376a1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8f5234674bc41e1f5bfa260dfc32042a3345d9f7
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185143"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294823"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>Authentification par code secret à usage unique d’e-mail (préversion)
 
@@ -35,11 +36,11 @@ Cette fonctionnalité est actuellement disponible en préversion (consultez [Cho
 ## <a name="user-experience-for-one-time-passcode-guest-users"></a>Expérience utilisateur pour les utilisateurs invités avec code secret à usage unique
 Avec l’authentification par code secret à usage unique, l’utilisateur invité peut accepter votre invitation en cliquant sur un lien direct ou à l’aide de l’e-mail d’invitation. Dans les deux cas, un message dans le navigateur indique qu’un code sera envoyé à l’adresse e-mail de l’utilisateur invité. L’utilisateur invité sélectionne **Envoyer le code** :
  
-   ![Panneau d’accès - Gérer l’application](media/one-time-passcode/otp-send-code.png)
+   ![Capture d’écran montrant le bouton de code d’envoi](media/one-time-passcode/otp-send-code.png)
  
 Un code secret est envoyé à l’adresse e-mail de l’utilisateur. L’utilisateur récupère le code secret à partir de l’e-mail et le saisit dans la fenêtre du navigateur :
  
-   ![Panneau d’accès - Gérer l’application](media/one-time-passcode/otp-enter-code.png)
+   ![Capture d’écran montrant la page de codes d’entrée](media/one-time-passcode/otp-enter-code.png)
  
 L’utilisateur invité est maintenant authentifié, et il peut voir la ressource partagée ou continuer à se connecter. 
 
@@ -57,7 +58,7 @@ Au moment de l’invitation, rien n’indique que l’utilisateur que vous invit
 
 Vous pouvez afficher les utilisateurs invités qui s’authentifient à l’aide de codes secrets à usage unique dans le portail Azure en accédant à **Azure Active Directory** > **Relations organisationnelles** > **Utilisateurs d’autres organisations**.
 
-![Afficher les utilisateurs de code secret à usage unique dans le portail Azure où « Source » est égal à « Code source à usage unique »](media/one-time-passcode/otp-users.png)
+![Capture d’écran montrant un utilisateur de code secret à usage unique avec la valeur de la Source de secret à usage unique](media/one-time-passcode/otp-users.png)
 
 > [!NOTE]
 > Lorsqu’un utilisateur accepte un code secret à usage unique, puis obtient un compte Azure AD, MSA, ou un autre compte fédéré, il continue d’être authentifié à l’aide d’un code secret à usage unique. Si vous souhaitez mettre à jour leur méthode d’authentification, vous pouvez supprimer le compte d’utilisateur invité et les inviter à nouveau.

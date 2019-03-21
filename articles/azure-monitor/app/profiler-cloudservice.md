@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: e050122984c19e46f3782c8364331323b403caad
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 2e13f1f09fcdfb68a99e705511e3659f1632132e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893832"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895479"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Profiler des services cloud Azure en production avec Application Insights
 
@@ -32,6 +32,8 @@ Application Insights Profiler est installé avec l’extension Azure Diagnostics
 1. Veillez à utiliser [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) ou ultérieur. Il suffit de confirmer que les fichiers *ServiceConfiguration\*.cscfg* ont une valeur `osFamily` au moins égale à « 5 ».
 
 1. Ajoutez le [SDK Application Insights à Azure Cloud Services](../../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json).
+
+   >**Il existe un bogue dans le profileur fourni avec la dernière version des diagnostics Windows AZURE pour les Services Cloud.** Pour pouvoir utiliser le profileur à un service cloud, il prend uniquement en charge SDK AI jusqu'à la version 2.7.2. Si vous utilisez une version plus récente du kit SDK AI, vous devrez revenir en arrière pour 2.7.2 pour pouvoir utiliser le profileur. Si vous utilisez Visual Studio pour mettre à niveau la version du SDK d’application Insights, vous pouvez obtenir une erreur de redirection de liaison lors de l’exécution. Il s’agit, car « newVersion » dans le fichier web.config pour Microsoft.ApplicationInsights doit être définie sur « 2.7.2.0 » après que rétrogradation le SDK AI, mais il ne mis à jour automatiquement.
 
 1. Effectuer le suivi des requêtes avec Application Insights :
 

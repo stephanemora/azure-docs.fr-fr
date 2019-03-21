@@ -8,24 +8,24 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: cf8525d4cc829805532210bf09e9ea9da240405d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: e06fd7a4b2d072e5528643c2c8517d7545c36ef3
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857747"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338652"
 ---
 # <a name="create-a-visual-search-single-page-web-app"></a>Créer une application Recherche visuelle d’une seule page 
 
-L’API Recherche visuelle de Bing fournit une expérience similaire aux détails de l’image illustrés sur Bing.com/images. Avec la Recherche visuelle, vous pouvez spécifier une image et obtenir des insights sur celle-ci, comme des images visuellement similaires, des sources d’achat, des pages web qui incluent l’image, et bien plus encore. 
+L’API de recherche visuelle Bing fournit une expérience similaire aux détails de l’image affichées sur Bing.com/images. Avec la Recherche visuelle, vous pouvez spécifier une image et obtenir des insights sur celle-ci, comme des images visuellement similaires, des sources d’achat, des pages web qui incluent l’image, et bien plus encore. 
 
 Cet article explique comment étendre une application web d’une seule page pour l’API Recherche d’images Bing. Pour afficher ce tutoriel ou obtenir le code source utilisé ici, consultez [Tutoriel : Créer une application monopage avec l’API Recherche d’images Bing](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md). 
 
 Le code source complet pour cette application (après son extension pour utiliser l’API Recherche visuelle Bing) est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchApp.html).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 

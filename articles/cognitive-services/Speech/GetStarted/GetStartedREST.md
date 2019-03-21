@@ -10,12 +10,13 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: fc40f20349e3424dbcf50f5ca0395b06a818566f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: ead4026ecec4878c69bc21a9ebc989eaf3d69a13
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224052"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259939"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-rest-api"></a>Démarrage rapide : Utiliser l’API REST de reconnaissance vocale Bing
 
@@ -23,7 +24,7 @@ ms.locfileid: "55224052"
 
 Le service cloud Reconnaissance vocale Bing vous permet de développer des applications à l’aide de l’API REST pour convertir du contenu vocal en texte.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 ### <a name="subscribe-to-the-speech-api-and-get-a-free-trial-subscription-key"></a>S’abonner à l’API Microsoft Speech et obtenir une clé d’abonnement d’essai
 
@@ -32,7 +33,7 @@ L’API Microsoft Speech fait partie de Cognitive Services (anciennement Project
 > [!IMPORTANT]
 >* Obtenez une clé d’abonnement. Pour accéder à l’API REST, vous devez avoir une [clé d’abonnement](https://azure.microsoft.com/try/cognitive-services/).
 >
->* Utilisez votre clé d’abonnement. Dans les exemples de REST suivants, remplacez YOUR_SUBSCRIPTION_KEY par votre propre clé d’abonnement. 
+>* Utilisez votre clé d’abonnement. Dans les exemples de REST suivants, remplacez YOUR_SUBSCRIPTION_KEY par votre propre clé d’abonnement.
 >
 >* Reportez-vous à la page [d’authentification](../how-to/how-to-authentication.md) pour savoir comment obtenir une clé d’abonnement.
 
@@ -65,9 +66,9 @@ Quelques exemples d’URI de service sont répertoriés dans le tableau suivant.
 
 | Mode de reconnaissance  | Langage | Format de sortie | URI de service |
 |---|---|---|---|
-| `interactive` | pt-br | Default | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
-| `conversation` | en-US | Détaillé |https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed |
-| `dictation` | fr-FR | Simple | https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR&format=simple |
+| `interactive` | pt-br | Default | https:\//speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
+| `conversation` | en-US | Détaillé | https :\//speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US & format = détaillées |
+| `dictation` | fr-FR | Simple | https:\//speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR&format=simple |
 
 > [!NOTE]
 > L’URI de service n’est nécessaire que quand votre application utilise des API REST pour appeler le service de reconnaissance vocale. Si vous utilisez une des [bibliothèques clientes](GetStartedClientLibraries.md), vous n’avez généralement pas besoin de savoir quel URI est utilisé. Les bibliothèques clientes peuvent utiliser différents URI de service, applicables uniquement à une bibliothèque cliente spécifique. Pour plus d’informations, consultez la bibliothèque de client de votre choix.

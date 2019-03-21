@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d8cb0829698b13e2193850c29f98492df6c48d4f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 688ef059387dc4c312873051c7c9d1eae259b1ae
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468510"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57844781"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>Déplacer des données vers ou depuis Stockage Blob Azure à l’aide de connecteurs SSIS
 Le [Feature Pack SQL Server Integration Services pour Azure](https://msdn.microsoft.com/library/mt146770.aspx) fournit des composants permettant de se connecter à Azure, de transférer des données entre des sources de données Azure et des sources de données sur site et de traiter les données stockées dans Azure.
@@ -34,7 +34,7 @@ Pour une présentation de scénarios canoniques utilisant SSIS pour répondre au
 > 
 > 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Pour exécuter les tâches décrites dans cet article, vous devez disposer d’un abonnement Azure et configurer un compte de stockage Azure. Pour charger ou télécharger des données, vous devez connaître le nom et la clé de votre compte Azure Storage.
 
 * Pour configurer un **abonnement Azure**, consultez la section [Essai gratuit pendant un mois](https://azure.microsoft.com/pricing/free-trial/).
@@ -55,7 +55,7 @@ Pour les supports de formation sur SSIS, consultez la [formation pratique SSIS](
 Pour plus d’informations sur la mise en service à l'aide de SISS pour la création des packages d'extraction, de transformation et de chargement (ETL), consultez [Didacticiel SSIS : création d’un Package ETL Simple](https://msdn.microsoft.com/library/ms169917.aspx).
 
 ## <a name="download-nyc-taxi-dataset"></a>Télécharger l’ensemble de données Taxi NYC
-L'exemple décrit ici utilise un groupe de données disponible au public (l'ensemble de données [Courses taxi NYC](http://www.andresmh.com/nyctaxitrips/) ). Le groupe de données se compose d’environ 173 millions de courses en taxi à New York dans l’année 2013. Il existe deux types de données : les données détaillées relatives aux voyages et celles relatives aux tarifs des courses. Comme il existe un fichier par élément pour chaque mois, nous avons 24 fichiers, chacun d’eux d’un volume de 2 Go avant compression.
+L'exemple décrit ici utilise un groupe de données disponible au public (l'ensemble de données [Courses taxi NYC](https://www.andresmh.com/nyctaxitrips/) ). Le groupe de données se compose d’environ 173 millions de courses en taxi à New York dans l’année 2013. Il existe deux types de données : les données détaillées relatives aux voyages et celles relatives aux tarifs des courses. Comme il existe un fichier par élément pour chaque mois, nous avons 24 fichiers, chacun d’eux d’un volume de 2 Go avant compression.
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Téléchargement de données vers le stockage d’objets blob Azure
 Pour déplacer des données à l’aide du pack de fonctionnalités du site local pour le stockage d’objets blobs Azure, nous utilisons une instance de la [**tâche de téléchargement d’objets blobs Azure**](https://msdn.microsoft.com/library/mt146776.aspx), comme illustré ici :

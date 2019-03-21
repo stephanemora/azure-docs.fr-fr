@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2018
-ms.author: kumud
+ms.date: 03/18/2019
+ms.author: magattus
 ms.custom: ''
-ms.openlocfilehash: 4c072ef63c0d4961fba695fc8d9be1d12b4b0e8b
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: afadef8b29927f909af5be1e1204180724258b74
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749212"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58167063"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Configurer le basculement entre plusieurs points de terminaison Azure CDN avec Azure Traffic Manager
 
@@ -77,7 +77,7 @@ Après avoir configuré vos profils CDN et Traffic Manager, suivez ces étapes p
     >
 
 
-2.  À partir de votre profil Azure CDN, sélectionnez le premier point de terminaison CDN (Akamai). Sélectionnez **Ajouter un domaine personnalisé** et saisissez *cdndemo101akamai.azureedge.net*. Vérifiez que la coche validant le domaine personnalisé est verte. 
+2.  À partir de votre profil Azure CDN, sélectionnez le premier point de terminaison CDN (Akamai). Sélectionnez **ajouter un domaine personnalisé** et d’entrée *cdndemo101.dustydogpetcare.online*. Vérifiez que la coche validant le domaine personnalisé est verte. 
 
     Azure CDN utilise le sous-domaine *cdnverify* pour valider le mappage DNS et terminer ce processus d’inscription. Pour plus d’informations, voir [Créer un enregistrement CNAME DNS](cdn-map-content-to-custom-domain.md#create-a-cname-dns-record). Cette étape permet à Azure CDN de reconnaître le domaine personnalisé afin de répondre à ses requêtes.
 
@@ -87,7 +87,7 @@ Après avoir configuré vos profils CDN et Traffic Manager, suivez ces étapes p
 
     `cdnverify.cdndemo101.dustydogpetcare.online  CNAME  cdnverify.cdndemo101verizon.azureedge.net`  
 
-4. À partir de votre profil Azure CDN, sélectionnez le deuxième point de terminaison CDN (Verizon) et répétez l’étape 2. Sélectionnez **Ajouter un domaine personnalisé** et saisissez *cdndemo101akamai.azureedge.net*.
+4. À partir de votre profil Azure CDN, sélectionnez le deuxième point de terminaison CDN (Verizon) et répétez l’étape 2. Sélectionnez **ajouter un domaine personnalisé**et d’entrée *cdndemo101.dustydogpetcare.online*.
  
 Après avoir effectué ces étapes, votre service multi-CDN avec des fonctionnalités de basculement est configuré avec Azure Traffic Manager. Vous aurez accès aux URL de test à partir de votre domaine personnalisé. Pour tester la fonctionnalité, désactivez le point de terminaison CDN principal et vérifiez que la requête est correctement déplacée sur le point de terminaison CDN secondaire. 
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/17/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 256d709ac976736715f441ecde5eee22a6d86fa6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: be1c46c5bc2c8edcfeca81c82095687c4ddfd894
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58009070"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225822"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Conception d'applications hautement disponibles à l'aide du stockage géographiquement redondant avec accès en lecture (RA-GRS)
 
@@ -123,7 +123,7 @@ Lorsque vous décidez de la façon de répondre à une erreur renouvelable, deux
 
     Dans ce scénario, une perte de performances est observée, dans la mesure où toutes vos demandes de lecture essaieront le point de terminaison principal en premier, attendront l’expiration du délai, puis basculeront vers le point de terminaison secondaire.
 
-Dans le cadre de ces scénarios, vous devez savoir qu’un problème affecte actuellement le point de terminaison principal et envoyer toutes les demandes de lecture directement au point de terminaison secondaire en affectant à la propriété **LocationMode** la valeur **SecondaryOnly**. À ce stade, vous devez également définir l’exécution de l’application en mode lecture seule. Cette approche est appelée le modèle Disjoncteur. Voir [Circuit Breaker Pattern](https://msdn.microsoft.com/library/dn589784.aspx) (modèle Disjoncteur).
+Dans le cadre de ces scénarios, vous devez savoir qu’un problème affecte actuellement le point de terminaison principal et envoyer toutes les demandes de lecture directement au point de terminaison secondaire en affectant à la propriété **LocationMode** la valeur **SecondaryOnly**. À ce stade, vous devez également définir l’exécution de l’application en mode lecture seule. Cette approche est appelée le modèle Disjoncteur. Voir [Circuit Breaker Pattern](/azure/architecture/patterns/circuit-breaker) (modèle Disjoncteur).
 
 ### <a name="update-requests"></a>Demandes de mise à jour
 

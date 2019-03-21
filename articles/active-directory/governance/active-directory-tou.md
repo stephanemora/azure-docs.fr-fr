@@ -15,12 +15,12 @@ ms.subservice: compliance
 ms.date: 02/09/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 987b2b1ca028b816ed6909781f56c0b5174541bd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8f2de9274e1b6c996e75148d1a1f018d73a721bb
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163765"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443451"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Fonctionnalité Conditions d’utilisation d’Azure Active Directory
 La fonctionnalité Conditions d’utilisation d’Azure AD offre aux organisations une méthode simple pour présenter des informations aux utilisateurs finaux. Cette présentation permet de garantir que les utilisateurs voient les clauses d’exclusion de responsabilité nécessaires au respect des conditions légales ou de conformité. Cet article vous indique comment prendre en main les conditions d’utilisation.
@@ -51,7 +51,7 @@ La fonctionnalité Conditions d’utilisation d’Azure AD vous permet d’effe
 - Consulter le journal des conditions d’utilisation pour en vérifier la conformité et procéder à un audit.
 - Créer et gérer des conditions d’utilisation avec des [API Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/agreement) (actuellement préversion).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Pour utiliser et configurer les conditions d’utilisation d’Azure AD, vous devez disposer des éléments suivants :
 
 - Abonnement Azure AD Premium P1, P2, EMS E3 ou EMS E5.
@@ -258,10 +258,10 @@ Voici une liste des plateformes et des logiciels pris en charge.
 > [!div class="mx-tableFixed"]
 > |  | iOS | Android | Windows 10 | Autres |
 > | --- | --- | --- | --- | --- |
-> | **Application native** | OUI | OUI | OUI |  |
-> | **Microsoft Edge** | OUI | OUI | OUI |  |
-> | **Internet Explorer** | OUI | OUI | OUI |  |
-> | **Chrome (avec extension)** | OUI | OUI | OUI |  |
+> | **Application native** | Oui | OUI | Oui |  |
+> | **Microsoft Edge** | Oui | OUI | Oui |  |
+> | **Internet Explorer** | Oui | OUI | Oui |  |
+> | **Chrome (avec extension)** | Oui | OUI | Oui |  |
 
 Les conditions d’utilisation par appareil ont les contraintes suivantes :
 
@@ -315,7 +315,7 @@ Les stratégies d’accès conditionnel prennent effet immédiatement. Dans ce c
 
 La plupart des organisations mettent en place un processus qui permet à leurs employés de consentir aux conditions d’utilisation et déclarations de confidentialité de leur organisation. Mais comment faire pour appliquer les mêmes consentements pour les invités Azure AD B2B quand ils sont ajoutés par le biais de SharePoint ou de Teams ? Grâce à l’accès conditionnel et aux conditions d’utilisation, vous pouvez appliquer une stratégie directement aux utilisateurs invités B2B. Durant le flux d’acceptation d’invitation, l’utilisateur se voit présenter les conditions d’utilisation. Cette prise en charge est actuellement en mode préliminaire.
 
-Les conditions d’utilisation sont seulement affichées quand l’utilisateur dispose d’un compte invité dans Azure AD. SharePoint Online propose actuellement une [expérience ad-hoc de partage avec des destinataires externes](/sharepoint/what-s-new-in-sharing-in-targeted-release) pour partager un document ou un dossier sans contraindre l’utilisateur à avoir un compte invité. Dans ce cas, les conditions d’utilisation ne sont pas affichées.
+Les conditions d’utilisation sont seulement affichées quand l’utilisateur dispose d’un compte invité dans Azure AD. SharePoint Online possède actuellement un [ad hoc expérience du destinataire partage externe](/sharepoint/what-s-new-in-sharing-in-targeted-release) pour partager un document ou un dossier qui ne nécessite pas de l’utilisateur dispose d’un compte invité. Dans ce cas, les conditions d’utilisation ne sont pas affichées.
 
 ![Tous les utilisateurs invités](./media/active-directory-tou/b2b-guests.png)
 

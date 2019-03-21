@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 11/29/2018
+ms.date: 03/13/2019
 ms.author: sngun
-ms.openlocfilehash: ebb6fe9f583c2658f187d3cca1185f1525fb1bf5
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: c2b0c52ca78f2b9c4273280aa9da16a5ef1bbc00
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811033"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003248"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Kit de développement logiciel (SDK) Java Azure Cosmos DB pour API SQL : Notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -43,12 +43,23 @@ Le Kit de développement logiciel (SDK) de l’API Java SQL prend en charge les 
 
 ## <a name="release-notes"></a>Notes de publication
 
+### <a name="a-name210213"></a><a name="2.1.0"/>2.1.3
+* Correction du bogue dans PartitionKey pour V2 de hachage.
+
+### <a name="a-name210212"></a><a name="2.1.0"/>2.1.2
+* Prise en charge pour les index composites.
+* Résolution de bogue dans le Gestionnaire de point de terminaison global pour forcer l’actualisation.
+* Résolution de bogue pour les upserts avec les conditions préalables en mode direct.
+
+### <a name="a-name210211"></a><a name="2.1.0"/>2.1.1
+* Correction du bogue dans le cache d’adresses de passerelle.
+
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
 * Ajout de la prise en charge de l’écriture multirégion pour le mode direct.
 * Ajout de la prise en charge du traitement des IOExceptions levées en tant qu’exceptions ServiceUnavailable à partir d’un proxy.
 * Correction d’un bogue dans la stratégie de nouvelle tentative de découverte de point de terminaison.
 * Correction d’un bogue pour éviter que des exceptions soient levées dans BaseDatabaseAccountConfigurationProvider de pointeur null.
-* Correction d’un bogue pour éviter que l’itérateur de requête ne retourne des valeurs NULL.
+* Correction d’un bogue pour vous assurer que queryiterator ne renvoient pas les valeurs NULL.
 * Correction d’un bogue pour autoriser une clé de partition volumineuse
 
 ### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
@@ -212,7 +223,10 @@ Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit d
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
-| 2.1.1 |21 novembre 2018 |--- |
+| [2.1.3](#2.1.3) |13 mars 2018 |--- |
+| [2.1.2](#2.1.2) |09 mars 2018 |--- |
+| [2.1.1](#2.1.1) |13 décembre 2018. |--- |
+| [2.1.0](#2.1.0) |20 novembre 2018 |--- |
 | [2.0.0](#2.0.0) |21 septembre 2018 |--- |
 | [1.16.4](#1.16.4) |10 septembre 2018 |--- |
 | [1.16.3](#1.16.3) |09 septembre 2018 |--- |

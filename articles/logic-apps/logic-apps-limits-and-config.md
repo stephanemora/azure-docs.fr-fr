@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: d77cdd7781f3a371d6089573a16ba642fb1c774c
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: 4a2b06f18e709f9a8479770d58f43928893281be
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769866"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117351"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites et informations de configuration pour Azure Logic Apps
 
@@ -168,7 +168,7 @@ Les limites pour les connecteurs personnalisés qu’il est possible de créer �
 | ---- | ----- | 
 | Nombre de connecteurs personnalisés | 1 000 par abonnement Azure | 
 | Nombre de demandes par minute pour chaque connexion créée par un connecteur personnalisé | 500 demandes par connexion |
-|||| 
+|||
 
 <a name="managed-identity"></a>
 

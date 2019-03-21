@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: 93402f9124a5c2f6a251cb0e3b3dab21386fa5ff
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: 9632bd339956aff7558461ed391cdd21c92f06ad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55965254"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995185"
 ---
 # <a name="example-3--build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg"></a>Exemple 3 : créer un réseau de périmètre DMZ pour protéger les réseaux avec un pare-feu, un réseau défini sur l’utilisateur et un groupe de réseau
 [Revenir à la page Meilleures pratiques relatives aux frontières de sécurité][HOME]
@@ -356,7 +356,7 @@ Les caractéristiques de chaque règle nécessaire pour compléter cet exemple s
   
     Cette règle passe permet à n’importe quel serveur IIS sur le sous-réseau du serveur frontal d’atteindre AppVM01 (adresse IP 10.0.2.5) sur le port Any, en utilisant n’importe quel protocole nécessaire à l’application web.
   
-    Dans cette capture d’écran, l’élément « \<explicite-dest\> » est utilisé dans le champ Destination pour désigner 10.0.2.5 comme destination. Il peut être soit explicite, comme indiqué, ou il peut s’agir d’un objet réseau nommé (comme dans les conditions préalables requises pour le serveur DNS). C’est à l’administrateur du pare-feu qu’il appartient de choisir la méthode qui sera utilisée. Pour ajouter 10.0.2.5 comme destination explicite, double-cliquez sur la première ligne vide sous \<explicite dest\>, puis entrez l’adresse dans la fenêtre qui s’affiche.
+    Dans cette capture d’écran une «\<explicite-dest\>» est utilisé dans le champ de Destination pour désigner 10.0.2.5 comme destination. Il peut être soit explicite, comme indiqué, ou il peut s’agir d’un objet réseau nommé (comme dans les conditions préalables requises pour le serveur DNS). C’est à l’administrateur du pare-feu qu’il appartient de choisir la méthode qui sera utilisée. Pour ajouter 10.0.2.5 comme Destination explicite, double-cliquez sur la première ligne vide sous \<explicite-dest\> et entrez l’adresse dans la fenêtre qui s’affiche.
   
     Avec cette règle Pass, aucune traduction n’est nécessaire, car il s’agit de trafic interne et donc, la méthode de connexion peut être définie sur « Non SNAT ».
   
@@ -486,7 +486,7 @@ Rappelez-vous également que les groupes de sécurité réseau sont en place pou
 11. AppVM01 demande le mot de passe utilisateur
 
 #### <a name="allowed-web-server-dns-lookup-on-dns-server"></a>(Autorisé) recherche DNS du serveur web sur le serveur DNS
-1. Le serveur Web Server IIS01 a besoin d’un flux de données sur www.data.gov, mais doit résoudre l’adresse.
+1. Web des besoins de serveur, IIS01, un flux de données à l’adresse www\.data.gov, mais doit résoudre l’adresse.
 2. La configuration réseau du réseau virtuel DNS01 définit (10.0.2.4 sur le sous-réseau du serveur principal) comme serveur DNS principal, IIS01 envoie la requête DNS pour DNS01.
 3. UDR achemine le trafic sortant vers le pare-feu qui représente le tronçon suivant
 4. Aucune règle NSG sortante n’est signalée sur le sous-réseau du serveur principal. Le trafic est autorisé.
@@ -945,7 +945,7 @@ Ce script PowerShell doit être exécuté localement sur un PC ou un serveur con
 Enregistrer ce fichier XML avec l’emplacement mis à jour et ajouter le lien vers ce fichier à la variable $NetworkConfigFile dans le script ci-dessus.
 
 ```xml
-    <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+    <NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
       <VirtualNetworkConfiguration>
         <Dns>
           <DnsServers>

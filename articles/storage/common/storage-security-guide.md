@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/31/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 72d4a9cd9a8b9244c428d49b5270952deb6f5162
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 56c09d9c6d1249713de7c6a0428ad2a124eee157
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454485"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58013076"
 ---
 # <a name="azure-storage-security-guide"></a>Guide de sécurité Azure Storage
 
@@ -111,7 +111,7 @@ Voici les principaux points à prendre en compte pour accéder aux opérations d
 ### <a name="managing-your-storage-account-keys"></a>Gestion des clés de compte de stockage
 Les clés de compte de stockage sont des chaînes de 512 bits créées par Azure qui, combinées avec le nom de compte de stockage, permettent d’accéder aux objets de données présents dans le compte de stockage, notamment les blobs, les entités d’une table, les messages de file d’attente et les fichiers se trouvant sur un partage de fichiers Azure. Le contrôle d’accès aux clés de compte de stockage permet de contrôler l’accès au plan de données de ce compte de stockage.
 
-Chaque compte de stockage a deux clés appelées « Clé 1 » et « Clé 2 » dans le [portail Azure](http://portal.azure.com/) et dans les applets de commande PowerShell. Il est possible de les régénérer manuellement au moyen de diverses méthodes, notamment avec le [Portail Azure](https://portal.azure.com/), PowerShell, l’interface de ligne de commande Azure ou par programmation en utilisant la bibliothèque cliente de stockage .NET ou l’API REST des services de Stockage Azure.
+Chaque compte de stockage a deux clés appelées « Clé 1 » et « Clé 2 » dans le [portail Azure](https://portal.azure.com/) et dans les applets de commande PowerShell. Il est possible de les régénérer manuellement au moyen de diverses méthodes, notamment avec le [Portail Azure](https://portal.azure.com/), PowerShell, l’interface de ligne de commande Azure ou par programmation en utilisant la bibliothèque cliente de stockage .NET ou l’API REST des services de Stockage Azure.
 
 La décision de régénérer les clés de compte de stockage peut être motivée par différents facteurs.
 

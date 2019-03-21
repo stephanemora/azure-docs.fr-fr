@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 9b8b92b7a672a4d344b17d4ade497749766f8a91
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 7d8a654b6b2f429119323fa5d18eb0596f63e6f0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719691"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105265"
 ---
 # <a name="use-apache-ambari-views-to-debug-apache-tez-jobs-on-hdinsight"></a>Utiliser les vues Apache Ambari pour déboguer les travaux Apache Tez dans HDInsight
 
@@ -23,7 +23,7 @@ L’interface utilisateur web d’[Apache Ambari](https://ambari.apache.org/) po
 > [!IMPORTANT]  
 > Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Contrôle de version des composants HDInsight](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Un cluster HDInsight sous Linux Pour plus d’informations sur la création d’un cluster, consultez l’article [Prise en main de HDInsight sous Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * Un navigateur web moderne qui prend en charge HTML5.
@@ -90,14 +90,14 @@ Utilisez les étapes suivantes pour exécuter une requête Hive utilisant Tez :
 
 5. Les onglets de cette page vous permettent d’afficher les informations suivantes :
 
-    * **Détails de la requête** : informations détaillées sur la requête Hive.
-    * **Chronologie** : informations détaillées sur la durée de chaque étape du traitement.
-    * **Configurations** : configuration utilisée pour cette requête.
+   * **Détails de la requête** : informations détaillées sur la requête Hive.
+   * **Chronologie** : informations détaillées sur la durée de chaque étape du traitement.
+   * **Configurations** : configuration utilisée pour cette requête.
 
-    À partir de __Détails de la requête__, vous pouvez utiliser les liens pour rechercher des informations sur __Application__ ou __DAG__ pour cette requête.
+     À partir de __Détails de la requête__, vous pouvez utiliser les liens pour rechercher des informations sur __Application__ ou __DAG__ pour cette requête.
     
-    * Le lien __Application__ affiche des informations sur l’application YARN pour cette requête. À ce stade, vous pouvez accéder aux journaux des applications YARN.
-    * Le lien __DAG__ affiche des informations sur le graphique acyclique dirigé pour cette requête. Cette vue permet d’afficher une représentation graphique du DAG. Vous pouvez également rechercher des informations sur les vertex dans le DAG.
+   * Le lien __Application__ affiche des informations sur l’application YARN pour cette requête. À ce stade, vous pouvez accéder aux journaux des applications YARN.
+   * Le lien __DAG__ affiche des informations sur le graphique acyclique dirigé pour cette requête. Cette vue permet d’afficher une représentation graphique du DAG. Vous pouvez également rechercher des informations sur les vertex dans le DAG.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

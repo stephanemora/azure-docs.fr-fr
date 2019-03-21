@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/19/2017
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 08838ce0af16cc4ae768bd5d2ecf72c57f8fae97
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 03e519520d4a956a5c9690dc1327089505aafced
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858074"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120854"
 ---
 # <a name="how-to-obtain-subscription-keys"></a>Obtenir des clés d’abonnement
 
@@ -24,8 +24,8 @@ Les services Vision par ordinateur nécessitent des clés d’abonnement spécia
 
 Pour vous inscrire et obtenir des clés d’abonnement, consultez [Abonnements](https://azure.microsoft.com/try/cognitive-services/). L’inscription est gratuite. La tarification de ces services peut faire l’objet de modifications.
 
->[!NOTE]
-Vos clés d’abonnement ne sont valides que dans l’une de ces [régions Microsoft Azure](https://azure.microsoft.com/regions/). 
+> [!NOTE]
+> Vos clés d’abonnement ne sont valides que dans l’une de ces [régions Microsoft Azure](https://azure.microsoft.com/regions/). 
 
 | Région | Adresse |
 |---|---|
