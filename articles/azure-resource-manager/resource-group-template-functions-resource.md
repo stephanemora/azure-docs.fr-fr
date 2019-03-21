@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 61225a63b1f26012325ea97ac9f812e06a0dbc33
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 87ce2019f85a2c1be742d3abf6c2fc61c5dcec10
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756680"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56866927"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Fonctions de ressources pour les modèles Azure Resource Manager
 
@@ -49,8 +49,8 @@ La syntaxe de cette fonction varie en fonction du nom des opérations de liste. 
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| nom_ressource ou identificateur_ressource |Oui |chaîne |Identificateur unique pour la ressource. |
-| apiVersion |Oui |chaîne |Version d'API de l'état d'exécution des ressources. En règle générale, au format, **aaaa-mm-jj**. |
+| nom_ressource ou identificateur_ressource |Oui |string |Identificateur unique pour la ressource. |
+| apiVersion |Oui |string |Version d'API de l'état d'exécution des ressources. En règle générale, au format, **aaaa-mm-jj**. |
 | functionValues |Non  |objet | Objet qui contient les valeurs de la fonction. Fournissez uniquement cet objet pour les fonctions qui prennent en charge la réception d’un objet avec des valeurs de paramètre, comme **listAccountSas** sur un compte de stockage. Un exemple de transmission de valeurs de fonction est illustré dans cet article. | 
 
 ### <a name="implementations"></a>Implémentations
@@ -271,8 +271,8 @@ Renvoie des informations sur un fournisseur de ressources et les types de ressou
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| espacedenoms_fournisseur |Oui |chaîne |Espace de noms du fournisseur. |
-| resourceType |Non  |chaîne |Type de ressource dans l'espace de noms spécifié. |
+| espacedenoms_fournisseur |Oui |string |Espace de noms du fournisseur. |
+| resourceType |Non  |string |Type de ressource dans l'espace de noms spécifié. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -359,9 +359,9 @@ Renvoie un objet représentant l’état d’exécution d’une ressource.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| nom_ressource ou identificateur_ressource |Oui |chaîne |Nom ou identificateur unique d’une ressource. |
-| apiVersion |Non  |chaîne |Version d’API de la ressource spécifiée. Incluez ce paramètre quand la ressource n’est pas provisionnée dans le même modèle. En règle générale, au format, **aaaa-mm-jj**. |
-| 'Full' |Non  |chaîne |Valeur qui spécifie si l’objet de ressource complet doit être retourné. Si vous ne spécifiez pas `'Full'`, seul l’objet properties de la ressource est retourné. L’objet complet comprend des valeurs telles que l’ID de ressource et l’emplacement. |
+| nom_ressource ou identificateur_ressource |Oui |string |Nom ou identificateur unique d’une ressource. |
+| apiVersion |Non  |string |Version d’API de la ressource spécifiée. Incluez ce paramètre quand la ressource n’est pas provisionnée dans le même modèle. En règle générale, au format, **aaaa-mm-jj**. |
+| 'Full' |Non  |string |Valeur qui spécifie si l’objet de ressource complet doit être retourné. Si vous ne spécifiez pas `'Full'`, seul l’objet properties de la ressource est retourné. L’objet complet comprend des valeurs telles que l’ID de ressource et l’emplacement. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -659,10 +659,10 @@ Retourne l'identificateur unique d'une ressource. Vous utilisez cette fonction l
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |Non  |string (au format GUID) |La valeur par défaut est l’abonnement actuel. Spécifiez cette valeur lorsque vous devez récupérer une ressource se trouvant dans un autre abonnement. |
-| nom_groupe_ressources |Non  |chaîne |La valeur par défaut est le groupe de ressources actuel. Spécifiez cette valeur lorsque vous devez récupérer une ressource se trouvant dans un autre groupe de ressources. |
-| resourceType |Oui |chaîne |Type de ressource, y compris l'espace de noms du fournisseur de ressources. |
-| nom_ressource1 |Oui |chaîne |Nom de la ressource. |
-| nom_ressource2 |Non  |chaîne |Segment de nom de ressource suivant si la ressource est imbriquée. |
+| nom_groupe_ressources |Non  |string |La valeur par défaut est le groupe de ressources actuel. Spécifiez cette valeur lorsque vous devez récupérer une ressource se trouvant dans un autre groupe de ressources. |
+| resourceType |Oui |string |Type de ressource, y compris l'espace de noms du fournisseur de ressources. |
+| nom_ressource1 |Oui |string |Nom de la ressource. |
+| nom_ressource2 |Non  |string |Segment de nom de ressource suivant si la ressource est imbriquée. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -727,8 +727,7 @@ Souvent, vous devez utiliser cette fonction lorsque vous utilisez un compte de s
       }
   },
   "variables": {
-      "vnetID": "[resourceId(parameters('virtualNetworkResourceGroup'), 'Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
-      "subnet1Ref": "[concat(variables('vnetID'),'/subnets/', parameters('subnet1Name'))]"
+      "subnet1Ref": "[resourceId(parameters('virtualNetworkResourceGroup'), 'Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'), parameters('subnet1Name'))]"
   },
   "resources": [
   {

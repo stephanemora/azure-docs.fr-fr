@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 03/18/2019
 ms.author: spelluru
-ms.openlocfilehash: 663864837e2847125d0925b9b82d8962e54290b3
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
+ms.openlocfilehash: eaa285318a868d0ccee07d830e1cc1be18f457a2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56726480"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181552"
 ---
 # <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Créer des machines virtuelles à l’aide d’un modèle Azure Resource Manager 
 
@@ -66,5 +66,5 @@ Le modèle Resource Manager est maintenant préparé pour [créer une machine vi
 
 ### <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [Créer des environnements à plusieurs machines virtuelles avec les modèles Resource Manager](devtest-lab-create-environment-from-arm.md).
-* [Déployer un modèle Resource Manager pour créer une machine virtuelle](devtest-lab-create-environment-from-arm.md#deploy-a-resource-manager-template-to-create-a-vm)
+* [Déployer un modèle Resource Manager pour créer une machine virtuelle](devtest-lab-create-environment-from-arm.md#automate-deployment-of-environments)
 * Découvrez les autres modèles Resource Manager à démarrage rapide pour l’automatisation de DevTest Labs à partir du [dépôt DevTest Labs GitHub public](https://github.com/Azure/azure-quickstart-templates).

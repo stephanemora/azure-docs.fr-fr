@@ -8,14 +8,14 @@ author: preetikr
 ms.author: preetikr
 ms.reviewer: klam, estfan, LADocs
 ms.topic: article
-ms.date: 01/30/19
+ms.date: 01/30/2019
 tags: connectors
-ms.openlocfilehash: 647df9e73804c8f261b58d5ede7c4b030d448fed
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: 24963a35bc3e54b2d140bf4ed1d169b213bd9b2a
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55513304"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673680"
 ---
 # <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Améliorer la protection contre les menaces en intégrant des opérations de sécurité avec Microsoft Graph Security et Azure Logic Apps
 
@@ -30,7 +30,7 @@ Le workflow de votre application logique peut utiliser des actions visant à obt
 
 Pour en savoir plus sur Microsoft Graph Security, consultez la [vue d’ensemble de l’API Microsoft Graph Security](https://aka.ms/graphsecuritydocs). Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md). Si vous recherchez Microsoft Flow ou PowerApps, consultez [Qu’est-ce que Flow ?](https://flow.microsoft.com/) ou [Qu’est-ce que PowerApps ?](https://powerapps.microsoft.com/)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/). 
 

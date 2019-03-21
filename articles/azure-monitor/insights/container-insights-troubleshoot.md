@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/30/2018
 ms.author: magoedte
-ms.openlocfilehash: 5a9211abdbc4c9ea7907dfac00d449317dd13089
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: abf833cc054bfac0581506f75259e357f0ab1b38
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190745"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985748"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>Dépannage d’Azure Monitor for containers
 
 Lorsque vous configurez la surveillance de votre cluster Azure Kubernetes Service (AKS) avec Azure Monitor for containers, il se peut que vous rencontriez un problème empêchant la collecte de données ou la récupération de l’état. Cet article décrit en détail certains problèmes courants et indique la façon de les résoudre.
 
 ## <a name="azure-monitor-for-containers-is-enabled-but-not-reporting-any-information"></a>Azure Monitor for containers est activé, mais aucune information n’est renvoyée
-Si Azure Monitor for containers est correctement configuré et activé, mais que les informations d’état ne s’affichent pas ou qu’aucun résultat n’est retourné suite à une requête de journal Log Analytics, vous pouvez diagnostiquer le problème de la façon suivante : 
+Si Azure Monitor pour les conteneurs est correctement configurée et activée, mais vous ne pouvez pas afficher les informations d’état ou sans résultats sont retournés à partir d’une requête de journal, vous diagnostiquez le problème en procédant comme suit : 
 
 1. Vérifiez l’état de l’agent en exécutant la commande : 
 
@@ -98,7 +98,7 @@ Le tableau ci-dessous récapitule les erreurs connues que vous pouvez rencontrer
 | messages d'erreur  | Action |  
 | ---- | --- |  
 | Message d’erreur `No data for selected filters`  | L’établissement de la supervision du flux de données pour les nouveaux clusters peut prendre un certain temps. Patientez au moins 10 à 15 minutes avant l’affichage des données de votre cluster. |   
-| Message d’erreur `Error retrieving data` | Bien que le cluster Azure Kubernetes Service soit configuré pour la supervision de l’intégrité et des performances, une connexion est établie entre le cluster et l’espace de travail Azure Log Analytics. Un espace de travail Log Analytics est utilisé pour stocker toutes les données de supervision de votre cluster. Cette erreur peut se produire lorsque votre espace de travail Log Analytics a été supprimé ou perdu. Vérifiez si votre espace de travail est disponible en consultant [Gérer l’accès](../../azure-monitor/platform/manage-access.md?toc=/azure/azure-monitor/toc.json#workspace-information). Si l’espace de travail est manquant, vous devez réintégrer votre cluster à Azure Monitor pour conteneurs. Pour réintégrer, vous devez [désactiver](container-insights-optout.md) la supervision du cluster et [réactiver](container-insights-onboard.md?toc=%2fazure%2fmonitoring%2ftoc.json#enable-monitoring-for-a-new-cluster) Azure Monitor pour conteneurs. |  
+| Message d’erreur `Error retrieving data` | Bien que le cluster Azure Kubernetes Service soit configuré pour la supervision de l’intégrité et des performances, une connexion est établie entre le cluster et l’espace de travail Azure Log Analytics. Un espace de travail Log Analytics est utilisé pour stocker toutes les données de supervision de votre cluster. Cette erreur peut se produire lorsque votre espace de travail Log Analytics a été supprimé ou perdu. Vérifiez si votre espace de travail est disponible en consultant [Gérer l’accès](../../azure-monitor/platform/manage-access.md?toc=/azure/azure-monitor/toc.json#view-workspace-details). Si l’espace de travail est manquant, vous devez réintégrer votre cluster à Azure Monitor pour conteneurs. Pour réintégrer, vous devez [désactiver](container-insights-optout.md) la supervision du cluster et [réactiver](container-insights-onboard.md?toc=%2fazure%2fmonitoring%2ftoc.json#enable-monitoring-for-a-new-cluster) Azure Monitor pour conteneurs. |  
 | `Error retrieving data` après l’ajout d’Azure Monitor pour conteneurs à l’aide de la commande az aks cli | Lors de l’intégration à l’aide de `az aks cli`, Azure Monitor pour conteneurs peut, dans de très rares cas, ne pas être correctement intégré. Vérifiez si la solution est intégrée. Pour cela, accédez à votre espace de travail Log Analytics et voyez si la solution est disponible en sélectionnant **Solutions** dans le volet de gauche. Pour résoudre ce problème, vous devez redéployer la solution en suivant les instructions de [déploiement d’Azure Monitor pour conteneurs](container-insights-onboard.md?toc=%2fazure%2fmonitoring%2ftoc.json) |  
 
 Pour vous aider à diagnostiquer le problème, nous vous fournissons un script de résolution des problèmes disponible [ici](https://github.com/Microsoft/OMS-docker/tree/ci_feature_prod/Troubleshoot#troubleshooting-script).  

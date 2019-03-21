@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: jdial
-ms.openlocfilehash: 3d2f07a2a5f660a6f22256fa528c2a308fde81ad
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 0b859b6c3fa37e8dbac82436d1e2f2444c9d2dcf
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54435360"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312152"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>Journalisation des diagnostics pour un groupe de sécurité réseau
 
@@ -40,46 +40,48 @@ Vous pouvez utiliser le [portail Azure](#azure-portal), [PowerShell](#powershell
 2. Sélectionnez **Tous les services**, puis tapez *groupes de sécurité réseau*. Quand la mention **Groupes de sécurité réseau** apparaît dans les résultats de recherche, sélectionnez-la.
 3. Sélectionnez le groupe de sécurité réseau pour lequel vous souhaitez activer la journalisation.
 4. Sous **SURVEILLANCE**, sélectionnez **Journaux de diagnostic**, puis **Activer les diagnostics**, comme illustré dans l’image suivante :
- 
-    ![Activer les diagnostics](./media/virtual-network-nsg-manage-log/turn-on-diagnostics.png)
+
+   ![Activer les diagnostics](./media/virtual-network-nsg-manage-log/turn-on-diagnostics.png)
 
 5. Sous **Paramètres de diagnostic**, entrez, ou sélectionnez, les informations suivantes, puis sélectionnez **Enregistrer** :
 
     | Paramètre                                                                                     | Valeur                                                          |
     | ---------                                                                                   |---------                                                       |
-    | NOM                                                                                        | Un nom de votre choix.  Par exemple : *myNsgDiagnostics*      |
+    | Nom                                                                                        | Un nom de votre choix.  Par exemple : *myNsgDiagnostics*      |
     | **Archiver dans un compte de stockage**, **Diffuser vers Event Hub** et **Envoyer à Log Analytics** | Vous pouvez sélectionner autant de destinations que vous le souhaitez. Pour en savoir plus sur chacune d’elles, consultez [Destinations des journaux](#log-destinations).                                                                                                                                           |
     | JOURNAL                                                                                         | Sélectionnez une catégorie de journal, ou les deux. Pour en savoir plus sur les données consignées pour chaque catégorie, consultez [Catégories de journal](#log-categories).                                                                                                                                             |
 6. Consultez et analysez les journaux. Pour plus d’informations, voir [Afficher et analyser les journaux](#view-and-analyze-logs).
 
 ### <a name="powershell"></a>PowerShell
 
-Vous pouvez exécuter les commandes qui suivent dans [Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif gratuit. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Si vous exécutez PowerShell à partir de votre ordinateur, vous avez besoin du module PowerShell *AzureRM*, version 6.1.1 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` sur votre ordinateur pour trouver la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Si vous exécutez PowerShell localement, vous devez aussi exécuter `Login-AzureRmAccount` pour vous connecter à Azure avec un compte disposant des [autorisations nécessaires](virtual-network-network-interface.md#permissions).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Pour activer la journalisation des diagnostics, vous avez besoin de l’Id d’un groupe de sécurité réseau existant. Si vous ne disposez pas de groupe de sécurité réseau, vous pouvez en créer un avec [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup).
+Vous pouvez exécuter les commandes qui suivent dans [Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif gratuit. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Si vous exécutez PowerShell à partir de votre ordinateur, vous devez le module Azure PowerShell, version 1.0.0 ou une version ultérieure. Exécutez `Get-Module -ListAvailable Az` sur votre ordinateur pour trouver la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Si vous exécutez PowerShell en local, vous devez également exécuter `Connect-AzAccount` se connecter à Azure avec un compte qui possède le [autorisations nécessaires](virtual-network-network-interface.md#permissions).
 
-Récupérez le groupe de sécurité réseau pour lequel vous souhaitez activer la journalisation des diagnostics avec [Get-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/get-azurermnetworksecuritygroup). Par exemple, pour récupérer un groupe de sécurité réseau nommé *myNsg*, qui existe dans un groupe de ressources appelé *myResourceGroup*, entrez la commande suivante :
+Pour activer la journalisation des diagnostics, vous avez besoin de l’Id d’un groupe de sécurité réseau existant. Si vous n’avez pas un NSG existant, vous pouvez en créer un avec [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup).
+
+Récupérer le groupe de sécurité réseau que vous souhaitez activer la journalisation des diagnostics pour avec [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup). Par exemple, pour récupérer un groupe de sécurité réseau nommé *myNsg*, qui existe dans un groupe de ressources appelé *myResourceGroup*, entrez la commande suivante :
 
 ```azurepowershell-interactive
-$Nsg=Get-AzureRmNetworkSecurityGroup `
+$Nsg=Get-AzNetworkSecurityGroup `
   -Name myNsg `
   -ResourceGroupName myResourceGroup
 ```
 
-Vous pouvez écrire des journaux de diagnostic sur trois types de destinations. Pour plus d’informations, consultez [Destinations de journaux](#log-destinations). Dans cet article, les journaux sont envoyés à la destination *Log Analytics*, à titre d’exemple. Récupérez un espace de travail Log Analytics avec [Get-AzureRmOperationalInsightsWorkspace](/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightsworkspace). Par exemple, pour récupérer un espace de travail existant nommé *myWorkspace*, dans un groupe de ressources appelé *myWorkspaces*, entrez la commande suivante :
+Vous pouvez écrire des journaux de diagnostic sur trois types de destinations. Pour plus d’informations, consultez [Destinations de journaux](#log-destinations). Dans cet article, les journaux sont envoyés à la destination *Log Analytics*, à titre d’exemple. Récupérer un espace de travail Analytique de journal avec [Get-AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/get-azoperationalinsightsworkspace). Par exemple, pour récupérer un espace de travail existant nommé *myWorkspace*, dans un groupe de ressources appelé *myWorkspaces*, entrez la commande suivante :
 
 ```azurepowershell-interactive
-$Oms=Get-AzureRmOperationalInsightsWorkspace `
+$Oms=Get-AzOperationalInsightsWorkspace `
   -ResourceGroupName myWorkspaces `
   -Name myWorkspace
 ```
 
-Si vous n’avez pas d’espace de travail, vous pouvez en créer un avec [New-AzureRmOperationalInsightsWorkspace](/powershell/module/azurerm.operationalinsights/new-azurermoperationalinsightsworkspace).
+Si vous n’avez pas un espace de travail existant, vous pouvez en créer un avec [New-AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/new-azoperationalinsightsworkspace).
 
-Il existe deux catégories de journalisation pour lesquelles vous pouvez activer les journaux. Pour plus d’informations, consultez [Catégories de journal](#log-categories). Activez la journalisation des diagnostics pour le groupe de sécurité réseau avec [Set-AzureRmDiagnosticSetting](/powershell/module/azurerm.insights/set-azurermdiagnosticsetting). L’exemple suivant enregistre à la fois les données des catégories d’événements et de compteurs dans l’espace de travail d’un groupe de sécurité réseau, à l’aide des ID du groupe de sécurité réseau et de l’espace de travail récupérés précédemment :
+Il existe deux catégories de journalisation pour lesquelles vous pouvez activer les journaux. Pour plus d’informations, consultez [Catégories de journal](#log-categories). Activer la journalisation des diagnostics pour le groupe de sécurité réseau avec [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting). L’exemple suivant enregistre à la fois les données des catégories d’événements et de compteurs dans l’espace de travail d’un groupe de sécurité réseau, à l’aide des ID du groupe de sécurité réseau et de l’espace de travail récupérés précédemment :
 
 ```azurepowershell-interactive
-Set-AzureRmDiagnosticSetting `
+Set-AzDiagnosticSetting `
   -ResourceId $Nsg.Id `
   -WorkspaceId $Oms.ResourceId `
   -Enabled $true
@@ -105,7 +107,7 @@ nsgId=$(az network nsg show \
   --output tsv)
 ```
 
-Vous pouvez écrire des journaux de diagnostic sur trois types de destinations. Pour plus d’informations, consultez [Destinations de journaux](#log-destinations). Dans cet article, les journaux sont envoyés à la destination *Log Analytics*, à titre d’exemple. Pour plus d’informations, consultez [Catégories de journal](#log-categories). 
+Vous pouvez écrire des journaux de diagnostic sur trois types de destinations. Pour plus d’informations, consultez [Destinations de journaux](#log-destinations). Dans cet article, les journaux sont envoyés à la destination *Log Analytics*, à titre d’exemple. Pour plus d’informations, consultez [Catégories de journal](#log-categories).
 
 Activez la journalisation des diagnostics pour le groupe de sécurité réseau avec la commande [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create). L’exemple suivant journalise les données de catégorie événement et compteur dans un espace de travail existant nommé *myWorkspace*, qui se trouve dans un groupe de ressources nommé *myWorkspaces*, et l’ID de groupe de sécurité réseau que vous avez récupéré :
 
@@ -118,7 +120,7 @@ az monitor diagnostic-settings create \
   --resource-group myWorkspaces
 ```
 
-Si vous n’avez pas d’espace de travail, vous pouvez en créer un à l’aide du [portail Azure](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou de [PowerShell](/powershell/module/azurerm.operationalinsights/new-azurermoperationalinsightsworkspace). Il existe deux catégories de journalisation pour lesquelles vous pouvez activer les journaux. 
+Si vous n’avez pas d’espace de travail, vous pouvez en créer un à l’aide du [portail Azure](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou de [PowerShell](/powershell/module/az.operationalinsights/new-azoperationalinsightsworkspace). Il existe deux catégories de journalisation pour lesquelles vous pouvez activer les journaux.
 
 Si vous souhaitez journaliser les données d’une seule des deux catégories, supprimez l’autre catégorie de la commande précédente. Si vous voulez consigner les données dans une autre [destination](#log-destinations) que celle d’un espace de travail Log Analytics, utilisez les paramètres appropriés pour un [compte de stockage](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Azure ou [Event Hub](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
@@ -129,7 +131,7 @@ Consultez et analysez les journaux. Pour plus d’informations, voir [Afficher e
 Les données de diagnostic peuvent être :
 - [Écrites dans un compte de stockage Azure](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json), pour l’audit ou l’inspection manuelle. Vous pouvez spécifier la durée de rétention (en jours) à l’aide des paramètres de diagnostic des ressources.
 - [Diffusées vers un hub d’événements](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) pour qu’un service tiers ou une solution d’analyse personnalisée (p. ex. PowerBI) les ingère.
-- [Écrites dans Azure Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-diagnostics-direct-to-log-analytics).
+- [Écrit dans les journaux Azure Monitor](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-diagnostics-direct-to-log-analytics).
 
 ## <a name="log-categories"></a>Catégories de journal
 
@@ -153,7 +155,7 @@ Le journal des événements contient des informations sur les règles de groupe 
         "primaryIPv4Address":"192.168.1.4",
         "ruleName":"[SECURITY-RULE-NAME]",
         "direction":"[DIRECTION-SPECIFIED-IN-RULE]",
-        "priority":[PRIORITY-SPECIFIED-IN-RULE],
+        "priority":"[PRIORITY-SPECIFIED-IN-RULE]",
         "type":"[ALLOW-OR-DENY-AS-SPECIFIED-IN-RULE]",
         "conditions":{
             "protocols":"[PROTOCOLS-SPECIFIED-IN-RULE]",
@@ -196,17 +198,17 @@ Le journal du compteur de règles contient des informations sur chacune des règ
 ## <a name="view-and-analyze-logs"></a>Afficher et analyser les journaux
 
 Pour savoir comment voir les données des journaux de diagnostic, consultez [Vue d’ensemble des journaux de diagnostic Azure](../azure-monitor/platform/diagnostic-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Si vous envoyez des données de diagnostic à :
-- **Log Analytics** : vous pouvez utiliser la solution d’[analytique de groupe de sécurité réseau](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-log-analytics
+- **Journaux Azure Monitor** : vous pouvez utiliser la solution d’[analytique de groupe de sécurité réseau](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-log-analytics
 ) pour obtenir des insights plus poussés. La solution offre des visualisations pour les règles NSG qui autorisent ou refusent le trafic, par adresse MAC, de l’interface réseau sur une machine virtuelle.
 - **Compte Stockage Azure** : les données sont écrites dans un fichier PT1H.json. Vous pouvez trouver le :
-    - Journal des événements dans le chemin suivant : `insights-logs-networksecuritygroupevent/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
-    - Journal du compteur de règles dans le chemin suivant : `insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
+  - Journal des événements dans le chemin suivant : `insights-logs-networksecuritygroupevent/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
+  - Journal du compteur de règles dans le chemin suivant : `insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - En savoir plus sur la [Journalisation des activités](../azure-monitor/platform/diagnostic-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), appelée auparavant « audit » ou « journaux des opérations ». La journalisation des activités est activée par défaut pour les groupes de sécurité réseau créés au moyen d’un modèle de déploiement Azure. Pour déterminer les opérations qui ont été effectuées sur les groupes de sécurité réseau dans le journal d’activité, recherchez les entrées qui contiennent les types de ressources suivants :
-    - Microsoft.ClassicNetwork/networkSecurityGroups
-    - Microsoft.ClassicNetwork/networkSecurityGroups/securityRules
-    - Microsoft.Network/networkSecurityGroups
-    - Microsoft.Network/networkSecurityGroups/securityRules
+  - Microsoft.ClassicNetwork/networkSecurityGroups
+  - Microsoft.ClassicNetwork/networkSecurityGroups/securityRules
+  - Microsoft.Network/networkSecurityGroups
+  - Microsoft.Network/networkSecurityGroups/securityRules
 - Pour savoir comment enregistrer les informations de diagnostic et y inclure l’adresse IP source de chaque flux, consultez [Journalisation des flux NSG](../network-watcher/network-watcher-nsg-flow-logging-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

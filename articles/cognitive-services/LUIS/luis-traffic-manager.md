@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 89778375c6362007a81eab72663f56492f4fe206
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: a71b09ba8b3e7fa7299c34c3cdc64503ae4e9857
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997904"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56736547"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Utiliser Microsoft Azure Traffic Manager pour gérer le quota de points de terminaison entre les clés
 Language Understanding (LUIS) offre la possibilité d’augmenter le quota de demandes des points de terminaison au-delà du quota d’une seule clé. Il suffit de créer plusieurs clés pour LUIS et de les ajouter à l’application LUIS dans la section **Ressources et clés** de la page **Publier**. 
@@ -25,20 +25,22 @@ L’application cliente doit gérer le trafic entre les clés. LUIS n’effectue
 
 Cet article explique comment gérer le trafic entre les clés avec Azure [Traffic Manager][traffic-manager-marketing]. Vous devez déjà disposer d’une application LUIS entraînée et publiée. Si ce n’est pas le cas, suivez le [guide de démarrage rapide](luis-get-started-create-app.md) du domaine prédéfini. 
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## <a name="connect-to-powershell-in-the-azure-portal"></a>Se connecter à PowerShell sur le Portail Azure
 Sur le Portail [Azure][azure-portal], ouvrez la fenêtre PowerShell. L’icône de la fenêtre PowerShell est le signe **>_** dans la barre de navigation supérieure. La version de PowerShell qui se trouve sur le Portail est la dernière version ; par ailleurs, elle vous authentifie automatiquement. Elle requiert un compte [Stockage Azure](https://azure.microsoft.com/services/storage/). 
 
 ![Capture d’écran du Portail Azure avec la fenêtre PowerShell ouverte](./media/traffic-manager/azure-portal-powershell.png)
 
-Les sections suivantes utilisent les [cmdlets PowerShell Traffic Manager](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/?view=azurermps-6.2.0#traffic_manager).
+Les sections suivantes utilisent les [cmdlets PowerShell Traffic Manager](https://docs.microsoft.com/powershell/module/az.trafficmanager/#traffic_manager).
 
 ## <a name="create-azure-resource-group-with-powershell"></a>Créer un groupe de ressources Azure avec PowerShell
 Avant de créer les ressources Azure, créez le groupe de ressources qui les contiendra. Nommez-le `luis-traffic-manager` et utilisez la région `West US`. La région du groupe de ressources stocke des métadonnées sur le groupe. Si vos ressources se trouvent dans une autre région, cela ne les ralentira pas. 
 
-Créez un groupe de ressources avec la cmdlet **[New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-6.2.0)** :
+Créer le groupe de ressources avec **[New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup)** applet de commande :
 
 ```powerShell
-New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
+New-AzResourceGroup -Name luis-traffic-manager -Location "West US"
 ```
 
 ## <a name="create-luis-keys-to-increase-total-endpoint-quota"></a>Créer des clés LUIS pour augmenter le quota total de points de terminaison
@@ -66,12 +68,12 @@ Les sections suivantes créent deux profils enfants, l’un pour la clé LUIS Es
 ### <a name="create-the-east-us-traffic-manager-profile-with-powershell"></a>Créer le profil Traffic Manager USA Est avec PowerShell
 Pour créer le profil Traffic Manager USA Est, il y a plusieurs étapes à suivre : créer le profil, ajouter le point de terminaison et définir le point de terminaison. Un profil Traffic Manager peut comporter plusieurs points de terminaison, mais tous ont le même chemin de validation. Les URL des points de terminaison LUIS sont différentes pour les abonnements Est et Ouest en raison de la région et de la clé de point de terminaison ; chaque point de terminaison LUIS doit donc être unique dans le profil. 
 
-1. Créer le profil avec la cmdlet **[New-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/new-azurermtrafficmanagerprofile?view=azurermps-6.2.0)**
+1. Créer un profil avec **[New-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.trafficmanager/new-aztrafficmanagerprofile)** applet de commande
 
     Utilisez la cmdlet suivante pour créer le profil. Veillez à modifier `appIdLuis` et `subscriptionKeyLuis`. La clé d’abonnement correspond à la clé LUIS USA Est. Si le chemin d’accès n’est pas correct, y compris la clé de point de terminaison et l’ID de l’application LUIS, l’interrogation de Traffic Manager a le statut `degraded`, car Traffic Manager ne parvient pas à demander le point de terminaison LUIS. Vérifiez que la valeur de `q` est `traffic-manager-east` afin de pouvoir la voir dans les journaux du point de terminaison LUIS.
 
     ```powerShell
-    $eastprofile = New-AzureRmTrafficManagerProfile -Name luis-profile-eastus -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-eastus -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/luis/v2.0/apps/<appID>?subscription-key=<subscriptionKey>&q=traffic-manager-east"
+    $eastprofile = New-AzTrafficManagerProfile -Name luis-profile-eastus -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-eastus -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/luis/v2.0/apps/<appID>?subscription-key=<subscriptionKey>&q=traffic-manager-east"
     ```
     
     Ce tableau décrit les différentes variables de la cmdlet :
@@ -88,10 +90,10 @@ Pour créer le profil Traffic Manager USA Est, il y a plusieurs étapes à suiv
     
     En cas de succès, la demande ne reçoit aucune réponse.
 
-2. Ajoutez le point de terminaison USA Est avec la cmdlet **[Add-AzureRmTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/add-azurermtrafficmanagerendpointconfig?view=azurermps-6.2.0)**.
+2. Ajouter le point de terminaison est des États-Unis avec **[Add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.trafficmanager/add-aztrafficmanagerendpointconfig)** applet de commande
 
     ```powerShell
-    Add-AzureRmTrafficManagerEndpointConfig -EndpointName luis-east-endpoint -TrafficManagerProfile $eastprofile -Type ExternalEndpoints -Target eastus.api.cognitive.microsoft.com -EndpointLocation "eastus" -EndpointStatus Enabled
+    Add-AzTrafficManagerEndpointConfig -EndpointName luis-east-endpoint -TrafficManagerProfile $eastprofile -Type ExternalEndpoints -Target eastus.api.cognitive.microsoft.com -EndpointLocation "eastus" -EndpointStatus Enabled
     ```
     Ce tableau décrit les différentes variables de la cmdlet :
 
@@ -123,10 +125,10 @@ Pour créer le profil Traffic Manager USA Est, il y a plusieurs étapes à suiv
     Endpoints                        : {luis-east-endpoint}
     ```
 
-3. Définissez le point de terminaison USA Est avec la cmdlet **[Set-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/set-azurermtrafficmanagerprofile?view=azurermps-6.2.0)**.
+3. Définir le point de terminaison est des États-Unis avec **[Set-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.trafficmanager/set-aztrafficmanagerprofile)** applet de commande
 
     ```powerShell
-    Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $eastprofile
+    Set-AzTrafficManagerProfile -TrafficManagerProfile $eastprofile
     ```
 
     En cas de succès, la réponse sera la même qu’à l’étape 2.
@@ -134,12 +136,12 @@ Pour créer le profil Traffic Manager USA Est, il y a plusieurs étapes à suiv
 ### <a name="create-the-west-us-traffic-manager-profile-with-powershell"></a>Créer le profil Traffic Manager USA Ouest avec PowerShell
 Pour créer le profil Traffic Manager USA Ouest, suivez les mêmes étapes : créer le profil, ajouter le point de terminaison et définir le point de terminaison.
 
-1. Créer le profil avec la cmdlet **[New-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/New-AzureRmTrafficManagerProfile?view=azurermps-6.2.0)**
+1. Créer un profil avec **[New-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/New-azTrafficManagerProfile)** applet de commande
 
     Utilisez la cmdlet suivante pour créer le profil. Veillez à modifier `appIdLuis` et `subscriptionKeyLuis`. La clé d’abonnement correspond à la clé LUIS USA Est. Si le chemin d’accès n’est pas correct, y compris la clé de point de terminaison et l’ID de l’application LUIS, l’interrogation de Traffic Manager a le statut `degraded`, car Traffic Manager ne parvient pas à demander le point de terminaison LUIS. Vérifiez que la valeur de `q` est `traffic-manager-west` afin de pouvoir la voir dans les journaux du point de terminaison LUIS.
 
     ```powerShell
-    $westprofile = New-AzureRmTrafficManagerProfile -Name luis-profile-westus -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-westus -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west"
+    $westprofile = New-AzTrafficManagerProfile -Name luis-profile-westus -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-westus -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west"
     ```
     
     Ce tableau décrit les différentes variables de la cmdlet :
@@ -156,10 +158,10 @@ Pour créer le profil Traffic Manager USA Ouest, suivez les mêmes étapes : cr�
     
     En cas de succès, la demande ne reçoit aucune réponse.
 
-2. Ajoutez le point de terminaison USA Ouest avec la cmdlet **[Add-AzureRmTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Add-AzureRmTrafficManagerEndpointConfig?view=azurermps-6.2.0)**.
+2. Ajouter le point de terminaison de l’ouest des États-Unis avec **[Add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.TrafficManager/Add-azTrafficManagerEndpointConfig)** applet de commande
 
     ```powerShell
-    Add-AzureRmTrafficManagerEndpointConfig -EndpointName luis-west-endpoint -TrafficManagerProfile $westprofile -Type ExternalEndpoints -Target westus.api.cognitive.microsoft.com -EndpointLocation "westus" -EndpointStatus Enabled
+    Add-AzTrafficManagerEndpointConfig -EndpointName luis-west-endpoint -TrafficManagerProfile $westprofile -Type ExternalEndpoints -Target westus.api.cognitive.microsoft.com -EndpointLocation "westus" -EndpointStatus Enabled
     ```
 
     Ce tableau décrit les différentes variables de la cmdlet :
@@ -192,10 +194,10 @@ Pour créer le profil Traffic Manager USA Ouest, suivez les mêmes étapes : cr�
     Endpoints                        : {luis-west-endpoint}
     ```
 
-3. Définissez le point de terminaison USA Ouest avec la cmdlet **[Set-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Set-AzureRmTrafficManagerProfile?view=azurermps-6.2.0)**.
+3. Définir le point de terminaison de l’ouest des États-Unis avec **[Set-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Set-azTrafficManagerProfile)** applet de commande
 
     ```powerShell
-    Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $westprofile
+    Set-AzTrafficManagerProfile -TrafficManagerProfile $westprofile
     ```
 
     En cas de succès, la réponse sera la même qu’à l’étape 2.
@@ -203,10 +205,10 @@ Pour créer le profil Traffic Manager USA Ouest, suivez les mêmes étapes : cr�
 ### <a name="create-parent-traffic-manager-profile"></a>Créer un profil Traffic Manager parent
 Créez le profil Traffic Manager parent et liez les deux profils Traffic Manager enfants au parent.
 
-1. Créer le profil parent avec la cmdlet **[New-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/New-AzureRmTrafficManagerProfile?view=azurermps-6.2.0)**
+1. Créer un profil parent avec **[New-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/New-azTrafficManagerProfile)** applet de commande
 
     ```powerShell
-    $parentprofile = New-AzureRmTrafficManagerProfile -Name luis-profile-parent -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-parent -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/"
+    $parentprofile = New-AzTrafficManagerProfile -Name luis-profile-parent -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-parent -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/"
     ```
 
     Ce tableau décrit les différentes variables de la cmdlet :
@@ -223,10 +225,10 @@ Créez le profil Traffic Manager parent et liez les deux profils Traffic Manager
 
     En cas de succès, la demande ne reçoit aucune réponse.
 
-2. Ajoutez le profil enfant USA Est au parent avec **[Add-AzureRmTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Add-AzureRmTrafficManagerEndpointConfig?view=azurermps-6.2.0)** et le type **NestedEndpoints**.
+2. Ajouter le profil enfant est des États-Unis à parent avec **[Add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.TrafficManager/Add-azTrafficManagerEndpointConfig)** et **NestedEndpoints** type
 
     ```powerShell
-    Add-AzureRmTrafficManagerEndpointConfig -EndpointName child-endpoint-useast -TrafficManagerProfile $parentprofile -Type NestedEndpoints -TargetResourceId $eastprofile.Id -EndpointStatus Enabled -EndpointLocation "eastus" -MinChildEndpoints 1
+    Add-AzTrafficManagerEndpointConfig -EndpointName child-endpoint-useast -TrafficManagerProfile $parentprofile -Type NestedEndpoints -TargetResourceId $eastprofile.Id -EndpointStatus Enabled -EndpointLocation "eastus" -MinChildEndpoints 1
     ```
 
     Ce tableau décrit les différentes variables de la cmdlet :
@@ -235,7 +237,7 @@ Créez le profil Traffic Manager parent et liez les deux profils Traffic Manager
     |--|--|--|
     |-EndpointName|child-endpoint-useast|Profil Est.|
     |-TrafficManagerProfile|$parentprofile|Profil à attribuer à ce point de terminaison.|
-    |-Type|NestedEndpoints|Pour plus d’informations, voir [Add-AzureRmTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/Add-AzureRmTrafficManagerEndpointConfig?view=azurermps-6.2.0). |
+    |-Type|NestedEndpoints|Pour plus d’informations, consultez [Add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.trafficmanager/Add-azTrafficManagerEndpointConfig). |
     |-TargetResourceId|$eastprofile.Id|ID du profil enfant.|
     |-EndpointStatus|activé|État du point de terminaison après ajout au parent.|
     |-EndpointLocation|"eastus"|[Nom de la région Azure](https://azure.microsoft.com/global-infrastructure/regions/) de la ressource.|
@@ -260,10 +262,10 @@ Créez le profil Traffic Manager parent et liez les deux profils Traffic Manager
     Endpoints                        : {child-endpoint-useast}
     ```
 
-3. Ajoutez le profil enfant USA Ouest au parent avec la cmdlet **[Add-AzureRmTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Add-AzureRmTrafficManagerEndpointConfig?view=azurermps-6.2.0)** et le type **NestedEndpoints**.
+3. Ajouter un profil enfant de l’ouest des États-Unis à parent avec **[Add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.TrafficManager/Add-azTrafficManagerEndpointConfig)** applet de commande et **NestedEndpoints** type
 
     ```powerShell
-    Add-AzureRmTrafficManagerEndpointConfig -EndpointName child-endpoint-uswest -TrafficManagerProfile $parentprofile -Type NestedEndpoints -TargetResourceId $westprofile.Id -EndpointStatus Enabled -EndpointLocation "westus" -MinChildEndpoints 1
+    Add-AzTrafficManagerEndpointConfig -EndpointName child-endpoint-uswest -TrafficManagerProfile $parentprofile -Type NestedEndpoints -TargetResourceId $westprofile.Id -EndpointStatus Enabled -EndpointLocation "westus" -MinChildEndpoints 1
     ```
 
     Ce tableau décrit les différentes variables de la cmdlet :
@@ -272,7 +274,7 @@ Créez le profil Traffic Manager parent et liez les deux profils Traffic Manager
     |--|--|--|
     |-EndpointName|child-endpoint-uswest|Profil Ouest.|
     |-TrafficManagerProfile|$parentprofile|Profil à attribuer à ce point de terminaison.|
-    |-Type|NestedEndpoints|Pour plus d’informations, voir [Add-AzureRmTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/Add-AzureRmTrafficManagerEndpointConfig?view=azurermps-6.2.0). |
+    |-Type|NestedEndpoints|Pour plus d’informations, consultez [Add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.trafficmanager/Add-azTrafficManagerEndpointConfig). |
     |-TargetResourceId|$westprofile.Id|ID du profil enfant.|
     |-EndpointStatus|activé|État du point de terminaison après ajout au parent.|
     |-EndpointLocation|"westus"|[Nom de la région Azure](https://azure.microsoft.com/global-infrastructure/regions/) de la ressource.|
@@ -297,21 +299,21 @@ Créez le profil Traffic Manager parent et liez les deux profils Traffic Manager
     Endpoints                        : {child-endpoint-useast, child-endpoint-uswest}
     ```
 
-4. Définissez des points de terminaison avec la cmdlet **[Set-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Set-AzureRmTrafficManagerProfile?view=azurermps-6.2.0)**. 
+4. Définir des points de terminaison avec **[Set-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Set-azTrafficManagerProfile)** applet de commande 
 
     ```powerShell
-    Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $parentprofile
+    Set-AzTrafficManagerProfile -TrafficManagerProfile $parentprofile
     ```
 
     En cas de succès, la réponse sera la même qu’à l’étape 3.
 
 ### <a name="powershell-variables"></a>Variables PowerShell
-Dans les sections précédentes, trois variables PowerShell ont été créées : `$eastprofile`, `$westprofile` et `$parentprofile`. Elles sont utilisées vers la fin de la configuration de Traffic Manager. Si vous choisissez de ne pas créer les variables, si vous avez oublié de le faire ou si la fenêtre PowerShell expire, vous pouvez utiliser la cmdlet PowerShell **[Get-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Get-AzureRmTrafficManagerProfile?view=azurermps-6.2.0)** pour récupérer le profil et l’affecter à une variable. 
+Dans les sections précédentes, trois variables PowerShell ont été créées : `$eastprofile`, `$westprofile` et `$parentprofile`. Elles sont utilisées vers la fin de la configuration de Traffic Manager. Si vous choisissez de ne pas créer les variables, avez oublié d’ou votre fenêtre PowerShell arrive à expiration, vous pouvez utiliser l’applet de commande PowerShell,  **[Get-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile)**, pour obtenir le profil à nouveau et assignez-la à un variable. 
 
 Remplacez les éléments figurant entre crochets, `<>`, par les valeurs correctes de chacun des trois profils dont vous avez besoin. 
 
 ```powerShell
-$<variable-name> = Get-AzureRmTrafficManagerProfile -Name <profile-name> -ResourceGroupName luis-traffic-manager
+$<variable-name> = Get-AzTrafficManagerProfile -Name <profile-name> -ResourceGroupName luis-traffic-manager
 ```
 
 ## <a name="verify-traffic-manager-works"></a>Vérifier le fonctionnement de Traffic Manager

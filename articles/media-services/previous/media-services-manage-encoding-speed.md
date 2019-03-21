@@ -12,20 +12,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 2d36b10adbe277331eafdf1b68d0f5711508cc05
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 6bcaadc8dd61899aff860ad246e30170c99ec0f6
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992210"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188626"
 ---
-#  <a name="manage-speed-and-concurrency-of-your-encoding-legacy"></a>Gérer la vitesse et la simultanéité de votre encodage (hérité)
+#  <a name="manage-speed-and-concurrency-of-your-encoding"></a>Gérer la vitesse et la simultanéité de votre encodage  
 
 Cet article donne un bref aperçu de la manière dont vous pouvez gérer la rapidité et la simultanéité de vos travaux/tâches d’encodage.
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Dans Media Services, un **Type d’unité réservée** détermine la vitesse à laquelle vos tâches de traitement multimédia sont traitées. Vous pouvez choisir entre les types d’unités réservées suivantes : **S1**, **S2** ou **S3**. Par exemple, un même travail d’encodage s’exécute plus rapidement quand vous utilisez le type d’unité réservée **S2** que le type **S1**. La rubrique relative à la [mise à l’échelle des unités d’encodage](media-services-scale-media-processing-overview.md) contient un tableau qui vous aide à prendre une décision lors du choix entre les différentes vitesses d’encodage.
 

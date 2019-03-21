@@ -5,17 +5,17 @@ description: Quatre critères que vos données doivent respecter pour être prê
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: garyericson
 ms.author: garye
 ms.custom: seodec18
 ms.date: 01/03/2018
-ms.openlocfilehash: 4f474fd6ac2fa6a4f44aacf0eacb85a92fdf1de9
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 9cd2d1264d08887f75eaf7ae624b6a45ec8d6a34
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456467"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817573"
 ---
 # <a name="is-your-data-ready-for-data-science"></a>Vos données sont-elles prêtes pour la science des données ?
 ## <a name="video-2-data-science-for-beginners-series"></a>Vidéo 2 : Série Science des données pour les débutants
@@ -104,4 +104,4 @@ Nous vous invitons à consulter les quatre autres vidéos de la série *« Scie
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Menez une première expérience de science des données avec Machine Learning Studio](create-experiment.md)
-* [Consultez la présentation de Machine Learning sur Microsoft Azure](what-is-machine-learning.md)
+* [Consultez la présentation de Machine Learning sur Microsoft Azure](/azure/machine-learning/preview/overview-what-is-azure-ml)

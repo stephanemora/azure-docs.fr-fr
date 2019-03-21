@@ -1,6 +1,6 @@
 ---
-title: Exemples PowerShell et Graph pour la gestion des licences par groupe - Azure Active Directory | Microsoft Docs
-description: Scénarios PowerShell pour la licence basée sur le groupe Azure Active Directory
+title: Exemples de PowerShell et Graph pour les licences de groupes - Azure Active Directory | Microsoft Docs
+description: PowerShell + des exemples de graphique et des scénarios pour la gestion des licences par groupe Azure Active Directory
 services: active-directory
 keywords: Gestion des licences Azure AD
 documentationcenter: ''
@@ -10,29 +10,31 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 01/31/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b98f7a11e37cd75a21ecc8c2b9dda1ecd634f39b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9da6f85f194d9aebab22584f8cba8b227ed38a72
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191926"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223306"
 ---
 # <a name="powershell-examples-for-group-based-licensing-in-azure-ad"></a>Exemples PowerShell pour les licences basées sur les groupes dans Azure AD
 
 Toutes les fonctionnalités pour la gestion des licences par groupe sont disponibles via le [portail Azure](https://portal.azure.com), et la prise en charge de PowerShell et Microsoft Graph est actuellement limitée. Toutefois, il existe certaines tâches utiles qui peuvent être effectuées à l’aide des [cmdlets MSOnline PowerShell](https://docs.microsoft.com/powershell/msonline/v1/azureactivedirectory) existantes et Microsoft Graph. Ce document fournit des exemples de ce qui est possible.
 
 > [!NOTE]
-> Avant de commencer à exécuter les cmdlets, veillez d’abord à vous connecter à votre locataire en exécutant la cmdlet `Connect-MsolService`.
+> Avant de commencer, les applets de commande en cours d’exécution, vérifiez que vous vous connectez à votre organisation tout d’abord, en exécutant la `Connect-MsolService`  applet de commande.
 
 > [!WARNING]
 > Ce code est fourni à titre d’exemple à des fins de démonstration. Si vous voulez l’utiliser dans votre environnement, testez-le au préalable à petite échelle ou dans un locataire de test distinct. Vous devez peut-être modifier le code pour répondre aux besoins spécifiques de votre environnement.
 
 ## <a name="view-product-licenses-assigned-to-a-group"></a>Afficher les licences de produit attribuées à un groupe
+
 L’applet de commande [Get-MsolGroup](/powershell/module/msonline/get-msolgroup?view=azureadps-1.0) peut être utilisé pour récupérer l’objet de groupe et vérifier la propriété *Licences* : elle répertorie toutes les licences de produit actuellement affectées au groupe.
+
 ```powershell
 (Get-MsolGroup -ObjectId 99c4216a-56de-42c4-a4ac-e411cd8c7c41).Licenses
 | Select SkuPartNumber
@@ -48,10 +50,10 @@ EMSPREMIUM
 > [!NOTE]
 > Les données sont limitées aux informations liées au produit (SKU). Il n’est pas possible de répertorier les plans de service désactivés dans la licence.
 
-Utilisez la cmdlet suivante pour obtenir les mêmes données de Microsoft Graph
+L’exemple suivant permet d’obtenir les mêmes données à partir de Microsoft Graph.
 
 ```
-GET https://graph.microsoft.com/beta/groups/99c4216a-56de-42c4-a4ac-e411cd8c7c41$select=assignedLicenses
+GET https://graph.microsoft.com/v1.0/groups/99c4216a-56de-42c4-a4ac-e411cd8c7c41$select=assignedLicenses
 ```
 Sortie :
 ```
@@ -113,10 +115,9 @@ Get-MsolGroup -All | Where {$_.Licenses}  | Foreach {
     $licenseAssignedCount = 0;
     $licenseErrorCount = 0;
 
-    Get-MsolGroupMember -All -GroupObjectId $groupId |
+    Get-MsolGroupMember -All -GroupObjectId $groupId
     #get full info about each user in the group
-    Get-MsolUser -ObjectId {$_.ObjectId} |
-    Foreach {
+    Get-MsolUser -ObjectId {$_.ObjectId} |     Foreach {
         $user = $_;
         $totalCount++
 
@@ -172,7 +173,7 @@ ObjectId                             DisplayName             GroupType Descripti
 ```
 Utilisez la cmdlet suivante pour obtenir les mêmes données de Microsoft Graph
 ```
-GET https://graph.microsoft.com/beta/groups?$filter=hasMembersWithLicenseErrors+eq+true
+GET https://graph.microsoft.com/v1.0/groups?$filter=hasMembersWithLicenseErrors+eq+true
 ```
 Sortie :
 ```
@@ -193,7 +194,7 @@ HTTP/1.1 200 OK
     },
     ... # other groups with license errors.
   ]
-"odata.nextLink":"https://graph.microsoft.com/beta/ groups?$filter=hasMembersWithLicenseErrors+eq+true&$skipToken=<encodedPageToken>"
+"odata.nextLink":"https://graph.microsoft.com/v1.0/ groups?$filter=hasMembersWithLicenseErrors+eq+true&$skipToken=<encodedPageToken>"
 }
 ```
 
@@ -219,17 +220,21 @@ Get-MsolGroupMember -All -GroupObjectId $groupId |
 ```
 
 Sortie :
-```
+
+```powershell
 ObjectId                             DisplayName      License Error
 --------                             -----------      ------------
 6d325baf-22b7-46fa-a2fc-a2500613ca15 Catherine Gibson MutuallyExclusiveViolation
 ```
-Utilisez la cmdlet suivante pour obtenir les mêmes données de Microsoft Graph
+
+Utilisez l’option suivante pour obtenir les mêmes données à partir de Microsoft Graph :
+
+```powershell
+GET https://graph.microsoft.com/v1.0/groups/11151866-5419-4d93-9141-0603bbf78b42/membersWithLicenseErrors
 ```
-GET https://graph.microsoft.com/beta/groups/11151866-5419-4d93-9141-0603bbf78b42/membersWithLicenseErrors
-```
+
 Sortie :
-```
+```powershell
 HTTP/1.1 200 OK
 {
   "value":[
@@ -241,7 +246,7 @@ HTTP/1.1 200 OK
     },
     ... # other users.
   ],
-  "odata.nextLink":"https://graph.microsoft.com/beta/groups/11151866-5419-4d93-9141-0603bbf78b42/membersWithLicenseErrors?$skipToken=<encodedPageToken>" 
+  "odata.nextLink":"https://graph.microsoft.com/v1.0/groups/11151866-5419-4d93-9141-0603bbf78b42/membersWithLicenseErrors?$skipToken=<encodedPageToken>"
 }
 
 ```
@@ -268,7 +273,7 @@ Get-MsolUser -All | Where {$_.IndirectLicenseErrors } | % {
 
 Sortie :
 
-```
+```powershell
 UserName         UserId                               GroupId                              LicenseError
 --------         ------                               -------                              ------------
 Anna Bergman     0d0fd16d-872d-4e87-b0fb-83c610db12bc 7946137d-b00d-4336-975e-b1b81b0666d0 MutuallyExclusiveViolation
@@ -297,6 +302,7 @@ $groupIds = Get-MsolGroup -HasLicenseErrorsOnly $true
 Pour un objet utilisateur, il est possible de vérifier si une licence de produit spécifique est affectée à partir d’un groupe ou si elle est directement affectée.
 
 Les deux exemples de fonctions ci-dessous peuvent être utilisés pour analyser le type d’affectation sur un utilisateur individuel :
+
 ```powershell
 #Returns TRUE if the user has the license assigned directly
 function UserHasLicenseAssignedDirectly
@@ -359,8 +365,9 @@ function UserHasLicenseAssignedFromGroup
 ```
 
 Ce script exécute ces fonctions sur chaque utilisateur dans le locataire, à l’aide de l’ID de référence SKU en tant qu’entrée : dans cet exemple, nous nous intéressons à la licence pour *Enterprise Mobility + Security*, qui, dans notre locataire, est représentée par l’ID *contoso:EMS*:
+
 ```powershell
-#the license SKU we are interested in. use Msol-GetAccountSku to see a list of all identifiers in your tenant
+#the license SKU we are interested in. use Get-MsolAccountSku to see a list of all identifiers in your tenant
 $skuId = "contoso:EMS"
 
 #find all users that have the SKU license assigned
@@ -372,7 +379,8 @@ Get-MsolUser -All | where {$_.isLicensed -eq $true -and $_.Licenses.AccountSKUID
 ```
 
 Sortie :
-```
+
+```powershell
 ObjectId                             SkuId       AssignedDirectly AssignedFromGroup
 --------                             -----       ---------------- -----------------
 157870f6-e050-4b3c-ad5e-0f0a377c8f4d contoso:EMS             True             False
@@ -380,12 +388,15 @@ ObjectId                             SkuId       AssignedDirectly AssignedFromGr
 240622ac-b9b8-4d50-94e2-dad19a3bf4b5 contoso:EMS             True              True
 ```
 
-Graph n’a aucun moyen simple pour afficher les résultats, mais vous pouvez les voir grâce à cette API
+Graphique n’a aucun moyen simple pour afficher le résultat, mais vous pouvez le constater à partir de cette API :
+
+```powershell
+GET https://graph.microsoft.com/v1.0/users/e61ff361-5baf-41f0-b2fd-380a6a5e406a?$select=licenseAssignmentStates
 ```
-GET https://graph.microsoft.com/beta/users/e61ff361-5baf-41f0-b2fd-380a6a5e406a?$select=licenseAssignmentStates
-```
+
 Sortie :
-```
+
+```powershell
 HTTP/1.1 200 OK
 {
   "value":[
@@ -433,6 +444,7 @@ HTTP/1.1 200 OK
 ```
 
 ## <a name="remove-direct-licenses-for-users-with-group-licenses"></a>Suppression des licences directes pour les utilisateurs avec des licences de groupe
+
 L’objectif de ce script consiste à supprimer les licences directes inutiles des utilisateurs qui héritent déjà de la même licence auprès d’un groupe ; par exemple, dans le cadre d’une [transition vers l’affectation de licences basée sur les groupes](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-migration-azure-portal).
 > [!NOTE]
 > Il est important de commencer par confirmer que les licences directes à supprimer n’activent pas davantage de fonctionnalités de service que les licences héritées. Dans le cas contraire, la suppression de la licence directe peut désactiver l’accès aux services et données pour les utilisateurs. Actuellement, il n’est pas possible de vérifier avec PowerShell les services qui sont activés par licence héritée et ceux qui le sont pas licence directe. Dans le script, nous allons spécifier le niveau minimal de services dont nous savons qu’ils héritent de groupes, puis effectuer une vérification pour avoir la certitude que les utilisateurs ne risquent pas de perdre accidentellement l’accès aux services.
@@ -553,10 +565,9 @@ $servicePlansFromGroups = ("EXCHANGE_S_ENTERPRISE", "SHAREPOINTENTERPRISE", "OFF
 $expectedDisabledPlans = GetDisabledPlansForSKU $skuId $servicePlansFromGroups
 
 #process all members in the group
-Get-MsolGroupMember -All -GroupObjectId $groupId |
+Get-MsolGroupMember -All -GroupObjectId $groupId
     #get full info about each user in the group
-    Get-MsolUser -ObjectId {$_.ObjectId} |
-    Foreach {
+    Get-MsolUser -ObjectId {$_.ObjectId} | Foreach {
         $user = $_;
         $operationResult = "";
 
@@ -599,12 +610,13 @@ Get-MsolGroupMember -All -GroupObjectId $groupId |
 ```
 
 Sortie :
-```
-UserId                               OperationResult                                                                                
-------                               ---------------                                                                                
-7c7f860f-700a-462a-826c-f50633931362 Removed direct license from user.                                                              
+
+```powershell
+UserId                               OperationResult
+------                               ---------------
+7c7f860f-700a-462a-826c-f50633931362 Removed direct license from user.
 0ddacdd5-0364-477d-9e4b-07eb6cdbc8ea User has extra plans that may be lost - license removal was skipped. Extra plans: SHAREPOINTWAC
-aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipping.                                                
+aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipping.
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

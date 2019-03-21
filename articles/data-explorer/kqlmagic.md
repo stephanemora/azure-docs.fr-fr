@@ -8,19 +8,19 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 83c4ae7ff942579d55a5855c24a28809f60fdc62
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
-ms.translationtype: HT
+ms.openlocfilehash: 0e1eedf497ea5fd4a8a9551996102a8aa72847fc
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382464"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961565"
 ---
 # <a name="analyze-data-using-jupyter-notebook-and-kql-magic"></a>Analyser les données à l’aide de Jupyter Notebook et KQL magic
 
 Jupyter Notebook est une application web open source qui vous permet de créer et de partager des documents contenant du code en temps réel, des équations, des visualisations et du texte narratif. L’utilisation inclut le nettoyage des données et la transformation, la simulation numérique, la modélisation statistique, la visualisation des données et le machine learning.
-[Jupyter Notebook](https://jupyter.org/) offre des fonctions magiques qui étendent les fonctionnalités du noyau par la prise en charge de commandes supplémentaires. KQL magic est une commande qui étend les fonctionnalités du noyau Python dans Jupyter Notebook pour que vous puissiez exécuter des requêtes en langage Kusto en mode natif. Vous pouvez facilement combiner Python et le langage de requête Kusto pour interroger et visualiser des données à l’aide de la bibliothèque Plot.ly enrichie intégrée avec les commandes `render`. Les sources de données pour l’exécution de requêtes sont prises en charge. Ces sources de données incluent Azure Data Explorer, un service d’exploration de données rapide et hautement évolutif pour les données de journal et de télémétrie, ainsi que pour Log Analytics et Application Insights. KQL magic fonctionne également avec Azure Notebooks, Jupyter Lab et l’extension Jupyter de Visual Studio Code.
+[Jupyter Notebook](https://jupyter.org/) offre des fonctions magiques qui étendent les fonctionnalités du noyau par la prise en charge de commandes supplémentaires. KQL magic est une commande qui étend les fonctionnalités du noyau Python dans Jupyter Notebook pour que vous puissiez exécuter des requêtes en langage Kusto en mode natif. Vous pouvez facilement combiner Python et le langage de requête Kusto pour interroger et visualiser des données à l’aide de la bibliothèque Plot.ly enrichie intégrée avec les commandes `render`. Les sources de données pour l’exécution de requêtes sont prises en charge. Ces sources de données incluent l’Explorateur de données Azure, un service d’exploration de données rapide et hautement évolutive pour les journaux et données de télémétrie, ainsi que les journaux Azure Monitor et Application Insights. KQL magic fonctionne également avec Azure Notebooks, Jupyter Lab et l’extension Jupyter de Visual Studio Code.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 - Un compte e-mail professionnel qui est membre d’Azure Active Directory (AAD).
 - Jupyter Notebook installé sur votre ordinateur local ou utilisation d’Azure Notebooks et clonage de l’exemple d’[Azure Notebook](https://kustomagicsamples-manojraheja.notebooks.azure.com/j/notebooks/Getting%20Started%20with%20kqlmagic%20on%20Azure%20Data%20Explorer.ipynb)
@@ -171,6 +171,6 @@ Dans de nombreux scénarios d’analyse, vous souhaitez créer des notebooks ré
 Exécutez la commande d’aide pour explorer les exemples de notebooks suivants qui contiennent toutes les fonctionnalités prises en charge :
 - [Prise en main de KQL magic pour Azure Data Explorer](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStart.ipynb) 
 - [Prise en main de KQL magic pour Application Insights](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStartAI.ipynb) 
-- [Prise en main de KQL magic pour Log Analytics](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStartLA.ipynb) 
+- [Prise en main magic KQL pour les journaux d’Azure Monitor](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStartLA.ipynb) 
 - [Paramétrer votre requête KQL magic avec Python](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FParametrizeYourQuery.ipynb) 
 - [Choisissez la palette de couleurs pour les résultats de votre graphique de requête KQL magic](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FColorYourCharts.ipynb)

@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: b975f84106507da6adff11dc62441526773f5cab
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: fe096b2e2a75cc89e3ce5ef905d8e4c347cc153a
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998123"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56992462"
 ---
 # <a name="enable-support-uploads"></a>Activer les chargements de données de support
 
@@ -42,6 +42,6 @@ Pour activer le support, effectuez les étapes suivantes à partir du Panneau de
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous avez besoin d’ajouter un système de stockage local au cluster ou de mettre à jour la clé de chiffrement par défaut dans un conteneur d’objets Blob nouvellement créé, suivez les instructions mentionnées dans [Configurer le stockage](avere-vfxt-add-storage.md). 
+Si vous devez ajouter un en local ou existant du cloud de système de stockage au cluster, suivez les instructions de [configurer le stockage](avere-vfxt-add-storage.md). 
 
 Si vous êtes prêt à attacher des clients au cluster, consultez [Monter le cluster Avere vFXT](avere-vfxt-mount-clients.md).

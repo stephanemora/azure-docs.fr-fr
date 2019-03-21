@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 09/17/2018
+ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: 729ba19153eeb9767961d099e7a37c10a38b1286
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: 2a8a0bf1e63f06bbe6b6a073af6b3da8904dcaeb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634709"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182895"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-windows"></a>Connecter votre appareil à l’accélérateur de solution de surveillance à distance (Windows)
 
@@ -25,7 +25,7 @@ Comme avec la plupart des applications embarquées qui s’exécutent sur des ap
 
 Si vous préférez simuler un appareil, consultez [Créer et tester un appareil simulé](iot-accelerators-remote-monitoring-create-simulated-device.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour effectuer les étapes décrites dans ce guide pratique, suivez les étapes de [Configurer votre environnement de développement Windows](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#set-up-a-windows-development-environment) pour ajouter les outils et bibliothèques de développement requis pour votre machine Windows.
 

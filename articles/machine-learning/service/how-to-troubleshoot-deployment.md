@@ -1,7 +1,7 @@
 ---
 title: Guide de résolution des problèmes liés au déploiement
 titleSuffix: Azure Machine Learning service
-description: Découvrez comment contourner, résoudre et dépanner les erreurs courantes de déploiement Docker avec AKS et ACI à l’aide d’Azure Machine Learning service.
+description: Découvrez comment contourner, résoudre et dépanner les erreurs courantes de déploiement Docker avec AKS et ACI à l’aide du service Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 112fff011ebfedc1abf6981661da5fd4d97fc3d0
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 815be7400e0a0560ace7e07b317aeb25c2feacd5
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267137"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450972"
 ---
 # <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>Résoudre les problèmes de déploiement AKS et ACI d’Azure Machine Learning service
 
@@ -43,7 +43,7 @@ Découvrez-en plus sur ce processus dans la présentation de la [gestion des mod
 
 Si vous rencontrez un problème, la première chose à faire consiste à l’isoler en décomposant la tâche de déploiement (décrite précédemment) en étapes individuelles. 
 
-Cette opération est particulièrement utile si vous utilisez l’API `Webservice.deploy` ou l’API `Webservice.deploy_from_model`, dans la mesure où ces fonctions regroupent les étapes mentionnées précédemment en une seule action. En règle générale, ces API sont très pratiques, mais il est utile de décomposer les étapes durant la résolution des problèmes en les remplaçant par les appels d’API ci-dessous.
+Cela est utile si vous utilisez le `Webservice.deploy` API, ou `Webservice.deploy_from_model` API, dans la mesure où ces fonctions regroupement les étapes mentionnées précédemment dans une seule action. En général, ces API sont commodes, mais il est utile de diviser les étapes lors de la résolution des problèmes en les remplaçant par le ci-dessous les appels d’API.
 
 1. Inscrire le modèle. Voici un exemple de code :
 
@@ -101,9 +101,54 @@ for name, img in ws.images.items():
 ```
 L’URI du journal de l’image est une URL SAP pointant vers un fichier journal stocké dans votre stockage blob Azure. Copiez et collez simplement l’URI dans une fenêtre de navigateur ; vous pouvez alors télécharger et afficher le fichier journal.
 
+### <a name="azure-key-vault-access-policy-and-azure-resource-manager-templates"></a>Stratégie d’accès Azure Key Vault et les modèles Azure Resource Manager
+
+La génération d’image peut également échouer en raison d’un problème avec la stratégie d’accès sur Azure Key Vault. Cela peut se produire lorsque vous utilisez un modèle Azure Resource Manager pour créer l’espace de travail et les ressources associées (y compris Azure Key Vault), plusieurs fois. Par exemple, à l’aide du modèle plusieurs fois avec les mêmes paramètres dans le cadre d’une intégration continue et le pipeline de déploiement.
+
+La plupart des opérations de création de ressources via des modèles sont idempotentes, mais Key Vault efface les stratégies d’accès chaque fois que le modèle est utilisé. Cela arrête l’accès à Key Vault pour n’importe quel espace de travail existant qui est à l’aide. Cela entraîne des erreurs lorsque vous tentez de créer de nouvelles images. Voici quelques exemples d’erreurs que vous pouvez recevoir :
+
+__Portail__ :
+```text
+Create image "myimage": An internal server error occurred. Please try again. If the problem persists, contact support.
+```
+
+__KIT DE DÉVELOPPEMENT LOGICIEL__:
+```python
+image = ContainerImage.create(name = "myimage", models = [model], image_config = image_config, workspace = ws)
+Creating image
+Traceback (most recent call last):
+  File "C:\Python37\lib\site-packages\azureml\core\image\image.py", line 341, in create
+    resp.raise_for_status()
+  File "C:\Python37\lib\site-packages\requests\models.py", line 940, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 500 Server Error: Internal Server Error for url: https://eastus.modelmanagement.azureml.net/api/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.MachineLearningServices/workspaces/<workspace-name>/images?api-version=2018-11-19
+
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "C:\Python37\lib\site-packages\azureml\core\image\image.py", line 346, in create
+    'Content: {}'.format(resp.status_code, resp.headers, resp.content))
+azureml.exceptions._azureml_exception.WebserviceException: Received bad response from Model Management Service:
+Response Code: 500
+Headers: {'Date': 'Tue, 26 Feb 2019 17:47:53 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'api-supported-versions': '2018-03-01-preview, 2018-11-19', 'x-ms-client-request-id': '3cdcf791f1214b9cbac93076ebfb5167', 'x-ms-client-session-id': '', 'Strict-Transport-Security': 'max-age=15724800; includeSubDomains; preload'}
+Content: b'{"code":"InternalServerError","statusCode":500,"message":"An internal server error occurred. Please try again. If the problem persists, contact support"}'
+```
+
+__CLI__ :
+```text
+ERROR: {'Azure-cli-ml Version': None, 'Error': WebserviceException('Received bad response from Model Management Service:\nResponse Code: 500\nHeaders: {\'Date\': \'Tue, 26 Feb 2019 17:34:05
+GMT\', \'Content-Type\': \'application/json\', \'Transfer-Encoding\': \'chunked\', \'Connection\': \'keep-alive\', \'api-supported-versions\': \'2018-03-01-preview, 2018-11-19\', \'x-ms-client-request-id\':
+\'bc89430916164412abe3d82acb1d1109\', \'x-ms-client-session-id\': \'\', \'Strict-Transport-Security\': \'max-age=15724800; includeSubDomains; preload\'}\nContent:
+b\'{"code":"InternalServerError","statusCode":500,"message":"An internal server error occurred. Please try again. If the problem persists, contact support"}\'',)}
+```
+
+Pour éviter ce problème, nous vous recommandons d’une des approches suivantes :
+
+* Ne déployez pas le modèle plusieurs fois pour les mêmes paramètres. Ou supprimer les ressources existantes avant d’utiliser le modèle au pour recréer.
+* Examiner les stratégies d’accès Key Vault et utilisez-la pour définir le `accessPolicies` propriété du modèle.
+* Vérifiez si la ressource de coffre de clés existe déjà. Le cas échéant, ne pas recréer un il via le modèle. Par exemple, ajoutez un paramètre qui vous permet de désactiver la création de la ressource Key Vault si elle existe déjà.
 
 ## <a name="service-launch-fails"></a>Échec du lancement du service
-Une fois l’image correctement générée, le système tente de démarrer un conteneur dans ACI ou AKS, selon la configuration du déploiement. Il est généralement recommandé d’essayer tout d’abord un déploiement ACI, car il s’agit d’un déploiement monoconteneur plus simple. De cette façon, vous pouvez écarter tout problème lié à AKS.
+Une fois l’image correctement générée, le système tente de démarrer un conteneur dans ACI ou AKS, selon la configuration du déploiement. Il est recommandé de commencer par un déploiement ACI, puisqu’il s’agit d’un déploiement plus simple de conteneur unique. De cette façon, vous pouvez écarter tout problème lié à AKS.
 
 Dans le cadre du processus de démarrage du conteneur, la fonction `init()` dans votre script de scoring est appelée par le système. Si la fonction `init()` comprend des exceptions non interceptées, l’erreur **CrashLoopBackOff** apparaît peut-être dans le message d’erreur. Voici quelques conseils pour vous aider à résoudre le problème.
 
@@ -222,6 +267,47 @@ def run(input_data):
         return json.dumps({"error": result})
 ```
 **Remarque**: Retournez les messages d’erreur à partir de l’appel `run(input_data)` exclusivement à des fins de débogage. Pour des raisons de sécurité, évitez cette approche dans un environnement de production.
+
+## <a name="http-status-code-503"></a>Code d’état HTTP 503
+
+Les déploiements de Kubernetes Service Azure prend en charge la mise à l’échelle, ce qui permet des réplicas à ajouter pour prendre en charge de la charge supplémentaire. Toutefois, l’autoscaler est conçu pour gérer **progressive** modifications de la charge. Si vous recevez des pics importants dans les demandes par seconde, les clients peuvent recevoir un code d’état HTTP 503.
+
+Il existe deux choses qui peuvent aider à empêcher les codes d’état 503 :
+
+* Modifier le niveau d’utilisation à quels à l’échelle automatique crée de nouveaux réplicas.
+    
+    Par défaut, l’utilisation de cible de mise à l’échelle est définie à 70 %, ce qui signifie que le service peut gérer les pics de demandes par seconde (RPS) jusqu'à 30 %. Vous pouvez ajuster la cible de l’utilisation en définissant le `autoscale_target_utilization` sur une valeur inférieure.
+
+    > [!IMPORTANT]
+    > Cette modification n’entraîne pas la création de répliques *plus rapidement*. Au lieu de cela, ils sont créés à un seuil inférieur de l’utilisation. Au lieu d’attendre jusqu'à ce que le service est utilisé à 70 %, modification de la valeur à 30 % provoque des réplicas à créer lors de l’utilisation de 30 %.
+    
+    Si le service web utilise déjà les réplicas actuels maximales et codes d’état 503 persiste, augmentez la `autoscale_max_replicas` valeur pour augmenter le nombre maximal de réplicas.
+
+* Modifier le nombre minimal de réplicas. Augmenter les réplicas minimale fournit un plus grand pool pour gérer les pics entrants.
+
+    Pour augmenter le nombre minimal de réplicas, définissez `autoscale_min_replicas` sur une valeur plus élevée. Vous pouvez calculer les réplicas requis en utilisant le code suivant, en remplaçant les valeurs par des valeurs spécifiques à votre projet :
+
+    ```python
+    from math import ceil
+    # target requests per second
+    targetRps = 20
+    # time to process the request (in seconds)
+    reqTime = 10
+    # Maximum requests per container
+    maxReqPerContainer = 1
+    # target_utilization. 70% in this example
+    targetUtilization = .7
+
+    concurrentRequests = targetRps * reqTime / targetUtilization
+
+    # Number of container replicas
+    replicas = ceil(concurrentRequests / maxReqPerContainer)
+    ```
+
+    > [!NOTE]
+    > Si vous recevez des pics de demande plus volumineux que les nouveaux réplicas minimale ne peuvent gérer, vous pouvez recevoir 503s à nouveau. Par exemple, en tant que le trafic vers votre augmente de service, vous devrez peut-être augmenter les réplicas minimale.
+
+Pour plus d’informations sur la configuration `autoscale_target_utilization`, `autoscale_max_replicas`, et `autoscale_min_replicas` pour, consultez le [AksWebservice](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) référence de module.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

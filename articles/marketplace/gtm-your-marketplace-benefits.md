@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: ellacroi
-ms.openlocfilehash: 0e324ae82a0223cf48f00b186f46e26840d4d655
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 3fa4fb9fb7accfbe4517e2bf917a3df31ea10fa7
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747524"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887248"
 ---
 # <a name="your-marketplace-benefits"></a>Vos avantages sur la Place de marché
 
@@ -63,9 +63,9 @@ Pour accéder à ces avantages, vous devez :
 1. Publier une offre sur la Place de marché ou AppSource.
 2. Vérifier que vous avez entré un contact marketing dans la partie **Informations de contact** de votre offre. Ce doit être une ressource marketing dédiée, et non un alias fourre-tout. (autrement dit, évitez d’utiliser « support\@ », « info\@ », « marketing\@ », etc.)
 
-Selon l’état de votre solution, vous recevez un e-mail avec les ressources d’auto-assistance, ou une invitation à un appel de consultation avec un responsable de l’engagement client dédié. Vous n’avez rien à faire pour lancer l’appel : l’équipe d’intégration de la place de marché vous contacte en fonction des informations que vous fournissez dans le [Portail Microsoft Cloud Partner](https://cloudpartner.azure.com/).
+Selon l’état de votre solution, offre en cours de la liste, version d’évaluation ou Transact, vous recevrez un e-mail avec les ressources d’auto-assistance, ou une invitation à un appel de consultation avec un gestionnaire d’Engagement dédié. Vous n’avez rien à faire pour lancer l’appel : l’équipe d’intégration de la place de marché vous contacte en fonction des informations que vous fournissez dans le [Portail Microsoft Cloud Partner](https://cloudpartner.azure.com/).
 
-La portée des activités à votre disposition augmente à mesure que vous développez vos offres sur la Place de marché. Toutes les annonces reçoivent un niveau de base de recommandations d’optimisation et de promotion.  Ces annonces peuvent également bénéficier d’avantages marketing supplémentaires selon l’état de la solution, la place de marché choisie et le niveau de compétence du partenaire Microsoft. 
+La portée des activités à votre disposition augmente à mesure que vous développez vos offres sur la Place de marché. Toutes les annonces reçoivent un niveau de base de recommandations d’optimisation et de promotion.  Ces listes peuvent également bénéficier supplémentaires marketing en fonction de statut de la solution (liste, version d’évaluation ou Transact), choisi la place de marché et réalisation de compétences des partenaires Microsoft.
 
 Le tableau ci-dessous récapitule les conditions d’éligibilité :
 

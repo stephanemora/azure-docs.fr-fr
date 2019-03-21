@@ -11,18 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: c0535dd47f57cd50c92bc4358732c1990e32e84a
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 48c09a6100586c0c99f3d54f9708c770488c681f
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994453"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189028"
 ---
 #  <a name="create-an-encoding-task-that-generates-fmp4-chunks"></a>Création d’une tâche qui génère des segments fMP4
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Cet article explique comment créer une tâche d’encodage qui génère des segments fragmentés au format MP4 (fMP4) au lieu de fichiers MP4 ISO. Pour générer des segments fMP4, utilisez l’encodeur **Media Encoder Standard** ou **Media Encoder Premium Workflow** afin de créer une tâche d’encodage puis spécifiez l’option **AssetFormatOption.AdaptiveStreaming**, comme indiqué dans cet extrait de code :  
     

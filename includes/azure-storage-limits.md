@@ -8,28 +8,28 @@ ms.topic: include
 ms.date: 01/11/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: e4fa42b6c32c3eb383eea4489ea109c0d496bdb9
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
-ms.translationtype: HT
+ms.openlocfilehash: 01d84914682d40b97c3d480a753c8b966cf61acc
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54392735"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553583"
 ---
-Le tableau suivant décrit les limites par défaut du Stockage Azure. La limite *d’entrée* désigne toutes les données (demandes) envoyées à un compte de stockage. La limite de *sortie* désigne toutes les données (réponses) reçues d’un compte de stockage.
+Le tableau suivant décrit les limites par défaut du Stockage Azure. Le *entrée* limite s’applique à toutes les données à partir des demandes qui sont envoyées à un compte de stockage. Le *sortie* limite s’applique à toutes les données à partir des réponses sont reçues d’un compte de stockage.
 
 | Ressource | Limite par défaut |
 | --- | --- |
-| Nombre de comptes de stockage par région et par abonnement, y compris les comptes standard et premium | 250 |
-| Capacité maximale du compte de stockage | 2 Po pour les États-Unis et l'Europe, 500 To pour toutes les autres régions, y compris le Royaume-Uni |
-| Nombre maximal de conteneurs d'objets blob, de partages de fichiers, de tables, de files d'attente, d'entités ou de messages par compte de stockage | Aucune limite |
+| Nombre de comptes de stockage par région et par abonnement, ce qui inclut les comptes Standard et Premium | 250 |
+| Capacité de compte de stockage maximale | 2 Go pour les États-Unis et Europe, 500 To pour toutes les autres régions, ce qui inclut le Royaume-Uni |
+| Nombre maximal de conteneurs d’objets blob, objets BLOB, partages de fichiers, tables, files d’attente, entités ou des messages par compte de stockage | Aucune limite |
 | Taux de demande maximal<sup>1</sup> par compte de stockage | 20 000 demandes par seconde |
-| Entrée max.<sup>1</sup> par compte de stockage (régions des États-Unis) | 10 Gbit/s si RA-GRS/GRS est activé, 20 Gbit/s pour LRS/ZRS<sup>2</sup> |
-| Max. d’entrées<sup>1</sup> par compte de stockage (régions hors États-Unis) | 5 Gbit/s si RA-GRS/GRS est activé, 10 Gbit/s pour LRS/ZRS<sup>2</sup> |
-| Nombre maximal de sorties pour les comptes de stockage à usage général v2 et Blob (toutes les régions) | 50 Gbit/s |
-| Nombre maximal de sorties pour les comptes de stockage à usage général v1 (régions des États-Unis) | 20 Gbit/s si RA-GRS/GRS est activé, 30 Gbit/s pour LRS/ZRS <sup>2</sup> |
-| Nombre maximal de sorties pour les comptes de stockage à usage général v1 (régions hors États-Unis) | 10 Gbit/s si RA-GRS/GRS est activé, 15 Gbit/s pour LRS/ZRS <sup>2</sup> |
+| Entrée maximale<sup>1</sup> par compte de stockage (régions des États-Unis) | 10 Gbit/s si RA-GRS/GRS est activé, 20 Gbit/s pour LRS/ZRS<sup>2</sup> |
+| Entrée maximale<sup>1</sup> par compte de stockage (régions hors États-Unis) | 5 Gbit/s si RA-GRS/GRS est activé, 10 Gbits/s pour LRS/ZRS<sup>2</sup> |
+| Sortie maximale pour un usage général v2 et comptes de stockage d’objets Blob (toutes les régions) | 50 Gbit/s |
+| Sortie maximale pour les comptes de stockage à usage général v1 (régions des États-Unis) | 20 Gbit/s si RA-GRS/GRS est activé, 30 Gbit/s pour LRS/ZRS<sup>2</sup> |
+| Sortie maximale pour les comptes de stockage à usage général v1 (régions hors États-Unis) | 10 Gbit/s si RA-GRS/GRS est activé, 15 Gbit/s pour LRS/ZRS<sup>2</sup> |
 
-<sup>1</sup> Les comptes de stockage standard Azure prennent en charge la demande de limites supérieures pour les entrées. Pour demander une augmentation des limites de compte pour la sortie, contactez le [support Azure](https://azure.microsoft.com/support/faq/).
+<sup>1</sup>comptes de stockage Standard azure prend en charge des limites plus élevées pour l’entrée par demande. Pour demander une augmentation des limites de compte pour la sortie, contactez le [support Azure](https://azure.microsoft.com/support/faq/).
 
 <sup>2</sup> [Les options de réplication du Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy) sont notamment :
 * **RA-GRS** : Stockage géoredondant avec accès en lecture. Si RA-GRS est activé, les cibles de sortie pour l’emplacement secondaire sont identiques à celles de l’emplacement principal.
@@ -38,11 +38,11 @@ Le tableau suivant décrit les limites par défaut du Stockage Azure. La limite 
 * **LRS** : Stockage localement redondant. 
 
 > [!NOTE]
-> Microsoft recommande d’utiliser des comptes de stockage universels v2 pour la plupart des scénarios. Vous pouvez facilement mettre à niveau un compte de stockage universel v1 ou un compte de stockage d’objets blob vers un compte universel v2, sans que cela nécessite un temps d’arrêt ou la copie de données.
+> Nous vous recommandons d’utiliser un compte de stockage à usage général v2 pour la plupart des scénarios. Vous pouvez facilement mettre à niveau un v1 à usage général ou un compte de stockage Blob Azure vers un compte v2 à usage général sans temps d’arrêt et sans avoir besoin de copier des données.
 >
-> Pour plus d’informations sur les comptes de stockage Azure, consultez [Vue d’ensemble des comptes de stockage Azure](../articles/storage/common/storage-account-overview.md). 
+> Pour plus d’informations sur les comptes de stockage Azure, consultez [vue d’ensemble du compte de stockage](../articles/storage/common/storage-account-overview.md). 
 
-Si les besoins de votre application dépassent les objectifs d’extensibilité d’un compte de stockage unique, vous pouvez concevoir votre application afin qu’elle utilise plusieurs comptes de stockage. Ensuite, vous pouvez partitionner vos objets de données sur ces comptes de stockage. Pour plus d’informations sur la tarification des licences en volume, consultez la page [Prix appliqués à Azure Storage](https://azure.microsoft.com/pricing/details/storage/) .
+Si les besoins de votre application dépassent les objectifs d’extensibilité d’un compte de stockage unique, vous pouvez concevoir votre application afin qu’elle utilise plusieurs comptes de stockage. Ensuite, vous pouvez partitionner vos objets de données sur ces comptes de stockage. Pour plus d’informations sur la tarification de volume, consultez [tarification stockage Azure](https://azure.microsoft.com/pricing/details/storage/).
 
 Tous les comptes de stockage s’exécutent sur la topologie de réseau plat et prennent en charge les objectifs d'extensibilité et de performances décrits dans cet article, quel que soit le moment où ils ont été créés. Pour plus d'informations sur l'architecture de réseau plat Stockage Azure et sur son extensibilité, consultez [Stockage Microsoft Azure : un service de stockage cloud hautement disponible à cohérence forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).
 

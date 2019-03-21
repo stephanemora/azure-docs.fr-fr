@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 39ffe1b71fb002658110c63c825e0515f38e2b9e
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 6d6f24475497382dd9e04d3335fb89d6f0bdd514
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537322"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57528676"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-server-using-azure-portal"></a>Création et gestion d’un serveur Azure Database pour MySQL à l’aide du portail Azure
 Cette rubrique explique comment créer rapidement un nouveau serveur Azure Database pour MySQL. Il comprend également des informations sur la gestion du serveur à l’aide du Portail Azure, notamment l’affichage des détails du serveur et des bases de données, la réinitialisation du mot de passe, la mise à l’échelle des ressources et la suppression du serveur.
@@ -44,7 +44,7 @@ Suivez ces étapes pour créer un serveur Azure Database pour MySQL nommé « m
     | *Lieu* | Asie Sud-Est (choisissez entre Europe Nord et USA Ouest) |
     | *Version* | 5.7 (choisissez la version du serveur Azure Database pour MySQL) |
 
-4. Cliquez sur **Niveau tarifaire** pour spécifier le niveau de service et le niveau de performances de votre nouveau serveur. Sélectionnez l’onglet **Usage général**. *Gen 4*, *2 vCores*, *5 Go* et *7 jours* sont les valeurs par défaut pour **Génération de calcul**, **vCore**, **Stockage** et la **Période de rétention de sauvegarde**. Vous pouvez laisser ces curseurs en l’état. Pour activer les sauvegardes de votre serveur dans le stockage géoredondant, sélectionnez **Géographiquement redondant** dans les **Options de redondance de sauvegarde**.
+4. Cliquez sur **Niveau tarifaire** pour spécifier le niveau de service et le niveau de performances de votre nouveau serveur. Sélectionnez l’onglet **Usage général**. *Gen 5*, *2 vCores*, *5 Go* et *7 jours* sont les valeurs par défaut pour **Génération de calcul**, **vCore**, **Stockage** et la **Période de conservation des sauvegardes**. Vous pouvez laisser ces curseurs en l’état. Pour activer les sauvegardes de votre serveur dans le stockage géoredondant, sélectionnez **Géographiquement redondant** dans les **Options de redondance de sauvegarde**.
 
    ![create-server-pricing-tier](./media/howto-create-manage-server-portal/create-server-pricing-tier.png)
 
@@ -110,4 +110,4 @@ Cliquez sur **Propriétés** en dessous de **Paramètres** pour afficher des inf
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Démarrage rapide : Créer un serveur Azure Database pour MySQL à l’aide du portail Azure](./quickstart-create-mysql-server-database-using-azure-portal.md)
+[Démarrage rapide : Créer un serveur Azure Database pour MySQL à l'aide du portail Azure](./quickstart-create-mysql-server-database-using-azure-portal.md)

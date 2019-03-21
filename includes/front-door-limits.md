@@ -8,36 +8,37 @@ ms.topic: include
 ms.date: 9/17/2018
 ms.author: sharadag
 ms.custom: include file
-ms.openlocfilehash: f0c2d1501b9aa19dec8c4ad157e004a57e0e5070
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: e3fa5616518675d8475937ec63afdd8e1742e8c6
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47006485"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553519"
 ---
 | Ressource | Limite par défaut |
 | --- | --- |
-| Ressources Front Door par abonnement | 100 |
-| Hôtes frontend, y compris les domaines personnalisés par ressource | 100 |
+| Ressources de Service de la porte d’entrée Azure par abonnement | 100 |
+| Hôtes front-end, qui inclut des domaines personnalisés par ressource | 100 |
 | Règles de routage par ressource | 100 |
-| Pools backend par ressource | 50 |
-| Serveurs backend par pool backend | 100 |
+| Pools principaux par ressource | 50 |
+| Serveurs principaux par pool back-end | 100 |
 | Modèles de chemin à utiliser pour une règle de routage | 25 |
 | Règles personnalisées de pare-feu d’applications web par stratégie | 10 |
 | Stratégie de pare-feu d’applications web par ressource | 100 |
 
-### <a name="timeout-values"></a>Valeurs de délai d’expiration
+### <a name="timeout-values"></a>Valeurs de délai d’attente
 #### <a name="client-to-front-door"></a>Du client à Front Door
 - Front Door a un délai de 61 secondes pour les connexions TCP inactives.
-#### <a name="front-door-to-application-backend"></a>De Front Door au serveur d’applications backend
-- Si la réponse est une réponse mémorisée en bloc, un code d’état 200 est retourné quand le premier bloc est reçu.
-- Une fois la requête HTTP transférée vers le serveur backend, Front Door attend 30 secondes que le premier paquet provenant du serveur backend arrive, avant de retourner une erreur 503 au client.
-- Lorsque le premier paquet du serveur backend est reçu, Front Door attend 30 secondes (délai d’inactivité) avant de retourner une erreur 503 au client.
-- Le délai d’expiration d’une session TCP entre Front Door et un serveur backend est de 30 minutes.
 
-### <a name="upload--download-data-limit"></a>Limite de chargement et de téléchargement des données
+#### <a name="front-door-to-application-back-end"></a>Porte d’entrée pour l’application back-end
+- Si la réponse est une réponse mémorisé en bloc, une réponse 200 est retournée si ou lorsque le premier segment est reçu.
+- Une fois que la requête HTTP est transférée vers le serveur principal, porte d’entrée attend 30 secondes pour le premier paquet depuis le serveur principal. Ensuite, elle retourne une erreur 503 au client.
+- Une fois le premier paquet est reçu à partir du backend, porte d’entrée attend 30 secondes dans un délai d’inactivité. Ensuite, elle retourne une erreur 503 au client.
+- Porte d’entrée à l’expiration de la session TCP principal est de 30 minutes.
 
-|  | Avec encodage de transfert mémorisé en bloc | Sans segmentation HTTP |
+### <a name="upload-and-download-data-limit"></a>Charger et télécharger des données limite
+
+|  | Avec le codage (CTE) de transfert mémorisé en bloc | Sans segmentation HTTP |
 | ---- | ------- | ------- |
-| **Télécharger** | La taille du téléchargement n’est pas limitée | La taille du téléchargement n’est pas limitée |
-| **Charger** |  Aucune limite tant que chaque chargement avec encodage de transfert mémorisé en bloc est inférieur à 28,6 Mo | La taille du chargement ne peut pas être supérieure à 28,6 Mo. |
+| **Télécharger** | Il n’existe aucune limite sur la taille de téléchargement. | Il n’existe aucune limite sur la taille de téléchargement. |
+| **Charger** |  Il n’existe aucune limite tant que chaque chargement de l’expression de table commune est inférieure à 28,6 Mo. | La taille ne peut pas être supérieure à 28,6. MB. |

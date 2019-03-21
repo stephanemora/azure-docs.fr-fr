@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 10/25/2018
 ms.author: troyhop
-ms.openlocfilehash: 7e680e3cd8a3d7056141814c5e7d4539b72073b4
-ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
+ms.openlocfilehash: a97afe64992db6b48558561ba958b513c8416494
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50756939"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56592823"
 ---
 # <a name="create-an-advanced-device-model"></a>Créer un modèle d’appareil avancé
 
@@ -22,7 +22,7 @@ Ce guide décrit les fichiers JSON et JavaScript qui définissent un modèle d�
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour suivre les étapes de ce guide pratique, vous avez besoin d’une instance déployée de la simulation d’appareil dans votre abonnement Azure.
 
@@ -56,7 +56,7 @@ Un modèle d’appareil classique comprend :
 Chaque fichier de définition d’appareil contient les détails d’un modèle d’appareil simulé, notamment les informations suivantes :
 
 * Nom du modèle d’appareil : chaîne.
-* Protocole : AMQP | MQTT | HTTP.
+* Protocole : AMQP | MQTT | HTTP.
 * État initial de l'appareil.
 * Fréquence d’actualisation de l’état de l’appareil.
 * Fichiers JavaScript à utiliser pour actualiser l’état de l’appareil.
@@ -165,7 +165,7 @@ Les champs répertoriés dans le schéma peuvent avoir les types suivants :
 * Booléen
 * Entier 
 * Double
-* Datetime
+* DateTime
 
 ### <a name="supported-methods"></a>Méthodes prises en charge
 
@@ -516,4 +516,4 @@ Si vos fichiers passent la validation, cliquez sur **Enregistrer** et votre mod�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide pratique, vous avez appris à créer les fichiers du modèle d’appareil utilisés dans la simulation d’appareils et à établir un modèle d’appareil avancé. Vous voudrez ensuite peut-être explorer comment [Utiliser Time Series Insights pour visualiser les données de télémétrie envoyées par l’accélérateur de solution de simulation d’appareil](about-iot-accelerators.md).
+Dans ce guide pratique, vous avez appris à créer les fichiers du modèle d’appareil utilisés dans la simulation d’appareils et à établir un modèle d’appareil avancé. Vous voudrez ensuite peut-être explorer comment [Utiliser Time Series Insights pour visualiser les données de télémétrie envoyées par l’accélérateur de solution de simulation d’appareil](https://docs.microsoft.com/azure/iot-accelerators/iot-accelerators-device-simulation-time-series-insights).

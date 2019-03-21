@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: 717b895696ca93444744955937c6de23626c7835
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: d5d7f45b4833bb535e98542ee513e9ea8bf0f9e5
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234746"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432989"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Corriger le système d’exploitation Windows dans votre cluster Service Fabric
 
@@ -59,7 +59,10 @@ L’application d’orchestration des correctifs comprend les sous-composants su
 > [!NOTE]
 > L’application d’orchestration des correctifs utilise le service système gestionnaire des réparations de Service Fabric pour désactiver ou activer le nœud et effectuer des vérifications d’intégrité. La tâche de réparation créée par l’application d’orchestration des correctifs suit la progression de l’exécution de Windows Update pour chaque nœud.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
+
+> [!NOTE]
+> Version minimale de .NET framework requise correspond à 4.6.
 
 ### <a name="enable-the-repair-manager-service-if-its-not-running-already"></a>Activer le service de gestion des réparations (s’il est inactif)
 
@@ -152,7 +155,7 @@ Vous pouvez configurer le comportement de l’application d’orchestration des 
 |MaxResultsToCache    |long                              | Nombre maximal de résultats d’exécution de Windows Update à mettre en cache. <br>La valeur par défaut est 3 000, en supposant ce qui suit : <br> - Le nombre de nœuds est 20. <br> - Le nombre de mises à jour par mois effectuées sur un nœud est 5. <br> - Le nombre maximal de résultats par opération est 10. <br> - Les résultats des trois derniers mois doivent être stockés. |
 |TaskApprovalPolicy   |Enum <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy indique la stratégie que le service Coordinateur doit utiliser pour installer les mises à jour Windows Update sur les nœuds du cluster Service Fabric.<br>                         Les valeurs autorisées sont les suivantes : <br>                                                           <b>NodeWise</b>. Les mises à jour Windows Update sont installées de façon séquentielle, nœud après nœud. <br>                                                           <b>UpgradeDomainWise</b>. Les mises à jour Windows Update sont installées sur un domaine de mise à niveau à la fois (au maximum, tous les nœuds appartenant à un domaine de mise à niveau peuvent bénéficier de Windows Update).<br> Reportez-vous à la section [FAQ](#frequently-asked-questions) sur la façon de déterminer la stratégie la plus adaptée pour votre cluster.
 |LogsDiskQuotaInMB   |long  <br> (Par défaut : 1 024               |Taille maximale en Mo des journaux de l’application d’orchestration des correctifs qui peuvent être conservés localement sur des nœuds.
-| WUQuery               | chaîne<br>(Par défaut : « IsInstalled=0 »)                | Requête pour obtenir les mises à jour Windows Update. Pour plus d’informations, voir [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx).
+| WUQuery               | string<br>(Par défaut : « IsInstalled=0 »)                | Requête pour obtenir les mises à jour Windows Update. Pour plus d’informations, voir [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx).
 | InstallWindowsOSOnlyUpdates | Booléen <br> (par défaut : false)                 | Utilisez cet indicateur pour contrôler les mises à jour qui doivent être téléchargées et installées. Les valeurs suivantes sont autorisées <br>True : installe uniquement les mises à jour du système d’exploitation Windows.<br>False : installe toutes les mises à jour disponibles sur l’ordinateur.          |
 | WUOperationTimeOutInMinutes | Int <br>(Par défaut : 90)                   | Spécifie le délai d’expiration de toute opération de Windows Update (rechercher, télécharger ou installer). Si l’opération n’est pas terminée dans le délai imparti, elle est abandonnée.       |
 | WURescheduleCount     | Int <br> (Par défaut : 5)                  | Nombre maximal de fois que le service replanifie une mise à jour Windows en cas d’échec persistant d’une opération.          |
@@ -415,4 +418,4 @@ Un administrateur doit intervenir et déterminer la raison pour laquelle l’app
 - Remplacement de la valeur par défaut de InstallWindowsOSOnlyUpdates par la valeur False.
 
 ### <a name="version-132"></a>Version 1.3.2
-- Correction d’un problème qui affectait le cycle de vie de la correction sur un nœud dans le cas où il existe des nœuds dont le nom est un sous-ensemble du nom du nœud courant. Pour de tels nœuds, il est possible qu’un correctif soit omis ou qu’un redémarrage soit en cours. 
+- Correction d’un problème qui a effectué la mise à jour corrective vie-importantes sur un nœud dans le cas où il existe des nœuds de nom qui est le sous-ensemble du nom du nœud actuel. Pour de tels nœuds, il est possible qu’un correctif soit omis ou qu’un redémarrage soit en cours. 

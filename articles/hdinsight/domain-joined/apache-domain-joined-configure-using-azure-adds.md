@@ -9,12 +9,12 @@ ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.custom: seodec18
-ms.openlocfilehash: 722a40dca0a64407a407ecad6d990d1651b0e998
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 96766a12d7e78dacd93432e30d12f313d52ad4c0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415729"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176172"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Configurer un cluster HDInsight avec le pack Sécurité Entreprise en utilisant Azure Active Directory Domain Services
 
@@ -56,7 +56,7 @@ Affichez l’état d’intégrité de vos services AAD-DS en sélectionnant **In
 
 ## <a name="create-and-authorize-a-managed-identity"></a>Créer et autoriser une identité managée
 
-Une **identité managée affectée à l’utilisateur** est utilisée pour simplifier et sécuriser les opérations de services de domaine. Lorsque vous affectez le rôle Contributeur des services de domaine HDInsight à l’identité managée, il peut lire, créer, modifier et supprimer des opérations de services de domaine. Certaines opérations telles que la création d'unités d’organisation ou de principaux de service sont nécessaires pour le Pack Sécurité Entreprise HDInsight. Les identités managées peuvent être créées dans n’importe quel abonnement. Pour plus d’informations, voir [Identités managées pour les ressources Azure](../../active-directory/managed-identities-azure-resources/overview.md).
+Une **identité managée affectée à l’utilisateur** est utilisée pour simplifier et sécuriser les opérations de services de domaine. Lorsque vous affectez le rôle Contributeur des services de domaine HDInsight à l’identité managée, il peut lire, créer, modifier et supprimer des opérations de services de domaine. Certaines opérations telles que la création d'unités d’organisation ou de principaux de service sont nécessaires pour le Pack Sécurité Entreprise HDInsight. Les identités managées peuvent être créées dans n’importe quel abonnement. Pour plus d’informations sur les gérés identités en général, consultez [gérés d’identités pour les ressources Azure](../../active-directory/managed-identities-azure-resources/overview.md). Pour plus d’informations sur la gestion des identités dans Azure HDInsight, consultez [gérés des identités dans Azure HDInsight](../hdinsight-managed-identities.md).
 
 Pour configurer des clusters ESP, créez une identité managée affectée à l’utilisateur, si vous n’en possédez pas déjà une. Pour obtenir des instructions, voir [Créer, répertorier, supprimer ou affecter un rôle à une identité managée affectée par l’utilisateur à l’aide du portail Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal). Ensuite, affectez le rôle **Contributeur de services de domaine HDInsight** à l’identité managée dans le contrôle d’accès Azure AD-DS (des privilèges d’administrateur AAD-DS sont requis pour affecter ce rôle).
 

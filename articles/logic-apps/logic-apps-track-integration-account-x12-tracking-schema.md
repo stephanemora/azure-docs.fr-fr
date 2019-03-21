@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: a5413f80-eaad-4bcf-b371-2ad0ef629c3d
 ms.date: 01/27/2017
-ms.openlocfilehash: cfd195f2f812c8b2e09058d325d0dbb6f7a60d59
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: 1db324006e1e6332b5fdd8afd28ebed8a32ac707
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125599"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195181"
 ---
 # <a name="create-schemas-for-tracking-x12-messages-in-integration-accounts-for-azure-logic-apps"></a>Créer des schémas pour le suivi des messages X12 et des MDN dans les comptes d’intégration pour Azure Logic Apps
 
@@ -57,7 +57,7 @@ Pour surveiller le succès, les erreurs et les propriétés des messages lors de
 }
 ```
 
-| Propriété | type | Description |
+| Propriété | Type | Description |
 | --- | --- | --- |
 | senderPartnerName | Chaîne | Nom de partenaire de l’expéditeur du message X12. (facultatif) |
 | receiverPartnerName | Chaîne | Nom de partenaire du destinataire du message X12. (facultatif) |
@@ -113,7 +113,7 @@ Pour surveiller le succès, les erreurs et les propriétés des messages lors de
 }
 ```
 
-| Propriété | type | Description |
+| Propriété | Type | Description |
 | --- | --- | --- |
 | senderPartnerName | Chaîne | Nom de partenaire de l’expéditeur du message X12. (facultatif) |
 | receiverPartnerName | Chaîne | Nom de partenaire du destinataire du message X12. (facultatif) |
@@ -171,7 +171,7 @@ Pour surveiller le succès, les erreurs et les propriétés des messages lors de
 }
 ```
 
-| Propriété | type | Description |
+| Propriété | Type | Description |
 | --- | --- | --- |
 | senderPartnerName | Chaîne | Nom de partenaire de l’expéditeur du message X12. (facultatif) |
 | receiverPartnerName | Chaîne | Nom de partenaire du destinataire du message X12. (facultatif) |
@@ -222,7 +222,7 @@ Pour surveiller le succès, les erreurs et les propriétés des messages lors de
 }
 ```
 
-| Propriété | type | Description |
+| Propriété | Type | Description |
 | --- | --- | --- |
 | senderPartnerName | Chaîne | Nom de partenaire de l’expéditeur du message X12. (facultatif) |
 | receiverPartnerName | Chaîne | Nom de partenaire du destinataire du message X12. (facultatif) |
@@ -275,7 +275,7 @@ Pour surveiller le succès, les erreurs et les propriétés des messages lors de
 }
 ```
 
-| Propriété | type | Description |
+| Propriété | Type | Description |
 | --- | --- | --- |
 | senderPartnerName | Chaîne | Nom de partenaire de l’expéditeur du message X12. (facultatif) |
 | receiverPartnerName | Chaîne | Nom de partenaire du destinataire du message X12. (facultatif) |
@@ -331,7 +331,7 @@ Pour surveiller le succès, les erreurs et les propriétés des messages lors de
 }
 ```
 
-| Propriété | type | Description |
+| Propriété | Type | Description |
 | --- | --- | --- |
 | senderPartnerName | Chaîne | Nom de partenaire de l’expéditeur du message X12. (facultatif) |
 | receiverPartnerName | Chaîne | Nom de partenaire du destinataire du message X12. (facultatif) |
@@ -365,4 +365,4 @@ Pour plus d’informations sur les schémas de suivi de protocole B2B, consultez
 ## <a name="next-steps"></a>Étapes suivantes
 
 * En savoir plus sur le [suivi des messages B2B](logic-apps-monitor-b2b-message.md).
-* En savoir plus sur [le suivi des messages B2B dans Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+* En savoir plus sur [le suivi des messages B2B dans Azure Monitor journaux](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).

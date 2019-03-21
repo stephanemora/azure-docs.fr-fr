@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 07592c6852a7fce057381cb9086baedc9d2b1bd6
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: f1e238890b777e2816648ec407e2581f636d1c12
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111745"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57239825"
 ---
 # <a name="security-alerts-map-and-threat-intelligence"></a>Carte des alertes de sécurité et informations sur les menaces
 Cet article vous aide à utiliser la carte des alertes de sécurité et la carte Threat Intelligence basée sur les événements de sécurité d’Azure Security Center pour résoudre les problèmes liés à la sécurité.
@@ -62,7 +62,7 @@ Pour afficher la carte Threat Intelligence basée sur les événements de sécur
 4. En haut de la carte, sélectionnez **Afficher Threat intelligence classique**. Le tableau de bord **Threat intelligence** s’affiche.
 
    > [!NOTE]
-   > Si la colonne située complètement à droite affiche **PLAN DE MISE À NIVEAU**, cet espace de travail utilise l’abonnement gratuit. Effectuez une mise à niveau vers le niveau Standard pour utiliser cette fonctionnalité. Si la colonne située complètement à droite affiche **MISE À JOUR REQUISE**, mettez à jour [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) pour utiliser cette fonctionnalité. Pour en savoir plus sur le plan de tarification, consultez la tarification dans Azure Security Center.
+   > Si la colonne située complètement à droite affiche **PLAN DE MISE À NIVEAU**, cet espace de travail utilise l’abonnement gratuit. Effectuez une mise à niveau vers le niveau Standard pour utiliser cette fonctionnalité. Si la colonne située complètement à droite affiche **mise à jour requise**, mettre à jour [Azure Monitor enregistre](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) pour utiliser cette fonctionnalité. Pour en savoir plus sur le plan de tarification, consultez la tarification dans Azure Security Center.
    >
 5. Si vous avez plusieurs espaces de travail à examiner, hiérarchisez l’examen en fonction de la colonne **Adresse IP malveillante**. Elle indique le nombre actuel d’adresses IP malveillantes dans cet espace de travail. Sélectionnez l’espace de travail que vous souhaitez utiliser. Le tableau de bord **Informations sur les menaces** s’affiche.
 

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/14/2017
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1abdfc377c40e37f01fbbbbd695e949671d40a51
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 1c93716d5c8d0c9a74e2cb14a35637faa029c156
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820125"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226179"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-a-templates"></a>Configurer des identités managées pour ressources Azure sur une machine virtuelle Azure en utilisant un modèle
 
@@ -39,7 +39,7 @@ Dans cet article, en utilisant le modèle de déploiement Azure Resource Manager
 
 Comme pour le portail Azure et le script, les modèles [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) offrent la possibilité de déployer des ressources nouvelles ou modifiées définies par un groupe de ressources Azure. Plusieurs options sont disponibles pour la modification du modèle et le déploiement, à la fois localement et sur le portail, y compris :
 
-   - Utiliser un [modèle personnalisé à partir de Azure Marketplace](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template), lequel vous permet de créer un modèle à partir de zéro, ou à partir d’un modèle commun existant ou d’un [modèle de démarrage rapide](https://azure.microsoft.com/documentation/templates/).
+   - À l’aide un [modèle personnalisé à partir de la place de marché Azure](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template), qui vous permet de créer un modèle à partir de zéro, ou à partir d’un commun existant ou [modèle de démarrage rapide](https://azure.microsoft.com/documentation/templates/).
    - Dériver à partir d’un groupe de ressources existant, en exportant un modèle à partir du [déploiement d’origine](../../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates), ou à partir de l’[état actuel du déploiement](../../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates).
    - Utilisation d’un [éditeur local JSON (VS Code, par exemple)](../../azure-resource-manager/resource-manager-create-first-template.md), puis téléchargement/déploiement à l’aide de PowerShell ou Azure CLI.
    - Utilisez le [projet de groupe de ressources Azure](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) de Visual Studio pour créer et déployer un modèle.  
@@ -64,35 +64,10 @@ Pour activer l’identité managée affectée par le système sur une machine vi
    },
    ```
 
-3. (Facultatif) Ajoutez l’extension de machine virtuelle d’identités managées pour ressources Azure en tant qu’élément `resources`. Cette étape est facultative, car vous pouvez également utiliser le point de terminaison d’identité IMDS (Instance Metadata Service) Azure pour récupérer des jetons.  Utilisez la syntaxe suivante :
+> [!NOTE]
+> Vous pouvez éventuellement déployer des identités gérées pour l’extension de machine virtuelle de ressources Azure en le spécifiant comme un `resources` élément dans le modèle. Cette étape est facultative, car vous pouvez également utiliser le point de terminaison d’identité IMDS (Instance Metadata Service) Azure pour récupérer des jetons.  Pour plus d’informations, consultez [migrer vers IMDS Azure pour l’authentification à partir de l’extension de machine virtuelle](howto-migrate-vm-extension.md).
 
-   >[!NOTE] 
-   > Les exemples suivants supposent qu’une extension de la machine virtuelle Windows (`ManagedIdentityExtensionForWindows`) est en cours de déploiement. À la place, vous pouvez également configurer pour Linux à l’aide de `ManagedIdentityExtensionForLinux`, pour les éléments `"name"` et `"type"`. L’extension de machine virtuelle doit être abandonnée en janvier 2019.
-   >
-
-   ```JSON
-   { 
-       "type": "Microsoft.Compute/virtualMachines/extensions",
-       "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
-       "apiVersion": "2018-06-01",
-       "location": "[resourceGroup().location]",
-       "dependsOn": [
-           "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-       ],
-       "properties": {
-           "publisher": "Microsoft.ManagedIdentity",
-           "type": "ManagedIdentityExtensionForWindows",
-           "typeHandlerVersion": "1.0",
-           "autoUpgradeMinorVersion": true,
-           "settings": {
-               "port": 50342
-           },
-           "protectedSettings": {}
-       }
-   }
-   ```
-
-4. Lorsque vous avez terminé, les sections ci-après doivent être ajoutées à la section `resource` de votre modèle et doivent ressembler à ce qui suit :
+3. Lorsque vous avez terminé, les sections ci-après doivent être ajoutées à la section `resource` de votre modèle et doivent ressembler à ce qui suit :
 
    ```JSON
    "resources": [
@@ -106,6 +81,8 @@ Pour activer l’identité managée affectée par le système sur une machine vi
                 "type": "SystemAssigned",
                 },
             },
+        
+            //The following appears only if you provisioned the optional VM extension (to be deprecated)
             {
             "type": "Microsoft.Compute/virtualMachines/extensions",
             "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
@@ -253,29 +230,6 @@ Pour affecter une identité managée affectée par l’utilisateur à une machin
    }
    ```
        
-
-2. (Facultatif) Ensuite, sous l’élément `resources`, ajoutez l’entrée ci-après pour attribuer l’extension d’identité managée à votre machine virtuelle (dont l’abandon est prévu en janvier 2019). Cette étape est facultative, car vous pouvez également utiliser le point de terminaison d’identité IMDS (Instance Metadata Service) Azure pour récupérer des jetons. Utilisez la syntaxe suivante :
-    ```json
-    {
-        "type": "Microsoft.Compute/virtualMachines/extensions",
-        "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
-        "apiVersion": "2018-06-01",
-        "location": "[resourceGroup().location]",
-        "dependsOn": [
-            "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-        ],
-        "properties": {
-            "publisher": "Microsoft.ManagedIdentity",
-            "type": "ManagedIdentityExtensionForWindows",
-            "typeHandlerVersion": "1.0",
-            "autoUpgradeMinorVersion": true,
-            "settings": {
-                "port": 50342
-            }
-        }
-    }
-    ```
-    
 3. Lorsque vous avez terminé, les sections ci-après doivent être ajoutées à la section `resource` de votre modèle et doivent ressembler à ce qui suit :
    
    **API Microsoft.Compute/virtualMachines version 2018-06-01**    
@@ -295,6 +249,7 @@ Pour affecter une identité managée affectée par l’utilisateur à une machin
                 }
             }
         },
+        //The following appears only if you provisioned the optional VM extension (to be deprecated)                  
         {
             "type": "Microsoft.Compute/virtualMachines/extensions",
             "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
@@ -332,6 +287,8 @@ Pour affecter une identité managée affectée par l’utilisateur à une machin
                 ]
             }
         },
+                 
+        //The following appears only if you provisioned the optional VM extension (to be deprecated)                   
         {
             "type": "Microsoft.Compute/virtualMachines/extensions",
             "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
