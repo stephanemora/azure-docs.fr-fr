@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 125f1a2a041c8c05289c95bd12c10618bfc622a8
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 40ff2339ad34a72079109317bf0a89dfbc6458e8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246869"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58115387"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Stockage Premium hautes performances et disques gérés pour machines virtuelles
 
@@ -63,11 +63,11 @@ Voici certaines des fonctionnalités du stockage Premium :
 
     Pour commencer à utiliser le stockage Premium, créez un compte de stockage Premium pour les disques non gérés. Dans le [portail Azure](https://portal.azure.com), pour créer un compte de stockage Premium, choisissez le niveau de performance **Premium**. Sélectionnez l’option de réplication **Stockage localement redondant (LRS)**. Vous pouvez également créer un compte de stockage Premium en définissant le niveau de performance sur **Premium_LRS**. Pour modifier le niveau de performances, utilisez une des approches suivantes :
      
-    - [PowerShell pour le Stockage Azure](../articles/storage/common/storage-powershell-guide-full.md#manage-the-storage-account)
-    - [Azure CLI pour le Stockage Azure](../articles/storage/common/storage-azure-cli.md#manage-storage-accounts)
-    - [L’API REST du fournisseur de ressources de Stockage Azure](https://docs.microsoft.com/rest/api/storagerp) (pour les déploiements Azure Resource Manager) ou l’une des bibliothèques clientes de fournisseur de ressources Azure Storage.
+  - [PowerShell pour le Stockage Azure](../articles/storage/common/storage-powershell-guide-full.md#manage-the-storage-account)
+  - [Azure CLI pour le Stockage Azure](../articles/storage/common/storage-azure-cli.md#manage-storage-accounts)
+  - [L’API REST du fournisseur de ressources de Stockage Azure](https://docs.microsoft.com/rest/api/storagerp) (pour les déploiements Azure Resource Manager) ou l’une des bibliothèques clientes de fournisseur de ressources Azure Storage.
 
-    Pour en savoir plus sur les limites des comptes de stockage Premium, consultez Objectifs de performance et d'extensibilité du stockage Premium.
+    Pour en savoir plus sur les limites de compte de stockage premium, consultez [objectifs de performance et évolutivité](#scalability-and-performance-targets).
 
 * **Stockage Premium localement redondant**
 
@@ -98,8 +98,6 @@ Voici quelques exemples de fonctionnalités prises en charge sur les machines vi
 
     > [!NOTE]
     > Si vous équilibrez les disques de données de stockage Premium à l’aide des [espaces de stockage](https://technet.microsoft.com/library/hh831739.aspx), configurez les espaces de stockage avec 1 colonne pour chaque disque utilisé. Dans le cas contraire, les performances globales du volume agrégé par bandes peuvent être limitées, en raison d’une distribution inégale du trafic sur les disques. Par défaut, dans le Gestionnaire de serveur, vous pouvez définir des colonnes pour 8 disques maximum. Au-delà de 8 disques, utilisez PowerShell pour créer le volume. Spécifiez le nombre de colonnes manuellement. Dans le cas contraire, l’IU du Gestionnaire de serveur continue d’utiliser 8 colonnes, même si vous disposez de plusieurs disques. Par exemple, si vous disposez de 32 disques dans un agrégat unique, spécifiez 32 colonnes. Pour spécifier le nombre de colonnes utilisées par le disque virtuel, dans l’applet de commande PowerShell [New-VirtualDisk](https://technet.microsoft.com/library/hh848643.aspx), utilisez le paramètre *NumberOfColumns*. Pour plus d’informations, consultez [Vue d’ensemble des espaces de stockage](https://technet.microsoft.com/library/hh831739.aspx) et [FAQ sur les espaces de stockage](https://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx).
-    >
-    > 
 
 * **Cache**
 
@@ -155,12 +153,12 @@ Les tailles signalées par un astérisque sont actuellement en préversion.
 
 | Type de disque Premium  | P4    | P6    | P10    | P15    | P20    | P30              | P40             | P50             | P60 *            | P70 *               | P80 *               |
 |---------------------|-------|-------|--------|--------|--------|------------------|-----------------|-----------------|-----------------|--------------------|--------------------|
-| Taille du disque           | 32 Gio| 64 Gio| 128 Go| 256 Gio| 512 Go| 1 024 Gio (1 Tio) | 2 048 Gio (2 Tio)| 4 095 Gio (4 Tio)| 8192 Gio (8 Tio)| 16 384 Gio (16 Tio)| 32 767 Gio (32 Tio)|
+| Taille du disque           | 32 Gio| 64 Gio| 128 Go| 256 Gio| 512 Go| 1 024 Gio (1 Tio) | 2 048 Gio (2 Tio)| 4 095 Gio (4 Tio)| 8192 Gio (8 Tio)| 16 384 Gio (16 Tio)| 32 767 Gio (32 Tio)|
 | IOPS par disque       | 120   | 240   | 500    | 1100   | 2 300   | 5 000             | 7500            | 7500            | 12 500          | 15 000             | 20 000             |
 | Débit par disque | 25 Mo par seconde | 50 Mo par seconde | 100 Mo par seconde | 125 Mo par seconde | 150 Mo par seconde | 200 Mo par seconde | 250 Mo par seconde | 250 Mo par seconde | 480 Mo par seconde | 750 Mo par seconde | 750 Mo par seconde |
 
 > [!NOTE]
-> Assurez-vous que suffisamment de bande passante soit disponible sur votre machine virtuelle pour le trafic du disque, comme décrit dans [Machines virtuelles prises en charge par le stockage Premium](). Dans le cas contraire, votre débit de disque et les E/S par seconde sont limités à des valeurs moindres. Le débit maximal et les E/S par seconde sont basés sur les limites de la machine virtuelle, pas sur les limites du disque décrites dans le tableau précédent.  
+> Assurez-vous que suffisamment de bande passante est disponible sur votre machine virtuelle pour le trafic du disque, comme décrit dans [pris en charge les machines virtuelles](#supported-vms). Dans le cas contraire, votre débit de disque et les E/S par seconde sont limités à des valeurs moindres. Le débit maximal et les E/S par seconde sont basés sur les limites de la machine virtuelle, pas sur les limites du disque décrites dans le tableau précédent.  
 > Azure a conçu une plate-forme Premium Storage hautement parallèle. Concevoir une application multi-thread vous aide à atteindre la cible de hautes performances proposée sur les tailles de disque supérieures.
 
 Voici quelques éléments importants à connaître sur les objectifs de performances et d’extensibilité du stockage Premium :
@@ -294,7 +292,7 @@ Les considérations de facturation suivantes s’appliquent lorsque vous utilise
 
 * **Taille de disque de stockage Premium et de l’objet blob**
 
-    La facturation pour un disque de stockage Premium ou un objet blob dépend de la taille configurée du disque ou de l’objet blob. Azure mappe la taille configurée (arrondie à la valeur supérieure) à l’option de disque de stockage Premium la plus proche. Pour plus d’informations, consultez le tableau dans [Objectifs de performance et d’extensibilité du stockage Premium](). Chaque disque mappe sur une taille de disque configurée prise en charge et est facturé en conséquence. La facturation de n’importe quel disque configuré est calculée au prorata horaire sur la base du tarif mensuel de l’offre de stockage Premium. Par exemple, si vous configurez un disque P10 et le supprimez au bout de 20 heures, vous êtes facturé 20 heures pour l'offre P10. Le montant facturé est indépendant de la quantité de données écrites sur le disque ou de la quantité de débit et E/S par seconde utilisés.
+    La facturation pour un disque de stockage Premium ou un objet blob dépend de la taille configurée du disque ou de l’objet blob. Azure mappe la taille configurée (arrondie à la valeur supérieure) à l’option de disque de stockage Premium la plus proche. Pour plus d’informations, consultez le tableau dans [objectifs de performance et évolutivité](#scalability-and-performance-targets). Chaque disque mappe sur une taille de disque configurée prise en charge et est facturé en conséquence. La facturation de n’importe quel disque configuré est calculée au prorata horaire sur la base du tarif mensuel de l’offre de stockage Premium. Par exemple, si vous configurez un disque P10 et le supprimez au bout de 20 heures, vous êtes facturé 20 heures pour l'offre P10. Le montant facturé est indépendant de la quantité de données écrites sur le disque ou de la quantité de débit et E/S par seconde utilisés.
 
 * **Captures instantanées de disques non gérés Premium**
 

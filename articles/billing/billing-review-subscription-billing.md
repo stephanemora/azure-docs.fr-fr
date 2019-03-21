@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: erikre
-ms.openlocfilehash: a4e5307a151439dde5ac41cb5b1bbb80f43ad71c
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 15725989ef786f94421eddf647f101e3e73633fb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112748"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890761"
 ---
 # <a name="review-subscription-billing-using-rest-apis"></a>Passer en revue la facturation d’un abonnement avec les API REST
 
-Les API de création de rapports Azure vous aident à passer en revue et à gérer vos coûts Azure.  
+Les API de création de rapports Azure vous aident à passer en revue et à gérer vos coûts Azure.
 
 Des filtres permettent de personnaliser les résultats en fonction de vos besoins.
 
@@ -31,26 +31,26 @@ Vous pouvez découvrir ici comment utiliser les API REST pour retourner les dét
 
 ``` http
 GET https://management.azure.com/subscriptions/${subscriptionID}/providers/Microsoft.Billing/billingPeriods/${billingPeriod}/providers/Microsoft.Consumption/usageDetails?$filter=properties/usageEnd ge '${startDate}' AND properties/usageEnd le '${endDate}'
-Content-Type: application/json   
+Content-Type: application/json
 Authorization: Bearer
 ```
 
-## <a name="build-the-request"></a>Générer la demande  
+## <a name="build-the-request"></a>Générer la demande
 
 Le paramètre `{subscriptionID}` est obligatoire et identifie l’abonnement cible.
 
 Le paramètre `{billingPeriod}` est obligatoire et spécifie une [période de facturation](https://docs.microsoft.com/rest/api/billing/billingperiods/get#billingperiod) active.
 
-Les paramètres `${startDate}` et `${endDate}` sont obligatoires pour cet exemple, mais facultatifs pour le point de terminaison.  Ils spécifient la plage de dates sous forme de chaînes, au format AAAA-MM-JJ (exemples : `'20180501'` et `'20180615'`). 
+Les paramètres `${startDate}` et `${endDate}` sont obligatoires pour cet exemple, mais facultatifs pour le point de terminaison. Ils spécifient la plage de dates sous forme de chaînes, au format AAAA-MM-JJ (exemples : `'20180501'` et `'20180615'`).
 
-Les en-têtes suivants sont requis : 
+Les en-têtes suivants sont requis :
 
-|En-tête de requête|Description|  
-|--------------------|-----------------|  
-|*Content-Type :*|Requis. Défini sur `application/json`.|  
-|*Authorization :*|Requis. Défini sur un [jeton d’accès](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients) `Bearer` valide. |  
+|En-tête de requête|Description|
+|--------------------|-----------------|
+|*Content-Type :*|Requis. Défini sur `application/json`.|
+|*Authorization :*|Requis. Défini sur un [jeton d’accès](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients) `Bearer` valide. |
 
-## <a name="response"></a>response  
+## <a name="response"></a>response
 
 Le code d’état 200 (OK) est retourné pour une réponse correcte, qui contient une liste de coûts détaillés pour votre compte.
 
@@ -67,47 +67,47 @@ Le code d’état 200 (OK) est retourné pour une réponse correcte, qui contien
         "usageStart": "${startDate}}",
         "usageEnd": "${endDate}",
         "currency": "USD",
-        "usageQuantity": ${usageQuantity},
-        "billableQuantity": ${billableQuantity},
-        "pretaxCost": ${cost},
+        "usageQuantity": "${usageQuantity}",
+        "billableQuantity": "${billableQuantity}",
+        "pretaxCost": "${cost}",
         "meterId": "${meterID}",
-        "meterDetails": ${meterDetails}
+        "meterDetails": "${meterDetails}"
       }
     }
-    ],
-    "nextLink": "${nextLinkURL}"
-} 
-```  
+  ],
+  "nextLink": "${nextLinkURL}"
+}
+```
 
 Chaque élément de **value** représente une information détaillée concernant l’utilisation d’un service :
 
 |Propriété de la réponse|Description|
 |----------------|----------|
-|**subscriptionGuid** | ID global unique pour l’abonnement. | 
+|**subscriptionGuid** | ID global unique pour l’abonnement. |
 |**startDate** | Date à laquelle l’utilisation a démarré. |
 |**endDate** | Date à laquelle l’utilisation s’est terminée. |
-|**useageQuantity** | Quantité utilisée. | 
+|**useageQuantity** | Quantité utilisée. |
 |**billableQuantity** | Quantité réellement facturée. |
-|**pretaxCost** | Coût facturé, avant application des taxes. | 
+|**pretaxCost** | Coût facturé, avant application des taxes. |
 |**meterDetails** | Informations détaillées sur l’utilisation. |
-|**nextLink**| Quand elle est définie, spécifie une URL pour la « page » suivante d’informations détaillées. Vide quand la page est la dernière. |  
-||
-  
-Cet exemple est abrégé ; consultez [Liste des détails d’utilisation](https://docs.microsoft.com/rest/api/consumption/usagedetails/listbybillingperiod#usagedetailslistresult) pour une description complète de chaque champ de la réponse. 
+|**nextLink**| Quand elle est définie, spécifie une URL pour la « page » suivante d’informations détaillées. Vide quand la page est la dernière. |
+
+Cet exemple est abrégé ; consultez [Liste des détails d’utilisation](https://docs.microsoft.com/rest/api/consumption/usagedetails/list#usagedetailslistforbillingperiod) pour une description complète de chaque champ de la réponse.
 
 Les autres codes d’état indiquent les conditions d’erreur. Dans ces cas, l’objet de réponse explique pourquoi la demande a échoué.
 
 ``` json
-{  
-  "error": [  
-    { "code": "Error type." 
-      "message": "Error response describing why the operation failed."  
-    }  
-  ]  
-}  
-```  
+{
+  "error": [
+    {
+      "code": "Error type.",
+      "message": "Error response describing why the operation failed."
+    }
+  ]
+}
+```
 
-## <a name="next-steps"></a>Étapes suivantes 
+## <a name="next-steps"></a>Étapes suivantes
 - Consulter [Présentation des rapports d’entreprise](https://docs.microsoft.com/azure/billing/billing-enterprise-api)
-- Examiner [l’API REST de facturation d’entreprise](https://docs.microsoft.com/rest/api/billing/)   
-- [Bien démarrer avec l’API REST Azure](https://docs.microsoft.com/rest/api/azure/)   
+- Examiner [l’API REST de facturation d’entreprise](https://docs.microsoft.com/rest/api/billing/)
+- [Bien démarrer avec l’API REST Azure](https://docs.microsoft.com/rest/api/azure/)

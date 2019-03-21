@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 8981f6a2b2d42627530fb8bf820ff8373e8f50b0
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
-ms.translationtype: HT
+ms.openlocfilehash: 5c0fe0921446dde12771bacf096f806701b90444
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971663"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117997"
 ---
 # <a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Prise en main d’Apache Storm sur HDInsight à l’aide des exemples storm-starter
 
@@ -47,9 +47,9 @@ Utilisez les étapes suivantes pour créer un Storm sur un cluster HDInsight :
 2. Dans la section **De base**, entrez les informations suivantes :
 
     * **Nom du cluster** : nom du cluster HDInsight.
-    * **Abonnement**: sélectionnez l’abonnement à utiliser.
+    * **Abonnement**: Sélectionnez l’abonnement à utiliser.
     * **Nom d’utilisateur de connexion au cluster** et **Mot de passe de connexion au cluster** : informations de connexion permettant d’accéder au cluster par le biais du protocole HTTPS. Vous utilisez ces informations d’identification pour accéder aux services tels que l’interface utilisateur Ambari Web ou l’API REST.
-    * **Nom d’utilisateur SSH (Secure Shell)**  : information de connexion permettant d’accéder au cluster suivant le protocole SSH. Par défaut, le mot de passe est le même que le mot de passe de connexion de cluster.
+    * **Nom d’utilisateur SSH (Secure Shell)**  : Information de connexion permettant d’accéder au cluster suivant le protocole SSH. Par défaut, le mot de passe est le même que le mot de passe de connexion de cluster.
     * **Groupe de ressources** : Groupe de ressources dans lequel le cluster sera créé.
     * **Emplacement** : Région Azure dans laquelle le cluster sera créé.
 
@@ -124,26 +124,26 @@ Suivez la procédure ci-après pour surveiller la topologie à l’aide de l’i
 
     Cette page fournit les informations suivantes :
 
-    * **Statistiques de topologie** : informations de base sur les performances de la topologie, organisées dans des fenêtres de temps.
+   * **Statistiques de topologie** : informations de base sur les performances de la topologie, organisées dans des fenêtres de temps.
 
-        > [!NOTE]  
-        > La sélection d’une fenêtre de temps spécifique modifie la fenêtre de temps pour les informations affichées dans d’autres sections de la page.
+       > [!NOTE]  
+       > La sélection d’une fenêtre de temps spécifique modifie la fenêtre de temps pour les informations affichées dans d’autres sections de la page.
 
-    * **Spouts** : informations de base sur les spouts, y compris la dernière erreur retournée par chaque spout.
+   * **Spouts** : informations de base sur les spouts, y compris la dernière erreur retournée par chaque spout.
 
-    * **Bolts** : informations de base sur les bolts.
+   * **Bolts** : informations de base sur les bolts.
 
-    * **Configuration de la topologie** : informations détaillées sur la configuration de la topologie.
+   * **Configuration de la topologie** : informations détaillées sur la configuration de la topologie.
 
-    Cette page présente également les actions qui peuvent être effectuées sur la topologie :
+     Cette page présente également les actions qui peuvent être effectuées sur la topologie :
 
-    * **Activer** : reprend le traitement d’une topologie désactivée.
+   * **Activer** : reprend le traitement d’une topologie désactivée.
 
-    * **Désactiver** : suspend une topologie en cours d’exécution.
+   * **Désactiver** : suspend une topologie en cours d’exécution.
 
-    * **Rééquilibrer** : ajuste le parallélisme de la topologie. Il convient de rééquilibrer les topologies en cours d’exécution après avoir modifié le nombre de nœuds dans le cluster. Le rééquilibrage ajuste le parallélisme pour compenser l’augmentation/la réduction du nombre de nœuds du cluster. Pour plus d’informations, voir [Comprendre le parallélisme d’une topologie Apache Storm](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+   * **Rééquilibrer** : ajuste le parallélisme de la topologie. Il convient de rééquilibrer les topologies en cours d’exécution après avoir modifié le nombre de nœuds dans le cluster. Le rééquilibrage ajuste le parallélisme pour compenser l’augmentation/la réduction du nombre de nœuds du cluster. Pour plus d’informations, voir [Comprendre le parallélisme d’une topologie Apache Storm](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
-    * **Supprimer** : met fin à une topologie Storm après expiration du délai spécifié.
+   * **Supprimer** : met fin à une topologie Storm après expiration du délai spécifié.
 
 3. À partir de cette page, sélectionnez une entrée dans la section **Spouts** ou **Bolts**. Vous obtenez des informations relatives au composant sélectionné.
 

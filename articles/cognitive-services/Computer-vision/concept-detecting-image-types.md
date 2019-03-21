@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 6cd7b2a8a70a315b05c0824a863803bbc6ffabb2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 37cdac16a51a30bdaf1ba0266bab7fdd1f2990f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872133"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895445"
 ---
 # <a name="detecting-image-types-with-computer-vision"></a>Détection des types d’images avec Vision par ordinateur
 
-Vision par ordinateur analyse le type de contenu des images, indique si une image est de type clipart, puis évalue la probabilité qu’il s’agisse d’un dessin à l’échelle ou d’un dessin au trait.
+Avec le [Image analyser](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API, de vision par ordinateur permet d’analyser le type de contenu d’images, qui indique si une image est une image clipart ou un dessin au trait.
 
 ## <a name="detecting-clip-art"></a>Détection des images clipart
 
@@ -115,4 +115,4 @@ Les réponses JSON suivantes illustrent ce que Vision par ordinateur renvoie si 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez les concepts de [balisage d’images](concept-tagging-images.md) et de [catégorisation des images](concept-categorizing-images.md).
+Consultez le [Image analyser](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) documentation pour savoir comment détecter les types d’images de référence.

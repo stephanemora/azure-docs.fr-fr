@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: mayg
-ms.openlocfilehash: f2d8d070a8adbe7992795b06722427da2830cb50
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
+ms.openlocfilehash: e3f6a160f57a4432f91c395a2e0dd664bc8f323d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253678"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106540"
 ---
 # <a name="scale-for-failback-with-additional-process-servers"></a>Ajouter des serveurs de processus supplémentaires pour augmenter la capacité de restauration automatique
 
@@ -24,8 +24,8 @@ Par défaut, lorsque vous répliquez des machines virtuelles VMware ou des serve
 
 Assurez-vous d’avoir effectué la [planification de la capacité](site-recovery-plan-capacity-vmware.md) pour la réplication VMware. Cela vous aide à déterminer comment et quand déployer des serveurs de traitement supplémentaires.
 
->[!NOTE]
-L’utilisation d’un composant de serveur de processus cloné n’est pas prise en charge. Suivez les étapes décrites dans cet article pour chaque mise à l’échelle PS.
+> [!NOTE]
+> L’utilisation d’un composant de serveur de processus cloné n’est pas prise en charge. Suivez les étapes décrites dans cet article pour chaque mise à l’échelle PS.
 
 ### <a name="sizing-requirements"></a>Configuration requise pour le dimensionnement 
 
@@ -39,7 +39,7 @@ Vérifiez la configuration requise pour le dimensionnement, résumée dans le ta
 
 Où chaque machine source protégée est configurée avec 3 disques de 100 Go chacune.
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables
 
 La configuration requise pour le serveur de traitement supplémentaire est résumée dans le tableau suivant.
 
@@ -56,11 +56,11 @@ Téléchargez le fichier d’installation pour le serveur de processus comme sui
 3. Sélectionnez le serveur de configuration pour explorer les détails du serveur. Cliquez ensuite sur **+ Serveur de processus**.
 4. Dans **Ajouter un serveur de processus** >  **Indique où vous souhaitez déployer votre serveur de processus**, sélectionnez **Déployer un serveur de traitement de montée en puissance parallèle local**.
 
-  ![Page Ajouter des serveurs](./media/vmware-azure-set-up-process-server-scale/add-process-server.png)
+   ![Page Ajouter des serveurs](./media/vmware-azure-set-up-process-server-scale/add-process-server.png)
 1. Cliquez sur **Download the Microsoft Azure Site Recovery Unified Setup** (Télécharger le programme d’installation unifiée de Microsoft Azure Site Recovery). Cette option télécharge la dernière version du fichier d’installation.
 
-  > [!WARNING]
-  La version d’installation du serveur de processus doit être identique ou antérieure à la version du serveur de configuration en cours d’exécution. Un moyen simple d’assurer la compatibilité de la version consiste à utiliser le même programme d’installation que celui récemment utilisé pour installer ou mettre à jour votre serveur de configuration.
+   > [!WARNING]
+   > La version d’installation du serveur de processus doit être identique ou antérieure à la version du serveur de configuration en cours d’exécution. Un moyen simple d’assurer la compatibilité de la version consiste à utiliser le même programme d’installation que celui récemment utilisé pour installer ou mettre à jour votre serveur de configuration.
 
 ## <a name="install-from-the-ui"></a>Installer à partir de l’interface utilisateur
 

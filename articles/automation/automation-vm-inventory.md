@@ -10,12 +10,12 @@ ms.author: jehunte
 ms.date: 02/06/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2d6cc55ec2e3be3510b9547025db17bcbee97e10
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: 59f36595e0b6cc8b9d9ea0669c9ecb5be1e74b42
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765379"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441387"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Gérer une machine virtuelle Azure avec la collecte d’inventaire
 
@@ -36,7 +36,7 @@ Connectez-vous au [Portail Azure](https://portal.azure.com/).
 1. Dans le volet de gauche du portail Azure, sélectionnez **Machines virtuelles**.
 2. Dans la liste des machines virtuelles, sélectionnez-en une.
 3. Dans le menu **Ressource**, sous **Opérations**, sélectionnez **Inventaire**.
-4. Sélectionnez un espace de travail Log Analytics pour stocker vos journaux de données.
+4. Sélectionnez un espace de travail Analytique de journal pour stocker vos journaux de données.
     Si aucun espace de travail n’est disponible pour cette région, vous êtes invité à créer un compte Automation et un espace de travail par défaut.
 5. Cliquez sur **Activer** pour démarrer l’intégration de votre ordinateur.
 
@@ -91,7 +91,9 @@ Les tables suivantes fournissent des informations sur chaque propriété qui peu
 
 ## <a name="manage-machine-groups"></a>Gérer des groupes de machines
 
-L’inventaire vous permet de créer et de visualiser des groupes de machines dans Log Analytics. Les groupes de machines sont des collections de machines définies par une requête dans Log Analytics.
+Inventaire vous permet de créer et afficher les groupes d’ordinateurs dans les journaux Azure Monitor. Groupes d’ordinateurs sont des collections d’ordinateurs définis par une requête dans les journaux Azure Monitor.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 Pour visualiser vos groupes de machines, sélectionnez l’onglet **Groupes de machines** sur la page Inventaire.
 
@@ -103,7 +105,7 @@ La sélection d’un groupe de machines dans la liste affiche la page Groupes de
 
 Cliquez sur le bouton **+ Cloner** pour cloner le groupe de machines. Ici, vous devez attribuer au groupe un nouveau nom, ainsi qu’un alias pour le groupe. Vous pouvez modifier la définition à ce stade. Après avoir modifié la requête, cliquez sur le bouton **Valider la requête** pour afficher l’aperçu des machines sélectionnées. Lorsque le groupe vous convient, cliquez sur **Créer** pour créer le groupe de machines.
 
-Si vous souhaitez créer un autre groupe de machines, sélectionnez **+ Create a machine group** (Créer un groupe de machines). Ce bouton affiche la page **Create a machine group** (Créer un groupe de machines) qui vous permet de définir votre nouveau groupe. Cliquez sur **Créer** pour créer le groupe.
+Si vous souhaitez créer un groupe de machines, sélectionnez **+ créer un groupe de machines**. Ce bouton affiche la page **Create a machine group** (Créer un groupe de machines) qui vous permet de définir votre nouveau groupe. Cliquez sur **Créer** pour créer le groupe.
 
 ![Création d’un groupe de machines](./media/automation-vm-inventory/create-new-group.png)
 
@@ -116,7 +118,7 @@ Pour supprimer votre machine virtuelle de la gestion de l’inventaire, procéde
 3. Dans la liste, sélectionnez la machine virtuelle que vous souhaitez déconnecter. Une coche verte s’affiche en regard du texte indiquant **Cet espace de travail** dans la colonne **Connexion OMS**, sur la machine virtuelle.
 
    >[!NOTE]
-   >OMS est désormais appelé Log Analytics.
+   >OMS est désormais appelée journaux d’Azure Monitor.
    
 4. Sur la partie supérieure de la page suivante, sélectionnez **Déconnecter**.
 5. Dans la fenêtre de confirmation, cliquez sur **Oui**.

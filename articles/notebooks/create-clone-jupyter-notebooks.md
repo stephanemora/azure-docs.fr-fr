@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 9b6a49e2-1d71-4c0b-9e5d-16e059427e38
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: 8961a863f1b268a034310554230096cc0f9d5260
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: b99197f44961bdfa23050e9481e290e6c3d24845
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54844056"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57759083"
 ---
 # <a name="create-and-clone-projects"></a>Créer et cloner des projets
 
@@ -49,7 +49,7 @@ Les actions possibles dans le tableau de bord varient selon si vous êtes connec
 
 Quand vous utilisez la commande **Partager** et sélectionnez l’onglet **Incorporer**, vous pouvez copier le code HTML ou Markdown qui crée un badge « lancement de notebook » :
 
-![Badge de lancement de notebook ](https://notebooks.azure.com/launch.png)
+![Badge de lancement de notebook](https://notebooks.azure.com/launch.png)
 
 Si vous n’avez pas de projet Azure Notebooks, vous pouvez créer un lien qui clone à partir de GitHub directement à l’aide des modèles suivants, en remplaçant le nom d’utilisateur et les noms de dépôt appropriés :
 
@@ -67,10 +67,26 @@ Quand vous utilisez la commande **+ Nouveau projet**, Azure Notebooks affiche un
 
 | Champ | Description |
 | --- | --- |
-| Nom du projet | Nom convivial pour votre projet utilisé par Azure Notebooks pour l’affichage, par exemple « Mon projet Notebook ». |
-| ID du projet | Identificateur personnalisé qui devient partie intégrante de l’URL que vous utilisez pour partager un projet. Cet ID peut utiliser uniquement des lettres, des chiffres et des traits d’union, et est limité à 30 caractères. Si vous ne savez pas quoi utiliser, il est d’usage d’employer une version en minuscules du nom de votre projet où les espaces sont transformés en traits d’union, par exemple « mon-projet-notebook » (nom tronqué si nécessaire pour l’adapter à la limite de longueur). |
+| Nom du projet | Nom convivial de votre projet utilisé par Azure Notebooks pour l’affichage. Par exemple, « mon ordinateur portable projet ». |
+| ID du projet | Identificateur personnalisé qui devient partie intégrante de l’URL que vous utilisez pour partager un projet (sous la forme `https://notebooks.azure.com/<user_id>/projects/<project_id>`). Cet ID peut utiliser uniquement des lettres, des chiffres et des traits d’union, est limité à 30 caractères et ne peut pas être un [réservé ID de projet](#reserved-project-ids). Si vous ne savez pas quoi utiliser, il est d’usage d’employer une version en minuscules du nom de votre projet où les espaces sont transformés en traits d’union, par exemple « mon-projet-notebook » (nom tronqué si nécessaire pour l’adapter à la limite de longueur). |
 | Public | Si ce paramètre est défini, permet à toute personne disposant du lien d’accéder au projet. Quand vous créez un projet privé, désactivez cette option. |
 | Initialiser ce projet avec un fichier README | Si ce champ est défini, crée un fichier *README.md* par défaut dans le projet. Un fichier *README.md* est l’emplacement où vous fournissez la documentation de votre projet, si vous le souhaitez. |
+
+### <a name="reserved-project-ids"></a>ID de projet réservé
+
+Les mots réservés suivants ne peut pas être utilisés par eux-mêmes en tant qu’ID de projet. Ces mots réservés peuvent, toutefois, être utilisé dans le cadre de l’ID de projet plus de temps.
+
+| | | | | | |
+| --- | --- | --- | --- | --- | --- |
+| about | account | administration | api | blog | classe |
+| Contenu | dashboard | Explorer | FAQ | help | html |
+| home | importation | bibliothèque | gestion | new | carnet de notes |
+| Ordinateurs portables | pdf | preview | Prix | Profil | recherche |
+| status | support | test | | | |
+
+Si vous essayez d’utiliser un de ces mots comme un ID de projet, le **créer un nouveau projet** et **paramètres du projet** indiquent de fenêtres contextuelles, « id de bibliothèque est un identificateur réservé ».
+
+Comme un ID de projet est également dans les URL d’un projet, le logiciel ad blocker susceptibles de bloquer l’utilisation de certains mots clés, tels que « annonce reçue. » Dans ce cas, utilisez un autre mot dans le code de projet.
 
 ## <a name="import-a-project-from-github"></a>Importer un projet à partir de GitHub
 
@@ -81,7 +97,7 @@ Vous pouvez facilement importer un dépôt GitHub public entier en tant que proj
 | Dépôt GitHub | Nom du dépôt source sur github.com. Par exemple, pour cloner les notebooks Jupyter pour Azure Cognitive Services sur [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks), entrez « Microsoft/cognitive-services-notebooks ».  |
 | Cloner de manière récursive | Les dépôts GitHub peuvent contenir plusieurs dépôts enfants. Définissez cette option si vous souhaitez cloner le dépôt parent et tous ses enfants. Comme il est possible pour un dépôt d’avoir plusieurs enfants, laissez cette option désactivée sauf si vous savez que vous en avez besoin. |
 | Nom du projet | Nom convivial de votre projet utilisé par Azure Notebooks pour l’affichage. |
-| ID du projet | Identificateur personnalisé qui devient partie intégrante de l’URL que vous utilisez pour partager un projet. Cet ID peut contenir uniquement des lettres, des chiffres et des traits d’union. |
+| ID du projet | Identificateur personnalisé qui devient partie intégrante de l’URL que vous utilisez pour partager un projet (sous la forme `https://notebooks.azure.com/<user_id>/projects/<project_id>`). Cet ID peut utiliser uniquement des lettres, des chiffres et des traits d’union, est limité à 30 caractères et ne peut pas être un [réservé ID de projet](#reserved-project-ids). Si vous ne savez pas quoi utiliser, il est d’usage d’employer une version en minuscules du nom de votre projet où les espaces sont transformés en traits d’union, par exemple « mon-projet-notebook » (nom tronqué si nécessaire pour l’adapter à la limite de longueur). |
 | Public | Si ce paramètre est défini, permet à toute personne disposant du lien d’accéder au projet. Quand vous créez un projet privé, désactivez cette option. |
 
 L’importation d’un dépôt à partir de GitHub importe également son historique. Vous pouvez utiliser les commandes Git standard à partir du terminal pour valider les nouvelles modifications, tirer (pull) des modifications de GitHub et ainsi de suite.

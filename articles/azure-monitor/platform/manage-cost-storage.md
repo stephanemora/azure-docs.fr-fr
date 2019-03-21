@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 851098840356c7d391c2b10fae1c18884f5dab02
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: a1d8984b8c9d0859ff754e3d5bfb35bd98236b54
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236105"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098557"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics"></a>Gérer l’utilisation et les coûts de Log Analytics
 
@@ -118,7 +118,7 @@ Si vous souhaitez déplacer votre espace de travail vers le niveau tarifaire act
 > Si votre espace de travail est lié à un compte Automation, avant de pouvoir sélectionner le niveau tarifaire *Autonome (par Go)*, vous devez supprimer les solutions **Automation and Control** et annuler la liaison avec le compte Automation. Dans le panneau Espace de travail sous **Général**, cliquez sur **Solutions** pour afficher et supprimer des solutions. Pour annuler la liaison avec le compte Automation, cliquez sur le nom du compte Automation dans le panneau **Niveau tarifaire**.
 
 > [!NOTE]
-> Vous pouvez en savoir plus sur (définir le niveau tarifaire via ARM) [https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#create-a-log-analytics-workspace] et sur la manière de s’assurer du succès de votre déploiement ARM, peu importe si l’abonnement est hérité ou dans le nouveau modèle de tarification. 
+> Vous pouvez en savoir plus sur [défini le niveau de tarification via ARM](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#create-a-log-analytics-workspace) et comment s’assurer que votre déploiement ARM réussira indépendamment de si l’abonnement est dans le hérité ou le nouveau modèle de tarification. 
 
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Dépannage si Log Analytics ne collecte plus de données
@@ -163,7 +163,7 @@ Pour plus d’informations sur le nombre d’ordinateurs (nœuds) qui ont envoy�
 | summarize dcount(Computer) by bin(TimeGenerated, 1d)    
 | render timechart`
 
-Pour obtenir la liste des ordinateurs qui envoient des **types de données facturés** (certains types de données sont gratuits), utilisez la propriété [_IsBillable](log-standard-properties.md#isbillable) :
+Pour obtenir la liste des ordinateurs qui envoient des **types de données facturés** (certains types de données sont gratuits), utilisez la propriété [_IsBillable](log-standard-properties.md#_isbillable) :
 
 `union withsource = tt * 
 | where _IsBillable == true 

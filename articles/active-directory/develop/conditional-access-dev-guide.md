@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 ms.author: celested
 ms.reviewer: dadobali
-ms.date: 09/24/2018
+ms.date: 02/28/2019
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2be77cdc4a5ad38a7d8c125fd95256e77cd92019
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c02f094def3828d0839025f4b7dea48ee64adcc8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56202942"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543184"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Guide du développeur pour l’accès conditionnel à Azure Active Directory
 
@@ -44,7 +44,6 @@ Dans les scénarios les plus courants, l’accès conditionnel ne modifie pas le
 
 Plus précisément, les scénarios suivants requièrent un code pour gérer des « défis » d’accès conditionnel :
 
-* Applications qui accèdent à Microsoft Graph
 * Applications effectuant le flux Pour le compte de
 * Applications accédant à plusieurs services/ressources
 * Applications à page unique en utilisant ADAL.js
@@ -58,15 +57,28 @@ Selon le scénario, un client d’entreprise peut appliquer et supprimer des str
 
 Certains scénarios requièrent des modifications de code pour gérer l’accès conditionnel, tandis que d’autres travaillent tel quel. Voici quelques scénarios utilisant l’accès conditionnel pour l’authentification multifacteur qui donne une idée de la différence.
 
-* Vous générez une application iOS de client unique et appliquez une stratégie d’accès conditionnel. L’application connecte un utilisateur et ne demande pas l’accès à une API. Lorsque l’utilisateur se connecte, la stratégie est appelée automatiquement et l’utilisateur doit effectuer l’authentification multifacteur (MFA).
-* Vous générez une application web multi-locataire qui utilise Microsoft Graph pour accéder à Exchange, entre autres services. Un client d’entreprise qui adopte cette application définit une stratégie sur Exchange. Lorsque l’application web demande un jeton pour MS Graph, il ne sera pas demandé à l’application de se conformer à la stratégie. L’utilisateur final est connecté avec des jetons valides. Lorsque l’application tente d’utiliser ce jeton avec Microsoft Graph pour accéder aux données Exchange, un « défi » de revendication est renvoyé à l’application web via l’en-tête ```WWW-Authenticate```. L’application peut ensuite utiliser le ```claims``` dans une nouvelle demande, et l’utilisateur final sera invité à respecter les conditions.
+* Vous générez une application iOS de client unique et appliquez une stratégie d’accès conditionnel. L’application connecte un utilisateur et ne demande pas l’accès à une API. Lorsque l’utilisateur se connecte, la stratégie est appelée automatiquement et l’utilisateur doit effectuer l’authentification multifacteur (MFA). 
 * Vous générez une application native qui utilise un service de niveau intermédiaire pour accéder à une API en aval. Un client d’entreprise de la société utilisant cette application applique une stratégie à l’API en aval. Quand un utilisateur final se connecte, l’application native demande l’accès au niveau intermédiaire et envoie le jeton. Le niveau intermédiaire effectue le flux Pour le compte pour demander l’accès à l’API en aval. À ce stade, un défi de « revendications » est présenté au niveau intermédiaire. Le niveau intermédiaire renvoie la demande à l’application native, qui doit se conformer à la stratégie d’accès conditionnel.
+
+#### <a name="microsoft-graph"></a>Microsoft Graph
+
+Microsoft Graph présente des considérations spéciales lors de la création d’applications dans les environnements d’accès conditionnel. En règle générale, les mécanismes d’accès conditionnel ont le même comportement, mais les stratégies de que vos utilisateurs voient doit reposer sur les données sous-jacentes, que votre application demande à partir du graphique. 
+
+Plus précisément, toutes les étendues de Microsoft Graph représentent un jeu de données qui peut avoir individuellement les stratégies sont appliquées. Dans la mesure où les stratégies d’accès conditionnel sont affectés les jeux de données spécifique, Azure AD sera appliquer des stratégies d’accès conditionnel basés sur les données sous-jacentes de graphique - plutôt que du graphique lui-même.
+
+Par exemple, si une application demande les étendues suivantes de Microsoft Graph,
+
+```
+scopes="Bookings.Read.All Mail.Read"
+```
+
+Une application peut s’attendre à leurs utilisateurs pour répondre à toutes les stratégies définies sur Bookings et Exchange. Certaines étendues peuvent mapper à plusieurs jeux de données si elle accorde l’accès. 
 
 ### <a name="complying-with-a-conditional-access-policy"></a>Conformité à une stratégie d’accès conditionnel
 
 Pour différentes topologies d’applications, une stratégie d’accès conditionnel est évaluée lorsque la session est établie. Étant donné qu’une stratégie d’accès conditionnel fonctionne sur la granularité des applications et des services, le point sur lequel elle est appelée dépend essentiellement du scénario que vous essayez d’accomplir.
 
-Lorsque votre application tente d’accéder à un service avec une stratégie d’accès conditionnel, elle peut rencontrer un défi d’accès conditionnel. Ce défi est encodé dans le paramètre `claims` qui est fourni dans une réponse d’Azure AD ou sur Microsoft Graph. Voici un exemple de ce paramètre de défi :
+Lorsque votre application tente d’accéder à un service avec une stratégie d’accès conditionnel, elle peut rencontrer un défi d’accès conditionnel. Ce défi est encodé dans le `claims` paramètre qui est fourni dans une réponse d’Azure AD. Voici un exemple de ce paramètre de défi : 
 
 ```
 claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
@@ -84,70 +96,15 @@ L’accès conditionnel Azure AD est une fonctionnalité inclue dans [Azure AD P
 
 Les informations suivantes s’appliquent uniquement dans ces scénarios d’accès conditionnel :
 
-* Applications qui accèdent à Microsoft Graph
 * Applications effectuant le flux Pour le compte de
 * Applications accédant à plusieurs services/ressources
 * Applications à page unique en utilisant ADAL.js
 
-Les sections suivantes décrivent des scénarios courants plus complexes. Le principe de fonctionnement central est que les stratégies d’accès conditionnel sont évaluées au moment où le jeton est demandé pour le service qui contient une stratégie d’accès conditionnel, sauf si elle est accessible via Microsoft Graph.
+Les sections suivantes décrivent des scénarios courants plus complexes. Le principe de fonctionnement central est l’accès conditionnel stratégies sont évaluées au moment où que le jeton est demandé pour le service qui comporte une stratégie d’accès conditionnel.
 
-## <a name="scenario-app-accessing-microsoft-graph"></a>Scénario : application qui accède à Microsoft Graph
+## <a name="scenario-app-performing-the-on-behalf-of-flow"></a>Scénario : application effectuant le flux Pour le compte de
 
-Dans ce scénario, découvrez comment une application web demande l’accès à Microsoft Graph. Dans ce cas, la stratégie d’accès conditionnel peut être attribuée à SharePoint, Exchange ou à un autre service accessible en tant que charge de travail via Microsoft Graph. Dans cet exemple, supposons qu’il existe une stratégie d’accès conditionnel sur SharePoint Online.
-
-![Applications ayant accès au diagramme de flux Microsoft Graph](./media/conditional-access-dev-guide/app-accessing-microsoft-graph-scenario.png)
-
-L’application demande tout d’abord une autorisation à Microsoft Graph qui nécessite l’accès à une charge de travail en aval sans accès conditionnel. La demande réussit sans appeler de stratégie et l’application reçoit les jetons pour Microsoft Graph. À ce stade, l’application peut utiliser le jeton d’accès dans une demande du porteur pour le point de terminaison demandé. À présent, l’application doit accéder à un point de terminaison SharePoint Online de Microsoft Graph, par exemple : `https://graph.microsoft.com/v1.0/me/mySite`
-
-L’application a déjà un jeton valide pour Microsoft Graph, afin d’exécuter la nouvelle demande sans émettre de nouveau jeton. Cette demande échoue et un défi de revendications est émis depuis Microsoft Graph sous la forme d’un HTTP 403 Interdit avec un défi ```WWW-Authenticate```.
-
-Voici un exemple de la réponse :
-
-```
-HTTP 403; Forbidden
-error=insufficient_claims
-www-authenticate="Bearer realm="", authorization_uri="https://login.windows.net/common/oauth2/authorize", client_id="<GUID>", error=insufficient_claims, claims={"access_token":{"polids":{"essential":true,"values":["<GUID>"]}}}"
-```
-
-Le défi de revendications se trouve dans l’en-tête ```WWW-Authenticate``` qui peut être analysée pour extraire le paramètre des revendications pour la demande suivante. Une fois qu’il est ajouté à la nouvelle demande, Azure AD sait évaluer la stratégie d’accès conditionnel pour se connecter à l’utilisateur et l’application est maintenant conforme à la stratégie d’accès conditionnel. La répétition de la demande au point de terminaison SharePoint Online réussit.
-
-L’en-tête ```WWW-Authenticate``` possède une structure unique et il n’est pas sans importance de l’analyser afin d’extraire des valeurs. Voici une courte méthode pour aider.
-
-```csharp
-        /// <summary>
-        /// This method extracts the claims value from the 403 error response from MS Graph.
-        /// </summary>
-        /// <param name="wwwAuthHeader"></param>
-        /// <returns>Value of the claims entry. This should be considered an opaque string.
-        /// Returns null if the wwwAuthheader does not contain the claims value. </returns>
-        private String extractClaims(String wwwAuthHeader)
-        {
-            String ClaimsKey = "claims=";
-            String ClaimsSubstring = "";
-            if (wwwAuthHeader.Contains(ClaimsKey))
-            {
-                int Index = wwwAuthHeader.IndexOf(ClaimsKey);
-                ClaimsSubstring = wwwAuthHeader.Substring(Index, wwwAuthHeader.Length - Index);
-                string ClaimsChallenge;
-                if (Regex.Match(ClaimsSubstring, @"}$").Success)
-                {
-                    ClaimsChallenge = ClaimsSubstring.Split('=')[1];
-                }
-                else
-                {
-                    ClaimsChallenge = ClaimsSubstring.Substring(0, ClaimsSubstring.IndexOf("},") + 1);
-                }
-                return ClaimsChallenge;
-            }
-            return null;
-        }
-```
-
-Pour plus d’exemples de code qui montrent comment gérer le défi de revendications, consultez [l’exemple de code Pour le compte de](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca) pour .NET ADAL.
-
-## <a name="scenario-app-performing-the-on-behalf-of-flow"></a>Scénario : application effectuant le flux Pour le compte de
-
-Dans ce scénario, nous abordons le cas dans lequel une application native appelle une API/ service Web. À son tour, ce service exécute le flux « Pour le compte de » pour appeler un service en aval. Dans notre cas, nous avons appliqué notre stratégie d’accès conditionnel pour le service en aval (API Web 2) et nous utilisons une application native plutôt qu’une application démon/serveur.
+Dans ce scénario, nous abordons le cas dans lequel une application native appelle une API/ service Web. À son tour, ce service exécute le flux « Pour le compte de » pour appeler un service en aval. Dans notre cas, nous avons appliqué notre stratégie d’accès conditionnel pour le service en aval (API Web 2) et nous utilisons une application native plutôt qu’une application démon/serveur. 
 
 ![Application effectuant le diagramme de flux Pour le compte](./media/conditional-access-dev-guide/app-performing-on-behalf-of-scenario.png)
 
@@ -217,7 +174,6 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 Notre application a besoin d’intercepter le `error=interaction_required`. L’application peut alors utiliser `acquireTokenPopup()` ou `acquireTokenRedirect()` sur la même ressource. L’utilisateur est obligé d’effectuer une authentification multifacteur. Une fois que l’utilisateur a terminé l’authentification multifacteur, l’application émet un nouveau jeton d’accès pour la ressource demandée.
 
 Pour tester ce scénario, consultez notre [exemple de code Pour le compte de SPA JS](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca). Cet exemple de code utilise la stratégie d’accès conditionnel et l’API Web précédemment inscrites avec un SPA JS pour illustrer ce scénario. Il explique comment gérer correctement le défi de revendications et obtenir un jeton d’accès qui peut être utilisé pour votre API Web. Vous pouvez également extraire [l’exemple de code Angular.js](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) général pour obtenir des conseils sur une SPA Angular
-
 
 ## <a name="see-also"></a>Voir aussi
 

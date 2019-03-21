@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/23/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: e7dfd7d2a0363a95acb76a5dc214dbd4036de11d
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
-ms.translationtype: HT
+ms.openlocfilehash: ee5faedd4f59aa791424a1f178f0462922f21d28
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50973775"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58115926"
 ---
 Chaque point de terminaison possède un *port public* et un *port privé* :
 
@@ -76,7 +76,7 @@ Si la machine virtuelle se trouve dans un réseau virtuel Azure, utilisez les gr
 
 4. Utilisez les lignes de la liste pour ajouter, supprimer ou modifier les règles d'une ACL et modifier leur ordre. La valeur **REMOTE SUBNET** est une plage d’adresses IP pour le trafic entrant depuis Internet que l’équilibreur de charge Azure utilise pour autoriser ou refuser le trafic en fonction de son adresse IP source. Veillez à spécifier la plage d'adresses IP au format classless inter-domain routing (CIDR), également connu sous le nom de format de préfixe adresse. Par exemple : `10.1.0.0/8`.
 
- ![Nouvelle entrée ACL](./media/virtual-machines-common-classic-setup-endpoints/newaclentry.png)
+   ![Nouvelle entrée ACL](./media/virtual-machines-common-classic-setup-endpoints/newaclentry.png)
 
 
 Vous pouvez utiliser des règles pour autoriser uniquement le trafic provenant de certains ordinateurs correspondant à vos ordinateurs sur Internet ou refuser le trafic provenant de plages d'adresses spécifiques et connues.
