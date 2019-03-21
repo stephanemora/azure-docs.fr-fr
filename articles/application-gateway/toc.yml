@@ -7,16 +7,16 @@ items:
     href: overview.md
 - name: Démarrages rapides
   items:
-  - name: Gérer le trafic web - Portail
+  - name: Créer une passerelle d’application - Portail
     href: quick-create-portal.md
-  - name: Gérer le trafic web - PowerShell
+  - name: Créer une passerelle d’application - PowerShell
     href: quick-create-powershell.md
-  - name: Gérer le trafic web - Azure CLI
+  - name: Créer une passerelle d’application - Azure CLI
     href: quick-create-cli.md
   expanded: true
 - name: Tutoriels
   items:
-  - name: Gérer le trafic web
+  - name: Héberger un seul site
     href: tutorial-manage-web-traffic-cli.md
   - name: Activer le pare-feu d’applications web
     href: tutorial-restrict-web-traffic-cli.md
@@ -40,12 +40,26 @@ items:
     href: cli-samples.md
 - name: Concepts
   items:
-  - name: Fonctionnement d’Application Gateway
-    href: how-application-gateway-works.md
-  - name: Composants d’Application Gateway
-    href: application-gateway-components.md
-  - name: Présentation de la configuration
-    href: configuration-overview.md
+  - name: Concepts de base
+    items:
+    - name: Fonctionnement d’Application Gateway
+      href: how-application-gateway-works.md
+    - name: Composants d’Application Gateway
+      href: application-gateway-components.md
+    - name: Présentation de la configuration
+      href: configuration-overview.md
+  - name: Routage
+    items:
+    - name: Hébergement de plusieurs sites
+      href: multiple-site-overview.md
+    - name: Routage d’URL
+      href: url-route-overview.md
+    - name: Redirection
+      href: redirect-overview.md
+    - name: Réécrire les en-têtes HTTP
+      href: rewrite-http-headers.md
+    - name: Pages d’erreur personnalisées
+      href: custom-error.md
   - name: SSL
     items:
     - name: Vue d’ensemble des stratégies SSL
@@ -58,20 +72,16 @@ items:
       href: waf-overview.md
     - name: Configuration de WAF
       href: application-gateway-waf-configuration.md
-  - name: Routage d’URL
-    href: url-route-overview.md
-  - name: Hébergement de plusieurs sites
-    href: multiple-site-overview.md
+  - name: Surveillance de l’intégrité
+    items:
+    - name: Sonde d’intégrité
+      href: application-gateway-probe-overview.md
+    - name: Diagnostics
+      href: application-gateway-diagnostics.md
   - name: Mise à l’échelle automatique et redondance de zone
     href: application-gateway-autoscaling-zone-redundant.md
-  - name: Prise en charge de la redirection
-    href: redirect-overview.md
-  - name: Réécrire les en-têtes HTTP
-    href: rewrite-http-headers.md
   - name: Application web App Service et prise en charge multilocataire
     href: application-gateway-web-app-overview.md
-  - name: Surveillance de l’intégrité
-    href: application-gateway-probe-overview.md
   - name: Prise en charge de WebSocket
     href: application-gateway-websocket.md
   - name: Forum Aux Questions
@@ -96,8 +106,12 @@ items:
       href: create-ssl-portal.md
     - name: Arrêt SSL - PowerShell
       href: tutorial-ssl-powershell.md
-    - name: Protocole SSL de bout en bout - PowerShell
+    - name: SSL de bout en bout - Portail
+      href: end-to-end-ssl-portal.md
+    - name: SSL de bout en bout - PowerShell
       href: application-gateway-end-to-end-ssl-powershell.md
+    - name: Créer des certificats pour le back-end de mise en liste verte
+      href: certificates-for-backend-authentication.md
     - name: Renouveler les certificats
       href: renew-certificates.md
     - name: Configurer la stratégie SSL
@@ -108,7 +122,7 @@ items:
       href: application-gateway-web-application-firewall-portal.md
     - name: Azure PowerShell
       href: tutorial-restrict-web-traffic-powershell.md
-  - name: Personnaliser les règles de pare-feu d’application web
+  - name: Configurer des ensembles de règles WAF
     items:
     - name: Portail Azure
       href: application-gateway-customize-waf-rules-portal.md
@@ -180,10 +194,6 @@ items:
       href: how-to-troubleshoot-application-gateway-session-affinity-issues.md
     - name: Erreurs (502) de passerelle incorrecte
       href: application-gateway-troubleshooting-502.md
-    - name: Diagnostics
-      href: application-gateway-diagnostics.md
-  - name: Pages d’erreur personnalisées
-    href: custom-error.md
 - name: Informations de référence
   items:
   - name: Règles CRS
@@ -218,9 +228,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-application-gateway
-ms.openlocfilehash: bd544dc507be3caade81ee45c3a5d704392c5694
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 68264afadd3d05e4d11c6b4b98cd7375886e4d20
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58170324"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286954"
