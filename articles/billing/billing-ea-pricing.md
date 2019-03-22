@@ -1,10 +1,10 @@
 ---
-title: Consulter les tarifs Azure pour votre entreprise | Microsoft Docs
-description: Découvrez comment afficher et télécharger les tarifs ou une estimation des coûts avec vos tarifs Contrat Entreprise.
+title: Afficher et télécharger la tarification Azure de votre organisation | Microsoft Docs
+description: Découvrez comment afficher et télécharger la tarification ou estimer les coûts grâce à la tarification de votre organisation.
 services: ''
 documentationcenter: ''
 author: adpick
-manager: dougeby
+manager: jureid
 editor: ''
 tags: billing
 ms.service: billing
@@ -12,29 +12,28 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 02/22/2019
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: c34b25be622cb04a2e9b8f571f60bd57d8331726
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: d4c64433089f14d845cea8be9adf0ef13675cfd1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904231"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892470"
 ---
-# <a name="view-your-organizations-azure-enterprise-agreement-pricing"></a>Consulter les tarifs Contrat Entreprise Azure de votre organisation 
+# <a name="view-and-download-your-organizations-azure-pricing"></a>Afficher et télécharger la tarification Azure de votre organisation
 
-Les clients Azure disposant d’un Contrat Entreprise (EA) peuvent voir et télécharger leurs tarifs Contrat Entreprise à partir du portail Azure. Vous pouvez également utiliser les tarifs Contrat Entreprise de votre organisation pour estimer les coûts à l’aide de la calculatrice de prix Azure.
-
-Selon les stratégies définies pour votre organisation par l’administrateur d’entreprise, seuls certains rôles d’administrateur permettent d’accéder aux informations tarifaires Contrat Entreprise de votre organisation. Pour plus d’informations, consultez [Comprendre les rôles d’administrateur Contrat Entreprise Azure dans Azure](billing-understand-ea-roles.md).
+Les clients Azure avec un contrat entreprise (EA) ou [contrat de client Microsoft](#check-your-access-to-a-microsoft-customer-agreement) peut afficher et télécharger leurs tarifs à partir du portail Azure. Si vous avez un contrat de client de Microsoft, consultez la vue et le prix de téléchargement de votre contrat de client de Microsoft.
 
 ## <a name="view-and-download-ea-pricing"></a>Afficher et télécharger les tarifs Contrat Entreprise
 
- 
-1. En tant qu’administrateur d’entreprise, connectez-vous au [portail Azure](https://portal.azure.com/). 
+Selon les stratégies définies pour votre organisation par l’administrateur d’entreprise, seuls certains rôles d’administrateur permettent d’accéder aux informations tarifaires Contrat Entreprise de votre organisation. Pour plus d’informations, consultez [Comprendre les rôles d’administrateur Contrat Entreprise Azure dans Azure](billing-understand-ea-roles.md).
+
+1. En tant qu’administrateur d’entreprise, connectez-vous au [portail Azure](https://portal.azure.com/).
 1. Effectuez une recherche sur **Gestion des coûts + facturation**.
 
-   ![Capture d’écran montrant la recherche dans le portail Azure](./media/billing-ea-pricing/portal-cm-billing-search.png) 
+   ![Capture d’écran montrant la recherche dans le portail Azure](./media/billing-ea-pricing/portal-cm-billing-search.png)
 
 1. Sous le compte de facturation, sélectionnez **Utilisation + frais**.
 
@@ -45,7 +44,37 @@ Selon les stratégies définies pour votre organisation par l’administrateur d
 
    ![Capture d’écran montrant le bouton de téléchargement de fichier csv de la grille tarifaire](./media/billing-ea-pricing/download-ea-price-sheet.png)
 
-## <a name="estimate-costs-with-ea-pricing"></a>Estimer les coûts avec les tarifs Contrat Entreprise
+## <a name="view-and-download-pricing-for-your-microsoft-customer-agreement"></a>Afficher et télécharger la tarification de votre contrat de client de Microsoft
+
+Vous devez être le propriétaire de profil de facturation, de collaborateur, lecteur ou Gestionnaire de factures pour afficher et télécharger la tarification. Pour en savoir plus sur les rôles de facturation pour les contrats de client de Microsoft, consultez [tâches et rôles de profil de facturation](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
+
+### <a name="download-price-sheets-for-the-current-billing-period"></a>Télécharger les tables de tarification pour la période de facturation actuelle
+
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Effectuez une recherche sur **Gestion des coûts + facturation**.
+1. Sélectionnez un profil de facturation. Selon votre accès, vous devrez peut-être d’abord sélectionner un compte de facturation.
+1. Dans le **vue d’ensemble** panneau, recherchez les liens de téléchargement sous les frais month-to-date.
+1. Sélectionnez **table de tarification Azure**.
+![Capture d’écran montrant le téléchargement à partir de la vue d’ensemble](./media/billing-ea-pricing/open-pricing.png)
+
+### <a name="download-price-sheets-for-billed-charges"></a>Télécharger les tables de tarification pour les frais de facturation
+
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Effectuez une recherche sur **Gestion des coûts + facturation**.
+1. Sélectionnez un profil de facturation. Selon votre accès, vous devrez peut-être d’abord sélectionner un compte de facturation.
+1. Sélectionnez **Factures**.
+1. Dans la grille de la facture, recherchez la ligne de la facture correspondant à la table de tarification que vous souhaitez télécharger.
+1. Cliquez sur le bouton de sélection (`...`) à la fin de la ligne.
+![Capture d’écran illustrant les points de suspension sélectionné](./media/billing-ea-pricing/billingprofile-invoicegrid.png)
+
+1. Si vous souhaitez consulter les tarifs pour les services dans la facture sélectionnée, sélectionnez **table de tarification de facture**.
+1. Si vous souhaitez connaître les prix pour tous les services Azure pour la période de facturation donnée, sélectionnez **table de tarification Azure**.
+
+![Capture d’écran montrant le menu contextuel avec les tables de tarification](./media/billing-ea-pricing/contextmenu-pricesheet.png)
+
+## <a name="estimate-costs-with-the-azure-pricing-calculator"></a>Estimation des coûts avec la calculatrice de prix Azure
+
+Vous pouvez également utiliser la tarification de votre organisation pour estimer les coûts avec la calculatrice de prix Azure.
 
 1. Accédez à la [calculatrice de prix Azure](https://azure.microsoft.com/pricing/calculator).
 1. En haut à droite, sélectionnez **Connexion**.
@@ -59,7 +88,22 @@ Selon les stratégies définies pour votre organisation par l’administrateur d
 1. Recherchez et ajoutez des produits à votre devis.
 1. Les prix estimés affichés sont basés sur les tarifs de l’organisation que vous avez sélectionnés.
 
+## <a name="check-your-access-to-a-microsoft-customer-agreement"></a>Vérifiez votre accès à un contrat de client de Microsoft
+[!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Gérer l’accès aux informations de facturation pour Azure](billing-manage-access.md)
-- [Comprendre la facture des clients Azure ayant un Contrat Entreprise](billing-understand-your-bill-ea.md)
+Si vous êtes client EA, consultez :
+
+- [Gérer l’accès aux informations de facturation de votre contrat entreprise pour Azure](billing-manage-access.md)
+- [Afficher et télécharger votre facture Microsoft Azure](billing-download-azure-invoice.md)
+- [Afficher et télécharger votre utilisation de Microsoft Azure et des frais](billing-download-azure-daily-usage.md)
+- [Comprendre votre facture pour les clients contrat entreprise](billing-understand-your-bill-ea.md)
+
+Si vous avez un contrat de client de Microsoft, consultez :
+
+- [Comprendre les termes du contrat dans votre table de tarification pour un contrat de client de Microsoft](billing-mca-understand-pricesheet.md)
+- [Afficher et télécharger votre facture Microsoft Azure](billing-download-azure-invoice.md)
+- [Afficher et télécharger votre utilisation de Microsoft Azure et des frais](billing-download-azure-daily-usage.md)
+- [Afficher et télécharger des documents de taxe pour votre profil de facturation](billing-mca-download-tax-document.md)
+- [Comprendre les frais de facture de votre profil facturation](billing-mca-understand-your-bill.md)

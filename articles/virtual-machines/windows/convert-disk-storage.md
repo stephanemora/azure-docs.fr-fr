@@ -1,6 +1,6 @@
 ---
-title: Convertir le stockage Managed Disks Azure de standard en premium, et vice versa | Microsoft Docs
-description: Comment convertir les disques gérés Azure de standard en premium, et vice versa, à l’aide de Microsoft Azure PowerShell.
+title: Convertir Azure stockage managed disks standard vers Premium ou Premium à Standard | Microsoft Docs
+description: Comment convertir Azure disques gérés standard vers Premium ou Premium à Standard à l’aide d’Azure PowerShell.
 services: virtual-machines-windows
 documentationcenter: ''
 author: ramankumarlive
@@ -13,33 +13,30 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2018
+ms.date: 02/22/2019
 ms.author: ramankum
 ms.subservice: disks
-ms.openlocfilehash: 18258bf8ac9d241fd8a01957d903b1db882c2d36
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: f97140ffeed9115a0308215ea082baee611501fb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326872"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58009872"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>Mettre à jour le type de stockage d’un disque managé
 
-Azure Managed Disks offre quatre options de stockage : disques Ultra Solid State Drive (SSD), SSD Premium, SSD Standard et disques durs standard (HDD). Vous pouvez changer le type de stockage d’un disque managé avec un temps d’arrêt minimal en fonction de vos besoins en performances. Le changement du type de stockage d’un disque non managé n’est pas pris en charge. Toutefois, vous pouvez facilement [convertir un disque non managé en disque managé](convert-unmanaged-to-managed-disks.md).
+Il existe quatre options pour Azure des disques gérés : Stockage sur disque Ultra Azure, Premium SSD, disque SSD Standard et Standard HDD. Vous pouvez basculer entre ces types de stockage selon vos besoins en performances avec peu de temps mort. Cette fonctionnalité n’est pas pris en charge pour les disques non gérés. Toutefois, vous pouvez facilement [convertir un disque non managé en un disque géré](convert-unmanaged-to-managed-disks.md) pour être en mesure de basculer entre les types de disque.
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
-* Étant donné que la conversion nécessite un redémarrage de la machine virtuelle, vous devez planifier la migration de votre stockage sur disque durant une fenêtre de maintenance préexistante. 
-* Si vous utilisez un disque non managé, commencez par [le convertir en disque managé](convert-unmanaged-to-managed-disks.md) pour pouvoir basculer entre les types de stockage. 
-* Les exemples de cet article nécessitent le module Azure PowerShell version 6.0.0 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Exécutez [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) pour créer une connexion avec Azure.
+* Étant donné que la conversion nécessite un redémarrage de la machine virtuelle (VM), vous devez planifier la migration de votre stockage sur disque pendant une fenêtre de maintenance préexistante.
+* Si votre disque n’est pas géré, tout d’abord [convertir en un disque géré](convert-unmanaged-to-managed-disks.md) afin que vous pouvez basculer entre les options de stockage.
 
-* Les exemples de cet article nécessitent le module Azure PowerShell version 6.0.0 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Exécutez [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) pour créer une connexion avec Azure.
+## <a name="switch-all-managed-disks-of-a-vm-between-premium-and-standard"></a>Basculer l’ensemble des disques gérés d’une machine virtuelle entre Standard et Premium
 
-## <a name="convert-all-the-managed-disks-of-a-vm-from-standard-to-premium"></a>Convertir tous les disques managés d’une machine virtuelle de standard en premium
-
-L’exemple suivant montre comment faire passer tous les disques d’une machine virtuelle du stockage standard au stockage premium. Pour utiliser des disques managés premium, votre machine virtuelle doit utiliser une [taille de machine virtuelle](sizes.md) qui prend en charge le stockage premium. Cet exemple passe également à une taille prenant en charge le stockage premium :
+Cet exemple montre comment convertir tous les disques d’une machine virtuelle à partir de Standard vers le stockage Premium ou de Premium vers le stockage Standard. Pour utiliser des disques gérés Premium, votre machine virtuelle doit utiliser une [taille de machine virtuelle](sizes.md) qui prend en charge le stockage Premium. Cet exemple passe également à une taille prenant en charge le stockage premium :
 
 ```azurepowershell-interactive
 # Name of the resource group that contains the VM
@@ -48,11 +45,11 @@ $rgName = 'yourResourceGroup'
 # Name of the your virtual machine
 $vmName = 'yourVM'
 
-# Choose between StandardLRS and PremiumLRS based on your scenario
+# Choose between Standard_LRS and Premium_LRS based on your scenario
 $storageType = 'Premium_LRS'
 
 # Premium capable size
-# Required only if converting storage from standard to premium
+# Required only if converting storage from Standard to Premium
 $size = 'Standard_DS2_v2'
 
 # Stop and deallocate the VM before changing the size
@@ -60,15 +57,15 @@ Stop-AzVM -ResourceGroupName $rgName -Name $vmName -Force
 
 $vm = Get-AzVM -Name $vmName -resourceGroupName $rgName
 
-# Change the VM size to a size that supports premium storage
-# Skip this step if converting storage from premium to standard
+# Change the VM size to a size that supports Premium storage
+# Skip this step if converting storage from Premium to Standard
 $vm.HardwareProfile.VmSize = $size
 Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 # Get all disks in the resource group of the VM
 $vmDisks = Get-AzDisk -ResourceGroupName $rgName 
 
-# For disks that belong to the selected VM, convert to premium storage
+# For disks that belong to the selected VM, convert to Premium storage
 foreach ($disk in $vmDisks)
 {
     if ($disk.ManagedBy -eq $vm.Id)
@@ -82,16 +79,16 @@ foreach ($disk in $vmDisks)
 Start-AzVM -ResourceGroupName $rgName -Name $vmName
 ```
 
-## <a name="convert-a-managed-disk-from-standard-to-premium"></a>Convertir un disque managé standard en premium
+## <a name="switch-individual-managed-disks-between-standard-and-premium"></a>Basculer les disques gérés individuels entre Standard et Premium
 
-Pour votre charge de travail de développement/test, vous souhaiterez peut-être combiner disques standard et disques premium pour réduire les coûts. Pour ce faire, mettez uniquement à niveau les disques qui nécessitent de meilleures performances avec le stockage Premium. L’exemple suivant montre comment faire passer un seul disque d’une machine virtuelle du stockage standard au stockage premium, et vice versa. Pour utiliser des disques managés premium, votre machine virtuelle doit utiliser une [taille de machine virtuelle](sizes.md) qui prend en charge le stockage premium. Cet exemple montre également comment passer à une taille prenant en charge le stockage premium :
+Pour votre charge de travail de développement/test, vous souhaiterez peut-être un mélange de disques Standard et Premium pour réduire les coûts. Vous pouvez choisir de mettre à niveau uniquement ces disques qui ont besoin de meilleures performances. Cet exemple montre comment convertir un disque de machine virtuelle unique à partir de Standard vers le stockage Premium ou de Premium vers le stockage Standard. Pour utiliser des disques gérés Premium, votre machine virtuelle doit utiliser une [taille de machine virtuelle](sizes.md) qui prend en charge le stockage Premium. Cet exemple montre également comment passer à une taille qui prend en charge le stockage Premium :
 
 ```azurepowershell-interactive
 
 $diskName = 'yourDiskName'
 # resource group that contains the managed disk
 $rgName = 'yourResourceGroupName'
-# Choose between StandardLRS and PremiumLRS based on your scenario
+# Choose between Standard_LRS and Premium_LRS based on your scenario
 $storageType = 'Premium_LRS'
 # Premium capable size 
 $size = 'Standard_DS2_v2'
@@ -106,8 +103,8 @@ Stop-AzVM -ResourceGroupName $vmResource.ResourceGroupName -Name $vmResource.Nam
 
 $vm = Get-AzVM -ResourceGroupName $vmResource.ResourceGroupName -Name $vmResource.Name 
 
-# Change the VM size to a size that supports premium storage
-# Skip this step if converting storage from premium to standard
+# Change the VM size to a size that supports Premium storage
+# Skip this step if converting storage from Premium to Standard
 $vm.HardwareProfile.VmSize = $size
 Update-AzVM -VM $vm -ResourceGroupName $rgName
 
@@ -119,9 +116,24 @@ Update-AzDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
 Start-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 ```
 
-## <a name="convert-a-managed-disk-from-standard-hdd-to-standard-ssd"></a>Convertir un disque managé HDD standard en SSD standard
+## <a name="convert-managed-disks-from-standard-to-premium-in-the-azure-portal"></a>Convertir des disques gérés de Standard en Premium dans le portail Azure
 
-L’exemple suivant montre comment faire passer un seul disque d’une machine virtuelle HDD standard en SSD standard, et vice versa :
+Procédez comme suit :
+
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+2. Sélectionnez la machine virtuelle à partir de la liste des **machines virtuelles** dans le portail.
+3. Si la machine virtuelle n’est pas arrêtée, sélectionnez **arrêter** en haut de la machine virtuelle **vue d’ensemble** volet et attendez que la machine virtuelle à arrêter.
+3. Dans le volet de la machine virtuelle, sélectionnez **disques** à partir du menu.
+4. Sélectionnez le disque que vous souhaitez convertir.
+5. Sélectionnez **Configuration** dans le menu.
+6. Modifier le **type de compte** à partir de **HDD Standard** à **Premium SSD**.
+7. Cliquez sur **enregistrer**et fermez le volet de disque.
+
+La conversion de type de disque est instantanée. Vous pouvez redémarrer votre machine virtuelle après la conversion.
+
+## <a name="switch-managed-disks-between-standard-hdd-and-standard-ssd"></a>Basculer entre Standard HDD et SSD Standard des disques gérés 
+
+Cet exemple montre comment convertir un disque de machine virtuelle unique à partir du disque dur Standard pour disque SSD Standard ou d’un disque SSD Standard sur le disque dur Standard :
 
 ```azurepowershell-interactive
 
@@ -152,4 +164,3 @@ Start-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 ## <a name="next-steps"></a>Étapes suivantes
 
 Créez une copie en lecture seule d’une machine virtuelle en utilisant une [capture instantanée](snapshot-copy-managed-disk.md).
-

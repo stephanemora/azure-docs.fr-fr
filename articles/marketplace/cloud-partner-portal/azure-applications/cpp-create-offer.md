@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 4f6dbb52778893de0468dbab82351b9020af2927
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
-ms.translationtype: HT
+ms.openlocfilehash: cae657736d78958259c04dee48034f97ac9d3d1c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53412807"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57871226"
 ---
 # <a name="create-an-azure-application-offer"></a>Créer une offre d’application Azure
 
@@ -27,7 +27,7 @@ Cet article explique comment créer et publier une nouvelle entrée parmi les of
 
 ## <a name="new-offer-form"></a>Formulaire de nouvelle offre
 
-Connectez-vous au [Portail Cloud Partner](http://cloudpartner.azure.com/), puis sélectionnez **+ Nouvelle offre** dans la barre de menus de gauche. Dans le menu Nouvelle offre, sélectionnez **Applications Azure** pour afficher le formulaire **Nouvelle offre** et commencer le processus de définition des ressources d’une nouvelle offre.
+Connectez-vous au [Portail Cloud Partner](https://cloudpartner.azure.com/), puis sélectionnez **+ Nouvelle offre** dans la barre de menus de gauche. Dans le menu Nouvelle offre, sélectionnez **Applications Azure** pour afficher le formulaire **Nouvelle offre** et commencer le processus de définition des ressources d’une nouvelle offre.
 
 ![Formulaire de nouvelle offre](./media/azure-new-managedapp-offer.png)
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 23582215654ff2d5003fe611c7149ad760d72bc5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: eec99bde0ea73a99a9dc1345f938b821a95a7c05
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957038"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111835"
 ---
 # <a name="how-front-door-matches-requests-to-a-routing-rule"></a>Comment une porte d’entrée fait correspondre les demandes à une règle de routage
 
@@ -29,7 +29,7 @@ La configuration d’une règle de routage de porte d’entrée est constituée 
 Les propriétés suivantes déterminent si la demande entrante correspond à la règle de routage (ou côté gauche) :
 
 * **Protocoles HTTP** (HTTP/HTTPS)
-* **Hôtes** (par exemple, www.foo.com, \*. bar.com)
+* **Hôtes** (par exemple, www\.foo.com, \*. bar.com)
 * **Chemins d’accès** (par exemple, /\*, /users/\*, /file.gif)
 
 Ces propriétés sont développées en interne de telle sorte que chaque combinaison Protocole/Hôte/Chemin d’accès constitue une correspondance potentielle.
@@ -48,71 +48,71 @@ Quand il s’agit de mettre en correspondance des hôtes frontend, nous utilison
 
 Pour expliquer plus en détail ce processus, nous allons examiner un exemple de configuration d’itinéraires de porte d’entrée (côté gauche uniquement) :
 
-| Règle de routage | Hôtes frontend | Chemin |
+| Règle de routage | Hôtes frontend | path |
 |-------|--------------------|-------|
 | A | foo.contoso.com | /\* |
 | b | foo.contoso.com | /users/\* |
-| C | www.fabrikam.com, foo.adventure-works.com  | /\*, /images/\* |
+| C | www\.fabrikam.com, foo.adventure-works.com  | /\*, /images/\* |
 
 Si les demandes entrantes suivantes étaient envoyées à la porte d’entrée, elles correspondraient aux règles de routage suivantes issues du tableau précédent :
 
 | Hôte frontend entrant | Règle(s) de routage correspondante(s) |
 |---------------------|---------------|
 | foo.contoso.com | A, B |
-| www.fabrikam.com | C |
+| www\.fabrikam.com | C |
 | images.fabrikam.com | Erreur 400 : Demande incorrecte |
 | foo.adventure-works.com | C |
 | contoso.com | Erreur 400 : Demande incorrecte |
-| foo.adventure-works.com | Erreur 400 : Demande incorrecte |
-| www.northwindtraders.com | Erreur 400 : Demande incorrecte |
+| www\.adventure-works.com | Erreur 400 : Demande incorrecte |
+| www\.northwindtraders.com | Erreur 400 : Demande incorrecte |
 
 ### <a name="path-matching"></a>Mise en correspondance avec un chemin
 Après avoir identifié l’hôte frontend spécifique et filtré les règles de routage possibles, qui se limitent aux itinéraires de cet hôte frontend, la porte d’entrée filtre alors les règles de routage en fonction du chemin de la demande. Nous utilisons une logique comparable à celle des hôtes frontend :
 
 1. Recherche d’une règle de routage ayant une correspondance exacte dans le chemin.
 2. Si aucune correspondance exacte n’est trouvée dans le chemin, recherche de règles de routage avec un chemin générique qui correspond.
-3. Si aucune règle de routage n’est trouvée avec un chemin correspondant, la demande est rejetée et une réponse HTTP 400 : Demande incorrecte est retournée.
+3. Si aucune règle de routage n’est trouvées avec un chemin d’accès correspondant, puis rejeter la demande et retourne un code 400 : Erreur de demande de réponse HTTP incorrecte.
 
 >[!NOTE]
 > Les chemins sans caractère générique sont considérés comme des correspondances parfaites. Même si le chemin se termine par une barre oblique, il est quand même considéré comme tel.
 
 Pour une explication plus détaillée, examinons d’autres exemples :
 
-| Règle de routage | Hôte frontend    | Chemin     |
+| Règle de routage | Hôte frontend    | path     |
 |-------|---------|----------|
-| A     | www.contoso.com | /        |
-| b     | www.contoso.com | /\*      |
-| C     | www.contoso.com | /ab      |
-| D     | www.contoso.com | /abc     |
-| E     | www.contoso.com | /abc/    |
-| F     | www.contoso.com | /abc/\*  |
-| G     | www.contoso.com | /abc/def |
-| H     | www.contoso.com | /path/   |
+| A     | www\.contoso.com | /        |
+| b     | www\.contoso.com | /\*      |
+| C     | www\.contoso.com | /ab      |
+| D     | www\.contoso.com | /abc     |
+| E     | www\.contoso.com | /abc/    |
+| F     | www\.contoso.com | /abc/\*  |
+| G     | www\.contoso.com | /abc/def |
+| H     | www\.contoso.com | /path/   |
 
 Compte tenu de cette configuration, le tableau d’exemples de correspondances obtenu serait le suivant :
 
 | Demandes entrantes    | Itinéraire correspondant |
 |---------------------|---------------|
-| www.contoso.com/            | A             |
-| www.contoso.com/a           | b             |
-| www.contoso.com/ab          | C             |
-| www.contoso.com/abc         | D             |
-| www.contoso.com/abzzz       | b             |
-| www.contoso.com/abc/        | E             |
-| www.contoso.com/abc/d       | F             |
-| www.contoso.com/abc/def     | G             |
-| www.contoso.com/abc/defzzz  | F             |
-| www.contoso.com/abc/def/ghi | F             |
-| www.contoso.com/path        | b             |
-| www.contoso.com/path/       | H             |
-| www.contoso.com/path/zzz    | b             |
+| www\.contoso.com/            | A             |
+| www\.contoso.com/a           | b             |
+| www\.contoso.com/ab          | C             |
+| www\.contoso.com/abc         | D             |
+| www\.contoso.com/abzzz       | b             |
+| www\.contoso.com/abc/        | E             |
+| www\.contoso.com/abc/d       | F             |
+| www\.contoso.com/abc/def     | G             |
+| www\.contoso.com/abc/defzzz  | F             |
+| www\.contoso.com/abc/def/ghi | F             |
+| www\.contoso.com/path        | b             |
+| www\.contoso.com/path/       | H             |
+| www\.contoso.com/path/zzz    | b             |
 
 >[!WARNING]
 > </br> En l’absence de règle de routage pour un hôte frontend parfaitement concordant avec un chemin d’itinéraire fourre-tout (`/*`), il n’existe pas de correspondance avec une règle de routage.
 >
 > Exemple de configuration :
 >
-> | Itinéraire | Hôte             | Chemin    |
+> | Routage | Host             | path    |
 > |-------|------------------|---------|
 > | A     | profile.contoso.com | /api/\* |
 >
@@ -127,5 +127,5 @@ Dès lors qu’une correspondance a été établie avec une règle de routage de
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment [créer un porte d’entrée](quickstart-create-front-door.md).
-- Découvrez [comment fonctionne une porte d’entrée](front-door-routing-architecture.md).
+- Découvrez comment [créer une porte d’entrée](quickstart-create-front-door.md).
+- Découvrez [comment fonctionne Front Door](front-door-routing-architecture.md).

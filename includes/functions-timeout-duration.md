@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 02/21/2018
 ms.author: nzthiago
 ms.custom: include file
-ms.openlocfilehash: 189683a9e98f161ce537284cc7b0349c94be2bf0
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: ffb29fc76313e8870b52cb0a63936da7853ea6ce
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57410908"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58305382"
 ---
 ## <a name="timeout"></a>Durée de délai d’attente d’application (fonction) 
 
-La durée d’expiration d’une application de fonction est définie par la propriété functionTimeout dans le [host.json](../articles/azure-functions/functions-host-json.md#functiontimeout) fichier projet. Le tableau suivant présente les valeurs par défaut et maximale pour les plans et dans les deux versions du runtime :
+La durée d’expiration d’une application de fonction est définie par la propriété functionTimeout dans le [host.json](../articles/azure-functions/functions-host-json.md#functiontimeout) fichier projet. Le tableau suivant indique les valeurs par défaut et maximale en minutes pour les plans et dans les deux versions du runtime :
 
 | Planification | Version du runtime | Default | Maximale |
 |------|---------|---------|---------|

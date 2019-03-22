@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0e86180a643b27056edc9901d590760cedcbf259
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: bd39b0aae5b76f37e2153f8e4c4502be994fa5b5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331875"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58081829"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Déplacer des données depuis PostgreSQL à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -33,7 +33,7 @@ Cet article explique comment utiliser l’activité de copie dans Azure Data F
 
 Vous pouvez copier et coller les données d’un magasin de données PostgreSQL local dans tout magasin de données récepteur pris en charge. Consultez les [magasins de données pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats) pour obtenir la liste des magasins de données pris en charge en tant que récepteurs par l’activité de copie. Actuellement, les fabriques de données prennent en charge le déplacement des données d’une base de données PostgreSQL vers d’autres magasins de données, mais non l’inverse.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Le service Data Factory prend en charge la connexion à des sources PostgreSQL locales à l'aide de la passerelle de gestion des données. Consultez l’article [Déplacement de données entre des emplacements locaux et le cloud](data-factory-move-data-between-onprem-and-cloud.md) pour en savoir plus sur la passerelle de gestion des données et obtenir des instructions détaillées sur la configuration de la passerelle.
 
@@ -50,12 +50,12 @@ Vous pouvez créer un pipeline avec une activité de copie qui déplace les donn
 
 - Le moyen le plus simple de créer un pipeline consiste à utiliser **l’Assistant Copie**. Consultez le [tutoriel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Copie](data-factory-copy-data-wizard-tutorial.md) pour obtenir une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copie de données.
 - Vous pouvez également utiliser les outils suivants pour créer un pipeline :
-    - Portail Azure
-    - Visual Studio
-    - Azure PowerShell
-    - Modèle Azure Resource Manager
-    - API .NET
-    - API REST
+  - Portail Azure
+  - Visual Studio
+  - Azure PowerShell
+  - Modèle Azure Resource Manager
+  - API .NET
+  - API REST
 
     Consultez le [Didacticiel de l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie.
 
@@ -306,46 +306,46 @@ Lors du déplacement de données vers PostgreSQL, les mappages suivants sont uti
 
 | Type de base de données PostgreSQL | Alias PostgresSQL | Type de .NET Framework |
 | --- | --- | --- |
-| abstime | |DateTime | &nbsp;
+| abstime | |DateTime |
 | bigint |int8 |Int64 |
 | bigserial |serial8 |Int64 |
-| bit [(n)] | |Byte[], String | &nbsp;
+| bit [(n)] | |Byte[], String |
 | bit varying [ (n) ] |varbit |Byte[], String |
 | booléenne |bool |booléenne |
-| box | |Byte[], String |&nbsp;
-| bytea | |Byte[], String |&nbsp;
+| box | |Byte[], String |
+| bytea | |Byte[], String |
 | character [(n)] |char [(n)] |Chaîne |
 | character varying [(n)] |varchar [(n)] |Chaîne |
-| cid | |Chaîne |&nbsp;
-| cidr | |Chaîne |&nbsp;
-| circle | |Byte[], String |&nbsp;
-| date | |DateTime |&nbsp;
-| daterange | |Chaîne |&nbsp;
+| cid | |Chaîne |
+| cidr | |Chaîne |
+| circle | |Byte[], String |
+| date | |DateTime |
+| daterange | |Chaîne |
 | double précision |float8 |Double |
-| inet | |Byte[], String |&nbsp;
-| intarry | |Chaîne |&nbsp;
-| int4range | |Chaîne |&nbsp;
-| int8range | |Chaîne |&nbsp;
+| inet | |Byte[], String |
+| intarry | |Chaîne |
+| int4range | |Chaîne |
+| int8range | |Chaîne |
 | integer |int, int4 |Int32 |
-| interval [champs] [(p)] | |Timespan |&nbsp;
-| json | |Chaîne |&nbsp;
-| jsonb | |Byte[] |&nbsp;
-| line | |Byte[], String |&nbsp;
-| lseg | |Byte[], String |&nbsp;
-| macaddr | |Byte[], String |&nbsp;
-| money | |Décimal |&nbsp;
-| numeric [(p, s)] |decimal [(p, s)] |Décimal |
-| numrange | |Chaîne |&nbsp;
-| oid | |Int32 |&nbsp;
-| chemin d’accès | |Byte[], String |&nbsp;
-| pg_lsn | |Int64 |&nbsp;
-| point | |Byte[], String |&nbsp;
-| polygon | |Byte[], String |&nbsp;
+| interval [champs] [(p)] | |Timespan |
+| json | |Chaîne |
+| jsonb | |Byte[] |
+| line | |Byte[], String |
+| lseg | |Byte[], String |
+| macaddr | |Byte[], String |
+| money | |Decimal |
+| numeric [(p, s)] |decimal [(p, s)] |Decimal |
+| numrange | |Chaîne |
+| oid | |Int32 |
+| chemin d’accès | |Byte[], String |
+| pg_lsn | |Int64 |
+| point | |Byte[], String |
+| polygon | |Byte[], String |
 | real |float4 |Single |
 | smallint |int2 |Int16 |
 | smallserial |serial2 |Int16 |
 | serial |serial4 |Int32 |
-| texte | |Chaîne |&nbsp;
+| texte | |Chaîne |
 
 ## <a name="map-source-to-sink-columns"></a>Mapper les colonnes source aux colonnes du récepteur
 Pour en savoir plus sur le mappage de colonnes du jeu de données source à des colonnes du jeu de données récepteur, voir [Mappage des colonnes d’un jeu de données dans Azure Data Factory](data-factory-map-columns.md).

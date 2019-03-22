@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: fb8c94b1-6d0a-4b77-8d14-ae6efcdd99f4
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: f595fbb6571c3deaaa0644ba9d62f598181592e3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 4c933145c54c47b5af083edd593ecb66b089f9c9
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106309"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769146"
 ---
 # <a name="quickstart-sign-in-and-set-a-user-id"></a>Démarrage rapide : Se connecter et définir un identifiant utilisateur
 
@@ -51,6 +51,9 @@ Bien que vous puissiez toujours afficher Azure Notebooks sans vous connecter, vo
 1. Après vous être connecté, Azure Notebooks vous permet d’accéder à votre page de profil public dans laquelle vous pouvez sélectionner **Modifier les informations de profil** pour remplir le reste de vos informations (pour plus d’informations, consultez [Vos profil et ID utilisateur](azure-notebooks-user-profile.md)) :
 
     ![Affichage initial d’une page de profil Azure Notebooks](media/accounts/profile-page-new.png)
+
+> [!NOTE]
+> Si vous voyez le message, « ID d’utilisateur est déjà en cours d’utilisation, » essayez un autre ID. ID d’utilisateur sont uniques sur tous les comptes Azure Notebooks et blocs-notes Azure réserve également certains ID utilisateur, tels que les noms de marque Microsoft.
 
 ## <a name="sign-out"></a>Se déconnecter
 

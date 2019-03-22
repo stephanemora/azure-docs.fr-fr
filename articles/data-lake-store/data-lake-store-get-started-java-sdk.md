@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: edbaa8fe42c0e6bfda8558e7d9e5cd0ce42bfcc4
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
+ms.openlocfilehash: e84e84aac3aca0458dea4f30f6b0e222aafd9d44
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53260699"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530294"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-java-sdk"></a>Opérations de gestion du système de fichiers sur Azure Data Lake Storage Gen1 à l’aide du Kit de développement logiciel (SDK) Java
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ Découvrez comment utiliser le Kit de développement logiciel (SDK) Java Azure D
 
 Vous pouvez accéder à la documentation de l’API du Kit de développement logiciel (SDK) Java pour Data Lake Storage Gen1 dans la [documentation de l’API Java Azure Data Lake Storage Gen1](https://azure.github.io/azure-data-lake-store-java/javadoc/).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 * Kit de développement Java (JDK 7 ou version ultérieure, utilisant Java version 1.7 ou ultérieure)
 * Compte Data Lake Storage Gen1. Suivez les instructions de [Prise en main d’Azure Data Lake Storage Gen1 avec le portail Azure](data-lake-store-get-started-portal.md).
 * [Maven](https://maven.apache.org/install.html). Ce didacticiel utilise Maven pour les dépendances de build et de projet. Bien qu’il soit possible de créer sans utiliser un système de build comme Maven ou Gradle, ces systèmes facilitent considérablement la gestion des dépendances.
@@ -41,7 +41,7 @@ Vous pouvez accéder à la documentation de l’API du Kit de développement log
 ## <a name="create-a-java-application"></a>Création d’une application Java
 L’exemple de code disponible [sur GitHub](https://azure.microsoft.com/documentation/samples/data-lake-store-java-upload-download-get-started/) vous guide tout au long du processus de création de fichiers dans le magasin, de concaténation de fichiers, de téléchargement d’un fichier et de suppression de certains fichiers du compte. Cette section de l’article vous guide tout au long des principales parties du code.
 
-1. Créez un projet Maven en utilisant [mvn archetype](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html) à partir de la ligne de commande ou à l’aide d’un environnement de développement intégré (IDE). Vous trouverez [ici](https://www.jetbrains.com/help/idea/2016.1/creating-and-running-your-first-java-application.html) des instructions sur la création d’un projet Java à l’aide d’IntelliJ. Vous trouverez [ici](http://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2FgettingStarted%2Fqs-3.htm) des instructions sur la création d’un projet à l’aide d’Eclipse. 
+1. Créez un projet Maven en utilisant [mvn archetype](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html) à partir de la ligne de commande ou à l’aide d’un environnement de développement intégré (IDE). Vous trouverez [ici](https://www.jetbrains.com/help/idea/2016.1/creating-and-running-your-first-java-application.html) des instructions sur la création d’un projet Java à l’aide d’IntelliJ. Vous trouverez [ici](https://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2FgettingStarted%2Fqs-3.htm) des instructions sur la création d’un projet à l’aide d’Eclipse. 
 
 2. Ajoutez les dépendances suivantes à votre fichier Maven **pom.xml**. Ajoutez l’extrait de code suivant avant la balise **\</project>** :
    
@@ -58,7 +58,7 @@ L’exemple de code disponible [sur GitHub](https://azure.microsoft.com/document
           </dependency>
         </dependencies>
    
-    La première dépendance consiste à utiliser le kit de développement logiciel (SDK) Data Lake Storage Gen1 (`azure-data-lake-store-sdk`) à partir du référentiel maven. La seconde dépendance consiste à spécifier le framework de journalisation (`slf4j-nop`) à utiliser pour cette application. Le kit de développement logiciel (SDK) Data Lake Storage Gen1 utilise la façade de journalisation [slf4j](http://www.slf4j.org/). Cela vous permet de choisir parmi plusieurs frameworks de journalisation populaires, par exemple log4j, la journalisation Java, Logback, etc. Vous pouvez aussi n’utiliser aucune journalisation. Pour cet exemple, nous désactivons la journalisation et, par conséquent, nous utilisons la liaison **slf4j-nop**. Vous trouverez [ici](http://www.slf4j.org/manual.html#projectDep) des informations pour utiliser d’autres options de journalisation.
+    La première dépendance consiste à utiliser le kit de développement logiciel (SDK) Data Lake Storage Gen1 (`azure-data-lake-store-sdk`) à partir du référentiel maven. La seconde dépendance consiste à spécifier le framework de journalisation (`slf4j-nop`) à utiliser pour cette application. Le kit de développement logiciel (SDK) Data Lake Storage Gen1 utilise la façade de journalisation [slf4j](https://www.slf4j.org/). Cela vous permet de choisir parmi plusieurs frameworks de journalisation populaires, par exemple log4j, la journalisation Java, Logback, etc. Vous pouvez aussi n’utiliser aucune journalisation. Pour cet exemple, nous désactivons la journalisation et, par conséquent, nous utilisons la liaison **slf4j-nop**. Vous trouverez [ici](https://www.slf4j.org/manual.html#projectDep) des informations pour utiliser d’autres options de journalisation.
 
 3. Ajoutez les instructions import ci-après à votre application.
 
@@ -73,7 +73,7 @@ L’exemple de code disponible [sur GitHub](https://azure.microsoft.com/document
         import java.util.Arrays;
         import java.util.List;
 
-## <a name="authentication"></a>Authentification
+## <a name="authentication"></a>Authentication
 
 * Pour en savoir plus sur l’authentification des utilisateurs accédant à votre application, consultez [Authentification des utilisateurs finaux auprès de Data Lake Storage Gen1 avec le Kit SDK Java](data-lake-store-end-user-authenticate-java-sdk.md).
 * Pour en savoir plus sur l’authentification entre les services dans le cadre de votre application, consultez [Authentification de service à service auprès de Data Lake Storage Gen1 à l’aide de Java](data-lake-store-service-to-service-authenticate-java.md).
@@ -205,8 +205,8 @@ L’extrait de code suivant permet de supprimer les fichiers et dossiers spécif
     promptEnterKey();
 
 ## <a name="build-and-run-the-application"></a>Génération et exécution de l’application
-1. Pour une exécution au sein d’un environnement IDE, recherchez et appuyez sur le bouton **Run** (Exécuter). Pour une exécution depuis Maven, utilisez [exec:exec](http://www.mojohaus.org/exec-maven-plugin/exec-mojo.html).
-2. Pour produire un fichier jar autonome que vous pouvez exécuter à partir de la ligne de commande, créez le fichier jar en incluant toutes les dépendances à l’aide du [plug-in assembly Maven](http://maven.apache.org/plugins/maven-assembly-plugin/usage.html). Le fichier pom.xml de l'[exemple de code source sur GitHub](https://github.com/Azure-Samples/data-lake-store-java-upload-download-get-started/blob/master/pom.xml) contient un exemple.
+1. Pour une exécution au sein d’un environnement IDE, recherchez et appuyez sur le bouton **Run** (Exécuter). Pour une exécution depuis Maven, utilisez [exec:exec](https://www.mojohaus.org/exec-maven-plugin/exec-mojo.html).
+2. Pour produire un fichier jar autonome que vous pouvez exécuter à partir de la ligne de commande, créez le fichier jar en incluant toutes les dépendances à l’aide du [plug-in assembly Maven](https://maven.apache.org/plugins/maven-assembly-plugin/usage.html). Le fichier pom.xml de l'[exemple de code source sur GitHub](https://github.com/Azure-Samples/data-lake-store-java-upload-download-get-started/blob/master/pom.xml) contient un exemple.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Explorer JavaDoc pour le SDK Java](https://azure.github.io/azure-data-lake-store-java/javadoc/)

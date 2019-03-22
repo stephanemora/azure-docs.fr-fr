@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 8c913d618313a72f6fb05ea45847a220f6070d42
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: b06bc6b41081f05a7067f82f46affc37d21f50b1
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765736"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213294"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Créer une machine virtuelle Linux avec mise en réseau accélérée
 
@@ -55,7 +55,7 @@ Les distributions suivantes sont prises en charge sans configuration supplément
 ### <a name="supported-vm-instances"></a>Instances de machines virtuelles prises en charge
 La mise en réseau accélérée est prise en charge dans la plupart des instances d’usage général et optimisées pour le calcul (2 processeurs virtuels ou plus).  Séries prises en charge : D/DSv2 et F/Fs
 
-Dans des instances qui acceptent l’hyperthreading, la mise en réseau accélérée est prise en charge dans des instances de machine virtuelle comptant au minimum 4 processeurs virtuels. Séries prises en charge : D/DSv3, E/ESv3, Fsv2 et Ms/Mms.
+Dans des instances qui acceptent l’hyperthreading, la mise en réseau accélérée est prise en charge dans des instances de machine virtuelle comptant au minimum 4 processeurs virtuels. Séries prises en charge : D/Dsv3, E/Esv3, Fsv2, Lsv2, Ms/Mms et Ms/Mmsv2.
 
 Pour plus d’informations sur les instances de machine virtuelle, consultez la section [Tailles des machines virtuelles Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
@@ -71,9 +71,14 @@ Cette fonctionnalité peut être activée sur une machine virtuelle sans mise en
 Aucun déploiement des machines virtuelles (classiques) n’est possible avec la mise en réseau accélérée.
 
 ## <a name="create-a-linux-vm-with-azure-accelerated-networking"></a>Créer une machine virtuelle Linux avec mise en réseau accélérée Azure
+## <a name="portal-creation"></a>Création de portail
+Bien que cet article fournit des étapes pour créer une machine virtuelle avec mise en réseau accélérée à l’aide de l’interface CLI d’Azure, vous pouvez également [Créer une machine virtuelle avec mise en réseau accélérée via le portail Azure](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Lorsque vous créez une machine virtuelle dans le portail, dans le **créer une machine virtuelle** panneau, choisissez la **mise en réseau** onglet.  Dans cet onglet, il existe une option pour **mise en réseau accélérée**.  Si vous avez choisi un [pris en charge du système d’exploitation](#supported-operating-systems) et [taille de machine virtuelle](#supported-vm-instances), cette option est automatiquement rempli sur « Activé ».  Si ce n’est pas le cas, il sera remplir l’option « Off » pour la mise en réseau accélérée et donner à l’utilisateur une raison pourquoi il n’est pas être activé.   
 
-Bien que cet article fournit des étapes pour créer une machine virtuelle avec mise en réseau accélérée à l’aide de l’interface CLI d’Azure, vous pouvez également [Créer une machine virtuelle avec mise en réseau accélérée via le portail Azure](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Au moment de la création d’une machine virtuelle dans le portail, sous **Paramètres**, sélectionnez **Activé** sous **Mise en réseau accélérée**. L’option permettant d’activer la mise en réseau accélérée n’apparaît pas dans le portail, sauf si vous avez sélectionné un [système d’exploitation pris en charge](#supported-operating-systems) et une [taille de machine virtuelle](#supported-vm-instances). Une fois la machine virtuelle créée, vous devez suivre les instructions de [Confirmer l’activation de la mise en réseau accélérée](#confirm-that-accelerated-networking-is-enabled).
+* *Remarque :* Seuls les systèmes d’exploitation pris en charge peut être activés via le portail.  Si vous utilisez une image personnalisée, et que votre image prend en charge la mise en réseau accélérée, créez votre machine virtuelle à l’aide de CLI ou Powershell. 
 
+Une fois que la machine virtuelle est créée, vous pouvez confirmer la mise en réseau accélérée est activée en suivant les instructions dans le [confirmer que la mise en réseau accélérée est activée](#confirm-that-accelerated-networking-is-enabled).
+
+## <a name="cli-creation"></a>Création de l’interface CLI
 ### <a name="create-a-virtual-network"></a>Créez un réseau virtuel
 
 Installez la dernière version [d’Azure CLI](/cli/azure/install-azure-cli) et connectez-vous à un compte Azure avec [az login](/cli/azure/reference-index). Dans les exemples suivants, remplacez les exemples de noms de paramètre par vos propres valeurs. Les noms de paramètre sont par exemple *myResourceGroup*, *myNic* et *myVm*.

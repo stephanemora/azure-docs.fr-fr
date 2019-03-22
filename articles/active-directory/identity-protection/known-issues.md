@@ -17,17 +17,17 @@ ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: raluthra
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc08710909252c9bcade6177a105684128acc5bf
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: a1cc8a9305103a30fc0ea0fc40c23a522e136d80
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339021"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807182"
 ---
 # <a name="faqs-and-known-issues-with-identity-protection-refreshed-in-azure-active-directory"></a>FAQ et problèmes connus liés à Identity Protection (version actualisée) dans Azure Active Directory
 
 
-## <a name="dismiss-user-risk"></a>Ignorer le risque lié à l’utilisateur
+## <a name="dismiss-user-risk-known-issues"></a>Faire disparaître les problèmes connus risque de l’utilisateur
 
 **Ignorer le risque lié à l’utilisateur** dans la version classique d’Identity Protection définit l’acteur dans l’historique des risques utilisateur d’Identity Protection (version actualisée) sur **Azure AD**.
 
@@ -37,7 +37,7 @@ ms.locfileid: "56339021"
 Un problème connu provoque actuellement des latences dans le flux de rejet du risque utilisateur. Si vous disposez d'une « Stratégie de risque utilisateur », celle-ci cessera de s'appliquer aux utilisateurs ignorés quelques minutes après un clic sur « Ignorer le risque lié à l'utilisateur ». Cela dit, des retards d'actualisation de l'« état de risque » des utilisateurs ignorés ont été identifiés. Pour contourner ce problème, actualisez la page au niveau du navigateur afin d'afficher le dernier « État de risque » de l'utilisateur.
 
 
-## <a name="risky-users-report"></a>Rapport sur les utilisateurs à risque
+## <a name="risky-users-report-known-issues"></a>Les utilisateurs à risque signalent des problèmes connus
 
 Les requêtes sur le champ **Nom d’utilisateur** respectent la casse, alors que les requêtes sur le champ **Nom** ne sont pas sensibles à la casse.
 
@@ -45,14 +45,10 @@ Désactivez **Show dates as** (Afficher les dates en tant que) pour masquer la c
 
 **Ignorer tous les événements** dans la version classique d’Identity Protection définit l’état des événements à risque sur **Closed (resolved)** (Fermé (résolu)).
 
-Si vous tentez d’accéder au rapport sur les utilisateurs en cliquant sur **Rapport sur les utilisateurs à risque** dans un enregistrement de connexion du rapport sur les connexions à risque, le message suivant peut parfois s’afficher : **Une erreur s’est produite. Veuillez réessayer**. Pour résoudre ce problème, cliquez sur **Appliquer** ou sur **Réinitialiser** en haut de l’écran et les données sur le ou les utilisateurs s’affichent.
 
-
-## <a name="risky-sign-ins-report"></a>Rapports sur les connexions risquées
+## <a name="risky-sign-ins-report-known-issues"></a>Connexions risquées signalent des problèmes connus
 
 **Résoudre** sur un événement à risque définit l’état sur **Users passed MFA driven by risk-based policy** (Les utilisateurs ont passé la MFA pilotée par une stratégie basée sur les risques).
-
-**Réinitialiser** dans le **Rapport sur les connexions à risque** n’efface pas la valeur du **type d’événement à risque**.
 
 
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)

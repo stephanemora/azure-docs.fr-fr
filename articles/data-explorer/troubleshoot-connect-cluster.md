@@ -8,14 +8,14 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: d10d39a65acd3664c99e8b5aa5cc015a76d9d1aa
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.openlocfilehash: 89ae8bd4139623cfafe811b7c82433cfb8400611
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209375"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189663"
 ---
-# <a name="troubleshoot-failure-to-connect-to-a-cluster-in-azure-data-explorer"></a>Résolution des problèmes : Échec de connexion à un cluster dans l’Explorateur de données Azure
+# <a name="troubleshoot-failure-to-connect-to-a-cluster-in-azure-data-explorer"></a>Résolution de problèmes : Échec de connexion à un cluster dans l’Explorateur de données Azure
 
 Si vous n’êtes pas en mesure de vous connecter à un cluster dans l’Explorateur de données Azure, effectuez les étapes suivantes.
 
@@ -27,7 +27,7 @@ Si vous n’êtes pas en mesure de vous connecter à un cluster dans l’Explora
 
 1. Vérifiez que le cluster n’a pas été supprimé : passez en revue le journal d’activité dans votre abonnement.
 
-1. Consultez le [tableau de bord d’état du service Azure](https://azure.microsoft.com/status/>). Recherchez l’état de l’Explorateur de données Azure dans la région où vous tentez de vous connecter à un cluster.
+1. Consultez le [tableau de bord d’état du service Azure](https://azure.microsoft.com/status/). Recherchez l’état de l’Explorateur de données Azure dans la région où vous tentez de vous connecter à un cluster.
 
     Si l’état n’est pas **correct** (coche verte), essayez de vous connecter au cluster une fois que l’état s’est amélioré.
 

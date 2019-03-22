@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 73b13dcea84ba322072217c3feacebdefb3bf1e6
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
-ms.translationtype: HT
+ms.openlocfilehash: 6650eed6bf2559e9fb76b573189179a7f5df81ca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43052037"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896702"
 ---
 # <a name="what-are-power-bi-workspace-collections"></a>Qu’est-ce qu’une collection d’espaces de travail Power BI ?
 
@@ -87,4 +87,4 @@ Vous pouvez maintenant modifier des rapports existants ou en créer directement 
 [Référentiel Git PowerBI-CSharp](https://github.com/Microsoft/PowerBI-CSharp)  
 [Référentiel Git PowerBI-Node](https://github.com/Microsoft/PowerBI-Node)  
 
-Des questions ? [Essayer la communauté Power BI](http://community.powerbi.com/)
+Des questions ? [Essayer la communauté Power BI](https://community.powerbi.com/)

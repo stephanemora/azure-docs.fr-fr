@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/18/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 9fd64e4a9eb100b00dc4597042321b21466f2c7d
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: 55e92632b43d365c4041c79f20e68a0a63477d6f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54414465"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58114322"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>Combien de points de terminaison clients VPN puis-je avoir dans ma configuration point à site ?
 
@@ -58,7 +58,7 @@ Oui. Pour le modèle de déploiement Resource Manager, vous devez disposer d’u
 
 ### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-networks-at-the-same-time"></a>Puis-je configurer un client point à site pour me connecter à plusieurs réseaux virtuels en même temps ?
 
- Non. Un client point à site ne peut se connecter qu’aux ressources dans le réseau virtuel dans lequel réside la passerelle de réseau virtuel.
+Non. Un client point à site ne peut se connecter qu’aux ressources dans le réseau virtuel dans lequel réside la passerelle de réseau virtuel.
 
 ### <a name="how-much-throughput-can-i-expect-through-site-to-site-or-point-to-site-connections"></a>Quel débit puis-je attendre des connexions site à site ou point à site ?
 
@@ -66,7 +66,7 @@ Il est difficile de maintenir le débit exact des tunnels VPN. IPsec et SSTP son
 
 ### <a name="can-i-use-any-software-vpn-client-for-point-to-site-that-supports-sstp-andor-ikev2"></a>Puis-je utiliser un client VPN logiciel pour une connexion point à site prenant en charge SSTP et/ou IKEv2 ?
 
- Non. Vous ne pouvez utiliser le client VPN natif sur Windows que pour SSTP et pour le client VPN natif sur Mac pour IKEv2. Reportez-vous à la liste des systèmes d’exploitation client pris en charge.
+Non. Vous ne pouvez utiliser le client VPN natif sur Windows que pour SSTP et pour le client VPN natif sur Mac pour IKEv2. Reportez-vous à la liste des systèmes d’exploitation client pris en charge.
 
 ### <a name="does-azure-support-ikev2-vpn-with-windows"></a>Azure prend-elle en charge le VPN IKEv2 avec Windows ?
 
@@ -77,11 +77,11 @@ Pour préparer Windows 10 ou Server 2016 pour IKEv2 :
 1. Installez la mise à jour.
 
    | Version du SE | Date | Nombre/lien |
-   |---|---|---|---|
+   |---|---|---|
    | Windows Server 2016<br>Windows 10 version 1607 | 17 janvier 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
    | Windows 10 version 1703 | 17 janvier 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
    | Windows 10 version 1709 | 22 mars 2018 | [KB4089848](https://www.catalog.update.microsoft.com/search.aspx?q=kb4089848) |
-   |  |  |  |  |
+   |  |  |  |
 
 2. Définissez la valeur de clé de Registre. Créer ou de définir la clé REG_DWORD « HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload » sur 1 dans le Registre.
 

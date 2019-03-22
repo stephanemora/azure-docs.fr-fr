@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: bf9e83a1dfed0aac7f48cd47dc12bf56c7cb1b64
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 47d2e051cf3eeebbfaea95cfc16f5077559e6847
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38481700"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807131"
 ---
 # <a name="about-azure-devtest-labs"></a>À propos d’Azure DevTest Labs
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Présentation
 Les développeurs et testeurs cherchent à résoudre les problèmes de retards dans la création et la gestion de leurs environnements en accédant au cloud.  Azure résout ces problèmes et permet le libre-service dans une nouvelle structure économique.  Toutefois, les développeurs et testeurs doivent toujours consacrer beaucoup de temps à configurer leurs environnements en libre-service. En outre, les décideurs ne savent pas précisément comment exploiter le cloud afin d’optimiser leurs économies tout en allégeant le fardeau administratif.
 
 Azure DevTest Labs est un service permettant aux développeurs et aux testeurs de créer rapidement des environnements dans Azure tout en réduisant le temps perdu et les coûts. Vous pouvez tester la dernière version de votre application en approvisionnant rapidement des environnements Windows et Linux à l’aide d’artefacts et de modèles réutilisables. DevTest Labs facilite l’intégration de votre pipeline de déploiement pour approvisionner des environnements à la demande. Faites évoluer votre test de charge de travail en approvisionnant plusieurs agents de test et créez des environnements pré-approvisionnés pour des formations et des démonstrations.
@@ -44,6 +44,7 @@ Capturez et partagez les artefacts et modèles d’environnement au sein de votr
 
 ## <a name="integrates-with-your-existing-toolchain"></a>Intégré à votre chaîne d’outils existante
 Tirez parti des plug-ins prêts à l’emploi ou de notre API pour approvisionner des environnement de développement/test directement à partir de votre outil d’intégration continue préféré, d’un environnement de développement intégré ou d’un pipeline de mise en production automatisé. Vous pouvez également utiliser notre outil en ligne de commande complet.
+
 
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]

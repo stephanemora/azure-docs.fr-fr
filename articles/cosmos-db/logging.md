@@ -4,15 +4,15 @@ description: Découvrez les différentes façons de journaliser et de superviser
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 03/15/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 2a08097b42f395bd0009353635cabbd264c3c421
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: d75eb87bff812589e4d3a3a14079ddaaf368a588
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992088"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259769"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Journalisation des diagnostics dans Azure Cosmos DB 
 
@@ -24,7 +24,7 @@ Après avoir commencé à utiliser une ou plusieurs bases de données Azure Cosm
 
 Avant de passer à la surveillance de votre compte Azure Cosmos DB, il est important de clarifier certains points concernant la journalisation et la surveillance. Il existe plusieurs types de journaux sur la plateforme Azure. Vous avez les [journaux d’activité Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), les [journaux de diagnostic Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs), les [métriques Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics), les événements, le monitoring des pulsations, les journaux des opérations, etc. Il existe une multitude de journaux. Vous pouvez voir la liste complète des journaux dans [Azure Monitor enregistre](https://azure.microsoft.com/services/log-analytics/) dans le portail Azure. 
 
-L’illustration suivante montre les différents types de journaux Azure disponibles :
+L’illustration suivante montre l’autre genre de journaux Azure disponibles :
 
 ![Les différents types de journaux Azure](./media/logging/azurelogging.png)
 
@@ -67,7 +67,7 @@ Les journaux de diagnostic Azure sont générés par une ressource et fournissen
 
 Pour activer la journalisation des diagnostics, vous devez disposer des ressources suivantes :
 
-* Un compte, une base de données et un conteneur Azure Cosmos DB existants. Pour obtenir des instructions sur la création de ces ressources, consultez [Créer un compte de base de données à l’aide du portail Azure](create-sql-api-dotnet.md#create-a-database-account), [Exemples Azure CLI](cli-samples.md) ou [Exemples PowerShell](powershell-samples.md).
+* Un compte, une base de données et un conteneur Azure Cosmos DB existants. Pour obtenir des instructions sur la création de ces ressources, consultez [Créer un compte de base de données à l’aide du portail Azure](create-sql-api-dotnet.md#create-account), [Exemples Azure CLI](cli-samples.md) ou [Exemples PowerShell](powershell-samples.md).
 
 Pour activer la journalisation des diagnostics dans le portail Azure, effectuez les étapes suivantes :
 
@@ -99,27 +99,23 @@ Pour activer la journalisation des métriques et diagnostics à l’aide d’Azu
 - Pour activer le stockage des journaux de diagnostic dans un compte de stockage, utilisez cette commande :
 
    ```azurecli-interactive
-   azure insights diagnostic set --resourceId <resourceId> --storageId <storageAccountId> --enabled true
+   az monitor diagnostic-settings create --name DiagStorage --resource <resourceId> --storage-account <storageAccountName> --logs '[{"category": "QueryRuntimeStatistics", "enabled": true, "retentionPolicy": {"enabled": true, "days": 0}}]'
    ```
 
-   `resourceId` est le nom du compte Azure Cosmos DB. `storageId` est le nom du compte de stockage auquel vous souhaitez envoyer les journaux.
+   `resource` est le nom du compte Azure Cosmos DB. La ressource est au format « /subscriptions/`<subscriptionId>`/resourceGroups/`<resource_group_name>`/providers/Microsoft.DocumentDB/databaseAccounts/ < Azure_Cosmos_account_name > » le `storage-account` est le nom du compte de stockage pour que vous vous souhaitez envoyer les journaux. Vous pouvez consigner les autres journaux en mettant à jour les valeurs de paramètre de catégorie à « MongoRequests » ou « DataPlaneRequests ». 
 
 - Pour activer la diffusion en continu des journaux de diagnostic vers un hub d’événements, utilisez cette commande :
 
    ```azurecli-interactive
-   azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serviceBusRuleId> --enabled true
+   az monitor diagnostic-settings create --name cdbdiagsett --resourceId <resourceId> --event-hub-rule <eventHubRuleID> --logs '[{"category":"QueryRuntimeStatistics","enabled":true,"retentionPolicy":{"days":6,"enabled":true}}]'
    ```
 
-   `resourceId` est le nom du compte Azure Cosmos DB. `serviceBusRuleId` est une chaîne au format suivant :
-
-   ```azurecli-interactive
-   {service bus resource ID}/authorizationrules/{key name}
-   ```
+   `resource` est le nom du compte Azure Cosmos DB. Le `event-hub-rule` est l’ID de la règle d’hub d’événement. 
 
 - Pour activer l’envoi des journaux de diagnostic vers un espace de travail Log Analytics, utilisez cette commande :
 
    ```azurecli-interactive
-   azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true
+   az monitor diagnostic-settings create --name cdbdiagsett --resourceId <resourceId> --workspace <resource id of the log analytics workspace> --logs '[{"category":"QueryRuntimeStatistics","enabled":true,"retentionPolicy":{"days":6,"enabled":true}}]'
    ```
 
 Vous pouvez combiner ces paramètres pour activer plusieurs options de sortie.

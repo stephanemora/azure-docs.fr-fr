@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
-ms.openlocfilehash: 5d4d74d4c3b5ec6779458e84da07c03033c37935
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 673101ad7f55969c216adf7e970402a2109f8254
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330611"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078157"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>Résoudre les erreurs de suppression de ressources de stockage classiques
 Cet article fournit des conseils pour résoudre les erreurs suivantes quand vous essayez de supprimer un compte de stockage Azure classique, un conteneur ou un fichier *.vhd d’objet blob de pages. 
@@ -59,10 +59,10 @@ Avec des disques « non attachés » à une machine virtuelle
 #### <a name="azure-powershell"></a>Azure PowerShell
 L’utilisateur tente de supprimer un compte de stockage qui n’est plus utilisé à l’aide des applets de commande PowerShell classiques. Le message suivant s’affiche :
 
-><span style="color:cyan">**Remove-AzureStorageAccount -StorageAccountName myclassicaccount**</span>
-
-><span style="color:red">Remove-AzureStorageAccount : BadRequest : Le compte de stockage myclassicaccount a une ou plusieurs images et/ou disques actifs, par ex.  
-myclassicaccount. Supprimez ces images et/ou disques avant de supprimer ce compte de stockage.</span>
+> <span style="color:cyan">**Remove-AzureStorageAccount -StorageAccountName myclassicaccount**</span>
+> 
+> <span style="color:red">Remove-AzureStorageAccount : BadRequest : Le compte de stockage myclassicaccount a une ou plusieurs images et/ou disques actifs, par ex.  
+> myclassicaccount. Supprimez ces images et/ou disques avant de supprimer ce compte de stockage.</span>
 
 ## <a name="unable-to-delete-storage-container"></a>Impossible de supprimer le conteneur de stockage
 
@@ -77,9 +77,9 @@ Le portail Azure n’autorise pas l’utilisateur à supprimer un conteneur si u
 #### <a name="azure-powershell"></a>Azure PowerShell
 Si l’utilisateur choisit d’effectuer la suppression à l’aide de PowerShell, l’erreur suivante se produit. 
 
-><span style="color:cyan">**Remove-AzureStorageContainer -Context $context -Name vhds**</span>
-
-><span style="color:red">Remove-AzureStorageContainer : Le serveur distant a retourné une erreur : (412) Il existe actuellement un bail sur le conteneur et aucun ID de bail n’a été spécifié dans la demande. Code d’état HTTP : 412 - Message d’erreur HTTP : Il existe actuellement un bail sur le conteneur et aucun ID de bail n’a été spécifié dans la demande.</span>
+> <span style="color:cyan">**Remove-AzureStorageContainer -Context $context -Name vhds**</span>
+> 
+> <span style="color:red">Remove-AzureStorageContainer : Le serveur distant a retourné une erreur : (412) Il existe actuellement un bail sur le conteneur et aucun ID de bail n’a été spécifié dans la demande. Code d’état HTTP : 412 - Message d’erreur HTTP : Il existe actuellement un bail sur le conteneur et aucun ID de bail n’a été spécifié dans la demande.</span>
 
 ## <a name="unable-to-delete-a-vhd"></a>Impossible de supprimer un VHD 
 
@@ -99,9 +99,9 @@ Dans le portail, vous avez deux expériences possibles selon la liste d’objets
 #### <a name="azure-powershell"></a>Azure PowerShell 
 Si l’utilisateur choisit d’effectuer la suppression à l’aide de PowerShell, l’erreur suivante se produit. 
 
-><span style="color:cyan">**Remove-AzureStorageBlob -Context $context -Container vhds -Blob "classicvm-os-8698.vhd"**</span>
-
-><span style="color:red">Remove-AzureStorageBlob : Le serveur distant a retourné une erreur : (412) Il existe actuellement un bail sur l’objet blob et aucun ID de bail n’a été spécifié dans la demande. Code d’état HTTP : 412 - Message d’erreur HTTP : Il existe actuellement un bail sur l’objet blob et aucun ID de bail n’a été spécifié dans la demande.</span>
+> <span style="color:cyan">**Remove-AzureStorageBlob -Context $context -Container vhds -Blob "classicvm-os-8698.vhd"**</span>
+> 
+> <span style="color:red">Remove-AzureStorageBlob : Le serveur distant a retourné une erreur : (412) Il existe actuellement un bail sur l’objet blob et aucun ID de bail n’a été spécifié dans la demande. Code d’état HTTP : 412 - Message d’erreur HTTP : Il existe actuellement un bail sur l’objet blob et aucun ID de bail n’a été spécifié dans la demande.</span>
 
 
 ## <a name="resolution-steps"></a>Étapes de résolution

@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: artek
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: f1f4cb036f4df226d651f8f4d0f5c7492f453a0a
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: c77981574ff2e507af7012f26f742dda62d952fc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269738"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57991965"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Utilisation de l’interface CLI HDFS avec Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 vous permet de gérer les données et d'y accéder comme vous le feriez avec un [système de fichiers HDFS (Hadoop Distributed File System)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Si vous avez un cluster HDInsight attaché ou que vous exécutez un travail Apache Spark à l’aide d’Azure Databricks pour analyser les données stockées dans un compte Stockage Azure, vous pouvez utiliser l’interface de ligne de commande (CLI) pour récupérer et manipuler les données chargées.
+Azure Data Lake Storage Gen2 vous permet de gérer les données et d'y accéder comme vous le feriez avec un [système de fichiers HDFS (Hadoop Distributed File System)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Si vous avez un cluster HDInsight attaché ou que vous exécutez un travail Apache Spark à l’aide d’Azure Databricks pour analyser les données stockées dans un compte Stockage Azure, vous pouvez utiliser l’interface de ligne de commande (CLI) pour récupérer et manipuler les données chargées.
 
 ## <a name="hdfs-cli-with-hdinsight"></a>Interface CLI HDFS avec HDInsight
 
@@ -77,10 +77,6 @@ Pour plus d’informations sur l’interface CLI HDFS, consultez la [documentati
 ## <a name="hdfs-cli-with-azure-databricks"></a>Interface CLI HDFS avec Azure Databricks
 
 Databricks fournit une interface CLI facile à utiliser qui repose sur l’API REST de Databricks. Le projet open source est hébergé sur [GitHub](https://github.com/databricks/databricks-cli). Voici les commandes couramment utilisées.
-
-### <a name="create-a-file-system"></a>Créer un système de fichiers
-
-Insérez les conseils ici.
 
 ### <a name="get-a-list-of-files-or-directories"></a>Obtenir la liste des fichiers ou répertoires
 

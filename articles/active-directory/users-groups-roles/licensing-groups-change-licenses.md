@@ -11,43 +11,44 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 01/28/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c81ab72be58cd223eb9b3fe9ec53d56574a94e8
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 4b65eb38b6c8102295f40b5e169ae7c32a2342a2
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430299"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201362"
 ---
-# <a name="how-to-safely-migrate-users-between-product-licenses-by-using-group-based-licensing"></a>Guide pratique pour migrer en toute sécurité des utilisateurs entre des licences produit à l’aide de la gestion de licences basée sur des groupes
+# <a name="change-the-license-for-a-single-user-in-a-licensed-group-in-azure-active-directory"></a>Modifier la licence pour un seul utilisateur dans un groupe sous licence dans Azure Active Directory
 
 Cet article décrit la méthode recommandée pour déplacer des utilisateurs entre des licences de produit quand vous utilisez la gestion de licences basée sur des groupes. L’objectif de cette approche est de supprimer tout risque de perte de service ou de données pendant la migration : les utilisateurs doivent passer d’un produit à l’autre de manière fluide. Nous abordons ici deux variantes du processus de migration :
 
--   Une migration simple entre des licences de produit qui n’ont pas de plans de service en conflit, par exemple une migration entre Office 365 Entreprise E3 et Office 365 Entreprise E5.
+- Une migration simple entre des licences de produit qui n’ont pas de plans de service en conflit, par exemple une migration entre Office 365 Entreprise E3 et Office 365 Entreprise E5.
 
--   Une migration plus complexe entre des produits qui ont des plans de service en conflit, par exemple une migration entre Office 365 Entreprise E1 et Office 365 Entreprise E3. Pour plus d’informations sur les conflits, consultez [Plans de service en conflit](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans) et [Plans de service ne pouvant pas être assignés en même temps](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-product-and-service-plan-reference#service-plans-that-cannot-be-assigned-at-the-same-time).
+- Une migration plus complexe entre des produits qui ont des plans de service en conflit, par exemple une migration entre Office 365 Entreprise E1 et Office 365 Entreprise E3. Pour plus d’informations sur les conflits, consultez [Plans de service en conflit](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans) et [Plans de service ne pouvant pas être assignés en même temps](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-product-and-service-plan-reference#service-plans-that-cannot-be-assigned-at-the-same-time).
 
 Cet article contient un exemple de code PowerShell pouvant être utilisé pour effectuer les étapes de migration et de vérification. Le code est particulièrement utile pour les opérations à grande échelle, où les étapes ne peuvent pas être effectuées manuellement.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 Avant de commencer la migration, il est important de vérifier l’exactitude de certaines hypothèses pour tous les utilisateurs à migrer. Si les hypothèses ne se vérifient pas pour tous les utilisateurs, la migration peut échouer pour certains d’entre eux. Certains utilisateurs peuvent alors perdre leur accès aux services ou aux données. Les hypothèses suivantes doivent être vérifiées :
 
--   Les utilisateurs ont reçu la *licence source* à l’aide de la gestion de licences basée sur des groupes. Les licences du produit d’origine sont héritées d’un groupe source unique et ne sont pas attribuées directement.
+- Les utilisateurs ont reçu la *licence source* à l’aide de la gestion de licences basée sur des groupes. Les licences du produit d’origine sont héritées d’un groupe source unique et ne sont pas attribuées directement.
 
     >[!NOTE]
     >Si les licences sont également attribuées directement, elles peuvent empêcher l’application de la *licence cible*. En savoir plus sur [l’attribution de licence directe et basée sur des groupes](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-advanced#direct-licenses-coexist-with-group-licenses). Vous pouvez utiliser un [script PowerShell](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-ps-examples#check-if-user-license-is-assigned-directly-or-inherited-from-a-group) pour vérifier si les utilisateurs ont des licences directes.
 
--   Vous avez suffisamment de licences disponibles pour le produit cible. Si vous n’avez pas suffisamment de licences, il est possible que certains utilisateurs ne puissent pas obtenir la *licence cible*. Vous pouvez [vérifier le nombre de licences disponibles](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products).
+- Vous avez suffisamment de licences disponibles pour le produit cible. Si vous n’avez pas suffisamment de licences, il est possible que certains utilisateurs ne puissent pas obtenir la *licence cible*. Vous pouvez [vérifier le nombre de licences disponibles](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products).
 
--   Les utilisateurs ne se sont pas vu attribuer d’autres licences de produits pouvant entrer en conflit avec la *licence cible* ou empêcher la suppression de la *licence source*. Par exemple, une licence issue d’un produit complémentaire comme Workplace Analytics ou Project Online, qui possède une dépendance vis-à-vis d’autres produits.
+- Les utilisateurs ne se sont pas vu attribuer d’autres licences de produits pouvant entrer en conflit avec la *licence cible* ou empêcher la suppression de la *licence source*. Par exemple, une licence issue d’un produit complémentaire comme Workplace Analytics ou Project Online, qui possède une dépendance vis-à-vis d’autres produits.
 
--   Savoir comment les groupes sont gérés dans votre environnement. Par exemple, si vous gérez des groupes en local et les synchronisez dans Azure Active Directory (Azure AD) via Azure AD Connect, vous ajoutez/supprimer des utilisateurs à l’aide de votre système local. Il faut un certain temps pour que les modifications soient synchronisées dans Azure AD et qu’elles soient collectées par la licence de groupe. Si vous utilisez des appartenances de groupe dynamique Azure AD, vous ajoutez/supprimez des utilisateurs en modifiant leurs attributs. Le processus de migration général reste cependant le même. La seule différence réside dans la façon dont vous allez ajouter/supprimer des utilisateurs pour l’appartenance au groupe.
+- Savoir comment les groupes sont gérés dans votre environnement. Par exemple, si vous gérez des groupes en local et les synchronisez dans Azure Active Directory (Azure AD) via Azure AD Connect, vous ajoutez/supprimer des utilisateurs à l’aide de votre système local. Il faut un certain temps pour que les modifications soient synchronisées dans Azure AD et qu’elles soient collectées par la licence de groupe. Si vous utilisez des appartenances de groupe dynamique Azure AD, vous ajoutez/supprimez des utilisateurs en modifiant leurs attributs. Le processus de migration général reste cependant le même. La seule différence réside dans la façon dont vous allez ajouter/supprimer des utilisateurs pour l’appartenance au groupe.
 
 ## <a name="migrate-users-between-products-that-dont-have-conflicting-service-plans"></a>Migrer des utilisateurs entre produits sans plans de service en conflit
+
 L'objectif de la migration est d'utiliser la gestion de licences basée sur des groupes pour modifier les licences utilisateur en remplaçant une *licence source* (dans cet exemple : Office 365 Enterprise E3) par une *licence cible* (dans cet exemple : Office 365 Enterprise E5). Les deux produits de ce scénario ne contiennent pas de plans de service en conflit, ce qui signifie qu’ils peuvent être complètement attribués en même temps, sans conflit. À aucun moment de la migration les utilisateurs ne doivent perdre l’accès aux services ou données. La migration se déroule par petits « lots ». Vous pouvez valider le résultat pour chaque lot et réduire l’étendue des problèmes susceptibles de se produire au cours du processus. De manière générale, le processus est celui-ci :
 
 1.  Les utilisateurs sont membres d’un groupe source et héritent la *licence source* de ce groupe.
@@ -65,6 +66,7 @@ L'objectif de la migration est d'utiliser la gestion de licences basée sur des 
 7.  Répétez le processus pour les lots d’utilisateurs suivants.
 
 ### <a name="migrate-a-single-user-by-using-the-azure-portal"></a>Migrer un seul utilisateur à l’aide du portail Azure
+
 Cette procédure pas à pas simple explique comment procéder à la migration d’un seul utilisateur.
 
 **ÉTAPE 1** : l'utilisateur possède une *licence source* héritée du groupe. Il n’existe aucune attribution directe de la licence :

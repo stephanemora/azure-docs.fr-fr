@@ -8,19 +8,19 @@ manager: daveba
 editor: curtand
 ms.assetid: b9af1792-0b7f-4f3e-827a-9426cdb33ba6
 ms.service: active-directory
-ms.subservice: domains
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: d2cdff4b0b961083d8f8ac6e2eb8b1b46d30c06b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 85fcd28b5964cbe0246a7c79fa6d24d756f7bd35
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55159212"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086562"
 ---
 # <a name="notification-settings-in-azure-ad-domain-services"></a>Paramètres de notification dans Azure AD Domain Services
 
@@ -47,7 +47,6 @@ Ce message spécifie le domaine managé sur laquelle l’alerte est présente et
 
 > [!WARNING]
 > Assurez-vous toujours que le message provient d’un expéditeur Microsoft vérifié avant de cliquer sur les liens qu’il contient. Les messages sont toujours envoyés par azure-noreply@microsoft.com
->
 
 
 ## <a name="why-would-i-receive-email-notifications"></a>Pourquoi est-ce que je recevrais des notifications par e-mail ?

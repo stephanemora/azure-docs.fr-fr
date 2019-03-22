@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: c7d66c389958aa3b5274a3d81f27f416308acdee
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 053d400a9986d0997344b2be09140d8afb0e1faf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975659"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996369"
 ---
 # <a name="about-recovery-plans"></a>À propos des plans de récupération
 
@@ -29,7 +29,7 @@ Un plan de récupération vous permet de définir un processus de récupération
 
 * Modéliser une application autour de ses dépendances.
 * Automatiser des tâches de récupération afin de réduire le RTO.
-- Vérifiez que vous êtes prêt pour la migration ou la récupération d’urgence en vous assurant que vos applications font partie d’un plan de récupération.
+* Vérifiez que vous êtes prêt pour la migration ou la récupération d’urgence en vous assurant que vos applications font partie d’un plan de récupération.
 * Exécutez un test de basculement sur des plans de récupération, pour vous assurer que la récupération d’urgence ou la migration fonctionne comme prévu.
 
 
@@ -42,10 +42,10 @@ Vous pouvez planifier et créer un groupe de récupération pour capturer les pr
     - Cet ordre permet de s’assurer que lorsque l’intergiciel démarre et tente de se connecter au niveau SQL Server, le niveau SQL Server est déjà en cours d’exécution. 
     - Cet ordre permet également de s’assurer que les serveurs frontaux démarrent en dernier, de sorte que les utilisateurs finaux ne se connectent pas à l’URL de l’application avant que tous les composants ne soient opérationnels, et que l’application soit prête à accepter des requêtes.
 
-Pour créer cet ordre, vous ajoutez des groupes au groupe de récupération et ajoutez des machines dans les groupes. 
-    - Si un ordre est spécifié, un séquencement est utilisé. Les actions sont exécutées en parallèle, le cas échéant, afin d’améliorer le RTO de récupération de l’application.
-    - Les machines d’un même groupe basculent en parallèle.
-    - Les machines de groupes différents basculent dans l’ordre du groupe, de sorte que les machines du groupe 2 ne démarrent leur basculement que lorsque toutes les machines du groupe 1 ont basculé et démarré.
+Pour créer cet ordre, vous ajoutez des groupes au groupe de récupération et ajoutez des machines dans les groupes.
+- Si un ordre est spécifié, un séquencement est utilisé. Les actions sont exécutées en parallèle, le cas échéant, afin d’améliorer le RTO de récupération de l’application.
+- Les machines d’un même groupe basculent en parallèle.
+- Les machines de groupes différents basculent dans l’ordre du groupe, de sorte que les machines du groupe 2 ne démarrent leur basculement que lorsque toutes les machines du groupe 1 ont basculé et démarré.
 
     ![Exemple de plan de récupération](./media/recovery-plan-overview/rp.png)
 
@@ -93,4 +93,4 @@ Regardez une vidéo d’exemple montrant un basculement en un clic pour une appl
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Créer](site-recovery-create-recovery-plans.md) un plan de récupération.
-* En savoir plus sur [l’exécution des basculements](site-recovery-failover.md).  
+- En savoir plus sur [l’exécution des basculements](site-recovery-failover.md).  

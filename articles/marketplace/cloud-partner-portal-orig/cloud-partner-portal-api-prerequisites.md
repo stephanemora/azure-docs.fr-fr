@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: e6e25424981118363070d42b2fb057b18fdb91a9
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: 0d743d89c344ce9cb6eec116ed9c3e0cbe56f86e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806969"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878645"
 ---
 <a name="api-prerequisites"></a>Conditions préalables à l'utilisation d'API
 ================
@@ -55,7 +55,7 @@ Suivez les étapes ci-dessous pour ajouter le principal de service :
 
      ![Ajouter une application managée au portail](./media/cloud-partner-portal-api-prerequisites/managedapp.png)
 
-4. Cliquez sur **Ajouter** pour ajouter le principal de service à votre compte.
+1. Cliquez sur **Ajouter** pour ajouter le principal de service à votre compte.
 
    ![Ajouter un principal de service](./media/cloud-partner-portal-api-prerequisites/add-service-principal.jpg)
 
@@ -66,7 +66,7 @@ Suivez les étapes ci-dessous pour ajouter le principal de service :
 Les API du portail Cloud Partner utilisent les ressources et protocoles suivants lors de l’authentification :
 
 - Un jeton de porteur JSON Web Token (JWT) pour demander l’accès aux ressources
-- Le protocole [OpenID Connect](http://openid.net/connect/) (OIDC) pour vérifier l’identité
+- Le protocole [OpenID Connect](https://openid.net/connect/) (OIDC) pour vérifier l’identité
 - [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) comme autorité d’identité
 
 Il existe deux grandes approches pour acquérir un jeton JWT par programmation :

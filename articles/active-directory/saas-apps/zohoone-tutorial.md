@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Zoho One | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Zoho One | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Zoho One.
 services: active-directory
 documentationCenter: na
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f17a297d3099d51b3a58a6654560a67f9a4192a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: aadb3188969e099a709711ac18916b67c83b5da1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208314"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884436"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoho-one"></a>Tutoriel : Intégration d’Azure Active Directory à Zoho One
 
@@ -35,7 +35,7 @@ L’intégration de Zoho One dans Azure AD vous offre les avantages suivants :
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD avec Zoho One, vous avez besoin des éléments suivants :
 
@@ -223,7 +223,7 @@ Pour que les utilisateurs Azure AD puissent se connecter à Zoho One, ils doive
     
     a. Dans la zone de texte **Nom**, entrez le nom d’un utilisateur, par exemple **Britta Simon**.
     
-    b. Dans la zone de texte **Adresse e-mail**, saisissez l’adresse e-mail de l’utilisateur, par exemple **brittasimon@contoso.com**.
+    b. Dans **adresse de messagerie** texte, entrez l’adresse e-mail de l’utilisateur, par exemple **brittasimon\@contoso.com**.
 
     >[!Note]
     >Sélectionnez votre domaine vérifié dans la liste des domaines.

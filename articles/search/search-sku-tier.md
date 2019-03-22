@@ -7,15 +7,15 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 03/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: cf2359834aa79b1d3fef8b65e4ef4191eb6ff867
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: d325a5dfd57bb6b69e6cf171487adfa8d374512f
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467439"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762923"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Choisir un niveau tarifaire pour Recherche Azure
 
@@ -32,30 +32,57 @@ Bien que tous les niveaux, y compris le niveau **Gratuit**, offrent généraleme
 > Les [indexeurs](search-indexer-overview.md), qui ne sont pas disponibles sur S3HD, sont une exception à la parité des fonctionnalités.
 >
 
-Au sein d’un niveau, vous pouvez [ajuster les ressources de réplica et de partition](search-capacity-planning.md) pour optimiser les performances. Vous pouvez commencer avec deux ou trois ressources de chaque, puis augmenter temporairement votre puissance de calcul en cas de lourde charge de travail d’indexation. La possibilité d’optimiser les niveaux des ressources ajoute à la flexibilité, mais complique également un peu votre analyse. Vous devrez peut-être faire des essais pour voir si un niveau inférieur avec plus de ressources/réplicas offre de meilleures valeurs et performances qu’un niveau supérieur avec moins de ressources. Pour en savoir plus sur quand et pourquoi vous devriez ajuster la capacité, consultez [Considérations sur les performances et l’optimisation](search-performance-optimization.md).
+Au sein d’un niveau, vous pouvez [ajuster les ressources de réplica et partition](search-capacity-planning.md) pour augmenter ou diminuer la mise à l’échelle. Vous pouvez commencer par un ou deux de chacun d’eux et soumettez une temporairement votre puissance de calcul pour une lourde charge de travail d’indexation. La possibilité d’optimiser les niveaux des ressources ajoute à la flexibilité, mais complique également un peu votre analyse. Vous devrez peut-être faire des essais pour voir si un niveau inférieur avec plus de ressources/réplicas offre de meilleures valeurs et performances qu’un niveau supérieur avec moins de ressources. Pour en savoir plus sur quand et pourquoi vous devriez ajuster la capacité, consultez [Considérations sur les performances et l’optimisation](search-performance-optimization.md).
 
-<!---
-The purpose of this article is to help you choose a tier. It supplements the [pricing page](https://azure.microsoft.com/pricing/details/search/) and [Service Limits](search-limits-quotas-capacity.md) page with a digest of billing concepts and consumption patterns associated with various tiers. It also recommends an iterative approach for understanding which tier best meets your needs. 
---->
+## <a name="tiers-for-azure-search"></a>Niveaux pour la recherche Azure
+
+Le tableau suivant répertorie les niveaux disponibles. Incluent d’autres sources d’informations de niveau le [page de tarification](https://azure.microsoft.com/pricing/details/search/), [service et les limites données](search-limits-quotas-capacity.md)et la page du portail lors de la configuration d’un service.
+
+|Niveau | Capacité |
+|-----|-------------|
+|Gratuit | Partagé avec d’autres abonnés. Non évolutif, limité à 3 index et de stockage de 50 Mo. |
+|De base | Ressources informatiques dédiées aux charges de production à petite échelle. Une partition de 2 Go et jusqu'à trois réplicas. |
+|Standard 1 (S1) | À partir de S1 sur des ordinateurs dédiés avec une capacité de stockage et de traitement plus à chaque niveau. Taille de la partition est 25 Go par partition (max de 300 Go de documents par service) pour S1. |
+|Standard 2 (S2) | Semblable à S1, mais avec 100 Go/partitions (nombre maximal de documents 1,2 To par service) |
+|Standard 3 (S3) | 200 Go par partition (nombre maximal de documents 2,4 To par service). |
+|Standard 3 haute densité (S3-HD) | Haute densité est un *mode d’hébergement* pour S3. Le matériel sous-jacent est optimisé pour un grand nombre d’index plus petits, destinées aux scénarios de l’architecture mutualisées. S3 HD a les mêmes frais par unité comme S3, mais le matériel est optimisé pour les lectures de fichiers rapide sur un grand nombre d’index plus petits.|
+
 
 ## <a name="how-billing-works"></a>Comment la facturation fonctionne
 
-Dans Recherche Azure, il existe quatre façons d’engendrer des coûts lorsque vous créez une ressource de recherche dans le portail :
+Dans Azure Search, il existe trois façons d’entraîner des coûts dans Azure Search, et il existe des composants fixes et variables. Cette section examine chaque composant facturation à son tour.
 
-* Ajout de réplicas et de partitions utilisés pour les tâches d’interrogation et d’indexation régulières. Vous démarrez avec une ressource de chaque, mais vous pouvez en augmenter une, ou les deux, pour ajouter de la capacité tout en choisissant de payer pour les niveaux supplémentaires de ressources. 
-* Frais de sortie de données lors de l’indexation. Lors de l’extraction des données à partir d’une source de données Azure SQL Database ou Cosmos DB, des frais de transaction vous sont facturés pour ces ressources.
-* Pour la [recherche cognitive](cognitive-search-concept-intro.md) seulement, l’extraction d’images au cours du décodage de document est facturée en fonction du nombre d’images extraites à partir de vos documents. L’extraction de texte est actuellement gratuite.
-* Pour la [recherche cognitive](cognitive-search-concept-intro.md) uniquement, les enrichissements en fonction des [compétences cognitives intégrées](cognitive-search-predefined-skills.md) sont facturés par rapport à une ressource Cognitive Services. Les enrichissements sont facturés au même tarif que si vous aviez effectué la tâche directement avec Cognitive Services.
+### <a name="1-core-service-costs-fixed-and-variable"></a>1. Coûts de service Core (fixes et variables)
+
+Pour le service lui-même, les frais minimum facturés sont la première unité de recherche (partition 1 réplica x 1), et ce montant constant pour la durée de vie du service, car le service ne peut pas s’exécuter sur quoi que ce soit inférieure à cette configuration. 
+
+Dans la capture d’écran suivante, par le prix d’unité indiqué pour gratuite, Basic et S1 (S2 et S3 ne sont pas affichées). Si vous avez créé un service de base ou d’un service standard, votre coût mensuel est moyenne de la valeur qui s’affiche pour *prix-1* et *prix-2* respectivement. Coûts unitaires go pour chaque niveau, car la capacité de calcul d’alimentation et de stockage est supérieure à chaque niveaux consécutifs.
+
+![Par prix d’unité](./media/search-sku-tier/per-unit-pricing.png "par prix d’unité")
+
+Partitions et réplicas supplémentaires sont un module complémentaire à la prise en charge. Un service de recherche nécessite un réplica et une partition par conséquent, la configuration minimale est un de chacun d’eux. Au-delà de la valeur minimale, vous ajoutez indépendamment de réplicas et partitions. Par exemple, vous pouvez ajouter uniquement des réplicas ou des partitions uniquement. 
+
+Partitions et réplicas supplémentaires sont facturées selon un [formule](#search-units). Les coûts ne sont pas linéaires (le fait de doubler capacité plus que le coût de doubles). Pour obtenir un exemple illustrant le fonctionnement de la formule, consultez [« Comment allouer des partitions et réplicas »](search-capacity-planning.md#how-to-allocate-replicas-and-partitions)
+
+### <a name="2-data-egress-charges-during-indexing"></a>2. Frais d’acheminement des données lors de l’indexation
+
+Lors de l’extraction des données à partir d’une source de données Azure SQL Database ou Cosmos DB, des frais de transaction vous sont facturés pour ces ressources. Ces frais ne sont pas des mesures de recherche Azure, mais elles sont mentionnées ici, car si vous utilisez des indexeurs pour extraire des données à partir de la base de données SQL Azure ou Azure Cosmos DB, vous verrez que frais dans votre facture.
+
+### <a name="3-ai-enriched-indexing-using-cognitive-services"></a>3. L’indexation à l’aide de Cognitive Services enrichi en intelligence artificielle
+
+Pour la [recherche cognitive](cognitive-search-concept-intro.md) seulement, l’extraction d’images au cours du décodage de document est facturée en fonction du nombre d’images extraites à partir de vos documents. L’extraction de texte est actuellement gratuite. Autres enrichissements selon [intégrés compétences cognitives](cognitive-search-predefined-skills.md) sont facturés conformément à une ressource Cognitive Services. Les enrichissements sont facturés au même tarif que si vous aviez effectué la tâche directement avec Cognitive Services.
 
 Si vous n’utilisez pas la [recherche cognitive](cognitive-search-concept-intro.md) ni les [indexeurs de Recherche Azure](search-indexer-overview.md), vos seuls coûts sont liés aux réplicas et aux partitions en cours d’utilisation, pour des charges de travail de requête et d’indexation habituelles.
 
-### <a name="billing-for-general-purpose-indexing-and-queries"></a>Facturation des requêtes et de l’indexation à usage général
+<a name="search-units"></a>
+
+### <a name="billing-based-on-search-units"></a>Facturation selon les unités de recherche
 
 Pour les opérations de Recherche Azure, la notion de facturation la plus importante à saisir est l’*Unité Recherche* (SU, Search Unit). Comme Recherche Azure dépend à la fois des réplicas et des partitions pour l’indexation et les requêtes, facturer uniquement par rapport à l’un ou à l’autre n’aurait aucun sens. Au lieu de cela, la facturation est basée sur un composite de ces deux facteurs. 
 
 L’unité de recherche est le produit des *réplicas* et des *partitions* utilisés par un service : **`(R X P = SU)`**
 
-Chaque service commence avec une Unité Recherche (un réplica multiplié par une partition) au minimum. Quel que soit le service, le maximum est de 36 unités de recherche, ce nombre pouvant être atteint de différentes manières : 6 partitions x 6 réplicas, ou 3 partitions x 12 réplicas, par exemple. Il est courant de ne pas utiliser la capacité totale. Par exemple, un service de 3 réplicas et 3 partitions, facturé comme 9 unités de recherche. 
+Chaque service commence avec une Unité Recherche (un réplica multiplié par une partition) au minimum. Quel que soit le service, le maximum est de 36 unités de recherche, ce nombre pouvant être atteint de différentes manières : 6 partitions x 6 réplicas, ou 3 partitions x 12 réplicas, par exemple. Il est courant de ne pas utiliser la capacité totale. Par exemple, un service de 3 réplicas et 3 partitions, facturé comme 9 unités de recherche. Vous pouvez consulter [ce graphique](search-capacity-planning.md#chart) pour afficher les combinaisons valides en un clin de œil.
 
 Le taux de facturation est un **taux horaire par unité de recherche**, chaque niveau ayant un taux qui augmente progressivement. Les niveaux supérieurs sont fournis avec des partitions plus volumineuses et plus rapides, contribuant à un taux horaire globalement plus élevé pour ces niveaux. Consultez la [Tarification](https://azure.microsoft.com/pricing/details/search/)pour connaître les coûts pour chaque niveau. 
 

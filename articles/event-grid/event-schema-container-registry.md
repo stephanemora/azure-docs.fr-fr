@@ -1,19 +1,19 @@
 ---
 title: Schéma d’événements Azure Event Grid Container Registry
-description: Décrit les propriétés qui sont fournies pour les événements Container Registry à l’aide d’Azure Event Grid
+description: Décrit les propriétés qui sont fournies pour les événements de Registre de conteneurs avec Azure Event Grid
 services: event-grid
 author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 01/13/2019
+ms.date: 03/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 6f00d4f249543ece0eb8db4a8e040300d55b2de8
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: c5998ff428c4b6f4c1f7a4087c6ccb27d93773eb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54462842"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084325"
 ---
 # <a name="azure-event-grid-event-schema-for-container-registry"></a>Schéma d’événement Azure Event Grid pour Container Registry
 
@@ -21,12 +21,14 @@ Cet article fournit les propriétés et le schéma des événements Container Re
 
 ## <a name="available-event-types"></a>Types d’événement disponibles
 
-Le stockage Blob émet les types d’événements suivants :
+Azure Container Registry émet des types d’événements suivants :
 
 | Type d'événement | Description |
 | ---------- | ----------- |
 | Microsoft.ContainerRegistry.ImagePushed | Déclenché lorsqu’une image est envoyée. |
 | Microsoft.ContainerRegistry.ImageDeleted | Déclenché lorsqu’une image est supprimée. |
+| Microsoft.ContainerRegistry.ChartPushed | Déclenché lorsqu’un graphique Helm est envoyé. |
+| Microsoft.ContainerRegistry.ChartDeleted | Déclenché lorsqu’un graphique Helm est supprimé. |
 
 ## <a name="example-event"></a>Exemple d’événement
 
@@ -93,51 +95,109 @@ Le schéma de l’événement de suppression d’une image est similaire :
 }]
 ```
 
+Le schéma pour un graphique envoyé l’événement est similaire au schéma pour un événement poussé mis en image, mais il n’inclut pas un objet de requête :
+
+```json
+[{
+  "id": "ea3a9c28-5b17-40f6-a500-3f02b6829277",
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<name>",
+  "subject": "mychart:1.0.0",
+  "eventType": "Microsoft.ContainerRegistry.ChartPushed",
+  "eventTime": "2019-03-12T22:16:31.5164086Z",
+  "data": {
+    "id":"ea3a9c28-5b17-40f6-a500-3f02b682927",
+    "timestamp":"2019-03-12T22:16:31.0087496+00:00",
+    "action":"chart_push",
+    "target":{
+      "mediaType":"application/vnd.acr.helm.chart",
+      "size":25265,
+      "digest":"sha256:7f060075264b5ba7c14c23672698152ae6a3ebac1c47916e4efe19cd624d5fab",
+      "repository":"repo",
+      "tag":"mychart-1.0.0.tgz",
+      "name":"mychart",
+      "version":"1.0.0"
+    }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
+
+Le schéma pour un événement de graphique supprimée est similaire au schéma pour un événement deleted mis en image, mais il n’inclut pas un objet de requête :
+
+```json
+[{
+  "id": "39136b3a-1a7e-416f-a09e-5c85d5402fca",
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<name>",
+  "subject": "mychart:1.0.0",
+  "eventType": "Microsoft.ContainerRegistry.ChartDeleted",
+  "eventTime": "019-03-12T22:42:08.7034064Z",
+  "data": {
+    "id":"ea3a9c28-5b17-40f6-a500-3f02b682927",
+    "timestamp":"2019-03-12T22:42:08.3783775+00:00",
+    "action":"chart_delete",
+    "target":{
+      "mediaType":"application/vnd.acr.helm.chart",
+      "size":25265,
+      "digest":"sha256:7f060075264b5ba7c14c23672698152ae6a3ebac1c47916e4efe19cd624d5fab",
+      "repository":"repo",
+      "tag":"mychart-1.0.0.tgz",
+      "name":"mychart",
+      "version":"1.0.0"
+    }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
+
 ## <a name="event-properties"></a>Propriétés d’événement
 
 Un événement contient les données générales suivantes :
 
-| Propriété | type | Description |
+| Propriété | Type | Description |
 | -------- | ---- | ----------- |
-| rubrique | chaîne | Chemin d’accès complet à la source de l’événement. Ce champ n’est pas modifiable. Event Grid fournit cette valeur. |
-| subject | chaîne | Chemin de l’objet de l’événement, défini par le serveur de publication. |
-| eventType | chaîne | Un des types d’événements inscrits pour cette source d’événement. |
-| eventTime | chaîne | L’heure à quelle l’événement est généré selon l’heure UTC du fournisseur. |
-| id | chaîne | Identificateur unique de l’événement. |
+| rubrique | string | Chemin d’accès complet à la source de l’événement. Ce champ n’est pas modifiable. Event Grid fournit cette valeur. |
+| subject | string | Chemin de l’objet de l’événement, défini par le serveur de publication. |
+| eventType | string | Un des types d’événements inscrits pour cette source d’événement. |
+| eventTime | string | L’heure à quelle l’événement est généré selon l’heure UTC du fournisseur. |
+| id | string | Identificateur unique de l’événement. |
 | données | objet | Données d’événement de stockage Blob. |
-| dataVersion | chaîne | Version du schéma de l’objet de données. Le serveur de publication définit la version du schéma. |
-| metadataVersion | chaîne | Version du schéma des métadonnées d’événement. Event Grid définit le schéma des propriétés de niveau supérieur. Event Grid fournit cette valeur. |
+| dataVersion | string | Version du schéma de l’objet de données. Le serveur de publication définit la version du schéma. |
+| metadataVersion | string | Version du schéma des métadonnées d’événement. Event Grid définit le schéma des propriétés de niveau supérieur. Event Grid fournit cette valeur. |
 
 L’objet de données comporte les propriétés suivantes :
 
-| Propriété | type | Description |
+| Propriété | Type | Description |
 | -------- | ---- | ----------- |
-| id | chaîne | ID de l’événement. |
-|  timestamp | chaîne | Heure à laquelle l’événement s’est produit. |
-| action | chaîne | Action qui englobe l’événement fourni. |
+| id | string | ID de l’événement. |
+| timestamp | string | Heure à laquelle l’événement s’est produit. |
+| action | string | Action qui englobe l’événement fourni. |
 | cible | objet | Cible de l’événement. |
 | request | objet | Requête ayant généré l’événement. |
 
 L’objet cible comporte les propriétés suivantes :
 
-| Propriété | type | Description |
+| Propriété | Type | Description |
 | -------- | ---- | ----------- |
-| mediaType | chaîne | Type MIME de l’objet référencé. |
+| mediaType | string | Type MIME de l’objet référencé. |
 | size | integer | Nombre d’octets du contenu. Identique au champ Longueur. |
-| digest | chaîne | Résumé du contenu, tel que défini par la spécification d’API du Registre V2 HTTP. |
+| digest | string | Résumé du contenu, tel que défini par la spécification d’API du Registre V2 HTTP. |
 | length | integer | Nombre d’octets du contenu. Identique au champ Taille. |
-| repository | chaîne | Nom du référentiel. |
-| tag | chaîne | Nom de la balise. |
+| repository | string | Nom du référentiel. |
+| tag | string | Nom de la balise. |
+| Nom | string | Le nom du graphique. |
+| version | string | La version graphique. |
 
 L’objet de requête comporte les propriétés suivantes :
 
-| Propriété | type | Description |
+| Propriété | Type | Description |
 | -------- | ---- | ----------- |
-| id | chaîne | ID de la requête qui a initié l’événement. |
-| addr | chaîne | Adresse IP ou nom d’hôte, et éventuellement port de la connexion cliente qui a lancé l’événement. Cette valeur correspond à RemoteAddr dans la requête HTTP standard. |
-| host | chaîne | Nom d’hôte accessible de l’extérieur pour l’instance du registre, tel que spécifié par l’en-tête d’hôte HTTP dans les requêtes entrantes. |
-| method | chaîne | Méthode de requête qui a généré l’événement. |
-| useragent | chaîne | En-tête d’agent utilisateur de la requête. |
+| id | string | ID de la requête qui a initié l’événement. |
+| addr | string | Adresse IP ou nom d’hôte, et éventuellement port de la connexion cliente qui a lancé l’événement. Cette valeur correspond à RemoteAddr dans la requête HTTP standard. |
+| host | string | Nom d’hôte accessible de l’extérieur pour l’instance du registre, tel que spécifié par l’en-tête d’hôte HTTP dans les requêtes entrantes. |
+| method | string | Méthode de requête qui a généré l’événement. |
+| useragent | string | En-tête d’agent utilisateur de la requête. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

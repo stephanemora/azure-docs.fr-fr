@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2016
 ms.author: kasing
-ms.openlocfilehash: 22a522fcde2b79d89e6084cdcfcbf64e4e5bd5ce
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 77b575de3a84d582c11fb31952120e1079e23ffb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977964"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091101"
 ---
 # <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>Configuration de l’accès WinRM pour les machines virtuelles dans Azure Resource Manager
 
@@ -84,8 +84,6 @@ Le fournisseur de ressources Microsoft.Compute a besoin de l’URL de la clé se
 
 > [!NOTE]
 > L’URL de la clé secrète doit également inclure la version. Un exemple d’URL ressemble à ce qui suit https://contosovault.vault.azure.net:443/secrets/contososecret/01h9db0df2cd4300a20ence585a6s7ve
-> 
-> 
 
 #### <a name="templates"></a>Modèles
 Vous pouvez obtenir le lien vers l’URL dans le modèle à l’aide du code ci-dessous

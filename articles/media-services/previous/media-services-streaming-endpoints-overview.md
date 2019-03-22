@@ -12,18 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: b40a2bbfa7bbab7ffbdd4c47684eda7c954e7b77
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: c5979fa7ff67c5acda9ab653bc4ee52d8b5129a5
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55996934"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293802"
 ---
 # <a name="streaming-endpoints-overview"></a>Vue d’ensemble des points de terminaison de streaming  
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Dans Microsoft Azure Media Services (AMS), un **point de terminaison de diffusion en continu** représente un service de diffusion en continu qui peut fournir du contenu directement à une application de lecteur cliente ou à un réseau de diffusion de contenu (CDN) pour être redistribué. Media Services fournit également une intégration transparente au CDN Azure. Le flux sortant d’un service StreamingEndpoint peut être un flux dynamique, une vidéo à la demande ou un téléchargement progressif de votre ressource dans votre compte Media Services. Chaque compte Azure Media Services comprend une valeur de point de terminaison de streaming par défaut. Vous pouvez créer d’autres points de terminaison de streaming sous votre compte. Il existe deux versions du point de terminaison de streaming : 1.0 et 2.0. À compter du 10 janvier 2017, les nouveaux comptes AMS incluront la version 2.0 du point de terminaison de streaming **par défaut**. Les autres points de terminaison que vous ajoutez à ce compte seront également de la version 2.0. Cette modification n’aura aucune incidence sur les comptes existants ; les StreamingEndpoint existants auront la version 1.0 et pourront être mis à niveau vers la version 2.0. Avec cette modification, il y aura des changements de comportement, de facturation et de fonctionnalités (pour plus d’informations, consultez la section **Types et versions de streaming** ci-dessous).
 
@@ -50,8 +50,8 @@ Pour tous les autres points de terminaison : `{EndpointName}-{AccountName}.stre
 
 Type|Description
 ---|---
-**Standard**|Il s’agit de l’option par défaut, prévue pour fonctionner dans la majorité des scénarios.<br/>Avec cette option, vous obtenez un contrat de niveau de service limité/fixe. Les 15 premiers jours après le démarrage du point de terminaison sont gratuits.<br/>Si vous créez plusieurs points de terminaison de streaming, seul le premier est gratuit pendant les 15 premiers jours. Les autres sont facturés dès que vous les démarrez. <br/>Notez que la version d’évaluation gratuite s’applique uniquement aux comptes Media Services nouvellement créés et aux points de terminaison de streaming par défaut. Les points de terminaison de streaming existants et ceux créés en plus ne comprennent pas la période d’évaluation gratuite, qu’ils soient mis à niveau vers la version 2.0 ou créés directement en tant que version 2.0.
-**Premium**|Cette option convient aux scénarios professionnels qui nécessitent plus de mise à l’échelle ou de contrôle.<br/>Contrat de niveau de service variable basé sur la capacité d’unité de streaming Premium (SU) achetée et les points de terminaison de streaming en service dans un environnement isolé et n’étant pas en concurrence pour les ressources.
+**Standard** |Il s’agit de l’option par défaut, prévue pour fonctionner dans la majorité des scénarios.<br/>Avec cette option, vous obtenez un contrat de niveau de service limité/fixe. Les 15 premiers jours après le démarrage du point de terminaison sont gratuits.<br/>Si vous créez plusieurs points de terminaison de streaming, seul le premier est gratuit pendant les 15 premiers jours. Les autres sont facturés dès que vous les démarrez. <br/>Notez que la version d’évaluation gratuite s’applique uniquement aux comptes Media Services nouvellement créés et aux points de terminaison de streaming par défaut. Les points de terminaison de streaming existants et ceux créés en plus ne comprennent pas la période d’évaluation gratuite, qu’ils soient mis à niveau vers la version 2.0 ou créés directement en tant que version 2.0.
+**Premium** |Cette option convient aux scénarios professionnels qui nécessitent plus de mise à l’échelle ou de contrôle.<br/>Contrat de niveau de service variable basé sur la capacité d’unité de streaming Premium (SU) achetée et les points de terminaison de streaming en service dans un environnement isolé et n’étant pas en concurrence pour les ressources.
 
 Pour plus d’informations, consultez la section **Comparaison des types de streaming** qui suit.
 
@@ -74,24 +74,24 @@ Si votre point de terminaison de streaming **version « 1.0 »** continu a 1 o
 |Type|StreamingEndpointVersion|ScaleUnits|CDN|Facturation|Contrat SLA| 
 |--------------|----------|-----------------|-----------------|-----------------|-----------------|    
 |Classique|1.0|0|N/D|Gratuit|N/D|
-|Point de terminaison de streaming Standard|2.0|0|OUI|Payant|OUI|
-|Unités de streaming Premium|1.0|>0|OUI|Payant|OUI|
-|Unités de streaming Premium|2.0|>0|OUI|Payant|OUI|
+|Point de terminaison de streaming Standard|2.0|0|Oui|Payant|Oui|
+|Unités de streaming Premium|1.0|>0|Oui|Payant|Oui|
+|Unités de streaming Premium|2.0|>0|Oui|Payant|Oui|
 
 ### <a name="features"></a>Caractéristiques
 
 Fonctionnalité|standard|Premium
 ---|---|---
-Gratuit les 15 premiers jours| OUI |Non 
+Gratuit les 15 premiers jours| Oui |Non 
 Débit |Jusqu'à 600 Mbits/s lorsqu’Azure CDN n’est pas utilisé. Mis à l’échelle avec CDN.|200 Mbits/s par unité de streaming (SU). Mis à l’échelle avec CDN.
 Contrat SLA | 99.9|99,9 (200 Mbits/s par SU).
 CDN|Azure CDN, CDN tiers ou sans CDN.|Azure CDN, CDN tiers ou sans CDN.
 La facturation est calculée sur la base d'un taux| Quotidien|Quotidien
-Chiffrement dynamique|OUI|OUI
-l’empaquetage dynamique|OUI|OUI
+Chiffrement dynamique|Oui|Oui
+l’empaquetage dynamique|Oui|Oui
 Scale|Mise à l’échelle automatique vers le débit cible.|Unités de diffusion en continu supplémentaires
-Hôte de filtrage d’IP/G20/personnalisé|OUI|OUI
-Téléchargement progressif|OUI|OUI
+Hôte de filtrage d’IP/G20/personnalisé|Oui|Oui
+Téléchargement progressif|Oui|Oui
 Utilisation recommandée |Recommandé pour la plupart des scénarios de streaming.|Utilisation professionnelle.<br/>Si vous pensez que vos besoins dépassent ce qu’offre l’abonnement Standard. Contactez-nous (amsstreaming@microsoft.com) si vous prévoyez une taille d’audience simultanée supérieure à 50 000 utilisateurs.
 
 

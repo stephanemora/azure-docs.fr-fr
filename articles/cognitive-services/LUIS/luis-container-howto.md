@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 19206278f838b77954c28e95e9171a857ba1338a
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 1cf5fb00e9f1a202fe7ad46253f916e3e6bee7a7
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670648"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295570"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installer et exécuter des conteneurs Docker LUIS
  
@@ -46,15 +46,14 @@ Pour exécuter le conteneur LUIS, vous devez disposer des éléments suivants :
 
 Ce conteneur prend en charge des valeurs minimales et recommandées pour les paramètres :
 
-|Paramètre| Minimale | Recommandé |
-|-----------|---------|-------------|
-|Cœurs<BR>`--cpus`|1 cœur|1 cœur|
-|Mémoire<BR>`--memory`|2 Go|4 Go|
-|Transactions par seconde<BR>(TPS)|20 TPS|40 TPS|
+|Conteneur| Minimale | Recommandé | TPS<br>(Au minimum, Maximum)|
+|-----------|---------|-------------|--|
+|LUIS|1 cœur, 2 Go de mémoire|1 cœur, 4 Go de mémoire|20,40|
 
-Chaque cœur doit être cadencé à au moins 2,6 gigahertz (GHz).
+* Chaque cœur doit être cadencé à au moins 2,6 gigahertz (GHz).
+* Programmes transactionnels - transactions par seconde
 
-Les paramètres `--cpus` et `--memory` sont utilisés dans le cadre de la commande `docker run`.
+Le nombre de cœurs et la quantité de mémoire correspondent aux paramètres `--cpus` et `--memory` qui sont utilisés dans le cadre de la commande `docker run`.
 
 ## <a name="get-the-container-image-with-docker-pull"></a>Obtenir l’image conteneur avec `docker pull`
 

@@ -14,17 +14,17 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 519f0354f2a19e106ca1072170721b27357d173e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: dcc8b9fef75ba13b607d7fdda5bd55cc710165b9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849205"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837012"
 ---
 <a name="private-skus-and-plans"></a>Références SKU et plans privés
 ============
 
-Les références SKU privées vous permettent de restreindre la disponibilité des références SKU à des clients spécifiques. Lorsqu’une référence SKU est marquée comme privée, elle n’est pas disponible dans les catalogues publics, y compris sur la [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com) et sur le [portail Azure](http://portal.azure.com). Sur le portail Azure, seuls les clients ayant accès à la référence SKU peuvent la voir. En outre, ils reçoivent également un message qui les informe qu'ils ont accès aux offres privées.
+Les références SKU privées vous permettent de restreindre la disponibilité des références SKU à des clients spécifiques. Lorsqu’une référence SKU est marquée comme privée, elle n’est pas disponible dans les catalogues publics, y compris sur la [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com) et sur le [portail Azure](https://portal.azure.com). Sur le portail Azure, seuls les clients ayant accès à la référence SKU peuvent la voir. En outre, ils reçoivent également un message qui les informe qu'ils ont accès aux offres privées.
 
 >[!NOTE]
 >Les références SKU privées doivent disposer d'un nouvel ID de référence SKU/plan unique pour éviter tout conflit avec vos références SKU publiques.

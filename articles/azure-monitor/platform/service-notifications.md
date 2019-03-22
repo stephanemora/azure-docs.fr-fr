@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 4/12/2018
 ms.author: dukek
 ms.subservice: logs
-ms.openlocfilehash: 9bd5ec3471fc3447d1e29d875c154793daf8e9e5
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: ab4aa2f37d5a883c83b8ee09b5de6551ebf13d2e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474028"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57995148"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Afficher les notifications Service Health dans le portail Azure
 
@@ -60,24 +60,24 @@ Properties.communicationId | Communication associée à cet événement.
 ### <a name="details-on-service-health-level-information"></a>Détails sur les informations au niveau de l’intégrité du service
 
 **Action Required** (properties.incidentType == ActionRequired)
-    - Information - Action de l’administrateur nécessaire pour éviter un impact sur les services existants
+- Information - Action de l’administrateur nécessaire pour éviter un impact sur les services existants
     
 **Maintenance** (properties.incidentType == Maintenance)
-    - Avertissement - Maintenance d’urgence
-    - Information - Maintenance planifiée de façon standard
+- Avertissement - Maintenance d’urgence
+- Information - Maintenance planifiée de façon standard
 
 **Information** (properties.incidentType == Information)
-    - Information - L'intervention de l’administrateur peut être nécessaire pour éviter un impact sur les services existants
+- Information - L'intervention de l’administrateur peut être nécessaire pour éviter un impact sur les services existants
 
 **Sécurité** (properties.incidentType == Security)
-    - Erreur - Problèmes étendus sur plusieurs services dans plusieurs régions affectant un large éventail de clients.
-    - Avertissement - Problèmes sur des services et/ou des régions spécifiques affectant un sous-ensemble de clients.
-    - Information - Problèmes ayant un impact sur les opérations de gestion et/ou la latence, sans affecter la disponibilité du service.
+- Erreur - Problèmes étendus sur plusieurs services dans plusieurs régions affectant un large éventail de clients.
+- Avertissement - Problèmes sur des services et/ou des régions spécifiques affectant un sous-ensemble de clients.
+- Information - Problèmes ayant un impact sur les opérations de gestion et/ou la latence, sans affecter la disponibilité du service.
 
 **Problèmes liés aux services** (properties.incidentType == Incident)
-    - Erreur - Problèmes étendus sur plusieurs services dans plusieurs régions affectant un large éventail de clients.
-    - Avertissement - Problèmes sur des services et/ou des régions spécifiques affectant un sous-ensemble de clients.
-    - Information - Problèmes ayant un impact sur les opérations de gestion et/ou la latence, sans affecter la disponibilité du service.
+- Erreur - Problèmes étendus sur plusieurs services dans plusieurs régions affectant un large éventail de clients.
+- Avertissement - Problèmes sur des services et/ou des régions spécifiques affectant un sous-ensemble de clients.
+- Information - Problèmes ayant un impact sur les opérations de gestion et/ou la latence, sans affecter la disponibilité du service.
 
 
 ## <a name="view-your-service-health-notifications-in-the-azure-portal"></a>Afficher vos notifications Service Health dans le portail Azure

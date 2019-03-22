@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: rkarlin
-ms.openlocfilehash: 76239f80076cbe0f86d6e091a29b008a5a5d06c1
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 3282afb87672ba25294e65ea1474a9e06df03362
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116641"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57871060"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Gagner en visibilité au niveau locataire dans Azure Security Center
 Cet article vous aide à démarrer en effectuant plusieurs actions qui optimisent les avantages qu’offre Azure Security Center. En effet, en effectuant ces actions, vous obtenez une meilleure visibilité de tous les abonnements Azure qui sont liés à votre locataire Azure Active Directory et vous gérez efficacement la sécurité de votre organisation à grande échelle en appliquant des stratégies de sécurité sur plusieurs abonnements en même temps.
@@ -38,7 +38,7 @@ Pour une présentation détaillée des groupes d’administration, consultez l�
 Vous pouvez organiser les abonnements en groupes d’administration et y appliquer vos stratégies de gouvernance. Tous les abonnements d’un groupe d’administration héritent automatiquement des stratégies appliquées à ce groupe d’administration. Même si les groupes d’administration ne sont pas obligatoires pour intégrer Security Center, il est vivement recommandé d’en créer au moins un pour que le groupe d’administration racine soit créé. Une fois que le groupe est créé, tous les abonnements sous votre locataire Azure AD y sont liés. Pour des instructions sur PowerShell et d’autres informations, consultez [Créer des groupes d’administration pour gérer les ressources et l’organisation](../azure-resource-manager/management-groups-create.md).
 
  
-1. Connectez-vous au [Portail Azure](http://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Sélectionnez **Tous les services** > **Groupes d’administration**.
 3. Dans la page principale, sélectionnez **Nouveau groupe d’administration**. 
 
@@ -51,7 +51,7 @@ Vous pouvez organiser les abonnements en groupes d’administration et y appliqu
 5.  Sélectionnez **Enregistrer**.
 
 ### <a name="view-management-groups-in-the-azure-portal"></a>Afficher les groupes d’administration dans le portail Azure
-1. Connectez-vous au [portail Azure](http://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Pour voir les groupes d’administration, sélectionnez **Tous les services** sous le menu principal d’Azure.
 3. Sous **Général**, sélectionnez **Groupes d’administration**.
 
@@ -77,7 +77,7 @@ Les administrateurs de locataires Azure Active Directory n’ont pas d’accès 
 
    - Quand vous définissez le commutateur sur Oui, le rôle Administrateur de l’accès utilisateur vous est attribué dans Azure RBAC au niveau de l’étendue racine (/). Ceci vous accorde l’autorisation d’attribuer des rôles dans tous les abonnements et groupes d’administration Azure associés à cet annuaire Azure AD. Ce commutateur est disponible seulement pour les utilisateurs auxquels le rôle Administrateur général a été attribué dans Azure AD.
 
-  - Quand vous définissez le commutateur sur Non, le rôle Administrateur de l’accès utilisateur dans Azure RBAC est supprimé de votre compte d’utilisateur. Vous ne pouvez plus attribuer des rôles dans tous les abonnements et groupes d’administration Azure associés à cet annuaire Azure AD. Vous pouvez voir et gérer seulement les abonnements et groupes d’administration Azure auxquels l’accès vous a été accordé.
+   - Quand vous définissez le commutateur sur Non, le rôle Administrateur de l’accès utilisateur dans Azure RBAC est supprimé de votre compte d’utilisateur. Vous ne pouvez plus attribuer des rôles dans tous les abonnements et groupes d’administration Azure associés à cet annuaire Azure AD. Vous pouvez voir et gérer seulement les abonnements et groupes d’administration Azure auxquels l’accès vous a été accordé.
 
 4. Cliquez sur **Enregistrer** pour enregistrer votre paramètre.
 
@@ -108,15 +108,15 @@ Pour faire gagner en visibilité à tous les abonnements, les administrateurs de
 
 
 #### <a name="assign-rbac-roles-to-users-with-powershell"></a>Attribuer des rôles RBAC aux utilisateurs avec PowerShell : 
-1. Installez [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+1. Installez [Azure PowerShell](/powershell/azure/install-az-ps).
 2. Exécutez les commandes suivantes : 
 
     ```azurepowershell
-    # Install Management Groups Powershell module
-    Install-Module AzureRM.Resources
-    
     # Login to Azure as a Global Administrator user
-    Login-AzureRmAccount
+    Connect-AzAccount
     ```
 
 3. Quand vous y êtes invité, connectez-vous avec des informations d’identification d’administrateur général. 
@@ -128,12 +128,12 @@ Pour faire gagner en visibilité à tous les abonnements, les administrateurs de
     ```azurepowershell
     # Add Reader role to the required user on the Root Management Group
     # Replace "user@domian.com” with the user to grant access to
-    New-AzureRmRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/"
+    New-AzRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/"
     ```
 5. Pour supprimer le rôle, utilisez la commande suivante : 
 
     ```azurepowershell
-    Remove-AzureRmRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/" 
+    Remove-AzRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/" 
     ```
 
 ### <a name="open-or-refresh-security-center"></a>Ouvrir ou actualiser Security Center
@@ -141,12 +141,17 @@ Une fois que vous disposez d’un accès élevé, ouvrez ou actualisez Azure Sec
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com). 
 2. Veillez à sélectionner tous les abonnements dans le sélecteur d’abonnements que vous souhaitez afficher dans Security Center.
-    ![Capture d’écran du sélecteur d’abonnements](./media/security-center-management-groups/subscription-selector.png)
+
+    ![Capture d’écran de sélecteur abonnement](./media/security-center-management-groups/subscription-selector.png)
+
 1. Sélectionnez **Tous les services** sous le menu principal d’Azure, puis sélectionnez **Security Center**.
-2. Dans la **Vue d’ensemble**, se trouve un graphique des abonnements couverts. 
-    ![Capture d’écran du graphique des abonnements couverts](./media/security-center-management-groups/security-center-subscription-coverage.png)
+2. Dans la **Vue d’ensemble**, se trouve un graphique des abonnements couverts.
+
+    ![Capture d’écran de graphique de couverture abonnement](./media/security-center-management-groups/security-center-subscription-coverage.png)
+
 3. Cliquez sur **Couverture** pour voir la liste des abonnements couverts. 
-    ![Capture d’écran de la liste des abonnements couverts](./media/security-center-management-groups/security-center-coverage.png)
+
+    ![Capture d’écran de liste de couverture abonnement](./media/security-center-management-groups/security-center-coverage.png)
 
 ### <a name="remove-elevated-access"></a>Supprimer l’accès élevé 
 Une fois que les rôles RBAC ont été attribués aux utilisateurs, l’administrateur de locataires doit se supprimer du rôle d’administrateur des accès utilisateur.
@@ -176,8 +181,8 @@ Vous pouvez ajouter des abonnements au groupe d’administration que vous avez c
 
 4. Répétez les étapes 1 à 3 pour tous les abonnements concernés.
 
- > [!NOTE]
- > Les groupes d’administration peuvent contenir à la fois des abonnements et des groupes d’administration enfants. Lorsque vous attribuez un rôle RBAC à un utilisateur dans le groupe d’administration parent, l’accès est hérité par les abonnements du groupe d’administration enfant. Les stratégies définies au niveau du groupe d’administration parent sont aussi héritées par les enfants. 
+   > [!NOTE]
+   > Les groupes d’administration peuvent contenir à la fois des abonnements et des groupes d’administration enfants. Lorsque vous attribuez un rôle RBAC à un utilisateur dans le groupe d’administration parent, l’accès est hérité par les abonnements du groupe d’administration enfant. Les stratégies définies au niveau du groupe d’administration parent sont aussi héritées par les enfants. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez appris à gagner en visibilité au niveau locataire dans Azure Security Center. Pour plus d’informations sur Security Center, consultez les articles suivants :

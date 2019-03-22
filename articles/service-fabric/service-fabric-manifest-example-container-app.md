@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/08/2018
 ms.author: ryanwi
-ms.openlocfilehash: bdff930e00bfebe1d702e397a9dfc7de15aa3225
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: f358080b3bcada5515f578ad2215fa2b135c2f2d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55156222"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57878327"
 ---
 # <a name="multi-container-application-and-service-manifest-examples"></a>Exemples de manifestes d’application pour plusieurs conteneurs et de service
 Le document suivant fournit des exemples de manifestes d’applications et de services pour une application Service Fabric multiconteneur. Ces exemples ont pour but de vous montrer les paramètres disponibles et leur utilisation. Ces manifestes d’applications et de services sont basés sur les manifestes de l’[exemple de conteneur Windows Server 2016](https://github.com/Azure-Samples/service-fabric-containers/tree/master/Windows).
 
 Les fonctionnalités sont les suivantes :
+
 |Manifeste|Caractéristiques|
 |---|---|
 |[Manifeste d’application](#application-manifest)| [Écraser des variables d’environnement](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [Configuration du mappage des ports de conteneur à l’hôte](service-fabric-get-started-containers.md#configure-container-port-to-host-port-mapping-and-container-to-container-discovery), [Configurer l’authentification au registre de conteneurs](service-fabric-get-started-containers.md#configure-container-registry-authentication), [Gouvernance des ressources](service-fabric-resource-governance.md), [Définir le mode d’isolation](service-fabric-get-started-containers.md#configure-isolation-mode), [Spécifier les images conteneur spécifiques au build du système d’exploitation](service-fabric-get-started-containers.md#specify-os-build-specific-container-images)| 
@@ -40,8 +41,8 @@ Pour en savoir plus sur les éléments XML spécifiques, consultez les articles 
 <ApplicationManifest ApplicationTypeName="Container.ApplicationType"
                      ApplicationTypeVersion="1.0.0"
                      xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                     xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                     xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <Parameters>
     <Parameter Name="BackEndService_InstanceCount" DefaultValue="-1" />
     <Parameter Name="FrontEndService_InstanceCount" DefaultValue="-1" />
@@ -171,8 +172,8 @@ Pour en savoir plus sur les éléments XML spécifiques, consultez les articles 
 <ServiceManifest Name="FrontEndServicePkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
     <!-- This is the name of your ServiceType.
          The UseImplicitHost attribute indicates this is a guest service. -->
@@ -221,8 +222,8 @@ Pour en savoir plus sur les éléments XML spécifiques, consultez les articles 
 <ServiceManifest Name="BackEndServicePkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
     <!-- This is the name of your ServiceType.
          The UseImplicitHost attribute indicates this is a guest service. -->

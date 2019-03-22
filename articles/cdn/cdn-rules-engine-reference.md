@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: 602b4303dd1940791c11b8b71ac6a27f0474a6d5
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
-ms.translationtype: HT
+ms.openlocfilehash: 3163b33f69f4cc2d6cd4127253c7b6fadfddd6b0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29733677"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994235"
 ---
 # <a name="azure-cdn-rules-engine-reference"></a>Référence du moteur de règles Azure CDN
 Cet article fournit les descriptions détaillées des conditions de correspondance et fonctionnalités disponibles pour le [moteur de règles](cdn-rules-engine.md) Azure Content Delivery Network (CDN).
@@ -54,11 +54,11 @@ Un symbole de pourcentage est utilisé pour indiquer l’encodage des URL (par e
 ### <a name="wildcard-values"></a>Valeurs de caractère générique
 Le texte interprété comme un caractère générique attribue une signification supplémentaire aux caractères spéciaux. Le tableau ci-dessous décrit comment le jeu de caractères suivant est interprété :
 
-Caractère | DESCRIPTION
+Caractère | Description
 ----------|------------
 \ | Une barre oblique inverse est utilisée pour échapper les caractères spécifiés dans ce tableau. Une barre oblique inverse doit être spécifiée juste avant le caractère spécial à échapper.<br/>Par exemple, la syntaxe suivante échappe un astérisque : `\*`
 % | Un symbole de pourcentage est utilisé pour indiquer l’encodage des URL (par exemple, `%20`).
-* | Un astérisque est un caractère générique représentant un ou plusieurs caractères.
+\* | Un astérisque est un caractère générique représentant un ou plusieurs caractères.
 Espace | Un caractère d’espace indique qu’une condition de correspondance peut être remplie par les valeurs ou les modèles spécifiés.
 'valeur' | Un guillemet simple n’a pas de signification particulière. Toutefois, un jeu de guillemets simples est utilisé pour indiquer qu’une valeur doit être traitée comme une valeur littérale. Il peut être utilisé selon les manières suivantes :<br><br/>- Il permet de remplir une condition de correspondance lorsque la valeur spécifiée correspond à une partie de la valeur de comparaison.  Par exemple, `'ma'` peut correspondre à l’une des chaînes suivantes : <br/><br/>/business/**ma**rathon/asset.htm<br/>**ma**p.gif<br/>/business/template.**ma**p<br /><br />- Il permet de spécifier un caractère spécial en tant que caractère littéral. Par exemple, vous pouvez spécifier un caractère d’espace littéral en plaçant un caractère d’espace dans un jeu de guillemets simples (c’est-à-dire `' '` ou `'sample value'`).<br/>- Il permet de spécifier une valeur vide. Spécifiez une valeur vide en entrant un jeu de guillemets simples (c’est-à-dire '').<br /><br/>**Important :**<br/>- Si la valeur spécifiée ne contient pas de caractère générique, elle est automatiquement considérée comme une valeur littérale, ce qui signifie qu’il n’est pas nécessaire de spécifier un jeu de guillemets simples.<br/>- Si une barre oblique inverse n’échappe pas à un autre caractère dans ce tableau, elle est ignorée si un jeu de guillemets simples est entré.<br/>- Une autre manière de spécifier un caractère spécial en tant que caractère littéral consiste à l’échapper à l’aide d’une barre oblique inverse (c’est-à-dire `\`).
 
@@ -66,16 +66,16 @@ Espace | Un caractère d’espace indique qu’une condition de correspondance p
 
 Les expressions régulières définissent un modèle qui est recherché dans une valeur de texte. La notation d’une expression régulière définit des significations spécifiques pour une variété de symboles. Le tableau ci-dessous indique comment les caractères spéciaux sont traités par les conditions de correspondance et les fonctionnalités prenant en charge les expressions régulières.
 
-Caractère spécial | DESCRIPTION
+Caractère spécial | Description
 ------------------|------------
 \ | Une barre oblique inverse échappe le caractère qui la suit, ce caractère est alors traité comme une valeur littérale plutôt que d’utiliser sa signification d’expression régulière. Par exemple, la syntaxe suivante échappe un astérisque : `\*`
-% | La signification d’un symbole de pourcentage dépend de son utilisation.<br/><br/> `%{HTTPVariable}` : cette syntaxe identifie une variable HTTP.<br/>`%{HTTPVariable%Pattern}` : cette syntaxe utilise un symbole de pourcentage pour identifier une variable HTTP et comme délimiteur.<br />`\%` : l’échappement d’un symbole de pourcentage permet de l’utiliser comme une valeur littérale ou d’indiquer l’encodage des URL (par exemple, `\%20`).
-* | Un astérisque permet de mettre en correspondance une ou plusieurs fois le caractère qui le précède. 
+% | La signification d’un symbole de pourcentage dépend de son utilisation.<br/><br/> `%{HTTPVariable}`: Cette syntaxe identifie une variable HTTP.<br/>`%{HTTPVariable%Pattern}`: Cette syntaxe utilise un symbole de pourcentage pour identifier une variable HTTP et comme un délimiteur.<br />`\%`: Échappement d’un symbole de pourcentage permet à utiliser comme une valeur littérale ou d’indiquer l’encodage des URL (par exemple, `\%20`).
+\* | Un astérisque permet de mettre en correspondance une ou plusieurs fois le caractère qui le précède. 
 Espace | Un caractère d’espace est généralement traité comme un caractère littéral. 
 'valeur' | Les guillemets simples sont traités comme des caractères littéraux. Un jeu de guillemets simples n’a pas de signification particulière.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Conditions de correspondance du moteur de règles](cdn-rules-engine-reference-match-conditions.md)
 * [Expressions conditionnelles du moteur de règles](cdn-rules-engine-reference-conditional-expressions.md)
 * [Fonctionnalités du moteur de règles](cdn-rules-engine-reference-features.md)

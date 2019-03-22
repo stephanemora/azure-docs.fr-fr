@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 09/27/2017
 ms.author: seguler
 ms.subservice: common
-ms.openlocfilehash: fd64376f68a177f12b2105ae0974eeeeefa94f4b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 966518f17392e6158089cb5b6df96f41674fed41
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460078"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996153"
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>Transférer des données avec la bibliothèque de déplacement des données du Stockage Microsoft Azure
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 La bibliothèque de déplacement des données du Stockage Microsoft Azure est une bibliothèque multiplateforme open source conçue pour charger, télécharger et copier des objets blob et des fichiers du Stockage Azure avec des performances élevées. Cette bibliothèque est l’infrastructure centrale de déplacement des données [d’AzCopy](../storage-use-azcopy.md). La bibliothèque de déplacement des données fournit des méthodes utiles qui ne sont pas disponibles dans notre [bibliothèque cliente classique du Stockage Azure .NET](../blobs/storage-dotnet-how-to-use-blobs.md). Parmi elles figure la capacité à définir le nombre d’opérations parallèles, à suivre la progression des transferts, à reprendre facilement un transfert annulé et bien plus encore.
 
 Cette bibliothèque utilise également .NET Core, ce qui signifie que vous pouvez l’utiliser pour créer des applications .NET pour Windows, Linux et macOS. Pour en savoir plus sur .NET Core, consultez la [Documentation .NET Core](https://dotnet.github.io/). Cette bibliothèque fonctionne également pour les applications .NET Framework classiques pour Windows.
@@ -193,7 +193,7 @@ public static async Task TransferLocalFileToAzureBlob(CloudStorageAccount accoun
 
 Ce code nous demande le chemin d’accès à un fichier local, le nom d’un conteneur nouveau ou existant et le nom d’un nouvel objet blob. La méthode `TransferManager.UploadAsync` effectue le chargement suivant ces informations.
 
-Appuyez sur `F5` pour exécuter votre application. Vous pouvez vérifier que le chargement a bien été effectué en affichant votre compte de Stockage avec [l’Explorateur de Stockage Microsoft Azure](http://storageexplorer.com/).
+Appuyez sur `F5` pour exécuter votre application. Vous pouvez vérifier que le chargement a bien été effectué en affichant votre compte de Stockage avec [l’Explorateur de Stockage Microsoft Azure](https://storageexplorer.com/).
 
 ## <a name="set-number-of-parallel-operations"></a>Définir un nombre d’opérations parallèles
 L’une des fonctionnalités intéressantes offertes par la bibliothèque de déplacement des données consiste à définir le nombre d’opérations parallèles pour augmenter le débit du transfert de données. Par défaut, la bibliothèque de déplacement des données fixe le nombre d’opérations parallèles à 8 * le nombre de cœurs sur votre ordinateur.

@@ -13,14 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 5e3ef7782f805e07e24783a987f2753e4e889946
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: dcd546b4b4d8e47395535cd37e1629166c8c2e7f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313031"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58002344"
 ---
 # <a name="log-analytics-faq"></a>FAQ sur Log Analytics
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Cette FAQ Microsoft consiste en une liste de questions fréquemment posées au sujet de Log Analytics dans Microsoft Azure. Si vous avez d’autres questions sur Log Analytics, rendez-vous sur le [forum de discussion](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) et publiez vos questions. Lorsqu’une question est fréquemment posée, nous l’ajoutons à cet article pour qu’elle soit facile et rapide à trouver.
 
 
@@ -69,7 +72,7 @@ R : Pour accéder à un espace de travail dans Azure, des autorisations Azure d
 R : Le Concepteur de vues est disponible dans les journaux seulement pour les utilisateurs auxquels des autorisations Contributeur ou supérieures ont été assignées.
 
 ### <a name="q-can-i-still-use-the-analytics-portal-outside-of-azure"></a>Q. Puis-je continuer à utiliser le portail Analytics en dehors d’Azure ?
-R. Oui, la page Journaux dans Azure et le portail Advanced Analytics reposent sur le même code. Log Analytics est intégré en tant que fonctionnalité dans Azure Monitor pour fournir une expérience de supervision plus uniforme. Vous pouvez toujours accéder au portail Analytics à l’aide de l’URL suivante : https://portal.loganalytics.io/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/workspaces/{workspaceName}.
+R. Oui, la page Journaux dans Azure et le portail Advanced Analytics reposent sur le même code. Log Analytics est intégré en tant que fonctionnalité dans Azure Monitor pour fournir une expérience de supervision plus uniforme. Vous pouvez toujours accéder à l’aide de l’URL du portail d’Analytique : https :\/\/portal.loganalytics.io/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/workspaces/{workspaceName}.
 
 
 
@@ -106,7 +109,7 @@ La mise à jour de la chaîne de texte vers *OMS* est incluse dans un pack d’a
 
 ### <a name="q-is-there-an-on-premises-version-of-log-analytics"></a>Q : Existe-t-il une version locale de Log Analytics ?
 
-R :  Non. Log Analytics est un service cloud évolutif qui traite et stocke d’importants volumes de données. 
+R : Non. Log Analytics est un service cloud évolutif qui traite et stocke d’importants volumes de données. 
 
 ### <a name="q-how-do-i-troubleshoot-if-log-analytics-is-no-longer-collecting-data"></a>Q. Comment procéder au dépannage si Log Analytics ne collecte plus de données ?
 
@@ -168,7 +171,7 @@ Le trafic vers Log Analytics utilise le circuit ExpressRoute d’homologation pu
 
 ### <a name="q-is-there-a-simple-and-easy-way-to-move-an-existing-log-analytics-workspace-to-another-log-analytics-workspaceazure-subscription"></a>Q. Existe-t-il un moyen simple de déplacer un espace de travail Log Analytics existant vers un autre espace de travail Log Analytics ou un autre abonnement Azure ?
 
-R. La cmdlet `Move-AzureRmResource` permet de déplacer un espace de travail Log Analytics ainsi qu’un compte Automation d’un abonnement Azure à un autre. Pour plus d’informations, consultez [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx).
+R. La cmdlet `Move-AzResource` permet de déplacer un espace de travail Log Analytics ainsi qu’un compte Automation d’un abonnement Azure à un autre. Pour plus d’informations, consultez [Move-AzResource](https://msdn.microsoft.com/library/mt652516.aspx).
 
 Cette modification peut également être effectuée dans le portail Azure.
 

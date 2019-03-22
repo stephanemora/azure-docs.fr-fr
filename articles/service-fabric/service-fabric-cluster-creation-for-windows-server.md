@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/10/2017
+ms.date: 2/21/2019
 ms.author: dekapur
-ms.openlocfilehash: 321a69768935a9cb220bf5c2ae96c30274dc590d
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 9c59da35f5dafcdcf62901689814e696dce3cd20
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159450"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674171"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Créer un cluster autonome s’exécutant sur Windows Server
 Vous pouvez utiliser Azure Service Fabric pour créer des clusters Service Fabric sur toute machine virtuelle ou tout ordinateur exécutant Windows Server. Cela signifie que vous pouvez déployer et exécuter des applications Service Fabric dans n’importe quel environnement contenant un ensemble d’ordinateurs Windows Server interconnectés, que ce soit en local ou avec un fournisseur cloud. Service Fabric fournit un package d’installation pour créer des clusters Service Fabric, appelé package Windows Server autonome.
@@ -61,7 +61,9 @@ Plusieurs fichiers d’exemples de configuration de cluster sont installés avec
 
 Le cluster créé dans cet article n’est pas sécurisé.  N’importe qui peut se connecter anonymement et effectuer des opérations de gestion. Les clusters de production doivent donc toujours être sécurisés à l’aide de certificats X.509 ou via la sécurité Windows.  La sécurité peut uniquement être configurée au moment de la création du cluster et il n’est pas possible d’activer la sécurité une fois le cluster créé. La mise à jour du fichier de configuration active la [sécurité par certificat](service-fabric-windows-cluster-x509-security.md) ou la [sécurité Windows](service-fabric-windows-cluster-windows-security.md). Lisez [Sécuriser un cluster](service-fabric-cluster-security.md) pour en savoir plus sur la sécurité du cluster Service Fabric.
 
-### <a name="step-1a-create-an-unsecured-local-development-cluster"></a>Étape 1A : Créer un cluster de développement local non sécurisé
+### <a name="step-1-create-the-cluster"></a>Étape 1 : Création du cluster
+
+#### <a name="scenario-a-create-an-unsecured-local-development-cluster"></a>Scénario A : Créer un cluster de développement local non sécurisé
 Service Fabric peut être déployé vers un cluster de développement avec un ordinateur à l’aide du fichier *ClusterConfig.Unsecure.DevCluster.json* inclus dans les [exemples](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).
 
 Décompressez le package autonome sur votre ordinateur, copiez l’exemple de fichier de configuration sur l’ordinateur local, puis exécutez le script *CreateServiceFabricCluster.ps1* par le biais d’une session administrateur PowerShell, à partir du dossier du package autonome.
@@ -74,7 +76,7 @@ Consultez la section Configuration de l’environnement sous [Planifier et prép
 
 Si vous avez fini d’exécuter les scénarios de développement, vous pouvez supprimer le cluster Service Fabric de l’ordinateur en vous reportant aux étapes de la section « [Supprimer un cluster](#removecluster_anchor) ». 
 
-### <a name="step-1b-create-a-multi-machine-cluster"></a>Étape 1B : Créer un cluster de plusieurs ordinateurs
+#### <a name="scenario-b-create-a-multi-machine-cluster"></a>Scénario B : Créer un cluster de plusieurs ordinateurs
 Après avoir effectué les tâches de planification et de préparation détaillées dans [Planifier et préparer le déploiement de cluster](service-fabric-cluster-standalone-deployment-preparation.md), vous êtes prêt à créer votre cluster de production à l’aide de votre fichier de configuration de cluster.
 
 L’administrateur de cluster déployant et configurant le cluster doit disposer de privilèges d’administrateur sur l’ordinateur. Vous ne pouvez pas installer Service Fabric sur un contrôleur de domaine.
@@ -114,7 +116,7 @@ L’administrateur de cluster déployant et configurant le cluster doit disposer
 > 
 > 
 
-### <a name="step-1c-create-an-offline-internet-disconnected-cluster"></a>Étape 1C : Créer un cluster hors connexion (déconnecté d’Internet)
+#### <a name="scenario-c-create-an-offline-internet-disconnected-cluster"></a>Scénario c : Créer un cluster hors connexion (déconnecté d’Internet)
 Le package de runtime Service Fabric est automatiquement téléchargé lors de la création du cluster. Lorsque vous déployez un cluster sur des ordinateurs qui ne sont pas connectés à Internet, vous devrez télécharger le package de runtime Service Fabric séparément et fournir le chemin d’accès à celui-ci lors de la création du cluster.
 Le package de runtime peut être téléchargé séparément, à partir d’un autre ordinateur connecté à Internet, en cliquant sur le [lien de téléchargement - Runtime Service Fabric - Windows Server](https://go.microsoft.com/fwlink/?linkid=839354). Copiez le package de runtime à l’endroit où vous déployez le cluster hors connexion et créez le cluster en exécutant `CreateServiceFabricCluster.ps1` avec le paramètre `-FabricRuntimePackagePath` inclus, comme indiqué dans cet exemple : 
 

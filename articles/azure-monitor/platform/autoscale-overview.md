@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.subservice: autoscale
-ms.openlocfilehash: ae1828210345eb35f9d22664285a0d348ea50d48
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 05f20aec536ebdb702caea37051a65af9bbc659f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478329"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085641"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Vue d’ensemble de la mise à l’échelle automatique sur les machines virtuelles Microsoft Azure, les services cloud et les applications web
 Cet article décrit la mise à l’échelle automatique Microsoft Azure ainsi que ses avantages, et comment commencer à l’utiliser.  
@@ -66,15 +66,15 @@ La mise à l’échelle automatique utilise la terminologie et la structure suiv
 
 - Un **paramètre de mise à l’échelle automatique** est lu par le moteur de mise à l’échelle automatique afin de déterminer si une montée ou une descente en puissance est nécessaire. Il contient un ou plusieurs profils, des informations sur la ressource cible et des paramètres de notification.
 
-    - Un **profil de mise à l’échelle automatique** est la combinaison des éléments suivants :
+  - Un **profil de mise à l’échelle automatique** est la combinaison des éléments suivants :
 
-        - Un **paramètre de capacité** indiquant les valeurs minimum, maximum et par défaut pour le nombre d’instances.
-        - Un **ensemble de règles**, comprenant chacun un déclencheur (heure ou métrique) et une action de mise à l’échelle (augmentation ou réduction).
-        - Une **périodicité** indiquant le moment auquel une mise à l’échelle automatique doit appliquer ce profil.
+    - Un **paramètre de capacité** indiquant les valeurs minimum, maximum et par défaut pour le nombre d’instances.
+    - Un **ensemble de règles**, comprenant chacun un déclencheur (heure ou métrique) et une action de mise à l’échelle (augmentation ou réduction).
+    - Une **périodicité** indiquant le moment auquel une mise à l’échelle automatique doit appliquer ce profil.
 
-        Vous pouvez avoir plusieurs profils, ce qui vous permet de prendre en charge des exigences différentes qui se chevauchent. Vous pouvez avoir des profils de mise à l’échelle automatique différents pour différentes heures de la journée ou jours de la semaine, par exemple.
+      Vous pouvez avoir plusieurs profils, ce qui vous permet de prendre en charge des exigences différentes qui se chevauchent. Vous pouvez avoir des profils de mise à l’échelle automatique différents pour différentes heures de la journée ou jours de la semaine, par exemple.
 
-    - Un **paramètre de notification** définit quelles notifications doivent se produire lorsqu’un événement de mise à l’échelle automatique a lieu en fonction de la satisfaction des critères de l’un des profils de paramètre de mise à l’échelle automatique. La mise à l’échelle automatique peut notifier une ou plusieurs adresses e-mail ou appeler un ou plusieurs webhooks.
+  - Un **paramètre de notification** définit quelles notifications doivent se produire lorsqu’un événement de mise à l’échelle automatique a lieu en fonction de la satisfaction des critères de l’un des profils de paramètre de mise à l’échelle automatique. La mise à l’échelle automatique peut notifier une ou plusieurs adresses e-mail ou appeler un ou plusieurs webhooks.
 
 
 ![Structure de règle, de profil et de paramètre de mise à l’échelle automatique Azure](./media/autoscale-overview/AzureResourceManagerRuleStructure3.png)

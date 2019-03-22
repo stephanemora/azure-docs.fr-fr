@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 2224c798d0854aab2d3ec7fc2c03b51de58dbfc0
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: e21058d47f554ca4a057ab90433895800fb17dd9
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244434"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886721"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Flux de modification dans Azure Cosmos DB - Vue d'ensemble
 
@@ -35,10 +35,10 @@ Cette fonctionnalité est prise en charge par les API et les SDK clients Azure C
 
 | **Pilotes clients** | **Interface de ligne de commande Azure** | **API SQL** | **API Cassandra** | **API pour MongoDB d’Azure Cosmos DB** | **API Gremlin**|**API de table** |
 | --- | --- | --- | --- | --- | --- | --- |
-| .NET | N/D | OUI | Non  | Non  | OUI | Non  |
-|Java|N/D|OUI|Non |Non |OUI|Non |
-|Python|N/D|OUI|Non |Non |OUI|Non |
-|Node/JS|N/D|OUI|Non |Non |OUI|Non |
+| .NET | N/D | Oui | Non  | Non  | Oui | Non  |
+|Java|N/D|Oui|Non |Non |Oui|Non |
+|Python|N/D|Oui|Non |Non |Oui|Non |
+|Node/JS|N/D|Oui|Non |Non |Oui|Non |
 
 ## <a name="change-feed-and-different-operations"></a>Flux de modification et différentes opérations
 
@@ -118,7 +118,7 @@ Le flux de modification est disponible pour chacune des clés de partition logiq
 
 * Les modifications sont disponibles en parallèle pour toutes les clés de partition logique d’un conteneur Azure Cosmos. Cette fonctionnalité permet à plusieurs consommateurs de traiter en parallèle les modifications de grands conteneurs.
 
-* Les applications peuvent demander plusieurs flux de modification simultanément pour un même conteneur. ChangeFeedOptions.StartTime peut être utilisé pour fournir un point de départ. Par exemple, pour rechercher le jeton de continuation correspondant à une heure donnée. S’il est spécifié, ContinuationToken l’emporte sur les valeurs StartTime et StartFromBeginning. La précision de ChangeFeedOptions.StartTime est ’environ 5 secondes. 
+* Les applications peuvent demander plusieurs flux de modification sur le même conteneur simultanément. ChangeFeedOptions.StartTime peut être utilisé pour fournir un point de départ. Par exemple, pour rechercher le jeton de continuation correspondant à une heure donnée. S’il est spécifié, ContinuationToken l’emporte sur les valeurs StartTime et StartFromBeginning. La précision de ChangeFeedOptions.StartTime est ’environ 5 secondes. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

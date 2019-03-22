@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 4920d2a6c26da12effc2b44be8d3c6cbdb5e2a6f
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: 0cf5aa45e1e8a28dfcdadac0ea32658e5993d06c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199134"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57856113"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Équilibrage de charge sur plusieurs configurations IP dans le portail Azure
 
@@ -62,7 +62,7 @@ Suivez les étapes ci-dessous pour accomplir le scénario décrit dans cet artic
 
 Pour chaque machine virtuelle dans votre réseau virtuel, ajoutez la configuration IP définie pour la carte réseau secondaire :  
 
-1. Accédez au portail Azure à l’adresse http://portal.azure.com. Connectez-vous à votre compte Azure.
+1. Accédez au portail Azure à l’adresse https://portal.azure.com. Connectez-vous à votre compte Azure.
 
 2. Dans le coin supérieur gauche de l’écran, sélectionnez l’icône **Groupe de ressources**. Sélectionnez le groupe de ressources dans lequel se trouvent vos machines virtuelles (par exemple, **contosofabrikam**). Le volet **Groupes de ressources** affiche toutes les ressources et les cartes réseau pour les machines virtuelles.
 
@@ -86,7 +86,7 @@ Lorsque la seconde configuration IP de la carte réseau secondaire est terminée
 
 Créez votre équilibreur de charge pour la configuration :
 
-1. Accédez au portail Azure à l’adresse http://portal.azure.com. Connectez-vous à votre compte Azure.
+1. Accédez au portail Azure à l’adresse https://portal.azure.com. Connectez-vous à votre compte Azure.
 
 2. Dans le coin supérieur gauche de l’écran, sélectionnez **Créer une ressource** > **Mise en réseau** > **Équilibreur de charge**. Ensuite, sélectionnez **Créer**.
 
@@ -106,15 +106,15 @@ Pour chaque site web (contoso.com et fabrikam.com), configurez le pool d’adres
 
 2. Configurez deux adresses IP publiques (**PublicIP1** et **PublicIP2**) pour les deux sites web (contoso et fabrikam) :
 
-    1. Entrez le nom de votre adresse IP frontale.
+   1. Entrez le nom de votre adresse IP frontale.
 
-    2. Dans **Groupe de ressources**, sélectionnez le groupe de ressources de vos machines virtuelles (par exemple, **contosofabrikam**).
+   2. Dans **Groupe de ressources**, sélectionnez le groupe de ressources de vos machines virtuelles (par exemple, **contosofabrikam**).
 
-    3. Dans **Emplacement**, sélectionnez le même emplacement que les machines virtuelles.
+   3. Dans **Emplacement**, sélectionnez le même emplacement que les machines virtuelles.
 
-    4. Sélectionnez **OK**.
+   4. Sélectionnez **OK**.
 
-    Une fois les deux adresses IP publiques créées, elles s’affichent dans **Adresses IP publiques**.
+      Une fois les deux adresses IP publiques créées, elles s’affichent dans **Adresses IP publiques**.
 
 3. <a name="step3-3"></a>Dans le portail, cliquez sur **Plus de services**. Dans la zone de filtre, tapez **équilibreur de charge**, puis sélectionnez **Équilibreur de charge**. 
 
@@ -194,4 +194,4 @@ La dernière étape consiste à configurer vos enregistrements de ressource DNS 
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Pour en savoir plus sur la combinaison de services d’équilibrage de charge dans Azure, consultez [Utilisation des services d’équilibrage de charge dans Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
-- Pour savoir comment gérer et dépanner l’équilibrage de charge à l’aide de différents types de journaux, consultez [Log Analytics pour Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).
+- Découvrez comment vous pouvez utiliser différents types de journaux pour gérer et dépanner l’équilibrage de charge [Azure Monitor enregistre pour Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).

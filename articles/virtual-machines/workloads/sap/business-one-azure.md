@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f0e96b87e46872bebe7563e08f0eb7a33b11015f
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 101710b5a57faa37be77ff4b059fa0d494f4e617
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329846"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878062"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business One sur les machines virtuelles Azure
 Ce document fournit des conseils pour déployer SAP Business One sur des machines virtuelles Azure. Ce document n’est pas un substitue au document d’installation pour SAP Business One. Le document doit couvrir la planification de base et les instructions de déploiement pour que l’infrastructure Azure exécute des applications Business One.
@@ -32,13 +32,13 @@ Business One prend en charge deux bases de données différentes :
 
 Concernant SQL Server, les points à prendre en considérations pour le déploiement de base documentés dans [SQL Server Azure Virtual Machines DBMS deployment for SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms-guide) (Déploiement SGBD des machines virtuelles Azure SQL Server pour SAP NetWeaver) s’appliquent. Pour SAP HANA, les points à prendre en considération sont mentionnés dans ce document.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Pour utiliser ce guide, vous devez disposer des connaissances de base quant aux différents composants Azure suivants :
 
 - [Machines virtuelles Azure sur Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
 - [Machines virtuelles Azure sur Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 - [Mise en réseau Azure et gestion des réseaux virtuels avec PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-virtual-network)
-- [Mise en réseau et réseaux virtuels Azure avec CLI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
+- [Mise en réseau Azure et les réseaux virtuels avec l’interface CLI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
 - [Gérer des disques Azure avec Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-disks)
 
 Même si vous êtes intéressé uniquement par Business One, le document [Planification et implémentation de machines virtuelles Azure pour SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide) peut constituer une bonne source d’informations.

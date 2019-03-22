@@ -9,18 +9,18 @@ manager: twooley
 Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 3ec4b8fb9ebb7a03983ce5da3dad56e0fe9917e8
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
-ms.translationtype: HT
+ms.openlocfilehash: fe095b8f5a0080c0f28ec570303c9dc23962dfc8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56986326"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57869810"
 ---
 # <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>Démarrage rapide : Créer un équilibreur de charge de base à l’aide du portail Azure
 
@@ -28,7 +28,7 @@ L’équilibrage de charge offre un niveau plus élevé de disponibilité et d�
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. 
 
-Pour toutes les tâches de ce guide de démarrage rapide, connectez-vous au [portail Azure](http://portal.azure.com).
+Pour toutes les tâches de ce guide de démarrage rapide, connectez-vous au [portail Azure](https://portal.azure.com).
 
 ## <a name="create-a-basic-load-balancer"></a>Créer un équilibreur de charge de base public
 
@@ -207,7 +207,7 @@ La règle d’équilibreur de charge nommée **MyLoadBalancerRule** écoute sur 
    
 1. Sélectionnez **OK**.
    
-  ![Ajouter une règle d’équilibreur de charge](./media/load-balancer-get-started-internet-portal/5-load-balancing-rules.png)
+   ![Ajouter une règle d’équilibreur de charge](./media/load-balancer-get-started-internet-portal/5-load-balancing-rules.png)
 
 ## <a name="test-the-load-balancer"></a>Tester l’équilibreur de charge
 
@@ -259,6 +259,7 @@ Ouvrez un navigateur et collez l’adresse IP publique de votre équilibreur de
 
 ![Serveur web IIS](./media/load-balancer-get-started-internet-portal/9-load-balancer-test.png)
 
+Pour visualiser la distribution de trafic par l’équilibreur de charge sur les trois machines virtuelles exécutant votre application, vous pouvez forcer l’actualisation de votre navigateur web.
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Pour supprimer l’équilibreur de charge et toutes les ressources associées quand vous n’en avez plus besoin, ouvrez le groupe de ressources **MyResourceGroupLB**, puis sélectionnez **Supprimer un groupe de ressources**.

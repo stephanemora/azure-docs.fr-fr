@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e3933f10a777a1aa10a4e04f8901e7fd1af5c48
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 778897e1a146abd0655d76ef157f64522681cb0d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56195632"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57889673"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>Configurer des identités managées pour ressources Azure sur une machine virtuelle Azure en utilisant des appels d’API REST
 
@@ -33,7 +33,7 @@ Dans cet article, en utilisant CURL pour effectuer des appels au point de termin
 - Activer et désactiver l’identité managée affectée par le système sur une machine virtuelle Azure
 - Ajouter et supprimer une identité managée affectée par l’utilisateur sur une machine virtuelle Azure
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 - Si vous n’êtes pas familiarisé avec les identités managées pour ressources Azure, consultez la [section Vue d’ensemble](overview.md). **Veillez à consulter la [différence entre les identités managées affectées par le système et celles affectées par l’utilisateur](overview.md#how-does-it-work)**.
 - Si vous n’avez pas encore de compte Azure, [inscrivez-vous à un essai gratuit](https://azure.microsoft.com/free/) avant de continuer.
@@ -63,7 +63,7 @@ Pour créer une machine virtuelle Azure avec l’identité managée affectée pa
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
    ```
 
-3.  Récupérez un jeton d’accès de porteur que vous allez utiliser à l’étape suivante dans l’en-tête d’autorisation pour créer votre machine virtuelle avec une identité managée affectée par le système.
+3. Récupérez un jeton d’accès de porteur que vous allez utiliser à l’étape suivante dans l’en-tête d’autorisation pour créer votre machine virtuelle avec une identité managée affectée par le système.
 
    ```azurecli-interactive
    az account get-access-token
@@ -80,6 +80,7 @@ Pour créer une machine virtuelle Azure avec l’identité managée affectée pa
    ```
    
    **En-têtes de requête**
+   
    |En-tête de requête  |Description  |
    |---------|---------|
    |*Content-Type*     | Requis. Défini sur `application/json`.        |
@@ -168,6 +169,7 @@ Pour activer l’identité managée affectée par le système sur une machine vi
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
    ```
    **En-têtes de requête**
+
    |En-tête de requête  |Description  |
    |---------|---------|
    |*Content-Type*     | Requis. Défini sur `application/json`.        |
@@ -239,6 +241,7 @@ Pour activer l’identité managée affectée par le système sur une machine vi
    |---------|---------|
    |*Content-Type*     | Requis. Défini sur `application/json`.        |
    |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide.        | 
+
    **Corps de la demande**
 
    ```JSON
@@ -314,7 +317,7 @@ Pour affecter une identité managée affectée par l’utilisateur à une machin
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
    ```
 
-3.  Récupérez un jeton d’accès de porteur que vous allez utiliser à l’étape suivante dans l’en-tête d’autorisation pour créer votre machine virtuelle avec une identité managée affectée par le système.
+3. Récupérez un jeton d’accès de porteur que vous allez utiliser à l’étape suivante dans l’en-tête d’autorisation pour créer votre machine virtuelle avec une identité managée affectée par le système.
 
    ```azurecli-interactive
    az account get-access-token
@@ -507,11 +510,12 @@ Pour affecter une identité managée affectée par l’utilisateur à une machin
    GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2018-06-01 HTTP/1.1
    ```
    **En-têtes de requête**
+
    |En-tête de requête  |Description  |
    |---------|---------|
    |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide.
 
-    Si vous avez des identités managées affectées par l’utilisateur ou le système qui sont attribuées à la machine virtuelle, telle qu’identifiées par la valeur `identity` dans la réponse, passez à l’étape 5 qui montre comment conserver l’identité managée affectée par le système, tout en ajoutant une identité managée affectée par l’utilisateur sur votre machine virtuelle.
+    Si vous avez des utilisateurs ou des identités gérées attribué par le système affectées à la machine virtuelle, comme indiqué dans la `identity` valeur de la réponse, passez à l’étape 5, qui montre comment conserver l’identité gérée attribué par le système lors de l’ajout d’une identité gérée affectée à l’utilisateur sur votre machine virtuelle.
 
 4. Si vous n’avez aucune identité managée affectée par l’utilisateur attribuée à votre machine virtuelle, utilisez la commande CURL suivante pour appeler le point de terminaison REST Azure Resource Manager afin d’attribuer la première identité managée affectée par l’utilisateur à la machine virtuelle.
 
@@ -675,6 +679,7 @@ Pour supprimer une identité affectée par l’utilisateur à une machine virtue
    ```
 
    **En-têtes de requête**
+
    |En-tête de requête  |Description  |
    |---------|---------|
    |*Content-Type*     | Requis. Défini sur `application/json`.        |

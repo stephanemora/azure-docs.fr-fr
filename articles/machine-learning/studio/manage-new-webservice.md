@@ -1,21 +1,21 @@
 ---
-title: Utiliser le portail des services web Azure Machine Learning Studio
+title: Gérer des services web
 titleSuffix: Azure Machine Learning Studio
-description: Vous pouvez gérer vos services web Machine Learning nouveaux et classiques à l’aide du portail des services web Microsoft Azure Machine Learning. Étant donné que les services web classiques et nouveaux sont basés sur des technologies différentes , les fonctionnalités de gestion diffèrent légèrement pour chacun d’eux.
+description: Gérer vos services Machine Learning nouveaux et Web classique à l’aide du portail de Services Web de Microsoft Azure Machine Learning. Étant donné que les services web classiques et nouveaux sont basés sur des technologies différentes , les fonctionnalités de gestion diffèrent légèrement pour chacun d’eux.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: 1bf9889f601795c1ba70abdd17f6e8c9a01785f1
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 711cb674cb00a880eadda11b03da87631df90b0d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453866"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838372"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-web-services-portal"></a>Gérer un service web à l’aide du portail des services web Azure Machine Learning Studio
 Vous pouvez gérer vos services web Machine Learning nouveaux et classiques à l’aide du portail des services web Microsoft Azure Machine Learning. Étant donné que les services web classiques et nouveaux sont basés sur des technologies différentes , les fonctionnalités de gestion diffèrent légèrement pour chacun d’eux.
@@ -29,7 +29,7 @@ Le portail des services web Azure Machine Learning vous permet d’effectuer les
 * ajouter et supprimer des points de terminaison (classique uniquement).
 
 >[!NOTE]
->Vous pouvez également gérer les services web Classic dans [Machine Learning Studio](http://studio.azureml.net) dans l’onglet **Services web**.
+>Vous pouvez également gérer les services web Classic dans [Machine Learning Studio](https://studio.azureml.net) dans l’onglet **Services web**.
 
 ## <a name="permissions-to-manage-new-resources-manager-based-web-services"></a>Autorisations pour gérer des services web basés sur le gestionnaire de nouvelles ressources
 

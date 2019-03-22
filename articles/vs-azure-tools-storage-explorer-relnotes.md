@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: bd6384dcd132ffb53e3531707c600465e8d0b649
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 249ed7b1be2731fc8165ca7f205ba1d94066818e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190015"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088041"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notes de publication de l’Explorateur Stockage Microsoft Azure
 
@@ -27,13 +27,115 @@ Cet article contient les notes de publication de l’Explorateur Stockage Azure 
 
 [L’Explorateur Stockage Microsoft Azure](./vs-azure-tools-storage-manage-with-storage-explorer.md) est une application autonome qui vous permet d’utiliser facilement les données du Stockage Azure sur Windows, maOS et Linux.
 
+## <a name="version-170"></a>Version 1.7.0
+3/5/2019
+
+### <a name="download-azure-storage-explorer-170"></a>Télécharger Explorateur stockage Azure 1.7.0
+- [Explorateur de stockage Azure 1.7.0 pour Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Explorateur de stockage Azure 1.7.0 pour Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Explorateur de stockage Azure 1.7.0 pour Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>Nouveau
+
+* Vous pouvez maintenant modifier le propriétaire et le groupe propriétaire lors de la gestion des accès pour un conteneur d’ADLS Gen2, un fichier ou un dossier.
+* Sous Windows, mise à jour à partir de l’Explorateur de stockage au sein du produit est désormais une installation incrémentielle. Cela doit entraîner une expérience de mise à jour plus rapide. Si vous préférez une nouvelle installation, vous pouvez télécharger le [programme d’installation](https://azure.microsoft.com/en-us/features/storage-explorer/) vous-même, puis installez manuellement. #1089
+
+### <a name="preview-features"></a>Fonctionnalités préliminaires
+
+* APPAREIL code connexion flux est à présent disponible pour afficher un aperçu. Pour l’activer, accédez à « Preview » → utilisation périphérique Code flux de « connexion ». Nous encourageons tous les utilisateurs qui ont eu des problèmes avec les fenêtres de connexion vides pour essayer cette fonctionnalité, car elle peut s’avérer pour être une forme plus fiable de la connexion. #938
+* Explorateur de stockage intégré avec AzCopy est actuellement disponible pour afficher un aperçu. Pour l’activer, accédez à « Preview » → « Utilisez AzCopy pour amélioré Blob charger et télécharger ». Transferts d’objets BLOB s’est terminées avec AzCopy doivent être plus rapides et plus performant.
+
+### <a name="fixes"></a>Correctifs
+
+* Vous pouvez maintenant choisir le type d’objet blob à télécharger en tant que lorsque AzCopy est activé. #1111
+* Auparavant, si vous avez activé les sites Web statiques pour un compte de stockage de Gen2 ADLS et joint ensuite avec le nom et la clé, Explorateur de stockage ne sont pas ont détectées que cet espace de noms hiérarchique a été activée. Ce problème a été résolu. #1081
+* Dans l’éditeur d’objets blob, de tri par jours de rétention restants ou état a été interrompue. Ce problème a été résolu. #1106
+* Après 1.5.0, Explorateur de stockage n’est plus attendue pour les copies de côté serveur à terminer avant de signaler la réussite pendant un changement de nom ou la copier et coller. Ce problème a été résolu. #976
+* Lorsque vous utilisez la fonctionnalité de AzCopy expérimentale, la commande copiée après avoir cliqué sur « Copier la commande dans le Presse-papiers » n’était pas toujours exécutable sur sa propre. À présent, toutes les commandes nécessaires pour exécuter le transfert manuellement seront copiés. #1079
+* Auparavant, objets BLOB ADLS Gen2 n’était pas accessible si vous étiez derrière un proxy. Cela était dû à un bogue dans une nouvelle bibliothèque de mise en réseau utilisé par le SDK de stockage. Dans 1.7.0, une tentative pour atténuer ce problème a été effectuée, mais certaines personnes peuvent continuer à voir les problèmes. Un correctif complet sera disponible dans une prochaine mise à jour. #1090
+* Dans 1.7.0, l’enregistrement boîte de dialogue fichier désormais correctement mémorise le dernier emplacement que vous avez enregistré un fichier. #16
+* Dans le volet Propriétés, le niveau de référence (SKU) d’un compte de stockage a été affiché en tant que type du compte. Ce problème a été résolu. #654
+* Parfois, il était impossible de résilier le bail d’un objet blob, même si vous avez correctement entré le nom de l’objet blob. Ce problème a été résolu. #1070
+
+### <a name="known-issues"></a>Problèmes connus
+
+* Lorsque vous utilisez RBAC, Explorateur de stockage requiert certaines autorisations de couche de gestion afin d’accéder à vos ressources de stockage. Consultez le [guide de dépannage](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting) pour plus d’informations.
+* Tente d’accéder aux objets BLOB de Gen2 ADLS lorsque derrière un proxy peut échouer.
+* Le détachement d’une ressource attachée par le biais d’un URI SAS, comme un conteneur d’objets blob, peut provoquer une erreur qui empêche les autres attachements de s’afficher correctement. Pour contourner ce problème, actualisez simplement le nœud du groupe. Voir #537 pour plus d’informations.
+* Le détachement d’une ressource attachée par le biais d’un URI SAS, comme un conteneur d’objets blob, peut provoquer une erreur qui empêche les autres attachements de s’afficher correctement. Pour contourner ce problème, actualisez simplement le nœud du groupe. Pour plus d’informations, consultez #537.
+* Si vous utilisez Visual Studio pour Mac et que vous avez créé une configuration AAD personnalisée, vous n’avez peut-être pas pu vous connecter. Pour contourner ce problème, supprimez le contenu de ~/.IdentityService/AadConfigurations. Si vous êtes toujours bloqué, commentez ce problème.
+* Azurite n’a pas encore totalement implémenté toutes les API de stockage. C’est pourquoi vous risquez de rencontrer des erreurs ou un comportement inattendus quand vous utilisez Azurite pour le stockage de développement.
+* Dans de rares cas, le focus de l’arborescence peut être bloqué sur un accès rapide. Pour débloquer le focus, vous pouvez tout actualiser.
+* Le chargement à partir de votre dossier OneDrive ne fonctionne pas en raison d’un bogue dans NodeJS. Le bogue a été résolu, mais pas encore intégré à Electron. Pour contourner ce problème pendant le chargement ou le téléchargement dans un conteneur d’objets blob, vous pouvez utiliser la fonctionnalité expérimentale AzCopy.
+* Lorsque vous ciblez Azure Stack, le chargement de certains fichiers en tant qu’objets blob ajoutés peut échouer.
+* L’annulation d’une tâche peut prendre un certain temps après avoir cliqué sur « Annuler ». C’est parce que nous utilisons la solution de contournement du filtre Annuler décrite ici.
+* Si vous choisissez un certificat de code PIN/carte à puce incorrect, vous devez redémarrer pour que l’explorateur de stockage oublie cette décision.
+* Les captures instantanées ne sont pas conservées lorsque les blobs sont renommés (individuellement ou dans un conteneur d’objets blob renommé). Lors d’un changement de nom, toutes les autres propriétés et métadonnées des objets blob, fichiers et entités sont conservées.
+* Azure Stack ne prend pas en charge les fonctionnalités suivantes. Toute tentative d’utilisation de ces fonctionnalités lors de l’utilisation de ressources Azure Stack peut provoquer des erreurs inattendues.
+   * Partages de fichiers
+   * Niveaux d’accès
+   * Suppression réversible
+* L’interpréteur de commandes Électron utilisé par l’explorateur de stockage rencontre des difficultés avec l’accélération matérielle de certains processeurs graphiques (GPU). Si la fenêtre principale de l’explorateur de stockage est vide, vous pouvez essayer de lancer l’explorateur de stockage à partir de la ligne de commande et de désactiver l’accélération GPU en ajoutant le commutateur `--disable-gpu` :
+
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
+
+* Les utilisateurs Linux doivent installer [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Pour les utilisateurs sur Ubuntu 14.04, vous devez vous assurer que GCC est à jour, ce qui peut être fait en exécutant les commandes suivantes et en redémarrant votre machine :
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Pour les utilisateurs sur Ubuntu 17.04, l’installation de GConf est nécessaire. Elle peut être effectuée en exécutant les commandes suivantes, puis en redémarrant votre ordinateur :
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="previous-releases"></a>Versions précédentes
+
+* [Version 1.6.2](#version-162)
+* [Version 1.6.1](#version-161)
+* [Version 1.6.0](#version-160)
+* [Version 1.5.0](#version-150)
+* [Version 1.4.4](#version-144)
+* [Version 1.4.3](#version-143)
+* [Version 1.4.2](#version-142)
+* [Version 1.4.1](#version-141)
+* [Version 1.3.0](#version-130)
+* [Version 1.2.0](#version-120)
+* [Version 1.1.0](#version-110)
+* [Version 1.0.0](#version-100)
+* [Version 0.9.6](#version-096)
+* [Version 0.9.5](#version-095)
+* [Versions 0.9.4 et 0.9.3](#version-094-and-093)
+* [Version 0.9.2](#version-092)
+* [Versions 0.9.1 et 0.9.0](#version-091-and-090)
+* [Version 0.8.16](#version-0816)
+* [Version 0.8.14](#version-0814)
+* [Version 0.8.13](#version-0813)
+* [Versions 0.8.12, 0.8.11 et 0.8.10](#version-0812-and-0811-and-0810)
+* [Versions 0.8.9 et 0.8.8](#version-089-and-088)
+* [Version 0.8.7](#version-087)
+* [Version 0.8.6](#version-086)
+* [Version 0.8.5](#version-085)
+* [Version 0.8.4](#version-084)
+* [Version 0.8.3](#version-083)
+* [Version 0.8.2](#version-082)
+* [Version 0.8.0](#version-080)
+* [Version 0.7.20160509.0](#version-07201605090)
+* [Version 0.7.20160325.0](#version-07201603250)
+* [Version 0.7.20160129.1](#version-07201601291)
+* [Version 0.7.20160105.0](#version-07201601050)
+* [Version 0.7.20151116.0](#version-07201511160)
+
 ## <a name="version-162"></a>Version 1.6.2
 1/9/2019
-
-### <a name="download-azure-storage-explorer-162"></a>Télécharger l’Explorateur Stockage Azure 1.6.2
-- [Explorateur Stockage Azure 1.6.2 pour Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Explorateur Stockage Azure 1.6.2 pour Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Explorateur Stockage Azure 1.6.2 pour Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="hotfixes"></a>Correctifs logiciels
 * Dans la version 1.6.1, les entités ajoutées aux liste de contrôle d’accès ADLS Gen2 par ID d’objet et qui n’étaient pas des utilisateurs étaient toujours ajoutées en tant que groupes. À présent, seuls les groupes sont ajoutés en tant que groupes. Les entités, telles que les applications d’entreprise et les principaux de service, sont ajoutées en tant qu’utilisateurs. [#1049](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1049)
@@ -56,12 +158,12 @@ Cet article contient les notes de publication de l’Explorateur Stockage Azure 
 
 * Vous pouvez maintenant utiliser l’Explorateur Stockage pour accéder à vos données Blob via [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Si vous êtes connecté et que l’Explorateur Stockage ne peut pas récupérer les clés de votre compte de stockage, un jeton OAuth est utilisé pour l’authentification quand vous interagissez avec vos données.
 * L’Explorateur Stockage prend désormais en charge les comptes de stockage ADLS Gen2. Quand l’Explorateur Stockage détecte que l’espace de noms hiérarchique est activé pour un compte de stockage, vous voyez « (Préversion d’ADLS Gen2) » à côté du nom de votre compte de stockage. L’Explorateur Stockage peut détecter si l’espace de noms hiérarchique est activé ou non quand vous êtes connecté, ou si vous avez attaché votre compte de stockage avec un nom et une clé. Pour les comptes de stockage ADLS Gen2, vous pouvez utiliser l’Explorateur Stockage pour :
-    * Créer et supprimer des conteneurs
-    * Gérer les propriétés et les autorisations de conteneur (à gauche)
-    * Voir et parcourir les données à l’intérieur des conteneurs
-    * Créer des dossiers
-    * Charger, télécharger, renommer et supprimer des fichiers et dossiers
-    * Gérer les propriétés et les autorisations de fichier et dossier (à droite).
+  * Créer et supprimer des conteneurs
+  * Gérer les propriétés et les autorisations de conteneur (à gauche)
+  * Voir et parcourir les données à l’intérieur des conteneurs
+  * Créer des dossiers
+  * Charger, télécharger, renommer et supprimer des fichiers et dossiers
+  * Gérer les propriétés et les autorisations de fichier et dossier (à droite).
     
     D’autres fonctionnalités Blob classiques, comme la suppression réversible et les instantanés, ne sont actuellement pas disponibles. La gestion des autorisations est également disponible uniquement quand vous êtes connecté. Par ailleurs, quand vous utilisez un compte de stockage ADLS Gen2, l’Explorateur Stockage utilise AzCopy pour tous les chargements et téléchargements, et utilise par défaut le nom et les informations d’identification de clé pour toutes les opérations, s’ils sont disponibles.
 * Suite à de nombreux commentaires des utilisateurs, la résiliation de bail peut à nouveau être utilisée pour résilier les baux de plusieurs objets blob à la fois.
@@ -104,42 +206,6 @@ Cet article contient les notes de publication de l’Explorateur Stockage Azure 
     sudo apt-get install libgconf-2-4
     ```
 
-## <a name="previous-releases"></a>Versions précédentes
-
-* [Version 1.6.1](#version-161)
-* [Version 1.6.0](#version-160)
-* [Version 1.5.0](#version-150)
-* [Version 1.4.4](#version-144)
-* [Version 1.4.3](#version-143)
-* [Version 1.4.2](#version-142)
-* [Version 1.4.1](#version-141)
-* [Version 1.3.0](#version-130)
-* [Version 1.2.0](#version-120)
-* [Version 1.1.0](#version-110)
-* [Version 1.0.0](#version-100)
-* [Version 0.9.6](#version-096)
-* [Version 0.9.5](#version-095)
-* [Versions 0.9.4 et 0.9.3](#version-094-and-093)
-* [Version 0.9.2](#version-092)
-* [Versions 0.9.1 et 0.9.0](#version-091-and-090)
-* [Version 0.8.16](#version-0816)
-* [Version 0.8.14](#version-0814)
-* [Version 0.8.13](#version-0813)
-* [Versions 0.8.12, 0.8.11 et 0.8.10](#version-0812-and-0811-and-0810)
-* [Versions 0.8.9 et 0.8.8](#version-089-and-088)
-* [Version 0.8.7](#version-087)
-* [Version 0.8.6](#version-086)
-* [Version 0.8.5](#version-085)
-* [Version 0.8.4](#version-084)
-* [Version 0.8.3](#version-083)
-* [Version 0.8.2](#version-082)
-* [Version 0.8.0](#version-080)
-* [Version 0.7.20160509.0](#version-07201605090)
-* [Version 0.7.20160325.0](#version-07201603250)
-* [Version 0.7.20160129.1](#version-07201601291)
-* [Version 0.7.20160105.0](#version-07201601050)
-* [Version 0.7.20151116.0](#version-07201511160)
-
 ## <a name="version-161"></a>Version 1.6.1
 18/12/2018
 
@@ -161,12 +227,12 @@ Cet article contient les notes de publication de l’Explorateur Stockage Azure 
 
 * Vous pouvez maintenant utiliser l’Explorateur Stockage pour accéder à vos données Blob via [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Si vous êtes connecté et que l’Explorateur Stockage ne peut pas récupérer les clés de votre compte de stockage, un jeton OAuth est utilisé pour l’authentification quand vous interagissez avec vos données.
 * L’Explorateur Stockage prend désormais en charge les comptes de stockage ADLS Gen2. Quand l’Explorateur Stockage détecte que l’espace de noms hiérarchique est activé pour un compte de stockage, vous voyez « (Préversion d’ADLS Gen2) » à côté du nom de votre compte de stockage. L’Explorateur Stockage peut détecter si l’espace de noms hiérarchique est activé ou non quand vous êtes connecté, ou si vous avez attaché votre compte de stockage avec un nom et une clé. Pour les comptes de stockage ADLS Gen2, vous pouvez utiliser l’Explorateur Stockage pour :
-    * Créer et supprimer des conteneurs
-    * Gérer les propriétés et les autorisations de conteneur (à gauche)
-    * Voir et parcourir les données à l’intérieur des conteneurs
-    * Créer des dossiers
-    * Charger, télécharger, renommer et supprimer des fichiers et dossiers
-    * Gérer les propriétés et les autorisations de fichier et dossier (à droite).
+  * Créer et supprimer des conteneurs
+  * Gérer les propriétés et les autorisations de conteneur (à gauche)
+  * Voir et parcourir les données à l’intérieur des conteneurs
+  * Créer des dossiers
+  * Charger, télécharger, renommer et supprimer des fichiers et dossiers
+  * Gérer les propriétés et les autorisations de fichier et dossier (à droite).
     
     D’autres fonctionnalités Blob classiques, comme la suppression réversible et les instantanés, ne sont actuellement pas disponibles. La gestion des autorisations est également disponible uniquement quand vous êtes connecté. Par ailleurs, quand vous utilisez un compte de stockage ADLS Gen2, l’Explorateur Stockage utilise AzCopy pour tous les chargements et téléchargements, et utilise par défaut le nom et les informations d’identification de clé pour toutes les opérations, s’ils sont disponibles.
 * Suite à de nombreux commentaires des utilisateurs, la résiliation de bail peut à nouveau être utilisée pour résilier les baux de plusieurs objets blob à la fois.
@@ -216,12 +282,12 @@ Cet article contient les notes de publication de l’Explorateur Stockage Azure 
 
 * Vous pouvez maintenant utiliser l’Explorateur Stockage pour accéder à vos données Blob via [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Si vous êtes connecté et que l’Explorateur Stockage ne peut pas récupérer les clés de votre compte de stockage, un jeton OAuth est utilisé pour l’authentification quand vous interagissez avec vos données.
 * L’Explorateur Stockage prend désormais en charge les comptes de stockage ADLS Gen2. Quand l’Explorateur Stockage détecte que l’espace de noms hiérarchique est activé pour un compte de stockage, vous voyez « (Préversion d’ADLS Gen2) » à côté du nom de votre compte de stockage. L’Explorateur Stockage peut détecter si l’espace de noms hiérarchique est activé ou non quand vous êtes connecté, ou si vous avez attaché votre compte de stockage avec un nom et une clé. Pour les comptes de stockage ADLS Gen2, vous pouvez utiliser l’Explorateur Stockage pour :
-    * Créer et supprimer des conteneurs
-    * Gérer les propriétés et les autorisations de conteneur (à gauche)
-    * Voir et parcourir les données à l’intérieur des conteneurs
-    * Créer des dossiers
-    * Charger, télécharger, renommer et supprimer des fichiers et dossiers
-    * Gérer les propriétés et les autorisations de fichier et dossier (à droite).
+  * Créer et supprimer des conteneurs
+  * Gérer les propriétés et les autorisations de conteneur (à gauche)
+  * Voir et parcourir les données à l’intérieur des conteneurs
+  * Créer des dossiers
+  * Charger, télécharger, renommer et supprimer des fichiers et dossiers
+  * Gérer les propriétés et les autorisations de fichier et dossier (à droite).
     
     D’autres fonctionnalités Blob classiques, comme la suppression réversible et les instantanés, ne sont actuellement pas disponibles. La gestion des autorisations est également disponible uniquement quand vous êtes connecté. Par ailleurs, quand vous utilisez un compte de stockage ADLS Gen2, l’Explorateur Stockage utilise AzCopy pour tous les chargements et téléchargements, et utilise par défaut le nom et les informations d’identification de clé pour toutes les opérations, s’ils sont disponibles.
 * Suite à de nombreux commentaires des utilisateurs, la résiliation de bail peut à nouveau être utilisée pour résilier les baux de plusieurs objets blob à la fois.

@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 03/04/2019
 ms.author: mbullwin
-ms.openlocfilehash: 1de12f2dd2e31c3f5413424793f3bf78fdc8ff27
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: 3c74d3a6c5b66053fb968ad52f72eca181799a3c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300259"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003579"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Collecte, rétention et stockage des données dans Application Insights
 
@@ -118,9 +118,7 @@ Elles peuvent envoyer des données de télémétrie supplémentaires à votre co
 Si vous partagez le code avec d’autres projets, pensez à supprimer votre clé d’instrumentation.
 
 ## <a name="is-the-data-encrypted"></a>Les données sont-elles chiffrées ?
-Pas sur les serveurs à l’heure actuelle.
-
-Toutes les données sont chiffrées lors de leurs déplacements entre les centres de données.
+Toutes les données sont chiffrées au repos et en tant qu’il se déplace entre les données des centres de.
 
 #### <a name="is-the-data-encrypted-in-transit-from-my-application-to-application-insights-servers"></a>Les données sont-elles chiffrées lors de leur passage depuis mon application vers les serveurs Application Insights ?
 Oui, nous utilisons le protocole HTTPS pour envoyer les données au portail à partir de presque tous les Kits de développement logiciel (SDK), y compris les serveurs web, les appareils et les pages web HTTPS. La seule exception concerne les données envoyées à partir des pages web HTTP.
@@ -158,12 +156,12 @@ Par le biais du code :
 
 - Supprimer ServerTelemetryChannel du fichier de configuration
 - Ajoutez cet extrait de code à votre configuration :
-```csharp
-ServerTelemetryChannel channel = new ServerTelemetryChannel();
-channel.StorageFolder = @"D:\NewTestFolder";
-channel.Initialize(TelemetryConfiguration.Active);
-TelemetryConfiguration.Active.TelemetryChannel = channel;
-```
+  ```csharp
+  ServerTelemetryChannel channel = new ServerTelemetryChannel();
+  channel.StorageFolder = @"D:\NewTestFolder";
+  channel.Initialize(TelemetryConfiguration.Active);
+  TelemetryConfiguration.Active.TelemetryChannel = channel;
+  ```
 
 ### <a name="netcore"></a>NetCore
 
@@ -208,7 +206,7 @@ Nous ne recommandons pas de configurer explicitement votre application de façon
 | Windows Server 2012 - 2016 | Pris en charge, activé par défaut. | Pour confirmer que vous utilisez toujours les [paramètres par défaut](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
 | Windows 7 SP1 et Windows Server 2008 R2 SP1 | Pris en charge, mais non activé par défaut. | Consultez la page [Paramètres de Registre de TLS](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) pour plus d’informations sur l’activation.  |
 | Windows Server 2008 SP2 | La prise en charge de TLS 1.2 nécessite une mise à jour. | Consultez [Mise à jour pour ajouter la prise en charge de TLS 1.2](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) dans Windows Server 2008 SP2. |
-|Windows Vista | Non pris en charge. | N/A
+|Windows Vista | Non pris en charge. | S.O.
 
 ### <a name="check-what-version-of-openssl-your-linux-distribution-is-running"></a>Vérifier la version d’OpenSSL que votre distribution Linux exécute
 
@@ -239,6 +237,7 @@ Toutefois, vous pouvez implémenter cette fonctionnalité dans votre application
 Les kits de développement logiciel (SDK) varient en fonction des plateformes et vous pouvez installer plusieurs composants. (Consultez [Application Insights - Vue d’ensemble][start].) Chaque composant envoie des données différentes.
 
 #### <a name="classes-of-data-sent-in-different-scenarios"></a>Classes de données envoyées dans différents scénarios
+
 | Votre action | Classes de données collectées (voir tableau suivant) |
 | --- | --- |
 | [Ajouter le kit de développement logiciel (SDK) Application Insights à un projet web .NET][greenbrown] |ServerContext<br/>Inferred<br/>Perf counters<br/>Demandes<br/>**Exceptions**<br/>session<br/>users |
@@ -254,6 +253,7 @@ Les kits de développement logiciel (SDK) varient en fonction des plateformes et
 Pour les [Kits de développement logiciel (SDK) des autres plateformes][platforms], consultez les documents correspondants.
 
 #### <a name="the-classes-of-collected-data"></a>Les classes de données collectées
+
 | Classe des données collectées | Comprend (liste non exhaustive) |
 | --- | --- |
 | **Propriétés** |**Toutes les données - en fonction de votre code** |

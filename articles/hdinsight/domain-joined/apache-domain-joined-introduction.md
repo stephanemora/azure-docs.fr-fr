@@ -9,18 +9,18 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: d1d515786fde06f4622402f2c1d0c3add7cd8843
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
+ms.openlocfilehash: f3d9a2447bdbc2a1a5ce930ffa161d5a9e30069b
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913142"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225057"
 ---
 # <a name="an-introduction-to-apache-hadoop-security-with-enterprise-security-package"></a>Introduction à la sécurité Apache Hadoop avec le Pack Sécurité Entreprise
 
 Auparavant, Azure HDInsight ne prenait en charge qu’un seul utilisateur : l’administrateur local. Cela fonctionnait à merveille pour les petites équipes d’application ou les services. Avec le gain en popularité des charges de travail Apache Hadoop dans le secteur de l’entreprise, les besoins en fonctionnalités de classe Entreprise, comme l’authentification basée sur Active Directory, la prise en charge multi-utilisateur et le contrôle d’accès en fonction du rôle sont devenus de plus en plus importants. 
 
-Vous pouvez créer un cluster HDInsight avec le Pack Sécurité Entreprise (ESP) qui est joint à un domaine Active Directory. Vous pouvez désormais configurer une liste d’employés de l’entreprise qui peuvent s’authentifier par le biais d’Azure Active Directory pour se connecter au cluster HDInsight. Aucune personne étrangère à l’entreprise ne peut ni se connecter ni accéder au cluster HDInsight. 
+Vous pouvez créer un cluster HDInsight avec le Pack Sécurité Entreprise (ESP) qui est joint à un domaine Active Directory. Vous pouvez ensuite configurer une liste d’employés à partir de l’entreprise qui peuvent s’authentifier via Azure Active Directory pour vous connecter au cluster HDInsight. Aucun à partir en dehors de l’entreprise peut se connecter ou accéder au cluster HDInsight. 
 
 L’administrateur d’entreprise peut configurer le contrôle d’accès en fonction du rôle (RBAC) pour assurer la sécurité de Apache Hive avec [Apache Ranger](https://hortonworks.com/apache/ranger/). La configuration de RBAC limite l’accès des données au strict nécessaire. Enfin, l’administrateur peut auditer l’accès des données par les employés, et les modifications apportées aux stratégies de contrôle d’accès. L’administrateur peut ainsi atteindre un degré élevé de gouvernance des ressources de l’entreprise.
 
@@ -36,10 +36,10 @@ La sécurité du périmètre dans HDInsight est obtenue par le biais de réseaux
 
 Le service de passerelle VPN permet d’obtenir un autre niveau de sécurité du périmètre. La passerelle agit en tant que première ligne de défense pour toutes les requêtes entrantes dans le cluster HDInsight. Elle accepte la requête, la valide et seulement après autorise la requête à passer sur les autres nœuds du cluster. De cette façon, la passerelle assure la sécurité du périmètre d’autres nœuds du nom et des données dans le cluster.
 
-## <a name="authentication"></a>Authentification
+## <a name="authentication"></a>Authentication
 Un administrateur d’entreprise peut créer un cluster HDInsight avec ESP dans un [réseau virtuel](https://azure.microsoft.com/services/virtual-network/). Tous les nœuds du cluster HDInsight sont joints au domaine que l’entreprise gère. Ceci s’effectue par l’intermédiaire d’[Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md). 
 
-Avec cette configuration, des employés de l’entreprise peuvent se connecter aux nœuds du cluster à l’aide de leurs informations d’identification de domaine. Ils peuvent également utiliser leurs informations d’identification de domaine pour s’authentifier auprès d’autres points de terminaison approuvés comme les vues Ambari, ODBC, JDBC, PowerShell et les API REST afin d’interagir avec le cluster. L’administrateur dispose d’un contrôle total sur la limitation du nombre d’utilisateurs interagissant avec le cluster via ces points de terminaison.
+Avec cette configuration, employés de l’entreprise peuvent se connecter aux nœuds du cluster à l’aide de leurs informations d’identification de domaine. Ils peuvent également utiliser leurs informations d’identification de domaine pour s’authentifier auprès d’autres points de terminaison approuvés comme les vues Ambari, ODBC, JDBC, PowerShell et les API REST afin d’interagir avec le cluster. L’administrateur dispose d’un contrôle total sur la limitation du nombre d’utilisateurs interagissant avec le cluster via ces points de terminaison.
 
 ## <a name="authorization"></a>Authorization
 L’une des bonnes pratiques que la plupart des entreprises appliquent consiste à s’assurer que chaque employé n’a pas accès à l’intégralité des ressources de l’entreprise. Parallèlement, l’administrateur peut définir des stratégies de contrôle d’accès en fonction du rôle pour les ressources du cluster. 

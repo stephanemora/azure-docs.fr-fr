@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: a4e5087e53d4505d54b5ff4b8d17ad6166c6174b
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
-ms.translationtype: HT
+ms.openlocfilehash: c0e953434e947703308ff8d796107838df8cc979
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002499"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437312"
 ---
 # <a name="contoso-migration-rebuild-an-on-premises-app-to-azure"></a>Migration de Contoso : Regénérer une application locale à Azure AD
 
@@ -119,7 +119,7 @@ Contoso évalue la conception proposée en dressant une liste des avantages et d
 [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) | Stocke les images pour tous types de déploiements de conteneur. | Coût basé sur les fonctionnalités, le stockage et la durée d’utilisation. [Plus d’informations](https://azure.microsoft.com/pricing/details/container-registry/)
 [Azure App Service](https://azure.microsoft.com/services/app-service/containers/) | Créez, déployez et mettez à l’échelle rapidement des applications web, mobiles et API de classe entreprise exécutables sur toute plateforme. | Les plans App Service sont facturés par seconde. [Plus d’informations](https://azure.microsoft.com/pricing/details/app-service/windows/)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Voici ce dont Contoso a besoin pour ce scénario :
 
@@ -152,9 +152,9 @@ Les administrateurs de Contoso exécutent un script de déploiement pour créer 
 - Les instructions de cette section utilisent le référentiel **SmartHotel360-Azure-backend**.
 - Le dépôt GitHub **SmartHotel360-Azure-backend** contient tous les logiciels pour cette partie du déploiement.
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables
 
-1. Avant de commencer, les administrateurs de Contoso s’assurent que les logiciels requis sont installés sur la machine de développement qu’ils utilisent pour le déploiement.
+1. Avant de commencer, les administrateurs de Contoso vous assurer que tous les logiciels prérequis dans installé sur l’ordinateur de développement qu’ils utilisent pour le déploiement.
 2. Ils clonent le dépôt localement sur la machine de développement à l’aide de Git : **git clone https://github.com/Microsoft/SmartHotel360-Azure-backend.git**
 
 

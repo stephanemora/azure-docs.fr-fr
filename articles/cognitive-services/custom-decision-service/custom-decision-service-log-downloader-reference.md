@@ -10,18 +10,18 @@ ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: marossi
-ms.openlocfilehash: c03278c0d0faced20f4e02fcc1f61531c88ae141
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 8a8f669c33f40fb80dc826ec04203880dee74d82
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869668"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109407"
 ---
 # <a name="logdownloader"></a>LogDownloader
 
 Téléchargez les fichiers journaux produits par le service Décision personnalisée Azure et générez les fichiers  *.gz* utilisés par l’expérimentation.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 - Python 3 : installé et sur votre chemin d’accès. Nous vous recommandons la version 64 bits pour gérer les fichiers volumineux.
 - Le référentiel *mwt/Microsoft-ds* : [Clonez le référentiel](https://github.com/Microsoft/mwt-ds).
@@ -49,7 +49,7 @@ python LogDownloader.py [-h] -a APP_ID -l LOG_DIR [-s START_DATE]
 | `-s START_DATE`, `--start_date START_DATE` | Date de début du téléchargement (incluse), au format *AAAA-MM-JJ*. | `None` |
 | `-e END_DATE`, `--end_date END_DATE` | Date de fin du téléchargement (incluse), au format *AAAA-MM-JJ*. | `None` |
 | `-o OVERWRITE_MODE`, `--overwrite_mode OVERWRITE_MODE` | Mode de remplacement à utiliser. | |
-| | `0`: ne jamais remplacer. Demander à l’utilisateur si les objets BLOB sont actuellement utilisés. | Default | |
+| | `0`: ne jamais remplacer. Demander à l’utilisateur si les objets BLOB sont actuellement utilisés. | Default |
 | | `1`: demander à l’utilisateur la marche à suivre lorsque les fichiers sont de tailles différentes, ou lorsque les objets BLOB sont en cours d’utilisation. | |
 | | `2`: toujours remplacer. Télécharger les objets BLOB actuellement utilisés. | |
 | | `3`: ne jamais remplacer, et ajouter si la taille est supérieure, sans demander. Télécharger les objets BLOB actuellement utilisés. | |

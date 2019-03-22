@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 17c493568953265ac12ebccc680652ed5da6ae4d
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: a57393918992019844e2ff4ccc13d671f0b90ed5
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312989"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58260058"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Alimentation de Power BI à partir d’Application Insights
 [Power BI](https://www.powerbi.com/) est une suite d’outils métier permettant d’analyser les données et de partager les informations. Chaque périphérique bénéficie de tableaux de bord riches. Vous pouvez combiner des données provenant de nombreuses sources, notamment des requêtes Analytics d’[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
@@ -96,7 +96,7 @@ Cela peut se produire si votre jeton d’actualisation n’a pas été mis à jo
 1. Connectez-vous au portail Azure et vérifiez que vous avez accès à la ressource.
 2. Essayez d’actualiser les informations d’identification du tableau de bord.
 
- Si vous avez accès et que l’actualisation des informations d’identification échoue, ouvrez un ticket de support.
+   Si vous avez accès et que l’actualisation des informations d’identification échoue, ouvrez un ticket de support.
 
 ### <a name="bad-gateway-502"></a>Passerelle incorrecte (502)
 Cela est généralement dû à une requête Analytics qui renvoie trop de données. Essayez d’utiliser un intervalle de temps plus petit pour la requête. 
@@ -105,8 +105,8 @@ Si la réduction du jeu de données provenant de la requête Analytics ne vous c
 
 1. Créez une [clé API](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 2. Mettez à jour le script Power BI M que vous avez exporté d’Analytics en remplaçant l’URL Azure Resource Manager par l’API Application Insights.
-   * Remplacez **https://management.azure.com/subscriptions/...**
-   * par **https://api.applicationinsights.io/beta/apps/...**
+   * Remplacez **https :\//management.azure.com/subscriptions/...**
+   * avec, **https :\//api.applicationinsights.io/beta/apps/...**
 3. Enfin, mettez à jour les informations d’identification de base et utilisez votre clé API.
 
 **Script existant**

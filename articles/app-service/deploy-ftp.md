@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/30/2018
 ms.author: cephalin;dariac
 ms.custom: seodec18
-ms.openlocfilehash: 8b1a4bbb100fc4db1323f530808a8d01bd8f30ce
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
-ms.translationtype: HT
+ms.openlocfilehash: db8445ec2b3dd8bdefa661d7f186e720c6fada09
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582427"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858875"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Déployer votre application dans Azure App Service avec FTP/S
 
@@ -30,7 +30,7 @@ Le point de terminaison FTP/S de votre application est déjà actif. Aucune conf
 
 ## <a name="open-ftp-dashboard"></a>Ouvrir le tableau de bord FTP
 
-Dans le [portail Azure](https://portal.azure.com), accédez à la [page de ressources](../azure-resource-manager/resource-group-portal.md#manage-resources) de votre application.
+Dans le [portail Azure](https://portal.azure.com), accédez à la [page de ressources](../azure-resource-manager/manage-resources-portal.md#manage-resources) de votre application.
 
 Pour ouvrir le tableau de bord FTP, cliquez sur **Centre de déploiement** > **FTP** > **Tableau de bord**.
 
@@ -43,6 +43,14 @@ Dans le tableau de bord FTP, cliquez sur **Copier** pour copier le point de term
 ![Copier les informations FTP](./media/app-service-deploy-ftp/ftp-dashboard.png)
 
 Il est recommandé d’utiliser les **informations d’identification de l’application** pour le déploiement sur votre application, car elles sont propres à chaque application. Toutefois, si vous cliquez sur **Informations d’identification de l’utilisateur**, vous pouvez définir des informations d’identification au niveau de l’utilisateur, que vous pouvez utiliser pour la connexion FTP/S à toutes les applications App Service de votre abonnement.
+
+> [!NOTE]
+> L’authentification auprès d’un point de terminaison FTP/FTPS utilisant requirers des informations d’identification au niveau de l’utilisateur un nom d’utilisateur au format suivant : 
+>
+>`<app-name>\<user-name>`
+>
+> Dans la mesure où les informations d’identification au niveau de l’utilisateur sont liées à l’utilisateur et pas une ressource spécifique, le nom d’utilisateur doit être au format suivant pour diriger l’action de connexion au point de terminaison d’application appropriée.
+>
 
 ## <a name="deploy-files-to-azure"></a>Déployer des fichiers sur Azure
 
@@ -58,7 +66,6 @@ Il est recommandé d’utiliser les **informations d’identification de l’app
 > - génération du fichier web.config (dont voici un [exemple Node.js](https://github.com/projectkudu/kudu/wiki/Using-a-custom-web.config-for-Node-apps))
 > 
 > Générez ces fichiers requis manuellement sur votre ordinateur local, puis déployez-les avec votre application.
->
 >
 
 ## <a name="enforce-ftps"></a>Appliquer le protocole FTPS

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 02/19/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f4838f688210f9017d691bd6a463217a75fc90d4
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: a19153677e691d2681c131df67100a43ef9532a0
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447512"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889322"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administrateurs d'abonnement classique Azure
 
@@ -91,7 +91,7 @@ Il existe deux façons de modifier l’Administrateur de service. Vous pouvez mo
 
 ### <a name="azure-portal"></a>Portail Azure
 
-1. Vérifiez que votre scénario est pris en charge en vérifiant les [limites de modification des Administrateurs de services fédérés](#limits).
+1. Assurez-vous que votre scénario est pris en charge en vérifiant les limites de modification des administrateurs de Service.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur de compte.
 
@@ -109,7 +109,7 @@ Il existe deux façons de modifier l’Administrateur de service. Vous pouvez mo
 
 ### <a name="account-center"></a>Centre des comptes
 
-1. Vérifiez que votre scénario est pris en charge en vérifiant les [limites de modification des Administrateurs de services fédérés](#limits).
+1. Assurez-vous que votre scénario est pris en charge en vérifiant les limites de modification des administrateurs de Service.
 
 1. Connectez-vous au [Centre des comptes](https://account.windowsazure.com/subscriptions) en tant qu’administrateur de compte.
 
@@ -133,8 +133,8 @@ Si vous êtes connecté avec un compte professionnel ou scolaire, vous pouvez aj
 
   | Méthode de connexion | Ajouter l’utilisateur de compte Microsoft en tant qu’administrateur de service ? | Ajouter le compte professionnel ou scolaire de la même organisation comme Administrateur de service ? | Ajouter le compte professionnel ou scolaire de la même organisation comme Administrateur de service ? |
   | --- | --- | --- | --- |
-  |  Compte Microsoft |OUI |Non  |Non  |
-  |  Comptes professionnels ou scolaires |OUI |OUI |Non  |
+  |  Compte Microsoft |Oui |Non  |Non  |
+  |  Comptes professionnels ou scolaires |Oui |Oui |Non  |
 
 ## <a name="view-the-account-administrator"></a>Voir l’administrateur de compte
 
@@ -156,3 +156,4 @@ Pour voir l’Administrateur de compte, procédez comme suit.
 
 * [Comprendre les différents rôles dans Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
 * [Gérer l’accès aux ressources Azure à l’aide du contrôle RBAC et du portail Azure](../role-based-access-control/role-assignments-portal.md)
+* [Ajouter ou changer des administrateurs d’abonnements Azure](../billing/billing-add-change-azure-subscription-administrator.md)

@@ -4,18 +4,20 @@ description: Envoyez des métriques de système d’exploitation invité au maga
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 1e322c9bd6f78c4801c14e9982cc170b3af1971a
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 6523c2b26a0340fa5347d8224ac8bf6c5e285926
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893576"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57759047"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Envoyer des métriques de système d’exploitation invité au magasin de métriques Azure Monitor pour les services cloud classiques 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Avec [l’extension Diagnostics](diagnostics-extension-overview.md) d’Azure Monitor, vous pouvez collecter des métriques et des journaux à partir du système d’exploitation invité qui est exécuté dans le cadre d’une machine virtuelle, d’un service cloud ou d’un cluster Service Fabric. L’extension peut envoyer des données de télémétrie à de [nombreux emplacements différents](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json).
 
@@ -25,13 +27,13 @@ En les stockant dans cet emplacement, vous avez accès aux mêmes actions que ce
 
 Le processus décrit dans cet article fonctionne uniquement pour les compteurs de performances des services cloud Azure. Il ne fonctionne pas pour les autres métriques personnalisées. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 - Vous devez être [administrateur ou coadministrateur de services fédérés](~/articles/billing/billing-add-change-azure-subscription-administrator.md) dans votre abonnement Azure. 
 
 - Votre abonnement doit être inscrit auprès de [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
-- Vous devez avoir installé [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) ou [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+- Vous devez avoir installé [Azure PowerShell](/powershell/azure) ou [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 ## <a name="provision-a-cloud-service-and-storage-account"></a>Provisionner un service cloud et un compte de stockage 
 
@@ -141,7 +143,7 @@ Enregistrez ce fichier de diagnostics en local.
 Lancez PowerShell et connectez-vous à Azure. 
 
 ```PowerShell
-Login-AzureRmAccount 
+Login-AzAccount 
 ```
 
 Utilisez les commandes suivantes pour stocker les informations du compte de stockage que vous avez créé précédemment. 

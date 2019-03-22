@@ -14,12 +14,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09151dee2d458e2ff4fae8a8a3bc93fa466e4efc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8b5eb46b845bebbb81dce6aadb9d97af08955df3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167794"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58096943"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Utiliser un fournisseur d’identité (IdP) SAML 2.0 pour l’authentification unique
 
@@ -30,16 +30,16 @@ Ce document contient des informations sur l’utilisation d’un profil SP-Lite 
 
 Microsoft prend en charge cette expérience d’authentification comme l’intégration d’un service cloud Microsoft, par exemple Office 365, avec votre profil SAML 2.0 correctement configuré basé sur les fournisseurs d’identité. Les fournisseurs d’identité SAML 2.0 sont des produits tiers, par conséquent, Microsoft n’offre aucun support technique sur les meilleures pratiques de déploiement, configuration, dépannage les concernant. Une fois correctement configurée, la configuration correcte de l’intégration au fournisseur d’identité SAML 2.0 peut être testée à l’aide de l’outil Analyseur de connectivité Microsoft décrit plus en détail ci-dessous. Pour plus d’informations sur votre fournisseur d’identité basé sur un profil SP-Lite SAML 2.0, demandez à l’organisation qui l’a fournie.
 
->[!IMPORTANT]
->Seul un ensemble limité de clients est disponible dans ce scénario d’authentification avec les fournisseurs d’identité SAML 2.0, cela inclut :
-
->- Clients basés sur le Web tels que Outlook Web Access et Sharepoint Online
-- Clients de messagerie riches qui utilisent l’authentification de base et une méthode d’accès Exchange prise en charge comme IMAP, POP, Active Sync, MAPI, etc. (le point de terminaison Enhanced Client Protocol est requis pour le déploiement), y compris :
-    - Microsoft Outlook 2010/Outlook 2013/Outlook 2016, Apple iPhone (différentes versions d’iOS)
-    - Différents appareils Google Android
-    - Windows Phone 7, Windows Phone 7.8 et Windows Phone 8.0
-    - Client de messagerie Windows 8 et client de messagerie Windows 8.1
-    - Client de messagerie Windows 10
+> [!IMPORTANT]
+> Seul un ensemble limité de clients est disponible dans ce scénario d’authentification avec les fournisseurs d’identité SAML 2.0, cela inclut :
+> 
+> - Clients basés sur le Web tels que Outlook Web Access et Sharepoint Online
+> - Clients de messagerie riches qui utilisent l’authentification de base et une méthode d’accès Exchange prise en charge comme IMAP, POP, Active Sync, MAPI, etc. (le point de terminaison Enhanced Client Protocol est requis pour le déploiement), y compris :
+>     - Microsoft Outlook 2010/Outlook 2013/Outlook 2016, Apple iPhone (différentes versions d’iOS)
+>     - Différents appareils Google Android
+>     - Windows Phone 7, Windows Phone 7.8 et Windows Phone 8.0
+>     - Client de messagerie Windows 8 et client de messagerie Windows 8.1
+>     - Client de messagerie Windows 10
 
 Tous les autres clients ne sont pas disponibles dans ce scénario d’authentification avec votre fournisseur d’identité SAML 2.0. Par exemple, le client de bureau Lync 2010 n’est pas en mesure de vous connecter au service avec votre fournisseur d’identité SAML 2.0 configuré pour l’authentification unique.
 
@@ -194,9 +194,9 @@ La procédure suivante vous guide tout au long de la conversion d’un domaine s
 Pour plus d’informations sur « Set-MsolDomainAuthentication », consultez : [https://technet.microsoft.com/library/dn194112.aspx](https://technet.microsoft.com/library/dn194112.aspx).
 
 >[!NOTE]
->Vous devez exécutez utiliser « $ecpUrl = "https://WS2012R2-0.contoso.com/PAOS" » uniquement si vous définissez une extension ECP pour votre fournisseur d’identité. Les clients Exchange Online, à l’exception d’Outlook Web Application (OWA), s’appuient sur un point de terminaison actif basé sur POST. Si votre STS SAML 2.0 met en œuvre un point de terminaison actif similaire à la mise en œuvre d’ECP de Shibboleth, il est possible pour ces clients riches d’interagir avec le service Exchange Online.
+>Vous devez exécutez utiliser `$ecpUrl = "https://WS2012R2-0.contoso.com/PAOS"` uniquement si vous définissez une extension ECP pour votre fournisseur d’identité. Les clients Exchange Online, à l’exception d’Outlook Web Application (OWA), s’appuient sur un point de terminaison actif basé sur POST. Si votre STS SAML 2.0 met en œuvre un point de terminaison actif similaire à la mise en œuvre d’ECP de Shibboleth, il est possible pour ces clients riches d’interagir avec le service Exchange Online.
 
-Une fois la fédération configurée, vous pouvez basculer vers « non fédéré » (ou « géré »), toutefois ce changement peut prendre jusqu'à deux heures et nécessite l’attribution de nouveaux mots de passe aléatoires pour l’authentification basée sur le cloud pour chaque utilisateur. Basculer vers « géré » peut être nécessaire dans certains scénarios pour réinitialiser une erreur dans vos paramètres. Pour plus d’informations sur la conversion de domaine, consultez : [https://msdn.microsoft.com/library/windowsazure/dn194122.aspx](httpss://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
+Une fois la fédération configurée, vous pouvez basculer vers « non fédéré » (ou « géré »), toutefois ce changement peut prendre jusqu'à deux heures et nécessite l’attribution de nouveaux mots de passe aléatoires pour l’authentification basée sur le cloud pour chaque utilisateur. Basculer vers « géré » peut être nécessaire dans certains scénarios pour réinitialiser une erreur dans vos paramètres. Pour plus d’informations sur la conversion de domaine, consultez : [https://msdn.microsoft.com/library/windowsazure/dn194122.aspx](https://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
 
 ## <a name="provision-user-principals-to-azure-ad--office-365"></a>Approvisionner les principaux d’utilisateur à Azure AD / Office 365
 Avant d’authentifier vos utilisateurs à Office 365, vous devez approvisionner Azure AD avec des principaux d’utilisateur qui correspondent à l’assertion de la revendication SAML 2.0. Si ces principaux d’utilisateur ne sont pas connus dans Azure AD à l’avance, ils ne peuvent pas être utilisés pour la connexion fédérée. Azure AD Connect ou Windows PowerShell peut être utilisé pour approvisionner les principaux d’utilisateur.

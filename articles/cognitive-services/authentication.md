@@ -7,14 +7,14 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 01/14/2019
+ms.date: 03/01/2019
 ms.author: erhopf
-ms.openlocfilehash: 2f9b477e076b038a6a695952ee3f770b30ad179b
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 90bc2bf4c207f3bb2727d76c2e6b4fd5597539b1
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429466"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240760"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Authentifier des requêtes auprès d’Azure Cognitive Services
 
@@ -24,10 +24,12 @@ Chaque requête adressée à un service Azure Cognitive Services doit inclure un
 * [Authentification avec une clé d’abonnement multiservice](#authenticate-with-a-multi-service-subscription-key)
 * [Authentification avec un jeton](#authenticate-with-an-authentication-token)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour adresser une requête, vous devez disposer d’un compte Azure et d’un abonnement Azure Cognitive Services. Si vous avez déjà un compte, passez à la section suivante. Si vous n’avez pas de compte, ce guide va vous aider à en créer un en quelques minutes : [Créer un compte Cognitive Services pour Azure](cognitive-services-apis-create-account.md).
 
+Vous pouvez obtenir votre clé d’abonnement à partir de la [Azure portal](cognitive-services-apis-create-account.md#access-your-resource) après avoir créé votre compte, ou activer un [version d’évaluation gratuite](https://azure.microsoft.com/try/cognitive-services/my-apis).
+ 
 ## <a name="authentication-headers"></a>En-têtes d’authentification
 
 Passons rapidement en revue les en-têtes d’authentification disponibles en vue d’une utilisation avec Azure Cognitive Services.

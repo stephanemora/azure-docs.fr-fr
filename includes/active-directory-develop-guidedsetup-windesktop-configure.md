@@ -4,7 +4,7 @@ description: Fichier Include
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
@@ -14,18 +14,18 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: b26b88d0e089217fa9915bdbdcb8f913731bcc67
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
-ms.translationtype: HT
+ms.openlocfilehash: 220723988f349bf015d2de7633af78782bc03bac
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988191"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203181"
 ---
 ## <a name="register-your-application"></a>Inscrivez votre application
 
 Vous pouvez inscrire votre application de deux manières.
 
-### <a name="option-1-express-mode"></a>Option 1 : mode Express
+### <a name="option-1-express-mode"></a>Option 1 : Mode Express
 
 Vous pouvez inscrire rapidement votre application en procédant comme suit :
 1. Accédez au [portail d’inscription des applications de Microsoft](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=windowsDesktop&step=configure).
@@ -38,7 +38,7 @@ Vous pouvez inscrire rapidement votre application en procédant comme suit :
 
 5. Suivez les instructions à l’écran pour obtenir l’ID de l’application et collez-le dans votre code.
 
-### <a name="option-2-advanced-mode"></a>Option 2 : mode Avancé
+### <a name="option-2-advanced-mode"></a>Option 2 : Mode Avancé
 
 Pour inscrire votre application et ajouter les informations d’inscription de l’application à votre solution, procédez comme suit :
 1. Si vous n’avez pas encore inscrit votre application, accédez au [portail d’inscription des applications de Microsoft](https://apps.dev.microsoft.com/portal/register-app).

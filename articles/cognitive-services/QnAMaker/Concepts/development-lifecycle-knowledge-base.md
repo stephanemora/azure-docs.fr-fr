@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 02/21/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: f0b2e1afdc42d8aaa0ab8d3af76f51fb6ded24e0
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: bacfb5fed4d72a7be2239ba97a68f15766b3ff59
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857764"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650443"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>Cycle de vie d’une base de connaissances dans QnA Maker
 QnA Maker apprend mieux dans un cycle itératif de modifications du modèle, d’énoncés d’exemples, de publication et de collecte des données à partir de requêtes du point de terminaison. 
@@ -27,9 +27,15 @@ QnA Maker apprend mieux dans un cycle itératif de modifications du modèle, d�
 Le point de terminaison de la base de connaissances QnA Maker recherche une réponse correspondent le mieux à une requête utilisateur dans le contenu de la base de connaissances. La création d’une base de connaissances s’effectue en une seule fois. Elle consiste à créer un référentiel contenant des questions, des réponses et des métadonnées associées. Vous pouvez créer une base de connaissances en y intégrant du contenu existant, tel que des pages FAQ, des manuels de produits ou des paires structurées de questions-réponses. Découvrez comment [créer une base de connaissances](../How-To/create-knowledge-base.md).
 
 ## <a name="testing-and-updating-the-knowledge-base"></a>Test et mise à jour de la base de connaissances
-La base de connaissances peut être testée dès qu’elle contient des données, qui ont été ajoutées manuellement ou par le biais d’une extraction automatique. Vous pouvez la tester à partir du panneau **Test**, en entrant les requêtes utilisateur courantes et en vérifiant que les réponses retournées sont appropriées et présentent un score de confiance correct. Vous pouvez ajouter des questions alternatives pour améliorer les scores de confiance faibles. Vous pouvez également ajouter de nouvelles réponses quand une requête retourne la réponse par défaut « aucune correspondance trouvée dans la base de connaissances ». Poursuivez cette boucle de test-mise à jour jusqu’à ce que vous soyez satisfait des résultats. Découvrez comment [tester votre base de connaissances](../How-To/test-knowledge-base.md).
 
-Le test des bases de connaissances volumineuses peut être automatisé à l’aide des API GenerateAnswer. 
+La base de connaissances peut être testée dès qu’elle contient des données, qui ont été ajoutées manuellement ou par le biais d’une extraction automatique. Test interactive peut être effectué dans le portail QnA Maker via le **Test** panneau en entrant des requêtes utilisateur courantes et en vérifiant que les réponses retournées avec la réponse correcte et le score de confiance suffisant. 
+
+* **Pour corriger les scores de confiance faible**: ajouter d’autres questions. 
+* **Lorsqu’une requête retourne incorrectement le [réponse par défaut](confidence-score.md#change-default-answer)**: ajouter de nouvelles réponses à la question correcte. 
+
+Poursuivez cette boucle de test-mise à jour jusqu’à ce que vous soyez satisfait des résultats. Découvrez comment [tester votre base de connaissances](../How-To/test-knowledge-base.md).
+
+Pour les grandes bases de connaissances, utilisez les tests automatisés avec le [generateAnswer API](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) et le `isTest=true` paramètre de chaîne de requête qui interroge le `test` base de connaissances au lieu de la base de connaissances publiée. 
 
 ## <a name="publish-the-knowledge-base"></a>Publier la base de connaissances
 Une fois que vous avez testé la base de connaissances, vous pouvez la publier. Le processus de publication envoie (push) la dernière version de la base de connaissances testée à un index de Recherche Azure dédié, qui représente la base de connaissances **publiée**. Il crée également un point de terminaison qui peut être appelé dans votre application ou bot conversationnel.

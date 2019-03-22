@@ -8,15 +8,15 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 01/17/2019
+ms.date: 02/22/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: c70c3cc1818e85c03c78524d1e8571af6d686218
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 4fb14b49e573770aaef13d6b5d47c265337c408c
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429058"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57568921"
 ---
 #   <a name="image-analysis-cognitive-skill"></a>Compétence cognitive Analyse d’image
 
@@ -37,7 +37,7 @@ Les paramètres respectent la casse.
 | Nom du paramètre     | Description |
 |--------------------|-------------|
 | defaultLanguageCode   |  Chaîne indiquant la langue à retourner. Le service retourne les résultats de la reconnaissance dans une langue donnée. Si ce paramètre n’est pas spécifié, la valeur par défaut est « en ». <br/><br/>Les langues prises en charge sont les suivantes : <br/>*en* : anglais (par défaut) <br/> *zh* : chinois simplifié|
-|visualFeatures |   Tableau de chaînes qui indique les types de caractéristiques visuelles à retourner. Les types de caractéristiques visuelles valides sont les suivants :  <ul><li> *categories* : classe le contenu de l’image en fonction d’une taxonomie définie dans la [documentation](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy) Cognitive Services.</li><li> *tags* : balise l’image avec une liste détaillée de mots liés au contenu de l’image.</li><li>*Description* : décrit le contenu de l’image avec une phrase en anglais complète.</li><li>*Faces* : détecte si des visages sont présents. Si tel est le cas, génère des coordonnées, ainsi que des paramètres d’âge et de sexe.</li><li> *ImageType* : détecte si l’image est de type clipart ou un dessin au trait.</li><li>   *Color* : détermine la couleur d’accentuation, la couleur dominante, et si une image est en noir et blanc.</li><li>*Adult* : détecte si l’image est de nature pornographique (nudité ou acte sexuel). Le contenu sexuellement suggestif est également détecté.</li></ul> Les noms des caractéristiques visuelles respectent la casse.|
+|visualFeatures |   Tableau de chaînes qui indique les types de caractéristiques visuelles à retourner. Les types de caractéristiques visuelles valides sont les suivants :  <ul><li> *categories* : classe le contenu de l’image en fonction d’une taxonomie définie dans la [documentation](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy) Cognitive Services.</li><li> *tags* : balise l’image avec une liste détaillée de mots liés au contenu de l’image.</li><li>*Description* : décrit le contenu de l’image avec une phrase en anglais complète.</li><li>*Faces* : détecte si des visages sont présents. Si tel est le cas, génère des coordonnées, ainsi que des paramètres d’âge et de sexe.</li><li> *ImageType* -détecte si l’image est une image clipart ou un dessin au trait.</li><li>  *Color* : détermine la couleur d’accentuation, la couleur dominante, et si une image est en noir et blanc.</li><li>*Adult* : détecte si l’image est de nature pornographique (nudité ou acte sexuel). Le contenu sexuellement suggestif est également détecté.</li></ul> Les noms des caractéristiques visuelles respectent la casse.|
 | détails   | Tableau de chaînes indiquant les détails spécifiques à un domaine à retourner. Les types de caractéristiques visuelles valides sont les suivants : <ul><li>*Celebrities* : identifie les célébrités éventuellement détectées dans l’image.</li><li>*Landmarks* : identifie les paysages éventuellement détectés dans l’image.</li></ul>
  |
 
@@ -45,7 +45,7 @@ Les paramètres respectent la casse.
 
 | Nom d’entrée      | Description                                          |
 |---------------|------------------------------------------------------|
-| image         | Type complexe. Ne fonctionne qu’avec le champ « /documents/normalized_images », généré par l’indexeur d’objets Blob Azure quand ```imageAction``` est défini sur une valeur supérieure à ```none```. Pour plus d’informations, consultez [l’exemple](#sample-output).|
+| image         | Type complexe. Ne fonctionne actuellement qu'avec le champ « /documents/normalized_images », généré par l'indexeur d'objets Blob Azure lorsque ```imageAction``` est défini sur une valeur supérieure à ```none```. Pour plus d’informations, consultez [l’exemple](#sample-output).|
 
 
 
@@ -110,16 +110,16 @@ Les paramètres respectent la casse.
     "values": [
         {
             "recordId": "1",
-            "data": {                
-                "image":  {
-                               "data": "BASE64 ENCODED STRING OF A JPEG IMAGE",
-                               "width": 500,
-                               "height": 300,
-                               "originalWidth": 5000,  
-                               "originalHeight": 3000,
-                               "rotationFromOriginal": 90,
-                               "contentOffset": 500  
-                           }
+            "data": {
+                "image": {
+                    "data": "BASE64 ENCODED STRING OF A JPEG IMAGE",
+                    "width": 500,
+                    "height": 300,
+                    "originalWidth": 5000,
+                    "originalHeight": 3000,
+                    "rotationFromOriginal": 90,
+                    "contentOffset": 500
+                }
             }
         }
     ]
@@ -132,18 +132,18 @@ Les paramètres respectent la casse.
 ```json
 {
     "values": [
-      {
-        "recordId": "1",
+        {
+            "recordId": "1",
             "data": {
                 "categories": [
-           {
+                    {
                         "name": "abstract_",
                         "score": 0.00390625
                     },
                     {
-                "name": "people_",
+                        "name": "people_",
                         "score": 0.83984375,
-                "detail": {
+                        "detail": {
                             "celebrities": [
                                 {
                                     "name": "Satya Nadella",
@@ -214,7 +214,7 @@ Les paramètres respectent la casse.
                     {
                         "age": 44,
                         "gender": "Male",
-                    "faceBoundingBox": {
+                        "faceBoundingBox": {
                             "left": 593,
                             "top": 160,
                             "width": 250,
@@ -236,8 +236,8 @@ Les paramètres respectent la casse.
                     "clipArtType": 0,
                     "lineDrawingType": 0
                 }
-           }
-      }
+            }
+        }
     ]
 }
 ```

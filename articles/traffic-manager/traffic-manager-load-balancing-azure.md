@@ -5,8 +5,6 @@ services: traffic-manager
 documentationcenter: ''
 author: liumichelle
 manager: dkays
-editor: ''
-ms.assetid: f89be3be-a16f-4d47-bcae-db2ab72ade17
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -14,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
 ms.author: limichel
-ms.openlocfilehash: a6f7a690cac5718216636d3191f348c71bcfb5d6
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 906e1840f35ab14997c727551b893a0219eb78d8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734349"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099016"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Utilisation des services d’équilibrage de charge dans Azure
 
-## <a name="introduction"></a>Introduction
+## <a name="introduction"></a>Présentation
 
 Microsoft Azure propose plusieurs services destinés à gérer la distribution et l’équilibrage de la charge du trafic réseau. Vous pouvez utiliser ces services individuellement ou combiner leurs méthodes selon vos besoins spécifiques, afin d’élaborer une solution optimale.
 
@@ -70,26 +68,26 @@ Le diagramme suivant illustre l’architecture de ce scénario :
 1. Dans le portail Azure, cliquez sur **Créer une ressource** > **Mise en réseau** > **Profil Traffic Manager** > **Créer**.
 2. Entrez les informations de base suivantes :
 
-  * **Nom** : donnez un nom de préfixe DNS à votre profil Traffic Manager.
-  * **Méthode de routage** : sélectionnez la stratégie de la méthode de routage du trafic. Pour en savoir plus sur les différentes méthodes , voir [À propos des méthodes de routage du trafic de Traffic Manager](traffic-manager-routing-methods.md).
-  * **Abonnement**: sélectionnez l’abonnement qui contient le profil.
-  * **Groupe de ressources** : sélectionnez le groupe de ressources qui contient le profil. Il peut s’agir d’un groupe de ressources nouveau ou existant.
-  * **Emplacement du groupe de ressources** : le service Traffic Manager est global, et non lié à un emplacement. Toutefois, vous devez spécifier une région pour le groupe hébergeant les métadonnées associées au profil Traffic Manager. Cet emplacement n’a aucune incidence sur la disponibilité du profil au moment de l’exécution.
+   * **Nom** : donnez un nom de préfixe DNS à votre profil Traffic Manager.
+   * **Méthode de routage** : sélectionnez la stratégie de la méthode de routage du trafic. Pour en savoir plus sur les différentes méthodes , voir [À propos des méthodes de routage du trafic de Traffic Manager](traffic-manager-routing-methods.md).
+   * **Abonnement**: sélectionnez l’abonnement qui contient le profil.
+   * **Groupe de ressources** : sélectionnez le groupe de ressources qui contient le profil. Il peut s’agir d’un groupe de ressources nouveau ou existant.
+   * **Emplacement du groupe de ressources** : le service Traffic Manager est global, et non lié à un emplacement. Toutefois, vous devez spécifier une région pour le groupe hébergeant les métadonnées associées au profil Traffic Manager. Cet emplacement n’a aucune incidence sur la disponibilité du profil au moment de l’exécution.
 
 3. Cliquez sur **Créer** pour générer le profil Traffic Manager.
 
-  ![Panneau Créer un profil Traffic Manager](./media/traffic-manager-load-balancing-azure/s1-create-tm-blade.png)
+   ![Panneau Créer un profil Traffic Manager](./media/traffic-manager-load-balancing-azure/s1-create-tm-blade.png)
 
 ### <a name="step-2-create-the-application-gateways"></a>Étape 2 : créer des passerelles Application Gateway
 
 1. Dans le volet de gauche du portail Azure, cliquez sur **Créer une ressource** > **Mise en réseau** > **Application Gateway**.
 2. Indiquez ensuite les informations de base suivantes sur la passerelle Application Gateway :
 
-  * **Nom** : Nom de la passerelle Application Gateway.
-  * **Taille de la référence** : taille de la passerelle Application Gateway (petite, moyenne ou grande).
-  * **Nombre d’instances** : nombre d’instances (valeur comprise entre 2 et 10).
-  * **Groupe de ressources** : groupe de ressources qui contient la passerelle Application Gateway. Il peut s’agir d’un groupe existant, ou d’un nouveau groupe.
-  * **Emplacement** : région de la passerelle Application Gateway. Il s’agit du même emplacement que celui du groupe de ressources. Cet emplacement est important, dans la mesure où le réseau virtuel et l’adresse IP publique doivent se trouver au même endroit que la passerelle.
+   * **Nom** : Nom de la passerelle Application Gateway.
+   * **Taille de la référence** : taille de la passerelle Application Gateway (petite, moyenne ou grande).
+   * **Nombre d’instances** : nombre d’instances (valeur comprise entre 2 et 10).
+   * **Groupe de ressources** : groupe de ressources qui contient la passerelle Application Gateway. Il peut s’agir d’un groupe existant, ou d’un nouveau groupe.
+   * **Emplacement** : région de la passerelle Application Gateway. Il s’agit du même emplacement que celui du groupe de ressources. Cet emplacement est important, dans la mesure où le réseau virtuel et l’adresse IP publique doivent se trouver au même endroit que la passerelle.
 3. Cliquez sur **OK**.
 4. Définissez le réseau virtuel, le sous-réseau, l’adresse IP frontale et les configurations d’écouteur pour la passerelle Application Gateway. Dans ce scénario, l’adresse IP frontale est de type **Public**. Elle peut ainsi être ajoutée comme point de terminaison au profil Traffic Manager.
 5. Configurez l’écouteur avec l’une des options suivantes :
@@ -106,11 +104,11 @@ Au moment de choisir le pool principal, une passerelle Application Gateway conf
 2. Sous **Paramètres**, sélectionnez **Pools principaux**, puis cliquez sur **Ajouter** pour ajouter les machines virtuelles à associer avec les pools principaux de niveau web.
 3. Entrez le nom du pool principal et toutes les adresses IP des machines résidant dans le pool. Dans ce scénario, nous connectons deux pools de serveurs principaux de machines virtuelles.
 
-  ![Ajouter un pool principal, dans Application Gateway](./media/traffic-manager-load-balancing-azure/s2-appgw-add-bepool.png)
+   ![Ajouter un pool principal, dans Application Gateway](./media/traffic-manager-load-balancing-azure/s2-appgw-add-bepool.png)
 
 4. Dans la section **Paramètres** de la passerelle Application Gateway, sélectionnez **Règles**, puis cliquez sur le bouton **Basé sur le chemin** pour ajouter une règle.
 
-  ![Bouton Basé sur le chemin de la zone Règles de la passerelle Application Gateway](./media/traffic-manager-load-balancing-azure/s2-appgw-add-pathrule.png)
+   ![Bouton Basé sur le chemin de la zone Règles de la passerelle Application Gateway](./media/traffic-manager-load-balancing-azure/s2-appgw-add-pathrule.png)
 
 5. Configurez la règle en fournissant les informations décrites ci-après.
 
@@ -140,13 +138,13 @@ Dans ce scénario, Traffic Manager est connecté à des instances Application 
 1. Ouvrez le profil Traffic Manager. Pour ce faire, consultez le groupe de ressources ou recherchez le nom du profil Traffic Manager dans la zone **Toutes les ressources**.
 2. Dans le volet de gauche, sélectionnez **Points de terminaison**, puis cliquez sur **Ajouter** pour ajouter un point de terminaison.
 
-  ![Bouton Ajouter de la zone Points de terminaison Traffic Manager](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint.png)
+   ![Bouton Ajouter de la zone Points de terminaison Traffic Manager](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint.png)
 
 3. Créez un point de terminaison en entrant les informations suivantes :
 
-  * **Type** : sélectionnez le type de point de terminaison pour l’équilibrage de charge. Dans ce scénario, sélectionnez **Point de terminaison Azure**, car nous le connectons aux instances Application Gateway configurées précédemment.
-  * **Nom** : saisissez le nom du point de terminaison.
-  * **Type de ressource cible** : sélectionnez **Adresse IP publique** et, sous **Ressource cible**, sélectionnez l’adresse IP publique de la passerelle Application Gateway configurée précédemment.
+   * **Type** : sélectionnez le type de point de terminaison pour l’équilibrage de charge. Dans ce scénario, sélectionnez **Point de terminaison Azure**, car nous le connectons aux instances Application Gateway configurées précédemment.
+   * **Nom** : saisissez le nom du point de terminaison.
+   * **Type de ressource cible** : sélectionnez **Adresse IP publique** et, sous **Ressource cible**, sélectionnez l’adresse IP publique de la passerelle Application Gateway configurée précédemment.
 
    ![Ajouter un point de terminaison, dans Traffic Manager](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint-blade.png)
 
@@ -173,7 +171,7 @@ Pour en savoir plus sur la configuration d’un équilibrage de charge interne, 
 1. À partir de votre groupe de ressources, recherchez l’équilibrage de charge créé lors des étapes précédentes.
 2. Sous **Paramètres**, cliquez sur **Pools principaux**, puis cliquez sur **Ajouter** pour ajouter un pool principal.
 
-  ![Ajouter un pool principal, dans Équilibreur de charge](./media/traffic-manager-load-balancing-azure/s4-ilb-add-bepool.png)
+   ![Ajouter un pool principal, dans Équilibreur de charge](./media/traffic-manager-load-balancing-azure/s4-ilb-add-bepool.png)
 
 3. Entrez le nom du pool principal.
 4. Ajoutez des ordinateurs individuels ou un jeu de disponibilité pour le pool principal.
@@ -182,7 +180,7 @@ Pour en savoir plus sur la configuration d’un équilibrage de charge interne, 
 
 1. Dans votre équilibrage de charge, sélectionnez **Paramètres**, puis **Sondes**, et cliquez sur **Ajouter** pour ajouter une sonde.
 
- ![Ajouter une sonde, dans Équilibreur de charge](./media/traffic-manager-load-balancing-azure/s4-ilb-add-probe.png)
+   ![Ajouter une sonde, dans Équilibreur de charge](./media/traffic-manager-load-balancing-azure/s4-ilb-add-probe.png)
 
 2. Entrez le nom de la sonde.
 3. Sélectionnez le **protocole** de la sonde. Pour une base de données, vous choisirez sans doute une sonde TCP plutôt qu’une sonde HTTP. Pour en savoir plus sur les sondes d’équilibrage de charge, voir [Sondes d’équilibreur de charge](../load-balancer/load-balancer-custom-probe-overview.md).

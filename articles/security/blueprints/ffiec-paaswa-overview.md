@@ -8,16 +8,16 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: meladie
-ms.openlocfilehash: 3ef8afb554b00c3d261ec8d0093a0c5831a43a7f
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: 63ad692e1050f900310f8195b79f26dd99704b93
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652592"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245914"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-ffiec-financial-services"></a>Blueprint de sécurité et de conformité Azure : Application web PaaS pour les services financiers du FFIEC
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Cette solution Automation Blueprint de sécurité et de conformité Azure fournit des conseils pour déployer un environnement PaaS (Platform as a service) adapté à la collecte, au stockage et à la récupération des données financières régies par le FFIEC (Federal Financial Institution Examination Council). Cette solution automatise le déploiement et la configuration des ressources Azure pour une architecture de référence commune, illustrant diverses façons dont les clients peuvent satisfaire à des exigences de conformité et de sécurité spécifiques, et sert de base aux clients souhaitant générer et configurer leurs propres solutions sur Azure. La solution implémente un sous-ensemble des exigences inscrites dans les livres du FFIEC. Pour plus d’informations sur les exigences du FFIEC et sur cette solution, consultez la section [documentation sur la conformité](#compliance-documentation).
 
@@ -43,7 +43,7 @@ Pour renforcer la sécurité, toutes les ressources dans cette solution sont gé
 
 Azure SQL Database est généralement géré dans SQL Server Management Studio, qui s’exécute à partir d’une machine locale configurée pour accéder à Azure SQL Database via une connexion VPN ou ExpressRoute sécurisée.
 
-Par ailleurs, Application Insights gère et analyse en temps réel les performances d’application via Log Analytics. **Microsoft recommande de configurer une connexion VPN ou ExpressRoute pour la gestion et l’importation de données dans le sous-réseau de l’architecture de référence.**
+En outre, Application Insights fournit la gestion des performances des applications en temps réel et analytique via les journaux Azure Monitor. **Microsoft recommande de configurer une connexion VPN ou ExpressRoute pour la gestion et l’importation de données dans le sous-réseau de l’architecture de référence.**
 
 ![Diagramme de l’architecture de référence d’application web PaaS pour le FFIEC](images/ffiec-paaswa-architecture.png "Diagramme de l’architecture de référence d’application web PaaS pour le FFIEC")
 
@@ -53,7 +53,7 @@ Cette solution utilise les services Azure suivants. Les détails de l’architec
     - Pare-feu d’application web
         - Mode de pare-feu : prévention
         - Ensemble de règles : OWASP
-        - Port d'écoute : 443
+        - Port de l’écouteur : 443
 - Application Insights
 - Azure Active Directory
 - Azure Application Service Environment v2
@@ -61,12 +61,11 @@ Cette solution utilise les services Azure suivants. Les détails de l’architec
 - Azure DNS
 - Azure Key Vault
 - Azure Load Balancer
-- Azure Monitor
+- Azure Monitor (journaux)
 - Azure Resource Manager
 - Azure Security Center
 - Azure SQL Database
 - Stockage Azure
-- Azure Log Analytics
 - Réseau virtuel Azure
     - (1) /16 réseau
     - (4) /24 réseaux
@@ -77,9 +76,9 @@ Cette solution utilise les services Azure suivants. Les détails de l’architec
 
 La section ci-après décrit en détail les éléments nécessaires au déploiement et à l’implémentation.
 
-**Azure Resource Manager** : [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) permet aux clients d'utiliser les ressources de la solution en tant que groupe. Les clients peuvent déployer, mettre à jour ou supprimer toutes les ressources de la solution en une seule opération coordonnée. Les clients utilisent pour le déploiement un modèle pouvant fonctionner avec différents environnements, par exemple de test, intermédiaire et de production. Le Gestionnaire des ressources Azure Resource Manager offre des fonctionnalités de sécurité, d’audit et de marquage pour aider les clients à gérer leurs ressources après le déploiement de celles-ci.
+**Azure Resource Manager** : [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) permet aux clients d’utiliser les ressources de la solution en tant que groupe. Les clients peuvent déployer, mettre à jour ou supprimer toutes les ressources de la solution en une seule opération coordonnée. Les clients utilisent pour le déploiement un modèle pouvant fonctionner avec différents environnements, par exemple de test, intermédiaire et de production. Le Gestionnaire des ressources Azure Resource Manager offre des fonctionnalités de sécurité, d’audit et de marquage pour aider les clients à gérer leurs ressources après le déploiement de celles-ci.
 
-**Hôte bastion** : Point d'entrée unique qui permet aux utilisateurs d'accéder aux ressources déployées dans cet environnement. L’hôte bastion fournit une connexion sécurisée à des ressources déployées en autorisant uniquement le trafic distant provenant d’adresses IP publiques figurant sur une liste verte. Pour autoriser le trafic RDP (Remote Desktop Protocol), la source du trafic doit être définie dans le groupe de sécurité réseau.
+**Hôte bastion** : point d’entrée unique qui permet aux utilisateurs d’accéder aux ressources déployées dans cet environnement. L’hôte bastion fournit une connexion sécurisée à des ressources déployées en autorisant uniquement le trafic distant provenant d’adresses IP publiques figurant sur une liste verte. Pour autoriser le trafic RDP (Remote Desktop Protocol), la source du trafic doit être définie dans le groupe de sécurité réseau.
 
 Cette solution crée une machine virtuelle en tant qu’hôte bastion joint au domaine avec les configurations suivantes :
 -   [Extension Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware)
@@ -119,13 +118,13 @@ L’architecture définit un réseau privé virtuel avec l’espace d’adressag
 Chaque groupe de sécurité réseau a des ports et protocoles spécifiques ouverts pour que la solution fonctionne correctement et de manière sécurisée. Par ailleurs, les configurations suivantes sont activées pour chaque groupe de sécurité réseau :
 
 - Les [événements et journaux de diagnostic](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) sont activés et stockés dans un compte de stockage.
-- Log Analytics est connecté aux [journaux de diagnostic du groupe de sécurité réseau](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
+- Journaux d’Azure Monitor est connecté à la [groupe de sécurité réseau&#39;s des journaux de diagnostic](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
 **Sous-réseaux** : chaque sous-réseau est associé au groupe de sécurité réseau qui lui correspond.
 
 **Azure DNS** : Le DNS (Domain Name System) se charge de traduire (ou résoudre) un nom de site web ou de service en une adresse IP. [Azure DNS](https://docs.microsoft.com/azure/dns/dns-overview) est un service d’hébergement pour domaines DNS, qui assure la résolution de noms à l’aide de l’infrastructure Azure. En hébergeant des domaines dans Azure, les utilisateurs peuvent gérer des enregistrements DNS en utilisant les mêmes informations d’identification, API, outils et modes de facturation que pour d’autres services Azure. Azure DNS prend désormais également en charge les domaines DNS privés.
 
-**Azure Load Balancer** : [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) permet aux clients de procéder à la mise à l'échelle de leurs applications et de créer une haute disponibilité pour les services. Load Balancer prend en charge les scénarios entrants et sortants, et offre une latence faible, un débit élevé et une montée en puissance jusqu’à plusieurs millions de flux pour toutes les applications TCP et UDP.
+**Azure Load Balancer** : [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) permet aux clients de procéder à la mise à l’échelle de leurs applications et de créer une haute disponibilité pour les services. Load Balancer prend en charge les scénarios entrants et sortants, et offre une latence faible, un débit élevé et une montée en puissance jusqu’à plusieurs millions de flux pour toutes les applications TCP et UDP.
 
 ### <a name="data-in-transit"></a>Données en transit
 
@@ -177,7 +176,7 @@ Azure Security Center utilise diverses fonctionnalités de détection pour avert
 
 Azure Security Center fournit des incidents et des alertes de sécurité hiérarchisés, ce qui permet aux clients de découvrir et de résoudre plus facilement les problèmes de sécurité potentiels. Un [rapport de Threat intelligence](https://docs.microsoft.com/azure/security-center/security-center-threat-report) est généré pour chaque menace détectée afin d’aider les équipes chargées de répondre aux incidents à examiner et à contrecarrer les menaces.
 
-**Azure Application Gateway** : L'architecture réduit le risque de failles de sécurité en utilisant une passerelle Azure Application Gateway avec un pare-feu d'applications web configuré et l'ensemble de règles OWASP activé. Les autres fonctionnalités incluent notamment :
+**Azure Application Gateway** : l’architecture réduit le risque de failles de sécurité en utilisant une passerelle d’application avec un pare-feu d’applications web Azure configuré et l’ensemble de règles OWASP activé. Les autres fonctionnalités incluent notamment :
 
 - [End-to-end-SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - Activation du [déchargement SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-portal)
@@ -194,9 +193,9 @@ Les services Azure assurent une journalisation complète de l’activité du sys
 - **Journaux d’activité** : les [journaux d’activité](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fournissent des insights sur les opérations ayant été effectuées sur les ressources d’un abonnement. Les journaux d’activité peuvent aider à déterminer l’initiateur, l’heure d’exécution et l’état d’une opération.
 - **Journaux de diagnostic** : les [journaux de diagnostic](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) incluent l’ensemble des journaux générés par chaque ressource. Ils incluent les journaux des événements système de Windows, les journaux de Stockage Azure, les journaux d’audit du Key Vault, ainsi que les journaux de pare-feu et d’accès d’Application Gateway. Tous les journaux de diagnostic sont consignés dans un compte de stockage Azure centralisé et chiffré pour l’archivage. L’utilisateur peut configurer la rétention jusqu’à 730 jours pour répondre aux exigences de rétention spécifiques de l’entreprise.
 
-**Log Analytics** : ces journaux sont consolidés dans [Log Analytics](https://azure.microsoft.com/services/log-analytics/) à des fins de traitement, de stockage et de génération de rapports de tableau de bord. Une fois collectées, les données sont organisées dans différentes tables en fonction du type de données dans des espaces de travail Log Analytics. Toutes les données sont ainsi analysées ensemble, quelle que soit leur source d’origine. Par ailleurs, Azure Security Center s’intègre à Log Analytics pour permettre aux clients d’utiliser des requêtes Log Analytics afin d’accéder à leurs données d’événement de sécurité et de les combiner avec des données provenant d’autres services.
+**Journaux Azure Monitor** : Ces journaux sont consolidés dans [Azure Monitor enregistre](https://azure.microsoft.com/services/log-analytics/) pour le traitement, le stockage et la création de rapports de tableau de bord. Une fois collectées, les données sont organisées dans différentes tables en fonction du type de données dans des espaces de travail Log Analytics. Toutes les données sont ainsi analysées ensemble, quelle que soit leur source d’origine. En outre, Azure Security Center s’intègre avec les journaux Azure Monitor permet aux clients d’utiliser des requêtes de Kusto pour accéder à leurs données d’événement de sécurité et de les combiner avec des données provenant d’autres services.
 
-Les [solutions de gestion](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) Log Analytics suivantes sont également incluses dans cette architecture :
+Azure suivant [solutions de surveillance](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) sont inclus dans le cadre de cette architecture :
 -   [Active Directory Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment) : la solution Active Directory Health Check évalue les risques et l’intégrité des environnements de serveur à intervalles réguliers, et fournit une liste hiérarchisée de suggestions spécifiques pour l’infrastructure de serveur déployée.
 - [SQL Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment) : la solution SQL Health Check évalue les risques et l’intégrité des environnements de serveur à intervalles réguliers, et fournit aux clients une liste hiérarchisée de suggestions spécifiques pour l’infrastructure de serveur déployée.
 - [Agent Health](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth) : cette solution de contrôle d’intégrité des agents indique le nombre d’agents déployés et leur répartition géographique, ainsi que le nombre d’agents qui ne répondent pas ou qui envoient des données opérationnelles.

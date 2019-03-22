@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b73656e2bb7c413d2c29fafb682f39154499854a
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 7d877f467f06768c31679752d9deff1ca19d0003
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904452"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882873"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Activer la journalisation des diagnostics pour les applications dans Azure App Service
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Azure fournit des diagnostics intégrés pour aider au débogage d’une [application App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Cet article vous explique comment activer la journalisation de diagnostic et ajouter la fonctionnalité d’instrumentation à votre application, et comment accéder aux informations enregistrées par Azure.
 
 Cet article utilise le [portail Azure](https://portal.azure.com) et Azure CLI pour l’exploitation des journaux de diagnostic. Pour plus d’informations sur l’utilisation de journaux de diagnostic avec Visual Studio, consultez [Résolution des problèmes Azure dans Visual Studio](troubleshoot-dotnet-visual-studio.md).
@@ -34,8 +34,8 @@ App Service fournit des fonctionnalités de diagnostic pour les informations de
 ### <a name="web-server-diagnostics"></a>Diagnostics de serveur web
 Vous pouvez activer ou désactiver les types de journaux suivants :
 
-* **Messages d’erreur détaillés** : informations d’erreur détaillées pour les codes d’état HTTP qui indiquent un échec (code d’état 400 ou supérieur). Il peut s’agir d’informations permettant de déterminer la raison pour laquelle le serveur a renvoyé le code d’erreur.
-* **Suivi des demandes ayant échoué** : informations détaillées sur les demandes qui ont échoué, y compris une trace des composants IIS utilisés pour traiter la demande et la durée dans chaque composant. Ces informations sont utiles si vous souhaitez améliorer les performances du site ou isoler une erreur HTTP spécifique.
+* **Erreur détaillés** -des informations détaillées pour toute demande ayant entraîné dans le code d’état HTTP 400 ou supérieur. Il peut s’agir d’informations permettant de déterminer la raison pour laquelle le serveur a renvoyé le code d’erreur. Un fichier HTML est généré pour chaque erreur dans le système de fichiers de l’application et jusqu'à 50 erreurs (fichiers) sont conservés. Lorsque le nombre de fichiers HTML dépasse 50, les fichiers de 26 plus anciens sont automatiquement supprimés.
+* **Suivi des demandes ayant échoué** : informations détaillées sur les demandes qui ont échoué, y compris une trace des composants IIS utilisés pour traiter la demande et la durée dans chaque composant. Ces informations sont utiles si vous souhaitez améliorer les performances du site ou isoler une erreur HTTP spécifique. Un dossier est généré pour chaque erreur dans le système de fichiers de l’application. Stratégies de rétention de fichier sont les mêmes que l’enregistrement ci-dessus détaillé des erreurs.
 * **Journalisation du serveur Web** : informations sur les transactions HTTP à l’aide du [format de fichier journal étendu W3C](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Ces informations peuvent se révéler utiles pour déterminer les métriques globales d’un site, comme le nombre de requêtes traitées ou le nombre de requêtes émanant d’une adresse IP spécifique.
 
 ### <a name="application-diagnostics"></a>Diagnostic d'application
@@ -58,7 +58,7 @@ Quand vous activez les **diagnostics d’application**, choisissez également le
 | Niveau| Catégories de journaux incluses |
 |-|-|
 |**Désactivé** | Aucun |
-|**Erreur** | Erreur, Critique |
+|**Error** | Erreur, Critique |
 |**Avertissement** | Avertissement, Erreur, Critique|
 |**Informations** | Info, Avertissement, Erreur, Critique|
 |**Verbose** | Trace, Débogage, Info, Avertissement, Erreur, Critique (toutes les catégories) |
@@ -213,6 +213,10 @@ Les données stockées dans un objet blob peuvent se présenter comme suit :
 Le suivi des demandes ayant échoué est stocké dans des fichiers XML nommés **fr######.xml**. Pour faciliter la consultation des informations consignées, une feuille de style XSL nommée **freb.xsl** est fournie dans le même répertoire que les fichiers XML. Si vous ouvrez un des fichiers XML dans Internet Explorer, ce dernier utilise la feuille de style XSL pour fournir un affichage mis en forme des informations de suivi, comme dans l’exemple suivant :
 
 ![affichage d'une demande ayant échoué dans le navigateur](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
+
+> [!NOTE]
+> Un moyen simple pour afficher les traces de la mise en forme des demandes ayant échoué est pour accéder à la page de votre application dans le portail. Dans le menu de gauche, sélectionnez **diagnostiquer et résoudre les problèmes**, puis recherchez **Échec de suivi des journaux de demandes de**, puis cliquez sur l’icône pour parcourir et afficher la trace que vous souhaitez.
+>
 
 ### <a name="detailed-error-logs"></a>Journaux d'erreurs détaillés
 Les journaux d'erreurs détaillés sont des documents HTML qui fournissent des informations plus détaillées sur les erreurs HTTP qui se sont produites. Puisqu'il s'agit simplement de documents HTML, ils peuvent être consultés à l'aide d'un navigateur Web.

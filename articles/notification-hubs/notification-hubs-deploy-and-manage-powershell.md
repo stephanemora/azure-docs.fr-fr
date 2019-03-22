@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 5d873b18db8ac52c40736a629ff78e3282365730
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 4dbbaeea736dd46478ad9992201ea28bd7bfc2ba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473977"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855501"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>Déployer et gérer des hubs de notification à l'aide de PowerShell
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Cet article vous montre comment utiliser Création et gestion d’Azure Notification Hubs à l'aide de PowerShell. Les tâches d’automatisation courantes suivantes figurent dans cet article.
 
@@ -34,7 +34,7 @@ Si vous devez également créer un espace de noms Service Bus pour vos hubs de n
 
 La gestion des concentrateurs de notification n’est pas directement prise en charge par les applets de commande inclus avec Azure PowerShell. Dans PowerShell, la meilleure approche consiste à référencer l’assembly Microsoft.Azure.NotificationHubs.dll. L’assembly est distribué avec le [package NuGet Microsoft Azure Notification Hubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 - Un abonnement Azure. Azure est une plateforme disponible par abonnement. Pour plus d'informations sur l'obtention d'un abonnement, consultez les pages [Modes d’achat d’Azure], [Offres spéciales membres] ou [Version d'évaluation gratuite].
 - Un ordinateur sur lequel est installé Azure PowerShell. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell].
@@ -154,9 +154,9 @@ Vous pouvez également télécharger des scripts prêts à l’emploi :
 
 - [Scripts PowerShell pour Service Bus](https://code.msdn.microsoft.com/windowsazure/Service-Bus-PowerShell-a46b7059)
 
-[Modes d’achat d’Azure]: http://azure.microsoft.com/pricing/purchase-options/
-[Offres spéciales membres]: http://azure.microsoft.com/pricing/member-offers/
-[Version d'évaluation gratuite]: http://azure.microsoft.com/pricing/free-trial/
+[Modes d’achat d’Azure]: https://azure.microsoft.com/pricing/purchase-options/
+[Offres spéciales membres]: https://azure.microsoft.com/pricing/member-offers/
+[Version d'évaluation gratuite]: https://azure.microsoft.com/pricing/free-trial/
 [Installation et configuration d'Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [API .NET pour Notification Hubs]: https://docs.microsoft.com/dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
 [Get-AzureSBNamespace]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azuresbnamespace

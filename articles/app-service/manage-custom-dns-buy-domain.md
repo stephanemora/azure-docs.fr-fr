@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: d47c560515a13efa8346974e828f14f9a15f0e4a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 0c59e892c8fd5a8bcc74d23e16eaabf1dc1a08f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53730000"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121534"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Acheter un nom de domaine personnalisé pour Azure App Service
 
@@ -28,7 +28,7 @@ Les domaines App Service (version préliminaire) sont des domaines de niveau sup
 
 Pour la machine virtuelle Azure ou le stockage Azure, consultez [Assign App Service domain to Azure VM or Azure Storage](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/31/assign-app-service-domain-to-azure-vm-or-azure-storage/) (Attribuer un domaine App Service à une machine virtuelle Azure ou un stockage Azure). Pour Services cloud, consultez [Configuration d’un nom de domaine personnalisé pour un service cloud Azure](../cloud-services/cloud-services-custom-domain-name-portal.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour suivre ce tutoriel :
 
@@ -102,7 +102,7 @@ Sur la page **Domaines personnalisés**, cliquez sur **Acheter un domaine**.
 ### <a name="configure-the-domain-purchase"></a>Configurer l’achat de domaine
 
 Sur la page **Domaine App Service**, dans la zone **Recherche de domaine**, tapez le nom de domaine que vous souhaitez acheter et tapez `Enter`. Les domaines disponibles proposés s'affichent juste en dessous de la zone de texte. Sélectionnez un ou plusieurs domaines que vous souhaitez acheter.
-   
+
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.png)
 
 > [!NOTE]
@@ -111,22 +111,22 @@ Sur la page **Domaine App Service**, dans la zone **Recherche de domaine**, tape
 >
 
 Cliquez sur **Informations de contact** et remplissez le formulaire d’informations de contact du domaine. Lorsque vous avez terminé, cliquez sur **OK** pour revenir à la page Domaine App Service.
-   
-Il est très important de remplir tous les champs obligatoires aussi précisément que possible. L’inexactitude des informations de contact fournies peut empêcher l’achat des domaines. 
+
+Il est très important de remplir tous les champs obligatoires aussi précisément que possible. L’inexactitude des informations de contact fournies peut empêcher l’achat des domaines.
 
 Sélectionnez ensuite les options souhaitées pour votre domaine. Pour plus de précisions, consultez le tableau suivant :
 
 | Paramètre | Valeur suggérée | Description |
 |-|-|-|
 |Protection des données personnelles | Activer | Choisissez l'option « Protection des données personnelles », incluse _gratuitement_ dans le prix d'achat. Certains domaines de niveau supérieur sont gérés par des bureaux d'enregistrement qui ne prennent pas en charge la protection des données personnelles. Ils sont répertoriés dans la page **Protection des données personnelles**. |
-| Attribuer des noms d’hôte par défaut | **www** et **@** | Si vous le souhaitez, vous pouvez sélectionner les liaisons de nom d’hôte souhaitées. Lorsque l’opération d’achat de domaine est terminée, votre application est accessible aux noms d’hôtes choisis. Si l’application se trouve derrière [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), vous ne voyez pas l’option pour attribuer le domaine racine (@), car Traffic Manager ne prend pas en charge les enregistrements A. Vous pouvez apporter des modifications aux attributions de nom d’hôte après l’achat de domaine. |
+| Attribuer des noms d’hôte par défaut | **www** et **\@** | Si vous le souhaitez, vous pouvez sélectionner les liaisons de nom d’hôte souhaitées. Lorsque l’opération d’achat de domaine est terminée, votre application est accessible aux noms d’hôtes choisis. Si l’application se trouve derrière [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), vous ne voyez pas l’option pour attribuer le domaine racine (@), car Traffic Manager ne prend pas en charge les enregistrements A. Vous pouvez apporter des modifications aux attributions de nom d’hôte après l’achat de domaine. |
 
 ### <a name="accept-terms-and-purchase"></a>Accepter les mentions et acheter
 
 Cliquez sur **Mentions légales** pour consulter les mentions et les frais, puis cliquez sur **Acheter**.
 
 > [!NOTE]
-> Les domaines App Service utilisent Azure DNS pour héberger les domaines. Outre les frais d’inscription de domaine, les frais d’utilisation d’Azure DNS s’appliquent aussi. Pour en savoir plus, consultez la page relative à la [tarification Azure DNS](https://azure.microsoft.com/pricing/details/dns/).
+> Domaines App Service utilisent GoDaddy pour l’inscription de domaine et Azure DNS pour héberger les domaines. Outre les frais d’inscription de domaine, les frais d’utilisation d’Azure DNS s’appliquent aussi. Pour en savoir plus, consultez la page relative à la [tarification Azure DNS](https://azure.microsoft.com/pricing/details/dns/).
 >
 >
 
@@ -146,7 +146,7 @@ Vous voyez également les noms d’hôtes choisis sur la page **Domaines personn
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
-Pour tester des noms d’hôte, accédez à ceux qui sont répertoriés dans le navigateur. Dans l’exemple de la capture d’écran précédente, essayez d’accéder à _kontoso.net_ et _www.kontoso.net_.
+Pour tester des noms d’hôte, accédez à ceux qui sont répertoriés dans le navigateur. Dans l’exemple de la capture d’écran précédente, essayez d’accéder à _kontoso.net_ et _www\.kontoso.net_.
 
 ## <a name="assign-hostnames-to-app"></a>Attribuer des noms d’hôte à une application
 
@@ -177,7 +177,7 @@ Sélectionnez **Ajouter un nom d’hôte**.
 Dans la boîte de dialogue **Ajouter un nom d’hôte**, entrez le nom de domaine complet du domaine App Service ou de n’importe quel sous-domaine. Par exemple : 
 
 - kontoso.net
-- www.kontoso.net
+- www\.kontoso.net
 - abc.kontoso.net
 
 Lorsque vous avez terminé, sélectionnez **Valider**. Le type d’enregistrement de nom d’hôte est automatiquement sélectionné pour vous.

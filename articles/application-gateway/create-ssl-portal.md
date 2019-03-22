@@ -10,12 +10,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 5/15/2018
 ms.author: victorh
-ms.openlocfilehash: 2ae8c14b40fa13a1aa8008588fb0efb1b1d2c3f6
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 92db27aa486936d53c2e2e1c92db7d728b7d99c5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159415"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091832"
 ---
 # <a name="configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Configurer une passerelle d’application avec un arrêt SSL à l’aide du portail Azure
 
@@ -29,6 +29,8 @@ Dans cet article, vous apprendrez comment :
 > * Créer les machines virtuelles utilisées comme serveurs principaux
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure
 
@@ -76,12 +78,12 @@ Un réseau virtuel est nécessaire pour la communication entre les ressources qu
 4. Acceptez les valeurs par défaut pour les autres paramètres, puis cliquez sur **OK**.
 5. Cliquez sur **Choisir un réseau virtuel**, cliquez sur **Créer nouveau**, puis entrez ces valeurs pour le réseau virtuel :
 
-    - *myVNet* : pour le nom du réseau virtuel.
-    - *10.0.0.0/16* : pour l’espace d’adressage du réseau virtuel.
-    - *myAGSubnet* : pour le nom du sous-réseau.
-    - *10.0.0.0/24* : pour l’espace d’adressage du sous-réseau.
+   - *myVNet* : pour le nom du réseau virtuel.
+   - *10.0.0.0/16* : pour l’espace d’adressage du réseau virtuel.
+   - *myAGSubnet* : pour le nom du sous-réseau.
+   - *10.0.0.0/24* : pour l’espace d’adressage du sous-réseau.
 
-    ![Création d’un réseau virtuel](./media/create-ssl-portal/application-gateway-vnet.png)
+     ![Création d’un réseau virtuel](./media/create-ssl-portal/application-gateway-vnet.png)
 
 6. Cliquez sur **OK** pour créer le réseau virtuel et le sous-réseau.
 7. Cliquez sur **Choisir une adresse IP publique**, cliquez sur **Créer nouveau**, puis entrez le nom de l’adresse IP publique. Dans cet exemple, l’adresse IP publique est nommée *myAGPublicIPAddress*. Acceptez les valeurs par défaut pour les autres paramètres, puis cliquez sur **OK**.
@@ -132,7 +134,7 @@ Dans cet exemple, vous créez deux machines virtuelles à utiliser en tant que s
 2. Exécutez la commande suivante pour installer IIS sur la machine virtuelle : 
 
     ```azurepowershell-interactive
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -ExtensionName IIS `
       -VMName myVM `
@@ -143,17 +145,17 @@ Dans cet exemple, vous créez deux machines virtuelles à utiliser en tant que s
       -Location EastUS
     ```
 
-3. Créez une deuxième machine virtuelle et installez IIS à l’aide de la procédure que vous venez de terminer. Entrez *myVM2* pour son nom et VMName dans Set-AzureRmVMExtension.
+3. Créez une deuxième machine virtuelle et installez IIS à l’aide de la procédure que vous venez de terminer. Entrez *myVM2* pour son nom et VMName dans Set-AzVMExtension.
 
 ### <a name="add-backend-servers"></a>Ajouter des serveurs principaux
 
-3. Cliquez sur **Toutes les ressources**, puis sur **myAppGateway**.
-4. Cliquez sur **Pools principaux**. Un pool par défaut a été automatiquement créé avec la passerelle d’application. Cliquez sur **appGatewayBackendPool**.
-5. Cliquez sur **Ajouter une cible** pour ajouter chaque machine virtuelle que vous avez créée au pool principal.
+1. Cliquez sur **Toutes les ressources**, puis sur **myAppGateway**.
+1. Cliquez sur **Pools principaux**. Un pool par défaut a été automatiquement créé avec la passerelle d’application. Cliquez sur **appGatewayBackendPool**.
+1. Cliquez sur **Ajouter une cible** pour ajouter chaque machine virtuelle que vous avez créée au pool principal.
 
     ![Ajouter des serveurs principaux](./media/create-ssl-portal/application-gateway-backend.png)
 
-6. Cliquez sur **Enregistrer**.
+1. Cliquez sur **Enregistrer**.
 
 ## <a name="test-the-application-gateway"></a>Tester la passerelle d’application
 

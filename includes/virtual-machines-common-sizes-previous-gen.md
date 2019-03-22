@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 937ac1d892cdea849d7e5a89c8e69c6b069f2efd
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: c16483f4b8ef160c78ff95582faf54c9a9d24a04
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56333965"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57964146"
 ---
 Cet article fournit des informations sur les tailles de machines virtuelles des générations précédentes. Ces tailles peuvent toujours être utilisées, mais des générations plus récentes sont disponibles.
 
 
 ## <a name="ds-series"></a>Série DS
 
-ACU : 160
+ACU : 160-250 <sup>1</sup>
 
 Premium Storage :  Pris en charge
 
@@ -33,11 +33,12 @@ Mise en cache du Stockage Premium :  Pris en charge
 | Standard_DS3 |4 |14 |28 |16 |16 000 / 128 (172) |12 800 / 128 |4 / 2 000 |
 | Standard_DS4 |8 |28 |56 |32 |32 000 / 256 (344) |25 600 / 256 |8 / 4 000 |
 
+<sup>1</sup> famille de machines virtuelles peuvent s’exécuter sur un de l’unité centrale suivantes : 2,2 GHz Intel Xeon® E5-2660 v2, 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) ou de 2,3 GHz Intel XEON® E5-2673 v4 (Broadwell)
 <br>
 
 ## <a name="ds-series---memory-optimized"></a>Série DS - à mémoire optimisée
 
-ACU : 160 <sup>1</sup>
+ACU : 160-250 <sup>1,2</sup>
 
 Premium Storage :  Pris en charge
 
@@ -52,11 +53,11 @@ Mise en cache du Stockage Premium :  Pris en charge
 
 <sup>1</sup> Le débit de disque maximal possible (E/S par seconde ou Mbits/s) avec une machine virtuelle de la série DS peut être limité par le nombre, la taille et la répartition des disques attachés.  Pour plus d’informations, consultez [Conception pour de hautes performances](../articles/virtual-machines/windows/premium-storage-performance.md).
 
-
+<sup>2</sup> famille de machines virtuelles peuvent s’exécuter sur un de l’unité centrale suivantes : 2,2 GHz Intel Xeon® E5-2660 v2, 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) ou de 2,3 GHz Intel XEON® E5-2673 v4 (Broadwell)
 
 ## <a name="d-series"></a>Série D 
 
-ACU : 160
+ACU : 160-250 <sup>1</sup>
 
 Premium Storage :  Non pris en charge
 
@@ -69,11 +70,12 @@ Mise en cache du Stockage Premium :  Non pris en charge
 | D3 standard  | 4         | 14          | 200            | 12000 / 187 / 93                                         | 16 / 16 x 500                         | 4 / 2 000                     |
 | D4 standard  | 8         | 28          | 400            | 24000 / 375 / 187                                        | 32 / 32 x 500                       | 8 / 4 000                     |
 
+<sup>1</sup> famille de machines virtuelles peuvent s’exécuter sur un de l’unité centrale suivantes : 2,2 GHz Intel Xeon® E5-2660 v2, 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) ou de 2,3 GHz Intel XEON® E5-2673 v4 (Broadwell)
 <br>
 
 ## <a name="d-series---memory-optimized"></a>Série D - à mémoire optimisée
 
-ACU : 160
+ACU : 160-250 <sup>1</sup>
 
 Premium Storage :  Non pris en charge
 
@@ -86,6 +88,7 @@ Mise en cache du Stockage Premium :  Non pris en charge
 | D13 standard | 8         | 56          | 400            | 24000 / 375 / 187                                        | 32 / 32 x 500                       | 8 / 4 000                     |
 | D14 standard | 16        | 112         | 800            | 48000 / 750 / 375                                        | 64 / 64 x 500                       | 8 / 8000                |
 
+<sup>1</sup> famille de machines virtuelles peuvent s’exécuter sur un de l’unité centrale suivantes : 2,2 GHz Intel Xeon® E5-2660 v2, 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) ou de 2,3 GHz Intel XEON® E5-2673 v4 (Broadwell)
 <br>
 
 ## <a name="a-series---compute-intensive-instances"></a>Série A - Instances de calcul intensif
@@ -96,7 +99,7 @@ Premium Storage :  Non pris en charge
 
 Mise en cache du Stockage Premium :  Non pris en charge
 
-Les tailles A8 à A11 et celles de la série H sont également appelées *instances nécessitant beaucoup de ressources système*. Le matériel qui exécute ces tailles a été conçu et optimisé pour les applications nécessitant beaucoup de ressources système et réseau, notamment les applications en cluster pour des calculs complexes, la modélisation et les simulations. La série A8-A11 utilise un processeur Intel Xeon E5-2670 cadencé à 2,6 GHZ, et la série H un processeur Intel Xeon E5-2667 v3 cadencé à 3,2 GHz.  Cet article fournit des informations sur le nombre de processeurs virtuels, de disques de données et de cartes réseau ainsi que sur la bande passante réseau et le débit de stockage pour chaque taille de ce regroupement. 
+Les tailles A8 à A11 et celles de la série H sont également appelées *instances nécessitant beaucoup de ressources système*. Le matériel qui exécute ces tailles a été conçu et optimisé pour les applications nécessitant beaucoup de ressources système et réseau, notamment les applications en cluster pour des calculs complexes, la modélisation et les simulations. La série A8-A11 utilise un processeur Intel Xeon E5-2670 cadencé à 2,6 GHZ, et la série H un processeur Intel Xeon E5-2667 v3 cadencé à 3,2 GHz.  
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (HDD) : Gio | Disques de données max. | Débit de disque de données max. : E/S par seconde | Nombre max de cartes réseau|
 | --- | --- | --- | --- | --- | --- | --- |
@@ -127,6 +130,7 @@ Mise en cache du Stockage Premium :  Non pris en charge
 | Standard_A5 |2 |14 |135 |4 |4 x 500 |2 / 500 |
 | Standard_A6 |4 |28 |285 |8 |8 x 500 |2 / 1 000 |
 | Standard_A7 |8 |56 |605 |16 |16 x 500 |4 / 2 000 |
+
 <br>
 
 <sup>1</sup> La taille A0 est trop sollicitée sur le matériel physique. Pour cette taille spécifique uniquement, les autres déploiements de clients peuvent affecter les performances de la charge de travail en cours d’exécution. Les performances relatives sont décrites ci-dessous comme référence attendue, soumises à une variation approximative de 15 pour cent.

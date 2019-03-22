@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 95fb889da564d6e40e25dfb9ee64a8665a954652
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 5496be93a5241621cd4dc5e873e4386f8ed6c992
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700738"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195215"
 ---
 # <a name="public-ip-address-prefix"></a>Préfixe d’adresse IP publique
 
 Un préfixe d’adresse IP publique est une plage réservée d’adresses IP pour vos points de terminaison publics dans Azure. Azure alloue une plage contiguë d’adresses à votre abonnement en fonction du nombre que vous spécifiez. Si vous n’êtes pas familiarisé avec les adresses IP publique, consultez [Adresses IP publiques](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
 
-Les adresses IP publiques sont attribuées à partir d’un pool d’adresses dans chaque région Azure. Vous pouvez [télécharger](https://www.microsoft.com/download/details.aspx?id=41653) la liste des plages qu’Azure utilise pour chaque région. Par exemple, 40.121.0.0/16 est une plage parmi plus de 100 plages qu’Azure utilise dans la région USA Est. La plage inclut les adresses utilisables comprises entre 40.121.0.1 et 40.121.255.254.
+Les adresses IP publiques sont attribuées à partir d’un pool d’adresses dans chaque région Azure. Vous pouvez [télécharger](https://www.microsoft.com/download/details.aspx?id=56519) la liste des plages qu’Azure utilise pour chaque région. Par exemple, 40.121.0.0/16 est une plage parmi plus de 100 plages qu’Azure utilise dans la région USA Est. La plage inclut les adresses utilisables comprises entre 40.121.0.1 et 40.121.255.254.
 
 Vous créez un préfixe d’adresse IP publique dans une région et un abonnement Azure en spécifiant un nom et le nombre d’adresses que le préfixe doit inclure. Par exemple, si vous créez le préfixe d’adresse IP publique /28, Azure alloue automatiquement 16 adresses parmi l’une de ses plages. Vous ne savez pas quelle plage Azure attribue jusqu’à ce que vous créiez la plage, mais les adresses sont contiguës. Les préfixes d’adresses IP publiques entraînent des frais. Pour plus d’informations, consultez [Tarifs des adresses IP](https://azure.microsoft.com/pricing/details/ip-addresses).
 

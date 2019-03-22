@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 7cd6af1dc6b947abd91c9d25a4b102e52da9d24d
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 20f9655e1c3e7cce652802957f5eef1f333870e9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456722"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176495"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Options de mise à l’échelle des applications dans AKS (Azure Kubernetes Service)
 
@@ -51,7 +51,7 @@ Vous devrez peut-être ajuster ces valeurs de ralentissement. Les valeurs de ral
 
 ## <a name="cluster-autoscaler"></a>Autoscaler de cluster
 
-Pour répondre aux demandes changeantes de pods, Kubernetes propose un autoscaler de cluster qui ajuste le nombre de nœuds en fonction des ressources de calcul demandées dans le pool de nœuds. Par défaut, l’autoscaler de cluster vérifie le serveur d’API toutes les 10 secondes à la recherche de toute modification à apporter au nombre de nœuds. Si l’autoscaler de cluster détermine qu’une modification est nécessaire, le nombre de nœuds de votre cluster AKS est augmenté ou diminué en conséquence. L’autoscaler de cluster fonctionne avec les clusters AKS activés pour RBAC qui exécutent Kubernetes 1.10.x ou une version ultérieure.
+Pour répondre aux demandes changeantes du pod, Kubernetes a un autoscaler de cluster (actuellement en version préliminaire dans ACS) qui s’ajuste le nombre de nœuds en fonction des ressources de calcul demandé dans le pool de nœud. Par défaut, l’autoscaler de cluster vérifie le serveur d’API toutes les 10 secondes à la recherche de toute modification à apporter au nombre de nœuds. Si l’autoscaler de cluster détermine qu’une modification est nécessaire, le nombre de nœuds de votre cluster AKS est augmenté ou diminué en conséquence. L’autoscaler de cluster fonctionne avec les clusters AKS activés pour RBAC qui exécutent Kubernetes 1.10.x ou une version ultérieure.
 
 ![Autoscaler de cluster Kubernetes](media/concepts-scale/cluster-autoscaler.png)
 
@@ -81,7 +81,7 @@ Pour faire évoluer rapidement votre cluster AKS, vous pouvez intégrer Azure Co
 
 ![Mise à l'échelle rapide de Kubernetes sur ACI](media/concepts-scale/burst-scaling.png)
 
-ACI vous permet de déployer rapidement des instances de conteneur sans la surcharge d’une infrastructure supplémentaire. Lorsque vous vous connectez à AKS, ACI devient une extension logique et sécurisée de votre cluster AKS. Le composant Virtual Kubelet est installé dans votre cluster AKS qui présente ACI comme un nœud Kubernetes virtuel. Kubernetes peut alors planifier les pods s’exécutant en tant qu’instances ACI via des nœuds virtuels, et non en tant que pods sur des nœuds de machine virtuelle, directement dans votre cluster AKS.
+ACI vous permet de déployer rapidement des instances de conteneur sans la surcharge d’une infrastructure supplémentaire. Lorsque vous vous connectez à AKS, ACI devient une extension logique et sécurisée de votre cluster AKS. Le composant Virtual Kubelet est installé dans votre cluster AKS qui présente ACI comme un nœud Kubernetes virtuel. Kubernetes peut alors planifier les pods s’exécutant en tant qu’instances ACI via des nœuds virtuels, et non en tant que pods sur des nœuds de machine virtuelle, directement dans votre cluster AKS. Les nœuds virtuels sont actuellement en version préliminaire dans ACS.
 
 Votre application n’a besoin d’aucune modification pour utiliser les nœuds virtuels. Les déploiements peuvent mettre à l’échelle dans AKS et ACI, et sans aucun délai car l’autoscaler de cluster déploie les nouveaux nœuds dans votre cluster AKS.
 

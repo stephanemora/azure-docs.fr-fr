@@ -1,6 +1,6 @@
 ---
 title: Diffuser des données de surveillance Azure vers Event Hubs
-description: Découvrez comment diffuser toutes vos données de surveillance Azure vers un hub d’événements afin de les intégrer à un système SIEM ou à un outil d’analytique partenaire.
+description: Découvrez comment diffuser en continu vos données de surveillance Azure vers un hub d’événements pour obtenir les données dans un SIEM partenaire ou un outil d’analytique.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 424dc1611622a1dfc37419fd443d860698020524
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 549ec74514ff03e06ff25893d3fa865f179470e9
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468231"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870684"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Diffuser des données de surveillance Azure vers un hub d’événements pour les utiliser dans un outil externe
 
-Azure Monitor fournit un pipeline pour accéder à l’ensemble des données de surveillance de votre environnement Azure. Vous pouvez ainsi configurer facilement des systèmes SIEM et des outils de surveillance partenaires de manière à ce qu’ils utilisent ces données. Cet article vous aide à configurer différentes couches à partir des données de votre environnement Azure, en vue de les envoyer vers un espace de noms ou un hub d’événements Event Hubs, où elles pourront être collectées par un outil externe.
+Cet article vous aide à configurer différentes couches à partir des données de votre environnement Azure, en vue de les envoyer vers un espace de noms ou un hub d’événements Event Hubs, où elles pourront être collectées par un outil externe.
 
 > [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 
@@ -33,7 +33,7 @@ Au sein de votre environnement Azure, il existe plusieurs « couches » de donn�
 - **Données de surveillance de l’abonnement Azure :** données concernant le fonctionnement et la gestion d’un abonnement Azure, mais aussi données concernant l’intégrité et le fonctionnement d’Azure. Le [journal d’activité](./../../azure-monitor/platform/activity-logs-overview.md) contient la plupart des données de surveillance d’abonnement, telles que les incidents d’intégrité de service et les audits d’Azure Resource Manager. Vous pouvez collecter ces données à l’aide d’un profil de journal.
 - **Données de surveillance du locataire Azure :** données concernant le fonctionnement des services Azure au niveau du locataire, tels qu’Azure Active Directory. Les connexions et les audits d’Azure Active Directory sont des exemples de données de surveillance de locataire. Ces données peuvent être collectées à l’aide d’un paramètre de diagnostic de locataire.
 
-Vous pouvez envoyer les données de toutes les couches vers un hub d’événements, duquel elles pourront être extraites par un outil partenaire. Les sections suivantes expliquent comment configurer les données de chaque couche de sorte qu’elles soient diffusées vers un hub d’événements. Ces étapes supposent que cette couche contient déjà des ressources à surveiller.
+Vous pouvez envoyer les données de toutes les couches vers un hub d’événements, duquel elles pourront être extraites par un outil partenaire. Certaines sources peuvent être configurés pour envoyer des données directement à un concentrateur d’événements pendant que l’autre traiter comme une application logique peuvent être nécessaire pour récupérer les données requises. Les sections suivantes expliquent comment configurer les données de chaque couche de sorte qu’elles soient diffusées vers un hub d’événements. Ces étapes supposent que cette couche contient déjà des ressources à surveiller.
 
 ## <a name="set-up-an-event-hubs-namespace"></a>Configurer un espace de noms Event Hubs
 

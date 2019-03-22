@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/11/2018
 ms.author: lakasa
 ms.subservice: common
-ms.openlocfilehash: 2990ce7a555fae54b8628f11cd90124860a5b983
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 56cf7f19ef3a3cebf705beceadf8f02681b2e2af
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656734"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730186"
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Chiffrement du service de stockage à l’aide de clés gérées par le client dans Azure Key Vault
 
@@ -51,13 +51,23 @@ Set-AzStorageAccount -ResourceGroupName $resourceGroup -Name $accountName -Assig
 ```
 
 ```azurecli-interactive
-az storage account \
-    --account-name <account_name> \
+az storage account update \
+    --name <account_name> \
     --resource-group <resource_group> \
     --assign-identity
 ```
 
-Vous pouvez activer les fonctionnalités « Suppression réversible » et « Ne pas vider » en exécutant les commandes PowerShell ou Azure CLI suivantes :
+Si vous n’avez pas d’un coffre de clés, vous pouvez le créer à partir du portail, Powershell ou CLI :
+
+```powershell
+New-AzKeyVault -Name <vault_name> -ResourceGroupName <resource_group> -Location <location>
+```
+
+```azurecli-interactive
+az keyvault create -n <vault_name> -g <resource_group> -l <region> --enable-soft-delete --enable-purge-protection
+```
+
+Si vous utilisez un coffre de clés existant, vous devez activer la suppression réversible et ne pas vider dans votre coffre en exécutant les commandes PowerShell ou Azure CLI suivantes :
 
 ```powershell
 ($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName $vaultName).ResourceId).Properties `
@@ -74,16 +84,10 @@ $resource.Properties
 ```
 
 ```azurecli-interactive
-az resource update \
-    --id $(az keyvault show --name <vault_name> -o tsv | awk '{print $1}') \
-    --set properties.enableSoftDelete=true
-
-az resource update \
-    --id $(az keyvault show --name <vault_name> -o tsv | awk '{print $1}') \
-    --set properties.enablePurgeProtection=true
+az keyvault update -n <vault_name> -g <resource_group> --enable-soft-delete --enable-purge-protection
 ```
 
-### <a name="step-3-enable-encryption-with-customer-managed-keys"></a>Étape 3 : Activer le chiffrement avec des clés gérées par le client
+### <a name="step-3-enable-encryption-with-customer-managed-keys"></a>Étape 3 : Activer le chiffrement avec des clés gérées par le client
 
 Par défaut, SSE utilise les clés gérées par Microsoft. Vous pouvez activer SSE avec les clés gérées par le client pour le compte de stockage dans le [portail Azure](https://portal.azure.com/). Sur le panneau **Paramètres** du compte de stockage, cliquez sur **Chiffrement**. Sélectionnez l’option **Utiliser votre propre clé**, comme indiqué dans l’illustration suivante.
 
@@ -104,7 +108,7 @@ Pour spécifier votre clé à partir d’un URI, procédez comme suit :
 
 #### <a name="specify-a-key-from-a-key-vault"></a>Spécifiez une clé à partir d’un coffre de clés
 
-Pour spécifier votre clé à partir d’un coffre de clés, procédez comme suit :
+Vous devez disposer d’un coffre de clés et une clé dans ce coffre de clés. Pour spécifier votre clé à partir d’un coffre de clés, procédez comme suit :
 
 1. Choisissez l’option **Sélectionner dans le coffre de clés**.
 2. Cliquez sur le coffre de clés contenant la clé que vous souhaitez utiliser.
@@ -135,6 +139,13 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
     -KeyVersion $key.Version `
     -KeyVaultUri $keyVault.VaultUri
 ```
+
+```azurecli-interactive
+kv_uri=$(az keyvault show -n <vault_name> -g <resource_group> --query properties.vaultUri -o tsv)
+key_version=$(az keyvault key list-versions -n <key_name> --vault-name <vault_name> --query [].kid -o tsv | cut -d '/' -f 6)
+az storage account update -n <account_name> -g <resource_group> --encryption-key-name <key_name> --encryption-key-version $key_version --encryption-key-source Microsoft.Keyvault --encryption-key-vault $kv_uri 
+```
+
 
 ### <a name="step-5-copy-data-to-storage-account"></a>Étape 5 : Copier les données dans le compte de stockage
 

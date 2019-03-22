@@ -3,17 +3,17 @@ title: Connecter un appareil DevKit à votre application Azure IoT Central | Mic
 description: En tant que développeur d’appareils, apprenez à connecter un appareil DevKit IoT MXChip à votre application Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/16/2018
+ms.date: 02/05/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 6d2cb95efbff223aecf1f0525dbb93698639d41a
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: 44af0ccab45f1335d9dfec06287303a34391eded
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198726"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113195"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Connecter un appareil DevKit IoT MXChip à votre application Azure IoT Central
 
@@ -26,48 +26,42 @@ Pour effectuer les étapes de cet article, vous avez besoin des éléments suiva
 1. Une application Azure IoT Central créée à partir du modèle d’application **Exemples de Devkits**. Pour plus d’informations, consultez [Créer une application](quick-deploy-iot-central.md).
 1. Un appareil DevKit. Pour acheter un appareil DevKit, accédez à [MXChip IoT DevKit](http://mxchip.com/az3166).
 
+## <a name="sample-devkits-application"></a>Exemple d'application Devkits
 
-## <a name="sample-devkits-application"></a>**Exemple d’application Devkits**
+Une application créée à partir du modèle d’application **Exemples de Devkits** comprend un modèle d’appareil **MXChip** qui présente les caractéristiques suivantes :
 
-Une application créée à partir du modèle d’application **Exemples de Devkits** comprend un modèle d’appareil **MXChip** qui présente les caractéristiques suivantes : 
-
-- Données de télémétrie qui contiennent les mesures d’**humidité**, de **température**, de **pression**, du **magnétomètre** (mesurées le long des axes X, Y et Z), de l’**accéléromètre** (mesurées le long des axes X, Y et Z) et du **gyroscope** (mesurées le long des axes X, Y et Z) de l’appareil.
+- Données de télémétrie qui contiennent les mesures d'**humidité**, de **température**, de **pression**, du **magnétomètre** (mesurées le long des axes X, Y et Z), de l'**accéléromètre** (mesurées le long des axes X, Y et Z) et du **gyroscope** (mesurées le long des axes X, Y et Z) de l'appareil.
 - État qui contient un exemple de mesure pour l’**État de l’appareil**.
 - Mesure d’événement avec un événement **Bouton B enfoncé**. 
 - Paramètres montrant la **tension**, le **courant**, la **vitesse du ventilateur** et un bouton bascule **Infrarouge**.
 - Propriétés contenant la propriété de l’appareil **Numéro gravé** et l’**Emplacement de l’appareil**, qui est une propriété d’emplacement, ainsi qu’une propriété cloud **Fabriqué en**. 
 
-
-Pour plus d’informations sur la configuration, consultez [Détails du modèle d’appareil MXChip](howto-connect-devkit.md#mxchip-device-template-details).
+Pour plus d’informations sur la configuration, consultez [Détails du modèle d’appareil MXChip](#mxchip-device-template-details).
 
 
 ## <a name="add-a-real-device"></a>Ajouter un appareil réel
 
 Dans votre application Azure IoT Central, ajoutez un appareil réel à partir du modèle d’appareil **MXChip** et notez les informations de connexion de l’appareil (**ID d’étendue, ID d’appareil, et Clé primaire**).
 
-1. Ajoutez un **appareil réel** à partir de Device Explorer, cliquez sur **+ Nouveau > Réel** pour ajouter un appareil réel.
-    * Entrez l’ID d’appareil **<span style="color:Red">(doit être en minuscules)</span>** ou utilisez l’ID d’appareil suggéré.
-    * Entrez le nom de l’appareil ou utilisez le nom suggéré
-    
-    ![Ajout d’un appareil](media/concepts-connectivity/add-device.png)
+1. Ajouter un **appareil réel** dans Device Explorer, sélectionnez **+ Nouveau > réel** pour ajouter un appareil réel.
 
+   * Entrez l’ID d’appareil **<span style="color:Red">(doit être en minuscules)</span>** ou utilisez l’ID d’appareil suggéré.
+   * Entrez le nom de l’appareil ou utilisez le nom suggéré
 
-1. Obtenez des informations de connexion telles que **l’ID d’étendue, l’ID de l’appareil et la clé primaire** pour l’appareil ajouté en cliquant sur **Connecter** sur la page de l’appareil.
- 
-    ![Informations de connexion](media/concepts-connectivity/device-connect.PNG)
+     ![Ajout d’un appareil](media/howto-connect-devkit/add-device.png)
 
-3. Veillez à enregistrer ces informations, car vous serez momentanément déconnecté d’internet quand vous préparerez l’appareil DevKit. 
+1. Obtenir des informations de connexion telles que **clé étendue ID, ID de l’appareil et principal** pour l’appareil ajouté en sélectionnant **Connect** sur la page de l’appareil.
 
+    ![Informations de connexion](media/howto-connect-devkit/device-connect.png)
+
+1. Veillez à enregistrer ces informations, car vous serez momentanément déconnecté d'Internet lorsque vous préparerez l'appareil DevKit.
 
 ### <a name="prepare-the-devkit-device"></a>Préparer l’appareil DevKit
 
 > [!NOTE]
 > Si vous avez précédemment utilisé l’appareil et que vous avez des informations d’identification Wi-Fi stockées, et si vous voulez reconfigurer l’appareil de façon à utiliser un autre réseau Wi-Fi, une autre chaîne de connexion ou une autre mesure de télémétrie, appuyez simultanément sur les boutons **A** et **B** de la carte. Si cela ne fonctionne pas, appuyez sur le bouton de **réinitialisation**, puis réessayez.
 
-
-
-#### <a name="to-prepare-the-devkit-device"></a>Pour préparer l’appareil DevKit :
-
+#### <a name="to-prepare-the-devkit-device"></a>Pour préparer l'appareil DevKit
 
 1. Téléchargez la dernière version du microprogramme Azure IoT Central prédéfini pour MXChip à partir de la page [Releases](https://aka.ms/iotcentral-docs-MXChip-releases) de GitHub.
 1. Connectez l’appareil DevKit à votre machine de développement à l’aide d’un câble USB. Dans Windows, une fenêtre Explorateur de fichiers s’ouvre sur un lecteur mappé au stockage de l’appareil DevKit. Par exemple, le lecteur peut s’appeler **AZ3166 (d)**.
@@ -78,12 +72,12 @@ Dans votre application Azure IoT Central, ajoutez un appareil réel à partir du
     ```
     Connect HotSpot:
     AZ3166_??????
-    go-> 192.168.0.1 
+    go-> 192.168.0.1
     PIN CODE xxxxx
     ```
 
     > [!NOTE]
-    > Si l’écran affiche autre chose, réinitialisez l’appareil et appuyez simultanément sur les boutons **A** et **B** de l’appareil afin de le redémarrer. 
+    > Si l’écran affiche autre chose, réinitialisez l’appareil et appuyez simultanément sur les boutons **A** et **B** de l’appareil afin de le redémarrer.
 
 1. L’appareil est maintenant en mode AP (point d’accès). Vous pouvez vous connecter à ce point d’accès Wi-Fi à partir de votre ordinateur ou appareil mobile.
 
@@ -178,7 +172,7 @@ Le code du fichier source **iotHubClient.cpp** utilise les fonctions des [kits S
 
 Pour plus d’informations sur la façon de modifier, générer et charger l’exemple de code sur votre appareil, consultez le fichier **readme.md** dans le dossier`AZ3166`.
 
-## <a name="mxchip-device-template-details"></a>Détails du modèle d’appareil MXChip 
+## <a name="mxchip-device-template-details"></a>Détails du modèle d’appareil MXChip
 
 Une application créée à partir du modèle d’application Exemples de Devkits comprend un modèle d’appareil MXChip qui présente les caractéristiques suivantes :
 
@@ -203,12 +197,12 @@ Une application créée à partir du modèle d’application Exemples de Devkits
 
 
 #### <a name="states"></a>États 
-| NOM          | Nom complet   | NORMAL | AVERTISSEMENT | DANGER | 
+| Nom          | Nom complet   | NORMAL | AVERTISSEMENT | DANGER | 
 | ------------- | -------------- | ------ | ------- | ------ | 
 | DeviceState   | État de l’appareil   | Vert  | Orange  | Rouge    | 
 
 #### <a name="events"></a>Événements 
-| NOM             | Nom complet      | 
+| Nom             | Nom complet      | 
 | ---------------- | ----------------- | 
 | ButtonBPressed   | Bouton B enfoncé  | 
 
@@ -230,11 +224,11 @@ Paramètres de bascule
 
 ### <a name="properties"></a>properties
 
-| type            | Nom complet | Nom du champ | Type de données |
+| Type            | Nom complet | Nom du champ | Type de données |
 | --------------- | ------------ | ---------- | --------- |
 | Propriété d’appareil | Numéro gravé   | dieNumber  | number    |
 | Propriété d’appareil | Emplacement de l’appareil   | location  | location    |
-| Texte            | Fabriqué dans     | manufacturedIn   | N/A       |
+| Texte            | Fabriqué dans     | manufacturedIn   | S.O.       |
 
 
 

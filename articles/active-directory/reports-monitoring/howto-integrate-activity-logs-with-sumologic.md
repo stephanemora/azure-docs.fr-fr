@@ -17,18 +17,18 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 085b23fe43db4936a0fd459872ec841f2b45e221
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 98134a8fd7609a6f8857d633d2c45251e4c9197b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194272"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58081574"
 ---
 # <a name="integrate-azure-active-directory-logs-with-sumologic-using-azure-monitor-preview"></a>Intégrer des journaux Azure Active Directory avec SumoLogic à l’aide d’Azure Monitor (préversion).
 
 Cet article explique comment intégrer des journaux Azure Active Directory (Azure AD) avec SumoLogic à l’aide d’Azure Monitor. Vous commencez pas router les journaux vers un hub d’événements Azure, puis vous intégrez ce hub d’événements avec SumoLogic.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour utiliser cette fonctionnalité, vous avez besoin des éléments suivants :
 * Un hub d’événements Azure contenant les journaux d’activité d’Azure AD. Découvrez comment [diffuser en continu vos journaux d’activité sur un hub d’événements](quickstart-azure-monitor-stream-logs-to-event-hub.md). 
@@ -40,7 +40,7 @@ Pour utiliser cette fonctionnalité, vous avez besoin des éléments suivants :
 2. Configurez votre instance SumoLogic pour [collecter des journaux pour Azure Active Directory](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Collect_Logs_for_Azure_Active_Directory).
 3. [Installez l’application Azure AD SumoLogic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards) pour utiliser les tableaux de bord préconfigurés qui fournissent une analyse en temps réel de votre environnement.
 
- ![tableau de bord](./media/howto-integrate-activity-logs-with-sumologic/overview-dashboard.png)
+   ![tableau de bord](./media/howto-integrate-activity-logs-with-sumologic/overview-dashboard.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

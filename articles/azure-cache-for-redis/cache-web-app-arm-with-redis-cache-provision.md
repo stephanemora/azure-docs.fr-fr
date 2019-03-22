@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: yegu
-ms.openlocfilehash: 52c5fb8a6da7e3f12d621406542f0e31f7ece1de
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 23b8e4e7e88f5b993f9b0f9981bbae6b884e2818
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233283"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880006"
 ---
 # <a name="create-a-web-app-plus-azure-cache-for-redis-using-a-template"></a>Créer une application web avec un cache Azure pour Redis à l’aide d’un modèle
 
@@ -35,7 +35,7 @@ Pour obtenir l’intégralité du modèle, consultez la page [Application web av
 Dans ce modèle, vous allez déployer :
 
 * Application web Azure
-* Cache Azure pour Redis.
+* Cache Azure pour Redis
 
 Pour exécuter automatiquement le déploiement, cliquez sur le bouton ci-dessous :
 
@@ -86,7 +86,7 @@ Le modèle crée le cache au même emplacement que le groupe de ressources.
 ### <a name="web-app"></a>Application web
 Crée l’application web avec le nom spécifié dans la variable **webSiteName** .
 
-Notez que l’application web est configurée selon des paramètres qui lui permettent d’utiliser le cache Azure pour Redis. Ces paramètres sont créés de façon dynamique en fonction des valeurs fournies lors du déploiement.
+Notez que l’application web est configurée selon des paramètres qui lui permettent d’utiliser le cache Azure pour Redis. Ces paramètres sont créés dynamiquement d’application basé sur les valeurs fournies lors du déploiement.
 
     {
       "apiVersion": "2015-08-01",

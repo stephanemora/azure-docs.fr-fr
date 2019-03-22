@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2017
 ms.author: rkarlin
-ms.openlocfilehash: f1a3268fcacd4083b767a3fe89d6ab9b41b6cceb
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 01f6da4f5ad6b618c444949fce8d2b7aa3367e17
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114057"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075763"
 ---
 # <a name="monitoring-and-processing-security-events-in-azure-security-center"></a>Surveillance et traitement des événements de sécurité dans Azure Security Center
 Le tableau de bord Événements fournit une vue d’ensemble sur le nombre d’événements de sécurité collectés au fil du temps et une liste d’événements notables qui peuvent nécessiter votre attention.  
@@ -28,6 +28,8 @@ Le tableau de bord Événements fournit une vue d’ensemble sur le nombre d’�
 > Pour utiliser cette fonctionnalité, votre espace de travail doit exécuter Log Analytics version 2 et se trouver dans le niveau Standard de Security Center. Pour plus d’informations sur le niveau Standard, consultez la [page de tarification](security-center-pricing.md) de Security Center.
 >
 >
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="what-is-a-security-event"></a>Qu’est-ce qu’un événement de sécurité ?
 Security Center utilise Microsoft Monitoring Agent pour collecter différents événements et configurations liées à la sécurité à partir de vos machines et stocke ces événements dans vos espaces de travail. Ces données peuvent être : des journaux de système d’exploitation (journaux d’événements Windows), des processus d’exécution et des événements de solutions de sécurité intégrées à Security Center. Microsoft Monitoring Agent copie également les fichiers de vidage sur incident dans vos espaces de travail.
@@ -55,30 +57,30 @@ Le **tableau de bord Événements** fournit une vue d’ensemble sur le nombre d
 1. Dans le menu principal de **Security Center**, sélectionnez **Événements**.
 2. Le sélecteur d’espaces de travail du **tableau de bord Événements** peut s’ouvrir. Si vous avez un seul espace de travail, ce sélecteur d’espaces de travail n’apparaît pas. Si vous avez plusieurs espaces de travail, vous devez sélectionner un espace de travail pour afficher les détails de son événement traité. Sélectionnez un espace de travail dans la liste, si vous avez plusieurs espaces de travail.
 
-  ![Liste d’espaces de travail][3]
+   ![Liste d’espaces de travail][3]
 
 3. Le **tableau de bord Événements** s’ouvre pour afficher les détails de l’événement de l’espace de travail sélectionné. Vous pouvez afficher les événements notables et tous les événements par type.  Dans cet exemple, nous avons sélectionné **Notable events** (Événements notables).
 
-  ![Événement notable][4]
+   ![Événement notable][4]
 
 4. Vous pouvez rechercher davantage de données dans l’espace de travail en sélectionnant un type d’événement. Dans cet exemple, nous avons sélectionné **SecurityEvent**.
 
-  ![Sélection d’un type d’événement][5]
+   ![Sélection d’un type d’événement][5]
 
 5. **Recherche dans les journaux** s’ouvre avec des détails supplémentaires sur le type d’événement.
 
-  ![Recherche dans les journaux][6]
+   ![Recherche dans les journaux][6]
 
 ## <a name="add-a-notable-event"></a>Ajouter un événement notable
-Security Center fournit des événements notables prêts à l’emploi. Vous pouvez ajouter des événements notables en fonction de votre propre requête à l’aide du [langage de requête Log Analytics](../log-analytics/log-analytics-search-reference.md). Revenons au **tableau de bord Événements** pour ajouter un événement notable.
+Security Center fournit des événements notables prêts à l’emploi. Vous pouvez ajouter des événements notables en fonction de votre propre à l’aide de la requête la [langage de requête Kusto](../log-analytics/log-analytics-search-reference.md). Revenons au **tableau de bord Événements** pour ajouter un événement notable.
 
 1. Sélectionnez **Add Notable Event** (Ajouter un événement notable).
 
-  ![Ajouter un événement notable][7]
+   ![Ajouter un événement notable][7]
 
 2. **Add custom notable event** (Ajouter un événement notable personnalisé) s’ouvre.  Dans **Nom d’affichage**, entrez un nom pour votre événement notable. Dans **Requête de recherche**, entrez votre requête pour l’événement.
 
-  ![Entrer votre requête][8]
+   ![Entrer votre requête][8]
 
 4. Sélectionnez **OK**.
 
@@ -94,7 +96,7 @@ Si la ligne de l’espace de travail :
 - Est vide, cela signifie que votre espace de travail répond aux exigences. Si vous cliquez sur un espace de travail, vous être redirigé vers le tableau de bord.
 
 > [!NOTE]
-> Dans le **tableau de bord Événements**, la colonne **ÉVÉNEMENTS** indique le nombre d’événements dans chaque espace de travail.  Cette colonne est vide pour certains espaces de travail, car le niveau Gratuit de Security Center est appliqué à cet espace de travail. Dans le niveau Gratuit, Security Center collecte les événements, mais ceux-ci ne sont pas enregistrés dans Log Analytics et ne sont pas disponibles dans le tableau de bord.
+> Dans le **tableau de bord Événements**, la colonne **ÉVÉNEMENTS** indique le nombre d’événements dans chaque espace de travail.  Cette colonne est vide pour certains espaces de travail, car le niveau Gratuit de Security Center est appliqué à cet espace de travail. Dans le niveau gratuit, Security Center collecte les événements, mais les événements ne sont pas enregistrées dans les journaux Azure Monitor et ne sont pas disponibles dans le tableau de bord.
 >
 >
 
@@ -102,26 +104,26 @@ Si la ligne de l’espace de travail :
 1. Sélectionnez un espace de travail avec le statut **REQUIRES UPDATE** (MISE À JOUR NÉCESSAIRE).
 2. **Rechercher une mise à niveau** s’ouvre. Sélectionnez **Upgrade Now** (Mettre à niveau maintenant).
 
-  ![Mettre à niveau maintenant][10]
+   ![Mettre à niveau maintenant][10]
 
 ## <a name="upgrade-to-security-centers-standard-tier"></a>Mettre à niveau vers le niveau Standard de Security Center
 1. Sélectionnez un espace de travail avec le statut **METTRE À NIVEAU LE PLAN**.
 2. **Le tableau de bord Événements** s’ouvre. Sélectionnez le **tableau de bord Try the Events** (Essayer les événements).
 
-  ![Essayer le tableau de bord][11]
+   ![Essayer le tableau de bord][11]
 
 3. Dans **Intégration de la sécurité avancée**, sélectionnez l’espace de travail que vous mettez à niveau.
 4. Dans **Tarification**, sélectionnez **Standard**.
 5. Sélectionnez **Enregistrer**.
 
-  ![Mettre à niveau vers le niveau Standard][12]
+   ![Mettre à niveau vers le niveau Standard][12]
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez découvert comment utiliser le tableau de bord Événements de Security Center. Pour en savoir plus sur le fonctionnement du tableau de bord et écrire vos propres requêtes d’événements, consultez :
 
-- [Présentation de Log Analytics](../log-analytics/log-analytics-overview.md) - Présentation de Log Analytics
-- [Présentation des recherches dans les journaux dans Log Analytics](../log-analytics/log-analytics-log-search-new.md) - Décrit comment sont utilisées les recherches dans les journaux dans Log Analytics, et présente les concepts que vous devez comprendre avant de créer une recherche dans les journaux
-- [Référence de recherche Log Analytics](../log-analytics/log-analytics-search-reference.md) - Découvrez comment écrire vos propres requêtes d’événements à l’aide du langage de requête dans Log Analytics.
+- [Nouveautés d’Azure Monitor journaux ?](../log-analytics/log-analytics-overview.md) -Présentation de journaux Azure Monitor
+- [Recherches dans les journaux de présentation dans Kusto](../log-analytics/log-analytics-log-search-new.md) : décrit l’utilisation des recherches dans les journaux dans les journaux Azure Monitor et présente les concepts que vous devraient comprendre avant de créer une recherche de journal
+- [Référence de recherche Kusto](../log-analytics/log-analytics-search-reference.md) – Découvrez comment écrire vos propres requêtes d’événements à l’aide du langage de requête dans le journal
 
 Pour plus d’informations sur Security Center, consultez :
 

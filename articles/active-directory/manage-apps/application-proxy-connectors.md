@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 907511b7f20311479e7b11a30f3d5719daea3f87
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: 4f96a67fecead65af28a975267590ebb08c715d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301466"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57853004"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Présentation des connecteurs de proxy d’application Azure AD
 
@@ -93,7 +93,8 @@ Il est important de planifier une capacité suffisante entre les connecteurs pou
 |4|16|320|1150|
 |8|32|270|1190|
 |16|64|245|1200*|
-\* Cet ordinateur a utilisé un paramètre personnalisé pour déclencher certaines limites de connexion par défaut au-delà des paramètres recommandés de .NET. Nous vous recommandons d’exécuter un test avec les paramètres par défaut avant de contacter le support technique pour que cette limite soit modifiée pour votre abonné.
+
+\* Cet ordinateur utilisé un paramètre personnalisé pour déclencher certaines limites de connexion par défaut au-delà de .NET, les paramètres recommandés. Nous vous recommandons d’exécuter un test avec les paramètres par défaut avant de contacter le support technique pour que cette limite soit modifiée pour votre abonné.
  
 >[!NOTE]
 >L’utilisation d’une machine utilisant 4, 8 ou 16 cœurs n’entraîne pas de grandes différences au niveau des TPS maximales. La principale différence entre ces machines se situe au niveau de la latence attendue.  

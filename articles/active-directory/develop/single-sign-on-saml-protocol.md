@@ -18,12 +18,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a46bc954d137ad610310d83d3ad7f54370b9177b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d9cb9877015f2cfe61799a56be6490a3f4e2fb60
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184038"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012761"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocole SAML d’authentification unique
 
@@ -170,7 +170,7 @@ Exemple de réponse comportant l’élément Issuer :
 
 L’élément `Status` indique si l’authentification a abouti ou échoué. Il comporte l’élément `StatusCode`, qui contient un code ou un ensemble de codes imbriqués représentant l’état de la demande. Il inclut également l’élément `StatusMessage` , qui contient des messages d’erreur personnalisés générés pendant le processus d’authentification.
 
-<!-- TODO: Add a authentication protocol error reference -->
+<!-- TODO: Add an authentication protocol error reference -->
 
 Exemple de réponse SAML à une tentative d’ouverture de session infructueuse :
 

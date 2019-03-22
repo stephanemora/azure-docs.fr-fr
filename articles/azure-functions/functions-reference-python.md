@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: dadb645067a0f6cac436d638a829ac4c0937bd60
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
-ms.translationtype: HT
+ms.openlocfilehash: 8fa093d629eb7c655ea277b1d57f35193394f722
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54304371"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729999"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guide des développeurs Python sur Azure Functions
 
@@ -109,7 +109,7 @@ Le code partagé doit être conservé dans un dossier distinct. Pour faire réf�
 from ..SharedCode import myFirstHelperFunction
 ```
 
-Les extensions de liaison utilisées par le runtime de Functions sont définies dans le fichier `extensions.csproj`, et les fichiers bibliothèque proprement dits dans le dossier `bin`. Si vous développez en local, vous devez [inscrire les extensions de liaison](functions-triggers-bindings.md#local-development-azure-functions-core-tools) avec Azure Functions Core Tools. 
+Les extensions de liaison utilisées par le runtime de Functions sont définies dans le fichier `extensions.csproj`, et les fichiers bibliothèque proprement dits dans le dossier `bin`. Si vous développez en local, vous devez [inscrire les extensions de liaison](./functions-bindings-register.md#local-development-azure-functions-core-tools) avec Azure Functions Core Tools. 
 
 Lorsque vous déployez un projet Functions sur votre application de fonction dans Azure, l’ensemble du contenu du dossier FunctionApp (et non le dossier proprement dit) doit être inclus dans le package.
 

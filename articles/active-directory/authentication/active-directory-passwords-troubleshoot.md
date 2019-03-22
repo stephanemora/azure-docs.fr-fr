@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4af7c5721458e36a1efa27c9696feaa3dbf043e4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3621bbce0128fbd173120ae2a327065ee2e84e33
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186988"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57878446"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Résoudre les problèmes relatifs à la réinitialisation de mot de passe libre-service
 
@@ -101,7 +101,7 @@ Pour résoudre les problèmes liés à la réécriture du mot de passe, nous vou
 | Code | Nom ou message | Description |
 | --- | --- | --- |
 | 6329 | BAIL : MMS(4924) 0x80230619 : « Une restriction empêche le mot de passe d’être remplacé par le mot de passe actuel spécifié. » | Cet événement se produit quand le service de réécriture du mot de passe tente de définir un mot de passe sur votre annuaire local qui ne respecte pas les critères d’ancienneté, d’historique, de complexité ou de filtrage du domaine. <br> <br> S’il existe une ancienneté minimale pour un mot de passe alors que vous l’avez changé avant le terme de cette ancienneté, vous ne pouvez pas le remodifier tant qu’il n’a pas atteint l’ancienneté spécifiée dans votre domaine. À des fins de test, l’ancienneté minimale doit être définie sur 0. <br> <br> Si des critères d’historique de mot de passe sont activés, vous devez sélectionner un mot de passe qui n’a pas été utilisé au cours des *N* dernières fois, où *N* est le paramètre d’historique du mot de passe. Si vous sélectionnez un mot de passe qui a été utilisé au cours des *N* dernières fois, un échec se produit. À des fins de test, l’historique de mot de passe doit être défini sur 0. <br> <br> S’il existe des critères de complexité des mots de passe, ils sont tous appliqués quand l’utilisateur tente de modifier ou réinitialiser un mot de passe. <br> <br> Si des filtres de mots de passe sont activés et qu’un utilisateur sélectionne un mot de passe qui ne répond pas aux critères de filtrage, l’opération de réinitialisation ou de modification échoue. |
-| 6329 | MMS(3040) : admaexport.cpp(2837) : le serveur ne contient pas le contrôle de stratégie de mot de passe LDAP. | Ce problème se produit si le contrôle LDAP_SERVER_POLICY_HINTS_OID (1.2.840.113556.1.4.2066) n’est pas activé sur les contrôleurs de domaine. Pour utiliser la fonctionnalité d’écriture différée du mot de passe, vous devez activer le contrôle. Pour cela, les contrôleurs de domaine doivent se trouver sur Windows Server 2008 (avec le dernier SP) ou version ultérieure. Si vos contrôleurs de domaine sont sur 2008 (version antérieure à R2), vous devez également appliquer le correctif logiciel [KB2386717](https://support.microsoft.com/kb/2386717). |
+| 6329 | MMS(3040) : admaexport.cpp(2837) : le serveur ne contient pas le contrôle de stratégie de mot de passe LDAP. | Ce problème se produit si le contrôle LDAP_SERVER_POLICY_HINTS_OID (1.2.840.113556.1.4.2066) n’est pas activé sur les contrôleurs de domaine. Pour utiliser la fonctionnalité d’écriture différée du mot de passe, vous devez activer le contrôle. Pour ce faire, les contrôleurs de domaine doivent être sur Windows Server 2008 R2 ou version ultérieure. |
 | HR 8023042 | Le moteur de synchronisation a renvoyé une erreur hr=80230402, message = Une tentative visant à obtenir un objet a échoué, car il existe des entrées en double avec le même point d’ancrage. | Cette erreur se produit quand le même identifiant utilisateur est activé dans plusieurs domaines. C’est, par exemple, le cas si vous synchronisez des forêts de comptes et de ressources et que le même identifiant utilisateur est présent et activé pour chacune des forêts. <br> <br> Cette erreur peut également se produire si vous utilisez un attribut d’ancrage non unique (comme un alias ou un UPN) et que deux utilisateurs partagent ce même attribut d’ancrage. <br> <br> Pour résoudre ce problème, assurez-vous de ne pas avoir d’utilisateurs en double dans vos domaines et d’utiliser un attribut d’ancrage unique pour chaque utilisateur. |
 
 ### <a name="if-the-source-of-the-event-is-passwordresetservice"></a>Si la source de l’événement est PasswordResetService
@@ -179,10 +179,10 @@ Pour plus d’informations, vérifiez les prérequis de connectivité dans l’a
 
 Pour résoudre les problèmes de connectivité ou d’autres problèmes temporaires rencontrés avec le service, redémarrez le service de synchronisation d’Azure AD Connect :
 
-   1. En tant qu’administrateur, sélectionnez **Démarrer** sur le serveur exécutant Azure AD Connect.
-   1. Entrez **services.msc** dans le champ de recherche, puis sélectionnez **Entrée**.
-   1. Recherchez l’entrée **Microsoft Azure AD Sync**.
-   1. Cliquez avec le bouton droit sur l’entrée du service, sélectionnez **Redémarrer**, puis attendez que l’opération soit terminée.
+1. En tant qu’administrateur, sélectionnez **Démarrer** sur le serveur exécutant Azure AD Connect.
+1. Entrez **services.msc** dans le champ de recherche, puis sélectionnez **Entrée**.
+1. Recherchez l’entrée **Microsoft Azure AD Sync**.
+1. Cliquez avec le bouton droit sur l’entrée du service, sélectionnez **Redémarrer**, puis attendez que l’opération soit terminée.
 
    ![Redémarrer le service de synchronisation Azure AD][Service restart]
 
@@ -272,13 +272,13 @@ Pour que nous puissions mieux vous aider, nous vous demandons de fournir autant 
 * **Description générale de l’erreur**. Quelle est l’erreur ? Quel était le comportement que vous avez remarqué ? Comment pouvons-nous reproduire l’erreur ? Fournissez autant de détails que possible.
 * **Page**. Sur quelle page étiez-vous quand vous avez remarqué l’erreur ? Indiquez l’URL si possible, ainsi qu’une capture d’écran de la page.
 * **Code de support**. Quel était le code de support généré quand l’utilisateur a vu l’erreur ?
-    * Pour trouver ce code, reproduisez l’erreur, puis sélectionnez le lien **Code de support** en bas de l’écran et envoyez à l’ingénieur du support technique le GUID obtenu.
+  * Pour trouver ce code, reproduisez l’erreur, puis sélectionnez le lien **Code de support** en bas de l’écran et envoyez à l’ingénieur du support technique le GUID obtenu.
 
     ![Recherchez le code de support en bas de l’écran][Support code]
 
-    * Si vous êtes dans une page sans code de support dans la partie inférieure, appuyez sur F12 et recherchez le SID et le CID et envoyez ces deux résultats à l’ingénieur de support.
+  * Si vous êtes dans une page sans code de support dans la partie inférieure, appuyez sur F12 et recherchez le SID et le CID et envoyez ces deux résultats à l’ingénieur de support.
 * **Date, heure et fuseau horaire**. Incluez la date et l’heure précises, *avec le fuseau horaire*, d’occurrence de l’erreur.
-* **ID d’utilisateur**. Quel était l’utilisateur qui a vu l’erreur ? Par exemple, *user@contoso.com*.
+* **ID d’utilisateur**. Quel était l’utilisateur qui a vu l’erreur ? Par exemple, *utilisateur\@contoso.com*.
     * S’agit-il d’un utilisateur fédéré ?
     * S’agit-il d’un utilisateur de l’authentification directe ?
     * S’agit-il d’un utilisateur disposant de la synchronisation du hachage de mot de passe ?

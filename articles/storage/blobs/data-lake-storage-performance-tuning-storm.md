@@ -8,18 +8,18 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: stewu
-ms.openlocfilehash: 5d7b798c66ec6512c8badcccbf36d6f2f0d50e3b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 2401c74b55df78014a2f642b5166b4cf0017d87d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882945"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076205"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Recommandations en matière de réglage des performances pour Storm sur HDInsight et Azure Data Lake Storage Gen2
 
 Comprendre les facteurs à prendre en compte lorsque vous optimisez les performances d’une topologie Storm dans Azure. Par exemple, il est important de comprendre les caractéristiques du travail effectué par les Spouts et les Bolts (si le travail est intensif en E/S ou en mémoire). Cet article aborde diverses recommandations d’optimisation des performances, y compris la résolution des problèmes courants.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Un compte Azure Data Lake Storage Gen2**. Pour obtenir des instructions afin d’en créer un, consultez [Démarrage rapide : Créer un compte de stockage pour l’analyse](data-lake-storage-quickstart-create-account.md).
@@ -78,7 +78,7 @@ Vous pouvez modifier les paramètres suivants pour ajuster le Spout.
 
 - **Nombre max. de spouts en attente : topology.max.spout.pending**. Ce paramètre détermine le nombre de tuples qui peuvent être en cours de transmission (pas encore acceptés sur tous les nœuds de la topologie) par thread de Spout à tout moment.
 
- Un bon calcul à faire est l’estimation de la taille de chacun de vos tuples. Ensuite, calculez la quantité de mémoire par thread spout. La mémoire totale allouée à un thread divisée par cette valeur devrait vous donner la limite supérieure pour le paramètre de nombre maximal de Spouts en attente.
+  Un bon calcul à faire est l’estimation de la taille de chacun de vos tuples. Ensuite, calculez la quantité de mémoire par thread spout. La mémoire totale allouée à un thread divisée par cette valeur devrait vous donner la limite supérieure pour le paramètre de nombre maximal de Spouts en attente.
 
 Le Bolt Storm par défaut de Data Lake Storage Gen2 a un paramètre de stratégie de synchronisation de taille (fileBufferSize) que vous pouvez utiliser pour ajuster ce paramètre.
 

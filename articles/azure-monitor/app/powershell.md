@@ -12,17 +12,20 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4b633f3294faf11c8ef9d4a4077254c3df5353cf
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: ea4bc61dec59308b2c2311e8300e44aae78fc041
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264851"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313512"
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>Créer des ressources Application Insights à l’aide de PowerShell
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Cet article explique comment automatiser la création et la mise à jour de ressources [Application Insights](../../azure-monitor/app/app-insights-overview.md) à l’aide du service de gestion des ressources Azure. Cette opération peut par exemple avoir lieu dans le cadre du processus de génération. Avec la ressource Application Insights de base, vous pouvez créer des [tests web de disponibilité](../../azure-monitor/app/monitor-web-app-availability.md), configurer [des alertes](../../azure-monitor/app/alerts.md) et un [mécanisme de tarification](pricing.md), mais aussi créer d’autres ressources Azure.
 
-Les éléments importants pour la création de ces ressources sont les modèles JSON pour [Azure Resource Manager](../../azure-resource-manager/powershell-azure-resource-manager.md). En bref, la procédure est la suivante : téléchargez les définitions JSON des ressources existantes, paramétrez certaines valeurs telles que les noms, puis exécutez le modèle chaque fois que vous souhaitez créer une nouvelle ressource. Vous pouvez regrouper plusieurs ressources pour les créer en une fois, par exemple une analyse d’application avec des tests de disponibilité, des alertes et le stockage pour l’exportation continue. Certains paramètres ont des particularités que nous aborderons ici.
+Les éléments importants pour la création de ces ressources sont les modèles JSON pour [Azure Resource Manager](../../azure-resource-manager/manage-resources-powershell.md). En bref, la procédure est la suivante : téléchargez les définitions JSON des ressources existantes, paramétrez certaines valeurs telles que les noms, puis exécutez le modèle chaque fois que vous souhaitez créer une nouvelle ressource. Vous pouvez regrouper plusieurs ressources pour les créer en une fois, par exemple une analyse d’application avec des tests de disponibilité, des alertes et le stockage pour l’exportation continue. Certains paramètres ont des particularités que nous aborderons ici.
 
 ## <a name="one-time-setup"></a>Installation unique
 Si vous n’avez pas utilisé précédemment PowerShell avec votre abonnement Azure :
@@ -154,12 +157,12 @@ Créez un fichier .json appelé `template1.json` dans cet exemple. Copiez-y ce c
 ## <a name="create-application-insights-resources"></a>Créer des ressources Application Insights
 1. Dans PowerShell, connectez-vous à Azure :
    
-    `Connect-AzureRmAccount`
+    `Connect-AzAccount`
 2. Exécutez une commande comme suit :
    
     ```PS
    
-        New-AzureRmResourceGroupDeployment -ResourceGroupName Fabrikam `
+        New-AzResourceGroupDeployment -ResourceGroupName Fabrikam `
                -TemplateFile .\template1.json `
                -appName myNewApp
 
@@ -175,8 +178,8 @@ Vous pouvez ajouter d’autres paramètres. Vous trouverez leurs descriptions da
 Après avoir créé une ressource d’application, vous voulez obtenir la clé d’instrumentation : 
 
 ```PS
-    $resource = Find-AzureRmResource -ResourceNameEquals "<YOUR APP NAME>" -ResourceType "Microsoft.Insights/components"
-    $details = Get-AzureRmResource -ResourceId $resource.ResourceId
+    $resource = Find-AzResource -ResourceNameEquals "<YOUR APP NAME>" -ResourceType "Microsoft.Insights/components"
+    $details = Get-AzResource -ResourceId $resource.ResourceId
     $ikey = $details.Properties.InstrumentationKey
 ```
 
@@ -189,7 +192,7 @@ Vous pouvez définir le [plan tarifaire](pricing.md).
 Pour créer une ressource d’application avec le plan de tarification Entreprise à l’aide du modèle ci-dessus :
 
 ```PS
-        New-AzureRmResourceGroupDeployment -ResourceGroupName Fabrikam `
+        New-AzResourceGroupDeployment -ResourceGroupName Fabrikam `
                -TemplateFile .\template1.json `
                -priceCode 2 `
                -appName myNewApp

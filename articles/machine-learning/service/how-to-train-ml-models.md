@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 2/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 58dd96b079dda50faa17a52782a79db83a0141bd
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 818b6e5994a4f5b9d21d511f0a31eab6e00033f7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330067"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58012478"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Former des modèles avec Azure Machine Learning à l’aide de l’estimateur
 
@@ -63,6 +63,7 @@ Paramètre | Description
 `compute_target`| Cible de calcul à distance sur laquelle votre script de formation s’exécute, ici un cluster de capacité de calcul Machine Learning Azure ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)). (Veuillez noter que même si le cluster AmlCompute est la cible couramment utilisée, il est également possible de choisir d’autres types de cibles de calcul, tels que des machines virtuelles Azure, voire un ordinateur local.)
 `entry_script`| Chemin de fichier (relatif à `source_directory`) du script d’entraînement à exécuter sur la cible de calcul distante. Ce fichier et tous les autres fichiers dont il dépend doivent se trouver dans ce dossier
 `conda_packages`| Liste des packages Python à installer via conda et dont a besoin votre script d’entraînement.  
+
 Le constructeur possède un autre paramètre appelé `pip_packages` que vous pouvez utiliser pour tous les packages pip nécessaires
 
 Maintenant que vous avez créé votre objet `Estimator`, soumettez la tâche d’entraînement à exécuter sur la cible de calcul à distance avec un appel à la fonction `submit` sur votre objet [Expérience](concept-azure-machine-learning-architecture.md#experiment) `experiment`. 

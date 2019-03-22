@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bacefaada8ab0d63bb17d22f67b91c51a789de8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c769d241f54d5d86ef4954609eec555d8aab947a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172329"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57857995"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Problème de configuration de l’authentification unique avec mot de passe pour une application non issue de la galerie
 
@@ -46,25 +46,25 @@ En règle générale, **si la capture de champs de connexion automatique ne fonc
 
 Pour configurer **l’authentification unique avec mot de passe** d’une application à l’aide de la **capture de champs de connexion automatique**, procédez comme suit :
 
-1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général** ou que **Coadministrateur**.
+1. Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général** ou que **Coadministrateur**.
 
-2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
+2. Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
 
-3.  Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
+3. Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
 
-4.  Cliquez sur **Applications d’entreprise** dans le menu de navigation de gauche d’Azure Active Directory.
+4. Cliquez sur **Applications d’entreprise** dans le menu de navigation de gauche d’Azure Active Directory.
 
-5.  Cliquez sur **Toutes les applications** pour afficher la liste complète de vos applications.
+5. Cliquez sur **Toutes les applications** pour afficher la liste complète de vos applications.
 
-  * Si l’application que vous recherchez ne figure pas dans la liste, utilisez la commande **Filtre** en haut de la **liste de toutes les applications** et définissez l’option **Afficher** sur **Toutes les applications.**
+   * Si l’application que vous recherchez ne figure pas dans la liste, utilisez la commande **Filtre** en haut de la **liste de toutes les applications** et définissez l’option **Afficher** sur **Toutes les applications.**
 
-6.  Sélectionnez l’application pour laquelle vous souhaitez configurer l’authentification unique.
+6. Sélectionnez l’application pour laquelle vous souhaitez configurer l’authentification unique.
 
-7.  Une fois l’application chargée, cliquez sur **Authentification unique** dans le menu de navigation de gauche de l’application.
+7. Une fois l’application chargée, cliquez sur **Authentification unique** dans le menu de navigation de gauche de l’application.
 
-8.  Sélectionnez le mode **Authentification par mot de passe.**
+8. Sélectionnez le mode **Authentification par mot de passe.**
 
-9.  Spécifiez **l’URL de connexion**, autrement dit l’URL au niveau de laquelle les utilisateurs entrent leur nom d’utilisateur et leur mot de passe pour se connecter. **Vérifiez que les champs de connexion sont visibles dans l’URL que vous fournissez**.
+9. Spécifiez **l’URL de connexion**, autrement dit l’URL au niveau de laquelle les utilisateurs entrent leur nom d’utilisateur et leur mot de passe pour se connecter. **Vérifiez que les champs de connexion sont visibles dans l’URL que vous fournissez**.
 
 10. Cliquez sur le bouton **Enregistrer** .
 
@@ -76,25 +76,25 @@ Pour que vous puissiez capturer manuellement les champs de connexion, l’extens
 
 Pour configurer **l’authentification unique avec mot de passe** d’une application à l’aide de la **capture de champs de connexion manuelle**, procédez comme suit :
 
-1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général** ou que **Coadministrateur**.
+1. Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général** ou que **Coadministrateur**.
 
-2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
+2. Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
 
-3.  Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
+3. Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
 
-4.  Cliquez sur **Applications d’entreprise** dans le menu de navigation de gauche d’Azure Active Directory.
+4. Cliquez sur **Applications d’entreprise** dans le menu de navigation de gauche d’Azure Active Directory.
 
-5.  Cliquez sur **Toutes les applications** pour afficher la liste complète de vos applications.
+5. Cliquez sur **Toutes les applications** pour afficher la liste complète de vos applications.
 
    * Si l’application que vous recherchez ne figure pas dans la liste, utilisez la commande **Filtre** en haut de la **liste de toutes les applications** et définissez l’option **Afficher** sur **Toutes les applications.**
 
-6.  Sélectionnez l’application pour laquelle vous souhaitez configurer l’authentification unique.
+6. Sélectionnez l’application pour laquelle vous souhaitez configurer l’authentification unique.
 
-7.  Une fois l’application chargée, cliquez sur **Authentification unique** dans le menu de navigation de gauche de l’application.
+7. Une fois l’application chargée, cliquez sur **Authentification unique** dans le menu de navigation de gauche de l’application.
 
-8.  Sélectionnez le mode **Authentification par mot de passe.**
+8. Sélectionnez le mode **Authentification par mot de passe.**
 
-9.  Spécifiez **l’URL de connexion**, autrement dit l’URL au niveau de laquelle les utilisateurs entrent leur nom d’utilisateur et leur mot de passe pour se connecter. **Vérifiez que les champs de connexion sont visibles dans l’URL que vous fournissez**.
+9. Spécifiez **l’URL de connexion**, autrement dit l’URL au niveau de laquelle les utilisateurs entrent leur nom d’utilisateur et leur mot de passe pour se connecter. **Vérifiez que les champs de connexion sont visibles dans l’URL que vous fournissez**.
 
 10. Cliquez sur le bouton **Enregistrer** .
 
@@ -174,21 +174,21 @@ Vous pouvez également télécharger l’extension pour Chrome et Firefox à par
 
 Vous pouvez afficher les détails d’une notification provenant du portail en suivant les étapes ci-dessous :
 
-1.  Cliquez sur l’icône **Notifications** (cloche) dans le coin supérieur droit du portail Azure.
+1. Cliquez sur l’icône **Notifications** (cloche) dans le coin supérieur droit du portail Azure.
 
-2.  Sélectionnez n’importe quelle notification avec l’état **Erreur**, signalée par un (!) rouge.
+2. Sélectionnez n’importe quelle notification avec l’état **Erreur**, signalée par un (!) rouge.
 
-  >!NOTE] Vous ne pouvez pas cliquer sur les notifications affichant l’état **Réussi** ou **En cours**.
-  >
-  >
+   >!NOTE] Vous ne pouvez pas cliquer sur les notifications affichant l’état **Réussi** ou **En cours**.
+   >
+   >
 
-3.  Le volet **Détails de la notification** s’affiche.
+3. Le volet **Détails de la notification** s’affiche.
 
-4.  Utilisez ces informations pour en savoir plus sur le problème.
+4. Utilisez ces informations pour en savoir plus sur le problème.
 
-5.  Si vous avez encore besoin d’aide, vous pouvez également partager ces informations avec un ingénieur du support technique ou du groupe de produits qui vous assistera pour résoudre votre problème.
+5. Si vous avez encore besoin d’aide, vous pouvez également partager ces informations avec un ingénieur du support technique ou du groupe de produits qui vous assistera pour résoudre votre problème.
 
-6.  Cliquez sur **l’icône** de **copie** à droite de la zone de texte **Erreur de copie** pour copier tous les détails de la notification afin de les partager avec un ingénieur du support technique ou du groupe de produits.
+6. Cliquez sur **l’icône** de **copie** à droite de la zone de texte **Erreur de copie** pour copier tous les détails de la notification afin de les partager avec un ingénieur du support technique ou du groupe de produits.
 
 ## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>Comment obtenir de l’aide en envoyant les détails de la notification à un ingénieur du support technique
 
@@ -226,7 +226,7 @@ Vous trouverez ci-dessous plus d’informations sur la signification de chaque n
 
 -   **UPN** : utilisateur qui a effectué l’opération
 
-    -   Exemple : **tperkins@f128.info**
+    -   Exemple – **tperkins\@f128.info**
 
 -   **ID de locataire** : ID unique du locataire dont l’utilisateur ayant effectué l’opération était membre
 
@@ -238,13 +238,13 @@ Vous trouverez ci-dessous plus d’informations sur la signification de chaque n
 
 ### <a name="detailed-notification-items"></a>Éléments détaillés de la notification
 
--   **Nom d’affichage** : **(peut être vide)** nom d’affichage plus détaillé de l’erreur
+-   **Nom d’affichage** : **(peut être vide)** nom d’affichage plus détaillé de l’erreur
 
-    -   Exemple *: **Paramètres de proxy d’application**
+    -   Exemple : **paramètres de proxy d’application**
 
--   **État** : état spécifique de la notification
+-   **État** : état spécifique de la notification
 
-    -   Exemple *: **Échec**
+    -   Exemple : **Échec**
 
 -   **ID de l’objet** : **(peut être vide)** ID de l’objet sur lequel l’opération a été effectuée
 
@@ -252,7 +252,7 @@ Vous trouverez ci-dessous plus d’informations sur la signification de chaque n
 
 -   **Détails** : description détaillée de ce qui s’est produit suite à l’opération
 
-    -   Exemple : **L’URL interne « https://bing.com/ » n’est pas valide car elle est déjà en cours d’utilisation**
+    -   Exemple : **L’URL interne « <https://bing.com/> » n’est pas valide car elle est déjà en cours d’utilisation**
 
 -   **Erreur de copie** : cliquez sur l **’icône de copie** à droite de la zone de texte **Erreur de copie** pour copier tous les détails de la notification afin de les partager avec un ingénieur du support technique ou du groupe de produits
 

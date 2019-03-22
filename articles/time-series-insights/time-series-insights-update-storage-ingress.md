@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6f0002c6aa98aaaddf50e4aac8929e8ddd379fd8
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: eba4c70a25cba2e456ed418a98b938f2029c4c1f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301670"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438361"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Entrée et stockage des données dans Azure Time Series Insights - Préversion
 
@@ -116,7 +116,7 @@ Il est important de sélectionner un ID Time Series approprié, car il s’agit 
 
 Lorsque vous créez un environnement de paiement à l’utilisation Time Series Insights, vous créez deux ressources : un environnement Time Series Insights et un compte universel V1 de Stockage Azure où les données seront stockées. Nous avons choisi Stockage Azure universel V1 comme ressource par défaut en raison de son interopérabilité, de son prix et de ses performances. 
 
-Time Series Insights publie jusqu’à deux copies de chaque événement dans votre compte de Stockage Azure. La copie initiale est toujours conservée afin que vous puissiez l’interroger efficacement à l’aide d’autres services. Vous pouvez facilement utiliser Spark, Hadoop et d’autres outils familiers dans les ID Time Series sur les fichiers Parquet bruts, car ces moteurs prennent en charge le filtrage du nom de fichier de base. Le regroupement des objets blob par année et par mois est un moyen utile de répertorier les objets blob dans un intervalle de temps spécifique pour un travail personnalisé. 
+Time Series Insights publie jusqu’à deux copies de chaque événement dans votre compte de Stockage Azure. La copie initiale est toujours conservée afin que vous puissiez l’interroger rapidement à l’aide d’autres services. Vous pouvez facilement utiliser Spark, Hadoop et d’autres outils familiers dans les ID Time Series sur les fichiers Parquet bruts, car ces moteurs prennent en charge le filtrage du nom de fichier de base. Le regroupement des objets blob par année et par mois est un moyen utile de répertorier les objets blob dans un intervalle de temps spécifique pour un travail personnalisé. 
 
 En outre, Time Series Insights repartitionne les fichiers Parquet afin d’optimiser les API Time Series Insights. Le fichier le plus récemment repartitionné est aussi sauvegardé.
 

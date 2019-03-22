@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: c14b6e16a16f325681722203eaa05a435b141208
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 07a8195969df7ad7afd2bfe2e9124b07144d48cb
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57990623"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58284780"
 ---
 # <a name="how-to-connect-and-sign-on-to-an-azure-virtual-machine-running-windows"></a>Connexion à une machine virtuelle Azure exécutant Windows
 Vous utilisez le bouton **Connecter** dans le portail Azure pour démarrer une session Bureau à distance (RDP) depuis un bureau Windows. Tout d'abord, connectez-vous à la machine virtuelle, puis ouvrez une session.
 
-Pour vous connecter à une machine virtuelle Windows à partir d’un Mac, vous devez installer un client RDP pour Mac tel que [Bureau à distance Microsoft](https://itunes.apple.com/app/microsoft-remote-desktop/id715768417).
+Pour vous connecter à une machine virtuelle Windows à partir d’un Mac, vous devez installer un client RDP pour Mac tel que [Bureau à distance Microsoft](https://aka.ms/rdmac).
 
 ## <a name="connect-to-the-virtual-machine"></a>Connectez-vous à la machine virtuelle.
 1. Si ce n’est pas déjà fait, connectez-vous au [portail Azure](https://portal.azure.com/).

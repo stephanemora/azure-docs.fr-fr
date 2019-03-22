@@ -13,16 +13,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: caa2ef878100394fe4bb3282024958bb9dcb46aa
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 0222450e1b85c255f2028adff750b9257f109be7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977081"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58173785"
 ---
-# <a name="manage-streaming-endpoints-with-net-sdk-legacy"></a>Gérer les points de terminaison de streaming avec le Kit de développement logiciel (SDK) .NET (hérité)
+# <a name="manage-streaming-endpoints-with-net-sdk"></a>Gérer les points de terminaison de streaming avec le SDK .NET  
 
 >[!NOTE]
 >Consultez l’article de [présentation](media-services-streaming-endpoints-overview.md). Consultez aussi [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).

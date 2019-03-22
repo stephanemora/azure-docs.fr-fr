@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3465a891d91bc54bfe39b9501a7ad0e970932860
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 90d1d752481ada33c038ab563f6bd0d3bf5fad08
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309622"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086800"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Création d’une machine virtuelle à partir d’un disque dur virtuel spécialisé dans un compte de stockage
 
@@ -212,10 +212,10 @@ Créez le réseau virtuel et le sous-réseau du [réseau virtuel](../../virtual-
     $vnet = New-AzVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location `
         -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
     ```    
-### <a name="create-the-network-security-group-and-an-rdp-rule"></a>Créer le groupe de sécurité réseau et une règle RDP
-Pour pouvoir vous connecter à votre machine virtuelle avec le protocole RDP, vous devez disposer d’une règle de sécurité qui autorise l’accès RDP sur le port 3389. Du fait que le disque dur virtuel de la nouvelle machine virtuelle a été créé à partir d’une machine virtuelle spécialisée, une fois que la machine virtuelle est créée, vous pouvez utiliser un compte existant à partir de la machine virtuelle source qui a l’autorisation de se connecter à l’aide de RDP.
-Vous devez le faire avant la création de l’interface réseau à laquelle elle sera associée.  
-Cet exemple définit le nom du groupe de sécurité réseau sur **myNsg** et le nom de règle RDP sur **myRdpRule**.
+   ### <a name="create-the-network-security-group-and-an-rdp-rule"></a>Créer le groupe de sécurité réseau et une règle RDP
+   Pour pouvoir vous connecter à votre machine virtuelle avec le protocole RDP, vous devez disposer d’une règle de sécurité qui autorise l’accès RDP sur le port 3389. Du fait que le disque dur virtuel de la nouvelle machine virtuelle a été créé à partir d’une machine virtuelle spécialisée, une fois que la machine virtuelle est créée, vous pouvez utiliser un compte existant à partir de la machine virtuelle source qui a l’autorisation de se connecter à l’aide de RDP.
+   Vous devez le faire avant la création de l’interface réseau à laquelle elle sera associée.  
+   Cet exemple définit le nom du groupe de sécurité réseau sur **myNsg** et le nom de règle RDP sur **myRdpRule**.
 
 ```powershell
 $nsgName = "myNsg"
@@ -271,7 +271,7 @@ $vm = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
     ```powershell
     $osDiskUri = "https://myStorageAccount.blob.core.windows.net/myContainer/myOsDisk.vhd"
     ```
-2. Ajoutez le disque du système d’exploitation. Dans cet exemple, lorsque le disque du système d’exploitation est créé, le terme « osDisk » est ajouté au nom de la machine virtuelle pour créer le nom du disque du système d’exploitation. Cet exemple spécifie également que ce disque dur virtuel basé sur Windows doit être attaché à la machine virtuelle en tant que disque de système d’exploitation.
+2. Ajoutez le disque du système d’exploitation. Dans cet exemple, lorsque le disque du système d’exploitation est créé, le terme « osDisk » est ajouté au nom de machine virtuelle pour créer le nom du disque du système d’exploitation. Cet exemple spécifie également que ce disque dur virtuel basé sur Windows doit être attaché à la machine virtuelle en tant que disque de système d’exploitation.
     
     ```powershell
     $osDiskName = $vmName + "osDisk"

@@ -14,16 +14,16 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9116dd8a27b268b656f688083032a127177d2d51
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
-ms.translationtype: HT
+ms.openlocfilehash: 2628cafada47b2602b195c44d4b6f2e6b16012ef
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754558"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092767"
 ---
 # <a name="connecting-azure-vms-to-hana-large-instances"></a>Connexion de machines virtuelles Azure à de grandes instances HANA
 
-L’article [Qu’est-ce que SAP HANA sur Azure (grandes instances) ?](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) mentionne que le déploiement minimal de grandes instances HANA avec la couche d’application SAP dans Azure se présente comme suit :
+L’article [What ' s SAP HANA sur Azure (grandes Instances) ?](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) mentionne que le déploiement minimal de grandes Instances HANA avec la couche d’application SAP dans Azure ressemble à ceci :
 
 ![Réseau virtuel Azure connecté à SAP HANA sur Azure (grandes instances) et en local](./media/hana-overview-architecture/image3-on-premises-infrastructure.png)
 
@@ -65,7 +65,7 @@ Vous pouvez utiliser n’importe quelle norme d’affectation de noms de votre c
 > [!WARNING] 
 > Il est essentiel que le sous-réseau de passerelle soit toujours nommé « GatewaySubnet ».
 
-Vous pouvez utiliser plusieurs sous-réseaux de machines virtuelles et des plages d’adresses non contiguës. Ces plages d’adresses doivent être couvertes par l’**espace d’adressage de réseau virtuel** du réseau virtuel. Elles peuvent se présenter sous une forme agrégée. Elles peuvent aussi figurer dans une liste regroupant les plages exactes des sous-réseaux de machines virtuelles et du sous-réseau de passerelle.
+Vous pouvez utiliser plusieurs sous-réseaux de machines virtuelles et des plages d’adresses non contiguës. Ces plages d’adresses doivent être couverte par l’**espace d’adressage de réseau virtuel** du réseau virtuel. Elles peuvent se présenter sous une forme agrégée. Elles peuvent aussi figurer dans une liste regroupant les plages exactes des sous-réseaux de machines virtuelles et du sous-réseau de passerelle.
 
 Voici un résumé des aspects importants d’un réseau virtuel Azure qui se connecte à de grandes Instances HANA :
 
@@ -85,7 +85,7 @@ Nous avons déjà présenté une partie des plages d’adresses IP qui sont né
 
 - **Espace d’adressage du réseau virtuel** : L’**espace d’adressage de réseau virtuel** est constitué par les plages d’adresses IP que vous attribuez à votre paramètre d’espace d’adressage dans les réseaux virtuels Azure. Ces réseaux se connectent à l’environnement de grande Instance SAP HANA.
 
- Il est recommandé que ce paramètre d’espace d’adressage soit une valeur multiligne. Il doit être composé de la plage de sous-réseau de la machine virtuelle Azure et des plages de sous-réseau de la passerelle Azure. Cette plage de sous-réseau a été présentée dans les illustrations précédentes. Elle NE doit PAS chevaucher les plages d’adresses du pool d’adresses IP local ou du serveur, ou les plages d’adresses ER-P2P. 
+  Il est recommandé que ce paramètre d’espace d’adressage soit une valeur multiligne. Il doit être composé de la plage de sous-réseau de la machine virtuelle Azure et des plages de sous-réseau de la passerelle Azure. Cette plage de sous-réseau a été présentée dans les illustrations précédentes. Elle NE doit PAS chevaucher les plages d’adresses du pool d’adresses IP local ou du serveur, ou les plages d’adresses ER-P2P. 
  
 Comment obtenir ces plages d’adresses IP ? 
 
@@ -108,7 +108,7 @@ L’équipe de votre réseau d’entreprise ou votre fournisseur de services doi
   
 - **Plage d’adresses du pool d’adresses IP des serveurs :** cette plage d’adresses IP est utilisée pour l’affectation de l’adresse IP aux serveurs de grandes instances HANA. La taille de sous-réseau recommandée est un bloc CIDR /24. Elle peut être plus petite, si nécessaire, avec 64 adresses IP. Dans cette plage, les 30 premières adresses IP sont réservées à une utilisation par Microsoft. Veillez à tenir compte de ce point au moment de choisir la taille de la plage. Cette plage NE doit PAS chevaucher les adresses IP locales ou Azure. Comment obtenir cette plage d’adresses IP ? L’équipe réseau de votre entreprise ou votre fournisseur de services doit fournir une plage d’adresses IP qui n’est pas actuellement utilisée à l’intérieur de votre réseau. 
 
- **Il s’agit d’une plage d’adresses IP qui doit être soumise à Microsoft au moment de demander un déploiement initial**.
+  **Il s’agit d’une plage d’adresses IP qui doit être soumise à Microsoft au moment de demander un déploiement initial**.
  
 Vous devez définir et planifier les plages d’adresses IP décrites précédemment. Toutefois, vous n’avez pas besoin de les transmettre toutes à Microsoft. Voici les plages d’adresses IP que vous devrez nommer à Microsoft :
 

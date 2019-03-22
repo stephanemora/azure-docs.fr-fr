@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 16b4031c0242d79b6d866d612a4d4f594dc608fa
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 4622809f0e261236d6753daf5bb2e00ff814c849
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821947"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087871"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Intégrer Azure ExpressRoute à la reprise d’activité pour des machines virtuelles Azure
 
@@ -91,11 +91,11 @@ Les déploiements d’entreprise classiques ont des charges de travail répartie
     - **Réseau virtuel source 2** : 10.2.0.0/24.
     - Chaque réseau virtuel spoke est connecté au **réseau virtuel hub**.
 - **Réseau virtuel hub**. Il existe un réseau virtuel hub **Réseau virtuel hub source** : 10.10.10.0/24.
-    - Ce réseau virtuel hub agit comme opérateur de contrôle.
-    - Toutes les communications entre les sous-réseaux passent par ce hub.
- - ****Sous-réseaux du réseau virtuel hub**. Le réseau virtuel hub a deux sous-réseaux :
-     - **Sous-réseau de l’appliance virtuelle réseau** : 10.10.10.0/25. Ce sous-réseau contient une appliance virtuelle réseau (10.10.10.10).
-     - **Sous-réseau de passerelle** : 10.10.10.128/25. Ce sous-réseau contient une passerelle ExpressRoute connectée à une connexion ExpressRoute qui route le trafic vers le site local via un domaine de routage d’appairage privé.
+  - Ce réseau virtuel hub agit comme opérateur de contrôle.
+  - Toutes les communications entre les sous-réseaux passent par ce hub.
+    - ****Sous-réseaux du réseau virtuel hub**. Le réseau virtuel hub a deux sous-réseaux :
+    - **Sous-réseau de l’appliance virtuelle réseau** : 10.10.10.0/25. Ce sous-réseau contient une appliance virtuelle réseau (10.10.10.10).
+    - **Sous-réseau de passerelle** : 10.10.10.128/25. Ce sous-réseau contient une passerelle ExpressRoute connectée à une connexion ExpressRoute qui route le trafic vers le site local via un domaine de routage d’appairage privé.
 - Le centre de données local a une connexion de circuit ExpressRoute via un réseau de périphérie partenaire à Hong Kong.
 - Tout le routage est contrôlé via des tables de routage Azure.
 - Tout le trafic sortant entre les réseaux virtuels ou en direction du centre de données local est routé via l’appliance virtuelle réseau.

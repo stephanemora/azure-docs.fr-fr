@@ -14,16 +14,16 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: b68f7004366dcb502ffc8332cf8266a434c7ecfb
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
-ms.translationtype: HT
+ms.openlocfilehash: b1b62c68ef4e18f4d4d36a78078ad7431717b754
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977146"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995643"
 ---
 # <a name="virtual-machine-marketplace-tab"></a>Onglet Place de marché de machine virtuelle
 
-L’onglet **Place de marché** de la page **Nouvelle offre** vous permet de proposer à vos clients potentiels des accords et informations juridiques, commerciaux et marketing, ainsi que de gérer des prospects depuis la Place de marché. Ce long formulaire est divisé en quatre sections : **Vue d’ensemble**, **Artefacts marketing**, **Gestion des prospects** et **Informations légales**. 
+L’onglet **Place de marché** de la page **Nouvelle offre** vous permet de proposer à vos clients potentiels des accords et informations juridiques, commerciaux et marketing, ainsi que de gérer des prospects depuis la Place de marché. Cette forme longue est divisée en quatre sections : **Vue d’ensemble**, **Marketing artefacts**, **gestion des prospects**, et **juridique**. 
 
 ## <a name="overview-section"></a>Section Vue d’ensemble
 Dans cette section, vous entrez les informations générales sur votre offre de la Place de marché Microsoft Azure.  Un astérisque (*) en regard du nom du champ indique que ce champ est obligatoire.
@@ -38,6 +38,7 @@ Le tableau suivant décrit l’objectif et le contenu de ces champs.
 | **Résumé**               | Brève description de la finalité ou de la fonction de la solution.  Longueur maximale de 100 caractères. |
 | **Long Summary** (Résumé long)          | Description de la finalité ou de la fonction de la solution.  Longueur maximale de 256 caractères. |
 | **Description**           | Description de la solution.  Longueur maximale de 3 000 caractères ; prend en charge la mise en forme HTML simple. |
+| **Canal du revendeur CSP de Microsoft** | Cloud fournisseurs de solutions partenaires canal opt-in est désormais disponible.  Consultez [les fournisseurs de solutions de Cloud](../../cloud-solution-providers.md) canaux du partenaire pour plus d’informations sur le marketing de votre offre via le CSP de Microsoft. |
 | **Marketing Identifier** (Identificateur marketing)  | URL unique à associer à cette offre. Elle inclut généralement le nom de votre solution et de votre organisation, avec une longueur maximale de 50 caractères.  Par exemple :  <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
 | **ID d’abonnement pour préversion** | Ajoutez entre 1 et 100 identificateurs d’abonnement d’utilisateurs de la préversion. Ces abonnements autorisés ont accès à l’offre dès sa publication, avant sa mise en service. |
 | **Liens utiles**          | Ajoutez des URL vers des pages de documentation, des notes de version, des FAQ, etc. |
@@ -47,7 +48,7 @@ Le tableau suivant décrit l’objectif et le contenu de ces champs.
 
 ## <a name="marketing-artifacts-section"></a>Section Artefacts marketing
 
-Cette deuxième section est divisée en trois sous-sections : **Logos**, **Capture d’écran** et **Vidéos**. Les logos sont les seuls artefacts marketing obligatoires ; néanmoins, nous vous recommandons d’ajouter les autres artefacts pour mieux attirer les clients.
+Cette deuxième section est divisée en trois sous-sections suivantes : **Logos**, **capture d’écran**, et **vidéos**. Les logos sont les seuls artefacts marketing obligatoires ; néanmoins, nous vous recommandons d’ajouter les autres artefacts pour mieux attirer les clients.
 
 ![Section Artefacts Marketing de l’onglet Place de marché sur le formulaire Nouvelle offre pour les machines virtuelles](./media/publishvm_009.png)
 
@@ -60,10 +61,10 @@ Cette deuxième section est divisée en trois sous-sections : **Logos**, **Captu
 | **Large**                  | Image bitmap .ico de 255x115 pixels                                                    |
 | **Bannière**                  | Image bitmap de 815x290.  Facultatif. En revanche, une fois l’icône de bannière chargée, il n’est plus possible de la supprimer. |
 | *Captures d’écran*  | Facultatif ; cinq captures d’écran maximum par référence SKU. |
-| **Nom**                  | Nom ou titre <!-- TODO - max char length? none specified in UI -->                               |
+| **Nom**                  | Nom ou le titre <!-- TODO - max char length? none specified in UI -->                               |
 | **Image**                 | Image de capture d’écran, 533x324 pixels                                         |
 | *Vidéos*  |  |
-| **Nom**                  | Nom ou titre <!-- TODO - max char length? -->                              |
+| **Nom**                  | Nom ou le titre  <!-- TODO - max char length? -->                              |
 | **Lien**                  | URL de la vidéo, hébergée sur YouTube ou Vimeo                                        |
 | **Vidéo miniature**             | Image bitmap de 533x324 pixels                                                               |
 |  |  |
@@ -71,7 +72,7 @@ Cette deuxième section est divisée en trois sous-sections : **Logos**, **Captu
 
 ### <a name="logo-guidelines"></a>Instructions concernant le logo
 
-<!-- TD: It seems like this section could be better located in some common area, maybe a AMP Marketing/Design section 
+<!-- TD: It seems like this section could be better located in some common area, maybe an AMP Marketing/Design section 
 +1 this should all be in a common area and referenced from here to that location.-->
 
 Tous les logos chargés sur le Portail Cloud Partner doivent respecter ces instructions :
@@ -121,7 +122,7 @@ Après que vous avez publié votre offre, la connexion de prospect est vérifié
 
 ## <a name="legal-section"></a>Section Informations légales
 
-Cette dernière section vous permet de fournir les deux documents juridiques nécessaires pour chaque offre : la politique de confidentialité et les conditions d’utilisation.
+Cette dernière section vous permet de fournir les deux documents juridiques requis pour chaque offre : la politique de confidentialité et les conditions d’utilisation.
 
 |  **Champ**                |     **Description**                                                          |
 |  ---------                |     ---------------                                                          |

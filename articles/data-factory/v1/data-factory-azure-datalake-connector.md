@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8731857d133e60cad4ecdca21874916949e05ff3
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 3bb372c4c3ddb79429df20c24c691c847e927e2a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813515"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57975608"
 ---
 # <a name="copy-data-to-and-from-data-lake-storage-gen1-by-using-data-factory"></a>Copier des données vers et depuis Data Lake Storage Gen1 à l’aide de Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -240,7 +240,7 @@ La section **typeProperties** correspondant au jeu de données de type **AzureDa
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | **folderPath** |Chemin d’accès au conteneur et au dossier dans Data Lake Store. |Oui |
-| **fileName** |Le nom du fichier dans Azure Data Lake Store. La propriété **fileName** est facultative et sensible à la casse. <br/><br/>Si vous spécifiez **fileName**, l’activité (y compris la copie) fonctionne sur le fichier spécifique.<br/><br/>Lorsque **fileName** n’est pas spécifié, la copie inclut tous les fichiers dans le paramètre **folderPath** du jeu de données d’entrée.<br/><br/>Lorsque **fileName** n'est pas spécifié pour un jeu de données de sortie et que **preserveHierarchy** n’est pas spécifié dans le récepteur d’activité, le nom du fichier généré a le format Data._Guid_.txt`. Par exemple :  Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. |No |
+| **fileName** |Le nom du fichier dans Azure Data Lake Store. La propriété **fileName** est facultative et sensible à la casse. <br/><br/>Si vous spécifiez **fileName**, l’activité (y compris la copie) fonctionne sur le fichier spécifique.<br/><br/>Lorsque **fileName** n’est pas spécifié, la copie inclut tous les fichiers dans le paramètre **folderPath** du jeu de données d’entrée.<br/><br/>Lorsque **fileName** n’est pas spécifié pour un jeu de données de sortie et **preserveHierarchy** n’est pas spécifié dans le récepteur d’activité, le nom du fichier généré est au format `Data._Guid_.txt`. Par exemple :  Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. |Non  |
 | **partitionedBy** |La propriété **partitionedBy** est facultative. Vous pouvez l'utiliser pour spécifier un chemin dynamique et le nom de fichier pour les données de série chronologique. Par exemple, **folderPath** peut être paramétré pour toutes les heures de données. Consultez La propriété partitionedBy pour obtenir plus d’informations et des exemples. |Non  |
 | **format** | Les types de formats suivants sont pris en charge : **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** et **ParquetFormat**. Définissez la propriété **type** située sous **Format** sur l’une de ces valeurs. Pour en savoir plus, voir les sections [Format Text](data-factory-supported-file-and-compression-formats.md#text-format), [Format JSON](data-factory-supported-file-and-compression-formats.md#json-format), [Format Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Format Orc](data-factory-supported-file-and-compression-formats.md#orc-format) et [Format Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) dans l’article [Formats de fichiers et de compression pris en charge dans Azure Data Factory](data-factory-supported-file-and-compression-formats.md). <br><br> Si vous souhaitez copier des fichiers en l’état entre des magasins de fichiers (copie binaire), ignorez la section `format` dans les deux définitions de jeu de données d’entrée et de sortie. |Non  |
 | **compression** | Spécifiez le type et le niveau de compression pour les données. Les types pris en charge sont : **GZip**, **Deflate**, **BZip2** et **ZipDeflate**. Les niveaux pris en charge sont **Optimal** et **Fastest**. Pour plus d’informations, consultez [Formats de fichiers et de compression pris en charge dans Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Non  |

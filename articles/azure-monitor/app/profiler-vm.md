@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: b72966ebc73953e6a89ca1bb2fd4f7ce15f70fee
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4cca65e2be44d2c846cd4034f0a9d7e8c7d9af28
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58111376"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58260041"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-a-virtual-machine-scale-set-by-using-application-insights-profiler"></a>Profiler des applications web s’exécutant sur une machine virtuelle Azure ou un groupe de machines virtuelles identiques avec Application Insights Profiler
 
@@ -59,7 +59,7 @@ Cet article vous montre comment exécuter Application Insights Profiler sur votr
 
    L’application des modifications implique généralement un déploiement de modèle complet ou une publication basée sur les services cloud par le biais d’applets de commande PowerShell ou Visual Studio.  
 
-   Les commandes PowerShell suivantes offrent une autre approche pour les machines virtuelles existantes, qui touche uniquement l’extension Azure Diagnostics. Ajouter le ProfilerSink précédemment mentionnée à la configuration qui est retournée par la commande Get-AzVMDiagnosticsExtension, puis transmettre la configuration mise à jour à la commande Set-AzVMDiagnosticsExtension.
+   Les commandes PowerShell suivantes sont une autre approche pour les machines virtuelles existantes qui touchent uniquement l’extension Azure Diagnostics. Ajouter le ProfilerSink précédemment mentionnée à la configuration qui est retournée par la commande Get-AzVMDiagnosticsExtension. Passez ensuite la configuration mise à jour à la commande Set-AzVMDiagnosticsExtension.
 
     ```powershell
     $ConfigFilePath = [IO.Path]::GetTempFileName()
@@ -85,6 +85,30 @@ Cet article vous montre comment exécuter Application Insights Profiler sur votr
 
 1. Déployez votre application.
 
+## <a name="set-profiler-sink-using-azure-resource-explorer"></a>Définir le récepteur de Profiler à l’aide de l’Explorateur de ressources Azure
+Nous n’avons encore une façon de définir le récepteur Application Insights Profiler à partir du portail. Au lieu d’utiliser powershell comme décrit ci-dessus, vous pouvez utiliser l’Explorateur de ressources Azure pour définir le récepteur. Mais notez que, si vous redéployez la machine virtuelle, le récepteur seront perdu. Vous devez mettre à jour la configuration que vous utilisez lorsque vous déployez la machine virtuelle pour conserver ce paramètre.
+
+1. Vérifiez que l’extension de Diagnostics Windows Azure est installée en consultant les extensions installées pour votre machine virtuelle.  
+
+    ![Vérifiez si l’extension WAD est installée][wadextension]
+
+1. Recherchez l’extension de Diagnostics de machine virtuelle pour votre machine virtuelle. Développez votre groupe de ressources Microsoft.Compute virtualMachines, nom de machine virtuelle et extensions.  
+
+    ![Accédez à la configuration de WAD dans l’Explorateur de ressources Azure][azureresourceexplorer]
+
+1. Ajoutez le récepteur Application Insights Profiler sur le nœud SinksConfig sous WadCfg. Si vous n’avez pas déjà une section SinksConfig, vous devrez peut-être ajouter un. Veillez à spécifier l’iKey Application Insights appropriée dans vos paramètres. Vous devez changer de mode explorateurs en lecture/écriture dans le coin supérieur droit, puis appuyez sur le bouton « Modifier » bleu.
+
+    ![Ajouter Application Insights Profiler récepteur][resourceexplorersinksconfig]
+
+1. Lorsque vous avez terminé la modification de la configuration, appuyez sur 'Put'. Si le put ne réussit pas, une coche verte s’affiche au milieu de l’écran.
+
+    ![Envoi demande put pour appliquer les modifications][resourceexplorerput]
+
+
+
+
+
+
 ## <a name="can-profiler-run-on-on-premises-servers"></a>Profiler peut-il être exécuté sur des serveurs locaux ?
 Nous n’envisageons pas de prendre en charge Application Insights Profiler pour les serveurs locaux.
 
@@ -93,3 +117,8 @@ Nous n’envisageons pas de prendre en charge Application Insights Profiler pour
 - Générez le trafic vers votre application (par exemple, lancez un [test de disponibilité](monitor-web-app-availability.md)). Attendez ensuite 10 à 15 minutes le temps que les traces soient envoyées à l’instance Application Insights.
 - Consultez [Traces du profileur](profiler-overview.md?toc=/azure/azure-monitor/toc.json) dans le portail Azure.
 - Pour obtenir de l'aide sur la résolution des problèmes liés au profileur, consultez [Résolution des problèmes liés au profileur](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).
+
+[azureresourceexplorer]: ./media/profiler-vm/azure-resource-explorer.png
+[resourceexplorerput]: ./media/profiler-vm/resource-explorer-put.png
+[resourceexplorersinksconfig]: ./media/profiler-vm/resource-explorer-sinks-config.png
+[wadextension]: ./media/profiler-vm/wad-extension.png

@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 85dca677238070ded13b59faf9a13081c2409987
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4d090740b75acbe2629ae4f1e13cde8947f190bb
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57890856"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286429"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Résoudre les problèmes d’une Sauvegarde Azure : Problèmes d’agent ou d’extension
 
@@ -102,19 +102,12 @@ Après avoir enregistré et planifié une machine virtuelle pour le service Azur
 **Cause 5 : Le service de sauvegarde n’est pas autorisé à supprimer les anciens points de restauration en raison du verrouillage d’un groupe de ressources** <br>
 **Cause 6 : [La machine virtuelle n’a pas accès à Internet](#the-vm-has-no-internet-access)**
 
-## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-1023gb"></a>UserErrorUnsupportedDiskSize - Actuellement, la sauvegarde Azure ne prend pas en charge les tailles de disque supérieures à 1 023 Go
+## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-4095gb"></a>UserErrorUnsupportedDiskSize - sauvegarde actuellement Azure ne prend pas en charge les tailles de disque supérieures à 4 095 Go
 
 **Code d’erreur** : UserErrorUnsupportedDiskSize <br>
-**Message d’erreur** : Actuellement, La sauvegarde Azure ne prend pas en charge les tailles de disque supérieures à 1 023 Go <br>
+**Message d’erreur** : Actuellement Azure Backup ne prend pas en charge les tailles de disque supérieures à 4 095 Go <br>
 
-Votre opération de sauvegarde peut échouer lorsque vous sauvegardez une machine virtuelle dotée d'un disque de plus de 1023 Go, car votre espace de stockage n'est pas mis à niveau vers la Restauration instantanée. La mise à niveau vers la Restauration instantanée fournira une prise en charge de 4 To maximum. Reportez-vous à cet [article](backup-instant-restore-capability.md#upgrading-to-instant-restore). Une fois la mise à niveau effectuée, l’abonnement peut bénéficier de cette fonctionnalité au bout de deux heures maximum. Fournissez suffisamment de mémoire avant de renouveler l’opération.  
-
-## <a name="usererrorstandardssdnotsupported---currently-azure-backup-does-not-support-standard-ssd-disks"></a>UserErrorStandardSSDNotSupported - Actuellement, la sauvegarde Azure ne prend pas en charge les disques SSD Standard
-
-**Code d’erreur** : UserErrorStandardSSDNotSupported <br>
-**Message d’erreur** : Actuellement, Sauvegarde Azure ne prend pas en charge les disques SSD Standard. <br>
-
-Actuellement, Sauvegarde Azure prend en charge les disques SSD Standard uniquement pour les coffres qui ont été mis à niveau vers la [Restauration instantanée](backup-instant-restore-capability.md).
+Votre opération de sauvegarde peut échouer lors de la sauvegarde de machine virtuelle avec disque de taille supérieure à 4 095 go. Prise en charge des disques de grande taille sera bientôt disponible.  
 
 ## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress - Impossible de lancer la sauvegarde, car une autre opération de sauvegarde est en cours d’exécution
 
@@ -200,7 +193,7 @@ Voici les causes possibles de l’échec de la tâche de capture instantanée :
 | Cause : | Solution |
 | --- | --- |
 | L’état de la machine virtuelle est rapporté de manière incorrecte, car la machine virtuelle est arrêtée dans le protocole RDP (Remote Desktop Protocol). | Si vous avez arrêté la machine virtuelle dans le protocole RDP, retournez sur le portail pour vérifier que son état est correct. Si ce n’est pas le cas, arrêtez la machine virtuelle dans le portail à l’aide de l’option **Arrêter** dans le tableau de bord de la machine virtuelle. |
-| La machine virtuelle ne parvient pas à récupérer l’adresse d’hôte/de structure à partir du protocole DHCP. | Le protocole DHCP doit être activé dans l’invité pour que la sauvegarde de la machine virtuelle IaaS fonctionne. Si la machine virtuelle ne parvient pas à récupérer l’adresse d’hôte/de structure à partir de la réponse 245 DHCP, elle ne peut ni télécharger, ni exécuter des extensions. Si vous avez besoin d’une adresse IP privée statique, vous devez la configurer dans le **portail Azure** ou **PowerShell** et vérifier que l’option DHCP dans la machine virtuelle est activée. [En savoir plus](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) sur la configuration d’une adresse IP statique avec PowerShell.
+| La machine virtuelle ne parvient pas à récupérer l’adresse d’hôte/de structure à partir du protocole DHCP. | Le protocole DHCP doit être activé dans l’invité pour que la sauvegarde de la machine virtuelle IaaS fonctionne. Si la machine virtuelle ne parvient pas à récupérer l’adresse d’hôte/de structure à partir de la réponse 245 DHCP, elle ne peut ni télécharger, ni exécuter des extensions. Si vous avez besoin d’une adresse IP privée statique, vous devez le configurer via le **Azure portal** ou **PowerShell** et assurez-vous que l’option DHCP à l’intérieur de la machine virtuelle est activée. [En savoir plus](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) sur la configuration d’une adresse IP statique avec PowerShell.
 
 ### <a name="the-backup-extension-fails-to-update-or-load"></a>L’extension de sauvegarde ne peut être ni mise à jour ni chargée
 Si les extensions ne sont pas chargées, la sauvegarde échoue, car il n’est pas possible de capturer un instantané.

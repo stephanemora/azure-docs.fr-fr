@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: ebf376f0bdba8c41f88d6f97cef2c17ecd259022
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 0785d0805027dd0bd621203ade7287e5a1840a9a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816643"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57870144"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guide Azure AI pour les solutions de maintenance prédictive
 
@@ -401,13 +401,13 @@ Le processus ci-dessus est établi de nombreuses manières dans les publications
 
 Comme indiqué précédemment, l’opérationnalisation du modèle pour la PdM diffère de celle de ses pairs. Les scénarios qui impliquent la détection d’anomalies et la détection de défaillances implémentent généralement le _scoring en ligne_ (également appelé _scoring en temps réel_). Ici, le modèle _évalue_ chaque enregistrement entrant et renvoie une prédiction. Pour la détection d’anomalies, la prédiction est une indication du fait qu’une anomalie s’est produite (exemple : SVM à une classe). Pour la détection de défaillances, ce serait le type ou la classe de défaillance.
 
-En revanche, la PdM implique _scoring par lot_. Pour se conformer à la signature du modèle, les caractéristiques dans les nouvelles données doivent être conçues de la même manière que les données d’apprentissage. Pour les jeux de données volumineux qui sont généralement utilisés pour les nouvelles données, les fonctionnalités sont agrégées sur les fenêtres de temps et notées dans le lot. Le scoring par lot est généralement effectué dans des systèmes distribués comme [Spark](http://spark.apache.org/) ou [Azure Batch](https://docs.microsoft.com/azure/batch/batch-api-basics). Il existe deux alternatives dont aucune n’est optimale :
+En revanche, la PdM implique _scoring par lot_. Pour se conformer à la signature du modèle, les caractéristiques dans les nouvelles données doivent être conçues de la même manière que les données d’apprentissage. Pour les jeux de données volumineux qui sont généralement utilisés pour les nouvelles données, les fonctionnalités sont agrégées sur les fenêtres de temps et notées dans le lot. Le scoring par lot est généralement effectué dans des systèmes distribués comme [Spark](https://spark.apache.org/) ou [Azure Batch](https://docs.microsoft.com/azure/batch/batch-api-basics). Il existe deux alternatives dont aucune n’est optimale :
 - Les moteurs de diffusion en continu de données prennent en charge l’agrégation sur des fenêtres dans la mémoire. On peut donc considérer qu’ils prennent en charge le scoring en ligne. Mais ces systèmes sont adaptés à des données denses dans des fenêtres de temps étroites, ou à des éléments épars sur des fenêtres plus larges. Il est possible qu’ils ne se mettent pas correctement à l’échelle sur des fenêtres de temps plus larges, comme on l’a vu dans des scénarios de PdM.
 - Si le scoring par lot n’est pas disponible, la solution consiste à adapter un scoring en ligne pour gérer les nouvelles données en une seule fois dans les lots de petite taille.
 
 ## <a name="solution-templates-for-predictive-maintenance"></a>Modèles de solutions pour la maintenance prédictive
 
-La dernière section de ce guide fournit une liste de modèles de solutions de PdM, des tutoriels et des expériences implémentées dans Azure. Ces applications de PdM peuvent être déployées dans un abonnement Azure en quelques minutes dans certains cas. Elles peuvent être utilisées comme démonstrations de preuves de concept, comme bacs à sables pour faire des essais avec des alternatives, ou comme accélérateurs pour des implémentations de production réelles. Ces modèles sont situés dans la [galerie Azure AI](http://gallery.azure.ai) ou dans [Azure GitHub](https://github.com/Azure). Ces différents échantillons seront déployés dans ce modèle de solution au fil du temps.
+La dernière section de ce guide fournit une liste de modèles de solutions de PdM, des tutoriels et des expériences implémentées dans Azure. Ces applications de PdM peuvent être déployées dans un abonnement Azure en quelques minutes dans certains cas. Elles peuvent être utilisées comme démonstrations de preuves de concept, comme bacs à sables pour faire des essais avec des alternatives, ou comme accélérateurs pour des implémentations de production réelles. Ces modèles sont situés dans la [galerie Azure AI](https://gallery.azure.ai) ou dans [Azure GitHub](https://github.com/Azure). Ces différents échantillons seront déployés dans ce modèle de solution au fil du temps.
 
 | # | Intitulé | Description |
 |--:|:------|-------------|
@@ -431,9 +431,9 @@ En plus du contenu et de formations sur les concepts généraux et la mise en pr
 | [Développeur d’IA sur Azure](https://azure.microsoft.com/training/learning-paths/azure-ai-developer)  | Public |
 | [Microsoft AI School](https://aischool.microsoft.com/learning-paths)  | Public |
 | [Apprentissage AI Azure à partir de GitHub](https://github.com/Azure/connectthedots/blob/master/readme.md) | Public |
-| [LinkedIn Learning](http://www.linkedin.com/learning) | Public |
-| [Webinaires Microsoft AI sur Youtube](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Public |
-| [Présentation de Microsoft AI](http://channel9.msdn.com/Shows/AI-Show) | Public |
+| [LinkedIn Learning](https://www.linkedin.com/learning) | Public |
+| [Séminaires en ligne Microsoft AI YouTube](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Public |
+| [Présentation de Microsoft AI](https://channel9.msdn.com/Shows/AI-Show) | Public |
 | [LearnAI@MS](https://learnanalytics.microsoft.com) | Partenaires |
 | [Microsoft Partner Network](https://learningportal.microsoft.com) | Partenaires |
 

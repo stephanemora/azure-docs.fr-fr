@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: anzaman
-ms.openlocfilehash: 5f77857c82846fe9c3d2ad4f5f82572d18401691
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: c2c722331c95e72bae5605606564a2083e2802e3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003599"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075030"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-apis"></a>Personnaliser un modèle linguistique avec les API Video Indexer
 
@@ -53,11 +53,11 @@ curl -v -X POST "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cus
 
 |**Nom**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|
-|location|chaîne|OUI|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
-|accountId|chaîne|OUI|GUID pour ce compte|
-|accessToken|chaîne|OUI|Jeton d’accès (doit être du type [Jeton d’accès de compte](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) pour s’authentifier auprès de l’appel. Les jetons d’accès expirent au bout d’une heure.|
-|modelName|chaîne|OUI|Nom du modèle linguistique|
-|Langage|chaîne|OUI|Langue du modèle linguistique. <br/>Le paramètre **langage** doit afficher une langue au format BCP-47 « balise de langue-région' (par exemple : « en-US »). Les langues prises en charge sont les suivantes : Anglais (en-US), Allemand (de-DE), Espagnol (es-SP), Arabe (ar-EG), Français (fr-FR), Hindi (hi-HI), Italien (it-IT), Japonais (ja-JP), Portugais (pt-BR), Russe (ru-RU) et Chinois (zh-CN).  |
+|location|string|Oui|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
+|accountId|string|Oui|GUID pour ce compte|
+|accessToken|string|Oui|Jeton d’accès (doit être du type [Jeton d’accès de compte](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) pour s’authentifier auprès de l’appel. Les jetons d’accès expirent au bout d’une heure.|
+|modelName|string|Oui|Nom du modèle linguistique|
+|Langage|string|Oui|Langue du modèle linguistique. <br/>Le paramètre **langage** doit afficher une langue au format BCP-47 « balise de langue-région' (par exemple : « en-US »). Les langues prises en charge sont les suivantes : Anglais (en-US), Allemand (de-DE), Espagnol (es-SP), Arabe (ar-EG), Français (fr-FR), Hindi (hi-HI), Italien (it-IT), Japonais (ja-JP), Portugais (pt-BR), Russe (ru-RU) et Chinois (zh-CN).  |
 
 ### <a name="request-body"></a>Corps de la demande
 
@@ -124,10 +124,10 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 
 |**Nom**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|
-|location|chaîne|OUI|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
-|accountID|chaîne|OUI|GUID pour ce compte.|
-|modelId|chaîne|OUI|ID du modèle linguistique (généré lorsque le modèle linguistique est créé)|
-|accessToken|chaîne|OUI|Jeton d’accès (doit être du type [Jeton d’accès de compte](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) pour s’authentifier auprès de l’appel. Les jetons d’accès expirent au bout d’une heure.|
+|location|string|Oui|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
+|accountID|string|Oui|GUID pour ce compte.|
+|modelId|string|Oui|ID du modèle linguistique (généré lorsque le modèle linguistique est créé)|
+|accessToken|string|Oui|Jeton d’accès (doit être du type [Jeton d’accès de compte](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) pour s’authentifier auprès de l’appel. Les jetons d’accès expirent au bout d’une heure.|
 
 ### <a name="request-body"></a>Corps de la demande
 
@@ -189,10 +189,10 @@ curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/C
 
 |**Nom**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|
-|location|chaîne|OUI|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
-|accountID|chaîne|OUI|GUID pour ce compte.|
-|modelId|chaîne|OUI|ID du modèle linguistique (généré lorsque le modèle linguistique est créé)|
-|accessToken|chaîne|OUI|Jeton d’accès (doit être du type [Jeton d’accès de compte](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) pour s’authentifier auprès de l’appel. Les jetons d’accès expirent au bout d’une heure.|
+|location|string|Oui|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
+|accountID|string|Oui|GUID pour ce compte.|
+|modelId|string|Oui|ID du modèle linguistique (généré lorsque le modèle linguistique est créé)|
+|accessToken|string|Oui|Jeton d’accès (doit être du type [Jeton d’accès de compte](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) pour s’authentifier auprès de l’appel. Les jetons d’accès expirent au bout d’une heure.|
 
 ### <a name="request-body"></a>Corps de la demande
 
@@ -231,11 +231,11 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 
 |**Nom**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|
-|location|chaîne|OUI|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
-|accountID|chaîne|OUI|GUID pour ce compte.|
-|modelId|chaîne|OUI|ID du modèle linguistique (généré lorsque le modèle linguistique est créé)|
-|accessToken|chaîne|OUI|Jeton d’accès (doit être du type [Jeton d’accès de compte](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) pour s’authentifier auprès de l’appel. Les jetons d’accès expirent au bout d’une heure.|
-|modelName|chaîne|Non |Nouveau nom que vous pouvez donner au modèle|
+|location|string|Oui|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
+|accountID|string|Oui|GUID pour ce compte.|
+|modelId|string|Oui|ID du modèle linguistique (généré lorsque le modèle linguistique est créé)|
+|accessToken|string|Oui|Jeton d’accès (doit être du type [Jeton d’accès de compte](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) pour s’authentifier auprès de l’appel. Les jetons d’accès expirent au bout d’une heure.|
+|modelName|string|Non |Nouveau nom que vous pouvez donner au modèle|
 |enable|booléenne|Non |Choisissez si tous les fichiers de ce modèle sont activés (true) ou désactivés (false)|
 
 ### <a name="request-body"></a>Corps de la demande
@@ -300,13 +300,13 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 
 |**Nom**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|
-|location|chaîne|OUI|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
-|accountId|chaîne|OUI|GUID pour ce compte.|
-|modelId|chaîne|OUI|ID du modèle linguistique contenant le fichier (généré lorsque le modèle linguistique est créé)|
-|fileId|chaîne|OUI|ID du fichier en cours de mise à jour (généré quand le fichier est chargé lors de la création ou de la mise à jour du modèle linguistique)|
-|accessToken|chaîne|OUI|Jeton d’accès (doit être du type [Jeton d’accès de compte](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) pour s’authentifier auprès de l’appel. Les jetons d’accès expirent au bout d’une heure.|
-|fileName|chaîne|Non |Nom du fichier à mettre à jour|
-|enable|booléenne|Non |Mettre à jour si ce fichier est activé (true) ou désactivé (false) dans le modèle linguistique||
+|location|string|Oui|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
+|accountId|string|Oui|GUID pour ce compte.|
+|modelId|string|Oui|ID du modèle linguistique contenant le fichier (généré lorsque le modèle linguistique est créé)|
+|fileId|string|Oui|ID du fichier en cours de mise à jour (généré quand le fichier est chargé lors de la création ou de la mise à jour du modèle linguistique)|
+|accessToken|string|Oui|Jeton d’accès (doit être du type [Jeton d’accès de compte](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) pour s’authentifier auprès de l’appel. Les jetons d’accès expirent au bout d’une heure.|
+|fileName|string|Non |Nom du fichier à mettre à jour|
+|enable|booléenne|Non |Mettre à jour si ce fichier est activé (true) ou désactivé (false) dans le modèle linguistique|
 
 ### <a name="request-body"></a>Corps de la demande
 
@@ -350,10 +350,10 @@ curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 
 |**Nom**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|
-|location|chaîne|OUI|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
-|accountID|chaîne|OUI|GUID pour ce compte.|
-|modelId|chaîne|OUI|ID du modèle linguistique (généré lorsque le modèle linguistique est créé)|
-|accessToken|chaîne|OUI|Jeton d’accès (doit être du type [Jeton d’accès de compte](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) pour s’authentifier auprès de l’appel. Les jetons d’accès expirent au bout d’une heure.|
+|location|string|Oui|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
+|accountID|string|Oui|GUID pour ce compte.|
+|modelId|string|Oui|ID du modèle linguistique (généré lorsque le modèle linguistique est créé)|
+|accessToken|string|Oui|Jeton d’accès (doit être du type [Jeton d’accès de compte](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) pour s’authentifier auprès de l’appel. Les jetons d’accès expirent au bout d’une heure.|
 
 ### <a name="request-body"></a>Corps de la demande
 
@@ -415,9 +415,9 @@ curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 
 |**Nom**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|
-|location|chaîne|OUI|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
-|accountID|chaîne|OUI|GUID pour ce compte|
-|accessToken|chaîne|OUI|Jeton d’accès (doit être du type [Jeton d’accès de compte](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) pour s’authentifier auprès de l’appel. Les jetons d’accès expirent au bout d’une heure.|
+|location|string|Oui|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
+|accountID|string|Oui|GUID pour ce compte|
+|accessToken|string|Oui|Jeton d’accès (doit être du type [Jeton d’accès de compte](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) pour s’authentifier auprès de l’appel. Les jetons d’accès expirent au bout d’une heure.|
 
 ### <a name="request-body"></a>Corps de la demande
 
@@ -486,11 +486,11 @@ curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/C
 
 |**Nom**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|
-|location|chaîne|OUI|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
-|accountID|chaîne|OUI|GUID pour ce compte.|
-|modelId|chaîne|OUI|ID du modèle linguistique contenant le fichier (généré lorsque le modèle linguistique est créé)|
-|fileId|chaîne|OUI|ID du fichier en cours de mise à jour (généré quand le fichier est chargé lors de la création ou de la mise à jour du modèle linguistique)|
-|accessToken|chaîne|OUI|Jeton d’accès (doit être du type [Jeton d’accès de compte](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) pour s’authentifier auprès de l’appel. Les jetons d’accès expirent au bout d’une heure.|
+|location|string|Oui|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
+|accountID|string|Oui|GUID pour ce compte.|
+|modelId|string|Oui|ID du modèle linguistique contenant le fichier (généré lorsque le modèle linguistique est créé)|
+|fileId|string|Oui|ID du fichier en cours de mise à jour (généré quand le fichier est chargé lors de la création ou de la mise à jour du modèle linguistique)|
+|accessToken|string|Oui|Jeton d’accès (doit être du type [Jeton d’accès de compte](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) pour s’authentifier auprès de l’appel. Les jetons d’accès expirent au bout d’une heure.|
 
 ### <a name="request-body"></a>Corps de la demande
 
@@ -523,11 +523,11 @@ curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 
 |**Nom**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|
-|location|chaîne|OUI|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
-|accountID|chaîne|OUI|GUID pour ce compte.|
-|modelId|chaîne|OUI|ID du modèle linguistique contenant le fichier (généré lorsque le modèle linguistique est créé)|
-|fileId|chaîne|OUI|ID du fichier en cours de mise à jour (généré quand le fichier est chargé lors de la création ou de la mise à jour du modèle linguistique)|
-|accessToken|chaîne|OUI|Jeton d’accès (doit être du type [Jeton d’accès de compte](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) pour s’authentifier auprès de l’appel. Les jetons d’accès expirent au bout d’une heure.|
+|location|string|Oui|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
+|accountID|string|Oui|GUID pour ce compte.|
+|modelId|string|Oui|ID du modèle linguistique contenant le fichier (généré lorsque le modèle linguistique est créé)|
+|fileId|string|Oui|ID du fichier en cours de mise à jour (généré quand le fichier est chargé lors de la création ou de la mise à jour du modèle linguistique)|
+|accessToken|string|Oui|Jeton d’accès (doit être du type [Jeton d’accès de compte](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) pour s’authentifier auprès de l’appel. Les jetons d’accès expirent au bout d’une heure.|
 
 ### <a name="request-body"></a>Corps de la demande
 
@@ -572,11 +572,11 @@ curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 
 |**Nom**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|
-|location|chaîne|OUI|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
-|accountID|chaîne|OUI|GUID pour ce compte.|
-|modelId|chaîne|OUI|ID du modèle linguistique contenant le fichier (généré lorsque le modèle linguistique est créé)|
-|fileId|chaîne|OUI|ID du fichier en cours de mise à jour (généré quand le fichier est chargé lors de la création ou de la mise à jour du modèle linguistique)|
-|accessToken|chaîne|OUI|Jeton d’accès (doit être du type [Jeton d’accès de compte](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) pour s’authentifier auprès de l’appel. Les jetons d’accès expirent au bout d’une heure.|
+|location|string|Oui|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
+|accountID|string|Oui|GUID pour ce compte.|
+|modelId|string|Oui|ID du modèle linguistique contenant le fichier (généré lorsque le modèle linguistique est créé)|
+|fileId|string|Oui|ID du fichier en cours de mise à jour (généré quand le fichier est chargé lors de la création ou de la mise à jour du modèle linguistique)|
+|accessToken|string|Oui|Jeton d’accès (doit être du type [Jeton d’accès de compte](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) pour s’authentifier auprès de l’appel. Les jetons d’accès expirent au bout d’une heure.|
 
 ### <a name="request-body"></a>Corps de la demande 
 

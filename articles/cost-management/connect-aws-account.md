@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 03/14/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 0e3d6255d6e2787d407d24a4217a0262ae4c974d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 411a3d606ac8ec2f262ec9a1aabac7b74ccd110a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098475"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010937"
 ---
 # <a name="connect-an-amazon-web-services-account"></a>Connecter un compte Amazon Web Services
 
@@ -127,11 +127,11 @@ Vous créez un compartiment S3 pour stocker les informations de facturation dét
 6. Dans la page de révision, cliquez sur **Create bucket** (Créer un compartiment). Votre liste de compartiments s’affiche.
 7. Cliquez sur le compartiment que vous avez créé, sélectionnez l’onglet **Permissions** (Autorisations), puis sélectionnez **Bucket Policy** (Stratégie de compartiment). L’éditeur de stratégie de compartiment s’affiche.
 8. Copiez l’exemple JSON ci-après et collez-le dans l’éditeur de stratégie de compartiment.
-  - Remplacez `<BillingBucketName>` par le nom de votre compartiment S3.
-  - Remplacez `<ReadOnlyUserOrRole>` par l’ARN de rôle ou d’utilisateur que vous avez précédemment copié.
+   - Remplacez `<BillingBucketName>` par le nom de votre compartiment S3.
+   - Remplacez `<ReadOnlyUserOrRole>` par l’ARN de rôle ou d’utilisateur que vous avez précédemment copié.
 
-  ```json
-  {
+   ```json
+   {
     "Version": "2012-10-17",
     "Id": "Policy1426774604000",
     "Statement": [
@@ -169,8 +169,8 @@ Vous créez un compartiment S3 pour stocker les informations de facturation dét
             "Resource": "arn:aws:s3:::<BillingBucketName>/*"
         }
     ]
-  }
-  ```
+   }
+   ```
 
 9. Cliquez sur **Enregistrer**.  
     ![Cliquer sur Enregistrer dans l’éditeur de stratégie de compartiment](./media/connect-aws-account/bucket-policy-editor.png)

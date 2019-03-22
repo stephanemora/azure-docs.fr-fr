@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: iainfou
-ms.openlocfilehash: 680e3990afa3ed08c69402e9e5403cb9a6f3266a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: aaa16245fada7fbccdd0865d973de2fa19970989
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175453"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176580"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Meilleures pratiques pour la connectivité réseau et la sécurité dans Azure Kubernetes Service (AKS)
 
@@ -116,7 +116,7 @@ Un contrôleur d’entrée qui distribue le trafic aux services et applications 
 
 ![Un pare-feu d’applications web (WAF) comme Azure Application Gateway peut protéger et distribuer le trafic d’un cluster AKS](media/operator-best-practices-network/web-application-firewall-app-gateway.png)
 
-Un pare-feu d’applications web (WAF) ajoute une couche de sécurité supplémentaire en filtrant le trafic entrant. Le projet OWASP (Open Web Application Security Project) propose un ensemble de règles pour surveiller les attaques de type script intersites ou cookie poisoning. [Azure Application Gateway][app-gateway] est un pare-feu WAF capable d’intégrer ces fonctionnalités de sécurité à des clusters AKS, avant que le trafic n’atteigne les clusters et les applications. D’autres solutions tierces assurent également ces fonctions, ce qui peut permettre de continuer à utiliser les investissements et l’expertise déjà acquis sur un produit donné.
+Un pare-feu d’applications web (WAF) ajoute une couche de sécurité supplémentaire en filtrant le trafic entrant. Le projet OWASP (Open Web Application Security Project) propose un ensemble de règles pour surveiller les attaques de type script intersites ou cookie poisoning. [Azure Application Gateway] [ app-gateway] (actuellement en version préliminaire dans ACS) est un pare-feu d’applications Web qui peut s’intégrer avec les clusters AKS pour fournir ces fonctionnalités de sécurité, avant que le trafic n’atteigne votre cluster AKS et les applications. D’autres solutions tierces assurent également ces fonctions, ce qui peut permettre de continuer à utiliser les investissements et l’expertise déjà acquis sur un produit donné.
 
 Les ressources d’équilibrage de charge ou d’entrée continuent de s’exécuter dans le cluster AKS pour affiner davantage la distribution du trafic. App Gateway peut être géré de manière centralisée comme contrôleur d’entrée avec une définition de ressource. Pour commencer, voir [Créer un contrôleur d’entrée Application Gateway][app-gateway-ingress].
 
@@ -124,7 +124,7 @@ Les ressources d’équilibrage de charge ou d’entrée continuent de s’exéc
 
 **Bonnes pratiques** - Utilisez des stratégies réseau pour autoriser ou refuser le trafic vers les pods. Par défaut, tout le trafic est autorisé entre les pods au sein d’un cluster. Pour une sécurité accrue, définissez des règles qui limitent la communication des pods.
 
-L’utilisation de stratégies réseau est une fonctionnalité Kubernetes qui vous permet de contrôler le flux de trafic entre les pods. Vous pouvez choisir d’autoriser ou de refuser le trafic selon des paramètres tels que les étiquettes attribuées, l’espace de noms ou le port de trafic. L’utilisation de stratégies réseau offre une méthode native du cloud pour contrôler le flux de trafic. Les pods étant créés de façon dynamique dans un cluster AKS, les stratégies réseau nécessaires peuvent être appliquées automatiquement. N’utilisez pas des groupes de sécurité réseau Azure pour contrôler le trafic de pod à pod, mais plutôt des stratégies réseau.
+Stratégie de réseau (actuellement en version préliminaire dans ACS) est une fonctionnalité de Kubernetes qui vous permet de contrôler le flux de trafic entre les pods. Vous pouvez choisir d’autoriser ou de refuser un trafic en fonction de paramètres, tels que des étiquettes attribuées, un espace de noms ou un port de trafic. L’utilisation de stratégies réseau offre une méthode native du cloud pour contrôler le flux de trafic. Les pods étant créés de façon dynamique dans un cluster AKS, les stratégies réseau nécessaires peuvent être appliquées automatiquement. N’utilisez pas des groupes de sécurité réseau Azure pour contrôler le trafic de pod à pod, mais plutôt des stratégies réseau.
 
 Pour utiliser une stratégie réseau, la fonctionnalité doit être activée lorsque vous créez un cluster AKS. Vous ne pouvez pas activer une stratégie réseau sur un cluster AKS existant. Prévoyez le temps nécessaire pour vérifier que vous activez la stratégie réseau sur les clusters et que vous pouvez les utiliser selon vos besoins.
 

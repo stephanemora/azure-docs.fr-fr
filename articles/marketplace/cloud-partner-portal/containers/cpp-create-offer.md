@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 71a69a8c299d4469c151102b0dbd5cdb70c296ec
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
-ms.translationtype: HT
+ms.openlocfilehash: 3b2a34a5ed2c6b57bfce0b9a4cf35cdf14cff9c9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50980154"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57900078"
 ---
 # <a name="create-a-new-container-offer-with-the-cloud-partner-portal"></a>Créer une offre de conteneur sur le Portail Cloud Partner
 
@@ -34,7 +34,7 @@ Cet article explique comment créer et publier une entrée d’offre de conteneu
 
 ## <a name="new-offer-form"></a>Formulaire de nouvelle offre 
 
-Connectez-vous au [Portail Cloud Partner](http://cloudpartner.azure.com/), puis sélectionnez **+ Nouvelle offre** dans la barre de menus de gauche. Dans le menu Nouvelle offre, sélectionnez **Conteneurs** afin d’afficher le formulaire **Nouvelle offre** et démarrer le processus de définition des ressources pour une nouvelle offre de conteneur.
+Connectez-vous au [Portail Cloud Partner](https://cloudpartner.azure.com/), puis sélectionnez **+ Nouvelle offre** dans la barre de menus de gauche. Dans le menu Nouvelle offre, sélectionnez **Conteneurs** afin d’afficher le formulaire **Nouvelle offre** et démarrer le processus de définition des ressources pour une nouvelle offre de conteneur.
 
 ![Sélection de l’option Conteneurs pour une nouvelle offre](./media/azure-container-offer.png)
 

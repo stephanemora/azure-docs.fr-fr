@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 14d50cb7cac77af75dd4b7293812154d1f24e47c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 2a41316eadb43145628d6c625935c751bfbc6ad6
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33765522"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531523"
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>Résolution des problèmes de compression des fichiers CDN
 Cet article vous aide à résoudre les problèmes de [compression des fichiers CDN](cdn-improve-performance.md).
@@ -30,7 +30,7 @@ Si vous avez besoin d'aide supplémentaire concernant n'importe quel point de ce
 La compression pour votre point de terminaison est activée, mais les fichiers sont renvoyés non compressés.
 
 > [!TIP]
-> Pour vérifier si vos fichiers sont retournés sous une forme compressée, vous devez utiliser un outil tel que [Fiddler](http://www.telerik.com/fiddler) ou les [outils de développement](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) de votre navigateur.  Vérifiez les en-têtes de réponse HTTP retournés avec votre contenu CDN mis en cache.  S’il existe un en-tête nommé `Content-Encoding` avec une valeur **gzip**, **bzip2**, ou **deflate**, votre contenu est compressé.
+> Pour vérifier si vos fichiers sont retournés sous une forme compressée, vous devez utiliser un outil tel que [Fiddler](https://www.telerik.com/fiddler) ou les [outils de développement](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) de votre navigateur.  Vérifiez les en-têtes de réponse HTTP retournés avec votre contenu CDN mis en cache.  S’il existe un en-tête nommé `Content-Encoding` avec une valeur **gzip**, **bzip2**, ou **deflate**, votre contenu est compressé.
 > 
 > ![En-tête d’encodage de contenu](./media/cdn-troubleshoot-compression/cdn-content-header.png)
 > 
@@ -56,7 +56,7 @@ Tout d’abord, effectuez une vérification rapide de l’intégrité de la requ
 * Vérifiez que la requête contient un en-tête **Accept-Encoding** et que la valeur de cet en-tête contient **gzip**, **deflate** ou **bzip2**.
 
 > [!NOTE]
-> Les profils du **CDN Azure d’Akamai** prennent uniquement en charge l’encodage **gzip**.
+> Les profils du **CDN Azure fourni par Akamai** prennent uniquement en charge l’encodage **gzip**.
 > 
 > 
 
@@ -116,6 +116,6 @@ Afin d’être éligible pour la compression, un fichier doit respecter les exig
 ### <a name="check-the-request-at-the-origin-server-for-a-via-header"></a>Vérifiez la requête sur le serveur d’origine pour un en-tête **Via**
 L’en-tête HTTP **Via** indique au serveur web que la requête est transmise par un serveur proxy.  Par défaut, des serveurs web Microsoft IIS ne compressent pas les réponses lorsque la requête contient un en-tête **Via** .  Pour modifier ce comportement, procédez comme suit :
 
-* **IIS 6**: [définissez HcNoCompressionForProxies="FALSE" dans les propriétés de la métabase IIS](https://msdn.microsoft.com/library/ms525390.aspx)
-* **IIS 7 et versions ultérieures** : [définissez **noCompressionForHttp10** et **noCompressionForProxies** sur False dans la configuration du serveur](http://www.iis.net/configreference/system.webserver/httpcompression)
+* **IIS 6**: [Définissez HcNoCompressionForProxies = « FALSE » dans les propriétés de la métabase IIS](https://msdn.microsoft.com/library/ms525390.aspx)
+* **IIS 7 et jusqu'à**: [Définissez les options **noCompressionForHttp10** et **noCompressionForProxies** sur False dans la configuration du serveur](http://www.iis.net/configreference/system.webserver/httpcompression)
 

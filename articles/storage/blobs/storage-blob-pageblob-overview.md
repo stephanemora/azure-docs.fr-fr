@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: wielriac
 ms.subservice: blobs
-ms.openlocfilehash: a61e78ff54cdc2a3db6c166686c2c51a19856a9c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: b03da04c97475dcb9ce15f2ed69d7ca333d6f431
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252303"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456208"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Vue d’ensemble des objets blob de pages Azure
 
@@ -29,7 +29,7 @@ Les principales fonctionnalités des objets blob de pages Azure résident dans s
 
 Des services Microsoft internes comme Azure Site Recovery et Azure Backup, ainsi que de nombreux développeurs tiers, ont implémenté des innovations de pointe à l’aide de l’interface REST des objets blob de pages. Voici quelques-uns des scénarios uniques implémentés sur Azure : 
 * Gestion des captures instantanées incrémentielle orientée application : Les applications peuvent exploiter les instantanés d’objet blob de pages et les API REST pour enregistrer les points de contrôle d’application sans duplication coûteuse de données. Stockage Azure prend en charge les instantanés locaux pour les objets blob de pages, qui ne nécessitent pas la copie de l’intégralité de l’objet blob. Ces API d’instantané publiques permettent également d’accéder à et de copier des deltas entre deux instantanés.
-* Migration dynamique d’application et de données locales vers le cloud : Copiez les données locales et utilisez les API REST pour écrire directement dans l’objet blob de pages Azure pendant l’exécution de la machine virtuelle locale. Lorsque la cible est interceptée, vous pouvez basculer rapidement vers la machine virtuelle Azure à l’aide de ces données. De cette façon, vous pouvez migrer vos machines virtuelles et disques virtuels locaux vers le cloud avec un temps d’arrêt minime, car la migration des données se produit en arrière-plan pendant que vous utilisez la machine virtuelle. Le temps d’arrêt nécessaire pour le basculement est donc relativement court (quelques minutes).
+* Migration dynamique d’application et vos données à partir de sur site et le cloud : Copier les données sur site et utiliser les API REST pour écrire directement dans un objet blob de pages Azure pendant le local que machine virtuelle continue à s’exécuter. Lorsque la cible est interceptée, vous pouvez basculer rapidement vers la machine virtuelle Azure à l’aide de ces données. De cette façon, vous pouvez migrer vos machines virtuelles et disques virtuels en local vers le cloud avec un temps mort minimal, étant donné que la migration des données se produit en arrière-plan tout en continuant à utiliser la machine virtuelle et le temps d’arrêt nécessaire pour le basculement seront donc courts (en minutes).
 * Accès partagé [basé sur SAS](../common/storage-dotnet-shared-access-signature-part-1.md), qui permet des scénarios tels que plusieurs lecteurs et un auteur unique avec prise en charge du contrôle d’accès concurrentiel.
 
 ## <a name="page-blob-features"></a>Fonctionnalités d’objet blob de pages

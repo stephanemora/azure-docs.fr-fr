@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 733aae0fe7bd11dfb5c41b7c3d15838a76ab5834
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 28029fe92a207dba85e2ab5a22c08879b7172925
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870197"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105775"
 ---
 # <a name="moderate-with-custom-term-lists-in-the-api-console"></a>Modérer avec des listes de termes personnalisées dans la console d’API
 
@@ -44,78 +44,78 @@ Avant de pouvoir évaluer l’API dans la console en ligne, vous avez besoin de 
 
 Une fois les modifications effectuées dans une liste de termes, vous devez actualiser son index pour inclure les modifications aux futures recherches. Cette étape est semblable au fonctionnement d’un moteur de recherche sur votre bureau (s’il est activé) ou d’un moteur de recherche web qui actualise en permanence son index pour inclure les nouveaux fichiers ou les nouvelles pages.
 
-1.  Dans la [référence de l’API Gestion de liste de termes](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f), dans le menu gauche, sélectionnez **Listes de termes**, puis **Actualiser l’index de recherche**. 
+1. Dans la [référence de l’API Gestion de liste de termes](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f), dans le menu gauche, sélectionnez **Listes de termes**, puis **Actualiser l’index de recherche**. 
 
-  La page **Listes de termes - Actualiser l’index de recherche** s’ouvre.
+   La page **Listes de termes - Actualiser l’index de recherche** s’ouvre.
 
 2. Pour l’option **Open API testing console** (Ouvrir la console de test d’API), sélectionnez la région qui décrit le mieux votre emplacement. 
 
-  ![Sélection de la région sur la page Listes de termes - Actualiser l’index de recherche](images/test-drive-region.png)
+   ![Sélection de la région sur la page Listes de termes - Actualiser l’index de recherche](images/test-drive-region.png)
 
-  La console d’API **Listes de termes - Actualiser l’index de recherche** s’ouvre.
+   La console d’API **Listes de termes - Actualiser l’index de recherche** s’ouvre.
 
-3.  Dans le champ **listId**, saisissez l’ID de la liste. Entrez votre clé d’abonnement, puis sélectionnez **Envoyer**.
+3. Dans le champ **listId**, saisissez l’ID de la liste. Entrez votre clé d’abonnement, puis sélectionnez **Envoyer**.
 
-  ![Champ de contenu de réponse de la console API Listes de termes - Actualiser l’index de recherche](images/try-terms-list-refresh-1.png)
+   ![Champ de contenu de réponse de la console API Listes de termes - Actualiser l’index de recherche](images/try-terms-list-refresh-1.png)
 
 ## <a name="create-a-term-list"></a>Créer une liste de termes
-1.  Accédez à la [référence de l’API Gestion de liste de termes](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f). 
+1. Accédez à la [référence de l’API Gestion de liste de termes](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f). 
 
-  La page **Listes de termes - Créer** s’ouvre.
+   La page **Listes de termes - Créer** s’ouvre.
 
-2.  Pour l’option **Open API testing console** (Ouvrir la console de test d’API), sélectionnez la région qui décrit le mieux votre emplacement. 
+2. Pour l’option **Open API testing console** (Ouvrir la console de test d’API), sélectionnez la région qui décrit le mieux votre emplacement. 
 
-  ![Sélection de la région sur la page Listes de termes - Créer](images/test-drive-region.png)
+   ![Sélection de la région sur la page Listes de termes - Créer](images/test-drive-region.png)
 
-  La console d’API **Listes de termes - Créer** s’ouvre.
+   La console d’API **Listes de termes - Créer** s’ouvre.
  
-3.  Dans la zone **Ocp-Apim-Subscription-Key**, entrez votre clé d’abonnement.
+3. Dans la zone **Ocp-Apim-Subscription-Key**, entrez votre clé d’abonnement.
 
-4.  Dans la zone **Corps de la demande**, entrez les valeurs pour **Noms** (par exemple, MyList) et **Description**.
+4. Dans la zone **Corps de la demande**, entrez les valeurs pour **Noms** (par exemple, MyList) et **Description**.
 
-  ![Nom et description du corps de la demande dans la console Listes de termes - Créer](images/try-terms-list-create-1.png)
+   ![Nom et description du corps de la demande dans la console Listes de termes - Créer](images/try-terms-list-create-1.png)
 
-5.  Utilisez les espaces réservées aux paires clé-valeur pour assigner plus de métadonnées descriptives à votre liste.
+5. Utilisez les espaces réservées aux paires clé-valeur pour assigner plus de métadonnées descriptives à votre liste.
 
-        {
-           "Name": "MyExclusionList",
-           "Description": "MyListDescription",
-           "Metadata": 
-           {
-              "Category": "Competitors",
-              "Type": "Exclude"
-           }
-        }
+       {
+          "Name": "MyExclusionList",
+          "Description": "MyListDescription",
+          "Metadata": 
+          {
+             "Category": "Competitors",
+             "Type": "Exclude"
+          }
+       }
 
-  Ajoutez des métadonnées de liste en tant que paire clé-valeur, pas les termes.
+   Ajoutez des métadonnées de liste en tant que paire clé-valeur, pas les termes.
  
-6.  Sélectionnez **Envoyer**. Votre liste est créée. Notez la valeur **ID** associée à la nouvelle liste. Vous en avez besoin pour d’autres fonctions de gestion de liste de termes.
+6. Sélectionnez **Envoyer**. Votre liste est créée. Notez la valeur **ID** associée à la nouvelle liste. Vous en avez besoin pour d’autres fonctions de gestion de liste de termes.
 
-  ![Console Listes de termes - Créer, la zone Contenu de la réponse affiche l’ID de la liste](images/try-terms-list-create-2.png)
+   ![Console Listes de termes - Créer, la zone Contenu de la réponse affiche l’ID de la liste](images/try-terms-list-create-2.png)
  
-7.  Ajoutez des termes à MyList. Dans le menu de gauche, sous **Terme**, sélectionnez **Add Term** (Ajouter un terme). 
+7. Ajoutez des termes à MyList. Dans le menu de gauche, sous **Terme**, sélectionnez **Add Term** (Ajouter un terme). 
 
-  La page **Term - Add Term** (Terme - Ajouter un terme) s’ouvre. 
+   La page **Term - Add Term** (Terme - Ajouter un terme) s’ouvre. 
 
-8.  Pour l’option **Open API testing console** (Ouvrir la console de test d’API), sélectionnez la région qui décrit le mieux votre emplacement. 
+8. Pour l’option **Open API testing console** (Ouvrir la console de test d’API), sélectionnez la région qui décrit le mieux votre emplacement. 
 
-  ![Sélection de la région sur la page Term - Add Term (Terme - Ajouter un terme)](images/test-drive-region.png)
+   ![Sélection de la région sur la page Term - Add Term (Terme - Ajouter un terme)](images/test-drive-region.png)
 
-  La console d’API **Term - Add Term** (Terme - Ajouter un terme) s’ouvre.
+   La console d’API **Term - Add Term** (Terme - Ajouter un terme) s’ouvre.
  
-9.  Dans la zone **listId**, entrez l’ID de liste que vous avez créé et sélectionnez une valeur de **langue**. Entrez votre clé d’abonnement, puis sélectionnez **Envoyer**.
+9. Dans la zone **listId**, entrez l’ID de liste que vous avez créé et sélectionnez une valeur de **langue**. Entrez votre clé d’abonnement, puis sélectionnez **Envoyer**.
 
-  ![Paramètres de requête de la console Term - Add Term (Terme - Ajouter un terme)](images/try-terms-list-create-3.png)
+   ![Paramètres de requête de la console Term - Add Term (Terme - Ajouter un terme)](images/try-terms-list-create-3.png)
  
 10. Pour vérifier que le terme a bien été ajouté à la liste, dans le menu gauche, sélectionnez **Terme** puis **Get All Terms** (Obtenir tous les termes). 
 
-  La console d’API **Term - Get All Terms** (Terme - Obtenir tous les termes) s’ouvre.
+    La console d’API **Term - Get All Terms** (Terme - Obtenir tous les termes) s’ouvre.
 
 11. Dans la zone **listId**, entrez l’ID de liste, puis votre clé d’abonnement. Sélectionnez **Envoyer**.
 
 12. Dans la zone **Contenu de la réponse**, vérifiez les termes que vous avez entrés.
 
-  ![Console Term - Get All Terms (Terme - Obtenir tous les termes), la zone Contenu de la réponse répertorie les termes que vous avez entrés](images/try-terms-list-create-4.png)
+    ![Console Term - Get All Terms (Terme - Obtenir tous les termes), la zone Contenu de la réponse répertorie les termes que vous avez entrés](images/try-terms-list-create-4.png)
  
 13. Ajoutez quelques termes de plus. Maintenant que vous avez créé une liste de termes personnalisée, essayez [d’analyser du texte](try-text-api.md) en utilisant la liste des termes personnalisée. 
 
@@ -129,45 +129,45 @@ La suppression d’un terme ou d’une liste est simple. Vous pouvez utiliser l�
 
 Cet exemple supprime un seul terme.
 
-1.  Dans la [référence de l’API Gestion de liste de termes](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f), dans le menu gauche, sélectionnez **Terme**, puis **Supprimer**. 
+1. Dans la [référence de l’API Gestion de liste de termes](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f), dans le menu gauche, sélectionnez **Terme**, puis **Supprimer**. 
 
-  La page **Terme - Supprimer** s’ouvre.
+   La page **Terme - Supprimer** s’ouvre.
 
 2. Pour l’option **Open API testing console** (Ouvrir la console de test d’API), sélectionnez la région qui décrit le mieux votre emplacement. 
 
-  ![Sélection d’une région sur la page Terme - Supprimer](images/test-drive-region.png)
+   ![Sélection d’une région sur la page Terme - Supprimer](images/test-drive-region.png)
 
-  La console d’API **Terme - Supprimer** s’ouvre.
+   La console d’API **Terme - Supprimer** s’ouvre.
   
-3.  Dans la zone **listId**, entrez l’ID de la liste dans laquelle se trouve le terme à supprimer. Cet ID est le nombre (dans notre exemple, **122**) qui est renvoyé dans la console **Term Lists - Get Details** (Listes de termes - Obtenir les détails) pour MyList. Entrez le terme et sélectionnez une langue.
+3. Dans la zone **listId**, entrez l’ID de la liste dans laquelle se trouve le terme à supprimer. Cet ID est le nombre (dans notre exemple, **122**) qui est renvoyé dans la console **Term Lists - Get Details** (Listes de termes - Obtenir les détails) pour MyList. Entrez le terme et sélectionnez une langue.
  
-  ![Paramètres de requête de la console Terme - Supprimer](images/try-terms-list-delete-1.png)
+   ![Paramètres de requête de la console Terme - Supprimer](images/try-terms-list-delete-1.png)
 
-4.  Entrez votre clé d’abonnement, puis sélectionnez **Envoyer**.
+4. Entrez votre clé d’abonnement, puis sélectionnez **Envoyer**.
 
-5.  Pour vérifier que le terme a été supprimé, utilisez la console **Term Lists - Get All** (Listes de termes - Tout obtenir).
+5. Pour vérifier que le terme a été supprimé, utilisez la console **Term Lists - Get All** (Listes de termes - Tout obtenir).
 
-  ![Console Term Lists - Get All (Listes de termes - Tout obtenir), la zone Contenu de la réponse indique que le terme est supprimé](images/try-terms-list-delete-2.png)
+   ![Console Term Lists - Get All (Listes de termes - Tout obtenir), la zone Contenu de la réponse indique que le terme est supprimé](images/try-terms-list-delete-2.png)
  
 ## <a name="change-list-information"></a>Modifier les informations d’une liste
 
 Vous pouvez modifier le nom et la description d’une liste, et ajouter des éléments de métadonnées.
 
-1.  Dans la [référence de l’API Gestion de liste de termes](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f), dans le menu gauche, sélectionnez **Listes de termes**, puis **Mettre à jour les détails**. 
+1. Dans la [référence de l’API Gestion de liste de termes](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f), dans le menu gauche, sélectionnez **Listes de termes**, puis **Mettre à jour les détails**. 
 
-  La page **Listes de termes - Mettre à jour les détails** s’ouvre.
+   La page **Listes de termes - Mettre à jour les détails** s’ouvre.
 
 2. Pour l’option **Open API testing console** (Ouvrir la console de test d’API), sélectionnez la région qui décrit le mieux votre emplacement. 
 
-  ![Sélection d’une région sur la page Listes de termes - Mettre à jour les détails](images/test-drive-region.png)
+   ![Sélection d’une région sur la page Listes de termes - Mettre à jour les détails](images/test-drive-region.png)
 
-  La console d’API **Listes de termes - Mettre à jour les détails** s’ouvre.
+   La console d’API **Listes de termes - Mettre à jour les détails** s’ouvre.
 
-3.  Dans la zone **listId**, entrez l’ID de liste, puis votre clé d’abonnement.
+3. Dans la zone **listId**, entrez l’ID de liste, puis votre clé d’abonnement.
 
-4.  Dans la zone **Corps de la demande**, faites vos changements, puis sélectionnez **Envoyer**.
+4. Dans la zone **Corps de la demande**, faites vos changements, puis sélectionnez **Envoyer**.
 
-  ![Modifications du corps de la demande dans la console Listes de termes - Mettre à jour les détails](images/try-terms-list-change-1.png)
+   ![Modifications du corps de la demande dans la console Listes de termes - Mettre à jour les détails](images/try-terms-list-change-1.png)
  
 
 ## <a name="next-steps"></a>Étapes suivantes

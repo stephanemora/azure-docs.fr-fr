@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/04/2019
 ms.author: rogarana
-ms.openlocfilehash: 3bf82f37752009a488512d720093bc9c595dff8e
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: c9aaa22a656d1164ad4e9f9c1ed7539a93dd0457
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753212"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999936"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-java-v7"></a>Guide pratique pour charger, télécharger et lister des objets blob à l'aide de la bibliothèque de client pour Java v7
 
@@ -22,7 +22,7 @@ Dans ce guide pratique, vous allez apprendre à utiliser la bibliothèque de cli
 > [!TIP]
 > La dernière version de la bibliothèque de client pour Java du service Stockage Azure est la version 10. Si possible, Microsoft vous recommande d'utiliser la dernière version de la bibliothèque de client. Pour vous familiariser avec la version 10, reportez-vous à [Démarrage rapide : Charger, télécharger et lister des objets blob à l'aide du kit de développement logiciel (SDK) Stockage Java V10](storage-quickstart-blobs-java-v10.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -34,7 +34,7 @@ Assurez-vous que vous disposez des prérequis suivants :
 
 * Vous pouvez aussi installer et configurer Maven pour qu’il fonctionne à partir de la ligne de commande.
 
-Ce guide utilise [Eclipse](http://www.eclipse.org/downloads/) avec la configuration « IDE Eclipse pour les développeurs Java ».
+Ce guide utilise [Eclipse](https://www.eclipse.org/downloads/) avec la configuration « IDE Eclipse pour les développeurs Java ».
 
 ## <a name="download-the-sample-application"></a>Téléchargement de l'exemple d'application
 
@@ -87,7 +87,7 @@ Deleting the source, and downloaded files
 Avant de continuer, vérifiez votre répertoire par défaut (*C:\Users\<user>\AppData\Local\Temp*, pour les utilisateurs Windows) pour l’exemple de fichier. Copiez l’URL de l’objet blob en dehors de la fenêtre de console et collez-la dans un navigateur pour afficher le contenu du fichier dans Stockage Blob. Si vous comparez l’exemple de fichier dans votre répertoire avec le contenu stocké dans le stockage d’objets blob, vous verrez qu’ils sont identiques. 
 
   >[!NOTE]
-  >Vous pouvez également utiliser un outil comme l’[Explorateur Stockage Azure](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) pour afficher les fichiers dans Stockage Blob. L’Explorateur Stockage Azure est un outil multiplateforme gratuit qui vous permet d’accéder aux informations de votre compte de stockage.
+  >Vous pouvez également utiliser un outil comme l’[Explorateur Stockage Azure](https://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) pour afficher les fichiers dans Stockage Blob. L’Explorateur Stockage Azure est un outil multiplateforme gratuit qui vous permet d’accéder aux informations de votre compte de stockage.
 
 Une fois que vous avez vérifié les fichiers, appuyez sur la touche **Entrée** pour terminer la démonstration et supprimer les fichiers de test. Comme vous savez maintenant ce que fait l’exemple, ouvrez le fichier**AzureApp.java** pour examiner le code. 
 

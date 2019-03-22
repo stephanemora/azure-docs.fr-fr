@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 393583196d15ec0e1cfd132dc28aedb88d03891d
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: e2c5339731267a00e3423e79bc25b9d03d274bfd
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55996470"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189425"
 ---
 # <a name="h264-multiple-bitrate-4k"></a>H264 multidébit 4 K
 `Media Encoder Standard` définit un ensemble de présélections d’encodage à utiliser lors de la création des travaux d’encodage. Vous pouvez utiliser un `preset name` afin de spécifier le format dans lequel vous souhaitez encoder votre fichier multimédia. Sinon, vous pouvez créer vos propres présélections basées sur JSON ou XML (à l’aide de l’encodage UTF-8 ou UTF-16). Vous pouvez ensuite transmettre la présélection personnalisée à l’encodeur. Pour obtenir la liste de tous les noms de présélections pris en charge par cet encodeur `Media Encoder Standard`, consultez [Présélections de tâches pour Media Encoder Standard](media-services-mes-presets-overview.md).  
@@ -32,13 +32,13 @@ ms.locfileid: "55996470"
 >  Pour les encodages 4K, vous devez obtenir le type d’unité réservée Premium. Pour plus d’informations, consultez [Mise à l’échelle de l’encodage](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
   
 > [!NOTE]
->  Lorsque vous modifiez les valeurs `Width` et `Height` sur les couches, assurez-vous que les proportions demeurent constantes. Par exemple :  1920 x 1080, 1280 x 720, 1080 x 576, 640 x 360. Vous ne devez pas utiliser un mélange de proportions, comme : 1280 x 720, 720 x 480, 640 x 360.  
+>  Lorsque vous modifiez les valeurs `Width` et `Height` sur les couches, assurez-vous que les proportions demeurent constantes. Par exemple :  1920x1080, 1280x720, 1080x576, 640x360. Vous ne devez pas utiliser un mélange de proportions, comme : 1280x720, 720x480, 640x360.  
   
  XML  
   
 ```  
 <?xml version="1.0" encoding="utf-16"?>  
-<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">  
+<Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">  
   <Encoding>  
     <H264Video>  
       <KeyFrameInterval>00:00:02</KeyFrameInterval>  

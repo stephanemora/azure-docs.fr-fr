@@ -1,26 +1,27 @@
 ---
 title: Activité d’obtention des métadonnées dans Azure Data Factory | Microsoft Docs
-description: Découvrez comment utiliser l'activité de procédure stockée SQL Server pour appeler une procédure stockée dans une base de données SQL Azure ou un entrepôt Azure SQL Data Warehouse à partir d'un pipeline Data Factory.
+description: Découvrez comment vous pouvez utiliser l’activité d’obtention d’un pipeline Data Factory.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
+author: linda33wj
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: ''
 ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/19/2018
-ms.author: shlo
-ms.openlocfilehash: 4188fb413cc1001b6e4813fe69518a016c8c0656
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.date: 03/11/2019
+ms.author: jingwang
+ms.openlocfilehash: 78f63b4f46fe5479d4d0fd5849ad80536d8a137c
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354261"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730700"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Activité d’obtention des métadonnées dans Azure Data Factory
+
 L’activité GetMetadata peut être utilisée pour récupérer les **métadonnées** de n’importe quelle donnée dans Azure Data Factory. Cette activité peut être utilisée dans les scénarios suivants :
 
 - Valider les informations de métadonnées de n’importe quelle donnée
@@ -45,14 +46,16 @@ L’activité GetMetadata sélectionne un jeu de données comme entrée requise,
 | Connecteur/Métadonnées | itemName<br>(fichier/dossier) | itemType<br>(fichier/dossier) | size<br>(fichier) | created<br>(fichier/dossier) | lastModified<br>(fichier/dossier) |childItems<br>(dossier) |contentMD5<br>(fichier) | structure<br/>(fichier) | columnCount<br>(fichier) | exists<br>(fichier/dossier) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
 | Amazon S3 | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
+| Google Cloud Storage | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
 | Objets blob Azure | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
-| Azure Data Lake Store | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| Azure Data Lake Storage Gen1 | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| Azure Data Lake Storage Gen2 | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | Stockage Fichier Azure | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | Système de fichiers | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | SFTP | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | FTP | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 
-- Pour Amazon S3, `lastModified` s’applique à un compartiment et à une clé, mais pas à un dossier virtuel ; `exists` s’applique à un compartiment et à une clé, mais pas à un préfixe ou à un dossier virtuel.
+- Pour Amazon S3 et Google Sloud Storage, le `lastModified` s’applique aux compartiments et la clé mais pas virtuel dossier ; et le `exists` s’applique aux compartiments et clé mais pas préfixe ou un dossier virtuel.
 - Pour Azure Stockage Blob, `lastModified` s’applique à un conteneur et à un objet blob, mais pas à un dossier virtuel.
 
 **Base de données relationnelle :**

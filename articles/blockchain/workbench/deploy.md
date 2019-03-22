@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: fcba3aef29e1566f9dfb2b151c15fe683be94fdb
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: 7fead05e7404e042d923631f4ba745553085943a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54266585"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58098108"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Déployer Azure Blockchain Workbench
 
@@ -47,7 +47,7 @@ Le coût associé à Blockchain Workbench est un agrégat du coût des services 
 > [!IMPORTANT]
 > Si vous utilisez un abonnement doté de limites de service faibles, comme un abonnement Azure gratuit, le déploiement peut échouer en raison d’un quota insuffisant de cœurs de machine virtuelle. Avant le déploiement, vérifiez votre quota en suivant les instructions de l’article [Quotas de processeurs virtuels pour les machines virtuelles](../../virtual-machines/windows/quotas.md). La sélection de la machine virtuelle par défaut nécessite 6 cœurs de machine virtuelle. Le fait de diminuer la taille de la machine virtuelle, par exemple à *Standard DS1 v2*, réduit le nombre de cœurs à 4.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Azure Blockchain Workbench requiert des inscriptions d’applications et la configuration Azure AD. Vous pouvez choisir d’effectuer les [configurations manuellement](#azure-ad-configuration) pour Azure AD avant le déploiement ou l’exécution d’un script post-déploiement. Si vous redéployez Blockchain Workbench, consultez la [configuration Azure AD](#azure-ad-configuration) pour vérifier votre configuration Azure AD.
 
@@ -108,20 +108,20 @@ Une fois que les étapes préalables requises ont été exécutées, vous êtes 
 
     L’option *Utiliser l’existant* vous permet de spécifier un réseau blockchain Ethereum Proof-of-Authority (PoA). Les points de terminaison doivent répondre aux exigences suivantes.
 
-    * Le point de terminaison doit être un réseau blockchain Ethereum Proof-of-Authority (PoA).
-    * Le point de terminaison doit être accessible publiquement sur le réseau.
-    * Le réseau blockchain PoA doit être configuré de sorte que le prix du gaz soit défini sur la valeur zéro.
+   * Le point de terminaison doit être un réseau blockchain Ethereum Proof-of-Authority (PoA).
+   * Le point de terminaison doit être accessible publiquement sur le réseau.
+   * Le réseau blockchain PoA doit être configuré de sorte que le prix du gaz soit défini sur la valeur zéro.
 
-    > [!NOTE]
-    > Les comptes Blockchain Workbench ne sont pas financés. Si des fonds sont requis, les transactions échouent.
+     > [!NOTE]
+     > Les comptes Blockchain Workbench ne sont pas financés. Si des fonds sont requis, les transactions échouent.
 
-    ![Paramètres avancés pour le réseau blockchain existant](media/deploy/advanced-blockchain-settings-existing.png)
+     ![Paramètres avancés pour le réseau blockchain existant](media/deploy/advanced-blockchain-settings-existing.png)
 
-    | Paramètre | Description  |
-    |---------|--------------|
-    | Point de terminaison Ethereum RPC | Indiquez le point de terminaison RPC d’un réseau blockchain PoA existant. Le point de terminaison commence par https:// ou http:// et se termine par un numéro de port. Par exemple, `http<s>://<network-url>:<port>` |
-    | Paramètres Azure Active Directory | Choisissez **Ajouter ultérieurement**.</br>Remarque : Si vous avez choisi de [préconfigurer Azure AD](#azure-ad-configuration) ou si vous redéployez, optez pour *Ajouter maintenant*. |
-    | Sélection de machine virtuelle | Choisissez la taille de machine virtuelle préférée pour votre réseau blockchain. |
+     | Paramètre | Description  |
+     |---------|--------------|
+     | Point de terminaison Ethereum RPC | Indiquez le point de terminaison RPC d’un réseau blockchain PoA existant. Le point de terminaison commence par https:// ou http:// et se termine par un numéro de port. Par exemple, `http<s>://<network-url>:<port>` |
+     | Paramètres Azure Active Directory | Choisissez **Ajouter ultérieurement**.</br>Remarque : Si vous avez choisi de [préconfigurer Azure AD](#azure-ad-configuration) ou si vous redéployez, optez pour *Ajouter maintenant*. |
+     | Sélection de machine virtuelle | Choisissez la taille de machine virtuelle préférée pour votre réseau blockchain. |
 
 9. Sélectionnez **OK** pour terminer les Paramètres avancés.
 
@@ -205,7 +205,7 @@ Le déploiement de Blockchain Workbench nécessite l’inscription d’une appli
 
     |Paramètre  | Valeur  |
     |---------|---------|
-    |NOM | `Blockchain API` |
+    |Nom | `Blockchain API` |
     |Type d’application |Application web / API|
     |URL de connexion | `https://blockchainapi` |
 
@@ -223,18 +223,18 @@ Ensuite, vous devez modifier le manifeste pour utiliser des rôles d’applicati
 
     ``` json
     "appRoles": [
-         {
-           "allowedMemberTypes": [
-             "User",
-             "Application"
-           ],
-           "displayName": "Administrator",
-           "id": "<A unique GUID>",
-           "isEnabled": true,
-           "description": "Blockchain Workbench administrator role allows creation of applications, user to role assignments, etc.",
-           "value": "Administrator"
-         }
-       ],
+         {
+           "allowedMemberTypes": [
+             "User",
+             "Application"
+           ],
+           "displayName": "Administrator",
+           "id": "<A unique GUID>",
+           "isEnabled": true,
+           "description": "Blockchain Workbench administrator role allows creation of applications, user to role assignments, etc.",
+           "value": "Administrator"
+         }
+       ],
     ```
 
     > [!IMPORTANT]

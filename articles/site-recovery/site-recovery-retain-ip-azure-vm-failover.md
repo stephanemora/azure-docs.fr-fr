@@ -6,12 +6,12 @@ ms.date: 11/27/2018
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: f7b546e8a0ca52fd2037e471f01787bb64db032d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: aefb0684ea065841824ad27d1105ef309418c6b9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842745"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090744"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>Conserver les adresses IP pendant le basculement
 
@@ -62,10 +62,10 @@ Si une panne se produit dans la région source, la société A peut basculer tou
 
 - Avec des adresses IP cibles déjà en place avant le basculement, la société A peut orchestrer le basculement et établir automatiquement des connexions après le basculement entre **Recovery VNet** et **Azure VNet**. C’est ce qu’illustre le diagramme suivant.
 - En fonction des exigences des applications, les connexions entre les deux réseaux virtuels (**Recovery VNet** et **Azure VNet**) dans la région cible peuvent être établies avant, pendant (en tant qu’étape intermédiaire) ou après le basculement.
-    - La société peut utiliser des [plans de récupération](site-recovery-create-recovery-plans.md) pour spécifier quand les connexions seront établies
-    - Elle peut établir une connexion entre les réseaux virtuels à l’aide de VNET Peering ou d’un VPN de site à site
-        - VNet Peering n’utilise pas de passerelle VPN et a d’autres contraintes
-        - La [tarification](https://azure.microsoft.com/pricing/details/virtual-network) de VNet Peering est calculée différemment de la [tarification](https://azure.microsoft.com/pricing/details/vpn-gateway) de la passerelle VPN de réseau virtuel à réseau virtuel. Pour les basculements, nous conseillons généralement d’utiliser la même méthode de connectivité que les réseaux source, y compris le type de connexion, afin de limiter les incidents réseau imprévisibles
+  - La société peut utiliser des [plans de récupération](site-recovery-create-recovery-plans.md) pour spécifier quand les connexions seront établies
+  - Elle peut établir une connexion entre les réseaux virtuels à l’aide de VNET Peering ou d’un VPN de site à site
+      - VNet Peering n’utilise pas de passerelle VPN et a d’autres contraintes
+      - La [tarification](https://azure.microsoft.com/pricing/details/virtual-network) de VNet Peering est calculée différemment de la [tarification](https://azure.microsoft.com/pricing/details/vpn-gateway) de la passerelle VPN de réseau virtuel à réseau virtuel. Pour les basculements, nous conseillons généralement d’utiliser la même méthode de connectivité que les réseaux source, y compris le type de connexion, afin de limiter les incidents réseau imprévisibles
 
     ![Ressources dans Azure : basculement complet](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-full-region-failover2.png)
 
@@ -128,13 +128,13 @@ Dans ce scénario, la **société B** dispose d’une infrastructure hybride, un
 Voici à quoi ressemble l’architecture réseau avant le basculement :
 
 - Les machines virtuelles des applications sont hébergées dans la région Azure Asie.
--  Asie Est a un réseau virtuel (**Source VNet**) avec l’espace d’adressage 10.1.0.0/16
-    - Asie Est a des charges de travail réparties entre trois sous-réseaux sur **Source VNet** :
-        - **Sous-réseau 1** : 10.1.1.0/24
-        - **Sous-réseau 2** : 10.1.2.0/24,
-        - **Sous-réseau 3** : 10.3.0.0/24 utilisant un réseau virtuel Azure avec l’espace d’adressage 10.1.0.0/16. Ce réseau virtuel se nomme **Source VNet**
- - La région Azure secondaire (cible) est Asie Sud-Est :
-    - Asie Sud-Est a un réseau virtuel de récupération (**Recovery VNet**) identique à **Source VNet**.
+- Asie Est a un réseau virtuel (**Source VNet**) avec l’espace d’adressage 10.1.0.0/16
+  - Asie Est a des charges de travail réparties entre trois sous-réseaux sur **Source VNet** :
+    - **Sous-réseau 1** : 10.1.1.0/24
+    - **Sous-réseau 2** : 10.1.2.0/24,
+    - **Sous-réseau 3** : 10.3.0.0/24 utilisant un réseau virtuel Azure avec l’espace d’adressage 10.1.0.0/16. Ce réseau virtuel se nomme **Source VNet**
+      - La région Azure secondaire (cible) est Asie Sud-Est :
+  - Asie Sud-Est a un réseau virtuel de récupération (**Recovery VNet**) identique à **Source VNet**.
 - Les machines virtuelles dans Asie Est sont connectées à un centre de données local avec Azure ExpressRoute ou un réseau privé virtuel de site à site
 - Pour réduire le RTO, la société B provisionne des passerelles sur Recovery VNet dans la région Azure Asie Sud-Est avant le basculement
 - La société B affecte/vérifie les adresses IP cibles pour les machines virtuelles répliquées. L’adresse IP cible est identique à l’adresse IP source pour chaque machine virtuelle

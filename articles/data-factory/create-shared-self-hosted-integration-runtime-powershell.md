@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: 76b0d1728b46834270e9a5b53709de62b4a8b3fa
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: cc1a0905c97e76c481283363f095087b5fdcba3f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429376"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455851"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory-with-powershell"></a>Créer un runtime d’intégration auto-hébergé partagé dans Azure Data Factory avec PowerShell
 
@@ -28,11 +28,13 @@ Ce guide pas à pas vous montre comment créer un runtime d’intégration auto-
 1. Créer un runtime d’intégration lié.
 1. Révoquer le partage.
 
-## <a name="prerequisites"></a>Prérequis 
+## <a name="prerequisites"></a>Conditions préalables 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 - **Abonnement Azure**. Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer. 
 
-- **Azure PowerShell**. Suivez les instructions de l'article [Installer Azure PowerShell sur Windows avec PowerShellGet](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.11.0). Vous utilisez PowerShell pour exécuter un script et créer un runtime d’intégration auto-hébergé pouvant être partagé avec d’autres fabriques de données. 
+- **Azure PowerShell**. Suivez les instructions de l'article [Installer Azure PowerShell sur Windows avec PowerShellGet](https://docs.microsoft.com/powershell/azure/install-az-ps). Vous utilisez PowerShell pour exécuter un script et créer un runtime d’intégration auto-hébergé pouvant être partagé avec d’autres fabriques de données. 
 
 > [!NOTE]  
 > Pour obtenir la liste des régions Azure dans lesquelles Data Factory est actuellement disponible, sélectionnez les régions qui vous intéressent sur la page [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory).
@@ -65,8 +67,8 @@ Ce guide pas à pas vous montre comment créer un runtime d’intégration auto-
 1. Connectez-vous et sélectionnez un abonnement. Ajoutez le code suivant au script pour vous connecter et sélectionner votre abonnement Azure :
 
     ```powershell
-    Connect-AzureRmAccount
-    Select-AzureRmSubscription -SubscriptionName $SubscriptionName
+    Connect-AzAccount
+    Select-AzSubscription -SubscriptionName $SubscriptionName
     ```
 
 1. Créez un groupe de ressources et une fabrique de données.
@@ -74,16 +76,16 @@ Ce guide pas à pas vous montre comment créer un runtime d’intégration auto-
     > [!NOTE]  
     > Cette étape est facultative. Si vous disposez déjà d’une fabrique de données, ignorez cette étape. 
 
-    Créez un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) avec la commande [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-6.11.0). Un groupe de ressources est un conteneur logique dans lequel les ressources Azure sont déployées et gérées en tant que groupe. L’exemple suivant crée un groupe de ressources nommé `myResourceGroup` à l’emplacement Europe Ouest : 
+    Créer un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) à l’aide de la [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azurermps-6.11.0) commande. Un groupe de ressources est un conteneur logique dans lequel les ressources Azure sont déployées et gérées en tant que groupe. L’exemple suivant crée un groupe de ressources nommé `myResourceGroup` à l’emplacement Europe Ouest : 
 
     ```powershell
-    New-AzureRmResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName
+    New-AzResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName
     ```
 
     Exécutez la commande suivante pour créer la fabrique de données : 
 
     ```powershell
-    Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `
+    Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `
                              -Location $DataFactoryLocation `
                              -Name $SharedDataFactoryName
     ```
@@ -96,7 +98,7 @@ Ce guide pas à pas vous montre comment créer un runtime d’intégration auto-
 Exécutez la commande suivante pour créer un runtime d’intégration auto-hébergé :
 
 ```powershell
-$SharedIR = Set-AzureRmDataFactoryV2IntegrationRuntime `
+$SharedIR = Set-AzDataFactoryV2IntegrationRuntime `
     -ResourceGroupName $ResourceGroupName `
     -DataFactoryName $SharedDataFactoryName `
     -Name $SharedIntegrationRuntimeName `
@@ -109,7 +111,7 @@ $SharedIR = Set-AzureRmDataFactoryV2IntegrationRuntime `
 Exécutez la commande suivante pour obtenir la clé d’authentification du runtime d’intégration auto-hébergé :
 
 ```powershell
-Get-AzureRmDataFactoryV2IntegrationRuntimeKey `
+Get-AzDataFactoryV2IntegrationRuntimeKey `
     -ResourceGroupName $ResourceGroupName `
     -DataFactoryName $SharedDataFactoryName `
     -Name $SharedIntegrationRuntimeName
@@ -133,7 +135,7 @@ La réponse contient la clé d’authentification de ce runtime d’intégration
 > Cette étape est facultative. Si vous disposez déjà de la fabrique de données avec laquelle vous souhaitez procéder au partage, ignorez cette étape.
 
 ```powershell
-$factory = Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `
+$factory = Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `
     -Location $DataFactoryLocation `
     -Name $LinkedDataFactoryName
 ```
@@ -145,7 +147,7 @@ Accordez l’autorisation à la fabrique de données qui doit accéder au runtim
 > Ne sautez pas cette étape !
 
 ```powershell
-New-AzureRMRoleAssignment `
+New-AzRoleAssignment `
     -ObjectId $factory.Identity.PrincipalId ` #MSI of the Data Factory with which it needs to be shared
     -RoleDefinitionId 'b24988ac-6180-42a0-ab88-20f7382dd24c' ` #This is the Contributor role
     -Scope $SharedIR.Id
@@ -156,7 +158,7 @@ New-AzureRMRoleAssignment `
 Exécutez la commande suivante pour créer un runtime d’intégration auto-hébergé lié :
 
 ```powershell
-Set-AzureRmDataFactoryV2IntegrationRuntime `
+Set-AzDataFactoryV2IntegrationRuntime `
     -ResourceGroupName $ResourceGroupName `
     -DataFactoryName $LinkedDataFactoryName `
     -Name $LinkedIntegrationRuntimeName `
@@ -172,7 +174,7 @@ Set-AzureRmDataFactoryV2IntegrationRuntime `
 Pour révoquer l'accès d'une fabrique de données à partir du runtime d'intégration partagé, exécutez la commande suivante :
 
 ```powershell
-Remove-AzureRMRoleAssignment `
+Remove-AzRoleAssignment `
     -ObjectId $factory.Identity.PrincipalId `
     -RoleDefinitionId 'b24988ac-6180-42a0-ab88-20f7382dd24c' `
     -Scope $SharedIR.Id
@@ -181,7 +183,7 @@ Remove-AzureRMRoleAssignment `
 Pour supprimer le runtime d’intégration lié existant, exécutez la commande suivante sur le runtime d’intégration partagé :
 
 ```powershell
-Remove-AzureRmDataFactoryV2IntegrationRuntime `
+Remove-AzDataFactoryV2IntegrationRuntime `
     -ResourceGroupName $ResourceGroupName `
     -DataFactoryName $SharedDataFactoryName `
     -Name $SharedIntegrationRuntimeName `

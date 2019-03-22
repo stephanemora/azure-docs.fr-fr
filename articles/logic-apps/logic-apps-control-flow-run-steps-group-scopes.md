@@ -10,12 +10,12 @@ manager: jeconnoc
 ms.reviewer: klam, LADocs
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: aac59e087ba106bc20d94fea85cb8a3cd9273482
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: d73a43aedde9a88e009ddca1f0363dbcd92e1379
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233070"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080452"
 ---
 # <a name="run-actions-based-on-group-status-with-scopes-in-azure-logic-apps"></a>Exécuter des actions de workflow en fonction de l’état du groupe avec des étendues dans Azure Logic Apps
 
@@ -27,7 +27,7 @@ Par exemple, voici une application logique de haut niveau qui utilise une étend
 
 ![Configurer le déclencheur « Planification - Périodicité »](./media/logic-apps-control-flow-run-steps-group-scopes/scope-high-level.png)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour suivre l’exemple de cet article, vous avez besoin de ces éléments :
 
@@ -54,7 +54,7 @@ Vous pouvez enregistrer votre application logique à tout moment, par conséquen
 
 1. Si ce n’est pas déjà fait, connectez-vous au <a href="https://portal.azure.com" target="_blank">portail Azure</a>. Créez une application logique vide.
 
-1. Ajouter le déclencheur **Planification - Périodicité** avec ces paramètres : **Intervalle** = « 1 » et **Fréquence** = « Minute »
+1. Ajouter le **planification - récurrence** déclencheur avec ces paramètres : **Intervalle** = « 1 » et **fréquence** = « Minute »
 
    ![Configurer le déclencheur « Planification - Périodicité »](./media/logic-apps-control-flow-run-steps-group-scopes/recurrence.png)
 
@@ -83,15 +83,16 @@ Vous pouvez enregistrer votre application logique à tout moment, par conséquen
       | **Étape 2** | <*end*> | Entrez la destination de votre itinéraire. | 
       | **Avoid** | Aucun | Entrez les éléments à éviter sur votre itinéraire, par exemple les autoroutes, les péages, etc. Pour les valeurs possibles, consultez [Calculate a route](https://msdn.microsoft.com/library/ff701717.aspx) (Calculer un itinéraire). | 
       | **Optimize** | timeWithTraffic | Sélectionnez un paramètre permettant d’optimiser votre itinéraire, par exemple la distance, la durée du trajet avec les informations de circulation actuelle, etc. Cet exemple utilise cette valeur : « timeWithTraffic » | 
-      | **Unité de distance** | <*your-preference*> | Entrez l’unité de distance pour calculer votre itinéraire. Cet exemple utilise cette valeur : « Mile » | 
+      | **Unité de distance** | <*your-preference*> | Entrez l’unité de distance pour calculer votre itinéraire. Cet exemple utilise cette valeur : « Mile » | 
       | **Mode de déplacement** | Conduite | Entrez le mode de déplacement pour votre itinéraire. Cet exemple utilise cette valeur : « Driving » | 
       | **Date et heure de transit** | Aucun | S’applique au mode transit uniquement. | 
       | **Type de date et heure de transit** | Aucun | S’applique au mode transit uniquement. | 
       ||||  
 
-1. [Ajoutez une condition](../logic-apps/logic-apps-control-flow-conditional-statement.md) qui vérifie si le temps de trajet actuel dépasse une durée spécifiée. Pour cet exemple, suivez ces étapes :
+1. [Ajoutez une condition](../logic-apps/logic-apps-control-flow-conditional-statement.md) qui vérifie si le temps de trajet actuel dépasse une durée spécifiée. 
+   Pour cet exemple, suivez ces étapes :
 
-   1. Renommez la condition avec cette description : **Si le temps de trajet est supérieur au temps spécifié**
+   1. Renommez la condition avec cette description : **Si le temps du trafic est supérieur à l’heure spécifiée**
 
    1. Dans la colonne de gauche, cliquez à l’intérieur de la zone **Choisir une valeur** pour afficher la liste de contenu dynamique. Dans cette liste, sélectionnez le champ **Travel Duration Traffic** (Trafic correspondant à la durée du trajet), qui est exprimé en secondes. 
 
@@ -99,13 +100,14 @@ Vous pouvez enregistrer votre application logique à tout moment, par conséquen
 
    1. Dans la zone du milieu, sélectionnez cet opérateur : **est supérieur à**.
 
-   1. Dans la colonne la plus à droite, entrez cette valeur de comparaison, équivalente à 10 minutes en secondes : **600**
+   1. Dans la colonne de droite, entrez cette valeur de comparaison, ce qui est en secondes et correspond à 10 minutes : **600**
 
       Une fois que vous avez terminé, votre condition ressemble à cet exemple :
 
       ![Condition terminée](./media/logic-apps-control-flow-run-steps-group-scopes/finished-condition.png)
 
-1. Dans de la branche **If true** (Si true), ajoutez une action « Envoyer e-mail » pour votre fournisseur d’e-mail. Définissez cette action en suivant les étapes décrites sous cette image :
+1. Dans de la branche **If true** (Si true), ajoutez une action « Envoyer e-mail » pour votre fournisseur d’e-mail. 
+   Définissez cette action en suivant les étapes décrites sous cette image :
 
    ![Ajouter une action « Envoyer e-mail » à la branche « If true » (Si true)](./media/logic-apps-control-flow-run-steps-group-scopes/send-email.png)
 
@@ -124,7 +126,7 @@ Vous pouvez enregistrer votre application logique à tout moment, par conséquen
    1. Dans la liste de contenu dynamique, choisissez **Expression**.
 
    1. Recherchez et sélectionnez la fonction **div()**. 
-   Placez votre curseur dans les parenthèses de la fonction.
+      Placez votre curseur dans les parenthèses de la fonction.
 
    1. Alors que votre curseur se trouve dans les parenthèses de la fonction, choisissez **Contenu dynamique** pour afficher la liste de contenu dynamique. 
    
@@ -144,11 +146,11 @@ Vous pouvez enregistrer votre application logique à tout moment, par conséquen
 
    1. Une fois que vous avez terminé, sélectionnez **OK**.
 
-  1. Une fois l’expression résolue, ajoutez ce texte avec un espace de début : ``` minutes```
+   1. Une fois que l’expression correspond, ajoutez ce texte avec un espace de début : ``` minutes```
   
-     Votre champ **Corps** ressemble maintenant à cet exemple :
+       Votre champ **Corps** ressemble maintenant à cet exemple :
 
-     ![Champ « Corps » final](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
+       ![Champ « Corps » final](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
 
 1. Enregistrez votre application logique.
 
@@ -179,7 +181,7 @@ Ensuite, ajoutez une étendue afin que vous puissiez regrouper des actions spéc
 
    ![Étendue ajoutée](./media/logic-apps-control-flow-run-steps-group-scopes/scope-added.png)
 
-1. Sous l’étendue, ajoutez une condition qui vérifie l’état de l’étendue. Renommez la condition à l’aide de cette description : **Si l’étendue a échoué**
+1. Sous l’étendue, ajoutez une condition qui vérifie l’état de l’étendue. Renommez la condition avec cette description : **En cas d’échec de l’étendue**
 
    ![Ajouter une condition pour vérifier l’état de l’étendue](./media/logic-apps-control-flow-run-steps-group-scopes/add-condition-check-scope-status.png)
   

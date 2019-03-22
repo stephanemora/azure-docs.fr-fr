@@ -6,17 +6,17 @@ documentationcenter: na
 author: sumeetmittal
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumeet.mittal
-ms.openlocfilehash: 6e5748f5a76ade9cc1bb91902eb0fddcec2a6daa
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 619b9b68a5c4e897642e1f84c25c2822d8291400
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812342"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104486"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>Stratégies de point de terminaison de service de réseau virtuel (préversion)
 
@@ -158,11 +158,11 @@ Aucun enregistrement centralisé n’est disponible pour les stratégies de poin
 - L’accès est refusé aux comptes répertoriés dans les stratégies de point de terminaison
   - Le filtrage des groupes de sécurité réseau ou du pare-feu peut bloquer l’accès
   - Si la suppression/nouvelle application de la stratégie entraîne la perte de la connectivité :
-   - Vérifiez que le service Azure est configuré pour autoriser l’accès à partir du réseau virtuel, sur les points de terminaison, ou que la stratégie par défaut pour la ressource est définie sur *Allow All* (Tout autoriser).
+    - Vérifiez que le service Azure est configuré pour autoriser l’accès à partir du réseau virtuel, sur les points de terminaison, ou que la stratégie par défaut pour la ressource est définie sur *Allow All* (Tout autoriser).
       > [!NOTE]      
       > Les ressources de service n’ont pas besoin d’être sécurisées sur des réseaux virtuels pour accéder aux stratégies de point de terminaison. Toutefois, dans le cadre de meilleures pratiques de sécurité, nous recommandons de sécuriser les ressources de service sur vos réseaux approuvés, comme vos réseaux virtuels Azure, par le biais de points de terminaison de service et en local, par le biais d’un pare-feu IP.
   
-   - Vérifiez que les diagnostics de service affichent le trafic sur les points de terminaison.
+    - Vérifiez que les diagnostics de service affichent le trafic sur les points de terminaison.
     - Vérifiez si les journaux de flux de groupe de sécurité réseau affichent l’accès et si les journaux de stockage affichent l’accès, comme prévu, sur les points de terminaison de service.
     - Contactez le support Azure.
 - L’accès est refusé aux comptes non répertoriés dans les stratégies de point de terminaison de service

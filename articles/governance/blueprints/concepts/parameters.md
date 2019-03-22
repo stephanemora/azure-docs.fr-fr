@@ -4,17 +4,17 @@ description: Découvrez les paramètres statiques et dynamiques et comment les u
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9166d5d552df4854a4d00c2211a273a06198877a
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 42a70f7ea21a58f40f7786d6c6f1a51093923f83
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567483"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838015"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Création de blueprints dynamiques au moyen de paramètres
 
@@ -41,8 +41,13 @@ Cette mesure de sécurité empêche la pratique risquée consistant à stocker d
 - Nom du secret Key Vault
 - Version du secret Key Vault
 
-Le coffre de clés référencé doit exister dans le même abonnement que celui auquel le blueprint est affecté.
-L’option **Activer l’accès à Azure Resource Manager pour le déploiement de modèles** doit également être configurée dans la page **Stratégies d’accès** du coffre de clés. Pour obtenir des instructions sur la façon d’activer cette fonctionnalité, consultez [Key Vault - Activer le déploiement de modèle](../../../managed-applications/key-vault-access.md#enable-template-deployment). Pour plus d’informations sur Azure Key Vault, consultez [Présentation de Key Vault](../../../key-vault/key-vault-overview.md)
+Si l’affectation de plan utilise un **attribué par le système d’identité gérée**, le référencé Key Vault _doit_ existe dans le même abonnement que la définition de plan est affectée à.
+
+Si l’affectation de plan utilise un **affectée à l’utilisateur de l’identité managée**, le référencé Key Vault _peut_ existent dans un abonnement centralisé. L’identité gérée doit disposer des droits appropriés sur le coffre de clés avant l’affectation de plan.
+
+Dans les deux cas, le coffre de clés doit avoir **activer l’accès à Azure Resource Manager pour le déploiement de modèle** configuré sur le **stratégies d’accès** page. Pour obtenir des instructions sur la façon d’activer cette fonctionnalité, consultez [Key Vault - Activer le déploiement de modèle](../../../managed-applications/key-vault-access.md#enable-template-deployment).
+
+Pour plus d’informations sur Azure Key Vault, consultez [Présentation de Key Vault](../../../key-vault/key-vault-overview.md)
 
 ## <a name="parameter-types"></a>Types de paramètres
 
@@ -52,11 +57,11 @@ Une valeur de paramètre définie dans la définition d’un blueprint est appel
 
 #### <a name="setting-static-parameters-in-the-portal"></a>Définition des paramètres statiques dans le portail
 
-1. Cliquez sur **Tous les services**, puis recherchez et sélectionnez **Stratégie** dans le volet gauche. Dans la page **Stratégie**, cliquez sur **Blueprints**.
+1. Sélectionnez **Tous les services** dans le volet gauche. Recherchez et sélectionnez **Blueprints**.
 
 1. Sélectionnez **Définitions de blueprint** dans la page de gauche.
 
-1. Cliquez sur un blueprint existant puis sur **Modifier le blueprint**, ou cliquez sur **+ Créer un blueprint** et renseignez les informations sous l’onglet **De base**.
+1. Cliquez sur un plan existant, puis cliquez **édition blueprint** ou cliquez sur **+ créer plan** et remplissez les informations sur le **notions de base** onglet.
 
 1. Cliquez sur **Suivant : Artefacts** OU cliquez sur l’onglet **Artefacts**.
 
@@ -169,13 +174,13 @@ Un **paramètre dynamique** est l’inverse d’un paramètre statique. Ce param
 
 #### <a name="setting-dynamic-parameters-in-the-portal"></a>Définition des paramètres dynamiques dans le portail
 
-1. Cliquez sur **Tous les services**, puis recherchez et sélectionnez **Stratégie** dans le volet gauche. Dans la page **Stratégie**, cliquez sur **Blueprints**.
+1. Sélectionnez **Tous les services** dans le volet gauche. Recherchez et sélectionnez **Blueprints**.
 
 1. Sélectionnez **Définitions de blueprint** dans la page de gauche.
 
-1. Cliquez avec le bouton droit sur le blueprint que vous souhaitez affecter. Sélectionnez **Affecter le blueprint** OU cliquez sur le blueprint que vous souhaitez affecter, puis sur le bouton **Affecter le blueprint**.
+1. Cliquez avec le bouton droit sur le blueprint que vous souhaitez affecter. Sélectionnez **Assign blueprint** ou cliquez sur le plan que vous souhaitez affecter, puis cliquez sur le **Assign blueprint** bouton.
 
-1. Dans la page **Affecter le blueprint**, recherchez la section **Paramètres d’artefact**. Chaque artefact contenant au moins un **paramètre dynamique** présente l’artefact et les options de configuration. Indiquez les valeurs requises pour les paramètres avant d’affecter le blueprint. Dans l’exemple ci-dessous, _Name_ est un **paramètre dynamique** qui doit être défini pour terminer l’affectation du blueprint.
+1. Sur le **Assign blueprint** page, recherchez le **paramètres d’artefact** section. Chaque artefact contenant au moins un **paramètre dynamique** présente l’artefact et les options de configuration. Indiquez les valeurs requises pour les paramètres avant d’affecter le blueprint. Dans l’exemple ci-dessous, _Name_ est un **paramètre dynamique** qui doit être défini pour terminer l’affectation du blueprint.
 
    ![Paramètre dynamique de blueprint](../media/parameters/dynamic-parameter.png)
 
@@ -236,8 +241,8 @@ Les artefacts pour un groupe de ressources sont définis avec un « nom de mod�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur le [cycle de vie des blueprints](lifecycle.md)
-- Apprendre à personnaliser [l’ordre de séquencement des blueprints](sequencing-order.md)
-- Découvrir comment utiliser le [verrouillage des ressources de blueprint](resource-locking.md)
-- Découvrir comment [mettre à jour des affectations existantes](../how-to/update-existing-assignments.md)
-- Résoudre les problèmes durant l’affectation d’un blueprint en suivant les étapes de [dépannage général](../troubleshoot/general.md)
+- Découvrir le [cycle de vie des blueprints](lifecycle.md).
+- Apprendre à personnaliser l’[ordre de séquencement des blueprints](sequencing-order.md).
+- Découvrir comment utiliser le [verrouillage de ressources de blueprint](resource-locking.md).
+- Découvrir comment [mettre à jour des affectations existantes](../how-to/update-existing-assignments.md).
+- Résoudre les problèmes durant l’affectation d’un blueprint en suivant les étapes de [dépannage général](../troubleshoot/general.md).

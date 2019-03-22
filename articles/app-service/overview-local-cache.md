@@ -17,12 +17,12 @@ ms.workload: na
 ms.date: 03/04/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ea17db9af92887ff775e580224b66fed22c65d41
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: 1d6e233509b50f0b03678f2e62267169d02133a1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55963860"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57990778"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Présentation du cache local d’Azure App Service
 
@@ -35,7 +35,7 @@ Le contenu Azure App Service est stocké sur Stockage Azure est exposé de mani�
 * Le contenu est partagé entre plusieurs instances de machine virtuelle de l’application.
 * Le contenu est durable et peut être modifié en exécutant des applications.
 * Les fichiers journaux et les fichiers de données de diagnostic sont disponibles sous le même dossier de contenu partagé.
-* La publication d’un nouveau contenu met directement à jour le dossier de contenu, que vous pouvez consulter tout de suite via le site web SCM et l’application en cours d’exécution (pour obtenir le contenu le plus récent, certaines technologies, comme ASP.NET, lancent généralement un redémarrage de l’application quand des modifications de fichier sont effectuées).
+* La publication d’un nouveau contenu met directement à jour le dossier de contenu, Vous pouvez afficher immédiatement le même contenu par le biais du site Web SCM et l’application (en général, certaines technologies comme ASP.NET, lancent un redémarrage de l’application sur des modifications de fichier pour obtenir le contenu le plus récent).
 
 Tandis que de nombreuses applications utilisent une seule ou la totalité de ces fonctionnalités, certaines autres ont uniquement besoin d’un magasin de contenu en lecture seule très performant à partir duquel elles peuvent s’exécuter avec une haute disponibilité. Ces applications peuvent tirer profit d’une instance de machine virtuelle sur un cache local spécifique.
 

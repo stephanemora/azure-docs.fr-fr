@@ -3,17 +3,17 @@ title: Connecter une application cliente Node.js générique à Azure IoT Centra
 description: En tant que développeur d’appareils, comment connecter un appareil Node.js générique à votre application Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/26/2018
+ms.date: 02/04/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: cc6857750534dad2ded29178eb3f140fc25cce0d
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: 4d2701f078a26c22f52aebd0ef562dd60eaca923
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54410487"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097972"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Connecter une application cliente Node.js générique à votre application Azure IoT Central (Node.js)
 
@@ -41,7 +41,7 @@ Ajoutez la télémétrie suivante dans la page **Mesures** :
 | Pression     | pression    | kPa   | 80  | 110 | 0              |
 
 > [!NOTE]
-  La mesure de télémétrie est représentée par un nombre à virgule flottante.
+>   La mesure de télémétrie est représentée par un nombre à virgule flottante.
 
 Entrez les noms des champs dans le modèle d’appareil exactement comme ils figurent dans le tableau. Si les noms de champs ne correspondent pas aux noms de propriétés situés dans le code d’appareil précédent, les données de télémétrie ne peuvent pas être affichées dans l’application.
 
@@ -54,7 +54,7 @@ Ajoutez l’état suivant dans la page **Mesures** :
 | Mode du ventilateur     | fanmode     | 1       | Exécution      | 0       | Arrêté      |
 
 > [!NOTE]
-  Le type de données de la mesure État est « chaîne ».
+>   Le type de données de la mesure État est « chaîne ».
 
 Entrez les noms des champs dans le modèle d’appareil exactement comme ils figurent dans le tableau. Si les noms de champs ne correspondent pas aux noms de propriétés situés dans le code d’appareil précédent, l’état ne peut pas être affiché dans l’application.
 
@@ -67,7 +67,7 @@ Ajoutez l’événement suivant dans la page **Mesures** :
 | Surchauffe  | overheat    | Error    |
 
 > [!NOTE]
-  Le type de données de la mesure Événement est « chaîne ».
+>   Le type de données de la mesure Événement est « chaîne ».
 
 ### <a name="device-properties"></a>Propriétés de l’appareil
 
@@ -93,7 +93,7 @@ Entrez les noms des champs dans le modèle d’appareil exactement comme ils fig
 
 ## <a name="add-a-real-device"></a>Ajouter un appareil réel
 
-Dans votre application Azure IoT Central, ajoutez un appareil réel à partir du modèle d’appareil que vous créez et notez la chaîne de connexion de l’appareil. Pour obtenir des instructions détaillées sur la connexion d’une application Node.js à IoT Central, consultez [Générer une chaîne de connexion de l’appareil réel à partir de l’application](tutorial-add-device.md#generate-connection-string-for-real-device-from-application) et [Préparer le code client](tutorial-add-device.md#prepare-the-client-code) dans Tutoriels > Ajouter un appareil.
+Dans votre application Azure IoT Central, ajoutez un appareil réel à partir du modèle d’appareil que vous créez et notez la chaîne de connexion de l’appareil. Pour obtenir des instructions détaillées sur la connexion d’une application Node.js à IoT Central, consultez [Générer une chaîne de connexion de l’appareil réel à partir de l’application](tutorial-add-device.md#generate-connection-string) et [Préparer le code client](tutorial-add-device.md#prepare-the-client-code) dans Tutoriels > Ajouter un appareil.
 
 ### <a name="create-a-nodejs-application"></a>Création d’une application Node.js
 
@@ -129,11 +129,10 @@ Les étapes suivantes montrent comment créer une application cliente qui implé
     var client = clientFromConnectionString(connectionString);
     ```
 
-  > [!NOTE]
-  > Azure IoT Central utilise désormais le service IoT Hub Device Provisioning (DPS) Azure pour toutes les connexions d’appareil. Suivez ces instructions pour [obtenir la chaîne de connexion d’appareil](concepts-connectivity.md#getting-device-connection-string) et continuer le tutoriel. D’autres instructions détaillées sont fournies dans [Préparer le code client](tutorial-add-device.md#prepare-the-client-code), dans Tutoriels > Ajouter un appareil.
+    > [!NOTE]
+    > Azure IoT Central est passée à l’aide du service Azure IoT Hub Device Provisioning (DPS) pour toutes les connexions d’appareil, suivez ces instructions pour [obtenir la chaîne de connexion de périphérique](concepts-connectivity.md#get-a-connection-string) et continuer avec le reste du didacticiel. D’autres instructions détaillées sont fournies dans [Préparer le code client](tutorial-add-device.md#prepare-the-client-code), dans Tutoriels > Ajouter un appareil.
 
-
-  Remplacez l’espace réservé `{your device connection string}` par la chaîne de connexion de l’appareil. Dans cet exemple, nous initialisons `targetTemperature` à zéro ; vous pouvez aussi prendre la valeur actuellement lue sur l’appareil ou une valeur du jumeau d’appareil. 
+    Remplacez l’espace réservé `{your device connection string}` par la chaîne de connexion de l’appareil. Dans cet exemple, nous initialisons `targetTemperature` à zéro ; vous pouvez aussi prendre la valeur actuellement lue sur l’appareil ou une valeur du jumeau d’appareil. 
 
 1. Pour envoyer des mesures de télémétrie, d’état et d’événement à votre application Azure IoT Central, ajoutez la fonction suivante au fichier :
 
@@ -269,11 +268,11 @@ En tant qu’opérateur dans votre application Azure IoT Central, pour votre app
 
     ![Afficher les données de télémétrie](media/howto-connect-nodejs/viewtelemetry.png)
 
-* Voir les valeurs de propriété d’appareil envoyées depuis votre appareil dans la page **Propriétés**. Si la connexion est établie, les vignettes de propriétés d’appareil sont mises à jour. 
+* Voir les valeurs de propriété d’appareil envoyées depuis votre appareil dans la page **Propriétés**. L’appareil propriétés vignettes mise à jour si la connexion est établie.
 
     ![Voir les propriétés de l’appareil](media/howto-connect-nodejs/viewproperties.png)
 
-* Définissez la vitesse du ventilateur et la température cible dans la page **Paramètres**. Si la connexion est établie, les valeurs de paramètres sont synchronisées. 
+* Définissez la vitesse du ventilateur et la température cible dans la page **Paramètres**. Les valeurs des paramètres de synchronisation si la connexion est établie.
 
     ![Définir la vitesse du ventilateur](media/howto-connect-nodejs/setfanspeed.png)
 

@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be5220c5f28505bd83110705e08a6b1c7fb12529
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b2346c0631bb4540aef27623f82f72f4eabd0d23
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210694"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433550"
 ---
 # <a name="troubleshooting-azure-active-directory-activity-logs-content-pack-errors"></a>Résolution des problèmes liés aux erreurs du pack de contenu des journaux d’activité Azure Active Directory 
 
@@ -71,6 +71,6 @@ Cet article traite des causes possibles de ces erreurs et explique comment les c
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Installer le pack de contenu Power BI pour les rapports Azure AD](quickstart-install-power-bi-content-pack.md)
+* [Installer le pack de contenu Power BI pour les rapports d’Azure AD](quickstart-install-power-bi-content-pack.md).
 * [Utiliser le pack de contenu Power BI pour les rapports Azure AD pour visualiser vos données](howto-power-bi-content-pack.md)
 * [Obtenir une assistance pour Azure Active Directory](../fundamentals/active-directory-troubleshooting-support-howto.md)

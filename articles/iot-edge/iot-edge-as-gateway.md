@@ -4,17 +4,17 @@ description: Utilisez Azure IoT Edge pour créer un appareil de passerelle proxy
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/01/2017
+ms.date: 02/25/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 6e54d28d494a58966ea5312492dc79ced4c50a8d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: e0aafc6e5a6926ad70aa5df335f45b841955cab9
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53092279"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56877587"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>Guide pratique pour utiliser un appareil IoT Edge en tant que passerelle
 
@@ -54,4 +54,4 @@ Voici un aide-mémoire qui compare les primitives IoT Hub lors de l’utilisatio
 Lorsque vous utilisez un modèle de passerelle opaque (traduction de protocole), tous les appareils qui se connectent via cette passerelle partagent la même file d’attente cloud sur l’appareil, qui peut contenir au maximum 50 messages. De ce fait, le modèle de passerelle opaque doit être uniquement utilisé quand peu d’appareils se connectent via la passerelle de chaque champ et que le trafic entre le cloud et l’appareil est faible.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Apprenez à configurer un appareil IoT Edge en tant que [passerelle transparente](how-to-create-transparent-gateway-linux.md).
+Apprenez à configurer un appareil IoT Edge en tant que [passerelle transparente](how-to-create-transparent-gateway.md).

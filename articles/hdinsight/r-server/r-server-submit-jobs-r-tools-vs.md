@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 351734ea394b8820e87799a6d9a87979dd9c3807
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: 3165adf09281f4ad35b77c2e0fbb89e40c04c631
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604529"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120956"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Soumettre des travaux à partir d’outils R pour Visual Studio
 
@@ -31,21 +31,21 @@ RTVS améliore votre flux de travail R en offrant des outils tels que la [fenêt
 2. Sélectionnez la charge de travail *Applications de science et analyse des données*, puis sélectionnez les options **Prise en charge du langage R**, **Prise en charge du runtime pour les outils de développement R** et **Microsoft R Client**.
 
 3. Vous devez avoir des clés publiques et privées pour l’authentification SSH.
-<!-- {TODO tbd, no such file yet}[use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md) -->
+   <!-- {TODO tbd, no such file yet}[use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md) -->
 
 4. Installez [ML Server](https://msdn.microsoft.com/microsoft-r/rserver-install-windows) sur votre ordinateur. ML Server propose les fonctions [`RevoScaleR`](https://msdn.microsoft.com/microsoft-r/scaler/scaler) et `RxSpark`.
 
 5. Installez [PuTTY](https://www.putty.org/) pour fournir un contexte de calcul afin d’exécuter les fonctions `RevoScaleR` de votre client local sur votre cluster HDInsight.
 
 6. Vous pouvez appliquer les Paramètres de science des données à votre environnement Visual Studio, qui fournit une nouvelle disposition pour votre espace de travail pour les outils R.
-    1. Pour enregistrer vos paramètres Visual Studio actuels, utilisez la commande **Outils > Importation et exportation de paramètres**, puis sélectionnez **Exporter les paramètres d'environnement sélectionnés** et spécifiez un nom de fichier. Pour restaurer ces paramètres, utilisez la même commande et sélectionnez **Importer les paramètres d'environnement sélectionnés**.
+   1. Pour enregistrer vos paramètres Visual Studio actuels, utilisez la commande **Outils > Importation et exportation de paramètres**, puis sélectionnez **Exporter les paramètres d'environnement sélectionnés** et spécifiez un nom de fichier. Pour restaurer ces paramètres, utilisez la même commande et sélectionnez **Importer les paramètres d'environnement sélectionnés**.
 
-    2. Accédez à l’élément de menu **Outils R**, puis sélectionnez **Paramètres de science des données**.
+   2. Accédez à l’élément de menu **Outils R**, puis sélectionnez **Paramètres de science des données**.
 
-        ![Paramètres de science des données](./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png)
+       ![Paramètres de science des données](./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png)
 
-    > [!NOTE]  
-    > À l’aide de l’approche décrite à l’étape 1, vous pouvez également enregistrer et restaurer votre disposition de scientifique des données personnalisée, plutôt que de répéter la commande **Paramètres de science des données**.
+      > [!NOTE]  
+      > À l’aide de l’approche décrite à l’étape 1, vous pouvez également enregistrer et restaurer votre disposition de scientifique des données personnalisée, plutôt que de répéter la commande **Paramètres de science des données**.
 
 ## <a name="execute-local-r-methods"></a>Exécuter des méthodes R locales
 
