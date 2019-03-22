@@ -10,12 +10,12 @@ ms.suite: integration
 ms.topic: article
 ms.date: 08/18/2018
 tags: connectors
-ms.openlocfilehash: 1247f603b759364edcee2bff12f75bb0a217ecd6
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 9fe41cf2946525948897635a4e30213d161431ef
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231252"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295298"
 ---
 # <a name="manage-dynamics-365-records-with-azure-logic-apps"></a>Gérer les enregistrements Dynamics 365 avec Azure Logic Apps
 
@@ -24,7 +24,7 @@ Avec Azure Logic Apps et le connecteur Dynamics 365, vous pouvez créer des flu
 Cet article vous explique comment générer une application logique qui crée une tâche dans Dynamics 365 quand un enregistrement de prospect est créé dans Dynamics 365.
 Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>. 
 
@@ -122,9 +122,9 @@ Ce tableau décrit certains des types de champs et les types de données requis 
 
 | Type de champ | Type de données requis | Description | 
 |------------|--------------------|-------------|
-| Champs de texte | Ligne de texte unique | Ces champs de texte nécessitent une seule ligne de texte ou du contenu dynamique qui a le type texte. <p><p>*Exemples de champs* : **Description** et **Catégorie** | 
-| Champs de type entier | Nombre entier | Certains champs nécessitent un entier ou un contenu dynamique qui a le type entier. <p><p>*Exemples de champs* : **Pourcentage d’achèvement** et **Durée** | 
-| Champs de date | Date et heure | Certains champs nécessitent une date au format mm/jj/aaaa ou un contenu dynamique qui a le type date. <p><p>*Exemples de champs* : **Créé le**, **Date de début**, **Début réel**, **Fin réelle** et **Date d’échéance** | 
+| Champs de texte | Ligne de texte unique | Ces champs de texte nécessitent une seule ligne de texte ou du contenu dynamique qui a le type texte. <p><p>*Champs de l’exemple*: **Description** et **catégorie** | 
+| Champs de type entier | Nombre entier | Certains champs nécessitent un entier ou un contenu dynamique qui a le type entier. <p><p>*Champs de l’exemple*: **Pourcentage d’achèvement** et **durée** | 
+| Champs de date | Date et heure | Certains champs nécessitent une date au format mm/jj/aaaa ou un contenu dynamique qui a le type date. <p><p>*Champs de l’exemple*: **Créé sur**, **Date de début**, **début réel**, **fin réelle**, et **Date d’échéance** | 
 | Champs nécessitant à la fois un ID d’enregistrement et un type de recherche | Clé primaire | Certains champs qui font référence à un autre enregistrement d’entité nécessitent un ID d’enregistrement et un type de recherche. | 
 ||||
 
@@ -187,7 +187,7 @@ Pour plus d’informations sur la résolution des problèmes relatifs aux applic
 
 ## <a name="connector-reference"></a>Référence de connecteur
 
-Pour plus d’informations techniques, telles que les déclencheurs, actions et limites, comme décrit dans le fichier Swagger du connecteur, consultez la [page de référence du connecteur](/connectors/crm/). 
+Pour plus d’informations techniques, telles que les déclencheurs, actions et limites, comme décrit dans le fichier Swagger du connecteur, consultez la [page de référence du connecteur](/connectors/dynamicscrmonline/). 
 
 ## <a name="get-support"></a>Obtenir de l’aide
 

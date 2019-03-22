@@ -1,6 +1,6 @@
 ---
-title: Tutoriel pour développer une application web ASP.NET MVC avec Azure Cosmos DB à l’aide du kit SDK .Net (préversion).
-description: Ce tutoriel décrit la création d’une application web ASP.NET MVC avec Azure Cosmos DB. Vous allez stocker et accéder aux données JSON à partir d’une application todo hébergée sur Azure.
+title: Tutoriel pour développer une application web ASP.NET MVC avec Azure Cosmos DB à l’aide du kit SDK .NET (préversion).
+description: Ce tutoriel décrit la création d’une application web ASP .NET MVC avec Azure Cosmos DB. Vous allez stocker et accéder aux données JSON à partir d’une application todo hébergée sur Azure.
 author: deborahc
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -8,14 +8,14 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/03/2018
 ms.author: dech
-ms.openlocfilehash: e3ad852246b4b78d5ed7ac938348e59e9b7e6ce0
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: bf1da7e8a1041b15076ebda6eeac9b0a75c567c0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037121"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57857162"
 ---
-# <a name="tutorial-develop-an-aspnet-mvc-web-application-with-azure-cosmos-db-by-using-net-preview-sdk"></a>Tutoriel : Développer une application web ASP.NET MVC avec Azure Cosmos DB à l’aide du Kit de développement logiciel (SDK) .Net (préversion) 
+# <a name="tutorial-develop-an-aspnet-mvc-web-application-with-azure-cosmos-db-by-using-net-preview-sdk"></a>Tutoriel : Développer une application web ASP.NET MVC avec Azure Cosmos DB à l’aide du Kit de développement logiciel (SDK) .NET (préversion) 
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -26,7 +26,7 @@ ms.locfileid: "54037121"
 > * [Xamarin](mobile-apps-with-xamarin.md)
 
 
-Ce tutoriel vous montre comment utiliser Azure Cosmos DB pour stocker des données et y accéder à partir d’une application ASP.NET MVC qui est hébergée sur Azure. Dans ce tutoriel, vous utilisez le kit SDK .Net V3 qui est actuellement disponible en préversion. L’image suivante illustre la page web que vous allez créer à l’aide de l’exemple de cet article :
+Ce tutoriel vous montre comment utiliser Azure Cosmos DB pour stocker des données et y accéder à partir d’une application ASP.NET MVC qui est hébergée sur Azure. Dans ce tutoriel, vous utilisez le kit SDK .NET V3 qui est actuellement disponible en préversion. L’image suivante illustre la page web que vous allez créer à l’aide de l’exemple de cet article :
  
 ![Capture d’écran de l’application web todo list MVC créée dans ce didacticiel - Didacticiel étape par étape ASP.NET MVC](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-image01.png)
 
@@ -77,7 +77,7 @@ Dans la section suivante, vous créez une application ASP.NET MVC.
 
 3. Dans la zone **Nom** , tapez le nom du projet. Ce didacticiel utilise le nom « todo ». Si vous choisissez d’utiliser un autre nom, corrigez les exemples de code fournis chaque fois que ce tutoriel fait référence à l’espace de noms todo, de façon à utiliser le nom que vous avez attribué à votre application. 
 
-4. Sélectionnez **Parcourir** pour accéder au dossier dans lequel vous souhaitez créer le projet, puis choisissez **.Net framework 4.6.1** ou une version supérieure. Sélectionnez **OK**. 
+4. Sélectionnez **Parcourir** pour accéder au dossier dans lequel vous souhaitez créer le projet, puis choisissez **.NET framework 4.6.1** ou une version supérieure. Sélectionnez **OK**. 
 
 5. La boîte de dialogue **Nouvelle application web ASP.NET** s’affiche. Dans le volet Modèles, sélectionnez **MVC**.
 
@@ -235,7 +235,7 @@ La première chose à faire ici est d’ajouter une classe qui contient la logiq
    defaults: new { controller = "Item", action = "Index", id = UrlParameter.Optional }
    ```
 
-  Ce code indique maintenant à ASP.NET MVC que si vous n’avez pas spécifié de valeur dans l’URL pour contrôler le comportement de routage, au lieu de **Home**, il utilise **Item** comme contrôleur, et **Index** comme vue.
+   Ce code indique maintenant à ASP.NET MVC que si vous n’avez pas spécifié de valeur dans l’URL pour contrôler le comportement de routage, au lieu de **Home**, il utilise **Item** comme contrôleur, et **Index** comme vue.
 
 Maintenant, si vous exécutez l’application, il appelle votre **ItemController**, qui appelle les méthodes GetItems depuis la classe TodoItemService que vous allez définir à la section suivante. 
 
@@ -244,7 +244,7 @@ Si vous créez et exécutez ce projet maintenant, vous devriez voir ce qui suit�
 ![Capture d’écran de l’application web todo list créée dans ce didacticiel de base de données](./media/sql-api-dotnet-application-preview/build-and-run-the-project-now.png)
 
 
-## <a name="run-the-application"></a>Étape 6 : Exécuter l’application localement
+## <a name="run-the-application"></a>Étape 6 : Exécuter l’application localement
 
 Pour tester l’application sur votre machine locale, procédez comme suit :
 

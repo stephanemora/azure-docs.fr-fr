@@ -1,19 +1,18 @@
 ---
 title: Vue d’ensemble - Azure Disk Encryption pour les machines virtuelles IaaS | Microsoft Docs
 description: Cet article donne une vue d’ensemble de Microsoft Azure Disk Encryption pour les machines virtuelles IaaS.
-author: mestew
+author: msmbaldwin
 ms.service: security
-ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.author: mstewart
-ms.date: 12/07/2018
+ms.author: mbaldwin
+ms.date: 03/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1674a54ea78e7fea2cc39cb26fefc52b8764bc4c
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: 66d788aec83e3e57a49b063f2ca80484360f639d
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200851"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295281"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms"></a>Azure Disk Encryption pour les machines virtuelles IaaS
 
@@ -22,7 +21,7 @@ Microsoft Azure s’engage à préserver la confidentialité et la souveraineté
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Azure Disk Encryption est une fonctionnalité permettant de chiffrer des disques de machine virtuelle IaaS Windows et Linux. Disk Encryption s’appuie sur la fonctionnalité standard [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) de Windows et la fonctionnalité [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) de Linux pour assurer le chiffrement de volume des disques de système d’exploitation et de données. La solution est intégrée à [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) pour faciliter le contrôle et la gestion des clés et des secrets de chiffrement des disques. Elle garantit également que toutes les données présentes sur les disques de machines virtuelles sont chiffrées au repos dans votre stockage Azure.
 
@@ -72,7 +71,7 @@ La solution prend en charge les scénarios de machines virtuelles IaaS suivants 
    > [!NOTE]
    > Le chiffrement de lecteur de système d’exploitation n’est pas pris en charge pour toutes les distributions Linux. Pour plus d’informations, voir l’article [FAQ Azure Disk Encryption](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport).
    
-* Activation du chiffrement sur les machines virtuelles Windows configurées avec des espaces de stockage Windows.
+* Activer le chiffrement sur les machines virtuelles configurées avec le début d’espaces de stockage Windows dans Windows Server 2016.
 * Mise à jour des paramètres de chiffrement sur une machine virtuelle de Stockage (Premium ou non) chiffrée existante.
 * Sauvegarde et restauration de machines virtuelles chiffrées pour les scénarios KEK (Key Encryption Key) et autres.
 * Toutes les régions publiques Azure et Azure Government sont prises en charge.
@@ -82,6 +81,7 @@ La solution ne prend pas en charge les scénarios, fonctionnalités et technolog
 * Machines virtuelles IaaS de niveau de base.
 * Désactivation du chiffrement d’un lecteur de système d’exploitation sur les machines virtuelles IaaS Linux.
 * Désactivation du chiffrement d’un lecteur de données lorsque le lecteur de système d’exploitation est chiffré sur les machines virtuelles IaaS Linux.
+* Le chiffrement de lecteur du système d’exploitation pour l’échelle de machine virtuelle Linux définit.
 * Machines virtuelles IaaS créées suivant la méthode classique de création de machines virtuelles.
 * Activation du chiffrement des images client personnalisées sur les machines virtuelles IaaS Linux.
 * Intégration à votre système de gestion de clés local.

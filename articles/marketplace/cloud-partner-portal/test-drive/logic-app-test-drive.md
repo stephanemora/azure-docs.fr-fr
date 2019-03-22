@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: d784941c43da13a2c1bd120599aa02fe14e5a5b4
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4fd946b53956509844ad0a9396575f1ee2450414
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57457264"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338596"
 ---
 <a name="logic-app-test-drive"></a>Version d’évaluation d’une application logique
 ====================
@@ -137,6 +137,10 @@ Cliquez sur Enregistrer. La dernière étape consiste à récupérer l’ID de c
 **Clé d’application Azure AD :** *[champ obligatoire]* le champ final consiste à générer une clé d’authentification. Sous Clés, ajoutez une description de la clé, définissez la durée afin qu’elle n’expire jamais, puis sélectionnez Enregistrer. Il est **important** d’éviter d’avoir une clé expirée, car cela arrête votre version d’évaluation en production. Copiez cette valeur et collez-la dans le champ obligatoire de votre version d’évaluation.
 
 ![Section Clés d’Azure Active Directory](./media/azure-resource-manager-test-drive/subdetails8.png)
+
+> [!CAUTION]
+> Vous ne pouvez pas utiliser l’aperçu de l’inscription d’application Azure, car il ne génère pas actuellement d’une clé codée en base64.
+
 
 <a name="next-steps"></a>Étapes suivantes
 ----------
