@@ -7,12 +7,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: 95bec451c556ff9f3c5bcccee68f900543639733
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 1552c54afe2195d58a032e9cc7bfa5aa70c844b1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978083"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58004104"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>Personnaliser et redéployer un microservice
 
@@ -29,7 +29,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Extraire la nouvelle image Docker
 > * Visualiser les modifications 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -44,7 +44,7 @@ Dans cette partie, vous appelez l’API de microservice Gestionnaire IoT Hub par
 
 1. Vérifiez que la solution de surveillance à distance est en cours d’exécution localement sur votre ordinateur.
 2. Recherchez l’endroit où vous avez téléchargé Postman et ouvrez-le.
-3. Dans Postman, entrez ce qui suit dans la zone GET : http://localhost:8080/iothubmanager/v1/status.
+3. Dans Postman, entrez ce qui suit dans la zone GET : `http://localhost:8080/iothubmanager/v1/status`.
 4. Affichez la valeur de retour : vous devez voir « Status » : « OK:Alive and Well ».
 
     ![Message Postman Alive and Well](./media/iot-accelerators-microservices-example/postman-alive-well.png)
@@ -144,7 +144,7 @@ Terminez en redéployant une instance locale de la solution de surveillance à d
     ```
 
 3. Recherchez l’endroit où vous avez téléchargé Postman et ouvrez-le.
-4. Dans Postman, entrez la requête suivante dans la zone GET : http://localhost:8080/iothubmanager/v1/status. Vous devez maintenant voir, « Status » : « OK: New Edits Made Here! ».
+4. Dans Postman, entrez la requête suivante dans la zone GET : `http://localhost:8080/iothubmanager/v1/status`. Vous devez maintenant voir, « Status » : « OK: New Edits Made Here! ».
 
 ![Message Postman New Edits Made Here](./media/iot-accelerators-microservices-example/new-postman-message.png)
 

@@ -3,7 +3,7 @@ title: Configurer les modes de mise en réseau pour les services de conteneur Az
 description: Découvrez comment configurer les différents modes de mise en réseau pris en charge par Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: TylerMSFT
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: twhitney, subramar
-ms.openlocfilehash: 62812dd8f92bcace8f764a21aba608157815cec3
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.author: aljo, subramar
+ms.openlocfilehash: 01b1cfafab75acef918b001752837a4dc44ca909
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55093148"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57899041"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modes de mise en réseau du conteneur Service Fabric
 
@@ -30,7 +30,7 @@ Si vous avez un service de conteneur avec un point de terminaison statique dans 
 Lorsqu’un service de conteneur redémarre ou se déplace vers un autre nœud du cluster, l’adresse IP change. Pour cette raison, nous ne recommandons pas l’utilisation de l’adresse IP attribuée de manière dynamique pour découvrir les services de conteneur. Seul le service d’affectation de noms de Service Fabric ou le service DNS doivent être utilisés pour la découverte de services. 
 
 >[!WARNING]
->Azure permet un total de 4 096 adresses IP par réseau virtuel. Par conséquent, la somme du nombre de nœuds et du nombre d’instances de service de conteneur (utilisant le mode Ouvert) ne peuvent pas dépasser 4,096 au sein d’un réseau virtuel. Pour les scénarios de haute densités, nous recommandons le mode de mise en réseau nat.
+>Azure permet un total d’adresses IP 65,356 par réseau virtuel. La somme du nombre de nœuds et le nombre d’instances de service de conteneur (qui utilisent le mode ouvert) ne peut pas dépasser 65,356 adresses IP au sein d’un réseau virtuel. Pour les scénarios de haute densités, nous recommandons le mode de mise en réseau nat. En outre, autres dépendances telles que l’équilibrage de charge aura autres [limitations](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits) à prendre en compte. Jusqu'à 50 IPs par nœud ont été testés et éprouvés stable. 
 >
 
 ## <a name="set-up-open-networking-mode"></a>Configurer le mode de mise en réseau Ouvert
@@ -55,15 +55,6 @@ Lorsqu’un service de conteneur redémarre ou se déplace vers un autre nœud d
                             "name": "IPProviderEnabled",
                             "value": "true"
                       }
-                    ]
-                },
-                {
-                    "name":  "Trace/Etw", 
-                    "parameters": [
-                    {
-                            "name": "Level",
-                            "value": "5"
-                    }
                     ]
                 },
                 {
@@ -212,7 +203,7 @@ Lorsqu’un service de conteneur redémarre ou se déplace vers un autre nœud d
    |Paramètre |Valeur | |
    | --- | --- | --- |
    |Priorité |2000 | |
-   |NOM |Custom_Dns  | |
+   |Nom |Custom_Dns  | |
    |Source |VirtualNetwork | |
    |Destination | VirtualNetwork | |
    |de diffusion en continu | DNS (UDP/53) | |
@@ -223,7 +214,7 @@ Lorsqu’un service de conteneur redémarre ou se déplace vers un autre nœud d
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
-    <ApplicationManifest ApplicationTypeName="NodeJsApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ApplicationManifest ApplicationTypeName="NodeJsApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
       <Description>Calculator Application</Description>
       <Parameters>
         <Parameter Name="ServiceInstanceCount" DefaultValue="3"></Parameter>

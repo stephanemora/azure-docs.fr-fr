@@ -1,59 +1,54 @@
 ---
 title: Configurer ExpressRoute Direct – Azure CLI | Microsoft Docs
-description: Cet article vous aide à configurer ExpressRoute Direct à l’aide d’Azure CLI (préversion)
+description: Cet article vous aide à configurer ExpressRoute Direct à l’aide de l’interface CLI Azure
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 2/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 285b429f565f8a2c7f8c20756f076e631223b10f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: c4998712d77771a5600c06183a76254548289372
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076710"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080080"
 ---
-# <a name="configure-expressroute-direct-by-using-the-azure-cli-preview"></a>Configurer ExpressRoute Direct à l’aide d’Azure CLI (préversion)
+# <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Configurer ExpressRoute Direct à l’aide de l’interface CLI Azure
 
 Vous pouvez utiliser Azure ExpressRoute Direct pour vous connecter directement au réseau mondial Microsoft à partir d’emplacements de peering distribués stratégiquement dans le monde entier. Pour plus d’informations, consultez [À propos d’ExpressRoute Direct Connect](expressroute-erdirect-about.md).
-
-> [!IMPORTANT]
-> ExpressRoute Direct est actuellement en préversion.
->
-> La préversion publique d’ExpressRoute Direct est fournie sans contrat de niveau de service. Évitez d’utiliser ExpressRoute Direct Preview pour les charges de travail de production. Il est possible que certaines fonctionnalités ne soient pas prises en charge, qu’elles soient limitées dans leurs capacités ou qu’elles ne soient pas disponibles dans tous les emplacements Azure. Pour plus d’informations, consultez [Conditions d’utilisation supplémentaires des Préversions Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="resources"></a>Créer la ressource
 
 1. Connectez-vous à Azure et sélectionnez l’abonnement qui contient ExpressRoute. La ressource ExpressRoute Direct et vos circuits ExpressRoute doivent se trouver dans le même abonnement. Dans Azure CLI, exécutez les commandes suivantes :
 
-  ```azurecli
-  az login
-  ```
+   ```azurecli
+   az login
+   ```
 
-  Vérifiez les abonnements du compte : 
+   Vérifiez les abonnements du compte : 
 
-  ```azurecli
-  az account list 
-  ```
+   ```azurecli
+   az account list 
+   ```
 
-  Sélectionnez l’abonnement pour lequel vous souhaitez créer un circuit ExpressRoute :
+   Sélectionnez l’abonnement pour lequel vous souhaitez créer un circuit ExpressRoute :
 
-  ```azurecli
-  az account set --subscription "<subscription ID>"
-  ```
+   ```azurecli
+   az account set --subscription "<subscription ID>"
+   ```
 
 2. Listez tous les emplacements où ExpressRoute Direct est pris en charge :
     
-  ```azurecli
-  az network express-route port location list
-  ```
+   ```azurecli
+   az network express-route port location list
+   ```
 
-  **Exemple de sortie**
+   **Exemple de sortie**
   
-  ```azurecli
-  [
+   ```azurecli
+   [
    {
     "address": "21715 Filigree Court, DC2, Building F, Ashburn, VA 20147",
     "availableBandwidths": [],
@@ -109,64 +104,64 @@ Vous pouvez utiliser Azure ExpressRoute Direct pour vous connecter directement a
     "tags": null,
     "type": "Microsoft.Network/expressRoutePortsLocations"
    }
-  ]
-  ```
+   ]
+   ```
 3. Déterminez si l’un des emplacements listés à l’étape précédente dispose de bande passante :
 
-  ```azurecli
-  az network express-route port location show -l "Equinix-Ashburn-DC2"
-  ```
+   ```azurecli
+   az network express-route port location show -l "Equinix-Ashburn-DC2"
+   ```
 
-  **Exemple de sortie**
+   **Exemple de sortie**
 
-  ```azurecli
-  {
-  "address": "21715 Filigree Court, DC2, Building F, Ashburn, VA 20147",
-  "availableBandwidths": [
+   ```azurecli
+   {
+   "address": "21715 Filigree Court, DC2, Building F, Ashburn, VA 20147",
+   "availableBandwidths": [
     {
       "offerName": "100 Gbps",
       "valueInGbps": 100
     }
-  ],
-  "contact": "support@equinix.com",
-  "id": "/subscriptions/<subscriptionID>/providers/Microsoft.Network/expressRoutePortsLocations/Equinix-Ashburn-DC2",
-  "location": null,
-  "name": "Equinix-Ashburn-DC2",
-  "provisioningState": "Succeeded",
-  "tags": null,
-  "type": "Microsoft.Network/expressRoutePortsLocations"
-  }
-  ```
+   ],
+   "contact": "support@equinix.com",
+   "id": "/subscriptions/<subscriptionID>/providers/Microsoft.Network/expressRoutePortsLocations/Equinix-Ashburn-DC2",
+   "location": null,
+   "name": "Equinix-Ashburn-DC2",
+   "provisioningState": "Succeeded",
+   "tags": null,
+   "type": "Microsoft.Network/expressRoutePortsLocations"
+   }
+   ```
 4. Créez une ressource ExpressRoute Direct qui repose sur l’emplacement que vous avez choisi dans les étapes précédentes.
 
-  ExpressRoute Direct prend en charge l’encapsulation QinQ et Dot1Q. Si vous sélectionnez QinQ, chaque circuit ExpressRoute se voit affecter dynamiquement un S-Tag et est unique dans l’ensemble de la ressource ExpressRoute Direct. Chaque C-Tag doit être unique sur le circuit, mais pas dans la ressource ExpressRoute Direct.  
+   ExpressRoute Direct prend en charge l’encapsulation QinQ et Dot1Q. Si vous sélectionnez QinQ, chaque circuit ExpressRoute se voit affecter dynamiquement un S-Tag et est unique dans l’ensemble de la ressource ExpressRoute Direct. Chaque C-Tag doit être unique sur le circuit, mais pas dans la ressource ExpressRoute Direct.  
 
-  Si vous sélectionnez l’encapsulation Dot1Q, vous devez gérer l’unicité du C-Tag (VLAN) dans l’ensemble de la ressource ExpressRoute Direct.  
+   Si vous sélectionnez l’encapsulation Dot1Q, vous devez gérer l’unicité du C-Tag (VLAN) dans l’ensemble de la ressource ExpressRoute Direct.  
 
-  > [!IMPORTANT]
-  > ExpressRoute Direct peut uniquement être un seul type d’encapsulation. Vous ne pouvez pas modifier le type d’encapsulation après avoir créé la ressource ExpressRoute Direct.
-  > 
+   > [!IMPORTANT]
+   > ExpressRoute Direct peut uniquement être un seul type d’encapsulation. Vous ne pouvez pas modifier le type d’encapsulation après avoir créé la ressource ExpressRoute Direct.
+   > 
  
-  ```azurecli
-  az network express-route port create -n $name -g $RGName --bandwidth 100 gbps  --encapsulation QinQ | Dot1Q --peering-location $PeeringLocationName -l $AzureRegion 
-  ```
+   ```azurecli
+   az network express-route port create -n $name -g $RGName --bandwidth 100 gbps  --encapsulation QinQ | Dot1Q --peering-location $PeeringLocationName -l $AzureRegion 
+   ```
 
-  > [!NOTE]
-  > Vous pouvez aussi définir l’attribut **Encapsulation** sur **Dot1Q**. 
-  >
+   > [!NOTE]
+   > Vous pouvez aussi définir l’attribut **Encapsulation** sur **Dot1Q**. 
+   >
 
-  **Exemple de sortie**
+   **Exemple de sortie**
 
-  ```azurecli
-  {
-  "allocationDate": "Wednesday, October 17, 2018",
-  "bandwidthInGbps": 100,
-  "circuits": null,
-  "encapsulation": "Dot1Q",
-  "etag": "W/\"<etagnumber>\"",
-  "etherType": "0x8100",
-  "id": "/subscriptions/<subscriptionID>/resourceGroups/Contoso-Direct-rg/providers/Microsoft.Network/expressRoutePorts/Contoso-Direct",
-  "links": [
+   ```azurecli
+   {
+   "allocationDate": "Wednesday, October 17, 2018",
+   "bandwidthInGbps": 100,
+   "circuits": null,
+   "encapsulation": "Dot1Q",
+   "etag": "W/\"<etagnumber>\"",
+   "etherType": "0x8100",
+   "id": "/subscriptions/<subscriptionID>/resourceGroups/Contoso-Direct-rg/providers/Microsoft.Network/expressRoutePorts/Contoso-Direct",
+   "links": [
     {
       "adminState": "Disabled",
       "connectorType": "LC",
@@ -195,19 +190,19 @@ Vous pouvez utiliser Azure ExpressRoute Direct pour vous connecter directement a
       "routerName": "tst-09xgmr-cis-2",
       "type": "Microsoft.Network/expressRoutePorts/links"
     }
-  ],
-  "location": "westus",
-  "mtu": "1500",
-  "name": "Contoso-Direct",
-  "peeringLocation": "Equinix-Ashburn-DC2",
-  "provisionedBandwidthInGbps": 0.0,
-  "provisioningState": "Succeeded",
-  "resourceGroup": "Contoso-Direct-rg",
-  "resourceGuid": "02ee21fe-4223-4942-a6bc-8d81daabc94f",
-  "tags": null,
-  "type": "Microsoft.Network/expressRoutePorts"
-  }  
-  ```
+   ],
+   "location": "westus",
+   "mtu": "1500",
+   "name": "Contoso-Direct",
+   "peeringLocation": "Equinix-Ashburn-DC2",
+   "provisionedBandwidthInGbps": 0.0,
+   "provisioningState": "Succeeded",
+   "resourceGroup": "Contoso-Direct-rg",
+   "resourceGuid": "02ee21fe-4223-4942-a6bc-8d81daabc94f",
+   "tags": null,
+   "type": "Microsoft.Network/expressRoutePorts"
+   }  
+   ```
 
 ## <a name="state"></a>Modifier AdminState pour les liens
 
@@ -215,26 +210,26 @@ Utilisez ce processus pour effectuer un test de la couche 1. Vérifiez que chaq
 
 1. Définissez les liens (links) sur **Enabled** (activé). Répétez cette étape pour définir chaque lien sur **Enabled**.
 
-  Links[0] correspondent au port principal et Links[1] au port secondaire.
+   Links[0] correspondent au port principal et Links[1] au port secondaire.
 
-  ```azurecli
-  az network express-route port update -n Contoso-Direct -g Contoso-Direct-rg --set links[0].adminState="Enabled"
-  ```
-  ```azurecli
-  az network express-route port update -n Contoso-Direct -g Contoso-Direct-rg --set links[1].adminState="Enabled"
-  ```
-  **Exemple de sortie**
+   ```azurecli
+   az network express-route port update -n Contoso-Direct -g Contoso-Direct-rg --set links[0].adminState="Enabled"
+   ```
+   ```azurecli
+   az network express-route port update -n Contoso-Direct -g Contoso-Direct-rg --set links[1].adminState="Enabled"
+   ```
+   **Exemple de sortie**
 
-  ```azurecli
-  {
-  "allocationDate": "Wednesday, October 17, 2018",
-  "bandwidthInGbps": 100,
-  "circuits": null,
-  "encapsulation": "Dot1Q",
-  "etag": "W/\"<etagnumber>\"",
-  "etherType": "0x8100",
-  "id": "/subscriptions/<subscriptionID>/resourceGroups/Contoso-Direct-rg/providers/Microsoft.Network/expressRoutePorts/Contoso-Direct",
-  "links": [
+   ```azurecli
+   {
+   "allocationDate": "Wednesday, October 17, 2018",
+   "bandwidthInGbps": 100,
+   "circuits": null,
+   "encapsulation": "Dot1Q",
+   "etag": "W/\"<etagnumber>\"",
+   "etherType": "0x8100",
+   "id": "/subscriptions/<subscriptionID>/resourceGroups/Contoso-Direct-rg/providers/Microsoft.Network/expressRoutePorts/Contoso-Direct",
+   "links": [
     {
       "adminState": "Enabled",
       "connectorType": "LC",
@@ -263,21 +258,21 @@ Utilisez ce processus pour effectuer un test de la couche 1. Vérifiez que chaq
       "routerName": "tst-09xgmr-cis-2",
       "type": "Microsoft.Network/expressRoutePorts/links"
     }
-  ],
-  "location": "westus",
-  "mtu": "1500",
-  "name": "Contoso-Direct",
-  "peeringLocation": "Equinix-Ashburn-DC2",
-  "provisionedBandwidthInGbps": 0.0,
-  "provisioningState": "Succeeded",
-  "resourceGroup": "Contoso-Direct-rg",
-  "resourceGuid": "<resourceGUID>",
-  "tags": null,
-  "type": "Microsoft.Network/expressRoutePorts"
-  }
-  ```
+   ],
+   "location": "westus",
+   "mtu": "1500",
+   "name": "Contoso-Direct",
+   "peeringLocation": "Equinix-Ashburn-DC2",
+   "provisionedBandwidthInGbps": 0.0,
+   "provisioningState": "Succeeded",
+   "resourceGroup": "Contoso-Direct-rg",
+   "resourceGuid": "<resourceGUID>",
+   "tags": null,
+   "type": "Microsoft.Network/expressRoutePorts"
+   }
+   ```
 
-  Utilisez la même procédure pour désactiver les ports en utilisant `AdminState = “Disabled”`.
+   Utilisez la même procédure pour désactiver les ports en utilisant `AdminState = “Disabled”`.
 
 ## <a name="circuit"></a>Créer un circuit
 

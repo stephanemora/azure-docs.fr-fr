@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 44e1930ec4d82593580bfc3a7c3e19439436752e
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: ae9c2c975bf49725be1858ad02a1c4b90ef58a7f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904333"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57871260"
 ---
 # <a name="understand-your-azure-billing-for-external-service-charges"></a>Présentation de la facturation de vos frais de service externe Azure
 Les services externes sont publiés par des éditeurs de logiciels tiers sur la Place de marché Microsoft Azure. Par exemple, SendGrid est un service externe que vous pouvez acheter dans Azure, mais il n’est pas publié par Microsoft.
@@ -88,5 +88,5 @@ Si vous souhaitez annuler votre commande de service externe, supprimez la ressou
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 
-Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Si vous avez des questions ou besoin d’aide, [créer une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).
 

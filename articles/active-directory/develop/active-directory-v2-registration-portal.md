@@ -18,15 +18,18 @@ ms.author: celested
 ms.reviewer: lenalepa
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 109ababa78292bf8b172144174af3216f3844941
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b77b5185056329113ee1fd17fa3ed3f364380ca2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203656"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095872"
 ---
 # <a name="app-registration-reference"></a>Informations de référence sur l’inscription des applications
 Ce document fournit le contexte et les descriptions de différentes fonctionnalités figurant dans le [portail d’inscription des applications](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/).
+
+> [!NOTE]
+> Nous prendrons en charge n’est plus l’inscription et la gestion d’applications AD convergées Azure dans le [portail d’inscription des applications](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/) début mai 2019. Nous vous recommandons de gérez vos applications existantes et enregistrez les nouvelles applications à l’aide de la [inscriptions d’application (version préliminaire)](https://aka.ms/appregistrations) expérience dans le portail Azure.
 
 ## <a name="my-applications-or-converged-applications"></a>Mes applications ou Applications convergentes
 Cette liste contient toutes les applications inscrites pour une utilisation avec le point de terminaison Azure AD v2.0. Ces applications permettent de connecter des utilisateurs avec à la fois des comptes personnels Microsoft et des comptes professionnels/scolaires Azure Active Directory. Pour en savoir plus sur le point de terminaison Azure AD v2.0, consultez la [présentation de v2.0](active-directory-appmodel-v2-overview.md). Ces applications peuvent également servir à l’intégration au point de terminaison d’authentification de compte Microsoft, `https://login.live.com`.

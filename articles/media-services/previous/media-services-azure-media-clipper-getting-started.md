@@ -6,15 +6,15 @@ keywords: clip;sous-clip;encodage;média
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
-ms.date: 02/10/2019
+ms.date: 03/14/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 772865f42dfef8734fb23022039f02910958af61
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 51848b9ba4d18b3ac7d652cfbd97cab6b85f2ee8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992464"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842360"
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>Créer des clips avec Azure Media Clipper
 Cette section montre les étapes de base permettant de bien démarrer avec Azure Media Clipper. Les sections qui suivent fournissent des détails sur la configuration d’Azure Media Clipper.
@@ -100,7 +100,7 @@ Les paramètres de l’appel de méthode d’initialisation sont les suivants :
 - `height` {FACULTATIF, nombre} : hauteur totale du widget (la hauteur minimale est de 600 px sans le volet d’actifs, et de 850 px avec le volet d’actifs).
 - `subclippingMode` (OPTIONAL, {'all', 'render', 'filter'}) : Mode(s) de sous-découpage autorisé(s). La valeur par défaut est all.
 - `filterAssetsTypes` (FACULTATIF, valeur booléenne) : ce paramètre vous permet d’afficher/masquer la liste déroulante de filtres dans le volet d’actifs. La valeur par défaut est true.
-- `speedLevels` (FACULTATIF, array) : ce paramètre vous permet de définir différents niveaux de vitesse pour le lecteur vidéo. Pour plus d’informations, consultez la [documentation d’Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/#amp.player.playbackspeedoptions).
+- `speedLevels` (FACULTATIF, array) : ce paramètre vous permet de définir différents niveaux de vitesse pour le lecteur vidéo. Pour plus d’informations, consultez la [documentation d’Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/#amp.player.playbackspeedoptions).
 - `resetOnJobDone` (FACULTATIF, valeur booléenne) : ce paramètre permet à Clipper de réinitialiser le sous-découpage à l’état initial quand un travail est envoyé avec succès.
 - `autoplayVideo` (FACULTATIF, valeur booléenne) : ce paramètre permet à Clipper de lire automatiquement la vidéo lors de son chargement. La valeur par défaut est true.
 - `language` {FACULTATIF, chaîne} : définit la langue du widget. Si vous ne spécifiez pas ce paramètre, le widget tente de localiser les messages conformément à la langue du navigateur. Si aucune langue n’est détectée dans le navigateur, le widget utilise l’anglais par défaut. Pour plus d’informations, consultez la section [Configurer la localisation](media-services-azure-media-clipper-localization.md).
@@ -108,7 +108,7 @@ Les paramètres de l’appel de méthode d’initialisation sont les suivants :
 - `extraLanguages` (Facultatif, JSON) : ce paramètre ajoute de nouvelles langues au dictionnaire par défaut. Pour plus d’informations, consultez la section [Configurer la localisation](media-services-azure-media-clipper-localization.md).
 
 ## <a name="typescript-definition"></a>Définition de TypeScript
-Vous trouverez un fichier de définition de [TypeScript](https://www.typescriptlang.org/) pour Clipper [ici](http://amp.azure.net/libs/amc/latest/azuremediaclipper.d.ts).
+Vous trouverez un fichier de définition de [TypeScript](https://www.typescriptlang.org/) pour Clipper [ici](https://amp.azure.net/libs/amc/latest/azuremediaclipper.d.ts).
 
 ## <a name="azure-media-clipper-api"></a>API Azure Media Clipper
 Cette section décrit la surface d’API fournie par Clipper.

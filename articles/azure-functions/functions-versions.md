@@ -9,16 +9,16 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: glenga
-ms.openlocfilehash: f2f1313461fcb58ea48af99aeda2f7005534fe34
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
-ms.translationtype: HT
+ms.openlocfilehash: 6988fb547b07f81891efea3caad8bf34f4c8a476
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885185"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088415"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Vue d’ensemble des versions du runtime Azure Functions
 
- Il existe deux versions principales du runtime Azure Functions : 1.x et 2.x. La version actuelle qui accueille les nouvelles fonctionnalités et où sont apportées les améliorations est la version 2.x, bien que les deux versions soient prises en charge pour les scénarios de production.  Les informations ci-après les comparent sur certains points et expliquent comment créer chaque version et effectuer une mise à niveau depuis la version 1.x vers la version 2.x.
+ Il existe deux versions majeures du runtime Azure Functions : 1.x et 2.x. La version actuelle qui accueille les nouvelles fonctionnalités et où sont apportées les améliorations est la version 2.x, bien que les deux versions soient prises en charge pour les scénarios de production.  Les informations ci-après les comparent sur certains points et expliquent comment créer chaque version et effectuer une mise à niveau depuis la version 1.x vers la version 2.x.
 
 > [!NOTE]
 > Cet article fait référence au service cloud Azure Functions. Pour plus d’informations sur le produit en préversion qui vous permet d’exécuter Azure Functions localement, consultez [Vue d’ensemble du runtime d’Azure Functions](functions-runtime-overview.md).
@@ -29,7 +29,7 @@ La version 2.x du runtime s’exécute sur .NET Core 2, ce qui lui permet de s�
 
 En comparaison, la version 1.x du runtime prend uniquement en charge le développement et l’hébergement dans le portail Microsoft Azure ou sur les ordinateurs Windows.
 
-## <a name="languages"></a>Langues
+## <a name="languages"></a>Languages
 
 La version 2.x du runtime utilise un nouveau modèle d’extensibilité de langage. Dans la version 2.x, toutes les fonctions d’une application de fonction doivent partager le même langage. Dans une application de fonction, le langage des fonctions est choisi au moment de la création de l’application.
 
@@ -49,7 +49,7 @@ Vous pouvez choisir de migrer une application existante écrite pour utiliser la
 
 ### <a name="changes-in-triggers-and-bindings"></a>Modifications dans les déclencheurs et les liaisons
 
-Avec la version 2.x, vous devez installer dans votre application les extensions des déclencheurs et liaisons spécifiques utilisés par les fonctions. La seule exception concerne les déclencheurs HTTP et de la minuterie, qui ne nécessitent aucune extension.  Pour plus d’informations, voir [Inscrire et installer des extensions de liaison](./functions-triggers-bindings.md#register-binding-extensions).
+Avec la version 2.x, vous devez installer dans votre application les extensions des déclencheurs et liaisons spécifiques utilisés par les fonctions. La seule exception concerne les déclencheurs HTTP et de la minuterie, qui ne nécessitent aucune extension.  Pour plus d’informations, voir [Inscrire et installer des extensions de liaison](./functions-bindings-register.md).
 
 Il convient également de noter quelques modifications dans le paramètre `function.json` ou les attributs de la fonction entre les versions. Par exemple, la propriété `path` d’Event Hub est désormais `eventHubName`. Consultez le [tableau des liaisons existantes](#bindings). Il contient des liens vers de la documentation sur chaque liaison.
 
@@ -65,9 +65,9 @@ Les modifications suivantes ont été apportées à la version 2.x :
 
 * Le fichier de configuration d’hôte (host.json) doit être vide ou contenir la chaîne `"version": "2.0"`.
 
-* Pour améliorer la surveillance, le tableau de bord WebJobs se trouvant dans le portail, qui a utilisé le paramètre [`AzureWebJobsDashboard`](functions-app-settings.md#azurewebjobsdashboard), est remplacé par Azure Application Insights, qui utilise le paramètre [`APPINSIGHTS_INSTRUMENTATIONKEY`](functions-app-settings.md#appinsightsinstrumentationkey). Pour plus d’informations, consultez [Surveiller l’exécution des fonctions Azure](functions-monitoring.md).
+* Pour améliorer la surveillance, le tableau de bord WebJobs se trouvant dans le portail, qui a utilisé le paramètre [`AzureWebJobsDashboard`](functions-app-settings.md#azurewebjobsdashboard), est remplacé par Azure Application Insights, qui utilise le paramètre [`APPINSIGHTS_INSTRUMENTATIONKEY`](functions-app-settings.md#appinsights_instrumentationkey). Pour plus d’informations, consultez [Surveiller l’exécution des fonctions Azure](functions-monitoring.md).
 
-* Toutes les fonctions d’une application de fonction doivent partager le même langage. Lorsque vous créez une application de fonction, vous devez choisir une pile d’exécution pour l’application. La pile d’exécution est spécifiée par la valeur [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functionsworkerruntime) dans les paramètres de l’application. Cette exigence a été ajoutée pour améliorer l’empreinte mémoire et le temps de démarrage. Lorsque vous développez en local, vous devez également inclure ce paramètre dans le [fichier local.settings.json](functions-run-local.md#local-settings-file).
+* Toutes les fonctions d’une application de fonction doivent partager le même langage. Lorsque vous créez une application de fonction, vous devez choisir une pile d’exécution pour l’application. La pile d’exécution est spécifiée par la valeur [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functions_worker_runtime) dans les paramètres de l’application. Cette exigence a été ajoutée pour améliorer l’empreinte mémoire et le temps de démarrage. Lorsque vous développez en local, vous devez également inclure ce paramètre dans le [fichier local.settings.json](functions-run-local.md#local-settings-file).
 
 * Le délai d’expiration par défaut pour les fonctions dans un plan App Service est de 30 minutes. Vous pouvez modifier ce délai d’expiration manuellement et l’indiquer à nouveau comme étant illimité en utilisant le paramètre [functionTimeout](functions-host-json.md#functiontimeout) dans host.json.
 
@@ -95,7 +95,7 @@ Dans Visual Studio, vous sélectionnez la version du runtime au moment de créer
 ##### <a name="version-2x"></a>Version 2.x
 
 ```xml
-<TargetFramework>netstandard2.0</TargetFramework>
+<TargetFramework>netcoreapp2.2</TargetFramework>
 <AzureFunctionsVersion>v2</AzureFunctionsVersion>
 ```
 
@@ -109,7 +109,7 @@ Pour un développement avec Visual Studio Code, vous devrez peut-être égalemen
 
 ### <a name="changing-version-of-apps-in-azure"></a>Changement de la version des applications dans Azure
 
-La version du runtime Functions utilisée par les applications publiées dans Azure dépend du paramètre d’application [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functionsextensionversion). Une valeur égale à `~2` cible la version 2.x du runtime et une valeur égale à `~1` cible la version 1.x du runtime. Ne modifiez pas arbitrairement ce paramètre. En effet, d’autres modifications du paramètre d’application et d’autres modifications du code dans vos fonctions sont probablement nécessaires. Pour en savoir plus sur la méthode recommandée afin de migrer votre application de fonction vers une version différente du runtime, voir [Comment cibler des versions du runtime Azure Functions](set-runtime-version.md).
+La version du runtime Functions utilisée par les applications publiées dans Azure dépend du paramètre d’application [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version). Une valeur égale à `~2` cible la version 2.x du runtime et une valeur égale à `~1` cible la version 1.x du runtime. Ne modifiez pas arbitrairement ce paramètre. En effet, d’autres modifications du paramètre d’application et d’autres modifications du code dans vos fonctions sont probablement nécessaires. Pour en savoir plus sur la méthode recommandée afin de migrer votre application de fonction vers une version différente du runtime, voir [Comment cibler des versions du runtime Azure Functions](set-runtime-version.md).
 
 ## <a name="bindings"></a>Liaisons
 
@@ -121,11 +121,13 @@ La version 2.x du runtime utilise un nouveau [modèle d’extensibilité de liai
 
 * Un environnement d’exécution plus léger, où seules les liaisons en cours d’utilisation sont connues et chargées par le runtime.
 
-À l’exception des déclencheurs HTTP et de la minuterie, toutes les liaisons doivent être explicitement ajoutées au projet d’application de fonction, ou enregistrées dans le portail. Pour plus d’informations, voir [Inscrire des extensions de liaison](functions-triggers-bindings.md#register-binding-extensions).
+À l’exception des déclencheurs HTTP et de la minuterie, toutes les liaisons doivent être explicitement ajoutées au projet d’application de fonction, ou enregistrées dans le portail. Pour plus d’informations, voir [Inscrire des extensions de liaison](./functions-bindings-expressions-patterns.md).
 
 Le tableau suivant indique les liaisons prises en charge dans chaque version du runtime.
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
+
+[!INCLUDE [Timeout Duration section](../../includes/functions-timeout-duration.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

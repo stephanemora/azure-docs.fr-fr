@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: a82d871ea232b31b31cfc24585af672141617d88
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.openlocfilehash: 5293c44a3e4494593e069ab45fbc38806c6999ee
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353008"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57976774"
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory - Variables système et fonctions
 > [!NOTE]
@@ -27,6 +27,7 @@ ms.locfileid: "54353008"
 Cet article fournit des informations sur les fonctions et variables prises en charge par Azure Data Factory.
 
 ## <a name="data-factory-system-variables"></a>Variables système Data Factory
+
 | Nom de la variable | Description | Portée de l’objet | Étendue JSON et cas d’utilisation |
 | --- | --- | --- | --- |
 | WindowStart |Début de l’intervalle de temps pour l’intervalle d’exécution d’activité en cours |activity |<ol><li>Spécifier des requêtes de sélection de données. Consultez les articles connexes référencés par l’article [Activités de déplacement des données](data-factory-data-movement-activities.md).</li> |
@@ -79,23 +80,23 @@ Les tables qui suivent répertorient toutes les fonctions dans Azure Data Factor
 
 | Catégorie | Fonction | parameters | Description |
 | --- | --- | --- | --- |
-| Temps |AddHours(X,Y) |X: Datetime <br/><br/>Y: int |Ajoute Y heures à l’heure donnée X. <br/><br/>Exemple : `9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
-| Temps |AddMinutes(X,Y) |X: Datetime <br/><br/>Y: int |Ajoute Y minutes à X.<br/><br/>Exemple : `9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |
+| Temps |AddHours(X,Y) |X: DateTime <br/><br/>Y: int |Ajoute Y heures à l’heure donnée X. <br/><br/>Exemple : `9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
+| Temps |AddMinutes(X,Y) |X: DateTime <br/><br/>Y: int |Ajoute Y minutes à X.<br/><br/>Exemple : `9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |
 | Temps |StartOfHour(X) |X: DateTime |Obtient l’heure de début de l’heure représentée par le composant heure de X. <br/><br/>Exemple : `StartOfHour of 9/15/2013 05: 10:23 PM is 9/15/2013 05: 00:00 PM` |
-| Date |AddDays(X,Y) |X: Datetime<br/><br/>Y: int |Ajoute Y jours à X. <br/><br/>Exemple : 15/9/2013 12:00:00 + 2 jours = 17/9/2013 12:00:00.<br/><br/>Vous pouvez également soustraire les jours en spécifiant Y en tant que nombre négatif.<br/><br/>Exemple : `9/15/2013 12:00:00 PM - 2 days = 9/13/2013 12:00:00 PM`. |
-| Date |AddMonths(X,Y) |X: Datetime<br/><br/>Y: int |Ajoute Y mois à X.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 month = 10/15/2013 12:00:00 PM`.<br/><br/>Vous pouvez également soustraire les mois en spécifiant Y en tant que nombre négatif.<br/><br/>Exemple : `9/15/2013 12:00:00 PM - 1 month = 8/15/2013 12:00:00 PM`.|
-| Date |AddQuarters(X,Y) |X: Datetime <br/><br/>Y: int |Ajoute Y * 3 mois à X.<br/><br/>Exemple : `9/15/2013 12:00:00 PM + 1 quarter = 12/15/2013 12:00:00 PM` |
-| Date |AddWeeks(X,Y) |X: Datetime<br/><br/>Y: int |Ajoute Y * 7 jours à X<br/><br/>Exemple : 15/9/2013 12:00:00 + 1 semaine = 22/9/2013 12:00:00<br/><br/>Vous pouvez également soustraire les semaines en spécifiant Y en tant que nombre négatif.<br/><br/>Exemple : `9/15/2013 12:00:00 PM - 1 week = 9/7/2013 12:00:00 PM`. |
-| Date |AddYears(X,Y) |X: Datetime<br/><br/>Y: int |Ajoute Y années à X.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 year = 9/15/2014 12:00:00 PM`<br/><br/>Vous pouvez également soustraire les années en spécifiant Y en tant que nombre négatif.<br/><br/>Exemple : `9/15/2013 12:00:00 PM - 1 year = 9/15/2012 12:00:00 PM`. |
-| Date |Day(X) |X: Datetime |Obtient le composant jour de X.<br/><br/>Exemple : `Day of 9/15/2013 12:00:00 PM is 9`. |
-| Date |DayOfWeek(X) |X: Datetime |Obtient le composant semaine de X.<br/><br/>Exemple : `DayOfWeek of 9/15/2013 12:00:00 PM is Sunday`. |
-| Date |DayOfYear(X) |X: Datetime |Permet d’obtenir le jour de l’année représenté par le composant année de X.<br/><br/>Exemples :<br/>`12/1/2015: day 335 of 2015`<br/>`12/31/2015: day 365 of 2015`<br/>`12/31/2016: day 366 of 2016 (Leap Year)` |
-| Date |DaysInMonth(X) |X: Datetime |Permet d’obtenir les jours du mois représentés par le composant mois du paramètre X.<br/><br/>Exemple : `DaysInMonth of 9/15/2013 are 30 since there are 30 days in the September month`. |
-| Date |EndOfDay(X) |X: Datetime |Obtient la valeur date-heure qui représente la fin de la journée (composant jour) de X.<br/><br/>Exemple : `EndOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 11:59:59 PM`. |
-| Date |EndOfMonth(X) |X: Datetime |Permet d’obtenir la fin du mois représentée par le composant mois du paramètre X. <br/><br/>Exemple : `EndOfMonth of 9/15/2013 05:10:23 PM is 9/30/2013 11:59:59 PM` (date-heure qui représente la fin du mois de septembre) |
-| Date |StartOfDay(X) |X: Datetime |Permet d’obtenir le début de la journée représenté par le composant jour du paramètre X.<br/><br/>Exemple : `StartOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 12:00:00 AM`. |
-| Datetime |From(X) |X: Chaîne |Analyser la chaîne X à une heure de date. |
-| Datetime |Ticks(X) |X: Datetime |Permet d’obtenir la propriété de graduation du paramètre X. Un cycle est égal à 100 nanosecondes. La valeur de cette propriété représente le nombre de graduations écoulées depuis 12:00:00 minuit, le 1er janvier 0001. |
+| Date |AddDays(X,Y) |X: DateTime<br/><br/>Y: int |Ajoute Y jours à X. <br/><br/>Exemple : 15/9/2013 12:00:00 + 2 jours = 17/9/2013 12:00:00.<br/><br/>Vous pouvez également soustraire les jours en spécifiant Y en tant que nombre négatif.<br/><br/>Exemple : `9/15/2013 12:00:00 PM - 2 days = 9/13/2013 12:00:00 PM`. |
+| Date |AddMonths(X,Y) |X: DateTime<br/><br/>Y: int |Ajoute Y mois à X.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 month = 10/15/2013 12:00:00 PM`.<br/><br/>Vous pouvez également soustraire les mois en spécifiant Y en tant que nombre négatif.<br/><br/>Exemple : `9/15/2013 12:00:00 PM - 1 month = 8/15/2013 12:00:00 PM`.|
+| Date |AddQuarters(X,Y) |X: DateTime <br/><br/>Y: int |Ajoute Y * 3 mois à X.<br/><br/>Exemple : `9/15/2013 12:00:00 PM + 1 quarter = 12/15/2013 12:00:00 PM` |
+| Date |AddWeeks(X,Y) |X: DateTime<br/><br/>Y: int |Ajoute Y * 7 jours à X<br/><br/>Exemple : 15/9/2013 12:00:00 + 1 semaine = 22/9/2013 12:00:00<br/><br/>Vous pouvez également soustraire les semaines en spécifiant Y en tant que nombre négatif.<br/><br/>Exemple : `9/15/2013 12:00:00 PM - 1 week = 9/7/2013 12:00:00 PM`. |
+| Date |AddYears(X,Y) |X: DateTime<br/><br/>Y: int |Ajoute Y années à X.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 year = 9/15/2014 12:00:00 PM`<br/><br/>Vous pouvez également soustraire les années en spécifiant Y en tant que nombre négatif.<br/><br/>Exemple : `9/15/2013 12:00:00 PM - 1 year = 9/15/2012 12:00:00 PM`. |
+| Date |Day(X) |X: DateTime |Obtient le composant jour de X.<br/><br/>Exemple : `Day of 9/15/2013 12:00:00 PM is 9`. |
+| Date |DayOfWeek(X) |X: DateTime |Obtient le composant semaine de X.<br/><br/>Exemple : `DayOfWeek of 9/15/2013 12:00:00 PM is Sunday`. |
+| Date |DayOfYear(X) |X: DateTime |Permet d’obtenir le jour de l’année représenté par le composant année de X.<br/><br/>Exemples :<br/>`12/1/2015: day 335 of 2015`<br/>`12/31/2015: day 365 of 2015`<br/>`12/31/2016: day 366 of 2016 (Leap Year)` |
+| Date |DaysInMonth(X) |X: DateTime |Permet d’obtenir les jours du mois représentés par le composant mois du paramètre X.<br/><br/>Exemple : `DaysInMonth of 9/15/2013 are 30 since there are 30 days in the September month`. |
+| Date |EndOfDay(X) |X: DateTime |Obtient la valeur date-heure qui représente la fin de la journée (composant jour) de X.<br/><br/>Exemple : `EndOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 11:59:59 PM`. |
+| Date |EndOfMonth(X) |X: DateTime |Permet d’obtenir la fin du mois représentée par le composant mois du paramètre X. <br/><br/>Exemple : `EndOfMonth of 9/15/2013 05:10:23 PM is 9/30/2013 11:59:59 PM` (date-heure qui représente la fin du mois de septembre) |
+| Date |StartOfDay(X) |X: DateTime |Permet d’obtenir le début de la journée représenté par le composant jour du paramètre X.<br/><br/>Exemple : `StartOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 12:00:00 AM`. |
+| DateTime |From(X) |X: Chaîne |Analyser la chaîne X à une heure de date. |
+| DateTime |Ticks(X) |X: DateTime |Permet d’obtenir la propriété de graduation du paramètre X. Un cycle est égal à 100 nanosecondes. La valeur de cette propriété représente le nombre de graduations écoulées depuis 12:00:00 minuit, le 1er janvier 0001. |
 | Texte |Format(X) |X: variable de chaîne |Met en forme le texte (utilisez la combinaison `\\'` pour échapper le caractère `'`).|
 
 > [!IMPORTANT]

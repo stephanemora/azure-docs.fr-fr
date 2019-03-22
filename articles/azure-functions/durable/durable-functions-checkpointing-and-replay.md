@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 5d2cf4d76ce6f44cb31f05d45f2ccbceccbe9c10
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: 9edcc313a9e88b657337ba631218388f70d4b41f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339363"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086749"
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>Points de contrôle et réexécution dans Fonctions durables (Azure Functions)
 
@@ -78,8 +78,8 @@ Une fois le point de contrôle terminé, la fonction d’orchestrateur peut êtr
 
 À la fin, l’historique de la fonction mentionnée précédemment ressemble à ce qui suit dans Stockage Table Azure (présentation abrégée à des fins d’illustration) :
 
-| PartitionKey (InstanceId)                     | Type d’événement             | Timestamp               | Entrée | NOM             | Résultat                                                    | Statut |
-|----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|---------------------|
+| PartitionKey (InstanceId)                     | Type d’événement             | Timestamp               | Entrée | Nom             | Résultat                                                    | Statut |
+|----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     |
 | eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | null  | E1_HelloSequence |                                                           |                     |
 | eaee885b | TaskScheduled         | 2017-05-05T18:45:32.670Z |       | E1_SayHello      |                                                           |                     |
@@ -100,7 +100,7 @@ Une fois le point de contrôle terminé, la fonction d’orchestrateur peut êtr
 Quelques remarques sur les valeurs de colonne :
 
 * **PartitionKey** : contient l’ID d’instance de l’orchestration.
-* **EventType** : représente le type de l’événement. Il peut être l’un des suivants :
+* **EventType** : représente le type de l’événement. qui peut être l’un des suivants :
   * **OrchestrationStarted** : la fonction orchestrator a repris après une expression await ou s’exécute pour la première fois. La colonne `Timestamp` sert à indiquer la valeur déterministe pour l’API [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime).
   * **ExecutionStarted** : la fonction orchestrator a commencé à s’exécuter pour la première fois. Cet événement contient également l’entrée de la fonction dans la colonne `Input`.
   * **TaskScheduled** : une fonction d’activité a été planifiée. Le nom de la fonction d’activité est indiqué dans la colonne `Name`.
@@ -113,7 +113,7 @@ Quelques remarques sur les valeurs de colonne :
   * **ExecutionCompleted** : la fonction orchestrator s’est exécutée entièrement (ou a échoué). Les sorties de la fonction ou les détails de l’erreur sont stockés dans la colonne `Result`.
 * **Timestamp** : horodatage UTC de l’événement d’historique.
 * **Name** : nom de la fonction qui a été appelée.
-* **Input** : entrée au format JSON de la fonction.
+* **Entrée**: entrée au format JSON de la fonction.
 * **Result** : sortie de la fonction ; autrement dit, sa valeur renvoyée.
 
 > [!WARNING]

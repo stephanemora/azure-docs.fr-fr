@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 04/02/2018
+ms.date: 01/14/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4e9e9b76469554f5519626eed37a5b64586f5eb4
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: eaade5f9ec9db7e8d224305147dafc264916d9c5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265394"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995589"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Guide de dépannage et questions-réponses concernant Application Insights pour Java
 Vous avez des questions concernant [Azure Application Insights dans Java][java] ou vous rencontrez des problèmes ? Voici quelques conseils.
@@ -105,18 +105,39 @@ Mettez à jour ApplicationInsights.xml (situé dans le dossier de ressources de 
 
 Pour obtenir plus d’informations sur ce qui se passe dans l’API, ajoutez `<SDKLogger/>` sous le nœud racine du fichier de configuration ApplicationInsights.xml.
 
+### <a name="applicationinsightsxml"></a>ApplicationInsights.xml
+
 Vous pouvez également demander à l’enregistreur d’événements une sortie vers un fichier :
 
 ```XML
-
-    <SDKLogger type="FILE">
-      <enabled>True</enabled>
-      <UniquePrefix>JavaSDKLog</UniquePrefix>
-    </SDKLogger>
+  <SDKLogger type="FILE">
+    <Level>TRACE</Level>
+    <UniquePrefix>AI</UniquePrefix>
+    <BaseFolderPath>C:/agent/AISDK</BaseFolderPath>
+</SDKLogger>
 ```
 
-Vous trouverez les fichiers sous `%temp%\javasdklogs` ou `java.io.tmpdir` si vous utilisez un serveur Tomcat.
+### <a name="spring-boot-starter"></a>Spring Boot Starter
 
+Pour activer la journalisation de kit de développement logiciel avec les applications Spring Boot à l’aide de l’Application Insights Spring Boot Starter, ajoutez le code suivant à la `application.properties` fichier. :
+
+```yaml
+azure.application-insights.logger.type=file
+azure.application-insights.logger.base-folder-path=C:/agent/AISDK
+azure.application-insights.logger.level=trace
+```
+
+### <a name="java-agent"></a>Agent Java
+
+Pour activer la journalisation de l’Agent de machine virtuelle Java la mise à jour le [AI-agent.XML fichier](java-agent.md).
+
+```xml
+<AgentLogger type="FILE">
+    <Level>TRACE</Level>
+    <UniquePrefix>AI</UniquePrefix>
+    <BaseFolderPath>C:/agent/AIAGENT</BaseFolderPath>
+</AgentLogger>
+```
 
 ## <a name="the-azure-start-screen"></a>L'écran d'accueil Azure
 **J’ai ouvert [le portail Azure](https://portal.azure.com). Est-ce que la carte fournit des informations concernant mon application ?**
@@ -156,7 +177,7 @@ Application Insights utilise `org.apache.http`. Cet élément a été déplacé 
 * [Capturer les journaux de diagnostic][javalogs]
 
 ## <a name="get-help"></a>Obtenir de l’aide
-* [Dépassement de capacité de la pile](https://stackoverflow.com/questions/tagged/ms-application-insights)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
 * [Signaler un problème sur GitHub](https://github.com/Microsoft/ApplicationInsights-Java/issues)
 
 <!--Link references-->

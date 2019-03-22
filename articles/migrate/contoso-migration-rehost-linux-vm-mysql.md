@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: 3cac893fcaafd4fe8d35aab2a10da92019d3ed42
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 114f4ccccaa861928263eb59b4e43379989abcca
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55698957"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077851"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms-and-azure-mysql"></a>Migration de Contoso : Réhéberger une application Linux locale vers des machines virtuelles Azure et Azure MySQL
 
@@ -108,7 +108,7 @@ Pour migrer la base de données :
 [Azure Database pour MySQL](https://docs.microsoft.com/azure/mysql/) | La base de données est basée sur le moteur du serveur MySQL open source. Il fournit une base de données MySQL entièrement managée et de classe Entreprise, appuyée par une communauté active, en tant que service pour le développement et le déploiement d’applications. 
 
  
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Voici ce dont Contoso a besoin pour ce scénario.
 
@@ -127,7 +127,7 @@ Voici comment les administrateurs de Contoso effectuent la migration :
 > [!div class="checklist"]
 > * **Étape 1 : Préparer Azure pour Site Recovery** : Ils créent un compte de stockage Azure pour accueillir les données répliquées, et créent un coffre Recovery Services.
 > * **Étape 2 : Préparer une machine virtuelle VMware locale pour Site Recovery** : Ils préparent des comptes pour la découverte de machines virtuelles et l’installation d’agents. Ils préparent également la connexion aux machines virtuelles Azure après basculement.
- * **Étape 3 : Mettre en service la base de données]**  : Dans Azure, ils provisionnent une instance de base de données Azure MySQL.
+>   * **Étape 3 : Mettre en service la base de données]**  : Dans Azure, ils provisionnent une instance de base de données Azure MySQL.
 > * **Étape 4 : Répliquer les machines virtuelles** : Ils configurent les environnements source et cible de Site Recovery ainsi qu’une stratégie de réplication, puis commencent à répliquer des machines virtuelles sur le stockage Azure.
 > * **Étape 5 : Migrer la base de données** : Ils configurent la migration avec des outils MySQL.
 > * **Étape 6 : Migrer les machines virtuelles avec Site Recovery** : Enfin, ils effectuent un test de basculement pour vérifier que tout fonctionne correctement, puis opèrent un basculement complet pour migrer les machines virtuelles vers Azure.
@@ -147,10 +147,10 @@ Les administrateurs de Contoso créent un compte de stockage et un coffre de la 
 
 1. Ils créent un compte de stockage (**contosovmsacc20180528**) dans la région USA Est 2.
 
-    - Le compte de stockage doit se trouver dans la même région que le coffre Recovery Services.
-    - Ils utilisent un compte à usage général, avec un stockage standard, et la réplication LRS.
+   - Le compte de stockage doit se trouver dans la même région que le coffre Recovery Services.
+   - Ils utilisent un compte à usage général, avec un stockage standard, et la réplication LRS.
 
-    ![Stockage Site Recovery](./media/contoso-migration-rehost-linux-vm-mysql/asr-storage.png)
+     ![Stockage Site Recovery](./media/contoso-migration-rehost-linux-vm-mysql/asr-storage.png)
 
 3. Une fois le réseau et le compte de stockage en place, ils créent un coffre (ContosoMigrationVault) et le placent dans le groupe de ressources **ContosoFailoverRG**, dans la région USA Est 2 principale.
 

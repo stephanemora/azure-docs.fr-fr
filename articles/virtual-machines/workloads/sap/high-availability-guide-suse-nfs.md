@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 799a40d759dc5614bd43234638982d5275d9d325
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: da465fb9fe51b2be5ec90df1ac75c50271db87a9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429194"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992064"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Haute disponibilité pour NFS sur les machines virtuelles Azure sur SUSE Linux Enterprise Server
 
@@ -79,7 +79,7 @@ Commencez par lire les notes et publications SAP suivantes
 * [Guides des meilleures pratiques de SUSE Linux Enterprise Server pour applications SAP 12 SP3][sles-for-sap-bp]
 * [Notes de publication de SUSE High Availability Extension 12 SP3][suse-ha-12sp3-relnotes]
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Pour obtenir une haute disponibilité, SAP NetWeaver nécessite un serveur NFS. Le serveur NFS est configuré dans un cluster distinct et peut être utilisé par plusieurs systèmes SAP.
 
@@ -426,9 +426,9 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
 
    Lorsque vous utilisez drbd pour synchroniser les données entre 2 hôtes, un syndrome Split-Brain peut se produire. Il s’agit d’un scénario au cours duquel les 2 nœuds de cluster promeuvent l’appareil drbd en tant qu’instance principale et se désynchronisent. S’il s’agit d’un problème rare, vous avez tout intérêt à le résoudre dans les meilleurs délais. Par conséquent, il est important d’être prévenu de la survenue d’un Split-Brain.
 
-   Consultez la [documentation officielle drbd](http://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-split-brain-notification) pour savoir comment configurer une notification de Split-Brain.
+   Consultez la [documentation officielle drbd](https://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-split-brain-notification) pour savoir comment configurer une notification de Split-Brain.
 
-   Il est également possible de récupérer automatiquement à partir d’un scénario de Split-Brain. Pour plus d’informations, consultez la page [Automatic split brain recovery policies](http://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-automatic-split-brain-recovery-configuration) (Stratégies de récupération automatique à partir des scénarios de Split-Brain).
+   Il est également possible de récupérer automatiquement à partir d’un scénario de Split-Brain. Pour plus d’informations, consultez la page [Automatic split brain recovery policies](https://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-automatic-split-brain-recovery-configuration) (Stratégies de récupération automatique à partir des scénarios de Split-Brain).
    
 ### <a name="configure-cluster-framework"></a>Configurer le framework du cluster
 

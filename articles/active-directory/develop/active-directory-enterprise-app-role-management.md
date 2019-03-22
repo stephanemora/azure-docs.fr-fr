@@ -12,22 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2019
+ms.date: 02/21/2019
 ms.author: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b7604fbe306e606e56c9dd0a2b09b4641257dbc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: a354fdf8ea75d9446c2a5e5ee6a70489cf9dbfb5
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203352"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990509"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Activation Configurer les revendications de rôle émises dans le jeton SAML pour les applications d'entreprise
 
 Grâce à Azure Active Directory (Azure AD), vous pouvez personnaliser le type de revendications de rôle que vous recevez après avoir autorisé une application.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 - Un abonnement Azure AD avec l’installation des répertoires.
 - Un abonnement pour lequel l’authentification unique (SSO) est activée. Vous devez configurer l’authentification unique avec votre application.
@@ -157,6 +157,9 @@ Si votre application s’attend à voir passer dans une réponse SAML des rôles
     | Nom de l’attribut | Valeur de l’attribut |
     | -------------- | ----------------|
     | Nom de rôle  | user.assignedroles |
+
+    >[!NOTE]
+    >Si la valeur de revendication de rôle est null, puis Azure AD enverra pas cette valeur dans le jeton, et c’est par défaut en fonction de la conception.
 
     a. Cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue **Attributs d'utilisateur**.
 

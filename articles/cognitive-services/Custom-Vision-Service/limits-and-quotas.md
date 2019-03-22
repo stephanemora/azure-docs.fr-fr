@@ -10,18 +10,18 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: anroth
-ms.openlocfilehash: 8e96447f2a1b5b68ebf99ab4006fe43937f4c75f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 58109e17ed33e6af8dedf3ed8c1cc9ddf546a05e
+ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884424"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57588667"
 ---
 # <a name="pricing-and-limits"></a>Tarification et limites
 
 Il existe trois niveaux de clés pour le service Vision personnalisée. Les ressources de projet des essais gratuits limités sont attachées à votre identifiant Vision personnalisée (autrement dit, un compte Azure Active Directory ou un compte MSA). Elles sont destinées à être utilisées pour de courts essais du service. Vous pouvez souscrire à un abonnement F0 (gratuit) ou S0 (standard) via le portail Azure. Consultez la page [Tarification de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) correspondante pour en savoir plus sur la tarification et les transactions.
 
-Les comptes créés avec la préversion gratuite, avant l’introduction des préversions Azure (1er mars 2018), conserveront leurs quotas précédents pour les essais gratuits limités. 
+Les comptes créés avec la préversion gratuite, avant l’introduction des préversions Azure (1er mars 2018), conserveront leurs quotas précédents pour les essais gratuits limités.
 
 Le nombre d’images d’apprentissage par projet et le nombre de balises par projet sont censés augmenter au fil du temps pour les projets S0.
 

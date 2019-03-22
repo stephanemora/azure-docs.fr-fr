@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: 89161f3dad68c4b208f4badc548e2057c7ed58c1
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
-ms.translationtype: HT
+ms.openlocfilehash: 5ab967cbd630447132300b22da5c5deb31fd50e9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022047"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852354"
 ---
 # <a name="implement-service-level-features-in-your-actor-service"></a>Implémenter des fonctionnalités de niveau de service dans votre service d’intervenant
 
@@ -160,13 +160,13 @@ La pile de communication à distance V2 (compatible avec l’interface, appelée
 
 Les modifications suivantes sont requises pour utiliser la pile de communication à distance V2_1 :
 
- 1. Ajoutez l’attribut d’assembly suivant sur les interfaces d’intervenant.
+1. Ajoutez l’attribut d’assembly suivant sur les interfaces d’intervenant.
   
    ```csharp
    [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
    ```
 
- 2. Créez et mettez à niveau des projets de service d’intervenant et de client d’intervenant pour commencer à utiliser la pile V2.
+2. Créez et mettez à niveau des projets de service d’intervenant et de client d’intervenant pour commencer à utiliser la pile V2.
 
 ### <a name="actor-service-upgrade-to-remoting-v2-interface-compatible-stack-without-affecting-service-availability"></a>Mise à niveau du service d’intervenant vers la pile de communication à distance V2 (compatible avec l’interface) sans incidence sur la disponibilité du service
 
@@ -174,12 +174,12 @@ Cette modification est une mise à niveau en deux étapes. Suivez les étapes da
 
 1. Ajoutez l’attribut d’assembly suivant sur les interfaces d’intervenant. Cet attribut démarre deux écouteurs pour le service d’intervenant, V1 (existant) et V2_1. Mettez à niveau le service d’intervenant avec cette modification.
 
-  ```csharp
-  [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
-  ```
+   ```csharp
+   [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
+   ```
 
 2. Mettez à niveau les clients d’intervenant après avoir terminé la mise à niveau précédente.
-Cette étape permet de s’assurer que le proxy d’intervenant utilise la pile de communication à distance V2_1.
+   Cette étape permet de s’assurer que le proxy d’intervenant utilise la pile de communication à distance V2_1.
 
 3. Cette étape est facultative. Modifiez l’attribut précédent pour supprimer l’écouteur V1.
 
@@ -193,13 +193,13 @@ Avec le package NuGet version 2.8, les utilisateurs peuvent désormais utiliser 
 
 Les modifications suivantes sont requises pour utiliser la pile de communication à distance V2.
 
- 1. Ajoutez l’attribut d’assembly suivant sur les interfaces d’intervenant.
+1. Ajoutez l’attribut d’assembly suivant sur les interfaces d’intervenant.
 
    ```csharp
    [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
    ```
 
- 2. Créez et mettez à niveau les projets de service d’intervenant et de client d’intervenant pour commencer à utiliser la pile V2.
+2. Créez et mettez à niveau les projets de service d’intervenant et de client d’intervenant pour commencer à utiliser la pile V2.
 
 ### <a name="upgrade-the-actor-service-to-the-remoting-v2-stack-without-affecting-service-availability"></a>Mettre à niveau le service d’acteur vers la pile de communication à distance V2 sans que cela ait d’incidence sur la disponibilité du service
 
@@ -207,12 +207,12 @@ Cette modification est une mise à niveau en deux étapes. Suivez les étapes da
 
 1. Ajoutez l’attribut d’assembly suivant sur les interfaces d’intervenant. Cet attribut démarre deux écouteurs pour le service d’acteur, V1 (existant) et V2. Mettez à niveau le service d’intervenant avec cette modification.
 
-  ```csharp
-  [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
-  ```
+   ```csharp
+   [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
+   ```
 
 2. Mettez à niveau les clients d’intervenant après avoir terminé la mise à niveau précédente.
-Cette étape permet de s’assurer que le proxy d’acteur utilise la pile de communication à distance V2.
+   Cette étape permet de s’assurer que le proxy d’acteur utilise la pile de communication à distance V2.
 
 3. Cette étape est facultative. Modifiez l’attribut précédent pour supprimer l’écouteur V1.
 
@@ -226,7 +226,7 @@ Cette étape permet de s’assurer que le proxy d’acteur utilise la pile de co
 * [Cycle de vie des acteurs et Garbage Collection](service-fabric-reliable-actors-lifecycle.md)
 * [Documentation de référence de l’API Actors](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [Exemple de code .NET](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Exemple de code Java](http://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [Exemple de code Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-platform/actor-service.png

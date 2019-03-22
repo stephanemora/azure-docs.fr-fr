@@ -16,12 +16,12 @@ ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5cec018eec6e298e27329c03964dccf5809c1791
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 79549c1b8ed578319e43fc1c4354c7cd76f71589
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190634"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004233"
 ---
 # <a name="extend-or-renew-azure-resource-role-assignments-in-pim"></a>Étendre ou renouveler des affectations de rôles de ressources Azure dans PIM
 
@@ -49,7 +49,7 @@ Les membres d’une attribution de rôle arrivant à expiration peuvent l’éte
 
 Lorsque la date/heure de fin de l’attribution se situe 14 jours plus tard ou moins, le bouton **Étendre** devient un lien actif dans l’interface utilisateur. Dans l’exemple ci-dessous, supposons que la date actuelle est le 27 mars.
 
-![Le bouton « Étendre »](media/azure-pim-resource-rbac/aadpim_rbac_extend_within_14.png)
+![Étendre le bouton](media/azure-pim-resource-rbac/aadpim_rbac_extend_within_14.png)
 
 Pour demander une extension de cette attribution de rôle, sélectionnez **Étendre** afin d’ouvrir le formulaire de demande.
 
@@ -64,11 +64,11 @@ Pour consulter les informations relatives à l’attribution d’origine, dével
 
 Quelques instants après, les administrateurs de ressources reçoivent une notification par e-mail leur demandant d’examiner la demande d’extension. Si une demande d’extension a déjà été envoyée, une notification toast expliquant l’erreur s’affiche en haut du Portail Azure.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_extend_failed_existing_request.png)
+![Explication de l’erreur de notification](media/azure-pim-resource-rbac/aadpim_rbac_extend_failed_existing_request.png)
 
 Accédez à l’onglet **Demandes en attente** dans le menu de gauche pour connaître l’état de votre demande ou l’annuler.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_extend_cancel_request.png)
+![Demandes en attente](media/azure-pim-resource-rbac/aadpim_rbac_extend_cancel_request.png)
 
 ### <a name="admin-approve"></a>Approbation d’administrateur
 
@@ -80,7 +80,7 @@ Pour approuver ou refuser les demandes, les administrateurs peuvent suivre le li
 
 Lorsqu’un administrateur sélectionne **Approuver** ou **Refuser**, les détails de la demande s’affichent, ainsi qu’un champ permettant de donner une justification pour les journaux d’audit.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_extend_admin_approve_blade.png)
+![Approuver la demande d’attribution de rôle](media/azure-pim-resource-rbac/aadpim_rbac_extend_admin_approve_blade.png)
 
 Lorsqu’ils approuvent une demande d’extension d’attribution de rôle, les administrateurs de ressources peuvent choisir de nouvelles dates de début et de fin et un nouveau type d’attribution. Une modification du type d’attribution peut être nécessaire s’ils souhaitent accorder un accès limité afin d’effectuer une tâche spécifique (un jour, par exemple). Dans cet exemple, l’administrateur peut modifier l’attribution de **Éligible** à **Actif**, ce qui signifie qu’il peut donner l’accès au demandeur sans l’obliger à s’activer.
 
@@ -100,7 +100,7 @@ Bien que semblable d’un point de vue conceptuel au processus de demande d’ex
 
 Les membres qui n’ont plus accès aux ressources peuvent accéder jusqu’à 30 jours d’historique d’attributions arrivées à expiration. Pour cela, ils accèdent à **Mes rôles** dans le volet de gauche, puis sélectionnent l’onglet **Rôles arrivés à expiration** dans la section Rôles des ressources Azure.
 
-![Onglet « Rôles arrivés à expiration »](media/azure-pim-resource-rbac/aadpim_rbac_renew_from_myroles.png)
+![Onglet rôles expirés](media/azure-pim-resource-rbac/aadpim_rbac_renew_from_myroles.png)
 
 La liste des rôles affiche par défaut les **Rôles éligibles**. Utilisez le menu déroulant pour basculer entre les rôles attribués éligibles et actifs.
 

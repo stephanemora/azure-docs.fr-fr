@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: cherylmc
-ms.openlocfilehash: 18834357651e5fb72dd849a8d8e2e7687f0a8141
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 6cf427ee1dbd47d3b762035abc2236bda65db116
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730354"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57773178"
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>Créer un réseau virtuel avec une connexion VPN de site à site à l’aide de l’interface de ligne de commande
 
@@ -36,7 +36,7 @@ Une connexion de passerelle VPN de site à site permet de connecter votre résea
 Vérifiez que vous disposez des éléments ci-dessous avant de commencer votre configuration :
 
 * Veillez à disposer d’un périphérique VPN compatible et à être entouré d’une personne en mesure de le configurer. Pour plus d’informations sur les périphériques VPN compatibles et la configuration de votre périphérique, consultez l’article [À propos des périphériques VPN](vpn-gateway-about-vpn-devices.md).
-* Vérifiez que vous disposez d’une adresse IPv4 publique exposée en externe pour votre périphérique VPN. Cette adresse IP ne peut pas se trouver derrière un NAT.
+* Vérifiez que vous disposez d’une adresse IPv4 publique exposée en externe pour votre périphérique VPN.
 * Si vous ne maîtrisez pas les plages d’adresses IP situées dans votre configuration de réseau local, vous devez contacter une personne en mesure de vous aider. Lorsque vous créez cette configuration, vous devez spécifier les préfixes des plages d’adresses IP qu’Azure acheminera vers votre emplacement local. Aucun des sous-réseaux de votre réseau local ne peut chevaucher les sous-réseaux du réseau virtuel auquel vous souhaitez vous connecter.
 * Vous pouvez utiliser Azure Cloud Shell pour exécuter vos commandes CLI (instructions ci-dessous). Toutefois, si vous préférez exécuter vos commandes localement, vérifiez que vous avez installé la dernière version des commandes CLI (2.0 ou ultérieure). Pour plus d’informations sur l’installation des commandes CLI, consultez [Installer l’interface de ligne de commande Microsoft Azure](/cli/azure/install-azure-cli) et [Prise en main d’Azure CLI](/cli/azure/get-started-with-azure-cli). 
  
@@ -115,7 +115,7 @@ La passerelle de réseau local fait généralement référence à votre emplacem
 
 Utilisez les valeurs suivantes :
 
-* La valeur *--gateway-ip-address* est l’adresse IP de votre périphérique VPN local. Votre périphérique VPN ne peut pas se trouver derrière un NAT.
+* La valeur *--gateway-ip-address* est l’adresse IP de votre périphérique VPN local.
 * La valeur *--local-address-prefixes* représente vos espaces d’adressage local.
 
 Utilisez la commande [az network local-gateway create](/cli/azure/network/local-gateway) pour ajouter une passerelle de réseau local avec plusieurs préfixes d’adresses :
