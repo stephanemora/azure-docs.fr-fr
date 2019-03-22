@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec0842daa9ca8e0f64d0ca7d2610b6116c2bd5b8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 19b312f284d557c2c1344b82b9fcd570d3392077
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56202823"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433737"
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Déterminer la stratégie d’adoption du cycle de vie des identités hybrides
 Dans cette tâche, vous allez définir la stratégie de gestion des identités pour que votre solution d’identités hybrides réponde aux exigences de l’entreprise définies dans [Déterminer les tâches de gestion des identités hybrides](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).
@@ -95,7 +95,7 @@ Consultez le tableau suivant pour comparer les options de synchronisation :
 | Option de gestion de la synchronisation | Avantages | Inconvénients |
 | --- | --- | --- |
 | En fonction de la synchronisation (via DirSync ou AADConnect) |Utilisateurs et groupes synchronisés en local ou à partir du cloud <br>  **Contrôle de stratégie** : des stratégies de compte peuvent être définies via Active Directory, ce qui donne à l'administrateur la possibilité de gérer des stratégies de mot de passe, postes de travail, restrictions, contrôles de verrouillage, etc., sans avoir à effectuer des tâches supplémentaires dans le cloud.  <br>  **Contrôle d'accès** : peut restreindre l'accès au service cloud afin que les services soient accessibles via l'environnement de l'entreprise, les serveurs en ligne, ou les deux. <br>  Réduction du nombre d'appels au support technique : si les utilisateurs ont moins de mots de passe à mémoriser, ils sont moins susceptibles de les oublier. <br>  Sécurité : les identités et les informations des utilisateurs sont protégées car tous les serveurs et services utilisés dans le cadre de l'authentification unique sont supervisés et contrôlés localement. <br>  Prise en charge de l'authentification forte : vous pouvez utiliser l'authentification forte (également appelée authentification à 2 facteurs) avec le service cloud. Toutefois, si vous utilisez l’authentification forte, vous devez utiliser l’authentification unique. | |
-| En fonction de la fédération (via AD FS) |Activation par le service d’émission de jeton de sécurité (STS). Lorsque vous configurez un STS pour fournir l’accès à l’authentification unique avec un service cloud Microsoft, vous créez une approbation fédérée entre votre STS local et le domaine fédéré que vous avez spécifié dans votre client Azure AD. <br> Permet aux utilisateurs finaux d’utiliser le même jeu d’informations d’identification pour accéder à plusieurs ressources <br>Les utilisateurs finaux n’ont pas à gérer plusieurs jeux d’informations d’identification. Pourtant, les utilisateurs doivent fournir leurs informations d’identification à chacune des ressources participantes. Les scénarios B2B et B2C sont pris en charge. |Requiert un personnel spécialisé pour le déploiement et la maintenance de serveurs AD FS locaux dédiés. Il existe des restrictions relatives à l’utilisation de l’authentification forte si vous prévoyez d’utiliser AD FS pour votre STS. Pour plus d’informations, consultez [Configuration des options avancées pour AD FS 2.0](https://go.microsoft.com/fwlink/?linkid=235649). |
+| En fonction de la fédération (via AD FS) |Activation par le service d’émission de jeton de sécurité (STS). Lorsque vous configurez un STS pour fournir l’accès à l’authentification unique avec un service cloud Microsoft, vous créez une approbation fédérée entre votre STS local et le domaine fédéré que vous avez spécifié dans votre client Azure AD. <br> Permet aux utilisateurs finaux d’utiliser le même jeu d’informations d’identification pour accéder à plusieurs ressources <br>Les utilisateurs finaux n’ont pas à gérer plusieurs jeux d’informations d’identification. Pourtant, les utilisateurs doivent fournir leurs informations d’identification à chacune des ressources participantes. Les scénarios B2B et B2C sont pris en charge. |Nécessite un personnel spécialisé pour le déploiement et la maintenance de dédié en local serveurs AD FS. Il existe des restrictions relatives à l’utilisation de l’authentification forte si vous prévoyez d’utiliser AD FS pour votre STS. Pour plus d’informations, consultez [Configuration des options avancées pour AD FS 2.0](https://go.microsoft.com/fwlink/?linkid=235649). |
 
 > [!NOTE]
 > Pour plus d’informations, consultez [Intégration des identités locales avec Azure Active Directory](whatis-hybrid-identity.md).

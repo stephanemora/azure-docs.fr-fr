@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: e76c8ae671333bcbf50995c4bd9345f8434fbea2
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 14f1a92f701eaedd98b825316ebf213f7c144920
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745960"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959457"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Superviser la consommation des ressources et l’activité des requêtes dans la Recherche Azure
 
@@ -61,11 +61,11 @@ Le tableau suivant compare les options de stockage des journaux et d’ajout d�
 | Ressource | Utilisé pour |
 |----------|----------|
 | [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | Événements et métriques des requêtes journalisés, basés sur l’un des schémas ci-dessous, mis en corrélation avec les événements utilisateur de votre application. Il s’agit de la seule solution qui prend en compte les signaux ou les actions utilisateur, en mappant les événements à partir d’une recherche lancée par l’utilisateur, par opposition aux requêtes de filtre soumises par le code d’application. Pour utiliser cette approche, copiez-collez le code d’instrumentation dans vos fichiers sources pour router les informations de requête de route vers Application Insights. Pour plus d’informations, consultez [Analytique du trafic des recherches](search-traffic-analytics.md). |
-| [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Événements et métriques des requêtes journalisés, basés sur l’un des schémas ci-dessous. Les événements sont journalisés dans un espace de travail dans Log Analytics. Vous pouvez exécuter des requêtes sur un espace de travail pour retourner des informations détaillées du journal. Pour plus d’informations, consultez l’article [Prise en main de Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
+| [Journaux Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Événements et métriques des requêtes journalisés, basés sur l’un des schémas ci-dessous. Les événements sont enregistrés dans un espace de travail Analytique de journal. Vous pouvez exécuter des requêtes sur un espace de travail pour retourner des informations détaillées du journal. Pour plus d’informations, consultez [prise en main les journaux Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
 | [Stockage Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Événements et métriques des requêtes journalisés, basés sur l’un des schémas ci-dessous. Les événements sont journalisés dans un conteneur d’objets blob et stockés dans des fichiers JSON. Utilisez un éditeur JSON pour afficher le contenu des fichiers.|
 | [Concentrateur d’événements](https://docs.microsoft.com/azure/event-hubs/) | Événements et métriques des requêtes journalisés, basés sur les schémas présentés dans cet article. Choisissez cette option comme autre service de collecte de données pour les journaux très volumineux. |
 
-Log Analytics et le Stockage Blob sont tous les deux disponibles sous la forme d’un service partagé gratuit pour vous permettre de l’essayer sans frais pendant la durée de vie de votre abonnement Azure. L’inscription à Application Insights et son utilisation sont gratuits tant que la taille de données d’application n’excède pas certaines limites. (Pour plus d’informations, consultez la [page des tarifs](https://azure.microsoft.com/pricing/details/monitor/).)
+Journaux d’Azure Monitor et le stockage d’objets Blob sont disponibles comme un service gratuit partagé afin que vous pouvez l’essayer sans frais pendant la durée de vie de votre abonnement Azure. L’inscription à Application Insights et son utilisation sont gratuits tant que la taille de données d’application n’excède pas certaines limites. (Pour plus d’informations, consultez la [page des tarifs](https://azure.microsoft.com/pricing/details/monitor/).)
 
 La section suivante vous guide tout au long des étapes d’activation et d’utilisation du Stockage Blob Azure pour collecter des données de journal créées par les opérations Recherche Azure et y accéder.
 
@@ -81,7 +81,7 @@ Dans cette section, vous allez apprendre à utiliser le Stockage Blob pour stock
 
    ![Activer la supervision](./media/search-monitor-usage/enable-monitoring.png "Activer la supervision")
 
-3. Choisissez les données à exporter : Journaux, Métriques ou les deux. Vous pouvez les copier sur un compte de stockage, les envoyer à un Event Hub ou les exporter vers Log Analytics.
+3. Choisissez les données à exporter : Journaux, Métriques ou les deux. Vous pouvez copier dans un compte de stockage, envoyer à un concentrateur d’événements ou exportez-le vers les journaux Azure Monitor.
 
    Pour l’archivage dans le Stockage Blob, seul le compte de stockage doit exister. Les conteneurs et les objets blob sont créés lors de l’exportation des données de journal.
 
@@ -112,11 +112,11 @@ Les objets blob contenant vos journaux du trafic de votre service de recherche s
 | Nom | Type | Exemples | Notes |
 | --- | --- | --- | --- |
 | time |Datetime |"2018-12-07T00:00:43.6872559Z" |Horodatage de l’opération |
-| ResourceId |chaîne |«/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>  MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE » |Votre ID de ressource |
-| operationName |chaîne |« Query.Search » |Nom de l’opération |
-| operationVersion |chaîne |"2017-11-11" |Version d’API utilisée |
-| category |chaîne |« OperationLogs » |constant |
-| resultType |chaîne |« Success » |Valeurs possibles : Réussite ou Échec |
+| ResourceId |string |«/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>  MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE » |Votre ID de ressource |
+| operationName |string |« Query.Search » |Nom de l’opération |
+| operationVersion |string |"2017-11-11" |Version d’API utilisée |
+| category |string |« OperationLogs » |constant |
+| resultType |string |« Success » |Valeurs possibles : Réussite ou Échec |
 | resultSignature |int |200 |Code de résultat HTTP |
 | durationMS |int |50 |Durée de l’opération en millisecondes |
 | properties |objet |consultez le tableau suivant |Objet contenant des données propres à l’opération |
@@ -125,10 +125,10 @@ Les objets blob contenant vos journaux du trafic de votre service de recherche s
 
 | Nom | Type | Exemples | Notes |
 | --- | --- | --- | --- |
-| Description |chaîne |« GET /indexes(’content’)/docs » |Point de terminaison de l’opération |
-| Interroger |chaîne |"?search=AzureSearch&$count=true&api-version=2017-11-11" |Paramètres de requête |
+| Description |string |« GET /indexes(’content’)/docs » |Point de terminaison de l’opération |
+| Interroger |string |"?search=AzureSearch&$count=true&api-version=2017-11-11" |Paramètres de requête |
 | Documents |int |42 |Nombre de documents traités |
-| IndexName |chaîne |« testindex » |Nom de l’index associé à l’opération |
+| IndexName |string |« testindex » |Nom de l’index associé à l’opération |
 
 ## <a name="metrics-schema"></a>Schéma de mesures
 
@@ -136,15 +136,15 @@ Les métriques sont capturées pour les demandes de requête.
 
 | Nom | Type | Exemples | Notes |
 | --- | --- | --- | --- |
-| ResourceId |chaîne |«/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE » |Votre ID de ressource |
-| metricName |chaîne |« Latency » |Nom de la mesure |
+| ResourceId |string |«/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE » |Votre ID de ressource |
+| metricName |string |« Latency » |Nom de la mesure |
 | time |Datetime |"2018-12-07T00:00:43.6872559Z" |Horodatage de l’opération |
 | average |int |64 |Valeur moyenne des échantillons bruts dans l’intervalle de temps de la mesure |
 | minimum |int |37 |Valeur minimale des échantillons bruts dans l’intervalle de temps de la mesure |
 | maximum |int |78 |Valeur maximale des échantillons bruts dans l’intervalle de temps de la mesure |
 | total |int |258 |Valeur totale des échantillons bruts dans l’intervalle de temps de la mesure |
 | count |int |4 |Nombre d’échantillons bruts utilisés pour générer la mesure |
-| timegrain |chaîne |« PT1M » |Fragment de temps de la mesure au format ISO 8601 |
+| timegrain |string |« PT1M » |Fragment de temps de la mesure au format ISO 8601 |
 
 Toutes les mesures sont consignées dans des intervalles d’une minute. Chaque mesure expose des valeurs minimales, maximales et moyennes par minute.
 

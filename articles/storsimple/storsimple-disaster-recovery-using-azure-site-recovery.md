@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: vidarmsft
-ms.openlocfilehash: f5b128306389a87c432b869b4756a6d232dc903c
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: f5eefd1d3fa26738729d98e60d8a56cd8d33d86c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566038"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084876"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Solution de récupération d’urgence automatisée à l’aide d’Azure Site Recovery pour les partages de fichiers hébergés sur StorSimple
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Microsoft Azure StorSimple est une solution de stockage de cloud hybride qui gère les complexités des données non structurées couramment associées aux partages de fichiers. StorSimple utilise le stockage cloud pour étendre la solution sur site et hiérarchise automatiquement les données sur le stockage local et le stockage cloud. La protection des données intégrée, qui comprend à la fois des instantanés en local et des instantanés sur le cloud, évite d’avoir à s’appuyer sur une immense infrastructure de stockage.
 
 [Azure Site Recovery](../site-recovery/site-recovery-overview.md) est un service Azure offrant des capacités de récupération d’urgence (DR) en coordonnant la réplication, le basculement et la récupération des machines virtuelles. Azure Site Recovery prend en charge un certain nombre de technologies de réplication afin de systématiquement répliquer, protéger et basculer en toute transparence des machines virtuelles et des applications sur des clouds privés/publics ou de l’hébergeur.
@@ -34,7 +34,7 @@ Ce document explique en détail comment créer une solution de récupération d�
 ## <a name="supported-azure-site-recovery-deployment-options"></a>Options de déploiement Azure Site Recovery prises en charge
 Les clients peuvent déployer des serveurs de fichiers en tant que serveurs physiques ou en tant que machines virtuelles exécutés sur Hyper-V ou VMware, avant de créer des partages de fichiers à partir des volumes issus du stockage StorSimple. Azure Site Recovery peut protéger des déploiements physiques et virtuels aussi bien sur un site secondaire que sur Azure. Ce document décrit en détail une solution de récupération d’urgence qui utilise Azure comme site de récupération pour une machine virtuelle du serveur de fichiers hébergée sur Hyper-V et qui stocke des partages de fichiers sur StorSimple. Vous pouvez implémenter de la même façon d’autres scénarios impliquant un serveur de fichiers exécuté sur une machine virtuelle VMware ou sur un ordinateur physique.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Pour implémenter une solution de récupération d’urgence en un clic qui utilise Azure Site Recovery pour les partages de fichiers hébergés sur le stockage StorSimple, vous devez disposer des éléments suivants :
 
    - Machine virtuelle du serveur de fichiers Windows Server 2012 R2 en local hébergée sur une machine virtuelle Hyper-V ou VMware ou sur un ordinateur physique
@@ -179,7 +179,7 @@ Vous pouvez créer un plan de récupération dans ASR pour automatiser le proces
    - *RecoveryPlanName***-StorageAccountKey** : Clé d’accès du compte de stockage ci-dessus.
    - *RecoveryPlanName***-VMGUIDS** : Lors de la protection d’une machine virtuelle, Azure Site Recovery affecte à chaque machine virtuelle un ID unique qui fournit des détails sur la machine virtuelle basculée. Pour obtenir le VMGUID, sélectionnez l’onglet **Services de récupération**, puis cliquez sur **Élément protégé** &gt; **Groupes de protection** &gt; **Machines** &gt; **Propriétés**. Si vous disposez de plusieurs machines virtuelles, ajoutez les GUID sous forme de chaîne séparée par des virgules.
 
-    Par exemple, si le nom du plan de récupération est fileServerpredayRP, votre onglet **Variables**, **Connexions** et **Certificats** doit se présenter comme suit une fois que vous avez ajouté toutes les ressources.
+     Par exemple, si le nom du plan de récupération est fileServerpredayRP, votre onglet **Variables**, **Connexions** et **Certificats** doit se présenter comme suit une fois que vous avez ajouté toutes les ressources.
 
       ![Éléments multimédias](./media/storsimple-disaster-recovery-using-azure-site-recovery/image5.png)
 
@@ -332,30 +332,30 @@ La planification de la capacité comporte au moins deux processus importants :
    - Détermination de la bande passante Internet requise.
 
 ## <a name="limitations"></a>Limites
-   - Il n’est actuellement possible de basculer qu’un seul périphérique StorSimple (sur une seule appliance cloud StorSimple). Le scénario d’un serveur de fichiers qui s’étend sur plusieurs périphériques StorSimple n’est pas encore pris en charge.
-   - Si vous obtenez une erreur lors de l’activation de la protection d’une machine virtuelle, assurez-vous que vous avez déconnecté les cibles iSCSI.
-   - Tous les conteneurs de volumes qui ont été regroupés en raison des stratégies de sauvegarde communes aux différents conteneurs de volumes basculeront ensemble.
-   - Tous les volumes des conteneurs de volumes que vous avez choisis seront basculés.
-   - Les volumes qui peuvent cumuler une capacité supérieure à 64 To ne peuvent pas être basculés car la capacité maximale d’une appliance cloud StorSimple est de 64 To.
-   - Si le processus de basculement planifié ou non planifié échoue et que les machines virtuelles sont créées dans Azure, évitez de nettoyer les machines virtuelles. Effectuez plutôt une restauration automatique. Si vous supprimez les machines virtuelles, vous ne pourrez plus réactiver les machines virtuelles locales.
-   - Après un basculement, si vous n’êtes pas en mesure de voir les volumes, accédez aux machines virtuelles, ouvrez Gestion des disques, réanalysez les disques, puis mettez-les en ligne.
-   - Dans certains cas, les lettres de lecteur du site de récupération d’urgence peuvent être différentes de celles disponibles en local. Si cela se produit, vous devez corriger le problème manuellement après le basculement.
-   - Délai d’attente de la tâche de basculement : Le script StorSimple expire si le temps de basculement des conteneurs de volumes dépasse la limite par script d’Azure Site Recovery (actuellement établie à 120 minutes).
-   - Délai d’attente de la tâche de sauvegarde : Le script StorSimple expire si le temps de sauvegarde des volumes dépasse la limite par script d’Azure Site Recovery (actuellement établie à 120 minutes).
+- Il n’est actuellement possible de basculer qu’un seul périphérique StorSimple (sur une seule appliance cloud StorSimple). Le scénario d’un serveur de fichiers qui s’étend sur plusieurs périphériques StorSimple n’est pas encore pris en charge.
+- Si vous obtenez une erreur lors de l’activation de la protection d’une machine virtuelle, assurez-vous que vous avez déconnecté les cibles iSCSI.
+- Tous les conteneurs de volumes qui ont été regroupés en raison des stratégies de sauvegarde communes aux différents conteneurs de volumes basculeront ensemble.
+- Tous les volumes des conteneurs de volumes que vous avez choisis seront basculés.
+- Les volumes qui peuvent cumuler une capacité supérieure à 64 To ne peuvent pas être basculés car la capacité maximale d’une appliance cloud StorSimple est de 64 To.
+- Si le processus de basculement planifié ou non planifié échoue et que les machines virtuelles sont créées dans Azure, évitez de nettoyer les machines virtuelles. Effectuez plutôt une restauration automatique. Si vous supprimez les machines virtuelles, vous ne pourrez plus réactiver les machines virtuelles locales.
+- Après un basculement, si vous n’êtes pas en mesure de voir les volumes, accédez aux machines virtuelles, ouvrez Gestion des disques, réanalysez les disques, puis mettez-les en ligne.
+- Dans certains cas, les lettres de lecteur du site de récupération d’urgence peuvent être différentes de celles disponibles en local. Si cela se produit, vous devez corriger le problème manuellement après le basculement.
+- Délai d’attente de la tâche de basculement : Le script StorSimple expire si le temps de basculement des conteneurs de volumes dépasse la limite par script d’Azure Site Recovery (actuellement établie à 120 minutes).
+- Délai d’attente de la tâche de sauvegarde : Le script StorSimple expire si le temps de sauvegarde des volumes dépasse la limite par script d’Azure Site Recovery (actuellement établie à 120 minutes).
    
-   > [!IMPORTANT]
-   > Exécutez manuellement la sauvegarde à partir du portail Azure et réexécutez le plan de récupération.
+  > [!IMPORTANT]
+  > Exécutez manuellement la sauvegarde à partir du portail Azure et réexécutez le plan de récupération.
    
-   - Délai d’attente de la tâche de clonage : Le script StorSimple expire si le temps de clonage des volumes dépasse la limite par script d’Azure Site Recovery (actuellement établie à 120 minutes).
-   - Erreur de synchronisation de temps : Les scripts StorSimple génèrent une erreur indiquant que les sauvegardes ont échoué, même si la sauvegarde a réussi dans le portail. Ce problème peut être lié à un défaut de synchronisation de l’heure de l’appliance StorSimple avec l’heure actuelle du fuseau horaire.
+- Délai d’attente de la tâche de clonage : Le script StorSimple expire si le temps de clonage des volumes dépasse la limite par script d’Azure Site Recovery (actuellement établie à 120 minutes).
+- Erreur de synchronisation de temps : Les scripts StorSimple génèrent une erreur indiquant que les sauvegardes ont échoué, même si la sauvegarde a réussi dans le portail. Ce problème peut être lié à un défaut de synchronisation de l’heure de l’appliance StorSimple avec l’heure actuelle du fuseau horaire.
    
-   > [!IMPORTANT]
-   > Synchronisez l’heure de l’appliance avec l’heure actuelle du fuseau horaire.
+  > [!IMPORTANT]
+  > Synchronisez l’heure de l’appliance avec l’heure actuelle du fuseau horaire.
    
-   - Erreur de basculement de l’appliance : Le script StorSimple peut échouer si l’appliance est en cours de basculement pendant l’exécution du plan de récupération.
+- Erreur de basculement de l’appliance : Le script StorSimple peut échouer si l’appliance est en cours de basculement pendant l’exécution du plan de récupération.
    
-   > [!IMPORTANT]
-   > Exécutez à nouveau le plan de récupération une fois le basculement de l’appliance terminé.
+  > [!IMPORTANT]
+  > Exécutez à nouveau le plan de récupération une fois le basculement de l’appliance terminé.
 
 
 ## <a name="summary"></a>Résumé

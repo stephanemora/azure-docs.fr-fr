@@ -1,5 +1,5 @@
 ---
-title: Résoudre les problèmes d’inscription combinée pour Azure AD SSPR et MFA (version préliminaire)
+title: Résoudre les problèmes d’inscription combinée pour Azure AD SSPR et MFA (version préliminaire) - Azure Active Directory
 description: Résoudre les problèmes de l’authentification multifacteur Azure AD et l’inscription de combinées de réinitialisation de mot de passe libre-service (version préliminaire)
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b247a733c6874b023d3dc8114b0538e422baccfd
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
-ms.translationtype: HT
+ms.openlocfilehash: 8f799b671e6216b402aa988aa66da4c2cfc44693
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56589268"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317525"
 ---
 # <a name="troubleshooting-combined-security-information-registration-preview"></a>Résolution des problèmes combinée d’inscription des informations de sécurité (version préliminaire)
 

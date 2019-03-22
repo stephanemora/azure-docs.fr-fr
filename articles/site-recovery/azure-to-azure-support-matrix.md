@@ -1,5 +1,5 @@
 ---
-title: Matrice de prise en charge Azure Site Recovery pour la récupération d’urgence de machines virtuelles IaaS Azure entre des régions Azure avec Azure Site Recovery | Microsoft Docs
+title: Matrice de prise en charge pour la récupération d’urgence de machines virtuelles Azure entre régions Azure avec Azure Site Recovery | Microsoft Docs
 description: Fournit un récapitulatif des systèmes d’exploitation et des configurations pris en charge pour la réplication de machines virtuelles Azure Site Recovery d’une région à une autre à des fins de récupération d’urgence.
 services: site-recovery
 author: rayne-wiselman
@@ -8,33 +8,33 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: raynew
-ms.openlocfilehash: 0dac046c359bb8affd69145c73a66cf4ac079012
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: HT
+ms.openlocfilehash: b0fb84131f33d216e099978a7c9ba5481c1691d1
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287194"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312816"
 ---
-# <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matrice de support pour la réplication à partir d’une région Azure vers une autre
+# <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Matrice de prise en charge pour la réplication des machines virtuelles Azure à partir d’une région vers une autre
 
 Cet article récapitule les composants et les configurations pris en charge lorsque vous déployez la récupération d’urgence avec la réplication, le basculement et la récupération de machines virtuelles Azure d’une région Azure vers une autre, avec le service [Azure Site Recovery](site-recovery-overview.md).
 
 
 ## <a name="deployment-method-support"></a>Prise en charge de la méthode de déploiement
 
-**Méthode de déploiement** |  **Pris en charge / Non pris en charge**
+**Déploiement** |  **Support**
 --- | ---
-**Portail Azure** | Pris en charge
-**PowerShell** | [Réplication d’Azure vers Azure avec PowerShell](azure-to-azure-powershell.md)
-**API REST** | Pris en charge
+**Portail Azure** |  Pris en charge.
+**PowerShell** |  Pris en charge. [En savoir plus](azure-to-azure-powershell.md)
+**API REST** |  Pris en charge.
 **INTERFACE DE LIGNE DE COMMANDE** | Non prise en charge pour le moment
 
 
 ## <a name="resource-support"></a>Prise en charge des ressources
 
 **Action de ressource** | **Détails**
---- | --- 
-**Déplacer le coffre entre plusieurs groupes de ressources** | Non pris en charge
+--- | --- | ---
+**Déplacer les coffres entre plusieurs groupes de ressources** | Non pris en charge
 **Déplacer le calcul/le stockage/les ressources réseau entre plusieurs groupes de ressources** | Non pris en charge.<br/><br/> Si vous déplacez une machine virtuelle ou des composants associés tels que le stockage/réseau après la réplication de la machine virtuelle, vous devez désactiver et réactiver la réplication pour la machine virtuelle.
 **Répliquer des machines virtuelles Azure d’un abonnement à un autre pour la reprise d’activité** | Pris en charge à l’intérieur du même locataire Azure Active Directory.
 **Migrer des machines virtuelles entre des régions dans les clusters géographiques pris en charge (dans un même abonnement et entre plusieurs abonnements)** | Pris en charge à l’intérieur du même locataire Azure Active Directory.
@@ -57,12 +57,12 @@ Chine | Chine Est, Chine Nord, Chine Nord 2, Chine Est 2
 
 >[!NOTE]
 >
-> - Pour la région **Brésil Sud**, vous pouvez répliquer et basculer vers l'une des opérations suivantes : USA Centre Sud, USA Centre-Ouest, USA Est, USA Est 2, USA Ouest, USA Ouest 2, USA Centre Nord. Il convient de noter que Site Recovery a permis à la région Brésil Sud d’être utilisée uniquement en tant que région source à partir de laquelle les machines virtuelles peuvent être protégées. Elle **ne peut pas être utilisée comme région de reprise d'activité cible** pour une région Azure comme USA Centre Sud. En raison d’une latence observée à cause de la distance géographique, il est recommandé de sélectionner une région d’Amérique autre que Brésil Sud.
->
-> - Si vous n'êtes **pas en mesure de voir une région** où vous souhaitez **créer un coffre**, assurez-vous que votre abonnement dispose d'un accès lui permettant de créer des ressources dans cette région. Par exemple :  Si vous n'êtes pas en mesure de créer un coffre dans la région France Sud, votre abonnement n'a pas accès à cette région. Veuillez classer le ticket de support sous « Gestion des abonnements » et « Autres questions générales », sujet « Abonnement à la liste verte pour la région Azure XXX ».
->
-> - Si vous n'êtes **pas en mesure de voir une région** au sein d'un cluster géographique **pendant l'activation de la réplication**, vérifiez que votre abonnement a accès à la création de machine virtuelle dans cette région. Par exemple :  Si vous essayez de protéger des machines virtuelles de France Centre vers France Sud et que vous ne voyez pas France Sud dans la liste déroulante des régions, votre abonnement n'a pas accès au déploiement des machines virtuelles dans cette région. Veuillez classer le ticket de support sous « Gestion des abonnements » et « Autres questions générales », sujet « Abonnement à la liste verte pour la région Azure XXX ».
-> - Vous ne pouvez pas sélectionner des régions parmi les clusters géographiques mentionnés ci-dessus.
+> - Pour **sud du Brésil**, vous pouvez répliquer et basculer vers ces régions : Centre Sud des États-Unis, ouest des États-Unis, est des États-Unis, est des États-Unis 2, ouest des États-Unis, ouest des États-Unis 2 et nord du centre des États-Unis.
+> - Sud du Brésil peut uniquement servir comme une région source à partir de laquelle les machines virtuelles peuvent répliquer à l’aide de la récupération de Site. Il ne peut pas agir comme une région cible. Il s’agit en raison de problèmes de latence en raison des distances géographiques. 
+> - Vous pouvez travailler dans des régions pour lesquelles vous avez un accès approprié.
+> - Si la région dans laquelle vous souhaitez créer un coffre n’affiche pas, vérifiez que votre abonnement a accès à créer des ressources dans cette région. 
+> - Si vous ne voyez pas une région au sein d’un cluster géographique lorsque vous activez la réplication, assurez-vous que votre abonnement dispose des autorisations pour créer des machines virtuelles dans cette région. 
+
 
 
 ## <a name="cache-storage"></a>Stockage du cache
@@ -195,7 +195,7 @@ Chiffrement au repos (SSE) | Pris en charge | SSE est le paramètre par défaut 
 Azure Disk Encryption (ADE) pour système d’exploitation Windows | Prise en charge des machines virtuelles activées pour le [chiffrement avec Azure AD app](https://aka.ms/ade-aad-app) |
 Azure Disk Encryption (ADE) pour système d’exploitation Linux | Non pris en charge |
 Ajout/suppression de disque à chaud | Non pris en charge | Si vous ajoutez ou supprimez un disque de données sur la machine virtuelle, vous devez désactiver la réplication puis la réactiver pour la machine virtuelle.
-Exclure le disque | [prise en charge via powershell](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#replicate-azure-virtual-machine) |   Le disque temporaire est exclu par défaut.
+Exclure le disque | prise en charge. Vous devez utiliser [Powershell](azure-to-azure-exclude-disks.md) à configurer. |  Disques temporaires sont exclus par défaut.
 Espaces de stockage direct  | Pris en charge pour les points de récupération cohérents d’incident. Les points de récupération cohérents d’incident ne sont pas pris en charge. |
 Serveur de fichiers avec montée en puissance parallèle  | Pris en charge pour les points de récupération cohérents d’incident. Les points de récupération cohérents d’incident ne sont pas pris en charge. |
 LRS | Prise en charge |
@@ -203,17 +203,22 @@ GRS | Prise en charge |
 RA-GRS | Prise en charge |
 ZRS | Non pris en charge |
 Stockage à froid et à chaud | Non pris en charge | Les disques de machine virtuelle ne sont pas pris en charge sur le stockage à froid et à chaud.
-Pare-feu pour réseaux virtuels du Stockage Azure  | Pris en charge | Si vous limitez l’accès au réseau virtuel aux comptes de stockage, assurez-vous d’activer l’option [Autoriser les services Microsoft de confiance](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+Pare-feux du Stockage Azure pour réseaux virtuels  | Pris en charge | Si restreindre l’accès au réseau virtuel aux comptes de stockage, activez [autoriser fiables Microsoft services](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 Comptes de stockage V2 à usage général (niveaux chaud et froid) | Non  | Augmentation significative des coûts de transaction par rapport aux comptes de stockage V1 à usage général
 
 >[!IMPORTANT]
-> Vérifiez que vous respectez les valeurs d'évolutivité et de performances des disques VM pour les machines virtuelles [Linux](../virtual-machines/linux/disk-scalability-targets.md) ou [Windows](../virtual-machines/windows/disk-scalability-targets.md) afin d'éviter tout problème de performances. Si vous suivez les paramètres par défaut, Site Recovery créera les disques et les comptes de stockage nécessaires en fonction de la configuration source. Si vous personnalisez et sélectionnez vos propres paramètres, veillez à suivre les cibles de scalabilité et de performances de disque de vos machines virtuelles sources.
+> Pour éviter les problèmes de performances, assurez-vous que vous suivez des objectifs de performance et évolutivité de disque de machine virtuelle [Linux](../virtual-machines/linux/disk-scalability-targets.md) ou [Windows](../virtual-machines/windows/disk-scalability-targets.md) machines virtuelles. Si vous utilisez des paramètres par défaut, Site Recovery crée les disques requis et les comptes de stockage, selon la configuration de la source. Si vous personnalisez et sélectionnez vos propres paramètres, suivez les cibles de l’évolutivité et les performances de disque pour vos machines virtuelles sources.
 
-## <a name="azure-site-recovery-limits-to-replicate-data-change-rates"></a>Limites d’Azure Site Recovery pour répliquer les données
-Le tableau suivant présente les limites d’Azure Site Recovery. Les limites sont basées sur nos tests, mais ne peuvent pas couvrir toutes les combinaisons d’E/S d’application possibles. Les résultats réels varient en fonction de la combinaison d’E/S de votre application. Il faut également noter qu'il y a deux limites à prendre en compte, le taux d’activité de données par disque et le taux d’activité de données par machine virtuelle.
-Par exemple, si nous examinons le disque Premium P20 dans le tableau ci-dessous, Site Recovery peut gérer un taux d’activité des données de 5 Mo/s par disque pour cinq disques maximum par machine virtuelle, en raison de la limite de taux d’activité total des données de 25 Mo/s par machine virtuelle.
+## <a name="limits-and-data-change-rates"></a>Les données et les limites des taux de modification
 
-**Stockage de réplication cible** | **Taille d’E/S moyenne de disque source** |**Activité des données moyenne de disque source** | **Total de l’activité des données de disque source par jour**
+Le tableau suivant récapitule les limites de Site Recovery.
+
+- Ces limites sont basées sur nos tests, mais évidemment ne couvrent pas toutes les combinaisons de d’e/s d’application possibles.
+- Résultats réels peuvent varier en fonction de la combinaison d’e/s d’application vous.
+- Il existe deux limites à prendre en compte par disque données évolution et les données de machine virtuelle par activité.
+- Par exemple, si nous utilisons un disque Premium P20 comme décrit dans le tableau ci-dessous, Site Recovery peut gérer 5 Mo de l’activité disque, au maximum cinq ces disques par machine virtuelle, en raison de la limite de l’activité totale de 25 Mo/s par machine virtuelle.
+
+**Cible de stockage** | **Moyenne de disque source d’e/s** |**Activité des données moyenne de disque source** | **Total de l’activité des données de disque source par jour**
 ---|---|---|---
 Stockage Standard | 8 Ko | 2 Mo/s | 168 Go par disque
 Disque Premium P10 ou P15 | 8 Ko  | 2 Mo/s | 168 Go par disque
@@ -222,7 +227,7 @@ Disque Premium P10 ou P15 | 32 Ko ou plus | 8 Mo/s | 672 Go par disque
 Disque Premium P20 ou P30 ou P40 ou P50 | 8 Ko    | 5 Mo/s | 421 Go par disque
 Disque Premium P20 ou P30 ou P40 ou P50 | 16 Ko ou plus |20 Mo/s | 1684 Go par disque
 ## <a name="replicated-machines---networking"></a>Machines répliquées - Mise en réseau
-**Configuration** | **Support** | **Détails**
+**Paramètre** | **Support** | **Détails**
 --- | --- | ---
 Carte d’interface réseau | Nombre maximal pris en charge pour une taille de machine virtuelle Azure spécifique | Les cartes réseau sont créées lors de la création de la machine virtuelle pendant le basculement.<br/><br/> Le nombre de cartes réseau sur la machine virtuelle de basculement dépend du nombre de cartes réseau que possède la machine virtuelle source au moment de l’activation de la réplication. Si vous ajoutez ou supprimez une carte réseau après l’activation de la réplication, cela n’affecte pas le nombre de cartes réseau sur la machine virtuelle répliquée après le basculement.
 Équilibreur de charge Internet | Pris en charge | Associez l’équilibreur de charge préconfiguré à l’aide d’un script Azure Automation dans un plan de récupération.
@@ -234,16 +239,16 @@ Adresse IP (statique) réservée | Pris en charge | Si la carte réseau sur la 
 Adresse IP dynamique | Pris en charge | Si la carte réseau sur la machine virtuelle source a l’adressage IP dynamique, la carte réseau sur la machine virtuelle de basculement est également dynamique par défaut.<br/><br/> Vous pouvez remplacer cela par une adresse IP fixe si nécessaire.
 Traffic Manager     | Pris en charge | Vous pouvez préconfigurer Traffic Manager pour que le trafic soit acheminé vers le point de terminaison dans la région source de manière régulière et vers le point de terminaison dans la région cible en cas de basculement.
 Azure DNS | Pris en charge |
-Système DNS personnalisé  | Prise en charge |
-Proxy non authentifié | Prise en charge | Voir le [document d’aide à la mise en réseau](site-recovery-azure-to-azure-networking-guidance.md).    
+Système DNS personnalisé  | Pris en charge |
+Proxy non authentifié | Pris en charge | [En savoir plus]. (site-recovery-azure-to-azure-networking-guidance.md)   
 Proxy authentifié | Non pris en charge | Si la machine virtuelle utilise un proxy authentifié pour la connectivité sortante, elle ne peut pas être répliquée à l’aide d’Azure Site Recovery.    
-VPN de site à site avec infrastructure locale (avec ou sans ExpressRoute)| Prise en charge | Vérifiez que les itinéraires définis par l’utilisateur et les groupes de sécurité réseau sont configurés de telle sorte que le trafic Site Recovery ne soit pas acheminé vers l’infrastructure locale. Voir le [document d’aide à la mise en réseau](site-recovery-azure-to-azure-networking-guidance.md).  
-Connexion de réseau virtuel à réseau virtuel | Prise en charge | Voir le [document d’aide à la mise en réseau](site-recovery-azure-to-azure-networking-guidance.md).  
+Connexion de site à site VPN en local<br/><br/>(avec ou sans ExpressRoute)| Pris en charge | Vérifiez que les itinéraires définis par l’utilisateur et les groupes de sécurité réseau sont configurés de telle sorte que le trafic Site Recovery ne soit pas acheminé vers l’infrastructure locale. [En savoir plus](site-recovery-azure-to-azure-networking-guidance.md)    
+Connexion de réseau virtuel à réseau virtuel | Pris en charge | [En savoir plus](site-recovery-azure-to-azure-networking-guidance.md)  
 Points de terminaison de service de réseau virtuel | Pris en charge | Si vous limitez l’accès au réseau virtuel aux comptes de stockage, assurez-vous que les services Microsoft de confiance sont autorisés à accéder au compte de stockage.
 Mise en réseau accélérée | Pris en charge | L’accélération réseau doit être activée sur la machine virtuelle source. [Plus d’informations](azure-vm-disaster-recovery-with-accelerated-networking.md)
 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Lisez la [mise en réseau pour la réplication des machines virtuelles Azure](site-recovery-azure-to-azure-networking-guidance.md).
+- Lecture [mise en réseau](site-recovery-azure-to-azure-networking-guidance.md) pour la réplication des machines virtuelles Azure.
 - Déployez la récupération d’urgence en [répliquant des machines virtuelles Azure](site-recovery-azure-to-azure.md).

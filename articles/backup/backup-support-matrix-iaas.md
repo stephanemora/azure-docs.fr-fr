@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: raynew
-ms.openlocfilehash: 512e07f2892f9c4adf47956d3a5b07debf870e46
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 637ec63d1c3e5a3eb1ce26765b1ab22e9823e9a1
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57849905"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317423"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Tableau de prise en charge pour la sauvegarde de machines virtuelles Azure
 Vous pouvez utiliser la [service Azure Backup](backup-overview.md) pour sauvegarder des machines locales et les charges de travail et les machines virtuelles (VM) Azure. Cet article résume les paramètres de prise en charge et les limitations lors de la sauvegarde des machines virtuelles Azure avec sauvegarde Azure.
@@ -82,6 +82,7 @@ Pour les sauvegardes de machines virtuelles Azure Linux, Sauvegarde Azure prend 
 - Sauvegarde Azure ne prend pas en charge CoreOS Linux.
 - Sauvegarde Azure ne prend pas en charge les systèmes d’exploitation 32 bits.
 - Autres distributions Linux apportez votre propre peuvent fonctionner tant que le [agent de machine virtuelle Azure pour Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) est disponible sur la machine virtuelle et tant que Python est pris en charge.
+- Sauvegarde Azure ne prend pas en charge les machines virtuelles en cours d’exécution  **Python version 2.6* uniquement** avec le proxy configuré.
 
 
 

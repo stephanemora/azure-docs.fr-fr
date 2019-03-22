@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/03/2018
 ms.author: cephalin;dariagrigoriu
 ms.custom: seodec18
-ms.openlocfilehash: 1313616818686c7a03269fc1cc837958665732d8
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: fcb2c270b36d5efbe7b799787cf2a123b51bea5c
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725233"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337542"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Déploiement continu vers Azure App Service
 Cet article vous explique comment configurer un déploiement continu pour [Azure App Service](overview.md). Azure App Service permet un déploiement continu depuis BitBucket, GitHub et [Azure DevOps Services](https://www.visualstudio.com/team-services/) en extrayant les mises à jour les plus récentes de votre référentiel existant pour les envoyer dans l’un de ces services.
@@ -47,6 +47,16 @@ Sur la page **Fournisseur de générations**, choisissez le fournisseur de gén�
 ### <a name="option-1-use-app-service-kudu-build-server"></a>Option 1 : utiliser le serveur de builds Kudu App Service
 
 Sur la page **Configurer**, sélectionnez l’organisation, le référentiel et la branche à partir de laquelle vous souhaitez effectuer un déploiement continu. Lorsque vous avez terminé, cliquez sur **Continuer**.
+
+Pour déployer à partir d’un référentiel dans une organisation de GitHub, accédez à GitHub et accédez à **paramètres** > **Applications** > **autorisé OAuth applications**. Cliquez ensuite sur « Azure App Service ».
+
+![Paramètres > Applications > autorisés OAuth applications > Azure App Service](media/app-service-continuous-deployment/github-settings-navigation.png)
+
+Dans la page suivante, accorder l’accès d’App Service pour les référentiels de votre entreprise en cliquant sur le bouton « Grant » sur le côté droit.
+
+![Cliquez sur « Grant » pour accorder l’accès d’App Service aux dépôts de l’organisation](media/app-service-continuous-deployment/grant-access.png)
+
+Votre organisation doit maintenant apparaître dans la liste « Organisation » dans le **configurer** page du centre de déploiement.
 
 ### <a name="option-2-use-azure-pipelines-preview"></a>Option 2 : utiliser Azure Pipelines (préversion)
 

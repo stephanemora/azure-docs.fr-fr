@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: cb85d09a1d5dee6cb54254baac4698cdad093785
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 80c9cd91efd14e3d4b4214bde089f73692568f76
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457664"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57840186"
 ---
 # <a name="optimize-query-cost-in-azure-cosmos-db"></a>Optimiser le coût de requête dans Azure Cosmos DB
 
@@ -33,7 +33,7 @@ Les requêtes qui lisent les données à partir d’une ou plusieurs partitions 
 
 Une fois que vous avez stocké des données dans vos conteneurs Azure Cosmos, vous pouvez utiliser l’Explorateur de données du portail Azure pour construire et exécuter vos requêtes. Vous pouvez également obtenir le coût des requêtes à l’aide de l’Explorateur de données. Cette méthode vous donnera une idée des frais réels que coûteront les requêtes et les opérations courantes prises en charge par votre système.
 
-Vous pouvez également obtenir le coût des requêtes de manière programmatique en utilisant les kits de développement logiciel. Pour mesurer les frais généraux d’une opération telle que créer, mettre à jour ou supprimer, examinez l’en-tête `x-ms-request-charge` lorsque vous utilisez l’API REST. Si vous utilisez le SDK .net ou Java, la propriété `RequestCharge` est la propriété équivalente pour obtenir les frais liés à la requête. Cette propriété est présente dans ResourceResponse ou FeedResponse.
+Vous pouvez également obtenir le coût des requêtes de manière programmatique en utilisant les kits de développement logiciel. Pour mesurer les frais généraux d’une opération telle que créer, mettre à jour ou supprimer, examinez l’en-tête `x-ms-request-charge` lorsque vous utilisez l’API REST. Si vous utilisez .NET ou le SDK Java, le `RequestCharge` propriété est la propriété équivalente pour obtenir les frais de requête et cette propriété est présente dans le ResourceResponse ou FeedResponse.
 
 ```csharp
 // Measure the performance (request units) of writes 
@@ -53,13 +53,13 @@ while (queryable.HasMoreResults)
 
 ## <a name="factors-influencing-request-unit-charge-for-a-query"></a>Facteurs influant les frais liés aux unités d’une requête
 
-Les unités d’une requête dépendent de plusieurs facteurs. Par exemple, le nombre d’éléments Azure Cosmos chargés/renvoyés, le nombre de recherches basées sur l’index, les détails sur la durée de compilation de la requête, etc. Azure Cosmos DB veille à ce que la même requête, lorsqu’elle est exécutée sur les mêmes données, coûte toujours le même nombre d’unités de requête, même lorsque les exécutions se répètent. Le profil de requête basé sur les métriques d’exécution vous donne une idée assez précise de la façon dont les unités de requête sont utilisées.  
+Les unités d’une requête dépendent de plusieurs facteurs. Par exemple, le nombre d’éléments d’Azure Cosmos chargé/renvoyés, le nombre de recherches par rapport à l’index, la compilation de requête du temps les détails etc. Azure Cosmos DB veille à ce que la même requête, lorsqu’elle est exécutée sur les mêmes données, coûte toujours le même nombre d’unités de requête, même lorsque les exécutions se répètent. Le profil de requête basé sur les métriques d’exécution vous donne une idée assez précise de la façon dont les unités de requête sont utilisées.  
 
 Dans certains cas, vous pouvez voir une séquence de 200 et 429 réponses, ainsi que des unités de requête variables dans une exécution de requête paginée. En effet, les requêtes s’exécutent aussi rapidement que possible selon les unités de requête disponibles. Une exécution de requête peut être répartie entre plusieurs pages/allers-retours serveur et client. Par exemple, 10 000 éléments peuvent être renvoyés sur plusieurs pages. Chacune de ces pages est facturée en fonction du calcul effectué pour cette page. Lorsque vous calculez la somme de toutes ces pages, vous devez obtenir le même nombre d’unités de requête que vous obtiendriez pour toute la requête.  
 
 ## <a name="metrics-for-troubleshooting"></a>Métriques pour la résolution de problèmes
 
-Les performances et le débit consommés par les requêtes ainsi que les fonctions définies par l’utilisateur (UDF) dépendent principalement du corps de la fonction. Pour déterminer facilement le temps d’exécution de la requête dans les UDF et le nombre d’unités de requête consommées, vous pouvez activer les métriques de requête. Si vous utilisez le SDK .net, voici quelques exemples de métriques de requête qu’il renvoie :
+Les performances et le débit consommés par les requêtes ainsi que les fonctions définies par l’utilisateur (UDF) dépendent principalement du corps de la fonction. Pour déterminer facilement le temps d’exécution de la requête dans les UDF et le nombre d’unités de requête consommées, vous pouvez activer les métriques de requête. Si vous utilisez le kit SDK .NET, voici les exemples de métrique de requête retournées par le Kit de développement :
 
 ```bash
 Retrieved Document Count                 :               1              
