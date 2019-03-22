@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 1/4/2018
 ms.author: sogup
-ms.openlocfilehash: efd069b90e2f085b7bacf4dfa72478e1232554bc
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: b4ecebc6bef7f49a23455c7a85f25680df087a95
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313358"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530754"
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Mettre à niveau un coffre de sauvegarde vers un coffre Recovery Services
 
@@ -80,7 +80,7 @@ Le script PowerShell vous invite à entrer vos informations d’identification. 
 ### <a name="pre-requisites-checking"></a>Vérification des conditions préalables
 Une fois que vous avez entré vos informations d’identification Azure, Azure vérifie que votre environnement remplit les conditions préalables suivantes :
 
-- **Version minimale de l’agent** : la mise à niveau des coffres de sauvegarde vers des coffres Recovery Services exige que la version de l’agent MARS soit au moins la version 2.0.9083.0. Si vous avez des éléments inscrits auprès d’un coffre de sauvegarde avec un agent dont la version est antérieure à la version 2.0.9083.0, la vérification des prérequis échoue. Si la vérification des conditions préalables échoue, mettez à jour l’agent et réessayez de mettre à niveau le coffre. Vous pouvez télécharger la dernière version de l’agent ici [http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe](https://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
+- **Version minimale de l’agent** : la mise à niveau des coffres de sauvegarde vers des coffres Recovery Services exige que la version de l’agent MARS soit au moins la version 2.0.9083.0. Si vous avez des éléments inscrits auprès d’un coffre de sauvegarde avec un agent dont la version est antérieure à la version 2.0.9083.0, la vérification des prérequis échoue. Si la vérification des conditions préalables échoue, mettez à jour l’agent et réessayez de mettre à niveau le coffre. Vous pouvez télécharger la dernière version de l’agent ici [https://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe](https://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
 - **Tâches de configuration en cours** : si quelqu’un est en train de configurer un travail pour un coffre de sauvegarde défini pour être mis à niveau, ou en train d’inscrire un élément, la vérification des prérequis échoue. Achevez la configuration ou l’inscription de l’élément, puis démarrez le processus de mise à niveau du coffre.
 - **Modèle de facturation basée sur le stockage** : les coffres Recovery Services prennent en charge le modèle de facturation basée sur le stockage. Si vous exécutez la mise à niveau du coffre sur un coffre de sauvegarde utilisant le modèle de facturation basée sur le stockage, vous être invité à mettre à niveau votre modèle de facturation en même temps que le coffre. Autrement, vous pouvez commencer par mettre à jour votre modèle de facturation, avant d’exécuter la mise à niveau du coffre.
 - Identifiez un groupe de ressources pour le coffre Recovery Services. Pour tirer parti des fonctionnalités de déploiement de Resource Manager, vous devez placer un coffre Recovery Services dans un groupe de ressources. Si vous ignorez le groupe de ressources à utiliser, entrez un nom. Le processus de mise à niveau crée alors le groupe de ressources pour vous. Le processus de mise à niveau associe également le coffre au nouveau groupe de ressources.
@@ -113,7 +113,7 @@ Une fois que vous avez effectué la mise à niveau vers un coffre Recovery Servi
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
 ### <a name="does-the-upgrade-plan-affect-my-ongoing-backups"></a>Le plan de mise à niveau affecte-t-il mes sauvegardes en cours ?
- Non. Vos sauvegardes en cours se poursuivent sans interruption pendant et après la mise à niveau.
+Non. Vos sauvegardes en cours se poursuivent sans interruption pendant et après la mise à niveau.
 
 ### <a name="if-i-dont-plan-on-upgrading-soon-what-happens-to-my-vaults"></a>Si je n’envisage de mise à niveau prochainement, qu’advient-il de mes coffres ?
 Toutes les nouvelles fonctionnalités s’appliquant uniquement aux coffres Recovery Services, nous vous conseillons vivement de mettre à niveau vos coffres. À compter du 1er septembre 2017, Microsoft commencera la mise à niveau automatique des coffres de sauvegarde vers des coffres Recovery Services. Après le 30 novembre 2017, vous ne pouvez plus créer de coffres de sauvegarde à l’aide de PowerShell. Votre coffre peut être mis à niveau automatiquement à tout moment dans l’intervalle. Microsoft vous recommande de mettre à niveau votre coffre dès que possible.
@@ -125,16 +125,16 @@ Mettez à jour vos outils vers le modèle de déploiement Resource Manager. Les 
 Cette durée dépend du nombre de ressources faisant l’objet de la mise à niveau. Pour les déploiements de taille modeste (quelques dizaines d’instances protégées), la mise à niveau entière doit prendre moins de 20 minutes. Pour les déploiements plus importants, il ne devrait pas excéder une heure.
 
 ### <a name="can-i-roll-back-after-upgrading"></a>Puis-je restaurer après la mise à niveau ?
- Non. La restauration n’est pas prise en charge une fois la mise à niveau des ressources réussie.
+Non. La restauration n’est pas prise en charge une fois la mise à niveau des ressources réussie.
 
 ### <a name="can-i-validate-my-subscription-or-resources-to-see-if-theyre-capable-of-upgrade"></a>Puis-je vérifier si mon abonnement ou mes ressources peuvent faire l’objet d’une mise à niveau ?
 Oui. La première étape d’une mise à niveau consiste à valider le fait que les ressources peuvent être mises à niveau. En cas d’échec de la validation des conditions préalables, vous recevez des messages concernant toutes les raisons pour lesquelles la mise à niveau ne peut pas être effectuée.
 
 ### <a name="can-i-upgrade-my-csp-based-backup-vault"></a>Puis-je mettre à niveau mon coffre de sauvegarde basé sur un fournisseur de services de chiffrement ?
- Non. Actuellement, vous ne pouvez pas mettre à niveau des coffres de sauvegarde basés sur un fournisseur de services de chiffrement. Nous ajouterons la prise en charge de la mise à niveau des coffres de sauvegarde basés sur un fournisseur de services de chiffrement dans les versions ultérieures.
+Non. Actuellement, vous ne pouvez pas mettre à niveau des coffres de sauvegarde basés sur un fournisseur de services de chiffrement. Nous ajouterons la prise en charge de la mise à niveau des coffres de sauvegarde basés sur un fournisseur de services de chiffrement dans les versions ultérieures.
 
 ### <a name="can-i-view-my-classic-vault-post-upgrade"></a>Puis-je afficher mon coffre Azure Classic après mise à niveau ?
- Non. Vous ne pouvez pas afficher ou gérer votre coffre classique après mise à niveau. Vous pouvez utiliser le nouveau portail Azure uniquement pour toutes les actions de gestion sur le coffre.
+Non. Vous ne pouvez pas afficher ou gérer votre coffre classique après mise à niveau. Vous pouvez utiliser le nouveau portail Azure uniquement pour toutes les actions de gestion sur le coffre.
 
 ### <a name="my-upgrade-failed-but-the-machine-that-held-the-agent-requiring-updating-doesnt-exist-anymore-what-do-i-do-in-such-a-case"></a>Ma mise à niveau a échoué, mais l’ordinateur où se trouvait l’agent nécessitant une mise à jour n’existe plus. Que faire dans ce cas ?
 Si vous devez stocker les sauvegardes de cet ordinateur pour une rétention à long terme, vous ne pourrez pas mettre à niveau le coffre. Dans les versions ultérieures, nous ajouterons la prise en charge de la mise à niveau d’un coffre de ce type.

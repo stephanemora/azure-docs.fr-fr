@@ -16,12 +16,12 @@ ms.date: 01/10/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69645c4aa9034b9a3459c7ee5fb0378c790a6e18
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 345c97a19f789bb3d850df000824d4c23989a81f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178088"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086817"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Authentification unique transparente Azure Active Directory : Démarrage rapide
 
@@ -74,8 +74,9 @@ Si vous disposez déjà d’une installation Azure AD Connect, sélectionnez la 
 ![Azure AD Connect : Modifier la connexion de l’utilisateur](./media/how-to-connect-sso-quick-start/changeusersignin.png)
 
 Suivez les instructions de l’Assistant jusqu’à ce que vous accédiez à la page **Activer l’authentification unique**. Fournissez les informations d'identification de l'administrateur de domaine pour chaque forêt Active Directory, dans les scénarios suivants :
-    * Synchronisation avec Azure AD via Azure AD Connect.
-    * La forêt contient des utilisateurs pour lesquels vous souhaitez activer Seamless SSO.
+
+* Synchronisation avec Azure AD via Azure AD Connect.
+* La forêt contient des utilisateurs pour lesquels vous souhaitez activer Seamless SSO.
 
 À la fin de l’Assistant, l’authentification unique transparente est activée sur votre locataire.
 
@@ -120,17 +121,17 @@ Il y a deux façons de modifier les paramètres de la zone Intranet des utilisat
 
 1. Ouvrez l’outil Éditeur de gestion des stratégies de groupe.
 2. Modifiez la stratégie de groupe qui est appliquée à certains ou à l’ensemble de vos utilisateurs. Cette exemple utilise la **stratégie de domaine par défaut**.
-3. Accédez à **Configuration utilisateur** > **Modèles d'administration** > **Composants Windows** > **Internet Explorer** > **Panneau de configuration Internet** > **Page Sécurité**. Puis sélectionnez **Liste des attributions de sites aux zones**.
+3. Accédez à **Configuration utilisateur** > **stratégie** > **modèles d’administration** > **Windows Composants** > **Internet Explorer** > **le panneau de configuration Internet** > **Page sécurité**. Puis sélectionnez **Liste des attributions de sites aux zones**.
     ![Authentification unique](./media/how-to-connect-sso-quick-start/sso6.png)
 4. Activez la stratégie, puis entrez les valeurs suivantes dans la boîte de dialogue :
    - **Nom de la valeur** : URL Azure AD vers laquelle les tickets Kerberos sont transférés.
    - **Valeur** (données) : **1** indique la zone Intranet.
 
-    Le résultat ressemble à :
+     Le résultat ressemble à :
 
-    Nom de la valeur : `https://autologon.microsoftazuread-sso.com`
+     Nom de la valeur : `https://autologon.microsoftazuread-sso.com`
   
-    Valeur (données) : 1
+     Valeur (données) : 1
 
    >[!NOTE]
    > Si vous souhaitez interdire à certains utilisateurs l’utilisation de l’authentification unique transparente (par exemple, si ces utilisateurs se connectent sur des bornes partagées), définissez les valeurs précédentes sur **4**. Cette opération ajoute l’URL Azure AD à la zone Sites sensibles et rend l’authentification unique transparente inutilisable en permanence.
@@ -140,7 +141,7 @@ Il y a deux façons de modifier les paramètres de la zone Intranet des utilisat
 
     ![Authentification unique](./media/how-to-connect-sso-quick-start/sso7.png)
 
-6. Accédez à **Configuration utilisateur** > **Modèles d’administration** > **Composants Windows** > **Internet Explorer** > **Panneau de configuration Internet** > **Page Sécurité** > **Zone intranet**. Puis sélectionnez **Autoriser les mises à jour de la barre d’état via le script**.
+6. Accédez à **Configuration utilisateur** > **modèles d’administration** **stratégie** > ** > **les composants Windows**  >  **Internet Explorer** > **le panneau de configuration Internet** > **Page sécurité**  >   **Zone intranet**. Puis sélectionnez **Autoriser les mises à jour de la barre d’état via le script**.
 
     ![Authentification unique](./media/how-to-connect-sso-quick-start/sso11.png)
 
@@ -162,9 +163,9 @@ Il y a deux façons de modifier les paramètres de la zone Intranet des utilisat
    - **Type de valeur** : ***REG_DWORD***.
    - **Données de la valeur** : ***00000001***.
  
-    ![Authentification unique](./media/how-to-connect-sso-quick-start/sso16.png)
+     ![Authentification unique](./media/how-to-connect-sso-quick-start/sso16.png)
  
-    ![Authentification unique](./media/how-to-connect-sso-quick-start/sso17.png)
+     ![Authentification unique](./media/how-to-connect-sso-quick-start/sso17.png)
 
 ### <a name="browser-considerations"></a>Considérations sur le navigateur
 

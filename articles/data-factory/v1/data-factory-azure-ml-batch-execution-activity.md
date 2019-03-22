@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: fe671dec730cd1a593c6413c38625677c3f9d164
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 4093febd19d71512e3c80704e88f9d5cf669d7d9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894103"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122061"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Création de pipelines prédictifs à l'aide d'Azure Data Factory et Azure Machine Learning
 
@@ -34,7 +34,7 @@ ms.locfileid: "55894103"
 > * [Activité U-SQL Data Lake Analytics](data-factory-usql-activity.md)
 > * [Activité personnalisée .NET](data-factory-use-custom-activities.md)
 
-## <a name="introduction"></a>Introduction
+## <a name="introduction"></a>Présentation
 > [!NOTE]
 > Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez [Transformer des données à l’aide de l’apprentissage automatique dans Data Factory](../transform-data-using-machine-learning.md).
 
@@ -261,8 +261,8 @@ Nous vous recommandons de suivre le didacticiel [Créer votre premier pipeline a
       >
       >
 
-    ```JSON
-    {
+      ```JSON
+      {
         "name": "PredictivePipeline",
         "properties": {
             "description": "use AzureML model",
@@ -300,10 +300,10 @@ Nous vous recommandons de suivre le didacticiel [Créer votre premier pipeline a
             "start": "2016-02-13T00:00:00Z",
             "end": "2016-02-14T00:00:00Z"
         }
-    }
-    ```
+      }
+      ```
 
-      Les dates/heures de **début** et de **fin** doivent toutes deux être au [format ISO](http://en.wikipedia.org/wiki/ISO_8601). Par exemple :  2014-10-14T16:32:41Z. L’heure de **fin** est facultative. Si vous ne spécifiez aucune valeur pour la propriété **end**, cette dernière est calculée comme suit : « **start + 48 heures** ». Pour exécuter le pipeline indéfiniment, spécifiez **9999-09-09** comme valeur pour la propriété **end**. Pour plus d'informations sur les propriétés JSON, consultez [Référence sur la création de scripts JSON](https://msdn.microsoft.com/library/dn835050.aspx) .
+      Les dates/heures de **début** et de **fin** doivent toutes deux être au [format ISO](https://en.wikipedia.org/wiki/ISO_8601). Par exemple :  2014-10-14T16:32:41Z. L’heure de **fin** est facultative. Si vous ne spécifiez aucune valeur pour la propriété **end**, cette dernière est calculée comme suit : « **start + 48 heures** ». Pour exécuter le pipeline indéfiniment, spécifiez **9999-09-09** comme valeur pour la propriété **end**. Pour plus d'informations sur les propriétés JSON, consultez [Référence sur la création de scripts JSON](https://msdn.microsoft.com/library/dn835050.aspx) .
 
       > [!NOTE]
       > Définir une entrée pour l’activité AzureMLBatchExecution est facultatif.
@@ -407,7 +407,7 @@ Quand vous utilisez le module lecteur dans une expérience Azure Machine Learnin
 Dans l'exemple JSON ci-dessus :
 
 * Le service web Azure Machine Learning déployé utilise un module lecteur et un module enregistreur pour lire/écrire des données depuis/vers une base de données Azure SQL Database. Ce service web expose les quatre paramètres suivants :  Database server name, Database name, Server user account name et Server user account password.
-* Les dates/heures de **début** et de **fin** doivent toutes deux être au [format ISO](http://en.wikipedia.org/wiki/ISO_8601). Par exemple :  2014-10-14T16:32:41Z. L’heure de **fin** est facultative. Si vous ne spécifiez aucune valeur pour la propriété **end**, cette dernière est calculée comme suit : « **start + 48 heures** ». Pour exécuter le pipeline indéfiniment, spécifiez **9999-09-09** comme valeur pour la propriété **end**. Pour plus d'informations sur les propriétés JSON, consultez [Référence sur la création de scripts JSON](https://msdn.microsoft.com/library/dn835050.aspx) .
+* Les dates/heures de **début** et de **fin** doivent toutes deux être au [format ISO](https://en.wikipedia.org/wiki/ISO_8601). Par exemple :  2014-10-14T16:32:41Z. L’heure de **fin** est facultative. Si vous ne spécifiez aucune valeur pour la propriété **end**, cette dernière est calculée comme suit : « **start + 48 heures** ». Pour exécuter le pipeline indéfiniment, spécifiez **9999-09-09** comme valeur pour la propriété **end**. Pour plus d'informations sur les propriétés JSON, consultez [Référence sur la création de scripts JSON](https://msdn.microsoft.com/library/dn835050.aspx) .
 
 ### <a name="other-scenarios"></a>Autres scénarios
 #### <a name="web-service-requires-multiple-inputs"></a>Service web nécessitant plusieurs entrées
@@ -634,4 +634,4 @@ Vous pouvez également utiliser les [fonctions de Data Factory](data-factory-fun
 
 [adf-build-1st-pipeline]: data-factory-build-your-first-pipeline.md
 
-[azure-machine-learning]: http://azure.microsoft.com/services/machine-learning/
+[azure-machine-learning]: https://azure.microsoft.com/services/machine-learning/

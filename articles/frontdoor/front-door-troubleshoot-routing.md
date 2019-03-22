@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2018
 ms.author: sharadag
-ms.openlocfilehash: 78370b004d18f70ae4d485f3ad7cfd910e6dd70a
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
-ms.translationtype: HT
+ms.openlocfilehash: 7a261d65a7bd3eea150dd764c65b94ddd47466b3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47046172"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100307"
 ---
 # <a name="troubleshooting-common-routing-issues"></a>Résolution des problèmes de routage courants
 Cet article explique comment résoudre certains des problèmes de routage courants que vous pouvez rencontrer concernant votre configuration Azure Front Door Service. 
@@ -28,7 +28,7 @@ Cet article explique comment résoudre certains des problèmes de routage couran
 ### <a name="symptom"></a>Symptôme
 - Vous avez créé une porte d’entrée, mais une requête à l’hôte frontend retourne un code d’état HTTP 400.
 
- - Vous avez créé un mappage DNS à partir d’un domaine personnalisé à l’hôte frontend que vous avez configuré. Toutefois, l’envoi d’une requête au nom d’hôte du domaine personnalisé retourne un code d’état HTTP 400 et ne semble pas router vers le ou les backends que vous avez configurés.
+  - Vous avez créé un mappage DNS à partir d’un domaine personnalisé à l’hôte frontend que vous avez configuré. Toutefois, l’envoi d’une requête au nom d’hôte du domaine personnalisé retourne un code d’état HTTP 400 et ne semble pas router vers le ou les backends que vous avez configurés.
 
 ### <a name="cause"></a>Cause :
 - Ce symptôme peut se produire si vous n’avez pas configuré une règle de routage pour le domaine personnalisé que vous avez ajouté comme hôte frontend. Une règle de routage doit être ajoutée explicitement pour cet hôte frontend, même si une règle a déjà été configurée pour l’hôte frontend sous le sous-domaine Front Door (*.azurefd.net) auquel votre domaine personnalisé a un mappage DNS.
@@ -54,11 +54,11 @@ Ce symptôme peut avoir plusieurs causes :
     - Veillez attendre environ 10 minutes pour que la configuration soit déployée.
 
 2. Vérifier les paramètres du backend
-     - Accédez au pool de backends vers lequel la requête doit router (dépend de la configuration de la règle de routage) et vérifiez que le _type de l’hôte backend_ et que le nom de l’hôte backend sont corrects. Si le backend est un hôte personnalisé, vérifiez que vous l’avez orthographié correctement. 
+   - Accédez au pool de backends vers lequel la requête doit router (dépend de la configuration de la règle de routage) et vérifiez que le _type de l’hôte backend_ et que le nom de l’hôte backend sont corrects. Si le backend est un hôte personnalisé, vérifiez que vous l’avez orthographié correctement. 
 
-     - Vérifiez vos ports HTTP et HTTPS. Dans la plupart des cas, 80 et 443 (respectivement) sont appropriés et aucun changement n’est nécessaire. Toutefois, il est possible que votre backend ne soit pas configuré de cette façon et qu’il écoute sur un autre port.
+   - Vérifiez vos ports HTTP et HTTPS. Dans la plupart des cas, 80 et 443 (respectivement) sont appropriés et aucun changement n’est nécessaire. Toutefois, il est possible que votre backend ne soit pas configuré de cette façon et qu’il écoute sur un autre port.
 
-    - Vérifiez _l’en-tête de l’hôte backend_  configuré pour les backends vers lesquels l’hôte frontend doit router. Dans la plupart des cas, cet en-tête doit être identique au _nom de l’hôte backend_. Toutefois, une valeur incorrecte peut provoquer différents codes d’état HTTP 4xx si le backend attend autre chose. Si vous entrez l’adresse IP de votre backend, vous devrez peut-être définir le nom d’hôte du backend comme _en-tête de l’hôte backend_.
+     - Vérifiez _l’en-tête de l’hôte backend_  configuré pour les backends vers lesquels l’hôte frontend doit router. Dans la plupart des cas, cet en-tête doit être identique au _nom de l’hôte backend_. Toutefois, une valeur incorrecte peut provoquer différents codes d’état HTTP 4xx si le backend attend autre chose. Si vous entrez l’adresse IP de votre backend, vous devrez peut-être définir le nom d’hôte du backend comme _en-tête de l’hôte backend_.
 
 
 3. Vérifier les paramètres de règle de routage

@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 4cae2370-77b3-49ce-bf40-030400c4260d
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: c8bab609212c837802be6f70e7fc74df6b5eaf2e
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
-ms.translationtype: HT
+ms.openlocfilehash: 94ae233f8591c43afa1bb73c3e17964922967d36
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346251"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58123026"
 ---
 # <a name="introduction-to-application-groups"></a>Présentation des groupes d’applications
 Service Fabric Cluster Resource Manager gère habituellement les ressources de cluster en répartissant la charge (représentée par les [métriques](service-fabric-cluster-resource-manager-metrics.md)) uniformément dans le cluster. Service Fabric gère la capacité des nœuds du cluster et le cluster dans son ensemble via la [capacité](service-fabric-cluster-resource-manager-cluster-description.md). Les mesures et la capacité sont idéales pour divers types de charges de travail, mais les modèles qui utilisent beaucoup d’instances d’application Service Fabric différentes imposent parfois des conditions supplémentaires. Par exemple, vous pouvez :
@@ -36,6 +36,7 @@ Le cas d’utilisation le plus simple de la capacité d’application est lorsqu
 L’image suivante montre une instance d’application avec et sans un nombre maximal de nœuds définis :
 
 <center>
+
 ![Instance d’application définissant le nombre maximal de nœuds][Image1]
 </center>
 
@@ -107,7 +108,7 @@ La réservation d’espace dans le cluster pour l’application se produit immé
 - le nombre de services au sein de l’instance d’application change à chaque fois 
 - les services existent mais n’utilisent pas les ressources 
 
-La réservation de ressources pour une instance d’application implique de spécifier deux paramètres supplémentaires : *MinimumNodes* et *NodeReservationCapacity*
+Réservation de ressources pour une instance d’application nécessite la spécification des deux paramètres supplémentaires : *MinimumNodes* et *NodeReservationCapacity*
 
 - **MinimumNodes** : définit le nombre minimal de nœuds sur lesquels l’instance d’application devrait s’exécuter.  
 - **NodeReservationCapacity** : ce paramètre est défini pour chaque mesure de l’application. La valeur correspond à la quantité de cette mesure réservée à l’application sur n’importe quel nœud où s’exécutent les services de cette application.
@@ -117,7 +118,8 @@ La combinaison des paramètres **MinimumNodes** et **NodeReservationCapacity** g
 Voyons un exemple de réservation de capacité :
 
 <center>
-![Instances d’application définissant la capacité de réserve][Image2]
+
+![Instances d’application définissant la capacité réservée][Image2]
 </center>
 
 Dans l’exemple de gauche, aucune capacité n’est définie pour les applications. Cluster Resource Manager équilibre tout conformément aux règles normales.
@@ -178,10 +180,10 @@ foreach (ApplicationLoadMetricInformation metric in metrics)
 
 La requête ApplicationLoad renvoie des informations de base sur la capacité d’application spécifiée pour l’application. Ces informations comprennent les informations sur les nombres minimum et maximum de nœuds, et le nombre de nœuds actuellement occupés par l’application. Elles comprennent également des informations sur chaque mesure de charge d’application, notamment :
 
-* Nom de la mesure : le nom de la mesure.
-* Capacité de réserve : la capacité du cluster qui est réservée dans le cluster pour cette application.
-* Charge de l’application : la charge totale des réplicas enfants de cette application.
-* Capacité d’application : la valeur maximale autorisée pour la charge de l’application.
+* Nom de la mesure : Nom de la mesure.
+* Capacité de réserve : Capacité du cluster qui est réservée dans le cluster pour cette Application.
+* Chargement de l’application : Charge totale de réplicas des enfants de cette Application.
+* Capacité d’application : Valeur maximale possible de chargement de l’Application.
 
 ## <a name="removing-application-capacity"></a>Suppression de la capacité d’application
 Une fois les paramètres de capacité d’application définis pour une application, vous pouvez les supprimer à l’aide d’API de mise à jour de l’application ou d’applets de commande PowerShell. Par exemple : 

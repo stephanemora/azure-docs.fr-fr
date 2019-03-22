@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 997727acd1bbaf17577160bb996aad7e21d49c86
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: 2a425e607ea7dac394ab90a3fed4d4026056bbc1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806178"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118576"
 ---
 <a name="get-customer-leads"></a>Obtenir des prospects
 ==================
@@ -39,13 +39,13 @@ Les prospects sont des clients qui sont intéressés par le déploiement de vos 
 
 <!-- -->
 
-2.  Le client consent à partager ses informations après avoir sélectionné « Obtenir maintenant ». Ce prospect est un prospect **d’intérêt initial** ; nous partageons des informations sur un client qui a manifesté de l’intérêt pour votre produit. Il constitue la partie supérieure de l’entonnoir d’acquisition.
+1. Le client consent à partager ses informations après avoir sélectionné « Obtenir maintenant ». Ce prospect est un prospect **d’intérêt initial** ; nous partageons des informations sur un client qui a manifesté de l’intérêt pour votre produit. Il constitue la partie supérieure de l’entonnoir d’acquisition.
 
-    ![Option Obtenir maintenant](./media/cloud-partner-portal-get-customer-leads/get-it-now-button.png)
+   ![Option Obtenir maintenant](./media/cloud-partner-portal-get-customer-leads/get-it-now-button.png)
 
-3.  Le client sélectionne Acheter dans le [portail Azure](https://portal.azure.com/) pour obtenir votre produit. Ce prospect est un prospect **actif** ; nous partageons des informations sur un client qui a commencé à déployer votre produit.
+1. Le client sélectionne Acheter dans le [portail Azure](https://portal.azure.com/) pour obtenir votre produit. Ce prospect est un prospect **actif** ; nous partageons des informations sur un client qui a commencé à déployer votre produit.
 
-    ![Option d’achat](./media/cloud-partner-portal-get-customer-leads/purchase-button.png)
+   ![Option d’achat](./media/cloud-partner-portal-get-customer-leads/purchase-button.png)
 
 
 ### <a name="appsource"></a>AppSource
@@ -72,7 +72,7 @@ Chaque prospect que vous recevez pendant le processus d’acquisition de clients
 
 Le format d’une source de prospect est **Source**-**Action** |  **Offre**
 
-**Sources** : « AzureMarketplace », « AzurePortal », « TestDrive » et « AppSource (SPZA) »
+**Sources** « AzureMarketplace », « AzurePortal », « Test drive » et « AppSource (SPZA) »
 
 **Actions** :
 - « INS » : installation. Cette action figure sur la Place de marché Azure ou dans AppSource lorsqu’un client achète votre produit.
@@ -83,19 +83,19 @@ Le format d’une source de prospect est **Source**-**Action** |  **Offre**
 
 **Offres**
 
-Les exemples suivants présentent des identificateurs uniques qui sont affectés à un éditeur et à une offre spécifique : checkpoint.check-point-r77-10sg-byol, bitnami.openedxcypress et docusign.3701c77e-1cfa-4c56-91e6-3ed0b622145a.
+Les exemples suivants montrent des identificateurs uniques qui sont affectés à un serveur de publication et une offre spécifique : checkpoint.check-point-r77-10sg-byol, bitnami.openedxcypress et 56-91e6-3ed0b622145a docusign.3701c77e-1cfa - 4c.
 
 
 ### <a name="customer-info"></a>Informations client
 
 Les champs indiqués dans l’exemple suivant indiquent les informations client qui sont contenues dans un prospect.
-- Prénom : John
-- Nom : Smith
+- Prénom : John
+- LastName : Smith
 - Adresse e-mail : jsmith\@microsoft.com
-- Téléphone : 1234567890
-- Pays : États-Unis
-- Entreprise : Microsoft
-- Fonction : directeur technique
+- Téléphone : 123-456-7890
+- Pays : FR
+- Entreprise : Microsoft
+- Titre : CTO
 
 >[!Note]
 >Les données de l’exemple précédent ne sont pas toujours toutes disponibles pour chaque prospect.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: msfussell
-ms.openlocfilehash: 0012304412b343918ab69abf6eababc033cddc6f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 82b95080a9c93d8c02d4129ef93b1a6c9deba7aa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55198212"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852745"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Partitionnement des services fiables Service Fabric
 Cet article présente les concepts de base pour le partitionnement des services fiables d’Azure Service Fabric. Le code source utilisé dans cet article est également disponible sur [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
@@ -59,7 +59,7 @@ Avant d’implémenter un service, vous devez toujours envisager la stratégie d
 
 Une bonne approche consiste à réfléchir de prime abord à la structure de l’état qui doit être partitionné.
 
-Prenons un exemple simple : Si vous devez créer un service pour un sondage pour toute une région, vous pouvez créer une partition pour chaque ville dans la région. Puis, vous pouvez stocker les votes pour chaque personne dans une ville dans la partition correspondant à cette ville. La figure 3 présente une liste de personnes associées au nom de la ville dans laquelle elles résident.
+Prenons un exemple simple : Si vous deviez créer un service pour une interrogation à l’échelle de la région, vous pouvez créer une partition pour chaque ville dans la région. Puis, vous pouvez stocker les votes pour chaque personne dans une ville dans la partition correspondant à cette ville. La figure 3 présente une liste de personnes associées au nom de la ville dans laquelle elles résident.
 
 ![Partition simple](./media/service-fabric-concepts-partitioning/cities.png)
 
@@ -113,7 +113,7 @@ Une partie importante du hachage consiste à sélectionner l'algorithme de hacha
 
 Un bon algorithme de hachage de distribution a la particularité d’être facile à calculer, de comporter peu de collisions et de distribuer uniformément les clés. L’algorithme de hachage [FNV-1](https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function) est très efficace, par exemple.
 
-La [page Wikipedia sur les fonctions de hachage](http://en.wikipedia.org/wiki/Hash_function)est une ressource proposant de nombreux algorithmes de code de hachage généraux.
+La [page Wikipedia sur les fonctions de hachage](https://en.wikipedia.org/wiki/Hash_function)est une ressource proposant de nombreux algorithmes de code de hachage généraux.
 
 ## <a name="build-a-stateful-service-with-multiple-partitions"></a>Création d’un service avec état avec plusieurs partitions
 Nous allons créer le premier service fiable avec état à plusieurs partitions. Dans cet exemple, vous allez générer une application très simple dans laquelle vous souhaitez stocker tous les noms qui commencent par la même lettre dans la même partition.

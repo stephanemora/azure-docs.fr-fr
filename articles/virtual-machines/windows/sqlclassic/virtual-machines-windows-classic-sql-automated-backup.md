@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 01/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 3aba118354c51285d714bb127e6f5984f8a50057
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: aeb97d661d330ed6afb3ca5e5e1eb924dacc4024
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329750"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096297"
 ---
 # <a name="automated-backup-for-sql-server-in-azure-virtual-machines-classic"></a>Sauvegarde automatisée pour SQL Server dans les machines virtuelles Azure (classiques)
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ La sauvegarde automatisée configure automatiquement une [sauvegarde managée su
 > [!IMPORTANT] 
 > Azure a deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../../../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Pour afficher la version Resource Manager de cet article, consultez [Sauvegarde automatisée pour SQL Server dans Azure Virtual Machines (Resource Manager)](../sql/virtual-machines-windows-sql-automated-backup.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Pour utiliser la sauvegarde automatisée, prenez en compte les conditions préalables suivantes :
 
 **Système d’exploitation**:
@@ -73,7 +73,8 @@ Le tableau suivant décrit les options qui peuvent être configurées pour une s
 | **Période de rétention** |1 à 30 jours (30 jours) |Nombre de jours durant lesquels une sauvegarde est conservée. |
 | **Compte de stockage** |Compte de stockage Azure (compte de stockage créé pour la machine virtuelle spécifiée) |Compte de stockage Azure à utiliser pour stocker les fichiers de sauvegarde automatisée dans le stockage d’objets blob. Un conteneur est créé à cet emplacement pour stocker tous les fichiers de sauvegarde. La convention de dénomination des fichiers de sauvegarde inclut la date, l’heure et le nom de la machine. |
 | **Chiffrement** |Activer/Désactiver (désactivé) |Active ou désactive le chiffrement. Lorsque le chiffrement est activé, les certificats utilisés pour restaurer la sauvegarde se trouvent dans le compte de stockage spécifié dans le même conteneur automaticbackup à l’aide de la même convention de dénomination. Si le mot de passe change, un nouveau certificat est généré avec ce mot de passe, mais l’ancien certificat est conservé pour restaurer les sauvegardes antérieures. |
-| **Mot de passe** |Texte du mot de passe (aucun) |Mot de passe pour les clés de chiffrement. Il est uniquement requis si le chiffrement est activé. Pour restaurer une sauvegarde chiffrée, vous devez disposer du mot de passe correct et du certificat associé qui a été utilisé lorsque la sauvegarde a été effectuée. | **Sauvegarde des bases de données système** | Activer/Désactiver (désactivé) | Effectue des sauvegardes complètes des bases de données Master, Model et MSDB |
+| **Mot de passe** |Texte du mot de passe (aucun) |Mot de passe pour les clés de chiffrement. Il est uniquement requis si le chiffrement est activé. Pour restaurer une sauvegarde chiffrée, vous devez disposer du mot de passe correct et du certificat associé qui a été utilisé lorsque la sauvegarde a été effectuée. |
+| **Sauvegarde des bases de données système** | Activer/Désactiver (désactivé) | Effectue des sauvegardes complètes des bases de données Master, Model et MSDB |
 | **Configuration de la planification de sauvegarde** | Manuelle/automatisée (automatisée) | Sélectionnez **Automated** (Automatisée) pour effectuer automatiquement les sauvegardes complètes et de journaux en fonction de la croissance des journaux. Sélectionnez **Manual** (Manuelle) pour spécifier le calendrier sur lequel reposeront les sauvegardes complètes et de journaux. |
 
 ## <a name="configuration-with-powershell"></a>Configuration avec PowerShell

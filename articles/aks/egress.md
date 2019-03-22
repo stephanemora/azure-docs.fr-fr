@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 03/04/2019
 ms.author: iainfou
-ms.openlocfilehash: aeffe172fd422f18e2828c5274e9a2ed13cc546a
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 6612d801804cdd1e092b50977230f24b378e64ba
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103358"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407134"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-in-azure-kubernetes-service-aks"></a>Utiliser une adresse IP publique statique pour le trafic de sortie dans Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,7 @@ Cet article vous montre comment créer et utiliser une adresse IP publique stati
 
 Cet article suppose que vous avez un cluster AKS existant. Si vous avez besoin d’un cluster AKS, consultez le guide de démarrage rapide d’AKS [avec Azure CLI][aks-quickstart-cli] ou [avec le portail Azure][aks-quickstart-portal].
 
-Vous devez également avoir installé et configuré Azure CLI version 2.0.46 ou ultérieure. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez  [Installation d’Azure CLI 2.0][install-azure-cli].
+Vous également besoin d’Azure CLI version 2.0.59 ou ultérieur installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez  [Installation d’Azure CLI 2.0][install-azure-cli].
 
 ## <a name="egress-traffic-overview"></a>Vue d’ensemble du trafic de sortie
 
@@ -36,7 +36,7 @@ Après la création d’un service Kubernetes de type `LoadBalancer`, les nœuds
 
 Quand vous créez une adresse IP publique statique pour l’utiliser avec AKS, la ressource d’adresse IP doit être créée dans le groupe de ressources du **nœud**. Obtenez le nom du groupe de ressources avec la commande [az aks show][az-aks-show] et ajoutez le paramètre de requête `--query nodeResourceGroup`. L’exemple suivant obtient les le groupe de ressources du nœud pour le cluster AKS nommé *myAKSCluster* dans le groupe de ressources nommé *myResourceGroup* :
 
-```azurecli
+```azurecli-interactive
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
 
 MC_myResourceGroup_myAKSCluster_eastus
@@ -44,7 +44,7 @@ MC_myResourceGroup_myAKSCluster_eastus
 
 Créez maintenant une adresse IP publique statique avec la commande [az network public ip create][az-network-public-ip-create]. Spécifiez le nom de groupe de ressources du nœud obtenue dans la commande précédente, puis un nom pour la ressource d’adresse IP, par exemple *myAKSPublicIP* :
 
-```azurecli
+```azurecli-interactive
 az network public-ip create \
     --resource-group MC_myResourceGroup_myAKSCluster_eastus \
     --name myAKSPublicIP \
@@ -67,7 +67,7 @@ L’adresse IP apparaît, comme illustré dans l’exemple de sortie condensée 
 
 Vous pouvez obtenir ultérieurement l’adresse IP publique avec la commande [az network public-ip list][az-network-public-ip-list]. Spécifiez le nom du groupe de ressources du nœud, puis recherchez *ipAddress* comme indiqué dans l’exemple suivant :
 
-```azurecli
+```azurecli-interactive
 $ az network public-ip list --resource-group MC_myResourceGroup_myAKSCluster_eastus --query [0].ipAddress --output tsv
 
 40.121.183.52
@@ -104,7 +104,7 @@ Pour vérifier que l’adresse IP publique statique est utilisée, vous pouvez u
 Démarrez et attachez à un pod *Debian* de base :
 
 ```console
-kubectl run -it --rm aks-ip --image=debian
+kubectl run -it --rm aks-ip --image=debian --generator=run-pod/v1
 ```
 
 Pour accéder à un site web à partir du conteneur, utilisez `apt-get` pour installer `curl` dans le conteneur.
@@ -118,7 +118,7 @@ Utilisez maintenant curl pour accéder au site *checkip.dyndns.org*. L’adresse
 ```console
 $ curl -s checkip.dyndns.org
 
-<html><head><title>Current IP Check</title></head><body>Current IP Address: 23.101.128.81</body></html>
+<html><head><title>Current IP Check</title></head><body>Current IP Address: 40.121.183.52</body></html>
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

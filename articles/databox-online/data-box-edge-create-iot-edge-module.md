@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 01/31/2019
 ms.author: alkohli
-ms.openlocfilehash: d0b171f05bb2243da83509348b099bebcb44ebc7
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: 81407a298ccfe1b9884fc5d5b815ac8c18ffee6a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508706"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094675"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge-preview"></a>Développer un module IoT Edge en C# pour déplacer les fichiers vers Data Box Edge (préversion)
 
@@ -46,7 +46,7 @@ Votre appareil Data Box Edge peut déployer et exécuter des modules IoT Edge. L
 
 Une fois que le fichier se trouve dans le partage cloud, ce dernier est automatiquement chargé dans votre compte de stockage Azure.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Avant de commencer, assurez-vous que vous disposez  des éléments suivants :
 
@@ -71,14 +71,14 @@ Un registre Azure Container Registry est un registre Docker privé dans Azure, d
 2. Sélectionnez **Créer une ressource > Conteneurs > Container Registry**. Cliquez sur **Créer**.
 3. Procédez de la façon suivante :
 
-    1. Indiquez un **nom de registre** unique dans Azure contenant de 5 à 50 caractères alphanumériques.
-    2. Choisissez un **Abonnement**.
-    3. Sélectionnez un **groupe de ressources** existant ou créez-en un.
-    4. Sélectionnez un **emplacement**. Nous vous recommandons de choisir le même emplacement que celui associé à la ressource Data Box Edge.
-    5. Basculez **Utilisateur administrateur** sur **Activer**.
-    6. Définissez la référence SKU sur **De base**.
+   1. Indiquez un **nom de registre** unique dans Azure contenant de 5 à 50 caractères alphanumériques.
+   2. Choisissez un **Abonnement**.
+   3. Sélectionnez un **groupe de ressources** existant ou créez-en un.
+   4. Sélectionnez un **emplacement**. Nous vous recommandons de choisir le même emplacement que celui associé à la ressource Data Box Edge.
+   5. Basculez **Utilisateur administrateur** sur **Activer**.
+   6. Définissez la référence SKU sur **De base**.
 
-    ![Créer un registre de conteneurs](./media/data-box-edge-create-iot-edge-module/create-container-registry-1.png)
+      ![Créer un registre de conteneurs](./media/data-box-edge-create-iot-edge-module/create-container-registry-1.png)
  
 4. Sélectionnez **Créer**.
 5. Une fois votre registre de conteneurs créé, accédez à celui-ci, puis sélectionnez **Clés d’accès**.

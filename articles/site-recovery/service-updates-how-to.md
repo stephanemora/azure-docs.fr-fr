@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/05/2019
 ms.author: rajanaki
-ms.openlocfilehash: 67fe5da86b4736daa43a85a7a1a077c329732b60
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 36d0a976b73fe5b6f89755ce790b919468744179
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55890455"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091645"
 ---
 # <a name="service-updates-in-azure-site-recovery"></a>Mises à jour de service dans Azure Site Recovery
 En tant qu’organisation, vous devez déterminer comment vous allez protéger vos données ainsi que les applications/charges de travail en cours d’exécution lors d’interruptions planifiées ou non. Azure Site Recovery contribue à la mise en œuvre de votre stratégie BCDR (continuité d’activité et reprise d’activité). En effet, en cas de panne du site, il maintient les applications en cours d’exécution sur des machines virtuelles et des serveurs physiques disponibles. Site Recovery réplique les charges de travail en cours d’exécution sur des machines virtuelles et des serveurs physiques, afin que ces charges restent disponibles à un second emplacement si jamais l’emplacement principal n’est pas disponible. Ce service récupère les charges de travail sur le site principal lorsqu’il fonctionne à nouveau.
@@ -108,7 +108,7 @@ Avant de procéder aux mises à jour, reportez-vous aux [Informations de prise e
 Un redémarrage est recommandé après chaque mise à niveau de l’agent Mobilité pour garantir le chargement de toutes les dernières modifications sur la machine source. Toutefois, il **n’est pas obligatoire**. Si la différence entre la version de l’agent durant le dernier redémarrage et la version actuelle est supérieure à 4, un redémarrage est obligatoire. Pour obtenir des explications détaillées, consultez le tableau suivant :
 
 |**Version de l’agent durant le dernier redémarrage** | **Mise à niveau vers** | **Redémarrage obligatoire ?**|
-|---------|---------|---------|--------|
+|---------|---------|---------|
 |9.16 |  9.18 | Facultatif|
 |9.16 | 9.19 | Facultatif|
 | 9.16 | 9.20 | Facultatif
@@ -124,7 +124,7 @@ Un redémarrage est recommandé après chaque mise à niveau de l’agent Mobili
 |[Correctif cumulatif 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)     |     5.1.3700.0      |   9.20.5051.1      |     5.1.3700.0    |2.0.9144.0
 |[Correctif cumulatif 30](https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30)     |    5.1.3650.0   |   9.19.5007.1    |     5.1.3650.0    |2.0.9139.0
 |[Correctif cumulatif 29](https://support.microsoft.com/help/4466466/update-rollup-29-for-azure-site-recovery)     |   5.1.3650.0      |   9.19.4973.1     |     5.1.3700.0    |2.0.9131.0
-|[Correctif cumulatif 28](https://support.microsoft.com/help/4460079/update-rollup-28-for-azure-site-recovery)     |  5.1.3600.0      |    9.19.4973.1     |  5.1.3600.0       |2.0.9131.0
+|[Mise à jour cumulative 28](https://support.microsoft.com/help/4460079/update-rollup-28-for-azure-site-recovery)     |  5.1.3600.0      |    9.19.4973.1     |  5.1.3600.0       |2.0.9131.0
 | [Correctif cumulatif 27](https://support.microsoft.com/help/4055712/update-rollup-27-for-azure-site-recovery)       |   5.1.3550.0      |    9.18.4946.1     | 5.1.3550.0         |2.0.9125.0
 
 

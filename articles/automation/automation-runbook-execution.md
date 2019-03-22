@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/05/2019
+ms.date: 03/18/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b6c61b4116983f36cef0632f7bbec4d36d203d0d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: a2efc90e14180cd2b26223ef968a7f192b440ebd
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842977"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287041"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Exécution d'un Runbook dans Azure Automation
 
@@ -22,24 +22,20 @@ Lorsque vous démarrez un Runbook dans Azure Automation, une tâche est créée.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
-Le diagramme suivant illustre le cycle de vie d’une tâche de Runbook pour des [Runbooks graphiques](automation-runbook-types.md#graphical-runbooks) et des [Runbooks de flux de travail PowerShell](automation-runbook-types.md#powershell-workflow-runbooks).
+Le diagramme suivant illustre le cycle de vie d’une tâche de runbook pour [runbooks PowerShell](automation-runbook-types.md#powershell-runbooks), [runbooks graphiques](automation-runbook-types.md#graphical-runbooks) et [runbooks PowerShell Workflow](automation-runbook-types.md#powershell-workflow-runbooks).
 
 ![États des tâches - Workflow PowerShell](./media/automation-runbook-execution/job-statuses.png)
-
-Le diagramme suivant illustre le cycle de vie d'une tâche de Runbook pour des [Runbooks PowerShell](automation-runbook-types.md#powershell-runbooks).
-
-![États des tâches - Script PowerShell](./media/automation-runbook-execution/job-statuses-script.png)
 
 Vos tâches auront accès à vos ressources Azure en créant une connexion à votre abonnement Azure. Ils auront uniquement accès aux ressources de votre centre de données si ces ressources sont accessibles depuis le cloud public.
 
 ## <a name="where-to-run-your-runbooks"></a>Où exécuter vos runbooks
 
-Les runbooks d'Azure Automation peuvent s'exécuter dans un bac à sable Azure ou dans un [Runbook Worker hybride](automation-hybrid-runbook-worker.md). Un bac à sable est un environnement Azure partagé qui peut être utilisé par plusieurs travaux. Les travaux qui utilisent le même bac à sable sont liés par les limitations de ressources du bac à sable. Les Runbook Workers hybrides peuvent être utilisés pour exécuter des runbooks directement sur l'ordinateur qui héberge le rôle et avec les ressources disponibles dans l'environnement pour gérer ces ressources locales. Les Runbooks sont stockés et gérés dans Azure Automation, puis remis à un ou plusieurs ordinateurs assignés. La plupart des runbooks peuvent facilement être exécutés dans les bacs à sable Azure. Dans certains cas, il est préférable de choisir un Runbook hybride plutôt qu'un bac à sable Azure pour exécuter votre runbook. Quelques exemples de scénarios sont fournis dans le tableau suivant :
+Les runbooks d'Azure Automation peuvent s'exécuter dans un bac à sable Azure ou dans un [Runbook Worker hybride](automation-hybrid-runbook-worker.md). Un bac à sable est un environnement Azure partagé qui peut être utilisé par plusieurs travaux. Les travaux qui utilisent le même bac à sable sont liés par les limitations de ressources du bac à sable. Workers hybrides peuvent exécuter des runbooks directement sur l’ordinateur qui héberge le rôle et sur les ressources dans l’environnement pour gérer ces ressources locales. Les Runbooks sont stockés et gérés dans Azure Automation, puis remis à un ou plusieurs ordinateurs assignés. La plupart des procédures opérationnelles peuvent facilement être exécuté dans les bacs à sable Azure. Dans certains cas, il est préférable de choisir un Runbook hybride plutôt qu'un bac à sable Azure pour exécuter votre runbook. Quelques exemples de scénarios sont fournis dans le tableau suivant :
 
 |Tâche|Meilleur choix|Notes|
 |---|---|---|
 |Intégration à des ressources Azure|Bac à sable Azure|Hébergé dans Azure, l'authentification est plus simple. Si vous utilisez un Runbook Worker hybride sur une machine virtuelle Azure, vous pouvez utiliser des [identités managées pour les ressources Azure](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources)|
-|Performances optimales pour gérer les ressources Azure|Bac à sable Azure|Le script est exécuté dans le même environnement, ce qui réduit la latence|
+|Performances optimales pour gérer les ressources Azure|Bac à sable Azure|Script est exécuté dans le même environnement, qui à son tour possède moins de latence|
 |Réduction des coûts d'exploitation|Bac à sable Azure|En l'absence de surcharge de calcul, aucune machine virtuelle n'est nécessaire|
 |Script durable|Runbook Worker hybride|Les bacs à sable Azure sont [limités en termes de ressources](../azure-subscription-service-limits.md#automation-limits)|
 |Interaction avec les services locaux|Runbook Worker hybride|Peut bénéficier d'un accès direct à la machine hôte|
@@ -49,7 +45,8 @@ Les runbooks d'Azure Automation peuvent s'exécuter dans un bac à sable Azure o
 |Utilisation de modules aux exigences spécifiques| Runbook Worker hybride|Voici quelques exemples :</br> **WinSCP** - dépendance à winscp.exe </br> **IISAdministration** - requiert l'activation d'IIS|
 |Installation d'un module nécessitant un programme d'installation|Runbook Worker hybride|Les modules pour bac à sable doivent être « xcopiables »|
 |Utilisation de runbooks ou de modules nécessitant une version de .NET Framework autre que la version 4.7.2|Runbook Worker hybride|Les bacs à sable Automation disposent de .NET Framework 4.7.2, et aucune mise à niveau n'est possible|
-|Scripts qui requièrent une élévation|Runbook Worker hybride|Les bacs à sable ne permettent pas d’élévation. Pour résoudre cette utilisation d’un Runbook Worker hybride et vous pouvez désactiver l’UAC et utilisez `Invoke-Command` lorsque l’exécution de la commande qui nécessite une élévation|
+|Scripts qui requièrent une élévation|Runbook Worker hybride|Les bacs à sable ne permettent pas d’élévation. Pour résoudre ce problème, utilisez un Runbook Worker hybride et vous pouvez désactiver l’UAC et utilisez `Invoke-Command` lorsque l’exécution de la commande qui nécessite une élévation|
+|Scripts qui requièrent l’accès à WMI|Runbook Worker hybride|Travaux en cours d’exécution dans les bacs à sable le cloud [n’ont pas accès WMI](#device-and-application-characteristics)|
 
 ## <a name="runbook-behavior"></a>Comportement des runbooks
 
@@ -78,11 +75,11 @@ else
 
 ### <a name="time-dependant-scripts"></a>Scripts dépendants du temps
 
-Une attention particulière doit être portée à l'élaboration des runbooks. Comme mentionné précédemment, les runbooks doivent être créés de manière à être robustes et à pouvoir gérer les erreurs transitoires qui peuvent entraîner leur redémarrage ou leur échec. Si un runbook échoue, une nouvelle exécution de celui-ci est tentée. Si un runbook est censé s'exécuter dans le cadre d'une contrainte de temps, la logique de vérification du temps d'exécution doit être implémentée dans le runbook pour veiller à ce que les opérations telles que le démarrage, l'arrêt ou la montée en charge ne soient exécutées qu'à certaines heures.
+Une attention particulière doit être portée à l'élaboration des runbooks. Comme mentionné précédemment, les runbooks doivent être créés de manière à être robustes et à pouvoir gérer les erreurs transitoires qui peuvent entraîner leur redémarrage ou leur échec. Si un runbook échoue, elle est retentée. Si un runbook s’exécute normalement dans une contrainte de temps, une logique pour vérifier la durée d’exécution doit être implémentée dans le runbook pour vous assurer d’opérations telles que de démarrer, arrêter ou de monter en charge sont exécutés uniquement à des moments spécifiques.
 
 ### <a name="tracking-progress"></a>Suivi de la progression
 
-Il est conseillé de créer des runbooks modulaires. En d'autres termes, il convient de structurer la logique du runbook afin de faciliter sa réutilisation et son redémarrage. Le suivi de la progression d'un runbook permet de s'assurer que la logique de celui-ci est correctement exécutée en cas de problème. Vous pouvez également suivre la progression du runbook via des sources externes telles que des comptes de stockage, une base de données ou des fichiers partagés. En procédant à un suivi externe de l'état, vous pouvez créer au sein de votre runbook une logique qui commencera par vérifier l'état de la dernière action effectuée par le runbook puis, en fonction des résultats, ignorera ou poursuivra des tâches spécifiques dans le runbook.
+Il est conseillé de créer des runbooks modulaires. En d'autres termes, il convient de structurer la logique du runbook afin de faciliter sa réutilisation et son redémarrage. Suivi de la progression dans un runbook est un bon moyen de vous assurer que la logique dans un runbook s’exécute correctement si vous rencontrez des problèmes. Vous pouvez également suivre la progression du runbook via des sources externes telles que des comptes de stockage, une base de données ou des fichiers partagés. En effectuant le suivi de l’état en externe, vous pouvez créer logique dans votre runbook pour vérifier l’état de la dernière action qu'a eu le runbook. Puis basée sur les résultats, soit ignorer ou continuer des tâches spécifiques dans le runbook.
 
 ### <a name="prevent-concurrent-jobs"></a>Prévention des travaux simultanés
 
@@ -116,7 +113,7 @@ If (($jobs.status -contains "Running" -And $runningCount -gt 1 ) -Or ($jobs.Stat
 
 ### <a name="working-with-multiple-subscriptions"></a>Utilisation de plusieurs abonnements
 
-Lorsque la création de runbooks qui traitent plusieurs abonnements de votre runbook doit utiliser le [Disable-AzureRmContextAutosave](/powershell/module/azurerm.profile/disable-azurermcontextautosave) applet de commande pour vous assurer que votre contexte d’authentification n’est pas récupéré à partir d’un autre runbook qui peut être en cours d’exécution dans le même bac à sable. Vous devez ensuite utiliser le `-AzureRmContext` paramètre sur votre `AzureRM` applets de commande et le passer votre contexte approprié.
+Lors de la création de runbooks qui gèrent plusieurs abonnements, votre runbook doit utiliser le [Disable-AzureRmContextAutosave](/powershell/module/azurerm.profile/disable-azurermcontextautosave) applet de commande pour vous assurer que votre contexte d’authentification n’est pas récupéré à partir d’un autre runbook qui peut-être être en cours d’exécution dans le même bac à sable. Vous devez ensuite utiliser le `-AzureRmContext` paramètre sur votre `AzureRM` applets de commande et le passer votre contexte approprié.
 
 ```powershell
 # Ensures you do not inherit an AzureRMContext in your runbook
@@ -141,9 +138,59 @@ Start-AzureRmAutomationRunbook `
     -DefaultProfile $context
 ```
 
+### <a name="handling-exceptions"></a>Gestion des exceptions
+
+Lors de la création de scripts, il est important de pouvoir gérer des exceptions et échecs intermittents potentiels. Voici différentes méthodes pour gérer des exceptions ou des problèmes intermittents avec vos runbooks :
+
+#### <a name="erroractionpreference"></a>$ErrorActionPreference
+
+Le [$ErrorActionPreference](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) variable de préférence détermine la façon dont PowerShell répond à une erreur sans fin d’exécution. Des erreurs avec fin d’exécution ne sont pas affectées par `$ErrorActionPreference`, ils arrête toujours. À l’aide de `$ErrorActionPreference`, une erreur normalement sans fin d’exécution de `PathNotFound` à partir de la `Get-ChildItem` applet de commande arrête l’exécution du runbook. L’exemple suivant illustre l’utilisation `$ErrorActionPreference`. La dernière `Write-Output` ligne ne sera jamais exécutée comme le script s’arrête.
+
+```powershell-interactive
+$ErrorActionPreference = 'Stop'
+Get-Childitem -path nofile.txt
+Write-Output "This message will not show"
+```
+
+#### <a name="try-catch-finally"></a>Try Catch Finally
+
+[Try Catch](/powershell/module/microsoft.powershell.core/about/about_try_catch_finally) est utilisé dans les scripts PowerShell pour vous aider à gérer les erreurs avec fin d’exécution. À l’aide de Try Catch, vous pouvez intercepter des exceptions spécifiques ou des exceptions générales. L’instruction Catch doit être utilisée pour effectuer le suivi des erreurs ou pour tenter de gérer l’erreur. L’exemple suivant tente de télécharger un fichier qui n’existe pas. Il intercepte le `System.Net.WebException` exception, s’il y avait une autre exception la dernière valeur est retournée.
+
+```powershell-interactive
+try
+{
+   $wc = new-object System.Net.WebClient
+   $wc.DownloadFile("http://www.contoso.com/MyDoc.doc")
+}
+catch [System.Net.WebException]
+{
+    "Unable to download MyDoc.doc from http://www.contoso.com."
+}
+catch
+{
+    "An error occurred that could not be resolved."
+}
+```
+
+#### <a name="throw"></a>Throw
+
+[Lever](/powershell/module/microsoft.powershell.core/about/about_throw) peut être utilisé pour générer une erreur avec fin d’exécution. Cela peut être utile lorsque vous définissez votre propre logique dans un runbook. Si un certain critère est remplie qui doit s’arrêter le script, vous pouvez utiliser `throw` pour arrêter le script. L’exemple suivant illustre un paramètre de fonction requis à l’aide de l’ordinateur `throw`.
+
+```powershell-interactive
+function Get-ContosoFiles
+{
+  param ($path = $(throw "The Path parameter is required."))
+  Get-ChildItem -Path $path\*.txt -recurse
+}
+```
+
 ### <a name="using-executables-or-calling-processes"></a>Utilisation de fichiers exécutables ou appel de processus
 
-Les runbooks exécutés dans les bacs à sable Azure ne prennent pas en charge les processus d'appel (tels que les fichiers .exe ou subprocess.call) car les bacs à sable Azure sont des processus partagés exécutés dans des conteneurs qui n'ont pas forcément accès à toutes les API sous-jacentes. Pour les scénarios nécessitant un logiciel tiers ou l'appel de sous-processus, il est recommandé d'exécuter le runbook sur un [Runbook Worker hybride](automation-hybrid-runbook-worker.md).
+Les runbooks s’exécutent dans les bacs à sable Azure ne gèrent pas le processus appelants (par exemple, .exe ou subprocess.call). Il s’agit des bacs à sable Azure étant partagé des processus exécutés dans des conteneurs, qui peut-être pas accès à toutes les API sous-jacentes. Pour les scénarios nécessitant un logiciel tiers ou l'appel de sous-processus, il est recommandé d'exécuter le runbook sur un [Runbook Worker hybride](automation-hybrid-runbook-worker.md).
+
+### <a name="device-and-application-characteristics"></a>Caractéristiques de l’appareil et l’application
+
+Tâches de Runbook s’exécutent dans les bacs à sable Azure n’ont pas accès à des caractéristiques du périphérique ou une application. L’API courant utilisé pour interroger les métriques de performances sur Windows est WMI. Certaines de ces mesures courantes sont l’utilisation du processeur et mémoire. Toutefois, n’importe quel API est utilisée. Travaux en cours d’exécution dans le cloud n’avez pas accès l’implémentation Microsoft du Web Based Enterprise Management (WBEM), qui est basé sur le modèle CIM (Common Information), qui sont les normes du secteur pour la définition des caractéristiques de l’appareil et l’application.
 
 ## <a name="job-statuses"></a>États des tâches
 
@@ -248,11 +295,11 @@ Get-AzureRmLog -ResourceId $JobResourceID -MaxRecord 1 | Select Caller
 
 ## <a name="fair-share"></a>répartition de charge équilibrée
 
-Pour répartir les ressources entre tous les runbooks du cloud, Azure Automation décharge ou arrête temporairement les travaux dont l'exécution a commencé depuis plus de trois heures. Les tâches de [runbooks PowerShell](automation-runbook-types.md#powershell-runbooks) et de [runbooks Python](automation-runbook-types.md#python-runbooks) sont arrêtées, mais ne sont pas reprises, et leur état affiche Stopped (Arrêté).
+Pour partager des ressources entre tous les runbooks dans le cloud, Azure Automation décharge temporairement ou arrête un travail qui a exécuté pendant plus de trois heures. Les tâches de [runbooks PowerShell](automation-runbook-types.md#powershell-runbooks) et de [runbooks Python](automation-runbook-types.md#python-runbooks) sont arrêtées, mais ne sont pas reprises, et leur état affiche Stopped (Arrêté).
 
-Pour les travaux de longue durée, il est recommandé d'utiliser un [Runbook Worker hybride](automation-hrw-run-runbooks.md#job-behavior). Les Runbook Workers hybrides ne sont pas limités par la répartition de charge équilibrée et n'imposent aucune limitation en termes de durée d'exécution des runbooks. Les autres [limites](../azure-subscription-service-limits.md#automation-limits) du travail s’appliquent à la fois aux bacs à sable Azure et aux Runbooks Workers hybrides. Les Runbook Workers hybrides ne sont pas limités par la répartition de charge équilibrée de trois heures, mais les runbooks exécutés sur ceux-ci doivent néanmoins être développés pour prendre en charge les comportements de redémarrage après un problème inattendu au niveau de l'infrastructure locale.
+Pour les travaux de longue durée, il est recommandé d'utiliser un [Runbook Worker hybride](automation-hrw-run-runbooks.md#job-behavior). Les Runbook Workers hybrides ne sont pas limités par la répartition de charge équilibrée et n'imposent aucune limitation en termes de durée d'exécution des runbooks. Les autres [limites](../azure-subscription-service-limits.md#automation-limits) du travail s’appliquent à la fois aux bacs à sable Azure et aux Runbooks Workers hybrides. Tandis que les Workers hybrides ne sont pas limités par la limite de répartition de 3 heures, les runbooks s’exécutent dessus doit être développé pour prendre en charge les comportements de redémarrage à partir des problèmes d’infrastructure local inattendue.
 
-Une autre option consiste à optimiser le runbook en utilisant des runbooks enfants. Si votre runbook exécute une boucle via la même fonction sur plusieurs ressources, comme une opération de base de données sur diverses bases de données, vous pouvez déplacer cette fonction vers un [runbook enfant](automation-child-runbooks.md) et l'appeler à l'aide de la cmdlet [Start-AzureRMAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook). Chacun de ces runbooks enfants s’exécute en parallèle dans des processus distincts, diminuant ainsi le temps total d’exécution du runbook parent. Vous pouvez utiliser la [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/Get-AzureRmAutomationJob) applet de commande dans votre runbook pour vérifier l’état du travail pour chaque enfant d’opérations qui effectuent une fois que le runbook enfant se termine.
+Une autre option consiste à optimiser le runbook en utilisant des runbooks enfants. Si votre runbook exécute une boucle via la même fonction sur plusieurs ressources, comme une opération de base de données sur diverses bases de données, vous pouvez déplacer cette fonction vers un [runbook enfant](automation-child-runbooks.md) et l'appeler à l'aide de la cmdlet [Start-AzureRMAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook). Chacun de ces runbooks enfants s’exécute en parallèle dans des processus distincts. Ce comportement réduit la quantité totale de temps pour l’exécution du runbook parent. Vous pouvez utiliser la [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/Get-AzureRmAutomationJob) applet de commande dans votre runbook pour vérifier l’état du travail pour chaque enfant d’opérations qui effectuent une fois que le runbook enfant se termine.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

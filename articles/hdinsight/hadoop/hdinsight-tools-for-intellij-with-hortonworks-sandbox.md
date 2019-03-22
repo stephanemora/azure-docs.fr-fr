@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: aaebad004e5d426ca1c593941b15a2515c4476de
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: 98f22f531ca15bf88cd7d0a9add2851651e2eec7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635661"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118321"
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Utiliser HDInsight Tools pour IntelliJ avec Hortonworks Sandbox
 
@@ -23,7 +23,7 @@ Découvrez comment utiliser HDInsight Tools pour IntelliJ pour développer des a
 
 [IntelliJ IDEA](https://www.jetbrains.com/idea/) est un environnement de développement Java intégré (IDE) pour développer des logiciels. Après avoir développé et testé vos applications sur Hortonworks Sandbox, vous pouvez les déplacer vers [Azure HDInsight](apache-hadoop-introduction.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
@@ -53,20 +53,20 @@ Dans cette section, vous créez un exemple de projet Scala à l’aide d’Intel
    1. Sélectionnez **HDInsight** > **Spark sur HDInsight (Scala)**.
    2. Dans la liste des **outils de génération**, sélectionnez l’une des options suivantes, en fonction de vos besoins :
 
-    * **Maven** : pour la prise en charge de l’assistant de création de projets Scala.
-    * **SBT**: pour gérer les dépendances et la génération du projet Scala
+      * **Maven** : pour la prise en charge de l’assistant de création de projets Scala.
+      * **SBT**: pour gérer les dépendances et la génération du projet Scala
 
    ![Boîte de dialogue Nouveau projet](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project.png)
 
 2. Sélectionnez **Suivant**.
 3. Dans la boîte de dialogue suivante **New Project** (Nouveau projet), effectuez ces étapes :
 
-    1. Dans la zone **Nom du projet**, entrez un nom de projet.
-    2. Dans la zone **Emplacement du projet**, entrez un emplacement de projet.
-    3. En regard de la liste déroulante **Kit de développement logiciel (SDK) de projet**, sélectionnez **Nouveau**, **JDK**, puis spécifiez le dossier Java JDK version 1.7 ou ultérieure. Sélectionnez **Java 1.8** pour le cluster Spark 2.x. Sélectionnez **Java 1.7** pour le cluster Spark 1.x. L’emplacement par défaut est C:\Program Files\Java\jdk1.8.x_xxx.
-    4. Dans la liste déroulante **Version Spark**, l’assistant de création de projets Scala intègre la version correcte pour le SDK Spark et le SDK Scala. Si la version du cluster spark est antérieure à la version 2.0, sélectionnez **Spark 1.x**. Sinon, sélectionnez **Spark 2.x**. La version utilisée dans cet exemple est Spark 1.6.2 (Scala 2.10.5). Assurez-vous que vous utilisez le référentiel marqué **Scala 2.10.x**. N’utilisez pas le référentiel marqué Scala 2.11.x.
+   1. Dans la zone **Nom du projet**, entrez un nom de projet.
+   2. Dans la zone **Emplacement du projet**, entrez un emplacement de projet.
+   3. En regard de la liste déroulante **Kit de développement logiciel (SDK) de projet**, sélectionnez **Nouveau**, **JDK**, puis spécifiez le dossier Java JDK version 1.7 ou ultérieure. Sélectionnez **Java 1.8** pour le cluster Spark 2.x. Sélectionnez **Java 1.7** pour le cluster Spark 1.x. L’emplacement par défaut est C:\Program Files\Java\jdk1.8.x_xxx.
+   4. Dans la liste déroulante **Version Spark**, l’assistant de création de projets Scala intègre la version correcte pour le SDK Spark et le SDK Scala. Si la version du cluster spark est antérieure à la version 2.0, sélectionnez **Spark 1.x**. Sinon, sélectionnez **Spark 2.x**. La version utilisée dans cet exemple est Spark 1.6.2 (Scala 2.10.5). Assurez-vous que vous utilisez le référentiel marqué **Scala 2.10.x**. N’utilisez pas le référentiel marqué Scala 2.11.x.
     
-    ![Créer les propriétés du projet IntelliJ Scala](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project-properties.png)
+      ![Créer les propriétés du projet IntelliJ Scala](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project-properties.png)
 
 
 4. Sélectionnez **Terminer**.

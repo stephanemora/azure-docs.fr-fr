@@ -3,8 +3,8 @@ title: Fichier Include
 description: Fichier Include
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
+author: jmprieur
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
@@ -12,14 +12,14 @@ ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/19/2018
-ms.author: andret
+ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: d3f2efc0ae3dcf9bdcae3f82258b28b761944487
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
-ms.translationtype: HT
+ms.openlocfilehash: 4c4870dc0f5a423288e6cb561b985501414e8525
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988510"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203636"
 ---
 ## <a name="test-your-code"></a>Test de votre code
 
@@ -80,20 +80,20 @@ Par défaut, lorsque vous générez l’application créée par ce guide, votre 
 
 Pour restreindre les utilisateurs qui peuvent se connecter à votre application, plusieurs options sont disponibles :
 
-#### <a name="option-1-restrict-users-from-only-one-organizations-active-directory-instance-to-sign-in-to-your-application-single-tenant"></a>Option 1 : limiter la connexion à votre application aux utilisateurs de l’instance Active Directory d’une seule organisation (un seul locataire)
+#### <a name="option-1-restrict-users-from-only-one-organizations-active-directory-instance-to-sign-in-to-your-application-single-tenant"></a>Option 1 : Limiter la connexion à votre application aux utilisateurs de l’instance Active Directory d’une seule organisation (un seul locataire)
 
-Cette option est un scénario courant pour les *applications métier* : si vous souhaitez que votre application accepte les connexions uniquement à partir des comptes qui appartiennent à une instance Azure Active Directory spécifique (y compris les *comptes invités* de cette instance), procédez comme suit :
+Cette option est un scénario courant pour *applications métier*: Si vous souhaitez que votre application pour accepter les connexions uniquement à partir de comptes qui appartiennent à une instance d’Azure Active Directory spécifique (y compris *comptes invités* de cette instance de) procédez comme suit :
 
 1. Dans le fichier **web.config**, remplacez la valeur du paramètre `Tenant` de `Common` par le nom du locataire de l’organisation, par exemple `contoso.onmicrosoft.com`.
 2. Dans la classe [OWIN Startup](#configure-the-authentication-pipeline), définissez l’argument `ValidateIssuer` sur `true`.
 
-#### <a name="option-2-restrict-access-to-your-application-to-users-in-a-specific-list-of-organizations"></a>Option 2 : restreindre l’accès à votre application aux utilisateurs figurant dans une liste spécifique d’organisations
+#### <a name="option-2-restrict-access-to-your-application-to-users-in-a-specific-list-of-organizations"></a>Option 2 : Restreindre l’accès à votre application aux utilisateurs dans une liste spécifique d’organisations
 
 Vous pouvez limiter les connexions aux comptes d’utilisateurs d’une organisation Azure AD figurant dans la liste des organisations autorisées :
 1. Dans la classe [OWIN Startup](#configure-the-authentication-pipeline), définissez l’argument `ValidateIssuer` sur `true`.
 2. Définissez la valeur du paramètre `ValidIssuers` sur la liste des organisations autorisées.
 
-#### <a name="option-3-use-a-custom-method-to-validate-issuers"></a>Option 3 : utiliser une méthode personnalisée pour valider les émetteurs
+#### <a name="option-3-use-a-custom-method-to-validate-issuers"></a>Option 3 : Utiliser une méthode personnalisée pour valider les émetteurs
 
 Vous pouvez implémenter une méthode personnalisée pour valider les émetteurs à l’aide du paramètre **IssuerValidator**. Pour plus d’informations sur l’utilisation de ce paramètre, lisez cette rubrique MSDN concernant la [classe TokenValidationParameters](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx).
 

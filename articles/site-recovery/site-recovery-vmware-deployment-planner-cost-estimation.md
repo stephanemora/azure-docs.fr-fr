@@ -5,18 +5,26 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 3/14/2019
 ms.author: mayg
-ms.openlocfilehash: d1e406567b5f56f6ad08e4d276202ebf43d92534
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+ms.openlocfilehash: 8a36a80903a47bb4163666baf86ed8dac13a00de
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321486"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093835"
 ---
 # <a name="review-the-cost-estimation-report-in-the-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Consulter le rapport d’estimation des coûts dans le planificateur de déploiement Site Recovery pour la reprise d’activité de VMware sur Azure
 
 Le rapport du planificateur de déploiement fournit le résumé de l’estimation des coûts dans les feuilles [Recommandations](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations) et l’analyse des coûts détaillée dans la feuille Estimation du coût. Une analyse des coûts détaillée par machine virtuelle est proposée. 
+
+>[!Note]
+>La version actuelle de l’outil Deployment planner ne fournit pas estimation des coûts pour les machines virtuelles de réplication vers des disques gérés.
+>* Les estimations de coût de récupération d’urgence Drill sont les mêmes pour les comptes de stockage et des disques gérés, lors de la « Utilisation de disques gérés » paramètre est défini sur « Oui » sur le panneau de « Calcul et réseau ».
+>* Pour obtenir une estimation de coût annuel approximatif pour la réplication, vérifiez les paramètres suivants temporaires sur **l’Estimation des coûts** feuille :
+>    * Définir le paramètre « Durée de coût » dans **paramètres** table « Year »
+>    * Dans **Detailed analyse des coûts** de table, la valeur de la colonne « Nombre d’extractions de la récupération d’urgence dans une année » 12 et « chaque durée de récupération d’urgence (jours) » à 30 
+>    * Le coût de réplication sera similaire au coût renseigné dans le coût de stockage de colonne « R », par exemple,-récupération d’urgence par an **coût de récupération d’urgence par an** sous-section.
 
 ### <a name="cost-estimation-summary"></a>Résumé de l’estimation des coûts 
 Le graphique affiche la vue Résumé du coût estimé de la récupération d’urgence totale (DR) pour Azure de votre région cible choisie et avec la devise que vous avez spécifiée pour la génération du rapport.
@@ -106,9 +114,9 @@ Pour ajouter manuellement des machines virtuelles :
 * Redondance des données 
 * Azure Hybrid Benefit
 
-3.  Vous pouvez appliquer la même valeur à toutes les machines virtuelles du tableau en cliquant sur le bouton « Appliquer à tous » pour le nombre d’extraction de la récupération d’urgence par an, la durée de chaque extraction de la récupération d’urgence (en jours), la redondance des données et d’Azure Hybrid Use Benefit.
+1. Vous pouvez appliquer la même valeur à toutes les machines virtuelles du tableau en cliquant sur le bouton « Appliquer à tous » pour le nombre d’extraction de la récupération d’urgence par an, la durée de chaque extraction de la récupération d’urgence (en jours), la redondance des données et d’Azure Hybrid Use Benefit.
 
-4.  Cliquez sur « Recalculer le coût » pour mettre à jour le coût.
+1. Cliquez sur « Recalculer le coût » pour mettre à jour le coût.
 
 **Nom de la machine virtuelle** : nom de la machine virtuelle.
 
@@ -148,7 +156,7 @@ eastus, eastus2, westus, centralus, northcentralus, southcentralus, northeurope,
 ## <a name="supported-currencies"></a>Devises prises en charge
 Le Planificateur de déploiement Azure Site Recovery peut générer le rapport de coût avec une des devises suivantes.
 
-|Devise|NOM||Devise|NOM||Devise|NOM|
+|Devise|Nom||Devise|Nom||Devise|Nom|
 |---|---|---|---|---|---|---|---|
 |ARS|Peso argentin ($)||AUD|Dollar australien ($)||BRL|Real brésilien (R$)|
 |CAD|Dollar canadien ($)||CHF|Franc suisse (chf)||DKK|Couronne danoise (kr)|
@@ -156,7 +164,7 @@ Le Planificateur de déploiement Azure Site Recovery peut générer le rapport d
 |IDR|Roupie indonésienne (Rp)||INR|Roupie indienne (₹)||JPY|Yen japonais (¥)|
 |KRW|Won coréen (₩)||MXN|Peso mexicain (MXN$)||MYR|Ringgit malais (RM$)|
 |NOK|Couronne norvégienne (kr)||NZD|Dollar néo-zélandais ($)||RUB|Rouble russe (руб)|
-|SAR|Riyal saoudien (SR)||SEK|Couronne suédoise (kr)||TWD|Dollar taiwanais (NT$)|
+|SAR|Saudi Riyal (SR)||SEK|Couronne suédoise (kr)||TWD|Dollar taiwanais (NT$)|
 |TRY|Lire turque (TL)||USD| Dollar américain ($)||ZAR|Rand sud-africain (R)|
 
 ## <a name="next-steps"></a>Étapes suivantes

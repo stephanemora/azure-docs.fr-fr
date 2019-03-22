@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 5c2d19c6-dd40-4c4b-abd3-5c5ec0abed38
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 66c51b08884c9d7a4d522c94f7b81774ec7a8bda
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 985d41d3a00974e25c9abc4709c5bf5e662f7a50
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642000"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086035"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>Stratégies de positionnement pour les services Service Fabric
 Les stratégies de positionnement sont des règles supplémentaires qui peuvent être utilisées pour régir le positionnement des services dans certains scénarios spécifiques moins courants. Voici quelques exemples de ces scénarios :
@@ -44,6 +44,7 @@ La plupart des commandes suivantes peuvent être configurées par le biais des p
 La stratégie de positionnement **InvalidDomain** vous permet de spécifier qu’un domaine d’erreur particulier n’est pas valide pour un service spécifique. Cette stratégie garantit qu’un service particulier ne s’exécute jamais dans une zone particulière, par exemple pour des raisons de stratégie géopolitiques ou d’entreprise. Vous pouvez spécifier plusieurs domaines non valides par le biais de différentes stratégies.
 
 <center>
+
 ![Exemple de domaine non valide][Image1]
 </center>
 
@@ -64,6 +65,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 La stratégie de positionnement de domaine requise nécessite que le service se trouve uniquement dans le domaine spécifié. Vous pouvez spécifier plusieurs domaines obligatoires par le biais de différentes stratégies.
 
 <center>
+
 ![Exemple de domaine requis][Image2]
 </center>
 
@@ -85,6 +87,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 Le domaine principal préféré spécifie le domaine d’erreur dans lequel les répliquas principaux seront placés. Le domaine principal se retrouve dans ce domaine lorsque tout est normal. Si le domaine ou le réplica principal échoue ou s’arrête, le réplica principal se déplace vers un autre emplacement, idéalement dans le même domaine. Si ce nouvel emplacement ne se trouve pas dans le domaine préféré, le Cluster Resource Manager le redéplace dans le domaine préféré dès que possible. Naturellement, ce paramètre convient uniquement aux services avec état. Cette stratégie est particulièrement utile dans les clusters qui sont répartis entre plusieurs centres de données ou régions Azure, mais vous préférez que des services soient placés dans un emplacement donné. Conserver les domaines principaux à proximité de leurs utilisateurs ou d’autres services permet de réduire la latence, en particulier pour les lectures, qui sont gérées par défaut par ces domaines principaux.
 
 <center>
+
 ![Basculement et domaines principaux préférés][Image3]
 </center>
 

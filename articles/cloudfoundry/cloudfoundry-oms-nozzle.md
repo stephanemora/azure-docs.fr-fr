@@ -12,22 +12,24 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: 6f23b103f1715d567792e162d62d69f13fc08968
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 6220aebdef6970f3d5f7017e4ae48f6f409ae0ce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243873"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111461"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Deploy Azure Log Analytics for Cloud Foundry Monitoring (Déployer l’infrastructure Nozzle d’Azure Log Analytics pour surveiller le système Cloud Foundry)
 
-[Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/) est un service dans Azure. Il facilite la collecte et l’analyse de données générées depuis votre cloud et vos environnements locaux.
+[Azure Monitor](https://azure.microsoft.com/services/log-analytics/) est un service dans Azure. Il facilite la collecte et l’analyse de données générées depuis votre cloud et vos environnements locaux.
 
-L’infrastructure Nozzle de Microsoft Azure Log Analytics est un composant de Cloud Foundry, qui envoie des mesures du [compileur de fichiers log de Cloud Foundry](https://docs.cloudfoundry.org/loggregator/architecture.html) Firehose à Log Analytics. Avec l’infrastructure Nozzle, vous pouvez collecter, consulter et analyser l’intégrité et les indicateurs de performance de Cloud Foundry et ce, sur plusieurs déploiements.
+L’infrastructure Nozzle Analytique de journal (Nozzle) est un composant de Cloud Foundry (CF), qui envoie des mesures à partir de la [compileur de fichiers log Cloud Foundry](https://docs.cloudfoundry.org/loggregator/architecture.html) firehose aux journaux d’Azure Monitor. Avec l’infrastructure Nozzle, vous pouvez collecter, consulter et analyser l’intégrité et les indicateurs de performance de Cloud Foundry et ce, sur plusieurs déploiements.
 
-Dans ce document, vous allez apprendre comment déployer l’infrastructure Nozzle dans votre environnement Cloud Foundry et accéder aux données depuis la console Log Analytics.
+Dans ce document, vous allez apprendre à déployer l’infrastructure Nozzle dans votre environnement cloud Foundry et ensuite accéder aux données à partir de la console de journaux Azure Monitor.
 
-## <a name="prerequisites"></a>Prérequis
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+## <a name="prerequisites"></a>Conditions préalables
 
 Les étapes suivantes sont requises pour le déploiement de Nozzle.
 
@@ -49,15 +51,15 @@ Nozzle doit également disposer d’autorisations d’accès au compileur de fic
 
 * [Installer le client de ligne de commande UAA de Cloud Foundry](https://github.com/cloudfoundry/cf-uaac/blob/master/README.md)
 
-Avant de configurer le client de ligne de commande UAA, assurez-vous que l’infrastructure Rubygems est installée.
+Avant de configurer le client de ligne de commande UAA, assurez-vous que RubyGems est installé.
 
 ### <a name="3-create-a-log-analytics-workspace-in-azure"></a>3. Créer un espace de travail Log Analytics dans Azure
 
-Vous pouvez créer l’espace de travail Log Analytics manuellement ou à l’aide d’un modèle. Le modèle déploiera un ensemble de vues et d’alertes KPI préconfigurées pour la console Log Analytics. 
+Vous pouvez créer l’espace de travail Log Analytics manuellement ou à l’aide d’un modèle. Le modèle déploie une installation de vues préconfigurées de KPI et les alertes pour la console de journaux Azure Monitor. 
 
 #### <a name="to-create-the-workspace-manually"></a>Pour créer l’espace de travail manuellement, procédez comme suit :
 
-1. Dans le portail Azure, recherchez le logiciel Log Analytics dans la liste des services de la Place de marché Microsoft Azure, puis sélectionnez-le.
+1. Dans le portail Azure, dans la liste des services dans Azure Marketplace, puis sélectionnez les espaces de travail Analytique de journal.
 2. Cliquez sur **Créer**, puis sélectionnez des options pour les éléments suivants :
 
    * **Espace de travail Log Analytics** : saisissez un nom pour votre espace de travail.
@@ -66,15 +68,15 @@ Vous pouvez créer l’espace de travail Log Analytics manuellement ou à l’ai
    * **Emplacement** : indiquez l’emplacement.
    * **Niveau tarifaire** : sélectionnez **OK** pour terminer.
 
-Pour plus d’informations, consultez l’article [Prise en main de Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
+Pour plus d’informations, consultez [prise en main Azure Monitor journaux](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
 
 #### <a name="to-create-the-log-analytics-workspace-through-the-monitoring-template-from-azure-market-place"></a>Pour créer l’espace de travail Log Analytics par le biais du modèle de surveillance de la Place de Marché Azure :
 
 1. Ouvrez le portail Azure.
-2. Cliquez sur le signe « + » ou sur « Créer une ressource » dans le coin supérieur gauche.
-3. Tapez « Cloud Foundry » dans la fenêtre Rechercher et sélectionnez « Cloud Foundry Monitoring Solution ».
-4. La page d’accueil du modèle de solution de surveillance Cloud Foundry se charge. Cliquez sur « Créer » pour lancer le panneau de modèle.
-5. Entrez les paramètres requis :
+1. Cliquez sur le signe « + » ou sur « Créer une ressource » dans le coin supérieur gauche.
+1. Tapez « Cloud Foundry » dans la fenêtre Rechercher et sélectionnez « Cloud Foundry Monitoring Solution ».
+1. La page d’accueil du modèle de solution de surveillance Cloud Foundry se charge. Cliquez sur « Créer » pour lancer le panneau de modèle.
+1. Entrez les paramètres requis :
     * **Abonnement**: sélectionnez un abonnement Azure pour l’espace de travail Log Analytics, généralement le même que pour le déploiement de Cloud Foundry.
     * **Groupe de ressources** : sélectionnez un groupe de ressources existant ou créez-en un pour l’espace de travail Log Analytics.
     * **Emplacement du groupe de ressources** : sélectionnez l’emplacement du groupe de ressources.
@@ -82,7 +84,7 @@ Pour plus d’informations, consultez l’article [Prise en main de Log Analytic
     * **région_espace_de_travail_OMS** : sélectionnez l'emplacement de l'espace de travail.
     * **niveau_tarifaire_espace_de_travail_OMS** : sélectionnez la référence (SKU) de l’espace de travail Log Analytics. Pour plus d’informations, consultez le [Guide de tarification](https://azure.microsoft.com/pricing/details/log-analytics/).
     * **Conditions juridiques** : cliquez sur Conditions juridiques, puis sur « Créer » pour accepter les conditions juridiques.
-- Après avoir spécifié tous les paramètres, cliquez sur « Créer » pour déployer le modèle. Une fois le déploiement terminé, l’état s’affiche sous l’onglet de notification.
+1. Après avoir spécifié tous les paramètres, cliquez sur « Créer » pour déployer le modèle. Une fois le déploiement terminé, l’état s’affiche sous l’onglet de notification.
 
 
 ## <a name="deploy-the-nozzle"></a>Déployer l’infrastructure Nozzle
@@ -91,7 +93,7 @@ Il existe deux façons de déployer Nozzle : sous forme de mosaïque PCF ou en t
 
 ### <a name="deploy-the-nozzle-as-a-pcf-ops-manager-tile"></a>Déployer l’infrastructure Nozzle en tant que vignette Ops Manager sur Pivotal Cloud Foundry
 
-Suivez les étapes pour [installer et configurer l’infrastructure Nozzle Azure Log Analytics pour PCF](http://docs.pivotal.io/partners/azure-log-analytics-nozzle/installing.html). Il s’agit de l’approche simplifiée. La vignette Ops Manager PCF configurera et enverra automatiquement l’infrastructure Nozzle. 
+Suivez les étapes pour [installer et configurer l’infrastructure Nozzle Azure Log Analytics pour PCF](https://docs.pivotal.io/partners/azure-log-analytics-nozzle/installing.html). Il s’agit de l’approche simplifiée. La vignette Ops Manager PCF configurera et enverra automatiquement l’infrastructure Nozzle. 
 
 ### <a name="deploy-the-nozzle-manually-as-a-cf-application"></a>Déployer manuellement l’infrastructure Nozzle en tant qu’application Cloud Foundry
 
@@ -136,9 +138,9 @@ Vous pouvez désormais définir des variables d’environnement dans le fichier 
 ```
 OMS_WORKSPACE             : Log Analytics workspace ID: Open your Log Analytics workspace in the Azure portal, select **Advanced settings**, select **Connected Sources**, and select **Windows Servers**.
 OMS_KEY                   : OMS key: Open your Log Analytics workspace in the Azure portal, select **Advanced settings**, select **Connected Sources**, and select **Windows Servers**.
-OMS_POST_TIMEOUT          : HTTP post timeout for sending events to Log Analytics. The default is 10 seconds.
-OMS_BATCH_TIME            : Interval for posting a batch to Log Analytics. The default is 10 seconds.
-OMS_MAX_MSG_NUM_PER_BATCH : The maximum number of messages in a batch to Log Analytics. The default is 1000.
+OMS_POST_TIMEOUT          : HTTP post timeout for sending events to Azure Monitor logs. The default is 10 seconds.
+OMS_BATCH_TIME            : Interval for posting a batch to Azure Monitor logs. The default is 10 seconds.
+OMS_MAX_MSG_NUM_PER_BATCH : The maximum number of messages in a batch to Azure Monitor logs. The default is 1000.
 API_ADDR                  : The API URL of the CF environment. For more information, see the preceding section, "Sign in to your CF deployment as an admin through CF CLI."
 DOPPLER_ADDR              : Loggregator's traffic controller URL. For more information, see the preceding section, "Sign in to your CF deployment as an admin through CF CLI."
 FIREHOSE_USER             : CF user you created in the preceding section, "Create a CF user and grant required privileges." This user has firehose and Cloud Controller admin access.
@@ -148,8 +150,8 @@ SKIP_SSL_VALIDATION       : If true, allows insecure connections to the UAA and 
 CF_ENVIRONMENT            : Enter any string value for identifying logs and metrics from different CF environments.
 IDLE_TIMEOUT              : The Keep Alive duration for the firehose consumer. The default is 60 seconds.
 LOG_LEVEL                 : The logging level of the Nozzle. Valid levels are DEBUG, INFO, and ERROR.
-LOG_EVENT_COUNT           : If true, the total count of events that the Nozzle has received and sent are logged to Log Analytics as CounterEvents.
-LOG_EVENT_COUNT_INTERVAL  : The time interval of the logging event count to Log Analytics. The default is 60 seconds.
+LOG_EVENT_COUNT           : If true, the total count of events that the Nozzle has received and sent are logged to Azure Monitor logs as CounterEvents.
+LOG_EVENT_COUNT_INTERVAL  : The time interval of the logging event count to Azure Monitor logs. The default is 60 seconds.
 ```
 
 ### <a name="push-the-application-from-your-development-computer"></a>Transmettre l’application (push) depuis votre ordinateur de développement
@@ -176,7 +178,7 @@ Assurez-vous que l’application OMS Nozzle est en cours d’exécution.
 
 ## <a name="view-the-data-in-the-azure-portal"></a>Afficher les données dans le portail Azure
 
-Si vous avez déployé la solution de surveillance par le biais du modèle de la Place de Marché, accédez au portail Azure et recherchez la solution. Celle-ci se trouve dans le groupe de ressources que vous avez spécifié dans le modèle. Cliquez sur la solution et accédez à la « Console Log Analytics ». Les vues préconfigurées sont répertoriées, avec les principales métriques d’intégrité de machine virtuelle, alertes, données d’application et indicateurs de performance clés de système Cloud Foundry. 
+Si vous avez déployé la solution de surveillance par le biais du modèle de la Place de Marché, accédez au portail Azure et recherchez la solution. Celle-ci se trouve dans le groupe de ressources que vous avez spécifié dans le modèle. Cliquez sur la solution, accédez à la « journal analytique console », les vues préconfigurées sont répertoriés, avec les principaux indicateurs de performance clés système Cloud Foundry, les données d’application, les alertes et les mesures de contrôle d’intégrité des machines virtuelles. 
 
 Si vous avez créé l’espace de travail Log Analytics manuellement, suivez les étapes ci-dessous pour créer les vues et les alertes :
 
@@ -200,7 +202,7 @@ Vous pouvez [créer des alertes](https://docs.microsoft.com/azure/log-analytics/
 | Type=CF_ValueMetric_CL Origin_s=route_emitter Name_s=ConsulDownMode Value_d>0 | Nombre de résultats > 0   | Consul envoie périodiquement son état d’intégrité. 0 signifie que le système est sain, et 1 signifie que l’émetteur d’itinéraire détecte que Consul est éteint. |
 | Type=CF_CounterEvent_CL Origin_s=DopplerServer (Name_s="TruncatingBuffer.DroppedMessages" or Name_s="doppler.shedEnvelopes") Delta_d>0 | Nombre de résultats > 0 | Nombre d’écarts entre les messages déposés intentionnellement par Doppler en raison d’une régulation de flux. |
 | Type=CF_LogMessage_CL SourceType_s=LGR MessageType_s=ERR                      | Nombre de résultats > 0   | Le compileur de fichiers log envoie le message **LGR** pour signaler les problèmes liés à la connexion. Exemple de ce type de problème : lorsque la sortie du message journal est trop élevée. |
-| Type=CF_ValueMetric_CL Name_s=slowConsumerAlert                               | Nombre de résultats > 0   | Lorsque l’infrastructure Nozzle reçoit une alerte de faible consommation du compileur de fichiers log, elle envoie la valeurmétrique **SlowConsumerAlert** à Log Analytics. |
+| Type=CF_ValueMetric_CL Name_s=slowConsumerAlert                               | Nombre de résultats > 0   | Lorsque l’infrastructure Nozzle reçoit une alerte de consommation lente à partir du compileur de fichiers log, il envoie le **slowConsumerAlert** consigne des alertes de faible consommation pour Azure Monitor. |
 | Type=CF_CounterEvent_CL Job_s=nozzle Name_s=eventsLost Delta_d>0              | Nombre de résultats > 0   | Si le nombre d’écarts entre les événements perdus atteint un certain seuil, cela peut signifier que l’infrastructure Nozzle a du mal à s’exécuter. |
 
 ## <a name="scale"></a>Scale
@@ -235,7 +237,7 @@ Dans la fenêtre de l’interface CLI de Cloud Foundry, saisissez :
 cf delete <App Name> -r
 ```
 
-Les données du portail OMS ne sont pas supprimées automatiquement lorsque vous supprimez Nozzle. Elles arrivent à expiration en fonction de votre paramètre de rétention Log Analytics.
+Les données du portail OMS ne sont pas supprimées automatiquement lorsque vous supprimez Nozzle. Il arrive à expiration en fonction de votre configuration de rétention de journaux Azure Monitor.
 
 ## <a name="support-and-feedback"></a>Support et commentaires
 
@@ -243,6 +245,6 @@ L’infrastructure Nozzle d’Azure Log Analytics est open source. Envoyez vos q
 
 ## <a name="next-step"></a>Étape suivante
 
-À partir de PCF2.0, les métriques de performances de machine virtuelle sont transférées vers l’infrastructure Nozzle d’Azure Log Analytics par System Metrics Forwarder, et intégrées dans l’espace de travail Log Analytics. Vous n’avez plus besoin de l’agent Log Analytics pour les métriques de performances de machine virtuelle. Toutefois, vous pouvez toujours utiliser l’agent Log Analytics pour collecter des informations de Syslog. L’agent Log Analytics est installé en tant que composant additionnel Bosh sur vos machines virtuelles Cloud Foundry. 
+À partir de PCF2.0, les mesures de performances de machine virtuelle sont transférées à l’infrastructure nozzle d’Azure Log Analytique par le redirecteur de mesures système et intégrés à l’espace de travail Analytique de journal. Vous n’avez plus besoin de l’agent Log Analytics pour les métriques de performances de machine virtuelle. Toutefois, vous pouvez toujours utiliser l’agent Log Analytics pour collecter des informations de Syslog. L’agent Log Analytics est installé en tant que composant additionnel Bosh sur vos machines virtuelles Cloud Foundry. 
 
 Pour en savoir plus, consultez [Déployer l’agent Log Analytics sur votre déploiement Cloud Foundry](https://github.com/Azure/oms-agent-for-linux-boshrelease).

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: cf0eb7a0b9e38397034c03ef2b4310ed67c6e6dd
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: a7181c91424e1d905329eefd13f926d0b2700081
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980378"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56864972"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Comment créer une image de machine virtuelle non managée à partir d’une machine virtuelle Azure
 
@@ -41,7 +41,7 @@ Vérifiez que les rôles serveur exécutés sur la machine sont pris en charge p
 > 
 > 
 
-Vous pouvez également généraliser une machine virtuelle Linux à l’aide de `sudo waagent -deprovision+user`, puis utiliser PowerShell pour capturer la machine virtuelle. Pour plus d’informations sur l’utilisation de l’interface de ligne de commande pour capturer une machine virtuelle, consultez [Guide pratique pour généraliser et capturer une machine virtuelle Linux à l’aide de l’interface de ligne de commande Azure](../linux/capture-image.md).
+Vous pouvez également généraliser une machine virtuelle Linux à l’aide de `sudo waagent -deprovision+user`, puis utiliser PowerShell pour capturer la machine virtuelle. Pour plus d’informations sur l’utilisation de l’interface CLI pour capturer une machine virtuelle, consultez [généraliser et capturer une machine virtuelle de Linux à l’aide de l’interface CLI](../linux/capture-image.md).
 
 
 1. Connectez-vous à la machine virtuelle Windows

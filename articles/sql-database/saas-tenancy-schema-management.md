@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: 2f747eb09fd13647c4b6764ce3cc4fe72c00bcf0
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
-ms.translationtype: HT
+ms.openlocfilehash: b2aa3eb6a117bbbdcf9c4aa44161dc25ddea2f1a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054844"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081217"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Gérer le schéma dans une application SaaS à l’aide du modèle de base de données par locataire avec Azure SQL Database
  
@@ -28,7 +28,7 @@ Ce didacticiel explore deux scénarios : le déploiement de mises à jour des d
 Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-
+> 
 > * Créer un agent de travail
 > * Entraîner l’exécution de travaux T-SQL sur toutes les bases de données de locataire
 > * Mettre à jour les données de référence dans toutes les bases de données de locataire
@@ -73,7 +73,7 @@ Le script *Demo-SchemaManagement.ps1* appelle le script *Deploy-SchemaManagement
 
 ## <a name="create-a-job-to-deploy-new-reference-data-to-all-tenants"></a>Créer un travail pour déployer les nouvelles données de référence sur tous les locataires
 
-Dans l’application Wingtip Tickets, chaque base de données de locataire inclut un ensemble de types de lieux pris en charge. Chaque lieu est d’un type spécifique, qui définit le type des événements qui peuvent être hébergés et détermine l’image d’arrière-plan utilisée dans l’application. Pour que l’application prenne en charge de nouveaux types d’événements, ces données de référence doivent être mises à jour et de nouveaux types de lieux doivent être ajoutés.  Dans cet exercice, vous allez déployer une mise à jour dans toutes les bases de données de locataire afin d’ajouter deux types de lieux supplémentaires : *Motorcycle Racing* (Courses de moto) *Swimming Club* (Club de natation).
+Dans l’application Wingtip Tickets, chaque base de données de locataire inclut un ensemble de types de lieux pris en charge. Chaque lieu est d’un type spécifique, qui définit le type des événements qui peuvent être hébergés et détermine l’image d’arrière-plan utilisée dans l’application. Pour que l’application prenne en charge de nouveaux types d’événements, ces données de référence doivent être mises à jour et de nouveaux types de lieux doivent être ajoutés.  Dans cet exercice, vous déployez une mise à jour sur toutes les bases de données client pour ajouter deux types de lieux supplémentaires : *Motorcycle Racing* (Courses de moto) et *Swimming Club* (Club de natation).
 
 Tout d’abord, examinez les types de lieux inclus dans chaque base de données client. Connectez-vous à l’une des bases de données client dans SQL Server Management Studio (SSMS) et vérifiez la table VenueTypes.  Vous pouvez également interroger cette table dans l’éditeur de requêtes du portail Azure, auquel vous avez accès par la page de la base de données. 
 
@@ -86,8 +86,8 @@ Pour créer un travail, vous utilisez un ensemble de procédures stockées syst�
 
 1. Dans SSMS, connectez-vous au serveur de catalogue : *catalog-dpt-&lt;user&gt;.database.windows.net* 
 1. Dans SSMS, ouvrez le fichier ...\\Learning Modules\\Schema Management\\DeployReferenceData.sql
-1. Modifiez l’instruction : SET @wtpUser = &lt;utilisateur&gt; et remplacer la valeur de l’utilisateur utilisée lors du déploiement de l’application Wingtip Tickets SaaS Database Per Tenant
-1. Assurez-vous que vous êtes connecté à la base de données _jobagent_, puis appuyez sur **F5** pour exécuter le script
+1. Modifiez l’instruction : Définissez @wtpUser = &lt;utilisateur&gt; et remplacer la valeur utilisateur utilisée lors du déploiement de l’application Wingtip Tickets SaaS Database Per Tenant
+1. Vérifiez que vous êtes connecté à la _jobagent_ base de données, puis appuyez sur **F5** pour exécuter le script
 
 Observez les éléments suivants dans le script *DeployReferenceData.sql* :
 * **sp\_add\_target\_group** crée le nom de groupe cible DemoServerGroup.
@@ -122,12 +122,12 @@ Observez les éléments suivants dans le script _OnlineReindex.sql_ :
 Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-
+> 
 > * Créer un travail d’agent à exécuter sur des travaux T-SQL dans plusieurs bases de données
 > * Mettre à jour les données de référence dans toutes les bases de données de locataire
 > * Créer un index sur une table dans toutes les bases de données de locataire
 
-Ensuite, consultez le [didacticiel de création de rapports Ad hoc](saas-tenancy-cross-tenant-reporting.md) pour explorer l’exécution de requêtes distribuées dans les bases de données de locataire.
+Ensuite, essayez le [didacticiel sur les rapports Ad hoc](saas-tenancy-cross-tenant-reporting.md) pour Explorer l’exécution des requêtes distribuées entre les clients de bases de données.
 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2016
 ms.author: v-sharos
-ms.openlocfilehash: a99b3d7336c3dc1a1f249915d6971a49f4b69be6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: bc72da98800ef85ef14be0882ba856fbf01386b9
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109217"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872181"
 ---
 # <a name="use-storsimple-snapshot-manager-to-administer-your-storsimple-solution"></a>Utiliser le Gestionnaire d’instantanés StorSimple pour gérer votre solution StorSimple
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Présentation
 Gestionnaire d’instantanés StorSimple est un composant logiciel enfichable Microsoft Management Console (MMC) qui simplifie la protection des données et la gestion des sauvegardes dans l’environnement Microsoft Azure StorSimple. Avec le Gestionnaire d’instantanés StorSimple, vous pouvez gérer les données Microsoft Azure StorSimple hébergées dans le centre de données et dans le cloud sous forme de solution de stockage intégrée unique et réduire ainsi la complexité des processus de sauvegarde et les coûts.
 
 La console de gestion centralisée du Gestionnaire d’instantanés StorSimple vous permet de créer des copies instantanées cohérentes des données locales et du cloud. Par exemple, vous pouvez utiliser la console pour :
@@ -48,11 +48,11 @@ Vous pouvez utiliser le Gestionnaire d’instantanés StorSimple pour surveiller
 
 | SI VOUS VOULEZ FAIRE CECI... | SUIVEZ CE DIDACTICIEL... |
 |:--- |:--- |
-| En savoir plus sur le Gestionnaire d’instantanés StorSimple |[Qu’est-ce que le Gestionnaire d’instantanés StorSimple ? ](storsimple-what-is-snapshot-manager.md) |
+| En savoir plus sur le Gestionnaire d’instantanés StorSimple |[Qu’est-ce que le Gestionnaire d’instantanés StorSimple ?](storsimple-what-is-snapshot-manager.md) |
 | Installer le Gestionnaire d’instantanés StorSimple<br>Réinstallation du Gestionnaire d’instantanés StorSimple<br>Supprimer le Gestionnaire d’instantanés StorSimple |[Déployer le Gestionnaire d’instantanés StorSimple](storsimple-snapshot-manager-deployment.md) |
 | Utiliser les menus et les fonctionnalités du Gestionnaire d’instantanés StorSimple :<ul><li>Barre de menus</li><li>Barre d’outils</li><li>Volet Étendue</li><li>Volet Résultats</li><li>Volet Actions</li><li>Navigation et raccourcis clavier</li></ul> |[Interface utilisateur du Gestionnaire d’instantanés StorSimple](storsimple-use-snapshot-manager.md) |
 | Utiliser les fonctionnalités de console MMC courantes incluses dans le Gestionnaire d’instantanés StorSimple :<ul><li>Affichage</li><li>Nouvelle fenêtre à partir d’ici</li><li>Actualiser</li><li>Exporter la liste</li><li>Aide</li></ul> |[Utiliser les actions de menu de la console MMC dans le Gestionnaire d’instantanés StorSimple](storsimple-snapshot-manager-mmc-menu.md) |
-| Ajout ou remplacement d’un appareil<br>Connexion d'un appareil<br>Vérification des groupes de volumes importés<br>Actualisation des appareils connectés<br>Authentification d’un appareil<br>Affichage des détails sur l’appareil<br>Suppression de la configuration d’un appareil<br>Modification du mot de passe d’un appareil<br>Remplacement d’un appareil défaillant<br> |[Utiliser le Gestionnaire d’instantanés StorSimple pour connecter et gérer des appareils StorSimple](storsimple-snapshot-manager-manage-devices.md) |
+| Ajout ou remplacement d’un appareil<br>Connexion d'un appareil<br>Vérification des groupes de volumes importés<br>Actualisation des appareils connectés<br>Authentification d’un appareil<br>Afficher les détails sur l’appareil<br>Suppression de la configuration d’un appareil<br>Modification du mot de passe d’un appareil<br>Remplacement d’un appareil défaillant<br> |[Utiliser le Gestionnaire d’instantanés StorSimple pour connecter et gérer des appareils StorSimple](storsimple-snapshot-manager-manage-devices.md) |
 | Monter les volumes<br>Afficher des informations sur les volumes<br>Suppression d’un volume<br>Relancer l’analyse des volumes<br>Configurer et sauvegarder un volume de base<br>Configurer et sauvegarder un volume dynamique en miroir |[Utiliser le Gestionnaire d’instantanés StorSimple pour afficher et gérer les volumes](storsimple-snapshot-manager-manage-volumes.md) |
 | Afficher les groupes de volumes<br>Créer un groupe de volumes<br>Sauvegarder un groupe de volumes<br>Modifier un groupe de volumes<br>Supprimer un groupe de volumes |[Utiliser le Gestionnaire d’instantanés StorSimple pour créer et gérer des groupes de volumes](storsimple-snapshot-manager-manage-volume-groups.md) |
 | Créer une stratégie de sauvegarde <br>Modifier une stratégie de sauvegarde<br>Supprimer une stratégie de sauvegarde |[Utiliser le Gestionnaire d’instantanés StorSimple pour créer et gérer des stratégies de sauvegarde](storsimple-snapshot-manager-manage-backup-policies.md) |

@@ -2,21 +2,21 @@
 title: Utiliser Azure Database Migration Service pour surveiller l’activité de migration | Microsoft Docs
 description: Apprenez à utiliser Azure Database Migration Service pour surveiller l’activité de migration.
 services: database-migration
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 12/14/2018
-ms.openlocfilehash: a7fc48c149d488ab7860513b617b8a5806b1feb6
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 325bbee3f3d5ad5097f710cb56fe03baff97388a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53721153"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58173853"
 ---
 # <a name="monitor-migration-activity"></a>Surveiller l’activité de migration
 Dans cet article, vous allez apprendre à surveiller la progression d’une migration aux niveaux de la base de données et de la table.
@@ -93,7 +93,7 @@ La table suivante répertorie les champs sur le panneau au niveau de la base de 
     </tr>
     <tr>
       <td rowspan="1" class="duration"><strong>Durée</strong></td>
-      <td>N/A</td>
+      <td>S.O.</td>
       <td>Durée totale entre l’initialisation de l’activité de migration et la fin ou l’échec de la migration.</td>
     </tr>
      </tbody>

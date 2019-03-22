@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 61752ad9feda7ad6b8d91f1b996b68f27f24b2c6
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: ea2d51487999be2e7412e102b3381d8994e1e4c4
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821981"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295315"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Liaisons de stockage File d’attente Azure pour Azure Functions
 
@@ -160,7 +160,6 @@ module.exports = async function (context, message) {
     context.log('Node.js queue trigger function processed work item', message);
     // OR access using context.bindings.<name>
     // context.log('Node.js queue trigger function processed work item', context.bindings.myQueueItem);
-    context.log('queueTrigger =', context.bindingData.queueTrigger);
     context.log('expirationTime =', context.bindingData.expirationTime);
     context.log('insertionTime =', context.bindingData.insertionTime);
     context.log('nextVisibleTime =', context.bindingData.nextVisibleTime);
@@ -176,7 +175,7 @@ La section [utilisation](#trigger---usage) explique `myQueueItem`, qui est nomm�
 ### <a name="trigger---java-example"></a>Déclencheur - exemple Java
 
 L’exemple Java ci-après présente une fonction de déclencheur de file d’attente de stockage qui enregistre le message déclenché placé dans la file d’attente `myqueuename`.
- 
+
  ```java
  @FunctionName("queueprocessor")
  public void run(
@@ -190,7 +189,7 @@ L’exemple Java ci-après présente une fonction de déclencheur de file d’at
  ```
 
 ## <a name="trigger---attributes"></a>Déclencheur - attributs
- 
+
 Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), utilisez les attributs suivants pour configurer un déclencheur de file d’attente :
 
 * [QueueTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueTriggerAttribute.cs)
@@ -218,7 +217,7 @@ Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), util
       ....
   }
   ```
- 
+
   Pour obtenir un exemple complet, consultez [Déclencheur - exemple C#](#trigger---c-example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
@@ -253,14 +252,14 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |---------|---------|----------------------|
 |**type** | n/a| Cette propriété doit être définie sur `queueTrigger`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure.|
 |**direction**| n/a | Dans le fichier *function.json* uniquement. Cette propriété doit être définie sur `in`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure. |
-|**name** | n/a |Nom de la variable qui contient la charge utile de l’élément de file d’attente dans le code de fonction.  | 
-|**queueName** | **QueueName**| Nom de la file d’attente à interroger. | 
+|**name** | n/a |Nom de la variable qui contient la charge utile de l’élément de file d’attente dans le code de fonction.  |
+|**queueName** | **QueueName**| Nom de la file d’attente à interroger. |
 |**Connexion** | **Connection** |Nom d’un paramètre d’application comportant la chaîne de connexion de stockage à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom ici. Par exemple, si vous définissez `connection` sur « MyStorage », le runtime Functions recherche un paramètre d’application qui est nommé « AzureWebJobsMyStorage ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion de stockage par défaut dans le paramètre d’application nommé `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="trigger---usage"></a>Déclencheur - utilisation
- 
+
 Dans du code C# ou un script C#, accédez aux données du message en utilisant un paramètre de méthode comme `string paramName`. Dans Script C#, `paramName` est la valeur spécifiée dans la propriété `name` de *function.json*. Vous pouvez lier aux types suivants :
 
 * Objet : le runtime Functions désérialise une charge utile JSON dans une instance d’une classe arbitraire définie dans votre code. 
@@ -274,7 +273,7 @@ Dans JavaScript, utilisez `context.bindings.<name>` pour accéder à la charge u
 
 ## <a name="trigger---message-metadata"></a>Déclencheur - métadonnées de message
 
-Le déclencheur de file d’attente fournit plusieurs [propriétés de métadonnées](functions-triggers-bindings.md#binding-expressions---trigger-metadata). Ces propriétés peuvent être utilisées dans les expressions de liaison dans d’autres liaisons ou en tant que paramètres dans votre code. Ce sont les propriétés de la classe [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage).
+Le déclencheur de file d’attente fournit plusieurs [propriétés de métadonnées](./functions-bindings-expressions-patterns.md#trigger-metadata). Ces propriétés peuvent être utilisées dans les expressions de liaison dans d’autres liaisons ou en tant que paramètres dans votre code. Ce sont les propriétés de la classe [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage).
 
 |Propriété|Type|Description|
 |--------|----|-----------|
@@ -306,9 +305,7 @@ Le déclencheur de la file d’attente empêche automatiquement une fonction de 
 
 ## <a name="trigger---hostjson-properties"></a>Déclencheur - propriétés de host.json
 
-Le fichier [host.json](functions-host-json.md#queues) contient les paramètres qui contrôlent le comportement du déclencheur de file d’attente.
-
-[!INCLUDE [functions-host-json-queues](../../includes/functions-host-json-queues.md)]
+Le fichier [host.json](functions-host-json.md#queues) contient les paramètres qui contrôlent le comportement du déclencheur de file d’attente. Consultez le [host.json paramètres](#hostjson-settings) section pour plus d’informations concernant les paramètres disponibles.
 
 ## <a name="output"></a>Sortie
 
@@ -370,7 +367,7 @@ Voici le fichier *function.json* :
     }
   ]
 }
-``` 
+```
 
 La section [configuration](#output---configuration) décrit ces propriétés.
 
@@ -431,7 +428,7 @@ Voici le fichier *function.json* :
     }
   ]
 }
-``` 
+```
 
 La section [configuration](#output---configuration) décrit ces propriétés.
 
@@ -466,13 +463,13 @@ module.exports = function(context) {
        result.setValue(message + " has been added.");
        return message;
  }
- ```
+```
 
 Dans la [bibliothèque runtime des fonctions Java](/java/api/overview/azure/functions/runtime), utilisez l’annotation `@QueueOutput` sur les paramètres dont la valeur serait écrite dans Stockage File d’attente.  Le type de paramètre doit être `OutputBinding<T>`, où T désigne n’importe quel type Java natif d’un POJO.
 
 
 ## <a name="output---attributes"></a>Sortie - attributs
- 
+
 Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), utilisez l’attribut [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs).
 
 L’attribut s’applique à un paramètre `out` ou à la valeur de retour de la fonction. Le constructeur de l’attribut prend le nom de la file d’attente, comme illustré dans l’exemple suivant :
@@ -509,14 +506,14 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |---------|---------|----------------------|
 |**type** | n/a | Cette propriété doit être définie sur `queue`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure.|
 |**direction** | n/a | Cette propriété doit être définie sur `out`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure. |
-|**name** | n/a | Nom de la variable qui représente la file d’attente dans le code de la fonction. La valeur doit être `$return` pour faire référence à la valeur de retour de la fonction.| 
-|**queueName** |**QueueName** | Nom de la file d’attente. | 
+|**name** | n/a | Nom de la variable qui représente la file d’attente dans le code de la fonction. La valeur doit être `$return` pour faire référence à la valeur de retour de la fonction.|
+|**queueName** |**QueueName** | Nom de la file d’attente. |
 |**Connexion** | **Connection** |Nom d’un paramètre d’application comportant la chaîne de connexion de stockage à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom ici. Par exemple, si vous définissez `connection` sur « MyStorage », le runtime Functions recherche un paramètre d’application qui est nommé « AzureWebJobsMyStorage ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion de stockage par défaut dans le paramètre d’application nommé `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="output---usage"></a>Sortie - utilisation
- 
+
 En C# et Script C#, écrivez un message de file d’attente unique en utilisant un paramètre de méthode tel que `out T paramName`. Dans Script C#, `paramName` est la valeur spécifiée dans la propriété `name` de *function.json*. Vous pouvez utiliser le type de retour de la méthode au lieu d’un paramètre `out`, et `T` peut être un des types suivants :
 
 * Un objet sérialisable au format JSON
@@ -536,7 +533,7 @@ Dans les fonctions JavaScript, utilisez `context.bindings.<name>` pour accéder 
 
 ## <a name="exceptions-and-return-codes"></a>Exceptions et codes de retour
 
-| Liaison |  Informations de référence |
+| Liaison |  Référence |
 |---|---|
 | File d'attente | [Codes d’erreur de file d’attente](https://docs.microsoft.com/rest/api/storageservices/queue-service-error-codes) |
 | Objet blob, Table, File d’attente | [Codes d’erreur de stockage](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
@@ -564,16 +561,16 @@ Cette section décrit les paramètres de configuration globale disponibles pour 
         }
     }
 }
-```  
+```
 
 
 |Propriété  |Default | Description |
-|---------|---------|---------| 
-|maxPollingInterval|00:00:02|Intervalle maximal entre les interrogations de la file d’attente. Valeur minimale : 00:00:00.100 (100 ms). | 
-|visibilityTimeout|00:00:00|Intervalle de temps entre les nouvelles tentatives en cas d’échec du traitement d’un message. | 
-|batchSize|16|Le nombre de messages de file d’attente que le runtime Functions récupère simultanément et traite en parallèle. Quand le nombre de messages en cours de traitement descend à `newBatchThreshold`, le runtime obtient un autre lot et commence à traiter ces messages. Par conséquent, le nombre maximal de messages traités simultanément par fonction est `batchSize` plus `newBatchThreshold`. Cette limite s’applique séparément à chaque fonction déclenchée par une file d’attente. <br><br>Si vous souhaitez éviter les exécutions parallèles pour les messages reçus sur une file d’attente, vous pouvez définir `batchSize` sur 1. Toutefois, ce paramètre évite les opérations simultanées uniquement pendant l’exécution de votre application de fonction sur une machine virtuelle unique. Si l’application de fonction augmente la taille des instances sur plusieurs machines virtuelles, chaque machine virtuelle peut exécuter une instance de chaque fonction déclenchée par une file d’attente.<br><br>La valeur `batchSize` maximale est de 32. | 
-|maxDequeueCount|5.|Nombre de tentatives de traitement d’un message avant de le placer dans la file d’attente de messages incohérents.| 
-|newBatchThreshold|batchSize/2|Quand le nombre de messages traités simultanément passe en dessous de cette valeur, le runtime récupère un autre lot.| 
+|---------|---------|---------|
+|maxPollingInterval|00:00:02|Intervalle maximal entre les interrogations de la file d’attente. Valeur minimale : 00:00:00.100 (100 ms). |
+|visibilityTimeout|00:00:00|Intervalle de temps entre les nouvelles tentatives en cas d’échec du traitement d’un message. |
+|batchSize|16|Le nombre de messages de file d’attente que le runtime Functions récupère simultanément et traite en parallèle. Quand le nombre de messages en cours de traitement descend à `newBatchThreshold`, le runtime obtient un autre lot et commence à traiter ces messages. Par conséquent, le nombre maximal de messages traités simultanément par fonction est `batchSize` plus `newBatchThreshold`. Cette limite s’applique séparément à chaque fonction déclenchée par une file d’attente. <br><br>Si vous souhaitez éviter les exécutions parallèles pour les messages reçus sur une file d’attente, vous pouvez définir `batchSize` sur 1. Toutefois, ce paramètre évite les opérations simultanées uniquement pendant l’exécution de votre application de fonction sur une machine virtuelle unique. Si l’application de fonction augmente la taille des instances sur plusieurs machines virtuelles, chaque machine virtuelle peut exécuter une instance de chaque fonction déclenchée par une file d’attente.<br><br>La valeur `batchSize` maximale est de 32. |
+|maxDequeueCount|5.|Nombre de tentatives de traitement d’un message avant de le placer dans la file d’attente de messages incohérents.|
+|newBatchThreshold|batchSize/2|Quand le nombre de messages traités simultanément passe en dessous de cette valeur, le runtime récupère un autre lot.|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

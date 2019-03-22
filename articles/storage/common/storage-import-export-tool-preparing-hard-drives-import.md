@@ -8,24 +8,24 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 7645694e9f2b90bfbe26ac3d0747791570f32d1b
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: 777e0aac46dbffb1e491874b5889667a888aadf5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510134"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898684"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Préparation des disques durs pour un travail d’importation
 
 L’outil WAImportExport est l’outil de préparation et de réparation de disques, que vous pouvez utiliser avec le [service Microsoft Azure Import/Export](../storage-import-export-service.md). Il permet de copier les données sur des disques durs que vous allez envoyer à un centre de données Azure. Lorsqu’un travail d’importation est terminé, vous pouvez utiliser cet outil pour réparer les objets blob endommagés, manquants ou en conflit avec d’autres objets blob. Lorsque vous recevez les disques d’un travail d’exportation, vous pouvez utiliser cet outil pour réparer tous les fichiers endommagés ou manquants sur les disques. Dans cet article, nous passerons en revue l’utilisation de cet outil.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 ### <a name="requirements-for-waimportexportexe"></a>Configuration requise pour WAImportExport.exe
 
 - **Configuration de l’ordinateur**
   - Windows 7, Windows Server 2008 R2 ou système d’exploitation Windows plus récent
-  - .NET framework 4 installé. Consultez la section [Forum Aux Questions](#faq) pour savoir comment vérifier si .Net Framework est installé sur l’ordinateur.
+  - .NET framework 4 installé. Consultez [FAQ](#faq) sur la façon de vérifier si .NET Framework est installé sur l’ordinateur.
 - **Clé du compte de stockage** : vous devez avoir au moins une des clés du compte de stockage.
 
 ### <a name="preparing-disk-for-import-job"></a>Préparation de disques en vue du travail d’importation
@@ -152,12 +152,12 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset
 
 Si les données ne tiennent pas sur les disques spécifiés dans le fichier InitialDriveset, l’outil permet d’ajouter des disques supplémentaires à la même session de copie. 
 
->[!NOTE] 
->L’ID de session doit correspondre à celui de la session précédente. Le fichier journal doit correspondre à celui spécifié dans la session précédente.
->
-```
-WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<SameSessionId> /AdditionalDriveSet:<newdriveset.csv>
-```
+> [!NOTE]
+> L’ID de session doit correspondre à celui de la session précédente. Le fichier journal doit correspondre à celui spécifié dans la session précédente.
+> 
+> ```
+> WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<SameSessionId> /AdditionalDriveSet:<newdriveset.csv>
+> ```
 
 **Exemple :**
 
@@ -334,7 +334,7 @@ Pour chaque disque dur que vous préparez avec l’outil Azure Import/Export, ce
 
 Le répertoire de journaux désigne le répertoire à utiliser pour stocker les journaux détaillés et les fichiers manifestes temporaires. Si ce paramètre n’est pas spécifié, le répertoire courant est utilisé comme répertoire de journaux. Les journaux sont détaillés.
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables
 
 #### <a name="what-are-the-specifications-of-my-disk"></a>Quelles sont les caractéristiques de mon disque ?
 
@@ -365,7 +365,7 @@ Pour désactiver le module de plateforme sécurisée dans BitLocker, procédez c
 
 Toutes les versions de Microsoft .NET Framework sont installées dans le répertoire suivant : %windir%\Microsoft.NET\Framework\
 
-Accédez à cet emplacement sur l’ordinateur censé exécuter l’outil. Recherchez le répertoire dont le nom commence par « v4 ». L’absence de ce répertoire signifie que .NET 4 n’est pas installé sur votre ordinateur. Vous pouvez télécharger .Net v4 sur votre ordinateur à partir de la page [Microsoft .NET Framework 4 (programme d'installation Web)](https://www.microsoft.com/download/details.aspx?id=17851).
+Accédez à cet emplacement sur l’ordinateur censé exécuter l’outil. Recherchez le répertoire dont le nom commence par « v4 ». L’absence de ce répertoire signifie que .NET 4 n’est pas installé sur votre ordinateur. Vous pouvez télécharger le .NET 4 sur votre ordinateur à l’aide [Microsoft .NET Framework 4 (programme d’installation Web)](https://www.microsoft.com/download/details.aspx?id=17851).
 
 ### <a name="limits"></a>limites
 

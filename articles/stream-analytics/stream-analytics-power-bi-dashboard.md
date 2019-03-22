@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: d7f67015d4df20ea39c1225d52be36340b8f65d1
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: 487c142400dc2bfa6f44e17963535051af017196
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556974"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116179"
 ---
 # <a name="tutorial-stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Didacticiel : Stream Analytics et Power BI : Tableau de bord d’analytique en temps réel des données de streaming
 Azure Stream Analytics vous permet de tirer parti de [Microsoft Power BI](https://powerbi.com/), l’un des principaux outils d’analyse décisionnelle. Dans cet article, vous allez découvrir comment créer des outils d’analyse décisionnelle en utilisant Power BI comme sortie pour vos travaux Azure Stream Analytics. Vous allez également découvrir comment créer et utiliser un tableau de bord en temps réel.
@@ -24,7 +24,7 @@ Cet article est la suite du didacticiel [Détection des fraudes en temps réel](
 Vous pouvez visionner [une vidéo](https://www.youtube.com/watch?v=SGUpT-a99MA) illustrant ce scénario.
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Avant de commencer, veillez à disposer des éléments qui suivent :
 
@@ -56,16 +56,16 @@ Dans le didacticiel de détection des fraudes en temps réel, la sortie est envo
 
 7. Lorsque vous retournez dans le panneau **Nouvelle sortie**, entrez les informations suivantes :
 
-    * **Espace de travail de groupe** : Sélectionnez un espace de travail dans votre locataire Power BI où créer le jeu de données.
-    * **Nom du jeu de données** :  Entrez `sa-dataset`. Vous pouvez utiliser un autre nom. Le cas échéant, prenez-en note pour l’utiliser ultérieurement.
-    * **Nom de la table** : Entrez `fraudulent-calls`. Actuellement, une sortie Power BI des travaux Stream Analytics ne peut avoir qu’une table dans un jeu de données.
+   * **Espace de travail de groupe** : Sélectionnez un espace de travail dans votre locataire Power BI où créer le jeu de données.
+   * **Nom du jeu de données** :  Entrez `sa-dataset`. Vous pouvez utiliser un autre nom. Le cas échéant, prenez-en note pour l’utiliser ultérieurement.
+   * **Nom de la table** : Entrez `fraudulent-calls`. Actuellement, une sortie Power BI des travaux Stream Analytics ne peut avoir qu’une table dans un jeu de données.
 
-    ![Table et jeu de données de l’espace de travail Power BI](./media/stream-analytics-power-bi-dashboard/create-pbi-ouptut-with-dataset-table.png)
+     ![Table et jeu de données de l’espace de travail Power BI](./media/stream-analytics-power-bi-dashboard/create-pbi-ouptut-with-dataset-table.png)
 
-    > [!WARNING]
-    > Si Power BI dispose d’un jeu de données et d’une table portant les mêmes noms que ceux que vous spécifiez dans le travail Stream Analytics, les données existantes sont écrasées.
-    > Nous vous recommandons de ne pas créer explicitement ce jeu de données et cette table dans votre compte Power BI. Ceux-ci sont automatiquement créés au démarrage du travail Stream Analytics et lorsque celui-ci se met à injecter des sorties dans Power BI. Si la requête de travail ne retourne aucun résultat, le jeu de données et la table ne sont pas créés.
-    >
+     > [!WARNING]
+     > Si Power BI dispose d’un jeu de données et d’une table portant les mêmes noms que ceux que vous spécifiez dans le travail Stream Analytics, les données existantes sont écrasées.
+     > Nous vous recommandons de ne pas créer explicitement ce jeu de données et cette table dans votre compte Power BI. Ceux-ci sont automatiquement créés au démarrage du travail Stream Analytics et lorsque celui-ci se met à injecter des sorties dans Power BI. Si la requête de travail ne retourne aucun résultat, le jeu de données et la table ne sont pas créés.
+     >
 
 8. Cliquez sur **Créer**.
 
@@ -189,13 +189,13 @@ Le travail Stream Analytics commence par rechercher les appels frauduleux dans 
     * Ajoutez une valeur, puis sélectionnez **fraudulentcalls**.
     * Pour **Fenêtre de temps à afficher**, sélectionnez les 10 dernières minutes.
 
-    ![Créer une vignette pour le graphique en courbes dans Power BI](./media/stream-analytics-power-bi-dashboard/pbi-create-tile-line-chart.png)
+      ![Créer une vignette pour le graphique en courbes dans Power BI](./media/stream-analytics-power-bi-dashboard/pbi-create-tile-line-chart.png)
 
 9. Cliquez sur **Suivant**, ajoutez un titre et un sous-titre, puis cliquez sur **Appliquer**.
 
-    Le tableau de bord Power BI présente désormais deux vues de données sur les appels frauduleux détectés dans les données de diffusion en continu.
+     Le tableau de bord Power BI présente désormais deux vues de données sur les appels frauduleux détectés dans les données de diffusion en continu.
 
-    ![Tableau de bord Power BI complété affichant deux vignettes pour les appels frauduleux](./media/stream-analytics-power-bi-dashboard/pbi-dashboard-fraudulent-calls-finished.png)
+     ![Tableau de bord Power BI complété affichant deux vignettes pour les appels frauduleux](./media/stream-analytics-power-bi-dashboard/pbi-dashboard-fraudulent-calls-finished.png)
 
 
 ## <a name="learn-more-about-power-bi"></a>En savoir plus sur Power BI

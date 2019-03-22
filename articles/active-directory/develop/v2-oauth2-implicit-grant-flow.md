@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec47e6d52a3aef8533a3d16f0f81693b8f01f3cf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: cd0ce02a92c0a2e803866b6f070dba113c566f5d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205050"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112209"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>Protocoles v2.0 - Applications à page unique utilisant le flux implicite
 
@@ -134,7 +134,7 @@ error=access_denied
 
 La réception du jeton id_token ne suffit pas à authentifier l’utilisateur. Vous devez également valider la signature du jeton id_token et vérifier la conformité des revendications du jeton par rapport à la configuration requise de votre application. Le point de terminaison v2.0 utilise les [jetons web JSON (JWT)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) et le chiffrement de clés publiques pour signer les jetons et vérifier leur validité.
 
-Vous pouvez décider de valider l’élément `id_token` dans le code du client, mais une pratique courante consiste à envoyer l’élément `id_token` vers un serveur principal, afin d’y appliquer la validation. Une fois que vous avez validé la signature du jeton id_token, il vous faudra vérifier quelques revendications. Pour plus d’informations, consultez la page de [`id_token`référence](id-tokens.md), notamment les sections [Validation des jetons](id-tokens.md#validating-an-idtoken) et [Informations importantes sur la substitution des clés de signature](active-directory-signing-key-rollover.md). Nous vous recommandons d’utiliser une bibliothèque pour analyser et valider les jetons. Il en existe au moins une pour la plupart des langages et plateformes.
+Vous pouvez décider de valider l’élément `id_token` dans le code du client, mais une pratique courante consiste à envoyer l’élément `id_token` vers un serveur principal, afin d’y appliquer la validation. Une fois que vous avez validé la signature du jeton id_token, il vous faudra vérifier quelques revendications. Pour plus d’informations, consultez la page de [`id_token`référence](id-tokens.md), notamment les sections [Validation des jetons](id-tokens.md#validating-an-id_token) et [Informations importantes sur la substitution des clés de signature](active-directory-signing-key-rollover.md). Nous vous recommandons d’utiliser une bibliothèque pour analyser et valider les jetons. Il en existe au moins une pour la plupart des langages et plateformes.
 
 En fonction de votre scénario, vous pouvez également valider des revendications supplémentaires. Voici quelques validations courantes :
 
@@ -157,7 +157,8 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &response_type=token
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
-&scope=https%3A%2F%2Fgraph.microsoft.com%2Fuser.read&response_mode=fragment
+&scope=https%3A%2F%2Fgraph.microsoft.com%2Fuser.read 
+&response_mode=fragment
 &state=12345&nonce=678910
 &prompt=none
 &domain_hint=organizations

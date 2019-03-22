@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 962c1cff91a5ac3f52dc67c30bd2c7a4e2e22b9d
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: 8ec6a6a24629f72199d5f5afa86200acf53aba01
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631836"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58136544"
 ---
 # <a name="lucene-syntax-query-examples-for-building-advanced-queries-in-azure-search"></a>Exemples de syntaxe de requête Lucene pour créer des requêtes avancées dans Recherche Azure
 Lors de la construction de requêtes pour Recherche Azure, vous pouvez remplacer l’[analyseur de requêtes simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) par défaut par l’[analyseur de requêtes Lucene dans Recherche Azure](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), plus vaste, afin de formuler des définitions de requêtes spécialisées et avancées. 
@@ -206,7 +206,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 Essayez de spécifier l’Analyseur de requêtes Lucene dans votre code. Les liens suivants expliquent comment configurer des requêtes de recherche pour .NET et l’API REST. Ces liens utilisent la syntaxe simple par défaut. Vous devrez donc appliquer ce que vous avez appris dans cet article pour spécifier le **queryType**.
 
 * [Interroger un index Azure Search à l’aide du Kit de développement logiciel (SDK) .NET](search-query-dotnet.md)
-* [Interroger votre index Azure Search à l’aide de l’API REST](search-query-rest-api.md)
+* [Interroger votre index Azure Search à l’aide de l’API REST](search-create-index-rest-api.md)
 
 Vous trouverez des informations de référence supplémentaires sur la syntaxe et sur l’architecture de requête, ainsi que des exemples, en cliquant sur les liens suivants :
 

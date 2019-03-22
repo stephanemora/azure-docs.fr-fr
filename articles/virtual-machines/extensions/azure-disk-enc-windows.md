@@ -14,20 +14,20 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: ejarvi
-ms.openlocfilehash: 355fa90113e931fa3e21df1ccca5736622475bb3
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: 46699fb1add42d23a11234d5cd05e4a9627a91fd
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54810378"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983464"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>Azure Disk Encryption pour Windows (Microsoft.Azure.Security.AzureDiskEncryption)
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Azure Disk Encryption s’appuie sur BitLocker pour fournir un chiffrement de disque complet des machines virtuelles Azure exécutant Windows.  La solution est intégrée à Azure Key Vault, ce qui vous permet de gérer les clés de chiffrement de disque et les secrets dans votre abonnement Key Vault. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour obtenir la liste complète des conditions requises, consultez la page de [Prérequis pour Azure Disk Encryption](
 ../../security/azure-security-disk-encryption-prerequisites.md).
@@ -58,8 +58,14 @@ Azure Disk Encryption doit être connecté à Internet pour accéder à Active D
       "AADClientID": "[aadClientID]",
       "EncryptionOperation": "[encryptionOperation]",
       "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
+      
       "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
+          "KekVaultResourceId": "[keyVaultResourceID]",
+      
       "KeyVaultURL": "[keyVaultURL]",
+          "KeyVaultResourceId": "[keyVaultResourceID]",
+
+      "EncryptionOperation": "[encryptionOperation]",
       "SequenceVersion": "sequenceVersion]",
       "VolumeType": "[volumeType]"
     },
@@ -71,21 +77,23 @@ Azure Disk Encryption doit être connecté à Internet pour accéder à Active D
 
 ### <a name="property-values"></a>Valeurs de propriétés
 
-| NOM | Valeur/Exemple | Type de données |
+| Nom | Valeur/Exemple | Type de données |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.Azure.Security | chaîne |
-| Type | AzureDiskEncryptionForWindows| chaîne |
-| typeHandlerVersion | 1.0, 2.2 (VMSS) | int |
+| publisher | Microsoft.Azure.Security | string |
+| Type | AzureDiskEncryptionForWindows| string |
+| typeHandlerVersion | 1.0, 1.1, 2.2 (VMSS) | int |
 | (facultatif) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
-| (facultatif) AADClientSecret | password | chaîne |
-| (facultatif) AADClientCertificate | thumbprint | chaîne |
-| EncryptionOperation | EnableEncryption | chaîne | 
-| KeyEncryptionAlgorithm | RSA-OAEP | chaîne |
-| KeyEncryptionKeyURL | url | chaîne |
-| KeyVaultURL | url | chaîne |
-| SequenceVersion | uniqueidentifier | chaîne |
-| VolumeType | Système d’exploitation, données, tout | chaîne |
+| (facultatif) AADClientSecret | password | string |
+| (facultatif) AADClientCertificate | thumbprint | string |
+| EncryptionOperation | EnableEncryption | string | 
+| KeyEncryptionAlgorithm | RSA-OAEP, RSA1_5 | string |
+| KeyEncryptionKeyURL | url | string |
+| KeyVaultResourceId | uri de ressource | string |
+| KekVaultResourceId | uri de ressource | string |
+| KeyVaultURL | url | string |
+| SequenceVersion | uniqueidentifier | string |
+| VolumeType | Système d’exploitation, données, tout | string |
 
 ## <a name="template-deployment"></a>Déploiement de modèle
 Pour obtenir un exemple de déploiement de modèle, consultez [ Create a new encrypted Windows VM from gallery image](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image) (créer une machine virtuelle Windows chiffrée à partir de l’image de la galerie).

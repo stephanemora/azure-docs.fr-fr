@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 11/14/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ede0b7cbeee9227a7023e5c0550a951897cc43e4
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 69a3032ee96accdbafb32c96f4e9f3c89a0b3458
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821182"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539494"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Conserver le résultat d’un travail et d’une tâche dans Azure Storage avec la bibliothèque File Conventions Batch pour .NET
 
@@ -250,7 +250,7 @@ Le [code source][github_file_conventions] de la bibliothèque File Conventions e
 [nuget_manager]: https://docs.nuget.org/consume/installing-nuget
 [nuget_package]: https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files
 [portal]: https://portal.azure.com
-[storage_explorer]: http://storageexplorer.com/
+[storage_explorer]: https://storageexplorer.com/
 
 [1]: ./media/batch-task-output/task-output-01.png "Sélecteurs Saved output files (Fichiers de sortie enregistrés) et Fichiers enregistrés dans le portail"
 [2]: ./media/batch-task-output/task-output-02.png "Panneau des sorties des tâches dans le Portail Azure"

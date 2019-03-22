@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9e7683883963db2cf1911405225fcdbf289de2bb
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 177d74a54e4ab4de698cbb63091656cc8b584e2b
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187534"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010682"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Gérer Azure Analysis Services avec PowerShell
 
@@ -21,27 +21,29 @@ Cet article décrit les applets de commande PowerShell permettant d’effectuer 
 
 Les tâches de gestion de serveur telles que la création ou la suppression d’un serveur, l’interruption ou la reprise des opérations du serveur ou la modification du niveau de service utilisent les applets de commande Azure Resource Manager (ressource) et les applets de commande Analysis Services (serveur). D’autres tâches de gestion des bases de données comme l’ajout ou la suppression de membres de rôle, le traitement ou le partitionnement utilisent les applets de commande incluses dans le même module SqlServer que SQL Server Analysis Services.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="permissions"></a>Autorisations
 
 La plupart des tâches PowerShell nécessitent que vous disposiez de privilèges d’administrateur sur le serveur Analysis Services que vous gérez. Les tâches PowerShell planifiées s’exécutent sans assistance. Le compte ou le principal de service exécutant le planificateur doit disposer de privilèges d’administrateur sur le serveur Analysis Services. 
 
-Pour les opérations de serveur utilisant des applets de commande AzureRm, votre compte ou le compte exécutant Scheduler doivent également appartenir au rôle Propriétaire associé à la ressource dans le [contrôle d’accès en fonction du rôle (RBAC) d’Azure](../role-based-access-control/overview.md). 
+Pour les opérations de serveur à l’aide des applets de commande Azure PowerShell, votre compte ou le compte exécutant scheduler doit également appartenir au rôle de propriétaire de la ressource dans [contrôle d’accès en fonction du rôle (RBAC)](../role-based-access-control/overview.md). 
 
 ## <a name="resource-management-operations"></a>Opérations de gestion des ressources 
 
-Module - [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices)
+Module - [Az.AnalysisServices](/powershell/module/az.analysisservices)
 
 |Applet de commande|Description| 
 |------------|-----------------| 
-|[Get-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/get-azurermanalysisservicesserver)|Obtient les détails d’une instance de serveur.|  
-|[New-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver)|Crée une instance de serveur.|   
-|[New-AzureRmAnalysisServicesFirewallConfig](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesfirewallconfig)|Crée une nouvelle configuration de pare-feu Analysis Services.|   
-|[New-AzureRmAnalysisServicesFirewallRule](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesfirewallrule)|Crée une nouvelle règle de pare-feu Analysis Services.|   
-|[Remove-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/remove-azurermanalysisservicesserver)|Supprime une instance de serveur.|  
-|[Resume-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/resume-azurermanalysisservicesserver)|Reprend une instance de serveur.|  
-|[Suspend-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/suspend-azurermanalysisservicesserver)|Interrompt une instance de serveur.| 
-|[Set-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver)|Modifie une instance de serveur.|   
-|[Test-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/test-azurermanalysisservicesserver)|Teste l’existence d’une instance de serveur.| 
+|[Get-AzAnalysisServicesServer](/powershell/module/az.analysisservices/get-azanalysisservicesserver)|Obtient les détails d’une instance de serveur.|  
+|[New-AzAnalysisServicesServer](/powershell/module/az.analysisservices/new-azanalysisservicesserver)|Crée une instance de serveur.|   
+|[New-AzAnalysisServicesFirewallConfig](/powershell/module/az.analysisservices/new-azanalysisservicesfirewallconfig)|Crée une nouvelle configuration de pare-feu Analysis Services.|   
+|[New-AzAnalysisServicesFirewallRule](/powershell/module/az.analysisservices/new-azanalysisservicesfirewallrule)|Crée une nouvelle règle de pare-feu Analysis Services.|   
+|[Remove-AzAnalysisServicesServer](/powershell/module/az.analysisservices/remove-azanalysisservicesserver)|Supprime une instance de serveur.|  
+|[Resume-AzAnalysisServicesServer](/powershell/module/az.analysisservices/resume-azanalysisservicesserver)|Reprend une instance de serveur.|  
+|[Suspend-AzAnalysisServicesServer](/powershell/module/az.analysisservices/suspend-azanalysisservicesserver)|Interrompt une instance de serveur.| 
+|[Set-AzAnalysisServicesServer](/powershell/module/az.analysisservices/set-azanalysisservicesserver)|Modifie une instance de serveur.|   
+|[Test-AzAnalysisServicesServer](/powershell/module/az.analysisservices/test-azanalysisservicesserver)|Teste l’existence d’une instance de serveur.| 
 
 ## <a name="server-management-operations"></a>Opérations de gestion des serveurs
 
@@ -49,10 +51,10 @@ Module - [Azure.AnalysisServices](https://www.powershellgallery.com/packages/Azu
 
 |Applet de commande|Description| 
 |------------|-----------------| 
-|[Add-AzureAnalysisServicesAccount](/powershell/module/azure.analysisservices/add-azureanalysisservicesaccount)|Ajoute un compte authentifié à utiliser pour les demandes d’applet de commande du serveur Azure Analysis Services.| 
-|[Export-AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/export-azureanalysisservicesinstancelog)|Exporte un journal à partir d’une instance du serveur Analysis Services dans l’environnement actuellement connecté, spécifié dans la commande Add-AzureAnalysisServicesAccount.|  
-|[Restart-AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/restart-azureanalysisservicesinstance)|Redémarre une instance du serveur Analysis Services dans l’environnement actuellement connecté ; spécifié dans la commande Add-AzureAnalysisServicesAccount.|  
-|[Sync-AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/restart-azureanalysisservicesinstance)|Synchronise une base de données spécifiée sur l’instance donnée du serveur Analysis Services avec toutes les instances de scale-out de requête au sein de l’environnement actuellement connecté comme spécifié dans la commande Add-AzureAnalysisServicesAccount|  
+|[Add-AzAnalysisServicesAccount](/powershell/module/az.analysisservices/add-AzAnalysisServicesaccount)|Ajoute un compte authentifié à utiliser pour les demandes d’applet de commande du serveur Azure Analysis Services.| 
+|[Export-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/export-AzAnalysisServicesinstancelog)|Exporte un journal à partir d’une instance de serveur Analysis Services dans actuellement connecté dans un environnement tel que spécifié dans la commande de Add-AzAnalysisServicesAccount|  
+|[Restart-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/restart-AzAnalysisServicesinstance)|Redémarre une instance de serveur Analysis Services dans l’environnement actuellement connecté ; spécifié dans la commande de Add-AzAnalysisServicesAccount.|  
+|[Sync-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/restart-AzAnalysisServicesinstance)|Synchronise une base de données spécifiée sur l’instance spécifiée de serveur Analysis Services pour toutes les instances de montée en puissance de requête dans actuellement connecté dans un environnement tel que spécifié dans la commande de Add-AzAnalysisServicesAccount|  
 
 ## <a name="database-operations"></a>Opérations de base de données
 

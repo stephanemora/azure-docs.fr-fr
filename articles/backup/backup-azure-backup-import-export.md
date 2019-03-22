@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
-ms.openlocfilehash: 94931546f3b8ddb18a5381de3baa31d66376badb
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: b6f0ce1939b2a78ca191d2feb0140506d130b9b0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54810718"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107455"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Flux de travail de la sauvegarde hors connexion dans la sauvegarde Azure
 La sauvegarde Azure offre plusieurs fonctionnalités intégrées pour réduire les coûts de stockage et de réseau pendant les sauvegardes complètes initiales des données dans Azure. Les sauvegardes complètes initiales transfèrent généralement de grandes quantités de données et requièrent davantage de bande passante, en comparaison avec les sauvegardes suivantes qui transfèrent uniquement les données deltas/incrémentielles. Via le processus d’amorçage hors connexion, la sauvegarde Azure peut utiliser des disques pour charger les données de sauvegarde hors connexion dans Azure.
@@ -43,7 +43,7 @@ Les charges de travail ou fonctionnalités de sauvegarde Azure suivantes prennen
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
   > [!NOTE]
   > Les prérequis et le flux de travail suivants s’appliquent uniquement à une sauvegarde hors connexion des fichiers et dossiers à l’aide de [la dernière version de l’agent Microsoft Azure Recovery Services](https://aka.ms/azurebackup_agent). Pour effectuer des sauvegardes hors connexion pour des charges de travail à l’aide de System Center DPM ou du serveur de sauvegarde Azure, reportez-vous à [cet article](backup-azure-backup-server-import-export-.md). 
@@ -73,7 +73,7 @@ Cette section décrit le flux de travail de sauvegarde hors connexion qui permet
 
     ![Écran d’importation](./media/backup-azure-backup-import-export/offlinebackup_inputs.png)
 
-  Les champs sont décrits ci-dessous :
+   Les champs sont décrits ci-dessous :
 
     * **Emplacement intermédiaire** : Emplacement de stockage temporaire dans lequel la copie de sauvegarde initiale est écrite. L’emplacement intermédiaire peut être sur un partage réseau ou un ordinateur local. Si l’ordinateur de copie et l’ordinateur source sont différents, nous vous recommandons de spécifier le chemin d’accès réseau complet de l’emplacement intermédiaire.
     * **Compte de stockage Azure Resource Manager** : Nom du compte de stockage de type Resource Manager dans un abonnement Azure.
@@ -81,7 +81,7 @@ Cette section décrit le flux de travail de sauvegarde hors connexion qui permet
     * **ID d’abonnement Azure** : ID de l’abonnement Azure dans lequel le compte de stockage Azure est créé.
     * **Nom de la tâche d’importation Azure** : Nom unique utilisé par le service Azure Import et Sauvegarde Azure pour effectuer le suivi du transfert des données envoyées dans Azure à l’aide de disques. 
   
-  Renseignez les champs à l’écran et cliquez sur **Suivant**. Enregistrez *l’emplacement intermédiaire* fourni et le *Nom de la tâche d’importation Azure*. Ces informations sont nécessaires pour la préparation des disques.
+   Renseignez les champs à l’écran et cliquez sur **Suivant**. Enregistrez *l’emplacement intermédiaire* fourni et le *Nom de la tâche d’importation Azure*. Ces informations sont nécessaires pour la préparation des disques.
 
 2. Lorsque vous y êtes invité, connectez-vous à votre abonnement Azure. Vous devez vous connecter afin que le service de sauvegarde Azure puisse créer l’application Azure Active Directory et fournir les autorisations requises pour accéder au service d’importation Azure.
 
@@ -106,14 +106,14 @@ L’utilitaire *AzureOfflineBackupDiskPrep* prépare les disques SATA qui sont e
 
 1. Accédez au répertoire, puis copiez le répertoire **AzureOfflineBackupDiskPrep** vers un autre ordinateur auquel les disques SATA sont connectés. Sur l’ordinateur auquel les disques SATA sont connectés, vérifiez les points suivants :
 
-    * L’ordinateur de copie peut accéder à l’emplacement intermédiaire spécifié pour le flux de travail d’amorçage hors connexion via le même chemin d’accès réseau que celui fourni dans le flux de travail **Lancer la sauvegarde hors connexion** .
-    * BitLocker est activé sur l’ordinateur de copie.
-    * Azure PowerShell 3.7.0 est installé.
-    * Les navigateurs compatibles les plus récents (Microsoft Edge ou Internet Explorer 11) sont installés et JavaScript est activé. 
-    * L’ordinateur de copie peut accéder au portail Azure. Si nécessaire, l’ordinateur de copie peut être le même que l’ordinateur source.
+   * L’ordinateur de copie peut accéder à l’emplacement intermédiaire spécifié pour le flux de travail d’amorçage hors connexion via le même chemin d’accès réseau que celui fourni dans le flux de travail **Lancer la sauvegarde hors connexion** .
+   * BitLocker est activé sur l’ordinateur de copie.
+   * Azure PowerShell 3.7.0 est installé.
+   * Les navigateurs compatibles les plus récents (Microsoft Edge ou Internet Explorer 11) sont installés et JavaScript est activé. 
+   * L’ordinateur de copie peut accéder au portail Azure. Si nécessaire, l’ordinateur de copie peut être le même que l’ordinateur source.
     
-    > [!IMPORTANT] 
-    > Si l’ordinateur source est une machine virtuelle, vous devez utiliser un serveur physique ou un ordinateur client distinct comme ordinateur de copie.
+     > [!IMPORTANT] 
+     > Si l’ordinateur source est une machine virtuelle, vous devez utiliser un serveur physique ou un ordinateur client distinct comme ordinateur de copie.
 
 2. Ouvrez une invite de commande avec élévation de privilèges sur l’ordinateur de copie en utilisant le répertoire de l’utilitaire *AzureOfflineBackupDiskPrep* comme répertoire actuel, puis exécutez la commande suivante :
 
@@ -137,11 +137,11 @@ L’utilitaire *AzureOfflineBackupDiskPrep* prépare les disques SATA qui sont e
     L’outil commence ensuite à préparer le disque et à copier les données de sauvegarde. Vous devrez peut-être ajouter des disques supplémentaires lorsque vous y êtes invité par l’outil, au cas où le disque fourni n’aurait pas suffisamment d’espace pour les données de sauvegarde. <br/>
 
     Une fois que l’outil a été correctement exécuté, l’invite de commandes fournit trois informations :
-    1. Le ou les disques que vous avez fournis sont préparés en vue de leur envoi dans un centre de données Azure. 
-    2. Vous recevez la confirmation que votre tâche d’importation a été créée. La tâche d’importation utilise le nom que vous avez fourni.
-    3. L’outil affiche l’adresse d’expédition correspondant au centre de données Azure.
+   1. Le ou les disques que vous avez fournis sont préparés en vue de leur envoi dans un centre de données Azure. 
+   2. Vous recevez la confirmation que votre tâche d’importation a été créée. La tâche d’importation utilise le nom que vous avez fourni.
+   3. L’outil affiche l’adresse d’expédition correspondant au centre de données Azure.
 
-    ![Préparation des disques Azure terminée](./media/backup-azure-backup-import-export/console2.png)<br/>
+      ![Préparation des disques Azure terminée](./media/backup-azure-backup-import-export/console2.png)<br/>
 
 6. Une fois la commande exécutée, vous pouvez mettre à jour les informations d’expédition.
 

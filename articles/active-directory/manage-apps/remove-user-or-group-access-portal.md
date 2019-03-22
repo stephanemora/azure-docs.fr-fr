@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c622b95572a078d3f5a3e4791f959fd264eddc3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 4b72ec628e048560fbfb9da63123bbb7461811b9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182168"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074282"
 ---
 # <a name="remove-a-user-or-group-assignment-from-an-enterprise-app-in-azure-active-directory"></a>Supprimer l’affectation d’un utilisateur ou d’un groupe à une application d’entreprise dans Azure Active Directory
 Il est facile de supprimer l’affectation de l’accès à un utilisateur ou un groupe à vos applications d’entreprise dans Azure Active Directory (Azure AD). Vous devez disposer des autorisations nécessaires pour gérer l’application d’entreprise, et vous devez être l’administrateur général du répertoire.
@@ -51,7 +51,7 @@ Il est facile de supprimer l’affectation de l’accès à un utilisateur ou un
     > Vous devez installer le module AzureAD (utilisez la commande `Install-Module -Name AzureAD`). Si vous y êtes invité, installez un module NuGet ou le nouveau module Azure Active Directory V2 PowerShell, tapez O et appuyez sur Entrée.
 
 2. Exécutez `Connect-AzureAD` et connectez-vous avec un compte d’utilisateur Administrateur général.
-3. Pour affecter un utilisateur et un rôle à une application, utilisez le script suivant :
+3. Utilisez le script suivant pour supprimer un utilisateur et le rôle d’une application :
 
     ```powershell
     # Store the proper parameters
@@ -67,7 +67,7 @@ Il est facile de supprimer l’affectation de l’accès à un utilisateur ou un
     #To remove the App role assignment run the following command.
     Remove-AzureADServiceAppRoleAssignment -ObjectId $spo.ObjectId -AppRoleAssignmentId $assignments[assignment #].ObjectId
     ``` 
-## <a name="next-steps"></a>Étapes suivantes
+   ## <a name="next-steps"></a>Étapes suivantes
 
 - [Voir tous mes groupes](../fundamentals/active-directory-groups-view-azure-portal.md)
 - [Affecter un utilisateur ou un groupe à une application d’entreprise](assign-user-or-group-access-portal.md)

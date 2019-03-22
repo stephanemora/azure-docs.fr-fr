@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: e1013047bb66581e7f9d26854f2cd91655c8bd93
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: a249cf96981957de2c445079c0172b9c0c2ce543
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810080"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111886"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Utiliser la console série pour accéder au GRUB et au mode mono-utilisateur
 GRUB est l’acronyme du programme d’amorçage GRand Unified Bootloader. Un GRUB vous permet de modifier votre configuration d’amorçage, notamment pour démarrer en mode mono-utilisateur.
@@ -172,7 +172,7 @@ Vous êtes automatiquement amené dans l’interpréteur de commandes d’urgenc
 1. Recherchez la ligne du noyau qui commence par `linux`
 1. Ajoutez `systemd.unit=emergency.target` à la fin de la ligne
 1. Appuyez sur Ctrl + X pour redémarrer avec ces paramètres, puis entrez dans l’interpréteur de commandes d’urgence
-> Vous êtes amené dans l’interpréteur de commandes d’urgence avec un système de fichiers _en lecture seule_. Pour apporter des modifications à l’un des fichiers, vous devez remonter le système de fichiers avec des autorisations en lecture-écriture. Pour ce faire, entrez `mount -o remount,rw /` dans l’interpréteur de commandes
+   > Vous êtes amené dans l’interpréteur de commandes d’urgence avec un système de fichiers _en lecture seule_. Pour apporter des modifications à l’un des fichiers, vous devez remonter le système de fichiers avec des autorisations en lecture-écriture. Pour ce faire, entrez `mount -o remount,rw /` dans l’interpréteur de commandes
 
 ## <a name="access-for-oracle-linux"></a>Accès Oracle Linux
 Un peu comme Red Hat Enterprise Linux, le mode mono-utilisateur dans Oracle Linux nécessite l’activation du GRUB et de l’utilisateur racine. 

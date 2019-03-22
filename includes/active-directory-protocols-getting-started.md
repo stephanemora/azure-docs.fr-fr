@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/18/2018
 ms.author: priyamo
-ms.openlocfilehash: 4794241ccfd7adcc0795245ae0983d9069ab431e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: d97aa34f8e76a1ea49841f26534b6a5403e6b5d7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56211544"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116117"
 ---
 ## <a name="register-your-application-with-your-ad-tenant"></a>Inscrire votre application avec votre client AD
 Tout d’abord, vous devez inscrire votre application avec votre client Azure Active Directory (Azure AD). Ceci vous fournira un ID d’application pour votre application et lui permettra de recevoir des jetons.
@@ -30,7 +30,7 @@ Tout d’abord, vous devez inscrire votre application avec votre client Azure Ac
 * Cliquez sur **Inscriptions des applications**, puis sur **Nouvelle inscription d’application**.
 * Suivez les invites et créez une application. Pour ce didacticiel, il peut s’agir d’une application web ou d’une application native. Cependant, si vous souhaitez obtenir des exemples spécifiques pour les applications web ou les applications natives, consultez nos rubriques de [démarrage rapide](../articles/active-directory/develop/v1-overview.md).
   * Pour les applications web, indiquez l’**URL de connexion**, c’est-à-dire l’URL de base de votre application, à laquelle les utilisateurs peuvent se connecter, par exemple `http://localhost:12345`.
-<!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`-->
+    <!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`-->
   * Pour les applications natives, indiquez un **URI de redirection**, qui sera utilisé par Azure AD pour retourner les réponses de jeton. Entrez une valeur spécifique à votre application, par exemple, `http://MyFirstAADApp`
 * Une fois l’inscription terminée, Azure AD affecte un identificateur client unique à votre application, **l’ID d’application**. Copiez cette valeur à partir de la page de l’application, car vous en aurez besoin dans les sections suivantes.
 * Pour trouver votre application dans le portail Azure, cliquez sur **Inscriptions des applications**, puis sur **Afficher toutes les applications**.

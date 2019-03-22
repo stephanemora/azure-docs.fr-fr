@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd5d724583dd4682fb6c0b01e8ec11196936289b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 53f8ec8a6833446663d7f142deefd595eed13136
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211901"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116263"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Appels de service à service utilisant l’identité utilisateur déléguée dans le flux On-Behalf-Of
 
@@ -63,12 +63,12 @@ Inscrivez le service de niveau intermédiaire et l’application cliente dans Az
     1. En fonction du type d’application, définissez l’URL de connexion ou l’URL de redirection sur l’URL de base.
     1. Sélectionnez **Créer** pour créer l’application.
 1. Générez une clé secrète du client avant de quitter le portail Azure.
-    1. Dans le portail Azure, choisissez votre application, puis sélectionnez **Paramètres**.
-    1. Sélectionnez **Clés** dans le menu Paramètres et ajoutez une clé avec une durée de clé d’un ou deux ans.
-    1. Quand vous enregistrez cette page, le portail Azure affiche la valeur de la clé. Copiez et enregistrez la clé dans un endroit sûr.
+   1. Dans le portail Azure, choisissez votre application, puis sélectionnez **Paramètres**.
+   1. Sélectionnez **Clés** dans le menu Paramètres et ajoutez une clé avec une durée de clé d’un ou deux ans.
+   1. Quand vous enregistrez cette page, le portail Azure affiche la valeur de la clé. Copiez et enregistrez la clé dans un endroit sûr.
 
-    > [!IMPORTANT]
-    > Vous avez besoin de la clé pour configurer les paramètres de l’application dans votre implémentation. Cette valeur de clé ne sera plus affichée, et elle n’est récupérable par aucun autre moyen. Enregistrez-la dès qu’elle est visible dans le portail Azure.
+      > [!IMPORTANT]
+      > Vous avez besoin de la clé pour configurer les paramètres de l’application dans votre implémentation. Cette valeur de clé ne sera plus affichée, et elle n’est récupérable par aucun autre moyen. Enregistrez-la dès qu’elle est visible dans le portail Azure.
 
 ### <a name="register-the-client-application"></a>Inscrire l’application cliente
 

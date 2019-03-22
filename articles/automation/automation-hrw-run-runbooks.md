@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 35367a9ebc9ff09f40defd444f6ceb8ff54efe07
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: fab886de55cc524390093f7e7913c79f7af3fe78
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430282"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57858136"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Exécution de Runbooks sur un Runbook Worker hybride
 
@@ -307,12 +307,8 @@ Le runbook signé portera le nom `<runbook name>.asc`.
 
 Le runbook signé peut désormais être téléchargé dans Azure Automation et peut être exécuté en tant que runbook normal.
 
-## <a name="troubleshoot"></a>Résolution des problèmes
-
-Si l’exécution de vos runbooks ne se termine pas correctement, consultez le guide de dépannage sur les [échecs d’exécution des runbooks](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour en savoir plus sur les différentes méthodes qui peuvent être utilisées pour démarrer un Runbook, consultez [Démarrage d’un Runbook dans Azure Automation](automation-starting-a-runbook.md).
 * Pour comprendre les différentes manières d’utiliser des runbooks PowerShell dans Azure Automation à l’aide de l’éditeur de texte, consultez [Modification d’un runbook dans Azure Automation](automation-edit-textual-runbook.md)
-
+* Si l’exécution de vos runbooks ne se termine pas correctement, consultez le guide de dépannage sur les [échecs d’exécution des runbooks](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).

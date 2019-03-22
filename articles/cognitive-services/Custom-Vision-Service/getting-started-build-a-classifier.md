@@ -10,18 +10,18 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: anroth
-ms.openlocfilehash: d91d62c387fc7bcaef8b7f2cb7e8d865c882aeed
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: f2cd8f5074f815e84caaedb01335406657f29088
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445455"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088007"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Comment créer un classifieur avec Custom Vision
 
 Pour utiliser le service Vision personnalisée pour la classification d’images, vous devez d’abord créer un modèle de classifieur. Dans ce guide, vous découvrez comment créer un classifieur via le site web Vision personnalisée.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 - Un abonnement Azure valide. [Créez un compte](https://azure.microsoft.com/free/) gratuitement.
 - Un ensemble d’images avec lequel entraîner votre classifieur. Reportez-vous aux conseils ci-dessous pour le choix des images.
@@ -100,7 +100,7 @@ Pour charger un autre ensemble d’images, revenez en haut de cette section et r
 
 > [!NOTE]
 > Le service Vision personnalisée prend en charge un traitement automatique des images négatives. Par exemple, si vous générez un classifieur raisins/bananes et que vous soumettez une image de chaussure à la prédiction, il devra lui donner un score proche de 0 % aussi bien pour les raisins que pour les bananes.
-
+> 
 > À l’inverse, dans les cas où les images négatives représentent simplement une variante des images utilisées pour l’apprentissage, il est probable que le modèle les catégorise comme une classe étiquetée en raison des grandes similitudes qu’elles présentent. Par exemple, si vous avez un classifieur oranges/pamplemousses et que vous fournissez une image de clémentine, il est possible qu’il l’évalue comme étant une orange car la clémentine présente des caractéristiques similaires à l'orange. Si vos images négatives sont de cette nature, nous vous conseillons de créer une ou plusieurs balises supplémentaires (comme **Autre**) et d’étiqueter ainsi les images négatives pendant l’apprentissage pour permettre au modèle de mieux faire la distinction entre ces classes.
 
 ## <a name="train-the-classifier"></a>Former le classifieur

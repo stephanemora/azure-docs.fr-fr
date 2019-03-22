@@ -8,14 +8,17 @@ ms.topic: conceptual
 ms.date: 12/6/2016
 ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 736ff5565bb279d26e686421cc13f54a73b1c7e9
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 9da8e5fb88ff34e561b579b760973ecd23c884a3
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54461091"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312050"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Métriques courantes pour la mise à l’échelle automatique d’Azure Monitor
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 La fonction de mise à l’échelle automatique d’Azure Monitor vous permet de diminuer ou d’augmenter la taille des instances en fonction des données de télémétrie (métriques). Ce document décrit les métriques courantes que vous pouvez utiliser. Dans le portail Azure, vous pouvez choisir les métriques de la ressource à mettre à l’échelle. Toutefois, vous pouvez également choisir des métriques à partir d’une autre ressource à mettre à l’échelle.
 
 La mise à l’échelle automatique Azure Monitor s’applique uniquement aux [groupes de machines virtuelles identiques](https://azure.microsoft.com/services/virtual-machine-scale-sets/), aux [services cloud](https://azure.microsoft.com/services/cloud-services/), à [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) et aux [services de gestion des API](https://docs.microsoft.com/azure/api-management/api-management-key-concepts). Les autres services Azure utilisent des méthodes de mise à l’échelle différentes.
@@ -43,7 +46,7 @@ Lorsque vous créez une machine virtuelle dans Azure, les diagnostics sont effec
 Vous pouvez utiliser la commande suivante dans PowerShell pour générer une liste des métriques.
 
 ```
-Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
+Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
 Vous pouvez créer une alerte pour les métriques suivantes :
@@ -84,7 +87,7 @@ Lorsque vous créez une machine virtuelle dans Azure, les diagnostics sont acti
 Vous pouvez utiliser la commande suivante dans PowerShell pour générer une liste des métriques.
 
 ```
-Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
+Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
  Vous pouvez créer une alerte pour les métriques suivantes :
@@ -137,7 +140,7 @@ Vous pouvez également effectuer la mise à l’échelle en fonction des métriq
 Vous pouvez utiliser la commande suivante dans PowerShell pour générer une liste des métriques Web Apps.
 
 ```
-Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
+Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
 Ces métriques permettent d’émettre une alerte ou de procéder à un mise à l’échelle.

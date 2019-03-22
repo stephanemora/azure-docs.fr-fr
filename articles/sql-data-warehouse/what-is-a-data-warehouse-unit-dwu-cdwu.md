@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 9ce7a36f796716f48f6575b2391ac563eebf4530
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 5f6e24dfa1b5c4ea4f0748af81104edfe88ceeae
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447818"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099101"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Data Warehouse Units (DWU) et Data Warehouse Units de calcul (cDWU)
 Recommandations concernant le choix du nombre idéal de Data Warehouse Units (DWU, cDWU) pour optimiser le prix et la performance ainsi que la manière de modifier leur nombre. 
@@ -68,7 +68,7 @@ Chaque niveau de performances utilise une unité de mesure légèrement différe
 
 Les DWU et les cDWU prennent en charge la mise à l’échelle du calcul (augmentation ou réduction) et la suspension du calcul lorsque vous n’avez pas besoin d’utiliser l’entrepôt de données. Ces opérations se font toutes à la demande. Gen2 utilise un cache sur disque local sur les nœuds de calcul pour améliorer les performances. Lorsque vous mettez à l’échelle ou suspendez le système, le cache est invalidé, et une période de préchauffage du cache est nécessaire pour pouvoir bénéficier de performances optimales.  
 
-Lorsque vous augmentez les DWU, vous augmentez de façon linéaire le nombre de ressources de calcul. Gen2 offre les meilleures performances de requête et la plus grande échelle, mais à un prix d’entrée plus élevé. Il est conçu pour les entreprises en demande constante de performances élevées. Ces systèmes exploitent au maximum le cache. 
+Lorsque vous augmentez les DWU, vous augmentez de façon linéaire le nombre de ressources de calcul. Gen2 fournit les meilleures performances de requête et de la mise à l’échelle la plus élevée. Ces systèmes exploitent au maximum le cache.
 
 ### <a name="capacity-limits"></a>Limites de capacité
 Chaque serveur SQL (par exemple, myserver.database.windows.net) a un quota de [d’unités de transaction de base de données (DTU)](../sql-database/sql-database-what-is-a-dtu.md) qui autorise un nombre spécifique d’unités d’entrepôt de données. Pour plus d’informations, consultez les [limites de capacité de gestion de la charge de travail](sql-data-warehouse-service-capacity-limits.md#workload-management).
@@ -124,10 +124,13 @@ Pour modifier les DWU ou les cDWU :
 3. Cliquez sur **Enregistrer**. Un message de confirmation s’affiche. Cliquez sur **Oui** pour confirmer ou sur **Non** pour annuler.
 
 ### <a name="powershell"></a>PowerShell
-Pour modifier les DWU ou les cDWU, utilisez l’applet de commande PowerShell [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase). L'exemple suivant définit l'objectif de niveau de service sur DW1000 pour la base de données MySQLDW hébergée sur le serveur MyServer.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Pour modifier les Dwu ou les Cdwu, utilisez le [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) applet de commande PowerShell. L'exemple suivant définit l'objectif de niveau de service sur DW1000 pour la base de données MySQLDW hébergée sur le serveur MyServer.
 
 ```Powershell
-Set-AzureRmSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000"
+Set-AzSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000"
 ```
 
 Pour plus d’informations, consultez [Applets de commande PowerShell pour SQL Data Warehouse](sql-data-warehouse-reference-powershell-cmdlets.md)
@@ -183,7 +186,7 @@ FROM      sys.databases
 ;
 ```
 
-3. Envoyez la requête suivante pour vérifier l’état de l’opération.
+1. Envoyez la requête suivante pour vérifier l’état de l’opération.
 
 ```sql
 SELECT    *

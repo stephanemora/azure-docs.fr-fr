@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2018
 ms.author: rkarlin
-ms.openlocfilehash: af85600593e725f1d90d5fbb3aae2aab6dd3f367
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 658f38e32c2680e7c538147154a004359e431027
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114448"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57246744"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guide de résolution des problèmes d’Azure Security Center
 Ce guide s’adresse aux informaticiens professionnels, aux analystes de la sécurité des informations et aux administrateurs de cloud dont les entreprises utilisent Azure Security Center et qui doivent résoudre des problèmes liés à ce service.
@@ -40,7 +40,7 @@ Ce guide explique comment résoudre les problèmes liés au Centre de sécurité
 Le journal d’audit contient toutes les opérations d’écriture (PUT, POST, DELETE) effectuées sur vos ressources, mais n’inclut pas les opérations de lecture (GET).
 
 ## <a name="microsoft-monitoring-agent"></a>Microsoft Monitoring Agent
-Security Center utilise Microsoft Monitoring Agent (le même agent que celui utilisé par le service Log Analytics) pour collecter les données relatives à la sécurité sur vos machines virtuelles Azure. Une fois la collecte des données activée et l’agent installé correctement sur l’ordinateur cible, le processus suivant doit être en cours d’exécution :
+Security Center utilise Microsoft Monitoring Agent – il s’agit du même agent que celui utilisé par le service Azure Monitor – pour collecter des données de sécurité à partir de vos machines virtuelles Azure. Une fois la collecte des données activée et l’agent installé correctement sur l’ordinateur cible, le processus suivant doit être en cours d’exécution :
 
 * HealthService.exe
 
@@ -91,10 +91,10 @@ Le tableau suivant présente les ressources nécessaires pour la communication.
 
 | Ressource de l'agent | Ports | Ignorer l’inspection HTTPS |
 |---|---|---|
-| *.ods.opinsights.azure.com | 443 | OUI |
-| *.oms.opinsights.azure.com | 443 | OUI |
-| *.blob.core.windows.net | 443 | OUI |
-| *.azure-automation.net | 443 | OUI |
+| *.ods.opinsights.azure.com | 443 | Oui |
+| *.oms.opinsights.azure.com | 443 | Oui |
+| *.blob.core.windows.net | 443 | Oui |
+| *.azure-automation.net | 443 | Oui |
 
 Si vous rencontrez des problèmes d’intégration avec l’agent, lisez l’article [Comment faire pour résoudre les problèmes d’intégration de Microsoft Operations Management Suite](https://support.microsoft.com/en-us/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues).
 

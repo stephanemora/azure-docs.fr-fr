@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 7550eac600f5b504d80bcc6b5465e24e8d423d2a
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: f06dd47a519d992e52ac0010c0ae7d81870a4842
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015081"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544518"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copier des données depuis et vers Salesforce à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -37,7 +37,7 @@ Ce connecteur Salesforce prend en charge :
 
 Le connecteur Salesforce s’appuie sur l’API REST de Salesforce, avec [v39](https://developer.salesforce.com/docs/atlas.en-us.206.0.api_rest.meta/api_rest/resources_list.htm) pour copier des données à partir d’un emplacement, et [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) pour copier des données vers un emplacement.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 L’autorisation de l’API doit être activée dans Salesforce. Pour plus d’informations, consultez l’article [How do I enable API access in Salesforce by permission set?](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/) (Comment activer l’accès à l’API dans Salesforce par jeu d’autorisations ?)
 
@@ -48,7 +48,7 @@ Salesforce prend en charge un nombre limité de requêtes d’API totales et de 
 - Si le nombre de requêtes simultanées dépasse la limite autorisée, les nouvelles requêtes sont bloquées avec un risque de défaillances aléatoires.
 - Si le nombre total de requêtes dépasse la limite autorisée, le compte Salesforce est bloqué pendant 24 heures.
 
-Vous pouvez également recevoir le message d’erreur « REQUEST_LIMIT_EXCEEDED » dans les deux scénarios. Pour plus d’informations, consultez la section « API Request Limits » (Limites de requête d’API) du document [Salesforce Developer Limits](http://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) (Limites des développeurs Salesforce).
+Vous pouvez également recevoir le message d’erreur « REQUEST_LIMIT_EXCEEDED » dans les deux scénarios. Pour plus d’informations, consultez la section « API Request Limits » (Limites de requête d’API) du document [Salesforce Developer Limits](https://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) (Limites des développeurs Salesforce).
 
 ## <a name="get-started"></a>Prise en main
 
@@ -291,7 +291,7 @@ Lors de la copie des données à partir de Salesforce, vous pouvez utiliser une 
 
 | Syntaxe | Mode SOQL | Mode SQL |
 |:--- |:--- |:--- |
-| Sélection de colonnes | Besoin d’énumérer les champs à copier dans la requête, par exemple `SELECT field1, filed2 FROM objectname` | `SELECT *` est pris en charge en plus de la sélection de colonnes. |
+| Sélection de colonnes | Devez énumérer les champs à copier dans la requête, par exemple `SELECT field1, filed2 FROM objectname` | `SELECT *` est pris en charge en plus de la sélection de colonnes. |
 | Guillemets | Les noms de champ ou d’objet ne peuvent pas être mis entre guillemets. | Les noms de champ ou d’objet peuvent être mis entre guillemets, par exemple `SELECT "id" FROM "Account"` |
 | Format de date/heure |  Reportez-vous aux détails [ici](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) et aux exemples fournis dans la section suivante. | Reportez-vous aux détails [ici](https://docs.microsoft.com/sql/odbc/reference/develop-app/date-time-and-timestamp-literals?view=sql-server-2017) et aux exemples fournis dans la section suivante. |
 | Valeurs booléennes | Représentées sous la forme de `False` et `True`, par exemple `SELECT … WHERE IsDeleted=True`. | Représenté sous la forme de 0 ou de 1, par exemple `SELECT … WHERE IsDeleted=1`. |
@@ -313,15 +313,15 @@ Lorsque vous copiez des données de Salesforce, les mappages suivants sont utili
 |:--- |:--- |
 | Numérotation automatique |Chaîne |
 | Case à cocher |Booléen |
-| Devise |Décimal |
-| Date |Datetime |
-| Date/Heure |Datetime |
+| Devise |Decimal |
+| Date |DateTime |
+| Date/Heure |DateTime |
 | Email |Chaîne |
 | ID |Chaîne |
 | Relation de recherche |Chaîne |
 | Liste déroulante à sélection multiple |Chaîne |
-| Number |Décimal |
-| Pourcentage |Décimal |
+| Number |Decimal |
+| Pourcentage |Decimal |
 | Téléphone |Chaîne |
 | Liste déroulante |Chaîne |
 | Texte |Chaîne |

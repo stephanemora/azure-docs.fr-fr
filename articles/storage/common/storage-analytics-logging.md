@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: 8137e59de7ad33ea806fcc2be36bb778448c9adc
-ms.sourcegitcommit: f596d88d776a3699f8c8cf98415eb874187e2a48
+ms.openlocfilehash: ab235c67e3a0e60999a0348d03a6e938944f7030
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2019
-ms.locfileid: "58077273"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58260182"
 ---
 # <a name="azure-storage-analytics-logging"></a>Journalisation analytique du stockage Azure
 
@@ -37,7 +37,7 @@ Storage Analytics enregistre des informations détaillées sur les demandes ayan
 - Demandes à l’aide d’une Signature d’accès partagé (SAS) ou le OAuth, y compris les demandes ayant réussi et ayant échoués
 - Demandes de données d’analyse
 
-  Les demandes effectuées par Storage Analytics lui-même, telles que la création ou la suppression d'un journal, ne sont pas enregistrées. La liste complète des données enregistrées est disponible dans les rubriques [Opérations et messages d’état enregistrés Storage Analytics](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md) et [Format de journal de Storage Analytics](/rest/api/storageservices/storage-analytics-log-format.md).
+  Les demandes effectuées par Storage Analytics lui-même, telles que la création ou la suppression d'un journal, ne sont pas enregistrées. La liste complète des données enregistrées est disponible dans les rubriques [Opérations et messages d’état enregistrés Storage Analytics](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) et [Format de journal de Storage Analytics](/rest/api/storageservices/storage-analytics-log-format).
 
 ### <a name="logging-anonymous-requests"></a>Journalisation des demandes anonymes
 
@@ -48,7 +48,7 @@ Storage Analytics enregistre des informations détaillées sur les demandes ayan
 - Erreurs de délai d’expiration pour le client et serveur
 - Demandes GET ayant échoué avec le code d’erreur 304 (non modifié)
 
-  Aucune autre demande anonyme ayant échoué n'est enregistrée. La liste complète des données enregistrées est disponible dans les rubriques [Opérations et messages d’état enregistrés Storage Analytics](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md) et [Format de journal de Storage Analytics](/rest/api/storageservices/storage-analytics-log-format.md).
+  Aucune autre demande anonyme ayant échoué n'est enregistrée. La liste complète des données enregistrées est disponible dans les rubriques [Opérations et messages d’état enregistrés Storage Analytics](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) et [Format de journal de Storage Analytics](/rest/api/storageservices/storage-analytics-log-format).
 
 ## <a name="how-logs-are-stored"></a>Mode de stockage des journaux
 
@@ -200,9 +200,9 @@ AzCopy 'http://<yourstorageaccount>.blob.core.windows.net/$logs/queue'  'C:\Logs
 
  Pour obtenir un exemple montrant comment télécharger vos données de journal par programmation, consultez le blog [journalisation du stockage Windows Azure : Utilisation des journaux pour suivre les demandes de stockage](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) et recherchez le mot « DumpLogs » sur la page.  
 
- Lorsque vous avez téléchargé vos données de journal, vous pouvez afficher les entrées de journal dans les fichiers. Ces fichiers journaux emploient un format de texte délimité que de nombreux journaux lecture outils sont en mesure d’analyser, dont Microsoft Message Analyzer (pour plus d’informations, consultez le guide [surveillance, diagnostic et résolution des problèmes de Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)). D’autres outils possèdent des fonctionnalités différentes pour la mise en forme, de filtrage, de tri et la recherche de contenu de vos fichiers journaux. Pour plus d’informations sur le format de fichier journal de journalisation du stockage et le contenu, consultez [le Format de journal Analytique stockage](storage-analytics-logging.md) et [les Messages d’état et les opérations de journalisation de stockage Analytique](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md).
+ Lorsque vous avez téléchargé vos données de journal, vous pouvez afficher les entrées de journal dans les fichiers. Ces fichiers journaux emploient un format de texte délimité que de nombreux journaux lecture outils sont en mesure d’analyser, dont Microsoft Message Analyzer (pour plus d’informations, consultez le guide [surveillance, diagnostic et résolution des problèmes de Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)). D’autres outils possèdent des fonctionnalités différentes pour la mise en forme, de filtrage, de tri et la recherche de contenu de vos fichiers journaux. Pour plus d’informations sur le format de fichier journal de journalisation du stockage et le contenu, consultez [le Format de journal Analytique stockage](/rest/api/storageservices/storage-analytics-log-format) et [les Messages d’état et les opérations de journalisation de stockage Analytique](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Format du journal de l’analyse de stockage](/rest/api/storageservices/storage-analytics-log-format.md)
-* [Opérations et messages d'état enregistrés Storage Analytics](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md)
+* [Format du journal de l’analyse de stockage](/rest/api/storageservices/storage-analytics-log-format)
+* [Opérations et messages d'état enregistrés Storage Analytics](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)
 * [Métriques d’Analytique de stockage (classique)](storage-analytics-metrics.md)

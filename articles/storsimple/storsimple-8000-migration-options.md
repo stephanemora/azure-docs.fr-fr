@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/31/2019
 ms.author: alkohli
-ms.openlocfilehash: e3412e31ae976efc8164076b30ad61360a030db4
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: ea8a6d604187a25e5186d7200feba6aaab1f676a
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511936"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339451"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>Options pour migrer des données de la gamme StorSimple 5000-7000 
 
@@ -54,6 +54,10 @@ Les clients de StorSimple 5000-7000 peuvent choisir de migrer vers Panzura Freed
 #### <a name="migrate-to-cohesity"></a>Migrer vers Cohesity
 
 Cohesity vous permet de migrer des données de votre solution StorSimple 5000-7000 actuelle vers la plateforme de données Cohesity sur Azure. La plateforme de données Cohesity est une solution à définition logicielle à l’échelle du web qui consolide les fichiers, sauvegardes, objets et machines virtuelles en une seule solution native du cloud. À l’issue de la migration vers la plateforme de données, vous pouvez gérer, protéger et configurer les données et applications du cloud vers le noyau via un seul écran. Avec Cohesity, démarrez avec un minimum de trois nœuds. En savoir plus sur la [migration vers la plateforme de données Cohesity](https://info.cohesity.com/migrate-from-storsimple-to-cohesity.html).
+
+#### <a name="migrate-to-nasuni"></a>Migrer vers Nasuni
+
+Nasuni rend plus facile pour StorSimple 5000-7000 aux clients de migrer et conserver leurs données dans Azure.  Nasuni est une solution de stockage NAS basé sur Azure leader du secteur, laissant ainsi aux clients, les performances et la sécurité qu’elles attendent de solutions sur site, avec l’économie du cloud et de mise à l’échelle.  Outre le stockage de fichiers hautes performances, de sauvegarde de handle de Nasuni et Azure et de récupération d’urgence, tout en vous permettant de partager et collaborer sur vos données dans le monde entier avec la gestion du stockage centralisé des fichiers. Nasuni a l’expérience pour faciliter votre migration : commencez dès aujourd'hui : https://info.nasuni.com/nasuni-storsimple-migration
 
 ## <a name="migration---frequently-asked-questions"></a>Migration - Forum aux questions
 

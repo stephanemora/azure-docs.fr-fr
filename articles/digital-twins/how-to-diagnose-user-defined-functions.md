@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: stefanmsft
 ms.custom: seodec18
-ms.openlocfilehash: ebeed6d2a52937a6e80dfe28574ad854643fa7f2
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: 6122cd4507ed0883d1b78ca519269c25098e55ff
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119213"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961412"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Guide pratique pour utiliser des fonctions de débogage définies par l’utilisateur dans Azure Digital Twins
 
@@ -29,10 +29,10 @@ Le fait de savoir comment diagnostiquer tout problème se produisant au sein de 
 
 ### <a name="enable-log-analytics-for-your-instance"></a>Activer l’analytique des journaux pour votre instance
 
-Les journaux et les métriques de votre instance Azure Digital Twins sont affichés dans Azure Monitor. Cette documentation présuppose que vous avez créé un espace de travail [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md) via le [portail Azure](../azure-monitor/learn/quick-create-workspace.md), [Azure CLI](../azure-monitor/learn/quick-create-workspace-cli.md) ou [ PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
+Les journaux et les métriques de votre instance Azure Digital Twins sont affichés dans Azure Monitor. Cette documentation suppose que vous avez créé un [Azure Monitor enregistre](../azure-monitor/log-query/log-query-overview.md) espace de travail via le [Azure Portal](../azure-monitor/learn/quick-create-workspace.md), jusqu'à [Azure CLI](../azure-monitor/learn/quick-create-workspace-cli.md), ou via [ PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
 
 > [!NOTE]
-> Le premier envoi d’événements à Azure Log Analytics peut prendre 5 minutes.
+> Vous pouvez rencontrer un délai de 5 minutes lors de l’envoi des événements dans les journaux d’Azure Monitor pour la première fois.
 
 Pour configurer la supervision et la journalisation pour les ressources Azure Digital Twins, consultez [Guide pratique pour configurer la supervision et la journalisation](./how-to-configure-monitoring.md).
 
@@ -43,11 +43,11 @@ Pour savoir comment configurer les paramètres du journal de diagnostic dans Azu
 
 ### <a name="trace-sensor-telemetry"></a>Tracer les données de télémétrie des capteurs
 
-Pour suivre la télémétrie du capteur, vérifiez que les paramètres de diagnostic sont activés pour votre instance Azure Digital Twins. Ensuite, assurez-vous que toutes les catégories de journaux souhaitées sont sélectionnées. Enfin, vérifiez que les journaux souhaités sont envoyés à Azure Log Analytics.
+Pour suivre la télémétrie du capteur, vérifiez que les paramètres de diagnostic sont activés pour votre instance Azure Digital Twins. Ensuite, assurez-vous que toutes les catégories de journaux souhaitées sont sélectionnées. Enfin, vérifiez que les journaux de votre choix sont envoyés aux journaux d’Azure Monitor.
 
 Pour faire correspondre un message de télémétrie de capteur à ses journaux respectifs, vous pouvez spécifier un ID de corrélation sur les données d’événement envoyées. Pour ce faire, définissez la propriété `x-ms-client-request-id` sur un GUID.
 
-Après avoir envoyé les données de télémétrie, ouvrez Azure Log Analytics pour rechercher les journaux à l’aide de l’ID de corrélation défini :
+Après l’envoi des données de télémétrie, ouvrez analytique de journal pour rechercher des journaux à l’aide de l’ensemble des ID de corrélation :
 
 ```Kusto
 AzureDiagnostics
@@ -58,7 +58,7 @@ AzureDiagnostics
 | --- | --- |
 | YOUR_CORRELATION_IDENTIFIER | ID de corrélation qui a été spécifié dans les données d’événement |
 
-Si vous activez la journalisation pour votre fonction définie par l’utilisateur, les journaux correspondants apparaissent dans votre instance Azure Log Analytics avec la catégorie `UserDefinedFunction`. Pour les récupérer, entrez la condition de requête suivante dans Azure Log Analytics :
+Si vous activez la journalisation pour votre fonction définie par l’utilisateur, ces journaux apparaissent dans votre instance d’analytique de journal avec la catégorie `UserDefinedFunction`. Pour les récupérer, entrez la condition de requête suivante dans l’analytique de journal :
 
 ```Kusto
 AzureDiagnostics

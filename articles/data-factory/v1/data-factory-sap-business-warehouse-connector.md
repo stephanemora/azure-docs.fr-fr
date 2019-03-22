@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 9e972ee64d60f0fc9703e766c3ab45c3057c32a2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 1823c2ec28b342d41371eb6677e0330d7f885087
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019875"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893252"
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Déplacer des données depuis SAP Business Warehouse à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -64,13 +64,13 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 
 Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
-serveur | Nom du serveur sur lequel réside l’instance SAP BW. | chaîne | Oui
+serveur | Nom du serveur sur lequel réside l’instance SAP BW. | string | Oui
 systemNumber | Numéro de système du système SAP BW. | Nombre décimal à deux chiffres représenté sous forme de chaîne. | Oui
 clientId | ID client du client dans le système SAP W. | Nombre décimal à trois chiffres représenté sous forme de chaîne. | Oui
-username | Nom de l’utilisateur qui a accès au serveur SAP | chaîne | Oui
-password | Mot de passe pour l’utilisateur. | chaîne | Oui
-gatewayName | Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à l’instance SAP BW locale. | chaîne | Oui
-Encryptedcredential | La chaîne d’informations d’identification chiffrée. | chaîne | Non 
+username | Nom de l’utilisateur qui a accès au serveur SAP | string | Oui
+password | Mot de passe pour l’utilisateur. | string | Oui
+gatewayName | Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à l’instance SAP BW locale. | string | Oui
+Encryptedcredential | La chaîne d’informations d’identification chiffrée. | string | Non 
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
 Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Création de jeux de données](data-factory-create-datasets.md). Les sections comme la structure, la disponibilité et la stratégie d'un jeu de données JSON sont similaires pour tous les types de jeux de données (SQL Azure, Azure Blob, Azure Table, etc.).
@@ -289,29 +289,29 @@ Comme mentionné dans l’article consacré aux [activités de déplacement des 
 
 Lors du déplacement des données à partir de SAP BW, les mappages suivants sont réalisés des types SAP BW vers les types .NET.
 
-Type de données dans le dictionnaire ABAP | Type de données .Net
+Type de données dans le dictionnaire ABAP | Type de données .NET
 -------------------------------- | --------------
 ACCP |  Int
-CHAR | Chaîne
-CLNT | Chaîne
-CURR | Décimal
-CUKY | Chaîne
-DEC | Décimal
+CHAR | String
+CLNT | String
+CURR | Decimal
+CUKY | String
+DEC | Decimal
 FLTP | Double
 INT1 | Byte
 INT2 | Int16
 INT4 | Int
-LANG | Chaîne
-LCHR | Chaîne
+LANG | String
+LCHR | String
 LRAW | Byte[]
 PREC | Int16
-QUAN | Décimal
+QUAN | Decimal
 RAW | Byte[]
 RAWSTRING | Byte[]
-STRING | Chaîne
-UNITÉ | Chaîne
-DATS | Chaîne
-NUMC | Chaîne
+STRING | String
+UNITÉ | String
+DATS | String
+NUMC | String
 TIMS | Chaîne
 
 > [!NOTE]

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: subsarma
-ms.openlocfilehash: 89984335d40d7f58d39e77736c06a9ff137d7a51
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 9130fef895d4f9cd31f643b20a735c0e821923b8
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811255"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193991"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Résolution de noms des ressources dans les réseaux virtuels Azure
 
@@ -26,7 +26,7 @@ Selon la manière dont vous utilisez Azure pour héberger les solutions IaaS, Pa
 Quand des ressources déployées sur des réseaux virtuels doivent résoudre des noms de domaine en adresses IP internes, elles peuvent utiliser l’une des deux méthodes suivantes :
 
 * [Résolution de noms dans Azure](#azure-provided-name-resolution)
-* [Résolution de noms à l’aide de votre propre serveur DNS](#name-resolution-that-uses-your-own-dns-server) (qui peut rediriger les requêtes vers les serveurs DNS fournis par Azure) 
+* [Résolution de noms à l’aide de votre propre serveur DNS](#name-resolution-that-uses-your-own-dns-server) (qui peut rediriger les requêtes vers les serveurs DNS fournis par Azure)
 
 Le type de résolution de noms que vous utilisez dépend de la manière dont vos ressources doivent communiquer entre elles. Le tableau suivant montre des scénarios et les solutions de résolution de noms correspondantes :
 
@@ -52,8 +52,8 @@ Avec la résolution des noms DNS publics, Azure fournit la résolution de noms 
 
 > [!NOTE]
 > Quand vous utilisez des rôles de travail et web de services cloud, vous pouvez également accéder aux adresses IP internes des instances de rôle à l’aide de l’API REST de gestion des services Azure. Pour plus d’informations, consultez [Référence de l’API REST de gestion des services](https://msdn.microsoft.com/library/azure/ee460799.aspx). L’adresse est basée sur le nom de rôle et le numéro d’instance. 
-> 
-> 
+>
+>
 
 ### <a name="features"></a>Caractéristiques
 
@@ -104,8 +104,8 @@ Il existe plusieurs packages de mise en cache DNS différents (par exemple, dnsm
 
 > [!NOTE]
 > Le package dnsmasq constitue l’un des nombreux caches DNS disponibles pour Linux. Avant de l’utiliser, vérifiez son adéquation à vos besoins et vérifiez qu’aucun autre cache n’est installé.
-> 
-> 
+>
+>
     
 ### <a name="client-side-retries"></a>Nouvelles tentatives côté client
 
@@ -126,10 +126,10 @@ Le fichier resolv.conf est généralement généré automatiquement et ne doit p
   1. ajoutez la ligne *options* à **/etc/resolvconf/resolv.conf.d/tail**.
   2. Exécutez `resolvconf -u` pour effectuer la mise à jour.
 * **SUSE** (utilise netconf) :
-  1. Ajoutez *timeout:1 attempts:5* au paramètre **NETCONFIG_DNS_RESOLVER_OPTIONS=""** dans **/etc/sysconfig/network/config**. 
+  1. Ajoutez *timeout:1 attempts:5* au paramètre **NETCONFIG_DNS_RESOLVER_OPTIONS=""** dans **/etc/sysconfig/network/config**.
   2. Exécutez `netconfig update` pour effectuer la mise à jour.
 * **OpenLogic** (utilise NetworkManager) :
-  1. Ajoutez *echo "options timeout:1 attempts:5"* à **/etc/NetworkManager/dispatcher.d/11-dhclient**. 
+  1. Ajoutez *echo "options timeout:1 attempts:5"* à **/etc/NetworkManager/dispatcher.d/11-dhclient**.
   2. Mettez à jour avec `service network restart`.
 
 ## <a name="name-resolution-that-uses-your-own-dns-server"></a>Résolution de noms utilisant votre propre serveur DNS
@@ -145,9 +145,9 @@ Les serveurs DNS d’un réseau virtuel peuvent transférer des requêtes DNS ve
 Le transfert DNS permet aussi la résolution DNS entre réseaux virtuels et permet à vos machines locales de résoudre les noms d’hôte fournis par Azure. Pour résoudre le nom d’hôte d’une machine virtuelle, la machine virtuelle du serveur DNS doit résider dans le même réseau virtuel et être configurée pour rediriger les requêtes de nom d’hôte vers Azure. Comme le suffixe DNS est différent dans chaque réseau virtuel, vous pouvez utiliser des règles de redirection conditionnelles pour envoyer les requêtes DNS au réseau virtuel approprié en vue de la résolution. L’image suivante montre deux réseaux virtuels et un réseau local effectuant une résolution DNS entre réseaux virtuels à l’aide de cette méthode. Un exemple de redirecteur DNS est disponible dans la [Galerie de modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/301-dns-forwarder/) et sur [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/301-dns-forwarder).
 
 > [!NOTE]
-> Une instance de rôle peut résoudre les noms des machines virtuelles appartenant au même réseau virtuel. Pour cela, elle utilise le nom de domaine complet, qui est constitué du nom d’hôte de la machine virtuelle et du suffixe DNS **internal.cloudapp.net**. Toutefois, dans ce cas, la résolution de noms réussit uniquement si l’instance de rôle a le nom de la machine virtuelle défini dans le [Schéma Rôle (fichier .cscfg)](https://msdn.microsoft.com/library/azure/jj156212.aspx). 
->    <Role name="<role-name>" vmName="<vm-name>">
-> 
+> Une instance de rôle peut résoudre les noms des machines virtuelles appartenant au même réseau virtuel. Pour cela, elle utilise le nom de domaine complet, qui est constitué du nom d’hôte de la machine virtuelle et du suffixe DNS **internal.cloudapp.net**. Toutefois, dans ce cas, la résolution de noms réussit uniquement si l’instance de rôle a le nom de la machine virtuelle défini dans le [Schéma Rôle (fichier .cscfg)](https://msdn.microsoft.com/library/azure/jj156212.aspx).
+> <Role name="<role-name>" vmName="<vm-name>">
+>
 > Les instances de rôle qui doivent effectuer une résolution de noms des machines virtuelles dans un autre réseau virtuel (nom de domaine complet utilisant le suffixe **internal.cloudapp.net**) doivent le faire à l’aide de la méthode décrite dans cette section, c’est-à-dire, en transférant les serveurs DNS personnalisés entre les deux réseaux virtuels.
 >
 
@@ -157,7 +157,7 @@ Lorsque vous utilisez la résolution de noms fournie par Azure, le protocole DHC
 
 Si nécessaire, vous pouvez déterminer le suffixe DNS interne à l’aide de PowerShell ou de l’API :
 
-* Pour les réseaux virtuels des modèles de déploiement Azure Resource Manager, le suffixe est disponible via [l’API REST d’interface réseau](/rest/api/virtualnetwork/networkinterfaces), l’applet de commande PowerShell [Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface) et la commande [az network nic show](/cli/azure/network/nic#az-network-nic-show) Azure CLI.
+* Pour les réseaux virtuels dans les modèles de déploiement Azure Resource Manager, le suffixe est disponible via le [API REST d’interface réseau](https://docs.microsoft.com/rest/api/virtualnetwork/networkinterfaces), le [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) applet de commande PowerShell et le [ AZ réseau nic afficher](/cli/azure/network/nic#az-network-nic-show) commande CLI Azure.
 * Dans les modèles de déploiement classiques, le suffixe est disponible via l’appel de [l’API Get Deployment](https://msdn.microsoft.com/library/azure/ee460804.aspx) ou l’applet de commande [Get-AzureVM -Debug](/powershell/module/servicemanagement/azure/get-azurevm).
 
 Si la redirection des requêtes vers Azure ne suffit pas, vous devez fournir votre propre solution DNS. Votre solution DNS doit :
@@ -179,34 +179,35 @@ Supposons que vous ayez besoin d’effectuer la résolution des noms entre votre
 
     ![Capture d’écran de la résolution de noms dans un réseau virtuel](./media/virtual-networks-name-resolution-for-vms-and-role-instances/webapps-dns.png)
 
-Si vous devez effectuer une résolution de noms à partir de votre application web créée à l’aide d’App Service, liée à un réseau virtuel, vers des machines virtuelles dans un autre réseau virtuel, vous devez utiliser des serveurs DNS personnalisés sur les deux réseaux virtuels, comme suit : 
+Si vous devez effectuer une résolution de noms à partir de votre application web créée à l’aide d’App Service, liée à un réseau virtuel, vers des machines virtuelles dans un autre réseau virtuel, vous devez utiliser des serveurs DNS personnalisés sur les deux réseaux virtuels, comme suit :
+
 * Configurez un serveur DNS dans votre réseau virtuel cible, sur une machine virtuelle qui peut également transférer les requêtes vers le programme de résolution récursive d’Azure (adresse IP virtuelle : 168.63.129.16). Un exemple de redirecteur DNS est disponible dans la [Galerie de modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/301-dns-forwarder) et sur [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/301-dns-forwarder). 
 * Configurez un redirecteur DNS dans le réseau virtuel source sur une machine virtuelle. Configurez ce redirecteur DNS pour transférer les requêtes au serveur DNS dans votre réseau virtuel cible.
 * Configurez votre serveur DNS source dans les paramètres de votre réseau virtuel source.
 * Activez l’intégration de réseau virtuel pour votre application web afin de créer un lien vers le réseau virtuel source, en suivant les instructions de l’article [Intégrer une application à un réseau virtuel Azure](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-* Dans le portail Azure, pour le plan App Service qui héberge l’application web, sélectionnez **Synchroniser le réseau** sous **Mise en réseau**, **Intégration du réseau virtuel**. 
+* Dans le portail Azure, pour le plan App Service qui héberge l’application web, sélectionnez **Synchroniser le réseau** sous **Mise en réseau**, **Intégration du réseau virtuel**.
 
 ## <a name="specify-dns-servers"></a>Spécifier les serveurs DNS
 Lorsque vous utilisez vos propres serveurs DNS, Azure offre la possibilité de spécifier plusieurs serveurs DNS par réseau virtuel. Vous pouvez également spécifier plusieurs serveurs DNS par interface réseau (pour Azure Resource Manager) ou par service cloud (pour le modèle de déploiement classique). Les serveurs DNS spécifiés pour une interface réseau ou un service cloud ont la priorité sur les serveurs DNS spécifiés pour le réseau virtuel.
 
 > [!NOTE]
-> Les propriétés d’une connexion réseau, telles que les adresses IP des serveurs DNS, ne doivent pas être modifiées directement dans les machines virtuelles Windows. En effet, ces propriétés risquent d’être effacées pendant la réparation du service, lors du remplacement de la carte réseau virtuelle. 
-> 
-> 
+> Les propriétés d’une connexion réseau, telles que les adresses IP des serveurs DNS, ne doivent pas être modifiées directement dans les machines virtuelles Windows. En effet, ces propriétés risquent d’être effacées pendant la réparation du service, lors du remplacement de la carte réseau virtuelle.
+>
+>
 
 Quand vous utilisez le modèle de déploiement Azure Resource Manager, vous pouvez spécifier des serveurs DNS pour un réseau virtuel et une interface réseau. Pour plus d’informations, consultez [Gérer un réseau virtuel](manage-virtual-network.md) et [Gérer une interface réseau](virtual-network-network-interface.md).
 
 > [!NOTE]
 > Si vous choisissez un serveur DNS personnalisé pour votre réseau virtuel, vous devez spécifier au moins une adresse d’IP de serveur DNS, à défaut de quoi, le réseau virtuel ignorera la configuration et utilisera le DNS fourni par Azure.
-> 
-> 
+>
+>
 
 Si vous utilisez le modèle de déploiement classique, vous pouvez spécifier des serveurs DNS pour le réseau virtuel dans le portail Azure ou dans le [fichier Configuration réseau](https://msdn.microsoft.com/library/azure/jj157100). Pour les services cloud, vous pouvez spécifier des serveurs DNS via le [fichier Configuration du service](https://msdn.microsoft.com/library/azure/ee758710) ou via PowerShell avec [New-AzureVM](/powershell/module/servicemanagement/azure/new-azurevm).
 
 > [!NOTE]
 > Si vous modifiez les paramètres DNS d’un réseau virtuel ou d’une machine virtuelle déjà déployés, vous devez redémarrer l’ensemble des machines virtuelles concernées pour que les modifications prennent effet.
-> 
-> 
+>
+>
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -12,26 +12,26 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: ecdb6d7a225d3a2f2c5bbf90a36b91367faf04b0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: c168182f0b34329ed3e72e90ce86456dfbe210ca
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003344"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189850"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Comment effectuer une diffusion de vidéo en flux continu à l’aide d’Azure Media Services pour créer des flux à vitesses de transmission multiples.
 
 > [!NOTE]
 > À partir du 12 mai 2018, les canaux en direct ne prendront plus en charge le protocole de réception du flux de transport RTP/MPEG-2. Effectuez la migration à partir de RTP/MPEG-2 vers le protocole de réception RTMP ou MP4 fragmenté (Smooth Streaming).
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Dans Azure Media Services (AMS), un **canal** représente un pipeline de traitement du contenu vidéo en flux continu. Un **canal** reçoit des flux d’entrée live de l’une des deux manières suivantes :
 
 * Un encodeur live local envoie un flux à débit unique vers le canal activé pour effectuer un encodage en direct avec Media Services dans l’un des formats suivants : RTMP ou Smooth Streaming (MP4 fragmenté). Le canal procède ensuite à l’encodage en temps réel du flux à débit unique entrant en flux vidéo multidébit (adaptatif). Lorsqu’il y est invité, Media Services fournit le flux aux clients.
 * Un encodeur live local envoie au canal un paquet **RTMP** ou **Smooth Streaming** (MP4 fragmenté) à débit binaire multiple qui n’est pas activé pour effectuer un encodage live avec AMS. Les flux reçus transitent par les **canaux**sans traitement supplémentaire. Cette méthode est appelée **pass-through**. Vous pouvez utiliser les encodeurs live suivants qui produisent un flux Smooth Streaming multidébit : MediaExcel, Ateme, Imagine Communications, Envivio, Cisco et Elemental. Les encodeurs live suivants produisent un flux au format RTMP : Adobe Flash Media Live Encoder (FMLE), Telestream Wirecast, Haivision, Teradek et Tricaster.  Un encodeur live peut également envoyer un flux à débit binaire unique vers un canal qui n’est pas activé pour le Live Encoding, mais ce n’est pas recommandé. Lorsqu’il y est invité, Media Services fournit le flux aux clients.
-  
+
   > [!NOTE]
   > L’utilisation d’une méthode pass-through est le moyen le plus économique de diffuser une vidéo en flux continu.
   > 
@@ -50,7 +50,7 @@ Dans Azure Media Services (AMS), un **canal** représente un pipeline de traitem
 > 
 
 ## <a name="billing-implications"></a>Implications de facturation
-La facturation d'un canal d'encodage en temps réel commence dès que son état passe à « En cours d'exécution » via l'API.   Vous pouvez également afficher l’état dans le portail Azure ou dans l’outil Azure Media Services Explorer (http://aka.ms/amse).
+La facturation d'un canal d'encodage en temps réel commence dès que son état passe à « En cours d'exécution » via l'API.   Vous pouvez également afficher l’état dans le portail Azure ou dans l’outil Azure Media Services Explorer (https://aka.ms/amse).
 
 Le tableau suivant montre comment les états du canal sont mappés aux états de facturation dans l’API et le portail Azure. Les états sont légèrement différents entre l’API et le portail. Dès qu’un canal est dans l’état « En cours d’exécution » via l’API, ou dans l’état « Prêt » ou « Diffusion en continu » dans le portail Azure, la facturation est active.
 Pour arrêter la facturation, vous devez arrêter le canal via l’API ou dans le portail Azure.
@@ -70,7 +70,7 @@ Le tableau suivant montre comment les états du canal sont mappés au mode de fa
 | État du canal | Indicateurs de l’interface utilisateur du portail | Existe-t-il une facturation ? |
 | --- | --- | --- |
 | Démarrage en cours |Démarrage en cours |Aucun (état transitoire) |
-| Exécution en cours |Prêt (pas de programmes en cours d’exécution)<br/>or<br/>Streaming (au moins un programme en cours d’exécution) |OUI |
+| Exécution en cours |Prêt (pas de programmes en cours d’exécution)<br/>ou<br/>Streaming (au moins un programme en cours d’exécution) |OUI |
 | En cours d’arrêt |En cours d’arrêt |Aucun (état transitoire) |
 | Arrêté |Arrêté |Non  |
 
@@ -89,29 +89,27 @@ Ci-après figurent les étapes générales impliquées dans la création d’app
 
 > [!NOTE]
 > Actuellement, la durée maximale recommandée d’un événement en direct est de 8 heures. Veuillez envoyer un message à l’adresse amslived@microsoft.com si vous avez besoin d’exécuter un canal sur de plus longues périodes. Il existe un impact sur la facturation pour le codage en direct, et laisser un canal d’encodage en temps réel dans l’état « Actif » occasionne des frais de facturation horaire.  Il est recommandé d'arrêter immédiatement vos canaux en cours d'exécution une fois votre événement de diffusion en continu en temps réel terminé pour éviter des frais horaires supplémentaires. 
-> 
-> 
 
 1. Connectez une caméra vidéo à un ordinateur. Lancez et configurez un encodeur live local qui peut générer un flux à débit **unique** dans l’un des protocoles suivants : RTMP ou Smooth Streaming. 
-   
+
     Cette étape peut également être effectuée après la création du canal.
 2. Créez et démarrez un canal. 
 3. Récupérez l’URL de réception du canal. 
-   
+
     L’URL de réception est utilisée par l’encodeur dynamique pour envoyer le flux au canal.
 4. Récupérez l’URL d’aperçu du canal. 
-   
+
     Utilisez cette URL pour vérifier que votre canal reçoit correctement le flux dynamique.
 5. Créez un programme. 
-   
+
     Lors de l’utilisation du portail Azure, la création d’un programme crée également un élément multimédia. 
-   
+
     Lors de l’utilisation du Kit SDK .NET ou de REST, vous devez créer une ressource et préciser son utilisation lors de la création d’un programme. 
 6. Publiez la ressource associée au programme.   
-   
+
     >[!NOTE]
     >Une fois votre compte AMS créé, un point de terminaison de diffusion continue **par défaut** est ajouté à l’état **Arrêté**. Le point de terminaison à partir duquel vous souhaitez diffuser du contenu doit se trouver dans l’état **En cours d’exécution**. 
-    
+
 7. Démarrez le programme dès que vous êtes prêt à lancer le streaming et l’archivage.
 8. Un signal peut éventuellement être envoyé à l’encodeur dynamique pour qu’il démarre une publicité. La publicité est insérée dans le flux de sortie.
 9. Arrêtez le programme chaque fois que vous voulez arrêter la diffusion et archiver l’événement.
@@ -217,6 +215,7 @@ Notez que si vous avez besoin de paramètres prédéfinis personnalisés, contac
 **Default720p** encode la vidéo dans les 6 couches suivantes.
 
 #### <a name="output-video-stream"></a>Flux vidéo de sortie
+
 | Débit binaire | Largeur | Hauteur | IPS max. | Profil | Nom du flux de sortie |
 | --- | --- | --- | --- | --- | --- |
 | 3 500 |1 280 |720 |30 |Élevé |Video_1280x720_3500kbps |
@@ -304,7 +303,7 @@ Si le paramètre Encodage en temps réel est activé, vous pouvez désormais obt
 État actuel d’un canal. Les valeurs possibles incluent :
 
 * **Arrêté**. C’est l’état initial du canal après sa création. Dans cet état, les propriétés du canal peuvent être mises à jour, mais le streaming n’est pas autorisé.
-* **Démarrage en cours**. Le canal est en cours de démarrage. Aucune mise à jour ni aucun streaming ne sont autorisés durant cet état. Si une erreur se produit, le canal retourne à l’état Arrêté.
+* **Démarrage en cours**. Le canal est en cours de démarrage. Aucune mise à jour ni diffusion en continu n’est autorisée pendant cet état. Si une erreur se produit, le canal retourne à l’état Arrêté.
 * **Exécution en cours**. Le canal est capable de traiter des flux dynamiques.
 * **En cours d’arrêt**. Le canal est en cours d’arrêt. Aucune mise à jour ni aucun streaming ne sont autorisés durant cet état.
 * **Suppression en cours**. Le canal est en cours de suppression. Aucune mise à jour ni aucun streaming ne sont autorisés durant cet état.
@@ -314,7 +313,7 @@ Le tableau suivant montre comment les états du canal sont mappés au mode de fa
 | État du canal | Indicateurs de l’interface utilisateur du portail | Facturation ? |
 | --- | --- | --- |
 | Démarrage en cours |Démarrage en cours |Aucun (état transitoire) |
-| Exécution en cours |Prêt (pas de programmes en cours d’exécution)<br/>or<br/>Streaming (au moins un programme en cours d’exécution) |OUI |
+| Exécution en cours |Prêt (pas de programmes en cours d’exécution)<br/>ou<br/>Streaming (au moins un programme en cours d’exécution) |Oui |
 | En cours d’arrêt |En cours d’arrêt |Aucun (état transitoire) |
 | Arrêté |Arrêté |Non  |
 
@@ -357,7 +356,7 @@ Consultez les parcours d’apprentissage de Media Services.
 [Créer des canaux encodant en temps réel un flux à débit binaire unique en flux à débit binaire adaptatif avec le Kit de développement logiciel (SDK) .NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 
 [Gérer des canaux avec l’API REST](https://docs.microsoft.com/rest/api/media/operations/channel)
- 
+
 [Concepts Azure Media Services](media-services-concepts.md)
 
 [Spécification d’ingestion en direct au format MP4 fragmenté Azure Media Services](media-services-fmp4-live-ingest-overview.md)

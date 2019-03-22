@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 08/20/2018
+ms.date: 02/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: c2374bd0d67115bdc9fef2b6937f7b087bc581de
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: 71e70962a8c55d397b6261571cfef4a126d3e8b4
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076771"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57307817"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exporter la télémétrie depuis Application Insights
 Vous souhaitez conserver votre télémétrie plus longtemps que la période de rétention standard ? Ou la traiter d’une façon spécialisée ? L’exportation continue est idéale dans ce cas. Les événements que vous voyez dans le portail Application Insights peuvent être exportés vers le stockage Microsoft Azure au format JSON. À partir de là, vous pouvez télécharger vos données et écrire le code pour pouvoir les traiter.  
@@ -29,9 +29,19 @@ Avant de configurer l’exportation continue, d’autres options doivent être p
 * [Analytics](../../azure-monitor/app/analytics.md) fournit un puissant langage de requête pour la télémétrie et peut également en exporter les résultats.
 * Si vous cherchez à [explorer vos données dans Power BI](../../azure-monitor/app/export-power-bi.md ), vous pouvez le faire sans utiliser l’exportation continue.
 * [L’API REST d’accès aux données](https://dev.applicationinsights.io/) vous permet d’accéder à vos données de télémétrie par programme.
-* Vous pouvez également configurer [l’exportation continue par le biais de Powershell](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/new-azurermapplicationinsightscontinuousexport?view=azurermps-5.7.0).
+* Vous pouvez également configurer [l’exportation continue par le biais de Powershell](https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport).
 
 Une fois que l’exportation continue a copié vos données vers l’espace de stockage (où elles peuvent rester aussi longtemps que vous le souhaitez), elles restent disponibles dans Application Insights pendant la [période de rétention](../../azure-monitor/app/data-retention-privacy.md) habituelle.
+
+## <a name="continuous-export-advanced-storage-configuration"></a>Configuration de stockage avancées l’exportation continue
+
+Exportation continue **ne prend pas en charge** les fonctionnalités/configurations du stockage Azure suivantes :
+
+* Utilisation de [pare-feu de réseau virtuel/Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security) conjointement avec le stockage Blob Azure.
+
+* [Stockage immuable](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) pour stockage Blob Azure.
+
+* [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction).
 
 ## <a name="setup"></a> Créez une exportation continue.
 1. Dans la ressource Application Insights de votre application, ouvrez Exportation continue et choisissez **ajouter** :
@@ -140,7 +150,7 @@ Les durées sont exprimées en nombre de cycles, où 10 000 cycles = 1 ms. Par e
 Pour un exemple de code plus long, consultez [Utilisation d’un rôle de travail][exportasa].
 
 ## <a name="delete"></a>Supprimer les anciennes données
-Notez que vous êtes responsable de la gestion de votre capacité de stockage et de la suppression des anciennes données si nécessaire.
+Vous êtes chargé de gérer votre capacité de stockage et de supprimer les anciennes données si nécessaire.
 
 ## <a name="if-you-regenerate-your-storage-key"></a>Si vous régénérez votre clé de stockage...
 Si vous modifiez la clé de votre stockage, l’exportation continue cesse de fonctionner. Vous voyez alors une notification dans votre compte Azure.
@@ -173,7 +183,7 @@ L’exportation continue redémarre.
     Non. Pour le moment, notre moteur d’exportation fonctionne uniquement avec le stockage Azure.  
 * *Existe-t-il une limite à la quantité de données qu’il est possible de placer dans mon magasin ?*
 
-     Non. Nous transmettons les données jusqu’à ce que vous supprimiez l’exportation. Nous arrêtons si nous atteignons les limites extérieures du stockage d’objets blob, mais ceci représente un volume très important. C’est à vous de contrôler la quantité de stockage vous utilisez.  
+    Non. Nous transmettons les données jusqu’à ce que vous supprimiez l’exportation. Nous arrêtons si nous atteignons les limites extérieures du stockage d’objets blob, mais ceci représente un volume très important. C’est à vous de contrôler la quantité de stockage vous utilisez.  
 * *Combien d’objets blob devrais-je voir dans le stockage ?*
 
   * Pour chaque type de données que vous avez choisi d'exporter un objet blob est créé toutes les minutes (si les données sont disponibles).

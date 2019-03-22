@@ -2,21 +2,21 @@
 title: Migrer SQL Server vers Azure SQL Database avec Database Migration Service et PowerShell | Microsoft Docs
 description: Apprenez à migrer SQL Server local vers Azure SQL Database à l’aide d’Azure PowerShell.
 services: database-migration
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 01/15/2019
-ms.openlocfilehash: cab1e47d6d0b40fab881d7948381b6294f52546d
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.date: 03/12/2019
+ms.openlocfilehash: 7346fc55db29e3f6e8e06938a79ae054681eba51
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54303375"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58174322"
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-database-using-azure-powershell"></a>Migrer SQL Server local vers Azure SQL Database à l’aide d’Azure PowerShell
 Dans cet article, vous allez migrer la base de données **Adventureworks2012** restaurée vers une instance locale de SQL Server 2016 ou une version ultérieure ou Microsoft Azure SQL Database, à l’aide de Microsoft Azure PowerShell. Vous pouvez migrer des bases de données à partir d’une instance SQL Server locale vers Microsoft Azure SQL Database, à l’aide du module `AzureRM.DataMigration`, dans Microsoft Azure PowerShell.
@@ -28,7 +28,7 @@ Dans cet article, vous apprendrez comment :
 > * Créer un projet de migration dans une instance Azure Database Migration Service.
 > * Exécuter la migration.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Pour effectuer cette procédure, vous avez besoin de :
 
 - [SQL Server 2016 ou version ultérieure](https://www.microsoft.com/sql-server/sql-server-downloads) (toute édition)
@@ -37,7 +37,7 @@ Pour effectuer cette procédure, vous avez besoin de :
 - Une instance Azure SQL Database. Vous pouvez créer une instance Azure SQL Database en suivant les indications de l’article [Création d’une base de données SQL Azure à l’aide du portail Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
 - [Assistant Migration des données](https://www.microsoft.com/download/details.aspx?id=53595) version 3.3 ou ultérieure.
 - Avoir créé un réseau virtuel à l’aide du modèle de déploiement Azure Resource Manager, qui fournit une connectivité de site à site à Azure Database Migration Service pour vos serveurs sources locaux à l’aide [d’ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou d’un [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-- Avoir terminé l’évaluation de votre base de données locale et de la migration de schéma à l’aide de l’Assistant Migration de données, comme indiqué dans l’article [Évaluer votre migration vers SQL Server](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem).
+- Avoir terminé l’évaluation de la migration de base de données et le schéma en local à l’aide de l’Assistant de Migration de données comme décrit dans l’article [une évaluation de migration de SQL Server](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem)
 - Télécharger et installer le module AzureRM.DataMigration à partir de PowerShell Gallery en utilisant la [cmdlet PowerShell Install-Module](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1). Veillez à ouvrir la fenêtre de commande PowerShell avec l’option Exécuter en tant qu’administrateur.
 - Vous assurer que les informations d’identification utilisées pour se connecter à une instance SQL Server source disposent de l’autorisation [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql).
 - Vous assurer que les informations d’identification utilisées pour se connecter à une instance Azure SQL DB cible disposent de l’autorisation CONTROL DATABASE sur les bases de données Azure SQL Database cibles.

@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 02/19/2019
 ms.author: ramamill
-ms.openlocfilehash: 6319ef908b5b040bf61285451448c08bb3960fe2
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: d8b009d47a7fd0057c71ff3fc120a4443fc262d7
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215008"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593656"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>À propos du service Mobilité pour serveurs physiques et machines virtuelles VMware
 
@@ -50,7 +50,7 @@ Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8
 
 Si les machines que vous souhaitez répliquer ont un logiciel antivirus actif en cours d'exécution, assurez-vous d'exclure le dossier d'installation du service Mobilité des opérations antivirus (*C:\ProgramData\ASR\agent*). Cela garantit le bon fonctionnement de la réplication.
 
-## <a name="update-the-mobility-service"></a>Mettre à jour le service Mobilité
+## <a name="update-mobility-service-from-azure-portal"></a>Mettre à jour le service mobilité à partir du portail Azure
 
 1. Avant de commencer, veillez à ce que le serveur de configuration, les serveurs de processus de scale-out et les serveurs cibles maîtres qui font partie de votre déploiement soient mis à jour avant de procéder à la mise à jour du service Mobilité sur les machines protégées.
 2. Sur le portail, ouvrez le coffre > **Éléments répliqués**.
@@ -63,6 +63,14 @@ Si les machines que vous souhaitez répliquer ont un logiciel antivirus actif en
      ![Éléments répliqués - Liste des machines virtuelles](./media/vmware-azure-install-mobility-service/update-okpng.png)
 
 5. La tâche Mettre à jour le service Mobilité est alors lancée pour chacune des machines sélectionnées.
+
+## <a name="update-mobility-service-through-powershell-script-on-windows-server"></a>Mettre à jour de service de mobilité via le script powershell sur le serveur de Windows
+
+Utilisez le script pour mettre à niveau de service de mobilité sur un serveur via l’applet de commande power shell suivant
+
+```azurepowershell
+Update-AzureRmRecoveryServicesAsrMobilityService -ReplicationProtectedItem $rpi -Account $fabric.fabricSpecificDetails.RunAsAccounts[0]
+```
 
 ## <a name="update-the-account-used-for-push-installation-of-the-mobility-service"></a>Mettre à jour le compte utilisé pour l’installation Push du service Mobilité
 

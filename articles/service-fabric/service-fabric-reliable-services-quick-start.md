@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/16/2018
 ms.author: vturecek
-ms.openlocfilehash: eb0fd7e4feb28d60173b638a15dbce598f78e6bf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 26520e3ff8f5bb97866015d3148b4c8b8813b319
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182950"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58168568"
 ---
 # <a name="get-started-with-reliable-services"></a>Prise en main de Reliable Services
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ Lancez Visual Studio 2015 ou Visual Studio 2017 en tant qu’administrateur et c
 
 ![Utiliser la boîte de dialogue Nouveau projet pour créer une application Service Fabric](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
 
-Créez ensuite un projet de service sans état avec **.Net Core 2.0** nommé *HelloWorldStateless* :
+Puis créez un projet de service sans état à l’aide **.NET Core 2.0** nommé *HelloWorldStateless*:
 
 ![Dans la deuxième boîte de dialogue, créer un projet de service sans état](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject2.png)
 
@@ -127,7 +127,7 @@ Dans la même application *HelloWorld*, vous pouvez ajouter un nouveau service e
 
 ![Ajouter un service à votre application Service Fabric](media/service-fabric-reliable-services-quick-start/hello-stateful-NewService.png)
 
-Sélectionnez **.Net Core 2.0 -> Service avec état** et nommez-le *HelloWorldStateful*. Cliquez sur **OK**.
+Sélectionnez **.NET Core 2.0 -> Service avec état** et nommez-le *HelloWorldStateful*. Cliquez sur **OK**.
 
 ![Utiliser la boîte de dialogue Nouveau projet pour créer un service avec état Service Fabric](media/service-fabric-reliable-services-quick-start/hello-stateful-NewProject.png)
 

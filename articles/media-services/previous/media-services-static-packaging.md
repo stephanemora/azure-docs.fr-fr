@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 80c9f1c7e2bec3e3f3fa696134a23f0760598a29
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 56f1f04ea300ae628abb1200203873ee4ffb1af1
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001134"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294176"
 ---
 # <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>Utilisation d'Azure Media Packager pour effectuer des tâches d'empaquetage statique  
 > [!NOTE]
@@ -27,7 +27,7 @@ ms.locfileid: "56001134"
 > 
 > 
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Pour fournir une vidéo numérique sur Internet, vous devez compresser le contenu multimédia. Les fichiers vidéo numériques sont volumineux et peuvent être trop importants pour être fournis sur Internet ou pour que les appareils de vos clients les affichent correctement. L’encodage est le processus de compression audio et vidéo permettant à vos clients d’afficher votre contenu multimédia. Une fois qu'une vidéo a été encodée, elle peut être placée dans différents conteneurs de fichiers. Le processus destiné à placer des médias encodés dans un conteneur s'appelle « empaquetage ». Par exemple, vous pouvez prendre un fichier MP4 et le convertir en contenu Smooth Streaming ou HLS à l'aide d'Azure Media Packager. 
 
 Media Services prend en charge l'empaquetage dynamique et statique. Lorsque vous utilisez l'empaquetage statique, vous devez créer une copie de votre contenu dans chaque format requis par vos clients. Avec l'empaquetage dynamique, il vous suffit de créer un élément contenant un ensemble de fichiers MP4 ou de fichiers Smooth Streaming à débit adaptatif. Ensuite, en fonction du format spécifié dans le manifeste ou la demande de fragment, le serveur de streaming à la demande s'assure que vos utilisateurs reçoivent le flux conforme au protocole choisi. Par conséquent, il vous suffit de stocker et de payer les fichiers dans un seul format de stockage. Le service Media Services se charge de créer et de fournir la réponse appropriée en fonction des demandes des clients.
@@ -61,7 +61,7 @@ Pour valider vos fichiers MP4 avec Media Services Packager, vous devez créer 
 
 ```xml
     <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-    <smil xmlns="http://www.w3.org/2001/SMIL20/Language">
+    <smil xmlns="https://www.w3.org/2001/SMIL20/Language">
       <head>
     <!-- Tells the server that these input files are MP4s – specific to Dynamic Packaging -->
         <meta name="formats" content="mp4" /> 
@@ -612,7 +612,7 @@ L'exemple définit la méthode UpdatePlayReadyConfigurationXMLFile que vous pouv
                 // Note that the configuration defined in MediaEncryptor_PlayReadyProtection.xml
                 // is using keySeedValue. It is recommended that you do this only for testing 
                 // and not in production. For more information, see 
-                // http://msdn.microsoft.com/library/windowsazure/dn189154.aspx.
+                // https://msdn.microsoft.com/library/windowsazure/dn189154.aspx.
                 //
                 string configPlayReady = File.ReadAllText(Path.Combine(_configurationXMLFiles,
                                             @"MediaEncryptor_PlayReadyProtection.xml"));
@@ -774,7 +774,7 @@ L'exemple de cette section encode un fichier mezzanine (en l'occurrence MP4) en 
                 IAsset HLSEncryptedWithAESAsset = CreateHLSEncryptedWithAES(clearSmoothStreamAsset);
 
                 // You can use the following player to test the HLS with AES stream.
-                // http://apps.microsoft.com/windows/app/3ivx-hls-player/f79ce7d0-2993-4658-bc4e-83dc182a0614 
+                // https://apps.microsoft.com/windows/app/3ivx-hls-player/f79ce7d0-2993-4658-bc4e-83dc182a0614 
                 string hlsWithAESURL = HLSEncryptedWithAESAsset.GetHlsUri().ToString();
                 Console.WriteLine("HLS with AES URL:");
                 Console.WriteLine(hlsWithAESURL);
@@ -1372,7 +1372,7 @@ Veillez à mettre à jour le code suivant pour pointer vers le dossier où se tr
                 // Note that the configuration defined in MediaEncryptor_PlayReadyProtection.xml
                 // is using keySeedValue. It is recommended that you do this only for testing 
                 // and not in production. For more information, see 
-                // http://msdn.microsoft.com/library/windowsazure/dn189154.aspx.
+                // https://msdn.microsoft.com/library/windowsazure/dn189154.aspx.
                 //
                 string configPlayReady = File.ReadAllText(Path.Combine(_configurationXMLFiles,
                                             @"MediaEncryptor_PlayReadyProtection.xml"));

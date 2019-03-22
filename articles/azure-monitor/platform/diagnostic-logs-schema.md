@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 10/11/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 6470e2e48854d091c219fb4ec3224e87b1567dd7
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: 6e67b049ca179b1e93bcf645afd89b4a2eb0048d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300215"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436475"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Services, schémas et catégories pris en charge pour les journaux de diagnostic Azure
 
@@ -23,7 +23,7 @@ Une combinaison du type de ressource (disponible dans la propriété `resourceId
 
 ## <a name="top-level-diagnostic-logs-schema"></a>Schéma des journaux de diagnostic de niveau supérieur
 
-| NOM | Obligatoire ou facultatif | Description |
+| Nom | Obligatoire ou facultatif | Description |
 |---|---|---|
 | time | Obligatoire | Horodatage (heure UTC) de l’événement. |
 | ResourceId | Obligatoire | ID de la ressource qui a émis l’événement. Pour les services abonnés, cet ID prend la forme /tenants/tenant-id/providers/provider-name. |
@@ -47,7 +47,7 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 
 | de diffusion en continu | Schéma et documentation |
 | --- | --- |
-| Azure Active Directory | [Vue d’ensemble](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [Schéma des journaux d’audit](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) et [Schéma des connexions](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
+| Azure Active Directory | [Vue d’ensemble](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [schéma des journaux d’Audit](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) et [schéma des connexions](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
 | Analysis Services | https://azure.microsoft.com/blog/azure-analysis-services-integration-with-azure-diagnostic-logs/ |
 | Gestion des API | [Journaux de diagnostic Gestion des API](../../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | Passerelles d’application |[Journalisation des diagnostics pour Application Gateway](../../application-gateway/application-gateway-diagnostics.md) |

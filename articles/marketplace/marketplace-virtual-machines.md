@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: fcfb3943109adbc095b90073f041662fb5c65b56
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: eb49d0fe610a78b8d1a407644a206fddaba0a67a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078879"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116213"
 ---
 # <a name="virtual-machine-offer-publishing-guide"></a>Guide de publication d’une offre de machine virtuelle
 
@@ -56,17 +56,20 @@ Vous fournissez une expérience guidée de votre solution à vos clients à l’
 
 Utilisez le type d’offre Machine virtuelle si vous déployez une appliance virtuelle dans le cadre de l’abonnement associé à votre client. Les machines virtuelles sont entièrement commercialisables à l’aide des modèles de licence Paiement à l’utilisation ou BYOL (apportez votre propre licence). Microsoft héberge la transaction commerciale et facture votre client pour votre compte. Vous avez ainsi l’avantage utiliser la relation de paiement préférée entre votre client et Microsoft, et notamment un éventuel contrat Entreprise.
 
->[!NOTE]
->À ce jour, les engagement monétaires associés à un Contrat Entreprise peuvent être utilisés pour l’utilisation par Azure de votre machine virtuelle, mais pas pour vos frais de licence logicielle.  
-
->[!NOTE]
->Vous pouvez limiter la découverte et le déploiement de votre machine virtuelle à un ensemble spécifique de clients en publiant l’image et les tarifs sous forme d’offre privée. Les offres privées vous permettent de créer des offres exclusives pour vos clients les plus fidèles et de proposer des conditions et des logiciels personnalisés. Les conditions personnalisées vous permettent de présenter différents scénarios, notamment des offres économiques avec des conditions et des tarifs adaptés ainsi qu’un accès en avant-première à des logiciels en version limitée. Les offres privées vous permettent de proposer des tarifs ou des produits spécifiques à un ensemble limité de clients en créant une référence SKU avec ces détails.  
-*   Pour plus d’informations sur les offres privées, visitez la page Offres privées sur la Place de marché Azure à l’adresse [azure.microsoft.com/blog/private-offers-on-azure-marketplace](https://azure.microsoft.com/blog/private-offers-on-azure-marketplace).  
+> [!NOTE]
+> À ce jour, les engagement monétaires associés à un Contrat Entreprise peuvent être utilisés pour l’utilisation par Azure de votre machine virtuelle, mais pas pour vos frais de licence logicielle.  
+> 
+> [!NOTE]
+> Vous pouvez limiter la découverte et le déploiement de votre machine virtuelle à un ensemble spécifique de clients en publiant l’image et les tarifs sous forme d’offre privée. Les offres privées vous permettent de créer des offres exclusives pour vos clients les plus fidèles et de proposer des conditions et des logiciels personnalisés. Les conditions personnalisées vous permettent de présenter différents scénarios, notamment des offres économiques avec des conditions et des tarifs adaptés ainsi qu’un accès en avant-première à des logiciels en version limitée. Les offres privées vous permettent de proposer des tarifs ou des produits spécifiques à un ensemble limité de clients en créant une référence SKU avec ces détails.  
+> *   Pour plus d’informations sur les offres privées, visitez la page Offres privées sur la Place de marché Azure à l’adresse [azure.microsoft.com/blog/private-offers-on-azure-marketplace](https://azure.microsoft.com/blog/private-offers-on-azure-marketplace).  
 
 | Prérequis | Détails |  
 |:--- |:--- | 
 | Facturation et mesure | Votre machine virtuelle doit prendre en charge la facturation mensuelle BYOL ou avec paiement à l’utilisation. |  
 | Disque dur virtuel compatible avec Azure | Les machines virtuelles doivent être basées sur Windows ou Linux. <ul> <li>Pour plus d’informations sur la création d’un disque dur virtuel Linux, consultez [Distributions Linux approuvées sur Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>Pour plus d’informations sur la création d’un disque dur virtuel Windows, consultez [Créer un disque dur virtuel compatible avec Azure](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md).</li> </ul> |  
+
+>[!Note]
+>Cloud fournisseurs de solutions partenaires canal opt-in est désormais disponible.  Consultez [les fournisseurs de solutions de Cloud](./cloud-solution-providers.md) canaux du partenaire pour plus d’informations sur le marketing de votre offre via le CSP de Microsoft.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

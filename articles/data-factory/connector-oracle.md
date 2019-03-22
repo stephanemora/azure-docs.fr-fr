@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 64f348880bf8872c61a1d1c90930c25ce9551bbf
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 3fa7612b9e4cd8a714e60879229bd0d39349494f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658027"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441438"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copier des données depuis/vers Oracle à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,7 +41,7 @@ Plus précisément, ce connecteur Oracle prend en charge les versions suivantes 
 > [!Note]
 > Le serveur proxy Oracle n’est pas pris en charge.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour copier des données depuis et vers une base de données Oracle qui n’est pas accessible publiquement, vous devez configurer un runtime d’intégration auto-hébergé. Pour plus d’informations sur le runtime d’intégration, consultez l’article relatif au [runtime d’intégration auto-hébergé](create-self-hosted-integration-runtime.md). Le runtime d’intégration intègre un pilote Oracle. Par conséquent, vous n’avez pas besoin d’installer manuellement un pilote pour copier des données depuis et vers Oracle.
 
@@ -96,7 +96,7 @@ Les propriétés prises en charge pour le service lié Oracle sont les suivantes
         openssl pkcs12 -in [Path to the file created in the previous step] -out [Path and name of TrustStore] -passout pass:[Keystore PWD] -nokeys -export
         ```
 
-        **Exemple :** crée un fichier truststore PKCS12 nommé MyTrustStoreFile avec un mot de passe
+        **Exemple :** crée un fichier truststore de PKCS12 nommé MyTrustStoreFile avec un mot de passe
 
         ```
         openssl pkcs12 -in cert.txt -out MyTrustStoreFile -passout pass:ThePWD -nokeys -export  

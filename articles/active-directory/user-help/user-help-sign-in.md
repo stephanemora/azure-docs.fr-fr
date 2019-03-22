@@ -1,5 +1,5 @@
 ---
-title: Comment se connecter à l’aide de la vérification en deux étapes ou des informations de sécurité - Azure Active Directory | Microsoft Docs
+title: Connectez-vous en deux étapes vérification ou la sécurité d’informations - Azure Active Directory | Microsoft Docs
 description: Découvrez comment vous connecter en utilisant les différentes méthodes de vérification d’identité dans les informations de sécurité.
 services: active-directory
 author: eross-msft
@@ -11,21 +11,22 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
+ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2aca321ac0902d115f4fc7622992d29183c1d35c
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 84c71430d05bf0755fd8a7c096a2afcb2f69d292
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56452591"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116722"
 ---
 # <a name="sign-in-using-two-step-verification-or-security-info"></a>Se connecter à l’aide de la vérification en deux étapes ou des informations de sécurité
 Une fois que vous aurez configuré la vérification en deux étapes ou les informations de sécurité, vous pourrez vous connecter à votre compte à l'aide de la méthode d'authentification que vous avez spécifiée.
 
->[!Note]
->Si vous utilisez toujours la vérification en deux étapes, vous devrez configurer vos méthodes d’authentification en suivant les instructions données dans l’article [Configurer mon compte pour la vérification en deux étapes](multi-factor-authentication-end-user-first-time.md).
-
->Si votre administrateur a activé les informations de sécurité, vous devrez définir vos méthodes d’authentification en suivant ces articles pas à pas :<ul><li>[Set up security info to use an authentication app](security-info-setup-auth-app.md) (Configurer les informations de sécurité pour utiliser une application d’authentification)</li><li>[Configurer les informations de sécurité pour utiliser la messagerie texte](security-info-setup-text-msg.md)</li><li>[Set up security info to use a phone call](security-info-setup-phone-number.md) (Configurer les informations de sécurité pour utiliser un appel téléphonique)</li></ul>
+> [!Note]
+> Si vous utilisez toujours la vérification en deux étapes, vous devrez configurer vos méthodes d’authentification en suivant les instructions données dans l’article [Configurer mon compte pour la vérification en deux étapes](multi-factor-authentication-end-user-first-time.md).
+> 
+> Si votre administrateur a activé les informations de sécurité, vous devrez définir vos méthodes d’authentification en suivant ces articles pas à pas :<ul><li>[Set up security info to use an authentication app](security-info-setup-auth-app.md) (Configurer les informations de sécurité pour utiliser une application d’authentification)</li><li>[Configurer les informations de sécurité pour utiliser la messagerie texte](security-info-setup-text-msg.md)</li><li>[Set up security info to use a phone call](security-info-setup-phone-number.md) (Configurer les informations de sécurité pour utiliser un appel téléphonique)</li></ul>
 
 ## <a name="sign-in-using-an-authenticator-app-notification-on-your-mobile-device"></a>Se connecter à partir d’une notification de l’application d’authentification sur votre appareil mobile
 

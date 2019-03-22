@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 02/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b400af524d303fe4fbcbc8e34a394b286a048cc4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: db0bebb49007059cfe3b8b9b416c4a148c3756fc
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58008813"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287330"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Opérations du fournisseur de ressources Azure Resource Manager
 
@@ -2242,13 +2242,13 @@ Mettre à jour un groupe existant personne nom et userData. Les propriétés con
 > [!div class="mx-tdCol2BreakAll"]
 > | Type d’action | Opération | Description |
 > | --- | --- | --- |
-> | Action | Microsoft.EventGrid/eventSubscriptions/delete | Supprime un abonnement à un événement |
+> | Action | Microsoft.EventGrid/eventSubscriptions/delete | Supprimer un abonnement à un événement |
 > | Action | Microsoft.EventGrid/eventSubscriptions/getFullUrl/action | Obtient l’URL complète de l’abonnement à l’événement |
 > | Action | Microsoft.EventGrid/eventSubscriptions/providers/Microsoft.Insights/diagnosticSettings/read | Obtient le paramètre de diagnostic pour les abonnements aux événements |
 > | Action | Microsoft.EventGrid/eventSubscriptions/providers/Microsoft.Insights/diagnosticSettings/write | Crée ou met à jour le paramètre de diagnostic pour les abonnements aux événements |
 > | Action | Microsoft.EventGrid/eventSubscriptions/providers/Microsoft.Insights/metricDefinitions/read | Obtient les métriques disponibles pour les abonnements aux événements |
-> | Action | Microsoft.EventGrid/eventSubscriptions/read | Lit un abonnement à un événement |
-> | Action | Microsoft.EventGrid/eventSubscriptions/write | Crée ou met à jour un abonnement à un événement |
+> | Action | Microsoft.EventGrid/eventSubscriptions/read | Lire un abonnement à un événement |
+> | Action | Microsoft.EventGrid/eventSubscriptions/write | Créer ou mettre à jour un abonnement à un événement |
 > | Action | Microsoft.EventGrid/extensionTopics/providers/Microsoft.Insights/diagnosticSettings/read | Obtient le paramètre de diagnostic pour des rubriques |
 > | Action | Microsoft.EventGrid/extensionTopics/providers/Microsoft.Insights/diagnosticSettings/write | Crée ou met à jour le paramètre de diagnostic pour des rubriques |
 > | Action | Microsoft.EventGrid/extensionTopics/providers/Microsoft.Insights/metricDefinitions/read | Obtient les métriques disponibles pour les rubriques |

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: magoedte
-ms.openlocfilehash: 8b1504961254fefcaafc22008b4cc5adaf77e9c4
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: b9a847f04048cd17d550ca66bd3e6502577746eb
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447869"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878453"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Solution de gestion Application Insights Connector (déconseillée)
 
@@ -53,7 +53,7 @@ Contrairement à la plupart des autres solutions Log Analytics, les données ne 
 | [Groupe d’administration SCOM](../../azure-monitor/platform/om-agents.md) | Non  | La solution ne collecte aucune information à partir d’agents dans un groupe d’administration SCOM connecté. |
 | [Compte Azure Storage](collect-azure-metrics-logs.md) | Non  | La solution ne collecte aucune information à partir de stockage Azure. |
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 - Pour accéder aux informations d’Application Insights Connector, vous devez posséder un abonnement Azure.
 - Vous devez disposer d’au moins une ressource Application Insights configurée.
@@ -127,7 +127,7 @@ Lorsque vous cliquez n’importe où dans le panneau **Exceptions**, vous voyez 
 
 Que vous cliquiez ou non sur un élément du tableau de bord **Application Insights Connector**, sur la page **Recherche** proprement dite, toute requête renvoyant des données Application Insights affiche la perspective Application Insights. Par exemple, si vous consultez les données Application Insights, une requête **&#42;** affiche également l’onglet de la perspective comme sur l’image suivante :
 
-![Application Insights ](./media/app-insights-connector/app-insights-search.png)
+![Application Insights](./media/app-insights-connector/app-insights-search.png)
 
 Les composants de la perspective sont mis à jour en fonction de la requête de recherche. Cela signifie que vous pouvez filtrer les résultats à l’aide de n’importe quel champ de recherche qui vous donne la possibilité d’afficher les données à partir de :
 

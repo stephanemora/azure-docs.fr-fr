@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: f21d92dabfcfbe51cf8135388a1ab489c20593a4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: c37e2357038e4f711b015fda80a0de8c4dbd9498
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537543"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880923"
 ---
 # <a name="azure-networking"></a>Mise en réseau Azure
 
@@ -136,7 +136,7 @@ Azure crée des tables de routage qui permettent aux ressources connectées à u
 
 Azure fournit les outils suivants pour surveiller et gérer la mise en réseau :
 - **Journaux d’activité :** Toutes les ressources Azure ont des journaux d’activité qui fournissent des informations sur les opérations qui ont lieu, l’état des opérations et la personne qui a lancé l’opération. Pour en savoir plus sur les journaux d’activité, lisez l’article [Présentation des journaux d’activité](../azure-monitor/platform/activity-logs-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
-- **Journaux de diagnostic :** Les événements périodiques et spontanés sont créés par les ressources réseau et journalisés dans les comptes de stockage Azure, puis envoyés à une instance Azure Event Hub ou à Azure Log Analytics. Les journaux de diagnostic fournissent des informations sur l’intégrité d’une ressource. Les journaux de diagnostic sont fournis pour l’équilibrage de charge (sur Internet), les groupes de sécurité réseau, les itinéraires et Application Gateway. Pour en savoir plus sur les journaux de diagnostic, consultez l’article [Présentation des journaux de diagnostic](../azure-monitor/platform/diagnostic-logs-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
+- **Journaux de diagnostic :** Les événements périodiques et spontanés sont créés par les ressources réseau et enregistrés dans les comptes de stockage Azure envoyé à un concentrateur d’événements Azure, ou envoyé dans les journaux d’Azure Monitor. Les journaux de diagnostic fournissent des informations sur l’intégrité d’une ressource. Les journaux de diagnostic sont fournis pour l’équilibrage de charge (sur Internet), les groupes de sécurité réseau, les itinéraires et Application Gateway. Pour en savoir plus sur les journaux de diagnostic, consultez l’article [Présentation des journaux de diagnostic](../azure-monitor/platform/diagnostic-logs-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
 - **Métriques :** Les métriques sont des mesures et des compteurs de performances collectés sur une période de temps donnée. Elles peuvent être utilisées pour déclencher des alertes basées sur des seuils. Les métriques sont actuellement disponibles pour Application Gateway. Pour en savoir plus sur les métriques, consultez l’article [Présentation des métriques](../monitoring-and-diagnostics/monitoring-overview-metrics.md?toc=%2fazure%2fnetworking%2ftoc.json).
 - **Résolution des problèmes :** Des informations de dépannage sont accessibles directement dans le portail Azure. Les informations vous aident à diagnostiquer les problèmes courants avec ExpressRoute, passerelle VPN, Application Gateway, journaux de sécurité réseau, itinéraires, DNS, équilibrage de charge et Traffic Manager.
 - **Contrôle d’accès en fonction du rôle (RBAC) :** Contrôlez qui peut créer et gérer les ressources réseau avec le contrôle d’accès en fonction du rôle (RBAC). Pour plus d’informations sur le contrôle d’accès en fonction du rôle, consultez l’article [Prise en main du contrôle d’accès en fonction du rôle](../role-based-access-control/overview.md?toc=%2fazure%2fnetworking%2ftoc.json). 
@@ -149,7 +149,7 @@ Azure fournit les outils suivants pour surveiller et gérer la mise en réseau 
 
 Vous pouvez déployer et configurer les ressources réseau Azure avec un des outils suivants :
 
-- **Portail Azure :** Une interface utilisateur graphique qui s’exécute dans un navigateur. Ouvrez le [portail Azure](http://portal.azure.com).
+- **Portail Azure :** Une interface utilisateur graphique qui s’exécute dans un navigateur. Ouvrez le [portail Azure](https://portal.azure.com).
 - **Azure PowerShell :** Des outils en ligne de commande pour la gestion d’Azure à partir d’ordinateurs Windows. Apprenez-en davantage sur Azure PowerShell en lisant l’article [Vue d’ensemble d’Azure PowerShell](/powershell/azure/overview?view=azurermps-3.8.0?toc=%2fazure%2fnetworking%2ftoc.json).
 - **Interface de ligne de commande (CLI) Azure :** Des outils en ligne de commande pour la gestion d’Azure à partir d’ordinateurs Linux, macOS ou Windows. Apprenez-en davantage sur l’interface CLI Azure en lisant l’article [Vue d’ensemble de l’interface CLI Azure](/cli/azure/get-started-with-azure-cli?toc=%2fazure%2fnetworking%2ftoc.json).
 - **Modèles Azure Resource Manager :** Un fichier (au format JSON) définissant l’infrastructure et la configuration d’une solution Azure. Un modèle vous permet de déployer votre solution à plusieurs reprises tout au long de son cycle de vie pour avoir la garantie que vos ressources présentent un état cohérent lors de leur déploiement. Pour en savoir plus sur la création de modèles, lisez les [Meilleures pratiques pour la création de modèles](../azure-resource-manager/resource-manager-template-best-practices.md?toc=%2fazure%2fnetworking%2ftoc.json). Les modèles peuvent être déployés avec le portail Azure, l’interface CLI ou PowerShell. Pour commencer à utiliser des modèles immédiatement, déployez un des nombreux modèles préconfigurés dans la bibliothèque [Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/?term=network). 

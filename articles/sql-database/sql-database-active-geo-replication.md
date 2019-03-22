@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 21b036763a1e8a7480d11fef4c36599f92fc3657
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cb83f0c38f6860340444c15b6c5eef0b990d0ad0
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57853186"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295247"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Création et utilisation de géo-réplication active
 
@@ -115,6 +115,12 @@ Vous pouvez augmenter ou diminuer la taille de calcul d’une base de données p
 
 > [!NOTE]
 > Si vous avez créé une base de données secondaire dans le cadre de la configuration des groupes de basculement, il n’est pas conseillé de passer la base de données secondaire à un niveau de service inférieur. En effet, votre couche Données pourrait manquer de capacité pour traiter votre charge de travail normale après l’activation du basculement.
+
+> [!IMPORTANT]
+> La base de données primaire dans un groupe de basculement ne peut pas mettre à l’échelle vers un niveau supérieur, sauf si la base de données secondaire est tout d’abord à l’échelle sur le niveau supérieur. Si vous essayez de mettre à l’échelle de la base de données primaire avant de la base de données secondaire est à l’échelle, vous pouvez recevoir l’erreur suivante :
+>
+> `Error message: The source database 'Primaryserver.DBName' cannot have higher edition than the target database 'Secondaryserver.DBName'. Upgrade the edition on the target before upgrading the source.`
+>
 
 ## <a name="preventing-the-loss-of-critical-data"></a>Prévention de la perte de données critiques
 

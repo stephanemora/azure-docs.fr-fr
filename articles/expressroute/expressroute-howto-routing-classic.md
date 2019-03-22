@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: fbf97c984a00d6bdd7f79c26094ae36348e00236
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: 5542d61c5e615361ca96f911cfe11540fcd09037
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342032"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103823"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Créer et modifier l’homologation pour un circuit ExpressRoute (Classic)
 > [!div class="op_single_selector"]
@@ -58,25 +58,25 @@ Pour vous connecter à votre compte Azure, utilisez les exemples suivants :
 
 1. Ouvrez la console PowerShell avec des droits élevés et connectez-vous à votre compte.
 
-  ```powershell
-  Connect-AzureRmAccount
-  ```
+   ```powershell
+   Connect-AzureRmAccount
+   ```
 2. Vérifiez les abonnements associés au compte.
 
-  ```powershell
-  Get-AzureRmSubscription
-  ```
+   ```powershell
+   Get-AzureRmSubscription
+   ```
 3. Si vous avez plusieurs abonnements, sélectionnez celui que vous souhaitez utiliser.
 
-  ```powershell
-  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
-  ```
+   ```powershell
+   Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+   ```
 
 4. Utilisez l’applet de commande suivante pour ajouter votre abonnement Azure à PowerShell pour le modèle de déploiement classique.
 
-  ```powershell
-  Add-AzureAccount
-  ```
+   ```powershell
+   Add-AzureAccount
+   ```
 
 ## <a name="azure-private-peering"></a>Homologation privée Azure
 
@@ -86,59 +86,59 @@ Cette section fournit des instructions sur la façon de créer, obtenir, mettre 
 
 1. **Créez un circuit ExpressRoute.**
 
-  Suivez les instructions permettant de [créer un circuit ExpressRoute](expressroute-howto-circuit-classic.md) et faites-le approvisionner par votre fournisseur de connectivité. Si votre fournisseur de connectivité propose des services gérés de couche 3, vous pouvez lui demander d’activer l'homologation privée Azure pour vous. Dans ce cas, vous n'aurez pas besoin de suivre les instructions indiquées dans les sections suivantes. Toutefois, si votre fournisseur de connectivité ne gère pas le routage pour vous, après avoir créé votre circuit, suivez les instructions ci-dessous.
+   Suivez les instructions permettant de [créer un circuit ExpressRoute](expressroute-howto-circuit-classic.md) et faites-le approvisionner par votre fournisseur de connectivité. Si votre fournisseur de connectivité propose des services gérés de couche 3, vous pouvez lui demander d’activer l'homologation privée Azure pour vous. Dans ce cas, vous n'aurez pas besoin de suivre les instructions indiquées dans les sections suivantes. Toutefois, si votre fournisseur de connectivité ne gère pas le routage pour vous, après avoir créé votre circuit, suivez les instructions ci-dessous.
 2. **Vérifiez que le circuit ExpressRoute est approvisionné.**
    
-  Vérifiez que le circuit ExpressRoute est approvisionné et activé.
+   Vérifiez que le circuit ExpressRoute est approvisionné et activé.
 
-  ```powershell
-  Get-AzureDedicatedCircuit -ServiceKey "*********************************"
-  ```
+   ```powershell
+   Get-AzureDedicatedCircuit -ServiceKey "*********************************"
+   ```
 
-  Renvoie :
+   Renvoie :
 
-  ```powershell
-  Bandwidth                        : 200
-  CircuitName                      : MyTestCircuit
-  Location                         : Silicon Valley
-  ServiceKey                       : *********************************
-  ServiceProviderName              : equinix
-  ServiceProviderProvisioningState : Provisioned
-  Sku                              : Standard
-  Status                           : Enabled
-  ```
+   ```powershell
+   Bandwidth                        : 200
+   CircuitName                      : MyTestCircuit
+   Location                         : Silicon Valley
+   ServiceKey                       : *********************************
+   ServiceProviderName              : equinix
+   ServiceProviderProvisioningState : Provisioned
+   Sku                              : Standard
+   Status                           : Enabled
+   ```
    
-  Assurez-vous que le circuit affiche l’état Provisioned (approvisionné) et Enabled (activé). Si ce n'est pas le cas, contactez votre fournisseur de connectivité afin que votre circuit affiche l’état requis.
+   Assurez-vous que le circuit affiche l’état Provisioned (approvisionné) et Enabled (activé). Si ce n'est pas le cas, contactez votre fournisseur de connectivité afin que votre circuit affiche l’état requis.
 
-  ```powershell
-  ServiceProviderProvisioningState : Provisioned
-  Status                           : Enabled
-  ```
+   ```powershell
+   ServiceProviderProvisioningState : Provisioned
+   Status                           : Enabled
+   ```
 3. **Configurez l'homologation privée Azure pour le circuit.**
 
-  Assurez-vous de disposer des éléments suivants avant de procéder aux étapes suivantes :
+   Assurez-vous de disposer des éléments suivants avant de procéder aux étapes suivantes :
    
-  * Un sous-réseau /30 pour le lien principal. Ce sous-réseau ne doit faire partie d’aucun espace d'adressage réservé aux réseaux virtuels.
-  * Un sous-réseau /30 pour le lien secondaire. Ce sous-réseau ne doit faire partie d’aucun espace d'adressage réservé aux réseaux virtuels.
-  * Un ID VLAN valide pour établir cette homologation. Vérifiez qu'aucun autre peering sur le circuit n'utilise le même ID VLAN.
-  * Un numéro AS pour l'homologation. Vous pouvez utiliser des numéros à 2 et 4 octets. Vous pouvez utiliser un numéro AS privé pour cette homologation. Veillez à ne pas utiliser le numéro 65515.
-  * Un hachage MD5 si vous choisissez d’en utiliser un. **Facultative**.
+   * Un sous-réseau /30 pour le lien principal. Ce sous-réseau ne doit faire partie d’aucun espace d'adressage réservé aux réseaux virtuels.
+   * Un sous-réseau /30 pour le lien secondaire. Ce sous-réseau ne doit faire partie d’aucun espace d'adressage réservé aux réseaux virtuels.
+   * Un ID VLAN valide pour établir cette homologation. Vérifiez qu'aucun autre peering sur le circuit n'utilise le même ID VLAN.
+   * Un numéro AS pour l'homologation. Vous pouvez utiliser des numéros à 2 et 4 octets. Vous pouvez utiliser un numéro AS privé pour cette homologation. Veillez à ne pas utiliser le numéro 65515.
+   * Un hachage MD5 si vous choisissez d’en utiliser un. **Facultative**.
      
-  Vous pouvez utiliser l’exemple suivant pour configurer le peering privé Azure pour votre circuit :
+   Vous pouvez utiliser l’exemple suivant pour configurer le peering privé Azure pour votre circuit :
 
-  ```powershell
-  New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100
-  ```    
+   ```powershell
+   New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100
+   ```    
 
-  Si vous souhaitez utiliser un code de hachage MD5, utilisez l’exemple suivant pour configurer le peering privé Azure pour votre circuit :
+   Si vous souhaitez utiliser un code de hachage MD5, utilisez l’exemple suivant pour configurer le peering privé Azure pour votre circuit :
 
-  ```powershell
-  New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100 -SharedKey "A1B2C3D4"
-  ```
+   ```powershell
+   New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100 -SharedKey "A1B2C3D4"
+   ```
      
-  > [!IMPORTANT]
-  > Veillez à spécifier votre numéro AS comme ASN de peering et non pas comme ASN client.
-  > 
+   > [!IMPORTANT]
+   > Veillez à spécifier votre numéro AS comme ASN de peering et non pas comme ASN client.
+   > 
 
 ### <a name="to-view-azure-private-peering-details"></a>Pour afficher les détails d’une homologation privée Azure
 
@@ -189,59 +189,59 @@ Cette section fournit des instructions sur la façon de créer, d’obtenir, de 
 
 1. **Création d’un circuit ExpressRoute**
 
-  Suivez les instructions permettant de [créer un circuit ExpressRoute](expressroute-howto-circuit-classic.md) et faites-le approvisionner par votre fournisseur de connectivité. Si votre fournisseur de connectivité propose des services gérés de couche 3, vous pouvez lui demander d’activer l'homologation privée Azure pour vous. Dans ce cas, vous n'aurez pas besoin de suivre les instructions indiquées dans les sections suivantes. Toutefois, si votre fournisseur de connectivité ne gère pas le routage pour vous, après avoir créé votre circuit, suivez les instructions ci-dessous.
+   Suivez les instructions permettant de [créer un circuit ExpressRoute](expressroute-howto-circuit-classic.md) et faites-le approvisionner par votre fournisseur de connectivité. Si votre fournisseur de connectivité propose des services gérés de couche 3, vous pouvez lui demander d’activer l'homologation privée Azure pour vous. Dans ce cas, vous n'aurez pas besoin de suivre les instructions indiquées dans les sections suivantes. Toutefois, si votre fournisseur de connectivité ne gère pas le routage pour vous, après avoir créé votre circuit, suivez les instructions ci-dessous.
 2. **Vérification de l’approvisionnement du circuit ExpressRoute**
 
-  Vous devez tout d'abord vérifier que le circuit ExpressRoute est approvisionné et activé.
+   Vous devez tout d'abord vérifier que le circuit ExpressRoute est approvisionné et activé.
 
-  ```powershell
-  Get-AzureDedicatedCircuit -ServiceKey "*********************************"
-  ```
+   ```powershell
+   Get-AzureDedicatedCircuit -ServiceKey "*********************************"
+   ```
 
-  Renvoie :
+   Renvoie :
 
-  ```powershell
-  Bandwidth                        : 200
-  CircuitName                      : MyTestCircuit
-  Location                         : Silicon Valley
-  ServiceKey                       : *********************************
-  ServiceProviderName              : equinix
-  ServiceProviderProvisioningState : Provisioned
-  Sku                              : Standard
-  Status                           : Enabled
-  ```
+   ```powershell
+   Bandwidth                        : 200
+   CircuitName                      : MyTestCircuit
+   Location                         : Silicon Valley
+   ServiceKey                       : *********************************
+   ServiceProviderName              : equinix
+   ServiceProviderProvisioningState : Provisioned
+   Sku                              : Standard
+   Status                           : Enabled
+   ```
    
-  Assurez-vous que le circuit affiche l’état Provisioned (approvisionné) et Enabled (activé). Si ce n'est pas le cas, contactez votre fournisseur de connectivité afin que votre circuit affiche l’état requis.
+   Assurez-vous que le circuit affiche l’état Provisioned (approvisionné) et Enabled (activé). Si ce n'est pas le cas, contactez votre fournisseur de connectivité afin que votre circuit affiche l’état requis.
 
-  ```powershell
-  ServiceProviderProvisioningState : Provisioned
-  Status                           : Enabled
-  ```
+   ```powershell
+   ServiceProviderProvisioningState : Provisioned
+   Status                           : Enabled
+   ```
 4. **Configuration de l'homologation publique Azure pour le circuit**
    
-  Assurez-vous de disposer des informations suivantes avant de poursuivre :
+   Assurez-vous de disposer des informations suivantes avant de poursuivre :
    
-  * Un sous-réseau /30 pour le lien principal. Ce doit être un préfixe IPv4 public valide.
-  * Un sous-réseau /30 pour le lien secondaire. Ce doit être un préfixe IPv4 public valide.
-  * Un ID VLAN valide pour établir cette homologation. Vérifiez qu'aucun autre peering sur le circuit n'utilise le même ID VLAN.
-  * Un numéro AS pour l'homologation. Vous pouvez utiliser des numéros à 2 et 4 octets.
-  * Un hachage MD5 si vous choisissez d’en utiliser un. **Facultative**.
+   * Un sous-réseau /30 pour le lien principal. Ce doit être un préfixe IPv4 public valide.
+   * Un sous-réseau /30 pour le lien secondaire. Ce doit être un préfixe IPv4 public valide.
+   * Un ID VLAN valide pour établir cette homologation. Vérifiez qu'aucun autre peering sur le circuit n'utilise le même ID VLAN.
+   * Un numéro AS pour l'homologation. Vous pouvez utiliser des numéros à 2 et 4 octets.
+   * Un hachage MD5 si vous choisissez d’en utiliser un. **Facultative**.
 
-  > [!IMPORTANT]
-  > Veillez à spécifier votre numéro AS comme ASN de peering et non pas comme ASN client.
-  >  
+   > [!IMPORTANT]
+   > Veillez à spécifier votre numéro AS comme ASN de peering et non pas comme ASN client.
+   >  
      
-  Vous pouvez utiliser l’exemple suivant pour configurer le peering public Azure pour votre circuit :
+   Vous pouvez utiliser l’exemple suivant pour configurer le peering public Azure pour votre circuit :
 
-  ```powershell
-  New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200
-  ```
+   ```powershell
+   New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200
+   ```
      
-  Si vous souhaitez utiliser un code de hachage MD5, utilisez l’exemple suivant pour configurer votre circuit :
+   Si vous souhaitez utiliser un code de hachage MD5, utilisez l’exemple suivant pour configurer votre circuit :
      
-  ```powershell
-  New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200 -SharedKey "A1B2C3D4"
-  ```
+   ```powershell
+   New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200 -SharedKey "A1B2C3D4"
+   ```
      
 ### <a name="to-view-azure-public-peering-details"></a>Pour afficher les détails d’une homologation publique Azure
 
@@ -293,34 +293,34 @@ Cette section fournit des instructions sur la façon de créer, d’obtenir, de 
 
 1. **Création d’un circuit ExpressRoute**
   
-  Suivez les instructions permettant de [créer un circuit ExpressRoute](expressroute-howto-circuit-classic.md) et faites-le approvisionner par votre fournisseur de connectivité. Si votre fournisseur de connectivité propose des services gérés de couche 3, vous pouvez lui demander d’activer l'homologation privée Azure pour vous. Dans ce cas, vous n'aurez pas besoin de suivre les instructions indiquées dans les sections suivantes. Toutefois, si votre fournisseur de connectivité ne gère pas le routage pour vous, après avoir créé votre circuit, suivez les instructions ci-dessous.
+   Suivez les instructions permettant de [créer un circuit ExpressRoute](expressroute-howto-circuit-classic.md) et faites-le approvisionner par votre fournisseur de connectivité. Si votre fournisseur de connectivité propose des services gérés de couche 3, vous pouvez lui demander d’activer l'homologation privée Azure pour vous. Dans ce cas, vous n'aurez pas besoin de suivre les instructions indiquées dans les sections suivantes. Toutefois, si votre fournisseur de connectivité ne gère pas le routage pour vous, après avoir créé votre circuit, suivez les instructions ci-dessous.
 2. **Vérification de l’approvisionnement du circuit ExpressRoute**
 
-  Assurez-vous que le circuit affiche l’état Provisioned (approvisionné) et Enabled (activé). 
+   Assurez-vous que le circuit affiche l’état Provisioned (approvisionné) et Enabled (activé). 
    
-  ```powershell
-  Get-AzureDedicatedCircuit -ServiceKey "*********************************"
-  ```
+   ```powershell
+   Get-AzureDedicatedCircuit -ServiceKey "*********************************"
+   ```
 
-  Renvoie :
+   Renvoie :
    
-  ```powershell
-  Bandwidth                        : 200
-  CircuitName                      : MyTestCircuit
-  Location                         : Silicon Valley
-  ServiceKey                       : *********************************
-  ServiceProviderName              : equinix
-  ServiceProviderProvisioningState : Provisioned
-  Sku                              : Standard
-  Status                           : Enabled
-  ```
+   ```powershell
+   Bandwidth                        : 200
+   CircuitName                      : MyTestCircuit
+   Location                         : Silicon Valley
+   ServiceKey                       : *********************************
+   ServiceProviderName              : equinix
+   ServiceProviderProvisioningState : Provisioned
+   Sku                              : Standard
+   Status                           : Enabled
+   ```
    
-  Assurez-vous que le circuit affiche l’état Provisioned (approvisionné) et Enabled (activé). Si ce n'est pas le cas, contactez votre fournisseur de connectivité afin que votre circuit affiche l’état requis.
+   Assurez-vous que le circuit affiche l’état Provisioned (approvisionné) et Enabled (activé). Si ce n'est pas le cas, contactez votre fournisseur de connectivité afin que votre circuit affiche l’état requis.
 
-  ```powershell
-  ServiceProviderProvisioningState : Provisioned
-  Status                           : Enabled
-  ```
+   ```powershell
+   ServiceProviderProvisioningState : Provisioned
+   Status                           : Enabled
+   ```
 3. **Configuration de l'homologation Microsoft pour le circuit**
    
     Assurez-vous de disposer des informations suivantes avant de poursuivre.
@@ -329,16 +329,16 @@ Cette section fournit des instructions sur la façon de créer, d’obtenir, de 
    * Un sous-réseau /30 pour le lien secondaire. Il doit s’agir d’un préfixe IPv4 public valide vous appartenant et enregistré dans un registre RIR / IRR.
    * Un ID VLAN valide pour établir cette homologation. Vérifiez qu'aucun autre peering sur le circuit n'utilise le même ID VLAN.
    * Un numéro AS pour l'homologation. Vous pouvez utiliser des numéros à 2 et 4 octets.
-   * Préfixes publiés : Vous devez fournir une liste de tous les préfixes que vous prévoyez de publier sur la session BGP. Seuls les préfixes d'adresses IP publiques sont acceptés. Vous pouvez envoyer une liste séparée par des virgules si vous prévoyez d'envoyer un jeu de préfixes. Ces préfixes doivent être enregistrés en votre nom dans un registre RIR / IRR.
+   * Préfixes publiés : Vous devez fournir la liste de tous les préfixes que vous prévoyez de publier sur la session BGP. Seuls les préfixes d'adresses IP publiques sont acceptés. Vous pouvez envoyer une liste séparée par des virgules si vous prévoyez d'envoyer un jeu de préfixes. Ces préfixes doivent être enregistrés en votre nom dans un registre RIR / IRR.
    * ASN client : Si vous publiez des préfixes non enregistrés dans le numéro AS de peering, vous pouvez spécifier le numéro AS avec lequel ils sont enregistrés. **Facultative**.
    * Nom du registre de routage : Vous pouvez spécifier les registres RIR/IRR par rapport auquel le numéro AS et les préfixes sont enregistrés.
    * Un hachage MD5 si vous choisissez d’en utiliser un. **Facultatif.**
      
-  Exécutez l'applet de commande suivante afin de configurer le peering Microsoft pour votre circuit :
+   Exécutez l'applet de commande suivante afin de configurer le peering Microsoft pour votre circuit :
  
-  ```powershell
-  New-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
-  ```
+   ```powershell
+   New-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
+   ```
 
 ### <a name="to-view-microsoft-peering-details"></a>Pour afficher les détails de l’homologation Microsoft
 

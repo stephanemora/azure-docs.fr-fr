@@ -5,17 +5,17 @@ description: Comment créer un modèle de régression simple pour prédire un pr
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: garyericson
 ms.author: garye
 ms.custom: seodec18
 ms.date: 01/03/2018
-ms.openlocfilehash: 6adcf59053186c961a115164baac1f0af631ff4a
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: dfac085727ee86be018cfee1e15c3ee51b221763
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456841"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819869"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Prédire une réponse à l’aide d’un modèle simple
 ## <a name="video-4-data-science-for-beginners-series"></a>Vidéo 4 : série Science des données pour les débutants
@@ -128,4 +128,4 @@ Nous vous invitons à consulter les autres vidéos de la série « Science des 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Menez une première expérience de science des données avec Machine Learning Studio](create-experiment.md)
-* [Consultez la présentation de Machine Learning sur Microsoft Azure](what-is-machine-learning.md)
+* [Consultez la présentation de Machine Learning sur Microsoft Azure](/azure/machine-learning/preview/overview-what-is-azure-ml)

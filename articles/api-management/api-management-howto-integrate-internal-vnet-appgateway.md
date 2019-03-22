@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: sasolank
-ms.openlocfilehash: da195f414da032b5274a9dc1a184b66094f245f2
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 00cdc8de45d2f0177cd1f097fb874cbe67f7e442
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493431"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120123"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Intégrer le service Gestion des API dans un réseau virtuel interne avec Application Gateway
 
@@ -35,7 +35,9 @@ Combiner la gestion des API configurée dans un réseau virtuel interne avec le 
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Pour suivre les étapes décrites dans cet article, vous devez disposer des éléments suivants :
 
@@ -47,7 +49,7 @@ Pour suivre les étapes décrites dans cet article, vous devez disposer des él�
 
 ## <a name="scenario"></a> Scénario
 
-Dans cet article, nous allons étudier comment utiliser un seul et même service Gestion des API pour les consommateurs internes et externes, et l’utiliser comme serveur frontal sur les API locales et cloud. Vous allez également voir comment exposer uniquement un sous-ensemble de vos API (dans cet exemple, elles sont mises en surbrillance en vert) pour une consommation externe, à l’aide de la fonctionnalité disponible dans Application Gateway.
+Cet article explique comment utiliser un seul service de gestion des API pour les consommateurs internes et externes et le rend agissent comme un seul serveur frontal à la fois en local pour API et cloud. Vous allez également voir comment exposer uniquement un sous-ensemble de vos API (dans cet exemple, elles sont mises en surbrillance en vert) pour une consommation externe, à l’aide de la fonctionnalité disponible dans Application Gateway.
 
 Dans le premier exemple de configuration, toutes vos API sont gérées uniquement à partir de votre réseau virtuel. Les consommateurs internes (mis en surbrillance en orange) peuvent accéder à toutes vos API internes et externes. Le trafic ne sort jamais vers Internet et une performance élevée est fournie via les circuits ExpressRoute.
 
@@ -55,7 +57,7 @@ Dans le premier exemple de configuration, toutes vos API sont gérées uniquemen
 
 ## <a name="before-you-begin"></a> Avant de commencer
 
-* Assurez-vous que vous disposez de la version la plus récente d’Azure PowerShell. Pour plus d’informations, voir [Utilisation de Windows PowerShell avec Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/powershell-azure-resource-manager).
+* Assurez-vous que vous disposez de la version la plus récente d’Azure PowerShell. Consultez les instructions d’installation à [installer Azure PowerShell](/powershell/azure/install-az-ps). 
 
 ## <a name="what-is-required-to-create-an-integration-between-api-management-and-application-gateway"></a>Qu’est-ce qui est nécessaire pour créer une intégration entre le service Gestion des API et Application Gateway ?
 
@@ -91,7 +93,7 @@ Dans ce guide, nous allons également exposer le **portail des développeurs** �
 Connexion à Azure
 
 ```powershell
-Login-AzureRmAccount
+Login-AzAccount
 ```
 
 Authentifiez-vous à l’aide de vos informations d’identification.
@@ -102,7 +104,7 @@ Sélectionnez l’abonnement souhaité.
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000" # GUID of your Azure subscription
-Get-AzureRmSubscription -Subscriptionid $subscriptionId | Select-AzureRmSubscription
+Get-AzSubscription -Subscriptionid $subscriptionId | Select-AzSubscription
 ```
 
 ### <a name="step-3"></a>Étape 3 :
@@ -112,7 +114,7 @@ Créez un groupe de ressources (ignorez cette étape si vous utilisez un groupe 
 ```powershell
 $resGroupName = "apim-appGw-RG" # resource group name
 $location = "West US"           # Azure region
-New-AzureRmResourceGroup -Name $resGroupName -Location $location
+New-AzResourceGroup -Name $resGroupName -Location $location
 ```
 
 Azure Resource Manager requiert que tous les groupes de ressources spécifient un emplacement. Ce dernier est utilisé comme emplacement par défaut des ressources de ce groupe. Assurez-vous que toutes les commandes pour la création d'une passerelle Application Gateway utiliseront le même groupe de ressources.
@@ -126,7 +128,7 @@ L’exemple ci-dessous indique comment créer un réseau virtuel à l’aide de 
 Affectez la plage d’adresses 10.0.0.0/24 à la variable subnet à utiliser pour la passerelle Application Gateway lors de la création d’un réseau virtuel.
 
 ```powershell
-$appgatewaysubnet = New-AzureRmVirtualNetworkSubnetConfig -Name "apim01" -AddressPrefix "10.0.0.0/24"
+$appgatewaysubnet = New-AzVirtualNetworkSubnetConfig -Name "apim01" -AddressPrefix "10.0.0.0/24"
 ```
 
 ### <a name="step-2"></a>Étape 2
@@ -134,7 +136,7 @@ $appgatewaysubnet = New-AzureRmVirtualNetworkSubnetConfig -Name "apim01" -Addres
 Affectez la plage d’adresses 10.0.1.0/24 à la variable subnet à utiliser pour le service Gestion des API lors de la création d’un réseau virtuel.
 
 ```powershell
-$apimsubnet = New-AzureRmVirtualNetworkSubnetConfig -Name "apim02" -AddressPrefix "10.0.1.0/24"
+$apimsubnet = New-AzVirtualNetworkSubnetConfig -Name "apim02" -AddressPrefix "10.0.1.0/24"
 ```
 
 ### <a name="step-3"></a>Étape 3 :
@@ -142,7 +144,7 @@ $apimsubnet = New-AzureRmVirtualNetworkSubnetConfig -Name "apim02" -AddressPrefi
 Créez un réseau virtuel nommé **appgwvnet** dans le groupe de ressources **apim-appGw-RG** pour la région USA Ouest. Utilisez le préfixe 10.0.0.0/16 avec les sous-réseaux 10.0.0.0/24 et 10.0.1.0/24.
 
 ```powershell
-$vnet = New-AzureRmVirtualNetwork -Name "appgwvnet" -ResourceGroupName $resGroupName -Location $location -AddressPrefix "10.0.0.0/16" -Subnet $appgatewaysubnet,$apimsubnet
+$vnet = New-AzVirtualNetwork -Name "appgwvnet" -ResourceGroupName $resGroupName -Location $location -AddressPrefix "10.0.0.0/16" -Subnet $appgatewaysubnet,$apimsubnet
 ```
 
 ### <a name="step-4"></a>Étape 4
@@ -163,7 +165,7 @@ L’exemple ci-dessous montre comment créer un service Gestion des API dans un 
 Créez un objet de réseau virtuel du service Gestion des API via le sous-réseau $apimsubnetdata créé ci-dessus.
 
 ```powershell
-$apimVirtualNetwork = New-AzureRmApiManagementVirtualNetwork -Location $location -SubnetResourceId $apimsubnetdata.Id
+$apimVirtualNetwork = New-AzApiManagementVirtualNetwork -Location $location -SubnetResourceId $apimsubnetdata.Id
 ```
 
 ### <a name="step-2"></a>Étape 2
@@ -174,7 +176,7 @@ Créez un service Gestion des API dans le réseau virtuel.
 $apimServiceName = "ContosoApi"       # API Management service instance name
 $apimOrganization = "Contoso"         # organization name
 $apimAdminEmail = "admin@contoso.com" # administrator's email address
-$apimService = New-AzureRmApiManagement -ResourceGroupName $resGroupName -Location $location -Name $apimServiceName -Organization $apimOrganization -AdminEmail $apimAdminEmail -VirtualNetwork $apimVirtualNetwork -VpnType "Internal" -Sku "Developer"
+$apimService = New-AzApiManagement -ResourceGroupName $resGroupName -Location $location -Name $apimServiceName -Organization $apimOrganization -AdminEmail $apimAdminEmail -VirtualNetwork $apimVirtualNetwork -VpnType "Internal" -Sku "Developer"
 ```
 
 Après la réussite de la commande ci-dessus, consultez la [configuration DNS requise pour accéder au service Gestion des API du réseau virtuel interne](api-management-using-with-internal-vnet.md#apim-dns-configuration) pour y accéder. Cette étape peut prendre plus d’une demi-heure.
@@ -194,8 +196,8 @@ $portalCertPfxPath = "C:\Users\Contoso\portal.pfx"   # full path to portal.conto
 $gatewayCertPfxPassword = "certificatePassword123"   # password for api.contoso.net pfx certificate
 $portalCertPfxPassword = "certificatePassword123"    # password for portal.contoso.net pfx certificate
 
-$certUploadResult = Import-AzureRmApiManagementHostnameCertificate -ResourceGroupName $resGroupName -Name $apimServiceName -HostnameType "Proxy" -PfxPath $gatewayCertPfxPath -PfxPassword $gatewayCertPfxPassword -PassThru
-$certPortalUploadResult = Import-AzureRmApiManagementHostnameCertificate -ResourceGroupName $resGroupName -Name $apimServiceName -HostnameType "Proxy" -PfxPath $portalCertPfxPath -PfxPassword $portalCertPfxPassword -PassThru
+$certUploadResult = Import-AzApiManagementHostnameCertificate -ResourceGroupName $resGroupName -Name $apimServiceName -HostnameType "Proxy" -PfxPath $gatewayCertPfxPath -PfxPassword $gatewayCertPfxPassword -PassThru
+$certPortalUploadResult = Import-AzApiManagementHostnameCertificate -ResourceGroupName $resGroupName -Name $apimServiceName -HostnameType "Proxy" -PfxPath $portalCertPfxPath -PfxPassword $portalCertPfxPassword -PassThru
 ```
 
 ### <a name="step-2"></a>Étape 2
@@ -203,9 +205,9 @@ $certPortalUploadResult = Import-AzureRmApiManagementHostnameCertificate -Resour
 Une fois les certificats chargés, créez des objets de configuration de nom d’hôte pour le proxy et pour le portail.  
 
 ```powershell
-$proxyHostnameConfig = New-AzureRmApiManagementHostnameConfiguration -CertificateThumbprint $certUploadResult.Thumbprint -Hostname $gatewayHostname
-$portalHostnameConfig = New-AzureRmApiManagementHostnameConfiguration -CertificateThumbprint $certPortalUploadResult.Thumbprint -Hostname $portalHostname
-$result = Set-AzureRmApiManagementHostnames -Name $apimServiceName -ResourceGroupName $resGroupName –PortalHostnameConfiguration $portalHostnameConfig -ProxyHostnameConfiguration $proxyHostnameConfig
+$proxyHostnameConfig = New-AzApiManagementHostnameConfiguration -CertificateThumbprint $certUploadResult.Thumbprint -Hostname $gatewayHostname
+$portalHostnameConfig = New-AzApiManagementHostnameConfiguration -CertificateThumbprint $certPortalUploadResult.Thumbprint -Hostname $portalHostname
+$result = Set-AzApiManagementHostnames -Name $apimServiceName -ResourceGroupName $resGroupName –PortalHostnameConfiguration $portalHostnameConfig -ProxyHostnameConfiguration $proxyHostnameConfig
 ```
 
 ## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Création d'une adresse IP publique pour la configuration frontale
@@ -213,7 +215,7 @@ $result = Set-AzureRmApiManagementHostnames -Name $apimServiceName -ResourceGrou
 Créez une ressource IP publique **publicIP01** dans le groupe de ressources.
 
 ```powershell
-$publicip = New-AzureRmPublicIpAddress -ResourceGroupName $resGroupName -name "publicIP01" -location $location -AllocationMethod Dynamic
+$publicip = New-AzPublicIpAddress -ResourceGroupName $resGroupName -name "publicIP01" -location $location -AllocationMethod Dynamic
 ```
 
 Une adresse IP est affectée à la passerelle Application Gateway au démarrage du service.
@@ -227,7 +229,7 @@ Tous les éléments de configuration doivent être installés avant de créer la
 Créez une configuration IP de passerelle Application Gateway nommée **gatewayIP01**. Lorsque la passerelle Application Gateway démarre, elle sélectionne une adresse IP à partir du sous-réseau configuré et achemine le trafic réseau vers les adresses IP du pool IP principal. Gardez à l’esprit que chaque instance utilise une adresse IP unique.
 
 ```powershell
-$gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name "gatewayIP01" -Subnet $appgatewaysubnetdata
+$gipconfig = New-AzApplicationGatewayIPConfiguration -Name "gatewayIP01" -Subnet $appgatewaysubnetdata
 ```
 
 ### <a name="step-2"></a>Étape 2
@@ -235,7 +237,7 @@ $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name "gatewayIP01" -S
 Configurez le port IP frontal pour le point de terminaison IP public. Ce port est le port auquel les utilisateurs finaux se connectent.
 
 ```powershell
-$fp01 = New-AzureRmApplicationGatewayFrontendPort -Name "port01"  -Port 443
+$fp01 = New-AzApplicationGatewayFrontendPort -Name "port01"  -Port 443
 ```
 
 ### <a name="step-3"></a>Étape 3 :
@@ -243,7 +245,7 @@ $fp01 = New-AzureRmApplicationGatewayFrontendPort -Name "port01"  -Port 443
 Configurez l’adresse IP frontale avec un point de terminaison IP public.
 
 ```powershell
-$fipconfig01 = New-AzureRmApplicationGatewayFrontendIPConfig -Name "frontend1" -PublicIPAddress $publicip
+$fipconfig01 = New-AzApplicationGatewayFrontendIPConfig -Name "frontend1" -PublicIPAddress $publicip
 ```
 
 ### <a name="step-4"></a>Étape 4
@@ -252,9 +254,9 @@ Configurez le certificat pour la passerelle Application Gateway, laquelle sera u
 
 ```powershell
 $certPwd = ConvertTo-SecureString $gatewayCertPfxPassword -AsPlainText -Force
-$cert = New-AzureRmApplicationGatewaySslCertificate -Name "cert01" -CertificateFile $gatewayCertPfxPath -Password $certPwd
+$cert = New-AzApplicationGatewaySslCertificate -Name "cert01" -CertificateFile $gatewayCertPfxPath -Password $certPwd
 $certPortalPwd = ConvertTo-SecureString $portalCertPfxPassword -AsPlainText -Force
-$certPortal = New-AzureRmApplicationGatewaySslCertificate -Name "cert02" -CertificateFile $portalCertPfxPath -Password $certPortalPwd
+$certPortal = New-AzApplicationGatewaySslCertificate -Name "cert02" -CertificateFile $portalCertPfxPath -Password $certPortalPwd
 ```
 
 ### <a name="step-5"></a>Étape 5
@@ -262,8 +264,8 @@ $certPortal = New-AzureRmApplicationGatewaySslCertificate -Name "cert02" -Certif
 Créez les écouteurs HTTP pour la passerelle Application Gateway. Affectez-leur la configuration IP frontale, le port et les certificats SSL.
 
 ```powershell
-$listener = New-AzureRmApplicationGatewayHttpListener -Name "listener01" -Protocol "Https" -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp01 -SslCertificate $cert -HostName $gatewayHostname -RequireServerNameIndication true
-$portalListener = New-AzureRmApplicationGatewayHttpListener -Name "listener02" -Protocol "Https" -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp01 -SslCertificate $certPortal -HostName $portalHostname -RequireServerNameIndication true
+$listener = New-AzApplicationGatewayHttpListener -Name "listener01" -Protocol "Https" -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp01 -SslCertificate $cert -HostName $gatewayHostname -RequireServerNameIndication true
+$portalListener = New-AzApplicationGatewayHttpListener -Name "listener02" -Protocol "Https" -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp01 -SslCertificate $certPortal -HostName $portalHostname -RequireServerNameIndication true
 ```
 
 ### <a name="step-6"></a>Étape 6
@@ -275,8 +277,8 @@ Créez des sondes personnalisées pour le point de terminaison de domaine de pro
 >
 
 ```powershell
-$apimprobe = New-AzureRmApplicationGatewayProbeConfig -Name "apimproxyprobe" -Protocol "Https" -HostName $gatewayHostname -Path "/status-0123456789abcdef" -Interval 30 -Timeout 120 -UnhealthyThreshold 8
-$apimPortalProbe = New-AzureRmApplicationGatewayProbeConfig -Name "apimportalprobe" -Protocol "Https" -HostName $portalHostname -Path "/signin" -Interval 60 -Timeout 300 -UnhealthyThreshold 8
+$apimprobe = New-AzApplicationGatewayProbeConfig -Name "apimproxyprobe" -Protocol "Https" -HostName $gatewayHostname -Path "/status-0123456789abcdef" -Interval 30 -Timeout 120 -UnhealthyThreshold 8
+$apimPortalProbe = New-AzApplicationGatewayProbeConfig -Name "apimportalprobe" -Protocol "Https" -HostName $portalHostname -Path "/signin" -Interval 60 -Timeout 300 -UnhealthyThreshold 8
 ```
 
 ### <a name="step-7"></a>Étape 7
@@ -284,7 +286,7 @@ $apimPortalProbe = New-AzureRmApplicationGatewayProbeConfig -Name "apimportalpro
 Chargez le certificat à utiliser sur les ressources du pool principal pour lequel le chiffrement SSL est activé. Il s’agit du certificat que vous avez fourni à l’étape 4 ci-dessus.
 
 ```powershell
-$authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name "whitelistcert1" -CertificateFile $gatewayCertCerPath
+$authcert = New-AzApplicationGatewayAuthenticationCertificate -Name "whitelistcert1" -CertificateFile $gatewayCertCerPath
 ```
 
 ### <a name="step-8"></a>Étape 8
@@ -292,8 +294,8 @@ $authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name "whitel
 Configurez les paramètres de serveur principal HTTP de la passerelle Application Gateway. Définissez notamment une limite de délai d’expiration pour les requêtes de serveur backend, après laquelle elles sont annulées. Cette valeur est différente du délai d’expiration de la sonde.
 
 ```powershell
-$apimPoolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name "apimPoolSetting" -Port 443 -Protocol "Https" -CookieBasedAffinity "Disabled" -Probe $apimprobe -AuthenticationCertificates $authcert -RequestTimeout 180
-$apimPoolPortalSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name "apimPoolPortalSetting" -Port 443 -Protocol "Https" -CookieBasedAffinity "Disabled" -Probe $apimPortalProbe -AuthenticationCertificates $authcert -RequestTimeout 180
+$apimPoolSetting = New-AzApplicationGatewayBackendHttpSettings -Name "apimPoolSetting" -Port 443 -Protocol "Https" -CookieBasedAffinity "Disabled" -Probe $apimprobe -AuthenticationCertificates $authcert -RequestTimeout 180
+$apimPoolPortalSetting = New-AzApplicationGatewayBackendHttpSettings -Name "apimPoolPortalSetting" -Port 443 -Protocol "Https" -CookieBasedAffinity "Disabled" -Probe $apimPortalProbe -AuthenticationCertificates $authcert -RequestTimeout 180
 ```
 
 ### <a name="step-9"></a>Étape 9
@@ -301,7 +303,7 @@ $apimPoolPortalSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name 
 Configurez un pool d’adresses IP du serveur principal nommé **apimbackend** avec l’adresse IP virtuelle interne du service Gestion des API créé ci-dessus.
 
 ```powershell
-$apimProxyBackendPool = New-AzureRmApplicationGatewayBackendAddressPool -Name "apimbackend" -BackendIPAddresses $apimService.PrivateIPAddresses[0]
+$apimProxyBackendPool = New-AzApplicationGatewayBackendAddressPool -Name "apimbackend" -BackendIPAddresses $apimService.PrivateIPAddresses[0]
 ```
 
 ### <a name="step-10"></a>Étape 10
@@ -309,8 +311,8 @@ $apimProxyBackendPool = New-AzureRmApplicationGatewayBackendAddressPool -Name "a
 Créez des règles pour la passerelle Application Gateway pour utiliser le routage de base.
 
 ```powershell
-$rule01 = New-AzureRmApplicationGatewayRequestRoutingRule -Name "rule1" -RuleType Basic -HttpListener $listener -BackendAddressPool $apimProxyBackendPool -BackendHttpSettings $apimPoolSetting
-$rule02 = New-AzureRmApplicationGatewayRequestRoutingRule -Name "rule2" -RuleType Basic -HttpListener $portalListener -BackendAddressPool $apimProxyBackendPool -BackendHttpSettings $apimPoolPortalSetting
+$rule01 = New-AzApplicationGatewayRequestRoutingRule -Name "rule1" -RuleType Basic -HttpListener $listener -BackendAddressPool $apimProxyBackendPool -BackendHttpSettings $apimPoolSetting
+$rule02 = New-AzApplicationGatewayRequestRoutingRule -Name "rule2" -RuleType Basic -HttpListener $portalListener -BackendAddressPool $apimProxyBackendPool -BackendHttpSettings $apimPoolPortalSetting
 ```
 
 > [!TIP]
@@ -321,7 +323,7 @@ $rule02 = New-AzureRmApplicationGatewayRequestRoutingRule -Name "rule2" -RuleTyp
 Configurez le nombre d’instances et la taille de la passerelle Application Gateway. Dans cet exemple, nous utilisons la [référence (SKU) WAF](../application-gateway/application-gateway-webapplicationfirewall-overview.md) pour renforcer la sécurité de la ressource du service Gestion des API.
 
 ```powershell
-$sku = New-AzureRmApplicationGatewaySku -Name "WAF_Medium" -Tier "WAF" -Capacity 2
+$sku = New-AzApplicationGatewaySku -Name "WAF_Medium" -Tier "WAF" -Capacity 2
 ```
 
 ### <a name="step-12"></a>Étape 12
@@ -329,7 +331,7 @@ $sku = New-AzureRmApplicationGatewaySku -Name "WAF_Medium" -Tier "WAF" -Capacity
 Configurez WAF pour passer en mode Prévention.
 
 ```powershell
-$config = New-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode "Prevention"
+$config = New-AzApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode "Prevention"
 ```
 
 ## <a name="create-application-gateway"></a>Créer une passerelle Application Gateway
@@ -338,7 +340,7 @@ Créez une passerelle Application Gateway avec tous les objets de configuration 
 
 ```powershell
 $appgwName = "apim-app-gw"
-$appgw = New-AzureRmApplicationGateway -Name $appgwName -ResourceGroupName $resGroupName -Location $location -BackendAddressPools $apimProxyBackendPool -BackendHttpSettingsCollection $apimPoolSetting, $apimPoolPortalSetting  -FrontendIpConfigurations $fipconfig01 -GatewayIpConfigurations $gipconfig -FrontendPorts $fp01 -HttpListeners $listener, $portalListener -RequestRoutingRules $rule01, $rule02 -Sku $sku -WebApplicationFirewallConfig $config -SslCertificates $cert, $certPortal -AuthenticationCertificates $authcert -Probes $apimprobe, $apimPortalProbe
+$appgw = New-AzApplicationGateway -Name $appgwName -ResourceGroupName $resGroupName -Location $location -BackendAddressPools $apimProxyBackendPool -BackendHttpSettingsCollection $apimPoolSetting, $apimPoolPortalSetting  -FrontendIpConfigurations $fipconfig01 -GatewayIpConfigurations $gipconfig -FrontendPorts $fp01 -HttpListeners $listener, $portalListener -RequestRoutingRules $rule01, $rule02 -Sku $sku -WebApplicationFirewallConfig $config -SslCertificates $cert, $certPortal -AuthenticationCertificates $authcert -Probes $apimprobe, $apimPortalProbe
 ```
 
 ## <a name="cname-the-api-management-proxy-hostname-to-the-public-dns-name-of-the-application-gateway-resource"></a>Définition du CNAME du nom d’hôte du proxy du service Gestion des API sur le nom DNS public de la ressource Application Gateway
@@ -348,13 +350,13 @@ Une fois la passerelle créée, l’étape suivante consiste à configurer le se
 Le nom DNS de la passerelle Application Gateway doit être utilisé pour créer un enregistrement CNAME qui pointe le nom d’hôte proxy APIM (`api.contoso.net` dans les exemples ci-dessus) vers ce nom DNS. Pour configurer l’enregistrement CNAME d’adresses IP frontales, récupérez les détails de la passerelle Application Gateway et de son nom IP/DNS associé à l’aide de l’élément PublicIPAddress. L’utilisation de A-records n’est pas recommandée étant donné que l’adresse IP virtuelle peut changer lors du redémarrage de la passerelle.
 
 ```powershell
-Get-AzureRmPublicIpAddress -ResourceGroupName $resGroupName -Name "publicIP01"
+Get-AzPublicIpAddress -ResourceGroupName $resGroupName -Name "publicIP01"
 ```
 
 ## <a name="summary"></a> Résumé
-Le service Gestion des API Azure configuré dans un réseau virtuel fournit une interface de passerelle unique pour l’ensemble des API configurées, qu’elles soient hébergées en local ou dans le cloud. L’intégration d’Application Gateway au service Gestion des API vous permet d’activer facilement l’accessibilité d’API particulières sur Internet, tout en fournissant un pare-feu d’applications web en tant que pare-feu frontal pour votre instance de service Gestion des API.
+Gestion des API Azure configuré dans un réseau virtuel fournit une interface de passerelle unique pour toutes les API configurées, qu’elles soient hébergées en local ou dans le cloud. L’intégration d’Application Gateway au service Gestion des API vous permet d’activer facilement l’accessibilité d’API particulières sur Internet, tout en fournissant un pare-feu d’applications web en tant que pare-feu frontal pour votre instance de service Gestion des API.
 
-##<a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur Azure Application Gateway
   * [Vue d’ensemble d’Application Gateway](../application-gateway/application-gateway-introduction.md)
   * [Pare-feu d’applications web sur Application Gateway](../application-gateway/application-gateway-webapplicationfirewall-overview.md)

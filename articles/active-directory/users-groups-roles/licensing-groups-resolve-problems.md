@@ -1,5 +1,5 @@
 ---
-title: Résolution des problèmes d’affectation de licence pour un groupe - Azure Active Directory | Microsoft Docs
+title: Résolution des problèmes d’attribution de licences pour un groupe - Azure Active Directory | Microsoft Docs
 description: Identification et résolution des problèmes d’affectation de licences avec la licence basée sur le groupe Azure Active Directory
 services: active-directory
 keywords: Gestion des licences Azure AD
@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 01/31/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c40a25cd2baebaaeedc012e8e9faff91b297f57
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c92969015910cc5bd72e2d9339d5c15c1f7af48b
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082498"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201532"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identification et résolution des problèmes d’affectation de licences pour un groupe dans Azure Active Directory
 
@@ -35,19 +35,19 @@ Lorsque vous utilisez une licence basée sur le groupe, les mêmes erreurs peuve
 
 1. Pour rechercher des données utilisateur à l’état d’erreur dans un groupe spécifique, ouvrez le volet du groupe. Sous **Licences**, une notification s’affiche si des données utilisateur se trouvent à l’état d’erreur.
 
-   ![Groupe, notification d’erreur](./media/licensing-groups-resolve-problems/group-error-notification.png)
+   ![Message de notifications de groupe et d’erreur](./media/licensing-groups-resolve-problems/group-error-notification.png)
 
 2. Sélectionnez la notification pour ouvrir la liste de tous les utilisateurs concernés. Vous pouvez sélectionner chaque utilisateur individuellement pour afficher plus de détails.
 
-   ![Groupe, liste des utilisateurs en état d’erreur](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
+   ![liste des utilisateurs dans le groupe de licences en état d’erreur](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
 
 3. Pour rechercher tous les groupes contenant au moins une erreur, dans le panneau **Azure Active Directory**, sélectionnez **Licences**, puis **Vue d’ensemble**. Une fenêtre d’informations s’affiche lorsque des groupes nécessitent votre attention.
 
-   ![Vue d’ensemble, informations sur les groupes en état d’erreur](./media/licensing-groups-resolve-problems/group-errors-widget.png)
+   ![Vue d’ensemble et des informations sur les groupes dans l’état d’erreur](./media/licensing-groups-resolve-problems/group-errors-widget.png)
 
 4. Cliquez sur la zone pour afficher la liste de tous les groupes contenant des erreurs. Vous pouvez sélectionner chaque groupe pour afficher des détails supplémentaires.
 
-   ![Vue d’ensemble, liste des groupes contenant des erreurs](./media/licensing-groups-resolve-problems/list-of-groups-with-errors.png)
+   ![Vue d’ensemble et liste des groupes avec des erreurs](./media/licensing-groups-resolve-problems/list-of-groups-with-errors.png)
 
 
 Les sections suivantes décrivent chaque problème potentiel et la manière de le résoudre.

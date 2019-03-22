@@ -8,16 +8,16 @@ ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: ea50902a557e8bd7aa18fbc03fca8fc4a99ac2e2
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: 024bb29f9d7276021888e949073f6d45aed0a249
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770786"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076273"
 ---
 # <a name="iot-hub-device-streams-preview"></a>Flux d'appareils IoT Hub (préversion)
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Les *flux d’appareils* Azure IoT Hub facilitent la création de tunnels TCP bidirectionnels sécurisés pour divers scénarios de communication cloud-à-appareil. Un flux d'appareil est régi par un *point de terminaison de streaming* IoT Hub qui fait office de proxy entre votre appareil et les points terminaison de service. Illustrée dans le diagramme ci-dessous, cette configuration est particulièrement utile quand les appareils sont situés derrière un pare-feu réseau ou à l’intérieur d’un réseau privé. Dès lors, les flux d’appareils IoT Hub permettent aux clients d'accéder aux appareils IoT de manière sécurisée via un pare-feu, sans devoir trop ouvrir les ports de pare-feu de réseau entrants ou sortants.
 
 ![Texte de remplacement](./media/iot-hub-device-streams-overview/iot-hub-device-streams-overview.png "Vue d’ensemble des flux d’appareils IoT Hub")
@@ -117,16 +117,16 @@ az iot hub devicestream show --name <YourIoTHubName>
 
 ## <a name="troubleshoot-via-device-streams-activity-logs"></a>Détecter un problème via les journaux d'activité des flux d'appareils
 
-Vous pouvez configurer Azure Log Analytics de manière à collecter le journal d’activité des flux d’appareils dans votre hub IoT. Ce journal peut s'avérer particulièrement utile à des fins de résolution des problèmes.
+Vous pouvez configurer les journaux Azure Monitor pour collecter le journal d’activité de flux de l’appareil dans votre IoT Hub. Ce journal peut s'avérer particulièrement utile à des fins de résolution des problèmes.
 
-Pour configurer Azure Log Analytics pour les activités de flux d'appareils de votre hub IoT, procédez comme suit :
+Suivez les étapes ci-dessous pour configurer les journaux Azure Monitor pour les activités de flux de données des périphériques de votre concentrateur IoT :
 
 1. Accédez à l'onglet *Paramètres de diagnostic* dans votre hub IoT, puis cliquez sur le lien *Activer les diagnostics*.
 
-  ![Texte de remplacement](./media/iot-hub-device-streams-overview/device-streams-diagnostics-settings.PNG "Activation des journaux de diagnostic")
+   ![Texte de remplacement](./media/iot-hub-device-streams-overview/device-streams-diagnostics-settings.PNG "Activation des journaux de diagnostic")
 
 
-2. Entrez un nom pour vos paramètres de diagnostic, puis sélectionnez l'option *Envoyer à Log Analytics*. Vous serez invité à sélectionner une ressource Log Analytics existante ou à en créer une. Dans la liste, cochez également *DeviceStreams*.
+2. Entrez un nom pour vos paramètres de diagnostic, puis sélectionnez l'option *Envoyer à Log Analytics*. Vous serez guidé pour choisir une ressource d’espace de travail Analytique de journal existante ou créez-en un. Dans la liste, cochez également *DeviceStreams*.
 
     ![Texte de remplacement](./media/iot-hub-device-streams-overview/device-streams-diagnostics.PNG "Activer les journaux des flux d'appareils")
 
@@ -153,7 +153,7 @@ Deux côtés de chaque flux (côté appareil et côté service) utilisent le SDK
 ## <a name="iot-hub-device-stream-samples"></a>Exemples de flux d'appareils IoT Hub
 
 Nous avons publié deux [exemples de démarrage rapide](/azure/iot-hub) illustrant l’utilisation des flux d’appareils par les applications.
-* L’exemple *écho* illustre l’utilisation programmatique des flux d’appareils (en appelant directement les API du SDK).
+* Le *echo* exemple illustre l’utilisation par programmation de flux de l’appareil (en appelant directement l’API du SDK).
 * L’exemple *proxy local* illustre le tunneling du trafic d’application client/serveur du commerce (par exemple, SSH, RDP ou web) via les flux d’appareils.
 
 Ces exemples sont traités plus en détail ci-dessous.

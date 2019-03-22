@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 807643146c4f2821cecf60499ea1985f56e9d251
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9fb657d2c2cd4eeae0eb96dd37505a1c47278725
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168593"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103058"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Personnaliser la page de connexion Azure Active Directory de votre organisation
 Utilisez le logo et la palette de couleurs personnalisée de votre organisation pour offrir une apparence cohérente à vos pages de connexion Azure Active Directory (Azure AD). Vos pages de connexion s’affichent quand les utilisateurs se connectent aux applications web de votre organisation, comme Office 365, qui utilise Azure AD comme fournisseur d’identité.
@@ -29,7 +29,7 @@ Utilisez le logo et la palette de couleurs personnalisée de votre organisation 
 ## <a name="customize-your-azure-ad-sign-in-page"></a>Personnaliser votre page de connexion Azure AD
 Vous pouvez personnaliser vos pages de connexion Azure AD, qui s’affichent quand les utilisateurs se connectent à des applications spécifiques aux locataires de votre organisation, comme [*https://outlook.com/contoso.com*](https://outlook.com/contoso.com), ou lors de la soumission d’une variable de domaine, comme [*https://passwordreset.microsoftonline.com/?whr=contoso.com*](https://passwordreset.microsoftonline.com/?whr=contoso.com).
 
-Votre personnalisation ne s’affiche pas immédiatement quand vos utilisateurs accèdent à des sites tels que www.office.com. L’utilisateur doit se connecter avant que votre personnalisation n’apparaisse.
+Votre marque personnalisée n’apparaisse pas immédiatement quand vos utilisateurs accèdent à des sites, par exemple, www\.office.com. L’utilisateur doit se connecter avant que votre personnalisation n’apparaisse.
 
 > [!NOTE]
 > Tous les éléments de personnalisation sont facultatifs. Par exemple, si vous spécifiez un logo de bannière sans image d’arrière-plan, la page de connexion affiche votre logo avec l’image d’arrière-plan par défaut du site de destination (par exemple, Office 365).<br><br>De plus, la personnalisation de la page de connexion ne s’étend pas aux comptes Microsoft personnels. Si les utilisateurs ou des invités professionnels se connectent avec un compte Microsoft personnel, leur page de connexion ne reflète pas la personnalisation de votre organisation.
@@ -103,7 +103,7 @@ Une fois que vous avez créé votre personnalisation, vous pouvez revenir en arr
 
 4. Sélectionnez **Enregistrer**.
 
-  Il peut s’écouler jusqu’à une heure avant que les modifications que vous avez apportées à la page de connexion soient visibles.
+   Il peut s’écouler jusqu’à une heure avant que les modifications que vous avez apportées à la page de connexion soient visibles.
 
 ## <a name="add-language-specific-company-branding-to-your-directory"></a>Ajouter une marque de société spécifique à une langue à votre répertoire
 Vous ne pouvez pas changer la langue par défaut de votre configuration d’origine. Toutefois, si vous avez besoin d’une configuration dans une autre langue, vous pouvez créer une autre configuration.

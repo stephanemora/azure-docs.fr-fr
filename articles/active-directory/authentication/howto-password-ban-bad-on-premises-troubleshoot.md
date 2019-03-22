@@ -1,6 +1,6 @@
 ---
-title: Résolution de problèmes dans la préversion de la protection par mot de passe Azure AD
-description: Comprendre la résolution de problèmes courants dans la préversion de la protection par mot de passe Azure AD
+title: Résolution des problèmes de protection de mot de passe Azure AD
+description: Comprendre la protection de mot de passe du Azure AD courants dépannage
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,19 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 760ad30daabee61300768b7c67824f39437ac87f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 7ac97d7bda56a871e0b8f6de6d5d7262f3f44667
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58006955"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285698"
 ---
-# <a name="preview-azure-ad-password-protection-troubleshooting"></a>Aperçu : Résolution de problèmes de protection par mot de passe Azure AD
-
-|     |
-| --- |
-| La protection par mot de passe Azure AD est une fonctionnalité en préversion publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+# <a name="azure-ad-password-protection-troubleshooting"></a>Résolution de problèmes de protection par mot de passe Azure AD
 
 Après déploiement de la protection par mot de passe Azure AD, il peut s’avérer nécessaire de résoudre des problèmes. Cet article entre dans les détails pour vous aider à comprendre certaines étapes de la résolution des problèmes courants.
 
@@ -101,7 +96,7 @@ Une fois que la rétrogradation a réussi et que le contrôleur de domaine a ét
 
 ## <a name="removal"></a>Suppression
 
-Si vous décidez de désinstaller le logiciel de la version préliminaire publique et de nettoyer tous les états des domaines et de la forêt, cette tâche peut être réalisée en procédant comme suit :
+S’il est décidé de désinstaller le logiciel de protection de mot de passe Azure AD et un nettoyage tout état le (s) et la forêt, cette tâche peut être accomplie en procédant comme suit :
 
 > [!IMPORTANT]
 > Il est important d’effectuer ces étapes dans l’ordre. Si une instance du service Proxy reste en cours d’exécution, elle recrée périodiquement son objet serviceConnectionPoint. Si une instance du service d’agent DC reste en cours d’exécution, elle recrée périodiquement son objet serviceConnectionPoint et l’état sysvol.
@@ -120,7 +115,7 @@ Si vous décidez de désinstaller le logiciel de la version préliminaire publiq
 
    Les objets trouvés via la commande `Get-ADObject` peuvent ensuite être dirigés vers `Remove-ADObject` ou supprimés manuellement.
 
-4. Supprimez manuellement tous les points de connexion d’agent DC dans chaque contexte de nommage de domaine. Il peut exister un de ces objets par contrôleur de domaine dans la forêt, selon la portée du déploiement du logiciel de la version préliminaire publique. Vous pouvez détecter l’emplacement de cet objet avec la commande PowerShell Active Directory suivante :
+4. Supprimez manuellement tous les points de connexion d’agent DC dans chaque contexte de nommage de domaine. Il existe peut-être un ces objets par le contrôleur de domaine dans la forêt, selon la portée d’application le logiciel a été déployé. Vous pouvez détecter l’emplacement de cet objet avec la commande PowerShell Active Directory suivante :
 
    ```PowerShell
    $scp = "serviceConnectionPoint"

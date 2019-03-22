@@ -10,18 +10,18 @@ ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 6e58fa83bfdce5e5363ef61d1e3deaa61397301a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: f8692bac271c2b0a51fef358d2fc73d6cfc8fe97
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461931"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004400"
 ---
 # <a name="sql-data-warehouse-data-management-partners"></a>Partenaires de SQL Data Warehouse en matière de gestion de données
 Pour créer votre solution d’entrepôt de données, vous pouvez choisir parmi un large éventail d’outils performants. Cet article met en évidence les sociétés partenaires de Microsoft qui proposent des outils et solutions de gestion de données prenant en charge Azure SQL Data Warehouse.
 
 ## <a name="data-management-partners"></a>Partenaires de gestion des données
-| Partenaire | Description | Liens | vidéos |
+| Partenaire | Description | Liens | Videos |
 | --- | --- | --- | --- |
 | ![Coffing Data Warehousing][1] |**Coffing Data Warehousing**<br>Coffing Data Warehousing propose Nexus Chameleon, un outil résultant de 10 années de conception dédié à l’interrogation de systèmes. Nexus est disponible en tant qu’outil de requête pour SQL Data Warehouse. Utilisez Nexus pour interroger des ordinateurs en entreprise et cloud et pour associer les données de différentes plateformes. Il vous suffit de pointer et cliquer pour générer un rapport ! |[Site web][coffing_website]<br>[Communiqué de Presse][coffing_press]<br>[Twitter][coffing_twitter]<br>[YouTube][coffing_youtube] |[![Vidéo coffing](./media/sql-data-warehouse-partner-data-management/coffing_video.jpg)](https://www.youtube.com/watch?v=N5GSxBEySFc) |
 | ![Inbrein][2] |**MicroERD**<br>Inbrein MicroERD vous offre les outils dont vous avez besoin pour créer un modèle de données précis, réduire la redondance des données, améliorer la productivité et respecter les normes. Grâce à son interface utilisateur, dont le développement repose sur des expériences utilisateur intensives, un modélisateur peut travailler sur des modèles de base de données en toute facilité. En outre, vous pouvez bénéficier en permanence d’ajouts ou d’optimisations de fonctions MicroERD par le biais de mises à jour et d’améliorations fonctionnelles rapides. |[Site web][inbrein_website]<br>[Feuille de données][inbrein_datasheet]<br>[Twitter][inbrein_twitter]<br>[YouTube][inbrein_youtube] |[![Vidéo inbrein](./media/sql-data-warehouse-partner-data-management/inbrein_video.jpg)](https://www.youtube.com/watch?v=IGHSAk4bxdE) |
@@ -49,7 +49,7 @@ Pour en savoir plus sur d’autres partenaires, consultez [Partenaires décision
 
 <!--Website links -->
 
-[coffing_website]:http://www.coffingdw.com/software/nexus/
+[coffing_website]:https://www.coffingdw.com/software/nexus/
 [inbrein_website]:http://microerd.com/
 [infolibrarian_website]:http://www.infolibcorp.com/metadata-management/software-tools
 [redpoint_it_website]:http://www.redpoint.net/products/customer-interaction-management/
@@ -84,7 +84,7 @@ Pour en savoir plus sur d’autres partenaires, consultez [Partenaires décision
 
 <!--Press links-->
 
-[coffing_press]:http://www.coffingdw.com/press-release-nexus-tuned-for-azure-sql-data-warehouse/
+[coffing_press]:https://www.coffingdw.com/press-release-nexus-tuned-for-azure-sql-data-warehouse/
 
 <!--[inbrein_press]:-->
 

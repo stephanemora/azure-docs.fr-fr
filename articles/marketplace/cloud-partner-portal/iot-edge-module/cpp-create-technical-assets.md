@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 877e42dc8d6e69834cf989122f855ada560b813c
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: 2ed4826eb47ab2fb13d312860475f9ec9b323bf7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201242"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884152"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>Préparer vos ressources techniques de module IoT Edge
 
@@ -45,7 +45,7 @@ Votre module IoT Edge doit prendre en charge une des options de plateforme suiva
 Prendre en charge toutes les plateformes de niveau 1 prises en charge par IoT Edge (tel qu’enregistré dans [Prise en charge par Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/support)). Nous recommandons cette option, car elle fournit une meilleure expérience client. Les modules correspondant à ce critère sont présentés. Un module utilisant cette option de plateforme doit :
 
 - Fournir une balise `latest` et une balise de version (par exemple, `1.0.1`), qui sont des balises manifeste générées avec [manifest-tool](https://github.com/estesp/manifest-tool) de GitHub.
-- Utiliser l’[onglet Place de marché](./cpp-marketplace-tab.md) pour ajouter un lien vers les [appareils certifiés compatibles IoT Edge](https://aka.ms/iot-edge-certified). Ce lien correspond à `http://aka.ms/iot-edge-certified`, un site web où les clients peuvent parcourir ou rechercher des appareils certifiés. Ce site web est également appelé le catalogue d’appareils [Azure IoT Edge Certified](https://catalog.azureiotsolutions.com/).
+- Utiliser l’[onglet Place de marché](./cpp-marketplace-tab.md) pour ajouter un lien vers les [appareils certifiés compatibles IoT Edge](https://aka.ms/iot-edge-certified). Ce lien correspond à `https://aka.ms/iot-edge-certified`, un site web où les clients peuvent parcourir ou rechercher des appareils certifiés. Ce site web est également appelé le catalogue d’appareils [Azure IoT Edge Certified](https://catalog.azureiotsolutions.com/).
 
 #### <a name="a-subset-of-tier-1-platforms-supported-by-iot-edge"></a>Un sous-ensemble de plateformes de niveau 1 prises en charge par IoT Edge
   
@@ -61,9 +61,9 @@ Les dimensions de module IoT Edge (UC/RAM/stockage/GPU/etc.) sur les appareils I
 - Le module doit **fonctionner avec au moins un appareil certifié IoT Edge** dans le catalogue d’appareils [Azure IoT Edge Certified](https://catalog.azureiotsolutions.com/).
 - La **configuration matérielle minimale** doit correspondre au dernier paragraphe de la description de l’offre (sous l’[onglet Place de marché](./cpp-marketplace-tab.md)). Si vous le souhaitez, vous pouvez également répertorier la configuration matérielle recommandée si elles diffèrent considérablement. Par exemple, ajoutez la section suivante à la fin de la description de votre offre :
 
- ```html
+  ```html
     <p><u>Minimum hardware requirements:</u> Linux x64 and arm32  OS, 1GB of RAM, 500 Mb of storage</p>
- ```
+  ```
 
 ### <a name="configuration"></a>Configuration
 
@@ -128,7 +128,8 @@ Le Kit de développement logiciel (SDK) de module IoT est nécessaire pour obten
 
 ## <a name="recertification-process"></a>Processus de renouvellement de certification
 
-<!-- Add legal time windows--> Les partenaires reçoivent une notification à chaque changement cassant qui affecte leurs modules, tel que :
+<!-- Add legal time windows-->
+Partenaires seront informés chaque fois qu’une modification avec rupture qui affecte leurs modules, tels que :
 
 - Matrice de prise en charge du système d’exploitation/arch de niveau 1 prise en charge par IoT Edge
 - Kit de développement logiciel (SDK) de module IoT

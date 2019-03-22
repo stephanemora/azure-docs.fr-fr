@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/05/2018
-ms.openlocfilehash: de339fbab3d360507a77708816b5fccdca80a7d1
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 9dcb79e7f4ebd43da3f6c6fd35fa0707898d7ec8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53544751"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111002"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Monitoring dans Azure Database pour MySQL
 La surveillance des données relatives à vos serveurs vous aide à résoudre les problèmes et à optimiser votre charge de travail. Azure Database pour MySQL propose diverses métriques qui fournissent des insights sur le comportement de votre serveur.
@@ -23,7 +23,7 @@ Toutes les métriques Azure présentent une fréquence d’une minute et chaque 
 Ces métriques sont disponibles pour Azure Database pour MySQL :
 
 |Métrique|Nom d’affichage de la métrique|Unité|Description|
-|---|---|---|---|---|
+|---|---|---|---|
 |cpu_percent|Pourcentage d’UC|Pourcentage|Pourcentage d’UC en cours d’utilisation.|
 |memory_percent|Pourcentage de mémoire|Pourcentage|Pourcentage de mémoire en cours d’utilisation.|
 |io_consumption_percent|Pourcentage d’E/S|Pourcentage|Pourcentage d’E/S en cours d’utilisation.|
@@ -41,7 +41,7 @@ Ces métriques sont disponibles pour Azure Database pour MySQL :
 |backup_storage_used|Stockage de sauvegarde utilisé|Octets|Quantité de stockage de sauvegarde utilisée.|
 
 ## <a name="server-logs"></a>Journaux des serveurs
-Vous pouvez activer la journalisation des requêtes lentes sur votre serveur. Ces journaux sont également disponibles via les journaux de diagnostic Azure dans OMS Log Analytics, Event Hubs et le compte de stockage. Pour en savoir plus sur la journalisation, consultez la page  [journaux serveur](concepts-server-logs.md).
+Vous pouvez activer la journalisation des requêtes lentes sur votre serveur. Ces journaux sont également disponibles via les journaux de Diagnostic Azure dans Azure Monitor journaux, Event Hubs et compte de stockage. Pour en savoir plus sur la journalisation, consultez la page  [journaux serveur](concepts-server-logs.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Consultez le [guide pratique pour configurer des alertes](howto-alert-on-metric.md) pour savoir comment créer une alerte sur une métrique.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 60790f0f31915a50829df09d039a4f74860a47d7
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
-ms.translationtype: HT
+ms.openlocfilehash: d8f2ae64e2f8e694de5a7cf5aa9049e63998dca0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076432"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452655"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Gérer les formules Azure DevTest Labs
 
@@ -68,8 +68,8 @@ Les étapes suivantes vous guideront tout au long du processus de création d’
     - **Sous-réseau** : pour changer de sous-réseau, sélectionnez **Changer de sous-réseau**. 
     - **Configuration de l’adresse IP** - Spécifiez si vous souhaitez que les adresses IP soient partagées, privées ou publiques. Pour plus d’informations sur les adresses IP partagées, consultez [Comprendre les adresses IP partagées dans Azure DevTest Labs](./devtest-lab-shared-ip.md).
     - **Date et heure d’expiration** : spécifiez la date et l’heure d’expiration de la machine virtuelle afin qu’elle soit automatiquement supprimée. 
-    - **Autoriser la revendication de cette machine** - Lorsqu’une machine est « revendicable », cela signifie qu’aucune propriété ne lui sera affectée au moment de la création. En revanche, les utilisateurs du laboratoire seront en mesure de prendre possession de la machine (de la « revendiquer ») dans la page du laboratoire.     
-    - **Nombre d’instances revendicables** : indiquez le nombre d’instances revendicables à créer. 
+    - **Make this machine claimable** (Rendre cette machine exigible) - Lorsqu’une machine est « exigible », cela signifie qu’aucune propriété ne lui sera affectée au moment de la création. En revanche, les utilisateurs du laboratoire seront en mesure de prendre possession de la machine (de la « revendiquer ») dans la page du laboratoire.     
+    - **Nombre d’instances exigibles** -spécifier combien d’instances exigibles que vous souhaitez créer. 
 8. Sélectionnez **Envoyer** pour créer la formule.
 
 9. Une fois la formule créée, elle s’affiche dans la liste de la page **Formules**.

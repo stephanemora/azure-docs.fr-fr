@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.openlocfilehash: 3e7717d4ee07a1f3bfebb5e09b983af68aa4ea31
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: c5b5f80a43530fe6d0b90e65c3aef89a815157e4
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116218"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241389"
 ---
 # <a name="azure-service-fabric-security-overview"></a>Vue d’ensemble de la sécurité Azure Service Fabric
 [Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) est une plateforme de systèmes distribués qui facilite le packaging, le déploiement et la gestion de microservices évolutifs et fiables. Service Fabric gère les difficultés du développement et de la gestion des applications cloud. C’est pourquoi les développeurs et administrateurs peuvent éviter les problèmes d’infrastructure complexes et se concentrer sur l’implémentation de charges de travail stratégiques et astreignantes qui sont scalables et fiables.
@@ -87,7 +87,7 @@ Le flux de travail de la surveillance et des diagnostics se compose de trois ét
 
 2.  **Agrégation d’événements** : Les événements générés doivent être collectés et agrégés pour pouvoir être affichés. En général, nous recommandons d’utiliser [Azure Diagnostics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad) (similaire à la collecte de journaux basée sur un agent) ou [EventFlow](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-eventflow) (collecte de journaux in-process).
 
-3.  **Analyse** : Les événements doivent être visualisés et accessibles dans un certain format pour pouvoir être analysés et affichés. Il existe plusieurs plateformes pour l’analyse et la visualisation des données de surveillance et de diagnostics. Nous recommandons [Azure Log Analytics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms) et [Azure Application Insights](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights) car ils s’intègrent bien avec Service Fabric.
+3.  **Analyse** : Les événements doivent être visualisés et accessibles dans un certain format pour pouvoir être analysés et affichés. Il existe plusieurs plateformes pour l’analyse et la visualisation des données de surveillance et de diagnostics. Nous vous recommandons de [Azure Monitor enregistre](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms) et [Azure Application Insights](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights) , car ils s’intègrent bien Service Fabric.
 
 Vous pouvez également utiliser [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview) pour surveiller un grand nombre des ressources Azure sur lesquelles repose un cluster Service Fabric.
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: 204898026dc55e7111d3810d4938101ffaddc3f9
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 4d7f3c8d8efbdc658e4f7621a0606cb7fd92c88d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55698324"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103483"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms"></a>Migration de Contoso : réhéberger une application Linux locale sur des machines virtuelles Azure
 
@@ -109,7 +109,7 @@ Contoso effectuera la migration comme suit :
 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/) | Le service orchestre et gère la migration et la récupération d’urgence pour les machines virtuelles Azure, les machines virtuelles locales et les serveurs physiques.  | Lors de la réplication vers Azure, des frais sur le Stockage Azure sont facturés.  Des machines virtuelles Azure sont créées en cas de basculement, et entraînent des frais. [En savoir plus](https://azure.microsoft.com/pricing/details/site-recovery/) sur les frais et la tarification.
 
  
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Voici ce dont Contoso a besoin pour ce scénario.
 
@@ -314,17 +314,17 @@ Maintenant, les administrateurs de Contoso peuvent commencer à répliquer la ma
 
 3. Ils sélectionnent la machine virtuelle **OSTICKETWEB** pour la réplication. 
 
-    - À ce stade, ils sélectionnent seulement **OSTICKETWEB**, car le réseau virtuel et le sous-réseau doivent être tous deux sélectionnés et les machines virtuelles ne sont pas dans le même sous-réseau.
-    - Site Recovery installe automatiquement le service Mobilité une fois la réplication activée pour la machine virtuelle.
+   - À ce stade, ils sélectionnent seulement **OSTICKETWEB**, car le réseau virtuel et le sous-réseau doivent être tous deux sélectionnés et les machines virtuelles ne sont pas dans le même sous-réseau.
+   - Site Recovery installe automatiquement le service Mobilité une fois la réplication activée pour la machine virtuelle.
 
-    ![Activer la réplication](./media/contoso-migration-rehost-linux-vm/enable-replication3.png)
+     ![Activer la réplication](./media/contoso-migration-rehost-linux-vm/enable-replication3.png)
 
 4. Dans les propriétés de la machine virtuelle, ils sélectionnent le compte utilisé par le serveur de traitement pour installer automatiquement le service Mobilité sur la machine.
 
      ![Service Mobilité](./media/contoso-migration-rehost-linux-vm/linux-mobility.png)
 
 5. Dans **Paramètres de réplication** > **Configurer les paramètres de réplication**, Contoso vérifie que la stratégie de réplication appliquée est correcte, puis sélectionnent **Activer la réplication**.
-6.  Contoso suit la progression de la réplication dans **Travaux**. Une fois le travail **Finaliser la protection** exécuté, la machine est prête pour le basculement.
+6. Contoso suit la progression de la réplication dans **Travaux**. Une fois le travail **Finaliser la protection** exécuté, la machine est prête pour le basculement.
 
 
 
@@ -408,7 +408,7 @@ Les administrateurs de Contoso sont maintenant prêts à opérer un basculement 
 
 ### <a name="connect-the-vm-to-the-database"></a>Connecter la machine virtuelle à la base de données
 
-La dernière étape du processus de migration consiste pour les administrateurs de Contoso à mettre à jour la chaîne de connexion de l’application pour qu’elle pointe vers la base de données de l’application s’exécutant sur la machine virtuelle **OSTICKETMYSQL**. 
+La dernière étape du processus de migration, les administrateurs de Contoso mettre à jour la chaîne de connexion de l’application pour pointer vers la base de données de l’application en cours d’exécution le **OSTICKETMYSQL** machine virtuelle. 
 
 1. Ils établissent une connexion SSH à la machine virtuelle **OSTICKETWEB** à l’aide de Putty ou d’un autre client SSH. La machine virtuelle étant privée, ils établissent la connexion en utilisant l’adresse IP privée.
 

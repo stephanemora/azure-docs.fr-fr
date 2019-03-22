@@ -12,16 +12,16 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: c4eeb73e3b0abfe2558fc387953023254952a515
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: 1bab1ed9e2a24b0a84f4327d47a910934319b397
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296866"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57849973"
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>Utilisation de la classe RecoveryManager pour résoudre les problèmes de correspondance de partitionnement
 
-La classe [RecoveryManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager) permet aux applications ADO.Net de détecter et corriger facilement les incohérences entre le mappage de partitions global (GSM) et le mappage de partitions local (LSM) dans un environnement de base de données partitionné.
+Le [RecoveryManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager) classe permet aux applications ADO.NET facilement détecter et corriger les incohérences entre la carte de partitions global (GSM) et la carte de partitions local (LSM) dans un environnement de base de données partitionnée.
 
 Le GSM et LSM assurent le suivi de mappage de chaque base de données dans un environnement partitionné. Il arrive qu’un arrêt se produise entre le GSM et le LSM. Dans ce cas, utilisez la classe RecoveryManager pour détecter et résoudre l’arrêt.
 

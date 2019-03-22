@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 2a030daa8d9c30add1beb3a2628aa16b2da22dde
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: ede7037aabc85739ee47636f1390c15e0b0d1639
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338850"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106319"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Élever l’accès pour gérer tous les abonnements et groupes d’administration Azure
 
@@ -227,39 +227,39 @@ Lorsque vous appelez `elevateAccess`, vous créez une attribution de rôle pour 
     >[!NOTE] 
     >Un administrateur d’annuaire ne doit normalement pas avoir beaucoup d’attributions. Si la requête précédente retourne un trop grand nombre d’attributions, vous pouvez aussi interroger toutes les attributions seulement au niveau de l’étendue de l’annuaire, puis filtrer les résultats : `GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()`
         
-    2. Les appels précédents retournent une liste des attributions de rôle. Recherchez l’attribution de rôle pour laquelle l’étendue est `"/"`, où `roleDefinitionId` se termine par l’ID du nom de rôle trouvé à l’étape 1 et où `principalId` correspond à l’objectid de l’administrateur d’annuaire. 
+   1. Les appels précédents retournent une liste des attributions de rôle. Recherchez l’attribution de rôle pour laquelle l’étendue est `"/"`, où `roleDefinitionId` se termine par l’ID du nom de rôle trouvé à l’étape 1 et où `principalId` correspond à l’objectid de l’administrateur d’annuaire. 
     
-    Exemple d’attribution de rôle :
+      Exemple d’attribution de rôle :
 
-        ```json
-        {
-          "value": [
-            {
-              "properties": {
-                "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
-                "principalId": "{objectID}",
-                "scope": "/",
-                "createdOn": "2016-08-17T19:21:16.3422480Z",
-                "updatedOn": "2016-08-17T19:21:16.3422480Z",
-                "createdBy": "93ce6722-3638-4222-b582-78b75c5c6d65",
-                "updatedBy": "93ce6722-3638-4222-b582-78b75c5c6d65"
-              },
-              "id": "/providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099",
-              "type": "Microsoft.Authorization/roleAssignments",
-              "name": "e7dd75bc-06f6-4e71-9014-ee96a929d099"
-            }
-          ],
-          "nextLink": null
-        }
-        ```
+       ```json
+       {
+         "value": [
+           {
+             "properties": {
+               "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
+               "principalId": "{objectID}",
+               "scope": "/",
+               "createdOn": "2016-08-17T19:21:16.3422480Z",
+               "updatedOn": "2016-08-17T19:21:16.3422480Z",
+               "createdBy": "93ce6722-3638-4222-b582-78b75c5c6d65",
+               "updatedBy": "93ce6722-3638-4222-b582-78b75c5c6d65"
+             },
+             "id": "/providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099",
+             "type": "Microsoft.Authorization/roleAssignments",
+             "name": "e7dd75bc-06f6-4e71-9014-ee96a929d099"
+           }
+         ],
+         "nextLink": null
+       }
+       ```
         
-    Une fois encore, enregistrez l’ID du paramètre `name`, en l’occurrence e7dd75bc-06f6-4e71-9014-ee96a929d099.
+      Une fois encore, enregistrez l’ID du paramètre `name`, en l’occurrence e7dd75bc-06f6-4e71-9014-ee96a929d099.
 
-    3. Enfin, utilisez l’ID d’attribution de rôle pour supprimer l’attribution ajoutée par `elevateAccess` :
+   1. Enfin, utilisez l’ID d’attribution de rôle pour supprimer l’attribution ajoutée par `elevateAccess` :
 
-    ```http
-    DELETE https://management.azure.com/providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099?api-version=2015-07-01
-    ```
+      ```http
+      DELETE https://management.azure.com/providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099?api-version=2015-07-01
+      ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

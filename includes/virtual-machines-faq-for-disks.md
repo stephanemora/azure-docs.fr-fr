@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/30/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 311ec7bacdfe58982ee670277000d81756f92005
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 03e10497b033fc3d97fde4cd524b358c05fdc943
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55648630"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57458058"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Forum aux questions sur les disques de machines virtuelles et les disques Premium gérés et non gérés Azure IaaS
 
@@ -347,7 +347,7 @@ Pour atteindre un débit de disques SSD standard et de disques durs HDD standard
 
 **Dans quelles régions les tailles de disques managés supérieures à 4 Tio sont-elles prises en charge ?**
 
-À ce stade de l'évaluation, ces tailles de disques managés sont prises en charge dans les régions suivantes : USA Centre-Ouest, Europe Nord, Europe Ouest, USA Ouest 2, USA Est 2 et USA Est.
+La version préliminaire de tailles de disque géré au-delà de 4 TIO sont pris en charge dans toutes les régions de Production de Azure à l’exception de gouvernement, Chine et Allemagne. 
 
 **Prenez-vous en charge l’activation de la mise en cache de l’hôte sur les tailles de disque plus récentes ?**
 

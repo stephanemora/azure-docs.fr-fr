@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6521dc8db663df5e19fb97c495b4a5bcb6d3c1d1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0c0d0fdf4e7df0401692eb026d55fe1a7c9322f1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208469"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106474"
 ---
 # <a name="reset-your-work-or-school-password"></a>Réinitialiser votre mot de passe professionnel ou scolaire
 
@@ -93,15 +93,15 @@ Vous n’avez peut-être pas accès à votre compte Azure Active Directory (Azur
 
 - **Réinitialiser votre mot de passe à l’aide d’un code de votre application d’authentification.** Accepte un code aléatoire fourni par votre application d’authentification. Si votre administrateur a activé la fonctionnalité Informations de sécurité, vous trouverez plus d’informations sur la configuration de l’envoi d’un code par une application d’authentification dans l’article [Set up security info to use an authentication app (preview)](security-info-setup-auth-app.md) (Configurer les informations de sécurité pour utiliser l’application d’authentification [préversion]). Si vous n’utilisez pas encore les informations de sécurité, vous trouverez plus d’informations sur la configuration de l’envoi de code par une application d’authentification dans l’article [Configurer mon compte pour la vérification en deux étapes](multi-factor-authentication-end-user-first-time.md).
 
-    1. Sélectionnez **Enter a code from my authenticator app** (Saisir un code provenant de mon application d’authentification), puis sélectionnez **Send Notification** (Envoyer une notification).
+  1. Sélectionnez **Enter a code from my authenticator app** (Saisir un code provenant de mon application d’authentification), puis sélectionnez **Send Notification** (Envoyer une notification).
 
-    2. Ouvrez votre application d’authentification, saisissez le code de vérification de votre compte dans la zone de texte, puis sélectionnez **Suivant**.
+  2. Ouvrez votre application d’authentification, saisissez le code de vérification de votre compte dans la zone de texte, puis sélectionnez **Suivant**.
 
-    3. Saisissez et confirmez votre nouveau mot de passe, puis sélectionnez **Terminer**.
+  3. Saisissez et confirmez votre nouveau mot de passe, puis sélectionnez **Terminer**.
 
-    4. Une fois que vous obtenez le message indiquant que votre mot de passe a été réinitialisé, connectez-vous à votre compte à l’aide de votre nouveau mot de passe.
+  4. Une fois que vous obtenez le message indiquant que votre mot de passe a été réinitialisé, connectez-vous à votre compte à l’aide de votre nouveau mot de passe.
         
-    Si vous ne pouvez toujours pas accéder à votre compte, contactez l’administrateur de votre organisation pour obtenir de l’aide.
+     Si vous ne pouvez toujours pas accéder à votre compte, contactez l’administrateur de votre organisation pour obtenir de l’aide.
 
 Après la réinitialisation du mot de passe, vous recevrez peut-être un courrier de confirmation provenant d’un compte tel que « Microsoft de la part de \<*votre entreprise*> ». Si vous recevez un e-mail de ce type sans avoir récemment réinitialisé votre mot de passe, contactez immédiatement l’administrateur de votre organisation.
 
@@ -113,7 +113,7 @@ Si vous souhaitez simplement modifier votre mot de passe, vous pouvez le faire v
 
 Utilisez cette méthode si vous avez l’habitude d’accéder à vos applications à l’aide du portail Office :
 
-1. Connectez-vous à votre [compte Office 365](https://www.office.com) à l’aide de votre mot de passe existant.
+1. Connectez-vous à votre [compte Office 365](https://portal.office.com) à l’aide de votre mot de passe existant.
 
 2. Sélectionnez votre profil en haut à droite de la fenêtre, puis sélectionnez **Afficher le compte**.
 
@@ -163,9 +163,6 @@ Voici quelques cas d'erreur courants et leurs solutions :
 |Après avoir saisi mon identifiant utilisateur, j’obtiens une erreur indiquant « Nous n’avons pas pu vérifier votre compte ».|Le processus d’authentification n’a pas pu vérifier les informations liées à votre compte.|Si vous obtenez ce message, deux raisons possibles :<br><br>1. Votre administrateur a activé la réinitialisation de mot de passe pour votre organisation, mais vous n’êtes pas inscrit pour utiliser le service. Pour vous inscrire à la réinitialisation du mot de passe, consultez l’un des articles suivants, selon votre méthode de vérification : [Configurer les informations de sécurité pour utiliser une application d’authentification (préversion) ](security-info-setup-auth-app.md), [Configurer les informations de sécurité pour utiliser un appel téléphonique (préversion)](security-info-setup-phone-number.md), [Configurer les informations de sécurité pour utiliser l’envoi de SMS (préversion)](security-info-setup-text-msg.md), [Configurer les informations de sécurité pour utiliser les e-mails (préversion)](security-info-setup-email.md) ou [Configurer les informations de sécurité pour utiliser les questions de sécurité (préversion)](security-info-setup-questions.md).<br><br>2. Votre administrateur n’a pas activé la réinitialisation de mot de passe pour votre organisation. Dans ce cas, sélectionnez le lien « Contacter un administrateur » afin d’envoyer un e-mail au service informatique de votre entreprise demandant de réinitialiser votre mot de passe.|
 
 ## <a name="next-steps"></a>Étapes suivantes
-
-- Modifiez vos informations de sécurité afin d’ajouter ou de modifier vos méthodes de vérification, avec l’article [Manage your security info](security-info-manage-settings.md) (Gérer vos informations de sécurité [préversion]). 
-
 - Découvrez les informations de sécurité avec l’article [Security info (preview) overview](user-help-security-info-overview.md) (Vue d’ensemble des informations de sécurité [préversion]).
 
 - Pour plus d’informations sur la vérification en deux étapes, consultez l’article [Two-step verification overview](user-help-two-step-verification-overview.md) (Vue d’ensemble de la vérification en deux étapes). 

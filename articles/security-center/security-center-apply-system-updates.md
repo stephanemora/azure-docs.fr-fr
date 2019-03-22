@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: afd6ded48bc330032b77be4bc8cd186a6f71ee5f
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: ebd9939128d1f2b870541e82710792d13b69728e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105125"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58098999"
 ---
 # <a name="apply-system-updates-in-azure-security-center"></a>Appliquer les mises à jour système dans Azure Security Center
 Azure Security Center recherche quotidiennement les mises à jour manquantes du système d’exploitation sur les ordinateurs et machines virtuelles Windows et Linux. Security Center récupère une liste des mises à jour de sécurité et critiques disponibles dans Windows Update ou Windows Server Update Services (WSUS), selon le service configuré sur un ordinateur Windows. Security Center recherche également les dernières mises à jour dans les systèmes Linux. S’il manque une mise à jour système sur votre machine virtuelle ou ordinateur, Security Center vous recommande de l’appliquer.
@@ -43,7 +43,7 @@ Dans cet exemple, nous utilisons **Calcul**.
     - Le nombre total de mises à jour critiques manquantes sur vos ordinateurs et machines virtuelles.
     - Le nombre total de mises à jour de sécurité manquantes sur l’ensemble de vos ordinateurs et machines virtuelles.
 
-  La partie inférieure du tableau de bord répertorie toutes les mises à jour manquantes sur l’ensemble de vos ordinateurs et machines virtuelles, ainsi que le niveau de gravité de la mise à jour manquante.  Cette liste comprend les éléments suivants :
+   La partie inférieure du tableau de bord répertorie toutes les mises à jour manquantes sur l’ensemble de vos ordinateurs et machines virtuelles, ainsi que le niveau de gravité de la mise à jour manquante.  Cette liste comprend les éléments suivants :
 
     - NOM : Nom de la mise à jour manquante.
     - NOMBRE DE MACHINES VIRTUELLES ET D’ORDINATEURS : Nombre total de machines virtuelles et d’ordinateurs sur lesquels cette mise à jour n’a pas été installée.
@@ -63,13 +63,13 @@ Dans cet exemple, nous utilisons **Calcul**.
 
    ![Mise à jour de sécurité manquante][3]
 
-4. Sélectionnez l’icône **Recherche** dans le ruban supérieur.  Une requête de recherche Log Analytics filtrée sur les ordinateurs n’ayant pas la mise à jour installée s’ouvre.
+4. Sélectionnez l’icône **Recherche** dans le ruban supérieur.  Une requête de recherche de journaux Azure Monitor filtrée sur les ordinateurs de la mise à jour manquante s’ouvre.
 
-   ![Recherche Log Analytics][4]
+   ![Recherche de journaux de Azure Monitor][4]
 
 5. Sélectionnez un ordinateur dans la liste pour plus d’informations. Un autre résultat de recherche s’ouvre avec les informations filtrées uniquement pour cet ordinateur.
 
-    ![Recherche Log Analytics][5]
+    ![Recherche de journaux de Azure Monitor][5]
 
 ## <a name="reboot-after-system-updates"></a>Redémarrer après l’application des mises à jour système
 1. Retournons au panneau **Recommandations** . Une fois que vous avez appliqué les mises à jour système, une nouvelle entrée est générée, appelée **Redémarrer après l’application des mises à jour système**. Cette entrée vous permet de savoir que vous devez redémarrer la machine virtuelle pour terminer le processus d’application des mises à jour système.

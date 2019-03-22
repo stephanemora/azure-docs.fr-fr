@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 76af79cc9ef1ebea30b30a291f451b7b0a4f3ba6
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 832614c46f0269460245d081f20897b591e31fce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694480"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101565"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Migration de Contoso : réhéberger une application locale sur une machine virtuelle Azure et SQL Database Managed Instance
 
@@ -222,7 +222,7 @@ Contoso prend en compte ces facteurs :
 - Un sous-réseau ne peut être associé qu’à une seule table de routage.
 - La création de tables de routage dans Microsoft Azure n’occasionne aucun frais.
 
- Pour configurer le routage, les administrateurs de Contoso effectuent les opérations suivantes :
+  Pour configurer le routage, les administrateurs de Contoso effectuent les opérations suivantes :
 
 1. Ils créent une table de routage (UDR) dans le groupe de ressources **ContosoNetworkingRG**.
 
@@ -441,11 +441,11 @@ Une fois la source et la cible configurées, les administrateurs de Contoso cré
 
 1. Dans **Préparer l’infrastructure** > **Paramètres de réplication** > **Stratégie de réplication** >  **Créer et associer**, ils créent la stratégie **ContosoMigrationPolicy**.
 2. Contoso utilise les paramètres par défaut :
-    - **Seuil d’objectif de point de récupération** : la valeur par défaut est de 60 minutes. Cette valeur définit la fréquence à laquelle les points de récupération sont créés. Une alerte est générée lorsque la réplication continue dépasse cette limite.
-    - **Rétention des points de récupération** : La valeur par défaut est 24 heures. Cette valeur spécifie la durée de la fenêtre de rétention pour chaque point de récupération. Les machines virtuelles répliquées peuvent être récupérées à n’importe quel point dans une fenêtre.
-    - **Fréquence des captures instantanées de cohérence d’application** : la valeur par défaut est de 1 heure. Cette valeur spécifie la fréquence à laquelle les captures instantanées de cohérence d’application sont créées.
+   - **Seuil d’objectif de point de récupération** : la valeur par défaut est de 60 minutes. Cette valeur définit la fréquence à laquelle les points de récupération sont créés. Une alerte est générée lorsque la réplication continue dépasse cette limite.
+   - **Rétention des points de récupération** : La valeur par défaut est 24 heures. Cette valeur spécifie la durée de la fenêtre de rétention pour chaque point de récupération. Les machines virtuelles répliquées peuvent être récupérées à n’importe quel point dans une fenêtre.
+   - **Fréquence des captures instantanées de cohérence d’application** : la valeur par défaut est de 1 heure. Cette valeur spécifie la fréquence à laquelle les captures instantanées de cohérence d’application sont créées.
  
-    ![Stratégie de réplication - Créer](./media/contoso-migration-rehost-vm-sql-managed-instance/replication-policy.png)
+     ![Stratégie de réplication - Créer](./media/contoso-migration-rehost-vm-sql-managed-instance/replication-policy.png)
 
 3. La stratégie est automatiquement associée au serveur de configuration. 
 

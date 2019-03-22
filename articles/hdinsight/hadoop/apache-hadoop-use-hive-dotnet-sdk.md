@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: d3c9c8eab0ce13aee5dbe7bdb732d45555e547fb
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: HT
+ms.openlocfilehash: 31e759baa4f5e7b220eabf2bb9ffcc5cc011a354
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407165"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200461"
 ---
 # <a name="run-apache-hive-queries-using-hdinsight-net-sdk"></a>Exécuter des requêtes Apache Hive avec le Kit de développement logiciel (SDK) .NET HDInsight
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -24,7 +24,7 @@ Découvrez comment envoyer des requêtes Apache Hive avec le Kit de développeme
 > [!NOTE]  
 > Les étapes décrites dans cet article doivent être effectuées à partir d'un client Windows. Pour plus d’informations sur l’utilisation d’un client Linux, OS X ou Unix pour utiliser Hive, utilisez le sélecteur d’onglet en haut de l’article.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 * **Un cluster Apache Hadoop dans HDInsight**. Consultez [Prise en main de Hadoop sous Linux dans HDInsight](apache-hadoop-linux-tutorial-get-started.md).
@@ -139,7 +139,6 @@ Cet article vous a présenté différentes méthodes pour créer un cluster HDIn
 
 * [Prise en main d’Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md)
 * [Créer des clusters Apache Hadoop dans HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
-* [Gérer des clusters Apache Hadoop dans HDInsight à l’aide du portail Azure](../hdinsight-administer-use-management-portal.md)
 * [Référence du Kit de développement logiciel (SDK) .NET de HDInsight](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
 * [Utilisation d’Apache Pig avec HDInsight](hdinsight-use-pig.md)
 * [Utiliser Apache Sqoop avec HDInsight](apache-hadoop-use-sqoop-mac-linux.md)

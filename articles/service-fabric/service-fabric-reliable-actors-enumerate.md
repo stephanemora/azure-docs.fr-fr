@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: d5d6ac87db18815aa945d6964338626365b08e64
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 300ab4f73fdae0224d2de5e1e1dea6cc6cfa7438
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207265"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57864369"
 ---
 # <a name="enumerate-service-fabric-reliable-actors"></a>Avantages des Reliable Actors dans Service Fabric
 Le service Reliable Actors permet à un client d’énumérer des métadonnées concernant les acteurs hébergés par le service. Le service d’acteur est un service avec état partitionné. L’énumération est donc effectuée par partition. Étant donné que chaque partition peut contenir de nombreux acteurs, l’énumération est renvoyée sous la forme d’un ensemble de résultats paginés. Les pages sont traitées en boucle jusqu’à ce qu’elles aient toutes été lues. L’exemple suivant montre comment créer une liste de tous les acteurs actifs dans une partition d’un service d’acteur :
@@ -72,7 +72,7 @@ while (continuationToken != null);
 * [Cycle de vie des acteurs et Garbage Collection](service-fabric-reliable-actors-lifecycle.md)
 * [Documentation de référence de l’API Actors](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [Exemple de code .NET](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Exemple de code Java](http://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [Exemple de code Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-platform/actor-service.png

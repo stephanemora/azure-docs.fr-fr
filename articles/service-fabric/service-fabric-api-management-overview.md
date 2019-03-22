@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.openlocfilehash: 01b67cc0c20710fcf7c9a072e0ba3baaf286852a
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.openlocfilehash: 60466f0c3c0e674dcbfa287a0368462fd5a1d18f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423641"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120310"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Vue d’ensemble d’Azure Service Fabric avec Gestion des API
 
@@ -83,9 +83,9 @@ Pour ce faire, une opération Gestion des API contient une stratégie de traitem
 
 Dans cet exemple, une instance de service sans état est créée pour chaque utilisateur d’une application avec un nom généré de manière dynamique à l’aide de la formule suivante :
  
- - `fabric:/app/users/<username>`
+- `fabric:/app/users/<username>`
 
- Chaque service a un nom unique, mais ces noms ne sont pas connus au départ, car les services sont créés en réponse à une entrée utilisateur ou administrateur et ils ne peuvent donc pas être codés en dur dans des stratégies APIM ou des règles de routage. Au lieu de cela, le nom du service auquel vous souhaitez envoyer une requête est généré dans la définition de stratégie principale à partir de la valeur `name` fournie dans le chemin d’accès de requête URL. Par exemple : 
+  Chaque service a un nom unique, mais ces noms ne sont pas connus au départ, car les services sont créés en réponse à une entrée utilisateur ou administrateur et ils ne peuvent donc pas être codés en dur dans des stratégies APIM ou des règles de routage. Au lieu de cela, le nom du service auquel vous souhaitez envoyer une requête est généré dans la définition de stratégie principale à partir de la valeur `name` fournie dans le chemin d’accès de requête URL. Par exemple : 
 
   - Une requête vers `/api/users/foo` est acheminée vers l’instance de service `fabric:/app/users/foo`
   - Une requête vers `/api/users/bar` est acheminée vers l’instance de service `fabric:/app/users/bar`
@@ -102,9 +102,9 @@ Pour ce faire, une opération Gestion des API contient une stratégie de traitem
 
 Dans cet exemple, une instance de service avec état est créée pour chaque utilisateur de l’application avec un nom généré de manière dynamique à l’aide de la formule suivante :
  
- - `fabric:/app/users/<username>`
+- `fabric:/app/users/<username>`
 
- Chaque service a un nom unique, mais ces noms ne sont pas connus au départ, car les services sont créés en réponse à une entrée utilisateur ou administrateur et ils ne peuvent donc pas être codés en dur dans des stratégies APIM ou des règles de routage. Au lieu de cela, le nom du service auquel vous souhaitez envoyer une requête est généré dans la définition de stratégie principale à partir de la valeur `name` fournie dans le chemin d’accès de requête URL. Par exemple : 
+  Chaque service a un nom unique, mais ces noms ne sont pas connus au départ, car les services sont créés en réponse à une entrée utilisateur ou administrateur et ils ne peuvent donc pas être codés en dur dans des stratégies APIM ou des règles de routage. Au lieu de cela, le nom du service auquel vous souhaitez envoyer une requête est généré dans la définition de stratégie principale à partir de la valeur `name` fournie dans le chemin d’accès de requête URL. Par exemple : 
 
   - Une requête vers `/api/users/foo` est acheminée vers l’instance de service `fabric:/app/users/foo`
   - Une requête vers `/api/users/bar` est acheminée vers l’instance de service `fabric:/app/users/bar`

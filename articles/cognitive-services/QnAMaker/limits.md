@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 02/26/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 6f36000eb5a17e58d1450a064897dd9caef89bad
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: fe15cafceea8128735f7241fa5e4187d4d9c47a9
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859349"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960052"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limites de la base de connaissances QnA Maker
 Liste complète des limites dans QnA Maker.
@@ -52,7 +52,7 @@ Limites globales sur le contenu de la base de connaissances :
 * Longueur de nom de fichier : 200
 * Formats de fichier pris en charge : « .tsv », « .pdf », « .txt », « .docx », « .xlsx ».
 * Nombre maximal de questions alternatives : 100
-* Nombre maximal de paires question-réponse : varie selon le [niveau Recherche Azure](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits) choisi 
+* Nombre maximal de paires question-réponse : Varie selon le [niveau recherche Azure](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits) choisi. Une paire de questions et réponses est mappé à un document sur les index de recherche Azure. 
 
 ## <a name="create-knowledge-base-call-limits"></a>Créer des limites d’appel de base de connaissances :
 Elles représentent les limites pour chaque action de création d’une base de connaissances, autrement dit, pour chaque clic sur *Créer une base de connaissances* ou pour chaque appel de l’API CreateKnowledgeBase.
@@ -71,6 +71,6 @@ Elles représentent les limites pour chaque action de mise à jour, autrement di
 
 Apprenez quand et comment modifier les niveaux de service :
 
-* [QnA Maker](how-to/upgrade-qnamaker-service.md#upgrade-qna-maker-management-sku) : si vous avez besoin d'ajouter des questions et des réponses dans votre base de connaissances, au-delà de votre niveau actuel, mettez à jour le niveau tarifaire de votre service QnA Maker.
-* [Recherche](how-to/upgrade-qnamaker-service.md#upgrade-app-service) : si votre base de connaissances doit répondre à un plus grand nombre de requêtes de votre application client, mettez à jour le niveau tarifaire de votre service d'applications.
-* [Service d'applications](how-to/upgrade-qnamaker-service.md#upgrade-azure-search-service) : si vous prévoyez de disposer de plusieurs bases de connaissances, mettez à jour le niveau tarifaire de votre service Recherche Azure.
+* [QnA Maker](how-to/upgrade-qnamaker-service.md#upgrade-qna-maker-management-sku): Lorsque vous devez disposer de plusieurs fichiers sources ou plus de documents dans votre base de connaissances, au-delà de votre niveau actuel, mettez à niveau votre service QnA Maker niveau tarifaire.
+* [App Service](how-to/upgrade-qnamaker-service.md#upgrade-app-service): Lorsque votre base de connaissances doit répondre à un plus grand nombre de demandes de votre application client, mettez à niveau le niveau tarifaire de vos services applicatifs.
+* [Recherche Azure](how-to/upgrade-qnamaker-service.md#upgrade-azure-search-service): Lorsque vous prévoyez de disposer de plusieurs bases de connaissances, mettez à niveau votre niveau tarifaire du service Recherche Azure.

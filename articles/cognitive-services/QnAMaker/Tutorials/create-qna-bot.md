@@ -7,16 +7,16 @@ author: tulasim88
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.subservice: qna-maker`
+ms.subservice: qna-maker
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: tulasim
-ms.openlocfilehash: 930d2d7279f23974e937fd0d858891d0bcaa1291
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: b948835b1a15eee391c6902d18229ec4926b66ca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869158"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095209"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v3"></a>Tutoriel : Créer un bot QnA avec Azure Bot Service v3
 
@@ -36,7 +36,7 @@ Ce tutoriel vous guide tout au long de la création d’un bot QnA avec Azure Bo
 
 Pour cet article, vous pouvez utiliser le [service](../how-to/set-up-qnamaker-service-azure.md) gratuit QnA Maker.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Vous devez disposer d’une base de connaissances publiée pour ce tutoriel. Si ce n’est pas le cas, suivez les étapes de [Créer une base de connaissances](../How-To/create-knowledge-base.md) pour créer un service QnA Maker avec des questions et des réponses.
 
@@ -90,12 +90,12 @@ Le bot répond « Please set QnAKnowledgebaseId and QnASubscriptionKey in App Se
 
 1. Obtenez votre ID de la base de connaissances, l’URL de l’hôte et la clé de point de terminaison à partir de l’onglet Paramètres de votre base de connaissances dans le portail QnA Maker.
 
-    - Connectez-vous à [QnA Maker](https://qnamaker.ai)
-    - Accédez à votre base de connaissances
-    - Sélectionnez l’onglet **Paramètres**
-    - **Publiez** votre base de connaissances, si ce n’est pas déjà fait
+   - Connectez-vous à [QnA Maker](https://qnamaker.ai)
+   - Accédez à votre base de connaissances
+   - Sélectionnez l’onglet **Paramètres**
+   - **Publiez** votre base de connaissances, si ce n’est pas déjà fait
 
-    ![Valeurs QnA Maker](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
+     ![Valeurs QnA Maker](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
 
 ## <a name="test-the-bot"></a>Tester le bot
 

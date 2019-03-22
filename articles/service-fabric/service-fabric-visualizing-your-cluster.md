@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: b97f2d3a015ebfd5f9c8771d3fc3edc1c074c839
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ba6a9a09945f0e822dfe02a74f2cdb8e21a1691c
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203707"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674665"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualiser votre cluster à l’aide de l’outil Service Fabric Explorer
 
@@ -29,7 +29,7 @@ Service Fabric Explorer (SFX) est un outil open source dédié à l’inspection
 
 Utilisez les liens suivants pour télécharger Service Fabric Explorer en tant qu’application de bureau :
 
--  Windows
+- Windows
   - https://aka.ms/sfx-windows
 
 - Linux
@@ -56,7 +56,7 @@ Pour configurer une station de travail de développeur, vous pouvez lancer Servi
 >
 
 ## <a name="connect-to-a-service-fabric-cluster"></a>Se connecter à un cluster Service Fabric
-Pour vous connecter à un cluster Service Fabric, vous avez besoin du point de terminaison de gestion des clusters (nom de domaine complet/adresse IP) et le port du point de terminaison de gestion HTTP (19080 par défaut). Par exemple, https://mysfcluster.westus.cloudapp.azure.com:19080. Cochez la case « Se connecter à localhost » pour vous connecter à un cluster local sur votre station de travail.
+Pour vous connecter à un cluster Service Fabric, vous avez besoin du point de terminaison de gestion des clusters (nom de domaine complet/adresse IP) et le port du point de terminaison de gestion HTTP (19080 par défaut). Par exemple https\:/ / mysfcluster.westus.cloudapp.azure.com:19080. Cochez la case « Se connecter à localhost » pour vous connecter à un cluster local sur votre station de travail.
 
 ### <a name="connect-to-a-secure-cluster"></a>Se connecter à un cluster sécurisé
 Vous pouvez contrôler l’accès client à votre cluster Service Fabric avec des certificats ou à l’aide d’Azure Active Directory (AAD).

@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: CarlRabeler
 ms.author: carlrab
-ms.reviewer: sashan,moslake
+ms.reviewer: sashan,moslake,josack
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: 670ca1b8ba16122d4e969a41f8679e1a6d1b27c6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.date: 03/01/2019
+ms.openlocfilehash: 5b11f9bc25cd0fcc8a83a2eeaf5cc1746a63200e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990102"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093886"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Limites de ressources SQL Database des serveurs Azure SQL Database
 
@@ -36,7 +36,7 @@ Cet article contient une vue d’ensemble des limites de ressources SQL Database
 | Quota DTU/eDTU par serveur | 54 000 |  
 | Quota vCore par serveur/instance | 540 |
 | Nombre maximal de pools par serveur | Limité par le nombre de DTU ou de vCores. Par exemple, si chaque pool contient 1 000 unités DTU, alors un serveur peut prendre en charge 54 pools.|
-||||
+|||
 
 > [!NOTE]
 > Pour augmenter le quota DTU/eDTU ou vCore ou pour obtenir une quantité de serveurs supérieure à la quantité par défaut, vous pouvez envoyer une nouvelle demande de support dans le Portail Azure pour l’abonnement en indiquant le type de problème « Quota ». Le quota DTU/eDTU et le nombre maximal de bases de données par serveur limitent le nombre de pools élastiques par serveur.
@@ -73,6 +73,34 @@ En cas d’utilisation élevée de workers ou de sessions, voici certaines des o
 
 - Augmenter le niveau de service ou la taille de calcul du pool élastique ou de la base de données. Consultez [Mise à l’échelle des ressources d’une base de données unique](sql-database-single-database-scale.md) et [Mise à l'échelle des ressources d’un pool élastique](sql-database-elastic-pool-scale.md).
 - Optimiser les requêtes afin de réduire l’utilisation des ressources de chaque requête si la cause de l’utilisation du travail accrue est un problème de contention des ressources de calcul. Pour plus d’informations, consultez la page [Paramétrage/Compréhension de requêtes](sql-database-performance-guidance.md#query-tuning-and-hinting).
+
+## <a name="transaction-log-rate-governance"></a>Gouvernance de taux de journaux de transaction 
+Gouvernance de taux de journaux de transaction est un processus dans la base de données SQL Azure permet de limiter le taux d’ingestion élevés pour les charges de travail telles que bulk insert, SELECT INTO, et génère des index. Ces limites sont suivies et appliquées au niveau de seconde pour le taux de génération d’enregistrements journal, limitation de débit, quel que soit le nombre d’IOs peut être émis sur les fichiers de données.  Taux de génération de journaux de transaction actuellement une échelle linéaire jusqu'à un point qui dépendent du matériel, avec le journal maximal taux autorisée est 48 Mo/s avec le modèle d’achat de Vcores. 
+
+> [!NOTE]
+> IOs physiques réels pour les fichiers journaux des transactions ne sont pas régies ou limitées. 
+
+Taux de journal est configurés pour peut être obtenues et maintenus dans un large éventail de scénarios, tandis que l’ensemble du système peut gérer ses fonctionnalités avec un impact réduit la charge utilisateur. Gouvernance de taux de journal garantit ce journal des transactions sauvegardes soient conservées au sein de la récupérabilité publiée contrats SLA.  Cette gouvernance empêche également une file d’attente excessif sur les réplicas secondaires.
+
+Lorsque des enregistrements de journal sont générées, chaque opération est évaluée et évaluée si elle doit être différé afin de maintenir un taux maximal de journal requis (Mo/s par seconde). Les retards ne sont pas ajoutés lorsque les enregistrements de journal sont vidés sur le stockage, au lieu de cela gouvernance de taux de journal est appliqué pendant la génération de taux de journal proprement dit.
+
+La génération de journal réel taux imposées au moment de l’exécution peut également dépendre de mécanismes de commentaires, temporairement en réduisant les taux de journal autorisée pour le système peut se stabiliser. Gestion d’espace de fichier journal, en évitant insuffisant dans les conditions d’espace journal et le groupe de disponibilité des mécanismes de réplication peut diminuer temporairement les limites globales du système. 
+
+Le trafic de mise en forme governor journal taux est présenté par le biais de types d’attente suivants (exposée dans le [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) DMV) :
+
+| Type d’attente | Notes |
+| :--- | :--- |
+| LOG_RATE_GOVERNOR | Limitation de la base de données |
+| POOL_LOG_RATE_GOVERNOR | Limitation du pool |
+| INSTANCE_LOG_RATE_GOVERNOR | Limitation au niveau de l’instance |  
+| HADR_THROTTLE_LOG_RATE_SEND_RECV_QUEUE_SIZE | Contrôle des commentaires, réplication physique de groupe de disponibilité dans Premium/critiques pour l’entreprise ne pas suivre |  
+| HADR_THROTTLE_LOG_RATE_LOG_SIZE | Contrôle des commentaires, la limitation de taux pour éviter une condition d’espace de journal à l’emploi |
+|||
+
+Lorsqu’il rencontre une limite de débit de journal qui est entravent l’évolutivité de votre choix, envisagez les options suivantes :
+- Monter en puissance vers un niveau supérieur afin d’obtenir le taux de journal 48 Mo/s maximal. 
+- Si les données en cours de chargement sont temporaires, par exemple, de mise en attente dans un processus ETL, il peut être chargé dans tempdb (qui est minimale). 
+- Pour les scénarios d’analyse, charger dans une table columnstore en cluster couvert. Cela réduit le taux de journal requis en raison de la compression. Cette technique augmente l’utilisation du processeur et s’applique uniquement aux jeux de données qui bénéficient de l’index cluster columnstore. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

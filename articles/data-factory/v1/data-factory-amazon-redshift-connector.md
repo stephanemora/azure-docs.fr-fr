@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: b7a785cc506f12360edc14555b7241a557dc400c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: dc72ec9bf2e7e7c5c77685368167357a0108f2d3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817333"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541925"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Déplacer des données depuis Amazon Redshift à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,8 +35,8 @@ Actuellement, Data Factory prend uniquement en charge le déplacement de donnée
 > [!TIP]
 > Pour obtenir de meilleures performances lors de la copie de grandes quantités de données d’Amazon Redshift, utilisez le mécanisme Redshift intégré **UNLOAD** via Amazon Simple Storage Service (Amazon S3). Pour plus d’informations, consultez la section [Utiliser UNLOAD pour copier des données à partir d’Amazon Redshift](#use-unload-to-copy-data-from-amazon-redshift).
 
-## <a name="prerequisites"></a>Prérequis
-* Si vous déplacez des données vers un magasin de données local, vous devez installer la [passerelle de gestion des données](data-factory-data-management-gateway.md) sur une machine locale. Accordez l’accès d’une passerelle au cluster Amazon Redshift à l’aide de l’adresse IP de l’ordinateur local. Pour obtenir des instructions, consultez la rubrique relative à l’[autorisation d’accès au cluster](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html).
+## <a name="prerequisites"></a>Conditions préalables
+* Si vous déplacez des données vers un magasin de données local, vous devez installer la [passerelle de gestion des données](data-factory-data-management-gateway.md) sur une machine locale. Accordez l’accès d’une passerelle au cluster Amazon Redshift à l’aide de l’adresse IP de l’ordinateur local. Pour obtenir des instructions, consultez la rubrique relative à l’[autorisation d’accès au cluster](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html).
 * Pour déplacer des données vers une banque de données Azure, procédez de la manière décrite dans [calcul de l’adresse IP et des plages SQL utilisés par les centres de données Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ## <a name="getting-started"></a>Prise en main
@@ -100,7 +100,7 @@ Vous pouvez également utiliser le type **RelationalSource**, qui inclut Amazon 
 
 ## <a name="use-unload-to-copy-data-from-amazon-redshift"></a>Utiliser UNLOAD pour copier des données à partir d’Amazon Redshift
 
-La commande [**UNLOAD**](http://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) d’Amazon Redshift décharge les résultats d’une requête dans un ou plusieurs fichiers sur Amazon S3. Cette commande est recommandée par Amazon pour la copie de jeux de données volumineux à partir de Redshift.
+La commande [**UNLOAD**](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) d’Amazon Redshift décharge les résultats d’une requête dans un ou plusieurs fichiers sur Amazon S3. Cette commande est recommandée par Amazon pour la copie de jeux de données volumineux à partir de Redshift.
 
 **Exemple : copie de données à partir d’Amazon Redshift vers Azure SQL Data Warehouse**
 

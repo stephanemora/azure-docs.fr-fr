@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: 1996befa78409e572798a9043f7e6ee3b6f647bc
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: f07fc2f03ad72e7ee0fd408782b8fe845c88e780
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887900"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286565"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Créer des vues personnalisées à l’aide du Concepteur de vues dans Azure Monitor
 En utilisant le Concepteur de vues dans Azure Monitor, vous pouvez créer une variété de vues personnalisées dans le portail Azure qui peut vous aider à visualiser les données dans votre espace de travail Analytique de journal. Cet article fournit une présentation du Concepteur de vues et des procédures de création et de modification des vues personnalisées.
@@ -43,6 +43,9 @@ Les vues que vous créez avec le Concepteur de vues contiennent les éléments d
 | Vignettes | Sont affichés sur votre Azure Monitor **vue d’ensemble** page. Chaque vignette affiche une synthèse visuelle de la vue personnalisée qu’elle représente. Chaque type de vignette fournit une visualisation différente de vos enregistrements. Vous sélectionnez une vignette pour afficher une vue personnalisée. |
 | Vue personnalisée | Affichée quand vous sélectionnez une vignette. Chaque vue contient un ou plusieurs composants de visualisation. |
 | Composants de visualisation | Présente une visualisation de données dans l’espace de travail Analytique de journal basé sur un ou plusieurs [enregistrer des requêtes](../log-query/log-query-overview.md). La plupart des composants incluent un en-tête, qui fournit une visualisation d’ensemble, et une liste, qui montre les premiers résultats. Chaque type de composant produit différentes visualisations des enregistrements dans l’espace de travail Log Analytics. Sélectionner des éléments dans le composant pour effectuer une requête de journal qui fournit des enregistrements détaillés. |
+
+## <a name="required-permissions"></a>Autorisations requises
+Vous avez besoin au moins [les autorisations de niveau contributeur](manage-access.md#manage-accounts-and-users) dans l’espace de travail Analytique de journal pour créer ou modifier des vues. Si vous n’avez pas cette autorisation, puis l’option du Concepteur de vue ne s’afficheront dans le menu.
 
 
 ## <a name="work-with-an-existing-view"></a>Utiliser une vue existante

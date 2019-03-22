@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 3ec6b6f22e32a628edc3146ac17a9e5d8e605b05
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: 816233368c2274e34d2acdd712aed270a5e3bfa5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884212"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010894"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Créer et gérer des machines virtuelles Windows dans Azure à l’aide de Java
 
@@ -40,7 +40,7 @@ Ces étapes prennent environ 20 minutes.
 ## <a name="create-a-maven-project"></a>Création d’un projet Maven
 
 1. Si ce n’est pas déjà fait, installez [Java](https://aka.ms/azure-jdks).
-2. Installez [Maven](http://maven.apache.org/download.cgi).
+2. Installez [Maven](https://maven.apache.org/download.cgi).
 3. Créez un dossier et le projet :
     
     ```
@@ -96,7 +96,7 @@ Ces étapes prennent environ 20 minutes.
       <artifactId>okio</artifactId>
       <version>1.13.0</version>
     </dependency>
-    <dependency> 
+    <dependency>
       <groupId>com.nimbusds</groupId>
       <artifactId>nimbus-jose-jwt</artifactId>
       <version>3.6</version>
@@ -172,7 +172,7 @@ Avant de commencer cette étape, assurez-vous que vous avez accès à un [princi
 2. Pour créer les informations d’identification Active Directory dont vous avez besoin pour effectuer des demandes, ajoutez ce code à la méthode main de la classe App :
    
     ```java
-    try {    
+    try {
         final File credFile = new File(System.getenv("AZURE_AUTH_LOCATION"));
         Azure azure = Azure.configure()
             .withLogLevel(LogLevel.BASIC)
@@ -301,23 +301,23 @@ input.nextLine();
 Si vous souhaitez utiliser un disque existant au lieu d’une image marketplace, utilisez ce code : 
 
 ```java
-ManagedDisk managedDisk = azure.disks.define("myosdisk") 
-    .withRegion(Region.US_EAST) 
-    .withExistingResourceGroup("myResourceGroup") 
-    .withWindowsFromVhd("https://mystorage.blob.core.windows.net/vhds/myosdisk.vhd") 
-    .withSizeInGB(128) 
-    .withSku(DiskSkuTypes.PremiumLRS) 
-    .create(); 
+ManagedDisk managedDisk = azure.disks.define("myosdisk")
+    .withRegion(Region.US_EAST)
+    .withExistingResourceGroup("myResourceGroup")
+    .withWindowsFromVhd("https://mystorage.blob.core.windows.net/vhds/myosdisk.vhd")
+    .withSizeInGB(128)
+    .withSku(DiskSkuTypes.PremiumLRS)
+    .create();
 
-azure.virtualMachines.define("myVM") 
-    .withRegion(Region.US_EAST) 
-    .withExistingResourceGroup("myResourceGroup") 
-    .withExistingPrimaryNetworkInterface(networkInterface) 
-    .withSpecializedOSDisk(managedDisk, OperatingSystemTypes.Windows) 
-    .withExistingAvailabilitySet(availabilitySet) 
-    .withSize(VirtualMachineSizeTypes.StandardDS1) 
-    .create(); 
-``` 
+azure.virtualMachines.define("myVM")
+    .withRegion(Region.US_EAST)
+    .withExistingResourceGroup("myResourceGroup")
+    .withExistingPrimaryNetworkInterface(networkInterface)
+    .withSpecializedOSDisk(managedDisk, OperatingSystemTypes.Windows)
+    .withExistingAvailabilitySet(availabilitySet)
+    .withSize(VirtualMachineSizeTypes.StandardDS1)
+    .create();
+```
 
 ## <a name="perform-management-tasks"></a>Effectuer les tâches de gestion
 
@@ -384,7 +384,7 @@ for(InstanceViewStatus status : vm.instanceView().statuses()) {
     System.out.println("  displayStatus: " + status.displayStatus());
 }
 System.out.println("Press enter to continue...");
-input.nextLine();   
+input.nextLine();
 ```
 
 ### <a name="stop-the-vm"></a>Arrêtez la machine virtuelle.
@@ -451,10 +451,10 @@ input.nextLine();
 
 1. Pour supprimer le groupe de ressources, ajoutez ce code au bloc try de la méthode main :
    
-```java
-System.out.println("Deleting resources...");
-azure.resourceGroups().deleteByName("myResourceGroup");
-```
+    ```java
+    System.out.println("Deleting resources...");
+    azure.resourceGroups().deleteByName("myResourceGroup");
+    ```
 
 2. Enregistrez le fichier App.java.
 

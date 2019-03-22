@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
+ms.date: 03/05/2019
 ms.author: terrylan
-ms.openlocfilehash: e845adc3aad21e62009ee9b99dbd65bcff794bd9
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: e833317fa16576fa0006a774226d12974fd93ed8
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117797"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404805"
 ---
 # <a name="securing-paas-deployments"></a>Sécurisation des déploiements PaaS
 
@@ -85,7 +85,7 @@ Les principes et modèles pour le périmètre du réseau existaient depuis des d
 Voici les bonnes pratiques en matière de gestion du périmètre d’identité.
 
 **Bonne pratique** : sécurisez vos clés et informations d’identification pour sécuriser votre déploiement PaaS.   
-**Détail** : La perte de clés ou d'informations d’identification est un problème courant. Vous pouvez utiliser une solution centralisée où les clés et les secrets peuvent être stockés dans des modules de sécurité matériels. Azure vous fournit un HSM dans le cloud avec [Azure Key Vault](../key-vault/key-vault-whatis.md).
+**Détail** : La perte de clés ou d'informations d’identification est un problème courant. Vous pouvez utiliser une solution centralisée où les clés et les secrets peuvent être stockés dans des modules de sécurité matériel (HSM). [Azure Key Vault](../key-vault/key-vault-whatis.md) protège vos clés et secrets en chiffrant les clés d’authentification, les clés de compte de stockage, les clés de chiffrement de données, les fichiers .pfx et les mots de passe à l’aide de clés qui sont protégées par HSM.
 
 **Bonne pratique** : ne placez pas vos informations d’identification et autres secrets dans le code source ni GitHub.   
 **Détail** : la seule chose qui est pire que la perte de vos clés et informations d’identification serait qu’un tiers non autorisé y accède. Des pirates peuvent tirer parti de technologies de robot pour rechercher les clés et les secrets stockés dans des référentiels de code, tels que GitHub. Ne placez pas de clé ni de secrets dans ces référentiels de code publics.
@@ -153,7 +153,7 @@ La surveillance consiste à collecter et analyser des données afin de détermin
 
 Utilisez [Azure Application Insights](https://azure.microsoft.com/documentation/services/application-insights) pour surveiller la disponibilité, les performances et l’utilisation de votre application, qu’elle soit hébergée dans le cloud ou localement. En utilisant Application Insights, vous pouvez rapidement identifier et diagnostiquer les erreurs dans votre application sans attendre qu’un utilisateur ne les signale. Grâce aux informations recueillies, vous pouvez prendre des décisions avisées quant à la maintenance et à l’amélioration de votre application.
 
-Application Insights dispose d’outils complets pour interagir avec les données qu’il collecte. Application Insights stocke ses données dans un référentiel commun. Il peut tirer parti des fonctionnalités partagées telles que les alertes, les tableaux de bord et une analyse approfondie grâce au langage de requête du service Log Analytics.
+Application Insights dispose d’outils complets pour interagir avec les données qu’il collecte. Application Insights stocke ses données dans un référentiel commun. Il peut tirer parti des fonctionnalités partagées telles que des alertes, des tableaux de bord et une analyse approfondie avec le langage de requête Kusto.
 
 
 

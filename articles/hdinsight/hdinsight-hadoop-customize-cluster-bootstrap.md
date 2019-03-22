@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 2da89e674b967287150b2e8f3a98fc25df2af81e
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: fe653d36b2c527391a2f6d4ce33b89ba8dd648ac
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52878259"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202790"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Personnalisation de clusters HDInsight à l’aide de Bootstrap
 
@@ -130,9 +130,8 @@ Vous pouvez utiliser Bootstrap dans un modèle Resource Manager :
 ## <a name="see-also"></a>Voir aussi
 * [Créer des clusters Apache Hadoop dans HDInsight][hdinsight-provision-cluster] pour obtenir des instructions sur la création d’un cluster HDInsight à l’aide d’autres options personnalisées.
 * [Développer des scripts d’action de script pour HDInsight][hdinsight-write-script]
-* [Installer et utiliser Apache Spark sur des clusters HDInsight][hdinsight-install-spark]
-* [Installer et utiliser Apache Solr sur des clusters HDInsight](hdinsight-hadoop-solr-install.md).
-* [Installer et utiliser Apache Giraph sur des clusters HDInsight](hdinsight-hadoop-giraph-install.md).
+* [Installer et utiliser Apache Spark sur les clusters HDInsight][hdinsight-install-spark]
+* [Installer et utiliser Apache Giraph sur les clusters HDInsight](hdinsight-hadoop-giraph-install.md).
 
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-write-script]: hdinsight-hadoop-script-actions.md

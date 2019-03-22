@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: maxluk
-ms.openlocfilehash: a22dd1114b6ad49695b1ce7cab2ff26f23b7e1be
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 8fa3cd79011ab31349ec44edf52b8fd9048d0d37
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447852"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077970"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Utiliser Azure Toolkit for IntelliJ afin de créer des applications Apache Spark pour un cluster HDInsight
 
@@ -24,10 +24,10 @@ Utilisez le plug-in Azure Toolkit for IntelliJ pour développer des applications
 * Accéder à vos ressources de cluster Azure HDInsight Spark.
 * Développer et exécuter une application Scala Spark localement.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Un cluster Apache Spark sur HDInsight. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](apache-spark-jupyter-spark-sql.md).
-* Le [SDK Oracle Java](https://www.azul.com/downloads/azure-only/zulu/).  Ce tutoriel utilise Java version 8.0.202.
+* Le [SDK Oracle Java](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).  Ce tutoriel utilise Java version 8.0.202.
 * IntelliJ IDEA. Cet article utilise [IntelliJ IDEA Community  version 2018.3.4](https://www.jetbrains.com/idea/download/).
 * Azure Toolkit for IntelliJ.  Consultez [Installation d’Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation?view=azure-java-stable).
 * WINUTILS.EXE.  Consultez [Problems running Hadoop on Windows](https://wiki.apache.org/hadoop/WindowsProblems).
@@ -57,10 +57,10 @@ Effectuez les étapes suivantes pour installer le plug-in Scala :
 3. Sélectionnez **Spark Project (Scala)** [Projet Spark (Scala)] dans la fenêtre principale.
 
 4. Dans la liste déroulante **Build tool** (Outil de build), sélectionnez l’un des outils suivants :
-      * **Maven** pour la prise en charge de l’Assistant de création de projets Scala.
-      * **SBT** pour gérer les dépendances et la génération du projet Scala.
+   * **Maven** pour la prise en charge de l’Assistant de création de projets Scala.
+   * **SBT** pour gérer les dépendances et la génération du projet Scala.
 
-    ![Boîte de dialogue Nouveau projet](./media/apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
+     ![Boîte de dialogue Nouveau projet](./media/apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
 
 5. Sélectionnez **Suivant**.
 
@@ -132,13 +132,13 @@ L’utilisateur peut soit [se connecter à un abonnement Azure](#sign-in-to-your
 
 2. Dans Azure Explorer, cliquez avec le bouton droit sur le nœud **Azure**, puis sélectionnez **Se connecter**.
 
-3. Dans la boîte de dialogue **Azure Sign In** (Connexion à Azure), sélectionnez **Sign in** (Se connecter) et entrez vos informations d’identification Azure.
+3. Dans la boîte de dialogue **Connexion à Azure**, sélectionnez **Se connecter** et entrez vos informations d’identification Azure.
 
-    ![Boîte de dialogue Azure Sign In](./media/apache-spark-intellij-tool-plugin/view-explorer-2.png)
+    ![Boîte de dialogue Connexion à Azure](./media/apache-spark-intellij-tool-plugin/view-explorer-2.png)
 
-4. Une fois que vous êtes connecté, la boîte de dialogue **Sélectionner des abonnements** liste tous les abonnements Azure associés aux informations d’identification. Sélectionnez votre abonnement, puis cliquez sur le bouton **Sélectionner**.
+4. Une fois que vous êtes connecté, la boîte de dialogue **Sélectionner des abonnements** répertorie tous les abonnements Azure associés aux informations d’identification. Sélectionnez votre abonnement, puis cliquez sur le bouton **Sélectionner**.
 
-    ![Boîte de dialogue Select Subscriptions](./media/apache-spark-intellij-tool-plugin/Select-Subscriptions.png)
+    ![Boîte de dialogue Sélectionner des abonnements](./media/apache-spark-intellij-tool-plugin/Select-Subscriptions.png)
 
 5. Dans **Azure Explorer**, développez **HDInsight** pour voir les clusters HDInsight Spark de votre abonnement.
 
@@ -166,7 +166,7 @@ Vous pouvez lier un cluster HDInsight avec le nom d’utilisateur managé Apache
         |Lier un type de ressource|Sélectionnez **Cluster HDInsight** dans la liste déroulante.|
         |Nom du cluster/URL| Entrez un nom de cluster.|
         |Type d’authentification| Conservez **Authentification de base**.|
-        |Nom d’utilisateur| Entrez le nom d’utilisateur de cluster (la valeur par défaut est Admin).|
+        |User Name| Entrez le nom d’utilisateur de cluster (la valeur par défaut est Admin).|
         |Mot de passe| Entrez le mot de passe du nom d’utilisateur.|
     
         ![Boîte de dialogue Lier un cluster HDInsight](./media/apache-spark-intellij-tool-plugin/link-hdinsight-cluster-dialog.png)
@@ -178,9 +178,9 @@ Vous pouvez lier un cluster HDInsight avec le nom d’utilisateur managé Apache
         |Lier un type de ressource|Sélectionnez **Livy Service** dans la liste déroulante.|
         |Point de terminaison Livy| Entrez le point de terminaison Livy.|
         |Nom du cluster| Entrez un nom de cluster.|
-        |Point de terminaison Yarn|Facultatif.|
+        |Point de terminaison Yarn|facultatif.|
         |Type d’authentification| Conservez **Authentification de base**.|
-        |Nom d’utilisateur| Entrez le nom d’utilisateur de cluster (la valeur par défaut est Admin).|
+        |User Name| Entrez le nom d’utilisateur de cluster (la valeur par défaut est Admin).|
         |Mot de passe| Entrez le mot de passe du nom d’utilisateur.|
 
         ![Boîte de dialogue Lier un cluster Livy](./media/apache-spark-intellij-tool-plugin/link-livy-cluster-dialog.png)
@@ -208,10 +208,10 @@ Après avoir créé l’application Scala, vous pouvez l’envoyer au cluster.
     |----|----|
     |Clusters Spark (Linux uniquement)|Sélectionnez le cluster HDInsight Spark sur lequel vous souhaitez exécuter votre application.|
     |Sélectionner un artefact à envoyer|Conservez le paramètre par défaut.|
-    |Nom de la classe main|La valeur par défaut est la classe main du fichier sélectionné. Vous pouvez modifier la classe en sélectionnant les points de suspension (**...**) pour choisir une autre classe.|
-    |Configurations du travail|Vous pouvez changer les clés et/ou les valeurs par défaut. Pour plus d’informations, consultez [API REST Apache Livy](http://livy.incubator.apache.org./docs/latest/rest-api.html).|
+    |Nom de la classe main|la valeur par défaut est la classe main du fichier sélectionné. Vous pouvez modifier la classe en sélectionnant les points de suspension (**...**) pour choisir une autre classe.|
+    |Configurations du travail|Vous pouvez changer les clés et/ou les valeurs par défaut. Pour plus d’informations, consultez [API REST Apache Livy](https://livy.incubator.apache.org./docs/latest/rest-api.html).|
     |Arguments de ligne de commande|Vous pouvez entrer des arguments séparés par un espace pour la classe main, si nécessaire.|
-    |JAR référencés et fichiers référencés|Vous pouvez entrer les chemins des JAR et fichiers référencés, le cas échéant. Pour plus d'informations : [Apache Spark Configuration](https://spark.apache.org/docs/latest/configuration.html#runtime-environment).  Consultez également [Guide pratique pour charger des ressources sur un cluster](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer).|
+    |JAR référencés et fichiers référencés|vous pouvez entrer les chemins des JAR et fichiers référencés, le cas échéant. Pour plus d'informations : [Apache Spark Configuration](https://spark.apache.org/docs/latest/configuration.html#runtime-environment).  Consultez également [Guide pratique pour charger des ressources sur un cluster](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer).|
     |Stockage des chargements de travaux|Développez pour afficher des options supplémentaires.|
     |Type de stockage|Sélectionnez **Utiliser l’objet blob Azure pour charger** dans la liste déroulante.|
     |Compte de stockage|Entrez votre compte de stockage.|
@@ -286,7 +286,7 @@ Vérifiez que le prérequis relatif à WINUTILS.EXE est respecté.
 
     |Propriété |Valeur |
     |----|----|
-    |Job main class (Classe main du travail)|La valeur par défaut est la classe main du fichier sélectionné. Vous pouvez modifier la classe en sélectionnant les points de suspension (**...**) pour choisir une autre classe.|
+    |Job main class (Classe main du travail)|la valeur par défaut est la classe main du fichier sélectionné. Vous pouvez modifier la classe en sélectionnant les points de suspension (**...**) pour choisir une autre classe.|
     |Variables d’environnement|Vérifiez que la valeur de HADOOP_HOME est correcte.|
     |WINUTILS.exe location (Emplacement de WINUTILS.exe)|Vérifiez que le chemin est correct.|
 

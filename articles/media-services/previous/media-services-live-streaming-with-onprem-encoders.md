@@ -12,21 +12,21 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: cenkd;juliako
-ms.openlocfilehash: 67d86ca7ed79f431bf762d4a3679e18a7b4bc373
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: da20e4601b75bcb22546d21f6ad218ac9ba2728b
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990214"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188354"
 ---
-# <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Streaming en direct avec des encodeurs locaux qui créent des flux multidébits
+# <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>Utilisation des canaux recevant des flux multidébit provenant d’encodeurs locaux
 
 > [!NOTE]
 > À partir du 12 mai 2018, les canaux en direct ne prendront plus en charge le protocole de réception du flux de transport RTP/MPEG-2. Effectuez la migration à partir de RTP/MPEG-2 vers le protocole de réception RTMP ou MP4 fragmenté (Smooth Streaming).
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Dans Azure Media Services, un *canal* représente un pipeline de traitement du contenu vidéo en flux continu. Un canal reçoit des flux d’entrée live de l’une des deux manières suivantes :
 
 * Un encodeur live local envoie au canal un paquet RTMP ou Smooth Streaming (MP4 fragmenté) multidébit qui n’est pas activé pour effectuer un encodage live avec Media Services. Les flux reçus transitent par les canaux sans traitement supplémentaire. Cette méthode est appelée *pass-through*. Un encodeur live peut également envoyer un flux à débit binaire unique vers un canal qui n’est pas activé pour l’encodage en temps réel, mais ce n’est pas recommandé. Media Services fournit le flux aux clients qui le demandent.
@@ -45,7 +45,7 @@ Dans Azure Media Services, un *canal* représente un pipeline de traitement du c
 > [!NOTE]
 > Cet article décrit les attributs des canaux qui ne sont pas activés pour effectuer un encodage live. Pour obtenir des informations sur l’utilisation des canaux qui sont activés pour effectuer l’encodage live, consultez [Streaming en direct avec Azure Media Services pour créer des flux multidébits](media-services-manage-live-encoder-enabled-channels.md).
 >
->Pour plus d’informations sur les encodeurs locaux recommandés, consultez [Encodeurs locaux recommandés](media-services-recommended-encoders.md).
+>Pour plus d’informations sur recommandés sur les encodeurs en local, consultez [recommandés sur les encodeurs en local](media-services-recommended-encoders.md).
 
 Le diagramme suivant décrit un workflow de streaming en direct utilisant un encodeur live local pour produire des flux multidébits au format MP4 fragmenté (Smooth Streaming) ou RMTP en sortie.
 
@@ -146,7 +146,7 @@ Les canaux fournissent un point de terminaison d’aperçu (URL d’aperçu) per
 
 Vous pouvez obtenir l’URL d’aperçu lors de la création du canal. Pour obtenir l’URL, il n’est pas nécessaire que le canal soit à l’état **En cours d’exécution**. Une fois que le canal commence à recevoir les données, vous pouvez prévisualiser votre flux.
 
-Actuellement, le flux d’aperçu ne peut être distribué qu’au format MP4 fragmenté (Smooth Streaming), quel que soit le type d’entrée spécifié. Vous pouvez utiliser le lecteur [Smooth Streaming Health Monitor](http://playready.directtaps.net/smoothstreaming/) pour tester la diffusion au format Smooth Streaming. Vous pouvez également utiliser un lecteur hébergé dans le portail Azure pour afficher votre flux.
+Actuellement, le flux d’aperçu ne peut être distribué qu’au format MP4 fragmenté (Smooth Streaming), quel que soit le type d’entrée spécifié. Vous pouvez utiliser le lecteur [Smooth Streaming Health Monitor](https://playready.directtaps.net/smoothstreaming/) pour tester la diffusion au format Smooth Streaming. Vous pouvez également utiliser un lecteur hébergé dans le portail Azure pour afficher votre flux.
 
 #### <a name="allowed-ip-addresses"></a>Adresses IP autorisées
 Vous pouvez définir les adresses IP autorisées à se connecter au point de terminaison d’aperçu. Si aucune adresse IP n’est spécifiée, alors toutes les adresses IP sont autorisées. Une adresse IP autorisée peut être spécifiée de l’une des manières suivantes :
@@ -185,9 +185,9 @@ Les valeurs possibles de l’état actuel d’un canal sont les suivantes :
 Le tableau suivant montre comment les états du canal sont mappés au mode de facturation.
 
 | État du canal | Indicateurs de l’interface utilisateur du portail | Facturation ? |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | **Démarrage en cours** |**Démarrage en cours** |Aucun (état transitoire) |
-| **Exécution** |**Prêt** (aucun programme en cours d’exécution)<p><p>or<p>**Diffusion en continu** (au moins un programme en cours d’exécution) |OUI |
+| **Exécution** |**Prêt** (aucun programme en cours d’exécution)<p><p>or<p>**Diffusion en continu** (au moins un programme en cours d’exécution) |Oui |
 | **En cours d’arrêt** |**En cours d’arrêt** |Aucun (état transitoire) |
 | **Arrêté** |**Arrêté** |Non  |
 
@@ -229,7 +229,7 @@ Voici d’autres considérations liées à l’utilisation des canaux et des com
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-topics"></a>Rubriques connexes
-[Encodeurs locaux recommandés](media-services-recommended-encoders.md)
+[Recommandés sur les encodeurs en local](media-services-recommended-encoders.md)
 
 [Spécification d’ingestion en direct au format MP4 fragmenté Azure Media Services](media-services-fmp4-live-ingest-overview.md)
 

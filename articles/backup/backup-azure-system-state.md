@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: saurse
-ms.openlocfilehash: 14de0f632584ff5fb1a6b4395298e9cecfe455e6
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 6d8cbac7eab797662896a96ed588c9d6370cb230
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268721"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105197"
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Sauvegarder l’état du système Windows dans un déploiement Resource Manager
 Cet article explique comment sauvegarder l’état du système Windows Server vers Azure. Il s’agit d’un didacticiel destiné à vous présenter les notions de base.
@@ -51,7 +51,7 @@ Pour sauvegarder l’état du système Windows Server, vous devez créer un arch
     Ou
     * sélectionnez **Utiliser existant** et cliquez sur le menu déroulant pour afficher la liste des groupes de ressources disponibles.
 
-  Pour plus d’informations sur les groupes de ressources, consultez [Vue d’ensemble d’Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+   Pour plus d’informations sur les groupes de ressources, consultez [Vue d’ensemble d’Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
 7. Cliquez sur **Emplacement** pour sélectionner la région géographique du coffre. Ce choix définit la région géographique où vos données de sauvegarde sont envoyées.
 
@@ -130,9 +130,9 @@ Une fois votre coffre créé, vous devez le configurer pour la sauvegarde de l�
     Les informations d’identification du coffre sont téléchargées dans le dossier Téléchargements. Une fois cette opération terminée, une fenêtre contextuelle s’affiche, vous demandant si vous voulez ouvrir ou enregistrer ces informations. Cliquez sur **Enregistrer**. Si vous cliquez sur **Ouvrir** par erreur, attendez que la boîte de dialogue qui s’affiche annonce l’échec de la tentative d’ouverture des informations d’identification du coffre. En effet, vous ne pouvez pas les ouvrir. Passez à l'étape suivante. Les informations d’identification du coffre se trouvent dans le dossier Téléchargements.   
 
     ![Fin du téléchargement des informations d’identification du coffre](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
-> [!NOTE]
-> Les informations d’identification du coffre doivent être enregistrées uniquement à un emplacement proche du serveur Windows sur lequel vous souhaitez utiliser l’agent.
->
+   > [!NOTE]
+   > Les informations d’identification du coffre doivent être enregistrées uniquement à un emplacement proche du serveur Windows sur lequel vous souhaitez utiliser l’agent.
+   >
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 

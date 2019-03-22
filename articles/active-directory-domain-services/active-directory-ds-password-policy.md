@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: 5fc50aeeb2764f90a111c2466ff5a9deefe1e65c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 513cccb8b83eb4a69df1bc6172f1f02485215e35
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167986"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086001"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Stratégies de mot de passe et de verrouillage de compte sur les domaines managés
 Cet article explique les stratégies de mot de passe par défaut sur un domaine managé. Il décrit également comment configurer ces stratégies.
@@ -89,28 +89,28 @@ Pour créer une SMPA personnalisée sur votre domaine géré :
 7. Dans le panneau **Tâches** à droite, cliquez sur **Nouveau** et cliquez sur **Password Settings (Paramètres de mot de passe)**.
 8. Dans la boîte de dialogue **Create Password Settings (Créer des paramètres de mot de passe)**, spécifiez les paramètres de mot de passe personnalisés à appliquer dans le cadre de la SMPA personnalisée. N’oubliez pas de définir la priorité de manière appropriée pour remplacer la SMPA par défaut.
 
-  ![Créer une SMPA personnalisée](./media/how-to/custom-fgpp.png)
+   ![Créer une SMPA personnalisée](./media/how-to/custom-fgpp.png)
 
-  > [!TIP]
-  > **Pensez à décocher la case Protect from accidental deletion (Protéger contre la suppression accidentelle).** Si cette option est sélectionnée, la SMPA ne peut pas être enregistrée.
-  >
-  >
+   > [!TIP]
+   > **Pensez à décocher la case Protect from accidental deletion (Protéger contre la suppression accidentelle).** Si cette option est sélectionnée, la SMPA ne peut pas être enregistrée.
+   >
+   >
 
 9. Dans **Directly Applies To (S’applique directement à)**, cliquez sur le bouton **Ajouter**. Dans la boîte de dialogue **Select Users or Groups (Sélectionner des utilisateurs ou des groupes)**, cliquez sur le bouton **Emplacements**.
 
-  ![Sélection de l’option Utilisateurs et groupes](./media/how-to/fgpp-applies-to.png)
+   ![Sélection de l’option Utilisateurs et groupes](./media/how-to/fgpp-applies-to.png)
 
 10. Dans la boîte de dialogue **Emplacements**, développez le nom de domaine et cliquez sur **AADDC Users (Utilisateurs AADDC)**. Vous pouvez maintenant sélectionner un groupe dans l’unité d’organisation prédéfinie des utilisateurs, auquel appliquer la SMPA.
 
-  ![Sélectionner l’unité d’organisation à laquelle ce groupe appartient](./media/how-to/fgpp-container.png)
+    ![Sélectionner l’unité d’organisation à laquelle ce groupe appartient](./media/how-to/fgpp-container.png)
 
 11. Tapez le nom du groupe et cliquez sur le bouton **Vérifier les noms** pour vérifier que le groupe existe.
 
-  ![Sélectionner le groupe auquel appliquer la SMPA](./media/how-to/fgpp-apply-group.png)
+    ![Sélectionner le groupe auquel appliquer la SMPA](./media/how-to/fgpp-apply-group.png)
 
 12. Le nom du groupe s’affiche dans la section **Directly Applies To (S’applique directement à)**. Cliquez sur le bouton **OK** pour enregistrer ces modifications.
 
-  ![SMPA appliquée](./media/how-to/fgpp-applied.png)
+    ![SMPA appliquée](./media/how-to/fgpp-applied.png)
 
 > [!TIP]
 > **Pour appliquer des stratégies de mot de passe personnalisées pour des comptes utilisateur dans une unité organisationnelle personnalisée :** Des stratégies de mot de passe affinées peuvent être appliquées uniquement aux groupes. Pour ne configurer une stratégie de mot de passe personnalisée que pour les utilisateurs d’une unité d’organisation personnalisée, créez un groupe incluant les utilisateurs de cette unité d’organisation.

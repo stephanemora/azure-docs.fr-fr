@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/14/2019
 ms.author: tomfitz
-ms.openlocfilehash: f49b8ed592422927288e24b164a04645e2e37744
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: bd574eb2d3537d3e5c0774f57e37283817cc7879
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301381"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112022"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>Déployer des ressources à l’aide de modèles Resource Manager et de l’API REST Resource Manager
 
@@ -38,32 +38,32 @@ Vous pouvez inclure votre modèle dans le corps de la requête ou un lien vers u
 
 1. Si vous n’avez pas de groupe de ressources, créez-en un. Fournissez votre ID abonnement, le nom du groupe de ressources et l’emplacement dont vous avez besoin pour votre solution. Pour plus d’informations, consultez [Créer un groupe de ressources](/rest/api/resources/resourcegroups/createorupdate).
 
-  ```HTTP
-  PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2018-05-01
-  ```
+   ```HTTP
+   PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2018-05-01
+   ```
 
-  Avec un corps de requête comme suit :
-  ```json
-  {
+   Avec un corps de requête comme suit :
+   ```json
+   {
     "location": "West US",
     "tags": {
       "tagname1": "tagvalue1"
     }
-  }
-  ```
+   }
+   ```
 
 1. Validez votre déploiement avant son exécution en exécutant l’opération [Valider un déploiement de modèle](/rest/api/resources/deployments/validate) . Lorsque vous testez le déploiement, indiquez les paramètres exactement comme vous le feriez lors de l'exécution du déploiement (voir l'étape suivante).
 
 1. Créez un déploiement. Fournissez votre ID abonnement, le nom du groupe de ressources, le nom du déploiement et un lien vers votre modèle. Pour plus d’informations sur le fichier de modèle, consultez [Fichier de paramètres](#parameter-file). Pour plus d’informations sur l’API REST pour créer un groupe de ressources, consultez [Créer un déploiement de modèle](/rest/api/resources/deployments/createorupdate). Notez que le **Mode** est défini sur **Incremental (Incrémentiel)**. Pour exécuter un déploiement complet, définissez le paramètre **Mode** sur la valeur **Complete (Terminé)**. Soyez prudent lorsque vous utilisez le mode complet, car vous pouvez supprimer par inadvertance des ressources qui ne sont pas dans votre modèle.
 
-  ```HTTP
-  PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2018-05-01
-  ```
+   ```HTTP
+   PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2018-05-01
+   ```
 
-  Avec un corps de requête comme suit :
+   Avec un corps de requête comme suit :
 
    ```json
-  {
+   {
     "properties": {
       "templateLink": {
         "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
@@ -75,13 +75,13 @@ Vous pouvez inclure votre modèle dans le corps de la requête ou un lien vers u
         "contentVersion": "1.0.0.0"
       }
     }
-  }
-  ```
+   }
+   ```
 
     Si vous souhaitez consigner le contenu de la réponse et/ou le contenu de la demande, incluez **debugSetting** dans la demande.
 
-  ```json
-  {
+   ```json
+   {
     "properties": {
       "templateLink": {
         "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
@@ -96,15 +96,15 @@ Vous pouvez inclure votre modèle dans le corps de la requête ou un lien vers u
         "detailLevel": "requestContent, responseContent"
       }
     }
-  }
-  ```
+   }
+   ```
 
     Vous pouvez configurer votre compte de stockage pour qu’il utilise un jeton de signature d’accès partagé (SAP). Pour plus d’informations, consultez [Délégation de l’accès avec une signature d’accès partagé](https://docs.microsoft.com/rest/api/storageservices/delegating-access-with-a-shared-access-signature).
 
 1. Au lieu d’effectuer la liaison vers des fichiers pour le modèle et les paramètres, vous pouvez les inclure dans le corps de la requête.
 
-  ```json
-  {
+   ```json
+   {
       "properties": {
       "mode": "Incremental",
       "template": {
@@ -161,14 +161,14 @@ Vous pouvez inclure votre modèle dans le corps de la requête ou un lien vers u
         }
       }
     }
-  }
-  ```
+   }
+   ```
 
 5. Obtenez l’état du déploiement du modèle. Pour plus d’informations, consultez [Obtenir des informations sur le déploiement d’un modèle](/rest/api/resources/deployments/get).
 
-  ```HTTP
-  GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2018-05-01
-  ```
+   ```HTTP
+   GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2018-05-01
+   ```
 
 ## <a name="redeploy-when-deployment-fails"></a>Redéploiement en cas d’échec du déploiement
 

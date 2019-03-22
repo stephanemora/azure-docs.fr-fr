@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/17/2019
 ms.author: avneet723
 ms.custom: include file
-ms.openlocfilehash: 1f31189a83b6659371fcd0b34423f2fb681526c2
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: ec382217bfa32da19c0b98e656f3782739b26cc6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55148029"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58114327"
 ---
 ## <a name="download-the-source-code"></a>Télécharger le code source
 
@@ -53,16 +53,16 @@ Si vous n’avez pas encore créé les ressources Azure nécessaires, procédez 
     ```
 
 1. Exécutez le script **start.cmd**. Le script vous invite à entrer les informations suivantes :
-    * Le nom de la solution.
-    * Sélectionnez l’abonnement Azure à utiliser.
-    * L’emplacement du centre de données Azure à utiliser.
+   * Le nom de la solution.
+   * Sélectionnez l’abonnement Azure à utiliser.
+   * L’emplacement du centre de données Azure à utiliser.
 
-    Le script crée un groupe de ressources dans Azure avec le nom de votre solution. Ce groupe de ressources contient les ressources Azure qu’utilise l’accélérateur de solution. Vous pouvez supprimer ce groupe de ressources dès que vous n’avez plus besoin des ressources correspondantes.
+     Le script crée un groupe de ressources dans Azure avec le nom de votre solution. Ce groupe de ressources contient les ressources Azure qu’utilise l’accélérateur de solution. Vous pouvez supprimer ce groupe de ressources dès que vous n’avez plus besoin des ressources correspondantes.
 
-    Le script ajoute également un ensemble de variables d'environnement dotées du préfixe **PCS** sur votre ordinateur local. Quand vous lancez les conteneurs Docker ou les projets de microservices localement, ils lisent leurs valeurs de configuration à partir de ces variables d’environnement.
+     Le script ajoute également un ensemble de variables d'environnement dotées du préfixe **PCS** sur votre ordinateur local. Quand vous lancez les conteneurs Docker ou les projets de microservices localement, ils lisent leurs valeurs de configuration à partir de ces variables d’environnement.
 
-    > [!TIP]
-    > Quand le script s’exécute, il enregistre également les variables d’environnement dans un fichier appelé **\<votre dossier de base\>\\.pcs\\\<nom de la solution\>.env**. Vous pouvez les utiliser pour de futurs déploiements d’accélérateurs de solutions. Notez que l'ensemble de variables d'environnement de votre ordinateur local se substitue aux valeurs du fichier **services\\scripts\\local\\.env** lorsque vous exécutez **docker-compose**.
+     > [!TIP]
+     > Quand le script s’exécute, il enregistre également les variables d’environnement dans un fichier appelé **\<votre dossier de base\>\\.pcs\\\<nom de la solution\>.env**. Vous pouvez les utiliser pour de futurs déploiements d’accélérateurs de solutions. Notez que l'ensemble de variables d'environnement de votre ordinateur local se substitue aux valeurs du fichier **services\\scripts\\local\\.env** lorsque vous exécutez **docker-compose**.
 
 1. Quittez votre environnement de ligne de commande.
 

@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 9c66a937ffd9155569820c47c99946d186c55cce
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 2d17991854f13f889c4e8c3a8c6f18e933655546
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052153"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884220"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Résoudre les problèmes de baisse de performances d’une application dans Azure App Service
 Cet article vous aide à résoudre les problèmes de baisse de performances d’une application dans [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714).
@@ -162,7 +162,7 @@ En outre, vous pouvez choisir d’exécuter votre application sur plusieurs inst
 Vous pouvez définir la mise à l’échelle pour qu’elle soit manuelle ou automatique.
 
 #### <a name="use-autoheal"></a>Utilisation de la correction automatique (AutoHeal)
-La correction automatique (AutoHeal) recycle le processus de travail pour votre application en fonction des paramètres que vous choisissez (comme les modifications de configuration, les requêtes, les limites de mémoire ou le temps nécessaire pour exécuter une requête). La plupart du temps, le recyclage du processus est le moyen le plus rapide pour résoudre un problème. Même si vous pouvez toujours redémarrer l’application directement dans le portail Azure, AutoHeal le fait automatiquement pour vous. Il vous suffit d’ajouter des déclencheurs dans le fichier web.config racine pour votre application. Ces paramètres fonctionnent de la même façon, que votre application soit ou non une application .Net.
+La correction automatique (AutoHeal) recycle le processus de travail pour votre application en fonction des paramètres que vous choisissez (comme les modifications de configuration, les requêtes, les limites de mémoire ou le temps nécessaire pour exécuter une requête). La plupart du temps, le recyclage du processus est le moyen le plus rapide pour résoudre un problème. Même si vous pouvez toujours redémarrer l’application directement dans le portail Azure, AutoHeal le fait automatiquement pour vous. Il vous suffit d’ajouter des déclencheurs dans le fichier web.config racine pour votre application. Ces paramètres fonctionnent de la même façon même si votre application n’est pas une application .NET.
 
 Pour plus d'informations, consultez [Correction automatique de Sites Web Azure](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/).
 

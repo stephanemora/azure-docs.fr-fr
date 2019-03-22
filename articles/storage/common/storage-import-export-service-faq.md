@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: e52d5f3b30490227541e99e067c096a7df6dd911
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: ee2917c64843c8ab137e0122d63a328d6c19fedb
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566186"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867573"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Service Azure Import/Export : Questions fréquentes (FAQ) 
 Vous trouverez ci-dessous des questions et réponses relatives à l’utilisation du service Azure Import/Export pour le transfert de données vers le Stockage Azure. Les questions/réponses sont classées dans les catégories suivantes :
@@ -44,18 +44,18 @@ Oui. Pour plus d’informations, accédez à [Flux de travail de la sauvegarde h
 
 ### <a name="can-i-purchase-drives-for-importexport-jobs-from-microsoft"></a>Puis-je acheter des disques auprès de Microsoft pour les tâches d’importation/exportation ?
 
- Non. Vous devez expédier vos propres disques pour les tâches d’importation et d’exportation.
+Non. Vous devez expédier vos propres disques pour les tâches d’importation et d’exportation.
 
 
 ## <a name="preparing-disks-for-importexport"></a>Préparation des disques pour l’importation/exportation
 
 ### <a name="can-i-skip-the-drive-preparation-step-for-an-import-job-can-i-prepare-a-drive-without-copying"></a>Puis-je ignorer l’étape de préparation de disque pour une tâche d’importation ? Puis-je préparer un disque sans effectuer de copie ?
 
- Non. Tout disque utilisé pour importer des données doit être préparé à l’aide de l’outil Azure WAImportExport. Utilisez l’outil pour copier également les données sur le disque.
+Non. Tout disque utilisé pour importer des données doit être préparé à l’aide de l’outil Azure WAImportExport. Utilisez l’outil pour copier également les données sur le disque.
 
 ### <a name="do-i-need-to-perform-any-disk-preparation-when-creating-an-export-job"></a>Dois-je effectuer une préparation du disque durant la création d’une tâche d’exportation ?
 
- Non. Certaines vérifications préalables sont recommandées. Pour vérifier le nombre de disques nécessaires, utilisez la commande PreviewExport de l’outil WAImportExport. Pour plus d’informations, consultez [Aperçu de l’utilisation des lecteurs pour un travail d’exportation](https://msdn.microsoft.com/library/azure/dn722414.aspx). La commande vous permet d’afficher un aperçu de l’utilisation des disques pour les objets blob sélectionnés, en fonction de la taille des disques à utiliser. Vérifiez également que vous pouvez accéder en lecture/écriture au disque dur expédié pour la tâche d’exportation.
+Non. Certaines vérifications préalables sont recommandées. Pour vérifier le nombre de disques nécessaires, utilisez la commande PreviewExport de l’outil WAImportExport. Pour plus d’informations, consultez [Aperçu de l’utilisation des lecteurs pour un travail d’exportation](https://msdn.microsoft.com/library/azure/dn722414.aspx). La commande vous permet d’afficher un aperçu de l’utilisation des disques pour les objets blob sélectionnés, en fonction de la taille des disques à utiliser. Vérifiez également que vous pouvez accéder en lecture/écriture au disque dur expédié pour la tâche d’exportation.
 
 ## <a name="importexport-jobs"></a>Tâches d’importation/exportation
 
@@ -87,8 +87,18 @@ Vous pouvez expédier des disques au centre de données Azure en faisant appel �
 - Un numéro de compte FedEx aux États-Unis et dans l’UE, ou
 - Un numéro de compte DHL en Asie et en Australie
 
+> [!NOTE]
+> Les centres de données en Inde nécessitent une lettre de la déclaration de votre en-tête (remise challan) pour renvoyer les lecteurs. Pour réorganiser la passe de l’entrée requise, vous devez également réserver le prélèvement avec votre opérateur sélectionné et partager ses informations avec le centre de données.
+
 ### <a name="are-there-any-restrictions-with-shipping-my-drive-internationally"></a>Existe-t-il des restrictions concernant l’expédition de mon disque à l’étranger ?
 Notez que le support physique que vous expédiez devra peut-être franchir des frontières. Vous êtes responsable de l'application des lois applicables lorsque vous importez et/ou exportez vos données et supports physiques. Avant d'expédier le support physique, demandez à vos conseillers juridiques de vérifier que vos supports multimédias et données peuvent être envoyés légalement vers le centre de données identifié. Cela vous assurera d'atteindre Microsoft dans les délais.
+
+### <a name="are-there-any-special-requirements-for-delivering-my-disks-to-a-datacenter"></a>Existe-t-il des exigences spéciales pour la remise de mes disques à un centre de données ?
+
+Les exigences varient selon les restrictions de centre de données Azure spécifique.
+- Il existe plusieurs sites, qui nécessitent un centre de données Microsoft numéro d’ID de trafic entrant à être écrits sur le paquet pour des raisons de sécurité. Avant d’expédier vos lecteurs ou les disques au centre de données, contactez Azure DataBox opérations (adbops@microsoft.com) pour obtenir le nombre. Sans ce nombre, le package est rejeté.
+- Les centres de données en Inde nécessitent les détails personnels du pilote, telles que la carte d’ID de secteur public ou non de preuve. (par exemple, panoramique, AADHAR, DL), nom, de contacts et la voiture plaque numéro pour obtenir une entrée, passez la porte. Pour éviter les retards de livraison, informer votre opérateur ces exigences.
+
 
 ### <a name="when-creating-a-job-the-shipping-address-is-a-location-that-is-different-from-my-storage-account-location-what-should-i-do"></a>Au moment de créer une tâche, l’adresse de livraison ne correspond pas à l’emplacement associé à mon compte de stockage. Que dois-je faire ?
 
@@ -107,7 +117,7 @@ Le centre de données Azure vous renvoie le lecteur non conforme au type pris en
 
 ### <a name="does-the-service-format-the-drives-before-returning-them"></a>Est-ce que le service formate les disques avant de les retourner ?
 
- Non. Tous les disques sont chiffrés avec BitLocker.
+Non. Tous les disques sont chiffrés avec BitLocker.
 
 ### <a name="how-can-i-access-data-that-is-imported-by-this-service"></a>Comment accéder aux données importées par ce service ?
 
@@ -122,13 +132,13 @@ Quand vous préparez un disque dur pour une tâche d’importation, la destinati
 Cela dépend. Lors de la préparation du disque, vous pouvez indiquer si les fichiers cibles doivent être remplacés ou ignorés à l’aide du champ Disposition:< rename|no-overwrite|overwrite> du fichier CSV du jeu de données. Par défaut, le service renomme les nouveaux fichiers au lieu de remplacer les objets blob ou les fichiers existants.
 
 ### <a name="is-the-waimportexport-tool-compatible-with-32-bit-operating-systems"></a>L’outil WAImportExport est-il compatible avec les systèmes d’exploitation 32 bits ?
- Non. L’outil WAImportExport est compatible uniquement avec les systèmes d’exploitation Windows 64 bits. Pour obtenir une liste complète des systèmes d’exploitation pris en charge, accédez à [Systèmes d’exploitation pris en charge](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements). 
+Non. L’outil WAImportExport est compatible uniquement avec les systèmes d’exploitation Windows 64 bits. Pour obtenir une liste complète des systèmes d’exploitation pris en charge, accédez à [Systèmes d’exploitation pris en charge](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements). 
 
 
 ### <a name="what-is-the-maximum-block-blob-and-page-blob-size-supported-by-azure-importexport"></a>Quelle est la taille maximale des objets blob de blocs et des objets blob de pages prise en charge par Azure Import/Export ?
 
 La taille maximale des objets blob de blocs est d’environ 4,768 To ou 5 000 000 Mo.
-La taille maximale des objets blob de pages est de 1 To.
+Taille du Blob de Page maximale est de 8 To.
 
 
 ### <a name="does-azure-importexport-support-aes-256-encryption"></a>Azure Import/Export prend-il en charge le chiffrement AES-256 ?

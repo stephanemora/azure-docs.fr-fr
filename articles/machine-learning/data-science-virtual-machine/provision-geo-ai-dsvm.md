@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: 47d5616f86c8f4cb62773d0b92a24a5fb63b2ea7
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: c4b178cc7e0604f38e4da25452a3bad01f8145de
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240469"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858137"
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Configuration d’une machine virtuelle Geo Artificial Intelligence sur Azure 
 
@@ -33,7 +33,7 @@ La Geo-DSVM contient plusieurs outils dédiés à l’IA, notamment :
 - des outils permettant d’acquérir et de prétraiter des données d’image ou des données textuelles ; 
 - des outils dédiés aux activités de développement, tels que Microsoft R Server Developer Edition, Anaconda Python, les notebooks Jupyter pour Python et R, les IDE pour Python et R, des bases de données SQL ;
 - le logiciel de bureau ArcGIS Pro d’ESRI, avec des interfaces Python et R prenant en charge les données géospatiales de vos applications IA. 
-
+ 
 
 ## <a name="create-your-geo-ai-data-science-vm"></a>Créer une machine virtuelle de science des données Geo AI
 
@@ -67,16 +67,16 @@ Voici la procédure permettant de créer une instance de la machine virtuelle de
    - **Résumé**: Vérifiez que toutes les informations que vous avez saisies sont correctes.
 
    - **Acheter**: cliquez sur **Acheter** pour commencer l’approvisionnement. Les conditions de service vous sont communiquées via un lien. La machine virtuelle n'est pas assortie de frais supplémentaires au-delà du calcul de la taille de serveur que vous avez choisie à l'étape **Taille** . 
-
+ 
 >[!NOTE]
 > L’approvisionnement prend environ 20 à 30 minutes. L’état de l’approvisionnement est affiché sur le portail Azure.
 
-
+ 
 ## <a name="how-to-access-the-geo-ai-data-science-virtual-machine"></a>Accès à une machine virtuelle de science des données Geo AI
 
-Une fois votre machine virtuelle créée, vous pouvez commencer à utiliser les outils qui y sont installés et préconfigurés. Pour la plupart des outils, vous disposez d'icônes de bureau et de vignettes dans le menu de démarrage. Vous pouvez vous y connecter à l’aide du bureau distant en utilisant les informations d’identification du compte administrateur que vous avez configurées dans la section **Paramètres de base** précédente. 
+ Une fois votre machine virtuelle créée, vous pouvez commencer à utiliser les outils qui y sont installés et préconfigurés. Pour la plupart des outils, vous disposez d'icônes de bureau et de vignettes dans le menu de démarrage. Vous pouvez vous y connecter à l’aide du bureau distant en utilisant les informations d’identification du compte administrateur que vous avez configurées dans la section **Paramètres de base** précédente. 
 
-
+ 
 ## <a name="using-arcgis-pro-installed-in-the-vm"></a>Utilisation du logiciel ArcGIS Pro installé sur la machine virtuelle
 
 Le logiciel de bureau ArcGIS Pro est déjà préinstallé sur la Geo-DSVM et l’environnement est préconfiguré pour fonctionner avec tous les outils contenus dans la DSVM. Au démarrage d’ArcGIS, vous êtes invité à vous connecter à votre compte ArcGIS. Si vous disposez déjà d’un compte ArcGIS et que vous possédez des licences pour ce logiciel, vous pouvez utiliser vos informations d’identification existantes.  
@@ -87,7 +87,7 @@ Sinon, vous pouvez inscrire à un nouveau compte ArcGIS et demander une licence 
 
 ![Évaluation gratuite d’ArcGIS](./media/provision-geo-ai-dsvm/ArcGIS-Free-Trial.png)
 
-Dès lors que vous êtes connecté à un compte ArcGIS (payant ou en version d’évaluation gratuite), vous pouvez autoriser ArcGIS Pro pour votre compte en suivant les instructions décrites dans la [documentation de mise en route d’ArcGIS Pro](http://www.esri.com/library/brochures/getting-started-with-arcgis-pro.pdf). 
+Dès lors que vous êtes connecté à un compte ArcGIS (payant ou en version d’évaluation gratuite), vous pouvez autoriser ArcGIS Pro pour votre compte en suivant les instructions décrites dans la [documentation de mise en route d’ArcGIS Pro](https://www.esri.com/library/brochures/getting-started-with-arcgis-pro.pdf). 
 
 Une fois connecté au bureau ArcGIS Pro avec votre compte ArcGIS, vous pouvez commencer à utiliser les outils de science des données installés et configurés sur la machine virtuelle dans le cadre de vos projets d’analyse géospatiale et de Machine Learning.
 

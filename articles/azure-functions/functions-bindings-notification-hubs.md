@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 72c0db44e1f56cab190f343a87c6b453625a7f70
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 8ab1ae5d1f6db563caef5b6c27ccd4fcbbd2e255
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996033"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57777632"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Liaison de sortie Notification Hubs pour Azure Functions
 
@@ -153,7 +153,7 @@ Cet exemple envoie une notification pour une [inscription de modèles](../notifi
 module.exports = function (context, myTimer) {
     var timeStamp = new Date().toISOString();
 
-    if(myTimer.isPastDue)
+    if (myTimer.IsPastDue)
     {
         context.log('Node.js is running late!');
     }
@@ -330,7 +330,7 @@ Le nom de ce paramètre d’application passe dans le paramètre de connexion de
 
 ## <a name="exceptions-and-return-codes"></a>Exceptions et codes de retour
 
-| Liaison | Informations de référence |
+| Liaison | Référence |
 |---|---|
 | Hub de notification | [Guide des opérations](https://docs.microsoft.com/rest/api/notificationhubs/) |
 

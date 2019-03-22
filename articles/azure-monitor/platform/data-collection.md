@@ -5,18 +5,18 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/05/2018
 ms.author: bwren
-ms.openlocfilehash: 9b3e35e8372e5488fd97da3f035c29940cb1f293
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: b65613de8f11aa36c398d15176541ac43a3dba69
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269193"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57770218"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Supervision des données collectées par Azure Monitor
 [Azure Monitor](../overview.md) est un service qui vous permet de surveiller vos applications et les ressources dont elles dépendent. Au cœur de cette fonction se trouve le stockage de données de télémétrie et d’autres données tirées des ressources supervisées. Cet article décrit de manière exhaustive la façon dont ces données sont stockées et utilisées par Azure Monitor.

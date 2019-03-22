@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/13/2018
 ms.author: ryanwi
-ms.openlocfilehash: d93ebb01c905be6bf799ed6e4a037e3ddfdc2430
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 527ab4ee0edaf3ac2048403d7063edef8fc58ae8
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55094170"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451975"
 ---
 # <a name="scaling-azure-service-fabric-clusters"></a>Mise à l’échelle des clusters Azure Service Fabric
 Un cluster Service Fabric est un groupe de machines virtuelles ou physiques connectées au réseau, sur lequel vos microservices sont déployés et gérés. Une machine ou une machine virtuelle faisant partie d’un cluster est appelée un nœud. Les clusters peuvent potentiellement comporter des milliers de nœuds. Une fois que vous avez créé un cluster Service Fabric, vous pouvez le mettre à l’échelle horizontalement (modifier le nombre de nœuds) ou verticalement (modifier les ressources des nœuds).  Une mise à l’échelle peut s’effectuer à tout moment, même lorsque des charges de travail sont en cours d’exécution sur le cluster.  Lorsque vous mettez vos nœuds à l’échelle, vos applications sont automatiquement mises à l’échelle.
@@ -81,7 +81,7 @@ Lors de la mise à l’échelle d’un cluster Azure, gardez les instructions su
 Le processus de montée ou descente en puissance d’un type de nœud diffère selon qu’il s’agisse d’un type de nœud principal ou non principal.
 
 ### <a name="scaling-non-primary-node-types"></a>Mise à l’échelle de types de nœuds non principaux
-Créez un nouveau type de nœud avec les ressources dont vous avez besoin.  Mettez à jour les contraintes de placement des services en cours d’exécution afin d’inclure le nouveau type de nœud.  Progressivement (une à la fois), réduisez le nombre d’instances de l’ancien type de nœud à une valeur nulle, de manière à ne pas affecter la fiabilité du cluster.  Les services migrent progressivement vers le nouveau type de nœud, à mesure de la mise hors service de l’ancien type de nœud.
+Créez un nouveau type de nœud avec les ressources dont vous avez besoin.  Mettez à jour les contraintes de placement des services en cours d’exécution afin d’inclure le nouveau type de nœud.  Progressivement (une à la fois), réduisez le nombre d’instances de l’ancien type de nœud à une valeur nulle, de manière à ne pas affecter la fiabilité du cluster.  Services progressivement migreront vers le nouveau type de nœud car l’ancien type de nœud est désactivé.
 
 ### <a name="scaling-the-primary-node-type"></a>Mise à l’échelle du type de nœud principal
 Nous vous recommandons de ne pas modifier la référence des machines virtuelles du type de nœud principal. Si vous avez besoin d’accroître la capacité du cluster, nous vous recommandons d’ajouter davantage d’instances. 

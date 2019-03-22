@@ -9,14 +9,14 @@ ms.assetid: 0BCD936E-D4C0-472D-AE40-F4B2AB6912D5
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: article
-ms.date: 04/15/2017
+ms.date: 03/04/2019
 ms.author: scottwhi
-ms.openlocfilehash: b2dfbeaae46be58e94f6c3cfc5bbd97d82382e54
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 33dfbe70d75335eca79d32807407b97e32c2dbbf
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876604"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440860"
 ---
 # <a name="get-image-insights-with-the-bing-image-search-api"></a>Obtenir des informations sur les images avec l’API Recherche d’images Bing
 
@@ -374,7 +374,7 @@ La réponse présente une entité reconnue.
 
 ## <a name="finding-visually-similar-products"></a>Recherche de produits visuellement similaires  
 
-Pour rechercher des images contenant des produits qui sont visuellement similaires aux produits trouvés dans l’image d’origine, définissez le paramètre de requête [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modulesrequested) sur SimilarProducts.  
+Afin de rechercher des images qui contiennent des produits visuellement similaires pour les produits disponibles dans l’image d’origine, définissez le [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modulesrequested) paramètre à SimilarProducts de requête.  
 
 La requête suivante montre comment obtenir des images de produits visuellement similaires. La requête utilise le paramètre de requête [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#insightstoken) pour identifier l’image d’origine qui a été retournée dans une requête précédente. Pour améliorer la pertinence, vous devez inclure la chaîne de requête de l’utilisateur.  
 

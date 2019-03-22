@@ -8,18 +8,20 @@ ms.author: dobett
 ms.date: 01/14/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 04726249809656344c8f81164d5deed5af321e71
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.openlocfilehash: 450b27d21cf4079bdef6fc20c3f2e83f4e47cbd2
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355076"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806559"
 ---
 # <a name="manage-iot-central-from-azure-powershell"></a>Gérer IoT Central à partir d’Azure PowerShell
 
+[!INCLUDE [iot-central-selector-manage](../../includes/iot-central-selector-manage.md)]
+
 Au lieu de créer et de gérer des applications IoT Central à partir de la page [Application Manager](https://aka.ms/iotcentral) d’IoT Central, vous pouvez utiliser [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) pour gérer vos applications.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -65,7 +67,7 @@ Le script crée d’abord un groupe de ressources dans la région USA Est pour l
 |------------------|------------|
 |ResourceGroupName |Groupe de ressources qui contient l’application. Ce groupe de ressources doit déjà exister dans votre abonnement. |
 |Lieu |Par défaut, cette applet de commande utilise l’emplacement du groupe de ressources. Actuellement, vous pouvez créer une application IoT Central dans les régions **USA Est**, **USA Ouest**, **Europe Nord** et **Europe Ouest**. |
-|NOM              |Nom de l’application dans le portail Azure. |
+|Nom              |Nom de l’application dans le portail Azure. |
 |Sous-domaine         |Sous-domaine dans l’URL de l’application. Dans l’exemple, l’URL de l’application est https://mysubdomain.azureiotcentral.com. |
 |Sku               |Actuellement, la seule valeur est **S1** (niveau Standard). Consultez [Tarifs Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). |
 |Modèle          | Modèle d’application à utiliser. Pour plus d’informations, voir le tableau suivant : |

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3bdf642c37fe5f64b7d853da6a050ec8c2a7d44d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: cc07aa9c1b2c540c33949a8c591bd98f91b04666
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834657"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225448"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Déployer un Runbook Worker hybride Linux
 
@@ -84,6 +84,9 @@ Avant de continuer, notez l’espace de travail Log Analytics lié à votre comp
    ```
 
 1. Une fois la commande exécutée, la page **Groupes de travail hybrides** du portail Azure affiche le nouveau groupe et le nombre de membres. S’il s’agit d’un groupe existant, le nombre de membres est incrémenté. Vous pouvez sélectionner le groupe dans la liste de la page **Groupes de Workers hybrides** et sélectionner la vignette **Workers hybrides**. La page **Workers hybrides** affiche chaque membre du groupe listé.
+
+> [!NOTE]
+> Si vous utilisez l’extension de machine virtuelle Azure Monitor pour Linux pour une machine virtuelle Azure, nous recommandons définir `autoUpgradeMinorVersion` avec la valeur false en tant qu’automatiquement la mise à niveau des versions peut provoquer des problèmes Runbook Worker hybride. Pour savoir comment mettre à niveau de l’extension manuellement, consultez [déploiement d’Azure CLI ](../virtual-machines/extensions/oms-linux.md#azure-cli-deployment).
 
 ## <a name="turning-off-signature-validation"></a>Désactivation de la validation de signature
 

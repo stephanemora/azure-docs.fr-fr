@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 08/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: bb00ef0f76b71d0a4748a319c9f2a5d64dffa251
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: 2bec33a4a8540f9599cf1d479f1f59c4cde39bd2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233308"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861585"
 ---
 # <a name="add-and-run-custom-code-snippets-in-azure-logic-apps-with-azure-functions"></a>Ajouter et exécuter des extraits de code personnalisés dans Azure Logic Apps avec Azure Functions
 
@@ -27,7 +27,7 @@ Quand vous souhaitez exécuter uniquement du code qui effectue une tâche spéci
 
 Vous pouvez également [appeler des applications logiques à l’intérieur de fonctions Azure](#call-logic-app).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour suivre cet article, vous avez besoin de ce qui suit :
 
@@ -44,7 +44,7 @@ Pour suivre cet article, vous avez besoin de ce qui suit :
     Le modèle de déclencheur HTTP peut accepter du contenu ayant le type `application/json` à partir de votre application logique. 
     Lorsque vous ajoutez une fonction Azure à votre application logique, le Concepteur d’application logique affiche les fonctions personnalisées créées à partir de ce modèle dans votre abonnement Azure. 
 
-  * Votre fonction n’utilise pas d’itinéraires personnalisés, sauf si vous avez défini une [définition OpenAPI](../azure-functions/functions-openapi-definition.md), anciennement appelée [fichier Swagger](http://swagger.io/). 
+  * Votre fonction n’utilise pas d’itinéraires personnalisés, sauf si vous avez défini une [définition OpenAPI](../azure-functions/functions-openapi-definition.md), anciennement appelée [fichier Swagger](https://swagger.io/). 
   
   * Si vous avez défini une définition OpenAPI pour votre fonction, le Concepteur d’application logique vous offre une meilleure expérience pour l’utilisation des paramètres de fonction. Pour que votre application logique puisse trouver les fonctions qui ont des définitions OpenAPI et y accéder, [configurez votre application de fonction en suivant ces étapes](#function-swagger).
 
@@ -52,7 +52,7 @@ Pour suivre cet article, vous avez besoin de ce qui suit :
 
   Pour que vous puissiez ajouter des actions capables d’exécuter des fonctions, votre application logique doit démarrer avec un déclencheur.
 
-  Si vous ne connaissez pas les applications logiques, consultez les sections [Présentation d’Azure Logic Apps](../logic-apps/logic-apps-overview.md) et [Démarrage rapide : créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+  Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md) et [Démarrage rapide : Créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 <a name="create-function-external"></a>
 
@@ -67,7 +67,7 @@ Si vous débutez avec la création de fonctions Azure, découvrez comment [crée
 
 <a name="function-swagger"></a>
 
-* Si vous le souhaitez, si vous [générez une définition d’API](../azure-functions/functions-openapi-definition.md) (anciennement connue sous le nom de [fichier Swagger](http://swagger.io/)) pour votre fonction, vous pouvez bénéficier d’une expérience enrichie quand vous travaillez avec des paramètres de fonction dans le Concepteur d’applications logiques. Pour configurer votre application de fonction afin que votre application logique puisse trouver les fonctions qui ont des descriptions Swagger et y accéder, procédez comme suit :
+* Si vous le souhaitez, si vous [générez une définition d’API](../azure-functions/functions-openapi-definition.md) (anciennement connue sous le nom de [fichier Swagger](https://swagger.io/)) pour votre fonction, vous pouvez bénéficier d’une expérience enrichie quand vous travaillez avec des paramètres de fonction dans le Concepteur d’applications logiques. Pour configurer votre application de fonction afin que votre application logique puisse trouver les fonctions qui ont des descriptions Swagger et y accéder, procédez comme suit :
 
   1. Vérifiez que votre application de fonction est en cours d’exécution.
 
@@ -125,11 +125,11 @@ Avant de pouvoir créer une fonction Azure à partir de l’intérieur de votre 
    * Entre les étapes existantes du flux de travail de votre application logique, déplacez votre souris sur la flèche, cliquez sur le signe plus (+), puis sélectionnez **Ajouter une action**.
 
 3. Dans la zone de recherche, entrez le filtre « azure functions ».
-Dans la liste d’actions, sélectionnez cette action : **Choisir une fonction Azure - Azure Functions**. 
+Dans la liste des actions, sélectionnez cette action : **Choisissez une fonction Azure - Azure Functions** 
 
    ![Recherchez « Azure Functions »](./media/logic-apps-azure-functions/find-azure-functions-action.png)
 
-4. Dans la liste d’applications de fonction, sélectionnez la vôtre. Une fois la liste d’actions ouverte, sélectionnez cette action : **Azure Functions - Créer une nouvelle fonction**
+4. Dans la liste d’applications de fonction, sélectionnez la vôtre. Une fois que la liste d’actions s’ouvre, sélectionnez cette action : **Fonctions de Azure - créer une nouvelle fonction**
 
    ![Sélectionnez votre application de fonction](./media/logic-apps-azure-functions/select-function-app-create-function.png)
 
@@ -181,7 +181,7 @@ Pour appeler des fonctions Azure existantes à partir de vos applications logiqu
 2. Sous l’étape où vous souhaitez ajouter la fonction, choisissez **Nouvelle étape** > **Ajouter une action**. 
 
 3. Dans la zone de recherche, entrez le filtre « azure functions ».
-Dans la liste d’actions, sélectionnez cette action : **Choisir une fonction Azure - Azure Functions**. 
+Dans la liste des actions, sélectionnez cette action : **Choisissez une fonction Azure - Azure Functions** 
 
    ![Recherchez « Azure Functions »](./media/logic-apps-azure-functions/find-azure-functions-action.png)
 

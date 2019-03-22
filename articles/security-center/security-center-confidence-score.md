@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2018
 ms.author: rkarlin
-ms.openlocfilehash: 67442a5861514eadfebfc877d91e735e05f6f63d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 64bab5c1b99720eecb189834d7a11802cf919ca3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117543"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106778"
 ---
 # <a name="alert-confidence-score"></a>Score de confiance de l’alerte 
 
@@ -45,7 +45,7 @@ Pour afficher le score de confiance :
 Pour afficher les données sur lesquelles se base Security Center pour lancer une alerte :
 - Dans le panneau Alerte de sécurité, sous **Confiance**, consultez les observations qui ont servi à établir le score de confiance et obtenez des informations relatives à l’alerte. Vous en saurez alors davantage sur la nature des activités qui ont provoqué l’alerte.
 
- ![Score de confiance suspect][2]
+  ![Score de confiance suspect][2]
 
 Utilisez le score de confiance de Security Center pour hiérarchiser le tri des alertes dans votre environnement. Pour vous faire gagner du temps, le score de confiance lance automatiquement des enquêtes sur les alertes, applique les meilleures pratiques du secteur et des algorithmes intelligents, et fait office d’analyste virtuel pour déterminer les menaces réelles et les points nécessitant une attention particulière.
 

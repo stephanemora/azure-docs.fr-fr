@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: banders
-ms.openlocfilehash: 88518bee879d01966813fc89e8095d2237476a15
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: a143fc6d9dbd78ae365f943a00ac9f8492d5e51c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901307"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57897144"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Comprendre les termes figurant sur le fichier détaillant les frais d’utilisation Microsoft Azure 
 
@@ -90,4 +90,4 @@ Les services externes (également appelés commandes de la Place de marché) son
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 
-Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Si vous avez des questions ou besoin d’aide, [créer une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).

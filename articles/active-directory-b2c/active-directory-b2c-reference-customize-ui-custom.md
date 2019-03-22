@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: d222e398653487cb87525ac13ebe682e9c8a26ee
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: a51c2987781184539edfcc8be9b9f483a215a157
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195934"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122924"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Personnaliser l’interface utilisateur d’un parcours utilisateur avec des stratégies personnalisées
 
@@ -66,7 +66,7 @@ Pour vous assurer que tout fonctionne comme prévu, vous devez effectuer les op�
 - Vérifier que votre contenu est accessible et conforme à HTML5
 - Vérifier que CORS est activé sur votre serveur de contenu
 - Traiter du contenu via HTTPS
-- Utiliser des URL absolues comme https://yourdomain/content pour tous les liens et le contenu CSS
+- Utiliser des URL absolues comme `https://yourdomain/content` pour tous les liens et le contenu CSS
 
 > [!TIP]
 > Pour vérifier que CORS est activé sur le site sur lequel votre contenu est hébergé et pour tester vos requêtes CORS, vous pouvez utiliser le site https://test-cors.org/. Grâce à ce site, vous pouvez soit envoyer la demande CORS à un serveur distant (pour déterminer si CORS est pris en charge), soit envoyer la demande CORS à un serveur de test (pour découvrir certaines fonctionnalités de CORS).
@@ -121,16 +121,16 @@ Pour vérifier que CORS est activé sur le compte de stockage sur lequel vous h�
 
 1. Ouvrez une session de navigation et accédez à la page *unified.html* à l’aide de l’URL complète de son emplacement dans votre compte de stockage, `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`. Par exemple : https://contoso369b2c.blob.core.windows.net/b2c/unified.html.
 2. Accédez à https://test-cors.org. Ce site vous permet de vérifier que CORS est activé pour la page que vous utilisez.  
-<!--
-![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)
--->
+   <!--
+   ![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)
+   -->
 
 3. Dans **URL distante**, entrez l’URL complète de votre contenu unified.html et cliquez sur **Envoyer une requête**.
 4. Vérifiez que la sortie dans la section **Résultats** contient *XHR status: 200* (État XHR : 200), qui indique que CORS est activé.
-<!--
-![CORS enabled](../../media/active-directory-b2c-customize-ui-of-a-user-journey/cors-enabled.png)
--->
-Le compte de stockage doit désormais héberger un conteneur d’objets blob nommé *b2c* dans notre exemple, qui contient les modèles wingtiptoys ci-après issus de *Starter-Pack*.
+   <!--
+   ![CORS enabled](../../media/active-directory-b2c-customize-ui-of-a-user-journey/cors-enabled.png)
+   -->
+   Le compte de stockage doit désormais héberger un conteneur d’objets blob nommé *b2c* dans notre exemple, qui contient les modèles wingtiptoys ci-après issus de *Starter-Pack*.
 
 <!--
 ![Correctly configured storage account](../../articles/active-directory-b2c/media/active-directory-b2c-reference-customize-ui-custom/storage-account-final.png)

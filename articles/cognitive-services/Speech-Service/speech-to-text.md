@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 7aa4492a22c8aca1e54570adb2811e4cb13caf7b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: acf338afdf33408637bf7cca79d28f5e90888eba
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57900775"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224438"
 ---
 # <a name="what-is-speech-to-text"></a>Quelle est la parole-texte ?
 
-Parole-texte à partir des Services Azure de reconnaissance vocale, également appelé parole-texte, permet la transcription en temps réel de flux audio en texte pouvant consommer les applications, outils ou bien vos appareils, afficher et agir en tant qu’entrée de commande. Ce service est alimenté par la même technologie de reconnaissance que Microsoft utilise pour Cortana et les produits Office et fonctionne de façon transparente avec la traduction et la synthèse vocale.
+Parole-texte à partir des Services Azure de reconnaissance vocale, également appelé parole-texte, permet la transcription en temps réel de flux audio en texte pouvant consommer les applications, outils ou bien vos appareils, afficher et agir en tant qu’entrée de commande. Ce service est alimenté par la même technologie de reconnaissance que Microsoft utilise pour Cortana et les produits Office et fonctionne de façon transparente avec la traduction et la synthèse vocale.  Pour obtenir une liste complète des langues de reconnaissance vocale disponibles, consultez [langues prises en charge](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/language-support#speech-to-text).
 
-Par défaut, le service de reconnaissance vocale utilise le modèle de langage universelles. Ce modèle a été formé à l’aide de données appartenant à Microsoft et est déployé le cloud. Il est optimale pour conversationnel et scénarios de dictée. Si vous utilisez la parole-texte pour la reconnaissance et la transcription dans un environnement unique, vous pouvez créer et former des modèles de prononciation, la langue et acoustiques personnalisés au bruit ambiant adresse ou un vocabulaire de spécifiques du secteur.
+Par défaut, le service de reconnaissance vocale utilise le modèle de langage universelles. Ce modèle a été formé à l’aide de données appartenant à Microsoft et est déployé le cloud. Il est optimale pour conversationnel et scénarios de dictée. Si vous utilisez la parole-texte pour la reconnaissance et la transcription dans un environnement unique, vous pouvez créer et former des modèles de prononciation, la langue et acoustiques personnalisés au bruit ambiant adresse ou un vocabulaire de spécifiques du secteur. 
 
 Vous pouvez facilement capturer des données audio à partir d’un microphone, lire à partir d’un flux de données ou accéder à des fichiers audio à partir du stockage avec le Speech SDK et des API REST. Le Speech SDK prend en charge les WAV/PCM 16 bits, 16 kHz, monocanal audio pour la reconnaissance vocale. Formats audio supplémentaires sont pris en charge à l’aide de la [point de terminaison REST parole-texte](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#audio-formats) ou [transcription service batch](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
 
@@ -51,10 +51,10 @@ Nous proposons des guides de démarrage rapide dans les langages de programmatio
 
 | Démarrage rapide | Plateforme | Informations de référence sur l'API |
 |------------|----------|---------------|
-| [C#, .NET Core](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-dotnetcore-windows) |  Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#, .NET framework](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-dotnet-windows) |  Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#, UWP](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-uwp) |  Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C++](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-cpp-windows) |  Windows | [Browse](https://aka.ms/csspeech/cppref)|
+| [C#, .NET Core](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-dotnetcore-windows) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C#, .NET framework](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-dotnet-windows) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C#, UWP](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-uwp) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C++](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-cpp-windows) | Windows | [Browse](https://aka.ms/csspeech/cppref)|
 | [C++](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-cpp-linux) | Linux | [Browse](https://aka.ms/csspeech/cppref) |
 | [Java](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-java-android) | Android | [Browse](https://aka.ms/csspeech/javaref) |
 | [Java](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-java-jre) | Windows, Linux | [Browse](https://aka.ms/csspeech/javaref) |

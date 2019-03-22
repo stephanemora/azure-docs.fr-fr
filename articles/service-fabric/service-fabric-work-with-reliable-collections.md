@@ -3,23 +3,23 @@ title: Utilisation des collections fiables | Microsoft Docs
 description: Découvrez les meilleures pratiques d’utilisation des collections fiables.
 services: service-fabric
 documentationcenter: .net
-author: tylermsft
-manager: jeanpaul.connock
+author: aljo-microsoft
+manager: chackdan
 editor: ''
 ms.assetid: 39e0cd6b-32c4-4b97-bbcf-33dad93dcad1
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/12/2019
-ms.author: twhitney
-ms.openlocfilehash: e7f0219919fe0569633cc85b89a1a91b1704b269
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.date: 02/22/2019
+ms.author: aljo
+ms.openlocfilehash: bb99e5984f91edb0cf40f3bdc485624b9ec59833
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114822"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57872685"
 ---
 # <a name="working-with-reliable-collections"></a>Utilisation des collections fiables
 Service Fabric propose un modèle de programmation avec état disponible pour les développeurs .NET via les collections fiables. Plus précisément, Service Fabric fournit un dictionnaire fiable et des classes de file d’attente fiables. Lorsque vous utilisez ces classes, votre état est partitionné (pour l’évolutivité) répliqué (pour la disponibilité) et traité dans une partition (pour la sémantique ACID). Examinons l'utilisation type d'un objet de dictionnaire fiable afin de découvrir ses fonctionnalités réelles.
@@ -143,7 +143,7 @@ using (ITransaction tx = StateManager.CreateTransaction())
 ```
 
 ## <a name="define-immutable-data-types-to-prevent-programmer-error"></a>Définir des types de données immuables pour éviter les erreurs de programmation
-Dans l'idéal, nous aimerions que le compilateur signale les erreurs lorsque vous produisez accidentellement du code qui modifie l'état d'un objet que vous êtes censé considérer comme immuable. Mais le compilateur C# ne permet pas de le faire. Par conséquent, pour éviter les éventuels bogues de programmation, il est vivement recommandé de définir les types vous utilisez avec les collections fiables comme des types immuables. Plus précisément, cela signifie que vous allez vous en tenir aux types de valeur de base (par exemple, des nombres [Int32, UInt64, etc.], DateTime, Guid, TimeSpan, etc.). Vous pouvez aussi utiliser String. Il est préférable d'éviter les propriétés de collection car la sérialisation et la désérialisation de ces propriétés nuisent souvent aux performances. Toutefois, si vous souhaitez utiliser des propriétés de collection, nous vous recommandons d’utiliser la bibliothèque de collections immuables de .NET ([System.Collections.Immutable](https://www.nuget.org/packages/System.Collections.Immutable/)). Cette bibliothèque est disponible au téléchargement sur http://nuget.org. Nous vous recommandons également de sceller vos classes et de définir les champs en lecture seule chaque fois que cela est possible.
+Dans l'idéal, nous aimerions que le compilateur signale les erreurs lorsque vous produisez accidentellement du code qui modifie l'état d'un objet que vous êtes censé considérer comme immuable. Mais le compilateur C# ne permet pas de le faire. Par conséquent, pour éviter les éventuels bogues de programmation, il est vivement recommandé de définir les types vous utilisez avec les collections fiables comme des types immuables. Plus précisément, cela signifie que vous allez vous en tenir aux types de valeur de base (par exemple, des nombres [Int32, UInt64, etc.], DateTime, Guid, TimeSpan, etc.). Vous pouvez aussi utiliser String. Il est préférable d'éviter les propriétés de collection car la sérialisation et la désérialisation de ces propriétés nuisent souvent aux performances. Toutefois, si vous souhaitez utiliser des propriétés de collection, nous vous recommandons d’utiliser la bibliothèque de collections immuables de .NET ([System.Collections.Immutable](https://www.nuget.org/packages/System.Collections.Immutable/)). Cette bibliothèque est disponible au téléchargement sur https://nuget.org. Nous vous recommandons également de sceller vos classes et de définir les champs en lecture seule chaque fois que cela est possible.
 
 Le type UserInfo ci-dessous montre comment définir un type immuable, en tirant parti des recommandations mentionnées précédemment.
 
@@ -207,8 +207,7 @@ En outre, le code de service est mis à niveau à raison d’un domaine de mise 
 
 > [!WARNING]
 > Si vous pouvez modifier le schéma d’une clé, vous devez vous assurer de la stabilité du code de hachage et des algorithmes d’égalisation de votre clé. Si vous modifiez le mode de fonctionnement de l’un de ces algorithmes, vous ne pourrez plus jamais rechercher la clé dans le dictionnaire fiable.
->
->
+> Chaînes .NET utilisable comme une clé, mais utilisez la chaîne elle-même en tant que la clé, n’utilisez pas le résultat de String.GetHashCode comme clé.
 
 Vous pouvez également effectuer ce que l'on appelle communément une mise à niveau en deux phases. Dans le cadre d'une mise à niveau en deux phases, vous mettez à niveau votre service de la V1 vers la V2 : la V2 contient le code capable de prendre en charge les nouvelles modifications du schéma, mais ce code ne s’exécute pas. Lorsque le code V2 lit les données de la V1, il agit sur ces dernières et écrit les données V1. Ensuite, une fois la mise à niveau effectuée sur tous les domaines de mise à niveau, vous pouvez d’une certaine manière signaler aux instances V2 en cours d’exécution que la mise à niveau est terminée (pour ce faire, vous pouvez déployer une mise à niveau de la configuration ; c’est précisément cette opération qui en fait une mise à niveau en deux phases). À présent, les instances V2 peuvent lire les données de V1, les convertir en données V2, les exploiter et les écrire en tant que données V2. Lorsque d’autres instances lisent les données V2, elles n’ont pas besoin de les convertir. Elles les exploitent simplement et écrivent des données V2.
 

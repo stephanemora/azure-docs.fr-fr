@@ -5,18 +5,15 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 11/19/2018
-ms.openlocfilehash: 77602898df7d783367ffd78328082c3edcaac83e
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.date: 02/26/2019
+ms.openlocfilehash: a1d92f324c30c498b1a42f6155a478cf131ecc96
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542337"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961956"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Créer et gérer des points de terminaison de service de réseau virtuel et des règles de réseau virtuel Azure Database for MariaDB à l’aide du portail Azure
-
-> [!IMPORTANT]
-> La fonctionnalité des points de terminaison de service de réseau virtuel est en préversion publique.
 
 Les règles et points de terminaison de service de réseau virtuel étendent l’espace d’adressage privé d’un réseau virtuel à votre serveur Azure Database for MariaDB. Pour avoir une vue d’ensemble des points de terminaison de service de réseau virtuel Azure Database for MariaDB, y compris les limitations, consultez [Utiliser des règles et points de terminaison de service de réseau virtuel pour Azure Database for MariaDB](concepts-data-access-security-vnet.md). Les points de terminaison de service de réseau virtuel sont disponibles dans toutes les régions prenant en charge Azure Database for MariaDB.
 

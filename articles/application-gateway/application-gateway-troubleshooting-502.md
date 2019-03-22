@@ -15,18 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: amsriva
-ms.openlocfilehash: 1db16f203755f9afc265495daba056313138a5dc
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 26144b7eb53f5c0d4ebecbc9e6eece741f466719
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819445"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997797"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Résolution des erreurs de passerelle incorrecte dans Application Gateway
 
 Découvrez comment résoudre les erreurs de passerelle incorrecte (502) reçues lors de l’utilisation d’Application Gateway.
 
-## <a name="overview"></a>Vue d’ensemble
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+## <a name="overview"></a>Présentation
 
 Après avoir configuré une passerelle Application Gateway, les utilisateurs peuvent rencontrer l’erreur « Erreur serveur 502 : 502 - Le serveur Web a reçu une réponse erronée lors de son utilisation en tant que passerelle ou serveur proxy », Cette erreur peut se produire pour les raisons suivantes :
 
@@ -50,21 +52,21 @@ Validez la configuration du groupe de sécurité réseau, du routage défini par
 * Vérifiez le routage défini par l’utilisateur associé au sous-réseau de la passerelle Application Gateway. Assurez-vous que le routage défini par l’utilisateur ne détourne pas le trafic du sous-réseau du serveur principal. Vérifiez par exemple le routage vers les appliances virtuelles du réseau ou les itinéraires par défaut annoncés sur le sous-réseau de la passerelle Application Gateway via ExpressRoute/VPN.
 
 ```powershell
-$vnet = Get-AzureRmVirtualNetwork -Name vnetName -ResourceGroupName rgName
-Get-AzureRmVirtualNetworkSubnetConfig -Name appGwSubnet -VirtualNetwork $vnet
+$vnet = Get-AzVirtualNetwork -Name vnetName -ResourceGroupName rgName
+Get-AzVirtualNetworkSubnetConfig -Name appGwSubnet -VirtualNetwork $vnet
 ```
 
 * Vérifiez le groupe de sécurité réseau et le routage vers la machine virtuelle du serveur principal.
 
 ```powershell
-Get-AzureRmEffectiveNetworkSecurityGroup -NetworkInterfaceName nic1 -ResourceGroupName testrg
-Get-AzureRmEffectiveRouteTable -NetworkInterfaceName nic1 -ResourceGroupName testrg
+Get-AzEffectiveNetworkSecurityGroup -NetworkInterfaceName nic1 -ResourceGroupName testrg
+Get-AzEffectiveRouteTable -NetworkInterfaceName nic1 -ResourceGroupName testrg
 ```
 
 * Vérifiez la présence d’un DNS personnalisé dans le réseau virtuel. Le DNS peut être vérifié en examinant les détails des propriétés du réseau virtuel dans la sortie.
 
 ```json
-Get-AzureRmVirtualNetwork -Name vnetName -ResourceGroupName rgName 
+Get-AzVirtualNetwork -Name vnetName -ResourceGroupName rgName 
 DhcpOptions            : {
                            "DnsServers": [
                              "x.x.x.x"
@@ -81,7 +83,7 @@ Les erreurs 502 peuvent également indiquer que la sonde d’intégrité par dé
 
 | Propriétés de la sonde | Valeur | Description |
 | --- | --- | --- |
-| URL de sonde |http://127.0.0.1/ |Chemin d'accès de l'URL |
+| URL de sonde |`http://127.0.0.1/` |Chemin d'accès de l'URL |
 | Intervalle |30 |Intervalle d’analyse en secondes |
 | Délai d’attente |30 |Délai d’expiration de l’analyse en secondes |
 | Seuil de défaillance sur le plan de l’intégrité |3 |Nombre de tentatives d’analyse Le serveur principal est marqué comme étant défectueux après que le nombre d’échecs consécutifs a atteint le seuil de défaillance. |
@@ -90,7 +92,7 @@ Les erreurs 502 peuvent également indiquer que la sonde d’intégrité par dé
 
 * Assurez-vous qu’un site par défaut est configuré et qu’il écoute sur le port 127.0.0.1.
 * Si BackendHttpSetting spécifie un port autre que 80, le site par défaut doit être configuré pour écouter sur ce port.
-* L’appel à http://127.0.0.1:port doit renvoyer un code de résultat HTTP 200. Ce code doit être retourné dans un délai de 30 secondes.
+* L’appel à `http://127.0.0.1:port` doit renvoyer un code de résultat HTTP 200. Ce code doit être retourné dans un délai de 30 secondes.
 * Vérifiez que le port configuré est ouvert et qu’aucune règle de pare-feu ou aucun groupe de sécurité réseau Azure ne bloque le trafic entrant ou sortant sur le port configuré.
 * Si vous utilisez des machines virtuelles Azure classiques ou un service cloud avec un nom de domaine complet ou une adresse IP publique, assurez-vous que le [point de terminaison](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) correspondant est ouvert.
 * Si la machine virtuelle est configuré via Azure Resource Manager et se trouve en dehors du réseau virtuel où est déployé Application Gateway, le [groupe de sécurité réseau](../virtual-network/security-overview.md) doit être configuré pour autoriser l’accès sur le port souhaité.
@@ -116,7 +118,7 @@ Les sondes d’intégrité personnalisées apportent davantage de flexibilité a
 Vérifiez que la sonde d’intégrité personnalisée est correctement configurée (voir la table précédente). Outre les étapes de dépannage précédentes, vérifiez également les points suivants :
 
 * Assurez-vous que la sonde est correctement spécifiée suivant les indications du [guide](application-gateway-create-probe-ps.md).
-* Si Application Gateway est configuré pour un seul site, le nom d’hôte par défaut doit être spécifié sous la forme « 127.0.0.1 », sauf s’il est configuré d’une autre manière dans la sonde personnalisée.
+* Si Application Gateway est configuré pour un site unique, par défaut l’hôte de nom doit être spécifié en tant que `127.0.0.1`, sauf si l’autre manière dans la sonde personnalisée.
 * Assurez-vous qu’un appel à http://\<hôte\>:\<port\>\<chemin d’accès\> retourne un code de résultat HTTP 200.
 * Assurez-vous que les paramètres Interval, Time-out et UnhealtyThreshold se trouvent dans la plage acceptable.
 * Si vous utilisez une sonde HTTPS, vérifiez que le serveur back-end ne nécessite pas SNI en configurant un certificat de secours sur le serveur back-end lui-même.
@@ -132,7 +134,7 @@ Vérifiez que la sonde d’intégrité personnalisée est correctement configur�
 Application Gateway permet aux utilisateurs de configurer ce paramètre via BackendHttpSetting pour l’appliquer ensuite à différents pools. Les pools de serveurs principaux peuvent avoir des paramètres BackendHttpSetting différents et, par conséquent, des délais d’attente différents.
 
 ```powershell
-    New-AzureRmApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
+    New-AzApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
 ```
 
 ## <a name="empty-backendaddresspool"></a>Pool d’adresses principal vide
@@ -146,7 +148,7 @@ Si Application Gateway ne dispose d’aucune machine virtuelle ou d’aucun grou
 Assurez-vous que le pool d’adresses principal n’est pas vide. Vous pouvez pour cela utiliser PowerShell, l’interface de ligne de commande ou le portail.
 
 ```powershell
-Get-AzureRmApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
+Get-AzApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
 ```
 
 L’applet de commande ci-dessus doit renvoyer un pool d’adresses principal non vide. Dans l’exemple suivant, la commande retourne deux pools configurés avec un nom de domaine complet ou des adresses IP pour les machines virtuelles de serveur principal. L’approvisionnement de BackendAddressPool doit se trouver à l’état « Succeeded » (Réussi).

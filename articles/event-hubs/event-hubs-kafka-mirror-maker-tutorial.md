@@ -6,16 +6,16 @@ documentationcenter: .net
 author: basilhariri
 manager: timlt
 ms.service: event-hubs
-ms.topic: mirror-maker
+ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: 83f51d2980e5cb5bc2e2a415bb3ee96778667ed7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: a0f22e7940a2be442bdf836c0e76e29bad2e9b36
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53095033"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769921"
 ---
 # <a name="use-kafka-mirrormaker-with-event-hubs-for-apache-kafka"></a>Utiliser Kafka MirrorMaker avec Event Hubs pour Apache Kafka
 
@@ -35,12 +35,12 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Configurer Kafka MirrorMaker
 > * Exécuter Kafka MirrorMaker
 
-## <a name="introduction"></a>Introduction
+## <a name="introduction"></a>Présentation
 Une considération majeure pour des applications à l’échelle du cloud moderne est la possibilité de mettre à jour, d’améliorer et de modifier une infrastructure sans interrompre le service. Ce didacticiel montre comment un hub d’événements compatible avec Kafka et Kafka MirrorMaker peut intégrer un pipeline Kafka existant dans Azure en « mettant en miroir » le flux d’entrée Kafka dans le service Event Hubs. 
 
 Un point de terminaison Kafka Azure Event Hubs vous permet de vous connecter à des Azure Event Hubs (c’est-à-dire, des clients Kafka) en utilisant le protocole Kafka. En apportant des modifications minimales à une application Kafka, vous pouvez vous connecter à Azure Event Hubs et profiter des avantages de l’écosystème Azure. Les Event Hubs compatibles avec Kafka prennent actuellement en charge les versions 1.0 et ultérieures de Kafka.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour suivre ce tutoriel, veillez à disposer des éléments suivants :
 
@@ -49,7 +49,7 @@ Pour suivre ce tutoriel, veillez à disposer des éléments suivants :
 * [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)
     * Sur Ubuntu, exécutez `apt-get install default-jdk` pour installer le JDK.
     * Veillez à définir la variable d’environnement JAVA_HOME pour qu’elle pointe vers le dossier dans lequel le JDK est installé.
-* [Téléchargé](http://maven.apache.org/download.cgi) et [installé](http://maven.apache.org/install.html) une archive binaire Maven.
+* [Téléchargé](https://maven.apache.org/download.cgi) et [installé](https://maven.apache.org/install.html) une archive binaire Maven.
     * Sur Ubuntu, vous pouvez exécuter `apt-get install maven` pour installer Maven.
 * [Git](https://www.git-scm.com/downloads)
     * Sur Ubuntu, vous pouvez exécuter `sudo apt-get install git` pour installer Git.

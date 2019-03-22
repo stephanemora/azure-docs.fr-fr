@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 2457ef2843b0d16359b7e47fc54c58e2ef5e6034
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: HT
+ms.openlocfilehash: 70ac106995324c758bde942d12191a01e3457e6e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53429956"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58114842"
 ---
 > [!NOTE]
 > Ces exemples ne s’appliquent pas aux configurations de coexistence S2S/ExpressRoute.
@@ -28,8 +28,8 @@ Lorsque vous ajoutez une passerelle à un réseau virtuel à l’aide du modèle
 1. Téléchargez le fichier de configuration réseau à l’aide de la procédure décrite dans l’article [Fichier de configuration réseau](../articles/virtual-network/virtual-networks-using-network-configuration-file.md). Ouvrez le fichier dans un éditeur de texte.
 2. Ajouter un site réseau local au fichier. Vous pouvez utiliser n’importe quel préfixe d’adresse valide. Vous pouvez ajouter n’importe quelle adresse IP valide pour la passerelle VPN. Les valeurs d’adresse dans cette section ne sont pas utilisées pour les opérations d’ExpressRoute, mais sont requises pour la validation du fichier. Dans l’exemple, « branch1 » est le nom du site. Vous pouvez utiliser un autre nom, mais veillez à utiliser la même valeur dans la section Passerelle du fichier.
 
-  ```
-  <VirtualNetworkConfiguration>
+   ```
+   <VirtualNetworkConfiguration>
     <Dns />
     <LocalNetworkSites>
       <LocalNetworkSite name="branch1">
@@ -38,15 +38,15 @@ Lorsque vous ajoutez une passerelle à un réseau virtuel à l’aide du modèle
         </AddressSpace>
         <VPNGatewayAddress>3.2.1.4</VPNGatewayAddress>
     </LocalNetworkSite>
-  ```
+   ```
 3. Accédez à VirtualNetworkSites et modifiez les champs.
 
-  * Vérifiez que le sous-réseau de passerelle existe pour votre réseau virtuel. Dans le cas contraire, vous pouvez en ajouter un maintenant. Le nom doit être « GatewaySubnet ».
-  * Vérifiez que la section Passerelle du fichier existe. Si ce n’est pas le cas, ajoutez-la. Cette section est nécessaire pour associer le réseau virtuel au site de réseau local (qui représente le réseau auquel vous vous connectez).
-  * Vérifiez que le type de connexion = Dedicated (dédié). Cela est nécessaire pour les connexions ExpressRoute.
+   * Vérifiez que le sous-réseau de passerelle existe pour votre réseau virtuel. Dans le cas contraire, vous pouvez en ajouter un maintenant. Le nom doit être « GatewaySubnet ».
+   * Vérifiez que la section Passerelle du fichier existe. Si ce n’est pas le cas, ajoutez-la. Cette section est nécessaire pour associer le réseau virtuel au site de réseau local (qui représente le réseau auquel vous vous connectez).
+   * Vérifiez que le type de connexion = Dedicated (dédié). Cela est nécessaire pour les connexions ExpressRoute.
 
-  ```
-  </LocalNetworkSites>
+   ```
+   </LocalNetworkSites>
     <VirtualNetworkSites>
       <VirtualNetworkSite name="myAzureVNET" Location="East US">
         <AddressSpace>
@@ -69,9 +69,9 @@ Lorsque vous ajoutez une passerelle à un réseau virtuel à l’aide du modèle
         </Gateway>
       </VirtualNetworkSite>
     </VirtualNetworkSites>
-  </VirtualNetworkConfiguration>
-  </NetworkConfiguration>
-  ```
+   </VirtualNetworkConfiguration>
+   </NetworkConfiguration>
+   ```
 4. Enregistrez le fichier et chargez-le sur Azure.
 
 ### <a name="create-the-gateway"></a>Créer la passerelle

@@ -6,16 +6,16 @@ author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: security
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: c3844d378b44d292b9a7eb631fa896d5f6e61dbe
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 179925fc7411a1ccf3de02d7b6298cc66f93bc66
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472182"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58175715"
 ---
 # <a name="secure-a-database-in-sql-data-warehouse"></a>Sécuriser une base de données dans SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ SQL Data Warehouse utilise des règles de pare-feu au niveau du serveur. Il ne p
 
 Par défaut, les connexions à SQL Data Warehouse sont chiffrées.  La modification des paramètres de connexion pour désactiver le chiffrement est ignorée.
 
-## <a name="authentication"></a>Authentification
+## <a name="authentication"></a>Authentication
 Le terme « authentification » fait référence au processus de validation de votre identité lorsque vous vous connectez à la base de données. SQL Data Warehouse prend actuellement en charge l’authentification SQL Server avec un nom d’utilisateur et un mot de passe, et avec Azure Active Directory. 
 
 Lorsque vous avez créé un serveur logique pour votre base de données, vous avez spécifié un compte de connexion « Admin serveur », associé à un nom d’utilisateur et à un mot de passe. À l’aide de ces informations d’identification, vous pouvez vous authentifier auprès de n’importe quelle base de données sur ce serveur, en tant que propriétaire de la base de données, ou « dbo » via l’authentification SQL Server.

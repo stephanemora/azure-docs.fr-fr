@@ -7,17 +7,17 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: e4aabaf2673f6211523653f9d0a0ecf1769f83a3
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 870910654101b4d6689b51464f8a29aef41bf9cb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53549001"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103126"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Créer et gérer des règles de pare-feu Azure Database pour MySQL à l’aide de l’interface de ligne de commande Azure
 Les règles de pare-feu au niveau du serveur permettent aux administrateurs de gérer l’accès à un serveur Azure Database pour MySQL à partir d’une adresse IP spécifique ou d’une plage d’adresses IP. À l’aide de commandes d’interface de ligne de commande Azure pratiques, vous pouvez créer, mettre à jour, supprimer, répertorier et afficher les règles de pare-feu pour gérer votre serveur. Pour une vue d’ensemble des pare-feu Azure Database pour MySQL, consultez la rubrique [Règles de pare-feu d’Azure Database pour MySQL](./concepts-firewall-rules.md)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 * [Installez l’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 * Un [serveur et une base de données Azure Database pour MySQL](quickstart-create-mysql-server-database-using-azure-cli.md).
 
@@ -38,7 +38,7 @@ Connectez-vous en toute sécurité à Azure CLI à l’aide de votre compte Azur
     ```azurecli
     az login
     ```
-Cette commande génère un code à utiliser lors de l’étape suivante.
+   Cette commande génère un code à utiliser lors de l’étape suivante.
 
 2. Utilisez un navigateur web pour ouvrir la page [https://aka.ms/devicelogin](https://aka.ms/devicelogin), puis entrez le code.
 

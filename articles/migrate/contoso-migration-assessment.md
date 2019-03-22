@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: raynew
-ms.openlocfilehash: e948ee943db646ca83d39510485849b3c9956e90
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 4739308d301291bf88e8ae547ba85f9648339c4e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697447"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118457"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Migration de Contoso : Évaluer facilement vos charges de travail locales en vue d’une migration vers Azure
 
@@ -39,7 +39,7 @@ Article 3 : Évaluer les ressources locales à migrer vers Azure | Contoso éva
 [Article 14 : Mettre à l’échelle une migration vers Azure](contoso-migration-scale.md) | Après des essais de différentes combinaisons de migration, Contoso se prépare à une migration complète vers Azure. | Disponible
 
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Puisqu’elle envisage d’effectuer une migration vers Azure, la société Contoso souhaite réaliser une évaluation technique et financière pour déterminer si ses charges de travail locales peuvent être migrées vers le cloud. L’équipe Contoso souhaite évaluer la compatibilité des bases de données et des machines à migrer. Elle souhaite estimer la capacité et les coûts nécessaires à l’exécution des ressources Contoso dans Azure.
 
@@ -90,7 +90,7 @@ Technology | Description | Coût
 --- | --- | ---
 [Assistant de migration des données](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | Contoso utilise l’Assistant Migration de données pour évaluer et détecter les problèmes de compatibilité susceptibles d’affecter les fonctionnalités de base de données dans Azure. L’Assistant Migration de données évalue la parité des fonctionnalités entre les instances sources et cibles de SQL. Il recommande des améliorations au niveau des performances et de la fiabilité. | L’Assistant Migration de données est un outil gratuit et téléchargeable.
 [Azure Migrate](https://docs.microsoft.com/azure/migrate/migrate-overview) | Contoso utilise le service Azure Migrate pour évaluer ses machines virtuelles VMware. Azure Migrate évalue la pertinence de la migration des ordinateurs. Il fournit des estimations de dimensionnement et de coût pour l’exécution des machines dans Azure.  | À compter de mai 2018, Azure Migrate devient un service gratuit.
-[Service Map](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) | Azure Migrate utilise Service Map pour afficher les dépendances qui existent entre les ordinateurs que vous souhaitez migrer. | Service Map fait partie d’Azure Log Analytics. Contoso peut utiliser Service Map gratuitement pendant 180 jours.
+[Service Map](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) | Azure Migrate utilise Service Map pour afficher les dépendances qui existent entre les ordinateurs que vous souhaitez migrer. | Service Map fait partie des journaux d’Azure Monitor. Contoso peut utiliser Service Map gratuitement pendant 180 jours.
 
 Dans ce scénario, Contoso télécharge et exécute l’Assistant Migration de données pour évaluer la base de données SQL Server locale pour son application de voyage. Contoso utilise Azure Migrate avec un mappage des dépendances pour évaluer les machines virtuelles de l’application avant d’opérer la migration vers Azure.
 
@@ -113,7 +113,7 @@ Dans ce scénario, Contoso télécharge et exécute l’Assistant Migration de d
     - **OSTICKETWEB** exécute Apache 2 et PHP 7.0.
     - **OSTICKETMYSQL** exécute MySQL 5.7.22.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Contoso et les autres utilisateurs doivent respecter les prérequis suivants pour cette évaluation :
 
@@ -159,15 +159,15 @@ Contoso peut à présent lancer une évaluation pour analyser sa base de donnée
 
     ![Assistant Migration de données - Sélectionner une source](./media/contoso-migration-assessment/dma-assessment-1.png)
 
-    > [!NOTE]
-      L’Assistant Migration de données ne permet pas d’effectuer une évaluation pour une migration vers Azure SQL Database Managed Instance. Pour contourner ce problème, Contoso utilise SQL Server sur une machine virtuelle Azure en tant que cible supposée pour l’évaluation.
+   > [!NOTE]
+   >    L’Assistant Migration de données ne permet pas d’effectuer une évaluation pour une migration vers Azure SQL Database Managed Instance. Pour contourner ce problème, Contoso utilise SQL Server sur une machine virtuelle Azure en tant que cible supposée pour l’évaluation.
 
 3. Dans **Sélectionner une version cible**, Contoso sélectionne SQL Server 2017 comme version cible. Contoso doit sélectionner cette version, car c’est celle qui est utilisée par SQL Database Managed Instance.
 4. Contoso sélectionne l’option Rapports pour découvrir des informations sur la compatibilité et les nouvelles fonctionnalités :
-    - La section **Problèmes de compatibilité** signale des modifications qui peuvent interrompre la migration, ou qui nécessitent un ajustement mineur avant celle-ci. Ce rapport tient Contoso informé des fonctionnalités en cours d’utilisation qui sont dépréciées. Les problèmes sont classés par niveau de compatibilité.
-    - La section **Recommandation de nouvelles fonctionnalités** signale de nouvelles fonctionnalités de la plateforme SQL Server cible qui peuvent être utilisées pour la base de données après la migration. Les recommandations concernant les nouvelles fonctionnalités sont répertoriées sous les en-têtes **Performances**, **Sécurité**, et **Stockage**.
+   - La section **Problèmes de compatibilité** signale des modifications qui peuvent interrompre la migration, ou qui nécessitent un ajustement mineur avant celle-ci. Ce rapport tient Contoso informé des fonctionnalités en cours d’utilisation qui sont dépréciées. Les problèmes sont classés par niveau de compatibilité.
+   - La section **Recommandation de nouvelles fonctionnalités** signale de nouvelles fonctionnalités de la plateforme SQL Server cible qui peuvent être utilisées pour la base de données après la migration. Les recommandations concernant les nouvelles fonctionnalités sont répertoriées sous les en-têtes **Performances**, **Sécurité**, et **Stockage**.
 
-    ![Assistant Migration de données - Problèmes de compatibilité et nouvelles fonctionnalités](./media/contoso-migration-assessment/dma-assessment-2.png)
+     ![Assistant Migration de données - Problèmes de compatibilité et nouvelles fonctionnalités](./media/contoso-migration-assessment/dma-assessment-2.png)
 
 2. Dans **Se connecter à un serveur**, Contoso entre le nom de la machine virtuelle qui exécute la base de données et les informations d’identification permettant d’y accéder. Contoso sélectionne **Faire confiance au certificat de serveur** pour vérifier que la machine virtuelle peut accéder à SQL Server. Ensuite, Contoso sélectionne **Se connecter**.
 
@@ -186,13 +186,13 @@ Les résultats s’affichent dès qu’elles sont disponibles. Si Contoso a corr
 
 1. Dans le rapport **Problèmes de compatibilité**, Contoso vérifie la présence éventuelle de problèmes à chaque niveau de compatibilité. Vous trouverez ci-dessous le mappage des niveaux de compatibilité aux versions SQL Server :
 
-    - 100 : SQL Server 2008/Azure SQL Database
-    - 110 : SQL Server 2012/Azure SQL Database
-    - 120 : SQL Server 2014/Azure SQL Database
-    - 130 : SQL Server 2016/Azure SQL Database
-    - 140 : SQL Server 2017/Azure SQL Database
+   - 100 : SQL Server 2008/Azure SQL Database
+   - 110 : SQL Server 2012/Azure SQL Database
+   - 120 : SQL Server 2014/Azure SQL Database
+   - 130 : SQL Server 2016/Azure SQL Database
+   - 140 : SQL Server 2017/Azure SQL Database
 
-    ![Assistant Migration de données - Rapport Problèmes de compatibilité](./media/contoso-migration-assessment/dma-assessment-5.png)
+     ![Assistant Migration de données - Rapport Problèmes de compatibilité](./media/contoso-migration-assessment/dma-assessment-5.png)
 
 2. Dans le rapport **Recommandations de fonctionnalités**, Contoso peut voir les fonctionnalités de performances, de sécurité et de stockage que l’évaluation recommande après la migration. De nombreuses fonctionnalités sont recommandées, notamment OLTP en mémoire, les index columnstore, Stretch Database, Always Encrypted, Dynamic Data Masking et Transparent Data Encryption.
 
@@ -403,14 +403,14 @@ Contoso exécute l’installation sur chaque machine virtuelle.
 
     `sudo -i`
 3. Contoso installe Microsoft Monitoring Agent :
-    - Contoso entre l’ID et la clé de l’espace de travail dans la commande.
-    - Ces commandes sont de type 64 bits.
-    - L’ID de l’espace de travail et la clé primaire se trouvent dans l’espace de travail Log Analytics dans le portail Azure. Sélectionnez **Paramètres**, puis l’onglet **Sources connectées**.
-    - Exécutez les commandes suivantes pour télécharger l’agent Log Analytics, valider la somme de contrôle, puis installer et intégrer l’agent :
+   - Contoso entre l’ID et la clé de l’espace de travail dans la commande.
+   - Ces commandes sont de type 64 bits.
+   - L’ID de l’espace de travail et la clé primaire se trouvent dans l’espace de travail Log Analytics dans le portail Azure. Sélectionnez **Paramètres**, puis l’onglet **Sources connectées**.
+   - Exécutez les commandes suivantes pour télécharger l’agent Log Analytics, valider la somme de contrôle, puis installer et intégrer l’agent :
 
-    ```
-    wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w 6b7fcaff-7efb-4356-ae06-516cacf5e25d -s k7gAMAw5Bk8pFVUTZKmk2lG4eUciswzWfYLDTxGcD8pcyc4oT8c6ZRgsMy3MmsQSHuSOcmBUsCjoRiG2x9A8Mg==
-    ```
+     ```
+     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w 6b7fcaff-7efb-4356-ae06-516cacf5e25d -s k7gAMAw5Bk8pFVUTZKmk2lG4eUciswzWfYLDTxGcD8pcyc4oT8c6ZRgsMy3MmsQSHuSOcmBUsCjoRiG2x9A8Mg==
+     ```
 
 #### <a name="install-the-dependency-agent-on-linux-vms"></a>Installer Dependency Agent sur des machines virtuelles Linux
 

@@ -12,12 +12,12 @@ ms.devlang: fsharp
 ms.topic: reference
 ms.date: 10/09/2018
 ms.author: syclebsc
-ms.openlocfilehash: 112a986efc11822f6c847511a33be6206b1f00da
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: e7e4e898142d6f9d1a93e91c1f1476ff81fc7d3c
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53717482"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734657"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Informations de référence pour les développeurs F# sur Azure Functions
 
@@ -54,7 +54,7 @@ FunctionsProject
 
 Il existe un fichier [host.json](functions-host-json.md) partagé que vous pouvez utiliser pour configurer l’application de fonction. Chaque fonction a son propre fichier de code (.fsx) et un fichier de configuration de liaison (function.json).
 
-Les extensions de liaison requises dans la [version 2.x](functions-versions.md) du runtime Functions sont définies dans le fichier `extensions.csproj`, les fichiers de bibliothèque proprement dits se trouvant dans le dossier `bin`. Quand vous développez localement, vous devez [inscrire les extensions de liaison](functions-triggers-bindings.md#local-development-azure-functions-core-tools). Quand vous développez des fonctions dans le portail Azure, cet enregistrement est effectué pour vous.
+Les extensions de liaison requises dans la [version 2.x](functions-versions.md) du runtime Functions sont définies dans le fichier `extensions.csproj`, les fichiers de bibliothèque proprement dits se trouvant dans le dossier `bin`. Quand vous développez localement, vous devez [inscrire les extensions de liaison](./functions-bindings-register.md#local-development-azure-functions-core-tools). Quand vous développez des fonctions dans le portail Azure, cet enregistrement est effectué pour vous.
 
 ## <a name="binding-to-arguments"></a>Liaison aux arguments
 Chaque liaison prend en charge un ensemble spécifique d’arguments, comme décrit en détail dans [Informations de référence pour les développeurs sur les déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md). Par exemple, l’une des liaisons d’argument prises en charge par un déclencheur d’objet blob est un objet CLR traditionnel (POCO), qui peut être exprimé à l’aide d’un enregistrement F#. Par exemple : 

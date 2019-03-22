@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/21/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 4c39f47169071ceb9430f419a144e11f425d65b0
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 6d283840116a5e1f996602fd792456d3b8e8d9a0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240724"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456089"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues-preview"></a>Authentifier avec Azure Active Directory à partir d’une application pour accéder aux objets blob et aux files d’attente (préversion)
 
@@ -39,11 +39,11 @@ Lorsque vous inscrivez votre application, vous fournissez des informations sur v
 
 Pour inscrire votre application de Stockage Azure, suivez les étapes de la section [Ajout d’une application](../../active-directory/develop/quickstart-v1-add-azure-ad-app.md) dans [Intégration d’applications dans Azure Active Directory](../../active-directory/active-directory-integrating-applications.md). Si vous inscrivez votre application comme une application native, vous pouvez spécifier n’importe quel URI valide pour **l’URI de redirection**. La valeur ne doit pas forcément être un point de terminaison réel.
 
-![Capture d’écran montrant comment inscrire votre application de stockage dans Azure AD](./media/storage-auth-aad-app/app-registration.png)
+![Capture d’écran montrant comment inscrire votre application de stockage avec Azure AD](./media/storage-auth-aad-app/app-registration.png)
 
 Une fois votre application inscrite, l’ID d’application (ou ID de client) se trouve sous **Paramètres** :
 
-![Capture d’écran montrant l’ID de client](./media/storage-auth-aad-app/app-registration-client-id.png)
+![Capture d’écran montrant l’ID client](./media/storage-auth-aad-app/app-registration-client-id.png)
 
 Pour plus d’informations sur l’inscription d’une application dans Azure AD, consultez [Intégration d’applications à Azure Active Directory](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md). 
 
@@ -64,7 +64,7 @@ Ensuite, vous devez accorder à votre application l’autorisation d’appeler l
 
 La fenêtre **Autorisations nécessaires** indique à présent que votre application Azure AD a accès à Azure Active Directory et au Stockage Azure. Les autorisations sont accordées à Azure AD automatiquement quand vous inscrivez votre application pour la première fois dans Azure AD.
 
-![Capture d’écran montrant les autorisations de l’application inscrite](media/storage-auth-aad-app/registered-app-permissions-2.png)
+![Capture d’écran montrant inscrire les autorisations d’application](media/storage-auth-aad-app/registered-app-permissions-2.png)
 
 ## <a name="net-code-example-create-a-block-blob"></a>Exemple de code .NET : Créer un objet blob de blocs
 

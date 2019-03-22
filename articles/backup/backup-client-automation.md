@@ -8,46 +8,39 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 5/24/2018
 ms.author: pvrk
-ms.openlocfilehash: d430f6252157c5d34aa236ef88f8490b4ad6a184
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 0a7a16a43b208bf2d14b86cd5cb23544ec03f9a9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497942"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877528"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Déployer et gérer une sauvegarde vers Azure pour un serveur/client Windows à l’aide de PowerShell
 Cet article décrit comment utiliser PowerShell pour configurer Sauvegarde Azure sur un serveur Windows Server ou sur un client Windows, ainsi que pour gérer les sauvegardes et la récupération.
 
 ## <a name="install-azure-powershell"></a>Installation d’Azure PowerShell
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
-Cet article se concentre sur les applets de commande PowerShell d’Azure Resource Manager (ARM) et MS Sauvegarde en ligne qui vous permettent d’utiliser un coffre Recovery Services dans un groupe de ressources.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Azure PowerShell 1.0 a été publié en octobre 2015. Cette version, qui fait suite à la release 0.9.8, a introduit d’importantes modifications, en particulier dans le modèle de dénomination des applets de commande. Les applets de commande version 1.0 suivent le modèle d’affectation de noms {verbe}-AzureRm{nom} ; les noms 0.9.8 n’incluent pas **Rm** (par exemple, New-AzureRmResourceGroup au lieu de New-AzureResourceGroup). Lorsque vous utilisez Azure PowerShell 0.9.8, vous devez d’abord activer le mode Resource Manager en exécutant la commande **Switch-AzureMode AzureResourceManager** . Cette commande n’est pas nécessaire dans les versions 1.0 ou ultérieures.
-
-Si vous souhaitez utiliser dans l’environnement 1.0 (ou ultérieur) des scripts écrits pour l’environnement 0.9.8, veillez à les mettre à jour et à les tester dans un environnement de préproduction avant de les utiliser en production, afin d’éviter tout résultat inattendu.
-
-[Téléchargez la dernière version de PowerShell](https://github.com/Azure/azure-powershell/releases) (version minimale requise : 1.0.0)
-
-[!INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
+Prise en main, [installer la dernière version de PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
 Les étapes suivantes vous montrent comment créer un coffre Recovery Services. Un coffre Recovery Services diffère d’un coffre de sauvegarde.
 
-1. Si vous utilisez Sauvegarde Azure pour la première fois, vous devez recourir à l’applet de commande **Register-AzureRMResourceProvider** pour enregistrer le fournisseur Azure Recovery Service auprès de votre abonnement.
+1. Si vous utilisez le service Sauvegarde Azure pour la première fois, vous devez utiliser la cmdlet **Register-AzResourceProvider** pour associer le fournisseur Azure Recovery Service à votre abonnement.
 
     ```
-    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
+    PS C:\> Register-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
 2. Le coffre Recovery Services constituant une ressource ARM, vous devez le placer dans un groupe de ressources. Vous pouvez utiliser un groupe de ressources existant ou en créer un. Quand vous créez un groupe de ressources, spécifiez ses nom et emplacement.  
 
     ```
-    PS C:\> New-AzureRmResourceGroup –Name "test-rg" –Location "WestUS"
+    PS C:\> New-AzResourceGroup –Name "test-rg" –Location "WestUS"
     ```
-3. Utilisez l’applet de commande **New-AzureRmRecoveryServicesVault** pour créer le coffre. Spécifiez pour le coffre le même emplacement que pour le groupe de ressources.
+3. Utilisez le **New-AzRecoveryServicesVault** applet de commande pour créer le coffre. Spécifiez pour le coffre le même emplacement que pour le groupe de ressources.
 
     ```
-    PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "WestUS"
+    PS C:\> New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "WestUS"
     ```
 4. Spécifiez le type de redondance de stockage à utiliser : [Stockage localement redondant (LRS)](../storage/common/storage-redundancy-lrs.md) ou [Stockage géo-redondant (GRS)](../storage/common/storage-redundancy-grs.md). L’exemple suivant montre que l’option -BackupStorageRedundancy pour testVault a la valeur GeoRedundant.
 
@@ -57,17 +50,17 @@ Les étapes suivantes vous montrent comment créer un coffre Recovery Services. 
    >
 
     ```
-    PS C:\> $vault1 = Get-AzureRmRecoveryServicesVault –Name "testVault"
-    PS C:\> Set-AzureRmRecoveryServicesBackupProperties  -vault $vault1 -BackupStorageRedundancy GeoRedundant
+    PS C:\> $vault1 = Get-AzRecoveryServicesVault –Name "testVault"
+    PS C:\> Set-AzRecoveryServicesBackupProperties  -vault $vault1 -BackupStorageRedundancy GeoRedundant
     ```
 
 ## <a name="view-the-vaults-in-a-subscription"></a>Afficher les coffres dans un abonnement
-Utilisez **Get-AzureRmRecoveryServicesVault** pour afficher la liste de tous les coffres dans l’abonnement actuel. Vous pouvez utiliser cette commande pour vérifier qu’un coffre a été créé ou pour voir les coffres disponibles dans l’abonnement.
+Utilisez **Get-AzRecoveryServicesVault** pour afficher la liste de tous les coffres dans l’abonnement actuel. Vous pouvez utiliser cette commande pour vérifier qu’un coffre a été créé ou pour voir les coffres disponibles dans l’abonnement.
 
-Exécutez la commande **Get-AzureRmRecoveryServicesVault** ; tous les coffres dans l’abonnement sont alors répertoriés.
+Exécutez la commande, **Get-AzRecoveryServicesVault**, et tous les coffres dans l’abonnement sont répertoriés.
 
 ```
-PS C:\> Get-AzureRmRecoveryServicesVault
+PS C:\> Get-AzRecoveryServicesVault
 Name              : Contoso-vault
 ID                : /subscriptions/1234
 Type              : Microsoft.RecoveryServices/vaults
@@ -131,7 +124,7 @@ Une fois que vous avez créé un coffre Recovery Services, téléchargez le dern
 
 ```
 PS C:\> $credspath = "C:\downloads"
-PS C:\> $credsfilename = Get-AzureRmRecoveryServicesVaultSettingsFile -Backup -Vault $vault1 -Path  $credspath
+PS C:\> $credsfilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $vault1 -Path  $credspath
 ```
 
 Sur le serveur Windows Server ou l’ordinateur client Windows, exécutez l’applet de commande [Start-OBRegistration](https://technet.microsoft.com/library/hh770398%28v=wps.630%29.aspx) pour inscrire l’ordinateur auprès du coffre.

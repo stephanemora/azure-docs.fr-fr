@@ -1,24 +1,24 @@
 ---
 title: Intégration de Service Map avec System Center Operations Manager | Microsoft Docs
 description: Service Map est une solution comprise dans Azure qui détecte automatiquement les composants d’application sur les systèmes Windows et Linux et mappe la communication entre les services. Cet article décrit l’utilisation de Service Map pour créer automatiquement des diagrammes d’application distribuée dans Operations Manager.
-services: monitoring
+services: azure-monitor
 documentationcenter: ''
-author: daveirwin1
-manager: jwhit
+author: mgoedtel
+manager: carmonm
 editor: tysonn
 ms.assetid: e8614a5a-9cf8-4c81-8931-896d358ad2cb
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
-ms.author: bwren
-ms.openlocfilehash: 73e27044fc8cc79b2c95471e30bca558bd14d473
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.author: magoedte
+ms.openlocfilehash: 40e6d6ff6ea8748b525642e5507c80590b322b7a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818751"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110101"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>Intégration de Service Map avec System Center Operations Manager
 
@@ -26,7 +26,7 @@ La solution Service Map détecte automatiquement les composants d’application 
 
 Avec cette intégration entre Service Map et System Center Operations Manager, vous pouvez créer automatiquement des diagrammes d’application distribuée dans Operations Manager basés sur des cartes de dépendance dynamique dans Service Map.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 * Un groupe d’administration d’Operations Manager (2012 R2 ou version ultérieure) qui gère un ensemble de serveurs.
 * Un espace de travail Log Analytics avec la solution Service Map activée.
 * Un ensemble de serveurs (au moins un) gérés par Operations Manager et envoyant des données à Service Map. Les serveurs Windows et Linux sont pris en charge.
@@ -67,11 +67,11 @@ Pour configurer l’intégration de Service Map, procédez comme suit :
 
     Pour que l’intégration crée un diagramme d’application distribuée pour un serveur, le serveur doit être :
 
-    * Géré par Operations Manager
-    * Géré par Service Map
-    * Répertorié dans le groupe de serveurs Service Map
+   * Géré par Operations Manager
+   * Géré par Service Map
+   * Répertorié dans le groupe de serveurs Service Map
 
-    ![Groupe de configuration d’Operations Manager](media/service-map-scom/scom-config-group.png)
+     ![Groupe de configuration d’Operations Manager](media/service-map-scom/scom-config-group.png)
 
 6. Facultatif : Sélectionnez le pool de ressources du serveur d’administration pour communiquer avec Log Analytics et cliquez sur **Ajouter un espace de travail**.
 

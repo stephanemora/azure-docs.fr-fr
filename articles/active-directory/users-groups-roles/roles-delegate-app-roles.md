@@ -8,19 +8,19 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 316ebb7774a0420087bf9ed5c099a91d78a96fb0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9aba12a2bca882b5f0e6e95d8e4f6014b318a12e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181216"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119728"
 ---
 # <a name="delegate-app-administrator-roles-in-azure-active-directory"></a>Déléguer des rôles d’administrateur d’application dans Azure Active Directory
 
@@ -37,8 +37,8 @@ Pour accorder la possibilité de gérer l’accès aux applications dans le port
 1. Connectez-vous à votre [locataire Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) avec un compte éligible pour le rôle Administrateur général dans le locataire.
 2. Si vous disposez d’autorisations suffisantes, ouvrez la page [Rôles et administrateurs](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators).
 3. Ouvrez l’un des rôles suivants pour voir ses assignations de membre :
-  * **Administrateur d’application**
-  * **Administrateur d’application cloud**
+   * **Administrateur d’application**
+   * **Administrateur d’application cloud**
 4. Dans la page **Membres** page pour le rôle, sélectionnez **Ajouter un membre**.
 5. Sélectionnez un ou plusieurs membres à ajouter au rôle. <!--Members can be users or groups.-->
 
@@ -50,8 +50,8 @@ Par défaut, tous les utilisateurs peuvent créer des inscriptions d’applicati
 
 1. Connectez-vous à votre [locataire Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) avec un compte éligible pour le rôle Administrateur général dans le locataire.
 2. Après avoir obtenu les autorisations suffisantes, définissez une ou les deux options suivantes :
-  * Dans la [page Paramètres utilisateur pour votre locataire](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings), définissez l’option **Les utilisateurs peuvent inscrire des applications** sur Non.
-  * Dans la [page Paramètres utilisateur pour vos applications d’entreprise](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/), définissez l’option **Les utilisateurs peuvent autoriser les applications à accéder aux données de l’entreprise en leur nom** sur Non.
+   * Dans la [page Paramètres utilisateur pour votre locataire](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings), définissez l’option **Les utilisateurs peuvent inscrire des applications** sur Non.
+   * Dans la [page Paramètres utilisateur pour vos applications d’entreprise](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/), définissez l’option **Les utilisateurs peuvent autoriser les applications à accéder aux données de l’entreprise en leur nom** sur Non.
 3. Assignez ensuite aux utilisateurs ayant besoin de cette autorisation le rôle Développeur d’applications en fonction des besoins.
 
 Quand un utilisateur inscrit une application, il est automatiquement ajouté en tant que premier propriétaire de l’application.

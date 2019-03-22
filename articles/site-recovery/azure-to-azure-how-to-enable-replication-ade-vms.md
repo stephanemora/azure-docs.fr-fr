@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: f9abc6d79bd821ef612e9e7648b1b5af98bb5cf6
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 27c1481314ba1dd77cdcf229842aeec7de3e4444
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456229"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117453"
 ---
 # <a name="replicate-azure-disk-encryption-ade-enabled-virtual-machines-to-another-azure-region"></a>Répliquer des machines virtuelles prenant en charge Azure Disk Encryption vers une autre région Azure
 
@@ -123,8 +123,8 @@ Vous pouvez modifier les paramètres de cible par défaut utilisés par Site Rec
 
 
 2. Cliquez sur **Personnaliser** en regard de « Paramètres de chiffrement » pour modifier les paramètres par défaut ci-dessous :
-    - Dans la zone **Coffre de clés pour le chiffrement de disque cible**, sélectionnez le coffre de clés pour le chiffrement de disque cible dans la liste de tous les coffres de clés figurant dans l’emplacement cible de l’abonnement.
-  - Dans la zone **Coffre de clés pour le chiffrement de clé cible**, sélectionnez le coffre de clés pour le chiffrement de clé cible dans la liste de tous les coffres de clés figurant dans l’emplacement cible de l’abonnement.
+   - Dans la zone **Coffre de clés pour le chiffrement de disque cible**, sélectionnez le coffre de clés pour le chiffrement de disque cible dans la liste de tous les coffres de clés figurant dans l’emplacement cible de l’abonnement.
+     - Dans la zone **Coffre de clés pour le chiffrement de clé cible**, sélectionnez le coffre de clés pour le chiffrement de clé cible dans la liste de tous les coffres de clés figurant dans l’emplacement cible de l’abonnement.
 
 3. Cliquez sur **Créer une ressource cible** > **Activer la réplication**.
 4. Une fois que les machines virtuelles sont activées pour la réplication, vous pouvez vérifier leur état d’intégrité sous **Éléments répliqués**

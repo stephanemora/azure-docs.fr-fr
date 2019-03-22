@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: genli
-ms.openlocfilehash: defd623eff76a4e37a9d88c4f59d2edaa71e34e0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 2a46879a6882e6d45e4a7ccce59e4a02feea9005
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227448"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805584"
 ---
-# <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problèmes de connectivité et de mise en réseau pour Azure Cloud Services : questions fréquentes (FAQ)
+# <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Connectivité et les problèmes de mise en réseau pour Azure Cloud Services : Forum Aux Questions (FAQ)
 
 Cet article comprend des questions fréquemment posées sur les problèmes de connectivité et de mise en réseau pour [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). Pour plus d’informations sur la taille, voir la [page sur la taille de machine virtuelle des Services Cloud](cloud-services-sizes-specs.md).
 
@@ -63,51 +63,52 @@ Pour plus d’informations sur le fonctionnement d’un l’équilibreur de char
 
 L’algorithme de distribution utilisé est un hachage 5-tuple (adresse IP source, port source, IP de destination, port de destination, type de protocole) servant à mapper le trafic aux serveurs disponibles. Il fournit l’adhérence uniquement dans une session de transport. Les paquets de la même session TCP ou UDP sont dirigés vers la même instance IP (DIP) de centre de données derrière le point de terminaison à charge équilibrée. Lorsque le client ferme puis rouvre la connexion, ou démarre une nouvelle session à partir de la même adresse IP source, le port source change et dirige le trafic vers un autre point de terminaison DIP.
 
-## <a name="how-can-i-redirect-incoming-traffic-to-the-default-url-of-my-cloud-service-to-a-custom-url"></a>Comment rediriger le trafic arrivant sur l’URL par défaut de mon service cloud vers une URL personnalisée ? 
+## <a name="how-can-i-redirect-incoming-traffic-to-the-default-url-of-my-cloud-service-to-a-custom-url"></a>Comment rediriger le trafic arrivant sur l’URL par défaut de mon service cloud vers une URL personnalisée ?
 
-Le module de réécriture d’URL d’IIS permet de rediriger le trafic arrivant sur l’URL par défaut du service cloud (par exemple, \*. cloudapp.net) vers un nom ou une URL personnalisés. Étant donné que le module de réécriture d’URL est activé par défaut sur les rôles web et que ses règles sont configurées dans le fichier web.config de l’application, il est toujours disponible sur la machine virtuelle, quel que soit le nombre de redémarrages ou de réinitialisations. Pour plus d'informations, consultez les pages suivantes :
+Le module de réécriture d’URL d’IIS permet de rediriger le trafic arrivant sur l’URL par défaut du service cloud (par exemple, \*. cloudapp.net) vers un nom ou une URL personnalisés. Étant donné que le module de réécriture d’URL est activé par défaut sur les rôles web et ses règles sont configurées dans le fichier web.config de l’application, il est toujours disponible sur la machine virtuelle, quel que soit les redémarrages/réinitialisations. Pour plus d’informations, consultez :
 
 - [Créer des règles de réécriture pour le module de réécriture d’URL](https://docs.microsoft.com/iis/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module)
 - [Supprimer un lien par défaut](https://stackoverflow.com/questions/32286487/azure-website-how-to-remove-default-link?answertab=votes#tab-top)
 
-## <a name="how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service"></a>Comment bloquer/désactiver le trafic entrant sur l’URL par défaut de mon service cloud ? 
+## <a name="how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service"></a>Comment bloquer/désactiver le trafic entrant sur l’URL par défaut de mon service cloud ?
 
-Vous pouvez bloquer le trafic entrant via l’URL/le nom par défaut de votre service cloud (par exemple, \*. cloudapp.net). Définissez l’en-tête de l’hôte pour un nom DNS personnalisé (par exemple, www.MyCloudService.com) sous la configuration de liaison de site dans le fichier de définition (*.csdef) du service cloud, comme indiqué : 
- 
+Vous pouvez bloquer le trafic entrant via l’URL/le nom par défaut de votre service cloud (par exemple, \*. cloudapp.net). Définissez l’en-tête de l’hôte pour un nom DNS personnalisé (par exemple, www.MyCloudService.com) sous la configuration de liaison de site dans le fichier de définition (*.csdef) du service cloud, comme indiqué :
 
-    <?xml version="1.0" encoding="utf-8"?> 
-    <ServiceDefinition name="AzureCloudServicesDemo" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2015-04.2.6"> 
-      <WebRole name="MyWebRole" vmsize="Small"> 
-        <Sites> 
-          <Site name="Web"> 
-            <Bindings> 
-              <Binding name="Endpoint1" endpointName="Endpoint1" hostHeader="www.MyCloudService.com" /> 
-            </Bindings> 
-          </Site> 
-        </Sites> 
-        <Endpoints> 
-          <InputEndpoint name="Endpoint1" protocol="http" port="80" /> 
-        </Endpoints> 
-        <ConfigurationSettings> 
-          <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" /> 
-        </ConfigurationSettings> 
-      </WebRole> 
-    </ServiceDefinition> 
- 
-Étant donné que cette liaison d’en-tête de l’hôte est appliquée via le fichier csdef, le service est accessible uniquement par le nom personnalisé « www.MyCloudService.com ». Toutes les demandes entrantes parvenant au domaine « *. cloudapp.net » échouent. Si vous utilisez une sonde SLB personnalisée ou un équilibreur de charge interne dans le service, le blocage de l’URL/du nom par défaut du service risque d’interférer avec le comportement de sondage. 
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceDefinition name="AzureCloudServicesDemo" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2015-04.2.6">
+    <WebRole name="MyWebRole" vmsize="Small">
+        <Sites>
+            <Site name="Web">
+            <Bindings>
+                <Binding name="Endpoint1" endpointName="Endpoint1" hostHeader="www.MyCloudService.com" />
+            </Bindings>
+            </Site>
+        </Sites>
+        <Endpoints>
+            <InputEndpoint name="Endpoint1" protocol="http" port="80" />
+        </Endpoints>
+        <ConfigurationSettings>
+            <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
+        </ConfigurationSettings>
+    </WebRole>
+</ServiceDefinition>
+```
+
+Étant donné que cette liaison d’en-tête de l’hôte est appliquée via le fichier csdef, le service est accessible uniquement par le nom personnalisé « www.MyCloudService.com ». Toutes les demandes entrantes parvenant au domaine « *. cloudapp.net » échouent. Si vous utilisez une sonde SLB personnalisée ou un équilibreur de charge interne dans le service, le blocage de l’URL/du nom par défaut du service risque d’interférer avec le comportement de sondage.
 
 ## <a name="how-can-i-make-sure-the-public-facing-ip-address-of-a-cloud-service-never-changes"></a>Comment m’assurer que l’adresse IP publique d’un service cloud ne change jamais ?
 
 Pour vous assurer que l’adresse IP publique de votre service cloud (également appelée adresse IP virtuelle) ne change jamais afin qu’elle puisse être mise en liste verte de façon ordinaire par quelques clients spécifiques, nous vous recommandons d’y associer une adresse IP réservée. Autrement, l’adresse IP virtuelle fournie par Azure est désallouée de votre abonnement si vous supprimez le déploiement. Pour que l’opération d’échange d’adresses IP virtuelles réussisse, vous devez disposer d’adresses IP réservées pour les emplacement de production et préproduction. À défaut, l’opération d’échange échoue. Pour réserver une adresse IP et l’associer à votre service cloud, suivez les instructions des articles suivants  :
- 
+
 - [Réserver l’adresse IP d’un service cloud existant](../virtual-network/virtual-networks-reserved-public-ip.md#reserve-the-ip-address-of-an-existing-cloud-service)
-- [Associer une adresse IP réservée à un service cloud à l’aide d’un fichier de configuration de service](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file) 
+- [Associer une adresse IP réservée à un service cloud à l’aide d’un fichier de configuration de service](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
 
-Tant que vous avez plus d’une instance pour vos rôles, l’association d’une adresse IP réservée à votre service cloud ne devrait pas occasionner de temps d’arrêt. Vous pouvez également mettre en liste verte la plage d’adresses IP de votre centre de données Azure. Vous pouvez trouver toutes les plages d’adresses IP Azure dans le [Centre de téléchargement Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=41653). 
+Si vous avez plusieurs instances pour vos rôles, l’association RIP à votre service cloud ne devrait pas causer aucun temps d’arrêt. Vous pouvez également la liste verte la plage IP de votre centre de données Azure. Vous pouvez trouver toutes les plages IP Azure à le [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
 
-Ce fichier contient les plages d’adresses IP (dont les plages de calcul, SQL et de stockage) utilisées dans les centres de données Azure. Un fichier mis à jour est publié chaque semaine, qui reflète les plages actuellement déployées et toutes les modifications à venir des plages d’adresses IP. Les nouvelles plages figurant dans le fichier ne sont pas utilisées dans les centres de données avant une semaine minimum. Téléchargez le nouveau fichier xml chaque semaine, et apportez les modifications nécessaires sur votre site pour identifier correctement les services qui s’exécutent dans Azure. Les utilisateurs d’ExpressRoute remarqueront peut-être que ce fichier est utilisé pour mettre à jour la publication de protocole de passerelle frontière de l’espace Azure la première semaine de chaque mois. 
+Ce fichier contient les plages d’adresses IP (dont les plages de calcul, SQL et de stockage) utilisées dans les centres de données Azure. Un fichier mis à jour est publié chaque semaine, qui reflète les plages actuellement déployées et toutes les modifications à venir des plages d’adresses IP. Les nouvelles plages figurant dans le fichier ne sont pas utilisées dans les centres de données avant une semaine minimum. Téléchargez le nouveau fichier xml chaque semaine, et apportez les modifications nécessaires sur votre site pour identifier correctement les services qui s’exécutent dans Azure. Les utilisateurs d’ExpressRoute remarqueront peut-être que ce fichier est utilisé pour mettre à jour la publication de protocole de passerelle frontière de l’espace Azure la première semaine de chaque mois.
 
-## <a name="how-can-i-use-azure-resource-manager-virtual-networks-with-cloud-services"></a>Comment utiliser des réseaux virtuels Azure Resource Manager avec des services cloud ? 
+## <a name="how-can-i-use-azure-resource-manager-virtual-networks-with-cloud-services"></a>Comment utiliser des réseaux virtuels Azure Resource Manager avec des services cloud ?
 
 Des services cloud ne peuvent pas être placés dans des réseaux virtuels Azure Resource Manager. Des réseaux virtuels Resource Manager et réseaux virtuels de déploiement classiques peuvent être connectés par le biais d’une homologation. Pour en savoir plus, consultez [Homologation de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md).
 
@@ -116,13 +117,15 @@ Des services cloud ne peuvent pas être placés dans des réseaux virtuels Azure
 
 Vous pouvez utiliser le script PS suivant pour obtenir la liste des adresses IP publiques pour les services cloud dans votre abonnement
 
-    $services = Get-AzureService  | Group-Object -Property ServiceName
+```powershell
+$services = Get-AzureService  | Group-Object -Property ServiceName
 
-    foreach ($service in $services) 
-    {
-        "Cloud Service '$($service.Name)'"
+foreach ($service in $services)
+{
+    "Cloud Service '$($service.Name)'"
 
-        $deployment = Get-AzureDeployment -ServiceName $service.Name 
-        "VIP - " +  $deployment.VirtualIPs[0].Address
-        "================================="
-    }
+    $deployment = Get-AzureDeployment -ServiceName $service.Name
+    "VIP - " +  $deployment.VirtualIPs[0].Address
+    "================================="
+}
+```

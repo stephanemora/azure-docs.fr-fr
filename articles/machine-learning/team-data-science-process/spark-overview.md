@@ -11,19 +11,19 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b49ec91af0c2b55185d7f750420825bb174c4b6d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 932587afcffcb3b1a259a02a98c648e938e99931
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473729"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57845336"
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Vue d’ensemble de la science des données à l’aide de Spark sur Azure HDInsight
 
 Cet ensemble de rubriques montre comment utiliser HDInsight Spark pour effectuer des tâches de science des données courantes, telles que l’ingestion de données, la conception de fonctionnalités, la modélisation et l’évaluation de modèle. Les données utilisées sont un échantillon du jeu de données NYC Taxi Trip and Fare 2013. Les modèles conçus incluent la régression logistique, la régression linéaire, les forêts aléatoires et les arbres GBT (Gradient Boosted Tree). Les rubriques montrent également comment stocker ces modèles dans le stockage d’objets blob Azure (WASB) et comment noter et évaluer leurs performances de prédiction. D’autres rubriques plus avancées décrivent comment former des modèles par validation croisée et balayage hyperparamétrique. Cette rubrique de présentation référence également les rubriques qui décrivent comment configurer le cluster Spark dont vous avez besoin pour effectuer les étapes des procédures pas à pas fournies.
 
 ## <a name="spark-and-mllib"></a>Spark et MLlib
-[Spark](http://spark.apache.org/) est une infrastructure de traitement en parallèle open source qui prend en charge le traitement en mémoire pour accroître les performances des applications d’analyse de Big Data. Le moteur de traitement Spark est élaboré pour permettre des analyses rapides, simples d’utilisation et sophistiquées. De par ses capacités de calcul distribué en mémoire, Spark constitue le choix idéal pour les algorithmes itératifs utilisés dans l’apprentissage automatique et les calculs de graphiques. [MLlib](http://spark.apache.org/mllib/) est la bibliothèque évolutive d’apprentissage automatique de Spark. Elle apporte des fonctionnalités de modélisation d’algorithme à cet environnement distribué.
+[Spark](https://spark.apache.org/) est une infrastructure de traitement en parallèle open source qui prend en charge le traitement en mémoire pour accroître les performances des applications d’analyse de Big Data. Le moteur de traitement Spark est élaboré pour permettre des analyses rapides, simples d’utilisation et sophistiquées. De par ses capacités de calcul distribué en mémoire, Spark constitue le choix idéal pour les algorithmes itératifs utilisés dans l’apprentissage automatique et les calculs de graphiques. [MLlib](https://spark.apache.org/mllib/) est la bibliothèque évolutive d’apprentissage automatique de Spark. Elle apporte des fonctionnalités de modélisation d’algorithme à cet environnement distribué.
 
 ## <a name="hdinsight-spark"></a>HDInsight Spark
 [HDInsight Spark](../../hdinsight/spark/apache-spark-overview.md) est l’offre Azure de Spark Open Source. Elle prend également en charge les **blocs-notes Jupyter PySpark** sur le cluster Spark, qui peuvent exécuter des requêtes interactives SQL Spark pour transformer, filtrer et visualiser les données stockées dans des objets blob Azure (WASB). PySpark est l’API Python pour Spark. Les extraits de code qui fournissent les solutions et montrent les tracés pertinents permettant de visualiser les données ici s’exécutent dans des notebooks Jupyter installés sur les clusters Spark. Les étapes de modélisation dans ces rubriques contiennent du code qui montre comment former, évaluer, enregistrer et consommer chaque type de modèle.
@@ -49,25 +49,23 @@ Ces blocs-notes doivent être exécutés dans le noyau pySpark3 du serveur de Bl
 
 > [!NOTE]
 > Le jeu de données de compagnies aériennes a été ajouté aux notebooks Spark 2.0 pour mieux illustrer l’utilisation des algorithmes de classification. Consultez les liens suivants pour plus d’informations sur le jeu de données sur les compagnies aériennes et celui sur les données météorologiques :
-
->- Données de départs prévus de compagnie aérienne : [http://www.transtats.bts.gov/ONTIME/](http://www.transtats.bts.gov/ONTIME/)
-
->- Données météorologiques d’aéroport : [https://www.ncdc.noaa.gov/](https://www.ncdc.noaa.gov/)
->
->
+> 
+> - Données de départs prévus de compagnie aérienne : [https://www.transtats.bts.gov/ONTIME/](https://www.transtats.bts.gov/ONTIME/)
+> 
+> - Données météorologiques d’aéroport : [https://www.ncdc.noaa.gov/](https://www.ncdc.noaa.gov/)
 
 <!-- -->
 
 <!-- -->
 
 > [!NOTE]
-L’exécution des blocs-notes Spark 2.0 sur les jeux de données « NYC taxi and airline flight delay » peut prendre 10 minutes ou plus (selon la taille de votre cluster HDI). Le premier bloc-notes de la liste ci-dessus montre de nombreux aspects de l’exploration de données, de la visualisation et de l’apprentissage du modèle ML dans un bloc-notes dont l’exécution est moins longue avec un jeu de données New York sous-échantillonné, dans lequel les fichiers de courses et de taxi ont été rassemblés au préalable : [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb). Ce bloc-notes met beaucoup moins de temps à s’exécuter (deux ou trois minutes) et peut être un bon point de départ pour explorer rapidement le code que nous avons fourni pour Spark 2.0.
+> L’exécution des blocs-notes Spark 2.0 sur les jeux de données « NYC taxi and airline flight delay » peut prendre 10 minutes ou plus (selon la taille de votre cluster HDI). Le premier bloc-notes de la liste ci-dessus montre de nombreux aspects de l’exploration de données, de la visualisation et de l’apprentissage du modèle ML dans un bloc-notes dont l’exécution est moins longue avec un jeu de données New York sous-échantillonné, dans lequel les fichiers de courses et de taxi ont été rassemblés au préalable : [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb). Ce bloc-notes met beaucoup moins de temps à s’exécuter (deux ou trois minutes) et peut être un bon point de départ pour explorer rapidement le code que nous avons fourni pour Spark 2.0.
 
 <!-- -->
 
 Pour obtenir des conseils sur l’utilisation d’un modèle Spark 2.0 et la consommation de modèle à des fins de notation, consultez le [document Spark 1.6 sur la consommation](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-model-consumption.ipynb) pour obtenir un exemple des étapes requises. Pour utiliser cette option sur Spark 2.0, remplacez le fichier de code Python par [ce fichier](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py).
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables
 
 Les procédures ci-dessous sont relatives à Spark 1.6. Pour la version Spark 2.0, utilisez les blocs-notes décrits et référencés précédemment.
 
@@ -94,7 +92,7 @@ Les procédures ci-dessous sont relatives à Spark 1.6. Pour la version Spark 
 Pesant environ 20 Go au format compressé (ou 48 Go au format non compressé), le jeu de données NYC Taxi Trip contient des fichiers CSV (valeurs séparées par des virgules) concernant plus de 173 millions de trajets et le prix réglé pour chacun d’entre eux. Chaque enregistrement de course inclut le lieu et l’heure d’embarquement et de débarquement, le numéro de licence (du chauffeur) rendu anonyme et le numéro de médaillon (numéro d’identification unique) du taxi. Les données portent sur toutes les courses effectuées en 2013 et sont fournies dans les deux jeux de données ci-après pour chaque mois :
 
 1. Les fichiers CSV trip_data contiennent les détails de chaque course, comme le nombre de passagers, les points d’embarquement et de débarquement, la durée du trajet et la distance parcourue. Voici quelques exemples d’enregistrements :
-   
+
         medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude
         89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171
         0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-06 00:18:35,2013-01-06 00:22:54,1,259,1.50,-74.006683,40.731781,-73.994499,40.75066
@@ -102,7 +100,7 @@ Pesant environ 20 Go au format compressé (ou 48 Go au format non compressé),
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:54:15,2013-01-07 23:58:20,2,244,.70,-73.974602,40.759945,-73.984734,40.759388
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:25:03,2013-01-07 23:34:24,1,560,2.10,-73.97625,40.748528,-74.002586,40.747868
 2. Les fichiers CSV trip_fare contiennent des informations sur le prix payé pour chaque trajet, comme le type de paiement, le montant, la surcharge et les taxes, les pourboires et péages, ainsi que le montant total réglé. Voici quelques exemples d’enregistrements :
-   
+
         medallion, hack_license, vendor_id, pickup_datetime, payment_type, fare_amount, surcharge, mta_tax, tip_amount, tolls_amount, total_amount
         89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,2013-01-01 15:11:48,CSH,6.5,0,0.5,0,0,7
         0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,2013-01-06 00:18:35,CSH,6,0.5,0.5,0,0,7
@@ -132,7 +130,7 @@ Nous avons pris un échantillon représentant 0,1 % de ces fichiers, et joint l
 | dropoff_longitude |Longitude d’arrivée |
 | dropoff_latitude |Latitude d’arrivée |
 | direct_distance |Distance directe entre les emplacements de départ et d’arrivée |
-| payment_type |Type de paiement (espèces, carte de crédit, etc.). |
+| payment_type |Type de paiement (espèces, etc. de carte de crédit). |
 | fare_amount |Montant du trajet |
 | surcharge |Surcharge |
 | mta_tax |Taxe du MTA |

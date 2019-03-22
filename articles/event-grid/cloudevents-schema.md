@@ -8,22 +8,24 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: babanisa
-ms.openlocfilehash: 81f9db7e90e2cef85d41561cc677db3d6422ef45
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 1eab0be59de90ad68cbf9601b7e2200e640875f4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079866"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58178065"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Utiliser le schéma CloudEvents avec Event Grid
 
-En plus de son [schéma d’événement par défaut](event-schema.md), Azure Event Grid prend en charge en mode natif les événements dans le [schéma JSON CloudEvents](https://github.com/cloudevents/spec/blob/master/json-format.md). [CloudEvents](http://cloudevents.io/) est une [spécification ouverte](https://github.com/cloudevents/spec/blob/master/spec.md) qui décrit les données d’événement.
+En plus de son [schéma d’événement par défaut](event-schema.md), Azure Event Grid prend en charge en mode natif les événements dans le [schéma JSON CloudEvents](https://github.com/cloudevents/spec/blob/master/json-format.md). [CloudEvents](https://cloudevents.io/) est une [spécification ouverte](https://github.com/cloudevents/spec/blob/master/spec.md) qui décrit les données d’événement.
 
 CloudEvents simplifie l’interopérabilité grâce à un schéma d’événement commun pour la publication et la consommation des événements basés sur le cloud. Ce schéma permet l’utilisation d’outils uniformes, la mise en œuvre de méthodes de routage et de gestion des événements standard, ainsi que de méthodes universelles pour désérialiser le schéma d’événement externe. Avec un schéma commun, vous pouvez plus facilement intégrer le travail entre plusieurs plateformes.
 
 Plusieurs [collaborateurs](https://github.com/cloudevents/spec/blob/master/community/contributors.md), dont Microsoft, travaillent à l’élaboration de CloudEvents par le biais de la [Cloud Native Computing Foundation](https://www.cncf.io/). Il est disponible en version 0.1.
 
 Cet article décrit comment utiliser le schéma CloudEvents avec Event Grid.
+
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
 ## <a name="install-preview-feature"></a>Installer la fonctionnalité d'évaluation
 

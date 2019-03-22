@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 01/25/2019
+ms.date: 02/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: d730efe8b09f167aaba2a4aa8e33446d44171c53
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: ce9ef687643de7ec9b289f74feea613fb9a1db7a
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340842"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960606"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Rôles intégrés pour les ressources Azure
 
@@ -68,6 +68,7 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 | [Rôle de service d’opérateur de clé de compte de stockage classique](#classic-storage-account-key-operator-service-role) | Les opérateurs de clés de comptes de stockage classiques sont autorisés à lister et à régénérer des clés sur des comptes de stockage classiques |
 | [Contributeur de machine virtuelle classique](#classic-virtual-machine-contributor) | Permet de gérer des machines virtuelles classiques, mais pas d’y accéder, ni au réseau virtuel ou au compte de stockage auquel elles sont connectées. |
 | [Contributeur Cognitive Services](#cognitive-services-contributor) | Vous permet de créer, lire, mettre à jour, supprimer et gérer les clés de Cognitive Services. |
+| [Lecteur de données de COGNITIVE Services (version préliminaire)](#cognitive-services-data-reader-preview) | Vous permet de lire les données Cognitive Services. |
 | [Utilisateur Cognitive Services](#cognitive-services-user) | Vous permet de lire et de répertorier les clés de Cognitive Services. |
 | [Rôle de lecteur de compte Cosmos DB](#cosmos-db-account-reader-role) | Lire les données de comptes Azure Cosmos DB. Consultez [Contributeur de compte DocumentDB](#documentdb-account-contributor) pour en savoir plus sur la gestion des comptes Azure Cosmos DB. |
 | [CosmosBackupOperator](#cosmosbackupoperator) | Peut envoyer une requête de restauration d’une base de données Cosmos DB ou d’un conteneur pour un compte |
@@ -81,8 +82,8 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 | [Utilisateur de DevTest Labs](#devtest-labs-user) | Permet de connecter, de démarrer, de redémarrer et d’arrêter vos machines virtuelles dans votre Azure DevTest Labs. |
 | [Contributeur de Zone DNS](#dns-zone-contributor) | Permet de gérer des zones DNS et des jeux d’enregistrements dans Azure DNS, mais pas de contrôler qui y a accès. |
 | [Contributeur de compte DocumentDB](#documentdb-account-contributor) | Gérer des comptes Azure Cosmos DB. Azure Cosmos DB était auparavant appelé DocumentDB. |
-| [Contributeur EventGrid EventSubscription](#eventgrid-eventsubscription-contributor) | Vous permet de gérer les opérations d’abonnement aux événements EventGrid. |
-| [Lecteur EventGrid EventSubscription](#eventgrid-eventsubscription-reader) | Vous permet de lire les abonnements aux événements EventGrid. |
+| [Contributeur EventGrid EventSubscription (préversion)](#eventgrid-eventsubscription-contributor-preview) | Vous permet de gérer les opérations d’abonnement aux événements EventGrid. |
+| [Lecteur EventGrid EventSubscription (préversion)](#eventgrid-eventsubscription-reader-preview) | Vous permet de lire les abonnements aux événements EventGrid. |
 | [Contributeur HDInsight Domain Services](#hdinsight-domain-services-contributor) | Peut lire, créer, modifier et supprimer les opérations Domain Services nécessaires pour le pack Sécurité Entreprise HDInsight |
 | [Contributeur de compte Intelligent Systems](#intelligent-systems-account-contributor) | Permet de gérer des comptes Intelligent Systems, mais pas d’y accéder. |
 | [Contributeur Key Vault](#key-vault-contributor) | Permet de gérer des coffres de clés, mais pas d’y accéder. |
@@ -103,7 +104,7 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 | [Contributeur de réseau](#network-contributor) | Permet de gérer des réseaux, mais pas d’y accéder. |
 | [Contributeur de compte NewRelic APM](#new-relic-apm-account-contributor) | Vous permet de gérer des comptes et applications New Relic Application Performance Management, mais pas d’y accéder. |
 | [Lecteur et accès aux données](#reader-and-data-access) | Permet d’afficher tous les éléments, mais pas de supprimer ou de créer un compte de stockage ou une ressource contenue. En outre, autorise l’accès en lecture/écriture à toutes les données contenues dans un compte de stockage via l’accès aux clés de compte de stockage. |
-| [Contributeur Cache Redis](#redis-cache-contributor) | Vous permet de gérer le cache Azure pour Redis, mais pas d’y accéder. |
+| [Contributeur Cache Redis](#redis-cache-contributor) | Permet de gérer des caches Redis, mais pas d’y accéder. |
 | [Contributeur de stratégie de ressource (préversion)](#resource-policy-contributor-preview) | (Préversion) Utilisateurs renvoyés de EA, avec des droits pour créer ou modifier une stratégie de ressource, créer un ticket de support et lire des ressources ou la hiérarchie. |
 | [Contributeur des collections de travaux du planificateur](#scheduler-job-collections-contributor) | Permet de gérer des collections de tâches du planificateur, mais pas d’y accéder. |
 | [Contributeur du service de recherche](#search-service-contributor) | Permet de gérer des services de recherche, mais pas d’y accéder. |
@@ -113,6 +114,9 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 | [Contributeur Site Recovery](#site-recovery-contributor) | Permet de gérer le service Site Recovery sauf la création de coffre et l’attribution de rôle |
 | [Opérateur Site Recovery](#site-recovery-operator) | Permet de basculer et de restaurer mais pas d’effectuer d’autres opérations de gestion de Site Recovery |
 | [Lecteur Site Recovery](#site-recovery-reader) | Permet d’afficher l’état de Site Recovery mais pas d’effectuer d’autres opérations de gestion |
+| [Collaborateur de compte ancres spatial](#spatial-anchors-account-contributor) | Vous permet de gérer les points d'ancrage spatiaux dans votre compte, mais pas de les supprimer |
+| [Propriétaire du compte ancres spatial](#spatial-anchors-account-owner) | Vous permet de gérer les points d'ancrage spatiaux dans votre compte, notamment les supprimer |
+| [Lecteur de compte ancres spatial](#spatial-anchors-account-reader) | Vous permet de localiser et de lire les propriétés des points d'ancrage spatiaux dans votre compte |
 | [Contributeur de base de données SQL](#sql-db-contributor) | Permet de gérer des bases de données SQL, mais pas d’y accéder. Vous ne pouvez pas non plus gérer leurs stratégies de sécurité ni leurs serveurs SQL parents. |
 | [Gestionnaire de sécurité SQL](#sql-security-manager) | Permet de gérer les stratégies de sécurité des serveurs et bases de données SQL, mais pas d’y accéder. |
 | [Contributeur SQL Server](#sql-server-contributor) | Permet de gérer des serveurs et bases de données SQL, mais pas d’y accéder, ni de gérer leurs stratégies de sécurité. |
@@ -122,7 +126,9 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 | [Propriétaire des données Blob du stockage (préversion)](#storage-blob-data-owner-preview) | Permet un accès total aux conteneurs d’objets blob et aux données du Stockage Azure, notamment l’attribution du contrôle d’accès POSIX. |
 | [Lecteur des données blob du stockage (préversion)](#storage-blob-data-reader-preview) | Permet l'accès en lecture aux conteneurs blob et aux données du stockage Azure |
 | [Contributeur aux données en file d'attente du stockage (préversion)](#storage-queue-data-contributor-preview) | Permet l'accès en lecture, en écriture et pour suppression aux files d'attente et aux messages en file d'attente du stockage Azure |
-| [Lecteur des données en file d'attente du stockage (préversion)](#storage-queue-data-reader-preview) | Permet l'accès en lecture aux files d'attente et aux messages en file d'attente du stockage Azure |
+| [Processeur de messages de données stockage file d’attente (version préliminaire)](#storage-queue-data-message-processor-preview) | Permet l'accès pour afficher un aperçu, recevoir et supprimer des messages de file d'attente du stockage Azure |
+| [Expéditeur du Message de données file d’attente stockage (version préliminaire)](#storage-queue-data-message-sender-preview) | Permet l'envoi de messages de file d'attente du Stockage Azure |
+| [Lecteur des données en file d’attente du stockage (préversion)](#storage-queue-data-reader-preview) | Permet l'accès en lecture aux files d'attente et aux messages en file d'attente du stockage Azure |
 | [Contributeur de demande de support](#support-request-contributor) | Permet de créer et de gérer des demandes de support |
 | [Contributeur Traffic Manager](#traffic-manager-contributor) | Permet de gérer des profils Traffic Manager, mais pas de contrôler qui y a accès. |
 | [Administrateur de l'accès utilisateur](#user-access-administrator) | Vous permet de gérer l'accès utilisateur aux ressources Azure. |
@@ -934,6 +940,21 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | **NotDataActions** |  |
 > | *Aucune* |  |
 
+## <a name="cognitive-services-data-reader-preview"></a>Lecteur de données Cognitive Services (préversion)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Vous permet de lire les données Cognitive Services. |
+> | **Id** | b59867f0-fa02-499b-be73-45a86b5b3e1c |
+> | **Actions** |  |
+> | *Aucune* |  |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | Microsoft.CognitiveServices/*/read |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
+
 ## <a name="cognitive-services-user"></a>Utilisateur Cognitive Services
 > [!div class="mx-tableFixed"]
 > | | |
@@ -943,11 +964,11 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | **Actions** |  |
 > | Microsoft.CognitiveServices/*/read |  |
 > | Microsoft.CognitiveServices/accounts/listkeys/action | Afficher la liste des clés |
-> | Microsoft.Insights/metricdefinitions/read | Lire les définitions des mesures |
-> | Microsoft.Insights/metrics/read | Lire des mesures |
 > | Microsoft.Insights/alertRules/read | Lire une alerte de métrique classique |
 > | Microsoft.Insights/diagnosticSettings/read | Lire un paramètre de diagnostic de ressource |
 > | Microsoft.Insights/logDefinitions/read | Lire les définitions de journal |
+> | Microsoft.Insights/metricdefinitions/read | Lire les définitions des mesures |
+> | Microsoft.Insights/metrics/read | Lire des mesures |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
 > | Microsoft.Resources/deployments/operations/read | Obtient ou répertorie les opérations de déploiement. |
 > | Microsoft.Resources/subscriptions/operationresults/read | Obtenir les résultats de l’opération de l’abonnement. |
@@ -957,7 +978,7 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
-> | *Aucune* |  |
+> | Microsoft.CognitiveServices/* |  |
 > | **NotDataActions** |  |
 > | *Aucune* |  |
 
@@ -1177,16 +1198,17 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | Microsoft.DevTestLab/labs/policySets/evaluatePolicies/action | Évaluer la stratégie de laboratoire. |
 > | Microsoft.DevTestLab/labs/virtualMachines/claim/action | Prendre possession d’une machine virtuelle existante. |
 > | Microsoft.DevTestLab/labs/virtualmachines/listApplicableSchedules/action | Répertorie les planifications de démarrage/arrêt applicables, le cas échéant. |
-> | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Joint un pool d’adresses principales d’équilibrage de charge. |
-> | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Joint une règle NAT entrante d’équilibrage de charge. |
+> | Microsoft.DevTestLab/labs/virtualMachines/getRdpFileContents/action | Obtenir une chaîne qui représente le contenu du fichier RDP pour la machine virtuelle |
+> | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Joint un pool d’adresse du serveur principal d’équilibreur de charge. Pas une erreur. |
+> | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Joint une règle nat de trafic entrant d’équilibreur de charge. Pas une erreur. |
 > | Microsoft.Network/networkInterfaces/*/read | Lire les propriétés d’une interface réseau (par exemple, tous les équilibreurs de charge dont l’interface réseau fait partie) |
-> | Microsoft.Network/networkInterfaces/join/action | Joint une machine virtuelle à une interface réseau. |
+> | Microsoft.Network/networkInterfaces/join/action | Joint un ordinateur virtuel à une interface réseau. Pas une erreur. |
 > | Microsoft.Network/networkInterfaces/read | Obtient une définition d’interface réseau.  |
 > | Microsoft.Network/networkInterfaces/write | Crée une interface réseau ou met à jour une interface réseau existante.  |
 > | Microsoft.Network/publicIPAddresses/*/read | Lire les propriétés d’une adresse IP publique |
-> | Microsoft.Network/publicIPAddresses/join/action | Joint une adresse IP publique. |
+> | Microsoft.Network/publicIPAddresses/join/action | Joint une adresse ip publique. Pas une erreur. |
 > | Microsoft.Network/publicIPAddresses/read | Obtient une définition de l’adresse IP publique. |
-> | Microsoft.Network/virtualNetworks/subnets/join/action | Joint un réseau virtuel. |
+> | Microsoft.Network/virtualNetworks/subnets/join/action | Joint un réseau virtuel. Pas une erreur. |
 > | Microsoft.Resources/deployments/operations/read | Obtient ou répertorie les opérations de déploiement. |
 > | Microsoft.Resources/deployments/read | Obtient ou répertorie les déploiements. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
@@ -1240,7 +1262,7 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | **NotDataActions** |  |
 > | *Aucune* |  |
 
-## <a name="eventgrid-eventsubscription-contributor"></a>Contributeur EventGrid EventSubscription
+## <a name="eventgrid-eventsubscription-contributor-preview"></a>EventGrid EventSubscription Contributeur (préversion)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1263,7 +1285,7 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | **NotDataActions** |  |
 > | *Aucune* |  |
 
-## <a name="eventgrid-eventsubscription-reader"></a>Lecteur EventGrid EventSubscription
+## <a name="eventgrid-eventsubscription-reader-preview"></a>EventGrid EventSubscription Lecteur (préversion)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1481,6 +1503,7 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | **Actions** |  |
 > | */read | Lire les ressources de tous les types, à l’exception des secrets. |
 > | Microsoft.Solutions/applications/read | Récupère une liste d’applications. |
+> | Microsoft.Solutions/*/action |  |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -1605,11 +1628,11 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | Microsoft.Insights/Register/Action | Inscrire le fournisseur Microsoft Insights |
 > | Microsoft.Insights/scheduledqueryrules/* |  |
 > | Microsoft.Insights/webtests/* | Lire/écrire/supprimer des tests web Application Insights. |
-> | Microsoft.OperationalInsights/workspaces/intelligencepacks/* | Lire/écrire/supprimer des packs de solution Log Analytics. |
-> | Microsoft.OperationalInsights/workspaces/savedSearches/* | Lire/écrire/supprimer des recherches enregistrées Log Analytics. |
+> | Microsoft.OperationalInsights/workspaces/intelligencepacks/* | Packs de solutions d’analytique de journal de lecture/écriture/suppression. |
+> | Microsoft.OperationalInsights/workspaces/savedSearches/* | Analytique de journal de lire/écrire/supprimer des recherches enregistrées. |
 > | Microsoft.OperationalInsights/workspaces/search/action | Exécute une requête de recherche. |
 > | Microsoft.OperationalInsights/workspaces/sharedKeys/action | Récupère les clés partagées de l’espace de travail. Ces clés sont utilisées pour connecter les agents Microsoft Operational Insights à l’espace de travail. |
-> | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/* | Lire/écrire/supprimer les configurations des insights de stockage Log Analytics. |
+> | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/* | En lecture/écriture/suppression journal analytique configurations de stockage. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
 > | Microsoft.WorkloadMonitor/monitors/* |  |
 > | Microsoft.WorkloadMonitor/notificationSettings/* |  |
@@ -1716,11 +1739,11 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Vous permet de gérer le cache Azure pour Redis, mais pas d’y accéder. |
+> | **Description** | Permet de gérer des caches Redis, mais pas d’y accéder. |
 > | **Id** | e0f68234-74aa-48ed-b826-c38b57376e17 |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
-> | Microsoft.Cache/redis/* | Créer et gérer le cache Azure pour Redis |
+> | Microsoft.Cache/redis/* | Créer et gérer les caches Redis |
 > | Microsoft.Insights/alertRules/* | Créer et gérer les règles d’alerte |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
 > | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
@@ -1808,7 +1831,7 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | Microsoft.Authorization/policySetDefinitions/* | Créer et gérer des ensembles de stratégies |
 > | Microsoft.Insights/alertRules/* | Créer et gérer les règles d’alerte |
 > | Microsoft.Management/managementGroups/read | Répertorie les groupes d’administration de l’utilisateur authentifié. |
-> | Microsoft.operationalInsights/workspaces/*/read | Afficher les données Log Analytics |
+> | Microsoft.operationalInsights/workspaces/*/read | Afficher les données d’analytique de journal |
 > | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Security/*/read | Lire des stratégies et des composants de sécurité |
@@ -1863,7 +1886,7 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
 > | Microsoft.Insights/alertRules/* | Créer et gérer les règles d’alerte |
-> | Microsoft.operationalInsights/workspaces/*/read | Afficher les données Log Analytics |
+> | Microsoft.operationalInsights/workspaces/*/read | Afficher les données d’analytique de journal |
 > | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Security/*/read | Lire des stratégies et des composants de sécurité |
@@ -2033,6 +2056,65 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | **NotDataActions** |  |
 > | *Aucune* |  |
 
+## <a name="spatial-anchors-account-contributor"></a>Contributeur de compte Points d'ancrage Spatial
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Vous permet de gérer les points d'ancrage spatiaux dans votre compte, mais pas de les supprimer |
+> | **Id** | 8bbe83f1-e2a6-4df7-8cb4-4e04d4e5c827 |
+> | **Actions** |  |
+> | *Aucune* |  |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/create/action | Créer des ancres spatiales |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | Détecter les plus proches des ancres spatiales |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | Obtenir les propriétés de points d’ancrage spatiales |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | Recherchez les ancres spatiales |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | Envoyer des données de diagnostic pour aider à améliorer la qualité du service Azure les ancres Spatial |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/write | Mettre à jour les propriétés spatiales ancres |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
+
+## <a name="spatial-anchors-account-owner"></a>Propriétaire de compte Points d'ancrage Spatial
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Vous permet de gérer les points d'ancrage spatiaux dans votre compte, notamment les supprimer |
+> | **Id** | 70bbe301-9835-447d-afdd-19eb3167307c |
+> | **Actions** |  |
+> | *Aucune* |  |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/create/action | Créer des ancres spatiales |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/delete | Supprimer les ancres spatiales |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | Détecter les plus proches des ancres spatiales |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | Obtenir les propriétés de points d’ancrage spatiales |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | Recherchez les ancres spatiales |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | Envoyer des données de diagnostic pour aider à améliorer la qualité du service Azure les ancres Spatial |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/write | Mettre à jour les propriétés spatiales ancres |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
+
+## <a name="spatial-anchors-account-reader"></a>Lecteur de compte Points d'ancrage Spatial
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Vous permet de localiser et de lire les propriétés des points d'ancrage spatiaux dans votre compte |
+> | **Id** | 5d51204f-eb77-4b1c-b86a-2ec626c49413 |
+> | **Actions** |  |
+> | *Aucune* |  |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | Détecter les plus proches des ancres spatiales |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | Obtenir les propriétés de points d’ancrage spatiales |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | Recherchez les ancres spatiales |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | Envoyer des données de diagnostic pour aider à améliorer la qualité du service Azure les ancres Spatial |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
+
 ## <a name="sql-db-contributor"></a>Contributeur de base de données SQL
 > [!div class="mx-tableFixed"]
 > | | |
@@ -2082,7 +2164,7 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Autorisation de lecture Microsoft |
 > | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
-> | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Joint des ressources telles qu’un compte de stockage ou une base de données SQL à un sous-réseau. |
+> | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Joint des ressources telles qu’un compte de stockage ou une base de données SQL à un sous-réseau. Pas une erreur. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
 > | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
@@ -2173,7 +2255,7 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | Microsoft.Authorization/*/read | Autorisation de lecture totale |
 > | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
 > | Microsoft.Insights/diagnosticSettings/* | Gérer les paramètres de diagnostic |
-> | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Joint des ressources telles qu’un compte de stockage ou une base de données SQL à un sous-réseau. |
+> | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Joint des ressources telles qu’un compte de stockage ou une base de données SQL à un sous-réseau. Pas une erreur. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
 > | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
@@ -2267,6 +2349,37 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete | Retourne le résultat de la suppression d'un message |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Retourne un message |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/write | Retourner le résultat de l’écriture d’un message |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
+
+## <a name="storage-queue-data-message-processor-preview"></a>Processeur de messages de données stockage file d’attente (version préliminaire)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Permet l'accès pour afficher un aperçu, recevoir et supprimer des messages de file d'attente du stockage Azure |
+> | **Id** | 8a0f0c08-91a1-4084-bc3d-661d67233fed |
+> | **Actions** |  |
+> | *Aucune* |  |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Retourne un message |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action | Retourner le résultat du traitement d’un message |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
+
+## <a name="storage-queue-data-message-sender-preview"></a>Expéditeur du Message de données file d’attente stockage (version préliminaire)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Permet l'envoi de messages de file d'attente du Stockage Azure |
+> | **Id** | c6a89b2d-59bc-44d0-9896-0f6e12d7b80a |
+> | **Actions** |  |
+> | *Aucune* |  |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action | Retourner le résultat de l’ajout d’un message |
 > | **NotDataActions** |  |
 > | *Aucune* |  |
 
@@ -2374,20 +2487,20 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | Microsoft.Compute/virtualMachineScaleSets/* | Créez et gérez des jeux de mise à l’échelle des machines virtuelles |
 > | Microsoft.DevTestLab/schedules/* |  |
 > | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
-> | Microsoft.Network/applicationGateways/backendAddressPools/join/action | Joint un pool d’adresses principales de passerelle d’application. |
-> | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Joint un pool d’adresses principales d’équilibrage de charge. |
-> | Microsoft.Network/loadBalancers/inboundNatPools/join/action | Joint un pool NAT entrant d’équilibrage de charge. |
-> | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Joint une règle NAT entrante d’équilibrage de charge. |
-> | Microsoft.Network/loadBalancers/probes/join/action | Autorise l’utilisation des sondes d’un équilibreur de charge. Par exemple, avec cette autorisation, la propriété healthProbe du groupe de machines virtuelles identiques peut faire référence à la sonde. |
+> | Microsoft.Network/applicationGateways/backendAddressPools/join/action | Joint un pool d’adresses backend application gateway. Pas une erreur. |
+> | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Joint un pool d’adresse du serveur principal d’équilibreur de charge. Pas une erreur. |
+> | Microsoft.Network/loadBalancers/inboundNatPools/join/action | Joint un équilibreur de charge pool NAT entrant. Pas une erreur. |
+> | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Joint une règle nat de trafic entrant d’équilibreur de charge. Pas une erreur. |
+> | Microsoft.Network/loadBalancers/probes/join/action | Autorise l’utilisation des sondes d’un équilibreur de charge. Par exemple, avec cette autorisation, la propriété healthProbe du groupe de machines virtuelles identiques peut faire référence à la sonde. Pas une erreur. |
 > | Microsoft.Network/loadBalancers/read | Obtient une définition d’équilibrage de charge. |
 > | Microsoft.Network/locations/* | Créer et gérer des emplacements réseau |
 > | Microsoft.Network/networkInterfaces/* | Créer et gérer des interfaces réseau |
-> | Microsoft.Network/networkSecurityGroups/join/action | Joint un groupe de sécurité réseau. |
+> | Microsoft.Network/networkSecurityGroups/join/action | Joint un groupe de sécurité réseau. Pas une erreur. |
 > | Microsoft.Network/networkSecurityGroups/read | Obtient une définition de groupe de sécurité réseau. |
-> | Microsoft.Network/publicIPAddresses/join/action | Joint une adresse IP publique. |
+> | Microsoft.Network/publicIPAddresses/join/action | Joint une adresse ip publique. Pas une erreur. |
 > | Microsoft.Network/publicIPAddresses/read | Obtient une définition de l’adresse IP publique. |
 > | Microsoft.Network/virtualNetworks/read | Obtenir la définition de réseau virtuel. |
-> | Microsoft.Network/virtualNetworks/subnets/join/action | Joint un réseau virtuel. |
+> | Microsoft.Network/virtualNetworks/subnets/join/action | Joint un réseau virtuel. Pas une erreur. |
 > | Microsoft.RecoveryServices/locations/* |  |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write | Crée une intention de protection de sauvegarde. |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read |  |

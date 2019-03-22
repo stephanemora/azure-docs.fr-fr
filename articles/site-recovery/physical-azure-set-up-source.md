@@ -8,21 +8,21 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 2e5b90f36a6dc5c88db3f6f449c911d22de680b1
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
-ms.translationtype: HT
+ms.openlocfilehash: e9bf06ba058078fc5012410bdd75ef90ff6c93d4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976798"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899007"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Configurer le serveur de configuration pour la récupération d’urgence de serveurs physiques sur Azure
 
 Cet article décrit comment configurer votre environnement local pour lancer la réplication des serveurs physiques exécutant Windows ou Linux dans Azure.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Cet article suppose que vous disposez déjà des éléments suivants :
-- Un coffre Recovery Services dans le [portail Azure](http://portal.azure.com "portail Azure").
+- Un coffre Recovery Services dans le [portail Azure](https://portal.azure.com "portail Azure").
 - Un ordinateur physique sur lequel installer le serveur de configuration.
 - Si vous avez désactivé TLS 1.0 sur l’ordinateur sur lequel vous installez le serveur de configuration, vérifiez que TLS 1.2 est activé et que .NET Framework version 4.6 ou ultérieure est installé sur l’ordinateur (et que le chiffrement fort est désactivé). [Plus d’informations](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1)
 
@@ -47,7 +47,7 @@ Le tableau suivant présente la configuration minimale requise pour le matériel
 
 1. Dans **Préparer la source**, si vous n’avez pas de serveur de configuration, cliquez sur **+Serveur de configuration** afin d’en ajouter un.
 
-  ![Configurer la source](./media/physical-azure-set-up-source/plus-config-srv.png)
+   ![Configurer la source](./media/physical-azure-set-up-source/plus-config-srv.png)
 2. Dans le panneau **Ajouter un serveur**, vérifiez que **Serveur de configuration** s’affiche dans **Type de serveur**.
 4. Téléchargez le fichier d’installation unifiée de Site Recovery.
 5. Téléchargez la clé d’inscription du coffre. Vous avez besoin de la clé d’inscription lorsque vous exécutez le programme d’installation unifiée. Une fois générée, la clé reste valide pendant 5 jours.

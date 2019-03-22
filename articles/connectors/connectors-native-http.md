@@ -11,12 +11,12 @@ ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 1c30f77c061ec25c88186caee3f60e65f3afb3de
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: 01da06ca55199989a3a27012bec101580f5ef853
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232866"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442203"
 ---
 # <a name="call-http-or-https-endpoints-with-azure-logic-apps"></a>Appeler des points de terminaison HTTP ou HTTPS avec Azure Logic Apps
 
@@ -28,7 +28,7 @@ Vous pouvez utiliser l’action HTTP comme toute autre étape de votre flux de t
 
 Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>. 
 
@@ -46,7 +46,7 @@ Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azu
 
    ![Sélectionner le déclencheur HTTP](./media/connectors-native-http/select-http-trigger.png)
 
-1. Indiquez les [paramètres et valeurs du déclencheur HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger) à inclure dans l’appel au point de terminaison cible. Configurez la fréquence à laquelle le déclencheur doit vérifier le point de terminaison cible.
+1. Indiquez les [paramètres et valeurs du déclencheur HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger) à inclure dans l’appel au point de terminaison cible. Configurer la périodicité pour la fréquence à laquelle vous souhaitez que le déclencheur pour vérifier le point de terminaison cible.
 
    ![Entrer les paramètres du déclencheur HTTP](./media/connectors-native-http/http-trigger-parameters.png)
 
@@ -77,7 +77,7 @@ Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azu
 
 1. Quand vous avez terminé, veillez à enregistrer votre application logique. Dans la barre d’outils du concepteur, choisissez **Enregistrer**. 
 
-## <a name="authentication"></a>Authentification
+## <a name="authentication"></a>Authentication
 
 Pour définir l’authentification, choisissez **Afficher les options avancées** à l’intérieur de l’action ou du déclencheur. Pour plus d’informations sur les types d’authentification disponibles pour les déclencheurs et les actions HTTP, consultez [Informations de référence sur les types d’actions et de déclencheurs](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
 

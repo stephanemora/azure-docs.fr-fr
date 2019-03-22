@@ -10,13 +10,14 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16caf8b6fd48b5dca676b1c8ee046ad01264ca03
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 561d7f5b28775e5f431d35d956cff6f800cc11b2
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211425"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294507"
 ---
 # <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>Comment procéder pour inviter des utilisateurs invités à accéder à une application ?
 
@@ -36,15 +37,15 @@ Après avoir configuré une application pour le libre-service, les propriétaire
 1. Ouvrez votre Panneau d’accès en accédant à `https://myapps.microsoft.com`.
 2. Sélectionnez l’application, sélectionnez les points de suspension (**...** ), puis **Gérer l’application**.
  
-   ![Panneau d’accès - Gérer l’application](media/add-users-iw/access-panel-manage-app.png)
+   ![Capture d’écran montrant le sous-menu application de gestion de l’application Salesforce](media/add-users-iw/access-panel-manage-app.png)
  
 3. En haut de la liste des utilisateurs, sélectionnez **+**.
    
-   ![Panneau d’accès - Ajouter un utilisateur](media/add-users-iw/access-panel-manage-app-add-user.png)
+   ![Capture d’écran montrant le symbole plus (+) pour ajouter des membres à l’application](media/add-users-iw/access-panel-manage-app-add-user.png)
    
 4. Dans la zone de recherche **Ajouter des membres**, saisissez l’adresse e-mail de l’utilisateur invité. Vous pouvez éventuellement inclure un message d’accueil.
    
-   ![Panneau d’accès - Invitation](media/add-users-iw/access-panel-invitation.png)
+   ![Capture d’écran montrant l’ajouter fenêtre de membres pour l’ajout d’un invité](media/add-users-iw/access-panel-invitation.png)
    
 5. Sélectionnez **Ajouter** pour envoyer une invitation à l’utilisateur invité. Après avoir envoyé l’invitation, le compte d’utilisateur est automatiquement ajouté au répertoire en tant qu’invité.
 
@@ -55,24 +56,24 @@ Après avoir configuré une application pour le libre-service, les propriétaire
 2. Ouvrez votre Panneau d’accès en accédant à `https://myapps.microsoft.com`.
 3. Sélectionnez l’application **Groupes**.
    
-   ![Panneau d’accès - Application Groupes](media/add-users-iw/access-panel-groups.png)
+   ![Capture d’écran montrant l’application de groupes dans le volet d’accès](media/add-users-iw/access-panel-groups.png)
    
 4. Sous **Groupes dont je suis propriétaire**, sélectionnez le groupe qui a accès à l’application que vous souhaitez partager.
    
-   ![Panneau d’accès - Groupes dont je suis propriétaire](media/add-users-iw/access-panel-groups-i-own.png)
+   ![Capture d’écran montrant où sélectionner un groupe sous les groupes dont je suis propriétaire](media/add-users-iw/access-panel-groups-i-own.png)
    
 5. En haut de la liste des membres du groupe, sélectionnez **+**.
    
-   ![Panneau d’accès - Groupes, ajouter un membre](media/add-users-iw/access-panel-groups-add-member.png)
+   ![Capture d’écran montrant le symbole plus (+) pour l’ajout de membres au groupe](media/add-users-iw/access-panel-groups-add-member.png)
    
 6. Dans la zone de recherche **Ajouter des membres**, saisissez l’adresse e-mail de l’utilisateur invité. Vous pouvez éventuellement inclure un message d’accueil.
    
-   ![Panneau d’accès - Invitation à rejoindre un groupe](media/add-users-iw/access-panel-invitation.png)
+   ![Capture d’écran montrant l’ajouter fenêtre de membres pour l’ajout d’un invité](media/add-users-iw/access-panel-invitation.png)
    
 7. Sélectionnez **Ajouter** pour envoyer automatiquement l’invitation à l’utilisateur invité. Après avoir envoyé l’invitation, le compte d’utilisateur est automatiquement ajouté au répertoire en tant qu’invité.
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 La gestion des applications en libre-service nécessite qu’un administrateur général et un administrateur Azure AD procèdent à une configuration initiale. Dans le cadre de cette configuration, vous allez configurer l’application pour le libre-service et affecter un groupe à l’application que le propriétaire de l’application peut gérer. Vous pouvez également configurer le groupe de manière à autoriser n’importe qui à demander à le rejoindre, mais en exigeant l’approbation du propriétaire. (En savoir plus sur la [gestion des groupes en libre-service](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-self-service-management).) 
 

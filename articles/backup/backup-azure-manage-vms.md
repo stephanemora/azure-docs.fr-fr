@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: sogup
-ms.openlocfilehash: 01c3e8072db81620764ccdd3ea99258de4649807
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: aa953440f03137f3359276bc9e06cb0c73f0ab4a
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57858938"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295774"
 ---
 # <a name="manage-azure-vm-backups"></a>Gérer les sauvegardes de machines virtuelles Azure
 
@@ -85,7 +85,7 @@ Vous pouvez exécuter une sauvegarde à la demande d’une machine virtuelle une
 
 Pour déclencher une sauvegarde à la demande :
 
-1. Sur le [tableau de bord](#view-vms-in-the-dashboard), sous **élément protégé**, sélectionnez **élément de sauvegarde**.
+1. Sur le [tableau de bord](#view-vms-on-the-dashboard), sous **élément protégé**, sélectionnez **élément de sauvegarde**.
 
     ![L’option maintenant de sauvegarde](./media/backup-azure-manage-vms/backup-now-button.png)
 
@@ -112,7 +112,7 @@ Il existe deux façons d’arrêter la protection d’une machine virtuelle :
 
 Arrêter la protection pour une machine virtuelle :
 
-1. Sur le [tableau de bord de l’élément du coffre](#view-vms-in-the-dashboard), sélectionnez **arrêter la sauvegarde**.
+1. Sur le [tableau de bord de l’élément du coffre](#view-vms-on-the-dashboard), sélectionnez **arrêter la sauvegarde**.
 2. Choisissez s’il faut conserver ou supprimer les données de sauvegarde et confirmez votre sélection en fonction des besoins. Ajouter un commentaire si vous le souhaitez. Si vous n’êtes pas sûr du nom de l’élément, survolez le point d’exclamation pour afficher le nom.
 
     ![Arrêter la protection](./media/backup-azure-manage-vms/retain-or-delete-option.png)
@@ -125,9 +125,9 @@ Si vous conservez les données de sauvegarde lorsque vous arrêtez la machine vi
 
 Pour reprendre la protection d’une machine virtuelle :
 
-1. Sur le [tableau de bord de l’élément du coffre](#view-vms-in-the-dashboard), sélectionnez **reprendre la sauvegarde**.
+1. Sur le [tableau de bord de l’élément du coffre](#view-vms-on-the-dashboard), sélectionnez **reprendre la sauvegarde**.
 
-2. Suivez les étapes de [gérer les stratégies de sauvegarde](#manage-backup-policies) pour attribuer la stratégie pour la machine virtuelle. Vous n’avez pas besoin de choisir une stratégie de protection initiale de la machine virtuelle.
+2. Suivez les étapes de [gérer les stratégies de sauvegarde](#manage-backup-policy-for-a-vm) pour attribuer la stratégie pour la machine virtuelle. Vous n’avez pas besoin de choisir une stratégie de protection initiale de la machine virtuelle.
 3. Après avoir appliqué la stratégie de sauvegarde à la machine virtuelle, vous voyez le message suivant :
 
     ![Message indiquant une machine virtuelle protégée](./media/backup-azure-manage-vms/success-message.png)
@@ -142,7 +142,7 @@ Vous pouvez supprimer les données de sauvegarde d’une machine virtuelle penda
 Une fois que vous arrêtez ou désactivez le travail de sauvegarde de la machine virtuelle, vous pouvez supprimer les données de sauvegarde :
 
 
-1. Sur le [tableau de bord](#view-vms-in-the-dashboard), sélectionnez **supprimer les données de sauvegarde**.
+1. Sur le [tableau de bord](#view-vms-on-the-dashboard), sélectionnez **supprimer les données de sauvegarde**.
 
     ![Sélectionnez Supprimer la sauvegarde](./media/backup-azure-manage-vms/delete-backup-buttom.png)
 

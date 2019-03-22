@@ -1,32 +1,36 @@
 ---
-title: Supervision des menaces dans le stockage Azure
+title: Protection avancée contre les menaces pour le stockage Azure
 description: Configurez la protection avancée contre les menaces dans le stockage Azure pour détecter les anomalies dans l’activité de votre compte et vous alerter sur les tentatives d’accès à votre compte potentiellement dangereuses.
 services: storage
 author: rmatchoro
 ms.service: storage
 ms.topic: article
-ms.date: 09/24/2018
-ms.author: ronmat
+ms.date: 03/14/2019
+ms.author: monhaber
 ms.manager: shaik
-ms.openlocfilehash: 8b2ca2d5d6418d68cab847df80fc437e468249ed
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: b2e51b11e2d79d7f35d6b24df4ba5492ecf9a5c4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995638"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58133227"
 ---
-# <a name="azure-storage-advanced-threat-protection"></a>Protection avancée contre les menaces dans le stockage Azure
+# <a name="advanced-threat-protection-for-azure-storage"></a>Protection avancée contre les menaces pour le stockage Azure
 
-La protection avancée contre les menaces dans le stockage Azure détecte les anomalies dans l’activité de votre compte et vous alerte sur les tentatives d’accès à votre compte potentiellement dangereuses. Cette couche de protection vous permet de traiter efficacement les menaces sans pour autant être un expert en sécurité ni avoir besoin de gérer des systèmes de supervision de la sécurité.
+Protection avancée contre les menaces pour le stockage Azure fournit une couche supplémentaire de sécurité qui détecte les tentatives inhabituelles ou potentiellement dangereuses visant à accéder ou à exploiter des comptes de stockage. Cette couche de protection vous permet de traiter efficacement les menaces sans pour autant être un expert en sécurité ni avoir besoin de gérer des systèmes de supervision de la sécurité. 
 
-Les menaces sont signalées en fonction des alertes de sécurité définies qui se déclenchent quand des anomalies sont détectées dans l’activité. Ces alertes intégrées à [Azure Security Center](https://azure.microsoft.com/services/security-center/) fournissent des détails sur l’activité suspecte, ainsi que des suggestions pour examiner et corriger les menaces. 
+Alertes de sécurité sont déclenchés lorsque des anomalies dans l’activité se produisent.  Ces alertes de sécurité sont intégrées avec [Azure Security Center](https://azure.microsoft.com/services/security-center/)et sont également envoyées par courrier électronique aux administrateurs d’abonnement, avec les détails des activités suspectes et des recommandations sur la façon d’examiner et corriger les menaces.
 
 > [!NOTE]
-> La protection avancée contre les menaces dans le stockage Azure est disponible uniquement pour le service BLOB. Les alertes de sécurité sont intégrées à Azure Security Center et sont envoyées par e-mail aux administrateurs de l’abonnement.
+> * Protection avancée contre les menaces pour le stockage Azure est actuellement disponible uniquement pour le stockage d’objets Blob. 
+> * Plus d’informations sur la nouvelle tarification est disponible dans le [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-pricing) page, y compris une option pour une période d’essai pendant les 30 premiers jours sans frais de tarification. 
+> * ATP pour la fonctionnalité de stockage Azure n’est actuellement pas disponible dans Azure government et régions de cloud souverain.
 
-La protection avancée contre les menaces dans le stockage Azure ingère les données des journaux de diagnostic relatives aux requêtes de lecture, d’écriture et de suppression envoyées au service BLOB en vue de détecter les menaces potentielles. Pour examiner les alertes notifiées par la protection avancée contre les menaces, vous devez [configurer les journaux de diagnostic](storage-monitor-storage-account.md#configure-logging) de manière à activer tous les niveaux de journaux pour le service BLOB.
+Protection avancée contre les menaces pour le stockage Azure reçoit des journaux de diagnostic de requêtes de lecture, écriture et delete pour le stockage d’objets Blob pour la détection des menaces. Pour examiner les alertes à partir de la protection contre les menaces avancées, vous pouvez afficher l’activité de stockage associé à l’aide de la journalisation du stockage Analytique. Pour plus d’informations, consultez Comment [configurer la journalisation du stockage Analytique](storage-monitor-storage-account.md#configure-logging).
 
-## <a name="set-up-advanced-threat-protection-in-the-portal"></a>Configurer la protection avancée contre les menaces dans le portail
+## <a name="set-up-advanced-threat-protection"></a>Configurer la protection avancée contre les menaces 
+
+### <a name="using-the-portal"></a>Utiliser le portail
 
 1. Lancez le portail Azure sur [https://portal.azure.com](https://portal.azure.com/).
 
@@ -34,18 +38,46 @@ La protection avancée contre les menaces dans le stockage Azure ingère les don
 
 3. Dans le panneau de configuration **Protection avancée contre les menaces**
     * Activez (**ON**) l’option *Protection contre les menaces* avancée
-    * Cliquez sur **Enregistrer** pour enregistrer la stratégie de protection avancée contre les menaces, nouvelle ou mise à jour.
+    * Cliquez sur **Enregistrer** pour enregistrer la stratégie de protection avancée contre les menaces, nouvelle ou mise à jour. (Les prix de l’image sont par exemple uniquement à des fins).
 
 ![Activer la protection avancée contre les menaces dans le stockage Azure](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-turn-on.png)
 
-## <a name="explore-anomalies"></a>Explorer les anomalies
+### <a name="using-azure-security-center"></a>Utilisation du Centre de sécurité Azure
+Lorsque vous vous abonnez au niveau Standard dans Azure Security Center, Advanced Threat Protection est configurée sur vos comptes de stockage. Pour plus d’informations, consultez [mise à niveau vers le niveau Standard de Security Center pour renforcer la sécurité](https://docs.microsoft.com/azure/security-center/security-center-pricing). (Les prix de l’image sont par exemple uniquement à des fins).
+
+![Niveau standard dans ASC](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-pricing.png)
+
+### <a name="using-azure-resource-manager-templates"></a>Utilisation de modèles Azure Resource Manager
+
+Utilisez un modèle Azure Resource Manager pour déployer un compte de stockage Azure-Protection avancée contre les menaces est activé.
+Pour plus d’informations, consultez [compte de stockage avec Advanced Threat Protection](https://azure.microsoft.com/resources/templates/201-storage-advanced-threat-protection-create/).
+
+### <a name="using-rest-api"></a>Utilisation de l'API REST
+Utilisez les commandes de l’API Rest pour créer, mettre à jour ou obtenir le paramètre-Protection avancée contre les menaces pour un compte de stockage spécifique.
+
+* [Advanced Threat Protection - créer](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/create)
+* [Advanced Threat Protection - obtenir](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/get)
+
+### <a name="using-azure-powershell"></a>Utilisation de Microsoft Azure PowerShell
+
+Utilisez les applets de commande PowerShell suivante :
+
+  * [Activer la Protection avancée contre les menaces](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
+  * [Bénéficiez de la Protection contre les menaces avancées](https://docs.microsoft.com/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
+  * [Désactiver la Protection avancée contre les menaces](https://docs.microsoft.com/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
+
+## <a name="explore-security-anomalies"></a>Explorez les anomalies de sécurité
 
 Quand des anomalies d’activité du stockage sont détectées, vous recevez une notification par e-mail qui contient des informations sur l’événement de sécurité suspect. Les détails de l’événement fournis sont les suivants :
 
-* nature de l’anomalie
-* nom du compte de stockage
-* type du stockage
-* heure de l’événement
+* La nature de l’anomalie
+* Nom du compte de stockage
+* L’heure de l’événement
+* Le type de stockage
+* Les causes potentielles 
+* La procédure d’investigation
+* Les étapes de correction
+
 
 L’e-mail fournit également des détails sur les causes possibles et les actions recommandées pour examiner et atténuer la menace potentielle.
 
@@ -59,21 +91,57 @@ Vous pouvez examiner et gérer vos alertes de sécurité actuelles à partir de 
 
 Les alertes sont générées en cas de détection de tentatives d’accès ou d’exploitation inhabituelles et potentiellement dangereuses des comptes de stockage. Ces événements peuvent déclencher les alertes suivantes :
 
-* **Accès à partir d’un emplacement inhabituel** : cette alerte est déclenchée en cas de changement dans le modèle d’accès à un compte de stockage. Cela peut être le cas, par exemple, quand quelqu’un a accédé à un compte de stockage à partir d’un emplacement géographique inhabituel. Dans certains cas, l’alerte détecte une action légitime (une nouvelle application ou opération de maintenance du développeur). Dans d’autres cas, l’alerte détecte une action malveillante (ancien employé, attaquant externe, etc.).
+### <a name="anomalous-access-pattern-alerts"></a>Alertes de modèle d’accès anormaux
 
-* **Extraction de données inhabituelle** : cette alerte est déclenchée en cas de changement dans le modèle d’extraction des données à partir d’un compte de stockage. Cela peut être le cas, par exemple, quand quelqu’un a accédé à une quantité inhabituelle de données dans un compte de stockage. Dans certains cas, l’alerte détecte une action légitime (activité de maintenance). Dans d’autres cas, l’alerte détecte une action malveillante (exfiltration/violation de données, transfert de données non autorisé).
-
-* **Accès anonyme inhabituel** : cette alerte est déclenchée en cas de changement dans le modèle d’accès à un compte de stockage. Cela peut être le cas, par exemple, quand quelqu’un a accédé anonymement à un compte de stockage. Dans certains cas, l’alerte détecte un accès légitime par le biais d’un accès en lecture public. Dans d’autres cas, l’alerte détecte un accès non autorisé qui exploite l’accès en lecture public à un conteneur et ses objets blob.
-
-* **Suppression inattendue** : cette alerte est déclenchée quand une ou plusieurs opérations de suppression inattendue se produisent dans un compte de stockage, sur la base de l’analyse de l’historique du compte de stockage. Cela peut être le cas, par exemple, quand quelqu’un a effectué une opération *DeleteBlob* en utilisant une nouvelle application et une nouvelle adresse IP. Dans certains cas, l’alerte détecte une action légitime (l’administrateur a utilisé un autre navigateur lors d’un déplacement professionnel). Dans d’autres cas, l’alerte détecte une action malveillante (un attaquant a supprimé des données). 
+* **Accès à partir de l’emplacement inhabituel**: Cette alerte est déclenchée lorsqu’il existe une modification du modèle d’accès à un compte de stockage. Cela peut être le cas, par exemple, quand quelqu’un a accédé à un compte de stockage à partir d’un emplacement géographique inhabituel.
+Causes possibles :
+   * Un attaquant a accédé à votre compte de stockage
+   * Un utilisateur légitime a accédé à votre compte de stockage à partir d’un nouvel emplacement
  
-* **Changement d’autorisation d’accès** : cette alerte est déclenchée en cas de changement inattendu de l’autorisation d’accès à un compte de stockage. Cela peut être le cas, par exemple, quand quelqu’un a changé l’autorisation d’accès à un compte de stockage en utilisant une nouvelle application et une nouvelle adresse IP. Dans certains cas, l’alerte détecte une action légitime (l’administrateur a utilisé un autre navigateur lors d’un déplacement professionnel). Dans d’autres cas, l’alerte détecte une action malveillante (par exemple, un attaquant a élevé les privilèges d’un compte auquel il a réussi à accéder). 
+* **Application anomalies**: Cette alerte indique qu’une application inhabituel a accédé à ce compte de stockage. Causes possibles :
+   * Un attaquant a accédé à votre compte de stockage à l’aide d’une nouvelle application.
+   * Un utilisateur légitime a utilisé un nouveau/navigateur de l’application à accéder à votre compte de stockage.
 
-* **Chargement d’un package de service cloud Azure** : cette alerte est déclenchée en cas de chargement inattendu d’un package de service cloud Azure (fichier *.cspkg*) dans un compte de stockage. Cela peut être le cas, par exemple, quand quelqu’un a chargé un fichier *.cspkg* à partir d’une nouvelle adresse IP. Dans certains cas, l’alerte détecte une action légitime. Dans d’autres cas, l’alerte détecte une action malveillante (par exemple, un package de service cloud a été chargé en vue du déploiement d’un service malveillant).    
-   
+* **L’accès anonyme**: Cette alerte indique qu’il existe une modification du modèle d’accès à un compte de stockage. Par exemple, ce compte a été accessibles de manière anonyme (c'est-à-dire sans aucune authentification), qui est inattendu comparé au modèle d’accès récents sur ce compte.
+Causes possibles :
+   * Une personne malveillante a exploité l’accès en lecture public pour un conteneur.
+   * Un utilisateur légitime ou une application a utilisé un accès en lecture public pour un conteneur.
+
+### <a name="anomalous-extractupload-alerts"></a>Alertes d’extraction/chargement anormales
+
+* **Exfiltration de données**: Cette alerte indique qu’une quantité anormalement élevée de données a été extrait par rapport à l’activité récente sur ce conteneur de stockage. Causes possibles :
+   * Une personne malveillante a extrait une grande quantité de données à partir d’un conteneur. (Par exemple : exfiltration/divulgation de données, le transfert non autorisé de données)
+   * Un utilisateur légitime ou une application a extrait un nombre inhabituel de données à partir d’un conteneur. (Par exemple : activité de maintenance)
+
+* **Suppression inattendue**: Cette alerte indique qu’une ou plusieurs opérations de suppression inattendue s’est produite dans un compte de stockage, par rapport à l’activité récente sur ce compte. Causes possibles :
+   * Une personne malveillante a supprimé des données à partir de votre compte de stockage.
+   * Un utilisateur légitime a effectué une suppression inhabituel.
+
+* **Télécharger le package de Service Cloud Azure**: Cette alerte indique qu’un package de Service Cloud Azure (fichier .cspkg) a été chargé dans un compte de stockage de façon inhabituelle, par rapport à l’activité récente sur ce compte. Causes possibles : 
+   * Une personne malveillante a été préparation au déploiement d’un code malveillant à partir de votre compte de stockage à un service cloud Azure.
+   * Préparation d’un utilisateur légitime pour un déploiement de service légitime.
+
+### <a name="suspicious-storage-activities-alerts"></a>Alertes d’activités suspectes de stockage
+
+* **Modification d’autorisation d’accès**: Cette alerte indique que les autorisations d’accès de ce conteneur de stockage ont été modifiées de façon inhabituelle. Causes possibles : 
+   * Une personne malveillante a modifié les autorisations de conteneur pour assouplir sa sécurité.
+   * Un utilisateur légitime a modifié les autorisations du conteneur.
+
+* **Accéder à l’Inspection**: Cette alerte indique que les autorisations d’accès d’un compte de stockage ont été inspectées de façon inhabituelle, par rapport à l’activité récente sur ce compte. Causes possibles : 
+   * Une personne malveillante a effectué la reconnaissance d’une attaque future.
+   * Un utilisateur légitime a effectué la maintenance sur le compte de stockage.
+
+* **Exploration des données**: Cette alerte indique que les objets BLOB ou des conteneurs dans un compte de stockage ont été énumérés de manière inhabituelle, par rapport à l’activité récente sur ce compte. Causes possibles : 
+   * Une personne malveillante a effectué la reconnaissance d’une attaque future.
+   * Un utilisateur légitime ou une logique d’application a exploré les données au sein du compte de stockage.
+
+
+
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur les [journaux dans les comptes de stockage Azure ](/rest/api/storageservices/About-Storage-Analytics-Logging)
+* En savoir plus sur [journaux dans les comptes de stockage Azure](/rest/api/storageservices/About-Storage-Analytics-Logging)
 
 * En savoir plus sur [Azure Security Center](../../security-center/security-center-intro.md)

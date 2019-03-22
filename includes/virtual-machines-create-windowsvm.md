@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: d4075f644ed1ce42479e35544f0e1442488f78eb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
-ms.translationtype: HT
+ms.openlocfilehash: b0b5e817d5e39dd7800a1482d40c56db5f2be6ff
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29958909"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116122"
 ---
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
@@ -33,13 +33,13 @@ Le panneau Informations de base demande les informations d’administration de l
 
 2. Entrez un **Nom d’utilisateur** et un **Mot de passe** fort qui servent à créer un compte local sur la machine virtuelle. Le compte local est utilisé pour se connecter à la machine virtuelle et la gérer. Dans l’exemple, le nom d’utilisateur est _azureuser_.
 
- Le mot de passe doit compter 8 à 123 caractères et répondre à trois des quatre conditions suivantes : un caractère minuscule, un caractère majuscule, un chiffre et un caractère spécial. En savoir plus sur les [conditions requises pour les noms d’utilisateur et les mots de passe](../articles/virtual-machines/windows/faq.md).
+   Le mot de passe doit compter 8 à 123 caractères et répondre à trois des quatre conditions suivantes : un caractère minuscule, un caractère majuscule, un chiffre et un caractère spécial. En savoir plus sur les [conditions requises pour les noms d’utilisateur et les mots de passe](../articles/virtual-machines/windows/faq.md).
 
 3. **L’Abonnement** est facultatif. Le paramètre le plus courant est « Paiement à l’utilisation ».
 
 4. Sélectionnez un **groupe de ressources** existant ou tapez le nom d’un nouveau groupe. Dans l’exemple, le nom du groupe de ressources est _HeroVMRG_.
 
-5. Sélectionnez **l’Emplacement** du centre de données Azure où vous souhaitez exécuter la machine virtuelle. Dans l’exemple, l’emplacement est **États-Unis de l’Est**.
+5. Sélectionnez **l’Emplacement** du centre de données Azure où vous souhaitez exécuter la machine virtuelle. Dans l’exemple, l’emplacement est **USA Est**.
 
 6. Lorsque vous avez terminé, cliquez sur **Suivant** pour passer au panneau suivant.
 

@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 2/20/2019
 ms.author: victorh
-ms.openlocfilehash: 6c5e0e47f006c6be170bdbf6fee431bfd3b6df0e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 1f6d6b2ae5fd3a0c08d37b93c73656ac6bb71d67
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58105054"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295638"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Vue d’ensemble des enregistrements d’alias Azure DNS
 
@@ -59,6 +59,13 @@ Cette restriction pose un problème aux propriétaires d'applications qui dispos
 Ce problème peut être résolu en utilisant des enregistrements d'alias. Contrairement aux enregistrements CNAME, les enregistrements d'alias peuvent être créés à l'extrémité de la zone, et les propriétaires d'applications peuvent s'en servir pour pointer un enregistrement situé à l'extrémité de la zone vers un profil Traffic Manager doté de points de terminaison externes. Les propriétaires d’applications peuvent pointer vers le même profil Traffic Manager que celui utilisé pour tout autre domaine dans leur zone DNS.
 
 Par exemple, contoso.com et www\.contoso.com peut pointer vers le même profil Traffic Manager. Pour en savoir plus sur l'utilisation des enregistrements d'alias avec les profils Azure Traffic Manager, consultez la section Étapes suivantes.
+
+### <a name="point-zone-apex-to-azure-cdn-endpoints"></a>Point d’extrémité de la zone pour les points de terminaison Azure CDN
+Tout comme un profil Traffic Manager, vous pouvez également utiliser des enregistrements d’alias pour pointer votre apex de la zone DNS vers les points de terminaison Azure CDN. Cela est utile lorsque vous créez des sites Web statiques à l’aide du stockage Azure et Azure CDN. Vous pouvez ensuite accéder au site Web sans ajoutant le préfixe « www » à votre nom DNS.
+
+Par exemple, si votre site Web statique se nomme www.contoso.com, vos utilisateurs peuvent accéder à votre site à l’aide de contoso.com sans avoir besoin d’ajouter des www au nom DNS.
+
+Comme décrit précédemment, les enregistrements CNAME ne sont pas pris en charge à l’extrémité de la zone. Par conséquent, vous ne pouvez pas utiliser un enregistrement CNAME pour pointer contoso.com vers votre point de terminaison CDN. Au lieu de cela, vous pouvez utiliser un enregistrement d’alias pour pointer l’extrémité de la zone à un point de terminaison CDN directement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

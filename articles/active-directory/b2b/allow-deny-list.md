@@ -1,5 +1,5 @@
 ---
-title: Autoriser ou bloquer des invitations aux utilisateurs B2B à partir d’organisations spécifiques - Azure Active Directory | Microsoft Docs
+title: Autoriser ou bloquer des invitations à des organisations spécifiques - Azure Active Directory | Microsoft Docs
 description: Indique comment un administrateur peut utiliser le Portail Azure ou PowerShell pour définir une liste verte ou d’exclusion pour autoriser ou bloquer des utilisateurs B2B à partir de certains domaines.
 services: active-directory
 ms.service: active-directory
@@ -10,13 +10,14 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1921def9f09df899a884aa402c5e0f4e9fc16824
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8f1121b72bf631cbcee4c8d9502fd8a439c26fbf
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181318"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440112"
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Autoriser ou bloquer des invitations aux utilisateurs B2B à partir d’organisations spécifiques
 

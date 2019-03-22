@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
+ms.date: 03/05/2019
 ms.author: aschhab
-ms.openlocfilehash: 5b9aae979a25a1f175b3d5a5e24960d6f392b9b4
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 859add6c9310cf5f18ed7090c8e93d4896b59a0b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852930"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433380"
 ---
 # <a name="service-bus-pricing-and-billing"></a>Tarification et facturation de Service Bus
 
@@ -74,7 +74,7 @@ Le niveau Standard supprime la limite de connexion répartie par espace de noms 
 <br />
 
 > [!NOTE]
-> La facturation est basée sur le nombre maximal de connexions simultanées et est calculée au prorata toutes les heures basées sur 744 heures par mois.
+> La facturation est basée sur le nombre maximal de connexions simultanées et est calculée au prorata en fonction de 730 heures par mois.
 >
 >
 
@@ -91,12 +91,12 @@ Une connexion répartie est définie comme suit :
 1. Une connexion AMQP d’un client à une file d’attente ou une rubrique/un abonnement Service Bus.
 2. Un appel HTTP pour recevoir le message d’une rubrique ou d’une file d’attente Service Bus dont le délai d’expiration de réception est supérieur à zéro.
 
-Service Bus facture le nombre maximal de connexions simultanées réparties qui dépassent la quantité incluse (1 000 au niveau standard). Des pics sont mesurés toutes les heures, au prorata en divisant les valeurs par 744 heures par mois et en les ajoutant à la période de facturation mensuelle. La quantité incluse (1 000 connexions réparties par mois) est appliquée à la fin de la période de facturation par rapport à la somme des pics horaires calculés au prorata.
+Service Bus facture le nombre maximal de connexions simultanées réparties qui dépassent la quantité incluse (1 000 au niveau standard). Pics sont mesurés sur une base horaire proratisées en divisant par 730 heures par mois et ajoutés à la période de facturation mensuelle. La quantité incluse (1 000 connexions réparties par mois) est appliquée à la fin de la période de facturation par rapport à la somme des pics horaires calculés au prorata.
 
 Par exemple : 
 
-1. Chacun des 10 000 appareils se connecte via une connexion AMQP unique et reçoit des commandes à partir d’une rubrique Service Bus. Les appareils envoient des événements de télémétrie à un Event Hub. Si tous les appareils sont connectés 12 heures par jour, les frais de connexion suivants s'appliquent (en plus des autres frais liés à Service Bus) : 10 000 connexions x 12 heures x 31 jours / 744 = 5 000 connexions réparties. Après le volume mensuel de 1 000 connexions réparties, vous serez facturé pour les 4 000 connexions réparties, au tarif de 0,03 $ par connexion répartie, pour un total de 120 $.
-2. 10 000 appareils reçoivent des messages d'une file d'attente Service Bus via HTTP, en spécifiant un délai d'expiration différent de zéro. Si tous les appareils sont connectés 12 heures par jour, vous obtiendrez les frais de connexion suivants (en plus des autres frais liés à Service Bus) : 10 000 connexions de réception HTTP x 12 heures par jour x 31 jours / 744 heures = 5 000 connexions réparties.
+1. Chacun des 10 000 appareils se connecte via une connexion AMQP unique et reçoit des commandes à partir d’une rubrique Service Bus. Les appareils envoient des événements de télémétrie à un Event Hub. Si tous les appareils sont connectés 12 heures par jour, les frais de connexion suivants s'appliquent (en plus des autres frais liés à Service Bus) : 10 000 connexions * 12 heures * 30 jours / 730 = 4,931 les connexions négociées. Après le volume mensuel de 1 000 connexions réparties, vous serez facturé pour les 4 000 connexions réparties, au tarif de 0,03 $ par connexion répartie, pour un total de 120 $.
+2. 10 000 appareils reçoivent des messages d'une file d'attente Service Bus via HTTP, en spécifiant un délai d'expiration différent de zéro. Si tous les appareils sont connectés 12 heures par jour, vous obtiendrez les frais de connexion suivants (en plus des autres frais liés à Service Bus) : 10 000 connexions de réception HTTP * 12 heures par jour * 30 jours / heures 730 = 4,931 les connexions négociées.
 
 ### <a name="do-brokered-connection-charges-apply-to-queues-and-topicssubscriptions"></a>Des frais de connexion répartie s’appliquent-ils aux files d’attente et rubriques/abonnements ?
 

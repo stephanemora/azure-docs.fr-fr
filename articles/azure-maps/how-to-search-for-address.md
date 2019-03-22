@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: cd6927cccfa85c8409d612a40a4e708e81af746a
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: ba5ea7205a5d0e5fdbadc8a1ba955091ae95b569
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413547"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56875784"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Rechercher une adresse à l’aide du service Azure Maps Search
 
 Le service Azure Maps Search est un ensemble d’API RESTful destinées aux développeurs souhaitant rechercher des adresses, des lieux, des points d’intérêt, des listes d’entreprises et d’autres informations d’ordre géographique. Le service affecte une combinaison latitude/longitude à une adresse, intersection, caractéristique géographique ou point d’intérêt spécifique. Les valeurs de latitude et de longitude renvoyées par le service peuvent être utilisées comme paramètres dans d’autres services Azure Maps, tels que les itinéraires et les flux de trafic.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour appeler les API du service Maps, vous avez besoin d’un compte et d’une clé Maps. Pour plus d’informations sur la création d’un compte et la récupération d’une clé, consultez [How to manage your Azure Maps account and keys](how-to-manage-account-keys.md) (Gérer votre compte et vos clés Azure Maps).
 
@@ -37,7 +37,7 @@ La plupart des requêtes de recherche utilisent par défaut le paramétrage `max
 
 2. Sous l’onglet Builder (Générateur), sélectionnez la méthode **GET**, puis entrez l’URL de la requête pour le point de terminaison de votre API.
 
-    ![Recherche approximative ](./media/how-to-search-for-address/fuzzy_search_url.png)
+    ![Recherche approximative](./media/how-to-search-for-address/fuzzy_search_url.png)
 
     | Paramètre | Valeur suggérée |
     |---------------|------------------------------------------------|
@@ -49,7 +49,7 @@ La plupart des requêtes de recherche utilisent par défaut le paramétrage `max
 
 3. Cliquez sur **Params** (Paramètres), puis entrez les paires clé/valeur suivantes à utiliser en tant que paramètres de requête ou de chemin d’accès dans l’URL de requête :
 
-    ![Recherche approximative ](./media/how-to-search-for-address/fuzzy_search_params.png)
+    ![Recherche approximative](./media/how-to-search-for-address/fuzzy_search_params.png)
 
     | Clé | Valeur |
     |------------------|-------------------------|
@@ -75,7 +75,7 @@ La plupart des requêtes de recherche utilisent par défaut le paramétrage `max
   
 6. Dans Params (Paramètres), entrez la paire clé/valeur suivante, puis cliquez sur **Send** (Envoyer) :
 
-    ![Recherche approximative ](./media/how-to-search-for-address/fuzzy_search_latlon.png)
+    ![Recherche approximative](./media/how-to-search-for-address/fuzzy_search_latlon.png)
   
     | Clé | Valeur |
     |-----|------------|
@@ -89,7 +89,7 @@ Vous pouvez transmettre une adresse postale complète ou partielle à l’API Se
 1. Dans Postman, cliquez sur **New Request** (Nouvelle requête) | **GET request** (Requête GET) et nommez-la **Address Search** (Recherche d’adresses).
 2. Sous l’onglet Builder (Générateur), sélectionnez la méthode HTTP **GET**, entrez l’URL de la requête pour le point de terminaison de votre API et sélectionnez un protocole d’autorisation, le cas échéant.
 
-    ![Recherche d’adresses ](./media/how-to-search-for-address/address_search_url.png)
+    ![Recherche d’adresses](./media/how-to-search-for-address/address_search_url.png)
   
     | Paramètre | Valeur suggérée |
     |---------------|------------------------------------------------|
@@ -99,7 +99,7 @@ Vous pouvez transmettre une adresse postale complète ou partielle à l’API Se
 
 3. Cliquez sur **Params** (Paramètres), puis entrez les paires clé/valeur suivantes à utiliser en tant que paramètres de requête ou de chemin d’accès dans l’URL de requête :
   
-    ![Recherche d’adresses ](./media/how-to-search-for-address/address_search_params.png)
+    ![Recherche d’adresses](./media/how-to-search-for-address/address_search_params.png)
   
     | Clé | Valeur |
     |------------------|-------------------------|
@@ -130,7 +130,7 @@ Vous pouvez transmettre une adresse postale complète ou partielle à l’API Se
 
 2. Sous l’onglet Builder (Générateur), sélectionnez la méthode **GET**, puis entrez l’URL de la requête pour le point de terminaison de votre API.
   
-    ![URL de la recherche d’adresse inverse ](./media/how-to-search-for-address/reverse_address_search_url.png)
+    ![URL de la recherche d’adresse inverse](./media/how-to-search-for-address/reverse_address_search_url.png)
   
     | Paramètre | Valeur suggérée |
     |---------------|------------------------------------------------|
@@ -140,7 +140,7 @@ Vous pouvez transmettre une adresse postale complète ou partielle à l’API Se
   
 3. Cliquez sur **Params** (Paramètres), puis entrez les paires clé/valeur suivantes à utiliser en tant que paramètres de requête ou de chemin d’accès dans l’URL de requête :
   
-    ![Paramètres de la recherche d’adresse inverse ](./media/how-to-search-for-address/reverse_address_search_params.png)
+    ![Paramètres de la recherche d’adresse inverse](./media/how-to-search-for-address/reverse_address_search_params.png)
   
     | Clé | Valeur |
     |------------------|-------------------------|
@@ -190,7 +190,7 @@ Vous pouvez transmettre une adresse postale complète ou partielle à l’API Se
 
 2. Sous l’onglet Builder (Générateur), sélectionnez la méthode **GET**, puis entrez l’URL de la requête pour le point de terminaison de votre API.
   
-    ![Recherche d’intersection d’adresse inverse ](./media/how-to-search-for-address/reverse_address_search_url.png)
+    ![Recherche d’intersection d’adresse inverse](./media/how-to-search-for-address/reverse_address_search_url.png)
   
     | Paramètre | Valeur suggérée |
     |---------------|------------------------------------------------|

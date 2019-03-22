@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4ed44bff002ed8422f199c24a566fe6ff606af8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 3a1a334c6c7852923da94403352bb7318b241629
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190651"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56735842"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-trisotech-digital-enterprise-server"></a>Tutoriel : Intégration d’Azure Active Directory à Trisotech Digital Enterprise Server
+# <a name="tutorial-azure-active-directory-integration-with-trisotech-digital-enterprise-server"></a>Didacticiel : Intégration d’Azure Active Directory à Trisotech Digital Enterprise Server
 
 Dans ce tutoriel, vous allez apprendre à intégrer Trisotech Digital Enterprise Server avec Azure Active Directory (Azure AD).
 
@@ -35,7 +35,7 @@ L’intégration de Trisotech Digital Enterprise Server à Azure AD vous offre l
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD à Trisotech Digital Enterprise Server, vous avez besoin des éléments suivants :
 
@@ -150,7 +150,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
     f. Cliquez sur **Enregistrer**.
 
- ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 

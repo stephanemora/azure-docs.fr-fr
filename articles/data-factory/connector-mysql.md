@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 1bc2277b4100fe7571dc27758de12f1ca00020a1
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: e05e2f2d04aeb572307f8114ca80f148b3d50e3d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656506"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124029"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Copier des données de MySQL à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -32,7 +32,7 @@ Vous pouvez copier des données d’une base de données MySQL vers toute banque
 
 Plus précisément, ce connecteur MySQL prend en charge MySQL **versions 5.6 et 5.7**.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Si votre base de données MySQL n’est pas accessible publiquement, vous devez configurer un runtime d’intégration auto-hébergé. Pour en savoir plus sur les runtimes d’intégration auto-hébergés, voir l’article [Runtime d’intégration auto-hébergé](create-self-hosted-integration-runtime.md). Le runtime d’intégration fournit un pilote MySQL intégré à partir de la version 3.7. Ainsi, vous n’avez pas besoin d’installer manuellement un pilote.
 
@@ -51,13 +51,13 @@ Les propriétés prises en charge pour le service lié MySQL sont les suivantes�
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type doit être définie sur : **MySql** | Oui |
-| connectionString | Spécifiez les informations nécessaires pour vous connecter à l’instance d’Azure Database pour MySQL.<br/>Marquez ce champ comme SecureString pour le stocker de façon sécurisée dans Data Factory. Vous pouvez également définir un mot de passe dans Azure Key Vault et extraire la configuration `password` de la chaîne de connexion. Reportez-vous aux exemples suivants et à l’article [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md) pour plus de détails. | Oui |
+| connectionString | Spécifiez les informations nécessaires pour vous connecter à l’instance d’Azure Database pour MySQL.<br/>Marquez ce champ comme SecureString pour le stocker de façon sécurisée dans Data Factory. Vous pouvez également définir un mot de passe dans Azure Key Vault et extraire la configuration `password` de la chaîne de connexion. Pour plus d’informations, reportez-vous aux exemples suivants et à l’article [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser un runtime d’intégration auto-hébergé ou un runtime d’intégration Azure (si votre banque de données est accessible publiquement). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
 
 Une chaîne de connexion par défaut typique est `Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`. Plus de propriétés que vous pouvez définir pour votre cas :
 
 | Propriété | Description | Options | Obligatoire |
-|:--- |:--- |:--- |:--- |:--- |
+|:--- |:--- |:--- |:--- |
 | SSLMode | Cette option spécifie si le pilote utilise le chiffrement SSL et la vérification lors de la connexion à MySQL. Par exemple, `SSLMode=<0/1/2/3/4>`| DISABLED (0) / PREFERRED (1) **(par défaut)** / REQUIRED (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | Non  |
 | UseSystemTrustStore | Cette option indique s’il faut utiliser un certificat d’autorité de certification provenant du magasin de confiance du système ou d’un fichier PEM spécifié. Par exemple, `UseSystemTrustStore=<0/1>;`| Enabled (1) / Disabled (0) **(par défaut)** | Non  |
 

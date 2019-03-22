@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 3/01/2019
 ms.author: pullabhk
-ms.openlocfilehash: 25c78e4050f1f5fdb02500fa1f206f6cf05e7134
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 22ada6f9bb614bdc3698c58c6aa8ec3dd5def868
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58111954"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259536"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Récupérer des fichiers à partir d’une sauvegarde de machine virtuelle Azure
 
@@ -67,16 +67,16 @@ Pour restaurer des fichiers ou dossiers à partir du point de récupération, ac
 
     - download.microsoft.com
     - URL Recovery Services (le nom de zone géographique fait référence à la région où réside le coffre Recovery Services.)
-        - <https://pod01-rec2.geo-name.backup.windowsazure.com> (Pour les zones géographiques Azure publiques)
-        - <https://pod01-rec2.geo-name.backup.windowsazure.cn> (Pour Azure Chine)
-        - <https://pod01-rec2.geo-name.backup.windowsazure.us> (Pour Azure US Government)
-        - <https://pod01-rec2.geo-name.backup.windowsazure.de> (Pour Azure Allemagne)
+        - https :\//pod01-rec2.geo-name.backup.windowsazure.com (Azure pour les zones géographiques publiques)
+        - https :\//pod01-rec2.geo-name.backup.windowsazure.cn (pour Azure-Chine)
+        - https :\//pod01-rec2.geo-name.backup.windowsazure.us (pour Azure US Government)
+        - https :\//pod01-rec2.geo-name.backup.windowsazure.de (pour Azure Allemagne)
     - port sortant 3260
 
 > [!Note]
 > 
 > * Le nom de fichier de script téléchargé aura le **géo-name** doivent être remplis dans l’URL. Pour, par exemple : Le nom de script téléchargé commence par \'VMname\'\_\'geoname\'_\'GUID\', telles que ContosoVM_wcus_12345678...<br><br>
-> * L’URL serait «<https://pod01-rec2.wcus.backup.windowsazure.com>»
+> * L’URL serait « https :\//pod01-rec2.wcus.backup.windowsazure.com »
 
 
    Pour Linux, le script requiert les composants « open-iscsi » et « lshw » pour vous connecter au point de récupération. Si les composants n’existent pas sur l’ordinateur depuis lequel le script est exécuté, le script demande l’autorisation d’installer les composants. Autorisez l’installation des composants nécessaires.

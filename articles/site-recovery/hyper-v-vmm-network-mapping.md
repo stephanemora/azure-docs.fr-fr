@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 3ca3222f47b6a728905f895007269e3c22acd66d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: cefde79cf8c544a6900b1efa5dbcefbc43638d40
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789940"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009970"
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-disaster-recovery-to-azure"></a>Préparer le mappage réseau pour la récupération d’urgence de machines virtuelles Hyper-V sur Azure
 
@@ -24,8 +24,8 @@ Cet article vous aide à comprendre et à préparer un mappage réseau pour la r
 ## <a name="prepare-network-mapping-for-replication-to-azure"></a>Préparer le mappage réseau pour la réplication vers Azure
 
 Lorsque vous effectuez une réplication vers Azure, le mappage réseau opère entre des réseaux de machines virtuelles sur un serveur VMM source, et des réseaux virtuels Azure cibles. Il effectue les opérations suivantes :
-    -  **Connexion réseau** : s’assure que les machines virtuelles Azure répliquées sont connectées au réseau mappé. Toutes les machines qui basculent sur le même réseau peuvent se connecter entre elles, même si elles ont basculé dans des plans de récupération différents.
-    - **Passerelle réseau** : si une passerelle réseau est configurée sur le réseau Azure cible, les machines virtuelles peuvent se connecter à d’autres machines virtuelles locales.
+-  **Connexion réseau** : s’assure que les machines virtuelles Azure répliquées sont connectées au réseau mappé. Toutes les machines qui basculent sur le même réseau peuvent se connecter entre elles, même si elles ont basculé dans des plans de récupération différents.
+- **Passerelle réseau** : si une passerelle réseau est configurée sur le réseau Azure cible, les machines virtuelles peuvent se connecter à d’autres machines virtuelles locales.
 
 Le mappage réseau fonctionne de la façon détaillée ici.
 

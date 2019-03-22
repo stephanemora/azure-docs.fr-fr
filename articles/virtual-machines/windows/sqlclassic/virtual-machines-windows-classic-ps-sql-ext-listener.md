@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
-ms.openlocfilehash: 449df8e49eb63cb6e52cd4ec25dafc2bb0851347
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 89623adbddce07cbc3c3ead811f5174d108c9b0e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241757"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444784"
 ---
 # <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>Configurer un écouteur externe pour les groupes de disponibilité Always On dans Azure
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.locfileid: "51241757"
 Cette rubrique explique comment configurer un écouteur pour un groupe de disponibilité Always On accessible en externe sur Internet. Il est possible d’associer l’ **adresse IP virtuelle publique** du service cloud à l’écouteur.
 
 > [!IMPORTANT] 
-> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../../../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager.
+> Azure a deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../../../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager.
 
 Votre groupe de disponibilité peut contenir des réplicas locaux uniquement, Azure uniquement, ou locaux et Azure pour les configurations hybrides. Les réplicas Azure peuvent se trouver dans une même région ou dans plusieurs régions grâce à plusieurs réseaux virtuels. Les étapes suivantes supposent que vous avez déjà [configuré un groupe de disponibilité](../classic/portal-sql-alwayson-availability-groups.md), mais pas un écouteur.
 
@@ -123,11 +123,11 @@ Créez l’écouteur de groupe de disponibilité en deux étapes. Tout d’abord
 [!INCLUDE [Test-Listener-Within-VNET](../../../../includes/virtual-machines-ag-listener-test.md)]
 
 ## <a name="test-the-availability-group-listener-over-the-internet"></a>Tester l'écouteur du groupe de disponibilité (sur Internet)
-Pour accéder à l'écouteur depuis l'extérieur du réseau virtuel, vous devez utiliser l'équilibrage de charge externe/public (décrit dans cette rubrique) au lieu de l'équilibrage de charge interne, qui est accessible uniquement dans le même réseau virtuel. Dans la chaîne de connexion, vous spécifiez le nom du service cloud. Par exemple, si vous avez un service cloud nommé *mycloudservice*, l’instruction sqlcmd se présente comme suit :
+Pour accéder à l’écouteur à partir de l’extérieur du réseau virtuel, vous devez utiliser l’équilibrage de charge externe/public (décrit dans cette rubrique) au lieu de l’équilibreur de charge interne, qui est uniquement accessible dans le même réseau virtuel. Dans la chaîne de connexion, vous spécifiez le nom du service cloud. Par exemple, si vous avez un service cloud nommé *mycloudservice*, l’instruction sqlcmd se présente comme suit :
 
     sqlcmd -S "mycloudservice.cloudapp.net,<EndpointPort>" -d "<DatabaseName>" -U "<LoginId>" -P "<Password>"  -Q "select @@servername, db_name()" -l 15
 
-Contrairement à l'exemple précédent, l'authentification SQL est nécessaire, car l'appelant ne peut pas utiliser l'authentification Windows sur internet. Pour plus d’informations, voir [Always On Availability Group in Azure VM: Client Connectivity Scenarios](https://blogs.msdn.com/b/sqlcat/archive/2014/02/03/alwayson-availability-group-in-windows-azure-vm-client-connectivity-scenarios.aspx)(Groupes de disponibilité Always On dans Azure VM : scénarios de connectivité client). Lorsque vous utilisez l'authentification SQL, veillez à créer la même connexion sur les deux réplicas. Pour plus d’informations sur la résolution des problèmes de connexions avec des groupes de disponibilité, consultez la rubrique [Comment mapper des connexions ou utiliser des utilisateurs de base de données SQL à relation contenant-contenu pour se connecter à d’autres réplicas et mapper aux bases de données de disponibilité](https://blogs.msdn.com/b/alwaysonpro/archive/2014/02/19/how-to-map-logins-or-use-contained-sql-database-user-to-connect-to-other-replicas-and-map-to-availability-databases.aspx).
+Contrairement à l'exemple précédent, l'authentification SQL est nécessaire, car l'appelant ne peut pas utiliser l'authentification Windows sur internet. Pour plus d’informations, consultez [groupe de disponibilité AlwaysOn dans Azure VM : Scénarios de connectivité client](https://blogs.msdn.com/b/sqlcat/archive/2014/02/03/alwayson-availability-group-in-windows-azure-vm-client-connectivity-scenarios.aspx). Lorsque vous utilisez l'authentification SQL, veillez à créer la même connexion sur les deux réplicas. Pour plus d’informations sur la résolution des problèmes de connexions avec des groupes de disponibilité, consultez la rubrique [Comment mapper des connexions ou utiliser des utilisateurs de base de données SQL à relation contenant-contenu pour se connecter à d’autres réplicas et mapper aux bases de données de disponibilité](https://blogs.msdn.com/b/alwaysonpro/archive/2014/02/19/how-to-map-logins-or-use-contained-sql-database-user-to-connect-to-other-replicas-and-map-to-availability-databases.aspx).
 
 Si les réplicas Always On figurent dans des sous-réseaux distincts, les clients doivent spécifier **MultisubnetFailover=True** dans la chaîne de connexion. Cela entraîne des tentatives parallèles de connexion aux réplicas dans les différents sous-réseaux. Notez que ce scénario inclut un déploiement de groupe de disponibilité Always On dans plusieurs régions.
 

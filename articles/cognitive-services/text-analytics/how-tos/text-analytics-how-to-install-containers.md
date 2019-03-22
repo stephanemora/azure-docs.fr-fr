@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 6ad48bb6e7d9c2fd0365b26999b67ad8c62fc42c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5f757218d29317f82339967a327f34438c62ab96
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58000265"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294142"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Installer et exécuter les conteneurs Analyse de texte
 
@@ -26,7 +26,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-Pour exécuter l’un des conteneurs Analyse de texte, vous devez disposer des éléments suivants :
+Pour exécuter un des conteneurs d’Analytique de texte, vous devez disposer les environnements d’ordinateur et le conteneur hôte.
 
 ## <a name="preparation"></a>Préparation
 
@@ -46,11 +46,14 @@ Vous devez respecter les prérequis suivants avant d’utiliser les conteneurs A
 
 Le tableau suivant décrit les cœurs de processeur minimum et recommandés, d’au moins 2,6 gigahertz (GHz) ou plus rapides, et la mémoire, en gigaoctets (Go), à allouer pour chaque conteneur Analyse de texte.
 
-| Conteneur | Minimale | Recommandé |
-|-----------|---------|-------------|
-|Extraction d’expressions clés | 1 cœur, 2 Go de mémoire | 1 cœur, 4 Go de mémoire |
-|Détection de la langue | 1 cœur, 2 Go de mémoire | 1 cœur, 4 Go de mémoire |
-|Analyse des sentiments | 1 cœur, 2 Go de mémoire | 1 cœur, 4 Go de mémoire |
+| Conteneur | Minimale | Recommandé | TPS<br>(Au minimum, Maximum)|
+|-----------|---------|-------------|--|
+|Extraction d’expressions clés | 1 cœur, 2 Go de mémoire | 1 cœur, 4 Go de mémoire |15, 30|
+|Détection de la langue | 1 cœur, 2 Go de mémoire | 1 cœur, 4 Go de mémoire |15, 30|
+|Analyse des sentiments | 1 cœur, 2 Go de mémoire | 1 cœur, 4 Go de mémoire |15, 30|
+
+* Chaque cœur doit être cadencé à au moins 2,6 gigahertz (GHz).
+* Programmes transactionnels - transactions par seconde
 
 Le nombre de cœurs et la quantité de mémoire correspondent aux paramètres `--cpus` et `--memory` qui sont utilisés dans le cadre de la commande `docker run`.
 
@@ -64,7 +67,7 @@ Images conteneur pour Analyse de texte disponibles à partir de Microsoft Contai
 |Détection de la langue | `mcr.microsoft.com/azure-cognitive-services/language` |
 |Analyse des sentiments | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
 
-Utilisez la commande [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) pour télécharger une image conteneur à partir de Microsoft Container Registry.
+Utilisez le [ `docker pull` ](https://docs.docker.com/engine/reference/commandline/pull/) commande pour télécharger une image de conteneur à partir du Registre de conteneurs de Microsoft.
 
 Pour obtenir une description complète des balises disponibles pour les conteneurs Analyse de texte, consultez les conteneurs suivants dans le Docker Hub :
 
@@ -125,7 +128,7 @@ ApiKey={BILLING_KEY}
 Cette commande :
 
 * Exécute un conteneur de phrases clés à partir d’une image conteneur
-* Alloue des cœurs à UC unique et 4 gigaoctets (Go) de mémoire
+* Alloue un cœur de processeur et 4 gigaoctets (Go) de mémoire.
 * Expose le port TCP 5000 et alloue un pseudo-TTY pour le conteneur
 * Supprime automatiquement le conteneur après sa fermeture. L’image conteneur est toujours disponible sur l’ordinateur hôte. 
 

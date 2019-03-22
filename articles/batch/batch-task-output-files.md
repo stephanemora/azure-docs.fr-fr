@@ -10,15 +10,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 11/14/2018
+ms.date: 03/05/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 0aa0be7ae9658259b327014c5678777c963e6cb5
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
-ms.translationtype: HT
+ms.openlocfilehash: 1d2d53213af34377d23c9ea140bab15822fc1b2e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54302814"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444767"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Conserver les données de tâche dans le stockage Azure avec l’API de service Batch
 
@@ -36,9 +36,6 @@ Azure Batch offre plusieurs manières de conserver le résultat de la tâche. L�
 - Vous souhaitez conserver le résultat des tâches Batch et des tâches du Gestionnaire de travaux dans des pools créés avec la configuration de machine virtuelle.
 - Vous souhaitez conserver le résultat vers un conteneur de stockage Azure avec un nom arbitraire.
 - Vous souhaitez conserver le résultat vers un conteneur de stockage Azure nommé conformément à la [norme relative aux Conventions applicables aux fichiers Batch](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). 
-
-> [!NOTE]
-> L’API du service Batch ne prend pas en charge la conservation des données des tâches s’exécutant dans des pools créés avec la configuration de service cloud. Pour plus d’informations sur la conservation d’une sortie de tâche à partir de pools exécutant la configuration de services cloud, consultez [Conserver les données des travaux et des tâches dans le Stockage Azure avec la bibliothèque Batch File Conventions pour .NET](batch-task-output-file-conventions.md).
 
 Si votre scénario diffère de ceux répertoriés ci-dessus, vous devrez peut-être envisager une approche différente. Par exemple, l’API de service Batch ne prend pas en charge actuellement la diffusion en continu du résultat vers le stockage Azure pendant l’exécution de la tâche. Pour diffuser le résultat en continu, utilisez la bibliothèque de Conventions applicables aux fichiers Batch, disponible pour .NET. Pour d’autres langages, vous devez implémenter votre propre solution. Pour plus d’informations sur les autres options de persistance le résultat de tâche, consultez [Conserver les résultats de travaux et tâches terminés dans le stockage Azure](batch-task-output.md).
 

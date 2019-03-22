@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: f7d7b7f470f43d8a7a1cd94b4b1ce79503f0dfca
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: 0587782cbfa31f7b397b950a752040cc678cf7d7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301024"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085811"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>Instrumenter des applications web lors de l’exécution avec Application Insights Status Monitor
 
@@ -27,7 +27,7 @@ Status Monitor est utilisé pour instrumenter une application .NET hébergée da
 
 - Si votre application est déployée dans Azure App Services, suivez [les instructions ci-dessous](azure-web-apps.md).
 - Si votre application est déployé dans une machine virtuelle Azure, vous pouvez activer l’analyse Application Insights à partir du panneau de configuration Azure.
-- (Des articles distincts sont également consacrés à l’instrumentation des [applications web Java EE actives](java-live.md) et [d’Azure Cloud Services](../../azure-monitor/app/cloudservices.md).)
+- (Il existe également des articles distincts sur l’instrumentation [Azure Cloud Services](../../azure-monitor/app/cloudservices.md).)
 
 
 ![Capture d’écran des graphiques de vue d’ensemble App Insights qui contiennent des informations sur les demandes ayant échoué, le temps de réponse du serveur et les requêtes serveur](./media/monitor-performance-live-website-now/overview-graphs.png)
@@ -44,14 +44,14 @@ Voici un résumé de ce que vous apporte chaque méthode :
 
 |  | En cours de création | En cours d’exécution |
 | --- | --- | --- |
-| Requêtes et exceptions |OUI |OUI |
-| [Exceptions plus détaillées](../../azure-monitor/app/asp-net-exceptions.md) | |OUI |
+| Requêtes et exceptions |Oui |Oui |
+| [Exceptions plus détaillées](../../azure-monitor/app/asp-net-exceptions.md) | |Oui |
 | [Diagnostics de dépendance](../../azure-monitor/app/asp-net-dependencies.md) |Sur .NET 4.6 +, mais moins détaillé |Oui, tous les détails : codes de résultat, texte de commande SQL, verbe HTTP|
-| [Compteurs de performances système](../../azure-monitor/app/performance-counters.md) |OUI |OUI |
-| [API pour la télémétrie personnalisée][api] |OUI |Non  |
-| [Intégration des journaux de suivi](../../azure-monitor/app/asp-net-trace-logs.md) |OUI |Non  |
-| [Mode Page et données utilisateur](../../azure-monitor/app/javascript.md) |OUI |Non  |
-| Nécessité de régénérer le code |OUI | Non  |
+| [Compteurs de performances système](../../azure-monitor/app/performance-counters.md) |Oui |Oui |
+| [API pour la télémétrie personnalisée][api] |Oui |Non  |
+| [Intégration des journaux de suivi](../../azure-monitor/app/asp-net-trace-logs.md) |Oui |Non  |
+| [Mode Page et données utilisateur](../../azure-monitor/app/javascript.md) |Oui |Non  |
+| Nécessité de régénérer le code |Oui | Non  |
 
 
 
@@ -98,14 +98,14 @@ Voici quelques étapes à suivre pour vérifier que votre installation a réussi
 - Vérifiez que le fichier applicationinsights.config est présent dans le répertoire de l'application cible et contient votre iKey.
 
 - Si vous pensez que des données sont manquantes, vous pouvez exécuter une requête simple dans [Analytics](../log-query/get-started-portal.md) afin de répertorier tous les rôles de cloud qui envoient des données de télémétrie.
-```Kusto
-union * | summarize count() by cloud_RoleName, cloud_RoleInstance
-```
+  ```Kusto
+  union * | summarize count() by cloud_RoleName, cloud_RoleInstance
+  ```
 
 - Si vous devez vérifier qu'Application Insights est correctement attaché, vous pouvez exécuter [Sysinternals Handle](https://docs.microsoft.com/sysinternals/downloads/handle) dans une commande de fenêtre afin de vous assurer que applicationinsights.dll a été chargé par IIS.
-```cmd
-handle.exe /p w3wp.exe
-```
+  ```cmd
+  handle.exe /p w3wp.exe
+  ```
 
 
 ### <a name="cant-connect-no-telemetry"></a>Vous n’arrivez pas à vous connecter ? Vous n’obtenez aucune donnée de télémétrie ?

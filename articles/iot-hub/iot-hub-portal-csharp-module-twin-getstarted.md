@@ -1,20 +1,20 @@
 ---
 title: Prise en main de l’identité de module et du jumeau de module Azure IoT Hub (portail et .NET) | Microsoft Docs
 description: Découvrez comment créer une identité de module et comment mettre à jour un jumeau de module à l’aide du portail et de .NET.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/26/2018
-ms.author: dobett
-ms.openlocfilehash: 6048ddbcfed4ab929d521693175c456ad91f22e2
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: f323eb777d98a812ead8dd8ac78ee3d6b36a748a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447099"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57545818"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>Prise en main de l’identité de module et du jumeau de module IoT Hub à l’aide du portail et d’un appareil .NET
 
@@ -71,7 +71,7 @@ Dans Visual Studio, ajoutez un projet Visual C# Bureau classique Windows à la 
 
 ## <a name="install-the-latest-azure-iot-hub-net-device-sdk"></a>Installer le dernier SDK d’appareil .NET Azure IoT Hub
 
-L’identité de module et le jumeau de module sont disponibles en préversion publique. Ils sont uniquement disponibles dans les kits de développement logiciel d’appareil IoT Hub en préversion. Dans Visual Studio, ouvrez Outils > Gestionnaire de package Nuget > Gérer les packages Nuget pour la solution. Recherchez Microsoft.Azure.Devices.Client. Assurez-vous de cocher la case Inclure la version préliminaire. Sélectionnez la version la plus récente et installez-la. Vous avez maintenant accès à toutes les fonctionnalités de module. 
+L’identité de module et le jumeau de module sont disponibles en préversion publique. Ils sont uniquement disponibles dans les kits SDK d’appareil IoT Hub en préversion. Dans Visual Studio, ouvrez Outils > Gestionnaire de package Nuget > Gérer les packages Nuget pour la solution. Recherchez Microsoft.Azure.Devices.Client. Assurez-vous de cocher la case Inclure la version préliminaire. Sélectionnez la version la plus récente et installez-la. Vous avez maintenant accès à toutes les fonctionnalités de module. 
 
   ![Installer le kit SDK du service NET Azure IoT Hub V1.16.0-préversion-005][14]
 
@@ -177,7 +177,7 @@ Pour continuer la prise en main de IoT Hub et explorer les autres scénarios IoT
 [15]: ./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
 <!-- Links -->
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
-[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
 [lnk-csharp-csharp-getstarted]: iot-hub-csharp-csharp-module-twin-getstarted.md

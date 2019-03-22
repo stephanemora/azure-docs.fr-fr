@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: ff202c85f20adce173a375987a5f2250fda565b2
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: 4d259523d3f7fe7165d0ef4c8a5aac12bd7cd823
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041184"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123774"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Traitement de base de données serverless à l’aide d’Azure Cosmos DB et d’Azure Functions
 
@@ -19,7 +19,7 @@ L’informatique sans serveur permet de se concentrer sur des éléments de logi
 
 Grâce à l’intégration native entre [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) et Azure Functions, vous pouvez créer des déclencheurs de base de données, des liaisons d’entrée et des liaisons de sortie directement à partir de votre compte Azure Cosmos DB. À l’aide d’Azure Functions et d’Azure Cosmos DB, vous pouvez créer et déployer des applications sans serveur basées sur les événements avec un accès à faible latence aux données enrichies pour une base d’utilisateurs globale.
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Azure Cosmos DB et Azure Functions permettent d’intégrer vos bases de données et applications sans serveur comme suit :
 
@@ -97,11 +97,11 @@ Dans les implémentations de vente au détail, lorsqu’un utilisateur ajoute un
 
 1. Vous pouvez créer plusieurs fonctions Azure en ajoutant à chacune d’elles des déclencheurs Azure Cosmos DB, qui écoutent tous le même flux de modification des données des paniers. Notez que lorsque plusieurs fonctions écoutent le même flux de modification, une nouvelle collection de baux est requise pour chaque fonction. Pour plus d’informations sur les collections de baux, consultez [Présentation de la bibliothèque du processeur de flux de modification](change-feed-processor.md).
 2. Lorsqu’un utilisateur ajoute un nouvel élément à son panier, chaque fonction est appelée indépendamment par le flux de modification à partir du conteneur de panier.
-    * Une fonction peut utiliser le contenu du panier actuel pour modifier l’affichage d’autres éléments qui pourraient intéresser l’utilisateur.
-    * Une autre fonction peut mettre à jour les totaux des inventaires.
-    * Une autre fonction peut envoyer des informations client pour certains produits au service marketing, qui leur envoie ensuite un publipostage promotionnel. 
+   * Une fonction peut utiliser le contenu du panier actuel pour modifier l’affichage d’autres éléments qui pourraient intéresser l’utilisateur.
+   * Une autre fonction peut mettre à jour les totaux des inventaires.
+   * Une autre fonction peut envoyer des informations client pour certains produits au service marketing, qui leur envoie ensuite un publipostage promotionnel. 
 
-    Tout service peut créer un déclencheur Azure Cosmos DB en écoutant le flux de modification et s’assurer ainsi de ne retarder aucun événement de traitement des commandes critique dans le processus.
+     Tout service peut créer un déclencheur Azure Cosmos DB en écoutant le flux de modification et s’assurer ainsi de ne retarder aucun événement de traitement des commandes critique dans le processus.
 
 Dans tous ces cas d’usage, étant donné que la fonction a découplé l’application proprement dite, vous n’avez pas besoin de lancer de nouvelles instances de l’application à tout moment. À la place, Azure Functions lance des fonctions individuelles pour terminer les processus discrets selon les besoins.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: 8ceae771f1a66f6d999dd0dc2b1f298d4aae8f86
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 845544a2062b43f0d9f883ddecbc2589b3357221
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017291"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997940"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines et activités dans Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -26,7 +26,7 @@ ms.locfileid: "54017291"
 
 Cet article vous aide à comprendre les pipelines et les activités dans Azure Data Factory, et à les utiliser dans l’optique de créer des workflows pilotés par les données de bout en bout pour vos scénarios de déplacement des données et de traitement des données.
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Une fabrique de données peut avoir un ou plusieurs pipelines. Un pipeline constitue un regroupement logique d’activités qui exécutent ensemble une tâche. Par exemple, un pipeline peut contenir un ensemble d’activités qui ingèrent et nettoient des données de journal, puis lancent un travail Spark sur un cluster HDInsight pour analyser les données de journal. L’avantage de cette opération, c’est que le pipeline vous permet de gérer les activités en tant que groupe et non individuellement. Par exemple, vous pouvez déployer et planifier le pipeline, plutôt que chaque activité séparément.
 
 Les activités d’un pipeline définissent les actions à effectuer sur les données. Par exemple, vous pouvez utiliser une activité de copie pour copier des données d’un serveur SQL Server local dans un stockage Blob Azure. Utilisez ensuite une activité Hive qui exécute un script Hive sur un cluster Azure HDInsight pour traiter/transformer les données du stockage Blob afin de produire des données de sortie. Enfin, utilisez une deuxième activité de copie pour copier les données de sortie dans un Azure SQL Data Warehouse sur lequel des solutions de génération de rapports décisionnelles sont développées.
@@ -94,7 +94,7 @@ Voici comment un pipeline est défini au format JSON :
 }
 ```
 
-Tag | Description | type | Obligatoire
+Tag | Description | Type | Obligatoire
 --- | ----------- | ---- | --------
 Nom | Nom du pipeline. Spécifiez un nom qui représente l’action effectuée par le pipeline. <br/><ul><li>Nombre maximal de caractères : 140</li><li>Doit commencer par une lettre, un chiffre ou un trait de soulignement (\_)</li><li>Les caractères suivants ne sont pas autorisés : « . », « + », « ? », « / », « < », « > », « * », « % », « & », « : », « \ »</li></ul> | Chaîne | Oui
 description | Spécifiez le texte décrivant la raison motivant l’utilisation du pipeline. | Chaîne | Non 
@@ -167,12 +167,13 @@ Les stratégies ont un impact sur le comportement d’exécution d’une activit
     }
 }
 ```
+
 Nom JSON | Description | Valeurs autorisées | Obligatoire
 --------- | ----------- | -------------- | --------
-timeout | Spécifie le délai d’expiration d’exécution de l’activité. | Timespan |  Non. Le délai d’expiration par défaut est de 7 jours.
-retry | Nombre maximal de nouvelles tentatives | Entier  |  Non. La valeur par défaut est 0
-retryIntervalInSeconds | Délai en secondes entre chaque nouvelle tentative | Entier  |  Non. La valeur par défaut est de 20 secondes
-secureOutput | Lorsqu’elle est définie sur true, la sortie de l’activité est considérée comme sécurisée et ne sera pas consignée pour la surveillance. | Booléen |  Non. La valeur par défaut est false.
+timeout | Spécifie le délai d’expiration d’exécution de l’activité. | Timespan | Non. Le délai d’expiration par défaut est de 7 jours.
+retry | Nombre maximal de nouvelles tentatives | Entier  | Non. La valeur par défaut est 0
+retryIntervalInSeconds | Délai en secondes entre chaque nouvelle tentative | Entier  | Non. La valeur par défaut est de 20 secondes
+secureOutput | Lorsqu’elle est définie sur true, la sortie de l’activité est considérée comme sécurisée et ne sera pas consignée pour la surveillance. | Booléen | Non. La valeur par défaut est false.
 
 ### <a name="control-activity"></a>Activité de contrôle
 Les activités de contrôle ont la structure de niveau supérieur suivante :

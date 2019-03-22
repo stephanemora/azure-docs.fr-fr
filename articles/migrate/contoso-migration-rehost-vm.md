@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 47b16966f9e72a43cf4fb934706f7b96becef59a
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 4a6ed900753747c1d5bf394aced54da11177320f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694497"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118389"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-to-azure-vms"></a>Migration de Contoso : réhéberger une application locale sur des machines virtuelles Azure
 
@@ -125,7 +125,7 @@ Contoso va migrer le serveur frontal et les machines virtuelles de la base de do
 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/) | Le service orchestre et gère la migration et la récupération d’urgence pour les machines virtuelles Azure, les machines virtuelles locales et les serveurs physiques.  | Lors de la réplication vers Azure, des frais sur le Stockage Azure sont facturés. Des machines virtuelles Azure sont créées en cas de basculement, et entraînent des frais. [En savoir plus](https://azure.microsoft.com/pricing/details/site-recovery/) sur les frais et la tarification.
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Voici ce dont Contoso a besoin pour exécuter ce scénario.
 
@@ -168,10 +168,10 @@ La configuration est effectuée´comme suit :
     - La machine virtuelle de la base de données de l’application (SQLVM) migrera vers le sous-réseau de la base de données (PROD-DB-EUS2) dans le réseau de production.
 
 2. Configurer un compte de stockage : Contoso crée un compte de stockage Azure (contosovmsacc20180528) dans la région principale.
-    - Le compte de stockage doit se trouver dans la même région que le coffre Recovery Services.
-    - Ils utilisent un compte à usage général, avec un stockage standard et une réplication de stockage localement redondant.
+   - Le compte de stockage doit se trouver dans la même région que le coffre Recovery Services.
+   - Ils utilisent un compte à usage général, avec un stockage standard et une réplication de stockage localement redondant.
 
-    ![Stockage Site Recovery](./media/contoso-migration-rehost-vm/asr-storage.png)
+     ![Stockage Site Recovery](./media/contoso-migration-rehost-vm/asr-storage.png)
 
 3. Créer un coffre : avec le réseau et le compte de stockage en place, Contoso crée à présent un coffre Recovery Services (ContosoMigrationVault) et le place dans le groupe de ressources ContosoFailoverRG, dans la région USA Est 2 principale.
 
@@ -221,15 +221,15 @@ Après le basculement, Contoso souhaite se connecter aux machines virtuelles Azu
 
 1. Pour l’accès via Internet :
 
- - Elle active le protocole RDP sur la machine virtuelle locale avant le basculement.
- - Elle s’assure que les règles de TCP et UDP sont ajoutées au profil **Public**.
- - Elle vérifie que le protocole RDP est autorisé dans **Pare-feu Windows** > **Applications autorisées** pour tous les profils.
+   - Elle active le protocole RDP sur la machine virtuelle locale avant le basculement.
+   - Elle s’assure que les règles de TCP et UDP sont ajoutées au profil **Public**.
+   - Elle vérifie que le protocole RDP est autorisé dans **Pare-feu Windows** > **Applications autorisées** pour tous les profils.
 
 2. Pour l’accès via le VPN de site à site :
 
- - Elle active le protocole RDP sur l’ordinateur local.
- - Elle autorise le protocole RDP dans **Pare-feu Windows** -> **Applications et fonctionnalités autorisées** pour les réseaux **Domaine et privé**.
- - Elle définit la stratégie SAN du système d’exploitation sur la machine virtuelle locale sur **OnlineAll**.
+   - Elle active le protocole RDP sur l’ordinateur local.
+   - Elle autorise le protocole RDP dans **Pare-feu Windows** -> **Applications et fonctionnalités autorisées** pour les réseaux **Domaine et privé**.
+   - Elle définit la stratégie SAN du système d’exploitation sur la machine virtuelle locale sur **OnlineAll**.
 
 De plus, quand elle opèrent un basculement, elle doit vérifier les points suivants :
 
@@ -341,10 +341,10 @@ Quand tout est en place, les administrateurs de Contoso peuvent activer la répl
 
 4. Ils sélectionnent **WebVM** pour la réplication, vérifient la stratégie de réplication et activent la réplication.
 
-    - À ce stade, ils sélectionnent uniquement WEBVM, parce que le réseau virtuel et le sous-réseau doivent être sélectionnés et que les machines virtuelles de l’application seront placées dans des sous-réseaux différents.
-    - Site Recovery installe automatiquement le service Mobilité sur la machine virtuelle quand la réplication est activée.
+   - À ce stade, ils sélectionnent uniquement WEBVM, parce que le réseau virtuel et le sous-réseau doivent être sélectionnés et que les machines virtuelles de l’application seront placées dans des sous-réseaux différents.
+   - Site Recovery installe automatiquement le service Mobilité sur la machine virtuelle quand la réplication est activée.
 
-    ![Activer la réplication](./media/contoso-migration-rehost-vm/enable-replication3.png)
+     ![Activer la réplication](./media/contoso-migration-rehost-vm/enable-replication3.png)
 
 5. Contoso suit la progression de la réplication dans **Travaux**. Une fois le travail **Finaliser la protection** exécuté, la machine est prête pour le basculement.
 6. Dans le portail Azure, dans **Bases**, ils peuvent afficher la structure des machines virtuelles répliquées sur Azure.

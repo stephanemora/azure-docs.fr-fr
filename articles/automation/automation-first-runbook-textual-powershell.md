@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 11/27/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f083a5a9fe8027467eb95711a15725859f59e4fa
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: b08e1489cf337360e838a3b5d5531fa2d4c0073b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438046"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57846954"
 ---
 # <a name="my-first-powershell-runbook"></a>Mon premier Runbook PowerShell
 
@@ -27,7 +27,7 @@ ms.locfileid: "54438046"
 
 Ce didacticiel vous guide dans la création d’un [Runbook PowerShell](automation-runbook-types.md#powershell-runbooks) dans Azure Automation. Vous commencez avec un simple runbook que vous testez et publiez tout en découvrant comment suivre l’état de la tâche du runbook. Vous modifiez ensuite le runbook pour gérer les ressources Azure, en démarrant dans ce cas une machine virtuelle Azure. Enfin, vous le rendrez plus robuste en lui ajoutant des paramètres.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour effectuer ce didacticiel, vous avez besoin de ce qui suit :
 
@@ -56,7 +56,7 @@ Vous pouvez soit taper du code directement dans le Runbook, soit sélectionner d
 
 2. Enregistrez le Runbook en cliquant sur **Enregistrer**.
 
-##<a name="a-namestep-3---test-the-runbook-test-the-runbook"></a><a name="step-3---test-the-runbook">Tester le runbook
+## <a name="step-3---test-the-runbook"> </a> Tester le runbook
 
 Avant de publier le runbook pour le rendre disponible en production, vous voulez le tester pour vous assurer qu’il fonctionne correctement. Lorsque vous testez un Runbook, vous exécutez sa version **Brouillon** et affichez sa sortie de manière interactive.
 
@@ -107,6 +107,9 @@ Le runbook que vous avez créé est toujours en mode brouillon. Il doit être pu
 Vous avez testé et publié votre runbook, mais jusqu’à présent, il ne fait rien d’utile. Vous souhaitez qu’il gère les ressources Azure. Ce n’est possible que s’il s’authentifie à l’aide d’une connexion d’identification, créée automatiquement à la création du compte d’automatisation. La connexion d’identification s’établit avec la cmdlet **Connect-AzureRmAccount**. Si vous gérez des ressources associées à plusieurs abonnements, utilisez le paramètre **-AzureRmContext** avec [Get-AzureRmContext](/powershell/module/azurerm.profile/get-azurermcontext).
 
    ```powershell
+   # Ensures you do not inherit an AzureRMContext in your runbook
+   Disable-AzureRmContextAutosave –Scope Process
+   
    $connection = Get-AutomationConnection -Name AzureRunAsConnection
    Connect-AzureRmAccount -ServicePrincipal -Tenant $connection.TenantID `
 -ApplicationID $connection.ApplicationID -CertificateThumbprint $connection.CertificateThumbprint
@@ -121,6 +124,9 @@ Vous avez testé et publié votre runbook, mais jusqu’à présent, il ne fait 
 1. Tapez ou copiez-collez le code suivant qui gère l’authentification avec votre compte d’authentification Automation :
 
    ```powershell
+   # Ensures you do not inherit an AzureRMContext in your runbook
+   Disable-AzureRmContextAutosave –Scope Process
+
    $connection = Get-AutomationConnection -Name AzureRunAsConnection
    Connect-AzureRmAccount -ServicePrincipal -Tenant $connection.TenantID `
    -ApplicationId $connection.ApplicationID -CertificateThumbprint $connection.CertificateThumbprint
@@ -141,6 +147,9 @@ Vous avez testé et publié votre runbook, mais jusqu’à présent, il ne fait 
 1. Après *Connect-AzureRmAccount*, tapez *Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'NameofResourceGroup'* en fournissant le nom et le nom de groupe de ressources de la machine virtuelle à démarrer.  
 
    ```powershell
+   # Ensures you do not inherit an AzureRMContext in your runbook
+   Disable-AzureRmContextAutosave –Scope Process
+
    $connection = Get-AutomationConnection -Name AzureRunAsConnection
    Connect-AzureRmAccount -ServicePrincipal -Tenant $connection.TenantID `
    -ApplicationID $connection.ApplicationID -CertificateThumbprint $connection.CertificateThumbprint
@@ -161,6 +170,9 @@ Pour l’instant, votre runbook démarre la machine virtuelle que vous avez cod�
     [string]$VMName,
     [string]$ResourceGroupName
    )
+   # Ensures you do not inherit an AzureRMContext in your runbook
+   Disable-AzureRmContextAutosave –Scope Process
+
    $connection = Get-AutomationConnection -Name AzureRunAsConnection
    Connect-AzureRmAccount -ServicePrincipal -Tenant $connection.TenantID `
    -ApplicationID $connection.ApplicationID -CertificateThumbprint $connection.CertificateThumbprint

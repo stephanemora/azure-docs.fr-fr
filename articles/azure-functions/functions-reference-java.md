@@ -11,22 +11,26 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: 429c7c266357b4808ab3ebbb7f346cf22d9f479c
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 9258b58783d4670620a251fef866211f7634480f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54855388"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58096722"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guide des développeurs Java sur Azure Functions
 
-[!INCLUDE [functions-java-preview-note](../../includes/functions-java-preview-note.md)]
+Le runtime Azure Functions prend en charge [Java SE 8 LTS (zulu8.31.0.2-jre8.0.181-win_x64)](https://repos.azul.com/azure-only/zulu/packages/zulu-8/8u181/).
+
+Ce guide contient des informations sur les complexités de l’écriture de fonctions Azure avec Java.
+
+Une fonction Java est un `public` méthode décorée avec l’annotation `@FunctionName`. Cette méthode définit l’entrée pour une fonction java et doit être unique dans un package donné. 
+
+Cet article suppose que vous ayez déjà lu l’article [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md). Vous devez également compléter le démarrage rapide de Functions pour créer votre première fonction, à l’aide de [Visual Studio Code](functions-create-first-function-vs-code.md) ou [à l’aide de maven](functions-create-first-java-maven.md).
 
 ## <a name="programming-model"></a>Modèle de programmation 
 
 Les concepts de [déclencheurs et liaisons](functions-triggers-bindings.md) sont fondamentaux pour Azure Functions. Les déclencheurs démarrent l’exécution de votre code. Les liaisons vous permettent de transmettre des données et de retourner des données à partir d’une fonction, sans avoir à écrire du code d’accès aux données personnalisées.
-
-Une fonction doit être une méthode sans état pour traiter les entrées et produire les sorties. Votre fonction ne doit pas dépendre des champs d’instance de la classe. Toutes les méthodes de fonction doivent être `public` et la méthode par l’annotation @FunctionName doit être unique, car le nom de la méthode définit l’entrée pour une fonction.
 
 ## <a name="folder-structure"></a>Structure de dossiers
 
@@ -387,6 +391,6 @@ Pour plus d’informations sur le développement Java de Fonction Azure, voir le
 * [Meilleures pratiques pour Azure Functions](functions-best-practices.md)
 * [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md)
 * [Azure Functions triggers and bindings (Déclencheurs et liaisons Azure Functions)](functions-triggers-bindings.md)
-- Développement et débogage locaux avec [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions), [IntelliJ](functions-create-maven-intellij.md) et [Eclipse](functions-create-maven-eclipse.md). 
+* Développement et débogage locaux avec [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions), [IntelliJ](functions-create-maven-intellij.md) et [Eclipse](functions-create-maven-eclipse.md). 
 * [Débogage distant de Java Azure Functions avec Visual Studio Code](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud)
 * [Plug-in Maven pour Azure Functions](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-functions-maven-plugin/README.md) : simplifier la création de fonction via l’objectif `azure-functions:add`, et préparer un répertoire intermédiaire pour le [déploiement de fichier ZIP](deployment-zip-push.md).

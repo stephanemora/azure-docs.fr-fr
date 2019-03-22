@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 03/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: 24b08bb843b4f1a0eb9f2471cb17b81f2c8ac4d0
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 76323ab00a3562cae10520b18008d030e40043fc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417531"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57864668"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>À propos des paramètres de configuration de la passerelle VPN
 
@@ -43,7 +43,7 @@ Une passerelle VPN nécessite le `-GatewayType` *VPN*.
 
 Exemple :
 
-```powershell
+```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn `
 -VpnType RouteBased
@@ -63,7 +63,7 @@ Si vous utilisez le portail Azure pour créer une passerelle de réseau virtuel 
 
 L’exemple PowerShell suivant spécifie la `-GatewaySku` en tant que VpnGw1. Lorsque vous utilisez PowerShell pour créer une passerelle, vous devez d’abord créer la configuration IP, puis utiliser une variable qui y fait référence. Dans cet exemple, la variable de configuration est $gwipconfig.
 
-```powershell
+```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 -Location 'US East' -IpConfigurations $gwipconfig -GatewaySku VpnGw1 `
 -GatewayType Vpn -VpnType RouteBased
@@ -77,7 +77,7 @@ az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --r
 
 ###  <a name="resizechange"></a>Redimensionnement ou modification d’une référence SKU
 
-Si vous disposez d’une passerelle VPN et que vous souhaitez utiliser une autre référence SKU de passerelle, vous avez le choix entre redimensionner votre référence SKU de passerelle ou remplacer par une autre référence SKU. Lorsque vous remplacez par une autre référence SKU de passerelle, vous supprimez la passerelle existante dans son ensemble et en créez une nouvelle. Cette création peut prendre jusqu’à 45 minutes. En comparaison, lorsque vous redimensionnez une référence SKU de passerelle, le temps d’arrêt sera très faible car vous n’aurez pas à supprimer et à recréer la passerelle. Si vous avez la possibilité de redimensionner votre référence SKU de passerelle plutôt que de la modifier, vous devez le faire. Toutefois, il existe des règles concernant le redimensionnement :
+Si vous disposez d’une passerelle VPN et que vous souhaitez utiliser une autre référence SKU de passerelle, vous avez le choix entre redimensionner votre référence SKU de passerelle ou remplacer par une autre référence SKU. Lorsque vous remplacez par une autre référence SKU de passerelle, vous supprimez la passerelle existante dans son ensemble et en créez une nouvelle. Une passerelle peut prendre jusqu'à 45 minutes à générer. En comparaison, quand vous redimensionnez une passerelle de référence (SKU), il n’est pas un temps d’arrêt, car vous n’avez pas à supprimer et recréer la passerelle. Si vous avez la possibilité de redimensionner votre référence SKU de passerelle plutôt que de la modifier, vous devez le faire. Toutefois, il existe des règles concernant le redimensionnement :
 
 1. Vous pouvez effectuer un redimensionnement entre les références SKU VpnGw1, VpnGw2 et VpnGw3.
 2. Lors de l’utilisation des anciennes références SKU de passerelle, vous pouvez effectuer un redimensionnement entre les références SKU Basic, Standard et HighPerformance.
@@ -102,7 +102,7 @@ Dans le modèle de déploiement de Resource Manager, chaque configuration néces
 
 Dans l’exemple PowerShell suivant, nous créons une connexion S2S qui nécessite le type de connexion *IPsec*.
 
-```powershell
+```azurepowershell-interactive
 New-AzVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
 -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
 -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
@@ -120,7 +120,7 @@ Une fois qu’une passerelle de réseau virtuel a été créée, vous ne pouvez 
 
 L’exemple PowerShell suivant spécifie la `-VpnType` en tant que *RouteBased*. Lorsque vous créez une passerelle, vous devez vous assurer que -VpnType convient pour votre configuration.
 
-```powershell
+```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 -Location 'West US' -IpConfigurations $gwipconfig `
 -GatewayType Vpn -VpnType RouteBased
@@ -132,7 +132,7 @@ New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 ## <a name="gwsub"></a>Sous-réseau de passerelle
 
-Avant de créer votre passerelle VPN, vous devez d’abord créer un sous-réseau de passerelle. Le sous-réseau de passerelle contient les adresses IP utilisées par les machines virtuelles et les services de passerelle de réseau virtuel. Lors de la création de votre passerelle de réseau virtuel, les machines virtuelles de passerelle sont déployées dans le sous-réseau de passerelle et configurées avec les paramètres de passerelle VPN requis. Ne déployez aucun autre élément (des machines virtuelles supplémentaires, par exemple) dans le sous-réseau de passerelle. Pour fonctionner correctement, le sous-réseau de passerelle doit être nommé ’GatewaySubnet’. En nommant le sous-réseau de passerelle « GatewaySubnet », Azure est informé qu'il s’agit du sous-réseau dans lequel déployer les machines virtuelles et les services de passerelle de réseau virtuel.
+Avant de créer votre passerelle VPN, vous devez d’abord créer un sous-réseau de passerelle. Le sous-réseau de passerelle contient les adresses IP utilisées par les machines virtuelles et les services de passerelle de réseau virtuel. Lors de la création de votre passerelle de réseau virtuel, les machines virtuelles de passerelle sont déployées dans le sous-réseau de passerelle et configurées avec les paramètres de passerelle VPN requis. Ne déployez jamais rien autre (par exemple, machines virtuelles supplémentaires) au sous-réseau de passerelle. Pour fonctionner correctement, le sous-réseau de passerelle doit être nommé ’GatewaySubnet’. En nommant le sous-réseau de passerelle « GatewaySubnet », Azure est informé qu'il s’agit du sous-réseau dans lequel déployer les machines virtuelles et les services de passerelle de réseau virtuel.
 
 >[!NOTE]
 >[!INCLUDE [vpn-gateway-gwudr-warning.md](../../includes/vpn-gateway-gwudr-warning.md)]
@@ -142,7 +142,7 @@ Lorsque vous créez le sous-réseau de passerelle, vous spécifiez le nombre d�
 
 L’exemple PowerShell Resource Manager suivant montre un sous-réseau de passerelle nommé GatewaySubnet. Vous pouvez voir que la notation CIDR spécifie une taille /27, ce qui permet d’avoir un nombre suffisamment élevé d’adresses IP pour la plupart des configurations actuelles.
 
-```powershell
+```azurepowershell-interactive
 Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
 ```
 
@@ -156,7 +156,7 @@ Vous donnez un nom à la passerelle de réseau local (l’adresse IP publique du
 
 L’exemple PowerShell suivant crée une nouvelle passerelle de réseau local :
 
-```powershell
+```azurepowershell-interactive
 New-AzLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
 ```

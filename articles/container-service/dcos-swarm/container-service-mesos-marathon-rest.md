@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 157d70b628ca3583cb8134ec1cccc185c6ff4c8d
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 567890f3beec1eff30effeec0ce23284c5fee141
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52991735"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109288"
 ---
 # <a name="deprecated-dcos-container-management-through-the-marathon-rest-api"></a>(DÉCONSEILLÉ) Gestion de conteneur DC/OS à l’aide de l’API REST Marathon
 
@@ -22,7 +22,7 @@ ms.locfileid: "52991735"
 
 DC/OS offre un environnement de déploiement et de mise à l’échelle des charges de travail en cluster tout en faisant abstraction du matériel sous-jacent. DC/OS sous-tend un framework qui gère la planification et l’exécution des charges de travail de calcul. Bien qu’il existe des infrastructures pour de nombreuses charges de travail courantes, ce document décrit la création et la mise à l’échelle des déploiements de conteneurs avec l’API REST Marathon. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Avant d’étudier ces exemples, vous devez avoir un cluster DC/OS configuré dans Azure Container Service. Vous devez également disposer d’une connectivité à distance à ce cluster. Pour plus d’informations sur ces éléments, voir les articles suivants :
 
@@ -124,8 +124,6 @@ Vous pouvez utiliser l’API Marathon pour diminuer ou augmenter la taille des d
 
 > [!NOTE]
 > L’URI est http://localhost/marathon/v2/apps/, suivi de l’ID de l’application que vous souhaitez mettre à l’échelle. Si vous utilisiez l’exemple Nginx fourni ici, l’URI serait http://localhost/marathon/v2/apps/nginx.
-> 
-> 
 
 ```bash
 curl http://localhost/marathon/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
@@ -183,14 +181,12 @@ Exécutez la commande suivante pour augmenter la taille des instances de l’app
 
 > [!NOTE]
 > L’URI est http://localhost/marathon/v2/apps/, suivi de l’ID de l’application que vous souhaitez mettre à l’échelle. Si vous utilisiez l’exemple Nginx fourni ici, l’URI serait http://localhost/marathon/v2/apps/nginx.
-> 
-> 
 
 ```powershell
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [En savoir plus sur les points de terminaison HTTP Mesos](http://mesos.apache.org/documentation/latest/endpoints/)
+* [En savoir plus sur les points de terminaison HTTP Mesos](https://mesos.apache.org/documentation/latest/endpoints/)
 * [En savoir plus sur l’API REST Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html)
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/10/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: f72f75013d69533eeda0e69acbff1c4f7047f509
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 67f87729dbfb792b88f28a772f15e233f0fa60dc
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55193681"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452111"
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C : Disponibilité des régions et résidence des données
 La disponibilité régionale et la résidence des données sont deux concepts très différents qui ne s’appliquent pas à Azure Active Directory B2C de la même façon qu’à Azure. Cet article explique les différences entre ces deux concepts et compare la manière dont ils s’appliquent à Azure et Azure Active Directory B2C.
@@ -37,7 +37,7 @@ Azure Active Directory B2C conserve les données des utilisateurs aux États-Uni
 
 La résidence des données est déterminée selon le pays/la région sélectionné lors de la [création d’un client Azure Active Directory B2C](active-directory-b2c-get-started.md).
 
-![Capture d’écran d’un client de la version préliminaire](./media/active-directory-b2c-reference-tenant-type/data-residency-b2c-tenant.png)
+![Capture d’écran d’un aperçu du client](./media/active-directory-b2c-reference-tenant-type/data-residency-b2c-tenant.png)
 
 Les données des pays/régions suivants sont conservées aux États-Unis :
 
@@ -58,4 +58,4 @@ Si vous avez créé un client B2C pendant la période d’évaluation d’Azure 
 > Il n’existe aucun chemin de migration à partir d’un client B2C de la version préliminaire vers un client B2C de mise à l’échelle pour production. Notez qu’il existe des problèmes connus liés à la suppression d’un client B2C en version préliminaire et à la recréation d’un client B2C de mise à l’échelle pour production portant le même nom de domaine. Vous devez créer un client B2C de mise à l’échelle pour production portant un nom de domaine différent.
 
 
-![Capture d’écran d’un client de la version préliminaire](./media/active-directory-b2c-reference-tenant-type/preview-b2c-tenant.png)
+![Capture d’écran d’un aperçu du client](./media/active-directory-b2c-reference-tenant-type/preview-b2c-tenant.png)

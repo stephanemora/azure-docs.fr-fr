@@ -1,10 +1,21 @@
+---
+ms.service: azure
+ms.topic: conceptual
+ms.date: 03/08/2019
+ms.openlocfilehash: 2b1fc99fe179187c6431d9a999628db76885e553
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57789671"
+---
 # <a name="legal-notices"></a>Mentions légales
 
 Microsoft et tout contributeur vous accordent une licence à la documentation Microsoft et d’autres contenus dans ce référentiel sous la [licence publique internationale Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/legalcode) et vous accordent une licence pour une partie du code dans le référentiel sous la [licence MIT](https://opensource.org/licenses/MIT).
 
 Microsoft, Windows, Microsoft Azure et/ou les autres produits et services Microsoft mentionnés dans la documentation peuvent être des marques commerciales ou des marques déposées de Microsoft aux États-Unis et/ou dans d’autres pays.
 Les licences de ce projet ne vous accordent pas de droits d’utilisation de tout nom, logo ou marque commerciale Microsoft.
-Les instructions générales de Microsoft concernant les marques peuvent être consultées à l’adresse [https://go.microsoft.com/fwlink/?LinkID=254653](httpss://go.microsoft.com/fwlink/?LinkID=254653).
+Les instructions générales de Microsoft concernant les marques peuvent être consultées à l’adresse [https://go.microsoft.com/fwlink/?LinkID=254653](https://go.microsoft.com/fwlink/?LinkID=254653).
 
 Des informations sur la confidentialité peuvent être consultées à l’adresse [https://privacy.microsoft.com/en-us/](https://privacy.microsoft.com/en-us/).
 

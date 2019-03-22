@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4185f4ad83d083ab1a15208361ee7b44e118c68e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 12819bdc20dea57a8a114bb4ff311f828be8b15a
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168304"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286209"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>Qu’est-ce que l’architecture Azure Active Directory ?
 Azure Active Directory (Azure AD) vous permet de gérer en toute sécurité l’accès aux ressources et aux services Azure pour vos utilisateurs. Azure AD comprend une suite complète de fonctionnalités de gestion des identités. Pour plus d’informations sur les fonctionnalités d’Azure AD, voir [Qu’est Azure Active Directory ?](active-directory-whatis.md)
@@ -39,7 +39,7 @@ La méthode la plus courante pour créer un système riche en données, accessib
 
 Le niveau de données possède plusieurs services frontaux offrant une fonctionnalité de lecture-écriture. Le diagramme suivant montre comment les composants d’une partition à répertoire unique sont délivrés entre des centres de données géographiquement distribués. 
 
-  ![Partitions à répertoire unique](./media/active-directory-architecture/active-directory-architecture.png)
+  ![Schéma de partition à répertoire unique](./media/active-directory-architecture/active-directory-architecture.png)
 
 Les composants de l’architecture Azure AD incluent un réplica principal et des réplicas secondaires.
 

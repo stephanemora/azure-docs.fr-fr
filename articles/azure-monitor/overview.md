@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: 0ef11355d7a65bd2c9b7ddfb6c4db2ba02538062
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: d0902c0e0b4c669f3918155f8416f064485abbea
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270366"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874900"
 ---
 # <a name="azure-monitor-overview"></a>Vue d’ensemble d’Azure Monitor
 
@@ -25,7 +25,7 @@ Azure Monitor optimise la disponibilité et les performances de vos applications
 
 > [!VIDEO https://www.youtube.com/embed/_hGff5bVtkM]
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Le diagramme suivant donne une vue d’ensemble d’Azure Monitor. Au centre du diagramme se trouvent les magasins de données pour les métriques et les journaux, qui sont les deux types fondamentaux d’utilisation des données par Azure Monitor. Sur la gauche se trouvent les [sources de données de supervision](platform/data-sources.md) qui remplissent ces [magasins de données](platform/data-collection.md). Sur la droite se trouvent les différentes actions qu’Azure Monitor effectue avec les données collectées (analyse, alerte et diffusion en continu sur des systèmes externes).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
@@ -40,7 +40,7 @@ Pour de nombreuses ressources Azure, vous verrez les données collectées par Az
 
 ![Mesures](media/overview/metrics.png)
 
-Les données de journal collectées par Azure Monitor peuvent être analysées à l’aide de [requêtes](log-query/log-query-overview.md) qui permettent de récupérer, consolider et analyser rapidement les données collectées.  Vous pouvez créer et tester des requêtes à l’aide de [Log Analytics](log-query/portals.md) dans le Portail Azure, avant d’analyser directement les données à l’aide de ces outils ou d’enregistrer les requêtes pour les utiliser pour les [visualisations](visualizations.md) ou les [règles d’alerte](platform/alerts-overview.md).
+Les données de journal collectées par Azure Monitor peuvent être analysées à l’aide de [requêtes](log-query/log-query-overview.md) qui permettent de récupérer, consolider et analyser rapidement les données collectées.  Vous pouvez créer et tester des requêtes à l’aide de [Analytique de journal](log-query/portals.md) dans le portail Azure, puis soit directement analyser les données à l’aide de ces outils ou enregistrer des requêtes pour une utilisation avec [visualisations](visualizations.md) ou [alerte règles](platform/alerts-overview.md).
 
 Azure Monitor utilise une version du [langage de requête Kusto](/azure/kusto/query/) utilisé par Azure Data Explorer qui est adapté aux requêtes simples dans les journaux, mais inclut également des fonctionnalités avancées telles que les agrégations, les jointures et les analyses intelligentes. Il existe [plusieurs leçons](log-query/get-started-queries.md) pour vous aider à apprendre le langage de requête.  Des conseils particuliers sont fournis aux utilisateurs qui connaissent déjà [SQL](log-query/sql-cheatsheet.md) et [Splunk](log-query/splunk-cheatsheet.md).
 
@@ -130,14 +130,12 @@ Les [vues](../log-analytics/log-analytics-view-designer.md) présentent de mani�
 Vous devrez souvent intégrer Azure Monitor à d’autres systèmes et créer des solutions personnalisées qui utilisent vos données de supervision. D’autres services Azure fonctionnent avec Azure Monitor en vue de fournir cette intégration.
 
 ### <a name="event-hub"></a>Event Hub
-[Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs) est une plateforme de diffusion en continu et un service d’ingestion d’événements qui peut transformer et stocker les données à l’aide de n’importe quel fournisseur de services d’analyse en temps réel ou de n’importe quel adaptateur de traitement par lot/stockage. Utilisez Event Hubs pour [diffuser en continu les données de journal à partir d’Azure Monitor](platform/stream-monitoring-data-event-hubs.md) auprès des outils SIEM (Security Information and Event Management) et de supervision.
+[Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs) est une plateforme de diffusion en continu et un service d’ingestion d’événements qui peut transformer et stocker les données à l’aide de n’importe quel fournisseur de services d’analyse en temps réel ou de n’importe quel adaptateur de traitement par lot/stockage. Utiliser Event Hubs à [diffuser des données d’Azure Monitor](platform/stream-monitoring-data-event-hubs.md) à SIEM et les outils de surveillance partenaires.
 
-> [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 
 ### <a name="logic-apps"></a>Logic Apps
 [Logic Apps](https://azure.microsoft.com/services/logic-apps) est un service qui vous permet d’automatiser les tâches et processus métier à l’aide de flux de travail qui s’intègrent à différents systèmes et services. Des activités permettent de lire et d’écrire les métriques et les journaux dans Azure Monitor, ce qui vous permet de créer des flux de travail capables de s’intégrer à de nombreux autres systèmes.
 
-![Application logique](platform/media/collect-activity-logs-subscriptions/log-analytics-logic-apps-activity-log-overview.png)
 
 ### <a name="api"></a>API
 Plusieurs API sont disponibles pour lire et écrire les métriques et les journaux vers et depuis Azure Monitor en plus d’accéder aux alertes générées. Vous pouvez également configurer et récupérer les alertes. Cela vous offre essentiellement des possibilités illimitées pour créer des solutions personnalisées qui s’intègrent à Azure Monitor.

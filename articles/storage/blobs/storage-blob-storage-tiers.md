@@ -5,19 +5,19 @@ services: storage
 author: kuhussai
 ms.service: storage
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 03/06/2019
 ms.author: kuhussai
 ms.subservice: blobs
-ms.openlocfilehash: 3e89f5de247cf18abdb710577ce55c6e2cb5765e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: ec024f8f1cd411455a6cbb2a0b12e7b4751af5fe
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251892"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405332"
 ---
 # <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Stockage Blob Azure : niveaux de stockage Premium (préversion), chaud, froid et archive
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Le service de stockage Azure propose différents niveaux de stockage qui vous permettent de stocker vos objets blob de la manière la plus économique. Les niveaux disponibles sont les suivants :
 
@@ -57,15 +57,7 @@ Disponible en préversion, le niveau d'accès Premium permet d'accéder aux donn
 
 Ce niveau est adapté aux charges de travail qui nécessitent des temps de réponse rapides et cohérents. Le niveau d'accès Premium est notamment recommandé pour le stockage des données impliquant l'intervention des utilisateurs finaux, comme le montage de vidéos interactives, les contenus web statiques, les transactions en ligne, etc. Ce niveau est destiné aux charges de travail qui effectuent de nombreuses petites transactions, comme la capture de données de télémétrie, la messagerie et la transformation de données.
 
-Pour utiliser ce niveau, provisionnez un nouveau compte de stockage d’objets blob de blocs, et créez vos premiers conteneurs et objets blob avec [l’API REST du Service BLOB](/rest/api/storageservices/blob-service-rest-api), [AzCopy](/azure/storage/common/storage-use-azcopy) ou [l’Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/).
-
-Durant la période de préversion, le niveau d’accès Premium :
-
-- Est disponible en tant que stockage localement redondant (LRS)
-- Est disponible uniquement dans les régions suivantes : USA Est 2, USA Centre et USA Ouest
-- Ne prend pas en charge la hiérarchisation au niveau objet ou la hiérarchisation automatique avec gestion du cycle de vie des données
-
-Pour savoir comment s’inscrire à la préversion du niveau d’accès Premium, consultez [Présentation du service Stockage Blob Premium Azure](https://aka.ms/premiumblob).
+Pour plus d’informations sur la version préliminaire, consultez [version préliminaire publique de stockage d’objets Blob Azure Premium](https://azure.microsoft.com/blog/azure-premium-blob-storage-public-preview/).
 
 ## <a name="hot-access-tier"></a>Niveau d’accès chaud
 
@@ -139,11 +131,11 @@ Le tableau suivant compare les niveaux de stockage chaud, froid et archive.
 
 | | **Niveau de stockage chaud** | **Niveau de stockage froid** | **Niveau de stockage archive**
 | ---- | ----- | ----- | ----- |
-| **Disponibilité** | 99,9 % | 99 % | N/A |
-| **Disponibilité** <br> **(Lectures RA-GRS)**| 99,99 % | 99,9 % | N/A |
+| **Disponibilité** | 99,9 % | 99 % | S.O. |
+| **Disponibilité** <br> **(Lectures RA-GRS)**| 99,99 % | 99,9 % | S.O. |
 | **Frais d’utilisation** | Coûts de stockage supérieurs, coûts d'accès et de transaction inférieurs | Coûts de stockage inférieurs, coûts d'accès et de transaction supérieurs | Coûts de stockage les plus faibles, coûts d'accès et de transaction les plus élevés |
-| **Taille minimale des objets** | N/A | N/A | N/A |
-| **Durée de stockage minimale** | N/A | 30 jours (GPv2 uniquement) | 180 jours
+| **Taille minimale des objets** | S.O. | N/A | S.O. |
+| **Durée de stockage minimale** | S.O. | 30 jours (GPv2 uniquement) | 180 jours
 | **Latence** <br> **(Temps jusqu’au premier octet)** | millisecondes | millisecondes | < 15 h
 | **Cibles de performance et d’évolutivité** | Identiques aux comptes de stockage à usage général | Identiques aux comptes de stockage à usage général | Identiques aux comptes de stockage à usage général |
 

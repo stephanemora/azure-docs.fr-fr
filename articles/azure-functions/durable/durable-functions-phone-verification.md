@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 827990e03ca1bbb4bfd2ca9cf8bf0a9ceccfb51b
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 136b819f6bbbc1b546b66f54e771dbec8c71202c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719385"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548147"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Interaction humaine dans l’extension Fonctions durables : exemple de vérification par téléphone
 
@@ -118,7 +118,7 @@ Location: http://{host}/admin/extensions/DurableTaskExtension/instances/741c6565
 
 La fonction d’orchestrateur reçoit le numéro de téléphone fourni, et lui envoie immédiatement un SMS incluant un code de vérification à 4 chiffres généré de manière aléatoire &mdash; par exemple, *2168*. Ensuite, la fonction attend une réponse pendant 90 secondes.
 
-Pour répondre avec le code, vous pouvez utiliser [`RaiseEventAsync` (.NET) ou `raiseEvent` (JavaScript)](durable-functions-instance-management.md#sending-events-to-instances) à l’intérieur d’une autre fonction, ou appeler le Webhook HTTP POST **sendEventUrl** référencé dans la réponse 202 ci-dessus, en remplaçant`{eventName}` par le nom de l’événement, `SmsChallengeResponse` :
+Pour répondre avec le code, vous pouvez utiliser [`RaiseEventAsync` (.NET) ou `raiseEvent` (JavaScript)](durable-functions-instance-management.md) à l’intérieur d’une autre fonction, ou appeler le Webhook HTTP POST **sendEventUrl** référencé dans la réponse 202 ci-dessus, en remplaçant`{eventName}` par le nom de l’événement, `SmsChallengeResponse` :
 
 ```
 POST http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/SmsChallengeResponse?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
@@ -157,7 +157,7 @@ Content-Length: 145
 Voici l’orchestration, présentée sous la forme d’un seul fichier C# dans un projet Visual Studio :
 
 > [!NOTE]
-> Vous devez installer le package NuGet `Microsoft.Azure.WebJobs.Extensions.Twilio` pour exécuter l’exemple de code ci-dessous.
+> Vous devez installer le package Nuget `Microsoft.Azure.WebJobs.Extensions.Twilio` pour exécuter l’exemple de code ci-dessous.
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/PhoneVerification.cs)]
 
