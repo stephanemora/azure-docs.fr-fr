@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: adb9fb649d934d08ea546759bcf4733a1c6d9080
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: f78275af5faaf19a4993a5ae4414b0163f9a4d9d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822746"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124148"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Traiter des jeux de données volumineux à l’aide de Data Factory et de Batch
 > [!NOTE]
@@ -26,9 +26,12 @@ ms.locfileid: "55822746"
 
 Cet article décrit une architecture d’un exemple de solution qui déplace et traite des jeux de données volumineux de manière automatique et planifiée. Il fournit également une procédure de bout en bout pour implémenter la solution à l’aide d’Azure Data Factory et d’Azure Batch.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Cet article est plus long que nos articles habituels, car il contient une procédure pas à pas avec un exemple de solution complète. Si vous débutez avec Azure Batch et Azure Data Factory, vous découvrirez ces services et comment ils fonctionnent ensemble. Si vous connaissez un peu ces services et que vous concevez/élaborez une solution, vous pouvez vous concentrer sur la section Architecture de l'article. Si vous développez un prototype ou une solution, vous pourrez suivre les instructions détaillées de la procédure pas à pas. N’hésitez pas à nous faire part de vos commentaires sur ce contenu et son utilisation.
 
 Tout d’abord, examinons comment les services Data Factory et Batch permettent de traiter des jeux de données volumineux dans le cloud.     
+
 
 ## <a name="why-azure-batch"></a>Pourquoi Azure Batch ?
  Vous pouvez utiliser Azure Batch pour exécuter efficacement et à grande échelle des applications de calcul haute performance (HPC) en parallèle dans le cloud. Ce service de plateforme planifie l’exécution des travaux nécessitant beaucoup de ressources système sur une collection gérée de machines virtuelles. Il dimensionne automatiquement les ressources de calcul en fonction des besoins de vos travaux.
@@ -40,7 +43,7 @@ Avec le service Batch, vous définissez des ressources de calcul Azure pour exé
 * [Notions de base d’Azure Batch](../../batch/batch-technical-overview.md)
 * [Aperçu des fonctionnalités d’Azure Batch](../../batch/batch-api-basics.md)
 
-Si vous le souhaitez, consultez la [documentation Azure Batch](https://docs.microsoft.com/azure/batch/) pour en savoir plus sur Azure Batch.
+Si vous le souhaitez, pour en savoir plus sur Batch, consultez [la documentation Batch](https://docs.microsoft.com/azure/batch/).
 
 ## <a name="why-azure-data-factory"></a>Pourquoi Azure Data Factory ?
 Data Factory est un service d’intégration de données dans le cloud qui gère et automatise le déplacement et la transformation des données. Vous pouvez utiliser Azure Data Factory pour créer des pipelines de données managées qui déplacent les données de magasins de données locaux et cloud vers un magasin de données centralisé. Le stockage d’objets blob Azure en est un exemple. Vous pouvez utiliser Azure Data Factory pour traiter/transformer des données à l’aide de services tels qu’Azure HDInsight et Azure Machine Learning. Vous pouvez également planifier des pipelines de données à exécuter de façon planifiée (par exemple, toutes les heures, tous les jours et toutes les semaines). Vous surveillez et gérez les pipelines en un clin d’œil pour identifier les problèmes et prendre les mesures adéquates.
@@ -85,7 +88,7 @@ La solution exemple est volontairement simple. Elle vous montre comment utiliser
 
 **Durée :** si vous maîtrisez les notions de base d’Azure, d’Azure Data Factory et d’Azure Batch et que vous disposez des éléments requis ci-dessous, cette solution est opérationnelle en 1 à 2 heures.
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables
 #### <a name="azure-subscription"></a>Abonnement Azure
 Si vous n’avez pas d’abonnement Azure, vous pouvez créer rapidement un compte Azure gratuit. Pour plus d’informations, consultez la page [Créez votre compte gratuit Azure dès aujourd’hui](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -93,7 +96,7 @@ Si vous n’avez pas d’abonnement Azure, vous pouvez créer rapidement un comp
 Vous utilisez un compte de stockage pour stocker les données dans ce didacticiel. Si vous ne possédez pas encore de compte de stockage, consultez [Create a storage account (Créer un compte de stockage)](../../storage/common/storage-quickstart-create-account.md). L’exemple de solution utilise un stockage d’objets blob.
 
 #### <a name="azure-batch-account"></a>Compte Azure Batch
-Créer un compte de stockage à l’aide du [portail Azure](http://portal.azure.com/). Pour plus d’informations, consultez [Create and manage a Batch account (Créer et gérer un compte Azure Batch)](../../batch/batch-account-create-portal.md). Notez le nom et la clé du compte Azure Batch. Vous pouvez également créer un compte Azure Batch à l’aide de l’applet de commande [New-AzureRmBatchAccount](https://docs.microsoft.com/powershell/module/azurerm.batch/new-azurermbatchaccount). Pour savoir comment utiliser cette applet de commande, consultez [Get started with Batch PowerShell cmdlets (Prise en main des applets de commande PowerShell d’Azure Batch)](../../batch/batch-powershell-cmdlets-get-started.md).
+Créer un compte de stockage à l’aide du [portail Azure](https://portal.azure.com/). Pour plus d’informations, consultez [Create and manage a Batch account (Créer et gérer un compte Azure Batch)](../../batch/batch-account-create-portal.md). Notez le nom et la clé du compte Azure Batch. Vous pouvez également utiliser le [New-AzBatchAccount](https://docs.microsoft.com/powershell/module/az.batch/new-azbatchaccount) applet de commande pour créer un compte Batch. Pour savoir comment utiliser cette applet de commande, consultez [Get started with Batch PowerShell cmdlets (Prise en main des applets de commande PowerShell d’Azure Batch)](../../batch/batch-powershell-cmdlets-get-started.md).
 
 La solution exemple utilise Azure Batch (indirectement via un pipeline Azure Data Factory) pour traiter des données en parallèle sur un pool de nœuds de calcul (une collection gérée de machines virtuelles).
 
@@ -201,7 +204,7 @@ Cette méthode a quelques composants clés qu’il est important de comprendre :
 1. Importez le package NuGet **Azure Storage** dans le projet. Vous en avez besoin, car vous utilisez l’API de stockage d’objets Blob dans cet exemple :
 
     ```powershell
-    Install-Package Azure.Storage
+    Install-Package Az.Storage
     ```
 1. Ajoutez les instructions using suivantes au fichier source du projet :
 
@@ -799,8 +802,8 @@ Dans cette étape, vous allez créer des jeux de données pour représenter les 
    * La propriété **linkedServiceName** de l’activité personnalisée pointe vers **AzureBatchLinkedService**, ce qui indique à Azure Data Factory que l’activité personnalisée doit s’exécuter sur Azure Batch.
    * Le paramètre **concurrency** est important. Si vous utilisez la valeur par défaut (1), même si vous avez plusieurs nœuds de calcul dans le pool Azure Batch, les tranches sont traitées successivement. Par conséquent, vous ne profitez pas de la capacité de traitement en parallèle d’Azure Batch. Si vous réglez **concurrency** sur une valeur plus élevée (par exemple, 2), deux tranches (correspondant à deux tâches dans Azure Batch) peuvent être traitées simultanément. Dans ce cas, les deux machines virtuelles dans le pool Azure Batch sont utilisées. Attribuez une valeur appropriée à la propriété concurrency.
    * Par défaut, une seule tâche (tranche) est exécutée sur une machine virtuelle à un moment donné. Par défaut, **Maximum tasks per VM (Nombre maximal de tâches par machine virtuelle)** est défini sur 1 pour un pool Azure Batch. Dans le cadre de la configuration requise, vous avez créé un pool avec cette propriété réglée sur 2. Par conséquent, deux tranches Data Factory peuvent s’exécuter sur une machine virtuelle en même temps.
-    - La propriété **isPaused** est réglée sur false par défaut. Le pipeline s’exécute immédiatement dans cet exemple car les tranches débutent à une date antérieure. Vous pouvez régler cette propriété sur **true** pour suspendre le pipeline et lui réattribuer la valeur **false** pour reprendre l’exécution.
-    -   Les heures de **début** et de **fin** sont séparées de cinq heures. Comme les tranches sont produites toutes les heures, le pipeline génère cinq tranches.
+     - La propriété **isPaused** est réglée sur false par défaut. Le pipeline s’exécute immédiatement dans cet exemple car les tranches débutent à une date antérieure. Vous pouvez régler cette propriété sur **true** pour suspendre le pipeline et lui réattribuer la valeur **false** pour reprendre l’exécution.
+     -   Les heures de **début** et de **fin** sont séparées de cinq heures. Comme les tranches sont produites toutes les heures, le pipeline génère cinq tranches.
 
 1. Sélectionnez **Déployer** dans la barre de commandes pour déployer le pipeline.
 
@@ -977,4 +980,4 @@ Après avoir traité des données, vous pouvez les consommer avec des outils en 
   * [Get started with the Batch client library for .NET (Prise en main de la bibliothèque Batch pour .NET)](../../batch/quick-run-dotnet.md)
 
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
-[batch-explorer-walkthrough]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
+[batch-explorer-walkthrough]: https://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx

@@ -9,12 +9,12 @@ ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 9a5e75b762c2ab0591212ce0bc3d7fac42132f8a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 3cffd09a54b09a425f3b7f3519b4ceb7a04a6d08
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116913"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855348"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Activer les solutions Update Management, Change Tracking et Inventory sur plusieurs machines virtuelles
 
@@ -28,7 +28,7 @@ Connectez-vous à Azure à l’adresse https://portal.azure.com.
 
 Dans le portail Azure, accédez à **Machines virtuelles**.
 
-À l’aide des cases à cocher, sélectionnez les machines virtuelles que vous souhaitez intégrer avec les solutions Change Tracking and Inventory ou Update Management. L’intégration est disponible pour les trois différents groupes de ressources à la fois.
+À l’aide des cases à cocher, sélectionnez les machines virtuelles que vous souhaitez intégrer avec les solutions Change Tracking and Inventory ou Update Management. L’intégration est disponible pour les trois différents groupes de ressources à la fois. Les machines virtuelles Azure peuvent exister dans n’importe quelle région, quel que soit l’emplacement de votre compte Automation.
 
 ![Liste des machines virtuelles](media/automation-onboard-solutions-from-browse/vmlist.png)
 > [!TIP]
@@ -51,7 +51,7 @@ Utilisez les contrôles de filtre pour sélectionner des machines virtuelles pro
 
 ![Intégrer la solution Update Management](media/automation-onboard-solutions-from-browse/onboardsolutions.png)
 
-Passez en revue les options concernant l’espace de travail Log Analytics et le compte Automation. Un espace de travail et un compte Automation existant sont sélectionnés par défaut. Si vous souhaitez utiliser un espace de travail Log Analytics et un compte Automation différents, cliquez sur **PERSONNALISÉ** pour les sélectionner sur la page **Configuration personnalisée**. Lorsque vous choisissez un espace de travail Log Analytics, une vérification est effectuée pour déterminer si ce dernier est lié à un compte Automation. Si un compte Automation lié est trouvé, l’écran ci-après s’affiche. Une fois que vous avez terminé, cliquez sur **OK**.
+Passez en revue les choix pour l’espace de travail Analytique de journal et le compte Automation. Un espace de travail et un compte Automation existant sont sélectionnés par défaut. Si vous souhaitez utiliser un espace de travail Log Analytics et un compte Automation différents, cliquez sur **PERSONNALISÉ** pour les sélectionner sur la page **Configuration personnalisée**. Lorsque vous choisissez un espace de travail Log Analytics, une vérification est effectuée pour déterminer si ce dernier est lié à un compte Automation. Si un compte Automation lié est trouvé, l’écran ci-après s’affiche. Une fois que vous avez terminé, cliquez sur **OK**.
 
 ![Sélectionner un espace de travail et un compte](media/automation-onboard-solutions-from-browse/selectworkspaceandaccount.png)
 
@@ -59,7 +59,7 @@ Si l’espace de travail sélectionné n’est pas lié à un compte Automation,
 
 ![Aucun espace de travail](media/automation-onboard-solutions-from-browse/no-workspace.png)
 
-Lorsque vous activez des solutions, seules certaines régions sont prises en charge pour la liaison d’un espace de travail Log Analytics et d’un compte Automation.
+Lorsque vous activez des solutions, uniquement dans certaines régions sont prises en charge pour la liaison d’un espace de travail Analytique de journal et un compte Automation.
 
 Le tableau suivant renseigne sur les mappages pris en charge :
 
@@ -68,14 +68,19 @@ Le tableau suivant renseigne sur les mappages pris en charge :
 |AustralieSudEst|AustralieSudEst|
 |CanadaCentral|CanadaCentral|
 |CentralIndia|CentralIndia|
-|USAEst|USAEst2|
+|EastUS<sup>1</sup>|USAEst2|
 |JaponEst|JaponEst|
 |AsieSudEst|AsieSudEst|
 |USACentreOuest|USACentreOuest|
 |WestEurope|WestEurope|
 |RoyaumeUniSud|RoyaumeUniSud|
 |USGovVirginie|USGovVirginie|
-|USAEst2EUAP|USACentreEUAP|
+|EastUS2EUAP<sup>1</sup>|USACentreEUAP|
+
+<sup>1</sup> EastUS2EUAP et EastUS des mappages d’espaces de travail Analytique de journal aux comptes Automation ne sont pas un mappage précis de la région à une autre, mais est le mappage correct.
+
+> [!NOTE]
+> En raison de la demande, une région peut-être pas disponible lors de la création de votre espace de travail de compte Automation ou Log Analytique.  Si tel est le cas, assurez-vous que vous utilisez une région dans le tableau précédent que vous pouvez créer des ressources dans.
 
 Désactivez la case à cocher en regard des machines virtuelles que vous ne souhaitez pas activer. Les machines virtuelles qui ne peuvent pas être activées sont déjà désélectionnées.
 
@@ -89,7 +94,7 @@ Les solutions ci-après sont tributaires d’un espace de travail Log Analytics 
 * [Suivi des modifications](automation-change-tracking.md)
 * [Démarrer/arrêter des machines virtuelles pendant les heures creuses](automation-solution-vm-management.md)
 
-Si vous ne souhaitez plus intégrer votre compte Automation dans Log Analytics, vous pouvez supprimer son lien directement dans le portail Azure. Avant toute chose, vous devez supprimer les solutions mentionnées précédemment. Sinon, la procédure ne pourra pas aboutir. Consultez l’article relatif à la solution que vous avez importée pour comprendre sa procédure de suppression.
+Si vous décidez que vous ne souhaitez plus intégrer votre compte Automation à un espace de travail Analytique de journal, vous pouvez dissocier votre compte directement depuis le portail Azure. Avant toute chose, vous devez supprimer les solutions mentionnées précédemment. Sinon, la procédure ne pourra pas aboutir. Consultez l’article relatif à la solution que vous avez importée pour comprendre sa procédure de suppression.
 
 Après avoir supprimé ces solutions, vous pouvez effectuer les étapes suivantes pour supprimer le lien de votre compte Automation.
 

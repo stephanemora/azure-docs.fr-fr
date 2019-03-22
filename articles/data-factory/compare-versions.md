@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: f898b21e84cc57327991c97d2694e9e44e608417
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 976724a40b604bcdc3c83ef1b3d2e95268f75304
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014894"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432700"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Comparer Azure Data Factory et Azure Data Factory version 1
 Cet article compare Data Factory et Data Factory version 1. Pour une présentation de Data Factory, consultez [Présentation de Data Factory](introduction.md). Pour une présentation de Data Factory version 1, consultez [Présentation d’Azure Data Factory](v1/data-factory-introduction.md). 
@@ -113,12 +113,12 @@ Dans une activité personnalisée dans la version actuelle, vous n’êtes pas o
 
 Pour plus d’informations, consultez [Différence entre une activité personnalisée dans Data Factory et la version 1](transform-data-using-dotnet-custom-activity.md#compare-v2-v1).
 
-## <a name="sdks"></a>Kits de développement logiciel (SDK)
+## <a name="sdks"></a>Kits SDK
  La version actuelle de Data Factory fournit un ensemble plus riche de Kits de développement logiciel (DSK) qui peuvent être utilisés pour créer, gérer et surveiller des pipelines.
 
 - **Kit de développement logiciel (SDK) .NET** : le SDK .NET est mis à jour dans la version actuelle.
 
-- **PowerShell** : les applets de commande PowerShell sont mises à jour dans la version actuelle. Les applets de commande pour la version actuelle ont un nom contenant **DataFactoryV2**. Par exemple . Get-AzureRmDataFactoryV2. 
+- **PowerShell** : les applets de commande PowerShell sont mises à jour dans la version actuelle. Les applets de commande pour la version actuelle ont un nom contenant **DataFactoryV2**. Par exemple . Get-AzDataFactoryV2. 
 
 - **SDK Python** : ce SDK est une nouveauté dans la version actuelle.
 

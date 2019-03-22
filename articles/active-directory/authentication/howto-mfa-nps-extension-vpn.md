@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfe77602d138224c848cc915bbba5a7084c29650
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c22b035b325582cf4a12ff10a9abbedb8837229b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170055"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117878"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Intégrer votre infrastructure VPN avec Azure MFA en utilisant l’extension NPS (Network Policy Server) pour Azure
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 L’extension NPS (Network Policy Server) pour Azure permet aux entreprises de protéger l’authentification du client RADIUS (Remote Authentication Dial-In User Service) à l’aide d’[Azure Multi-Factor Authentication (MFA)](howto-mfaserver-nps-rdg.md) sur le cloud, qui offre une vérification en deux étapes.
 
@@ -30,20 +30,20 @@ Les services de stratégie et d’accès réseau donnent aux entreprises les pos
 
 * Attribuer un emplacement central pour la gestion et le contrôle des requêtes réseau afin de spécifier :
 
-    * Qui peut se connecter 
+  * Qui peut se connecter 
     
-    * Les heures de connexion autorisées pendant la journée 
+  * Les heures de connexion autorisées pendant la journée 
     
-    * La durée des connexions
+  * La durée des connexions
     
-    * Le niveau de sécurité que les clients doivent utiliser pour se connecter
+  * Le niveau de sécurité que les clients doivent utiliser pour se connecter
 
     Plutôt que de spécifier des stratégies sur chaque serveur VPN ou serveur de passerelle Bureau à distance, vous le faites une fois qu’ils sont dans un emplacement central. Le protocole RADIUS sert à fournir de manière centralisée l’authentification, l’autorisation et la gestion des comptes. 
 
 * Établissez et appliquez les stratégies de contrôle d’intégrité client de Protection d’accès réseau (NAP) qui déterminent si les périphériques sont accordés avec ou sans restrictions d’accès aux ressources réseau.
 
 * Donnez un moyen d’appliquer l’authentification et l’autorisation d’accès aux points d’accès sans fil et commutateurs Ethernet compatibles avec 802.1x.   
-Pour plus d’informations, consultez [Serveur NPS (Network Policy Server)](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top). 
+  Pour plus d’informations, consultez [Serveur NPS (Network Policy Server)](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top). 
 
 Afin d’améliorer la sécurité et de fournir un niveau élevé de conformité, les entreprises peuvent intégrer NPS avec Azure Multi-Factor Authentication et ainsi garantir que les utilisateurs utilisent une vérification en deux étapes pour se connecter au port virtuel sur le serveur VPN. Pour que les utilisateurs puissent obtenir l’accès, ils doivent communiquer leur combinaison de nom d’utilisateur et de mot de passe ainsi que d’autres informations sur lesquelles ils disposent d’un contrôle. Ces informations doivent être approuvées et difficilement dupliquées. Elles peuvent comporter un numéro de téléphone portable, un numéro de téléphone fixe ou être une application sur un appareil mobile.
 
@@ -80,7 +80,7 @@ Lorsque l’extension NPS pour Azure est intégrée au serveur NPS, un flux d’
 
 8. L’utilisateur a accès au port virtuel sur le serveur VPN et établit un tunnel VPN chiffré.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Cette section détaille les prérequis à respecter avant de pouvoir intégrer MFA à la passerelle des services Bureau à distance. Avant de commencer, les éléments suivants doivent être en place :
 
 * Infrastructure VPN
