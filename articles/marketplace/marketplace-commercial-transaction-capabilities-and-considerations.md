@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: 867af6de05d1d9ab54cf8a4bf02221acc43a2b28
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: dba2582b29d1fc81a39387f5297852245233b708
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075632"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731087"
 ---
 # <a name="azure-marketplace-commercial-transaction-capabilities-and-considerations"></a>Considérations et fonctionnalités relatives aux transactions commerciales ‎dans la Place de marché Azure
 
@@ -186,9 +186,9 @@ Exemple d’un client qui fait un achat avec un Contrat Entreprise :
 |Date de facturation | 15 octobre 2018 |
 |Période de dépôt (cartes de crédit uniquement, 30 jours) | n/a |
 |Début de la période de collecte | 15 octobre 2018 |
-|Fin de la période de collecte (90 jours au maximum) | 15 janvier 2018 |
+|Fin de la période de collecte (90 jours au maximum) | 15 janvier 2019 |
 |Date de paiement du client | 30 décembre 2018 |
-|Date de calcul du paiement (tous les mois le 15) | 15 janvier 2018 |
+|Date de calcul du paiement (tous les mois le 15) | 15 janvier 2019 |
 |Date de paiement | 15 février 2019 |
 
 **Crédits gratuits et engagement financier** 
@@ -226,7 +226,7 @@ Cette section expose les exigences relatives aux différents types d’offres Tr
 
 * Un compte du Centre de développement et un compte Microsoft sont requis pour l’offre de publication Transaction, quel que soit le modèle de tarification de l’offre.
 * Le compte du Centre de développement contient tous les détails financiers dont Microsoft a besoin pour collecter les frais auprès du client en tant qu’agent de l’éditeur, et payer ensuite l’éditeur.
-* Vous pouvez utiliser les mêmes informations d’identification pour votre compte professionnel et le compte Microsoft. Toutefois, le compte du Centre de développement est un compte indépendant du compte du portail Cloud Publisher. Pour utiliser l’option de publication Transaction, l’éditeur doit suivre le processus d’inscription d’un compte du Centre de développement, en plus de s’inscrire pour accéder au portail Cloud Partner.
+* Bien que vous pouvez utiliser la même organisation ou détails de connexion Microsoft sur les deux comptes, centre de développement est un compte distinct à partir du compte du portail Microsoft Cloud Partner. Pour utiliser l’option de publication Transaction, l’éditeur doit suivre le processus d’inscription d’un compte du Centre de développement, en plus de s’inscrire pour accéder au portail Cloud Partner.
 
 *Pour plus d’informations sur la création de ces comptes, consultez [Devenir un éditeur sur la Place de marché dans le cloud](https://docs.microsoft.com/azure/marketplace/become-publisher).*
 

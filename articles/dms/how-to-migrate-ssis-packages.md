@@ -2,21 +2,21 @@
 title: Migrer des packages SQL Server Integration Services vers Azure | Microsoft Docs
 description: Découvrez comment Migrer des packages SQL Server Integration Services vers Azure.
 services: database-migration
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 12/15/2018
-ms.openlocfilehash: 2fa37d31e984399c1b676cf6c6112617fac43fd9
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 884af4624c1e92ee765353c90fd189220664381d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53721935"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58183422"
 ---
 # <a name="migrate-sql-server-integration-services-packages-to-azure"></a>Migrer des packages SQL Server Integration Services vers Azure
 Si vous utilisez SQL Server Integration Services (SSIS) et souhaitez migrer vos projets/packages SSIS à partir de la source SSISDB hébergée par SQL Server vers la destination SSISDB hébergée par un serveur Azure SQL Database SQL Database ou une Azure SQL Database Managed Instance, vous pouvez les redéployer à l’aide de l’Assistant Déploiement d’Integration Services. Vous pouvez lancer l’Assistant à partir de SQL Server Management Studio (SSMS).
@@ -31,7 +31,7 @@ Dans cet article, vous apprendrez comment :
 > * Évaluer des projets/packages SSIS sources.
 > * Migrer des projets/packages SSIS vers Azure.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Pour effectuer cette procédure, vous avez besoin de :
 
 - SSMS version 17.2 ou ultérieure.

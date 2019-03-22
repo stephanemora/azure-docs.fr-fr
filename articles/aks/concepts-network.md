@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 6affa19c61ff4a824e390c42b7fd97554a30c9bb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: cbdbf7dcd6269991d23c61d316dcee68e6678171
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176235"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58175664"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Concepts de réseau pour les applications dans AKS (Azure Kubernetes Service)
 
@@ -23,13 +23,13 @@ Cet article présente les concepts fondamentaux qui fournissent la mise en rése
 - [Services](#services)
 - [Réseaux virtuels Azure](#azure-virtual-networks)
 - [Contrôleurs d’entrée](#ingress-controllers)
-- Stratégies réseau
+- [Stratégies réseau](#network-policies)
 
 ## <a name="kubernetes-basics"></a>Concepts de base Kubernetes
 
 Pour autoriser l’accès à vos applications ou pour que les composants d’application communiquent entre eux, Kubernetes fournit une couche d’abstraction à la mise en réseau virtuelle. Les nœuds Kubernetes sont connectés à un réseau virtuel et peuvent fournir la connectivité entrante et sortante pour les pods. Le composant *kube-proxy* s’exécute sur chaque nœud afin de fournir ces fonctionnalités de réseau.
 
-Dans Kubernetes, les *services* regroupent logiquement les pods pour permettre un accès direct via une adresse IP ou un nom DNS et sur un port spécifique. Vous pouvez également distribuer le trafic à l’aide d’un *équilibreur de charge*. En outre, vous pouvez affiner le routage du trafic des applications avec des *contrôleurs d’entrée*. La sécurité et le filtrage du trafic réseau pour les pods sont possibles avec des *stratégies réseau* Kubernetes.
+Dans Kubernetes, les *services* regroupent logiquement les pods pour permettre un accès direct via une adresse IP ou un nom DNS et sur un port spécifique. Vous pouvez également distribuer le trafic à l’aide d’un *équilibreur de charge*. En outre, vous pouvez affiner le routage du trafic des applications avec des *contrôleurs d’entrée*. Sécurité et le filtrage du trafic réseau pour des pods est possible avec Kubernetes *stratégies réseau* (en version préliminaire dans ACS).
 
 La plateforme Azure permet également de simplifier la mise en réseau virtuelle pour les clusters AKS. Quand vous créez un équilibreur de charge Kubernetes, la ressource d’équilibreur de charge Azure sous-jacente est créée et configurée. Quand vous ouvrez des ports réseau sur les pods, les règles de groupe de sécurité réseau Azure correspondantes sont configurées. Pour le routage d’application HTTP, Azure peut également configurer un *DNS externe* quand de nouvelles routes d’entrée sont configurées.
 
@@ -68,7 +68,7 @@ Dans AKS, vous pouvez déployer un cluster qui utilise un des deux modèles de r
 
 L’option de mise en réseau *kubenet* est la configuration par défaut de la création de cluster AKS. Avec *kubenet*, les nœuds obtiennent une adresse IP du sous-réseau du réseau virtuel Azure. Les pods reçoivent une adresse IP du sous-réseau de réseau virtuel Azure des nœuds à partir d’un espace d’adressage logiquement différent. La traduction d’adresses réseau (NAT) est ensuite configurée afin que les pods puissent accéder aux ressources sur le réseau virtuel Azure. L’adresse IP source du trafic fait l’objet d’une opération NAT sur l’adresse IP principale du nœud.
 
-Les nœuds utilisent le plug-in Kubernetes [kubenet][kubenet]. Vous pouvez laisser la plateforme Azure créer et configurer les réseaux virtuels pour vous ou choisir de déployer votre cluster AKS dans un sous-réseau de réseau virtuel existant. Là encore, seuls les nœuds reçoivent une adresse IP routable et les pods utilisent NAT pour communiquer avec d’autres ressources à l’extérieur du cluster AKS. Cette approche réduit considérablement le nombre d’adresses IP que vous devez réserver dans votre espace réseau pour que les pods les utilisent.
+Les nœuds utilisent le plug-in Kubernetes [kubenet][kubenet]. Vous pouvez laisser la plateforme Azure créer et configurer les réseaux virtuels pour vous ou choisir de déployer votre cluster AKS dans un sous-réseau de réseau virtuel existant. Là encore, seuls les nœuds recevoir une adresse IP routable et les pods utilisent NAT pour communiquer avec d’autres ressources à l’extérieur du cluster AKS. Cette approche réduit considérablement le nombre d’adresses IP que vous devez réserver dans votre espace réseau pour que les pods les utilisent.
 
 Pour plus d’informations, consultez [Configurer une mise en réseau kubenet pour un cluster AKS][aks-configure-kubenet-networking].
 
@@ -102,21 +102,21 @@ Une autre fonctionnalité d’entrée courante est l’arrêt SSL/TLS. Sur les g
 
 ## <a name="network-security-groups"></a>Groupes de sécurité réseau
 
-Un groupe de sécurité réseau filtre le trafic pour des machines virtuelles, par exemple les nœuds AKS. Quand vous créez des services, tels qu’un équilibreur de charge, la plateforme Azure configure automatiquement toutes les règles de groupe de sécurité réseau nécessaires. Ne configurez pas manuellement des règles de groupe de sécurité réseau pour filtrer le trafic des pods dans un cluster AKS. Définissez les ports et le transfert requis dans le cadre de vos manifestes de services Kubernetes et laissez la plateforme Azure créer ou mettre à jour les règles appropriées. Vous pouvez également utiliser des stratégies réseau, comme l’explique la section suivante, puis appliquer automatiquement des règles de filtrage de trafic aux pods.
-
-Il existe des règles de groupe de sécurité réseau par défaut pour le trafic, tel que le trafic SSH. Ces règles par défaut concernent la gestion du cluster et la résolution des problèmes d’accès. La suppression de ces règles par défaut peut entraîner des problèmes liés à la gestion d’AKS et rompt l’objectif de niveau de service.
+Un groupe de sécurité réseau filtre le trafic pour des machines virtuelles, par exemple les nœuds AKS. Quand vous créez des services, tels qu’un équilibreur de charge, la plateforme Azure configure automatiquement toutes les règles de groupe de sécurité réseau nécessaires. Ne configurez pas manuellement des règles de groupe de sécurité réseau pour filtrer le trafic des pods dans un cluster AKS. Définissez les ports et le transfert requis dans le cadre de vos manifestes de services Kubernetes et laissez la plateforme Azure créer ou mettre à jour les règles appropriées. Vous pouvez également utiliser les stratégies de réseau, comme indiqué dans la section suivante, pour appliquer automatiquement les règles de filtre de trafic avec les pods.
 
 ## <a name="network-policies"></a>Stratégies réseau
 
 Par défaut, tous les pods d’un cluster AKS peuvent envoyer et recevoir du trafic sans limitations. Pour une sécurité accrue, vous pouvez définir des règles qui contrôlent le flux de trafic. Les applications principales sont souvent exposées uniquement aux services frontaux obligatoires, ou les composants de base de données sont uniquement accessibles aux couches d’application qui s’y connectent.
 
-L’utilisation de stratégies réseau est une fonctionnalité Kubernetes qui vous permet de contrôler le flux de trafic entre les pods. Vous pouvez choisir d’autoriser ou de refuser le trafic selon des paramètres tels que les étiquettes attribuées, l’espace de noms ou le port de trafic. Les groupes de sécurité réseau sont plus adaptés aux nœuds AKS qu’aux pods. L’utilisation de stratégies réseau est un moyen plus adapté et natif du cloud de contrôler le flux de trafic. Les pods étant créés de façon dynamique dans un cluster AKS, les stratégies réseau nécessaires peuvent être appliquées automatiquement.
+Stratégie de réseau est une fonctionnalité de Kubernetes actuellement en version préliminaire dans ACS qui vous permet de contrôler le flux de trafic entre les pods. Vous pouvez choisir d’autoriser ou de refuser un trafic en fonction de paramètres, tels que des étiquettes attribuées, un espace de noms ou un port de trafic. Les groupes de sécurité réseau sont plus adaptés aux nœuds AKS qu’aux pods. L’utilisation de stratégies réseau est un moyen plus adapté et natif du cloud de contrôler le flux de trafic. Les pods étant créés de façon dynamique dans un cluster AKS, les stratégies réseau nécessaires peuvent être appliquées automatiquement.
 
 Pour plus d’informations, consultez [Sécuriser le trafic entre les pods avec des stratégies réseau dans Azure Kubernetes Service (AKS)][use-network-policies].
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour bien démarrer avec la mise en réseau AKS, créez et configurez un cluster AKS avec vos propres plages d’adresses IP à l’aide de [kubenet][aks-configure-kubenet-networking] ou d’[Azure CNI][aks-configure-advanced-networking].
+
+Pour les recommandations associées, consultez [meilleures pratiques pour la connectivité de réseau et de sécurité dans AKS][operator-best-practices-network].
 
 Pour plus d’informations sur les concepts fondamentaux de Kubernetes et d’AKS, consultez les articles suivants :
 
@@ -148,3 +148,4 @@ Pour plus d’informations sur les concepts fondamentaux de Kubernetes et d’AK
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-identity]: concepts-identity.md
 [use-network-policies]: use-network-policies.md
+[operator-best-practices-network]: operator-best-practices-network.md

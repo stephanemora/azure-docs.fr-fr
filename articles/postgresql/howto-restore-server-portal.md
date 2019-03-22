@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.openlocfilehash: 62a953467e212d0cb78686e9b0d98a7f1fcb5135
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 60489e3fc7fc6482a14a241e777066b3805a4d5e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699008"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095107"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-portal"></a>Comment sauvegarder et restaurer un serveur Azure Database pour PostgreSQL à l’aide du portail Azure
 
@@ -57,11 +57,11 @@ Les étapes suivantes restaurent l’exemple de serveur à un point dans le temp
 
 3. Remplissez le formulaire Restaurer avec les informations requises :
 
-   ![Azure Database pour PostgreSQL - Informations de restauration ](./media/howto-restore-server-portal/3-restore.png)
-  - **Point de restauration** : sélectionnez le point dans le temps vers lequel vous souhaitez restaurer.
-  - **Serveur cible** : Entrez un nom pour le nouveau serveur.
-  - **Emplacement** : vous ne pouvez pas sélectionner la région. Par défaut, elle est identique à celle du serveur source.
-  - **Niveau tarifaire** : vous ne pouvez pas modifier ces paramètres lorsque vous effectuez une restauration à un point dans le temps. Elle est identique à celle du serveur source. 
+   ![Azure Database pour PostgreSQL - Informations de restauration](./media/howto-restore-server-portal/3-restore.png)
+   - **Point de restauration** : sélectionnez le point dans le temps vers lequel vous souhaitez restaurer.
+   - **Serveur cible** : Entrez un nom pour le nouveau serveur.
+   - **Emplacement** : vous ne pouvez pas sélectionner la région. Par défaut, elle est identique à celle du serveur source.
+   - **Niveau tarifaire** : vous ne pouvez pas modifier ces paramètres lorsque vous effectuez une restauration à un point dans le temps. Elle est identique à celle du serveur source. 
 
 4. Cliquez sur **OK** pour restaurer le serveur à un point dans le temps. 
 

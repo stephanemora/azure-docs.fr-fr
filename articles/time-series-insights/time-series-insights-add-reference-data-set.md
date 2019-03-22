@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.custom: seodec18
-ms.openlocfilehash: a14f568e2485e59cb3e567eb9ee5c5eb20b02afc
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: f5cc06ba1a326d262c1437a941306b4d4a648260
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198420"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58101225"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Créer un jeu de données de référence pour votre environnement Time Series Insights à l’aide du portail Azure
 
@@ -82,19 +82,19 @@ Les données de référence ne sont pas jointes rétroactivement. Cela signifie 
  
 13. Nommez le jeu de données en renseignant le champ **Nom du jeu de données** au-dessus de la grille de données.
 
-   ![Nommez du jeu de données.](media/add-reference-data-set/name_reference_dataset.png)
+    ![Nommez du jeu de données.](media/add-reference-data-set/name_reference_dataset.png)
 
 14. Indiquez la colonne de **clé primaire** du jeu de données en sélectionnant la liste déroulante au-dessus de la grille de données.
 
-   ![Sélectionnez les colonnes de clé.](media/add-reference-data-set/set_primary_key.png)
+    ![Sélectionnez les colonnes de clé.](media/add-reference-data-set/set_primary_key.png)
 
-   Si vous le souhaitez, cliquez sur le bouton **+** pour ajouter une colonne de clé secondaire, comme une clé primaire composite. Si vous devez annuler la sélection, choisissez la valeur vide de la liste déroulante pour supprimer la clé secondaire.
+    Si vous le souhaitez, cliquez sur le bouton **+** pour ajouter une colonne de clé secondaire, comme une clé primaire composite. Si vous devez annuler la sélection, choisissez la valeur vide de la liste déroulante pour supprimer la clé secondaire.
 
-15.  Pour télécharger les données, cliquez sur le bouton **Télécharger les lignes**.
+15. Pour télécharger les données, cliquez sur le bouton **Télécharger les lignes**.
 
-   ![Télécharger](media/add-reference-data-set/upload_rows.png)
+    ![Télécharger](media/add-reference-data-set/upload_rows.png)
 
-   La page confirme la fin du téléchargement et affiche le message **Jeu de données chargé**.
+    La page confirme la fin du téléchargement et affiche le message **Jeu de données chargé**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Gérez les données de référence](time-series-insights-manage-reference-data-csharp.md) par programme.
