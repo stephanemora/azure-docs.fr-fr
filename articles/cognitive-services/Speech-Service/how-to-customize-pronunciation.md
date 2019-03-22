@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 0a3dfce10fc8ea76bc8f99e2459295bc637017dc
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 139c5d47fe6ea82148e2d5e1cf2f5fcb72d4020e
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878406"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339395"
 ---
 # <a name="enable-custom-pronunciation"></a>Activer la prononciation personnalisée
 
-La prononciation personnalisée vous permet de définir l’écriture et la forme phonétiques d’un mot ou d’un terme. Cela peut être utile pour traiter les termes personnalisés que sont notamment les noms et les acronymes. Pour commencer, vous n’avez besoin que d’un fichier de prononciation (un simple fichier .txt).
+À l’aide de prononciation personnalisée, vous pouvez définir la forme phonétique et l’affichage d’un mot ou le terme (acronyme). Cela peut être utile pour traiter les termes personnalisés que sont notamment les noms et les acronymes. Pour commencer, vous n’avez besoin que d’un fichier de prononciation (un simple fichier .txt).
 
 Voici comment cela fonctionne. Dans un simple fichier .txt, vous pouvez saisir plusieurs entrées de prononciation personnalisées. La structure est comme suit :
 
@@ -32,11 +32,12 @@ Plusieurs exemples sont présentés dans le tableau suivant :
 
 | Forme écrite (en anglais) | Forme orale (en anglais) |
 |----------|-------|
-| C3PO | see three pea o |
+| 3CPO | see three pea o |
 | L8R | late are |
-| CNTK (Computational Network Toolkit de Microsoft Research) | see n tea k|
+| CNTK (Computational Network Toolkit de Microsoft Research) | t n c k|
 
 ## <a name="requirements-for-the-spoken-form"></a>Exigences pour la forme orale
+
 La forme orale doit être en minuscules, ce que vous pouvez appliquer pendant l’importation. Vous devez également fournir des vérifications dans l’importateur de données. Aucune tabulation n’est autorisée dans la forme orale ou la forme écrite. Néanmoins, d’autres caractères interdits peuvent être présents dans la forme écrite (par exemple, ~ et ^).
 
 Chaque fichier .txt peut avoir plusieurs entrées, comme le montre l’image suivante :
@@ -46,18 +47,20 @@ Chaque fichier .txt peut avoir plusieurs entrées, comme le montre l’image sui
 La forme orale est la séquence phonétique de la forme écrite. Elle est composée de lettres, de mots ou de syllabes. Actuellement, il n’existe aucun guide ou ensemble de normes pour vous aider à formuler la forme orale.
 
 ## <a name="supported-pronunciation-characters"></a>Caractères de prononciation pris en charge
+
 Pour l’heure, la prononciation personnalisée prend uniquement en charge l’anglais (en-US) et l’allemand (de-DE). Les jeux de caractères dont vous pouvez vous servir pour exprimer la forme orale d’un terme (dans le fichier de prononciation personnalisée) sont présentés dans le tableau suivant :
 
 | Langage | Caractères |
 |---------- |----------|
-| Anglais (en-US) | a, b, c, d, e, f, g, h, i, j, k, l, o, p, q, r, s, t, u, v, w, x, y, z |
-| Allemand (de-de) | ä, ö, ü, ?, a, b, c, d, e, f, g, h, i, j, k, l, o, p, q, r, s, t, u, v, w, x, y, z |
+| Anglais (en-US) | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
+| Allemand (de-de) | ä, ö, ü, ?, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
 
 > [!NOTE]
 > La forme écrite d’un terme (dans un fichier de prononciation) doit être identique à celle utilisée dans un jeu de données d’adaptation de langue.
 
 ## <a name="requirements-for-the-display-form"></a>Exigences pour la forme écrite
-Une forme écrite peut être constituée d’un mot, d’un terme, d’un acronyme personnalisé unique ou de mots composés combinant des mots existants. Vous pouvez également entrer des prononciations différentes pour les mots courants.
+
+Un formulaire d’affichage peut être uniquement un mot personnalisé, un acronyme ou des mots composés qui combinent des mots.
 
 >[!NOTE]
 >Nous vous déconseillons d’utiliser cette fonctionnalité pour reformuler des mots courants ou modifier la forme orale. Il est préférable d’exécuter le décodeur pour voir si certains mots inhabituels (tels que des abréviations, des mots techniques ou des mots étrangers) ne sont pas décodés de manière incorrecte. S’ils ne sont pas décodés correctement, ajoutez-les dans le fichier de prononciation personnalisée. Dans le modèle de langage, vous devez toujours utiliser uniquement la forme écrite d’un mot.

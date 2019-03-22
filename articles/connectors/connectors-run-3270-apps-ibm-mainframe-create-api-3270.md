@@ -10,12 +10,12 @@ ms.reviewer: estfan, valthom
 ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
-ms.openlocfilehash: ebf858ba86758b11ee896d745d70bdf2f0d0cde6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 7388dc0c61dad9c31da0c178febcee4c8481bc50
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57878378"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313190"
 ---
 # <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Intégrer des applications basées sur l’écran 3270 sur des macroordinateurs IBM avec Azure à l’aide du connecteur Azure Logic Apps et IBM 3270
 
@@ -410,7 +410,7 @@ Lorsque vous avez terminé toutes ces étapes, vous pouvez utiliser l’action q
 
 ## <a name="connector-reference"></a>Référence de connecteur
 
-Pour obtenir des détails techniques sur les déclencheurs, actions et limite, qui sont décrits par OpenAPI du connecteur (anciennement Swagger) description, passez en revue la page de référence du connecteur : [ https://docs.microsoft.com/connectors/<replace-with-api-topic-file-name> ](/connectors/).
+Pour obtenir des détails techniques sur les déclencheurs, actions et limite, qui sont décrits par OpenAPI du connecteur (anciennement Swagger) description, consultez le [page de référence du connecteur](/connectors/si3270/).
 
 ## <a name="get-support"></a>Obtenir de l’aide
 

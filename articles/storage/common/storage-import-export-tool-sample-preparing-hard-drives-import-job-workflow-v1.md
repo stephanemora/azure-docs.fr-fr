@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: e183ed5ecda3053ed052952f4db5adfb016bfa68
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: b80ba1cbe168270ec591bdd38859408eae387bbf
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459043"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311711"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Exemple de workflow pour préparer des disques durs à un travail d’importation
 Cette rubrique vous guide tout au long du processus de préparation des disques pour un travail d’importation.  
@@ -31,12 +31,12 @@ Le travail d’importation importe ces données dans les destinations suivantes 
   
 |Source|Répertoire virtuel ou objet blob de destination|  
 |------------|-------------------------------------------|  
-|H:\Video|https://mystorageaccount.blob.core.windows.net/video|  
-|H:\Photo|https://mystorageaccount.blob.core.windows.net/photo|  
-|K:\Temp\FavoriteMovie.ISO|https://mystorageaccount.blob.core.windows.net/favorite/FavoriteMovies.ISO|  
-|\\\bigshare\john\music|https://mystorageaccount.blob.core.windows.net/music|  
+|H:\Video|https:\//mystorageaccount.blob.core.windows.net/video|  
+|H:\Photo|https:\//mystorageaccount.blob.core.windows.net/photo|  
+|K:\Temp\FavoriteMovie.ISO|https :\//mystorageaccount.blob.core.windows.net/favorite/FavoriteMovies.ISO|  
+|\\\bigshare\john\music|https :\//mystorageaccount.blob.core.windows.net/music|  
   
-Avec ce mappage, le fichier `H:\Video\Drama\GreatMovie.mov` est importé dans l’objet blob `https://mystorageaccount.blob.core.windows.net/video/Drama/GreatMovie.mov`.  
+Avec ce mappage, le fichier `H:\Video\Drama\GreatMovie.mov` est importé dans l’objet blob https :\//mystorageaccount.blob.core.windows.net/video/Drama/GreatMovie.mov.  
   
 Ensuite, pour déterminer le nombre de disques durs nécessaires, calculez la taille des données :  
   
@@ -46,11 +46,11 @@ Pour cet exemple, deux disques durs de 3 To devraient suffire. Cependant, comme
   
 |Lieu|Taille|Répertoire virtuel ou objet blob de destination|  
 |--------------|----------|-------------------------------------------|  
-|H:\Video1|2,5 To|https://mystorageaccount.blob.core.windows.net/video|  
-|H:\Video2|2,5 To|https://mystorageaccount.blob.core.windows.net/video|  
-|H:\Photo|30 Go|https://mystorageaccount.blob.core.windows.net/photo|  
-|K:\Temp\FavoriteMovies.ISO|25 Go|https://mystorageaccount.blob.core.windows.net/favorite/FavoriteMovies.ISO|  
-|\\\bigshare\john\music|10 Go|https://mystorageaccount.blob.core.windows.net/music|  
+|H:\Video1|2,5 To|https:\//mystorageaccount.blob.core.windows.net/video|  
+|H:\Video2|2,5 To|https:\//mystorageaccount.blob.core.windows.net/video|  
+|H:\Photo|30 Go|https:\//mystorageaccount.blob.core.windows.net/photo|  
+|K:\Temp\FavoriteMovies.ISO|25 Go|https :\//mystorageaccount.blob.core.windows.net/favorite/FavoriteMovies.ISO|  
+|\\\bigshare\john\music|10 Go|https :\//mystorageaccount.blob.core.windows.net/music|  
   
  Même si le répertoire `H:\Video` a été divisé en deux répertoires, ils pointent tous deux vers le même répertoire virtuel de destination dans le compte de stockage. De cette façon, tous les fichiers vidéo sont conservés dans un seul conteneur `video` au sein du compte de stockage.  
   

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 93935aa36c53e1d5de1bba215826d0754ee83b8f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 946f815cecea4cc172fac35c0b260d795317e6e1
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57902839"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316216"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio-code"></a>Déployer localement la solution de supervision à distance - Visual Studio Code
 
@@ -79,7 +79,7 @@ npm install
 npm start
 ```
 
-Une fois le démarrage terminé, votre navigateur affiche la page **http://localhost:3000/dashboard**. Les erreurs présentes sur cette page sont attendues. Pour afficher l’application sans erreur, procédez comme suit.
+Lorsque le démarrage est terminé, votre navigateur affiche la page **http :\//localhost:3000 / tableau de bord**. Les erreurs présentes sur cette page sont attendues. Pour afficher l’application sans erreur, procédez comme suit.
 
 ### <a name="configure-and-run-nginx"></a>Configurer et exécuter NGINX
 
@@ -92,7 +92,7 @@ Pour plus d’informations sur l’exécution de **nginx**, consultez [nginx pou
 
 ### <a name="connect-to-the-dashboard"></a>Connexion au tableau de bord
 
-Pour accéder au tableau de bord de la solution de surveillance à distance, accédez à [http://localhost:9000](http://localhost:9000) dans votre navigateur.
+Pour accéder à du tableau de bord solution de surveillance à distance, accédez à http :\//localhost:9000 dans votre navigateur.
 
 ## <a name="clean-up"></a>Nettoyer
 

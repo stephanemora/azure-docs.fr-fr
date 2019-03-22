@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 0ca3cee0c818bf9d5dda4a7ea8a1f356ed017973
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6e8883870cc0f035df5122e91449f04203836218
+ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57891084"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319463"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Science des données avec une image Data Science Virtual Machine Linux sur Azure
 Cette procédure pas à pas vous montre comment effectuer plusieurs tâches courantes de science des données avec la machine virtuelle de science des données Linux. La machine virtuelle de science des données Linux est une image de machine virtuelle disponible sur Azure qui est préinstallée avec plusieurs outils couramment utilisés dans le cadre de l’analyse de données et du Machine Learning. Les composants logiciels clés sont détaillés dans la rubrique [Approvisionnement d’une machine virtuelle de science des données Linux](linux-dsvm-intro.md) . L’image de la machine virtuelle facilite la prise en main de la science des données en quelques minutes, sans avoir à installer et à configurer individuellement chacun des outils individuellement. Le cas échéant, vous pouvez facilement faire monter en puissance la machine virtuelle, et l’arrêter lorsqu’elle est inutilisée. Cette ressource est donc flexible et économique.
@@ -423,7 +423,7 @@ L’une des fonctionnalités intéressantes de Rattle est sa capacité à exécu
 Une fois que vous avez terminé la création de modèles, sélectionnez l’onglet **Journal** pour afficher le code R exécuté par Rattle pendant votre session. Vous pouvez sélectionner le bouton **Exporter** pour l’enregistrer.
 
 > [!NOTE]
-> Il existe un bogue dans la version actuelle de Rattle. Pour modifier le script ou l’utiliser pour répéter les étapes ultérieurement, vous devez insérer un symbole dièse (#) devant *Exporter ce journal… * dans le texte du journal.
+> Il existe un bogue dans la version actuelle de Rattle. Pour modifier le script ou l’utiliser pour répéter les étapes ultérieurement, vous devez insérer un caractère # devant *exporter ce journal...*  dans le texte du journal.
 >
 >
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: 92f9fcc8a10f90c0886667f33f3c7d4dec09bc8e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9d48f47f66bea0bb8c5e3c982f983f3673bcb157
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57884674"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316998"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Approvisionner une machine virtuelle pour la science des données pour Linux (Ubuntu)
 
@@ -144,9 +144,9 @@ Une fois connecté à la machine virtuelle à l’aide du client SSH ou du burea
 
 ### <a name="jupyterhub-and-jupyterlab"></a>JupyterHub et JupyterLab
 
-La machine DSVM Ubuntu exécute [JupyterHub](https://github.com/jupyterhub/jupyterhub), un serveur multi-utilisateur Jupyter. Pour vous connecter, accédez à https://your-vm-ip:8000 sur votre ordinateur portable ou votre poste de travail, entrez le nom d’utilisateur et le mot de passe que vous avez utilisés pour créer la machine virtuelle, puis connectez-vous. De nombreux exemples de blocs-notes sont disponibles et peuvent être testés.
+La machine DSVM Ubuntu exécute [JupyterHub](https://github.com/jupyterhub/jupyterhub), un serveur multi-utilisateur Jupyter. Pour vous connecter, accédez à https :\// votre-vm-ip:8000 sur votre ordinateur portable ou votre bureau, entrez le nom d’utilisateur et le mot de passe que vous avez utilisé pour créer la machine virtuelle, puis connectez-vous. De nombreux exemples de blocs-notes sont disponibles et peuvent être testés.
 
-JupyterLab, nouvelle génération de blocs-notes Jupyter, et JupyterHub, sont également disponibles. Pour y accéder, connectez-vous à JupyterHub, puis accédez à l’URL https://your-vm-ip:8000/user/your-username/lab. Vous pouvez définir JupyterLab en tant que serveur de bloc-notes par défaut en ajoutant la ligne suivante à /etc/jupyterhub/jupyterhub_config.py :
+JupyterLab, nouvelle génération de blocs-notes Jupyter, et JupyterHub, sont également disponibles. Pour y accéder, connectez-vous à JupyterHub, puis accédez à l’URL https :\// votre-vm-ip:8000/utilisateur/votre-nom d’utilisateur/lab. Vous pouvez définir JupyterLab en tant que serveur de bloc-notes par défaut en ajoutant la ligne suivante à /etc/jupyterhub/jupyterhub_config.py :
 
     c.Spawner.default_url = '/lab'
 

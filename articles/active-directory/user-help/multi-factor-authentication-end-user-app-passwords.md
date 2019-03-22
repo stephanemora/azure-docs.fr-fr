@@ -14,12 +14,12 @@ ms.date: 07/30/2018
 ms.author: lizross
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47128bce8dbbee1b28f6b0a3a5783e5ccee501bb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6d0dbfeaf3fb018c8dd3f671ce7ad9d7d50e5fca
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58177396"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336301"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>Gérer les mots de passe d’application pour la vérification en deux étapes
 
@@ -40,7 +40,7 @@ Lorsque vous utilisez des mots de passe d’application, gardez à l’esprit le
 
 Vous recevez un mot de passe d’application lors de votre inscription initiale au processus de vérification en deux étapes. Si vous avez besoin de mots de passe supplémentaires, vous pouvez en créer d’autres en fonction de la manière dont vous utilisez la vérification en deux étapes :
 
-- **Vous utilisez la vérification en deux étapes avec votre compte professionnel ou scolaire et le portail MyApps.** Créez et supprimez vos mots de passe d’application en suivant les instructions de la section [Créer et supprimer des mots de passe d’application à l’aide du portail MyApps](#create-and-delete-app-passwords-using-the-myapps-portal) de cet article. Pour plus d’informations sur le portail MyApps et la manière de l’utiliser, consultez [Qu’est-ce que le portail MyApps dans Azure Active Directory ?](active-directory-saas-access-panel-introduction.md).
+- **Vous utilisez la vérification en deux étapes avec votre compte professionnel ou scolaire et le portail MyApps.** Créez et supprimez vos mots de passe d’application en suivant les instructions de la section [Créer et supprimer des mots de passe d’application à l’aide du portail MyApps](#create-and-delete-app-passwords-using-the-my-apps-portal) de cet article. Pour plus d’informations sur le portail MyApps et la manière de l’utiliser, consultez [Qu’est-ce que le portail MyApps dans Azure Active Directory ?](active-directory-saas-access-panel-introduction.md).
 
 - **Vous utilisez la vérification en deux étapes avec votre compte professionnel ou scolaire et le portail Office 365.** Créez et supprimez vos mots de passe d’application en suivant les instructions de la section [Créer et supprimer des mots de passe d’application à l’aide du Portail Office 365](#create-and-delete-app-passwords-using-the-office-365-portal) de cet article.
 

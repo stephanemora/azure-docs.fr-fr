@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: a7ba66fae3f2a8426cc333cca109a4c6793d1da2
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 56eb7e7372d2041b52af6bbae2b9186b99f97bbb
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724317"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337814"
 ---
 # <a name="connect-to-hdinsight-apache-hadoop-using-ssh"></a>Se connecter à HDInsight (Apache Hadoop) avec SSH
 
@@ -57,7 +57,7 @@ Microsoft Windows n’installe pas de clients SSH par défaut. Les clients `ssh`
 
 * [Bash sur Ubuntu sur Windows 10](https://msdn.microsoft.com/commandline/wsl/about) les commandes `ssh` et `scp` sont disponibles via le Bash sur la ligne de commande Windows.
 
-* [Client OpenSSH (bêta) :](https://blogs.msdn.microsoft.com/powershell/2017/12/15/using-the-openssh-beta-in-windows-10-fall-creators-update-and-windows-server-1709/) il s’agit d’une fonctionnalité facultative introduite dans la mise à jour Windows 10 Fall Creators Update.
+* [Client OpenSSH (bêta) :](https://devblogs.microsoft.com/powershell/using-the-openssh-beta-in-windows-10-fall-creators-update-and-windows-server-1709/) il s’agit d’une fonctionnalité facultative introduite dans la mise à jour Windows 10 Fall Creators Update.
 
 * [Azure Cloud Shell](../cloud-shell/quickstart.md) : Cloud Shell fournit un environnement Bash dans votre navigateur, ainsi que les commandes `ssh`, `scp` et d’autres commandes Linux courantes.
 

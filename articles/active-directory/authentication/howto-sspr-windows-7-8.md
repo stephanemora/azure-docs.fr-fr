@@ -1,5 +1,5 @@
 ---
-title: Réinitialisation de mot de passe en libre-service Azure AD dans Windows 7 et 8.1
+title: Azure AD mot de passe libre-service de réinitialisation Windows 7 et 8.1 - Azure Active Directory
 description: Procédure d’activation de la réinitialisation de mot de passe en libre-service à l’aide du lien « Vous avez oublié votre mot de passe ? » sur l’écran d’ouverture de session de Windows 7 ou 8.1
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 933ac9b8f7d381db0111ee50385f11e8a22d92f1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7a7752fac54f9dfb2f8fb0aecd3b6249c52c3bcf
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217817"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316352"
 ---
 # <a name="how-to-enable-password-reset-from-windows-7-8-and-81"></a>Activation Activer la réinitialisation de mot de passe à partir de Windows 7, 8 et 8.1
 
@@ -26,7 +26,7 @@ Contrairement aux machines Windows 10, les machines Windows 7, 8 et 8.1 ne prés
 
 ![Exemple d’écran d’ouverture de session Windows 7 présentant le lien « Vous avez oublié votre mot de passe ? »](media/howto-sspr-windows-7-8/windows-7-logon-screen.png)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * activer la réinitialisation du mot de passe libre-service Azure AD.
 * Système d’exploitation Windows 7 ou Windows 8.1 corrigé.

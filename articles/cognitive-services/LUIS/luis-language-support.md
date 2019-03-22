@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 98df1d9612d18e4ab5044bd92822b2df76286b12
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 735835d16eb14c3847f36ecb6f46c08c0a8928ef
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340854"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339514"
 ---
 # <a name="language-and-region-support-for-luis"></a>Prise en charge de la région et de la langue pour LUIS
 
@@ -94,3 +94,116 @@ Pour effectuer l’apprentissage machine, LUIS décompose l’énoncé en [jeton
 |Portugais (Brésil)|✔||||
 |Espagnol (es-ES)|✔||||
 |Espagnol (es-MX)|✔||||
+
+### <a name="custom-tokenizer-versions"></a>Versions du Générateur de jetons personnalisés
+
+Les cultures suivantes ont des versions du Générateur de jetons personnalisé :
+
+|Culture|Version|Objectif|
+|--|--|--|
+|Allemand<br>`de-de`|1.0.0|Crée des jetons mots en les fractionnant à l’aide d’un ordinateur basé sur un apprentissage Générateur de jetons qui tente de se décomposer des mots composés en leurs composants uniques.<br>Si un utilisateur entre `Ich fahre einen krankenwagen` comme énoncé, elle est activée `Ich fahre einen kranken wagen`. Ce qui permet le marquage de `kranken` et `wagen` indépendamment en tant que différentes entités.|
+|Allemand<br>`de-de`|1.0.1|Crée des jetons en les fractionnant sur les espaces de mots.<br> Si un utilisateur entre `Ich fahre einen krankenwagen` comme énoncé, il reste un jeton unique. Par conséquent `krankenwagen` est marquée comme une seule entité. |
+
+### <a name="migrating-between-tokenizer-versions"></a>Migration entre les versions du Générateur de jetons
+
+Votre premier choix consiste à modifier la version du Générateur de jetons dans le fichier d’application, puis importer la version. Cette action modifie comment énoncés sont sous forme de jetons, mais vous pouvez ainsi conserver le même ID d’application. 
+
+Générateur de jetons JSON pour 1.0.0. Notez la valeur de propriété pour `tokenizerVersion`. 
+
+```JSON
+{
+    "luis_schema_version": "3.2.0",
+    "versionId": "0.1",
+    "name": "german_app_1.0.0",
+    "desc": "",
+    "culture": "de-de",
+    "tokenizerVersion": "1.0.0",
+    "intents": [
+        {
+            "name": "i1"
+        },
+        {
+            "name": "None"
+        }
+    ],
+    "entities": [
+        {
+            "name": "Fahrzeug",
+            "roles": []
+        }
+    ],
+    "composites": [],
+    "closedLists": [],
+    "patternAnyEntities": [],
+    "regex_entities": [],
+    "prebuiltEntities": [],
+    "model_features": [],
+    "regex_features": [],
+    "patterns": [],
+    "utterances": [
+        {
+            "text": "ich fahre einen krankenwagen",
+            "intent": "i1",
+            "entities": [
+                {
+                    "entity": "Fahrzeug",
+                    "startPos": 23,
+                    "endPos": 27
+                }
+            ]
+        }
+    ],
+    "settings": []
+}
+```
+
+Générateur de jetons JSON pour la version 1.0.1. Notez la valeur de propriété pour `tokenizerVersion`. 
+
+```JSON
+{
+    "luis_schema_version": "3.2.0",
+    "versionId": "0.1",
+    "name": "german_app_1.0.1",
+    "desc": "",
+    "culture": "de-de",
+    "tokenizerVersion": "1.0.1",
+    "intents": [
+        {
+            "name": "i1"
+        },
+        {
+            "name": "None"
+        }
+    ],
+    "entities": [
+        {
+            "name": "Fahrzeug",
+            "roles": []
+        }
+    ],
+    "composites": [],
+    "closedLists": [],
+    "patternAnyEntities": [],
+    "regex_entities": [],
+    "prebuiltEntities": [],
+    "model_features": [],
+    "regex_features": [],
+    "patterns": [],
+    "utterances": [
+        {
+            "text": "ich fahre einen krankenwagen",
+            "intent": "i1",
+            "entities": [
+                {
+                    "entity": "Fahrzeug",
+                    "startPos": 16,
+                    "endPos": 27
+                }
+            ]
+        }
+    ],
+    "settings": []
+}
+```
+
+Le second choix consiste à [importer le fichier comme nouvelle application](luis-how-to-start-new-app.md#import-an-app-from-file), au lieu d’une version. Cette action signifie la nouvelle application a un ID d’application différents, mais utilise la version du Générateur de jetons spécifiée dans le fichier. 

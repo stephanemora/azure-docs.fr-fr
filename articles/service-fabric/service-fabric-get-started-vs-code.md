@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 197010271518347025157968012be31c71b3b667
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c31f3ec503f22ab0d272ff96b85cf0f76a837d11
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121024"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316052"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Service Fabric pour Visual Studio Code
 
@@ -107,7 +107,7 @@ Le **Service Fabric : Publier l’Application** commande déploie votre applica
 Le **Service Fabric : Déployer l’Application** commande déploie votre application de Service Fabric sur votre cluster local. Vérifiez que votre cluster local est en cours d’exécution avant d’utiliser la commande. 
 
 1. Sélectionnez le **Service Fabric : Déployer l’Application** commande
-2. Affichez le cluster local avec Service Fabric Explorer (http://localhost:19080/Explorer) pour vérifier que l’application a été installée. Cette opération pouvant prendre un certain temps, soyez patient.
+2. Afficher le cluster local avec Service Fabric Explorer (http :\//localhost:19080 / Explorer) pour confirmer que l’application a été installée. Cette opération pouvant prendre un certain temps, soyez patient.
 3. Vous pouvez également utiliser **Service Fabric : Publier l’Application** commande sans aucun paramètre défini dans le fichier Cloud.json à déployer sur un cluster local.
 
 > [!NOTE]

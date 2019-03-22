@@ -1,19 +1,19 @@
 ---
-title: Utiliser le portail Azure pour gérer les droits d’accès Azure AD aux conteneurs et les files d’attente avec RBAC (version préliminaire) - stockage Azure | Microsoft Docs
+title: Utiliser le portail Azure pour gérer les droits d’accès Azure AD aux conteneurs et les files d’attente avec RBAC (version préliminaire) - stockage Azure
 description: Utilisez le contrôle d’accès en fonction du rôle (RBAC) à partir du portail Azure pour attribuer l’accès aux conteneurs et les files d’attente pour les principaux de sécurité. Stockage Azure prend en charge les rôles RBAC intégrés et personnalisés pour l’authentification via Azure AD.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 03/19/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 8050027bac3d2f13ac457edcdad9275c040305da
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a38cce7d15b4796bb66803d06f3589569985cb37
+ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431854"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319497"
 ---
 # <a name="grant-access-to-azure-containers-and-queues-with-rbac-in-the-azure-portal-preview"></a>Accorder l’accès à des conteneurs Azure et files d’attente avec RBAC dans le portail Azure (version préliminaire)
 
@@ -101,14 +101,6 @@ Suivez ces étapes pour affecter le **lecteur** rôle afin qu’un utilisateur p
 
 > [!NOTE]
 > Attribution du rôle de lecteur est nécessaire uniquement pour les utilisateurs qui doivent accéder aux objets BLOB ou les files d’attente à l’aide du portail Azure. 
-
-## <a name="use-azure-ad-credentials-with-the-portal"></a>Utilisez les informations d’identification Azure AD avec le portail
-
-Pour accéder aux objets BLOB ou les files d’attente dans le portail Azure à l’aide de vos informations d’identification Azure AD, utilisez les liens de la version préliminaire indiqués dans l’image suivante :
-
-![Accès aux objets BLOB ou les files d’attente avec les informations d’identification Azure AD dans le portail](media/storage-auth-aad-rbac/access-data-azure-ad.png)
-
-Si vous accédez à des données blob ou file d’attente en utilisant les liens de production plutôt que les liens de la version préliminaire, le portail Azure utilise votre clé de compte pour autoriser l’accès au lieu d’Azure AD.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

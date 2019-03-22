@@ -9,16 +9,18 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, maille de services, service maillage du routage, kubectl, k8s '
-ms.openlocfilehash: 1ccb96bc8682ad505bc4b21e90951ea25c4c9954
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eff7f88ec6cbf8064df42fa3b22d61bb44baa451
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57898080"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339582"
 ---
 # <a name="troubleshooting-guide"></a>Guide de résolution des problèmes
 
 Ce guide contient des informations sur les problèmes courants que vous êtes susceptible de rencontrer en utilisant Azure Dev Spaces.
+
+Si vous avez un problème lors de l’utilisation des espaces de développement Azure, créez un [problème dans le référentiel GitHub d’espaces Azure Dev](https://github.com/Azure/dev-spaces/issues).
 
 ## <a name="enabling-detailed-logging"></a>Activation de la journalisation détaillée
 
@@ -262,11 +264,13 @@ az provider register --namespace Microsoft.DevSpaces
 ## <a name="dev-spaces-times-out-at-waiting-for-container-image-build-step-with-aks-virtual-nodes"></a>Dev Spaces expire à l’étape *En attente de la build de l’image conteneur...* avec des nœuds virtuels AKS
 
 ### <a name="reason"></a>Motif
-Ce problème se produit quand vous essayez d’utiliser Dev Spaces afin d’exécuter un service configuré pour s’exécuter sur un [nœud virtuel AKS](https://docs.microsoft.com/azure/aks/virtual-nodes-portal). Actuellement, Dev Spaces ne gère pas les services de build ou de débogage sur des nœuds virtuels.
+Ce délai d’attente se produit lorsque vous essayez d’utiliser des espaces de développement pour exécuter un service qui est configuré pour s’exécuter un [nœud virtuel AKS](https://docs.microsoft.com/azure/aks/virtual-nodes-portal). Actuellement, Dev Spaces ne gère pas les services de build ou de débogage sur des nœuds virtuels.
 
 Si vous exécutez `azds up` avec le commutateur `--verbose` ou si vous activez la journalisation détaillée dans Visual Studio, vous obtenez des informations supplémentaires :
 
 ```cmd
+$ azds up --verbose
+
 Installed chart in 2s
 Waiting for container image build...
 pods/mywebapi-76cf5f69bb-lgprv: Scheduled: Successfully assigned default/mywebapi-76cf5f69bb-lgprv to virtual-node-aci-linux
@@ -274,7 +278,7 @@ Streaming build container logs for service 'mywebapi' failed with: Timed out aft
 Container image build failed
 ```
 
-Celles-ci indiquent que le pod du service a été assigné à *virtual-node-aci-linux*, qui est un nœud virtuel.
+La commande ci-dessus indique que les PODS du service a été assigné à *virtuel-nœud-aci-linux*, qui est un nœud virtuel.
 
 ### <a name="try"></a>Essayez de procéder comme suit :
 Mettez à jour le graphique Helm du service pour supprimer toutes les valeurs *nodeSelector* et/ou *tolerations* qui permettent au service de s’exécuter sur un nœud virtuel. Ces valeurs sont généralement définies dans le fichier `values.yaml` du graphique.

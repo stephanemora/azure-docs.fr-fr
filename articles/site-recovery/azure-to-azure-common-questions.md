@@ -4,30 +4,19 @@ description: Cet article récapitule les questions courantes concernant la confi
 author: asgang
 manager: rochakm
 ms.service: site-recovery
-ms.date: 12/12/2018
+ms.date: 03/18/2019
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: bf7a8ea00fe94e6896c097b8e27c22c0831f71da
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2c1890570f153de68d187c37dc0a7bca156c2d47
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58008656"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312051"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>Questions courantes : Réplication Azure vers Azure
 
 Cet article fournit des réponses aux questions courantes concernant le déploiement de la reprise d’activité après sinistre de machines virtuelles Azure dans une autre région Azure avec Azure Site Recovery. Si, après avoir lu cet article, vous avez des questions, posez-les sur le [forum Azure Recovery Services](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
-
-
-## <a name="in-this-article"></a>Dans cet article 
-1.  **[Questions générales sur Azure soumises à Azure](#general)** 
-1.  **[Réplication](#replication)** 
-1.  **[Stratégie de réplication](#replication-policy)** 
-1.  **[Cohérence multimachine virtuelle](#multi-vm-consistency)** 
-1.  **[Plan de récupération](#recovery-plan)** 
-1.  **[Reprotection et restauration automatique](#reprotection-and-failback)** 
-2.  **[capacité](#capacity)**
-1.  **[Sécurité](#security)** 
 
 
 ## <a name="general"></a>Généralités
@@ -186,7 +175,7 @@ Vous pouvez déclencher un basculement après la panne. Site Recovery n’a pas 
 ### <a name="what-is-a-rto-of-a-virtual-machine-failover-"></a>Quel est le délai de récupération d’un basculement de machine virtuelle ?
 Le contrat de niveau de service de délai de récupération de Site Recovery est de [2 heures](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). Toutefois, la plupart du temps, Site Recovery peut effectuer le basculement des machines virtuelles en quelques minutes. Vous pouvez calculer le délai de récupération en accédant aux tâches de basculement, où est affichée la durée nécessaire pour faire apparaître la machine virtuelle. Pour le délai de récupération du plan de récupération, consultez la section ci-dessous. 
 
-## <a name="recovery-plan"></a>Plan de récupération
+## <a name="recovery-plans"></a>Plans de récupération
 
 ### <a name="what-is-a-recovery-plan"></a>Qu’est-ce qu’un plan de récupération ?
 Les plans de récupération dans Site Recovery orchestrent la récupération par basculement des machines virtuelles. Ils aident également à rendre la récupération toujours précise, répétable et automatisée. Un plan de récupération répond aux besoins suivants de l’utilisateur :
@@ -221,7 +210,7 @@ Cela dépend de la situation. Par exemple, si la machine virtuelle de la région
 ### <a name="how-much-time-does-it-take-to-fail-back"></a>Combien de temps prend la restauration automatique ?
 Après la reprotection, la durée de la restauration automatique est généralement similaire à la durée du basculement de la région primaire vers une région secondaire. 
 
-## <a name="capacity"></a>capacité
+## <a name="capacity"></a>Capacité
 ### <a name="does-site-recovery-work-with-reserved-instance"></a>Site Recovery fonctionne-t-il avec les instances réservées ?
 Oui, vous pouvez acheter [réserver les instances](https://azure.microsoft.com/pricing/reserved-vm-instances/) dans la récupération d’urgence région et les opérations de basculement ASR utiliseront les. </br> Aucune configuration supplémentaire n’est requise par les clients.
 

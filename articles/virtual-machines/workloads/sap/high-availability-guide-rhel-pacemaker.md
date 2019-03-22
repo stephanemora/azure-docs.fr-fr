@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: sedusch
-ms.openlocfilehash: 791c63b7b7fed55f95905ba7131d6a1d4bb414ff
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1a8e5fd82b44577aa1915d59fc7c29900a1f14ea
+ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58010491"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319514"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Configuration de Pacemaker sur Red Hat Entreprise Linux dans Azure
 
@@ -85,6 +85,8 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
    sudo subscription-manager attach --pool=&lt;pool id&gt;
    </code></pre>
 
+   Notez qu’en attachant un pool à une image Azure Marketplace PAYG RHEL, vous seront effectivement facturées en double pour votre utilisation RHEL : une fois pour l’image PAYG et une fois pour le droit de RHEL dans le pool de vous joindre. Pour atténuer ce risque, Azure fournit désormais BYOS RHEL images. Informations supplémentaires sont disponibles [ici](https://aka.ms/rhel-byos).
+
 1. **[A]** Activer RHEL pour les référentiels SAP
 
    Pour installer les packages requis, activez les référentiels suivants.
@@ -144,10 +146,10 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
    <pre><code>sudo pcs cluster auth <b>prod-cl1-0</b> <b>prod-cl1-1</b> -u hacluster
    sudo pcs cluster setup --name <b>nw1-azr</b> <b>prod-cl1-0</b> <b>prod-cl1-1</b> --token 30000
    sudo pcs cluster start --all
-   
+
    # Run the following command until the status of both nodes is online
    sudo pcs status
-   
+
    # Cluster name: nw1-azr
    # WARNING: no stonith devices and stonith-enabled is not false
    # Stack: corosync
@@ -179,11 +181,10 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
 L’appareil STONITH utilise un principal de service pour l’autorisation sur Microsoft Azure. Pour créer un principal de service, effectuez les étapes suivantes.
 
 1. Accédez à <https://portal.azure.com>
-1. Ouvrez le panneau Azure Active Directory  
-   Accédez aux propriétés et notez l’ID de répertoire. Il s’agit de **l’ID du locataire**.
+1. Ouvrez le panneau Azure Active Directory accédez aux propriétés et notez l’ID de répertoire. Il s’agit de **l’ID du locataire**.
 1. Cliquez sur Inscriptions d’applications
 1. Cliquez sur Ajouter.
-1. Entrez un nom, sélectionnez le Type d’Application « Application/API Web », entrez une URL de connexion (par exemple `http://localhost`) et cliquez sur Créer
+1. Entrez un nom, sélectionnez le Type d’Application « Application/API Web », entrez une URL de connexion (par exemple http :\//localhost) et cliquez sur Créer
 1. L’URL de connexion n’est pas utilisée et peut être une URL valide
 1. Sélectionnez la nouvelle application et cliquez sur Clés dans l’onglet Paramètres
 1. Entrez une description pour la nouvelle clé, sélectionnez « N’expire jamais » et cliquez sur Enregistrer

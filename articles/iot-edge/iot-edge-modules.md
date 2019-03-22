@@ -4,21 +4,21 @@ description: Les modules Azure IoT Edge sont des unités de logique en conteneur
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 09/21/2018
+ms.date: 03/21/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 976b46a26d95b5e252b0df2383ea94b4dd280d24
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.openlocfilehash: d1e2e35dafd90c16e9d0dbf38afb1e981653d1fe
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229623"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311099"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Présentation des modules Azure IoT Edge
 
-Azure IoT Edge vous permet de déployer et de gérer la logique métier sur la périphérie sous la forme de *modules*. Les modules Azure IoT Edge sont la plus petite unité de calcul gérée par IoT Edge. Ils peuvent contenir des services Azure (par exemple Azure Stream Analytics) ou votre propre code spécifique à la solution. Pour comprendre comment les modules sont développés, déployés et gérés, considérez les quatre éléments conceptuels qui composent un module :
+Azure IoT Edge vous permet de déployer et de gérer la logique métier sur la périphérie sous la forme de *modules*. Les modules Azure IoT Edge sont la plus petite unité de calcul gérée par IoT Edge. Ils peuvent contenir des services Azure (par exemple Azure Stream Analytics) ou votre propre code spécifique à la solution. Pour comprendre comment les modules sont développés, déployés et gérés, il est utile de considérer les quatre éléments conceptuels d’un module :
 
 * Une **image de module** est un package contenant le logiciel qui définit un module.
 * Une **instance de module** est l’unité de calcul spécifique exécutant l’image de module sur un appareil IoT Edge. L’instance de module est démarrée par le runtime IoT Edge.
@@ -43,6 +43,7 @@ As use cases for Azure IoT Edge grow, new types of module images and instances w
 ## <a name="module-identities"></a>Identités de modules
 
 Quand une nouvelle instance de module est créée par le runtime IoT Edge, elle est associée à une identité de module correspondante. L’identité de module est stockée dans IoT Hub et employée comme étendue d’adressage et de sécurité pour toutes les communications cloud et locales pour cette instance de module spécifique.
+
 L’identité associée à une instance de module dépend de l’identité de l’appareil sur lequel l’instance s’exécute et du nom que vous donnez à ce module dans votre solution. Par exemple, si vous nommez `insight` un module qui utilise Azure Stream Analytics et que vous le déployez sur un appareil nommé `Hannover01`, le runtime IoT Edge crée une identité de module correspondante nommée `/devices/Hannover01/modules/insight`.
 
 Il est clair que dans les scénarios où vous avez besoin de déployer une image de module plusieurs fois sur le même appareil, vous pouvez déployer la même image plusieurs fois avec des noms différents.
@@ -68,7 +69,7 @@ Twin twin = await client.GetTwinAsync(); 
 
 ## <a name="offline-capabilities"></a>Fonctionnalités hors ligne
 
-Azure IoT Edge prend en charge les opérations hors connexion sur vos appareils IoT Edge. Ces fonctionnalités sont limitées pour l’instant. 
+Azure IoT Edge prend en charge les opérations hors connexion sur vos appareils IoT Edge. Ces fonctionnalités sont limitées pour l’instant. Des fonctionnalités hors connexion supplémentaires sont disponibles en préversion publique. Pour plus d’informations, consultez [Introduction aux fonctionnalités hors connexion étendues pour les appareils, modules et appareils enfants IoT Edge](offline-capabilities.md).
 
 Les modules IoT Edge peuvent être hors connexion pendant de longues périodes, sous réserve que les conditions suivantes soient remplies : 
 
@@ -77,11 +78,8 @@ Les modules IoT Edge peuvent être hors connexion pendant de longues périodes, 
 * **Le module qui a envoyé les messages en mode hors connexion est toujours opérationnel quand la connectivité est rétablie**. Au moment de la reconnexion à IoT Hub, le hub IoT Edge doit valider un nouveau jeton de module (si le précédent est arrivé à expiration) pour pouvoir transférer les messages de module. Si le module n’est pas en mesure de fournir un nouveau jeton, le hub IoT Edge ne peut pas agir sur les messages stockés du module. 
 * **Le hub IoT Edge dispose d’un espace disque pour stocker les messages**. Par défaut, les messages sont stockés dans le système de fichiers du conteneur du hub IoT Edge. Si vous préférez, vous pouvez utiliser une option de configuration qui permet de spécifier un volume monté sur lequel stocker les messages. Dans les deux cas, un espace doit être disponible pour stocker les messages en vue de leur remise différée à IoT Hub.  
 
-Des fonctionnalités hors connexion supplémentaires sont disponibles en préversion publique. Pour plus d’informations, consultez [Introduction aux fonctionnalités hors connexion étendues pour les appareils, modules et appareils enfants IoT Edge](offline-capabilities.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
  - [Comprendre les conditions requises et les outils de développement de modules IoT Edge](module-development.md)
  - [Présentation du runtime Azure IoT Edge et de son architecture](iot-edge-runtime.md)
 
-<!-- Images -->
-[2]: ./media/iot-edge-modules/identity.png

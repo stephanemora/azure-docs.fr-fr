@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ee6c05b2da4347ed034ae6e7318d6f5d90ea7884
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5f777ab238ed0774c4ad6afd862da1584cb06b94
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58099642"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317372"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Guide pratique pour provisionner une machine virtuelle Windows SQL Server dans le portail Azure
 
@@ -247,7 +247,7 @@ Le tableau suivant répertorie les paramètres requis pour configurer l’intég
 
 | PARAMÈTRE | Description | EXEMPLE |
 | --- | --- | --- |
-| **URL du coffre de clés** |L’emplacement du coffre de clés. |<https://contosokeyvault.vault.azure.net/> |
+| **URL du coffre de clés** |L’emplacement du coffre de clés. |https :\//contosokeyvault.vault.azure.net/ |
 | **Nom du principal** |Nom du principal du service Azure Active Directory Également appelé ID client. |fde2b411-33d5-4e11-af04eb07b669ccf2 |
 | **Secret du principal** |Secret du principal du service Azure Active Directory Également appelé Secret client. |9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM= |
 | **Nom des informations d’identification** |**Nom des informations d'identification** : L’intégration du coffre de clés Azure crée des informations d’identification dans SQL Server, permettant ainsi à la machine virtuelle d’accéder au coffre de clés. Choisissez un nom pour cette identification. |mycred1 |

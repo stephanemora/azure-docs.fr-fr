@@ -1,5 +1,5 @@
 ---
-title: Gestion des utilisateurs et des appareils par les administrateurs - Azure MFA | Microsoft Docs
+title: Les administrateurs de gérer les utilisateurs et périphériques - Azure MFA - Azure Active Directory
 description: Cette section vous explique comment modifier les paramètres utilisateur tels que le fait de forcer les utilisateurs à réexécuter le processus de vérification.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 941d11e9768d60c106c576e3f93bc7ad2067b73c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 19ae32f5b11d9da5b5e03fc68f1120caa54b4890
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174858"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314329"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Gestion des paramètres utilisateur avec Azure Multi-Factor Authentication dans le cloud
 

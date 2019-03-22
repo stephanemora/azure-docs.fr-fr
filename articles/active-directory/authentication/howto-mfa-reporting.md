@@ -1,5 +1,5 @@
 ---
-title: Rapports d’accès et d’utilisation pour Azure MFA | Microsoft Docs
+title: Rapports d’accès et d’utilisation pour Azure MFA - Azure Active Directory
 description: Cette section décrit comment utiliser la fonctionnalité de rapports d’Azure Multi-Factor Authentication.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e901f0e5fb1dc2840196bd6a739ff763b54ce8e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 7dd26bbb06310439aae065349c14c6df1c1c12e6
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58119222"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316930"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Rapports dans Azure Multi-Factor Authentication
 

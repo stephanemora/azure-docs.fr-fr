@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 76c7519a166bfbfe5d2a7695a077b809aa971489
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7cb1632fe8c0ae873afcf37504dbd13bcfc753e8
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57904029"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338069"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Journalisation des métriques et diagnostics d’Azure SQL Database
 
@@ -104,7 +104,7 @@ Pour activer le streaming des données de télémétrie de diagnostic pour une r
 
    ![Configurer les diagnostics pour les pools élastiques](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
 
-> [!NOTE]
+> [!IMPORTANT]
 > Outre configuration de la télémétrie de diagnostic pour un pool élastique, vous devez configurer télémétrie de diagnostic pour chaque base de données dans un pool élastique, comme indiqué ci-dessous. 
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-single-datatbase-or-database-in-elastic-pool"></a>Configurer la diffusion en continu de données de télémétrie de diagnostic pour la base de données unique, ou base de données dans le pool élastique
@@ -159,7 +159,7 @@ Pour activer la diffusion en continu des données de télémétrie de diagnostic
 
    ![Configurer les diagnostics pour une instance gérée](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
 
-> [!NOTE]
+> [!IMPORTANT]
 > Outre la configuration de télémétrie de diagnostic pour une instance gérée, vous devez également configurer la télémétrie de diagnostic pour chaque base de données de l’instance, comme indiqué ci-dessous. 
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-instance-databases"></a>Configurer la diffusion en continu de données de télémétrie de diagnostic par exemple bases de données

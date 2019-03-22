@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: ea41f09269e3ad46db1f254965fd7d7df25232be
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: d66db88dd1e962acc63c960270bb5685218aa391
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58095600"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316053"
 ---
 # <a name="event-grid-security-and-authentication"></a>Sécurité et authentification Azure Event Grid 
 
@@ -88,7 +88,7 @@ Pour accéder à un exemple de gestion d'établissement de liaison de validation
 
 ### <a name="checklist"></a>Liste de contrôle
 
-Lors de la création de l’abonnement aux événements, si vous voyez un message d’erreur indiquant que la tentative de validation a échoué pour le point de terminaison https://your-endpoint-here et vous invitant à rechercher plus d’informations dans https://aka.ms/esvalidation, cela signifie qu’il existe une défaillance dans l’établissement de liaison de validation. Pour résoudre cette erreur, vérifiez les points suivants :
+Au cours de l’événement création de l’abonnement, si vous voyez un message d’erreur tel que « la tentative de valider le point de terminaison fourni https :\//your-endpoint-here a échoué. Pour plus d’informations, visitez https :\//aka.ms/esvalidation », il indique qu’il existe une défaillance dans le protocole de transfert de validation. Pour résoudre cette erreur, vérifiez les points suivants :
 
 * Contrôlez-vous le code d’application dans le point de terminaison cible ? Par exemple, si vous écrivez un déclencheur HTTP basé sur Azure Function, avez-vous accès au code d’application pour apporter des modifications ?
 * Si vous avez accès au code d’application, implémentez le mécanisme d’établissement de liaison ValidationCode comme dans l’exemple ci-dessus.

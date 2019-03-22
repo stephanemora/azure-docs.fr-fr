@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
 ms.subservice: common
-ms.openlocfilehash: 5f2052576d0c6a1e663e3b84534fa0784a26e175
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fd72e2a75c00c30fdc5497e0d88e9c83dc5fcad8
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58006513"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317355"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migration vers le stockage Azure Premium (disques non gérés)
 
@@ -158,7 +158,7 @@ Créez un compte de stockage pour gérer vos disques durs virtuels. Prenez en co
 Pour les disques de données, vous pouvez choisir d’en conserver certains dans un compte de stockage Standard (par exemple, les disques qui ont un stockage de refroidissement), mais nous vous conseillons fortement de déplacer toutes vos données de charge de travail de production pour utiliser le compte de stockage Premium.
 
 #### <a name="copy-vhd-with-azcopy-or-powershell"></a>Étape 3. Copie du disque dur virtuel avec AzCopy ou PowerShell
-Vous devez rechercher le chemin d’accès de votre conteneur et la clé du compte de stockage pour traiter une de ces deux options. Vous trouverez le chemin d’accès au conteneur et le compte de stockage dans le **Portail Azure** > **Stockage**. L’URL du conteneur ressemblera à « https://myaccount.blob.core.windows.net/mycontainer/ ».
+Vous devez rechercher le chemin d’accès de votre conteneur et la clé du compte de stockage pour traiter une de ces deux options. Vous trouverez le chemin d’accès au conteneur et le compte de stockage dans le **Portail Azure** > **Stockage**. Le conteneur URL se présente comme « https :\//myaccount.blob.core.windows.net/mycontainer/ ».
 
 ##### <a name="option-1-copy-a-vhd-with-azcopy-asynchronous-copy"></a>Option 1 : Copier un disque dur virtuel avec AzCopy (copie asynchrone)
 À l’aide d’AzCopy, vous pouvez facilement télécharger le disque dur virtuel sur Internet. Selon la taille des disques durs virtuels, cela peut prendre du temps. N’oubliez pas de vérifier les limites d’entrées/sorties de compte de stockage lors de l’utilisation de cette option. Pour plus d’informations, consultez [Objectifs de performance et d’évolutivité d’Azure Storage](storage-scalability-targets.md) .

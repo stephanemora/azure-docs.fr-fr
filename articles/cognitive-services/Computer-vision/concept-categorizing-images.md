@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: a85fb65ad971bfc70bdab0689e99921e616b56ac
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 07fdaa22532f48cc39b6c524d85fdfe625f8b80c
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56308857"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337128"
 ---
 # <a name="categorize-images"></a>Classer des images
 
@@ -24,7 +24,7 @@ Outre les balises et les descriptions, Vision par ordinateur renvoie des catégo
 
 ## <a name="the-86-category-concept"></a>Concept des 86 catégories
 
-Vision par ordinateur peut catégoriser une image de manière large ou spécifique, en utilisant la liste de 86 catégories dans le diagramme suivant. Pour consulter la taxonomie complète au format texte, consultez [Taxonomie des catégories](category-taxonomy.md).
+Vision par ordinateur permet de classer une image largement ou plus précisément, à l’aide de la liste des 86 catégories dans le diagramme suivant. Pour consulter la taxonomie complète au format texte, consultez [Taxonomie des catégories](category-taxonomy.md).
 
 ![Listes groupées de toutes les catégories de la taxonomie des catégories](./Images/analyze_categories-v2.png)
 

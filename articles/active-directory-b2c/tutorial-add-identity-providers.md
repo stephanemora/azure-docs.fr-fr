@@ -4,19 +4,20 @@ description: Découvrez comment ajouter des fournisseurs d’identité à vos ap
 services: active-directory-b2c
 author: davidmu1
 manager: daveba
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 02/01/2019
 ms.author: davidmu
-ms.openlocfilehash: 2a1843f941c6abc46928b38a66025fa87c4bcea5
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.subservice: B2C
+ms.openlocfilehash: ef264622be1e66c98f8c7f17cf3e04b3239e8553
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757329"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338273"
 ---
-# <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Tutoriel : Ajouter des fournisseurs d’identité à vos applications dans Azure Active Directory B2C
+# <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Didacticiel : Ajouter des fournisseurs d’identité à vos applications dans Azure Active Directory B2C
 
 Dans vos applications, vous souhaiterez peut-être permettre aux utilisateurs de se connecter avec différents fournisseurs d’identité. Un *fournisseur d’identité* crée, entretient et gère les informations d’identité tout en fournissant des services d’authentification pour les applications. Vous pouvez ajouter des fournisseurs d’identité qui sont pris en charge par Azure Active Directory (Azure AD) B2C à votre [flux d’utilisateurs](active-directory-b2c-reference-policies.md) à l’aide du portail Azure.
 
@@ -31,7 +32,7 @@ Vous utilisez généralement un seul fournisseur d’identité dans vos applicat
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 [Créez un flux d’utilisateur](tutorial-create-user-flows.md) pour permettre aux utilisateurs de s’inscrire et de se connecter à votre application. 
 
@@ -44,7 +45,7 @@ Les applications de fournisseurs d’identité offrent l’identificateur et la 
 Pour autoriser la connexion des utilisateurs à partir d’Azure AD, vous devez inscrire une application au sein du locataire Azure AD. Le locataire Azure AD n’est pas identique à votre locataire Azure AD B2C.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. Veillez à utiliser l’annuaire contenant votre locataire Azure AD en cliquant sur le **filtre Répertoire et abonnement** dans le menu du haut et en choisissant le répertoire contenant votre locataire Azure AD.
+2. Veillez à utiliser le répertoire contenant votre locataire Azure AD en cliquant sur le **filtre Répertoire et abonnement** dans le menu du haut et en choisissant le répertoire en question.
 3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Inscriptions d’applications**.
 4. Sélectionnez **Nouvelle inscription d’application**.
 5. Entrez un nom pour votre application. Par exemple : `Azure AD B2C App`.

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: d194a5929e648c09eb204860c528e48bc55259ee
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: 5f6708a9c22939395f992c2ac58a7e510b35f763
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635395"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317270"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Déploiement et gestion des topologies Apache Storm sur Azure HDInsight 
 
@@ -26,7 +26,7 @@ Ce document présente les principes fondamentaux de la gestion et du monitoring 
 > Pour plus d’informations sur le déploiement et la supervision des topologies sur HDInsight Windows, consultez [Déploiement et gestion des topologies Apache Storm sur HDInsight Windows](apache-storm-deploy-monitor-topology.md).
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * **Un cluster Storm Linux sur HDInsight**: consultez [Prise en main d’Apache Storm sur HDInsight](apache-storm-tutorial-get-started-linux.md) pour connaître les étapes de création d’un cluster
 
@@ -215,15 +215,15 @@ Pour plus d’informations, voir [API REST de l’interface utilisateur Apache S
 
 ### <a name="base-uri"></a>URI de base
 
-L’URI de base pour l’API REST sur des clusters HDInsight sous Linux est disponible sur le nœud principal à l’adresse **https://HEADNODEFQDN:8744/api/v1/**. Le nom de domaine du nœud principal est généré lors de la création du cluster et n’est pas statique.
+L’URI de base pour l’API REST sur des clusters HDInsight basés sur Linux est disponible sur le nœud principal à **https :\//HEADNODEFQDN:8744/api/v1/**. Le nom de domaine du nœud principal est généré lors de la création du cluster et n’est pas statique.
 
 Vous trouverez le nom de domaine complet (FQDN) du nœud principal du cluster de plusieurs façons différentes :
 
 * **À partir d’une session SSH** : utilisez la commande `headnode -f` à partir d’une session SSH vers le cluster.
 * **À partir d’Ambari Web** : sélectionnez **Services** en haut de la page, puis sélectionnez **Storm**. Sous l’onglet **Résumé**, sélectionnez **Serveur de l’interface utilisateur de Storm**. Le nom de domaine complet du nœud qui héberge l’interface utilisateur de Storm et l’API REST figure en haut de la page.
-* **À partir de l’API REST d’Ambari** : utilisez la commande `curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` pour extraire des informations sur le nœud sur lequel l’interface utilisateur de Storm et l’API REST s’exécutent. Remplacez **CLUSTERNAME** par le nom du cluster. Quand vous y êtes invité, entrez le mot de passe du compte de connexion (administrateur). Dans la réponse, l’entrée « host_name » contient le nom de domaine complet du nœud.
+* **À partir de l’API REST d’Ambari** : utilisez la commande `curl -u admin -G "https:\//CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` pour extraire des informations sur le nœud sur lequel l’interface utilisateur de Storm et l’API REST s’exécutent. Remplacez **CLUSTERNAME** par le nom du cluster. Quand vous y êtes invité, entrez le mot de passe du compte de connexion (administrateur). Dans la réponse, l’entrée « host_name » contient le nom de domaine complet du nœud.
 
-### <a name="authentication"></a>Authentification
+### <a name="authentication"></a>Authentication
 
 Les requêtes à l’API REST doivent utiliser l’ **authentification de base**avec le nom et le mot de passe d’administrateur de cluster HDInsight.
 

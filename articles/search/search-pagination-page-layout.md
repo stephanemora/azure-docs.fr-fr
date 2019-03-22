@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ef29dafe32c3c5988cd33f59c8436eeef4b45886
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7a4423449931b74afa15ca238c611f54b071402f
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57849276"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339293"
 ---
 # <a name="how-to-work-with-search-results-in-azure-search"></a>Guide pratique pour utiliser les résultats de la recherche dans la Recherche Azure
 Cet article explique comment implémenter les éléments standard d’une page de résultats de recherche, comme les totaux, l’extraction de documents, les ordres de tri et la navigation. Les options de page qui fournissent des données ou des informations aux résultats de recherche sont spécifiées par le biais des demandes [Recherche de documents](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) envoyées au service Recherche Azure. 
@@ -25,8 +25,8 @@ Dans l’API REST, les demandes incluent une commande GET, un chemin d’accès
 Plusieurs exemples de code comportent une interface frontale web, qui se trouve ici : [Application de démonstration New York City Jobs](https://azjobsdemo.azurewebsites.net/) et [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
 
 > [!NOTE]
-> Une demande valide inclut plusieurs éléments, parmi lesquels une URL de service et un chemin d’accès, un verbe HTTP, `api-version`, etc. Par souci de concision, nous avons tronqué les exemples afin de mettre en évidence la syntaxe se rapportant à la pagination uniquement. Pour plus d’informations sur la syntaxe de requête, consultez [API REST de Service Azure Search](https://docs.microsoft.com/rest/api/searchservice). > 
-> 
+> Une demande valide inclut plusieurs éléments, parmi lesquels une URL de service et un chemin d’accès, un verbe HTTP, `api-version`, etc. Par souci de concision, nous avons tronqué les exemples afin de mettre en évidence la syntaxe se rapportant à la pagination uniquement. Pour plus d’informations sur la syntaxe de requête, consultez [REST du Service recherche Azure](https://docs.microsoft.com/rest/api/searchservice).
+>
 
 ## <a name="total-hits-and-page-counts"></a>Nombre total de résultats et nombre de pages
 L’affichage du nombre total des résultats d’une requête et la présentation de ces résultats en blocs plus petits sont des éléments de base sur presque toutes les pages de recherche.

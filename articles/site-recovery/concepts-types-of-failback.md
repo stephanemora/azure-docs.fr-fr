@@ -6,16 +6,16 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 01/17/2019
+ms.date: 03/18/2019
 ms.author: raynew
-ms.openlocfilehash: 16233c9013e97a7db7ef799b79526abac4741612
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+ms.openlocfilehash: 6f178ef1a0aec7f742bce4c2570962b995876026
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54318438"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316267"
 ---
-# <a name="overview-of-failback"></a>Vue d’ensemble de la restauration automatique
+# <a name="failback-after-disaster-recovery-of-vmware-vms"></a>Restauration automatique après la récupération d’urgence des machines virtuelles VMware
 
 Une fois que vous avez basculé vers Azure dans le cadre du processus de récupération d’urgence, vous pouvez opérer une restauration automatique sur votre site local. Deux types de restaurations automatiques sont possibles avec Azure Site Recovery : 
 
@@ -25,7 +25,7 @@ Une fois que vous avez basculé vers Azure dans le cadre du processus de récup�
 Si vous avez basculé une machine virtuelle VMware, vous pouvez procéder à une restauration automatique sur la même machine virtuelle source si elle existe toujours. Dans ce scénario, seules les modifications sont restaurées automatiquement. Ce scénario est appelé **récupération dans l’emplacement d’origine**. Si la machine virtuelle locale n’existe pas, le scénario est une **récupération dans un autre emplacement**.
 
 > [!NOTE]
-> Vous pouvez procéder à une restauration automatique uniquement vers le serveur vCenter et le serveur de configuration d’origine. Vous ne pouvez pas déployer un nouveau serveur de configuration et procéder à une restauration automatique au moyen de celui-ci. Par ailleurs, vous ne pouvez pas ajouter de nouveau serveur vCenter au serveur de configuration existant, puis procéder à une restauration automatique vers le nouveau serveur vCenter.
+> Vous pouvez uniquement restaurer le vCenter d’origine et le serveur de Configuration. Vous ne pouvez pas déployer un nouveau serveur de configuration et procéder à une restauration automatique au moyen de celui-ci. Par ailleurs, vous ne pouvez pas ajouter de nouveau serveur vCenter au serveur de configuration existant, puis procéder à une restauration automatique vers le nouveau serveur vCenter.
 
 ## <a name="original-location-recovery-olr"></a>Récupération dans l’emplacement d’origine
 Si vous décidez de procéder à une restauration automatique vers la machine virtuelle d’origine, vous devez respecter les conditions suivantes :

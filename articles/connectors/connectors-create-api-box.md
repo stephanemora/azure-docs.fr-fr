@@ -2,7 +2,6 @@
 title: Se connecter à Box - Azure Logic Apps | Microsoft Docs
 description: Créer et gérer des fichiers avec les API REST Box et Azure Logic Apps
 author: ecfan
-manager: jeconnoc
 ms.author: estfan
 ms.date: 11/07/2016
 ms.topic: article
@@ -11,40 +10,40 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: aef9423a7281f85029195156a1563d9cfed3029c
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: 971d38fa0fbd47f0deb815577033bbe684aac32f
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50229064"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310674"
 ---
 # <a name="create-and-manage-files-in-box-with-azure-logic-apps"></a>Créer et gérer des fichiers dans Box avec Azure Logic Apps
 
 Cet article explique comment vous pouvez créer et gérer vos fichiers dans Box depuis une application logique avec le connecteur Box. De cette façon, vous pouvez créer des applications logiques qui automatisent les tâches et les flux de travail pour gérer vos fichiers et d’autres actions, par exemple :
 
-* Créer votre flux d'activité en fonction des données que vous obtenez de Box. 
+* Créer votre flux d'activité en fonction des données que vous obtenez de Box.
 
 * Déclencher un flux de travail et des tâches automatisés quand un fichier est créé ou mis à jour.
 
-* Exécuter des actions qui copient un fichier, suppriment un fichier et bien plus encore. 
+* Exécuter des actions qui copient un fichier, suppriment un fichier et bien plus encore.
 
   Quand ces actions obtiennent une réponse, elles mettent la sortie à la disposition d’autres actions. 
   Par exemple, quand un fichier est changé dans Box, vous pouvez l’envoyer dans un e-mail à l’aide d’Office 365.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Un [compte Box](https://www.box.com/home)
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>. 
 
-* L’application logique à partir de laquelle vous souhaitez accéder à votre compte Box. Pour démarrer votre application logique avec un déclencheur Box, vous avez besoin d’une [application logique vide](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
+* L’application logique à partir de laquelle vous souhaitez accéder à votre compte Box. Pour démarrer votre application logique avec un déclencheur Box, vous avez besoin d’une [application logique vide](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 * Des connaissances de base en [création d’applications logiques](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md).
 
 ## <a name="connector-reference"></a>Référence de connecteur
 
-Pour plus d’informations techniques, telles que les déclencheurs, actions et limites, comme décrit dans le fichier Swagger du connecteur, consultez la [page de référence du connecteur](/connectors/box/). 
+Pour plus d’informations techniques, telles que des déclencheurs, actions et limites, comme décrit par OpenAPI du connecteur (anciennement Swagger), consultez le [page de référence du connecteur](/connectors/box/).
 
 ## <a name="get-support"></a>Obtenir de l’aide
 

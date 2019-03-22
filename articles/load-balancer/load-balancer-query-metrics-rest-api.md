@@ -11,12 +11,12 @@ ms.custom: REST, seodec18
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: KumudD
-ms.openlocfilehash: 0d8ac22679bc4e789c22396c21c51dacee201302
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: HT
+ms.openlocfilehash: 9f5206ef5348ee8fd7b3fe981a9cfe4afc1367fb
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433839"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337049"
 ---
 # <a name="get-load-balancer-utilization-metrics-using-the-rest-api"></a>Récupérer les métriques Azure Load Balancer avec l’API REST
 
@@ -26,7 +26,7 @@ Pour consulter la documentation de référence complète et d’autres exemples 
 
 ## <a name="build-the-request"></a>Générer la demande
 
-Utilisez la requête GET suivante pour collecter la métrique [ByteCount](/azure/load-balancer/load-balancer-standard-diagnostics#a-name--multidimensionalmetricsamulti-dimensional-metrics) depuis Standard Load Balancer. 
+Utilisez la requête GET suivante pour collecter la métrique [ByteCount](/azure/load-balancer/load-balancer-standard-diagnostics#multi-dimensional-metrics) depuis Standard Load Balancer. 
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/providers/microsoft.insights/metrics?api-version=2018-01-01&metricnames=ByteCount&timespan=2018-06-05T03:00:00Z/2018-06-07T03:00:00Z

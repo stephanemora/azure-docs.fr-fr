@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 023662f0293debb1b40fc8ea10bb725eab7be4d8
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 22090bf89e469f7e8defcd50b311c555949b9bde
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649932"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317717"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-powershell"></a>Filtrer le trafic réseau avec un groupe de sécurité réseau à l’aide de PowerShell
 
@@ -277,7 +277,7 @@ Utilisez la commande suivante pour installer Microsoft IIS sur la machine virtue
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-Une fois l’installation d’IIS terminée, déconnectez-vous de la machine virtuelle *myVmWeb*, ce qui vous laisse dans la connexion Bureau à distance de la machine virtuelle *myVmMgmt*. Pour afficher l’écran d’accueil d’IIS, ouvrez un navigateur web et accédez à http://myVmWeb.
+Une fois l’installation d’IIS terminée, déconnectez-vous de la machine virtuelle *myVmWeb*, ce qui vous laisse dans la connexion Bureau à distance de la machine virtuelle *myVmMgmt*. Pour afficher l’écran d’accueil IIS, ouvrez un navigateur internet et accédez à http :\//myVmWeb.
 
 Déconnectez-vous de la machine virtuelle *myVmMgmt*.
 

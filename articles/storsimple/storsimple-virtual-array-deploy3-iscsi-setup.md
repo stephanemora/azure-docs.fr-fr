@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
-ms.openlocfilehash: c0a86b76622862b477d539c25dd98c925f09192c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 5d3525952ec09474d60618c4f99138cef1fce57a
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812036"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317508"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>Déploiement de StorSimple Virtual Array - Configuration d’un serveur iSCSI via le portail Azure
 
 ![flux du processus d'installation iscsi](./media/storsimple-virtual-array-deploy3-iscsi-setup/iscsi4.png)
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Ce didacticiel de déploiement s’applique à l’instance Microsoft Azure StorSimple Virtual Array. Ce didacticiel explique comment effectuer la configuration initiale, inscrire votre serveur iSCSI StorSimple, finaliser l’installation de l’appareil, puis créer, monter, initialiser et formater des volumes sur votre instance StorSimple Virtual Array configurée en tant que serveur iSCSI. 
 
@@ -98,7 +98,7 @@ Utilisez la procédure détaillée ci-dessous pour configurer votre solution Sto
    
     Dans la page **Proxy web** :
    
-   1. Indiquez l'**URL du proxy web** au format suivant : *http://host-IPadresse IP* ou *nom de domaine complet de l'hôte:numéro de port*. Notez que les URL HTTPS ne sont pas prises en charge.
+   1. Fournir le **URL du proxy Web** au format suivant : *http :\//host-IP adresse* ou *: port numéro*. Notez que les URL HTTPS ne sont pas prises en charge.
    2. Définissez **Authentification** sur le paramètre **De base** ou **Aucune**.
    3. Si vous utilisez une authentification, vous devez également fournir un **nom d’utilisateur** et un **mot de passe**.
    4. Cliquez sur **Appliquer**. Cette opération validera et appliquera les paramètres de proxy web configurés.

@@ -1,5 +1,5 @@
 ---
-title: Authentification RADIUS et Azure MFA Server | Microsoft Docs
+title: L’authentification RADIUS et serveur Azure MFA - Azure Active Directory
 description: Déploiement de l’authentification RADIUS et du serveur Azure Multi-Factor Authentication.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3d21ff9b56a7fcb33fbdb6bbb82c64ef97abf71
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 34cfd37caf45d709fdc0b3639a218e2e587e8164
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58085777"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314346"
 ---
 # <a name="integrate-radius-authentication-with-azure-multi-factor-authentication-server"></a>Intégration de l'authentification RADIUS avec le serveur Azure Multi-Factor Authentication
 

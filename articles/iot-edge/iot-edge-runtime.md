@@ -4,17 +4,17 @@ description: Découvrez comment les modules, la sécurité, la communication et 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 08/13/2018
+ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a2412a286015cb403fe9a2af7754c7e5346fe98c
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.openlocfilehash: bb2df9c32d5adc8160da82148e4a66a4ab68d182
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230422"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311597"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Présentation du runtime Azure IoT Edge et de son architecture
 
@@ -22,17 +22,17 @@ Le runtime IoT Edge est une collection de programmes qui doivent être installé
 
 Le runtime IoT Edge exécute les fonctions suivantes sur les appareils IoT Edge :
 
-* Il installe et met à jour des charges de travail sur l’appareil.
-* Il tient à jour les normes de sécurité Azure IoT Edge sur l’appareil.
-* Garantit que les [modules IoT Edge](iot-edge-modules.md) sont toujours en cours d’exécution.
-* Il envoie des rapports d’intégrité du module dans le cloud pour la surveillance à distance.
-* Facilite la communication entre les appareils de nœud terminal en aval et les appareils IoT Edge.
-* Il facilite la communication entre les modules et le périphérique IoT Edge.
-* Il facilite la communication entre l’appareil IoT Edge et le cloud.
+* Installer et mettre à jour des charges de travail sur l’appareil.
+* Tenir à jour les normes de sécurité Azure IoT Edge sur l’appareil.
+* Vérifiez que [modules IoT Edge](iot-edge-modules.md) sont toujours en cours d’exécution.
+* Envoyer des rapports d’intégrité du module dans le cloud pour la supervision à distance.
+* Faciliter la communication entre les appareils feuilles en aval et les appareils IoT Edge.
+* Faciliter la communication entre les modules sur l’appareil IoT Edge.
+* Faciliter la communication entre l’appareil IoT Edge et le cloud.
 
 ![Le runtime communique des insights et des données sur l’intégrité des modules à IoT Hub](./media/iot-edge-runtime/Pipeline.png)
 
-Les responsabilités du runtime IoT Edge se répartissent en deux catégories : communication et gestion des modules. Ces deux rôles sont remplis par deux composants qui composent le runtime IoT Edge. Le hub IoT Edge est responsable de la communication, tandis que l’agent IoT Edge gère le déploiement et la surveillance des modules. 
+Les responsabilités du runtime IoT Edge se répartissent en deux catégories : communication et gestion des modules. Ces deux rôles sont remplis par deux composants qui composent le runtime IoT Edge. Le *hub IoT Edge* est responsable de la communication, tandis que le *agent IoT Edge* déploie et surveille les modules. 
 
 Le hub IoT Edge et l’agent IoT Edge sont tous deux des modules, comme n’importe quel autre module exécuté sur un appareil IoT Edge. 
 
@@ -52,11 +52,11 @@ Pour réduire la bande passante utilisée par votre solution IoT Edge, le hub Io
 
 ![Le hub IoT Edge est une passerelle entre les appareils physiques et IoT Hub](./media/iot-edge-runtime/Gateway.png)
 
- Le hub IoT Edge peut déterminer s’il est connecté à IoT Hub. Si la connexion est perdue, le hub IoT Edge enregistre localement les messages ou les mises à jour de jumeau. Une fois la connexion rétablie, il synchronise toutes les données. L’emplacement utilisé pour ce cache temporaire est déterminé par une propriété du jumeau de module du hub IoT Edge. La taille du cache n’est pas limitée et augmente tant que l’appareil a une capacité de stockage. 
+Le hub IoT Edge peut déterminer s’il est connecté à IoT Hub. Si la connexion est perdue, le hub IoT Edge enregistre localement les messages ou les mises à jour de jumeau. Une fois la connexion rétablie, il synchronise toutes les données. L’emplacement utilisé pour ce cache temporaire est déterminé par une propriété du jumeau de module du hub IoT Edge. La taille du cache n’est pas limitée et augmente tant que l’appareil a une capacité de stockage. 
 
 ### <a name="module-communication"></a>Communication des modules
 
- Le hub IoT Edge facilite la communication entre les modules. L’utilisation du hub IoT Edge comme un répartiteur de messages permet aux modules de rester indépendants les uns des autres. Il suffit aux modules de spécifier les entrées sur lesquelles ils acceptent des messages et les sorties vers lesquelles ils écrivent des messages. Ensuite, un développeur de solutions assemble ces entrées et sorties afin que les modules traitent les données dans l’ordre propre à cette solution. 
+Le hub IoT Edge facilite la communication entre les modules. L’utilisation du hub IoT Edge comme un répartiteur de messages permet aux modules de rester indépendants les uns des autres. Il suffit aux modules de spécifier les entrées sur lesquelles ils acceptent des messages et les sorties vers lesquelles ils écrivent des messages. Ensuite, un développeur de solutions assemble ces entrées et sorties afin que les modules traitent les données dans l’ordre propre à cette solution. 
 
 ![Le hub IoT Edge facilite la communication entre les modules](./media/iot-edge-runtime/module-endpoints.png)
 

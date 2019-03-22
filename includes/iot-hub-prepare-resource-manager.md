@@ -4,12 +4,12 @@ ms.author: robin.shahan
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: 163b479fdf2d6a4885604c52f36f707e558dc3a0
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: b7d043b15cad23c9c9eca60c9a24096fee12e14a
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011779"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319748"
 ---
 ## <a name="prepare-to-authenticate-azure-resource-manager-requests"></a>Préparation de l’authentification des demandes d’Azure Resource Manager
 Vous devez authentifier toutes les opérations que vous effectuez sur des ressources à l’aide d’[Azure Resource Manager][lnk-authenticate-arm] avec Azure Active Directory (AD). La manière la plus simple de configurer cela consiste à utiliser PowerShell ou l’interface de ligne de commande Azure.
@@ -41,8 +41,8 @@ Les étapes suivantes montrent comment configurer l’authentification par mot d
 3. Créez une application Azure Active Directory à l’aide de la commande suivante, en remplaçant les espaces réservés :
    
    * **{Nom d’affichage} :** nom d’affichage pour votre application, par exemple, **MySampleApp**
-   * **{URL de la page d’accueil} :** URL de la page d’accueil de votre application, par exemple, **http://mysampleapp/home**. Cette URL n’a pas besoin de pointer vers une application réelle.
-   * **{Identificateur d'application} :** identificateur unique, par exemple, **http://mysampleapp**. Cette URL n’a pas besoin de pointer vers une application réelle.
+   * **{URL de la page d’accueil} :** l’URL de la page d’accueil de votre application, par exemple **http :\//mysampleapp/home**. Cette URL n’a pas besoin de pointer vers une application réelle.
+   * **{Identificateur d'application} :** Un identificateur unique comme **http :\//mysampleapp**. Cette URL n’a pas besoin de pointer vers une application réelle.
    * **{Mot de passe} :** mot de passe que vous utiliserez pour vous authentifier dans votre application.
      
      ```powershell

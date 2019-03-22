@@ -1,19 +1,19 @@
 ---
 title: Questions courantes sur la reprise d’activité de VMware sur Azure avec Azure Site Recovery | Microsoft Docs
 description: Cet article récapitule les questions courantes sur la configuration de la reprise d’activité de machines virtuelles VMware locales sur Azure avec Azure Site Recovery
-author: mayurigupta13
-manager: rochakm
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 03/14/2019
+ms.date: 03/21/2019
 ms.topic: conceptual
-ms.author: mayg
-ms.openlocfilehash: 24682156cf0c50ccf69c39f83f59e9b867bbcf0f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: raynew
+ms.openlocfilehash: 82ae36eaaf4616dbd85760a0962f301a2b1a20f5
+ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901846"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319378"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Questions courantes sur la réplication de VMware vers Azure
 
@@ -166,6 +166,10 @@ Non, le passage de géré à non géré n’est pas pris en charge.
 
 Lorsque vous répliquez vers Azure, le trafic de réplication atteint les points de terminaison publics d’un stockage Azure, par conséquent, vous pouvez uniquement répliquer via l’internet public avec ExpressRoute (homologation publique) et VPN ne fonctionne pas.
 
+### <a name="can-i-use-riverbed-steelheads-for-replication"></a>Puis-je utiliser Riverbed SteelHeads pour la réplication ?
+
+Notre partenaire, Riverbed, fournit des instructions détaillées sur l’utilisation avec Azure Site Recovery. Veuillez consulter leurs [guide de solution](https://community.riverbed.com/s/article/DOC-4627).
+
 ### <a name="what-are-the-replicated-vm-requirements"></a>Quelle est la configuration requise d’une machine virtuelle répliquée ?
 
 Pour la réplication, une machine virtuelle VMware doit exécuter un système d’exploitation pris en charge. En outre, la machine virtuelle doit respecter la configuration requise pour les machines virtuelles Azure. [Découvrez-en plus](vmware-physical-azure-support-matrix.md##replicated-machines) dans la matrice de prise en charge.
@@ -225,7 +229,7 @@ Examinez les [conditions préalables](vmware-azure-deploy-configuration-server.m
 Nous vous recommandons d’utiliser la version la plus récente du modèle OVF pour [créer la machine virtuelle du serveur de configuration](vmware-azure-deploy-configuration-server.md). Si ce n’est pas possible pour une raison quelconque, par exemple vous n’avez pas accès au serveur VMware, vous pouvez [télécharger le fichier d’installation unifiée](physical-azure-set-up-source.md) à partir du portail, puis l’exécuter sur une machine virtuelle.
 
 ### <a name="can-a-configuration-server-replicate-to-more-than-one-region"></a>Un serveur de configuration peut-il répliquer vers plusieurs régions ?
- Non. Pour ce faire, vous devez configurer un serveur de configuration dans chaque région.
+Non. Pour ce faire, vous devez configurer un serveur de configuration dans chaque région.
 
 ### <a name="can-i-host-a-configuration-server-in-azure"></a>Puis-je héberger un serveur de configuration dans Azure ?
 Bien que ce soit possible, la machine virtuelle Azure exécutant le serveur de configuration doit communiquer avec les machines virtuelles et votre infrastructure VMware en local. Cela peut ajouter des latences et avoir une incidence sur la réplication en cours.
@@ -251,7 +255,7 @@ Non, la machine virtuelle doit être réservée au serveur de configuration.
 Non, vous devez configurer un nouveau serveur de configuration pour éviter les problèmes d’inscription.
 
 ### <a name="can-i-change-the-vault-registered-in-the-configuration-server"></a>Puis-je modifier le coffre inscrit sur le serveur de configuration ?
- Non. Une fois le coffre inscrit auprès du serveur de configuration, il n’est plus modifiable. Consultez [cet article](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault) pour connaître les étapes de réinscription.
+Non. Une fois le coffre inscrit auprès du serveur de configuration, il n’est plus modifiable. Consultez [cet article](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault) pour connaître les étapes de réinscription.
 
 ### <a name="can-i-use-the-same-configuration-server-for-disaster-recovery-of-both-vmware-vms-and-physical-servers"></a>Puis-je utiliser le même serveur de configuration à des fins de récupération d'urgence pour les machines virtuelles VMware et les serveurs physiques ?
 Oui, mais notez qu'une machine physique peut uniquement être restaurée vers une machine virtuelle VMware.

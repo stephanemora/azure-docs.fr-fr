@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/11/2018
 ms.author: aljo
-ms.openlocfilehash: dc0e326cf3b188a51708115e5496cfbb52a95611
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 46da7c7931eaf163c24f057bac5de35f3c727519
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57836961"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311864"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personnaliser les paramètres de cluster Service Fabric
 Cet article décrit les différents paramètres de structure personnalisables d’un cluster Service Fabric. Pour des clusters hébergés dans Azure, vous pouvez personnaliser les paramètres via le [portail Azure](https://portal.azure.com) ou en utilisant un modèle Azure Resource Manager. Pour plus d’informations, voir [Mettre à niveau la configuration d’un cluster Azure](service-fabric-cluster-config-upgrade-azure.md). Pour personnaliser les paramètres d’un cluster autonome, mettez à jour le fichier *ClusterConfig.json* et effectuez une mise à niveau de configuration sur le cluster. Pour plus d’informations, voir [Mettre à niveau la configuration d’un cluster autonome](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -614,13 +614,13 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 ## <a name="security"></a>Sécurité
 | **Paramètre** | **Valeurs autorisées** |**Stratégie de mise à niveau**| **Conseils ou brève description** |
 | --- | --- | --- | --- |
-|AADCertEndpointFormat|Chaîne (valeur par défaut : "")|statique|Format du point de terminaison du certificat AAD, Azure Commercial par défaut, spécifié pour l’environnement autre que par défaut comme Azure Government « https://login.microsoftonline.us/{0}/federationmetadata/2007-06/federationmetadata.xml » |
+|AADCertEndpointFormat|Chaîne (valeur par défaut : "")|statique|AAD Cert point de terminaison de Format, Azure Commercial, par défaut spécifié pour l’environnement par défaut tels que Azure Government « https :\//login.microsoftonline.us/{0}/federationmetadata/2007-06/federationmetadata.xml » |
 |AADClientApplication|Chaîne (valeur par défaut : "")|statique|Nom de l’application cliente native ou ID représentant les clients Fabric |
 |AADClusterApplication|Chaîne (valeur par défaut : "")|statique|Nom de l’application API Web ou ID représentant le cluster |
-|AADLoginEndpoint|Chaîne (valeur par défaut : "")|statique|Point de terminaison de connexion AAD, Azure Commercial par défaut, spécifié pour l’environnement autre que par défaut comme Azure Government « https://login.microsoftonline.us » |
+|AADLoginEndpoint|Chaîne (valeur par défaut : "")|statique|Connexion point de terminaison AAD, Azure Commercial, par défaut spécifié pour l’environnement par défaut tels que Azure Government « https :\//login.microsoftonline.us » |
 |AADTenantId|Chaîne (valeur par défaut : "")|statique|ID de client (GUID) |
 |AdminClientCertThumbprints|Chaîne (valeur par défaut : "")|Dynamique|Empreintes de certificats utilisées par les clients dans le rôle d’administrateur. Il s’agit d’une liste de noms séparés par des virgules. |
-|AADTokenEndpointFormat|Chaîne (valeur par défaut : "")|statique|Point de terminaison de jeton AAD, Azure Commercial par défaut, spécifié pour l’environnement autre que par défaut comme Azure Government « https://login.microsoftonline.us/{0} » |
+|AADTokenEndpointFormat|Chaîne (valeur par défaut : "")|statique|Jeton point de terminaison AAD, Azure Commercial, par défaut spécifié pour l’environnement par défaut tels que Azure Government « https :\//login.microsoftonline.us/{0}» |
 |AdminClientClaims|Chaîne (valeur par défaut : "")|Dynamique|Toutes les revendications possibles attendues des clients d’administration ; même format que ClientClaims ; cette liste est ajoutée en interne à ClientClaims ; par conséquent, pas besoin d’ajouter également les mêmes entrées à ClientClaims. |
 |AdminClientIdentities|Chaîne (valeur par défaut : "")|Dynamique|Identités Windows des clients de la structure dans le rôle d’administrateur ; utilisé pour autoriser des opérations de structure privilégiées. Il s’agit d’une liste séparée par des virgules ; chaque entrée est un nom de compte de domaine ou nom de groupe. Pour des raisons pratiques ; le compte qui exécute fabric.exe reçoit automatiquement un rôle d’administrateur ; par conséquent, le groupe ServiceFabricAdministrators l’est aussi. |
 |AppRunAsAccountGroupX509Folder|valeur de chaîne, valeur par défaut : /home/sfuser/sfusercerts |statique|Dossier où se trouvent les certificats X509 et les clés privées de AppRunAsAccountGroup |

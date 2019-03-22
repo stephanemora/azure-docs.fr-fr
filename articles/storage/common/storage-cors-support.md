@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 2/22/2017
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: bb1f4861f3867c592ecab86e85d3a4dfbab6738e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5e65965678ed042081e4a406d3a207fb7ede299f
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002955"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313649"
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Prise en charge du service Partage des ressources cross-origine (CORS) pour les services Azure Storage
 Depuis la version 2013-08-15, les services Azure Storage prennent en charge le partage de ressources cross-origine (CORS) pour les services Blob Storage, Table Storage, Queue Storage et File Storage. CORS est une fonctionnalité HTTP qui permet à une application web exécutée dans un domaine d'accéder aux ressources d'un autre domaine. Les navigateurs web implémentent une restriction de sécurité appelée [stratégie de même origine](https://www.w3.org/Security/wiki/Same_Origin_Policy) qui empêche une page web d’appeler des API d’un autre domaine ; CORS constitue un moyen sûr pour autoriser un domaine (le domaine d’origine) à appeler des API d’un autre domaine. Pour plus d’informations sur CORS, consultez la [Spécification CORS](https://www.w3.org/TR/cors/) .
@@ -67,7 +67,7 @@ Voici un exemple de règle CORS spécifiée via une opération Set Service Prope
 
 Chaque élément inclus dans la règle CORS est décrit ci-dessous :
 
-* **AllowedOrigins** : Domaines d’origine qui sont autorisés à effectuer une requête auprès du service de stockage via CORS. Le domaine d'origine est celui d'où provient la demande. Notez que l'origine doit correspondance exactement (avec respect de la casse) à l'origine que l'utilisateur envoie au service. Vous pouvez également utiliser le caractère générique « * » pour autoriser tous les domaines d'origine à effectuer des demandes via CORS. Dans l’exemple ci-dessus, les domaines [http://www.contoso.com](http://www.contoso.com) et [http://www.fabrikam.com](http://www.fabrikam.com) peuvent envoyer des requêtes au service à l’aide de CORS.
+* **AllowedOrigins** : Domaines d’origine qui sont autorisés à effectuer une requête auprès du service de stockage via CORS. Le domaine d'origine est celui d'où provient la demande. Notez que l'origine doit correspondance exactement (avec respect de la casse) à l'origine que l'utilisateur envoie au service. Vous pouvez également utiliser le caractère générique « * » pour autoriser tous les domaines d'origine à effectuer des demandes via CORS. Dans l’exemple ci-dessus, le protocole http domaines :\//www.contoso.com et http : \/ /www.fabrikam.com peuvent effectuer des demandes auprès du service à l’aide de CORS.
 * **AllowedMethods** : Méthodes (verbes de requête HTTP) que le domaine d’origine peut utiliser pour une requête CORS. Dans l'exemple ci-dessus, seules les demandes PUT et GET sont autorisées.
 * **AllowedHeaders** : En-têtes de requête que le domaine d’origine peut spécifier dans la requête CORS. Dans l'exemple ci-dessus, tous les en-têtes de métadonnées commençant par x-ms-meta-data, x-ms-meta-target et x-ms-meta-abc sont autorisés. Notez que le caractère générique « * » indique que les en-têtes commençant par le préfixe spécifié sont autorisés.
 * **ExposedHeaders** : En-têtes de réponse qui peuvent être envoyés dans la réponse à la requête CORS et exposés par le navigateur à l’émetteur de la requête. Dans l'exemple ci-dessus, il est demandé au navigateur d'exposer les en-têtes commençant par x-ms-meta.
@@ -130,9 +130,9 @@ Ensuite, tenez compte des demandes CORS suivantes :
 | Requête |  |  | response |  |
 | --- | --- | --- | --- | --- |
 | **Méthode** |**Origine** |**En-têtes de requête** |**Correspondance de règle** |**Résultat** |
-| **PUT** |http://www.contoso.com |x-ms-blob-content-type |Première règle |Succès |
-| **GET** |http://www.contoso.com |x-ms-blob-content-type |Deuxième règle |Succès |
-| **GET** |http://www.contoso.com |x-ms-client-request-id |Deuxième règle |Échec |
+| **PUT** |http:\//www.contoso.com |x-ms-blob-content-type |Première règle |Succès |
+| **GET** |http:\//www.contoso.com |x-ms-blob-content-type |Deuxième règle |Succès |
+| **GET** |http:\//www.contoso.com |x-ms-client-request-id |Deuxième règle |Échec |
 
 La première demande correspond à la première règle (le domaine d'origine correspond aux origines autorisées, la méthode correspond aux méthodes autorisées et l'en-tête correspond aux en-têtes autorisés). Par conséquent, elle réussit.
 

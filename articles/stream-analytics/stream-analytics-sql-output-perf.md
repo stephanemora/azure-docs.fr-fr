@@ -2,19 +2,19 @@
 title: Sortie d’Azure Stream Analytics dans Azure SQL Database
 description: Découvrez comment charger des données de sortie d’Azure Stream Analytics dans SQL Azure et comment améliorer les débits d’écriture.
 services: stream-analytics
-author: chetang
-ms.author: chetang
-manager: katicad
+author: chetanmsft
+ms.author: chetanmsft
+manager: katiiceva
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/21/2018
-ms.openlocfilehash: 794e2f3db44c29707400f96970159578d9e83f2d
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
-ms.translationtype: HT
+ms.date: 3/18/2019
+ms.openlocfilehash: d259fd5fc8c60837c6b6110eb751360227d70836
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54303273"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338426"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Sortie d’Azure Stream Analytics dans Azure SQL Database
 
@@ -33,7 +33,7 @@ Les configurations présentées ci-après pour chaque service peuvent vous aider
 
 - **Taille de lot** – Avec cette option de configuration de la sortie SQL, vous pouvez spécifier la taille de lot maximale dans une sortie SQL d’Azure Stream Analytics en fonction de la nature de votre table de destination/charge de travail. La taille de lot correspond au nombre maximal d’enregistrements qui sont envoyés avec chaque opération d’insertion en bloc. Dans les index cluster columnstore, une taille de lot d’environ [100 000](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance) permet d’optimiser la parallélisation, la journalisation minimale et le verrouillage. Dans les tables sur disque, une taille de 10 000 (valeur par défaut) ou moins peut être optimale pour votre solution, car des tailles de lot plus élevées risquent de déclencher une escalade de verrous durant les insertions en bloc.
 
-- **Paramétrage des messages d’entrée** – Si vous avez déjà optimisé les performances à l’aide de l’héritage du partitionnement et de la taille de lot, vous pouvez en plus augmenter le nombre d’événements d’entrée par message dans chaque partition pour améliorer encore le débit d’écriture. Le paramétrage des messages d’entrée permet d’augmenter les tailles de lot dans Azure Stream Analytics jusqu’à la taille de lot spécifié, ce qui améliore le débit. Cela est possible en utilisant la [compression](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-inputs) ou de plus grandes tailles de messages disponibles dans la référence SKU Premium EventHub.
+- **Paramétrage des messages d’entrée** – Si vous avez déjà optimisé les performances à l’aide de l’héritage du partitionnement et de la taille de lot, vous pouvez en plus augmenter le nombre d’événements d’entrée par message dans chaque partition pour améliorer encore le débit d’écriture. Le paramétrage des messages d’entrée permet d’augmenter les tailles de lot dans Azure Stream Analytics jusqu’à la taille de lot spécifié, ce qui améliore le débit. Cela peut être obtenue à l’aide de [compression](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-inputs) ou en augmentant la taille des messages d’entrée dans les objets Blob ou EventHub.
 
 ## <a name="sql-azure"></a>SQL Azure
 
@@ -43,7 +43,16 @@ Les configurations présentées ci-après pour chaque service peuvent vous aider
 
 ## <a name="azure-data-factory-and-in-memory-tables"></a>Azure Data Factory et tables en mémoire
 
-- **Table en mémoire en tant que table temporaire** – Les [tables en mémoire](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) permettent des chargements de données de très haut débit, mais les données doivent tenir dans la mémoire. Les tests d’évaluation montrent que le chargement en masse d’une table en mémoire vers une table sur disque est environ dix fois plus rapide que l’insertion en bloc directe à l’aide d’un seul writer dans la table sur disque ayant une colonne d’identité et un index cluster. Pour améliorer ces performances d’insertion en bloc, créez un [travail de copie avec Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database) qui copie les données de la table en mémoire vers la table sur disque.
+- **Table en mémoire en tant que table temporaire** – [tables en mémoire](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) autoriser pour les chargements de données très haut débit, mais les données doivent tenir dans la mémoire. Les tests d’évaluation montrent que le chargement en masse d’une table en mémoire vers une table sur disque est environ dix fois plus rapide que l’insertion en bloc directe à l’aide d’un seul writer dans la table sur disque ayant une colonne d’identité et un index cluster. Pour améliorer ces performances d’insertion en bloc, créez un [travail de copie avec Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database) qui copie les données de la table en mémoire vers la table sur disque.
+
+## <a name="avoiding-performance-pitfalls"></a>Éviter les pièges de performances
+Insertion de données en bloc est beaucoup plus rapide que le chargement des données avec des insertions uniques, car la répétées frais de transfert de données, l’analyse de l’instruction insert, l’instruction en cours d’exécution et l’émission d’un enregistrement de transaction est évité. Au lieu de cela, un chemin d’accès plus efficace est utilisé dans le moteur de stockage pour le flux de données. Le coût d’installation de ce chemin d’accès est cependant beaucoup plus élevé que d’une seule instruction insert dans une table basée sur le disque. Le seuil de rentabilité est généralement environ 100 lignes, au-delà de quels en bloc le chargement est presque toujours plus efficace. 
+
+Si le taux d’événements entrants est faible, il peut facilement créer des tailles de lot inférieure à 100 lignes, ce qui rend bulk insert inefficace et utilise trop d’espace disque. Pour contourner cette limitation, vous pouvez effectuer une des actions suivantes :
+* Créer un INSTEAD OF [déclencheur](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-trigger-transact-sql) à utiliser l’instruction insert simple pour chaque ligne.
+* Utiliser une table temporaire en mémoire, comme décrit dans la section précédente.
+
+Un autre scénario de ce type se produit lors de l’écriture dans un index columnstore non-cluster (NCCI), où les insertions en bloc plus petits peuvent créer trop de segments, qui peuvent se bloquer l’index. Dans ce cas, la recommandation consiste à utiliser un index Clustered Columnstore à la place.
 
 ## <a name="summary"></a>Résumé
 

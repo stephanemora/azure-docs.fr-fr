@@ -1,65 +1,79 @@
 ---
-title: Se connecter à Dropbox – Azure Logic Apps | Microsoft Docs
+title: Se connecter à Dropbox - Azure Logic Apps
 description: Charger et gérer des fichiers avec les API REST de Dropbox et Azure Logic Apps
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
-ms.date: 07/15/2016
-ms.topic: article
-ms.service: logic-apps
 services: logic-apps
-ms.reviewer: klam, LADocs
+ms.service: logic-apps
 ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.topic: article
+ms.date: 03/01/2019
 tags: connectors
-ms.openlocfilehash: 256a0b34d5050e17abe5bb98ca0c13ab0b61787e
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
-ms.translationtype: HT
+ms.openlocfilehash: 5a1bfe8ca38fc23f09b13195fb8ca5bd443a4afd
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43094436"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314414"
 ---
-# <a name="get-started-with-the-dropbox-connector"></a>Prise en main du connecteur Dropbox
-Connectez-vous à Dropbox pour gérer vos fichiers. Vous pouvez exécuter différentes actions, comme charger, mettre à jour, obtenir et supprimer des fichiers dans Dropbox.
+# <a name="upload-and-manage-files-in-dropbox-by-using-azure-logic-apps"></a>Charger et gérer les fichiers de Dropbox à l’aide d’Azure Logic Apps
 
-Pour utiliser [n’importe quel connecteur](apis-list.md), vous devez commencer par créer une application logique. Vous pouvez démarrer maintenant en [créant une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Avec le connecteur Dropbox et les Azure Logic Apps, vous pouvez créer des flux de travail automatisés charger et gérer des fichiers dans votre compte Dropbox. 
 
-## <a name="connect-to-dropbox"></a>Se connecter à Dropbox
-Pour que votre application logique puisse accéder à un service, vous devez commencer par créer une *connexion* à celui-ci. Une connexion permet d’assurer la connectivité entre une application logique et un autre service. Par exemple, pour vous connecter à Dropbox, vous devez préalablement disposer d’une *connexion* Dropbox. Pour créer une connexion, vous devez fournir les informations d’identification que vous utilisez généralement pour accéder au service auquel vous souhaitez vous connecter. Ainsi, dans l’exemple Dropbox, entrez les informations d’identification de votre compte Dropbox pour créer la connexion correspondante. 
+Cet article explique comment se connecter à Dropbox à partir de votre application logique et puis ajouter Dropbox **lorsqu’un fichier est créé** déclencheur et Dropbox **obtenir le contenu du fichier à l’aide du chemin d’accès** action.
 
-### <a name="create-a-connection-to-dropbox"></a>Créer une connexion à Dropbox
-> [!INCLUDE [Steps to create a connection to Dropbox](../../includes/connectors-create-api-dropbox.md)]
-> 
-> 
+## <a name="prerequisites"></a>Conditions préalables
 
-## <a name="use-a-dropbox-trigger"></a>Utiliser un déclencheur Dropbox
-Un déclencheur est un événement qui peut être utilisé pour lancer le flux de travail défini dans une application logique. [En savoir plus sur les déclencheurs](../logic-apps/logic-apps-overview.md#logic-app-concepts).
+* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>.
 
-Dans cet exemple, nous allons utiliser le déclencheur **Lorsqu’un fichier est créé**. Lorsque ce déclencheur apparaîtra, nous appellerons l’action Dropbox **Obtenir le contenu d’un fichier à l’aide du chemin**. 
+* Un [compte Dropbox](https://www.dropbox.com/), laquelle vous pouvez vous inscrire gratuitement. Vos informations d’identification de compte sont nécessaires pour créer une connexion entre votre application logique et votre compte Dropbox.
 
-1. Entrez *dropbox* dans la zone de recherche du concepteur Logic Apps, puis sélectionnez le déclencheur **Dropbox - Quand un fichier est créé**.      
-   ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger.PNG)  
-2. Sélectionnez le dossier dans lequel vous souhaitez effectuer le suivi de la création de fichiers. Sélectionnez le bouton ... (encadré en rouge ci-après) et accédez au dossier que vous souhaitez sélectionner pour l’entrée du déclencheur.  
-   ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger-2.PNG)  
+* Des connaissances de base en [création d’applications logiques](../logic-apps/quickstart-create-first-logic-app-workflow.md). Pour cet exemple, vous avez besoin d’une application logique vide.
 
-## <a name="use-a-dropbox-action"></a>Utiliser une action Dropbox
-Une action est une opération effectuée par le flux de travail défini dans une application logique. [En savoir plus sur les actions](../logic-apps/logic-apps-overview.md#logic-app-concepts).
+## <a name="add-trigger"></a>Ajouter un déclencheur
 
-Une fois le déclencheur ajouté, procédez comme suit pour ajouter une action qui récupérera le contenu du nouveau fichier.
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. Sélectionnez **+ Nouvelle étape** pour ajouter l’action à exécuter lorsqu’un fichier est créé.  
-   ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action.PNG)
-2. Sélectionnez **Ajouter une action**. Ouvre la zone de recherche dans laquelle vous pouvez rechercher l’action que vous souhaitez effectuer.  
-   ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-2.PNG)
-3. Entrez *dropbox* pour rechercher les actions associées à Dropbox.  
-4. Sélectionnez **Dropbox - Obtenir le contenu d’un fichier à l’aide du chemin** comme action à exécuter lorsqu’un fichier est créé dans le dossier Dropbox sélectionné. Le bloc de contrôles de l’action s’affiche. Vous serez invité à autoriser votre application logique à accéder à votre compte Dropbox, si vous ne l’avez pas fait précédemment.  
-   ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-3.PNG)  
-5. Sélectionnez le bouton ... (situé à droite du contrôle **Chemin de fichier**) et recherchez le chemin d’accès au fichier que vous souhaitez utiliser. Une autre possibilité consiste à utiliser le jeton **chemin de fichier** pour accélérer la création de votre application logique.  
-   ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-4.PNG)  
-6. Enregistrez votre travail et créez un fichier dans Dropbox pour activer votre workflow.  
+1. Sous la zone de recherche, choisissez **Tout**. Dans la zone de recherche, entrez « dropbox » comme filtre.
+Dans la liste des déclencheurs, sélectionnez ce déclencheur : **Quand un fichier est créé**
 
-## <a name="connector-specific-details"></a>Détails spécifiques du connecteur
+   ![Sélectionner un déclencheur Dropbox](media/connectors-create-api-dropbox/select-dropbox-trigger.png)
 
-Consultez l’ensemble des déclencheurs et actions définis dans le swagger, ainsi que les éventuelles limites dans les [détails des connecteurs](/connectors/dropbox/).
+1. Connectez-vous avec vos informations d’identification de compte Dropbox et autorisez l’accès à vos données Dropbox pour Azure Logic Apps.
 
-## <a name="more-connectors"></a>Autres connecteurs
-Revenir à la [liste des API](apis-list.md).
+1. Fournissez les informations requises pour votre déclencheur. 
+
+   Dans cet exemple, sélectionnez le dossier où vous souhaitez effectuer le suivi de la création de fichiers. Pour parcourir vos dossiers, choisissez l’icône de dossier à côté du **dossier** boîte.
+
+## <a name="add-action"></a>Ajouter une action
+
+Ajoutons maintenant une action qui obtient le contenu à partir de n’importe quel nouveau fichier.
+
+1. Sous le déclencheur, choisissez **Étape suivante**. 
+
+1. Sous la zone de recherche, choisissez **Tout**. Dans la zone de recherche, entrez « dropbox » comme filtre.
+Dans la liste des actions, sélectionnez cette action : **Obtenir le contenu d’un fichier à l’aide du chemin**
+
+1. Si vous n’avez pas déjà autorisé Azure Logic Apps pour accéder à Dropbox, autorisez un accès maintenant.
+
+1. Pour rechercher le chemin d’accès de fichier que vous souhaitez utiliser, à côté du **chemin d’accès du fichier** , sélectionnez les points de suspension (**...** ) bouton. 
+
+   Vous pouvez également cliquer à l’intérieur de la **chemin d’accès du fichier** et dans la liste de contenu dynamique, sélectionnez **chemin d’accès du fichier**, dont la valeur est disponible en tant que sortie à partir du déclencheur que vous avez ajouté dans la section précédente.
+
+1. Lorsque vous avez terminé, enregistrez votre application logique.
+
+1. Pour déclencher votre application logique, créez un nouveau fichier dans Dropbox.
+
+## <a name="connector-reference"></a>Référence de connecteur
+
+Pour plus d’informations techniques, telles que des déclencheurs, actions et limites, comme décrit par OpenAPI du connecteur (anciennement Swagger), consultez le [page de référence du connecteur](/connectors/dropbox/).
+
+## <a name="get-support"></a>Obtenir de l’aide
+
+* Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](https://aka.ms/logicapps-wish).
+
+## <a name="next-steps"></a>Étapes suivantes
+
+* En savoir plus sur les autres [connecteurs d’applications logiques](../connectors/apis-list.md)

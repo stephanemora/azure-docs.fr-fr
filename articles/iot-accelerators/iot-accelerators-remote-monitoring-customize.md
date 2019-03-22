@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: dc2b38f8e8065b8d8763365bf0cbad56ae00cd4b
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: aed63e332375be4f8ed939cf162545c9f366f329
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565426"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317593"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>Personnaliser l’accélérateur de solution de surveillance à distance
 
@@ -73,7 +73,7 @@ Les étapes suivantes décrivent le processus de configuration d’un environnem
     npm start
     ```
 
-1. La commande précédente exécute l’interface utilisateur localement à l’adresse http://localhost:3000/dashboard. Vous pouvez modifier le code pendant que le site est en cours d’exécution et voir sa mise à jour dynamique.
+1. La commande précédente exécute localement l’interface utilisateur http :\//localhost:3000 / tableau de bord. Vous pouvez modifier le code pendant que le site est en cours d’exécution et voir sa mise à jour dynamique.
 
 ## <a name="customize-the-layout"></a>Personnaliser la disposition
 

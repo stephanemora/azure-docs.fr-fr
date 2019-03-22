@@ -16,12 +16,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: luleon, hirsin, smalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f854c8b27065c2d2bf0c9964fe9dfce66aba423a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 9fcc6cb40d83c06a1c9f0a97c72565464e74e655
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104503"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336069"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Déboguer l’authentification unique SAML aux applications dans Azure Active Directory
 
@@ -29,7 +29,7 @@ Découvrez comment rechercher et corriger les problèmes [d’authentification u
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Nous vous recommandons d’installer [l’extension de connexion sécurisée à Mes applications](../user-help/active-directory-saas-access-panel-user-help.md#i-am-having-trouble-installing-the-my-apps-secure-sign-in-extension). Cette extension de navigateur rend plus facile rassembler la demande SAML et les informations de réponse SAML dont vous avez besoin de résoudre les problèmes avec l’authentification unique. Au cas où vous ne parviendriez pas à l’installer, cet article explique comment résoudre les problèmes avec et sans l’extension.
+Nous vous recommandons d’installer [l’extension de connexion sécurisée à Mes applications](../user-help/my-apps-portal-end-user-troubleshoot.md#im-having-trouble-installing-the-my-apps-secure-sign-in-extension). Cette extension de navigateur rend plus facile rassembler la demande SAML et les informations de réponse SAML dont vous avez besoin de résoudre les problèmes avec l’authentification unique. Au cas où vous ne parviendriez pas à l’installer, cet article explique comment résoudre les problèmes avec et sans l’extension.
 
 Pour télécharger et installer l’extension de connexion sécurisée à Mes applications, suivez l’un des liens ci-dessous.
 
@@ -64,7 +64,7 @@ Lorsque vous essayez de vous connecter, vous pouvez voir une erreur sur votre en
 
 Pour déboguer cette erreur, vous aurez besoin du message d’erreur et de la demande SAML. L’extension de connexion sécurisée à Mes applications rassemble automatiquement ces informations et affiche une aide à la résolution sur Azure AD. 
 
-### <a name="to-resolve-the-sign-in-error-with-the-myapps-secure-sign-in-extension-installed"></a>Pour résoudre l’erreur de connexion avec le sécuriser MyApps connectez-vous Extension installée
+### <a name="to-resolve-the-sign-in-error-with-the-my-apps-secure-sign-in-extension-installed"></a>Pour résoudre l’erreur de connexion avec l’Extension de connexion sécurisée à mes applications installées
 
 1. Lorsqu’une erreur se produit, l’extension vous redirige vers Azure AD **tester l’authentification unique sur** panneau. 
 1. Sur le **tester l’authentification unique sur** panneau, sélectionnez **télécharger la demande SAML**. 
@@ -73,14 +73,14 @@ Pour déboguer cette erreur, vous aurez besoin du message d’erreur et de la de
 
 Si aucune résolution n’est fournie pour l’erreur de connexion, nous vous suggérons d’utiliser la zone de texte des commentaires de nous informer.
 
-### <a name="to-resolve-the-error-without-installing-the-myapps-secure-sign-in-extension"></a>Pour résoudre l’erreur sans installer l’Extension de connexion sécurisé MyApps
+### <a name="to-resolve-the-error-without-installing-the-my-apps-secure-sign-in-extension"></a>Pour résoudre l’erreur sans installer l’Extension de connexion sécurisée à mes applications
 
 1. Copiez le message d’erreur dans le coin inférieur droit de la page. Il comporte :
     - Un ID de corrélation et un timestamp. Ces valeurs sont importantes lors de la création d’une demande de support auprès de Microsoft, car elles permettent aux ingénieurs d’identifier le problème et de le résoudre avec précision.
     - Une instruction identifiant la cause du problème.
 1. Revenez à Azure AD et localisez le panneau **Tester l’authentification unique**.
 1. Dans la zone de texte au-dessus de **Obtenir une aide à la résolution**, collez le message d’erreur.
-1. Cliquez sur **Obtenir une aide à la résolution** pour afficher les étapes de résolution du problème. Elles sont susceptibles de demander des informations sur la demande ou la réponse SAML. Si vous n’utilisez pas l’extension de connexion sécurisée à Mes applications, il vous faudra peut-être un outil comme [Fiddler](https://www.telerik.com/fiddler) pour récupérer la demande et la réponse SAML.
+1. Cliquez sur **Obtenir une aide à la résolution** pour afficher les étapes de résolution du problème. Elles sont susceptibles de demander des informations sur la demande ou la réponse SAML. Si vous n’utilisez pas l’Extension de connexion sécurisée à mes applications, vous devrez peut-être un outil tel que [Fiddler](https://www.telerik.com/fiddler) pour récupérer la demande SAML et la réponse.
 1. Vérifiez que la destination dans la demande SAML correspond à la SAML Single Sign-On Service URL obtenues à partir d’Azure AD.
 1. Vérifiez que l’émetteur dans la demande SAML est le même identificateur que vous avez configuré pour l’application dans Azure AD. Azure AD utilise l’émetteur pour rechercher une application dans l’annuaire.
 1. Vérifiez AssertionConsumerServiceURL où l’application s’attend à recevoir le jeton SAML d’Azure AD. Vous pouvez configurer cette valeur dans Azure AD, mais il n’est pas obligatoire si elle fait partie de la demande SAML.

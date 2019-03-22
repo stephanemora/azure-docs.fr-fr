@@ -1,5 +1,5 @@
 ---
-title: Portail de l’utilisateur pour le serveur Azure MFA | Microsoft Docs
+title: Portail de l’utilisateur pour le serveur Azure MFA - Azure Active Directory
 description: Prise en main du serveur Azure Multi-Factor Authentication et du portail de l’utilisateur.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ddf84ea9fa2367c6bdf7b258611eca526dd2abd9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: bbee5316b78838bedc62454e8c1954eb5f9205ff
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175198"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317119"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Portail de l’utilisateur pour le serveur Azure Multi-Factor Authentication
 

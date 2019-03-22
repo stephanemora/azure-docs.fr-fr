@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: d1ecac243ee4cfd3385d0fc69c9ce7c9e2afd95c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 36ef27dfb4a5d77ec2e595013a82f55cdf240c0b
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57898837"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312459"
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Utiliser Azure Webhooks pour surveiller les notifications de travaux Media Services avec .NET 
 
@@ -61,7 +61,7 @@ La section [Paramètres de l’application](media-services-dotnet-how-to-use-azu
 |Nom|Définition|Exemples| 
 |---|---|---|
 |SigningKey |Clé de signature.| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
-|WebHookEndpoint | Adresse de point de terminaison webhook. Une fois que votre fonction webhook est créée, vous pouvez copier l’URL à partir du lien **Obtenir l’URL de la fonction**. | https://juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g==.|
+|WebHookEndpoint | Adresse de point de terminaison webhook. Une fois que votre fonction webhook est créée, vous pouvez copier l’URL à partir du lien **Obtenir l’URL de la fonction**. | https:\//juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g==.|
 
 ## <a name="create-a-function"></a>Créer une fonction
 

@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 0b578bfdb75b0ad4d4065d8793a74e7c4284eb74
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: dec5ce37aa3b4e9d4d6fcab964c1e48b606a4cd0
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781586"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338052"
 ---
 # <a name="document-formats-and-naming-convention-guidance"></a>Guide sur les formats de documents et les conventions d’affectation de noms
 
@@ -31,7 +31,7 @@ Cette table comprend tous les formats de fichier pris en charge que vous pouvez 
 | Microsoft Word    | .DOCX        | Document Microsoft Word                                                                                                                                                                                                                                                        |
 | Adobe Acrobat     | .PDF         | Document de la version portable d’Adobe Acrobat                                                                                                                                                                                                                                                |
 | HTML              | .HTML, .HTM  | Document HTML                                                                                                                                                                                                                                                                  |
-| Fichier texte         | .TXT         | Fichiers textes encodés en UTF-16 ou UTF-8                                                                                                                                                                                                                                             |
+| Fichier texte         | .TXT         | Fichiers texte codés à UTF-16 ou UTF-8. Le nom de fichier ne doit pas contenir de caractères japonais.                                                                                                                                                                                        |
 | Fichier d’alignement de textes | .ALIGN       | L’extension `.ALIGN` est une extension spéciale que vous pouvez utiliser si vous savez que des phrases de votre paire de documents se correspondent parfaitement. Si vous fournissez un fichier `.ALIGN`, Custom Translator n’aligne pas les phrases pour vous. |
 | Fichier Excel        | .XLSX        | Fichier Excel (2013 ou version ultérieure). La première ligne de la feuille de calcul doit être le code de langue.                                                                                                                                                                                                                                                      |
 

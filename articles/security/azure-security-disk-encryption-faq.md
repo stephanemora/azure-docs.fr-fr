@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: b98b9653aee395ebdf797c50c313c322727480c0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9323db9faff162488f5f56c03ac976aa47bb6f97
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57892759"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339489"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>FAQ Azure Disk Encryption pour machines virtuelles IaaS
 
@@ -152,7 +152,7 @@ Sous Windows, ADE utilise la méthode de chiffrement BitLocker AES256 (AES256Wit
 Non, les données ne sont pas effacées des lecteurs de données déjà chiffrés à l’aide d’Azure Disk Encryption. De même qu’EncryptFormatAll n’a pas chiffré à nouveau le lecteur du système d’exploitation, il ne chiffre pas à nouveau le lecteur de données déjà chiffré. Pour plus d’informations, consultez les [critères pour EncryptFormatAll](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).        
 
 ## <a name="is-xfs-filesystem-supported"></a>Système de fichiers XFS est prise en charge ?
-Volumes XFS sont pris en charge pour le chiffrement de disque de données. Pour chiffrer un volume actuellement formaté à l’aide de XFS, définissez l’option EncryptFormatAll. Cela remet en forme le volume. Pour plus d’informations, consultez les [critères pour EncryptFormatAll](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).
+Volumes XFS sont pris en charge pour le chiffrement de disque de données uniquement avec le EncryptFormalAll. Cela remet en forme le volume, l’effacement de toutes les données précédemment il. Pour plus d’informations, consultez les [critères pour EncryptFormatAll](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).
 
 ## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>Puis-je sauvegarder et restaurer une machine virtuelle chiffrée ? 
 

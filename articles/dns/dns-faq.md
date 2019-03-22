@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 3/11/2019
+ms.date: 3/21/2019
 ms.author: victorh
-ms.openlocfilehash: d0c5260fcc2e7ac2acbeec308c6a0cba7d6a81be
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1d0506179f9f0044f9f05edd3395d2677310c2d0
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58098091"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337103"
 ---
 # <a name="azure-dns-faq"></a>FAQ Azure DNS
 
@@ -103,9 +103,11 @@ Cette prise en charge n’est actuellement pas disponible pour les enregistremen
 ## <a name="alias-records"></a>Enregistrements d’alias
 
 ### <a name="what-are-some-scenarios-where-alias-records-are-useful"></a>Dans quels scénarios les enregistrements d’alias sont-ils utiles ?
+
 Consultez la section des scénarios dans la [Vue d’ensemble des enregistrements d’alias Azure DNS](dns-alias.md).
 
 ### <a name="what-record-types-are-supported-for-alias-record-sets"></a>Quels sont les types d’enregistrements pris en charge pour les jeux d’enregistrements d’alias ?
+
 Les jeux d’enregistrements d’alias sont pris en charge pour les types d’enregistrements suivants dans une zone Azure DNS :
  
 - A 
@@ -116,30 +118,36 @@ Les jeux d’enregistrements d’alias sont pris en charge pour les types d’en
 
 - **Pointer vers une ressource d’adresse IP publique à partir d’un jeu d’enregistrements A/AAAA DNS.** Vous pouvez créer un jeu d’enregistrements A/AAAA et en faire un jeu d’enregistrements d’alias pour pointer vers une ressource d’adresse IP publique.
 - **Pointer vers un profil Traffic Manager à partir d’un jeu d’enregistrements A/AAAA/CNAME DNS.** Vous pouvez pointer vers le CNAME d’un profil Traffic Manager à partir d’un jeu d’enregistrements CNAME DNS. contoso.trafficmanager.net en est un exemple. Maintenant, vous pouvez également pointer vers un profil Traffic Manager qui a des points de terminaison externes à partir d’un jeu d’enregistrements A ou AAAA dans votre zone DNS.
+- **Pointez sur un point de terminaison Azure Content Delivery Network (CDN)**. Cela est utile lorsque vous créez des sites Web statiques à l’aide du stockage Azure et Azure CDN.
 - **Pointer vers un autre jeu d’enregistrements DNS au sein de la même zone.** Les enregistrements d’alias peuvent faire référence à d’autres jeux d’enregistrements du même type. Par exemple, un jeu d’enregistrements CNAME DNS peut être un alias pour un autre jeu d’enregistrements CNAME du même type. Cette disposition est utile si vous voulez que certains jeux d’enregistrements d’alias soient des alias et d’autres des non-alias.
 
 ### <a name="can-i-create-and-update-alias-records-from-the-azure-portal"></a>Puis-je créer et mettre à jour des enregistrements d’alias à partir du portail Azure ?
+
 Oui. Vous pouvez créer ou gérer des enregistrements d’alias dans le portail Azure, ainsi qu’avec les API REST Azure, PowerShell, l’interface CLI et les SDK.
 
 ### <a name="will-alias-records-help-to-make-sure-my-dns-record-set-is-deleted-when-the-underlying-public-ip-is-deleted"></a>Les enregistrements d’alias garantissent-ils la suppression de mon jeu d’enregistrements DNS quand l’adresse IP publique sous-jacente est supprimée ?
+
 Oui. Cette fonctionnalité est l’une des principales caractéristiques des enregistrements d’alias. Elle vous permet d’éviter d’éventuelles interruptions qui impactent les utilisateurs de votre application.
 
 ### <a name="will-alias-records-help-to-make-sure-my-dns-record-set-is-updated-to-the-correct-ip-address-when-the-underlying-public-ip-address-changes"></a>Les enregistrements d’alias garantissent-ils la mise à jour de mon jeu d’enregistrements DNS avec l’adresse IP appropriée en cas de changement de l’adresse IP publique sous-jacente ?
+
 Oui. Cette fonctionnalité est l’une des principales caractéristiques des enregistrements d’alias. Elle vous permet d’éviter d’éventuelles interruptions ou des risques de sécurité qui impactent votre application.
 
 ### <a name="are-there-any-restrictions-when-using-alias-record-sets-for-a-or-aaaa-records-to-point-to-traffic-manager"></a>Y a-t-il des restrictions quant à l’utilisation de jeux d’enregistrements d’alias pour pointer vers Traffic Manager à partir d’enregistrements A ou AAAA ?
+
 Oui. Pour pointer vers un profil Traffic Manager en tant qu’alias à partir d’un jeu d’enregistrements A ou AAAA, le profil Traffic Manager doit utiliser uniquement des points de terminaison externes. Quand vous créez les points de terminaison externes dans Traffic Manager, fournissez les adresses P réelles des points de terminaison.
 
 ### <a name="is-there-an-additional-charge-to-use-alias-records"></a>L’utilisation d’enregistrements d’alias entraîne-t-elle des frais supplémentaires ?
+
 Les enregistrements d’alias sont une qualification sur un jeu d’enregistrements DNS valide. Ils n’occasionnent pas de frais supplémentaires.
 
 ## <a name="use-azure-dns"></a>Utiliser Azure DNS
 
-### <a name="can-i-cohost-a-domain-by-using-azure-dns-and-another-dns-provider"></a>Puis-je cohéberger un domaine en utilisant Azure DNS et un autre fournisseur DNS ?
+### <a name="can-i-co-host-a-domain-by-using-azure-dns-and-another-dns-provider"></a>J’ai peuvent cohabiter sur un domaine à l’aide d’Azure DNS et un autre fournisseur DNS ?
 
-Oui. Azure DNS prend en charge le cohébergement de domaines avec d’autres services DNS.
+Oui. Azure DNS prend en charge le co-hébergement de domaines avec d’autres services DNS.
 
-Pour configurer le cohébergement, modifiez les enregistrements NS du domaine pour qu’ils pointent vers les serveurs de noms des deux fournisseurs. Les enregistrements de serveur de noms (NS) déterminent quels fournisseurs reçoivent des requêtes DNS pour le domaine. Vous pouvez modifier ces enregistrements NS dans Azure DNS, dans l’autre fournisseur et dans la zone parente. Cette dernière est généralement configurée par le biais du bureau d’enregistrement de noms de domaine. Pour plus d’informations sur la délégation DNS, consultez [Délégation de domaine DNS](dns-domain-delegation.md).
+Pour configurer le co-hébergement, modifier les enregistrements NS pour le domaine pointer vers les serveurs de noms des deux fournisseurs. Les enregistrements de serveur de noms (NS) déterminent quels fournisseurs reçoivent des requêtes DNS pour le domaine. Vous pouvez modifier ces enregistrements NS dans Azure DNS, dans l’autre fournisseur et dans la zone parente. Cette dernière est généralement configurée par le biais du bureau d’enregistrement de noms de domaine. Pour plus d’informations sur la délégation DNS, consultez [Délégation de domaine DNS](dns-domain-delegation.md).
 
 Vérifiez également que les enregistrements DNS du domaine sont synchronisés entre les deux fournisseurs DNS. Azure DNS ne prend actuellement pas en charge les transferts de zone DNS. Les enregistrements DNS doivent être synchronisés à l’aide du [portail de gestion Azure DNS](dns-operations-recordsets-portal.md), de [l’API REST](https://docs.microsoft.com/powershell/module/azurerm.dns), du [SDK](dns-sdk.md), des [applets de commande PowerShell](dns-operations-recordsets.md) ou de [l’outil CLI](dns-operations-recordsets-cli.md).
 
@@ -271,10 +279,9 @@ Les zones privées qui sont déjà créées par le biais des API, de PowerShell,
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [En savoir plus sur Azure DNS](dns-overview.md).
-<br>
-- [En savoir plus sur la façon d’utiliser Azure DNS pour les domaines privés](private-dns-overview.md).
-<br>
-- [En savoir plus sur les zones et les enregistrements DNS](dns-zones-records.md).
-<br>
-- [Bien démarrer avec Azure DNS](dns-getstarted-portal.md).
 
+- [En savoir plus sur la façon d’utiliser Azure DNS pour les domaines privés](private-dns-overview.md).
+
+- [En savoir plus sur les zones et les enregistrements DNS](dns-zones-records.md).
+
+- [Bien démarrer avec Azure DNS](dns-getstarted-portal.md).

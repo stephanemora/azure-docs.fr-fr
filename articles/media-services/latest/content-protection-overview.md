@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 4d1a9ae622de103b459d256cb48c5823f5866a3b
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
-ms.translationtype: HT
+ms.openlocfilehash: 984c5d6b5e6e2010489533a3889501c5b524a6bd
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294074"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311320"
 ---
 # <a name="content-protection-with-dynamic-encryption"></a>Protection du contenu avec chiffrement dynamique
 
@@ -204,7 +204,7 @@ Pour protéger vos éléments au repos, les ressources doivent être chiffrées 
 
 Si vous obtenez le `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY` erreur, veillez à spécifier la stratégie appropriée de diffusion en continu.
 
-Si vous obtenez des erreurs qui se terminent par `_NOT_SPECIFIED_IN_URL`, assurez-vous que vous spécifiez le format de chiffrement dans l’URL. Par exemple, .../manifest (format = m3u8-cmaf, chiffrement = cbcs-aapl). Consultez [protocoles et types de chiffrement de diffusion en continu](#streaming-protocols-and-encryption types).
+Si vous obtenez des erreurs qui se terminent par `_NOT_SPECIFIED_IN_URL`, assurez-vous que vous spécifiez le format de chiffrement dans l’URL. Par exemple : `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`. Consultez [protocoles et types de chiffrement de diffusion en continu](#streaming-protocols-and-encryption-types).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
 ms.author: v-jamebr
-ms.openlocfilehash: d2e890110194b1fbe0528191fa645628cc3a1345
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 9da735f10063649222a38498af17e0404137a706
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161357"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315349"
 ---
 # <a name="develop-c-service-fabric-applications-with-visual-studio-code"></a>Développer des applications Service Fabric en C# avec Visual Studio Code
 
@@ -27,7 +27,7 @@ ms.locfileid: "55161357"
 
 Cet article vous montre comment générer, déployer et déboguer une application Service Fabric en .NET Core à l’aide de Visual Studio Code.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Cet article suppose que vous avez déjà installé VS Code, l’extension Service Fabric Reliable Services pour VS Code et toutes les dépendances requises pour votre environnement de développement. Pour plus d’informations, consultez [Bien démarrer](./service-fabric-get-started-vs-code.md#prerequisites).
 
@@ -42,7 +42,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-st
 
 ## <a name="open-the-application-in-vs-code"></a>Ouvrir l’application dans VS Code
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 Dans le Menu Démarrer, cliquez avec le bouton droit sur l’icône VS Code, puis choisissez **Exécuter en tant qu’administrateur**. Pour attacher le débogueur à vos services, vous devez exécuter VS Code en tant qu’administrateur.
 
 ### <a name="linux"></a>Linux
@@ -70,11 +70,11 @@ Une fois que vous avez généré l’application, vous pouvez la déployer sur l
 
    ![Commande Déployer une application dans VS Code](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-deploy-application.png)
 
-4. Quand le déploiement est terminé, lancez un navigateur et ouvrez Service Fabric Explorer : http://localhost:19080/Explorer. Vous devez voir que l’application est en cours d’exécution. Cette opération pouvant prendre un certain temps, soyez patient. 
+4. Lorsque le déploiement est terminé, lancez un navigateur et ouvrez Service Fabric Explorer : http :\//localhost:19080 / Explorer. Vous devez voir que l’application est en cours d’exécution. Cette opération pouvant prendre un certain temps, soyez patient. 
 
    ![Application Counter Service dans Service Fabric Explorer](./media/service-fabric-develop-csharp-applications-with-vs-code/sfx-verify-deploy.png)
 
-4. Une fois que vous avez vérifié que l’application est en cours d’exécution, lancez un navigateur et ouvrez cette page : http://localhost:31002. Il s’agit du serveur web frontal de l’application. Actualisez la page pour afficher la valeur actuelle du compteur quand elle est incrémentée.
+4. Une fois que vous avez vérifié l’application est en cours d’exécution, lancez un navigateur et ouvrez cette page : http :\//localhost:31002. Il s’agit du frontend web de l’application. Actualisez la page pour afficher la valeur actuelle du compteur quand elle est incrémentée.
 
    ![Application Counter Service dans le navigateur](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-running.png)
 
@@ -91,7 +91,7 @@ Pour définir un point d’arrêt et déboguer, effectuez les étapes suivantes 
 
    ![Icône de débogage dans l’espace de travail VS Code](./media/service-fabric-develop-csharp-applications-with-vs-code/debug-start.png)
 
-3. Ouvrez Service Fabric Explorer dans un navigateur : http://localhost:19080/Explorer. Cliquez sur **Applications**, puis descendez dans la hiérarchie pour déterminer le nœud principal sur lequel CounterService est exécuté. Dans l’image sous le nœud principal pour CounterService se trouve le nœud 0.
+3. Ouvrez Service Fabric Explorer dans un navigateur : http :\//localhost:19080 / Explorer. Cliquez sur **Applications**, puis descendez dans la hiérarchie pour déterminer le nœud principal sur lequel CounterService est exécuté. Dans l’image sous le nœud principal pour CounterService se trouve le nœud 0.
 
    ![Nœud principal pour CounterService](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-primary-node.png)
 

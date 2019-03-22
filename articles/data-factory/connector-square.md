@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 68ac03a8aba4042a842b5e740d67ab4198236275
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: f22311af277f860c1501287b5be0f5dc149880b9
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54013160"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317718"
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-preview"></a>Copier des données de Square avec Azure Data Factory (préversion)
 
@@ -48,7 +48,7 @@ Les propriétés suivantes sont prises en charge pour le service lié Square :
 | host | URL de l’instance Square. (c’est-à-dire mystore.mysquare.com).  | Oui |
 | clientId | ID client associé à l’application Square.  | Oui |
 | clientSecret | Clé secrète client associée à l’application Square. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
-| redirectUri | URL de redirection affectée dans le tableau de bord de l’application Square (c’est-à-dire http://localhost:2500)  | Oui |
+| redirectUri | URL de redirection affectée dans le tableau de bord de l’application Square (par exemple, http :\//localhost:2500)  | Oui |
 | useEncryptedEndpoints | Indique si les points de terminaison de la source de données sont chiffrés suivant le protocole HTTPS. La valeur par défaut est true.  | Non  |
 | useHostVerification | Indique si le nom d’hôte du certificat du serveur doit correspondre à celui du serveur en cas de connexion SSL. La valeur par défaut est true.  | Non  |
 | usePeerVerification | Indique s’il faut vérifier l’identité du serveur en cas de connexion SSL. La valeur par défaut est true.  | Non  |

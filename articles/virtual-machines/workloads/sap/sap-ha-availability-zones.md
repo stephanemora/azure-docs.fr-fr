@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 687f99fb6447eddb4ce10ce81bc349181ec5c48c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3772dbdc8582eea1b2eac368784878a8a36d34ad
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094750"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339480"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Configurations de la charge de travail SAP avec des zones de disponibilité Azure
 Les [zones de disponibilité Azure](https://docs.microsoft.com/azure/availability-zones/az-overview) correspondent à l’une des fonctionnalités de haute disponibilité fournies par Azure. L’utilisation de zones de disponibilité améliore la disponibilité globale des charges de travail SAP dans Azure. Cette fonctionnalité est déjà disponible dans certaines [régions Azure](https://azure.microsoft.com/global-infrastructure/regions/). Elle le sera demain dans d’autres régions.
@@ -93,7 +93,7 @@ Pour prendre ces décisions, tenez également compte des recommandations de SAP 
 > Il est probable que les mesures décrites précédemment fournissent des résultats différents dans chaque région Azure qui prend en charge les [zones de disponibilité](https://docs.microsoft.com/azure/availability-zones/az-overview). Même si vos besoins en latence réseau ne changent pas, il peut être nécessaire d’adopter différentes stratégies de déploiement dans les différentes régions Azure, car la latence réseau entre les zones peut varier. Dans certaines régions Azure, la latence réseau entre les trois différentes zones peut varier considérablement. Dans d’autres régions, la latence réseau entre les trois différentes zones peut être plus uniforme. L’idée qu’il existe toujours une latence réseau comprise entre 1 et 2 millisecondes est fausse. La latence réseau entre les zones de disponibilité dans les régions Azure ne peut pas être généralisée.
 
 ## <a name="activeactive-deployment"></a>Déploiement actif/actif
-Cette architecture de déploiement est appelée active/active, car vous déployez vos instances de dialogue SAP actives sur deux ou trois zones. L’instance SAP Central Services qui utilise la réplication de la mise en file d’attente sera déployé entre deux zones. Ceci vaut également pour la couche SGBD, qui sera déployée sur les mêmes zones que SAP Central Service.
+Cette architecture de déploiement est appelée actif/actif, car vous déployez vos serveurs d’applications SAP actives entre les deux ou trois zones. L’instance SAP Central Services qui utilise la réplication de la mise en file d’attente sera déployé entre deux zones. Ceci vaut également pour la couche SGBD, qui sera déployée sur les mêmes zones que SAP Central Service.
 
 Quand vous envisagez cette configuration, vous devez rechercher les deux zones de disponibilité dans votre région qui offrent une latence réseau interzone acceptable pour votre charge de travail et pour la réplication synchrone de votre SGBD. Vous devez également vous assurer que le delta entre la latence réseau au sein des zones que vous avez sélectionnées et la latence réseau interzone n’est pas trop important. En effet, vous ne voulez pas de grandes variations dans les durées d’exécution de vos processus métier ou programmes de traitement par lots, selon qu’un travail s’exécute dans la zone avec le serveur SGBD ou entre les zones. Certaines variations sont acceptables, mais pas des différences importantes.
 

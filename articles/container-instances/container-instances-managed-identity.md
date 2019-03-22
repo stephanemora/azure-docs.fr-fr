@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 321dfaa1a58cc806394f4807c38cbdc599cfd7a0
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: ac0a84aa3121c6ebb91860c96c0f6692827c8a3f
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311561"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336522"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Comment utiliser une identité managée avec Azure Container Instances
 
@@ -33,7 +33,7 @@ Adaptez les exemples pour activer et utiliser des identités dans Azure Containe
 
 ## <a name="why-use-a-managed-identity"></a>Pourquoi utiliser une identité managée ?
 
-Utilisez une identité managée dans un conteneur en cours d’exécution pour vous authentifier sur n’importe quel [service prenant en charge l’authentification Azure AD](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication), sans avoir à gérer les informations d’identification dans le code de votre conteneur. Pour les services qui ne prennent pas en charge l’authentification AD, vous pouvez stocker des codes secrets dans le coffre de clés Azure Key Vault et utiliser l’identité managée pour y accéder à Key Vault et récupérer les informations d’identification. Pour en savoir plus sur l’utilisation des identités managées, consultez la section [Que sont les identités managées pour les ressources Azure ?](../active-directory/managed-identities-azure-resources/overview.md)
+Utilisez une identité managée dans un conteneur en cours d’exécution pour vous authentifier sur n’importe quel [service prenant en charge l’authentification Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication), sans avoir à gérer les informations d’identification dans le code de votre conteneur. Pour les services qui ne prennent pas en charge l’authentification AD, vous pouvez stocker des codes secrets dans le coffre de clés Azure Key Vault et utiliser l’identité managée pour y accéder à Key Vault et récupérer les informations d’identification. Pour en savoir plus sur l’utilisation des identités managées, consultez la section [Que sont les identités managées pour les ressources Azure ?](../active-directory/managed-identities-azure-resources/overview.md)
 
 > [!IMPORTANT]
 > Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire. Les préversions sont à votre disposition, à condition que vous acceptiez les [conditions d’utilisation supplémentaires](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Certains aspects de cette fonctionnalité sont susceptibles d’être modifiés avant la mise à disposition générale. Actuellement, les identités managées sont uniquement prises en charge sur les instances de conteneur Linux.
@@ -252,7 +252,7 @@ token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=
 
 ```
 
-Utilisez maintenant le jeton d’accès pour vous authentifier sur Key Vault et lire un code secret. Veillez à remplacer le nom de votre coffre de clés dans l’URL (*https://mykeyvault.vault.azure.net/...*) :
+Utilisez maintenant le jeton d’accès pour vous authentifier sur Key Vault et lire un code secret. Veillez à indiquer le nom de votre coffre de clés dans l’URL (*https :\//mykeyvault.vault.azure.net/...* ):
 
 ```bash
 curl https://mykeyvault.vault.azure.net/secrets/SampleSecret/?api-version=2016-10-01 -H "Authorization: Bearer $token"

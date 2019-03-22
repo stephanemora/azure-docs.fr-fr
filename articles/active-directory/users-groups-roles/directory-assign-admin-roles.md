@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f06446cb6af1fa145e5fcec41cc85a1452af207a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5202d2775e830264543719cafefb5c48fca822d6
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839251"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316420"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorisations des rôles d’administrateur dans Azure Active Directory
 
@@ -134,7 +134,7 @@ Les rôles d’administrateur disponibles sont les suivants :
 
 * **[Prise en charge de niveau 2 de partenaire](#partner-tier2-support)**  : Ne pas utiliser. Ce rôle est déconseillé et sera prochainement supprimé d’Azure AD. Il s’adresse à un petit nombre de partenaires revendeurs Microsoft et n’est pas destiné à une utilisation générale.
 
-* **[Administrateur de mot de passe ou Administrateur du support technique](#helpdesk-administrator)**  : Les utilisateurs avec ce rôle peuvent changer des mots de passe, rendre non valides les jetons d’actualisation, gérer les demandes de service et superviser l’intégrité du service. L’invalidation d’un jeton d’actualisation oblige l’utilisateur à se reconnecter. Administrateurs du support technique peuvent réinitialiser les mots de passe et invalider les jetons d’actualisation des autres utilisateurs qui sont non administrateurs ou affecter les rôles suivants uniquement :
+* **[Administrateur du support technique (mot de passe)](#helpdesk-administrator)**: Les utilisateurs avec ce rôle peuvent changer des mots de passe, rendre non valides les jetons d’actualisation, gérer les demandes de service et superviser l’intégrité du service. L’invalidation d’un jeton d’actualisation oblige l’utilisateur à se reconnecter. Administrateurs du support technique peuvent réinitialiser les mots de passe et invalider les jetons d’actualisation des autres utilisateurs qui sont non administrateurs ou affecter les rôles suivants uniquement :
   * Lecteurs de répertoires
   * Inviteur
   * Administrateur du support technique
@@ -149,7 +149,7 @@ Les rôles d’administrateur disponibles sont les suivants :
   * Les non-administrateurs comme les cadres supérieurs, les conseillers juridiques et les employés des ressources humaines qui peuvent avoir accès à des informations sensibles ou privées.
 
   > [!NOTE]
-  > Dans l’API Microsoft Graph, l’API Azure AD Graph et Azure AD PowerShell, ce rôle est identifié comme « Administrateur du support technique ». Il est appelé « Administrateur général » dans le [portail Azure](https://portal.azure.com/).
+  > Ce rôle a été précédemment appelé « administrateur de mot de passe » [Azure portal](https://portal.azure.com/). Nous allons modifier son nom à « Administrateur Helpdesk » pour correspondre à son nom dans Azure AD PowerShell, API Azure AD Graph et API Microsoft Graph. Pendant une courte période, nous allons modifier le nom de « Administrateur Helpdesk (mot de passe) » dans le portail Azure avant la modification de « Administrateur Helpdesk ».
   >
   
 * **[Administrateur Power BI](#power-bi-service-administrator)**  : Les utilisateurs avec ce rôle ont des autorisations générales dans Microsoft Power BI, quand le service est présent, et peuvent gérer les tickets de support et superviser l’intégrité du service. Pour plus d’informations, consultez la page [Présentation du rôle d’administrateur Power BI](https://docs.microsoft.com/power-bi/service-admin-role).
@@ -164,7 +164,7 @@ Les rôles d’administrateur disponibles sont les suivants :
 
   <b>Important !</b> Ce rôle donne la possibilité de gérer les affectations pour tous les rôles d’Azure AD, y compris le rôle d’administrateur général. Ce rôle n’inclut pas d’autres capacités privilégiées dans Azure AD, comme la création ou la mise à jour des utilisateurs. Toutefois, les utilisateurs affectés à ce rôle peuvent s’accorder ou accorder à d’autres des privilèges supplémentaires en leur attribuant des rôles supplémentaires.
 
-* **[Lecteur de rapports](#reports-reader)**  : Les utilisateurs avec ce rôle peuvent voir les données de rapports sur l’utilisation et le tableau de bord des rapports dans le centre d’administration Office 365 et le pack du contexte d’adoption dans Power BI. En outre, ce rôle donne accès aux rapports de connexion et aux activités dans Azure AD, ainsi qu’aux données renvoyées par l’API de création de rapports Microsoft Graph. Un utilisateur disposant du rôle Lecteur de rapports peut uniquement accéder au métriques d’utilisation et d’adoption pertinentes. Il n’a pas les autorisations administrateur permettant de configurer les paramètres ou d’accéder aux centres d’administration propres au produit comme Exchange. Ce rôle n’a pas d'accès pour afficher, créer ou gérer des tickets de support.
+* **[Lecteur de rapports](#reports-reader)**  : Les utilisateurs disposant de ce rôle peuvent afficher des données de création de rapports d’utilisation et le tableau de bord de rapports dans le centre d’administration Microsoft 365 et le contexte d’adoption pack dans Power BI. En outre, ce rôle donne accès aux rapports de connexion et aux activités dans Azure AD, ainsi qu’aux données renvoyées par l’API de création de rapports Microsoft Graph. Un utilisateur disposant du rôle Lecteur de rapports peut uniquement accéder au métriques d’utilisation et d’adoption pertinentes. Il n’a pas les autorisations administrateur permettant de configurer les paramètres ou d’accéder aux centres d’administration propres au produit comme Exchange. Ce rôle n’a pas d'accès pour afficher, créer ou gérer des tickets de support.
 
 * **[Administrateur de la sécurité](#security-administrator)**  : Les utilisateurs disposant de ce rôle sont autorisés à gérer les fonctionnalités liées à la sécurité dans le Centre de sécurité Microsoft 365, Azure Active Directory Identity Protection, Azure Information Protection et le Centre de sécurité et conformité Office 365. Pour plus d’informations sur les autorisations Office 365, consultez [Autorisations dans le Centre de sécurité et conformité Office 365](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
   
@@ -208,9 +208,9 @@ Les rôles d’administrateur disponibles sont les suivants :
   [Centre de sécurité Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) | peut afficher les recommandations et les alertes, afficher les stratégies de sécurité, afficher les états de la sécurité, mais ne peut pas apporter des modifications
   [Office 365 Service Health](https://docs.microsoft.com/office365/enterprise/view-service-health) | Afficher l’intégrité des services Office 365
 
-* **[Administrateur de support de service](#service-support-administrator)**  : Les utilisateurs avec ce rôle peuvent ouvrir des demandes de support auprès de Microsoft pour les services Azure et Office 365, ainsi que voir le tableau de bord des services et le centre de messages dans le portail Azure et le portail d’administration Office 365. Plus d’informations sur les [Rôles d’administrateur dans Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+* **[Administrateur de support de service](#service-support-administrator)**  : Les utilisateurs disposant de ce rôle peuvent ouvrir les demandes de support auprès de Microsoft pour les services Azure et Office 365 et le tableau de bord de service et le message center dans les vues le [Azure portal](https://portal.azure.com) et [centre d’administration Microsoft 365](https://admin.microsoft.com). Plus d’informations sur les [Rôles d’administrateur dans Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
   > [!NOTE]
-  > Dans l’API Microsoft Graph, l’API Azure AD Graph et Azure AD PowerShell, ce rôle est identifié comme « Administrateur de support de service ». Il est « Administrateur de Service » dans le [portail Azure](https://portal.azure.com), le portail d’administration Office 365 et le portail Intune.
+  > Dans l’API Microsoft Graph, l’API Azure AD Graph et Azure AD PowerShell, ce rôle est identifié comme « Administrateur de support de service ». Il est « Administrateur de Service » dans le [Azure portal](https://portal.azure.com), le [centre d’administration Microsoft 365](https://admin.microsoft.com)et le portail Intune.
 
 * **[Administrateur SharePoint](#sharepoint-service-administrator)**  : Les utilisateurs avec ce rôle ont des autorisations générales dans Microsoft SharePoint Online, quand le service est présent. Ils peuvent également créer et gérer tous les groupes Office 365, gérer les tickets de support et superviser l’intégrité des services. Plus d’informations sur les [Rôles d’administrateur dans Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
   > [!NOTE]

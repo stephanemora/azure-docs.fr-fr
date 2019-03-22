@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: tamram
-ms.openlocfilehash: d57023063fe23db9f57d52ab9cdf99e0687c1fdf
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
-ms.translationtype: HT
+ms.openlocfilehash: df9bc1680f20fe6264da0109cd52db1072fd9fc5
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217289"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311133"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Mettre à niveau vers un compte de stockage v2 à usage général
 
@@ -29,14 +29,14 @@ La mise à niveau vers un compte de stockage v2 à usage général à partir d�
 2. Accédez à votre compte de stockage.
 3. Dans la section **Paramètres**, cliquez sur **Configuration**.
 4. Sous **Type de compte**, cliquez sur **Mettre à niveau**.
-5. Sous **Confirmer la mise à niveau**, saisissez le nom de votre compte. 
+5. Sous **Confirmer la mise à niveau**, saisissez le nom de votre compte.
 6. Cliquez sur l’option **Mettre à niveau** figurant en bas du panneau.
 
 ## <a name="upgrade-with-powershell"></a>Mise à niveau à l’aide de PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Pour mettre à niveau un compte v1 à usage général vers un compte v2 à usage général à l’aide de PowerShell, commencez par mettre à jour PowerShell afin d’utiliser la dernière version du module **Az.Storage**. Pour plus d’informations sur l’installation de PowerShell, consultez l’article [Installation et configuration d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). 
+Pour mettre à niveau un compte v1 à usage général vers un compte v2 à usage général à l’aide de PowerShell, commencez par mettre à jour PowerShell afin d’utiliser la dernière version du module **Az.Storage**. Pour plus d’informations sur l’installation de PowerShell, consultez l’article [Installation et configuration d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
 Ensuite, appelez la commande suivante pour mettre à niveau le compte, en remplaçant le nom de votre groupe de ressources et de votre compte de stockage :
 
@@ -46,17 +46,17 @@ Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-a
 
 ## <a name="upgrade-with-azure-cli"></a>Mise à niveau à l’aide de l’interface de ligne de commande Azure
 
-Pour mettre à niveau un compte v1 à usage général vers un compte v2 à usage général à l’aide d’Azure CLI, commencez par installer la dernière version d’Azure CLI. Pour plus d’informations sur l’installation de l’interface de ligne de commande, consultez l’article [Installer Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). 
+Pour mettre à niveau un compte v1 à usage général vers un compte v2 à usage général à l’aide d’Azure CLI, commencez par installer la dernière version d’Azure CLI. Pour plus d’informations sur l’installation de l’interface de ligne de commande, consultez l’article [Installer Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 Ensuite, appelez la commande suivante pour mettre à niveau le compte, en remplaçant le nom de votre groupe de ressources et de votre compte de stockage :
 
 ```cli
 az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2
-``` 
+```
 
 ## <a name="specify-an-access-tier-for-blob-data"></a>Spécifier un niveau d’accès pour les données blob
 
-Les comptes v2 à usage général prennent en charge tous les services de stockage et objets de données Azure, mais les niveaux d’accès sont uniquement disponibles pour les objets blob de blocs dans le stockage d’objets blob. Lorsque vous passez à un compte de stockage v2 à usage général, vous pouvez spécifier un niveau d’accès pour vos données blob. 
+Les comptes v2 à usage général prennent en charge tous les services de stockage et objets de données Azure, mais les niveaux d’accès sont uniquement disponibles pour les objets blob de blocs dans le stockage d’objets blob. Lorsque vous passez à un compte de stockage v2 à usage général, vous pouvez spécifier un niveau d’accès pour vos données blob.
 
 Les niveaux d’accès vous permettent de choisir la solution de stockage la plus économique en fonction des modèles d’utilisation prévus. Les objets blob de blocs peuvent être stockés dans un niveau de stockage chaud, froid ou archive. Pour plus d’informations sur les niveaux d’accès, consultez [Stockage Blob Azure : Niveaux de stockage chaud, à froid et archivage](../blobs/storage-blob-storage-tiers.md).
 
@@ -96,7 +96,7 @@ Pour estimer le coût de stockage et d’accès aux données blob stockées dans
     - Quelle est la quantité des données stockées dans le compte de stockage ?
     - Comment le volume de données est-il changé tous les mois ? Les nouvelles données remplacent-elles constamment les anciennes données ?
 * Le principal modèle d’accès pour vos données de stockage d’objets blob :
-    - Quelle est la quantité de données lues et écrites dans le compte de stockage ? 
+    - Quelle est la quantité de données lues et écrites dans le compte de stockage ?
     - Combien d’opérations de lecture et d’écriture ont lieu sur les données dans le compte de stockage ?
 
 Pour choisir le niveau d’accès le plus adapté à vos besoins, vous devez déterminer votre capacité de données d’objet blob et la manière dont ces données sont utilisées. Pour ce faire, examinez les métriques de supervision de votre compte.
@@ -108,7 +108,7 @@ Pour analyser vos comptes de stockage existants et rassembler ces informations, 
 Pour plus d’informations, consultez les articles [À propos des métriques de Storage Analytics](https://msdn.microsoft.com/library/azure/hh343258.aspx) et [Schéma de table de métriques Storage Analytics](https://msdn.microsoft.com/library/azure/hh343264.aspx)
 
 > [!NOTE]
-> Les comptes de stockage d’objets blob exposent le point de terminaison du service de table uniquement pour le stockage et l’accès aux métriques associées à ce compte. 
+> Les comptes de stockage d’objets blob exposent le point de terminaison du service de table uniquement pour le stockage et l’accès aux métriques associées à ce compte.
 
 Pour analyser la consommation de stockage pour le service de stockage d’objets blob, vous devez activer les métriques de capacité.
 Lorsque cette option est activée, les données de capacité sont enregistrées quotidiennement pour le service blob d’un compte de stockage comme une entrée de table écrite dans la table *$MetricsCapacityBlob* dans le même compte de stockage.
@@ -120,7 +120,7 @@ Pour analyser les modèles d’accès aux données pour le service de stockage d
 
 Pour avoir une bonne estimation de votre consommation de données et de votre modèle d’accès, nous vous recommandons de sélectionner pour les métriques une période de rétention représentative de votre utilisation régulière et d’extrapoler. Une option consiste à conserver les données de métriques pendant sept jours et à collecter les données chaque semaine pour les analyser à la fin du mois. Une autre option consiste à conserver les données de métriques pendant les 30 derniers jours et à collecter et analyser les données à la fin de la période de 30 jours.
 
-Pour plus d’informations sur l’activation, la collecte et l’affichage des données de métriques, voir [Activation des métriques de stockage Azure et affichage des données associées](../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Pour plus d’informations sur l’activation, la collecte et l’affichage des données de métriques, consultez [métriques de stockage analytique](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 > [!NOTE]
 > Le stockage, l’accès et le téléchargement des données d’analyse sont également facturés comme des données utilisateur standard.

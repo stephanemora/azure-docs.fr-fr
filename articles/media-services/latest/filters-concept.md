@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 60623ab4b41c343cab0f9be1abd8ab45051b3f9e
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 78d6ac0a4ecde8d60a0ef3aa22515c7ce1ea4e07
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889356"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309535"
 ---
 # <a name="define-account-filters-and-asset-filters"></a>Définir des filtres de comptes et des filtres d'éléments multimédias  
 
@@ -88,7 +88,11 @@ Les conditions de propriétés de suivi de filtre décrivent les types de suivi,
 |**Nom**|Utilisez le nom de la piste pour le filtrage.|
 |**Type**|Utilisez le type de la piste pour le filtrage.<br/><br/>Les valeurs suivantes sont autorisées : « video », « audio » ou « text ».|
 
-## <a name="example"></a>Exemples
+## <a name="associate-filters-with-streaming-locator"></a>Associer des filtres de localisateur de diffusion en continu
+
+Vous pouvez spécifier une liste de filtres de compte d’actif ou, s’applique également à votre localisateur de diffusion en continu. Le [l’empaquetage dynamique](dynamic-packaging-overview.md) s’applique à cette liste de filtres avec ceux de votre client spécifie l’URL. Cette combinaison génère une [dyanamic manifeste](filters-dynamic-manifest-overview.md), qui est basé sur les filtres dans l’URL + filtres que vous spécifiez dans le localisateur de diffusion en continu. Nous vous recommandons d’utiliser cette fonctionnalité si vous souhaitez appliquer des filtres, mais ne souhaitez pas exposer les noms de filtre dans l’URL.
+
+## <a name="definition-example"></a>Exemple de définition
 
 ```json
 {

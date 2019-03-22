@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/15/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 8cdf8022f87c8fa3e81e2544a6678751726b2b3b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 777b3a8d414f0b785d908c37da98e987445ed96d
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57889826"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317457"
 ---
 # <a name="azure-instance-metadata-service"></a>Service de métadonnées d’instance Azure
 
@@ -352,7 +352,7 @@ nom_groupe_ressources | [Groupe de ressources](../../azure-resource-manager/reso
 placementGroupId | [Groupe de placement](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) de votre groupe de machines virtuelles identiques | 2017-08-01
 Plan | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) pour une machine virtuelle dans son une Image de place de marché Azure, contient le nom, de produit et de serveur de publication | 2018-04-02
 provider | Fournisseur de la machine virtuelle | 01-10-2018
-publicKeys | Collection de Public Keys[<https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey>] affectée à la machine virtuelle et aux chemins | 2018-04-02
+publicKeys | [Collection de clés publiques](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey) affecté à la machine virtuelle et les chemins d’accès | 2018-04-02
 vmScaleSetName | [Nom du groupe identique de machine virtuelle](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) de votre groupe de machines virtuelles identiques | 2017-12-01
 zone | [Zone de disponibilité](../../availability-zones/az-overview.md) de votre machine virtuelle | 2017-12-01
 ipv4/privateIpAddress | Adresse IPv4 locale de la machine virtuelle | 2017-04-02

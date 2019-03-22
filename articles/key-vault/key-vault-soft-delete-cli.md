@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 4311d71775ef877e0090abca9c6caabab503ef08
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: aa9b89b9afec069e97236b7652e0f1d37644f5cf
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58097608"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336067"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Guide pratique pour utiliser la suppression réversible Key Vault avec l’interface CLI
 
@@ -94,7 +94,7 @@ Vous pouvez afficher les coffres de clé associés à votre abonnement qui sont 
 ```azurecli
 az keyvault list-deleted
 ```
-- *Id* permet d’identifier la ressource durant la récupération ou le vidage. 
+- *ID* peut être utilisé pour identifier la ressource lors de la récupération ou de purge. 
 - *ID de ressource* est l’ID de ressource d’origine de ce coffre. Ce coffre de clés étant maintenant à l’état supprimé, il n’existe aucune ressource avec cet ID de ressource. 
 - *Date de vidage planifiée* indique quand le coffre sera supprimé définitivement si aucune action n’est effectuée. La période de rétention par défaut, utilisée pour calculer la *Date de vidage planifiée*, est de 90 jours.
 
@@ -222,6 +222,24 @@ L’énumération des objets du coffre de clés supprimés indique également qu
 
 >[!IMPORTANT]
 >Un objet de coffre dont le vidage est déclenché par son champ *Date de vidage planifiée* est supprimé définitivement. Il n’est pas récupérable !
+
+## <a name="enabling-purge-protection"></a>Activation de la Protection de Purge
+
+Lors de la protection contre le vidage est activé, un coffre ou un objet de supprimé état ne peut pas être purgé jusqu'à expiration de la période de rétention de 90 jours de. Ce type de coffre ou d’objet peut toujours être récupéré. Cette fonctionnalité offre la meilleure garantie un coffre ou un objet ne peut jamais être définitivement supprimés jusqu'à ce que la rétention période écoulée.
+
+Vous pouvez activer la protection de purge uniquement si la suppression réversible est également activée. 
+
+Pour activer les deux suppression réversible et purge de protection lors de la création d’un coffre, utilisez le [créer az keyvault](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) commande :
+
+```
+az keyvault create --name ContosoVault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true
+```
+
+Pour ajouter une protection de purge à un coffre existant (qui a déjà la suppression réversible est activée), utilisez le [mise à jour du coffre de clés az](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update) commande :
+
+```
+az keyvault update --name ContosoVault --resource-group ContosoRG --enable-purge-protection true
+```
 
 ## <a name="other-resources"></a>Autres ressources
 

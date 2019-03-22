@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: 4d9dfbcfc1dd00209a90386bf75f0c2515a28060
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ed8159f38e2763cb897212ae4f51fecb7343a683
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57854464"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315589"
 ---
 # <a name="deploy-multiple-guest-executables"></a>Déploiement de plusieurs exécutables invités
 Cet article montre comment empaqueter et déployer plusieurs exécutables sur Azure Service Fabric. Pour créer et déployer un package Service Fabric, lisez l’article [Déploiement d’un exécutable invité dans Service Fabric](service-fabric-deploy-existing-app.md).
@@ -204,7 +204,7 @@ Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'NodeAppType'
 New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationTypeName 'NodeAppType' -ApplicationTypeVersion 1.0  
 ```
 
-Une fois l’application publiée dans le cluster local, vous pouvez accéder à l’application Node.js sur le port entré dans le manifeste de service de l’application Node.js, par exemple http://localhost:3000.
+Une fois que l’application est publiée dans le cluster local, vous pouvez accéder à l’application Node.js sur le port que nous avons entré dans le manifeste de service de l’application Node.js, par exemple http :\//localhost:3000.
 
 Dans ce didacticiel, vous avez vu comment empaqueter facilement deux applications existantes en une application Service Fabric. Vous avez également découvert comment la déployer dans Service Fabric pour qu’elle tire parti de certaines fonctionnalités de Service Fabric, telles que la haute disponibilité et l’intégration du système de contrôle d’intégrité.
 

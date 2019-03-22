@@ -1,5 +1,5 @@
 ---
-title: Sécurisation des ressources de cloud avec Azure MFA et AD FS | Microsoft Docs
+title: Sécuriser les ressources de cloud avec Azure MFA et AD FS - Azure Active Directory
 description: Voici la page d'authentification multifacteur Azure qui explique la prise en main de l'authentification multifacteur Azure et d’AD FS 2.0 dans le cloud.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89559c1c42255bf1050cbb96f38e6d7394c21103
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7f508475166346c56b3bd0c8607c27beb7aba66c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191401"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316471"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Sécurisation des ressources de cloud avec le serveur Azure Multi-Factor Authentication et AD FS
 

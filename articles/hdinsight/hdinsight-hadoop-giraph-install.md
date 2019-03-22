@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3b46acfbfd77015193135d1a8c7646c331340145
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 96a334b4bd39513bfad128a8f1b59f319fef013e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200648"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317406"
 ---
 # <a name="install-and-use-apache-giraph-on-windows-based-hdinsight-clusters"></a>Installer et utiliser Apache Giraph sur les clusters HDInsight Windows
 
@@ -49,7 +49,7 @@ Vous pouvez installer Giraph sur n’importe quel type de cluster (Hadoop, Storm
     |Propriété|Valeur|  
     |---|---|  
     |Nom|Indiquez un nom pour l’action de script. Par exemple, **Installation Giraph**|
-    |URI du script|Spécifiez l'URI (Uniform Resource Identifier) du script appelé pour personnaliser le cluster. Par exemple, *https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1*|
+    |URI du script|Spécifiez l'URI (Uniform Resource Identifier) du script appelé pour personnaliser le cluster. Par exemple, *https :\//hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1*|
     |Type de nœud|Spécifiez les nœuds sur lesquels le script de personnalisation est exécuté. Vous avez le choix entre **Tous les nœuds**, **Nœuds principaux uniquement** et **Nœuds de travail uniquement**.
     |parameters|Spécifiez les paramètres, si le script le demande. Le script d'installation de Giraph ne nécessite aucun paramètre. Vous pouvez donc laisser ce champ vide.|  
 

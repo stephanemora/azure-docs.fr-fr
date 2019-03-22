@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
-ms.openlocfilehash: 11b1b46e29ac9a4147c4dc319753edd0fadce8bc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 338c4a97bced7d9e524f96fcd82f19e5230ff143
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58088908"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317338"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Gérer le serveur de configuration pour la reprise après sinistre d’un serveur physique
 
@@ -149,7 +149,7 @@ ProxyPassword="Password"
 Vous pouvez modifier les paramètres de proxy pour la machine du serveur de configuration de la manière suivante :
 
 1. Connectez-vous au serveur de configuration.
-2. Lancez l’exécutable cspsconfigtool.exe à l’aide du raccourci sur votre serveur.
+2. Lancez l’exécutable cspsconfigtool.exe à l’aide du raccourci sur votre bureau.
 3. Cliquez sur l’onglet **Vault Registration (Inscription du coffre)**.
 4. Téléchargez un nouveau fichier d’inscription du coffre à partir du portail et indiquez-le comme entrée de l’outil.
 

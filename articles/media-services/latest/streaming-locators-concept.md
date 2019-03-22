@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/03/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: be66dcf8115258b6f593ec913e75785a3f8dbe1f
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 51aa33e4ff387a1030dac42bce8d12cf72343b35
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55743478"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317474"
 ---
 # <a name="streaming-locators"></a>Localisateurs de diffusion en continu
 
@@ -32,7 +32,11 @@ Si vous voulez spécifier des options de chiffrement sur votre flux, créez la [
 > * Les propriétés des **localisateurs de diffusion en continu** de type DateHeure sont toujours au format UTC.
 > * Vous devez concevoir un ensemble limité de stratégies pour votre compte Media Services et les réutiliser pour vos éléments localisateurs de diffusion en continu chaque fois que les mêmes options sont nécessaires. 
 
-## <a name="filtering-ordering-paging"></a>Filtrage, tri, pagination
+## <a name="associate-filters-with-streaming-locators"></a>Associer des filtres avec des localisateurs de diffusion en continu
+
+Vous pouvez spécifier une liste de [compte d’actif ou filtres](filters-concept.md), qui s’appliquera à votre [localisateur de diffusion en continu](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body). Le [l’empaquetage dynamique](dynamic-packaging-overview.md) s’applique à cette liste de filtres avec ceux de votre client spécifie l’URL. Cette combinaison génère une [dyanamic manifeste](filters-dynamic-manifest-overview.md), qui est basé sur les filtres dans l’URL + filtres que vous spécifiez dans le localisateur de diffusion en continu. Nous vous recommandons d’utiliser cette fonctionnalité si vous souhaitez appliquer des filtres, mais ne souhaitez pas exposer les noms de filtre dans l’URL.
+
+## <a name="filter-order-page-streaming-locator-entities"></a>Filtre, par ordre, les entités de localisateurs de diffusion en continu de page
 
 Consultez [Filtrage, tri et pagination des entités Media Services](entities-overview.md).
 

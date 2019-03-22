@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.subservice: common
-ms.openlocfilehash: bfaa738b0f99594a3bd11541d519701ff5eb98f5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 51d8b9bad4bb4a3663b07a711f363b263f5d64db
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57896158"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339684"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Surveiller, diagnostiquer et résoudre les problèmes liés à Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -25,7 +25,7 @@ Pour gérer avec succès de telles applications, vous devez les analyser de faç
 
 > [!NOTE]
 > Pour l’instant, Azure Files ne prend pas en charge la journalisation.
-> 
+>
 
 Pour obtenir un guide pratique de bout en bout pour la résolution des problèmes dans les applications Azure Storage, consultez [Résolution des problèmes de bout en bout avec les métriques et la journalisation Azure, AzCopy et Message Analyzer](../storage-e2e-troubleshooting.md).
 
@@ -100,7 +100,7 @@ La section «[Annexes]» inclut des informations concernant l'utilisation d'autr
 ## <a name="monitoring-your-storage-service"></a>Analyse de votre service de stockage
 Si vous connaissez les outils d’analyse de performances Windows, vous pouvez considérer les métriques de stockage comme l’équivalent, dans Azure Storage, des compteurs de l’Analyseur de performances Windows. Les métriques de stockage incluent un vaste éventail de métriques (appelées compteurs dans la terminologie de l’Analyseur de performances Windows) telles que la disponibilité du service, le nombre total de requêtes du service ou le pourcentage de requêtes réussies envoyées au service. Pour obtenir une liste de toutes les métriques disponibles, consultez l’article [Schéma de table de métriques Storage Analytics](https://msdn.microsoft.com/library/azure/hh343264.aspx). Vous pouvez spécifier si vous désirez que le service de stockage collecte et agrège les métriques toutes les heures ou toutes les minutes. Pour plus d’informations sur la façon d’activer les métriques et d’analyser vos comptes de stockage, consultez la section [Activation de Storage Metrics et affichage des données de métriques](https://go.microsoft.com/fwlink/?LinkId=510865).
 
-Vous pouvez sélectionner les métriques horaires à afficher dans le [portail Azure](https://portal.azure.com) et configurer les règles de notification par e-mail des administrateurs lorsqu’une métrique horaire dépasse un seuil spécifique. Pour plus d’informations, consultez [Réception de notifications d’alerte](/azure/monitoring-and-diagnostics/monitoring-overview-alerts). 
+Vous pouvez sélectionner les métriques horaires à afficher dans le [portail Azure](https://portal.azure.com) et configurer les règles de notification par e-mail des administrateurs lorsqu’une métrique horaire dépasse un seuil spécifique. Pour plus d’informations, consultez [Réception de notifications d’alerte](/azure/monitoring-and-diagnostics/monitoring-overview-alerts).
 
 Le service de stockage collecte les métriques du mieux qu’il peut, mais peut ne pas enregistrer toutes les opérations de stockage.
 
@@ -132,8 +132,8 @@ Les métriques de stockage enregistrent uniquement les métriques de capacité p
 
 > [!NOTE]
 > Ces valeurs doivent être analysées en guise de préavertissement lorsque vous approchez des limites de capacité de votre compte de stockage. Dans le portail Azure, vous pouvez ajouter des règles d’alerte pour être averti lorsque l’utilisation agrégée du stockage dépasse les seuils que vous définissez ou chute en dessous de ces seuils.
-> 
-> 
+>
+>
 
 Pour plus d’informations sur l’estimation de la taille des divers objets de stockage tels que les objets blob, consultez le billet de blog [Understanding Azure Storage Billing – Bandwidth, Transactions, and Capacity](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)(Présentation de la facturation du stockage Azure - bande passante, transactions et capacité).
 
@@ -191,8 +191,8 @@ Les utilisateurs de votre application peuvent vous signaler des erreurs identifi
 
 > [!NOTE]
 > N’oubliez pas que vous devriez voir des erreurs intermittentes : les erreurs dues à des problèmes réseau temporaires ou les erreurs d’application par exemple.
-> 
-> 
+>
+>
 
 Les ressources suivantes sont utiles pour comprendre les codes d’état et d’erreur liés au stockage :
 
@@ -214,8 +214,8 @@ La bibliothèque cliente de stockage pour .NET vous permet de collecter les donn
 
 > [!NOTE]
 > Dans certains cas (par ex., erreurs d’autorisation SAS), il peut arriver qu’un utilisateur signale une erreur pour laquelle vous ne trouvez aucune donnée de demande dans les journaux de stockage côté serveur. Vous pouvez utiliser les fonctionnalités de journalisation de la bibliothèque cliente de stockage pour savoir si la cause du problème se situe au niveau client ou utiliser les outils d'analyse de réseau pour examiner le réseau.
-> 
-> 
+>
+>
 
 ### <a name="using-network-logging-tools"></a>Utilisation des outils de journalisation réseau
 Vous pouvez capturer le trafic entre le client et le serveur afin d'obtenir des informations détaillées concernant les données échangées entre le client et le serveur, et concernant les conditions réseau sous-jacentes. Parmi les outils de journalisation réseau utiles, on retrouve :
@@ -242,8 +242,8 @@ La bibliothèque cliente de stockage génère automatiquement un ID de demande c
 
 > [!NOTE]
 > Plusieurs demandes peuvent partager le même ID de demande client, car le client peut affecter cette valeur (même si la bibliothèque cliente de stockage affecte une nouvelle valeur automatiquement). Lorsque le client renouvelle sa tentative, toutes les tentatives partagent le même ID de requête client. Quand un lot est envoyé par le client, le lot a un seul ID de demande client.
-> 
-> 
+>
+>
 
 ### <a name="server-request-id"></a>ID de la demande serveur
 Le service de stockage génère automatiquement les ID de demande serveur.
@@ -254,8 +254,8 @@ Le service de stockage génère automatiquement les ID de demande serveur.
 
 > [!NOTE]
 > Le service de stockage affecte toujours un ID de demande serveur unique à chaque demande qu’il reçoit. Par conséquent, chaque nouvelle tentative du client et chaque opération incluse dans un lot a un ID de demande serveur unique.
-> 
-> 
+>
+>
 
 Si la bibliothèque cliente de stockage génère une **StorageException** dans le client, la propriété **RequestInformation** contient un objet **RequestResult** qui inclut une propriété **ServiceRequestID**. Vous pouvez également accéder à un objet **RequestResult** à partir d’une instance **OperationContext**.
 
@@ -351,8 +351,8 @@ Le service de stockage calcule uniquement la métrique **AverageE2ELatency** pou
 
 > [!NOTE]
 > Vous pouvez également afficher les valeurs **E2ELatency** et **ServerLatency** pour des opérations de stockage individuelles dans les données de journalisation du stockage.
-> 
-> 
+>
+>
 
 #### <a name="investigating-client-performance-issues"></a>Enquête sur les problèmes de performances client
 Les raisons possibles à une réponse lente du client incluent un nombre limité de connexions ou threads disponibles, ou l’insuffisance de ressources telles que le processeur, la mémoire ou la bande passante réseau. Il se peut que le problème puisse être résolu en modifiant le code client afin de le rendre plus efficace (par exemple, en utilisant des appels asynchrones vers le service de stockage), ou en utilisant une machine virtuelle plus puissante (avec davantage de cœurs et de mémoire).
@@ -402,8 +402,8 @@ Des valeurs **AverageServerLatency** élevées peuvent également indiquer la pr
 
 > [!NOTE]
 > Vous trouverez ici une liste complète de contrôle des performances : [Liste de contrôle des performances et de la scalabilité du Stockage Microsoft Azure](storage-performance-checklist.md).
-> 
-> 
+>
+>
 
 ### <a name="you-are-experiencing-unexpected-delays-in-message-delivery"></a>Vous constatez des retards inattendus dans la livraison des messages d’une file d’attente
 Si vous constatez un retard entre le moment où une application ajoute un message à une file d'attente et le moment où ce dernier peut être lu à partir de la file d'attente, procédez comme suit pour diagnostiquer le problème :
@@ -429,8 +429,8 @@ Si vous constatez des pics de la valeur **PercentThrottlingError** qui coïncide
 
 > [!NOTE]
 > Vous pouvez également constater des pics de la valeur **PercentThrottlingError** qui ne coïncident pas avec des périodes de forte activité de l’application. La cause la plus probable est le déplacement de partitions, par le service de stockage, pour améliorer l’équilibrage de la charge.
-> 
-> 
+>
+>
 
 #### <a name="permanent-increase-in-PercentThrottlingError"></a>Augmentation permanente de l’erreur PercentThrottlingError
 Si vous constatez une valeur constamment élevée pour **PercentThrottlingError** à la suite d'une augmentation permanente de vos volumes de transaction, ou lorsque vous effectuez vos tests de charge initiaux sur votre application, vous devez évaluer comment votre application utilise les partitions de stockage et si elle approche des cibles d'évolutivité pour un compte de stockage. Par exemple, si vous constatez des erreurs de limitation dans une file d'attente (considérée comme une partition unique), vous devez envisager l'utilisation de files d'attente supplémentaires afin de distribuer les transactions à travers plusieurs partitions. Si vous constatez des erreurs de limitation sur une table, vous devez envisager l’utilisation d’un schéma de partitionnement différent afin de distribuer vos transactions à travers plusieurs partitions en utilisant une plage de valeurs de clé de partition plus large. Une cause fréquente à ce problème est l’anti-modèle d’ajout/ajout de préfixe où vous sélectionnez la date en tant que clé de partition, pour ensuite écrire toutes les données d’un jour spécifique sur une partition : en cas de charge, cela peut entraîner un goulot d’étranglement d’écriture. Pensez à une conception de partitionnement différente ou évaluez s’il ne vaut pas mieux utiliser un stockage d’objets blob. Vérifiez également si la limitation se produit suite à des pics de votre trafic et recherchez des moyens d’assouplir votre modèle de requêtes.
@@ -441,16 +441,16 @@ Une requête mal conçue peut également vous amener à atteindre les limites d'
 
 > [!NOTE]
 > Vos tests de performances doivent mettre à jour toutes les requêtes mal conçues dans votre application.
-> 
-> 
+>
+>
 
 ### <a name="metrics-show-an-increase-in-PercentTimeoutError"></a>Les métriques indiquent une augmentation de la valeur PercentTimeoutError
 Vos métriques indiquent une augmentation de la valeur **PercentTimeoutError** pour un de vos services de stockage. En même temps, le client reçoit un grand nombre de messages d'état HTTP « 500 Operation Timeout » à partir des opérations de stockage.
 
 > [!NOTE]
 > Il se peut qu’apparaissent des erreurs de délai d’expiration provisoires lorsque le service de stockage équilibre les demandes en déplaçant une partition vers un nouveau serveur.
-> 
-> 
+>
+>
 
 La métrique **PercentTimeoutError** est une agrégation des métriques suivantes : **ClientTimeoutError**, **AnonymousClientTimeoutError**, **SASClientTimeoutError**, **ServerTimeoutError**, **AnonymousServerTimeoutError** et **SASServerTimeoutError**.
 
@@ -586,8 +586,8 @@ SCRIPT7002: XMLHttpRequest: Network Error 0x80070005, Access is denied.
 
 > [!NOTE]
 > Vous pouvez utiliser les Outils de développement F12 dans Internet Explorer pour procéder au suivi des messages échangés entre le navigateur et le service de stockage lors de la résolution des problèmes JavaScript côté client.
-> 
-> 
+>
+>
 
 Ces erreurs sont dues au fait que le navigateur implémente la restriction de sécurité [same origin policy](https://www.w3.org/Security/wiki/Same_Origin_Policy) , qui empêche une page web d’appeler une API dans un domaine différent de celui dont la page provient.
 
@@ -712,8 +712,8 @@ Les annexes décrivent plusieurs outils qui peuvent s’avérer utiles lors du d
 
 > [!NOTE]
 > Fiddler est capable de décoder le trafic HTTPS ; vous devez lire avec attention la documentation de Fiddler pour vous familiariser avec ce processus et comprendre les implications en matière de sécurité.
-> 
-> 
+>
+>
 
 Cette annexe explique brièvement comment configurer Fiddler pour capturer le trafic entre la machine locale sur laquelle vous avez installé Fiddler et les services de stockage Azure.
 
@@ -735,7 +735,7 @@ La procédure suivante explique comment capturer des informations détaillées c
 2. Dans la section **Start** , sélectionnez l'interface réseau locale ou des interfaces connectées à Internet.
 3. Cliquez sur **Capture Options**.
 4. Ajoutez un filtre à la zone de texte **Capture Filter** . Par exemple, **host contosoemaildist.table.core.windows.net** configurera Wireshark pour capturer uniquement les paquets envoyés au ou par le point de terminaison de stockage du service de table dans le compte de stockage **contosoemaildist**. Consultez la [liste complète des filtres de capture](https://wiki.wireshark.org/CaptureFilters).
-   
+
    ![][6]
 5. Cliquez sur **Start**. Wireshark commence à capturer tous les paquets envoyés au ou par le point de terminaison de stockage du service de table lors de l'utilisation de votre application cliente sur votre ordinateur local.
 6. Lorsque vous avez terminé, dans le menu principal, cliquez sur **Capture**, puis sur **Stop**.
@@ -751,8 +751,8 @@ Vous pouvez également choisir d'afficher les données TCP telles que la couche 
 
 > [!NOTE]
 > Pour plus d’informations sur l’utilisation de Wireshark, consultez le [Guide d’utilisation de Wireshark](https://www.wireshark.org/docs/wsug_html_chunked).
-> 
-> 
+>
+>
 
 ### <a name="appendix-3"></a>Annexe 3 : Utilisation de Microsoft Message Analyzer pour capturer le trafic réseau
 Vous pouvez utiliser l’analyseur de message Microsoft pour capturer le trafic HTTP et HTTPS de la même façon qu’avec Fiddler, et le trafic réseau de la même façon qu’avec Wireshark.
@@ -766,8 +766,8 @@ contosodata.blob.core.windows.net contosodata.table.core.windows.net contosodata
 
 > [!NOTE]
 > Un caractère espace sépare les noms d’hôte.
-> 
-> 
+>
+>
 
 Lorsque vous êtes prêt à commencer la collecte des données de suivi, cliquez sur le bouton **Start With** .
 
@@ -806,6 +806,17 @@ Vous pouvez également utiliser la fonctionnalité Application Insights pour Azu
 * Rapidement diagnostiquer tous les problèmes ou exceptions de performances rencontrés par votre service Web. Découvrez si l'UC ou d'autres ressources sont en difficulté, obtenez les traces de la pile à partir des exceptions et effectuez des recherches aisées dans les suivis de journalisation. Si les performances de l’application chutent en deçà des limites acceptables, Microsoft peut vous envoyer un e-mail. Vous pouvez analyser les services Web .NET et Java.
 
 Plus d’informations sont disponibles dans [Présentation d’Application Insights](../../azure-monitor/app/app-insights-overview.md).
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Pour plus d’informations sur analytique dans le stockage Azure, consultez ces ressources :
+
+* [Surveiller un compte de stockage dans le portail Azure](storage-monitor-storage-account.md)
+* [Analytique de stockage](storage-analytics.md)
+* [Métriques de stockage analytique](storage-analytics-metrics.md)
+* [Schéma de table de métriques Storage analytique](/rest/api/storageservices/storage-analytics-metrics-table-schema.md)
+* [Journaux d’analytique de stockage](storage-analytics-logging.md)
+* [Format de stockage de journal analytique](/rest/api/storageservices/storage-analytics-log-format.md)
 
 <!--Anchors-->
 [Introduction]: #introduction

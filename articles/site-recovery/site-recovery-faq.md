@@ -2,21 +2,21 @@
 title: 'Azure Site Recovery : Forum Aux Questions (FAQ) | Microsoft Docs'
 description: Cet article traite des questions fréquemment posées sur Azure Site Recovery.
 services: site-recovery
-author: mayurigupta13
-manager: rochakm
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 3/3/2019
-ms.author: mayg
-ms.openlocfilehash: 1abd18e294ef73e989191d189ea599bca2b4d903
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 3/18/2019
+ms.author: raynew
+ms.openlocfilehash: 018368d28dd34787046ae655a98527aede28603f
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57881076"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313366"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery : Forum Aux Questions (FAQ)
-Cet article contient les questions fréquemment posées sur Microsoft Azure Site Recovery. Si, après avoir lu cet article, vous avez des questions, posez-les sur le [forum Azure Recovery Services](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
+Cet article résume les questions fréquemment posées sur Azure Site Recovery. 
 
 ## <a name="general"></a>Généralités
 ### <a name="what-does-site-recovery-do"></a>À quoi sert Site Recovery ?

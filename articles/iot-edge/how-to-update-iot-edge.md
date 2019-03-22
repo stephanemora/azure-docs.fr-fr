@@ -5,33 +5,33 @@ keywords: ''
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 12/17/2018
+ms.date: 03/17/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: b11f11aa3966bc57caa5b8dd0379f4d5c59c8375
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: a3dd7f78362b5f5c99dc4a74fe0a32c4d26be5b7
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672897"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311915"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>Mettre à jour le runtime et le démon de sécurité IoT Edge
 
-À mesure que le service IoT Edge publie de nouvelles versions, vous souhaitez mettre à jour vos appareils IoT Edge afin qu’ils bénéficient des dernières fonctionnalités et améliorations de la sécurité. Cet article fournit des informations sur la façon de mettre à jour vos appareils IoT Edge quand une nouvelle version est disponible. 
+Comme le service IoT Edge de nouvelles versions, vous allez mettre à jour vos appareils IoT Edge pour les dernières fonctionnalités et améliorations de sécurité. Cet article fournit des informations sur la façon de mettre à jour vos appareils IoT Edge quand une nouvelle version est disponible. 
 
 Deux composants d’un appareil IoT Edge doivent être mis à jour si vous souhaitez passer à une version plus récente. Le premier est le démon de sécurité qui s’exécute sur l’appareil et démarre les modules du runtime au démarrage de l’appareil. Le démon de sécurité ne peut être mis à jour qu’à partir de l’appareil lui-même. Le second composant est le runtime, constitué des modules de l’agent IoT Edge et du hub IoT Edge. Selon la façon dont vous structurez votre déploiement, le runtime peut être mis à jour à partir de l’appareil ou à distance. 
+
+Pour rechercher la dernière version d’Azure IoT Edge, consultez [Versions d’Azure IoT Edge](https://github.com/Azure/azure-iotedge/releases).
 
 >[!IMPORTANT]
 >Si vous exécutez Azure IoT Edge sur un appareil Windows, ne mettez pas à jour vers la version 1.0.5 si l’une de ces affirmations s’applique à votre appareil : 
 >* Vous n’avez pas mis à niveau votre appareil vers Windows build 17763. La version 1.0.5 d’IoT Edge ne prend pas en charge les builds Windows antérieures à 17763.
 >* Vous exécutez des modules Java ou Node.js sur votre appareil Windows. Ignorez la version 1.0.5 même si vous avez mis à jour votre appareil Windows vers la dernière build. 
 >
->Pour plus d’informations sur la version 1.0.5 d’IoT Edge, voir les [notes de publication 1.0.5](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5). Pour plus d’informations sur la façon d’empêcher la mise à jour de vos outils de développement vers la dernière version, voir le [blog du développeur IoT](https://devblogs.microsoft.com/iotdev/).
+>Pour plus d’informations sur la version 1.0.5 d’IoT Edge, voir les [notes de publication 1.0.5](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5). Pour plus d’informations sur la façon d’empêcher vos outils de développement à partir de la mise à jour vers la dernière version, consultez [le blog des développeurs IoT](https://devblogs.microsoft.com/iotdev/).
 
-
-Pour rechercher la dernière version d’Azure IoT Edge, consultez [Versions d’Azure IoT Edge](https://github.com/Azure/azure-iotedge/releases).
 
 ## <a name="update-the-security-daemon"></a>Mettre à jour le démon de sécurité
 
@@ -59,9 +59,9 @@ Désinstallez le démon de sécurité dans une session PowerShell d’administra
 Uninstall-SecurityDaemon
 ```
 
-Le fait d’exécuter la commande `Uninstall-SecurityDaemon` sans aucun paramètre supprime le démon de sécurité de votre appareil, ainsi que les deux images de conteneur du runtime. Le fichier config.yaml est conservé sur l’appareil, de même que les données du moteur de conteneur Moby. Le fait de conserver la configuration signifie que vous n’avez pas à fournir de nouveau la chaîne de connexion ou les informations du service Device Provisioning pour votre appareil lors du processus d’installation. 
+En cours d’exécution le `Uninstall-SecurityDaemon` commande sans aucun paramètre supprime uniquement le démon de sécurité de votre appareil, ainsi que les deux images de conteneur du runtime. Le fichier config.yaml est conservé sur l’appareil, de même que les données du moteur de conteneur Moby. En conservant les moyens d’informations de configuration que vous n’êtes pas obligé de fournir la chaîne de connexion ou des informations de Service Device Provisioning pour votre appareil à nouveau lors du processus d’installation. 
 
-Réinstallez le démon de sécurité selon que votre appareil IoT Edge utilise des conteneurs Windows ou des conteneurs Linux. Remplacez l’expression **\<Windows or Linux\>** par l’un des systèmes d’exploitation de conteneur. Utilisez l’indicateur **-ExistingConfig** pour pointer vers le fichier config.yaml existant sur votre appareil. 
+Réinstallez le démon de sécurité selon que votre appareil IoT Edge utilise des conteneurs Windows ou des conteneurs Linux. Remplacez l’expression **\<Windows ou Linux\>** avec les systèmes d’exploitation de conteneur approprié. Utilisez l’indicateur **-ExistingConfig** pour pointer vers le fichier config.yaml existant sur votre appareil. 
 
 ```powershell
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
@@ -91,7 +91,7 @@ Si vous utilisez des étiquettes évolutives dans votre déploiement (par exempl
 
 Supprimez la version locale de l’image de votre appareil IoT Edge. Sur les ordinateurs Windows, la désinstallation du démon de sécurité entraîne également la suppression des images du runtime, ce qui permet de sauter cette étape. 
 
-```cmd/sh
+```bash
 docker rmi mcr.microsoft.com/azureiotedge-hub:1.0
 docker rmi mcr.microsoft.com/azureiotedge-agent:1.0
 ```
@@ -106,7 +106,7 @@ Si vous utilisez des étiquettes spécifiques dans votre déploiement (par exemp
 
 Dans le portail Azure, les images de déploiement de runtime sont déclarées dans la section **Configurer les paramètres avancés du runtime Edge**. 
 
-[Configurer les paramètres avancés du runtime Edge](./media/how-to-update-iot-edge/configure-runtime.png)
+![Configurer les paramètres du runtime edge avancés](./media/how-to-update-iot-edge/configure-runtime.png)
 
 Dans un manifeste de déploiement JSON, mettez à jour les images de modules dans la section **systemModules**. 
 

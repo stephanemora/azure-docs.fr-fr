@@ -8,23 +8,23 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 79440cf69f921e5933ed410e276cdf304e94fa4f
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 64cfac0d689df88c4d432e772bcd0a0cc7ab4ade
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817272"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317678"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Surveillance d'un compte de stockage dans le portail Azure
 
-[Azure Storage Analytics](../storage-analytics.md) fournit des métriques pour tous les services de stockage et des journaux pour les objets Blob, les files d’attente et les tables. Vous pouvez utiliser le [portail Azure](https://portal.azure.com) pour configurer les métriques et les journaux enregistrés pour votre compte, et configurer des graphiques qui fournissent des représentations visuelles de vos données de métrique.
+[Azure Storage Analytics](storage-analytics.md) fournit des métriques pour tous les services de stockage et des journaux pour les objets Blob, les files d’attente et les tables. Vous pouvez utiliser le [portail Azure](https://portal.azure.com) pour configurer les métriques et les journaux enregistrés pour votre compte, et configurer des graphiques qui fournissent des représentations visuelles de vos données de métrique.
 
 > [!NOTE]
-> L’analyse des données de surveillance dans le portail Azure occasionne des frais. Pour plus d'informations, consultez la page [Storage Analytics et facturation](/rest/api/storageservices/Storage-Analytics-and-Billing).
+> L’analyse des données de surveillance dans le portail Azure occasionne des frais. Pour plus d’informations, consultez [Storage Analytics](storage-analytics.md).
 >
 > Azure Files prend actuellement en charge les métriques de Storage Analytics, mais pas encore la journalisation.
-> 
-> Pour obtenir un guide détaillé concernant l'utilisation de Storage Analytics et d'autres outils permettant d'analyser, de diagnostiquer et de résoudre les problèmes d'Azure Storage, consultez [Analyse, diagnostic et résolution des problèmes rencontrés sur Microsoft Azure Storage](../storage-monitoring-diagnosing-troubleshooting.md).
+>
+> Pour obtenir un guide détaillé concernant l'utilisation de Storage Analytics et d'autres outils permettant d'analyser, de diagnostiquer et de résoudre les problèmes d'Azure Storage, consultez [Analyse, diagnostic et résolution des problèmes rencontrés sur Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 >
 
 ## <a name="configure-monitoring-for-a-storage-account"></a>Configuration de la surveillance d'un compte de stockage
@@ -41,7 +41,7 @@ ms.locfileid: "55817272"
    Pour définir la stratégie de rétention de données, déplacez le curseur **Rétention (en jours)** ou entrez le nombre de jours durant lesquels les données sont conservées (de 1 à 365 jours). La valeur par défaut pour les nouveaux comptes de stockage est de sept jours. Si vous ne souhaitez pas définir de stratégie de rétention, entrez 0. Dans ce cas, il vous appartient de supprimer ou non les données de surveillance.
 
    > [!WARNING]
-   > Vous êtes facturé lorsque vous supprimez manuellement les données de métrique. Les données analytiques obsolètes (antérieures à votre stratégie de rétention des données) sont supprimées par le système sans frais. Nous vous recommandons de définir une stratégie de rétention en fonction de la durée de conservation que vous souhaitez appliquer aux données d’analyse de votre compte. Consultez [Quels sont les frais encourus quand vous activez les métriques de stockage ?](../common/storage-enable-and-view-metrics.md#what-charges-do-you-incur-when-you-enable-storage-metrics) pour plus d’informations.
+   > Vous êtes facturé lorsque vous supprimez manuellement les données de métrique. Les données analytiques obsolètes (antérieures à votre stratégie de rétention des données) sont supprimées par le système sans frais. Nous vous recommandons de définir une stratégie de rétention en fonction de la durée de conservation que vous souhaitez appliquer aux données d’analyse de votre compte. Consultez [de facturation des métriques de stockage](storage-analytics-metrics.md#billing-on-storage-metrics) pour plus d’informations.
    >
 
 1. Une fois la configuration de la surveillance terminée, sélectionnez **Enregistrer**.
@@ -51,12 +51,12 @@ Un ensemble de métriques par défaut s’affiche dans des graphiques sur le pan
 Vous pouvez désactiver la collecte de métriques et la journalisation en définissant **l’état** sur **Off**.
 
 > [!NOTE]
-> Le stockage Azure utilise un [stockage Table](../common/storage-introduction.md#table-storage) pour stocker les métriques pour votre compte de stockage, et stocke les métriques dans des tables de votre compte. Pour plus d’informations, consultez. [Stockage des métriques](../common/storage-analytics.md#how-metrics-are-stored).
+> Le stockage Azure utilise un [stockage Table](storage-introduction.md#table-storage) pour stocker les métriques pour votre compte de stockage, et stocke les métriques dans des tables de votre compte. Pour plus d’informations, consultez. [Stockage des métriques](storage-analytics-metrics.md#how-metrics-are-stored).
 >
 
 ## <a name="customize-metrics-charts"></a>Personnaliser les graphiques de métrique
 
-La procédure suivante permet de choisir les métriques de stockage à afficher dans un graphique de métrique. 
+La procédure suivante permet de choisir les métriques de stockage à afficher dans un graphique de métrique.
 
 1. Commencez par afficher un graphique de métrique de stockage dans le portail Azure. Vous trouverez les graphiques dans le **panneau du compte de stockage** et dans le panneau **Métriques** d’un service individuel (blob, file d’attente, table, fichier).
 
@@ -130,17 +130,16 @@ Vous pouvez demander au Stockage Azure d’enregistrer les journaux de diagnosti
 1. Sélectionnez **Diagnostics** dans la section **SURVEILLANCE** du panneau du menu.
 
     ![Élément de menu Diagnostics sous SURVEILLANCE dans le portail Azure.](./media/storage-monitor-storage-account/storage-enable-metrics-00.png)
-    
+
 1. Vérifiez que **l’état** est défini sur **On**, puis sélectionnez les **services** pour lesquels vous souhaitez activer la journalisation.
 
     ![Configurez la journalisation dans le portail Azure.](./media/storage-monitor-storage-account/enable-diagnostics.png)
 1. Cliquez sur **Enregistrer**.
 
-Les journaux de diagnostic sont enregistrés dans un conteneur d’objets blob nommé *$logs* dans votre compte de stockage. Vous pouvez afficher les données du journal à l’aide d’un explorateur de stockage, comme [Microsoft Storage Explorer](http://storageexplorer.com) ou par programme à l’aide de la bibliothèque cliente de stockage ou de PowerShell.
+Les journaux de diagnostic sont enregistrés dans un conteneur d’objets blob nommé *$logs* dans votre compte de stockage. Vous pouvez afficher les données du journal à l’aide d’un explorateur de stockage, comme [Microsoft Storage Explorer](https://storageexplorer.com) ou par programme à l’aide de la bibliothèque cliente de stockage ou de PowerShell.
 
-Pour plus d’informations sur l’accès au conteneur $logs, consultez [Activation de la journalisation du stockage et accès aux données des journaux](/rest/api/storageservices/enabling-storage-logging-and-accessing-log-data).
+Pour plus d’informations sur l’accès au conteneur $logs, consultez [journalisation du stockage analytique](storage-analytics-logging.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur [les métriques, la journalisation et la facturation](../storage-analytics.md) pour Storage Analytics.
-* [Activer les métriques Stockage Azure et afficher les données des métriques](../storage-enable-and-view-metrics.md) à l’aide de PowerShell et par programme avec C#.
+* En savoir plus sur [les métriques, la journalisation et la facturation](storage-analytics.md) pour Storage Analytics.

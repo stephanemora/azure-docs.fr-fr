@@ -1,5 +1,5 @@
 ---
-title: RDG et Azure MFA Server avec RADIUS | Microsoft Docs
+title: Passerelle Bureau à distance et serveur Azure MFA utilisant RADIUS - Azure Active Directory
 description: Il s'agit de la page d'authentification multifacteur Azure qui facilite le déploiement de la passerelle Bureau à distance (RD) et le serveur Azure Multi-Factor Authentication à l’aide de RADIUS.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01f8c2ecb4f72595398d5631d9545c2ebaa42533
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 25db23ad12dc3494459abe0c7def1008ff21fd36
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181618"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314467"
 ---
 # <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>Passerelle des services Bureau à distance et serveur Multi-Factor Authentication avec RADIUS
 
@@ -26,7 +26,7 @@ Souvent, la passerelle du Bureau à distance (RD) utilise les [services de strat
 
 Installez le serveur Multi-Factor Authentication sur un serveur distinct, qui envoie par proxy la demande RADIUS au serveur NPS sur le serveur de la passerelle Bureau à distance. Une fois que le serveur NPS (Network Policy Server) a validé le nom d’utilisateur et le mot de passe, il renvoie une réponse au serveur Multi-Factor Authentication. Ensuite, le serveur MFA applique le second facteur d’authentification et retourne un résultat à la passerelle.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 - Un serveur Azure MFA joint à un domaine. Si vous n’en avez pas déjà installé un, suivez les étapes décrites dans [Prise en main du serveur Azure Multi-Factor Authentication](howto-mfaserver-deploy.md).
 - Un serveur NPS configuré.

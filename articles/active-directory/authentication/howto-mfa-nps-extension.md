@@ -1,5 +1,5 @@
 ---
-title: Utiliser les serveurs NPS existants pour exploiter les fonctionnalités d’Azure MFA
+title: Utiliser des serveurs NPS existants pour fournir des fonctionnalités d’Azure MFA - Azure Active Directory
 description: Ajouter des fonctionnalités de vérification en deux étapes basées sur le cloud à votre infrastructure d’authentification existante
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 108b188b0bbb63a4c9faea936360cf2fa3edc806
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b36b6e513e382e25f7d7038f49e7467a21686a0f
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211612"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311728"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Intégrer votre infrastructure NPS existante dans Azure Multi-Factor Authentication
 
@@ -43,7 +43,7 @@ Vous pouvez créer autant de serveurs NPS compatibles avec Azure MFA que vous le
 
 Comme les serveurs VPN acheminent les demandes d’authentification, ils doivent connaître les nouveaux serveurs NPS compatibles avec Azure MFA.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 L’extension NPS est conçue pour fonctionner avec votre infrastructure existante. Vérifiez que les conditions préalables suivantes sont remplies avant de commencer.
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 534473ccde52af69b6dad1e84ef77da326d29d5c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 087440b60e1d5fecc668849bc1350d66988b16b9
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57872561"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339078"
 ---
 # <a name="quickstart-convert-text-to-speech-using-python"></a>Démarrage rapide : Convertir du texte par synthèse vocale à l’aide de Python
 
@@ -93,7 +93,7 @@ def get_token(self):
 
 Ici, vous allez générer la requête et enregistrer la réponse de la reconnaissance vocale. Tout d’abord, vous devez définir les valeurs `base_url` et `path`. Cet exemple part du principe que vous utilisez le point de terminaison USA Ouest. Si votre ressource est inscrite dans une autre région, veillez à mettre à jour la valeur `base_url`. Pour plus d’informations, consultez [régions des Services de reconnaissance vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
-Ensuite, vous devez ajouter les en-têtes nécessaires pour la requête. Veillez à mettre à jour `User-Agent` avec le nom de votre ressource (située dans le portail Azure), puis définissez `X-Microsoft-OutputFormat` sur la sortie audio de votre choix. Pour obtenir la liste complète des formats de sortie, consultez [Sorties audio](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#audio-outputs).
+Ensuite, vous devez ajouter les en-têtes nécessaires pour la requête. Veillez à mettre à jour `User-Agent` avec le nom de votre ressource (située dans le portail Azure), puis définissez `X-Microsoft-OutputFormat` sur la sortie audio de votre choix. Pour obtenir la liste complète des formats de sortie, consultez [Sorties audio](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 
 Construisez ensuite le corps de la requête en utilisant le langage de balisage de synthèse vocale (SSML). Cet exemple définit la structure et utilise l’entrée `tts` créée précédemment.
 
@@ -166,6 +166,6 @@ N’oubliez pas de supprimer toutes les informations confidentielles (telles que
 
 ## <a name="see-also"></a>Voir aussi
 
-* [Référence sur l’API conversion de texte par synthèse vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api)
+* [Référence sur l’API conversion de texte par synthèse vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
 * [Création de polices de voix personnalisée](how-to-customize-voice-font.md)
 * [Enregistrer des échantillons vocaux pour créer une voix personnalisée](record-custom-voice-samples.md)

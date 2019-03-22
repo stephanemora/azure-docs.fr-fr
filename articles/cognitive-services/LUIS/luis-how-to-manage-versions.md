@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 73f962cc8e0d4605c0c5f0bace79553033ebe082
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f615a07352faccc8096752e5ba60360144834907
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110900"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338239"
 ---
 # <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>Utiliser les versions pour modifier et tester sans impact sur les applications intermédiaires et de production
 
@@ -56,6 +56,10 @@ Sélectionnez une version dans la liste, puis sélectionnez **Make Active** (Act
     ![Section gérer, page versions, importation d’une nouvelle version](./media/luis-how-to-manage-versions/versions-import-pop-up.png)
 
     Une fois que vous importez une version, cette nouvelle version devient la version active.
+
+### <a name="import-errors"></a>Erreurs d’importation
+
+* Erreurs du Générateur de jetons : Si vous obtenez un **erreur de générateur de jetons** lors de l’importation, vous essayez d’importer une version qui utilise un autre [Générateur de jetons](luis-language-support.md#custom-tokenizer-versions) que l’application utilise actuellement. Pour résoudre ce problème, vous avez deux possibilités. Consultez [migration entre les versions du Générateur de jetons](luis-language-support.md#migrating-between-tokenizer-versions) pour plus d’informations.
 
 <a name = "export-version"></a>
 

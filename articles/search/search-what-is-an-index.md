@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 1a07661d97561319b847323981dd2aa8522b0e84
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 645f3177913b903e8262c1fec08c452130e2a671
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537590"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337865"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>Créer un index de base dans la Recherche Azure
 
@@ -46,7 +46,7 @@ Avant de parvenir à une conception d’index satisfaisante, il convient d’eff
 
 6. Continuez d’utiliser le code pour itérer sur votre conception.  
 
-Comme les structures physiques sont créées dans le service, il est nécessaire de [supprimer et de recréer les index](search-howto-reindex.md) chaque fois que vous apportez des modifications importantes à la définition de champ existante. Cela signifie que pendant le développement, vous devez prévoir des regénérations fréquentes. Vous pouvez envisager de travailler sur une partie de vos données pour regénérer plus rapidement. 
+Étant donné que les structures physiques sont créés dans le service, [supprimer et de recréer les index](search-howto-reindex.md) est nécessaire chaque fois que vous apportez des modifications matérielles à une définition de champ existante. Cela signifie que pendant le développement, vous devez prévoir des regénérations fréquentes. Vous pouvez envisager de travailler sur une partie de vos données pour regénérer plus rapidement. 
 
 Pour une conception itérative, il est recommandé de privilégier une approche basée sur le code plutôt que sur le portail. Si vous utilisez le portail pour définir un index, vous devrez remplir la définition de l’index à chaque regénération. Sinon, les outils tels que [Postman et l’API REST](search-fiddler.md) s’avèrent utiles pour tester la preuve de concept aux phases initiales d’un projet de développement. Vous pouvez apporter des modifications incrémentielles à une définition d’index dans un corps de demande, puis envoyer la demande à votre service pour recréer un index en utilisant un schéma mis à jour.
 

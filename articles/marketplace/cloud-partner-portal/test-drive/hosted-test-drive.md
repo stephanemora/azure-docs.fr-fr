@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 1ab9fcd50ad7081f8047d62e545287fa75db75e4
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5057c0c781cb9ec60ecde7dd3f4bf96089b902df
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57457584"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312680"
 ---
 # <a name="hosted-test-drive"></a>Version d’évaluation hébergée
 
@@ -48,12 +48,12 @@ Fournissez les champs suivants dans la section \'Technical Configuration\' (Conf
 - **Type de Test Drive**: Choisissez \'Hosted Microsoft (par exemple Dynamics 365 for Customer Engagement)' option. Cela signifie que Microsoft héberge et assure la maintenance du service qui effectue l’approvisionnement et le déprovisionnement de l’utilisateur de la version d’évaluation.
 - **Versions d’évaluation de Max Concurrent**: Définissez ce champ sur le nombre d’utilisateurs simultanés qui peuvent avoir une version d’évaluation active à tout moment donné. Chaque utilisateur se sert d’une licence Dynamics quand sa version d’évaluation est active. Vous allez donc devoir vous assurer que vous avez au moins autant de licences Dynamics disponibles que d’utilisateurs. La valeur recommandée est de 3 à 5.
 - **Lecteur de durée du test (heures)**: Définissez ce champ pour le nombre d’heures, les utilisateurs pour que Test Drive sera actif. Une fois ce nombre d’heures dépassé, l’utilisateur est déprovisionné de votre locataire. La valeur recommandée de 2 à 24 heures dépend de la complexité de votre application. L’utilisateur peut toujours demander une autre version d’évaluation s’il n’a pas eu assez de temps et s’il souhaite de nouveau accéder à la version d’évaluation.
-- **URL de l’instance**: Fournir une URL de l’utilisateur de Test Drive sera initialement utilisée au démarrage de la version d’évaluation. Il s’agit généralement de l’URL de votre instance Dynamics 365 sur laquelle votre application et les exemples de données sont installés. Exemple de valeur : https://testdrive.crm.dynamics.com
+- **URL de l’instance**: Fournir une URL de l’utilisateur de Test Drive sera initialement utilisée au démarrage de la version d’évaluation. Il s’agit généralement de l’URL de votre instance Dynamics 365 sur laquelle votre application et les exemples de données sont installés. Exemple de valeur : https :\//testdrive.crm.dynamics.com
 - **ID de locataire Azure AD**: Fournissez l’ID du client Azure pour votre Instance Dynamics 365. Pour récupérer cette valeur, connectez-vous au Portail Azure et accédez à \'Azure Active Directory\' -\>Select Properties from menu blade (Sélectionner des propriétés à partir du volet du menu)- \> Copy the Directory ID (Copier l’ID du répertoire). Exemple de valeur : 72f988bf-86f1-41af-91ab-2d7cd0111234
 - **ID d’application Azure AD**: ID de l’application Azure AD que vous avez créé à l’étape 7. \ exemple de valeur : 53852862-a2ae-4e43-9461-faa49650a096
 - **Clé d’application Azure AD**: Secret pour l’application Azure AD créé à l’étape 7. \ exemple de valeur : IJUgaIOfq9b9LbUjeQmzNBW4VGn6grr1l/n3aMrnfdk=
 - **Nom du locataire Azure AD**: Indiquez le nom du locataire Azure pour votre Instance de Dynamics 365. Utilisez le format \<tenantname.\>onmicrosoft.com. Exemple de valeur : testdrive.onmicrosoft.com
-- **URL de l’API Web de l’instance**: Fournir l’URL de l’API Web pour votre Instance Dynamics 365. Vous pouvez récupérer cette valeur en vous connectant à votre instance Microsoft Dynamics 365 et en accédant à Paramètre -\> Personnalisation -\> Ressources du développeur -\> Instance Web API (Copy this URL) (API web de l’instance (Copier cette URL)). Exemple de valeur : https://testdrive.crm.dynamics.com/api/data/v9.0 
+- **URL de l’API Web de l’instance**: Fournir l’URL de l’API Web pour votre Instance Dynamics 365. Vous pouvez récupérer cette valeur en vous connectant à votre instance Microsoft Dynamics 365 et en accédant à Paramètre -\> Personnalisation -\> Ressources du développeur -\> Instance Web API (Copy this URL) (API web de l’instance (Copier cette URL)). Exemple de valeur : https :\//testdrive.crm.dynamics.com/api/data/v9.0 
 - **Nom du rôle**: Indiquez le nom du rôle de sécurité personnalisé du de Dynamics 365 que vous avez créé pour la version d’évaluation. C’est le rôle qui sera assigné aux utilisateurs lors de leur utilisation de la version d’évaluation. Exemple de valeur : testdriverole
 
 ## <a name="next-steps"></a>Étapes suivantes

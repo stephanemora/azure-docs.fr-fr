@@ -3,18 +3,18 @@ title: Scalabilité des applications Azure Service Fabric Mesh | Microsoft Docs
 description: Découvrez les services de mise à l’échelle dans Azure Service Fabric Mesh.
 services: service-fabric-mesh
 keywords: ''
-author: rwike77
-ms.author: ryanwi
+author: dkkapur
+ms.author: dekapur
 ms.date: 10/26/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: c58961011231f74b09abdf313b8624ddc8ad52c1
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: 1688cac35ea9de43bac529a4994bd4ea55eb0ab7
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52893174"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339076"
 ---
 # <a name="scaling-service-fabric-mesh-applications"></a>Mise à l’échelle des applications Service Fabric Mesh
 
@@ -33,7 +33,7 @@ Une stratégie de mise à l’échelle automatique est définie par service dans
 
 - Un déclencheur de mise à l’échelle, qui décrit quand la mise à l’échelle du service est effectuée. Trois facteurs déterminent quand le service est mis à l’échelle. Le *seuil inférieur de charge* est une valeur qui détermine quand le service fait l’objet d’un scale-in. Si la charge moyenne de toutes les instances des partitions est inférieure à cette valeur, la taille du service est diminuée. Le *seuil supérieur de charge* est une valeur qui détermine quand le service fait l’objet d’un scale-out. Si la charge moyenne de toutes les instances de la partition est supérieure à cette valeur, la taille du service est augmentée. L’*intervalle de mise à l’échelle* détermine la fréquence (en secondes) à laquelle le déclencheur est vérifié. Une fois que le déclencheur est vérifié, le mécanisme est appliqué si une mise à l’échelle est nécessaire. Si la mise à l’échelle n’est pas nécessaire, aucune action n’est entreprise. Dans les deux cas, aucune nouvelle vérification du déclencheur n’est effectuée avant l’expiration de l’intervalle de mise à l’échelle.
 
-- Un mécanisme de mise à l’échelle, qui décrit comment la mise à l’échelle est effectuée quand elle est déclenchée. *Incrément d’échelle* détermine le nombre d’instances ajoutées ou supprimées quand le mécanisme est déclenché. *Nombre maximum d’instances* définit la limite supérieure de la mise à l’échelle. Si le nombre d’instances atteint cette limite, aucun scale-out n’est effectué sur le service, quelle que soit la charge. *Nombre minimum d’instances* définit la limite inférieure de la mise à l’échelle. Si le nombre d’instances de la partition atteint cette limite, aucun scale-in n’est effectué sur le service, quelle que soit la charge.
+- Un mécanisme de mise à l’échelle, qui décrit comment la mise à l’échelle est effectuée quand elle est déclenchée. *Incrément d’échelle* détermine le nombre d’instances ajoutées ou supprimées quand le mécanisme est déclenché. *Nombre maximum d’instances* définit la limite supérieure de la mise à l’échelle. Si le nombre d’instances atteint cette limite, aucun scale-out n’est effectué sur le service, quelle que soit la charge. *Nombre minimum d’instances* définit la limite inférieure de la mise à l’échelle. Si le nombre d’instances de la partition atteint cette limite, la taille du service n’est pas diminuée, quelle que soit la charge.
 
 Pour savoir comment définir une stratégie de mise à l’échelle automatique pour votre service, consultez [Mettre automatiquement à l’échelle les services](service-fabric-mesh-howto-auto-scale-services.md).
 

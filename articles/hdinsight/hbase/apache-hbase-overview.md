@@ -1,8 +1,6 @@
 ---
 title: Présentation de HBase dans Azure HDInsight
 description: Présentation d’Apache HBase dans HDInsight, une base de données NoSQL reposant sur Hadoop. En savoir plus sur les cas d'utilisation et la comparaison de HBase sur d'autres clusters Hadoop.
-keywords: Bigtable,NoSQL,présentation de HBase,Apache HBase,HBase,vue d’ensemble de HBase,
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -10,12 +8,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 46b201b2b5d8a3ee774f759326afae885ad6cb30
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: d109a1a233aaaf1f3922561106caa15781e31e01
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651842"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337344"
 ---
 # <a name="what-is-apache-hbase-in-hdinsight-a-nosql-database-that-provides-bigtable-like-capabilities-for-apache-hadoop"></a>Apache HBase dans HDInsight : Une base de données NoSQL fournissant des fonctionnalités similaires à BigTable pour Apache Hadoop
 [Apache HBase](https://hbase.apache.org/) est une base de données NoSQL open source, basée sur [Apache Hadoop](https://hadoop.apache.org/) et modélisée d’après [Google BigTable](https://cloud.google.com/bigtable/). HBase fournit un accès aléatoire et une forte cohérence pour de vastes quantités de données non structurées et semi-structurées, dans une base de données sans schéma, organisée par familles de colonnes.
@@ -62,8 +60,3 @@ Les recherches Web sont le cas d’utilisation canonique pour lequel BigTable, e
 * [Apache HBase](https://hbase.apache.org/)
 * [Guide de référence d’Apache HBase](https://hbase.apache.org/book.html)
 * [Bigtable : Un système de stockage distribué pour les données structurées](https://research.google.com/archive/bigtable.html)
-* [Apache HBase/Phoenix – Conseils, astuces et meilleures pratiques dans Azure HDInsight](https://blogs.msdn.microsoft.com/ashish/2016/08/28/hdinsight-hbase-faq/)
-
-
-
-

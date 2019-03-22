@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: 2272414c185388df0ccbc9e21b7d166432fc7a52
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: cf1cba6f6d26d66fc560c86ea42459fa276cc880
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58110407"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310844"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Questions fréquemment posées (FAQ) sur la migration de Stockage Azure
 
@@ -282,7 +282,7 @@ Pour autoriser d'autres personnes à accéder aux ressources de stockage :
 
     - **Jeton SAS** : Utilisez un jeton SAS pour accéder aux données du point de terminaison. Pour plus d’informations, consultez [Utilisation des signatures d’accès partagé](storage-dotnet-shared-access-signature-part-1.md).
 
-**Comment je utiliser un domaine personnalisé HTTPS avec mon compte de stockage ? Par exemple, comment faire en sorte que « <https://mystorageaccountname.blob.core.windows.net/images/image.gif> » apparaisse sous la forme « <https://www.contoso.com/images/image.gif> » ?**
+**Comment je utiliser un domaine personnalisé HTTPS avec mon compte de stockage ? Par exemple, comment faire « https :\//mystorageaccountname.blob.core.windows.net/images/image.gif » apparaissent sous la forme « https :\//www.contoso.com/images/image.gif » ?**
 
 SSL n'est actuellement pas pris en charge sur les comptes de stockage avec des domaines personnalisés.
 Mais vous pouvez utiliser des domaines personnalisés non-HTTPS. Pour plus d’informations, consultez la page [Configurer un nom de domaine personnalisé pour un point de terminaison Blob Storage](../blobs/storage-custom-domain-name.md).

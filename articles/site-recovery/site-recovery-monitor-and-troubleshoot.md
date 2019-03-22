@@ -1,20 +1,20 @@
 ---
 title: Surveiller Azure Site Recovery | Microsoft Docs
 description: Surveiller et résoudre les opérations et les problèmes de réplication d’Azure Site Recovery à l’aide du portail
-author: bsiva
-manager: abhemra
+author: raynew
+manager: carmonm
 ms.service: site-recovery
-ms.topic: troubleshooting
-ms.date: 11/27/2018
-ms.author: bsiva
-ms.openlocfilehash: 5bbde2f1059982424c2557d6a767692b3491f6aa
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.topic: conceptual
+ms.date: 03/18/2019
+ms.author: rayne-wiselman
+ms.openlocfilehash: 605421196c2ec7f62826e2f6c823d50262af8144
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58098472"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316641"
 ---
-# <a name="monitor-and-troubleshoot-site-recovery"></a>Surveiller et résoudre les problèmes liés à Site Recovery
+# <a name="monitor-site-recovery"></a>Moniteur Site Recovery
 
 Dans cet article, vous allez apprendre à utiliser les fonctionnalités intégrées de surveillance et de résolution des problèmes d’Azure Site Recovery. 
 

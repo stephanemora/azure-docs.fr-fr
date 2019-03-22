@@ -1,5 +1,5 @@
 ---
-title: Principes de conception avec Simulation d’acoustique
+title: Principes de conception avec simulation acoustique
 titlesuffix: Azure Cognitive Services
 description: Cette vue d’ensemble conceptuelle explique comment projet acoustique incorpore acoustique simulation pour le processus de conception.
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: conceptual
-ms.date: 08/17/2018
+ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: dd27b660dfdd1f4bcec89291b10fd87750ad4c49
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4a1a0b15da091a1c020eb132f6b14b9ee14d334c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136154"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316066"
 ---
 # <a name="project-acoustics-design-process-concepts"></a>Concepts de processus de conception d’acoustique de projet
 
@@ -29,7 +29,7 @@ Dans un titre interactif, comme les sons et l’écouteur déplacent tout au lon
 
 Titres 3D utilisent des systèmes physique cinématique et d’éclairage qui sont dans un monde physique, mais ajustée de concepteur pour obtenir une combinaison d’objectifs immersion et le jeu. Un concepteur visuel ne définit pas les valeurs de pixel individuelles, mais plutôt ajuste les modèles 3D, des matériels et des systèmes de transport clair qui sont des physiquement compromis esthétique et les coûts de processeur. Quel est le processus équivalent pour l’audio ? Projet acoustique est une première étape dans l’exploration de cette question. Tout d’abord, je parlerai plus tard sur ce que signifie l’énergie acoustique via un espace de transport.
 
-![zones de réverbération](media/reverb-zones-altspace.png)
+![Scène de capture d’écran de AltSpace superposée aux zones de réverbération](media/reverb-zones-altspace.png)
 
 ## <a name="impulse-responses-acoustically-connecting-two-points-in-space"></a>Réponses impulsionnelles : Acoustique reliant deux points dans l’espace
 
@@ -45,7 +45,7 @@ Une réponse impulsionnelle contient chaque intéressantes (et chaque inintéres
 
 Mais si la simulation est connectée directement aux paramètres DSP audio, où est l’ajustement de concepteur ? Ce qu’obtenir ? Eh bien, nous obtenons une quantité importante de mémoire en supprimant les réponses impulsionnelles et en conservant quelques paramètres DSP. Et pour donner le concepteur du courant sur le résultat final, nous devons uniquement trouver un moyen d’insérer le concepteur entre la simulation et l’audio DSP.
 
-![paramètres de réponse impulsionnelle](media/acoustic-parameters.png)
+![L’API Graph à réponse impulsionnelle stylisés avec des paramètres à superposer](media/acoustic-parameters.png)
 
 ## <a name="sound-design-by-transforming-audio-dsp-parameters-from-simulation"></a>Sonorisation en transformant des paramètres DSP audio à partir de la simulation
 

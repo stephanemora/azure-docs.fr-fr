@@ -1,5 +1,5 @@
 ---
-title: Scénarios avancés avec Azure multifacteur et des VPN tiers
+title: Scénarios avancés avec Azure MFA et des VPN tiers - Azure Active Directory
 description: Guides de configuration détaillés pour Azure MFA à intégrer à Cisco, Citrix et Juniper.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e1d1f0857ddf0b3f1a888e51418ffabe8cf61d7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: acbf27ca6f5b58d5c3cebb28698304c130381a7a
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174841"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314397"
 ---
 # <a name="advanced-scenarios-with-azure-multi-factor-authentication-and-third-party-vpn-solutions"></a>Scénarios avancés avec l'authentification multifacteur Azure et des solutions VPN tierces
 

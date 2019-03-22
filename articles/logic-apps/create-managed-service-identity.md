@@ -9,12 +9,12 @@ ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
 ms.date: 01/22/2019
-ms.openlocfilehash: a22512a960426cc21f4f012e06b9df4fa86e637e
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: 046aed64d3551d5c0b6ddae44b925452c01c297a
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54807267"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337577"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>S’authentifier et accéder aux ressources avec des identités managées dans Azure Logic Apps
 
@@ -23,7 +23,7 @@ Pour accéder aux ressources des autres locataires d’Azure Active Directory (A
 > [!NOTE]
 > Vous pouvez actuellement disposer d’un maximum de 10 flux de travail d’applications logiques avec des identités assignées par le système dans chaque abonnement Azure.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Abonnement Azure ou, si vous n’en avez pas, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>.
 
@@ -152,7 +152,7 @@ Après avoir configuré votre application logique avec une identité managée at
 
 1. Fournissez les informations nécessaires pour cette action, telles que la **méthode** de demande et l’emplacement **URI** pour la ressource que vous souhaitez appeler.
 
-   Par exemple, supposons que vous utilisez l’authentification Azure Active Directory (Azure AD) avec [l’un de ces services Azure qui prennent en charge Azure AD](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication). 
+   Par exemple, supposons que vous utilisez l’authentification Azure Active Directory (Azure AD) avec [l’un de ces services Azure qui prennent en charge Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). 
    Dans la zone **URI**, entrez l’URL du point de terminaison pour ce service Azure. 
    Par conséquent, si vous utilisez Azure Resource Manager, entrez cette valeur dans la propriété **URI** :
 
@@ -167,7 +167,7 @@ Après avoir configuré votre application logique avec une identité managée at
    > [!IMPORTANT]
    > 
    > Dans la propriété **Audience**, la valeur d’ID de ressource doit correspondre exactement à ce qu’attend Azure AD, notamment les barres obliques de fin obligatoires. 
-   > Vous pouvez trouver ces valeurs d’ID de ressource dans ce [tableau décrivant les services Azure qui prennent en charge Azure AD](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication). 
+   > Vous pouvez trouver ces valeurs d’ID de ressource dans ce [tableau décrivant les services Azure qui prennent en charge Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). 
    > Par exemple, si vous utilisez l’ID de ressource Azure Resource Manager, veillez à ce que l’URI contienne une barre oblique de fin.
 
 1. Continuez à créer l’application logique comme vous le souhaitez.

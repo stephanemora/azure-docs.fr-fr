@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 9/26/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 4685c4213ad992e8d0fcffdf91a039cd04b426ee
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 813a81e3812f9bb95ab11deec35adc6c05f1b58e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57844205"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312221"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Intégrer Gestion des API à Service Fabric dans Azure
 
@@ -142,7 +142,7 @@ Entrez un nom complet sous **displayName** et une **description** pour le produi
 
 * Vous pouvez indiquer sous **displayName** un nom quelconque pour votre API. Dans le cadre de cet article, utilisez « Service Fabric App ».
 * Le champ **name** contient un nom descriptif unique pour l’API, par exemple « service-fabric-app ». Il s’affiche dans les portails des développeurs et de publication.
-* **serviceUrl** indique le service HTTP implémentant l’API. La gestion des API transmet les demandes à cette adresse. Pour les principaux de Service Fabric, cette valeur d’URL n’est pas utilisée. Vous pouvez placer n’importe quelle valeur ici. Pour cet article, par exemple : «<http://servicefabric>».
+* **serviceUrl** indique le service HTTP implémentant l’API. La gestion des API transmet les demandes à cette adresse. Pour les principaux de Service Fabric, cette valeur d’URL n’est pas utilisée. Vous pouvez placer n’importe quelle valeur ici. Pour cet article, par exemple « http :\//servicefabric ».
 * Le chemin d’accès **path** est ajouté à l’URL de base du service Gestion des API. L'URL de base est commune à toutes les API hébergées par une instance de service Gestion des API. Gestion des API distingue les API selon leur suffixe. Celui-ci doit donc être unique pour chaque API d'un éditeur donné.
 * Le champ **protocols** détermine les protocoles qui peuvent être utilisés pour accéder à l’API. Pour cet article, indiquez **http** et **https**.
 * Le chemin d’accès **path** est un suffixe pour l’API. Pour cet article, utilisez « myapp ».

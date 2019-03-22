@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: d97ac99cae963ddb9df4de06736c64d5d8ceafb5
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 045339ec0a725359593797bda172a2e93f7c2890
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58187657"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339021"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendre la configuration d’invité d’Azure Policy
 
@@ -59,7 +59,7 @@ Le tableau suivant affiche une liste des outils locaux utilisés sur chaque syst
 
 |Système d’exploitation|Outil de validation|Notes|
 |-|-|-|
-| Windows|[Configuration de l’état souhaité (DSC) Microsoft](/powershell/dsc) v2| |
+|Windows|[Configuration de l’état souhaité (DSC) Microsoft](/powershell/dsc) v2| |
 |Linux|[Chef InSpec](https://www.chef.io/inspec/)| Ruby et Python sont installés par l’extension de configuration d’invité. |
 
 ### <a name="validation-frequency"></a>Fréquence de validation
@@ -125,9 +125,11 @@ Toutes les stratégies intégrées pour la configuration d’invité sont inclus
 
 L’extension de Configuration de l’invité écrit les fichiers journaux aux emplacements suivants :
 
-Windows : `C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindows\1.10.0.0\dsc\logs\dsc.log`
+Windows : `C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindows\<version>\dsc\logs\dsc.log`
 
-Linux : `/var/lib/waagent/Microsoft.GuestConfiguration.ConfigurationforLinux-1.8.0/GCAgent/logs/dsc.log`
+Linux : `/var/lib/waagent/Microsoft.GuestConfiguration.ConfigurationforLinux-<version>/GCAgent/logs/dsc.log`
+
+Où `<version>` fait référence au numéro de version actuel.
 
 ## <a name="guest-configuration-samples"></a>Exemples de Configuration de l’invité
 

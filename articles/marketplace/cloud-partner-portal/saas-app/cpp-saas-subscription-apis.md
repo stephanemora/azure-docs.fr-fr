@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 09/17/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 432120c324aa81107946fc30548e6e49acce6575
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d6ab18d68d6508a18f0b36ab5a39e15fa7c0555a
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58002318"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311660"
 ---
 # <a name="saas-sell-through-azure---apis"></a>Vente SaaS via Azure : interfaces de programmation d’applications
 
@@ -65,8 +65,8 @@ Pour inscrire une nouvelle application à l’aide du portail Azure, procédez c
      - Sélectionnez **Native** pour les [applications clientes](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) installées localement sur un appareil. Ce paramètre est utilisé pour les [clients natifs](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client) publics OAuth.
      - Sélectionnez **Application Web / API** pour les [applications clientes](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) et les [ressources/applications API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server) installées sur un serveur sécurisé. Ce paramètre est utilisé pour les [clients web](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) confidentiels OAuth et les [clients basés sur un agent utilisateur](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client) publics.
      La même application peut également exposer un client et une ressource/API.
-   - **URL de connexion** : pour des applications web app/API, indiquez l’URL de base de votre application. Par exemple, **http://localhost:31544** peut être l’URL pour une application web en cours d’exécution sur votre ordinateur local. Les utilisateurs peuvent alors utiliser cette URL pour se connecter à une application web cliente.
-   - **URI de redirection** : pour des applications natives, indiquez l’URI utilisé par Azure AD pour retourner les réponses de jeton. Saisissez une valeur spécifique à votre application, par exemple **http://MyFirstAADApp**.
+   - **URL de connexion** : pour des applications web app/API, indiquez l’URL de base de votre application. Par exemple, **http :\//localhost:31544** peut être l’URL pour une application web en cours d’exécution sur votre ordinateur local. Les utilisateurs peuvent alors utiliser cette URL pour se connecter à une application web cliente.
+   - **URI de redirection** : pour des applications natives, indiquez l’URI utilisé par Azure AD pour retourner les réponses de jeton. Entrez une valeur spécifique à votre application, par exemple **http :\//MyFirstAADApp**.
 
      ![Inscriptions d’application SaaS AD](./media/saas-offer-app-registration-2.png) Pour obtenir des exemples spécifiques d’applications web ou d’applications natives, consultez les configurations guidées de démarrage rapide disponibles dans la section Démarrage du [Guide du développeur Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
 

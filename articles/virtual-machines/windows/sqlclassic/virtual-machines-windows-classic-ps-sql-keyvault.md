@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/17/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 3711277ca11346cf73ff37c37ef4185d8bfdf6b9
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: e20e2a094e1fd88dfc2a25b586dc6c894f92b418
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329869"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312442"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>Configurer Azure Key Vault Integration pour SQL Server sur des machines virtuelles Azure (Classic)
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "54329869"
 > 
 > 
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Il existe plusieurs fonctionnalités de chiffrement SQL Server, telles que le [chiffrement transparent des données (TDE)](https://msdn.microsoft.com/library/bb934049.aspx), le [chiffrement au niveau des colonnes (CLE)](https://msdn.microsoft.com/library/ms173744.aspx) et le [chiffrement de sauvegarde](https://msdn.microsoft.com/library/dn449489.aspx). Ces types de chiffrement nécessitent que vous gériez et stockiez les clés de chiffrement que vous utilisez pour le chiffrement. Le service Azure Key Vault (coffre de clés Azure, AKV) est conçu pour optimiser la sécurité et la gestion de ces clés dans un emplacement sécurisé et hautement disponible. Le [connecteur SQL Server](https://www.microsoft.com/download/details.aspx?id=45344) permet à SQL Server d’utiliser ces clés depuis le coffre de clés Azure.
 
 > [!IMPORTANT] 
@@ -53,7 +53,7 @@ Le tableau suivant répertorie les paramètres requis pour exécuter le script P
 
 | Paramètre | Description | Exemples |
 | --- | --- | --- |
-| **$akvURL** |**L'URL du coffre de clés** |"https://contosokeyvault.vault.azure.net/" |
+| **$akvURL** |**L'URL du coffre de clés** |« https :\//contosokeyvault.vault.azure.net/ » |
 | **$spName** |**Nom du principal du service** |« fde2b411-33d5-4e11-af04eb07b669ccf2 » |
 | **$spSecret** |**Secret du principal du service** |« 9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM= » |
 | **$credName** |**Nom des informations d’identification** : L’intégration du coffre de clés Azure crée des informations d’identification dans SQL Server, permettant ainsi à la machine virtuelle d’accéder au coffre de clés. Choisissez un nom pour cette identification. |« mycred1 » |
@@ -65,7 +65,7 @@ L'applet de commande **New-AzureVMSqlServerKeyVaultCredentialConfig** crée un o
 
 1. Dans Azure PowerShell, configurez tout d’abord les paramètres d’entrée avec des valeurs spécifiques comme décrit dans les sections précédentes de cette rubrique. Vous trouverez ci-dessous un exemple de script.
    
-        $akvURL = "https://contosokeyvault.vault.azure.net/"
+        $akvURL = "https:\//contosokeyvault.vault.azure.net/"
         $spName = "fde2b411-33d5-4e11-af04eb07b669ccf2"
         $spSecret = "9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM="
         $credName = "mycred1"

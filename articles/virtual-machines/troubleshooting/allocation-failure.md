@@ -12,12 +12,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 04/13/2018
 ms.author: cjiang
-ms.openlocfilehash: 1298e7d7ed9c3760ff5022b5b97e8444eb1bcad1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 72fbdbcfcd94dd41a67bb81314802dd7314ae463
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58007048"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316624"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>Résoudre les problèmes d’allocation pendant la création, le redémarrage ou le redimensionnement de machines virtuelles dans Azure
 
@@ -25,7 +25,7 @@ Quand vous créez une machine virtuelle, redémarrez des machines virtuelles aya
 
 **Code d’erreur** : AllocationFailed ou ZonalAllocationFailed
 
-**Message d’erreur** : « L'allocation a échoué. We do not have sufficient capacity for the requested VM size in this region. Read more about improving likelihood of allocation success at `https://aka.ms/allocation-guidance` »
+**Message d’erreur** : « L'allocation a échoué. We do not have sufficient capacity for the requested VM size in this region. En savoir plus sur l’amélioration de la probabilité de réussite de l’allocation à https :\//aka.ms/allocation-guidance »
 
 Cet article explique les causes de certains échecs d’allocation courants et propose des solutions possibles.
 

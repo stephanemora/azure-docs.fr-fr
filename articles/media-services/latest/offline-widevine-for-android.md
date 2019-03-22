@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 18c83717e761f22363ccc69c827f5e383f8a9e85
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: 5d7dccfecc47b14be62a78600561a8ff0f7ca501
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54122736"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312255"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Widevine hors connexion pour Android
 
@@ -39,7 +39,7 @@ Pour créer les applications du lecteur Android, nous soulignons trois options 
 
 L’article répond également à certaines questions fréquentes sur la diffusion en continu du contenu protégé de Widevine.
 
-## <a name="prerequisites"></a>Prérequis 
+## <a name="prerequisites"></a>Conditions préalables 
 
 Avant de mettre en œuvre la DRM hors connexion pour Widevine sur des appareils Android, vous devez, tout d’abord :
 
@@ -144,7 +144,7 @@ Si vous mettez à niveau votre navigateur Chrome mobile sur la v62 (ou version u
 
 L’application PWA open source ci-dessus a été créée dans Node.js. Si vous souhaitez héberger votre propre version sur un serveur Ubuntu, tenez compte des problèmes fréquemment rencontrés suivants qui peuvent empêcher la lecture :
 
-1. Problème CORS : l’échantillon vidéo de l’exemple d’application est hébergé dans https://storage.googleapis.com/biograf-video-files/videos/. Google a défini CORS pour tous les exemples de test hébergés dans le compartiment de stockage Cloud de Google. Ils sont pris en charge avec les en-têtes CORS, en spécifiant explicitement l’entrée CORS : https://biograf-155113.appspot.com (domaine dans lequel Google héberge ses exemples) empêchant l’accès par d’autres sites. Si vous essayez, vous verrez l’erreur HTTP suivante : Impossible de charger https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: Aucun en-tête « Access-Control-Allow-Origin » n’est présent sur la ressource demandée. L’accès à « https://13.85.80.81:8080 » d’origine n’est donc pas autorisé. Si une réponse opaque répond à vos besoins, définissez le mode de la requête sur « no-cors » pour extraire la ressource avec CORS désactivé.
+1. Problème CORS : l’échantillon vidéo de l’exemple d’application est hébergé dans https://storage.googleapis.com/biograf-video-files/videos/. Google a défini CORS pour tous les exemples de test hébergés dans le compartiment de stockage Cloud de Google. Ils sont pris en charge avec les en-têtes CORS, en spécifiant explicitement l’entrée CORS : https://biograf-155113.appspot.com (domaine dans lequel Google héberge ses exemples) empêchant l’accès par d’autres sites. Si vous essayez, vous verrez l’erreur HTTP suivante : Impossible de charger https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: Aucun en-tête « Access-Control-Allow-Origin » n’est présent sur la ressource demandée. Origine « https :\//13.85.80.81:8080' n’est donc pas autorisé à accéder. Si une réponse opaque répond à vos besoins, définissez le mode de la requête sur « no-cors » pour extraire la ressource avec CORS désactivé.
 2. Problème de certificat : À partir de Chrome v58, EME pour Widevine nécessite HTTPS. Par conséquent, vous devez héberger l’exemple d’application via le protocole HTTPS avec un certificat X509. Les certificats de test habituels ne fonctionnent pas en raison des exigences suivantes : Vous devez obtenir un certificat répondant aux exigences minimales suivantes :
     - Chrome et Firefox exige que le paramètre Nom alternatif de l’objet SAN existe dans le certificat
     - Le certificat doit avoir une certification approuvée et un certificat auto-signé de développement ne fonctionne pas

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to work with routing tables for NVA.
-ms.openlocfilehash: ac1384827ceede0f66fd08c6c08fa8e934b1ae42
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fc8dd6770efa1c057a56374ddc0094c2d88d2eb5
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58076154"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58335729"
 ---
 # <a name="create-a-virtual-hub-route-table-to-steer-traffic-to-a-network-virtual-appliance"></a>Créer une table d’itinéraires de hub virtuel pour diriger le trafic vers une appliance réseau virtuelle
 
@@ -36,9 +36,9 @@ Dans cet article, vous apprendrez comment :
 
 Vérifiez que vous respectez les critères suivants :
 
-1. Vous disposez d’une appliance réseau virtuelle (soit le logiciel tiers de votre choix) qui est approvisionnée à partir de la Place de marché Azure (Lien) dans un réseau virtuel.
+1. Vous avez une Appliance virtuelle réseau (NVA). Il s’agit d’un logiciel tiers de votre choix est généralement mis en service à partir de la place de marché Azure dans un réseau virtuel.
 2. Vous disposez d’une adresse IP privée assignée à l’interface de l’appliance réseau virtuelle. 
-3. L’appliance réseau virtuelle ne peut pas être déployée dans le hub virtuel. Elle doit être déployée dans un réseau virtuel distinct. Dans cet article, le réseau virtuel NVA est appelé « DMZ VNet ».
+3. L’appliance virtuelle réseau ne peut pas être déployé dans le hub virtuel. Elle doit être déployée dans un réseau virtuel distinct. Dans cet article, le réseau virtuel NVA est appelé « DMZ VNet ».
 4. Un ou plusieurs réseaux virtuels peuvent être connectés au réseau « DMZ VNet ». Dans cet article, ce réseau virtuel est appelé « Indirect spoke VNet ». Ces réseaux virtuels peuvent être connectés au réseau DMZ VNet à l’aide de l’homologation.
 5. Vérifiez que les deux réseaux virtuels sont créés. Ils seront utilisés en tant que réseaux virtuels spokes. Dans cet article, le réseau virtuel spoke bénéficie des espaces d’adressage 10.0.2.0/24 et 10.0.3.0/24. Si vous avez besoin d’informations sur la création d’un réseau virtuel, consultez l’article [Créer un réseau virtuel à l’aide de PowerShell](../virtual-network/quick-create-powershell.md).
 6. Veillez à ce qu’aucune passerelle de réseau virtuel n’existe dans les réseaux virtuels.
@@ -117,14 +117,6 @@ Validez les modifications pour le hub virtuel.
 
 ```powershell
 Update-AzVirtualHub -VirtualWanId $virtualWan.Id -ResourceGroupName "testRG" -Name "westushub" -RouteTable $routeTable
-```
-
-## <a name="cleanup"></a>Supprimer des ressources
-
-Lorsque vous n’avez plus besoin ces ressources, vous pouvez utiliser [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) pour supprimer le groupe de ressources et toutes les ressources qu’il contient. Remplacez « myResourceGroup » par le nom de votre groupe de ressources et exécutez la commande PowerShell suivante :
-
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

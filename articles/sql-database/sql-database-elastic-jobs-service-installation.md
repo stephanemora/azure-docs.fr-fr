@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: a1e1be24f9cb6d762d5480385843e9a5356d4a29
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 32df3e7ac6dc22e247bd4aecea4f39bf6d3a8017
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57889781"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316862"
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Vue d’ensemble de l’installation de Tâches de bases de données élastiques
 
@@ -87,12 +87,12 @@ Les paramètres fournis dans cet exemple d'appel peuvent être remplacés par le
 
 <tr>
     <td>ServiceVmSize</td>
-    <td>Fournit la taille de machine virtuelle pour une utilisation dans le service cloud. Ce paramètre est défini par défaut sur la valeur A0. Valeurs des paramètres... /.. / A3 sont acceptées, ce qui provoque le rôle de travail à utiliser une ExtraSmall/petite/moyenne/grande taille, respectivement. Pour plus d’informations sur les tailles de rôle de travail, consultez [Composants et tarification des tâches de bases de données élastiques](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
+    <td>Fournit la taille de machine virtuelle pour une utilisation dans le service cloud. Ce paramètre est défini par défaut sur la valeur A0. Valeurs des paramètres... /.. / A3 sont acceptées, ce qui provoque le rôle de travail à utiliser une ExtraSmall/petite/moyenne/grande taille, respectivement. Pour plus d’informations sur les tailles de rôle de travail, consultez <a href="https://docs.microsoft.com/azure/sql-database/sql-database-elastic-jobs-overview#components-and-pricing">composants et tarification des tâches de base de données élastique</a>.</td>
 </tr>
 
 <tr>
     <td>SqlServerDatabaseSlo</td>
-    <td>Fournit la taille de calcul pour une édition Standard. Ce paramètre est défini par défaut sur la valeur S0. Valeurs de paramètre de... /.. /.. /.. / S9/S12 sont acceptées, ce qui provoque la base de données SQL Azure à utiliser la taille de calcul respectifs. Pour plus d’informations sur les tailles de calcul de SQL Database, consultez l’article [Composants et tarification des tâches de bases de données élastiques](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
+    <td>Fournit la taille de calcul pour une édition Standard. Ce paramètre est défini par défaut sur la valeur S0. Valeurs de paramètre de... /.. /.. /.. / S9/S12 sont acceptées, ce qui provoque la base de données SQL Azure à utiliser la taille de calcul respectifs. Pour plus d’informations sur les tailles de calcul de SQL Database, consultez l’article <a href="https://docs.microsoft.com/azure/sql-database/sql-database-elastic-jobs-overview#components-and-pricing">Composants et tarification des tâches de bases de données élastiques</a>.</td>
 </tr>
 
 <tr>
@@ -137,7 +137,7 @@ Pour mettre à jour la taille de la machine virtuelle d’une installation, exé
 
 <tr>
     <td>ServiceVmSize</td>
-    <td>Fournit la taille de machine virtuelle pour une utilisation dans le service cloud. Ce paramètre est défini par défaut sur la valeur A0. Valeurs des paramètres... /.. / A3 sont acceptées, ce qui provoque le rôle de travail à utiliser une ExtraSmall/petite/moyenne/grande taille, respectivement. Pour plus d’informations sur les tailles de rôle de travail, consultez [Composants et tarification des tâches de bases de données élastiques](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
+    <td>Fournit la taille de machine virtuelle pour une utilisation dans le service cloud. Ce paramètre est défini par défaut sur la valeur A0. Valeurs des paramètres... /.. / A3 sont acceptées, ce qui provoque le rôle de travail à utiliser une ExtraSmall/petite/moyenne/grande taille, respectivement. Pour plus d’informations sur les tailles de rôle de travail, consultez <a href="https://docs.microsoft.com/azure/sql-database/sql-database-elastic-jobs-overview#components-and-pricing">composants et tarification des tâches de base de données élastique</a>.</td>
 </tr>
 
 </table>

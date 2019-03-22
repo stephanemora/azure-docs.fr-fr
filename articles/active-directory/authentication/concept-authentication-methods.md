@@ -1,5 +1,5 @@
 ---
-title: Méthodes d’authentification Azure AD
+title: Méthodes d’authentification - Azure Active Directory
 description: Quelles sont les méthodes d’authentification disponibles dans Azure AD pour l’authentification multifacteur et la réinitialisation de mot de passe en libre-service ?
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09f61f60a3885fbc58cddc4b46df11014057f54e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e6bd67e500756fe5a7ba5ee29db88b9aedb103e4
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57999493"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315978"
 ---
 # <a name="what-are-authentication-methods"></a>Que sont les méthodes d’authentification ?
 

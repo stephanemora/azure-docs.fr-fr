@@ -1,46 +1,29 @@
 ---
-title: Azure Site Recovery - sauvegarde de l’interopérabilité | Microsoft Docs
+title: Prise en charge pour l’utilisation d’Azure Site Recovery avec sauvegarde Azure | Microsoft Docs
 description: Fournit une vue d’ensemble de la façon dont Azure Site Recovery et la sauvegarde Azure peuvent être utilisés ensemble.
 services: site-recovery
 author: sideeksh
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 03/18/2019
 ms.author: sideeksh
-ms.openlocfilehash: 6658ab8c967c70ac1deaeba3d1dfeac602515591
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: e902f70225ec0eb0caa98f7e19a16c87220cb6f9
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731872"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312884"
 ---
-# <a name="about-site-recovery-and-backup-interoperability"></a>Sur la récupération de Site et de l’interopérabilité de sauvegarde
+# <a name="support-for-using-site-recovery-with-azure-backup"></a>Prise en charge pour l’utilisation de la récupération de Site avec sauvegarde Azure
 
-Cet article fournit des conseils pour correctement à l’aide de la sauvegarde des machines virtuelles IaaS Azure et machine virtuelle Azure la récupération d’urgence.
+Cet article résume la prise en charge pour l’utilisation de la [service Site Recovery](site-recovery-overview.md) conjointement avec la [service Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview).
 
-## <a name="azure-backup"></a>Sauvegarde Azure
-
-Sauvegarde Azure permet de protéger les données pour les serveurs locaux, des machines virtuelles, charges de travail virtualisées, serveurs SQL, des serveurs SharePoint et bien plus encore. Azure Site Recovery orchestre et gère la récupération d’urgence pour les machines virtuelles Azure, machines virtuelles locales et des serveurs physiques.
-
-## <a name="azure-site-recovery"></a>Azure Site Recovery
-
-Il est possible de configurer la sauvegarde Azure et Azure Site Recovery sur une machine virtuelle ou un groupe de machines virtuelles. Ces deux produits sont interopérables. Voici quelques scénarios où l’interopérabilité entre la sauvegarde et la récupération de Site Azure devient importante :
-
-### <a name="file-backuprestore"></a>Sauvegarde/restauration de fichiers
-
-Si la sauvegarde et la réplication sont tous deux activés, et une sauvegarde est effectuée, il n’existe aucun problème avec la restauration des fichiers sur la machine virtuelle côté source ou le groupe de machines virtuelles. Réplication continue comme d’habitude avec aucune modification de l’intégrité de la réplication.
-
-### <a name="disk-backuprestore"></a>Disque de sauvegarde/restauration
-
-Si vous restaurez le disque à partir de la sauvegarde de protection de la machine virtuelle doit être activée à nouveau.
-
-### <a name="vm-backuprestore"></a>Sauvegarde/restauration de machine virtuelle
-
-Sauvegarde et restauration d’une machine virtuelle ou un groupe de machines virtuelles n’est pas pris en charge. Pour que cela fonctionne, la protection doit être réactivé.
-
-**Scénario** | **Prise en charge par Azure Site Recovery ?** | **Solution de contournement, le cas échéant**  
+**Action** | **Prise en charge de la récupération de site** | **Détails**
 --- | --- | ---
-Sauvegarde de fichiers/dossiers | Oui | Non applicable
-Sauvegarde sur disque | Pas actuellement. | Désactiver et activer la Protection
-Sauvegarde de machine virtuelle | Non  | Désactiver et activer la Protection
+**Déployer les services** | Pris en charge | Les services sont interopérables et peuvent être configurés conjointement.
+**Sauvegarde/restauration de fichiers** | Pris en charge | Lors de la sauvegarde et réplication sont activées pour une machine virtuelle et les sauvegardes sont effectuées, il n’existe aucun problème de restauration des fichiers sur le côté de la source des machines virtuelles, ou groupe de machines virtuelles. Réplication continue comme d’habitude avec aucune modification de l’intégrité de la réplication.
+**Disque de sauvegarde/restauration** | Aucune prise en charge en cours | Si vous restaurez un disque sauvegardé, vous devez désactiver et réactiver la réplication pour la machine virtuelle à nouveau.
+**Sauvegarde/restauration de machine virtuelle** | Aucune prise en charge en cours | Si vous sauvegardez ou restaurez une machine virtuelle ou un groupe de machines virtuelles, vous devez désactiver et réactiver la réplication pour la machine virtuelle.  
+
+

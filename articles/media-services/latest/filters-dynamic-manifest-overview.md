@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 57007674e11271e6a3d5bdf660531d01b1eff82c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2da4ee5d60290485d87af86885dda0d72a625fef
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57861432"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314805"
 ---
 # <a name="dynamic-manifests"></a>Manifestes dynamiques
 
@@ -64,7 +64,7 @@ Avec un manifeste dynamique, vous pouvez créer des profils d'appareil mobile, d
 
 ![Exemple de filtrage de rendu][renditions2]
 
-Dans l’exemple suivant, un encodeur a été utilisé pour encoder un élément multimédia mezzanine en sept rendus vidéo ISO MP4s (de 180 p à 1 080 p). L’élément multimédia encodé peut être empaqueté de manière dynamique dans l’un des protocoles de diffusion en continu suivants : HLS, MPEG DASH et Smooth.  En haut du diagramme, le manifeste HLS de l'élément multimédia sans aucun filtre apparaît (il contient les sept rendus).  Dans la partie inférieure gauche apparaît le manifeste HLS auquel un filtre nommé « ott » a été appliqué. Le filtre « ott » indique de supprimer toutes les vitesses de transmission inférieures à 1 Mbit/s, ce qui entraîne la suppression des deux niveaux de qualité les plus bas dans la réponse. Dans la partie inférieure droite apparaît le manifeste HLS auquel un filtre nommé « mobile » a été appliqué. Le filtre « mobile » indique de supprimer les rendus pour lesquels la résolution est supérieure à 720 p, ce qui entraîne la suppression des deux rendus à 1 080 p.
+Dans l’exemple suivant, un encodeur a été utilisé pour encoder un élément multimédia mezzanine en sept rendus vidéo ISO MP4s (de 180 p à 1 080 p). L’élément multimédia encodé peut être [empaqueté dynamiquement](dynamic-packaging-overview.md) dans un des protocoles de diffusion en continu suivants : HLS, MPEG DASH et Smooth.  En haut du diagramme, le manifeste HLS de l'élément multimédia sans aucun filtre apparaît (il contient les sept rendus).  Dans la partie inférieure gauche apparaît le manifeste HLS auquel un filtre nommé « ott » a été appliqué. Le filtre « ott » indique de supprimer toutes les vitesses de transmission inférieures à 1 Mbit/s, ce qui entraîne la suppression des deux niveaux de qualité les plus bas dans la réponse. Dans la partie inférieure droite apparaît le manifeste HLS auquel un filtre nommé « mobile » a été appliqué. Le filtre « mobile » indique de supprimer les rendus pour lesquels la résolution est supérieure à 720 p, ce qui entraîne la suppression des deux rendus à 1 080 p.
 
 ![Filtrage de rendu][renditions1]
 
@@ -122,12 +122,16 @@ Vous pouvez combiner jusqu’à trois filtres.
 
 Pour plus d’informations, consultez [ce](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) blog.
 
+## <a name="associate-filters-with-streaming-locator"></a>Associer des filtres de localisateur de diffusion en continu
+
+Vous pouvez spécifier une liste de filtres de compte d’actif ou, s’applique également à votre localisateur de diffusion en continu. Le [l’empaquetage dynamique](dynamic-packaging-overview.md) s’applique à cette liste de filtres avec ceux de votre client spécifie l’URL. Cette combinaison génère une [dyanamic manifeste](filters-dynamic-manifest-overview.md), qui est basé sur les filtres dans l’URL + filtres que vous spécifiez dans le localisateur de diffusion en continu. Nous vous recommandons d’utiliser cette fonctionnalité si vous souhaitez appliquer des filtres, mais ne souhaitez pas exposer les noms de filtre dans l’URL.
+
 ## <a name="considerations-and-limitations"></a>Considérations et limitations
 
 - Les valeurs **forceEndTimestamp**, **presentationWindowDuration** et **liveBackoffDuration** ne doivent pas être définies pour un filtre de vidéo à la demande (VoD). Elles sont utilisées uniquement pour les scénarios de filtre en direct. 
 - Le manifeste dynamique fonctionne dans les limites d'un groupe d'images (GOP) (images clés), par conséquent, le découpage est précis au niveau du GOP. 
 - Vous pouvez utiliser le même nom de filtre pour les filtres de compte et d’élément multimédia. Les filtres d’élément multimédia ont une priorité plus élevée et remplacent les filtres de compte.
-- Si vous mettez à jour un filtre, il peut falloir jusqu'à 2 minutes pour que le point de terminaison de diffusion en continu actualise les règles. Si le contenu a été servi à l'aide de filtres (puis mis en cache dans des proxys et des caches CDN), la mise à jour de ces filtres peut entraîner des défaillances du lecteur. Il est recommandé d’effacer le cache après la mise à jour du filtre. Si cette option n'est pas possible, envisagez d'utiliser un filtre différent.
+- Si vous mettez à jour un filtre, il peut prendre jusqu'à 2 minutes pour le point de terminaison de diffusion en continu actualise les règles. Si le contenu a été servi à l'aide de filtres (puis mis en cache dans des proxys et des caches CDN), la mise à jour de ces filtres peut entraîner des défaillances du lecteur. Il est recommandé d’effacer le cache après la mise à jour du filtre. Si cette option n'est pas possible, envisagez d'utiliser un filtre différent.
 - Les clients doivent manuellement télécharger le manifeste et analyser la valeur startTimestamp exacte et l’échelle de temps.
     
     - Pour déterminer les propriétés des pistes d’un élément multimédia, [obtenez et examinez le fichier manifeste](#get-and-examine-manifest-files).

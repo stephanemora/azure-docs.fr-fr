@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/24/2018
 ms.author: jeking
 ms.subservice: common
-ms.openlocfilehash: 11891153f1ffce438597dc4f2799a9f25d76c2f5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 8928e59b97143038e0850132196f1ce9a1da131d
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992600"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337882"
 ---
 # <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>Stockage redondant interzone (ZRS) : applications Stockage Azure hautement disponibles
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
@@ -64,7 +64,7 @@ Pour effectuer une migration manuelle, vous disposez de plusieurs options :
 
 Une migration manuelle peut entraîner un temps d’arrêt de l’application. Si votre application requiert une haute disponibilité, Microsoft offre également une option de migration dynamique. Une migration dynamique est une migration sur place. 
 
-Lors d’une migration dynamique, vous pouvez utiliser votre compte de stockage pendant le transfert de vos données entre les tampons de stockage source et de destination. Pendant le processus migration, vous bénéficiez toujours du même niveau de SLA pour la durabilité et la disponibilité que d’habitude.
+Lors d’une migration dynamique, vous pouvez utiliser votre compte de stockage pendant le transfert de vos données entre les tampons de stockage source et de destination. Pendant le processus de migration, vous avez le même niveau de durabilité et de contrat SLA de disponibilité en tant que vous feriez d’habitude.
 
 Dans le cadre d’une migration dynamique, gardez à l’esprit les restrictions suivantes :
 
@@ -88,7 +88,33 @@ Vous pouvez demander une migration dynamique via le [portail du Support Azure](h
 6. Vérifiez que les informations de contact dans le panneau **Informations de contact** sont correctes.
 7. Sélectionnez **Créer**.
 
-Une personne du support technique vous contactera pour vous apporter l’aide dont vous aurez besoin. 
+Une personne du support technique vous contactera pour vous apporter l’aide dont vous aurez besoin.
+
+## <a name="live-migration-to-zrs-faq"></a>Migration dynamique Forum aux questions ZRS
+
+**Me faut-il prévoir d’interruptions de service lors de la migration ?**
+
+Il n’existe aucun temps d’arrêt causés par la migration. Vous pouvez continuer votre compte de stockage pendant une migration dynamique, tandis que vos données sont transférées entre les tampons de stockage source et de destination. Pendant le processus de migration, vous avez le même niveau de durabilité et de contrat SLA de disponibilité en tant que vous feriez d’habitude.
+
+**Existe-t-il une perte de données associé à la migration ?**
+
+Il n’existe aucune perte de données associé à la migration. Pendant le processus de migration, vous avez le même niveau de durabilité et de contrat SLA de disponibilité en tant que vous feriez d’habitude.
+
+**Sont des mises à jour nécessaires aux applications une fois la migration est terminée ?**
+
+Une fois la migration terminée, le type de réplication des ou les comptes changera à « stockage redondant dans une Zone (ZRS) ». Points de terminaison de service, accéder aux clés, SAP et d’autres options de configuration de compte restent inchangées et intact.
+
+**Puis-je demander une migration dynamique de mon compte (s) à usage général v1 vers ZRS ?**
+
+ZRS seulement prend en charge les comptes v2 à usage général avant de soumettre une demande pour une migration dynamique vers ZRS veillez à mettre à niveau de vos comptes à usage général v2. Consultez [vue d’ensemble du compte de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview) et [mise à niveau vers un compte de stockage à usage général v2](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) pour plus d’informations.
+
+**Puis-je demander une migration dynamique de mon compte (s) de stockage géoredondant avec accès en lecture (RA-GRS) vers ZRS ?**
+
+Avant de soumettre une demande pour une migration dynamique vers ZRS Vérifiez que vos applications ou charges de travail n’est plus requièrent l’accès au point de terminaison en lecture seule secondaire et modifier le type de réplication de vos comptes de stockage vers le stockage géo-redondant (GRS). Consultez [modification de la stratégie de réplication](https://docs.microsoft.com/azure/storage/common/storage-redundancy#changing-replication-strategy) pour plus d’informations.
+
+**Puis-je demander une migration dynamique de mes comptes de stockage vers ZRS vers une autre région ?**
+
+Si vous souhaitez migrer vos données vers un compte de stockage ZRS situé dans une région différente de la région du compte source, vous devez effectuer une migration manuelle.
 
 ## <a name="zrs-classic-a-legacy-option-for-block-blobs-redundancy"></a>ZRS classique : une option héritée pour la redondance des objets blob de blocs
 > [!NOTE]
@@ -101,6 +127,8 @@ ZRS classique réplique les données de manière asynchrone entre les centres de
 ZRS classique est disponible uniquement pour les **objets blob de blocs** dans les comptes de stockage à usage général v1 (GPv1). Pour plus d’informations sur les comptes de stockage, consultez [Vue d’ensemble des comptes de stockage Azure](storage-account-overview.md).
 
 Pour migrer manuellement des données de compte ZRS vers ou à partir d’un compte LRS, ZRS classique, GRS ou RA-GRS, servez-vous de l’un des outils suivants : AzCopy, Explorateur Stockage Azure, Azure PowerShell ou Azure CLI. Vous pouvez également créer votre propre solution de migration avec l’une des bibliothèques clientes de Stockage Azure.
+
+Vous pouvez également mettre à niveau vos comptes ZRS classique vers ZRS dans le portail ou à l’aide d’Azure PowerShell ou Azure CLI.
 
 ## <a name="see-also"></a>Voir aussi
 - [Réplication Azure Storage](storage-redundancy.md)

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/05/2019
 ms.author: rajanaki
-ms.openlocfilehash: 36d0a976b73fe5b6f89755ce790b919468744179
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: e27dee213baf8365c3ad4efc69602f66e2081abe
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58091645"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311150"
 ---
 # <a name="service-updates-in-azure-site-recovery"></a>Mises à jour de service dans Azure Site Recovery
 En tant qu’organisation, vous devez déterminer comment vous allez protéger vos données ainsi que les applications/charges de travail en cours d’exécution lors d’interruptions planifiées ou non. Azure Site Recovery contribue à la mise en œuvre de votre stratégie BCDR (continuité d’activité et reprise d’activité). En effet, en cas de panne du site, il maintient les applications en cours d’exécution sur des machines virtuelles et des serveurs physiques disponibles. Site Recovery réplique les charges de travail en cours d’exécution sur des machines virtuelles et des serveurs physiques, afin que ces charges restent disponibles à un second emplacement si jamais l’emplacement principal n’est pas disponible. Ce service récupère les charges de travail sur le site principal lorsqu’il fonctionne à nouveau.
@@ -118,17 +118,18 @@ Un redémarrage est recommandé après chaque mise à niveau de l’agent Mobili
 
 |Correctif cumulatif  |Fournisseur  |Installation unifiée| OVF  |MARS|
 |---------|---------|---------|---------|--------|
+|[Mise à jour cumulative 35](https://support.microsoft.com/en-us/help/4494485/update-rollup-35-for-azure-site-recovery)     |   5.1.4000.0  |  9.23.5163.1   |  5.1.4000.0  | 2.0.9156.0
 |[Correctif cumulatif 34](https://support.microsoft.com/en-us/help/4490016/update-rollup-34-for-azure-site-recovery) – Correctif logiciel     |   5.1.3950.0  |  9.22.5142.1   |  5.1.3950.0  | 2.0.9155.0
 |[Correctif cumulatif 33](https://support.microsoft.com/en-us/help/4489582/update-rollup-33-for-azure-site-recovery)     |   5.1.3900.0  |  9.22.5109.1   |  5.1.3900.0  | 2.0.9155.0
 |[Correctif cumulatif 32](https://support.microsoft.com/en-us/help/4485985/update-rollup-32-for-azure-site-recovery)     |   5.1.3800.0  |  9.21.5091.1   |  5.1.3800.0  |2.0.9144.0
 |[Correctif cumulatif 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)     |     5.1.3700.0      |   9.20.5051.1      |     5.1.3700.0    |2.0.9144.0
 |[Correctif cumulatif 30](https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30)     |    5.1.3650.0   |   9.19.5007.1    |     5.1.3650.0    |2.0.9139.0
-|[Correctif cumulatif 29](https://support.microsoft.com/help/4466466/update-rollup-29-for-azure-site-recovery)     |   5.1.3650.0      |   9.19.4973.1     |     5.1.3700.0    |2.0.9131.0
-|[Mise à jour cumulative 28](https://support.microsoft.com/help/4460079/update-rollup-28-for-azure-site-recovery)     |  5.1.3600.0      |    9.19.4973.1     |  5.1.3600.0       |2.0.9131.0
-| [Correctif cumulatif 27](https://support.microsoft.com/help/4055712/update-rollup-27-for-azure-site-recovery)       |   5.1.3550.0      |    9.18.4946.1     | 5.1.3550.0         |2.0.9125.0
-
 
 ## <a name="previous-update-rollups"></a>Correctifs cumulatifs précédents
+
+- [Correctif cumulatif 29](https://support.microsoft.com/help/4466466/update-rollup-29-for-azure-site-recovery)
+- [Mise à jour cumulative 28](https://support.microsoft.com/help/4460079/update-rollup-28-for-azure-site-recovery)
+- [Correctif cumulatif 27](https://support.microsoft.com/help/4055712/update-rollup-27-for-azure-site-recovery)
 - [Correctif cumulatif 26](https://support.microsoft.com/help/4344054/update-rollup-26-for-azure-site-recovery)  
 - [Correctif cumulatif 25](https://support.microsoft.com/help/4278275/update-rollup-25-for-azure-site-recovery) 
 - [Correctif cumulatif 23](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery) 

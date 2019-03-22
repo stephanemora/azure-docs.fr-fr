@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: banders
-ms.openlocfilehash: 5ac05991bc79dcfd24a527a13084b3a9383b4839
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b67f3c590be290515329af390b4d3d79a9746112
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903983"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339225"
 ---
 # <a name="sign-up-for-an-office-365-subscription-with-your-azure-account"></a>Souscrire un abonnement Office 365 avec un compte Azure
 Si vous êtes abonné à Azure, vous pouvez utiliser votre compte Azure pour souscrire un abonnement Office 365. Si vous faites partie d’une organisation qui a un abonnement Azure, vous pouvez créer des abonnements Office 365 pour les utilisateurs dans votre instance Azure Active Directory (Azure AD) existante. Inscrivez-vous à Office 365 avec un compte détenant les autorisations Administrateur général ou Administrateur de facturation dans votre locataire Azure Active Directory. Pour plus d’informations, consultez les pages [Vérifier mes autorisations de compte dans Azure AD](#RoleInAzureAD) et [Attribution de rôles d’administrateur dans Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
@@ -43,12 +43,13 @@ Si vous avez déjà à la fois un compte Office 365 et un abonnement Azure, vous
 
     ![Capture d’écran de la réception de la commande d’Office 365.](./media/billing-use-existing-azure-account-office-365-subscription/15-office-365-order-receipt.png)
 
-Vous êtes prêt. Si vous avez créé l’abonnement Office 365 pour votre organisation, suivez les étapes ci-dessous pour vérifier que vos utilisateurs Azure AD sont maintenant dans Office 365.
+Vous êtes prêt.
+Si vous avez créé l’abonnement Office 365 pour votre organisation, suivez les étapes ci-dessous pour vérifier que vos utilisateurs Azure AD sont maintenant dans Office 365.
 
-1. Ouvrez le centre d’administration Office 365.
+1. Ouvrez le centre d’administration Microsoft 365.
 2. Développez la section **UTILISATEURS**, puis cliquez sur **Utilisateurs actifs**.
 
-    ![Capture d’écran des utilisateurs du centre d’administration Office 365.](./media/billing-use-existing-azure-account-office-365-subscription/16-office-365-admin-center-users.png)
+    ![Capture d’écran des utilisateurs de centre d’administration Microsoft 365](./media/billing-use-existing-azure-account-office-365-subscription/16-microsoft-365-admin-center-users.png)
 
 Une fois que vous êtes inscrit, l’abonnement à Office 365 est ajouté à l’instance Azure Active Directory à laquelle votre abonnement Azure appartient. Pour plus d’informations, consultez les pages [En savoir plus sur les abonnements Azure et Office 365](billing-use-existing-office-365-account-azure-subscription.md#more-about-subs) et [Association des abonnements Azure avec Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
@@ -58,12 +59,12 @@ Une fois que vous êtes inscrit, l’abonnement à Office 365 est ajouté à l�
 
     ![Capture d’écran d’Active Directory sur le Portail Azure.](./media/billing-use-existing-azure-account-office-365-subscription/billing-more-services-active-directory.png)
 3. Cliquez sur**Utilisateurs et groupes** > **Tous les utilisateurs**.
-4. Sélectionnez le nom d’utilisateur. 
+4. Sélectionnez le nom d’utilisateur.
 
     ![Capture d’écran montrant les utilisateurs d’Azure Active Directory.](./media/billing-use-existing-azure-account-office-365-subscription/billing-users-groups.png)
 
 5. Cliquez sur **Rôle de répertoire**.
-  
+
     ![Capture d’écran montrant le rôle de répertoire du Portail Azure.](./media/billing-use-existing-azure-account-office-365-subscription/billing-user-directory-role.png)
 6.  Le rôle **Administrateur global** ou **Administrateur limité** > **Administrateur de facturation** est requis pour créer un abonnement Office 365 pour les utilisateurs dans votre instance d’Azure Active Directory existante.
 
@@ -71,4 +72,4 @@ Une fois que vous êtes inscrit, l’abonnement à Office 365 est ajouté à l�
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 
-Si vous avez des questions ou besoin d’aide, [créer une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458). 
+Si vous avez des questions ou besoin d’aide, [créer une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).

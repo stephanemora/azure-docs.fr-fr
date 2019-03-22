@@ -1,7 +1,7 @@
 ---
-title: Suivre les expériences et les métriques de formation
+title: Consigner les métriques pendant les exécutions d’apprentissage
 titleSuffix: Azure Machine Learning service
-description: Avec le service Azure Machine Learning, vous pouvez effectuer le suivi de vos expérimentations et superviser les métriques pour améliorer le processus de création de modèle. Découvrez comment ajouter la journalisation à votre script d’entraînement, envoyer l’expérimentation, vérifier la progression d’une tâche en cours d’exécution et afficher les résultats d’une exécution.
+description: Vous pouvez effectuer le suivi de vos expériences et surveiller les mesures pour améliorer le processus de création de modèle. Découvrez comment ajouter la journalisation à votre script d’entraînement, envoyer l’expérimentation, vérifier la progression d’une tâche en cours d’exécution et afficher les résultats d’une exécution.
 services: machine-learning
 author: heatherbshapiro
 ms.author: hshapiro
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 79247c4c1f26fadcd5f0291b55c9dd8d4d9aa2af
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 835d1f41ffe940422554a8ca59d0a91ac8e98607
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58008816"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336592"
 ---
-# <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Suivre les expérimentations et les métriques d’entraînement dans Azure Machine Learning
+# <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Métriques de journal pendant la formation s’exécute dans Azure Machine Learning
 
 Dans le service Azure Machine Learning, vous pouvez effectuer le suivi de vos expérimentations et superviser les métriques pour améliorer le processus de création de modèle. Dans cet article, découvrez comment ajouter la journalisation à votre script de formation, envoyer une exécution d’expérience, surveillez l’exécution et afficher les résultats d’une exécution.
 
@@ -218,7 +218,7 @@ Cet exemple s’appuie sur le modèle Ridge sklearn de base ci-dessus. Il effect
    ```
 
 ## <a name="cancel-a-run"></a>Annuler une exécution
-Vous pouvez annuler une exécution déjà soumise même si vous avez perdu la référence d’objet, tant que vous connaissez le nom de l’expérience et l’ID d’exécution. 
+Une fois une exécution est envoyée, vous pouvez l’annuler même si vous avez perdu la référence d’objet, tant que vous connaissez le nom de l’expérience et id d’exécution. 
 
 ```python
 from azureml.core import Experiment

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3e1d5ed05b7acc8f7e0fcc772a4124984c6cba45
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: ae435c379a55ee2b3246cb3e757b79295c57988e
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884527"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338290"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---storage-best-practices"></a>Migrer des clusters Apache Hadoop locaux vers Azure HDInsight - bonnes pratiques concernant le stockage
 
@@ -221,7 +221,6 @@ Vous pouvez ajouter un compte de stockage supplémentaire de l’une des façons
 
 Pour plus d’informations, consultez les articles suivants :
 - [Ajouter des comptes de stockage supplémentaires à HDInsight](../hdinsight-hadoop-add-storage.md)
-- [Attacher des comptes de stockage Azure supplémentaires au cluster](https://blogs.msdn.microsoft.com/ashish/2016/08/25/hdinsight-attach-additional-azure-storage-accounts/)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

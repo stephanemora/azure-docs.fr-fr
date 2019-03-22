@@ -7,15 +7,15 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 11/27/2018
+ms.date: 03/21/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: dda3725be7549d90223b33608939c392bdf66852
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 69b33b9629863702d576eac39fb4097a2bff2e57
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217969"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337566"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-sql-data-warehouse"></a>Supervision de l’utilisation des ressources et de l’activité des requêtes dans Azure SQL Data Warehouse
 Azure SQL Data Warehouse fournit une expérience de supervision enrichie dans le portail Azure pour intégrer des insights à la charge de travail de votre entrepôt de données. Le portail Azure est l’outil recommandé pour superviser votre entrepôt de données car il offre des périodes de conservation configurables, des alertes, des suggestions, ainsi que des graphiques et des tableaux de bord personnalisables pour les métriques et les journaux. Le portail vous permet également d’intégrer d’autres services de surveillance Azure tels que Operations Management Suite (OMS) et Azure Monitor (journaux) pour fournir une expérience de surveillance holistique pour votre entrepôt de données, mais également votre ensemble analytique Azure plateforme pour une expérience de surveillance intégrée. Cette documentation décrit les fonctionnalités de supervision disponibles pour optimiser et gérer votre plateforme d’analytique avec SQL Data Warehouse. 
@@ -46,7 +46,7 @@ Pour une expérience de programmation lors de la supervision de SQL Data Warehou
 Pour afficher la liste des vues DMV fournies par SQL Data Warehouse, reportez-vous à cette [documentation](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views#sql-data-warehouse-dynamic-management-views-dmvs). 
 
 ## <a name="metrics-and-diagnostics-logging"></a>Journalisation des métriques et des diagnostics
-Métriques et journaux peuvent être exportées vers Azure Monitor, en particulier le [Azure Monitor enregistre](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) composant et sont accessibles par programme via [recherche dans les journaux](https://docs.microsoft.com/azure/log-analytics/log-analytics-tutorial-viewdata).
+Métriques et journaux peuvent être exportées vers Azure Monitor, en particulier le [Azure Monitor enregistre](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) composant et sont accessibles par programme via [enregistrer des requêtes](https://docs.microsoft.com/azure/log-analytics/log-analytics-tutorial-viewdata). La latence de journal pour SQL Data Warehouse est d’environ 10 à 15 minutes. Pour plus d’informations sur les facteurs ayant un impact sur la latence, consultez la documentation suivante.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

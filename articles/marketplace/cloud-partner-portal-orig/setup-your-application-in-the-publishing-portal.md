@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 58be8a222f649abe4be6de272a1ef2b686336262
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8ac0fbb1c62e4162e1c4ad040365a16d055e4552
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57847125"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310015"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>Configurer votre application dans le portail de publication
 
@@ -53,7 +53,7 @@ Le formulaire Paramètres de l’offre est un formulaire de base. Les différent
 
 Il s’agit d’un identificateur unique pour l’offre au sein d’un profil d’éditeur. Cet ID sera visible dans les URL de produit. Il ne peut comprendre que des caractères alphanumériques en minuscules ou des tirets (-). Il ne peut pas se terminer par un tiret et ne peut pas comprendre plus de 50 caractères. Ce champ est verrouillé une fois l’offre publiée.
 
-Par exemple, si un éditeur **contoso** publie une offre avec l’ID d’offre **« sample-WebApp »**, celle-ci apparaît dans AppSource sous la forme suivante « https://appsource.microsoft.com/marketplace/apps/contoso.sample-WebApp?tab=Overview »
+par exemple, si un serveur de publication **« contoso »** les serveurs de publication crée une offre par ID d’offre **« exemple WebApp »**, il s’affichera dans AppSource en tant que « https :\//appsource.microsoft.com/marketplace/apps/contoso.sample-WebApp?tab=Overview »
 
 ### <a name="publisher-id"></a>ID de l’éditeur
 

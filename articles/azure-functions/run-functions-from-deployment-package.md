@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: glenga
-ms.openlocfilehash: 292b25987f183df2091667312d4e6730b7f40dda
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 57126c87879da9f99d224457433bbbd5f95ef021
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990898"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336726"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Exécuter des fonctions Azure à partir d’un fichier de package
 
@@ -44,7 +44,7 @@ Pour permettre à votre application de fonction de s’exécuter à partir d’u
 
 | Valeur  | Description  |
 |---------|---------|
-| **`1`**  | Recommandé pour les applications de fonction qui s’exécutent sur Windows. Lancez l’exécution à partir d’un fichier de package dans le dossier `d:\home\data\SitePackages` de votre application de fonction. Si ce n’est pas le cas [déploiement avec zip déployer] (#intégration-avec-zip-déploiement], cette option nécessite que le dossier ait également un fichier nommé `packagename.txt`. Ce fichier contient uniquement le nom du fichier de package du dossier, sans espace. |
+| **`1`**  | Recommandé pour les applications de fonction qui s’exécutent sur Windows. Lancez l’exécution à partir d’un fichier de package dans le dossier `d:\home\data\SitePackages` de votre application de fonction. Si ce n’est pas [déploiement avec zip déployer](#integration-with-zip-deployment), cette option nécessite que le dossier ait également un fichier nommé `packagename.txt`. Ce fichier contient uniquement le nom du fichier de package du dossier, sans espace. |
 |**`<url>`**  | Emplacement d’un fichier de package que vous souhaitez exécuter. Lorsque vous utilisez le stockage Blob, vous devez utiliser un conteneur privé avec une [signature d’accès partagé (SAP)](../vs-azure-tools-storage-manage-with-storage-explorer.md#attach-a-storage-account-by-using-a-shared-access-signature-sas) pour permettre au runtime Functions d’accéder au package. Vous pouvez utiliser [l’Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) pour charger des fichiers de package sur votre compte Stockage Blob.         |
 
 > [!CAUTION]

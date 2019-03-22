@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/01/2017
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2dfbb618bafd9ae3cbb0c691e63a243ab2c2c31e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 645fb4e939e308eecdd2b6933197493919c2dd1d
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57996544"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338579"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Guide pratique de l’utilisation d’identités managées pour ressources Azure sur une machine virtuelle Azure pour se connecter 
 
@@ -80,7 +80,7 @@ Le script suivant montre comment :
 
 ## <a name="resource-ids-for-azure-services"></a>ID de ressource pour les services Azure
 
-Pour obtenir la liste des ressources qui prennent en charge Azure AD et qui ont été testées avec des identités managées pour ressources Azure et leurs ID de ressource respectifs, voir [Services Azure prenant en charge Azure AD Authentication](services-support-msi.md#azure-services-that-support-azure-ad-authentication).
+Pour obtenir la liste des ressources qui prennent en charge Azure AD et qui ont été testées avec des identités managées pour ressources Azure et leurs ID de ressource respectifs, voir [Services Azure prenant en charge Azure AD Authentication](services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 ## <a name="error-handling-guidance"></a>Conseil de gestion des erreurs 
 

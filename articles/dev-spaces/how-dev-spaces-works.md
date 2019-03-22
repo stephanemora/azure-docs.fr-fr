@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: Décrit les processus qu’espaces de développement Azure power et comment ils sont configurés dans le fichier de configuration azds.yaml
 keywords: azds.yaml, espaces de développement Azure, les espaces de développement, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs
-ms.openlocfilehash: 4d0b2d24335b03fb1afc729e4cb8f7fc07f8a77e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: HT
+ms.openlocfilehash: 8d17be31acc6868399e8f785255d28fa2314d48c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57457334"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316114"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Comment les espaces de développement Azure fonctionne et est configuré
 
@@ -59,7 +59,7 @@ Les outils côté client permet à l’utilisateur :
 
 Pendant que votre application est en cours d’exécution, la côté client des outils également :
 * Reçoit et affiche les stdout et stderr à partir de votre application en cours d’exécution dans ACS.
-* Utilise [port-forward](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/) pour autoriser l’accès web à votre application en utilisant http://locahost.
+* Utilise [port-forward](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/) pour autoriser l’accès web à votre application à l’aide de http :\//localhost.
 * Joint un débogueur à votre application en cours d’exécution dans ACS.
 * Les synchronisations du code source pour votre espace de développement lorsqu’une modification est détectée pour les builds incrémentielles, ce qui permet une itération rapide.
 

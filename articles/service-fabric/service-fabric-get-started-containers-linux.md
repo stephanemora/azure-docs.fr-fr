@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/4/2019
 ms.author: aljo
-ms.openlocfilehash: 78bf30c01bc240d4fc7439ab14868bf7be90b17e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c27938ad28abc62f42024faae7931196704b9b1b
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57895822"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314567"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Créer votre première application de conteneur Service Fabric sur Linux
 > [!div class="op_single_selector"]
@@ -122,7 +122,7 @@ docker run -d -p 4000:80 --name my-web-site helloworldapp
 
 *name* donne un nom au conteneur en cours d’exécution (au lieu d’utiliser l’ID de conteneur).
 
-Connectez le conteneur en cours d’exécution. Ouvrez un navigateur web qui pointe vers l’adresse IP renvoyée sur le port 4000, par exemple « http://localhost:4000 ». Vous devez voir le titre « Hello World ! » s’afficher dans le navigateur.
+Connectez le conteneur en cours d’exécution. Ouvrez un navigateur web pointant vers l’adresse IP renvoyée sur le port 4000, par exemple « http :\//localhost:4000 ». Vous devez voir le titre « Hello World ! » s’afficher dans le navigateur.
 
 ![Hello World!][hello-world]
 
@@ -271,9 +271,9 @@ Utilisez le script d’installation fourni dans le modèle à l’adresse https:
 ./install.sh
 ```
 
-Ouvrez un navigateur et accédez à Service Fabric Explorer à l’adresse http://localhost:19080/Explorer (remplacez localhost par l’adresse IP privée de la machine virtuelle si vous utilisez Vagrant sur Mac OS X). Développez le nœud Applications et notez qu’il existe désormais une entrée pour votre type d’application et une autre pour la première instance de ce type.
+Ouvrez un navigateur et accédez à Service Fabric Explorer à http :\//localhost:19080 / Explorer (remplacez localhost par l’adresse IP privée de la machine virtuelle si vous utilisez Vagrant sur Mac OS X). Développez le nœud Applications et notez qu’il existe désormais une entrée pour votre type d’application et une autre pour la première instance de ce type.
 
-Connectez le conteneur en cours d’exécution. Ouvrez un navigateur web qui pointe vers l’adresse IP renvoyée sur le port 4000, par exemple « http://localhost:4000 ». Vous devez voir le titre « Hello World ! » s’afficher dans le navigateur.
+Connectez le conteneur en cours d’exécution. Ouvrez un navigateur web pointant vers l’adresse IP renvoyée sur le port 4000, par exemple « http :\//localhost:4000 ». Vous devez voir le titre « Hello World ! » s’afficher dans le navigateur.
 
 ![Hello World!][hello-world]
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 94a0d3f19e595ac040d908ea47d6332ceae0943c
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: 8793f6f4d135d6099541d24aa5f5cfc0b6c21b30
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314803"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339429"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-search"></a>Comment créer un filtre de facette dans la Recherche Azure 
 
@@ -84,7 +84,7 @@ Dans l’API .NET, les attributs de filtrage doivent être définis explicitemen
 
 ## <a name="build-and-load-an-index"></a>Créer et charger un index
 
-La [création et le remplissage de l’index](https://docs.microsoft.com/azure/search/search-create-index-dotnet#create-the-index) sont une étape intermédiaire (et peut-être évidente) avant la formulation d’une requête. Nous signalons cette étape ici par souci d’exhaustivité. Une manière de déterminer si l’index est disponible consiste à vérifier la liste des index dans le [portail](https://portal.azure.com).
+La [création et le remplissage de l’index](https://docs.microsoft.com/azure/search/search-create-index-dotnet#3---construct-index) sont une étape intermédiaire (et peut-être évidente) avant la formulation d’une requête. Nous signalons cette étape ici par souci d’exhaustivité. Une manière de déterminer si l’index est disponible consiste à vérifier la liste des index dans le [portail](https://portal.azure.com).
 
 ## <a name="add-facet-filters-to-a-query"></a>Ajoutez des filtres de facettes à une requête
 
@@ -128,4 +128,3 @@ Il s’agit d’un cas d’usage courant, mais non fourni de manière prête à 
 + [Filtres dans Recherche Azure](search-filters.md)
 + [Création d’une API REST d’index](https://docs.microsoft.com/rest/api/searchservice/create-index)
 + [API REST de recherche de documents](https://docs.microsoft.com/rest/api/searchservice/search-documents)
-

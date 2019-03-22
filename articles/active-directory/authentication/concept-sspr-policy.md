@@ -1,5 +1,5 @@
 ---
-title: Stratégies de réinitialisation de mot de passe en libre-service Azure AD
+title: Stratégies - Azure Active Directory de réinitialisation de mot de passe Azure AD libre-service
 description: Configurez les options de stratégie de réinitialisation de mot de passe en libre-service Azure AD
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6888a8787856ef23c459c7ffc18f8e2b4de17f6f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 36959582a3866426f8dc0e9969210e29e751ea60
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901133"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311898"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Stratégies et restrictions de mot de passe dans Azure Active Directory
 

@@ -16,12 +16,12 @@ ms.date: 02/18/2019
 ms.author: celested
 ms.reviewer: luleon, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 225676b144d042c51a97fe14a20a5a78f0a77244
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 623d684f701df8b1a7c4b84a2bd3840f039ad174
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58013098"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312697"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problèmes de connexion à une application de la galerie configurée pour l’authentification unique fédérée
 
@@ -33,7 +33,7 @@ Pour résoudre les problèmes de connexion ci-dessous, nous vous recommandons de
 
 ## <a name="application-not-found-in-directory"></a>Application introuvable dans le répertoire
 
-*Erreur AADSTS70001 : L’application associée à l’identificateur « https://contoso.com » est introuvable dans le répertoire*.
+*Erreur AADSTS70001 : Application avec l’identificateur « https :\//contoso.com » est introuvable dans le répertoire*.
 
 **Cause possible**
 
@@ -63,7 +63,7 @@ Vérifiez que le `Issuer` attribut dans la demande SAML correspond à la valeur 
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>L’adresse de réponse ne correspond pas à l’adresse de réponse configurée pour l’application
 
-*Erreur AADSTS50011 : L’adresse de réponse « https://contoso.com » ne correspond pas aux adresses de réponse configurées pour l’application*
+*Erreur AADSTS50011 : L’adresse de réponse « https :\//contoso.com' ne correspond pas à des adresses de réponse configurées pour l’application*
 
 **Cause possible**
 

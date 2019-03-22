@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: e4a48312dc516010b7a7fe1471ba7e555a2f92f2
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
-ms.translationtype: HT
+ms.openlocfilehash: fdb9b6c09e81ce29d2587fb0faca1aa80d28ea38
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382255"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309977"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio"></a>Déployer localement l’accélérateur de solution de surveillance à distance - Visual Studio
 
@@ -23,7 +23,7 @@ Cet article montre comment déployer l’accélérateur de solution de surveilla
 
 Si vous souhaitez exécuter l’accélérateur de solution de surveillance à distance dans un Docker sur votre ordinateur local, consultez [Déployer localement l’accélérateur de solution de surveillance à distance - Docker](iot-accelerators-remote-monitoring-deploy-local-docker.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour déployer les services Azure utilisés par l’accélérateur de solution de surveillance à distance, vous avez besoin d’un abonnement Azure actif.
 
@@ -96,7 +96,7 @@ npm install
 npm start
 ```
 
-Une fois le démarrage terminé, votre navigateur affiche la page **http://localhost:3000/dashboard**. Les erreurs présentes sur cette page sont attendues. Pour afficher l’application sans erreur, procédez comme suit.
+Lorsque le démarrage est terminé, votre navigateur affiche la page **http :\//localhost:3000 / tableau de bord**. Les erreurs présentes sur cette page sont attendues. Pour afficher l’application sans erreur, procédez comme suit.
 
 ### <a name="configure-and-run-nginx"></a>Configurer et exécuter NGINX
 
@@ -109,7 +109,7 @@ Pour plus d’informations sur l’exécution de **nginx**, consultez [nginx pou
 
 ### <a name="connect-to-the-dashboard"></a>Connexion au tableau de bord
 
-Pour accéder au tableau de bord de la solution de surveillance à distance, accédez à [http://localhost:9000](http://localhost:9000) dans votre navigateur.
+Pour accéder à du tableau de bord solution de surveillance à distance, accédez à http :\//localhost:9000 dans votre navigateur.
 
 ## <a name="clean-up"></a>Nettoyer
 

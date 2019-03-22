@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 7d877f467f06768c31679752d9deff1ca19d0003
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 023d12764e3dcfcf2f5471cb431528a14fbc1fed
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882873"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339633"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Activer la journalisation des diagnostics pour les applications dans Azure App Service
 ## <a name="overview"></a>Présentation
@@ -115,10 +115,10 @@ Pour télécharger les fichiers journaux à l’aide de l’interface de ligne d
 
     az webapp log download --resource-group resourcegroupname --name appname
 
-Cette commande enregistre les journaux de l’application nommée « appname » dans un fichier **diagnostics.zip** du répertoire actif.
+Cette commande enregistre les journaux de l’application nommée « appname » dans un fichier nommé **webapp_logs.zip** dans le répertoire actif.
 
 > [!NOTE]
-> Si vous n’avez pas installé ou configuré Azure CLI de manière à utiliser votre abonnement Azure, consultez [Guide pratique pour utiliser Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+> Si vous n’avez pas installé ou configuré Azure CLI de manière à utiliser votre abonnement Azure, consultez la page [Guide pratique pour utiliser Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
 >
 >
 

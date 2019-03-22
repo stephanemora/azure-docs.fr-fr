@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 228d7b6994c67f9e14424624d264061634d80f27
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 78ef88d0710e8a82d30fa26b60073aa75e363c15
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58080063"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315298"
 ---
 # <a name="about-the-collector-appliance"></a>À propos de l’appliance Collector
 
@@ -82,7 +82,7 @@ Vous devez effectuer quelques vérifications de prérequis pour vous assurer que
 ### <a name="connect-to-the-internet-via-a-proxy"></a>Se connecter à Internet via un proxy
 
 - Si le serveur proxy requiert une authentification, vous pouvez spécifier le nom d’utilisateur et le mot de passe quand vous configurez le collecteur.
-- L’adresse IP/le nom FQDN du serveur proxy doit être spécifié sous la forme *http://IPaddress* ou *http://FQDN*.
+- L’adresse IP ou le FQDN du serveur Proxy doit être spécifié en tant que *http :\//IPaddress* ou *http :\//FQDN*.
 - Seuls les proxys HTTP sont pris en charge. Les serveurs proxy HTTPS ne sont pas pris en charge par le Collecteur.
 - Si le serveur proxy est un proxy d’interception, vous devez importer le certificat de proxy sur la machine virtuelle Collecteur.
   1. Dans la machine virtuelle du collecteur, accédez au **Menu Démarrer** > **Gérer les certificats d’ordinateur**.

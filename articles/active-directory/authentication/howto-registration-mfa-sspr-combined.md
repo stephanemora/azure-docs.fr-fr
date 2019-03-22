@@ -1,5 +1,5 @@
 ---
-title: Prise en main d’enregistrement combiné pour Azure AD SSPR et MFA (version préliminaire)
+title: Prise en main d’enregistrement combiné pour Azure AD SSPR et MFA (version préliminaire) - Azure Active Directory
 description: Activer combinées à l’authentification multifacteur Azure AD et l’inscription (version préliminaire) de réinitialisation de mot de passe libre-service
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a6896e2b9633b8de679e8d14a7957dc0e3229e7
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 25450d49fd32adf12ac6c8a71671a9cb796b06c4
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226723"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317440"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Activer combinée sécurité informations inscription (version préliminaire)
 

@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 2/20/2019
+ms.date: 3/21/2019
 ms.author: victorh
-ms.openlocfilehash: 1f6d6b2ae5fd3a0c08d37b93c73656ac6bb71d67
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
-ms.translationtype: HT
+ms.openlocfilehash: 87ca7cae8e9170c8c437d0961cb1acb2e0dd0eb1
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295638"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337644"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Vue d’ensemble des enregistrements d’alias Azure DNS
 
@@ -20,9 +20,9 @@ Les enregistrements d’alias Azure DNS sont des qualifications sur un jeu d’e
 
 Un jeu d’enregistrements d’alias est pris en charge pour les types d’enregistrements suivants dans une zone Azure DNS : 
 
-- A 
-- AAAA 
-- CNAME 
+- A
+- AAAA
+- CNAME
 
 > [!NOTE]
 > Si vous envisagez d'utiliser un enregistrement d'alias pour les types d'enregistrements A ou AAAA afin de pointer vers un profil [​Azure Traffic Manager](../traffic-manager/quickstart-create-traffic-manager-profile.md), vous devez vous assurer que le profil Traffic Manager ne comporte que des [points de terminaison externes](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints). Vous devez fournir l'adresse IPv4 ou IPv6 des points de terminaison externes dans Traffic Manager. Idéalement, utilisez des adresses IP statiques.
@@ -32,7 +32,7 @@ Un jeu d’enregistrements d’alias est pris en charge pour les types d’enreg
 - **Pointer vers une ressource d’adresse IP publique à partir d’un jeu d’enregistrements A/AAAA DNS.** Vous pouvez créer un jeu d’enregistrements A/AAAA et en faire un jeu d’enregistrements d’alias pour pointer vers une ressource d’adresse IP publique. Le jeu d'enregistrements DNS est automatiquement activé si l'adresse IP publique change ou est supprimée. Les enregistrements DNS non résolus qui pointent vers des adresses IP incorrectes sont évités.
 
 - **Pointer vers un profil Traffic Manager à partir d’un jeu d’enregistrements A/AAAA/CNAME DNS.** Vous pouvez créer un jeu d'enregistrements A/AAAA ou CNAME et utiliser des enregistrements d'alias pour le diriger vers un profil Traffic Manager. Cela s'avère particulièrement utile lorsque vous devez acheminer le trafic à l'extrémité d'une zone, car les enregistrements CNAME traditionnels ne sont pas pris en charge pour une extrémité de zone. Supposons par exemple que votre profil Traffic Manager soit myprofile.trafficmanager.net et que la zone DNS de votre entreprise soit contoso.com. Vous pouvez créer un jeu d'enregistrements d'alias de type A/AAAA pour contoso.com (l'extrémité de la zone) et pointer vers myprofile.trafficmanager.net.
-
+- **Pointez sur un point de terminaison Azure Content Delivery Network (CDN)**. Cela est utile lorsque vous créez des sites Web statiques à l’aide du stockage Azure et Azure CDN.
 - **Pointer vers un autre jeu d’enregistrements DNS au sein de la même zone.** Les enregistrements d’alias peuvent référencer d’autres jeux d’enregistrements du même type. Par exemple, un jeu d'enregistrements DNS CNAME peut être un alias d'un autre jeu d'enregistrements CNAME. Cette disposition est utile si vous voulez que certains jeux d’enregistrements d’alias soient des alias et d’autres des non-alias.
 
 ## <a name="scenarios"></a>Scénarios
@@ -61,6 +61,7 @@ Ce problème peut être résolu en utilisant des enregistrements d'alias. Contra
 Par exemple, contoso.com et www\.contoso.com peut pointer vers le même profil Traffic Manager. Pour en savoir plus sur l'utilisation des enregistrements d'alias avec les profils Azure Traffic Manager, consultez la section Étapes suivantes.
 
 ### <a name="point-zone-apex-to-azure-cdn-endpoints"></a>Point d’extrémité de la zone pour les points de terminaison Azure CDN
+
 Tout comme un profil Traffic Manager, vous pouvez également utiliser des enregistrements d’alias pour pointer votre apex de la zone DNS vers les points de terminaison Azure CDN. Cela est utile lorsque vous créez des sites Web statiques à l’aide du stockage Azure et Azure CDN. Vous pouvez ensuite accéder au site Web sans ajoutant le préfixe « www » à votre nom DNS.
 
 Par exemple, si votre site Web statique se nomme www.contoso.com, vos utilisateurs peuvent accéder à votre site à l’aide de contoso.com sans avoir besoin d’ajouter des www au nom DNS.

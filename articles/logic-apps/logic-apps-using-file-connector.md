@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, LADocs
 ms.topic: article
 ms.date: 01/13/2019
-ms.openlocfilehash: c5128e904e540deeb3293fb687da4e8cafcfa1e0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a933824e9553ee7f638da495b46ebed19e04169d
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57870992"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316964"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Se connecter aux systèmes de fichiers locaux avec Azure Logic Apps
 
@@ -48,7 +48,7 @@ Pour suivre l'exemple, vous devez disposer de ce qui suit :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) et ouvrez votre application logique dans le concepteur d’application logique, si elle n’est pas déjà ouverte.
 
-1. Dans la zone de recherche, entrez « dropbox » comme filtre. Dans la liste des déclencheurs, sélectionnez ce déclencheur : **Quand un fichier est créé** 
+1. Dans la zone de recherche, entrez « dropbox » comme filtre. Dans la liste des déclencheurs, sélectionnez ce déclencheur : **Quand un fichier est créé**
 
    ![Sélectionner un déclencheur Dropbox](media/logic-apps-using-file-connector/select-dropbox-trigger.png)
 
@@ -78,7 +78,7 @@ Pour suivre l'exemple, vous devez disposer de ce qui suit :
    | **gateway** | Oui | <*installed-gateway-name*> | Le nom de la passerelle que vous avez installée précédemment | 
    ||| 
 
-1. Lorsque vous êtes prêt, choisissez **Créer**. 
+1. Lorsque vous êtes prêt, choisissez **Créer**.
 
    Logic Apps configure et teste votre connexion pour vérifier son bon fonctionnement. 
    Si la connexion est configurée correctement, des options apparaissent pour l’action que vous avez sélectionnée précédemment. 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 4128ad53f30e74fb72f6256b78587cc222f4c282
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 38d403be1dc35b8ab4cd1b15fa259b5e6917197c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838712"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314448"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Utiliser le service StorSimple Device Manager pour afficher et gérer les alertes StorSimple
 
@@ -202,7 +202,7 @@ En cas d'échec de la connexion au cloud sur votre appareil de production StorS
 | Impossible de démarrer les services StorSimple. |Erreur de chemin d’accès des données |Si le problème persiste, contactez le support technique Microsoft. |
 | Adresse IP en double détectée pour « Data0 ». | |Le système a détecté un conflit pour l’adresse IP 10.0.0.1. La ressource réseau « Data0 » sur l’appareil *<device1>* est hors connexion. Assurez-vous que cette adresse IP n’est pas utilisée par une autre entité de ce réseau. Pour résoudre les problèmes de réseau, consultez la section [Résolution des problèmes avec l’applet de commande Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Pour obtenir de l’aide sur la résolution de ce problème, contactez votre administrateur réseau. Si le problème persiste, contactez le support technique Microsoft. |
 | Adresse IPv4 (ou IPv6) de « Data0 » hors connexion. | |La ressource réseau « Data0 » pourvue de l’adresse IP 10.0.0.1. et de la longueur de préfixe 22 sur l’appareil *<device1>* est hors connexion. Assurez-vous que les ports de commutateur auxquels cette interface est connectée sont opérationnels. Pour résoudre les problèmes de réseau, consultez la section [Résolution des problèmes avec l’applet de commande Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
-| Impossible de se connecter au service d’authentification. |Erreur de chemin d’accès des données |L’URL qui est utilisée pour l’authentification n’est pas accessible. Vérifiez que vos règles de pare-feu incluent les modèles d’URL spécifiés pour l’appareil StorSimple. Pour plus d’informations sur les modèles d’URL dans le portail Azure, accédez à https://aka.ms/ss-8000-network-reqs. Si vous utilisez le Cloud Azure Government, accédez aux modèles d’URL dans https://aka.ms/ss8000-gov-network-reqs.|
+| Impossible de se connecter au service d’authentification. |Erreur de chemin d’accès des données |L’URL qui est utilisée pour l’authentification n’est pas accessible. Vérifiez que vos règles de pare-feu incluent les modèles d’URL spécifiés pour l’appareil StorSimple. Pour plus d’informations sur les modèles d’URL dans le portail Azure, accédez à https :\//aka.ms/ss-8000-network-reqs. Si vous utilisez le Cloud Azure Government, accédez aux modèles d’URL https :\//aka.ms/ss8000-gov-network-reqs.|
 
 ### <a name="performance-alerts"></a>Alertes de performances
 

@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/12/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 2d7dc6eb5ee77804f0c8c87ee2e5a5dd1d0dc30a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 61ebebaf61d1cbbc72f3e12b5ff516924cc9b8c7
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57841121"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317746"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Conseils de migration pour le passage de Media Services v2 à Media Services v3
 
@@ -29,7 +29,7 @@ Cet article décrit les changements introduits dans Azure Media Services v3, mon
 Si vous avez un service vidéo développé aujourd’hui sur la base des [API héritées de Media Services v2](../previous/media-services-overview.md), vous devez prendre en compte les instructions et considérations suivantes avant d’opérer une migration vers les API v3. Les API v3 présentent un grand nombre d’avantages et de fonctionnalités nouvelles qui améliorent l’expérience de développement et les fonctionnalités de Media Services. Toutefois, comme mentionné dans la section [Problèmes connus](#known-issues) de cet article, il existe certaines limitations résultant de différences entre les versions d’API. Cette page sera actualisée à mesure que l’équipe Media Services apportera des améliorations continues aux API v3, et traitera des différences entre les versions. 
 
 > [!NOTE]
-> Actuellement, vous ne pouvez pas utiliser le portail Azure pour gérer des ressources v3. Utilisez l’[API REST](https://aka.ms/ams-v3-rest-sdk), Azure CLI ou l’un des kits de développement logiciel (SDK) pris en charge.
+> Actuellement, vous ne pouvez pas utiliser le portail Azure pour gérer des ressources v3. Utilisez le [API REST](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), ou l’un des prises en charge [kits de développement logiciel](developers-guide.md).
 
 ## <a name="benefits-of-media-services-v3"></a>Avantages de Media Services v3
 

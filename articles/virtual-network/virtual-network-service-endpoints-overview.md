@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: ac166161624840aae39e84aa4b149fe58a6c978e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 72cbf71077a8df2b81b366d9f29ae006100da471
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780862"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310538"
 ---
 # <a name="virtual-network-service-endpoints"></a>Points de terminaison de service de réseau virtuel
 
@@ -42,6 +42,7 @@ Cette fonctionnalité est disponible pour les services et régions Azure suivant
 **Préversion publique**
 
 - **[Azure Database for MariaDB](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)**  : préversion disponible dans toutes les régions Azure où Azure Database for MariaDB est disponible.
+- **[Registre de conteneurs Azure](../container-registry/container-registry-vnet.md)**: Afficher un aperçu disponible dans toutes les régions Azure où Azure Container Registry est disponible.
 
 Pour obtenir les notifications les plus récentes, vérifiez la page [Mises à jour du réseau virtuel Microsoft Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 

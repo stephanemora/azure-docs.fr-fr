@@ -5,14 +5,14 @@ author: msmbaldwin
 manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
-ms.date: 02/01/2018
+ms.date: 03/19/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 3da4662885b2b09c6474a1a6ceafd627e71cf236
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d34ef1bb5bea6f5f099f7fa2a24ddec2362b44ea
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081030"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336182"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Utilisation de la suppression réversible Key Vault avec l’interface PowerShell
 
@@ -101,10 +101,10 @@ Quand la suppression réversible est activée :
 Vous pouvez afficher les coffres de clé associés à votre abonnement qui sont à l’état supprimé en exécutant la commande suivante :
 
 ```powershell
-PS C:\> Get-AzKeyVault -InRemovedState 
+Get-AzKeyVault -InRemovedState 
 ```
 
-- *Id* permet d’identifier la ressource durant la récupération ou le vidage. 
+- *ID* peut être utilisé pour identifier la ressource lors de la récupération ou de purge. 
 - *ID de ressource* est l’ID de ressource d’origine de ce coffre. Ce coffre de clés étant maintenant à l’état supprimé, il n’existe aucune ressource avec cet ID de ressource. 
 - *Date de vidage planifiée* indique quand le coffre sera supprimé définitivement si aucune action n’est effectuée. La période de rétention par défaut, utilisée pour calculer la *Date de vidage planifiée*, est de 90 jours.
 
@@ -233,8 +233,27 @@ L’énumération des objets du coffre de clés supprimés indique également qu
 >[!IMPORTANT]
 >Un objet de coffre dont le vidage est déclenché par son champ *Date de vidage planifiée* est supprimé définitivement. Il n’est pas récupérable !
 
+## <a name="enabling-purge-protection"></a>Activation de la Protection de Purge
+
+Lors de la protection contre le vidage est activé, un coffre ou un objet de supprimé état ne peut pas être purgé jusqu'à expiration de la période de rétention de 90 jours de. Ce type de coffre ou d’objet peut toujours être récupéré. Cette fonctionnalité offre la meilleure garantie un coffre ou un objet ne peut jamais être définitivement supprimés jusqu'à ce que la rétention période écoulée.
+
+Vous pouvez activer la protection de purge uniquement si la suppression réversible est également activée. 
+
+Pour activer les deux suppression réversible et purge de protection lors de la création d’un coffre, utilisez le [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault?view=azps-1.5.0) applet de commande :
+
+```powershell
+New-AzKeyVault -Name ContosoVault -ResourceGroupName ContosoRG -Location westus -EnableSoftDelete -EnablePurgeProtection
+```
+
+Pour ajouter une protection de purge à un coffre existant (qui a déjà la suppression réversible est activée), utilisez le [Get-AzKeyVault](/powershell/module/az.keyvault/Get-AzKeyVault?view=azps-1.5.0), [Get-AzResource](/powershell/module/az.resources/get-azresource?view=azps-1.5.0), et [Set-AzResource](/powershell/module/az.resources/set-azresource?view=azps-1.5.0) applets de commande :
+
+```
+($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "ContosoVault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enablePurgeProtection" -Value "true"
+
+Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
+```
+
 ## <a name="other-resources"></a>Autres ressources
 
 - Pour obtenir une présentation de la fonctionnalité de suppression réversible, consultez [Présentation de la suppression réversible d’Azure Key Vault](key-vault-ovw-soft-delete.md).
-- Pour une vue d’ensemble de l’utilisation d’Azure Key Vault, consultez [Présentation d’Azure Key Vault](key-vault-overview.md).
-
+- Pour obtenir une vue d’ensemble de l’utilisation d’Azure Key Vault, consultez [qu’est Azure Key Vault ?](key-vault-overview.md). l = Succeeded}

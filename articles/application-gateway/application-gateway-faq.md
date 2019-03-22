@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/20/2019
 ms.author: victorh
-ms.openlocfilehash: ae55f2abf9815174e7258c2ace949078794c380d
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: HT
+ms.openlocfilehash: f549f9c612797c1c956d6921fe4898a5f8bee9e6
+ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286191"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319412"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Forum aux questions pour Azure Application Gateway
 
@@ -59,7 +59,7 @@ La redirection est prise en charge. Pour en savoir plus, voir [Vue d’ensemble 
 
 ### <a name="in-what-order-are-listeners-processed"></a>Dans quel ordre les écouteurs sont-ils traités ?
 
-Les écouteurs sont traités selon leur ordre d’affichage. Pour cette raison, si un écouteur de base correspond à une demande entrante, il la traite en premier.  Les écouteurs multisites doivent être configurés avant un écouteur élémentaire pour garantir l’acheminement du trafic vers le serveur back-end correct.
+Consultez [ordre de traitement des écouteurs](https://docs.microsoft.com/azure/application-gateway/configuration-overview#order-of-processing-listeners).
 
 ### <a name="where-do-i-find-application-gateways-ip-and-dns"></a>Où puis-je trouver le DNS et l’adresse IP d’Application Gateway ?
 
@@ -83,16 +83,13 @@ Une seule adresse IP publique est prise en charge sur une passerelle d’applica
 
 ### <a name="how-large-should-i-make-my-subnet-for-application-gateway"></a>Quelle taille mon sous-réseau pour Application Gateway doit-il avoir ?
 
-Application Gateway utilise une adresse IP privée par instance, ainsi qu’une autre adresse IP privée si une configuration IP frontale privée est configurée. En outre, Azure réserve les quatre premières et dernière adresses IP dans chaque sous-réseau à un usage interne.
-Par exemple, si une passerelle d’application est définie sur trois instances et aucune adresse IP frontale privée, un sous-réseau de taille /29 ou supérieure est nécessaire. Dans ce cas, la passerelle d’application utilise trois adresses IP. Si vous avez trois instances et une adresse IP pour la configuration IP frontale privée, un sous-réseau de taille /28 ou supérieure est nécessaire, car quatre adresses IP sont requises.
-
-Comme meilleure pratique, utilisez au moins un sous-réseau/28 taille du sous-réseau. Cela vous donne 11 adresses utilisables. Si votre charge de l’application nécessite plus de 10 instances, vous devez envisager / 27 ou/26 taille du sous-réseau.
+Consultez [considérations de taille de sous-réseau de passerelle d’Application](https://docs.microsoft.com/azure/application-gateway/configuration-overview#size-of-the-subnet) pour comprendre la taille de sous-réseau requise pour votre déploiement.
 
 ### <a name="q-can-i-deploy-more-than-one-application-gateway-resource-to-a-single-subnet"></a>Q. Puis-je déployer plusieurs ressources Application Gateway dans un seul sous-réseau ?
 
 Oui, en plus d’avoir plusieurs instances d’un déploiement Application Gateway donné, vous pouvez configurer une autre ressource Application Gateway unique dans un sous-réseau existant qui contient une autre ressource Application Gateway.
 
-La combinaison de Standard_v2 et Standard Application Gateway sur le même sous-réseau n’est pas prise en charge. De plus, si la mise à l’échelle automatique est activée, un sous-réseau ne peut avoir qu’une seule passerelle d’application.
+La combinaison de Standard_v2 et Standard Application Gateway sur le même sous-réseau n’est pas prise en charge.
 
 ### <a name="does-application-gateway-support-x-forwarded-for-headers"></a>Application Gateway prend-il en charge les en-têtes x-forwarded-for ?
 
@@ -152,13 +149,7 @@ Non, mais vous pouvez déployer d’autres passerelles d’application dans le s
 
 ### <a name="are-network-security-groups-supported-on-the-application-gateway-subnet"></a>Les groupes de sécurité réseau sont-ils pris en charge dans le sous-réseau de la passerelle d’application ?
 
-Les groupes de sécurité réseau (NSG) sont pris en charge dans le sous-réseau de la passerelle d’application avec les restrictions suivantes :
-
-* Des exceptions doivent être définies pour le trafic entrant sur les ports 65503-65534 pour la référence SKU v1 d’Application Gateway et les ports 65200-65535 pour la référence SKU v2. Cette plage de ports est nécessaire pour la communication avec l’infrastructure Azure. Ils sont protégés (verrouillés) par des certificats Azure. Sans les certificats appropriés, les entités externes (notamment les clients de ces passerelles) ne peuvent initier aucun changement sur ces points de terminaison.
-
-* La connectivité Internet sortante ne peut pas être bloquée. Les règles de trafic sortant par défaut dans le groupe de sécurité réseau déjà autorisent la connectivité internet. Nous vous recommandons de ne pas supprimer les règles de trafic sortant par défaut et que vous ne créez pas autres règles de trafic sortant qui refusent la connectivité internet sortante.
-
-* Le trafic en provenance de la balise AzureLoadBalancer doit être autorisé.
+Consultez [des restrictions de groupes de sécurité réseau sur le sous-réseau de passerelle d’Application](https://docs.microsoft.com/azure/application-gateway/configuration-overview#network-security-groups-supported-on-the-application-gateway-subnet) en savoir plus sur les groupes de sécurité réseau pris en charge sur le sous-réseau de passerelle d’application.
 
 ### <a name="are-user-defined-routes-supported-on-the-application-gateway-subnet"></a>Les routes définies par l’utilisateur sont-elles prises en charge sur le sous-réseau d’Application Gateway ?
 
@@ -190,7 +181,7 @@ Les sondes personnalisées ne prennent pas en charge les caractères générique
 
 ### <a name="how-are-rules-processed"></a>Comment les règles sont-elles traitées ?
 
-Les règles sont traitées dans l’ordre où elles sont configurées. Il est recommandé de configurer les règles multisites avant les règles élémentaires pour réduire les risques que le trafic soit acheminé vers le serveur backend inapproprié si une règle élémentaire mettait en correspondance le trafic basé sur le port avant l’évaluation de la règle multisite.
+Consultez [ordre des règles de traitement](https://docs.microsoft.com/azure/application-gateway/configuration-overview#order-of-processing-rules) pour comprendre le fonctionnement des règles de routage sont des processus dans Application Gateway.
 
 ### <a name="what-does-the-host-field-for-custom-probes-signify"></a>À quoi correspond le champ Hôte pour les sondes personnalisées ?
 
@@ -356,7 +347,7 @@ Nous avons également publié un modèle Resource Manager qui installe et exécu
 
 ### <a name="backend-health-returns-unknown-status-what-could-be-causing-this-status"></a>L’intégrité du back-end retourne un état inconnu, à quoi est dû cet état ?
 
-La raison la plus courante est le blocage de l’accès au serveur principal par un groupe de sécurité réseau ou un DNS personnalisé. Pour plus d’informations, voir [Intégrité du serveur principal, journalisation des diagnostics et métriques pour Application Gateway](application-gateway-diagnostics.md).
+La raison la plus courante est l’accès pour le serveur principal est bloqué par un groupe de sécurité réseau, serveur DNS personnalisé, ou vous avez un UDR sur le sous-réseau de passerelle d’application. Pour plus d’informations, voir [Intégrité du serveur principal, journalisation des diagnostics et métriques pour Application Gateway](application-gateway-diagnostics.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
