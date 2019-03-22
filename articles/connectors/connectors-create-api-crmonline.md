@@ -1,21 +1,21 @@
 ---
-title: Se connecter à Dynamics 365 – Azure Logic Apps | Microsoft Docs
+title: Se connecter à Dynamics 365 - Azure Logic Apps
 description: Créer et gérer des enregistrements avec les API REST de base de Dynamics 365 (en ligne) et Azure Logic Apps
+services: logic-apps
+ms.service: logic-apps
+ms.suite: integration
 author: Mattp123
 ms.author: matp
-ms.service: logic-apps
-services: logic-apps
 ms.reviewer: estfan, LADocs
-ms.suite: integration
 ms.topic: article
 ms.date: 08/18/2018
 tags: connectors
-ms.openlocfilehash: 9fe41cf2946525948897635a4e30213d161431ef
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
-ms.translationtype: HT
+ms.openlocfilehash: b81efba0ce860bea5fd68dd99ce52980e6816b7e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295298"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310572"
 ---
 # <a name="manage-dynamics-365-records-with-azure-logic-apps"></a>Gérer les enregistrements Dynamics 365 avec Azure Logic Apps
 
@@ -26,13 +26,13 @@ Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azu
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>. 
+* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>.
 
 * Un [compte Dynamics 365](https://dynamics.microsoft.com)
 
 * Des connaissances de base en [création d’applications logiques](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* L’application logique à partir de laquelle vous souhaitez accéder à votre compte Dynamics 365. Pour démarrer votre application logique avec un déclencheur Dynamics 365, vous avez besoin d’une [application logique vide](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
+* L’application logique à partir de laquelle vous souhaitez accéder à votre compte Dynamics 365. Pour démarrer votre application logique avec un déclencheur Dynamics 365, vous avez besoin d’une [application logique vide](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="add-dynamics-365-trigger"></a>Ajouter un déclencheur Dynamics 365
 
@@ -50,8 +50,8 @@ Tout d’abord, ajoutez un déclencheur Dynamics 365 qui se déclenche quand un
 
 1. Fournissez les détails suivants au sujet déclencheur :
 
-   | Propriété | Obligatoire | Description | 
-   |----------|----------|-------------| 
+   | Propriété | Obligatoire | Description |
+   |----------|----------|-------------|
    | **Nom de l’organisation** | Oui | Nom de l’instance de Dynamics 365 de votre organisation à superviser, par exemple, « Contoso » |
    | **Nom de l’entité** | Oui | Nom de l’entité à superviser, par exemple, « Leads » (Prospects) | 
    | **Fréquence** | Oui | Unité de temps, avec intervalles, à utiliser pour vérifier l’existence de mises à jour pour le déclencheur |
@@ -72,21 +72,21 @@ Ajoutez maintenant l’action Dynamics 365 qui crée un enregistrement de tâch
 
 1. Fournissez les détails suivants au sujet de l’action :
 
-   | Propriété | Obligatoire | Description | 
-   |----------|----------|-------------| 
+   | Propriété | Obligatoire | Description |
+   |----------|----------|-------------|
    | **Nom de l’organisation** | Oui | Instance de Dynamics 365 où vous souhaitez créer l’enregistrement ; bien que cette instance puisse différer de l’instance de votre déclencheur, elle porte le nom « Contoso » dans cet exemple. |
-   | **Nom de l’entité** | Oui | Entité où vous souhaitez créer l’enregistrement, par exemple, « Tasks » (Tâches) | 
+   | **Nom de l’entité** | Oui | Entité où vous souhaitez créer l’enregistrement, par exemple, « Tasks » (Tâches) |
    | | |
 
    ![Détails de l’action](./media/connectors-create-api-crmonline/action-details.png)
 
 1. Quand la zone **Objet** s’affiche dans votre action, cliquez dans cette zone afin qu’apparaisse la liste des contenus dynamiques. Dans cette liste, sélectionnez les valeurs de champ à inclure dans l’enregistrement de tâche associé à l’enregistrement du nouveau prospect :
 
-   | Champ | Description | 
-   |-------|-------------| 
+   | Champ | Description |
+   |-------|-------------|
    | **Nom** | Nom de famille du prospect en tant que contact principal dans l’enregistrement |
-   | **Rubrique** | Nom descriptif du prospect dans l’enregistrement | 
-   | | | 
+   | **Rubrique** | Nom descriptif du prospect dans l’enregistrement |
+   | | |
 
    ![Détails de l’enregistrement de la tâche](./media/connectors-create-api-crmonline/create-record-details.png)
 
@@ -109,7 +109,7 @@ Par exemple, vous pouvez utiliser une requête de filtre pour obtenir uniquement
 
    ![Spécifier un filtre et un ordre de tri](./media/connectors-create-api-crmonline/advanced-options.png)
 
-Pour plus d’informations, consultez ces options de requête système de l’API web Dynamics 365 Customer Engagement : 
+Pour plus d’informations, consultez ces options de requête système de l’API web Dynamics 365 Customer Engagement :
 
 * [$filter](https://docs.microsoft.com/dynamics365/customer-engagement/developer/webapi/query-data-web-api#filter-results)
 * [$orderby](https://docs.microsoft.com/dynamics365/customer-engagement/developer/webapi/query-data-web-api#order-results)
@@ -128,19 +128,19 @@ Ce tableau décrit certains des types de champs et les types de données requis 
 | Champs nécessitant à la fois un ID d’enregistrement et un type de recherche | Clé primaire | Certains champs qui font référence à un autre enregistrement d’entité nécessitent un ID d’enregistrement et un type de recherche. | 
 ||||
 
-Sur la base de ces types de champs, voici des exemples de champs dans les déclencheurs et actions Dynamics 365 qui nécessitent un ID d’enregistrement et le type de recherche. Cette exigence signifie que toute valeur que vous sélectionnez dans la liste dynamique ne fonctionne pas. 
+Sur la base de ces types de champs, voici des exemples de champs dans les déclencheurs et actions Dynamics 365 qui nécessitent un ID d’enregistrement et le type de recherche. Cette exigence signifie que toute valeur que vous sélectionnez dans la liste dynamique ne fonctionne pas.
 
-| Champ | Description | 
+| Champ | Description |
 |-------|-------------|
-| **Propriétaire** | Doit être un ID d’utilisateur valide ou un ID d’enregistrement d’équipe. | 
-| **Type de propriétaire** | Doit être **systemusers** ou **teams**. | 
-| **Concernant** | Doit être un ID d’enregistrement valide, tel qu’un ID d’enregistrement de contact ou de compte. | 
-| **Type concernant** | Doit être un type de recherche, tel que **accounts** ou **contacts**. | 
-| **Client** | Doit être un ID d’enregistrement valide, tel qu’un ID d’enregistrement de contact ou de compte. | 
-| **Type de client** | Doit être le type de recherche, tel que **accounts** ou **contacts**. | 
+| **Propriétaire** | Doit être un ID d’utilisateur valide ou un ID d’enregistrement d’équipe. |
+| **Type de propriétaire** | Doit être **systemusers** ou **teams**. |
+| **Concernant** | Doit être un ID d’enregistrement valide, tel qu’un ID d’enregistrement de contact ou de compte. |
+| **Type concernant** | Doit être un type de recherche, tel que **accounts** ou **contacts**. |
+| **Client** | Doit être un ID d’enregistrement valide, tel qu’un ID d’enregistrement de contact ou de compte. |
+| **Type de client** | Doit être le type de recherche, tel que **accounts** ou **contacts**. |
 |||
 
-Dans cet exemple, l’action nommée **Créer un enregistrement** crée un enregistrement de tâche : 
+Dans cet exemple, l’action nommée **Créer un enregistrement** crée un enregistrement de tâche :
 
 ![Créer un enregistrement de tâche avec des ID d’enregistrement et des types de recherche](./media/connectors-create-api-crmonline/create-record-advanced.png)
 
@@ -148,13 +148,13 @@ Cette action assigne l’enregistrement de tâche à un ID d’utilisateur ou d�
 
 ![ID d’enregistrement et type de recherche pour Propriétaire](./media/connectors-create-api-crmonline/owner-record-id-and-lookup-type.png)
 
-Cette action ajoute également un enregistrement de compte qui est associé à l’ID d’enregistrement ajouté dans le champ **Concernant** et au type de recherche dans le champ **Type concernant** : 
+Cette action ajoute également un enregistrement de compte qui est associé à l’ID d’enregistrement ajouté dans le champ **Concernant** et au type de recherche dans le champ **Type concernant** :
 
 ![ID d’enregistrement et type de recherche pour Concernant](./media/connectors-create-api-crmonline/regarding-record-id-lookup-type-account.png)
 
 ## <a name="find-record-id"></a>Rechercher l’ID d’enregistrement
 
-Pour rechercher un ID d’enregistrement, effectuez les étapes suivantes : 
+Pour rechercher un ID d’enregistrement, effectuez les étapes suivantes :
 
 1. Dans Dynamics 365, ouvrez un enregistrement, comme un enregistrement de compte.
 
@@ -175,7 +175,7 @@ Pour rechercher et examiner les étapes ayant échoué dans votre application lo
 
    ![État d’exécution de l’application logique](./media/connectors-create-api-crmonline/run-history.png)
 
-1. Développez une étape ayant échoué afin de voir plus de détails. 
+1. Développez une étape ayant échoué afin de voir plus de détails.
 
    ![Développer l’étape qui a échoué](./media/connectors-create-api-crmonline/expand-failed-step.png)
 
@@ -187,7 +187,7 @@ Pour plus d’informations sur la résolution des problèmes relatifs aux applic
 
 ## <a name="connector-reference"></a>Référence de connecteur
 
-Pour plus d’informations techniques, telles que les déclencheurs, actions et limites, comme décrit dans le fichier Swagger du connecteur, consultez la [page de référence du connecteur](/connectors/dynamicscrmonline/). 
+Pour plus d’informations techniques, telles que des déclencheurs, actions et limites, comme décrit par OpenAPI du connecteur (anciennement Swagger), consultez le [page de référence du connecteur](/connectors/dynamicscrmonline/).
 
 ## <a name="get-support"></a>Obtenir de l’aide
 

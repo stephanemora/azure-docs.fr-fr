@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94d0e469614204a7507ba666ac04e59774eebde7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 225065e35e40c06d324bee89fa65a765a2727233
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204410"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123757"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Autorisations et consentement dans le point de terminaison Azure Active Directory v2.0
 
@@ -213,7 +213,7 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 ```
 
 | Paramètre | Description |
-| --- | --- | --- |
+| --- | --- |
 | `tenant` | Client d’annuaire ayant accordé à votre application les autorisations demandées au format GUID. |
 | `state` | Une valeur incluse dans la requête qui sera également renvoyée dans la réponse de jeton. Il peut s’agir d’une chaîne du contenu de votre choix. La valeur d’état est utilisée pour coder les informations sur l’état de l’utilisateur dans l’application avant la requête d’authentification, comme la page ou l’écran sur lequel ou laquelle il était positionné. |
 | `admin_consent` | Sera défini sur `True`. |
@@ -227,7 +227,7 @@ GET http://localhost/myapp/permissions?error=permission_denied&error_description
 ```
 
 | Paramètre | Description |
-| --- | --- | --- |
+| --- | --- |
 | `error` | Une chaîne de code d’erreur pouvant être utilisée pour classer les types d’erreur se produisant, et pouvant être utilisée pour intervenir face aux erreurs. |
 | `error_description` | Un message d’erreur spécifique qui peut aider un développeur à identifier la cause principale d’une erreur. |
 
