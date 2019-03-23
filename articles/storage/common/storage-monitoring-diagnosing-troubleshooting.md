@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.subservice: common
-ms.openlocfilehash: 51d8b9bad4bb4a3663b07a711f363b263f5d64db
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 6edb1abae91a675a3fe47b417a112f0951886aaf
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339684"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351913"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Surveiller, diagnostiquer et résoudre les problèmes liés à Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -246,7 +246,7 @@ La bibliothèque cliente de stockage génère automatiquement un ID de demande c
 >
 
 ### <a name="server-request-id"></a>ID de la demande serveur
-Le service de stockage génère automatiquement les ID de demande serveur.
+Le service de stockage génère automatiquement un ID de demande serveur.
 
 * Dans le journal de journalisation du stockage côté serveur, l'ID de demande serveur s'affiche dans la colonne **En-tête d’ID de demande**.
 * Dans un suivi réseau comme celui capturé par Fiddler, l'ID de demande serveur s'affiche dans les messages de réponse comme valeur d'en-tête HTTP **x-ms-request-id** .
@@ -814,9 +814,9 @@ Pour plus d’informations sur analytique dans le stockage Azure, consultez ces 
 * [Surveiller un compte de stockage dans le portail Azure](storage-monitor-storage-account.md)
 * [Analytique de stockage](storage-analytics.md)
 * [Métriques de stockage analytique](storage-analytics-metrics.md)
-* [Schéma de table de métriques Storage analytique](/rest/api/storageservices/storage-analytics-metrics-table-schema.md)
+* [Schéma de table de métriques Storage analytique](/rest/api/storageservices/storage-analytics-metrics-table-schema)
 * [Journaux d’analytique de stockage](storage-analytics-logging.md)
-* [Format de stockage de journal analytique](/rest/api/storageservices/storage-analytics-log-format.md)
+* [Format de stockage de journal analytique](/rest/api/storageservices/storage-analytics-log-format)
 
 <!--Anchors-->
 [Introduction]: #introduction

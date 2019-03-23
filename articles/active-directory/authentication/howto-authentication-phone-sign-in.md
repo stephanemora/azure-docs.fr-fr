@@ -12,18 +12,18 @@ manager: daveba
 ms.reviewer: librown
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26dd1bd6717fe0216545d6b3aa729ac2cb19dc9d
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 47e8541b82a1cd38f07684508a96b9789df20e92
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313326"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370379"
 ---
 # <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Connexion par téléphone sans mot de passe avec l’application Microsoft Authenticator (préversion publique)
 
 L’application Microsoft Authenticator vous permet de vous connecter à n’importe quel compte Azure AD sans utiliser de mot de passe. À l’instar de la technologie de [Windows Hello Entreprise](/windows/security/identity-protection/hello-for-business/hello-identity-verification), Microsoft Authenticator a recours à l’authentification par clé pour activer une information d’identification utilisateur qui est liée à un appareil et utilise un code biométrique ou confidentiel.
 
-![Exemple de connexion dans un navigateur demandant à l’utilisateur d’approuver la tentative de connexion dans son application Microsoft Authenticator](./media/howto-authentication-phone-sign-in/phone-sign-in-microsoft-authenticator-app.png)
+![Exemple d’un navigateur connectez-vous demandant pour l’utilisateur à approuver l’authentification dans](./media/howto-authentication-phone-sign-in/phone-sign-in-microsoft-authenticator-app.png)
 
 Au lieu d’obtenir une invite de mot de passe après avoir entré un nom d’utilisateur, une personne qui a activé la connexion par téléphone dans l’application Microsoft Authenticator voit s’afficher un message lui demandant d’entrer un nombre dans son application. Dans l’application, l’utilisateur doit alors sélectionner le nombre correspondant, choisir Approuver, puis fournir son code confidentiel ou biométrique, ce qui achève l’authentification.
 
@@ -40,17 +40,20 @@ Pour la préversion publique, un administrateur doit commencer par ajouter une s
 ### <a name="steps-to-enable"></a>Procédure d’activation
 
 1. Assurez-vous de disposer de la dernière version du module PowerShell d’Azure Active Directory V2 en préversion publique. Vous pouvez effectuer une désinstallation, puis une réinstallation pour le confirmer. À cette fin, exécutez les commandes suivantes :
+
     ```powershell
     Uninstall-Module -Name AzureADPreview
     Install-Module -Name AzureADPreview
     ```
 
 2. Authentifiez-vous auprès du locataire Azure AD pour utiliser le module Azure AD PowerShell V2. Vous devez utiliser un compte d’administrateur de la sécurité ou d’administrateur général.
+
     ```powershell
     Connect-AzureAD
     ```
 
 3. Créez la stratégie de connexion de l’authentificateur :
+
     ```powershell
     New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn
     ```

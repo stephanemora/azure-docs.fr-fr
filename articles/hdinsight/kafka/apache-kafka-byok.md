@@ -8,12 +8,12 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 26e4b921b4050efa5217e3b599b9dc942a003090
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 61a4be19000265910493963db9f29df143a7e21c
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58173921"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360348"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight-preview"></a>Apporter votre propre clé pour Apache Kafka sur Azure HDInsight (préversion)
 
@@ -26,6 +26,8 @@ Le chiffrement BYOK est un processus en une étape géré pendant la création d
 Tous les messages adressés au cluster Kafka (y compris les réplicas gérés par Kafka) sont chiffrés avec une clé de chiffrement de données (DEK) symétrique. La clé DEK est protégée avec la clé de chiffrement principale (KEK) de votre coffre de clés. Les processus de chiffrement et de déchiffrement sont entièrement gérés par Azure HDInsight. 
 
 Vous pouvez utiliser le portail Azure ou Azure CLI pour faire alterner les clés du coffre de clés en toute sécurité. Quand une clé alterne, le cluster HDInsight Kafka démarre en quelques minutes en utilisant la nouvelle clé. Activez les fonctionnalités de protection de clés « Ne pas vider » et « Suppression réversible » pour vous protéger contre les scénarios de ransomware et de suppression accidentelle. Les clés dépourvues de ces fonctionnalités de protection ne sont pas prises en charge.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="get-started-with-byok"></a>Commencer avec BYOK
 
@@ -99,7 +101,7 @@ Vous pouvez utiliser le portail Azure ou Azure CLI pour faire alterner les clés
 
 **Comment puis-je récupérer le cluster si les clés sont supprimées ?**
 
-   Sachant que seules sont prises en charge les clés ayant la « Suppression réversible » activée, si les clés sont restaurés dans le coffre de clés, le cluster doit retrouver l’accès aux clés. Pour restaurer une clé Azure Key Vault, consultez [Restore-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey).
+   Sachant que seules sont prises en charge les clés ayant la « Suppression réversible » activée, si les clés sont restaurés dans le coffre de clés, le cluster doit retrouver l’accès aux clés. Pour restaurer une clé Azure Key Vault, consultez [AzKeyVaultKey de restauration](/powershell/module/az.keyvault/restore-azkeyvaultkey).
 
 **Est-il possible de faire fonctionner des applications producteur/consommateur simultanément avec un cluster BYOK et un cluster non BYOK ?**
 

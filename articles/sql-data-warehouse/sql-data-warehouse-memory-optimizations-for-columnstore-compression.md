@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 03/18/2019
+ms.date: 03/22/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 859f0d168dcf1cc999f79ef22b5ba6669da79593
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: e7ab09522184f5c2d1c5168b24b2948f58e5189e
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189561"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368960"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Optimiser la qualité du rowgroup pour columnstore
 
@@ -67,7 +67,7 @@ from cte;
 ```
 
 trim_reason_desc indique si le rowgroup a été découpé (trim_reason_desc = NO_TRIM signifie qu’aucun découpage n’a été effectué et que la qualité du rowgroup est optimale). Les raisons suivantes indiquent un découpage prématuré du rowgroup :
-- CHARGEMENT EN BLOC : cette raison de découpage est utilisée si le lot entrant de lignes pour la charge est inférieur à 1 million de lignes. Le moteur créera des rowgroups compressés si plus de 100 000 lignes sont insérées (par opposition à l’insertion dans le deltastore), mais affiche BULKLOAD comme raison du découpage. Dans ce scénario, vous pouvez augmenter votre fenêtre de charge de lot pour insérer plus de lignes. En outre, réévaluez votre schéma de partitionnement pour vous assurer qu’il n’est pas trop granulaire car les rowgroups ne peuvent pas s’étendre sur plusieurs limites de partition.
+- CHARGEMENT EN BLOC : cette raison de découpage est utilisée si le lot entrant de lignes pour la charge est inférieur à 1 million de lignes. Le moteur créera des rowgroups compressés si plus de 100 000 lignes sont insérées (par opposition à l’insertion dans le deltastore), mais affiche BULKLOAD comme raison du découpage. Dans ce scénario, envisagez d’augmenter votre charge de traitement par lots afin d’inclure plus de lignes. En outre, réévaluez votre schéma de partitionnement pour vous assurer qu’il n’est pas trop granulaire car les rowgroups ne peuvent pas s’étendre sur plusieurs limites de partition.
 - MEMORY_LIMITATION : pour créer des groupes de 1 million de lignes, le moteur requiert une certaine quantité de mémoire de travail. Lorsque la mémoire disponible de la session de chargement est inférieure à la mémoire de travail requise, les rowgroups sont prématurément découpés. Les sections suivantes expliquent comment estimer la mémoire requise et comment allouer davantage de mémoire.
 - DICTIONARY_SIZE : cette raison indique qu’un rowgroup a été découpé, car il contenait au moins une colonne de chaîne avec des chaînes de cardinalité large et/ou haute. La taille du dictionnaire est limitée à 16 Mo de mémoire, et une fois cette limite atteinte, le rowgroup est compressé. Si cette situation se produit, vous pouvez isoler la colonne problématique dans un tableau distinct.
 

@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/01/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 67876532496aa0a295bf32692534b16d38599492
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a31cd950ae241eb55c840c716f4679c5a67b1379
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839506"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58350010"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming en direct avec Azure Media Services v3
 
@@ -28,23 +28,46 @@ Azure Media Services vous permet de transmettre des événements en direct aupr�
 - Un encodeur vidéo live, pour convertir les signaux de la caméra (ou d’un autre appareil, comme un ordinateur portable) en flux de contribution qui sera ensuite envoyé à Media Services. Le flux de contribution peut inclure des signaux de publicité, tels que les marqueurs SCTE-35.<br/>Pour obtenir une liste d’encodeurs de streaming live recommandés, consultez [Encodeurs de streaming live](recommended-on-premises-live-encoders.md). Consultez également ce billet de blog : [Live streaming production with OBS](https://link.medium.com/ttuwHpaJeT).
 - Des composants dans Media Services, pour ingérer, prévisualiser, empaqueter, enregistrer, chiffrer et diffuser l’événement en direct auprès de vos clients, ou dans un CDN en vue d’une diffusion ultérieure.
 
-Avec Media Services, vous pouvez utiliser l’**empaquetage dynamique**, qui vous permet de prévisualiser et diffuser vos flux temps réel dans divers formats ([MPEG DASH, HLS et Smooth Streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)) à partir du flux de contribution envoyé au service. Vos clients peuvent alors lire le flux en direct au moyen de n’importe quel lecteur compatible avec HLS, DASH ou Smooth Streaming. Vous pouvez utiliser le lecteur multimédia [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) dans vos applications web ou mobiles afin de transmettre votre flux dans un de ces protocoles.
+Cet article donne une vue d’ensemble et les conseils de diffusion en continu avec Media Services et des liens vers d’autres articles pertinents.
 
-Media Services vous permet de transmettre votre contenu chiffré dynamiquement (**Chiffrement dynamique**) avec la norme Advanced Encryption Standard (AES-128) ou un des trois principaux systèmes de gestion des droits numériques (DRM) : Microsoft PlayReady, Google Widevine et Apple FairPlay. Media Services fournit également un service de distribution de clés AES et de licences DRM aux clients autorisés. Pour plus d’informations sur le chiffrement de votre contenu avec Media Services, consultez [Présentation de la protection du contenu](content-protection-overview.md).
+> [!NOTE]
+> Actuellement, vous ne pouvez pas utiliser le portail Azure pour gérer des ressources v3. Utilisez le [API REST](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), ou l’un des prises en charge [kits de développement logiciel](developers-guide.md).
 
-Vous pouvez également appliquer un filtrage dynamique pour contrôler le nombre de pistes, les formats, les vitesses de transmission et les fenêtres de temps de présentation qui sont envoyés aux lecteurs. Pour plus d’informations, consultez [Filtres et manifestes dynamiques](filters-dynamic-manifest-overview.md).
+## <a name="dynamic-packaging"></a>Empaquetage dynamique
 
-Cet article offre une vue d’ensemble et des conseils relatifs au streaming en direct avec Media Services.
+Avec Media Services, vous pouvez tirer parti de Packaging](dynamic-packaging-overview.md) dynamique, ce qui vous permet d’afficher un aperçu et de diffuser votre flux live dans [formats MPEG DASH, HLS et Smooth Streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) à partir de la contribution flux que vous envoyez au service. Vos clients peuvent alors lire le flux en direct au moyen de n’importe quel lecteur compatible avec HLS, DASH ou Smooth Streaming. Vous pouvez utiliser le lecteur multimédia [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) dans vos applications web ou mobiles afin de transmettre votre flux dans un de ces protocoles.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="dynamic-encryption"></a>Chiffrement dynamique
 
-Pour comprendre le workflow de streaming en direct dans Media Services v3, vous devez passer en revue et comprendre les concepts suivants : 
+Chiffrement dynamique permet de chiffrer dynamiquement votre contenu en direct ou à la demande avec AES-128 ou un des trois systèmes principaux droits numériques management (DRM) : Microsoft PlayReady, Google Widevine et Apple FairPlay. Media Services fournit également un service de distribution de clés AES et licences (PlayReady, Widevine et FairPlay) DRM aux clients autorisés. Pour plus d’informations, consultez [chiffrement dynamique](content-protection-overview.md).
+
+## <a name="dynamic-manifest"></a>Manifeste dynamique
+
+Le filtrage dynamique est utilisé pour contrôler le nombre de pistes, des formats, des débits binaires et des fenêtres de temps de présentation qui sont envoyés aux joueurs. Pour plus d’informations, consultez [filtres et manifestes dynamiques](filters-dynamic-manifest-overview.md).
+
+## <a name="live-event-types"></a>Types d’événements en direct
+
+Un événement en direct peut prendre l’une des deux types : encodage direct et en direct. Pour plus d’informations sur la diffusion en continu dans Media Services v3, consultez [événements Live et les sorties de Live](live-events-outputs-concept.md).
+
+### <a name="pass-through"></a>Requête directe
+
+![transmission directe](./media/live-streaming/pass-through.svg)
+
+Quand vous utilisez l’**événement en direct** de type pass-through, vous chargez l’encodeur live local de générer un flux vidéo à vitesse de transmission multiple et d’envoyer ce flux comme flux de contribution à l’événement en direct (à l’aide du protocole RTMP ou MP4 fragmenté). L’événement en direct est ensuite transmis dans les flux vidéo entrants sans traitement supplémentaire. Tel un pass-through Live événement est optimisé pour les événements en direct de longs ou la diffusion en continu 24 et 365 linéaire. 
+
+### <a name="live-encoding"></a>Encodage en direct  
+
+![encodage en temps réel](./media/live-streaming/live-encoding.svg)
+
+Quand vous utilisez Live Encoding avec Media Services, vous configurez votre encodeur live local pour qu’il envoie un flux vidéo à une seule vitesse de transmission comme flux de contribution à l’événement en direct (à l’aide du protocole RTMP ou MP4 fragmenté). L’événement en direct encode ce flux vidéo à une seule vitesse de transmission entrant en [flux vidéo à vitesse de transmission multiple](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), pour rendre sa transmission et sa lecture possibles sur les appareils via des protocoles comme MPEG-DASH, HLS et Smooth Streaming. 
+
+## <a name="live-streaming-workflow"></a>Workflow de streaming en direct
+
+Pour comprendre le flux de travail de diffusion en continu en direct dans Media Services v3, vous avez au premier examen et comprenez les concepts suivants : 
 
 - [Points de terminaison de streaming](streaming-endpoint-concept.md)
 - [Événements en direct et sorties en direct](live-events-outputs-concept.md)
 - [Localisateurs de diffusion en continu](streaming-locators-concept.md)
-
-## <a name="live-streaming-workflow"></a>Workflow de streaming en direct
 
 Voici les étapes d’un workflow de streaming en direct :
 

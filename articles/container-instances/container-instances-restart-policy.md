@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 03/21/2019
 ms.author: danlep
-ms.openlocfilehash: b254adb050aa9826170c0849c3811380db6d9b38
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
-ms.translationtype: HT
+ms.openlocfilehash: ef34985e7897aa751275231a28c6031d6c9747b0
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321031"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369960"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>Exécuter des tâches conteneurisées avec des stratégies de redémarrage
 
@@ -46,7 +46,7 @@ az container create \
 
 ## <a name="run-to-completion-example"></a>Exemple d’exécution jusqu’à achèvement
 
-Pour voir la stratégie de redémarrage à l’œuvre, créez une instance de conteneur à partir de l’image [microsoft/aci-wordcount][aci-wordcount-image], puis spécifiez la stratégie de redémarrage `OnFailure`. Cet exemple de conteneur exécute un script Python qui, par défaut, analyse le texte de [Hamlet](http://shakespeare.mit.edu/hamlet/full.html) de Shakespeare, écrit les 10 mots les plus fréquents dans STDOUT, puis se termine.
+Pour afficher la stratégie de redémarrage en action, créez une instance de conteneur à partir de Microsoft [aci-wordcount] [ aci-wordcount-image] de l’image, puis spécifiez le `OnFailure` stratégie de redémarrage. Cet exemple de conteneur exécute un script Python qui, par défaut, analyse le texte de [Hamlet](http://shakespeare.mit.edu/hamlet/full.html) de Shakespeare, écrit les 10 mots les plus fréquents dans STDOUT, puis se termine.
 
 Exécutez l’exemple de conteneur avec la commande [az container create][az-container-create] suivante :
 
@@ -54,7 +54,7 @@ Exécutez l’exemple de conteneur avec la commande [az container create][az-con
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer \
-    --image microsoft/aci-wordcount:latest \
+    --image mcr.microsoft.com/azuredocs/aci-wordcount:latest \
     --restart-policy OnFailure
 ```
 
@@ -129,7 +129,7 @@ Par exemple, vous pouvez modifier le comportement du script dans l’exemple de 
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer2 \
-    --image microsoft/aci-wordcount:latest \
+    --image mcr.microsoft.com/azuredocs/aci-wordcount:latest \
     --restart-policy OnFailure \
     --environment-variables NumWords=5 MinLength=8
 ```
@@ -164,7 +164,7 @@ Par exemple, pour déterminer les 3 mots à cinq lettres les plus utilisés dans
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer3 \
-    --image microsoft/aci-wordcount:latest \
+    --image mcr.microsoft.com/azuredocs/aci-wordcount:latest \
     --restart-policy OnFailure \
     --environment-variables NumWords=3 MinLength=5 \
     --command-line "python wordcount.py http://shakespeare.mit.edu/romeo_juliet/full.html"
@@ -189,7 +189,7 @@ Sortie :
 Pour plus d’informations sur la conservation de la sortie de vos conteneurs qui s’exécutent jusqu’à achèvement, consultez [Montage d’un partage de fichiers Azure avec Azure Container Instances](container-instances-mounting-azure-files-volume.md).
 
 <!-- LINKS - External -->
-[aci-wordcount-image]: https://hub.docker.com/r/microsoft/aci-wordcount/
+[aci-wordcount-image]: https://hub.docker.com/_/microsoft-azuredocs-aci-wordcount
 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container?view=azure-cli-latest#az-container-create

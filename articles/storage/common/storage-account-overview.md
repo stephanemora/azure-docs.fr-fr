@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/06/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ce9635c108a948b4773c7d27cb254f01d06896f8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ca71fdc8074e56adc8595ee905d5b1db3b60cef1
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544237"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371794"
 ---
 # <a name="azure-storage-account-overview"></a>Vue d’ensemble des comptes de stockage Azure
 
@@ -84,20 +84,14 @@ Le stockage Azure propose différentes options permettant d’accéder aux donn�
 
 Les niveaux d’accès disponibles sont les suivants :
 
-> [!NOTE]
-> Le [le niveau d’accès premium (version préliminaire)](../blobs/storage-blob-storage-tiers.md#premium-access-tier), qui est optimisé pour les applications sensibles de performances, fournit une latence faible et cohérente avec des taux élevés de débit et de transaction. Le niveau d’accès premium est disponible uniquement avec les comptes de stockage d’objets Blob de blocs (version préliminaire). Pour plus d’informations, consultez [version préliminaire publique de stockage d’objets Blob Azure Premium](https://azure.microsoft.com/blog/azure-premium-blob-storage-public-preview/).
-
 * Le niveau d’accès **Chaud**, qui est optimisé pour les accès fréquents aux objets du compte de stockage. L’accès aux données de niveau Chaud est le plus économique. Les coûts de stockage sont toutefois un peu plus élevés. Par défaut, les nouveaux comptes de stockage sont créés au niveau Chaud.
 * Le niveau d’accès **Froid**, qui est optimisé pour le stockage d’une grande quantité de données rarement sollicitées et stockées depuis au moins 30 jours. Le stockage des données au niveau Froid est plus économique. Toutefois, l’accès à ces données peut être un peu plus onéreux que celui du niveau Chaud.
 * Le niveau **Archive**, qui est disponible uniquement pour chaque objet blob de blocs. Le niveau Archive est optimisé pour les données qui peuvent tolérer plusieurs heures de latence de récupération et qui restent dans le niveau Archive pendant au moins 180 jours. Le niveau Archive est l’option de stockage la plus économique. Toutefois, l’accès à ces données peut être un peu plus onéreux que celui du niveau Chaud ou Froid. 
 
-
-En cas de changement de votre modèle d’utilisation des données, vous pouvez basculer d’un niveau d’accès à l’autre à tout moment. Pour plus d’informations sur les niveaux d’accès, consultez [Stockage Blob Azure : niveaux de stockage Premium (préversion), chaud, froid et archive](../blobs/storage-blob-storage-tiers.md).
+En cas de changement de votre modèle d’utilisation des données, vous pouvez basculer d’un niveau d’accès à l’autre à tout moment. Pour plus d’informations sur les niveaux d’accès, consultez [stockage Blob Azure : chaud, froid et archive les niveaux d’accès](../blobs/storage-blob-storage-tiers.md).
 
 > [!IMPORTANT]
 > Le changement du niveau d’accès pour un compte de stockage ou un objet blob existant peut entraîner des frais supplémentaires. Pour plus d’informations, consultez la section [Facturation du compte de stockage](#storage-account-billing).
-
-
 
 ## <a name="replication"></a>Réplication
 
@@ -135,7 +129,7 @@ Chaque requête envoyée à votre compte de stockage doit en avoir l’autorisat
 
 Vous pouvez accorder l’accès aux données de votre compte de stockage à l’aide de l’une des méthodes suivantes :
 
-- **Azure Active Directory :** Utilisez les informations d’identification Azure Active Directory (Azure AD) afin d’authentifier un utilisateur, un groupe ou une autre identité, pour l’accès aux données d’objets blob et de files d’attente (préversion). Si l’authentification d’une identité réussit, Azure AD retourne un jeton qui doit être utilisé pour autoriser la requête dans le stockage Blob ou File d’attente d’Azure. Pour plus d’informations, consultez [Authentifier l’accès au Stockage Azure à l’aide d’Azure Active Directory (préversion)](storage-auth-aad.md).
+- **Azure Active Directory :** Utilisez les informations d’identification Azure Active Directory (Azure AD) pour authentifier un utilisateur, groupe ou autres informations d’identification pour accéder aux données blob et file d’attente. Si l’authentification d’une identité réussit, Azure AD retourne un jeton qui doit être utilisé pour autoriser la requête dans le stockage Blob ou File d’attente d’Azure. Pour plus d’informations, consultez [Authentifier l’accès au Stockage Azure à l’aide d’Azure Active Directory](storage-auth-aad.md).
 - **Autorisation par clé partagée :** Utilisez la clé d’accès de votre compte de stockage pour construire une chaîne de connexion que votre application utilisera lors de l’exécution afin d’accéder au stockage Azure. Les valeurs de la chaîne de connexion sont utilisées pour construire l’en-tête *d’autorisation* qui est passé au stockage Azure. Pour plus d’informations, consultez [Configuration des chaînes de connexion Stockage Azure](storage-configure-connection-string.md).
 - **Signature d’accès partagé :** Utilisez une signature d’accès partagé pour déléguer l’accès aux ressources de votre compte de stockage, si vous n’utilisez pas l’authentification Azure AD. Une signature d’accès partagé est un jeton qui encapsule toutes les informations nécessaires à l’autorisation d’une requête envoyée au stockage Azure via l’URL. Dans le cadre de la signature d’accès partagé, vous pouvez spécifier la ressource de stockage, les autorisations accordées et l’intervalle pendant lequel les autorisations sont valides. Pour plus d’informations, consultez la page [Utiliser des signatures d’accès partagé (SAP)](storage-dotnet-shared-access-signature-part-1.md).
 

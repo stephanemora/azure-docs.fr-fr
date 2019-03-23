@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 338032b19d22432c34891de68c6a5ba71de60555
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: cb9333845a78204ea1c6e56e17b3b6f9e5513c9c
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170684"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370676"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Comment réussir le lancement de la réinitialisation de mot de passe en libre-service
 
@@ -49,7 +49,7 @@ De nombreux clients estiment qu’une campagne par courrier électronique inclua
 * **Chevalets de table SSPR** : cartes que vous pouvez placer dans la salle à manger, les salles de conférence, ou dans les bureaux pour encourager vos utilisateurs à effectuer l’inscription.
 * **Autocollants SSPR** : modèles de vignette que vous pouvez personnaliser et imprimer pour les coller sur les ordinateurs portables, les écrans, les claviers ou les téléphones portables pour se rappeler comment accéder à SSPR.
 
-![Exemples d’e-mails SSPR][Email]
+![Exemples de messagerie SSPR pour le déploiement vers les utilisateurs][Email]
 
 ## <a name="create-your-own-password-portal"></a>Création de votre propre portail de mot de passe
 

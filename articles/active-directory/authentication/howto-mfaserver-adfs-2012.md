@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 213a55cb02c718628a4a2d64bdee98ab66af5ce3
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 970e570d9ad27da2690cd38fe480823128322db0
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317049"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370701"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Configuration du serveur Azure Multi-Factor Authentication pour travailler avec AD FS dans Windows Server
 
@@ -45,30 +45,22 @@ Avant de commencer, tenez compte des informations suivantes :
 2. Sur la console de gestion du serveur Azure Multi-Factor Authentication, cliquez sur l’icône **AD FS**. Sélectionnez les options **Autoriser l’inscription utilisateur** et **Autoriser les utilisateurs à sélectionner la méthode**.
 3. Sélectionnez les autres options que vous souhaitez définir pour votre entreprise.
 4. Cliquez sur **Installer adaptateur AD FS**.
-   
-   <center>
-   
-   ![Cloud](./media/howto-mfaserver-adfs-2012/server.png)</center>
+
+   ![Installez l’adaptateur ADFS à partir de la console du serveur MFA](./media/howto-mfaserver-adfs-2012/server.png)
 
 5. Si la fenêtre Active Directory s’affiche, cela signifie deux choses. Votre ordinateur est joint à un domaine et la configuration d’Active Directory pour sécuriser la communication entre l’adaptateur AD FS et le service Azure Multi-Factor Authentication est incomplète. Cliquez sur **Suivant** pour terminer automatiquement cette configuration ou cochez la case **Ignorer la configuration automatique d’Active Directory et configurer les paramètres manuellement**. Cliquez sur **Suivant**.
 6. Si les fenêtres Groupe local s’affichent, cela signifie deux choses. Votre ordinateur n’est pas joint à un domaine et la configuration du groupe local pour sécuriser la communication entre l’adaptateur AD FS et le service Azure Multi-Factor Authentication est incomplète. Cliquez sur **Suivant** pour terminer automatiquement cette configuration ou cochez la case **Ignorer la configuration automatique du groupe local et configurer les paramètres manuellement**. Cliquez sur **Suivant**.
 7. Dans l’assistant d’installation, cliquez sur **Suivant**. Le serveur Azure Multi-Factor Authentication crée le groupe PhoneFactor Admins et ajoute le compte de service AD FS au groupe PhoneFactor Admins.
-   <center>
-   
-   ![Cloud](./media/howto-mfaserver-adfs-2012/adapter.png)</center>
 8. Sur la page **Lancer le programme d’installation**, cliquez sur **Suivant**.
 9. Dans le programme d’installation de l’adaptateur d’authentification multifacteur AD FS, cliquez sur **Suivant**.
 10. Une fois l’installation terminée, cliquez sur **Fermer** .
-11. Lorsque l’adaptateur a été installé, vous devez l’enregistrer dans AD FS. Ouvrez Windows PowerShell et exécutez la commande suivante :<br>
+11. Lorsque l’adaptateur a été installé, vous devez l’enregistrer dans AD FS. Ouvrez Windows PowerShell et exécutez la commande suivante :
+
     `C:\Program Files\Multi-Factor Authentication Server\Register-MultiFactorAuthenticationAdfsAdapter.ps1`
-    <center>
-    
-    ![Cloud](./media/howto-mfaserver-adfs-2012/pshell.png)</center>
+
 12. Modifiez la stratégie d’authentification globale dans AD FS pour utiliser votre nouvel adaptateur enregistré. Dans la console de gestion AD FS, accédez au nœud **Stratégies d’authentification** . Dans la section **Authentification multifacteur**, cliquez sur le lien **Modifier** en regard de la section **Paramètres globaux**. Dans la fenêtre **Modifier la stratégie d’authentification globale**, sélectionnez **Authentification multifacteur** comme méthode d’authentification supplémentaire, puis cliquez sur **OK**. L'adaptateur est enregistré en tant que WindowsAzureMultiFactorAuthentication. Redémarrez le service AD FS pour que l’enregistrement soit pris en compte.
 
-<center>
-
-![Cloud](./media/howto-mfaserver-adfs-2012/global.png)</center>
+![Modifier la stratégie d’authentification globale](./media/howto-mfaserver-adfs-2012/global.png)
 
 À ce stade, le serveur d’authentification multifacteur est configuré comme fournisseur d’authentification supplémentaire à utiliser avec AD FS.
 
@@ -85,6 +77,7 @@ Avant de commencer, tenez compte des informations suivantes :
 5. Une fois l’installation terminée, cliquez sur **Fermer** .
 
 ## <a name="edit-the-multifactorauthenticationadfsadapterconfig-file"></a>Modifier le fichier MultiFactorAuthenticationAdfsAdapter.config
+
 Procédez comme suit pour modifier le fichier MultiFactorAuthenticationAdfsAdapter.config :
 
 1. Définissez le nœud **UseWebServiceSdk** sur la valeur **true**.  
@@ -138,20 +131,22 @@ Pour sécuriser vos ressources de cloud, configurez une règle de revendication 
 2. Sur la gauche, sélectionnez **Approbations de partie de confiance**.
 3. Cliquez avec le bouton droit sur **Plateforme d’identité Microsoft Office 365** et sélectionnez **Modifier les règles de revendication…**
 
-   ![Cloud](./media/howto-mfaserver-adfs-2012/trustedip1.png)
+   ![Modifier les règles de revendication dans la console AD FS](./media/howto-mfaserver-adfs-2012/trustedip1.png)
 
 4. Sous Règles de transformation d’émission, cliquez sur **Ajouter une règle**.
 
-   ![Cloud](./media/howto-mfaserver-adfs-2012/trustedip2.png)
+   ![Modifier les règles de transformation dans la console AD FS](./media/howto-mfaserver-adfs-2012/trustedip2.png)
 
 5. Dans l’Assistant Ajout de règle de revendication de transformation, sélectionnez **Passer ou filtrer une revendication entrante** dans la liste déroulante et cliquez sur **Suivant**.
 
-   ![Cloud](./media/howto-mfaserver-adfs-2012/trustedip3.png)
+   ![Ajouter l’Assistant de règle de revendication de transformation](./media/howto-mfaserver-adfs-2012/trustedip3.png)
 
 6. Nommez votre règle.
 7. Sélectionnez **Références des méthodes d’authentification** pour le type de revendication entrante.
 8. Sélectionnez **Transférer toutes les valeurs de revendication**.
+
     ![Assistant Ajouter une règle de revendication de transformation](./media/howto-mfaserver-adfs-2012/configurewizard.png)
+
 9. Cliquez sur **Terminer**. Fermez la console de gestion AD FS.
 
 ## <a name="troubleshooting-logs"></a>Journaux de résolution des problèmes

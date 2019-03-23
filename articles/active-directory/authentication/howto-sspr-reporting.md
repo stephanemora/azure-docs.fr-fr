@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f8411cf2aebf5ab3e25239d1cb1a9b81cfda4c2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 53140c7b02dd657036b76db0dd137bd770d97f4d
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163895"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369528"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Options de création de rapports pour la gestion des mots de passe Azure AD
 
 Après le déploiement, de nombreuses organisations souhaitent savoir comment ou si la réinitialisation de mot de passe en libre-service (SSPR) est réellement utilisée. La fonctionnalité de création de rapports fournie par Azure Active Directory (Azure AD) vous aide à répondre aux questions à l’aide de rapports prédéfinis. Si vous disposez d’une licence appropriée, vous pouvez également créer des requêtes personnalisées.
 
-![Reporting][Reporting]
+![Création de rapports sur SSPR à l’aide de l’audit de journaux dans Azure AD][Reporting]
 
 Les questions suivantes peuvent trouver réponse dans les rapports qui existent dans le [portail Azure](https://portal.azure.com/) :
 
@@ -173,7 +173,6 @@ La liste suivante explique cette activité en détail :
 
      >[!NOTE]
      >Un échec ne signifie pas qu’un utilisateur ne peut pas réinitialiser son propre mot de passe. Cela signifie que processus d’inscription n’est pas terminé. Si son compte contient des données correctes non vérifiées (par exemple, un numéro de téléphone non validé), même s’il n’a pas vérifié ce numéro de téléphone, il peut toujours l’utiliser pour réinitialiser son mot de passe.
-     >
 
 ## <a name="next-steps"></a>Étapes suivantes
 

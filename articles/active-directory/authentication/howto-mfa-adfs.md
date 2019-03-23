@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f508475166346c56b3bd0c8607c27beb7aba66c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 0abf2eca52616638f0c4dce89691c0d4f7875106
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316471"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371526"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Sécurisation des ressources de cloud avec le serveur Azure Multi-Factor Authentication et AD FS
 
@@ -30,15 +30,15 @@ Pour sécuriser vos ressources de cloud, configurez une règle de revendication 
 2. Sur la gauche, sélectionnez **Approbations de partie de confiance**.
 3. Cliquez avec le bouton droit sur **Plateforme d’identité Microsoft Office 365** et sélectionnez **Modifier les règles de revendication**.
 
-   ![Cloud](./media/howto-mfa-adfs/trustedip1.png)
+   ![Console AD FS - approbations de partie de confiance](./media/howto-mfa-adfs/trustedip1.png)
 
 4. Sous Règles de transformation d’émission, cliquez sur **Ajouter une règle**.
 
-   ![Cloud](./media/howto-mfa-adfs/trustedip2.png)
+   ![Modification des règles de transformation d’émission](./media/howto-mfa-adfs/trustedip2.png)
 
 5. Dans l’Assistant Ajout de règle de revendication de transformation, sélectionnez **Passer ou filtrer une revendication entrante** dans la liste déroulante et cliquez sur **Suivant**.
 
-   ![Cloud](./media/howto-mfa-adfs/trustedip3.png)
+   ![Assistant Ajouter une règle de revendication de transformation](./media/howto-mfa-adfs/trustedip3.png)
 
 6. Nommez votre règle. 
 7. Sélectionnez **Références des méthodes d’authentification** pour le type de revendication entrante.
@@ -58,15 +58,15 @@ La première chose à faire consiste à configurer les revendications AD FS. Cr�
 
 1. Ouvrez Gestion AD FS.
 2. Sur la gauche, sélectionnez **Approbations de partie de confiance**.
-3. Cliquez avec le bouton droit sur la **Plateforme d’identité Microsoft Office 365** et sélectionnez **Modifier les règles de revendication…**
-   ![Cloud](./media/howto-mfa-adfs/trustedip1.png)
-4. Sous Règles de transformation d’émission, cliquez sur **Ajouter une règle.**
-   ![Cloud](./media/howto-mfa-adfs/trustedip2.png)
+3. Avec le bouton droit sur **plateforme d’identité Microsoft Office 365** et sélectionnez **modifier les règles de revendication... ** 
+    ![ADFS Console - modifier les règles de revendication](./media/howto-mfa-adfs/trustedip1.png)
+4. Dans les règles de transformation d’émission, cliquez sur **ajouter une règle.** 
+    ![Ajout d’une règle de revendication](./media/howto-mfa-adfs/trustedip2.png)
 5. Dans l’Assistant Ajout de règle de revendication de transformation, sélectionnez **Passer ou filtrer une revendication entrante** dans la liste déroulante et cliquez sur **Suivant**.
-   ![Cloud](./media/howto-mfa-adfs/trustedip3.png)
+   ![Assistant Ajouter une règle de revendication de transformation](./media/howto-mfa-adfs/trustedip3.png)
 6. Dans la zone en regard du nom de la règle de revendication, nommez votre règle. Par exemple :  InsideCorpNet.
 7. Dans la liste déroulante, en regard du type de revendication entrante, sélectionnez **Dans le périmètre du réseau d’entreprise**.
-   ![Cloud](./media/howto-mfa-adfs/trustedip4.png)
+   ![Revendication de l’ajout à l’intérieur d’un réseau d’entreprise](./media/howto-mfa-adfs/trustedip4.png)
 8. Cliquez sur **Terminer**.
 9. Sous Règles de transformation d’émission, cliquez sur **Ajouter une règle**.
 10. Dans l’Assistant Ajout de règle de revendication de transformation, sélectionnez **Envoyer les revendications en utilisant une règle personnalisée** dans la liste déroulante et cliquez sur **Suivant**.
@@ -75,7 +75,7 @@ La première chose à faire consiste à configurer les revendications AD FS. Cr�
 
         c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
             => issue(claim = c);
-    ![Cloud](./media/howto-mfa-adfs/trustedip5.png)
+    ![Créer une revendication personnalisée pour informer les utilisateurs connectés](./media/howto-mfa-adfs/trustedip5.png)
 13. Cliquez sur **Terminer**.
 14. Cliquez sur **Appliquer**.
 15. Cliquez sur **OK**.

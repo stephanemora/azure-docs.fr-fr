@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 05/03/2018
+ms.date: 03/21/2019
 ms.author: anroth
-ms.openlocfilehash: 080a4691869c4deaf86f0e27961e80b60d439f05
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 405b6ebd06091536749751a94362d8c4a6495dbc
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857242"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351290"
 ---
 # <a name="export-your-model-for-use-with-mobile-devices"></a>Exporter votre modèle pour l’utiliser avec des appareils mobiles
 
-Le service Vision personnalisée permet d’exporter des classifieurs pour les exécuter en mode hors connexion. Vous pouvez incorporer un classifieur exporté dans une application et l’exécuter localement sur un appareil pour la classification en temps réel. 
+Le service Vision personnalisée permet d’exporter des classifieurs pour les exécuter en mode hors connexion. Vous pouvez incorporer un classifieur exporté dans une application et l’exécuter localement sur un appareil pour la classification en temps réel.
 
 Le service Vision personnalisée prend en charge les exportations suivantes :
 
@@ -37,7 +37,7 @@ Le service Vision personnalisée prend en charge les exportations suivantes :
 
 > [!NOTE]
 > Les étapes décrites dans cette section s’appliquent uniquement si vous utilisez un classifieur qui n’est pas défini avec un domaine compact.
- 
+
 Pour convertir le domaine d’un classifieur existant, effectuez les étapes suivantes :
 
 1. À partir de la [page Vision personnalisée](https://customvision.ai), sélectionnez l’icône __Accueil__ pour afficher la liste de vos projets. Vous pouvez également utiliser le lien [https://customvision.ai/projects](https://customvision.ai/projects) pour voir vos projets.

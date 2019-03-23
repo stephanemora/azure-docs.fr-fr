@@ -1,6 +1,6 @@
 ---
-title: Créer un index dans le code à l’aide de PowerShell et l’API REST - recherche Azure
-description: Créer un index de recherche de texte intégral dans le code à l’aide de requêtes HTTP et de l’API REST Recherche Azure.
+title: Créer, charger et interroger un index à l’aide de PowerShell et l’API REST - recherche Azure
+description: Créer, charger et interroger un index à l’aide de PowerShell, Invoke-RestMethod et l’API REST Azure Search.
 ms.date: 03/15/2019
 author: heidisteen
 manager: cgronlun
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 87da5cdd31abb41a774a46d3891006eb58ac5e4d
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 9e1b6fc0dc4e6a6c2c191960fa061c810e3a2e79
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285125"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372112"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-powershell-and-the-rest-api"></a>Démarrage rapide : Créer un index Azure Search à l’aide de PowerShell et l’API REST
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ Cet article vous guide dans le processus de création, de charger et d’interro
 
 [PowerShell 5.1 ou version ultérieure](https://github.com/PowerShell/PowerShell), à l’aide [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) pour connaître les étapes séquentielles et interactives.
 
-Un point de terminaison URL et de l’administrateur la clé api de votre service de recherche. Un service de recherche est créé avec les deux. Ainsi, si vous avez ajouté votre abonnement à la fonction Recherche Azure, procédez comme suit pour obtenir les informations nécessaires :
+Obtenir le point de terminaison URL et l’administrateur la clé api de votre service de recherche. Un service de recherche est créé avec les deux. Ainsi, si vous avez ajouté votre abonnement à la fonction Recherche Azure, procédez comme suit pour obtenir les informations nécessaires :
 
 1. Dans le portail Azure, dans votre service de recherche **vue d’ensemble** page, obtenez l’URL. Un point de terminaison exemple peut se présenter comme https :\//my-service-name.search.windows.net.
 
@@ -371,11 +371,7 @@ Essayez d’ajouter des descriptions Français à l’index. L’exemple suivant
         {
             "@search.action": "merge",
             "hotelId": "2",
-            "description_fr": "Hôtel le moins cher en ville",
-        },
-        {
-            "@search.action": "delete",
-            "hotelId": "6"
+            "description_fr": "Hôtel le moins cher en ville"
         }
     ]
 }

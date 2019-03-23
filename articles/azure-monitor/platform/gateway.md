@@ -13,39 +13,39 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: magoedte
-ms.openlocfilehash: a497662ac7a885b53e69bb8c86a646045bd2eef7
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 47b589d32accc4a699e7260b9e4b2de4cca58f2b
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314668"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369613"
 ---
-# <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway"></a>Connecter des ordinateurs sans accès à internet à l’aide de la passerelle d’Analytique de journal
+# <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Connecter des ordinateurs sans accès à internet à l’aide de la passerelle d’Analytique de journal dans Azure Monitor
 
 >[!NOTE]
 >Comme Microsoft Operations Management Suite (OMS) passe à Microsoft Azure Monitor, de la modification de la terminologie. Cet article fait référence à la passerelle OMS en tant que la passerelle Azure Log Analytique. 
 >
 
-Cet article décrit comment configurer la communication avec Azure Automation et d’Analytique de journal à l’aide de la passerelle d’Analytique de journal lorsque les ordinateurs qui sont directement connectés ou qui doivent être analysés par Operations Manager sans accès à internet. 
+Cet article décrit comment configurer la communication avec Azure Automation et Azure Monitor à l’aide de la passerelle d’Analytique de journal lorsque les ordinateurs qui sont directement connectés ou qui doivent être analysés par Operations Manager sans accès à internet. 
 
-La passerelle d’Analytique de journal est un proxy de transfert HTTP qui prend en charge le tunneling HTTP à l’aide de la commande HTTP CONNECT. Cette passerelle peut collecter des données et envoyez-le à Azure Automation et d’Analytique de journal pour les ordinateurs qui ne sont pas connectés à internet.  
+La passerelle d’Analytique de journal est un proxy de transfert HTTP qui prend en charge le tunneling HTTP à l’aide de la commande HTTP CONNECT. Cette passerelle peut collecter des données et envoyez-le à Azure Automation et un espace de travail Analytique de journal dans Azure Monitor pour les ordinateurs qui ne sont pas connectés à internet.  
 
 La passerelle Log Analytics prend en charge ce qui suit :
 
 * Création de rapports jusqu'à l’Analytique de journal même quatre agents d’espace de travail qui se trouvent derrière lui et qui sont configurés avec Azure Automation Hybrid Runbook Workers.  
-* Ordinateurs Windows sur lequel l’agent Microsoft Monitoring Agent est directement connecté à un espace de travail Analytique de journal.
-* Ordinateurs Linux sur lesquels un agent d’Analytique de journal pour Linux est directement connecté à un espace de travail Analytique de journal.  
+* Ordinateurs Windows sur lequel l’agent Microsoft Monitoring Agent est directement connecté à un espace de travail Analytique de journal dans Azure Monitor.
+* Ordinateurs Linux sur lesquels un agent d’Analytique de journal pour Linux est directement connecté à un espace de travail Analytique de journal dans Azure Monitor.  
 * System Center Operations Manager 2012 SP1 avec UR7, Operations Manager 2012 R2 avec correctif cumulatif 3 ou un groupe d’administration dans Operations Manager 2016 ou version ultérieure qui est intégré avec l’Analytique de journal.  
 
-Certaines stratégies de sécurité informatique ne pas autoriser la connexion internet pour les ordinateurs du réseau. Ces ordinateurs non connectés peut être le point d’appareils de vente (PDV) ou des serveurs prenant en charge des services informatiques, par exemple. Pour connecter ces appareils à Azure Automation ou Log Analytique afin de pouvoir gérer et surveiller les, configurez-les pour communiquer directement avec la passerelle d’Analytique de journal. La passerelle d’Analytique de journal peut recevoir des informations de configuration et de transférer des données en leur nom. Si les ordinateurs sont configurés avec l’agent d’Analytique de journal pour vous connecter directement à un espace de travail Analytique de journal, les ordinateurs communiquent plutôt avec la passerelle d’Analytique de journal.  
+Certaines stratégies de sécurité informatique ne pas autoriser la connexion internet pour les ordinateurs du réseau. Ces ordinateurs non connectés peut être le point d’appareils de vente (PDV) ou des serveurs prenant en charge des services informatiques, par exemple. Pour connecter ces appareils à Azure Automation ou un espace de travail Analytique de journal afin de pouvoir gérer et surveiller les, configurez-les pour communiquer directement avec la passerelle d’Analytique de journal. La passerelle d’Analytique de journal peut recevoir des informations de configuration et de transférer des données en leur nom. Si les ordinateurs sont configurés avec l’agent d’Analytique de journal pour vous connecter directement à un espace de travail Analytique de journal, les ordinateurs communiquent plutôt avec la passerelle d’Analytique de journal.  
 
 La passerelle d’Analytique de journal transfère les données à partir des agents au service directement. Elle n’analyse pas les données en transit.
 
 Lorsqu’un groupe d’administration Operations Manager est intégré avec l’Analytique de journal, les serveurs d’administration peuvent être configurés pour vous connecter à la passerelle d’Analytique de journal pour recevoir des informations de configuration et envoyer des données collectées, en fonction de la solution que vous avez activé .  Les agents Operations Manager envoient certaines données au serveur d’administration. Par exemple, les agents peuvent envoyer des alertes Operations Manager, données d’évaluation de configuration, données espace d’instance et données de capacité. Autres données volumineuses, telles que les journaux Internet Information Services (IIS), les données de performances et les événements de sécurité, sont envoyées directement à la passerelle d’Analytique de journal. 
 
-Si un ou plusieurs serveurs de passerelle Operations Manager sont déployés pour surveiller les systèmes non fiables dans un réseau de périmètre ou un réseau isolé, ces serveurs ne peuvent pas communiquer avec une passerelle d’Analytique de journal.  Serveurs d’Operations Manager Gateway peuvent signaler uniquement à un serveur d’administration.  Lorsqu’un groupe d’administration Operations Manager est configuré pour communiquer avec la passerelle Log Analytics, les informations de configuration de proxy sont automatiquement distribuées à tous les ordinateurs gérés par agent qui sont configurés pour collecter des données pour Log Analytics, même si le paramètre est vide.    
+Si un ou plusieurs serveurs de passerelle Operations Manager sont déployés pour surveiller les systèmes non fiables dans un réseau de périmètre ou un réseau isolé, ces serveurs ne peuvent pas communiquer avec une passerelle d’Analytique de journal.  Serveurs d’Operations Manager Gateway peuvent signaler uniquement à un serveur d’administration.  Lorsqu’un groupe d’administration Operations Manager est configuré pour communiquer avec la passerelle d’Analytique de journal, les informations de configuration de proxy sont automatiquement distribuées à tous les ordinateurs gérés par agent qui sont configuré pour collecter des données de journal pour Azure Monitor, même si le paramètre est vide.    
 
-Pour fournir une haute disponibilité pour directement connectés ou des groupes de gestion des opérations qui communiquent avec Analytique de journal via la passerelle, utilisez réseau équilibrage de charge (NLB) pour rediriger et distribuer le trafic entre plusieurs serveurs de passerelle. De cette façon, si un serveur de passerelle tombe en panne, le trafic est redirigé vers un autre nœud disponible.  
+Pour fournir une haute disponibilité pour directement connectés ou des groupes de gestion des opérations qui communiquent avec un espace de travail Analytique de journal via la passerelle, utilisez réseau équilibrage de charge (NLB) pour rediriger et distribuer le trafic entre plusieurs serveurs de passerelle. De cette façon, si un serveur de passerelle tombe en panne, le trafic est redirigé vers un autre nœud disponible.  
 
 L’ordinateur qui exécute la passerelle d’Analytique de journal requiert l’agent Windows d’Analytique de journal identifier les points de terminaison de service nécessaires pour communiquer avec la passerelle. L’agent doit également diriger la passerelle à enregistrer dans les espaces de travail de mêmes que les agents ou groupe d’administration Operations Manager derrière la passerelle sont configurés avec. Cette configuration permet à la passerelle et l’agent pour communiquer avec leur espace de travail attribué.
 

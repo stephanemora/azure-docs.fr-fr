@@ -5,14 +5,14 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 03/05/2019
 ms.author: tamram
-ms.openlocfilehash: d3f6009c77618bc043586771a6f67442533b2a0d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: fa574558afeec5a7706482a142c0187e6a34bdb3
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444053"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370387"
 ---
 # <a name="manage-storage-account-settings-in-the-azure-portal"></a>Gérer les paramètres de compte de stockage dans le portail Azure
 
@@ -20,9 +20,9 @@ Divers paramètres de compte de stockage sont disponibles dans le [portail Azure
 
 ## <a name="access-control"></a>Contrôle d’accès
 
-Le stockage Azure prend en charge l’authentification avec Azure Active Directory pour le stockage Blob et le stockage File d’attente (préversion) via le contrôle d’accès en fonction du rôle (RBAC). Pour plus d’informations sur l’authentification avec Azure AD, consultez [Authentifier l’accès aux objets blob et files d’attente Azure à l’aide d’Azure Active Directory (préversion)](storage-auth-aad.md).
+Stockage Azure prend en charge l’authentification avec Azure Active Directory pour le stockage d’objets Blob et stockage de file d’attente par le biais de contrôle d’accès en fonction du rôle (RBAC). Pour plus d’informations sur l’authentification auprès d’Azure AD, consultez [authentifier l’accès à Azure d’objets BLOB et files d’attente à l’aide d’Azure Active Directory](storage-auth-aad.md).
 
-Avec les paramètres **Contrôle d’accès** disponibles dans le portail Azure, vous pouvez facilement assigner des rôles RBAC aux utilisateurs, aux groupes, aux principaux de service et aux identités managées. Pour plus d’informations sur l’assignation de rôles RBAC, consultez [Gérer les droits d’accès aux données d’objet blob et de file d’attente avec RBAC (préversion)](storage-auth-aad-rbac.md).
+Avec les paramètres **Contrôle d’accès** disponibles dans le portail Azure, vous pouvez facilement assigner des rôles RBAC aux utilisateurs, aux groupes, aux principaux de service et aux identités managées. Pour plus d’informations sur l’affectation des rôles RBAC, consultez [gérer les droits d’accès aux données blob et file d’attente avec RBAC](storage-auth-aad-rbac.md).
 
 > [!NOTE]
 > L’authentification des utilisateurs et des applications à l’aide des informations d’identification Azure AD est plus sécurisée et plus facile à utiliser que les autres modes d’autorisation. Même si vous pouvez continuer à utiliser l’autorisation de clé partagée avec vos applications, avec Azure AD, vous n’avez plus besoin de stocker votre clé d’accès de compte avec votre code. Vous pouvez également continuer à utiliser des signatures d’accès partagé (SAP) pour accorder un accès affiné aux ressources de votre compte de stockage. Toutefois, Azure AD offre des fonctionnalités similaires sans nécessiter de gestion des jetons SAP, ni de révocation des SAP compromises. 

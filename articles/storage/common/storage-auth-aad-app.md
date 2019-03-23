@@ -1,27 +1,27 @@
 ---
-title: Authentifier avec Azure Active Directory pour accéder aux données des objets blob et des files d’attente à partir de vos applications (préversion) | Microsoft Docs
-description: Utilisez Azure Active Directory pour assurer l’authentification à partir d’une application, puis pour autoriser l’envoi de requêtes aux objets blob et aux files d’attente (préversion).
+title: Authentification avec Azure Active Directory pour accéder aux objets blob et file d’attente des données à partir de vos applications | Microsoft Docs
+description: Utilisez Azure Active Directory pour s’authentifier à partir d’une application et autoriser des demandes aux objets BLOB et files d’attente.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 11/21/2018
+ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 6d283840116a5e1f996602fd792456d3b8e8d9a0
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a313061f89d33ee2bf5379dbd37495db06b64440
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456089"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369511"
 ---
-# <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues-preview"></a>Authentifier avec Azure Active Directory à partir d’une application pour accéder aux objets blob et aux files d’attente (préversion)
+# <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues"></a>Authentification avec Azure Active Directory à partir d’une application pour l’accès aux objets BLOB et files d’attente
 
 Le principal avantage d’utiliser Azure Active Directory (Azure AD) avec le Stockage Azure est que vos informations d’identification n’ont plus besoin d’être stockées dans votre code. À la place, vous pouvez demander un jeton d’accès OAuth 2.0 à Azure AD. Azure AD gère l’authentification du principal de sécurité (un utilisateur, un groupe ou un principal de service) qui exécute l’application. Si l’authentification réussit, Azure AD retourne le jeton d’accès à l’application et l’application peut ensuite l’utiliser pour autoriser les demandes vers le Stockage Azure.
 
 Cet article décrit comment configurer votre application pour l’authentification avec Azure AD. L’exemple de code utilise .NET, mais l’approche est similaire avec d’autres langages.
 
-Pour pouvoir authentifier un principal de sécurité à partir de votre application de Stockage Azure, configurez les paramètres du contrôle d’accès basé sur un rôle (RBAC) pour ce principal de sécurité. Le Stockage Azure définit des rôles RBAC qui englobent les autorisations pour les conteneurs et les files d’attente. Quand le rôle RBAC est attribué à un principal de sécurité, ce dernier obtient l’accès à cette ressource. Pour plus d’informations, consultez [Gérer les droits d’accès aux données de stockage avec RBAC (préversion)](storage-auth-aad-rbac.md).
+Pour pouvoir authentifier un principal de sécurité à partir de votre application de Stockage Azure, configurez les paramètres du contrôle d’accès basé sur un rôle (RBAC) pour ce principal de sécurité. Le Stockage Azure définit des rôles RBAC qui englobent les autorisations pour les conteneurs et les files d’attente. Quand le rôle RBAC est attribué à un principal de sécurité, ce dernier obtient l’accès à cette ressource. Pour plus d’informations, consultez [gérer les droits d’accès aux données de stockage avec RBAC](storage-auth-aad-rbac.md).
 
 Pour avoir une vue d’ensemble du flux d’octroi de code OAuth 2.0, consultez [Autoriser l’accès aux applications web Azure Active Directory à l’aide du flux d’octroi de code OAuth 2.0](../../active-directory/develop/v1-protocols-oauth-code.md).
 
@@ -29,7 +29,7 @@ Pour avoir une vue d’ensemble du flux d’octroi de code OAuth 2.0, consultez 
 
 ## <a name="assign-an-rbac-role-to-an-azure-ad-security-principal"></a>Attribuer un rôle RBAC à un principal de sécurité Azure AD
 
-Pour authentifier un principal de sécurité à partir de votre application Stockage Azure, commencez par configurer les paramètres de contrôle d’accès en fonction du rôle (RBAC) pour ce principal de sécurité. Le Stockage Azure définit des rôles RBAC qui englobent les autorisations pour les conteneurs et les files d’attente. Quand le rôle RBAC est attribué à un principal de sécurité, ce dernier obtient l’accès à cette ressource. Pour plus d’informations, consultez l’article [Gérer les droits d’accès aux données d’objet blob et de file d’attente Azure avec RBAC (préversion)](storage-auth-aad-rbac.md).
+Pour authentifier un principal de sécurité à partir de votre application Stockage Azure, commencez par configurer les paramètres de contrôle d’accès en fonction du rôle (RBAC) pour ce principal de sécurité. Le Stockage Azure définit des rôles RBAC qui englobent les autorisations pour les conteneurs et les files d’attente. Quand le rôle RBAC est attribué à un principal de sécurité, ce dernier obtient l’accès à cette ressource. Pour plus d’informations, consultez [gérer les droits d’accès aux données d’objets Blob Azure et de file d’attente avec RBAC](storage-auth-aad-rbac.md).
 
 ## <a name="register-your-application-with-an-azure-ad-tenant"></a>Inscrire votre application à un locataire Azure AD
 
@@ -73,7 +73,7 @@ L’exemple de code montre comment obtenir un jeton d’accès d’Azure AD. Le 
 > [!NOTE]
 > En tant que propriétaire de votre compte de stockage Azure, vous n’avez pas automatiquement l’autorisation d’accéder aux données. Vous devez explicitement vous attribuer un rôle RBAC pour le Stockage Azure. Vous pouvez l’attribuer au niveau de votre abonnement, groupe de ressources, compte de stockage, conteneur ou file d’attente. 
 >
-> Par exemple, pour exécuter l’exemple de code sur un compte de stockage dont vous êtes propriétaire et sous votre propre identité d’utilisateur, vous devez vous attribuer le rôle RBAC Contributeur aux données blob. Sinon, l’appel pour créer l’objet blob échoue avec le code d’état HTTP 403 (Interdit). Pour plus d’informations, consultez [Gérer les droits d’accès aux données de stockage avec RBAC (préversion)](storage-auth-aad-rbac.md).
+> Par exemple, pour exécuter l’exemple de code sur un compte de stockage dont vous êtes propriétaire et sous votre propre identité d’utilisateur, vous devez vous attribuer le rôle RBAC Contributeur aux données blob. Sinon, l’appel pour créer l’objet blob échoue avec le code d’état HTTP 403 (Interdit). Pour plus d’informations, consultez [gérer les droits d’accès aux données de stockage avec RBAC](storage-auth-aad-rbac.md).
 
 ### <a name="well-known-values-for-authentication-with-azure-ad"></a>Valeurs connues pour l’authentification avec Azure AD
 
@@ -105,7 +105,7 @@ Pour obtenir l’ID client, procédez comme suit :
 
 ### <a name="add-references-and-using-statements"></a>Ajouter des références et des instructions using  
 
-Dans Visual Studio, installez la préversion de la bibliothèque de client du Stockage Azure. Dans le menu **Outils**, sélectionnez **Gestionnaire de package NuGet**, puis **Console du gestionnaire de package**. Tapez la commande suivante dans la console pour installer la dernière version de la bibliothèque cliente pour .NET :
+À partir de Visual Studio, installez la bibliothèque cliente Azure Storage. Dans le menu **Outils**, sélectionnez **Gestionnaire de package NuGet**, puis **Console du gestionnaire de package**. Tapez la commande suivante dans la console pour installer la dernière version de la bibliothèque cliente pour .NET :
 
 ```
 Install-Package WindowsAzure.Storage
@@ -187,14 +187,10 @@ x-ms-version: 2017-11-09
 Authorization: Bearer eyJ0eXAiOnJKV1...Xd6j
 ```
 
-Pour plus d’informations sur l’autorisation des opérations Stockage Azure à partir de REST, consultez [S’authentifier avec Azure Active Directory (préversion)](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory).
+Pour plus d’informations sur l’autorisation d’opérations de stockage Azure à partir de REST, consultez [s’authentifier avec Azure Active Directory](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour en savoir plus sur les rôles RBAC relatifs au stockage Azure, consultez [Gérer les droits d’accès aux données de stockage avec RBAC (préversion)](storage-auth-aad-rbac.md).
-- Pour plus d’informations sur l’utilisation des identités managées pour les ressources Azure avec le stockage Azure, consultez [S’authentifier auprès d’Azure AD à partir d’une identité Managed Service Identity Azure (préversion)](storage-auth-aad-msi.md).
-- Pour apprendre à vous connecter à Azure CLI et PowerShell avec une identité Azure AD, consultez [Utiliser une identité Azure AD pour accéder au Stockage Azure avec CLI ou PowerShell (préversion)](storage-auth-aad-script.md).
-- Pour plus d’informations sur l’intégration d’Azure AD aux objets blob et files d’attente Azure, consultez le billet de blog de l’équipe Stockage Azure, [Annonce de la préversion d’Azure AD Authentication pour le Stockage Azure](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).
-
-
-
+- Pour en savoir plus sur les rôles RBAC pour le stockage Azure, consultez [gérer les droits d’accès aux données de stockage avec RBAC](storage-auth-aad-rbac.md).
+- Pour en savoir plus sur l’utilisation des identités gérées pour les ressources Azure avec le stockage Azure, consultez [authentifier l’accès aux objets BLOB et files d’attente avec Azure managed identités pour les ressources Azure](storage-auth-aad-msi.md).
+- Pour savoir comment se connecter à Azure CLI et PowerShell avec une identité Azure AD, consultez [utiliser une identité Azure AD pour accéder au stockage Azure avec PowerShell ou CLI](storage-auth-aad-script.md).

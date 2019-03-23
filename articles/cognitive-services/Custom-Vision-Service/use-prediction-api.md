@@ -7,26 +7,26 @@ author: anrothMSFT
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
-ms.topic: sample
-ms.date: 05/03/2018
+ms.topic: article
+ms.date: 03/21/2019
 ms.author: anroth
-ms.openlocfilehash: a285bc4c6eecf1a8cdda758af9df1a697c374b5a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: HT
+ms.openlocfilehash: e50933ea0231b4be22c2d0f82d33fd02dd0918f5
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533967"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351607"
 ---
-# <a name="use-the-prediction-endpoint-to-test-images-programmatically-with-a-custom-vision-service-classifier"></a>Utiliser le point de terminaison de prédiction pour tester les images par programmation avec un classifieur Service Vision personnalisée
+# <a name="use-the-prediction-endpoint-to-test-images-programmatically"></a>Utiliser le point de terminaison de prédiction pour tester les images par programme
 
-Après avoir entraîné votre modèle, vous pouvez tester par programmation les images en les soumettant à l’API Prediction. 
+Après avoir entraîné votre modèle, vous pouvez tester par programmation les images en les soumettant à l’API Prediction.
 
 > [!NOTE]
 > Ce document démontre l’utilisation de C# pour soumettre une image à l’API Prediction. Pour en savoir plus et obtenir des exemples d’utilisation de l’API, consultez les [Informations de référence sur l’API Prediction](https://go.microsoft.com/fwlink/?linkid=865445).
 
 ## <a name="get-the-url-and-prediction-key"></a>Obtenir l’URL et la clé de prédiction
 
-À partir de la [page Web Custom Vision](https://customvision.ai), sélectionnez votre projet, puis sélectionnez l’onglet __Performance__. Pour afficher des informations sur l’utilisation de l’API Prediction, dont la valeur __Prediction-key__, sélectionnez __Prediction URL__ (URL de prédiction). Pour les projets associés à une ressource Azure, votre valeur __Prediction-key__ figure également dans la page du [portail Azure](https://portal.azure.com) de la ressource Azure associée sous __Clés__. Copiez les informations suivantes pour les utiliser dans l’application :
+À partir de la [page Web Custom Vision](https://customvision.ai), sélectionnez votre projet, puis sélectionnez l’onglet __Performance__. Pour afficher des informations sur l’utilisation de l’API Prediction, dont la valeur __Prediction-key__, sélectionnez __Prediction URL__ (URL de prédiction). Pour les projets associés à une ressource Azure, votre __clé de prédiction__ figurent également dans le [Azure portal](https://portal.azure.com) page de ressource Azure associée sous __clés__. Copiez les informations suivantes pour les utiliser dans l’application :
 
 * __URL__ pour l’utilisation d’un __fichier image__.
 * Valeur __Prediction-key__.
@@ -40,7 +40,7 @@ Après avoir entraîné votre modèle, vous pouvez tester par programmation les 
 
 1. À partir de Visual Studio, créez une application console C#.
 
-2. Utilisez le code suivant comme corps du fichier __Program.cs__.
+1. Utilisez le code suivant comme corps du fichier __Program.cs__.
 
     > [!IMPORTANT]
     > Modifiez les informations suivantes :

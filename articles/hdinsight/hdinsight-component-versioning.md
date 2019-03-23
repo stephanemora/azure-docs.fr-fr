@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: kakampf
-ms.openlocfilehash: 0e15f3dc448ba218ebdfe309c4308bbc789ef5be
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 38667bfe1c7c2a23db9375aa50dd328b98735c06
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226263"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361776"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Quels sont les composants et versions Apache Hadoop disponibles avec HDInsight ?
 
@@ -81,12 +81,12 @@ Le tableau suivant répertorie les versions de HDInsight qui sont disponibles da
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 4.0 <br> (Préversion) |HDP 3.0 |Ubuntu 16.0.4 LTS |24 septembre 2018 | | |Oui |Oui |
 | HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |4 avril 2017 | | |Oui |Oui |
-| HDInsight 3.5 <br> (Spark)* |HDP 2.6 |Ubuntu 16.0.4 LTS |30 septembre 2016 |13 mars 2019 |13 mars 2019 |Oui |Oui |
+| HDInsight 3.5 <br> (Spark)\* |HDP 2.6 |Ubuntu 16.0.4 LTS |30 septembre 2016 |13 mars 2019 |13 mars 2019 |Oui |Oui |
 
 *&ast; La prise en charge de HDInsight 3.5 a été prolongée uniquement pour les types de cluster Spark*
 
 > [!NOTE]  
-> Quand une version cesse d’être prise en charge, elle n’est plus proposée dans le portail Microsoft Azure. Toutefois, les versions des clusters restent disponibles avec le paramètre `Version` de la commande Windows PowerShell [New-AzureRmHDInsightCluster](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/new-azurermhdinsightcluster) et le Kit de développement logiciel (SDK) .NET, jusqu’à leur date de mise hors service.
+> Quand une version cesse d’être prise en charge, elle n’est plus proposée dans le portail Microsoft Azure. Toutefois, les versions des clusters restent disponibles avec la `Version` paramètre dans Windows PowerShell [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) commande et le SDK .NET jusqu'à la date de suppression de la version.
 >
 
 ### <a name="retired-versions"></a>Versions supprimées

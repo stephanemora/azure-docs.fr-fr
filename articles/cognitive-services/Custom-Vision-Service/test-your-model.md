@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 05/03/2018
+ms.date: 03/21/2019
 ms.author: anroth
-ms.openlocfilehash: 21d8f6a3b10de17172ff59463cca4162585fe40f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: d516cee81aef66ec58399cb5ff23c89db16bf2ab
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858985"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58350434"
 ---
 # <a name="test-and-retrain-a-model-with-custom-vision-service"></a>Tester et recycler un modèle avec Service Vision personnalisée
 
@@ -35,7 +35,7 @@ L’image que vous sélectionnez apparaît au milieu de la page. Les résultats 
 
 Vous pouvez maintenant ajouter cette image de test à votre modèle, puis le recycler.
 
-## <a name="use-the-predicted-image-for-training"></a>Utilisez l’image prévue pour former le modèle.
+## <a name="use-the-predicted-image-for-training"></a>Utiliser l’image prédite de formation
 
 Pour utiliser l’image précédemment envoyée pour former le modèle, procédez comme suit :
 

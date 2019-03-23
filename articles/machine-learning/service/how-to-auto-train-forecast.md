@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.openlocfilehash: cc5aae0e46e181e8063a4e01a832e68eab0eae0e
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 32f96a28e027bfd0e65d934bb47bb98400af459d
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226607"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360721"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Automatique-former un modèle de prévision de séries chronologiques
 
@@ -27,7 +27,7 @@ Dans cet article, vous allez apprendre à former un modèle de régression prév
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-* Un espace de travail de service Microsoft Azure Machine Learning. Pour créer l’espace de travail, consultez [les articles sur le démarrage rapide d’Azure Machine Learning service](quickstart-get-started.md).
+* Un espace de travail de service Microsoft Azure Machine Learning. Pour créer l’espace de travail, consultez [créer un espace de travail du service Azure Machine Learning](setup-create-workspace.md).
 * Cet article suppose une connaissance de base sur la configuration d’une expérience d’apprentissage automatique. Suivez le [didacticiel](tutorial-auto-train-models.md) ou [procédures](how-to-configure-auto-train.md) pour afficher la base automatisés d’apprentissage des modèles de conception expérience.
 
 ## <a name="preparing-data"></a>Préparation des données

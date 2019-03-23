@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36959582a3866426f8dc0e9969210e29e751ea60
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 4d9055ef11bc5c117efc6d4de87d4ca8ec73a661
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311898"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360501"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Stratégies et restrictions de mot de passe dans Azure Active Directory
 
@@ -93,7 +93,7 @@ Le tableau suivant décrit les paramètres de stratégie de mot de passe appliqu
 
 ## <a name="set-password-expiration-policies-in-azure-ad"></a>Définir des stratégies d’expiration de mot de passe dans Azure AD
 
-Un administrateur global d’un service cloud Microsoft peut utiliser le module Microsoft Azure AD pour Windows PowerShell afin de définir des mots de passe utilisateur qui n’expirent pas. Vous pouvez également utiliser des applets de commande Windows PowerShell pour supprimer la configuration de non-expiration ou pour voir quels mots de passe utilisateur sont définis pour ne jamais expirer. 
+Un administrateur général ou un administrateur de l’utilisateur pour un service cloud Microsoft peut utiliser le Module Microsoft Azure AD pour Windows PowerShell pour définir des mots de passe utilisateur ne pas le point d’expirer. Vous pouvez également utiliser des applets de commande Windows PowerShell pour supprimer la configuration de non-expiration ou pour voir quels mots de passe utilisateur sont définis pour ne jamais expirer. 
 
 Ces conseils s’appliquent à d’autres fournisseurs, tels que Intune et Office 365, qui s’appuient également sur Azure AD pour les services d’identité et d’annuaire. L’expiration du mot de passe est la seule partie de la stratégie qui peut être modifiée.
 
@@ -107,7 +107,7 @@ Pour commencer, vous devez [télécharger et installer le module Azure AD Powe
 
 ### <a name="check-the-expiration-policy-for-a-password"></a>Vérifier la stratégie d’expiration d’un mot de passe
 
-1. Connectez-vous à Windows PowerShell à l’aide de vos informations d’identification d’administrateur d’entreprise.
+1. Se connecter à Windows PowerShell à l’aide de votre administrateur de l’utilisateur ou les informations d’identification d’administrateur d’entreprise.
 1. Exécutez l’une des commandes suivantes :
 
    * Pour voir si un seul mot de passe est défini pour ne jamais expirer, exécutez l’applet de commande suivante à l’aide de l’UPN (par exemple, *aprilr\@contoso.onmicrosoft.com*) ou l’ID d’utilisateur de l’utilisateur à vérifier : `Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
@@ -115,7 +115,7 @@ Pour commencer, vous devez [télécharger et installer le module Azure AD Powe
 
 ### <a name="set-a-password-to-expire"></a>Définir un mot de passe pour qu’il expire
 
-1. Connectez-vous à Windows PowerShell à l’aide de vos informations d’identification d’administrateur d’entreprise.
+1. Se connecter à Windows PowerShell à l’aide de votre administrateur de l’utilisateur ou les informations d’identification d’administrateur d’entreprise.
 1. Exécutez l’une des commandes suivantes :
 
    * Pour définir le mot de passe d’un utilisateur afin qu’il expire, exécutez l’applet de commande suivante en utilisant l’UPN ou l’identifiant utilisateur de l’utilisateur : `Set-AzureADUser -ObjectId <user ID> -PasswordPolicies None`
@@ -123,7 +123,7 @@ Pour commencer, vous devez [télécharger et installer le module Azure AD Powe
 
 ### <a name="set-a-password-to-never-expire"></a>Définir un mot de passe pour qu’il n’expire jamais
 
-1. Connectez-vous à Windows PowerShell à l’aide de vos informations d’identification d’administrateur d’entreprise.
+1. Se connecter à Windows PowerShell à l’aide de votre administrateur de l’utilisateur ou les informations d’identification d’administrateur d’entreprise.
 1. Exécutez l’une des commandes suivantes :
 
    * Pour définir le mot de passe d’un utilisateur afin qu’il expire jamais, exécutez l’applet de commande suivante en utilisant l’UPN ou l’identifiant utilisateur de l’utilisateur : `Set-AzureADUser -ObjectId <user ID> -PasswordPolicies DisablePasswordExpiration`

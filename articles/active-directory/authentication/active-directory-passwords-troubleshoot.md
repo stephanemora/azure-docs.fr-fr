@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 297d32311b6b697b0141488878d170b3f2f4c359
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 81519a9452bf578c2640b547b2102b8e162e2878
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315485"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369783"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Résoudre les problèmes relatifs à la réinitialisation de mot de passe libre-service
 
@@ -35,7 +35,6 @@ Vous rencontrez un problème avec la réinitialisation de mot de passe libre-ser
 | UserNotProperlyConfigured = 14 | Nous sommes désolés, vous ne pouvez pas réinitialiser votre mot de passe pour l’instant, car il manque des informations nécessaires pour votre compte. Vous ne pouvez entreprendre aucune action supplémentaire pour résoudre ce problème. Veuillez contacter votre administrateur et demandez-lui de réinitialiser votre mot de passe pour vous. Une fois que vous avez à nouveau accès à votre compte, vous devez enregistrer les informations nécessaires. Pour enregistrer les informations, suivez les étapes de l’article [S’inscrire à la réinitialisation de mot de passe en libre-service](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-reset-register). | SSPR_0014 : des informations de sécurité supplémentaires sont nécessaires pour la réinitialisation de votre mot de passe. Pour réaliser l’opération, veuillez contacter votre administrateur et demandez-lui de réinitialiser votre mot de passe. Une fois que vous avez accès à votre compte, vous pouvez enregistrer des informations de sécurité supplémentaires à l’adresse https://aka.ms/ssprsetup. Votre administrateur peut ajouter des informations de sécurité supplémentaires à votre compte en suivant les étapes décrites dans [Définir et lire les données d’authentification à l’aide de PowerShell](howto-sspr-authenticationdata.md). |
 | OnPremisesAdminActionRequired = 29 | Nous sommes désolés, nous ne pouvons pas réinitialiser votre mot de passe pour l’instant en raison d’un problème avec la configuration de réinitialisation de mot de passe de votre organisation. Vous ne pouvez entreprendre aucune action supplémentaire pour résoudre ce problème. Veuillez contacter votre administrateur et demandez-lui d’étudier le problème. Pour plus d’informations sur le problème éventuel, consultez [Résoudre les problèmes d’écriture différée du mot de passe](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback). | SSPR_0029 : nous ne sommes pas en mesure de réinitialiser votre mot de passe en raison d’une erreur dans votre configuration locale. Veuillez contacter votre administrateur et demandez-lui d’étudier le problème. |
 | OnPremisesConnectivityError = 30 | Nous sommes désolés, nous ne pouvons pas réinitialiser votre mot de passe pour l’instant en raison de problèmes de connectivité à votre organisation. Aucune action ne peut être entreprise maintenant, mais le problème sera éventuellement résolu si vous réessayez plus tard. Si le problème persiste, veuillez contacter votre administrateur et demandez-lui d’étudier le problème. Pour en savoir plus sur les problèmes de connectivité, consultez [Résolution des problèmes de connectivité de la réécriture du mot de passe](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback-connectivity). | SSPR_0030 : nous ne pouvons pas réinitialiser votre mot de passe en raison d’une mauvaise connexion à votre environnement local. Contactez votre administrateur et demandez-lui d’étudier le problème.|
-
 
 ## <a name="troubleshoot-the-password-reset-configuration-in-the-azure-portal"></a>Résoudre le problème de configuration de réinitialisation de mot de passe dans le portail Azure
 
@@ -94,7 +93,7 @@ Vous rencontrez un problème avec la réinitialisation de mot de passe libre-ser
 
 ## <a name="password-writeback-event-log-error-codes"></a>Codes d’erreur du journal des événements de réécriture du mot de passe
 
-Pour résoudre les problèmes liés à la réécriture du mot de passe, nous vous recommandons d’examiner le journal des événements de l’application sur votre machine Azure AD Connect. Ce journal des événements contient des événements issus de deux sources d’intérêt pour la réécriture du mot de passe. La source PasswordResetService décrit les opérations et les problèmes liés au fonctionnement de la réécriture du mot de passe. La source ADSync décrit les opérations et les problèmes liés à la définition des mots de passe dans votre environnement Active Directory.
+Une meilleure pratique lors de la résolution des problèmes avec l’écriture différée de mot de passe consiste à examiner le journal des événements application, sur votre ordinateur Azure AD Connect. Ce journal des événements contient des événements issus de deux sources d’intérêt pour la réécriture du mot de passe. La source PasswordResetService décrit les opérations et les problèmes liés au fonctionnement de la réécriture du mot de passe. La source ADSync décrit les opérations et les problèmes liés à la définition des mots de passe dans votre environnement Active Directory.
 
 ### <a name="if-the-source-of-the-event-is-adsync"></a>Si la source de l’événement est ADSync
 
@@ -168,8 +167,8 @@ Le point de défaillance le plus courant est que le pare-feu et/ou les ports de 
 
 Pour Azure AD Connect version 1.1.443.0 et versions ultérieures, vous avez besoin d’un accès HTTPS sortant à ce qui suit :
 
-   - passwordreset.microsoftonline.com
-   - servicebus.windows.net
+* passwordreset.microsoftonline.com
+* servicebus.windows.net
 
 Pour plus de granularité, reportez-vous à la liste mise à jour des [plages d’adresses IP du centre de données Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653), actualisée tous les mercredis et appliquée le lundi qui suit.
 
@@ -184,7 +183,7 @@ Pour résoudre les problèmes de connectivité ou d’autres problèmes temporai
 1. Recherchez l’entrée **Microsoft Azure AD Sync**.
 1. Cliquez avec le bouton droit sur l’entrée du service, sélectionnez **Redémarrer**, puis attendez que l’opération soit terminée.
 
-   ![Redémarrer le service de synchronisation Azure AD][Service restart]
+   ![Redémarrez le service Azure AD Sync à l’aide de l’interface utilisateur graphique][Service restart]
 
 Ces étapes vont rétablir votre connexion au service cloud et résoudre toute interruption à laquelle vous pouvez être confronté. Si le redémarrage du service ADSync ne résout pas votre problème, nous vous recommandons d’essayer de le désactiver, puis de réactiver la fonctionnalité de réécriture du mot de passe.
 
@@ -215,7 +214,6 @@ Nous vous recommandons d’effectuer cette étape uniquement après avoir tenté
 
 > [!WARNING]
 > Si vous avez personnalisé les règles de synchronisation par défaut, *sauvegardez-les avant de procéder à la mise à niveau, puis redéployez-les manuellement après avoir terminé*.
->
 
 1. Téléchargez la dernière version d’Azure AD Connect sur le [Centre de téléchargement de Microsoft](https://go.microsoft.com/fwlink/?LinkId=615771).
 1. Puisque vous avez déjà installé Azure AD Connect, il vous suffit d’effectuer une mise à niveau sur place pour mettre à jour votre installation d’Azure AD Connect vers la dernière version.
@@ -231,33 +229,27 @@ Azure AD Connect a besoin de l’autorisation Active Directory **Réinitialiser 
 
 1. Connectez-vous au serveur Azure AD Connect et démarrez **Synchronization Service Manager** en sélectionnant **Démarrer** > **Service de synchronisation**.
 1. Sous l’onglet **Connecteurs**, sélectionnez le connecteur **Active Directory Domain Services**, puis sélectionnez **Propriétés**.  
-   ![Autorisation effective - Étape 2](./media/active-directory-passwords-troubleshoot/checkpermission01.png)  
+   ![Gestionnaire de Service de synchronisation montrant comment modifier les propriétés](./media/active-directory-passwords-troubleshoot/checkpermission01.png)  
   
 1. Dans la fenêtre indépendante, sélectionnez l’onglet **Se connecter à la forêt Active Directory** et prenez note de la propriété **Nom d’utilisateur**. Cette propriété est le compte AD DS utilisé par Azure AD Connect pour effectuer la synchronisation d’annuaire. Pour qu’Azure AD Connect effectue une écriture différée du mot de passe, il faut que le compte des services AD DS dispose de l’autorisation de réinitialiser le mot de passe.  
-   
-   ![Autorisation effective - Étape 3](./media/active-directory-passwords-troubleshoot/checkpermission02.png) 
+
+   ![Recherche le compte d’utilisateur service synchronisation Active Directory](./media/active-directory-passwords-troubleshoot/checkpermission02.png) 
   
 1. Connectez-vous à un contrôleur de domaine local et démarrez l’application **Utilisateurs et ordinateurs Active Directory**.
 1. Sélectionnez **Affichage** et vérifiez que l’option **Fonctionnalités avancées** est activée.  
-   
-   ![Autorisation effective - Étape 5](./media/active-directory-passwords-troubleshoot/checkpermission03.png) 
+
+   ![Active Directory Users and Computers affichent les fonctionnalités avancées](./media/active-directory-passwords-troubleshoot/checkpermission03.png) 
   
 1. Recherchez le compte d’utilisateur Active Directory à vérifier. Cliquez avec le bouton droit sur le nom du compte et sélectionnez **Propriétés**.  
-   
-   ![Autorisation effective - Étape 6](./media/active-directory-passwords-troubleshoot/checkpermission04.png) 
-
 1. Dans la fenêtre indépendante, accédez à l’onglet **Sécurité** et sélectionnez **Avancé**.  
-   
-   ![Autorisation effective - Étape 7](./media/active-directory-passwords-troubleshoot/checkpermission05.png) 
-   
 1. Dans la fenêtre indépendante **Paramètres de sécurité avancés pour Administrateur**, accédez à l’onglet **Accès effectif**.
 1. Sélectionnez **Sélectionner un utilisateur**, sélectionnez le compte AD DS utilisé par Azure AD Connect (consultez l’étape 3), puis sélectionnez **Afficher l’accès effectif**.
 
-   ![Autorisation effective - Étape 9](./media/active-directory-passwords-troubleshoot/checkpermission06.png) 
+   ![Onglet accès autorisations effectives montrant le compte de synchronisation](./media/active-directory-passwords-troubleshoot/checkpermission06.png) 
   
 1. Faites défiler vers le bas et recherchez **Réinitialiser le mot de passe**. Si l’entrée a une coche, le compte AD DS est autorisé à réinitialiser le mot de passe du compte d’utilisateur Active Directory sélectionné.  
-   
-   ![Autorisation effective - Étape 10](./media/active-directory-passwords-troubleshoot/checkpermission07.png)  
+
+   ![Valider que le compte de synchronisation a l’autorisation de mot de passe de réinitialisation](./media/active-directory-passwords-troubleshoot/checkpermission07.png)  
 
 ## <a name="azure-ad-forums"></a>Forums d’Azure AD
 
@@ -272,17 +264,17 @@ Pour que nous puissions mieux vous aider, nous vous demandons de fournir autant 
 * **Description générale de l’erreur**. Quelle est l’erreur ? Quel était le comportement que vous avez remarqué ? Comment pouvons-nous reproduire l’erreur ? Fournissez autant de détails que possible.
 * **Page**. Sur quelle page étiez-vous quand vous avez remarqué l’erreur ? Indiquez l’URL si possible, ainsi qu’une capture d’écran de la page.
 * **Code de support**. Quel était le code de support généré quand l’utilisateur a vu l’erreur ?
-  * Pour trouver ce code, reproduisez l’erreur, puis sélectionnez le lien **Code de support** en bas de l’écran et envoyez à l’ingénieur du support technique le GUID obtenu.
+   * Pour trouver ce code, reproduisez l’erreur, puis sélectionnez le lien **Code de support** en bas de l’écran et envoyez à l’ingénieur du support technique le GUID obtenu.
 
-    ![Recherchez le code de support en bas de l’écran][Support code]
+   ![Recherchez le code de support en bas de l’écran][Support code]
 
   * Si vous êtes dans une page sans code de support dans la partie inférieure, appuyez sur F12 et recherchez le SID et le CID et envoyez ces deux résultats à l’ingénieur de support.
 * **Date, heure et fuseau horaire**. Incluez la date et l’heure précises, *avec le fuseau horaire*, d’occurrence de l’erreur.
 * **ID d’utilisateur**. Quel était l’utilisateur qui a vu l’erreur ? Par exemple, *utilisateur\@contoso.com*.
-    * S’agit-il d’un utilisateur fédéré ?
-    * S’agit-il d’un utilisateur de l’authentification directe ?
-    * S’agit-il d’un utilisateur disposant de la synchronisation du hachage de mot de passe ?
-    * S’agit-il d’un utilisateur cloud uniquement ?
+   * S’agit-il d’un utilisateur fédéré ?
+   * S’agit-il d’un utilisateur de l’authentification directe ?
+   * S’agit-il d’un utilisateur disposant de la synchronisation du hachage de mot de passe ?
+   * S’agit-il d’un utilisateur cloud uniquement ?
 * **Licences**. L’utilisateur dispose-t-il d’une licence Azure AD Premium ou Azure AD Basic ?
 * **Journal des événements de l’application**. Si vous utilisez la réécriture de mot de passe et que l’erreur se produit dans votre infrastructure locale, veuillez inclure une copie compressée du journal des événements de l’application provenant de votre serveur Azure AD Connect.
 

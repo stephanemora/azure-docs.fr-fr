@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: 3829fb3c045b149552d3f022e31f30f9cfae8182
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a56f391aa76bd1216fd51d516adb836a2093bcba
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57852438"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371137"
 ---
 # <a name="mapping-data-flow-sink-transformation"></a>Transformation de réception des flux de données de mappage
 
@@ -57,7 +57,7 @@ Si vous souhaitez réinitialiser vos mappages de colonnes, appuyez sur le bouton
 ## <a name="file-name-options"></a>Options de nom de fichier
 
    * Valeur par défaut : autoriser Spark à nommer les fichiers en fonction des valeurs par défaut de la partition
-   * Modèle : entrez un nom pour vos fichiers de sortie.
+   * Modèle : Entrer un modèle pour vos fichiers de sortie. Par exemple, « prêts [n] » créera loans1.csv, loans2.csv,...
    * Par partition : entrez un nom de fichier pour chaque partition.
    * Comme les données de la colonne : définissez le fichier de sortie sur la valeur d’une colonne.
 
@@ -66,11 +66,16 @@ Si vous souhaitez réinitialiser vos mappages de colonnes, appuyez sur le bouton
 
 ## <a name="database-options"></a>Options de la base de données
 
-* Autoriser insert, update, delete, upserts. La valeur par défaut est de permettre les insertions. Si vous souhaitez effectuer la mise à jour, d’upsert ou d’insérer des lignes, vous devez d’abord ajouter une transformation de ligne alter aux lignes de balise pour les actions spécifiques.
+* Autoriser insert, update, delete, upserts. La valeur par défaut est de permettre les insertions. Si vous souhaitez effectuer la mise à jour, d’upsert ou de supprimer des lignes, vous devez d’abord ajouter une transformation de ligne alter aux lignes de balise pour les actions spécifiques. Désactivation de « Autoriser l’insertion » s’arrête ADF à partir de l’insertion de nouvelles lignes à partir de votre source.
 * TRUNCATE table (supprime toutes les lignes à partir de la table cible avant la fin du flux de données)
 * Recréez la table (effectue suppriment/créent de la table cible avant la fin du flux de données)
 * Taille du lot (pour faciliter le chargement de données volumineuses). Entrez le nombre des écritures de compartiment en segments
 * Activer la mise en lots : Cela indiquera ADF pour utiliser Polybase lors du chargement de l’entrepôt de données Azure en tant que votre jeu de données récepteur
+
+> [!NOTE]
+> Dans le flux de données, vous pouvez demander l’ADF pour créer une nouvelle définition de table dans votre base de données cible en définissant un jeu de données dans la transformation de récepteur qui a un nouveau nom de table. Dans le jeu de données SQL, cliquez sur « Modifier » sous le nom de table et entrez un nouveau nom de table. Puis, dans la Transformation du récepteur, activez « Autoriser les dérives de schéma ». Seth le paramètre « Importer le schéma » None.
+
+![Schéma de Transformation source](media/data-flow/dataset2.png "schéma SQL")
 
 ![Options du récepteur SQL](media/data-flow/alter-row2.png "Options SQL")
 

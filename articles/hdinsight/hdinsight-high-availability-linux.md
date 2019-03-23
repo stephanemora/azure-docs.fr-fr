@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 84251b16d91ca74e11298c7aa54c9a7a8b7fd6d6
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: ca6b072ba81f55802bc01d61ed44b06680cedbb2
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576716"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361997"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Disponibilité et fiabilité des clusters Apache Hadoop dans HDInsight
 
@@ -248,6 +248,8 @@ Dans l’interface utilisateur web d’Ambari, sélectionnez le service dont vou
 
 ## <a name="how-to-configure-the-node-size"></a>Configuration de la taille des nœuds
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 La taille d’un nœud n’est sélectionnable que lors de la création du cluster. Pour obtenir la liste des différentes tailles de machine virtuelle disponibles pour HDInsight, voir la page [Tarification de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 Lorsque vous créez un cluster, vous pouvez spécifier la taille des nœuds. Lisez les informations suivantes pour savoir comment définir la taille dans le [portail Azure][preview-portal], [Azure PowerShell][azure-powershell] et [Azure Classic CLI][azure-cli] :
@@ -258,7 +260,7 @@ Lorsque vous créez un cluster, vous pouvez spécifier la taille des nœuds. Lis
 
 * **Azure CLI Classic** : lorsque vous utilisez la commande `azure hdinsight cluster create`, vous pouvez définir la taille des nœuds principaux, worker et ZooKeeper en utilisant les paramètres `--headNodeSize`, `--workerNodeSize` et `--zookeeperNodeSize`.
 
-* **Azure PowerShell**: lorsque vous utilisez l’applet de commande `New-AzureRmHDInsightCluster`, vous pouvez définir la taille des nœuds principaux, worker et ZooKeeper en utilisant les paramètres `-HeadNodeVMSize`, `-WorkerNodeSize` et `-ZookeeperNodeSize`.
+* **Azure PowerShell**: lorsque vous utilisez l’applet de commande `New-AzHDInsightCluster`, vous pouvez définir la taille des nœuds principaux, worker et ZooKeeper en utilisant les paramètres `-HeadNodeVMSize`, `-WorkerNodeSize` et `-ZookeeperNodeSize`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

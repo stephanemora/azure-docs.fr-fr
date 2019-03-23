@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 03/21/2019
 ms.author: diberry
-ms.openlocfilehash: f1bc19833e0e0cc2026ae22977d9a3b371924fe2
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: aed7d4fedd4781eac8c127744e5fe93fb054b99d
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337111"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369715"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Forum aux questions (FAQ) sur Language Understanding
 
@@ -64,7 +64,12 @@ Les applications prédéfinies Cortana sont déconseillées depuis 2017. Elles n
 ### <a name="how-do-i-transfer-ownership-of-a-luis-app"></a>Comment faire pour transférer la propriété d’une application LUIS ?
 Pour transférer une application LUIS vers un autre abonnement Azure, exportez l’application LUIS et importez-la à l’aide d’un nouveau compte. Mettez à jour l’ID de l’application LUIS dans l’application cliente qui l’appelle. La nouvelle application peut renvoyer des scores LUIS légèrement différents de ceux renvoyés par l’application d’origine.
 
+### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>Une entité prédéfinie est marquée dans un énoncé exemple au lieu de mon entité personnalisée. Comment corriger ceci ? 
+
+Consultez [résolution des problèmes des entités prédéfinies](luis-concept-entity-types.md#troubleshooting-prebuilt-entities).
+
 ### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>J’ai essayé d’importer un fichier d’application ou de version, mais j’ai obtenu une erreur, que s’est-il passé ? 
+
 En savoir plus sur [d’erreurs d’importation version](luis-how-to-manage-versions.md#import-errors) et [d’erreurs d’importation application](luis-how-to-start-new-app.md#import-errors).
 
 <a name="luis-collaborating"></a>

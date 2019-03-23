@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0f4a648227e62642bb071a76cbd1f3a50bf78ae
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: b55b439f61c76d6d0524c1f01ba5fef745187d04
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314500"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368287"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Authentification par certificat Azure Active Directory sur Android
 
@@ -35,16 +35,16 @@ Cette fonctionnalité est disponible en version préliminaire dans les plans Off
 
 | Applications | Support |
 | --- | --- |
-| Application Azure Information Protection |![Vérification][1] |
-| Portail d’entreprise Intune |![Vérification][1] |
-| Microsoft Teams |![Vérification][1] |
-| OneNote |![Vérification][1] |
-| OneDrive |![Vérification][1] |
-| Outlook |![Vérification][1] |
-| Power BI |![Vérification][1] |
-| Skype Entreprise |![Vérification][1] |
-| Word / Excel / PowerPoint |![Vérification][1] |
-| Yammer |![Vérification][1] |
+| Application Azure Information Protection |![Case à cocher ce qui signifie la prise en charge pour cette application][1] |
+| Portail d’entreprise Intune |![Case à cocher ce qui signifie la prise en charge pour cette application][1] |
+| Microsoft Teams |![Case à cocher ce qui signifie la prise en charge pour cette application][1] |
+| OneNote |![Case à cocher ce qui signifie la prise en charge pour cette application][1] |
+| OneDrive |![Case à cocher ce qui signifie la prise en charge pour cette application][1] |
+| Outlook |![Case à cocher ce qui signifie la prise en charge pour cette application][1] |
+| Power BI |![Case à cocher ce qui signifie la prise en charge pour cette application][1] |
+| Skype Entreprise |![Case à cocher ce qui signifie la prise en charge pour cette application][1] |
+| Word / Excel / PowerPoint |![Case à cocher ce qui signifie la prise en charge pour cette application][1] |
+| Yammer |![Case à cocher ce qui signifie la prise en charge pour cette application][1] |
 
 ### <a name="implementation-requirements"></a>Conditions requises pour la mise en œuvre
 

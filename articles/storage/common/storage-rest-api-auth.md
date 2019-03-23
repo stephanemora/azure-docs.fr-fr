@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/22/2018
+ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 647d40db87f76a9e1a13a108c5f55fac40524017
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9f6698eebf184d1df80920b7779512e2fda83a0c
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012777"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369086"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>Utilisation de l’API REST Stockage Azure
 
@@ -266,7 +266,7 @@ Maintenant que vous comprenez comment créer la requête, appeler le service et 
 ## <a name="creating-the-authorization-header"></a>Création de l’en-tête d’autorisation
 
 > [!TIP]
-> Le Stockage Azure prend désormais en charge l’intégration d’Azure AD (Azure Active Directory) pour les services BLOB et de File d’attente (préversion). Azure AD offre une expérience beaucoup plus simple pour autoriser une requête destinée au Stockage Azure. Pour plus d’informations sur l’utilisation d’Azure AD pour autoriser les opérations REST, consultez [S’authentifier avec Azure Active Directory (préversion)](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory). Pour une vue d’ensemble de l’intégration d’Azure AD au Stockage Azure, consultez [Authentifier l’accès au Stockage Azure à l’aide d’Azure Active Directory (préversion)](storage-auth-aad.md).
+> Stockage Azure prend désormais en charge l’intégration d’Azure Active Directory (Azure AD) pour les objets BLOB et files d’attente. Azure AD offre une expérience beaucoup plus simple pour autoriser une requête destinée au Stockage Azure. Pour plus d’informations sur l’utilisation d’Azure AD pour autoriser les opérations REST, consultez [s’authentifier avec Azure Active Directory](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory). Pour une vue d’ensemble de l’intégration d’Azure AD avec le stockage Azure, consultez [authentifier l’accès au stockage Azure à l’aide d’Azure Active Directory](storage-auth-aad.md).
 
 Il existe un article qui explique de manière conceptuelle (sans code) comment exécuter [l’authentification pour les services Stockage Azure](/rest/api/storageservices/Authorization-for-the-Azure-Storage-Services).
 Examinons cet article de plus près pour montrer le code.

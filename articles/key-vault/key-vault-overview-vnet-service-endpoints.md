@@ -10,12 +10,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.workload: identity
 ms.topic: conceptual
-ms.openlocfilehash: 9848ed6baab240556e9eda59fbc3815c0767e899
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: bb5770f4e09c0ed764d17998936c0fe97bdaebfb
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108575"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370633"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Points de terminaison de service de réseau virtuel pour Azure Key Vault
 
@@ -55,7 +55,7 @@ Pour plus d’informations, consultez [Configurer les pare-feux et réseaux virt
 > Notez les limitations de configuration suivantes :
 > * Un maximum de 127 règles de réseau virtuel et 127 règles IPv4 sont autorisées. 
 > * Les petites plages d’adresses qui utilisent les tailles de préfixe « /31 » ou « /32 » ne sont pas prises en charge. Au lieu de cela, configurez ces plages avec des règles d’adresses IP individuelles.
-> * Les règles de réseau IP sont autorisées uniquement pour les adresses IP publiques. Les plages d’adresses IP réservées aux réseaux privés (comme défini dans RFC 1918) ne sont pas autorisées dans les règles IP. Les réseaux privés incluent des adresses qui commencent par **10.**, **172.16.** et **192.168.**. 
+> * Les règles de réseau IP sont autorisées uniquement pour les adresses IP publiques. Les plages d’adresses IP réservées aux réseaux privés (comme défini dans RFC 1918) ne sont pas autorisées dans les règles IP. Réseaux privés incluent les adresses qui commencent par **10.**, **172.16-31**, et **192.168.**. 
 > * Seules les adresses IPv4 sont prises en charge pour le moment.
 
 ## <a name="trusted-services"></a>Services approuvés

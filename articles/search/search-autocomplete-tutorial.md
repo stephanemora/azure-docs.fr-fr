@@ -1,23 +1,25 @@
 ---
-title: Exemple d’ajout de la saisie semi-automatique à votre zone de recherche - recherche Azure
-description: Exemples de manières d’améliorer l’expérience utilisateur final dans vos applications centrées sur les données avec les API d’autocomplétion et de suggestions de Recherche Azure.
+title: Exemple de la saisie semi-automatique pour l’ajout de tampon clavier à une zone de recherche - recherche Azure
+description: Activer les actions de requête prédictives dans recherche Azure en créant des générateurs de suggestions et de formuler des requêtes qui remplissent dans une zone de recherche avec terminé termes ou expressions.
 manager: pablocas
 author: mrcarter8
 services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 03/22/2019
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: b754f00e9bed34717734c4aec81e5489d2c12b63
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: b78fdf0c493e4631e4cdd7e26b154570b6226d1f
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200274"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369568"
 ---
-# <a name="example-add-autocomplete-to-your-search-box-using-azure-search"></a>Exemple : Ajouter l’autocomplétion à votre zone de recherche avec Recherche Azure
+# <a name="example-add-autocomplete-to-partial-term-inputs-in-azure-search"></a>Exemple : Ajouter la saisie semi-automatique pour les entrées de terme partielle dans Azure Search
+
+Cette fonctionnalité en version préliminaire » termine » une entrée de terme partielle en fournissant un terme terminé à partir de documents dans un index Azure Search. Vous avez peut-être remarqué cette fonctionnalité dans les moteurs de recherche commercial. Vous pouvez maintenant ajouter cette fonctionnalité, actuellement en version préliminaire publique, à une solution de recherche Azure pour simplifier une dose de requête.
 
 Dans cet exemple, vous allez apprendre à utiliser [suggestions](https://docs.microsoft.com/rest/api/searchservice/suggestions), [la saisie semi-automatique](https://docs.microsoft.com/rest/api/searchservice/autocomplete) et [facettes](search-faceted-navigation.md) dans le [API REST Azure Search](https://docs.microsoft.com/rest/api/searchservice/) et [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet) pour créer une zone de recherche puissant. 
 

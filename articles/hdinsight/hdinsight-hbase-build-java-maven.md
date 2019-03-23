@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/05/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: ea2fe0f7e326db00a63529c0279c9c15d30c744c
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
-ms.translationtype: HT
+ms.openlocfilehash: c0ecfd3f148cecae713740ef37d4fe7a2e2f184f
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744817"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361810"
 ---
 # <a name="use-apache-maven-to-build-java-applications-that-use-apache-hbase-with-windows-based-hdinsight-apache-hadoop"></a>Utiliser Apache Maven pour créer des applications Java utilisant Apache HBase avec HDInsight (Hadoop) sous Windows
 Apprenez à créer et à générer une application [Apache HBase](https://hbase.apache.org/) dans Java à l'aide d'Apache Maven. Utilisez ensuite l’application avec Azure HDInsight (Apache Hadoop).
@@ -25,6 +25,9 @@ Apprenez à créer et à générer une application [Apache HBase](https://hbase.
 > Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Windows. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="requirements"></a>Configuration requise
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 * [Java platform JDK](https://aka.ms/azure-jdks) 7 ou version supérieure
 * [Apache Maven](https://maven.apache.org/)
 * Un cluster HDInsight sous Windows avec HBase
@@ -420,32 +423,32 @@ Il existe de nombreuses façons de télécharger un fichier vers votre cluster H
         $jarFile = "wasb:///example/jars/hbaseapp-1.0-SNAPSHOT.jar"
 
         # The job definition
-        $jobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
+        $jobDefinition = New-AzHDInsightMapReduceJobDefinition `
             -JarFile $jarFile `
             -ClassName $className `
             -Arguments $emailRegex
 
         # Get the job output
-        $job = Start-AzureRmHDInsightJob `
+        $job = Start-AzHDInsightJob `
             -ClusterName $clusterName `
             -JobDefinition $jobDefinition `
             -HttpCredential $creds
         Write-Host "Wait for the job to complete ..." -ForegroundColor Green
-        Wait-AzureRmHDInsightJob `
+        Wait-AzHDInsightJob `
             -ClusterName $clusterName `
             -JobId $job.JobId `
             -HttpCredential $creds
         if($showErr)
         {
         Write-Host "STDERR"
-        Get-AzureRmHDInsightJobOutput `
+        Get-AzHDInsightJobOutput `
                     -Clustername $clusterName `
                     -JobId $job.JobId `
                     -HttpCredential $creds `
                     -DisplayOutputType StandardError
         }
         Write-Host "Display the standard output ..." -ForegroundColor Green
-        Get-AzureRmHDInsightJobOutput `
+        Get-AzHDInsightJobOutput `
                     -Clustername $clusterName `
                     -JobId $job.JobId `
                     -HttpCredential $creds
@@ -506,7 +509,7 @@ Il existe de nombreuses façons de télécharger un fichier vers votre cluster H
             $storage = GetStorage -clusterName $clusterName
 
             # Upload file to storage, overwriting existing files if -force was used.
-            Set-AzureStorageBlobContent -File $localPath `
+            Set-AzStorageBlobContent -File $localPath `
                 -Blob $destinationPath `
                 -force:$force `
                 -Container $storage.container `
@@ -515,10 +518,10 @@ Il existe de nombreuses façons de télécharger un fichier vers votre cluster H
 
         function FindAzure {
             # Is there an active Azure subscription?
-            $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
+            $sub = Get-AzSubscription -ErrorAction SilentlyContinue
             if(-not($sub))
             {
-                throw "No active Azure subscription found! If you have a subscription, use the Connect-AzureRmAccount cmdlet to login to your subscription."
+                throw "No active Azure subscription found! If you have a subscription, use the Connect-AzAccount cmdlet to login to your subscription."
             }
         }
 
@@ -527,7 +530,7 @@ Il existe de nombreuses façons de télécharger un fichier vers votre cluster H
                 [Parameter(Mandatory = $true)]
                 [String]$clusterName
             )
-            $hdi = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+            $hdi = Get-AzHDInsightCluster -ClusterName $clusterName
             # Does the cluster exist?
             if (!$hdi)
             {
@@ -541,14 +544,14 @@ Il existe de nombreuses façons de télécharger un fichier vers votre cluster H
             $resourceGroup = $hdi.ResourceGroup
             $storageAccountName=$hdi.DefaultStorageAccount.split('.')[0]
             $container=$hdi.DefaultStorageContainer
-            $storageAccountKey=(Get-AzureRmStorageAccountKey `
+            $storageAccountKey=(Get-AzStorageAccountKey `
                 -Name $storageAccountName `
             -ResourceGroupName $resourceGroup)[0].Value
             # Get the resource group, in case we need that
             $return.resourceGroup = $resourceGroup
             # Get the storage context, as we can't depend
             # on using the default storage context
-            $return.context = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
+            $return.context = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
             # Get the container, so we know where to
             # find/store blobs
             $return.container = $container

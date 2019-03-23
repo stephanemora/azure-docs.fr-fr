@@ -1,27 +1,27 @@
 ---
-title: Utiliser le portail Azure pour gérer les droits d’accès Azure AD aux conteneurs et les files d’attente avec RBAC (version préliminaire) - stockage Azure
+title: Utiliser le portail Azure pour gérer les droits d’accès Azure AD aux conteneurs et les files d’attente avec RBAC - stockage Azure | Microsoft Docs
 description: Utilisez le contrôle d’accès en fonction du rôle (RBAC) à partir du portail Azure pour attribuer l’accès aux conteneurs et les files d’attente pour les principaux de sécurité. Stockage Azure prend en charge les rôles RBAC intégrés et personnalisés pour l’authentification via Azure AD.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: a38cce7d15b4796bb66803d06f3589569985cb37
-ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.openlocfilehash: 66e6cff40d71842ef19f99d7c96219af83fc9b4e
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319497"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368236"
 ---
-# <a name="grant-access-to-azure-containers-and-queues-with-rbac-in-the-azure-portal-preview"></a>Accorder l’accès à des conteneurs Azure et files d’attente avec RBAC dans le portail Azure (version préliminaire)
+# <a name="grant-access-to-azure-containers-and-queues-with-rbac-in-the-azure-portal"></a>Accorder l’accès à des conteneurs Azure et files d’attente avec RBAC dans le portail Azure
 
 Azure Active Directory (Azure AD) autorise les droits d’accès aux ressources sécurisées via [RBAC (contrôle d’accès en fonction du rôle)](../../role-based-access-control/overview.md). Le Stockage Azure définit un ensemble de rôles RBAC intégrés qui englobent les ensembles communs d’autorisations permettant d’accéder aux conteneurs ou aux files d’attente. 
 
 Lorsqu’un rôle RBAC est attribué à un principal de sécurité Azure AD, Azure accorde l’accès à ces ressources pour cette entité de sécurité. L’accès peut être limité au niveau de l’abonnement, du groupe de ressources, du compte de stockage ou d’un conteneur ou d’une file d’attente individuelle. Un principal de sécurité Azure AD peut être un utilisateur, un groupe, un principal de service d’application, ou un [identité managée pour les ressources Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
-Cet article décrit comment utiliser le portail Azure pour attribuer des rôles RBAC. Le portail Azure fournit une interface simple pour affecter des rôles RBAC et gestion de l’accès à vos ressources de stockage. Vous pouvez également affecter des rôles RBAC pour les ressources de blob et file d’attente à l’aide des outils de ligne de commande Azure ou les API de gestion de stockage Azure. Pour plus d’informations sur les rôles RBAC pour les ressources de stockage, consultez [authentifier l’accès à Azure d’objets BLOB et files d’attente à l’aide d’Azure Active Directory (version préliminaire)](storage-auth-aad.md). 
+Cet article décrit comment utiliser le portail Azure pour attribuer des rôles RBAC. Le portail Azure fournit une interface simple pour affecter des rôles RBAC et gestion de l’accès à vos ressources de stockage. Vous pouvez également affecter des rôles RBAC pour les ressources de blob et file d’attente à l’aide des outils de ligne de commande Azure ou les API de gestion de stockage Azure. Pour plus d’informations sur les rôles RBAC pour les ressources de stockage, consultez [authentifier l’accès à Azure d’objets BLOB et files d’attente à l’aide d’Azure Active Directory](storage-auth-aad.md). 
 
 ## <a name="rbac-roles-for-blobs-and-queues"></a>Rôles RBAC pour objets blob et files d’attente
 
@@ -45,7 +45,7 @@ Lorsque vous avez déterminé l’étendue souhaitée pour une attribution de r�
 
 Accorder l’accès aux ressources d’objets blob et file d’attente avec les informations d’identification Azure AD dans le portail Azure implique les étapes suivantes : 
 
-1. Attribuez le rôle RBAC de stockage Azure approprié pour accorder l’accès aux conteneurs ou des files d’attente. Pour un accès en lecture, affecter le **lecteur des données Blob (version préliminaire)** ou **lecteur de données de file d’attente (version préliminaire)** rôle. Pour l’accès en lecture, écriture et delete, affecter le **contributeur aux données Blob (version préliminaire)** ou **contributeur de données de file d’attente (version préliminaire)** rôle. Vous pouvez également affecter un rôle personnalisé.
+1. Attribuez le rôle RBAC de stockage Azure approprié pour accorder l’accès aux conteneurs ou des files d’attente. Pour un accès en lecture, affecter le **lecteur des données Blob** ou **lecteur de données de file d’attente** rôle. Pour l’accès en lecture, écriture et delete, affecter le **contributeur aux données Blob** ou **contributeur de données de file d’attente** rôle. Vous pouvez également affecter un rôle personnalisé.
 
 1. Affecter le Gestionnaire de ressources Azure [lecteur](../../role-based-access-control/built-in-roles.md#reader) rôle aux utilisateurs qui doivent accéder aux conteneurs ou des files d’attente via le portail Azure à l’aide de leurs informations d’identification Azure AD. 
 
@@ -82,11 +82,11 @@ Vous pouvez suivre des étapes similaires pour affecter un rôle consacré au co
 
 ### <a name="assign-the-reader-role-for-portal-access"></a>Affecter le rôle de lecteur pour accéder au portail
 
-Lorsque vous affectez un rôle intégré ou personnalisé pour le stockage Azure à un principal de sécurité, vous accordez des autorisations à ce principal de sécurité pour effectuer des opérations sur les données dans votre compte de stockage. Intégrés **lecteur de données** rôles fournissent des autorisations de lecture pour les données dans un conteneur ou d’une file d’attente, tout en étant intégrée dans **contributeur aux données** les rôles permettent de lire, écrire et supprimer des autorisations à un conteneur ou file d’attente. Autorisations se limitent à la ressource spécifiée.  
+Lorsque vous affectez un rôle intégré ou personnalisé pour le stockage Azure à un principal de sécurité, vous accordez des autorisations à ce principal de sécurité pour effectuer des opérations sur les données dans votre compte de stockage. Intégrés **lecteur de données** rôles fournissent des autorisations de lecture pour les données dans un conteneur ou d’une file d’attente, tout en intégrés **contributeur aux données** les rôles permettent de lire, écrire et supprimer des autorisations à un conteneur ou file d’attente. Autorisations se limitent à la ressource spécifiée.  
 
-Par exemple, si vous assignez le **contributeur aux données Blob de stockage (version préliminaire)** rôle à l’utilisateur Marie au niveau d’un conteneur nommé **exemple-container**puis Mary de lecture, écriture et supprimer l’accès à toutes les les objets BLOB dans ce conteneur.
+Par exemple, si vous assignez le **contributeur aux données stockage Blob** rôle à l’utilisateur Marie au niveau d’un conteneur nommé **exemple-container**puis Mary de lecture, écriture et supprimer l’accès à tous les objets BLOB dans ce conteneur.
 
-Toutefois, si Mary souhaite afficher un objet blob dans le portail Azure, puis le **contributeur aux données Blob de stockage (version préliminaire)** rôle par lui-même ne fournira pas d’autorisations suffisantes pour naviguer dans le portail pour l’objet blob pour la consulter. Autres autorisations Azure AD sont requis pour naviguer dans le portail et afficher les autres ressources qui sont visibles il.
+Toutefois, si Mary souhaite afficher un objet blob dans le portail Azure, puis le **contributeur aux données stockage Blob** rôle par lui-même ne fournira pas d’autorisations suffisantes pour naviguer dans le portail pour l’objet blob pour la consulter. Autres autorisations Azure AD sont requis pour naviguer dans le portail et afficher les autres ressources qui sont visibles il.
 
 Si vos utilisateurs doivent être en mesure d’accéder aux objets BLOB dans le portail Azure, puis attribuez-leur un rôle RBAC supplémentaire, le [lecteur](../../role-based-access-control/built-in-roles.md#reader) rôle, à ces utilisateurs, au niveau du compte de stockage ou une version ultérieure. Le **lecteur** rôle est un rôle d’Azure Resource Manager qui permet aux utilisateurs d’afficher les ressources de compte de stockage, mais pas les modifier. Il ne fournit pas d’autorisations en lecture aux données dans le stockage Azure, mais uniquement aux ressources de gestion de compte.
 
@@ -95,7 +95,7 @@ Suivez ces étapes pour affecter le **lecteur** rôle afin qu’un utilisateur p
 1. Dans le [Portail Azure](https://portal.azure.com), accédez à votre compte de stockage.
 1. Sélectionnez **contrôle d’accès (IAM)** pour afficher les paramètres de contrôle d’accès pour le compte de stockage. Sélectionnez l’onglet **Attributions de rôles** pour afficher la liste des attributions de rôles.
 1. Dans le **ajouter une attribution de rôle** fenêtre, sélectionnez le **lecteur** rôle. 
-1. À partir de la **attribuer l’accès à** liste déroulante, sélectionnez **utilisateur, groupe ou principal du service Azure AD**.
+1. À partir de la **attribuer l’accès à** champ, sélectionnez **utilisateur, groupe ou principal du service Azure AD**.
 1. Recherche pour localiser le principal de sécurité auquel vous souhaitez affecter le rôle.
 1. Enregistrez l’attribution de rôle.
 
@@ -110,4 +110,3 @@ Suivez ces étapes pour affecter le **lecteur** rôle afin qu’un utilisateur p
     - [Gérer le contrôle d’accès en fonction du rôle (RBAC) avec Azure CLI](../../role-based-access-control/role-assignments-cli.md)
     - [Gérer le contrôle d’accès en fonction du rôle (RBAC) avec l’API REST](../../role-based-access-control/role-assignments-rest.md)
 - Pour apprendre à autoriser l’accès aux conteneurs et files d’attente à partir de vos applications de stockage, consultez [Utiliser Azure AD avec les applications de stockage Azure](storage-auth-aad-app.md).
-- Pour plus d’informations sur l’intégration d’Azure AD aux conteneurs et files d’attente Azure, consultez le billet de blog de l’équipe Stockage Azure, [Annonce de la préversion d’Azure AD Authentication pour le Stockage Azure](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).

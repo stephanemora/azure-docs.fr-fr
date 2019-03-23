@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a7752fac54f9dfb2f8fb0aecd3b6249c52c3bcf
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 57d3e955059724756eb7102c1b9fbbf55ed203ab
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316352"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370446"
 ---
 # <a name="how-to-enable-password-reset-from-windows-7-8-and-81"></a>Activation Activer la réinitialisation de mot de passe à partir de Windows 7, 8 et 8.1
 
@@ -46,7 +46,7 @@ Contrairement aux machines Windows 10, les machines Windows 7, 8 et 8.1 ne prés
 1. Une fois le redémarrage effectué, sur l’écran d’ouverture de session, choisissez un utilisateur, puis cliquez sur « Vous avez oublié votre mot de passe ? » pour lancer le flux de travail de réinitialisation de mot de passe.
 1. Exécutez le flux de travail en suivant les étapes à l’écran pour réinitialiser votre mot de passe.
 
-![Exemple Windows 7 de flux de réinitialisation de mot de passe en libre-service après un clic sur le lien « Vous avez oublié votre mot de passe ? »](media/howto-sspr-windows-7-8/windows-7-sspr.png)
+![Exemple Windows 7 de flux de réinitialisation de mot de passe en libre-service Flux SSPR](media/howto-sspr-windows-7-8/windows-7-sspr.png)
 
 ### <a name="silent-installation"></a>Installation sans assistance
 
@@ -67,13 +67,11 @@ Les événements sont enregistrés à la fois sur la machine et dans Azure AD.
 
 Azure AD Events inclut des informations sur l’adresse IP et le ClientType associés à la réinitialisation de mot de passe.
 
-![Exemple Windows 7 de réinitialisation de mot de passe sur l’écran d’ouverture de session dans le journal d’audit Azure AD](media/howto-sspr-windows-7-8/windows-7-sspr-azure-ad-audit-log.png)
+![Exemple Windows 7 mot de passe réinitialisé dans le journal d’Audit Azure AD](media/howto-sspr-windows-7-8/windows-7-sspr-azure-ad-audit-log.png)
 
 Si une journalisation supplémentaire est requise, vous pouvez modifier une clé de Registre sur la machine pour activer la journalisation détaillée. N’activez la journalisation détaillée qu’à des fins de résolution des problèmes.
 
-```
-HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{86D2F0AC-2171-46CF-9998-4E33B3D7FD4F}
-```
+`HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{86D2F0AC-2171-46CF-9998-4E33B3D7FD4F}`
 
 * Pour activer la journalisation détaillée, créez une entrée REG_DWORD : « EnableLogging », puis définissez-la sur 1.
 * Pour désactiver la journalisation détaillée, redéfinissez l’entrée REG_DWORD « EnableLogging » sur 0.
@@ -82,4 +80,4 @@ Si vos ordinateurs Windows 7, 8 et 8.1 se trouvent derrière un serveur proxy ou
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Autoriser les utilisateurs Windows 10 à réinitialiser leur mot de passe sur l’écran d’ouverture de session](tutorial-sspr-windows.md)
+* [Autoriser les utilisateurs Windows 10 à réinitialiser leur mot de passe sur l’écran d’ouverture de session](tutorial-sspr-windows.md)

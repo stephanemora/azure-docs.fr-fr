@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 7cb1632fe8c0ae873afcf37504dbd13bcfc753e8
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: da7dfdb1217e41b7dcb7c7fb6ade55c33488e54b
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338069"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372605"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Journalisation des métriques et diagnostics d’Azure SQL Database
 
@@ -107,7 +107,7 @@ Pour activer le streaming des données de télémétrie de diagnostic pour une r
 > [!IMPORTANT]
 > Outre configuration de la télémétrie de diagnostic pour un pool élastique, vous devez configurer télémétrie de diagnostic pour chaque base de données dans un pool élastique, comme indiqué ci-dessous. 
 
-### <a name="configure-streaming-of-diagnostics-telemetry-for-single-datatbase-or-database-in-elastic-pool"></a>Configurer la diffusion en continu de données de télémétrie de diagnostic pour la base de données unique, ou base de données dans le pool élastique
+### <a name="configure-streaming-of-diagnostics-telemetry-for-single-database-or-database-in-elastic-pool"></a>Configurer la diffusion en continu de données de télémétrie de diagnostic pour la base de données unique, ou dans le pool élastique
 
    ![Icône de SQL Database](./media/sql-database-metrics-diag-logging/icon-sql-database-text.png)
 

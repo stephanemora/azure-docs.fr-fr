@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ed99bd3626bb44bff68e4122d6b50523f19e1797
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 768179f8569eac14166bcbb0a888e1cdbe41d497
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112617"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369698"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Intégrer une application à un réseau Azure Virtual Network
 Ce document décrit la fonctionnalité d’intégration au réseau virtuel d’Azure App Service et explique comment la configurer avec des applications dans [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Les [réseaux virtuels Azure][VNETOverview] vous permettent de placer un grand nombre de vos ressources Azure dans un réseau routable non-Internet. Ces réseaux peuvent ensuite être connectés à vos réseaux locaux avec les technologies VPN. 
@@ -247,7 +247,7 @@ Trois fonctionnalités permettent d’accéder aux ressources hébergées sur le
 
 Pour les connexions hybrides, vous devez installer l’agent de relais Gestionnaire de connexion hybride (HCM, Hybrid Connection Manager) sur votre réseau. HCM doit pouvoir se connecter à Azure et à votre application. Les connexions hybrides ne nécessitent pas un point de terminaison accessible par des connexions Internet entrantes pour votre réseau distant, comme c’est le cas pour une connexion VPN. HCM s’exécute uniquement sous Windows. Vous pouvez exécuter jusqu’à cinq instances pour bénéficier d’une haute disponibilité. Cependant, les connexions hybrides prennent en charge uniquement le protocole TCP, et chaque point de terminaison de connexion hybride doit correspondre à une combinaison hôte:port spécifique. 
 
-Avec un environnement App Service, vous pouvez exécuter une instance avec un seul locataire d’Azure App Service dans votre réseau virtuel. Si vos applications se trouvent dans un environnement App Service, vos applications peuvent accéder à des ressources de votre réseau virtuel sans étapes supplémentaires. Avec un environnement App Service, vos applications s’exécutent sur des workers plus puissants et peuvent effectuer un scale-up jusqu’à 100 instances ASP. Les environnements App Service fonctionnent avec toutes les fonctionnalités réseau, y compris ExpressRoute et les points de terminaison de service.  
+Avec un environnement App Service, vous pouvez exécuter une instance avec un seul locataire d’Azure App Service dans votre réseau virtuel. Si vos applications se trouvent dans un environnement App Service, vos applications peuvent accéder à des ressources de votre réseau virtuel sans étapes supplémentaires. Avec un environnement App Service vos applications s’exécutent sur des travailleurs plus puissantes et peuvent évoluer jusqu'à 100 instances ASP. Les environnements App Service fonctionnent avec toutes les fonctionnalités réseau, y compris ExpressRoute et les points de terminaison de service.  
 
 Même si parfois ces deux fonctionnalités se chevauchent, l’une ne remplace pas l’autre. Le choix de la fonctionnalité à utiliser dépend de vos besoins. Par exemple : 
 

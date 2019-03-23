@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 20491981cb02e428ff4114b9456d74b0de651be8
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 54302f97913fd01dc8f8e4a8d987a407c8bdf9a7
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569023"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369165"
 ---
 # <a name="mapping-data-flow-source-transformation"></a>Transformation source des flux de données de mappage
 
@@ -74,7 +74,7 @@ Si vous le souhaitez, vous pouvez choisir de partitionner les connexions en fonc
 ## <a name="source-file-management"></a>Gestion des fichiers sources
 ![Nouveaux paramètres sources](media/data-flow/source2.png "Nouveaux paramètres")
 
-* Utiliser un chemin comportant un caractère générique pour choisir une série de fichiers de votre dossier source qui correspondent à un modèle. Cela remplacera tout fichier que vous avez défini dans votre définition de jeu de données.
+* Chemin d’accès générique pour choisir une série de fichiers qui correspondent à un modèle à partir de votre dossier source. Cela remplacera tout fichier que vous avez défini dans votre définition de jeu de données.
 * Liste de fichiers. Identique à un ensemble de fichiers. Pointe vers un fichier texte que vous créez avec la liste des fichiers avec chemin relatif à traiter.
 * Colonne où stocker le nom du fichier. Stocke le nom du fichier de la source dans une colonne de vos données. Entrez un nouveau nom pour stocker la chaîne de nom de fichier.
 * Une fois terminé (vous pouvez choisir de ne rien faire avec le fichier source après l’exécution du flux de données, de supprimer un ou plusieurs fichiers sources ou de déplacer les fichiers sources). Pour le déplacement, les chemins sont des chemins relatifs.
@@ -83,7 +83,7 @@ Si vous le souhaitez, vous pouvez choisir de partitionner les connexions en fonc
 
 Lorsque vous utilisez la base de données SQL Azure ou Azure SQL Data Warehouse comme votre source, vous disposez d’options supplémentaires.
 
-* Requête : entrez une requête SQL pour votre source. Si vous définissez une requête, les tables que vous avez choisies dans le jeu de données seront remplacées. Notez que les clauses OrderBy ne sont pas prises en charge.
+* Requête : entrez une requête SQL pour votre source. Si vous définissez une requête, les tables que vous avez choisies dans le jeu de données seront remplacées. Notez que les clauses OrderBy ne sont pas prises en charge. Toutefois, vous pouvez définir une instruction SELECT FROM complet ici.
 
 * Taille du lot : entrez la taille que doivent avoir les lots créés à partir d’un large volume de données.
 

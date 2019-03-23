@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: magoedte
-ms.openlocfilehash: 7701ef463124fafd4c750fbb9f23aa03d6bc25ab
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: 963fd1bfd67a20033f0712d3b447091abda40d11
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262487"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369895"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Gestion et maintenance de l’agent Log Analytics sous Windows et Linux
 
-Après le déploiement initial de l’agent Log Analytics sous Windows ou Linux, il se peut que vous deviez le reconfigurer ou le supprimer de la machine s’il a atteint la phase de mise hors service dans son cycle de vie. Vous pouvez facilement effectuer ces tâches de maintenance de routine manuellement ou automatiquement ce qui réduit les erreurs opérationnelles et les coûts.
+Après le déploiement initial du journal Analytique Windows ou de l’agent Linux dans Azure Monitor, vous devrez peut-être reconfigurer l’agent ou le supprimer à partir de l’ordinateur si a atteint la phase de mise hors service dans son cycle de vie. Vous pouvez facilement effectuer ces tâches de maintenance de routine manuellement ou automatiquement ce qui réduit les erreurs opérationnelles et les coûts.
 
 ## <a name="adding-or-removing-a-workspace"></a>Ajout ou suppression d’un espace de travail
 
@@ -115,7 +115,7 @@ Pour permettre à l’agent de communiquer avec le service via un serveur proxy 
 
 #### <a name="update-settings-using-powershell"></a>Mettre à jour les paramètres à l’aide de PowerShell
 
-Copiez l’exemple de code PowerShell suivant, mettez-le à jour avec les informations propres à votre environnement et enregistrez-le avec une extension de fichier PS1. Exécutez le script sur chaque machine qui se connecte directement au service Log Analytics.
+Copiez l’exemple de code PowerShell suivant, mettez-le à jour avec les informations propres à votre environnement et enregistrez-le avec une extension de fichier PS1. Exécutez le script sur chaque ordinateur qui se connecte directement à l’espace de travail Analytique de journal dans Azure Monitor.
 
 ```PowerShell
 param($ProxyDomainName="https://proxy.contoso.com:30443", $cred=(Get-Credential))

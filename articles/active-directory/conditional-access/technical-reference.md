@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/12/2019
+ms.date: 03/22/2019
 ms.author: markvi
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b475eae337b7e6a7e26b3e5a7518be0e461c9fa4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6a303319a3f87f684b72bcddd8d30cd4a2c60642
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58170613"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351522"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Référence des paramètres d’accès conditionnel Azure Active Directory
 
@@ -115,7 +115,7 @@ Dans une stratégie d’accès conditionnel, vous pouvez configurer la condition
 
 - Windows Phone
 
--  Windows
+- Windows
 
 - macOS
 
@@ -144,20 +144,25 @@ Dans votre stratégie d’accès conditionnel, vous pouvez sélectionner **Navig
 Ce paramètre fonctionne avec tous les navigateurs. Toutefois, pour satisfaire à une stratégie d’appareil, telle qu’une exigence d’appareil conforme, les systèmes d’exploitation et navigateurs suivants sont pris en charge :
 
 
-| SE                     | Navigateurs                            | Support     |
-| :--                    | :--                                 | :-:         |
-| Windows 10             | Internet Explorer, Microsoft Edge, Chrome     | ![Vérification][1] |
-| Windows 8 / 8.1        | Internet Explorer, Chrome           | ![Vérification][1] |
-| Windows 7              | Internet Explorer, Chrome           | ![Vérification][1] |
-| iOS                    | Safari, Intune Managed Browser      | ![Vérification][1] |
-| Android                | Chrome, Intune Managed Browser      | ![Vérification][1] |
-| Windows Phone          | Internet Explorer, Microsoft Edge             | ![Vérification][1] |
-| Windows Server 2016    | Internet Explorer, Microsoft Edge             | ![Vérification][1] |
-| Windows Server 2016    | Chrome                              | Bientôt disponible |
-| Windows Server 2012 R2 | Internet Explorer, Chrome           | ![Vérification][1] |
-| Windows Server 2008 R2 | Internet Explorer, Chrome           | ![Vérification][1] |
-| macOS                  | Chrome, Safari                      | ![Vérification][1] |
+| SE                     | Navigateurs                                      |
+| :--                    | :--                                           |
+| Windows 10             | Internet Explorer, Microsoft Edge, Chrome     |
+| Windows 8 / 8.1        | Internet Explorer, Chrome                     |
+| Windows 7              | Internet Explorer, Chrome                     |
+| iOS                    | Safari, Intune Managed Browser                |
+| Android                | Chrome, Intune Managed Browser                |
+| Windows Phone          | Internet Explorer, Microsoft Edge             |
+| Windows Server 2016    | Internet Explorer, Microsoft Edge             |
+| Windows Server 2016    | Chrome                                        |
+| Windows Server 2012 R2 | Internet Explorer, Chrome                     |
+| Windows Server 2008 R2 | Internet Explorer, Chrome                     |
+| macOS                  | Chrome, Safari                                |
+ 
 
+
+#### <a name="why-do-i-see-a-certificate-prompt-in-the-browser"></a>Pourquoi un certificat invite dans le navigateur
+
+Sur Windows 7, iOS, Android et macOS, Azure AD identifie l’appareil à l’aide d’un certificat client qui est approvisionné quand l’appareil est inscrit auprès d’Azure AD.  Lorsqu’un utilisateur tout d’abord se connecte via le navigateur, l’utilisateur est invité à sélectionner le certificat. L’utilisateur doit sélectionner ce certificat avant d’utiliser le navigateur.
 
 
 #### <a name="chrome-support"></a>Prise en charge Chrome

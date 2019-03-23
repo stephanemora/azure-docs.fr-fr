@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
 ms.author: cithomas
-ms.openlocfilehash: 83c286be6429376d4d0b4009b18c5f751a4b158f
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: cd0369f45529082ac929b1d87608204033cd78f6
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226689"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370514"
 ---
 # <a name="sampling-in-application-insights"></a>Échantillonnage dans Application Insights
 
@@ -517,7 +517,14 @@ Le kit de développement logiciel (SDK) côté client (JavaScript) participe à 
 
 *Je souhaite que certains événements rares soient toujours affichés. Comment faire en sorte qu’ils soient disponibles hors du module d’échantillonnage ?*
 
-* Initialisez une instance distincte de TelemetryClient avec une nouvelle instance TelemetryConfiguration (et non la valeur Active par défaut). Utilisez cette instance pour envoyer vos événements rares.
+* La meilleure façon d’y parvenir consiste à écrire un personnalisé [TelemetryProcessor](../../azure-monitor/app/api-filtering-sampling.md#filtering), qui affecte le `SamplingPercentage` à 100 sur l’élément de télémétrie souhaitées retenue, comme indiqué ci-dessous. Cela garantit que toutes les techniques d’échantillonnage ignore cet élément à partir de toutes les considérations d’échantillonnage.
+
+```csharp
+    if(somecondition)
+    {
+        ((ISupportSampling)item).SamplingPercentage = 100;
+    }
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

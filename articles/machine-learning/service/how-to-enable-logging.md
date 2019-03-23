@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: trbye
 ms.date: 02/20/2019
-ms.openlocfilehash: 8e39734a6f5fa13240d24eb35c431f746e540484
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: ce510168e2aa92758a3468fa55ff7b2a8d39b547
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342120"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360265"
 ---
 # <a name="enable-logging-in-azure-machine-learning-service"></a>Activer la journalisation dans Azure Machine Learning service
 
@@ -27,7 +27,7 @@ Le kit de développement logiciel (SDK) Python Azure Machine Learning permet d�
 > * Modèles déployés
 > * Paramètres `logging` Python
 
-Utilisez le [guide](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) pour installer le kit SDK, et [apprenez à bien démarrer](https://docs.microsoft.com/azure/machine-learning/service/quickstart-create-workspace-with-python) avec ce kit en créant un espace de travail sur le Portail Azure.
+[Créer un espace de travail du service Azure Machine Learning](setup-create-workspace.md). Utilisez le [guide](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) pour plus d’informations du Kit de développement logiciel.
 
 ## <a name="training-models-and-compute-target-logging"></a>Journalisation des modèles d’apprentissage et des cibles de calcul
 

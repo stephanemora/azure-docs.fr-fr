@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd0ce02a92c0a2e803866b6f070dba113c566f5d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d9ce388c53a28d6b04bf7685da397eade4b1fd94
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112209"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371772"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>Protocoles v2.0 - Applications à page unique utilisant le flux implicite
 
@@ -55,7 +55,7 @@ Le diagramme suivant montre à quoi ressemble le flux implicite de connexion com
 Pour connecter initialement l’utilisateur à votre application, vous pouvez envoyer une demande d’autorisation [OpenID Connect](v2-protocols-oidc.md) et obtenir un élément `id_token` à partir du point de terminaison v2.0.
 
 > [!IMPORTANT]
-> Afin de demander un jeton d’ID correctement, l’inscription de l’application dans le [portail d’inscription](https://apps.dev.microsoft.com) doit avoir **Autoriser le flux implicite** activé pour le client web. S’il n’est pas activé, une erreur `unsupported_response` est retournée : **La valeur fournie pour le paramètre d’entrée 'response_type' n’est pas autorisée pour ce client. La valeur attendue est ’code’**
+> À demander un jeton d’ID, l’inscription d’application dans le [portail Azure - inscriptions](https://go.microsoft.com/fwlink/?linkid=2083908) page doit avoir le flux d’octroi implicite activé correctement, en sélectionnant **de jetons d’accès** et **Jetons d’ID** sous le **octroi implicite** section. S’il n’est pas activé, une erreur `unsupported_response` est retournée : **La valeur fournie pour le paramètre d’entrée 'response_type' n’est pas autorisée pour ce client. La valeur attendue est ’code’**
 
 ```
 // Line breaks for legibility only
@@ -77,7 +77,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Paramètre |  | Description |
 | --- | --- | --- |
 | `tenant` | required |La valeur `{tenant}` dans le chemin d’accès de la requête peut être utilisée pour contrôler les utilisateurs qui peuvent se connecter à l’application. Les valeurs autorisées sont `common`, `organizations`, `consumers` et les identificateurs du client. Pour plus d’informations, consultez les [principes de base du protocole](active-directory-v2-protocols.md#endpoints). |
-| `client_id` | required |L’ID d’application que le portail d’inscription ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) a affecté à votre application. |
+| `client_id` | required |ID d’Application (client) que le [portail Azure - inscriptions](https://go.microsoft.com/fwlink/?linkid=2083908) page affecté à votre application. |
 | `response_type` | required |Doit inclure `id_token` pour la connexion à OpenID Connect. Il peut également inclure l’élément response_type `token`. L’utilisation de l’élément `token` permet ici à votre application de recevoir immédiatement un jeton d’accès à partir du point de terminaison d’autorisation sans avoir à exécuter une deuxième requête sur le point de terminaison d’autorisation. Si vous utilisez l’élément response_type `token`, le paramètre `scope` doit contenir une étendue indiquant la ressource pour laquelle le jeton doit être émis. |
 | `redirect_uri` | recommandé |L’URI de redirection de votre application, vers lequel votre application peut envoyer et recevoir des réponses d’authentification. Il doit correspondre exactement à l’un des URI de redirection enregistrés dans le portail, auquel s’ajoute le codage dans une URL. |
 | `scope` | required |Une liste d’[étendues](v2-permissions-and-consent.md) séparées par des espaces. Pour OpenID Connect, vous devez inclure l’étendue `openid`, qui correspond à l’autorisation de connexion dans l’interface utilisateur de consentement. Vous pouvez également inclure les étendues `email` ou `profile` permettant d’accéder à des données utilisateur supplémentaires. Vous pouvez aussi inclure d’autres étendues dans cette requête pour solliciter le consentement sur diverses ressources. |

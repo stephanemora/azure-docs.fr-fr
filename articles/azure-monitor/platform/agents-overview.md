@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
-ms.openlocfilehash: d1e896aee4ba699704ce01e0cff8210d53700993
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8b10cb0d66103410159a09ca156be3ea180c068b
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57899806"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371925"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Vue d’ensemble des agents de surveillance Azure 
 Microsoft Azure offre plusieurs moyens de collecter différents types de données de machines virtuelles exécutant Microsoft Windows et Linux hébergées sur Azure, dans votre centre de données ou chez d’autres fournisseurs de cloud. Les trois types d’agents suivants sont disponibles pour surveiller une machine virtuelle :
@@ -49,10 +49,10 @@ L’agent Azure Diagnostics doit être utilisé lorsque vous souhaitez effectuer
 * Mettre à l’échelle automatiquement des jeux de mise à l’échelle de machines virtuelles et des services cloud classiques sur la base de métriques du système d'exploitation.
 * Étudier les problèmes de démarrage de machines virtuelles grâce à des [Diagnostics de démarrage](../../virtual-machines/troubleshooting/boot-diagnostics.md).
 * Comprendre le fonctionnement de vos applications et identifier de façon proactive les problèmes qui les affectent avec [Application Insights](../../azure-monitor/overview.md).
-* Configurer Log Analytics pour importer des métriques et journaliser des données collectées à partir de services coud, de machines virtuelles classiques et de nœuds Service Fabric stockés dans un compte de stockage Azure.
+* Configuration d’Azure Monitor pour importer des métriques et journaliser les données collectées à partir des Services Cloud, machines virtuelles classiques, et les nœuds de Service Fabric stockés dans un compte de stockage Azure.
 
 ## <a name="log-analytics-agent"></a>Agent Log Analytics
-Pour une surveillance avancée où vous avez besoin plus de collecter des mesures et un sous-ensemble de journaux, l’agent d’Analytique de journal pour Windows (également appelée en tant que Microsoft Monitoring Agent (MMA)) et Linux est nécessaire. L’agent Log Analytics a été développé pour une gestion complète des machines physiques locales et virtuelles, des ordinateurs surveillés par System Center Operations Manager et des machines virtuelles hébergées dans d’autres clouds. Les agents Windows et Linux se connectent à un espace de travail Log Analytics pour collecter des données de surveillance basées sur des solutions ainsi que des sources de données personnalisées que vous configurez.
+Pour une surveillance avancée où vous avez besoin plus de collecter des mesures et un sous-ensemble de journaux, l’agent d’Analytique de journal pour Windows (également appelée en tant que Microsoft Monitoring Agent (MMA)) et Linux est nécessaire. L’agent Log Analytics a été développé pour une gestion complète des machines physiques locales et virtuelles, des ordinateurs surveillés par System Center Operations Manager et des machines virtuelles hébergées dans d’autres clouds. Les agents Windows et Linux se connectent à un espace de travail Analytique de journal dans Azure Monitor pour collecter des données sur les solutions de surveillance ainsi que des sources de données personnalisées que vous configurez.
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
@@ -70,7 +70,7 @@ Auparavant, plusieurs services Azure étaient regroupés dabs *Operations Manage
 * Les services Azure tels que [Application Insights](https://docs.microsoft.com/azure/application-insights/) et [Azure Security Center](https://docs.microsoft.com/azure/security-center/), qui stockent leurs données directement dans Log Analytics.  
 
 ## <a name="dependency-agent"></a>Agent de dépendances
-L’agent de dépendances a été développé dans le cadre de la solution Service Map qui, à l’origine, a été développée en externe par Microsoft. [Service Map](../insights/service-map.md) et [Azure Monitor pour machines virtuelles](../insights/vminsights-overview.md) nécessitent un agent de dépendance sur les machines virtuelles Windows et Linux et s’intègrent dans l’agent Log Analytics pour collecter des données découvertes relatives aux processus en cours d’exécution sur la machine virtuelle et aux dépendances de processus externes. Elle stocke ces données dans Log Analytics et visualise les composants interconnectés découverts.
+L’agent de dépendances a été développé dans le cadre de la solution Service Map qui, à l’origine, a été développée en externe par Microsoft. [Service Map](../insights/service-map.md) et [Azure Monitor pour machines virtuelles](../insights/vminsights-overview.md) nécessitent un agent de dépendance sur les machines virtuelles Windows et Linux et s’intègrent dans l’agent Log Analytics pour collecter des données découvertes relatives aux processus en cours d’exécution sur la machine virtuelle et aux dépendances de processus externes. Il stocke ces données dans un espace de travail Analytique de journal et visualise les composants interconnectés découverts.
 
 Vous devez peut-être combiner ces agents pour surveiller votre machine virtuelle. Les agents peuvent être installés côte à côte en tant qu’extensions Azure. Cependant, sur Linux, l’agent Log Analytics *doit* être installé en premier, sinon l’installation échouera. 
 

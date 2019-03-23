@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a77c6ce205c40b5814f9b26f9099d868d434d3ce
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: d38d93a1c9716cc3a71d904b7b1a46fb8b1c2ee0
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316447"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369222"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Personnaliser les fonctionnalités d’Azure AD pour la réinitialisation du mot passe libre-service
 
@@ -26,12 +26,12 @@ Les professionnels de l’informatique qui souhaitent déployer la réinitialisa
 
 Même si la réinitialisation n’est pas activée, les utilisateurs disposent toujours d’un lien « Contactez votre administrateur » dans le portail de réinitialisation du mot de passe. Si l’utilisateur sélectionne ce lien, l’une des actions ci-dessous se produit :
 
-   * Un e-mail est envoyé à vos administrateurs pour demander une assistance lors de la modification du mot de passe de l’utilisateur.
-   * Les utilisateurs sont dirigés vers une URL que vous spécifiez pour l’assistance.
+* Un e-mail est envoyé à vos administrateurs pour demander une assistance lors de la modification du mot de passe de l’utilisateur.
+* Les utilisateurs sont dirigés vers une URL que vous spécifiez pour l’assistance.
 
 Nous vous recommandons de définir comme contact une adresse e-mail ou un site web que vos utilisateurs utilisent déjà pour des questions de support.
 
-![Contact][Contact]
+![Exemple de demande pour réinitialiser le courrier électronique envoyé à l’administrateur][Contact]
 
 L’e-mail de contact est envoyé aux destinataires suivants dans cet ordre :
 
@@ -68,8 +68,8 @@ Les graphiques que vous choisissez s’affichent dans les circonstances suivante
 
 * Quand un utilisateur entre son nom d’utilisateur
 * Si l’utilisateur accède à l’URL personnalisée :
-    * En passant le `whr` paramètre au mot de passe page de réinitialisation, comme `https://login.microsoftonline.com/?whr=contoso.com`
-    * En passant le `username` paramètre au mot de passe page de réinitialisation, comme `https://login.microsoftonline.com/?username=admin@contoso.com`
+   * En passant le `whr` paramètre au mot de passe page de réinitialisation, comme `https://login.microsoftonline.com/?whr=contoso.com`
+   * En passant le `username` paramètre au mot de passe page de réinitialisation, comme `https://login.microsoftonline.com/?username=admin@contoso.com`
 
 Retrouvez plus d’informations sur la configuration de la marque de société dans l’article [Ajouter une marque de société à votre page de connexion dans Azure AD](../fundamentals/customize-branding.md).
 

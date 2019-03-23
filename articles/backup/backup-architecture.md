@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: raynew
-ms.openlocfilehash: b12809627bc7a3ab3f17f4c3b11bc3a899fd0485
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 98ffe145103b4be04014627ed04d04dcf7542015
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57849922"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368950"
 ---
 # <a name="azure-backup-architecture"></a>Architecture de Sauvegarde Azure
 
@@ -179,7 +179,7 @@ Pour plus d’informations sur le stockage sur disque et les types de disque dis
 Vous pouvez sauvegarder des machines virtuelles Azure à l’aide de stockage premium avec sauvegarde Azure :
 
 - Pendant le processus de sauvegarde des machines virtuelles avec stockage premium, le service de sauvegarde crée un emplacement temporaire intermédiaire, nommé *AzureBackup -*, dans le compte de stockage. La taille de l’emplacement intermédiaire est égale à la taille de la capture instantanée de point de récupération.
-- Vérifiez que le compte de stockage Premium dispose d’un espace libre suffisant pour prendre en compte cet emplacement intermédiaire temporaire. [Plus d’informations](../storage/common/storage-scalability-targets.md#premium-storage-account-scale-limits) Ne modifiez pas l’emplacement intermédiaire.
+- Vérifiez que le compte de stockage Premium dispose d’un espace libre suffisant pour prendre en compte cet emplacement intermédiaire temporaire. [Plus d’informations](../storage/common/storage-scalability-targets.md#premium-performance-storage-account-scale-limits) Ne modifiez pas l’emplacement intermédiaire.
 - Une fois la sauvegarde terminée, l’emplacement intermédiaire est supprimé.
 - Le prix du stockage utilisé pour l’emplacement intermédiaire est conforme à la [tarification du stockage Premium](../virtual-machines/windows/disks-types.md#billing).
 

@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 56c09d9c6d1249713de7c6a0428ad2a124eee157
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e0c8d4883bb9183f866450477df972fc66c960c5
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58013076"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369741"
 ---
 # <a name="azure-storage-security-guide"></a>Guide de sécurité Azure Storage
 
@@ -22,7 +22,7 @@ Stockage Azure propose un ensemble complet de fonctionnalités de sécurité qui
 - Toutes les données écrites dans le stockage Azure sont automatiquement chiffrées à l’aide du [Storage Service Encryption (SSE)](storage-service-encryption.md). Pour plus d’informations, consultez [Annonce du chiffrement par défaut des objets blob, fichiers, tables et stockages de file d’attente Azure](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
 - Azure Active Directory (Azure AD) et le contrôle d’accès en fonction du rôle (RBAC) sont pris en charge pour le stockage Azure pour les opérations de gestion des ressources et les opérations de données comme suit :   
     - Vous pouvez attribuer des rôles RBAC limités au compte de stockage à des principaux de sécurité et utiliser Azure AD pour autoriser les opérations de gestion des ressources telles que la gestion des clés.
-    - L’intégration Azure AD est prise en charge dans la préversion pour les opérations de données sur les services d’objet Blob et de file d’attente. Vous pouvez attribuer des rôles RBAC limités à un abonnement, groupe de ressources, compte de stockage, ou un conteneur ou une file d’attente à un principal de sécurité ou une identité managée pour des ressources Azure. Pour plus d’informations, consultez [Authenticate access to Azure Storage using Azure Active Directory (Preview)](storage-auth-aad.md) (Authentifier l’accès à Azure Storage à l’aide d’Azure Active Directory (préversion)).   
+    - Intégration d’Azure AD est pris en charge pour les opérations de données blob et file d’attente. Vous pouvez attribuer des rôles RBAC limités à un abonnement, groupe de ressources, compte de stockage, ou un conteneur ou une file d’attente à un principal de sécurité ou une identité managée pour des ressources Azure. Pour plus d’informations, consultez [Authentifier l’accès au Stockage Azure à l’aide d’Azure Active Directory](storage-auth-aad.md).   
 - Les données peuvent être sécurisées en transit entre une application et Azure au moyen du [chiffrement côté client](../storage-client-side-encryption.md), de HTTPS ou de SMB 3.0.  
 - Les disques de système d’exploitation et de données utilisés par les machines virtuelles Azure peuvent être chiffrés à l’aide [d’Azure Disk Encryption](../../security/azure-security-disk-encryption.md). 
 - Il est possible d’accorder un accès délégué aux objets de données d’Azure Storage en utilisant des [signatures d’accès partagé](../storage-dotnet-shared-access-signature-part-1.md).
@@ -155,8 +155,8 @@ La sécurité du plan de données fait référence aux méthodes permettant de s
 
 Trois options vous permettent d’autoriser l’accès aux objets de données dans le stockage Azure, notamment :
 
-- Utilisation d’Azure AD pour autoriser l’accès aux conteneurs et files d’attente (préversion). Azure AD offre des avantages par rapport à d’autres approches d’autorisation, notamment la suppression de la nécessité de stocker des secret dans votre code. Pour plus d’informations, consultez [Authenticate access to Azure Storage using Azure Active Directory (Preview)](storage-auth-aad.md) (Authentifier l’accès à Azure Storage à l’aide d’Azure Active Directory (préversion)). 
-- Utilisation de vos clés de compte de stockage pour autoriser l’accès via la clé partagée. L’autorisation via la clé partagée nécessite de stocker vos clés de compte de stockage dans votre application. Lorsque cela est possible, Microsoft recommande donc d’utiliser Azure AD. Pour les applications de production, ou pour autoriser l’accès aux tables et fichiers Azure, continuez à utiliser la clé partagée lorsque l’intégration Azure AD est en préversion.
+- À l’aide d’Azure AD pour autoriser l’accès aux conteneurs et les files d’attente. Azure AD offre des avantages par rapport à d’autres approches d’autorisation, notamment la suppression de la nécessité de stocker des secret dans votre code. Pour plus d’informations, consultez [Authentifier l’accès au Stockage Azure à l’aide d’Azure Active Directory](storage-auth-aad.md). 
+- Utilisation de vos clés de compte de stockage pour autoriser l’accès via la clé partagée. L’autorisation via la clé partagée nécessite de stocker vos clés de compte de stockage dans votre application. Lorsque cela est possible, Microsoft recommande donc d’utiliser Azure AD.
 - Utilisation de signatures d’accès partagé pour accorder des autorisations contrôlées sur des objets de données spécifiques pour une durée spécifique.
 
 Par ailleurs, pour le stockage Blob, vous pouvez autoriser un accès public à vos objets blob en définissant de manière appropriée le niveau d’accès du conteneur qui contient les objets blob. Si vous définissez l’accès pour un conteneur sur Objet blob ou Conteneur, vous autorisez l’accès en lecture public pour les objets blob de ce conteneur. Cela signifie que toute personne avec une URL pointant vers un objet blob dans ce conteneur peut l’ouvrir dans un navigateur sans utiliser de signature d’accès partagé ni disposer de clé de compte de stockage.

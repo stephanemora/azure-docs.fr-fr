@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 9/20/2017
 ms.author: raiye
-ms.openlocfilehash: 6e4a83eb8b3488c4ce2816151ca31b4a594dd742
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: ce66d44c0ddb84ed8c2908d02b8062195d6b461d
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338630"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351012"
 ---
 # <a name="azure-guest-os-supportability-and-retirement-policy"></a>Prise en charge et stratégie de suppression du SE invité d’Azure
 Les informations de cette page concernent le système d'exploitation invité Azure ([SE invité](cloud-services-guestos-update-matrix.md)) pour les rôles Web et de travail Cloud Services (PaaS). Elles ne s'appliquent pas aux machines virtuelles (IaaS).
@@ -57,7 +57,7 @@ Après 60 jours de vie, une version obtient le statut «*désactivé*». Cela s
 
 Un certain temps après « expiration, » expiration » de la version de système d’exploitation invité » et toutes les installations qui exécutent encore cette version expirée sont exposées à des problèmes de sécurité et vulnérabilités. En règle générale, l’expiration se fait par lots, c’est la période entre la désactivation avant l’expiration peut varier.
 
-Les clients qui configurent leurs services pour mettre à jour le système d’exploitation invité manuellement, devez vous assurer que leurs déploiements sont en cours d’exécution sur un système d’exploitation invités pris en charge. Si un service est configuré pour mettre à jour le système d’exploitation invité automatiquement, la plateforme sous-jacente garantit la conformité et met à niveau vers le dernier système d’exploitation invité.
+Les clients qui configurent leurs services pour mettre à jour le système d’exploitation invité manuellement, devez vous assurer que leurs services sont exécutent sur un système d’exploitation invités pris en charge. Si un service est configuré pour mettre à jour le système d’exploitation invité automatiquement, la plateforme sous-jacente garantit la conformité et met à niveau vers le dernier système d’exploitation invité.
 
 Ces périodes peuvent être allongées à la discrétion de Microsoft pour faciliter les transitions des clients. Toutes les modifications seront communiquées sur les [versions de système d'exploitation invité d'Azure et la matrice de compatibilité du Kit de développement logiciel (SDK)](cloud-services-guestos-update-matrix.md).
 

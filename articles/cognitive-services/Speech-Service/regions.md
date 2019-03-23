@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 1be51c4f5aede58a975dc9441b3bec7a83f7becd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 90fa56bb0e2044d24533c35a051d3f4b644e05b5
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57900911"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58349635"
 ---
 # <a name="speech-service-supported-regions"></a>Régions prises en charge pour le service Speech
 
@@ -41,6 +41,7 @@ Le SDK Speech est disponible dans les régions suivantes pour la **reconnaissanc
  USA Centre | « centralus » | https://centralus.cris.ai
  USA Centre Nord | 'northcentralus' | https://northcentralus.cris.ai
  USA Centre Sud | 'southcentralus' | https://southcentralus.cris.ai
+ Inde Centre | 'centralindia' | https://centralindia.cris.ai
  Asie Est | `eastasia` | https://eastasia.cris.ai
  Asie Sud-Est | `southeastasia` | https://southeastasia.cris.ai
  Japon Est | `japaneast` | https://japaneast.cris.ai

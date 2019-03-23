@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 03/21/2019
 ms.author: danlep
-ms.openlocfilehash: ffc9cf24e686924878a752b5d9df31160328ef0a
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
-ms.translationtype: HT
+ms.openlocfilehash: 10f2340bd85da3dabcd50d51a4dd56d58d31675b
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854709"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372435"
 ---
 # <a name="deploy-a-multi-container-container-group-with-yaml"></a>Déployer un groupe multiconteneur avec YAML
 
@@ -34,17 +34,17 @@ Pour déployer un groupe multiconteneur avec la commande [az container create][a
 
 Commencez par copier le YAML suivant dans un nouveau fichier nommé **deploy-aci.yaml**.
 
-Ce fichier YAML définit un groupe de conteneurs nommé « myContainerGroup », qui comprend deux conteneurs, une adresse IP publique et deux ports exposés. Le premier conteneur du groupe exécute une application web accessible sur Internet. Le second conteneur, le side-car, envoie régulièrement des requêtes HTTP à l’application web en cours d’exécution dans le premier conteneur par le biais du réseau local du groupe de conteneurs.
+Ce fichier YAML définit un groupe de conteneurs nommé « myContainerGroup », qui comprend deux conteneurs, une adresse IP publique et deux ports exposés. Les conteneurs sont déployés à partir d’images publiques de Microsoft. Le premier conteneur du groupe exécute une application web accessible sur Internet. Le second conteneur, le side-car, envoie régulièrement des requêtes HTTP à l’application web en cours d’exécution dans le premier conteneur par le biais du réseau local du groupe de conteneurs.
 
 ```YAML
-apiVersion: 2018-06-01
+apiVersion: 2018-10-01
 location: eastus
 name: myContainerGroup
 properties:
   containers:
   - name: aci-tutorial-app
     properties:
-      image: microsoft/aci-helloworld:latest
+      image: mcr.microsoft.com/azuredocs/aci-helloworld:latest
       resources:
         requests:
           cpu: 1
@@ -54,7 +54,7 @@ properties:
       - port: 8080
   - name: aci-tutorial-sidecar
     properties:
-      image: microsoft/aci-tutorial-sidecar
+      image: mcr.microsoft.com/azuredocs/aci-tutorial-sidecar
       resources:
         requests:
           cpu: 1
@@ -98,9 +98,9 @@ az container show --resource-group myResourceGroup --name myContainerGroup --out
 Pour voir l’application en cours d’exécution, accédez à son adresse IP dans votre navigateur. Par exemple, l’adresse IP est `52.168.26.124` dans cet exemple de sortie :
 
 ```bash
-Name              ResourceGroup    ProvisioningState    Image                                                           IP:ports               CPU/Memory       OsType    Location
-----------------  ---------------  -------------------  --------------------------------------------------------------  ---------------------  ---------------  --------  ----------
-myContainerGroup  myResourceGroup  Succeeded            microsoft/aci-helloworld:latest,microsoft/aci-tutorial-sidecar  52.168.26.124:80,8080  1.0 core/1.5 gb  Linux     eastus
+Name              ResourceGroup    Status    Image                                                                                               IP:ports              Network    CPU/Memory       OsType    Location
+----------------  ---------------  --------  --------------------------------------------------------------------------------------------------  --------------------  ---------  ---------------  --------  ----------
+myContainerGroup  danlep0318r      Running   mcr.microsoft.com/azuredocs/aci-tutorial-sidecar,mcr.microsoft.com/azuredocs/aci-helloworld:latest  20.42.26.114:80,8080  Public     1.0 core/1.5 gb  Linux     eastus
 ```
 
 ## <a name="view-logs"></a>Consulter les journaux
@@ -115,9 +115,9 @@ Sortie :
 
 ```console
 listening on port 80
-::1 - - [09/Jan/2018:23:17:48 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
-::1 - - [09/Jan/2018:23:17:51 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
-::1 - - [09/Jan/2018:23:17:54 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [21/Mar/2019:23:17:48 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [21/Mar/2019:23:17:51 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [21/Mar/2019:23:17:54 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ```
 
 Pour afficher les journaux du conteneur annexe, exécutez la même commande, en spécifiant le nom du deuxième conteneur.
@@ -129,7 +129,7 @@ az container logs --resource-group myResourceGroup --name myContainerGroup --con
 Sortie :
 
 ```console
-Every 3s: curl -I http://localhost                          2018-01-09 23:25:11
+Every 3s: curl -I http://localhost                          2019-03-21 20:36:41
 
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -142,7 +142,7 @@ Last-Modified: Wed, 29 Nov 2017 06:40:40 GMT
 ETag: W/"67f-16006818640"
 Content-Type: text/html; charset=UTF-8
 Content-Length: 1663
-Date: Tue, 09 Jan 2018 23:25:11 GMT
+Date: Thu, 21 Mar 2019 20:36:41 GMT
 Connection: keep-alive
 ```
 
@@ -162,7 +162,7 @@ Pour utiliser un registre d’images conteneur privé, intégrez le YAML suivant
 Par exemple, le YAML suivant déploie un groupe comportant un seul conteneur dont l’image est extraite d’un registre Azure Container Registry privé nommé « myregistry » :
 
 ```YAML
-apiVersion: 2018-06-01
+apiVersion: 2018-10-01
 location: eastus
 name: myContainerGroup2
 properties:
@@ -215,7 +215,7 @@ properties:
   - name: aci-tutorial-app
     properties:
       environmentVariables: []
-      image: microsoft/aci-helloworld:latest
+      image: mcr.microsoft.com/azuredocs/aci-helloworld:latest
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

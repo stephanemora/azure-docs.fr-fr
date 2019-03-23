@@ -9,18 +9,20 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.openlocfilehash: 281b4b8d20957cbbbf0f4ff52166e8c3a78b3e7d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5154058bb1562b670e24f8813e979588a536f086
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58108135"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58359855"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Analyser les journaux pour Apache Kafka sur HDInsight
 
 Découvrez comment utiliser les journaux d’Azure Monitor pour analyser les journaux générés par Apache Kafka sur HDInsight.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="enable-azure-monitor-logs-for-apache-kafka"></a>Activer les journaux d’Azure Monitor pour Apache Kafka
 
@@ -33,7 +35,7 @@ Les étapes pour activer les journaux d’Azure Monitor pour HDInsight sont les 
 3. Configurer le cluster Kafka pour utiliser des journaux Azure Monitor. Pour plus d’informations, consultez le [consigne d’utiliser Azure Monitor pour surveiller HDInsight](../hdinsight-hadoop-oms-log-analytics-tutorial.md) document.
 
     > [!NOTE]  
-    > Vous pouvez également configurer le cluster pour utiliser des journaux Azure Monitor à l’aide de la `Enable-AzureRmHDInsightOperationsManagementSuite` applet de commande. Cette applet de commande requiert les informations suivantes :
+    > Vous pouvez également configurer le cluster pour utiliser des journaux Azure Monitor à l’aide de la `Enable-AzHDInsightOperationsManagementSuite` applet de commande. Cette applet de commande requiert les informations suivantes :
     >
     > * Le nom du cluster HDInsight.
     > * L’ID de l’espace de travail pour les journaux d’Azure Monitor. Vous trouverez l’ID de l’espace de travail dans votre espace de travail Log Analytics.

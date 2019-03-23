@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 3d187851fda9054bbfbae245ef34440b66ad017e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: bd760fca20a602127e7d33913547dcb2c6bc95f6
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309313"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351546"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Diffuser en continu les journaux de diagnostic Azure vers Log Analytics
 
@@ -100,6 +100,39 @@ L’argument `--resource-group` est obligatoire seulement si `--workspace` n’e
 ## <a name="how-do-i-query-the-data-in-log-analytics"></a>Comment faire pour interroger les données dans Log Analytics ?
 
 Dans le panneau Recherche dans les journaux du portail ou dans la fonctionnalité Analytique avancée accessible depuis Log Analytics, vous pouvez interroger les journaux de diagnostic dans le cadre de la solution de gestion des journaux au niveau de la table AzureDiagnostics. Il existe également [plusieurs solutions pour les ressources Azure](../../azure-monitor/insights/solutions.md) que vous pouvez installer pour avoir une visibilité immédiate sur les données de journal que vous envoyez vers Log Analytics.
+
+### <a name="known-limitation-column-limit-in-azurediagnostics"></a>Limitation connue : limite de colonne dans AzureDiagnostics
+Étant donné que de nombreuses ressources envoyer tous les types de données sont envoyés à la même table (_AzureDiagnostics_), le schéma de cette table est le jeu super des schémas de tous les types de données différents sont collectées. Par exemple, si vous avez créé des paramètres de diagnostic pour la collection de types de données suivants, tous sont envoyées à l’espace de travail :
+- Rapports d’audit de 1 ressource (ayant un schéma constitué de colonnes A, B et C)  
+- Journaux d’erreurs de ressource 2 (ayant un schéma constitué de colonnes D, E et F)  
+- Journaux de flux de données de 3 ressources (ayant un schéma constitué de colonnes G, H et j’ai)  
+ 
+La table AzureDiagnostics se présente comme suit, avec des exemples de données :  
+ 
+| ResourceProvider | Catégorie | A | b | C | D | E | F | G | H | I |
+| -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
+| Microsoft.Resource1 | AuditLogs | x1 | y1 | z1 |
+| Microsoft.Resource2 | ErrorLogs | | | | q1 | w1 | e1 |
+| Microsoft.Resource3 | DataFlowLogs | | | | | | | j1 | k1 | l1|
+| Microsoft.Resource2 | ErrorLogs | | | | q2 | w2 | e2 |
+| Microsoft.Resource3 | DataFlowLogs | | | | | | | j3 | k3 | l3|
+| Microsoft.Resource1 | AuditLogs | x5 | y5 | z5 |
+| ... |
+ 
+Il existe une limite explicite d’une table de journal Azure donnée n’a ne pas plus de 500 colonnes. Une fois atteinte, toutes les lignes contenant des données avec n’importe quelle colonne en dehors des 500 premiers sont supprimées au moment de l’ingestion. La table AzureDiagnostics est particulièrement sensible pour être affectées à cette limite. Cela produit généralement parce qu’une grande variété de sources de données sont envoyées à l’espace de travail, ou plusieurs sources de données très détaillée adressés au même espace de travail. 
+ 
+#### <a name="azure-data-factory"></a>Azure Data Factory  
+Azure Data Factory, en raison d’un ensemble très détaillé des journaux, est une ressource qui est connue pour être particulièrement affectées par cette limite. notamment :  
+- *Les paramètres utilisateur définis par rapport à toutes les activités dans votre pipeline*: il y aura une nouvelle colonne pour chaque paramètre nommé de manière unique un utilisateur par rapport à n’importe quelle activité créée. 
+- *Activité entrées et sorties*: ces varient d’activité à et générer une grande quantité de colonnes en raison de leur nature détaillée. 
+ 
+Comme avec les propositions plus larges de solution de contournement ci-dessous, il est recommandé pour isoler les journaux de l’ADF dans leur propre espace de travail pour réduire le risque de ces journaux ayant un impact sur d’autres types de journaux collectés dans vos espaces de travail. Nous prévoyons d’avoir organisé les journaux pour Azure Data Factory est disponible par mid-avril 2019.
+ 
+#### <a name="workarounds"></a>Solutions de contournement
+À court terme, jusqu'à ce que la limite de 500 colonnes est redéfinie, il est recommandé pour séparer les types de données détaillés en espaces de travail distincts afin de réduire le risque d’atteindre la limite.
+ 
+À long terme, les Diagnostics Azure pour déplacer en dehors d’un schéma unifié, partiellement alloué dans des tables individuelles par chaque type de données ; associé à la prise en charge pour les types dynamiques, ceci considérablement améliore la facilité d’utilisation de données entrantes dans les journaux Azure via le mécanisme de Diagnostics Azure. Vous pouvez déjà voir cela pour sélectionner les types de ressources Azure, par exemple [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics) ou [Intune](https://docs.microsoft.com/intune/review-logs-using-azure-monitor) journaux. Veuillez rechercher les dernières nouvelles concernant les nouveaux types de ressources dans Azure prenant en charge de ces journaux organisé sur le [mises à jour Azure](https://azure.microsoft.com/updates/) blog !
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

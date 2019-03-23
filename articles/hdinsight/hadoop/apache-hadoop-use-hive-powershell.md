@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8bd754533758d2c736e3951e5c7a10f63bb72bd8
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: HT
+ms.openlocfilehash: 77d2d0b5b9f994668abdd02640a9c6d5f463e137
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410174"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360756"
 ---
 # <a name="run-apache-hive-queries-using-powershell"></a>Exécuter des requêtes Apache Hive avec PowerShell
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -24,7 +24,9 @@ Ce document fournit un exemple d’utilisation d’Azure PowerShell dans le mod
 > [!NOTE]  
 > Ce document ne fournit pas de description détaillée de ce que font les instructions HiveQL utilisées dans les exemples. Pour plus d’informations sur le langage HiveQL utilisé dans cet exemple, consultez [Utiliser Apache Hive avec Apache Hadoop sur HDInsight](hdinsight-use-hive.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * Un cluster Apache Hadoop Linux sur HDInsight version 3.4 ou ultérieure.
 
@@ -41,13 +43,13 @@ Azure PowerShell fournit des *cmdlets* qui vous permettent d'exécuter à distan
 
 Les applets de commande suivants sont utilisés lors de l'exécution de requêtes Hive sur un cluster à distance HDInsight :
 
-* `Connect-AzureRmAccount`: Authentifie Azure PowerShell dans votre abonnement Azure.
-* `New-AzureRmHDInsightHiveJobDefinition`: Crée une *définition de travail* à l’aide des instructions HiveQL spécifiées.
-* `Start-AzureRmHDInsightJob`: Envoie la définition de travail à HDInsight et démarre le travail. Un objet *job* est retourné.
-* `Wait-AzureRmHDInsightJob`: Utilise l’objet de travail pour vérifier l’état du travail. Il attend que la tâche soit terminée ou que le délai d’attente soit dépassé.
-* `Get-AzureRmHDInsightJobOutput`: Utilisé pour récupérer la sortie du travail.
-* `Invoke-AzureRmHDInsightHiveJob`: Utilisé pour exécuter les instructions HiveQL. Cette applet de commande bloque la fin de la requête, puis retourne les résultats.
-* `Use-AzureRmHDInsightCluster`: Définit le cluster actuel à utiliser pour la commande `Invoke-AzureRmHDInsightHiveJob`.
+* `Connect-AzAccount`: Authentifie Azure PowerShell dans votre abonnement Azure.
+* `New-AzHDInsightHiveJobDefinition`: Crée une *définition de travail* à l’aide des instructions HiveQL spécifiées.
+* `Start-AzHDInsightJob`: Envoie la définition de travail à HDInsight et démarre le travail. Un objet *job* est retourné.
+* `Wait-AzHDInsightJob`: Utilise l’objet de travail pour vérifier l’état du travail. Il attend que la tâche soit terminée ou que le délai d’attente soit dépassé.
+* `Get-AzHDInsightJobOutput`: Utilisé pour récupérer la sortie du travail.
+* `Invoke-AzHDInsightHiveJob`: Utilisé pour exécuter les instructions HiveQL. Cette applet de commande bloque la fin de la requête, puis retourne les résultats.
+* `Use-AzHDInsightCluster`: Définit le cluster actuel à utiliser pour la commande `Invoke-AzHDInsightHiveJob`.
 
 Les étapes suivantes montrent comment utiliser ces cmdlets pour exécuter une tâche sur votre cluster HDInsight :
 
@@ -81,7 +83,7 @@ Les étapes suivantes montrent comment utiliser ces cmdlets pour exécuter une t
    > [!NOTE]  
    > Pour les requêtes HiveQL plus longues, vous pouvez utiliser les fichiers de script HiveQL de PowerShell ou la cmdlet **Here-Strings** Azure PowerShell. L’extrait suivant montre comment utiliser la cmdlet `Invoke-Hive` pour exécuter un fichier de script HiveQL. Ce dernier doit être chargé dans wasb://.
    >
-   > `Invoke-AzureRmHDInsightHiveJob -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
+   > `Invoke-AzHDInsightHiveJob -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
    >
    > Pour plus d'informations sur **Here-Strings**, consultez la page <a href="https://technet.microsoft.com/library/ee692792.aspx" target="_blank">Utilisation du fichier de script Here-Strings de PowerShell</a>.
 
@@ -91,7 +93,7 @@ Si aucune information n’est retournée lorsque la tâche est terminée, affich
 
 ```powershell
 # Print the output of the Hive job.
-Get-AzureRmHDInsightJobOutput `
+Get-AzHDInsightJobOutput `
         -Clustername $clusterName `
         -JobId $job.JobId `
         -HttpCredential $creds `

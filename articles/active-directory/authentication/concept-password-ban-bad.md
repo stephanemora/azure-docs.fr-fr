@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 645dd7fe35ba3e7d83a3ee374d7ab566ad193cc2
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 795abcadb1cee7599665f7bc3b8e0d3e08a3da05
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314125"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369069"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Éliminer les mots de passe incorrects de votre organisation
 
@@ -32,7 +32,7 @@ Il se peut que certaines organisations veulent pousser plus loin la sécurité e
 
 La liste de mots de passe interdits personnalisée et la capacité à activer l’intégration d’Active Directory localement sont gérées via le portail Azure.
 
-![Modifier la liste de mots de passe interdits personnalisée sous Méthodes d’authentification dans le portail Azure](./media/concept-password-ban-bad/authentication-methods-password-protection.png)
+![Modifier la liste de mots de passe interdits personnalisé sous les méthodes d’authentification](./media/concept-password-ban-bad/authentication-methods-password-protection.png)
 
 ## <a name="on-premises-hybrid-scenarios"></a>Scénarios hybrides locaux
 

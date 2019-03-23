@@ -1,7 +1,7 @@
 ---
 title: Types d’entités
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Ajouter des entités (données clés dans le domaine de votre application) dans les applications Language Understanding Intelligent Service (LUIS).
+description: 'Entités extraire des données à partir de l’énoncé. Types d’entité vous donnent prévisible d’extraction de données. Il existe deux types d’entités : machine a appris et non-machine-appris. Il est important de savoir quel type d’entité que vous travaillez dans énoncés.'
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: c8d2ccc197eb8818cfe3fc54449ee982bbe0c087
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d12ea20f9f510b0e2d3d3512d8d8c71a3fb96eec
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57844586"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372520"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Types d’entités et leurs objectifs dans LUIS
 
-Les entités sont des mots ou des phrases dans les énoncés qui sont des données clés dans le domaine de votre application.
+Entités extraire des données à partir de l’énoncé. Types d’entité vous donnent prévisible d’extraction de données. Il existe deux types d’entités : machine a appris et non-machine-appris. Il est important de savoir quel type d’entité que vous travaillez dans énoncés. 
 
 ## <a name="entity-compared-to-intent"></a>Comparaison entre entité et intention
 
@@ -190,7 +190,7 @@ L’entité convient bien quand :
 
 * Les données correspondent à un cas d’usage courant pris en charge par des entités prédéfinies pour votre culture linguistique. 
 
-Des entités prédéfinies peuvent être ajoutées et supprimées à tout moment. Si vous découvrez qu’une entité prédéfinie est détectée dans un exemple d’énoncé, rendant le marquage de votre entité personnalisée impossible, supprimez l’entité prédéfinie de l’application, marquez votre entité, puis rajoutez l’entité prédéfinie. 
+Des entités prédéfinies peuvent être ajoutées et supprimées à tout moment.
 
 ![Entité prédéfinie Number (nombre)](./media/luis-concept-entities/number-entity.png)
 
@@ -198,6 +198,29 @@ Des entités prédéfinies peuvent être ajoutées et supprimées à tout moment
 [Exemple de réponse JSON pour une entité](luis-concept-data-extraction.md#prebuilt-entity-data)
 
 Certaines de ces entités prédéfinies dans le projet open source [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text). Si votre culture ou entité spécifique n’est pas encore prise en charge, vous pouvez contribuer au projet. 
+
+### <a name="troubleshooting-prebuilt-entities"></a>Résolution des problèmes des entités prédéfinies
+
+Dans le portail LUIS, si une entité prédéfinie est marquée au lieu de votre entité personnalisée, vous avez le choix de la façon de résoudre ce problème.
+
+Des entités prédéfinies ajoutées à l’application seront _toujours_ retourné, même si l’énoncé doit extraire les entités personnalisées pour le même texte. 
+
+#### <a name="change-tagged-entity-in-example-utterance"></a>Modifier une entité avec balises dans un énoncé de l’exemple
+
+Si l’entité prédéfinie est le même texte ou jetons en tant que l’entité personnalisée, sélectionnez le texte dans l’énoncé exemple et modifier l’énoncé avec balises. 
+
+Si l’entité prédéfinie est marquée avec plus de texte ou de jetons à votre entité personnalisée, vous avez deux options de comment résoudre ce problème :
+
+* [Supprimer l’énoncé de l’exemple](#remove-example-utterance-to-fix-tagging) (méthode)
+* [Supprimer des entités prédéfinies](#remove-prebuilt-entity-to-fix-tagging) (méthode)
+
+#### <a name="remove-example-utterance-to-fix-tagging"></a>Supprimer l’énoncé d’exemple pour corriger le balisage 
+
+Votre premier choix consiste à supprimer l’énoncé exemple et recycler l’application. Ajouter à nouveau que le mot ou une phrase qui est l’entité comme un énoncé de l’exemple, puis marquer l’entité et l’apprentissage. Maintenant ajouter à nouveau l’entité prédéfinie et l’énoncé exemple d’origine. L’entité personnalisée doit continuer à être marquée au lieu de l’entité prédéfinie. 
+
+#### <a name="remove-prebuilt-entity-to-fix-tagging"></a>Supprimer une entité prédéfinie pour corriger le balisage
+
+Votre second choix consiste à supprimer l’entité prédéfinie à partir de l’application, identifiez l’entité personnalisée dans l’énoncé de l’exemple, puis ajoutez l’entité prédéfinie vers l’application. Ce correctif suppose que l’entité prédéfinie ne fait pas partie d’une entité composite. 
 
 ## <a name="regular-expression-entity"></a>Entité d’expression régulière 
 

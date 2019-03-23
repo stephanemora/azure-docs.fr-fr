@@ -1,18 +1,18 @@
 ---
 title: Jeux de données de la fonctionnalité de mappage de Data Flow d’Azure Data Factory
-description: Azure Data Factory mappage de flux de données a sepecific dataset compatibilité
+description: Azure Data Factory mappage de flux de données a compatibilité du jeu de données spécifique
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.openlocfilehash: ad6cfdad519ab3901c58979970ea07439b3106e9
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 4e36e96947e6a8595230023065eb9f44a5a1f3d2
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726921"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371313"
 ---
 # <a name="mapping-data-flow-datasets"></a>Jeux de données de Data Flow de mappage
 
@@ -42,6 +42,12 @@ Lorsque vous créez un nouveau jeu de données, une case à cocher intitulée «
 ## <a name="import-schemas"></a>Importer des schémas
 
 Lors de l’importation du schéma des jeux de données de Data Flow un bouton Importer un schéma apparaît. Si vous cliquez sur ce bouton, deux options s’offrent à vous : Importer à partir de la source ou importer à partir d’un fichier local. Dans la plupart des cas, vous allez importer le schéma directement à partir de la source. Toutefois, si vous avez un fichier de schéma existant (fichier Parquet ou CSV avec en-têtes), vous pouvez pointer sur ce fichier local et Data Factory définira le schéma en fonction de ce fichier de schéma.
+
+## <a name="create-new-table"></a>Créer une table
+
+Dans le flux de données, vous pouvez demander l’ADF pour créer une nouvelle définition de table dans votre base de données cible en définissant un jeu de données dans la transformation de récepteur qui a un nouveau nom de table. Dans le jeu de données SQL, cliquez sur « Modifier » sous le nom de table et entrez un nouveau nom de table. Puis, dans la Transformation du récepteur, activez « Autoriser les dérives de schéma ». Seth le paramètre « Importer le schéma » None.
+
+![Schéma de Transformation source](media/data-flow/dataset2.png "schéma SQL")
 
 ## <a name="delimited-text-dataset"></a>Jeu de données de texte délimité
 

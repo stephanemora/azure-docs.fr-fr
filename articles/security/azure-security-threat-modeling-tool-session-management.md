@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 18dfc6badf640afb418e661e6c464442fbb41945
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e8f3cf3889b3f79e930630ff0e768a0c4875eec6
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875167"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361725"
 ---
 # <a name="security-frame-session-management"></a>Infrastructure de sécurité : Gestion des sessions
 | Produit/Service | Article |
@@ -389,18 +389,17 @@ void Page_Init (object sender, EventArgs e) {
 ```
 
 ## <a id="threat-detection"></a>Activer la détection des menaces sur SQL Azure
-```
 
-| Title                   | Details      |
+| Intitulé                   | Détails      |
 | ----------------------- | ------------ |
-| **Component**               | Web Application | 
-| **SDL Phase**               | Build |  
-| **Applicable Technologies** | Web Forms |
-| **Attributes**              | N/A  |
-| **References**              | [forms Element for authentication (ASP.NET Settings Schema)](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
-| **Steps** | Set the Forms Authentication Ticket cookie timeout to 15 minutes|
+| **Composant**               | Application web | 
+| **Phase SDL**               | Créer |  
+| **Technologies applicables** | Web Forms |
+| **Attributs**              | S.O.  |
+| **Informations de référence**              | [Élément de Forms pour authentication (schéma des paramètres ASP.NET)](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
+| **Étapes** | Définissez le délai d’expiration du cookie du ticket d’authentification par formulaire sur 15 minutes.|
 
-### Example
+### <a name="example"></a>Exemples
 ```XML
 <forms  name=".ASPXAUTH" loginUrl="login.aspx"  defaultUrl="default.aspx" protection="All" timeout="15" path="/" requireSSL="true" slidingExpiration="true"/>
 </forms>

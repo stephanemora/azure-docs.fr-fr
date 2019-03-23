@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25450d49fd32adf12ac6c8a71671a9cb796b06c4
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: c5d7f9623a7594aaa79c4cff187486360b1befc8
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317440"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369018"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Activer combinée sécurité informations inscription (version préliminaire)
 
 Avant d’activer la nouvelle expérience, consultez l’article [combinée d’inscription des informations de sécurité (version préliminaire)](concept-registration-mfa-sspr-combined.md) afin de bien comprendre les fonctionnalités et l’impact de cette fonctionnalité.
 
-![L’inscription d’informations de sécurité combinée améliorer l’expérience demande plus d’informations lors de la connexion. Exemple illustre l’inscription d’application Microsoft Authenticator comme première méthode.](media/howto-registration-mfa-sspr-combined/combined-security-info-more-required.png)
+![Expérience améliorée de sécurité combinée d’informations d’inscription](media/howto-registration-mfa-sspr-combined/combined-security-info-more-required.png)
 
 |     |
 | --- |
@@ -37,7 +37,7 @@ Procédez comme suit pour activer l’inscription combinée :
 2. Accédez à **Azure Active Directory** > **Paramètres utilisateur** > **Gérer les paramètres des fonctionnalités préliminaires du volet d’accès**.
 3. Sous **les utilisateurs peuvent utiliser les fonctionnalités de l’inscription et la gestion des informations de sécurité en version préliminaire - Actualiser**, choisir d’activer pour un **sélectionnés** groupe d’utilisateurs ou pour **tous les** utilisateurs.
 
-![Activer l’expérience de préversion des info de sécurité combinée pour tous les utilisateurs dans le portail Azure AD](media/howto-registration-mfa-sspr-combined/combined-security-info-enable.png)
+![Activer l’expérience de préversion des info de sécurité combinée pour tous les utilisateurs](media/howto-registration-mfa-sspr-combined/combined-security-info-enable.png)
 
 > [!IMPORTANT]
 > À compter de mars de 2019 les options d’appel téléphonique ne sera pas disponible aux utilisateurs MFA et SSPR dans les locataires gratuit/essai Azure AD. Les messages SMS ne sont pas affectées par cette modification. Appel téléphonique continueront à être disponibles pour les utilisateurs dans payé des locataires Azure AD. Cette modification affecte uniquement les locataires gratuit/essai Azure AD.

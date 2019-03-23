@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f3d4bfa7d8ffda1ab2789927d03a777fab0ed89c
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: 365264d40554f45533e2ddf0aeb9d85f3e8f8d2d
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281579"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370616"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Monter un partage de fichiers Azure dans Azure Container Instances
 
@@ -70,7 +70,7 @@ Pour monter un partage de fichiers Azure en tant que volume dans un conteneur, s
 az container create \
     --resource-group $ACI_PERS_RESOURCE_GROUP \
     --name hellofiles \
-    --image microsoft/aci-hellofiles \
+    --image mcr.microsoft.com/azuredocs/aci-hellofiles \
     --dns-name-label aci-demo \
     --ports 80 \
     --azure-file-volume-account-name $ACI_PERS_STORAGE_ACCOUNT_NAME \
@@ -83,7 +83,7 @@ La valeur `--dns-name-label` doit être unique au sein de la région Azure dans 
 
 ## <a name="manage-files-in-mounted-volume"></a>Gérer les fichiers dans le volume monté
 
-Après le démarrage du conteneur, vous pouvez utiliser l’application web simple déployée via l’image [seanmckenna/aci-hellofiles][aci-hellofiles] pour créer de petits fichiers texte dans le partage de fichiers Azure sur le chemin de montage que vous avez spécifié. Obtenir un nom de domaine complet de l’application web (FQDN) avec la commande [afficher de conteneur az] [ az-container-show] :
+Une fois que le démarrage du conteneur, vous pouvez utiliser l’application web simple déployée via Microsoft [aci-hellofiles] [ aci-hellofiles] image pour créer des petits fichiers texte dans le partage de fichiers Azure sur le chemin de montage que vous avez spécifié. Obtenir un nom de domaine complet de l’application web (FQDN) avec la commande [afficher de conteneur az] [ az-container-show] :
 
 ```azurecli-interactive
 az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --query ipAddress.fqdn
@@ -140,7 +140,7 @@ Découvrez comment monter d’autres types de volumes dans Azure Container Insta
 * [Monter un volume secret dans Azure Container Instances](container-instances-volume-secret.md)
 
 <!-- LINKS - External -->
-[aci-hellofiles]: https://hub.docker.com/r/microsoft/aci-hellofiles/
+[aci-hellofiles]: https://hub.docker.com/_/microsoft-azuredocs-aci-hellofiles 
 [portal]: https://portal.azure.com
 [storage-explorer]: https://storageexplorer.com
 

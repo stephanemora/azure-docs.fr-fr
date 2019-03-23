@@ -5,15 +5,15 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 02/07/2019
+ms.date: 03/21/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 22b070e6d70208057c85ad6a2322cc440d12a0fa
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ce01301455c7abcd26006e622fcfbb8127e1c511
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58008213"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372486"
 ---
 # <a name="azure-data-lake-storage-gen2-security-guide"></a>Guide de sécurité Azure Data Lake Storage Gen2
 
@@ -134,7 +134,7 @@ La sécurité du plan de données fait référence aux méthodes permettant de s
 Trois options vous permettent d’autoriser l’accès aux objets de données dans le stockage Azure, notamment :
 
 - Utilisation d’Azure AD pour autoriser l’accès aux systèmes de fichiers et files d’attente. Azure AD offre des avantages par rapport à d’autres approches d’autorisation, notamment la suppression de la nécessité de stocker des secret dans votre code. Pour plus d’informations, consultez [Authentifier l’accès au Stockage Azure à l’aide d’Azure Active Directory](storage-auth-aad.md). 
-- Utilisation de vos clés de compte de stockage pour autoriser l’accès via la clé partagée. L’autorisation via la clé partagée nécessite de stocker vos clés de compte de stockage dans votre application. Lorsque cela est possible, Microsoft recommande donc d’utiliser Azure AD. Pour les applications de production, ou pour autoriser l’accès aux tables et fichiers Azure, continuez à utiliser la clé partagée lorsque l’intégration Azure AD est en préversion.
+- Utilisation de vos clés de compte de stockage pour autoriser l’accès via la clé partagée. L’autorisation via la clé partagée nécessite de stocker vos clés de compte de stockage dans votre application. Lorsque cela est possible, Microsoft recommande donc d’utiliser Azure AD.
 - Utilisation de signatures d’accès partagé pour accorder des autorisations contrôlées sur des objets de données spécifiques pour une durée spécifique.
 
 En plus de limiter l’accès par le biais de l’autorisation, vous pouvez également utiliser [Pare-feu et réseaux virtuels](storage-network-security.md) pour limiter l’accès au compte de stockage en fonction des règles de réseau.  Cette approche vous permet de refuser l’accès au trafic Internet public et d’accorder l’accès uniquement à certains réseaux virtuels Azure ou certaines plages d’adresses IP Internet publiques.

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ac30888c9f54c5dc88cb72aeec0f3db81d5a99dc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f88a560d4fa819a055534530ddc0862e4aa330fe
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004949"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351879"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Résolution des problèmes de bout en bout avec les métriques et la journalisation Stockage Azure, AzCopy et Message Analyzer
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -29,12 +29,12 @@ Ce didacticiel fournit une exploration pratique d'un scénario de dépannage de 
 Pour résoudre les problèmes des applications clientes utilisant Microsoft Azure Storage, vous pouvez faire appel à une combinaison d'outils afin de déterminer quand un problème s'est produit et quelle peut en être la cause. Ces outils incluent :
 
 * **Azure Storage Analytics**. [Azure Storage Analytics](/rest/api/storageservices/Storage-Analytics) fournit des métriques et une journalisation pour Azure Storage.
-  
+
   * **Storage Metrics** assure le suivi des métriques de transaction et des métriques de capacité pour votre compte de stockage. Les métriques vous permettent de déterminer comment votre application s'exécute en fonction de plusieurs mesures différentes. Pour plus d'informations sur les types de métrique suivis par Storage Analytics, consultez la page [Schéma de table de métriques Storage Analytics](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema) .
   * **Journalisation du stockage** enregistre chaque demande aux services de stockage Azure dans un journal côté serveur. Le journal assure le suivi des données détaillées de chaque demande, y compris l'opération effectuée, son statut et les informations de latence. Pour plus d’informations sur les données de demande et de réponse qui sont écrites dans les journaux par Storage Analytics, voir la page [Format de journal de Storage Analytics](/rest/api/storageservices/Storage-Analytics-Log-Format) .
 
 * **Portail Azure**. Vous pouvez configurer les mesures et la journalisation pour votre compte de stockage dans le [portail Azure](https://portal.azure.com). Vous pouvez également afficher des tableaux et des graphiques qui illustrent le fonctionnement de votre application au fil du temps et configurer des alertes pour vous avertir si votre application ne fonctionne pas comme prévu pour une métrique spécifique.
-  
+
     Pour plus d’informations sur la configuration de la surveillance dans le portail Azure, consultez la page [Surveillance d’un compte de stockage dans le portail Azure](storage-monitor-storage-account.md).
 * **AzCopy**. Les journaux de serveur pour Azure Storage sont stockés sous forme d'objets blob ; vous pouvez donc utiliser AzCopy pour copier les objets blob de journal dans un répertoire local pour l'analyse à l'aide de Microsoft Message Analyzer. Pour plus d’informations sur AzCopy, consultez [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md) .
 * **Microsoft Message Analyzer**. Message Analyzer est un outil qui utilise des fichiers journaux et affiche les données des journaux dans un format visuel qui facilite le filtrage, la recherche et le regroupement des données de journaux dans des ensembles utiles dont vous pouvez vous servir pour analyser les erreurs et les problèmes de performances. Pour plus d'informations sur Message Analyzer, consultez la page [Guide d'exploitation de Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx) .
@@ -79,51 +79,7 @@ Dans ce didacticiel, nous allons utiliser Message Analyzer pour travailler avec 
 * Le **journal de suivi du réseau HTTP**, qui collecte les données sur les données des demandes et réponses HTTP/HTTPS, notamment pour les opérations sur Azure Storage. Dans ce didacticiel, nous allons générer le suivi réseau via Message Analyzer.
 
 ### <a name="configure-server-side-logging-and-metrics"></a>Configuration de la journalisation et des métriques côté serveur
-Tout d’abord, nous allons devoir configurer la journalisation et les métriques Azure Storage afin d’avoir des données de l’application cliente à analyser. Vous pouvez configurer la journalisation et les métriques de plusieurs manières : via le [portail Azure](https://portal.azure.com), à l’aide de PowerShell ou par programme. Pour plus d’informations sur la configuration de la journalisation et des métriques, consultez les pages [Activation de Storage Metrics et affichage des données de métriques](https://msdn.microsoft.com/library/azure/dn782843.aspx) et [Activation de la journalisation du stockage et accès aux données de journal](https://msdn.microsoft.com/library/azure/dn782840.aspx) sur MSDN.
-
-**Via le portail Azure**
-
-Pour configurer la journalisation et les métriques pour votre compte de stockage à l’aide du [portail Azure](https://portal.azure.com), suivez les instructions de la page [Surveillance d’un compte de stockage dans le portail Azure](storage-monitor-storage-account.md).
-
-> [!NOTE]
-> Il n’est pas possible de définir des métriques par minute à l’aide du portail Azure. Toutefois, nous vous recommandons de les définir dans le cadre de ce didacticiel et pour examiner les problèmes de performances de votre application. Vous pouvez définir des métriques par minute à l’aide de PowerShell comme indiqué ci-dessous, par programme à l’aide de la bibliothèque cliente de stockage.
-> 
-> Notez que le portail Azure ne peut pas afficher les métriques par minute, mais seulement les métriques par heure.
-> 
-> 
-
-**Via PowerShell**
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-Pour commencer à utiliser PowerShell pour Azure, consultez la page [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).
-
-1. Utilisez l’applet de commande [Add-AzAccount](/powershell/module/servicemanagement/azure/add-azureaccount) pour ajouter votre compte d’utilisateur Azure dans la fenêtre PowerShell :
-   
-    ```powershell
-    Add-AzAccount
-    ```
-
-2. Dans la fenêtre **Connectez-vous à Microsoft Azure** , tapez l'adresse électronique et le mot de passe associés à votre compte. Azure authentifie et enregistre les informations d’identification, puis ferme la fenêtre.
-3. Définissez le compte de stockage par défaut sur le compte de stockage que vous utilisez pour le didacticiel en exécutant ces commandes dans la fenêtre PowerShell :
-   
-    ```powershell
-    $SubscriptionName = 'Your subscription name'
-    $StorageAccountName = 'yourstorageaccount'
-    Set-AzSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
-    ```
-
-4. Activez la journalisation du stockage pour le service d'objets blob :
-   
-    ```powershell
-    Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0
-    ```
-
-5. Activez les métriques du stockage pour le service d’objets blob, en veillant à définir **-MetricsType** sur `Minute` :
-   
-    ```powershell
-    Set-AzStorageServiceMetricsProperty -ServiceType Blob -MetricsType Minute -MetricsLevel ServiceAndApi -PassThru -RetentionDays 7 -Version 1.0
-    ```
+Tout d’abord, nous allons devoir configurer la journalisation de stockage Azure et des mesures, afin que nous avons des données à partir du côté service à analyser. Vous pouvez configurer la journalisation et les métriques de plusieurs manières : via le [portail Azure](https://portal.azure.com), à l’aide de PowerShell ou par programme. Consultez [activer les métriques](storage-analytics-metrics.md#enable-metrics-using-the-azure-portal) et [activer la journalisation](storage-analytics-logging.md#enable-storage-logging) pour plus d’informations sur la configuration de journalisation et les métriques.
 
 ### <a name="configure-net-client-side-logging"></a>Configuration de la journalisation côté client .NET
 Pour configurer la journalisation côté client pour une application .NET, activez les diagnostics .NET dans le fichier de configuration de l'application (web.config ou app.config). Pour plus d’informations, consultez les pages [Journalisation côté client avec la bibliothèque cliente de stockage .NET](https://msdn.microsoft.com/library/azure/dn782839.aspx) et [Journalisation côté client avec le Kit de développement logiciel (SDK) Microsoft Azure Storage pour Java](https://msdn.microsoft.com/library/azure/dn782844.aspx) sur MSDN.
@@ -159,8 +115,8 @@ Dans le didacticiel, collectez et enregistrez d'abord un suivi réseau dans Mess
 
 > [!NOTE]
 > Après avoir terminé la collecte de votre suivi réseau, nous vous recommandons fortement de rétablir les paramètres que vous avez éventuellement modifiés dans Fiddler pour déchiffrer le trafic HTTPS. Dans la boîte de dialogue Fiddler Options (Options de Fiddler), désactivez les cases à cocher **Capture HTTPS CONNECTs (Capturer les CONNECT HTTPS)** et **Decrypt HTTPS Traffic (Déchiffrer le trafic HTTPS)**.
-> 
-> 
+>
+>
 
 Pour plus de détails, voir la page [Utilisation des fonctionnalités de suivi réseau](https://technet.microsoft.com/library/jj674819.aspx) sur Technet.
 
@@ -175,8 +131,8 @@ Pour plus d’informations sur l’ajout et la personnalisation de graphiques de
 
 > [!NOTE]
 > Les données de vos mesures peuvent mettre un certain temps pour apparaître dans le portail Azure une fois que vous avez activé les mesures de stockage. C’est parce que les métriques horaires correspondant à l’heure précédente ne sont pas affichées dans le portail Azure tant que l’heure courante n’est pas écoulée. En outre, les mesures par minute ne sont pas actuellement affichées dans le portail Azure. Donc, selon le moment où vous activez des métriques, l’affichage des données correspondantes peut prendre jusqu’à deux heures.
-> 
-> 
+>
+>
 
 ## <a name="use-azcopy-to-copy-server-logs-to-a-local-directory"></a>Utiliser AzCopy pour copier les journaux de serveur dans un répertoire local
 Azure Storage écrit les données des journaux de serveur dans des objets blob, tandis que les métriques sont écrites dans des tables. Les objets blob de journal sont disponibles dans le fameux conteneur `$logs` de votre compte de stockage. Les objets blob de journal sont nommés hiérarchiquement par année, mois, jour et heure, afin que vous puissiez localiser facilement la plage de temps que vous souhaitez examiner. Par exemple, dans le compte `storagesample`, le conteneur des objets blob de journal pour le 01/02/2015, de 8-9 h, est `https://storagesample.blob.core.windows.net/$logs/blob/2015/01/08/0800`. Les objets blob individuels dans ce conteneur sont nommés de manière séquentielle, à partir de `000000.log`.
@@ -211,8 +167,8 @@ Message Analyzer inclut des ressources pour Azure Storage qui vous aident à ana
 
 > [!NOTE]
 > Installez toutes les ressources Azure Storage indiquées dans le cadre de ce didacticiel.
-> 
-> 
+>
+>
 
 ### <a name="import-your-log-files-into-message-analyzer"></a>Importation de vos fichiers journaux dans Message Analyzer
 Vous pouvez importer tous vos fichiers journaux enregistrés (côté serveur, côté client et réseau) dans une session de Microsoft Message Analyzer pour l'analyse.
@@ -255,8 +211,8 @@ L'illustration ci-dessous présente cette disposition de vue appliquée à l'exe
 
 > [!NOTE]
 > Différents fichiers journaux ont des colonnes différentes ; par conséquent, lorsque les données de plusieurs fichiers journaux sont affichées dans la grille d'analyse, il se peut que certaines colonnes ne contiennent pas toutes les données d'une ligne particulière. Par exemple, dans l’illustration ci-dessus, les lignes du journal du client n’affichent pas toutes les données des colonnes **Timestamp**, **TimeElapsed**, **Source** et **Destination**, car ces dernières existent dans le suivi du réseau mais pas dans le journal du client. De même, la colonne **Timestamp** affiche les données d’horodatage du journal du serveur, mais aucune donnée n’est affichée pour les colonnes **TimeElapsed**, **Source** et **Destination**, qui ne font pas partie du journal du serveur.
-> 
-> 
+>
+>
 
 Outre les dispositions de vue Azure Storage, vous pouvez également définir et enregistrer vos propres dispositions. Vous pouvez également sélectionner d'autres champs souhaités pour le regroupement des données et enregistrer le regroupement dans le cadre de votre disposition personnalisée.
 
@@ -289,12 +245,12 @@ Après avoir appliqué ce filtre, vous verrez que les lignes du journal du clien
 
 > [!NOTE]
 > Vous pouvez filtrer sur la colonne **StatusCode** et continuer d'afficher les données des trois journaux, y compris du journal du client, si vous ajoutez au filtre une expression qui inclut des entrées de journal où le code d'état a la valeur null. Pour construire cette expression de filtre, utilisez :
-> 
+>
 > <code>&#42;StatusCode >= 400 or !&#42;StatusCode</code>
-> 
+>
 > Ce filtre retourne toutes les lignes du journal du client et uniquement les lignes du journal du serveur et du journal HTTP où le code d'état est supérieur à 400. Si vous l'appliquez à la disposition de la vue regroupée par ID de demande client et module, vous pouvez rechercher ou faire défiler les entrées de journal pour rechercher celles où les trois journaux sont représentés.   
-> 
-> 
+>
+>
 
 ### <a name="filter-log-data-to-find-404-errors"></a>Filtrage des données du journal pour rechercher les erreurs 404
 Les ressources de stockage incluent les filtres prédéfinis que vous pouvez utiliser pour limiter les données du journal afin de trouver les erreurs ou les tendances que vous recherchez. Ensuite, nous allons appliquer deux filtres prédéfinis : un qui filtre les journaux de suivi du serveur et du réseau pour rechercher les erreurs 404 et l'autre qui filtre les données sur une période spécifiée.
