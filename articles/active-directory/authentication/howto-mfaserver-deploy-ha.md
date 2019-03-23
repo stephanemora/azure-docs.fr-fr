@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba8a1976fa9fc2a02f7f3e8419de10ebba7df950
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 71b7784d054f279dfccdb3a2424fd427789ca658
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316301"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370072"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-high-availability"></a>Configurer un serveur Azure Multi-Factor Authentication pour la haute disponibilité
 
@@ -26,7 +26,7 @@ Pour atteindre une haute disponibilité avec votre déploiement de serveur Azure
 
 L’architecture du service de serveur Azure MFA comprend plusieurs composants, comme indiqué dans le diagramme suivant :
 
- ![Architecture du serveur MFA](./media/howto-mfaserver-deploy-ha/mfa-ha-architecture.png)
+ ![Composants de l’Architecture du serveur MFA](./media/howto-mfaserver-deploy-ha/mfa-ha-architecture.png)
 
 Un serveur MFA est un serveur Windows Server sur lequel le logiciel Azure Multi-Factor Authentication est installé. L’instance du serveur MFA doit être activée par le service MFA dans Azure pour fonctionner. Plusieurs serveurs MFA peuvent être installés localement.
 

@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 05/08/2017
+ms.date: 03/21/2019
 ms.author: anroth
-ms.openlocfilehash: e659367ae13026dbe48ed681d0a68058d686e3ec
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 3530dbfe15f6dbdf481df70de6d03979750aa38e
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884339"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58352100"
 ---
 # <a name="glossary-of-terms-for-custom-vision-service"></a>Glossaire des termes du service Vision personnalisée
 
-Voici quelques termes utilisés dans le service Vision personnalisée et leur signification.
+Voici certains termes couramment utilisés dans le Service Vision personnalisée :
 
 ## <a name="classifier"></a>Classifieur
 
@@ -37,33 +37,21 @@ Lorsque vous créez un projet, vous sélectionnez un « domaine » pour ce pro
 
 Les modèles générés par des **domaines compacts** sont exportables avec la fonction d’exportation d’itérations. Ils sont optimisés en fonction des contraintes de la classification en temps réel sur les appareils mobiles. Pour une même quantité de données d’entraînement, les classifieurs conçus avec un domaine compact sont parfois légèrement moins précis qu’avec un domaine standard. Leur avantage réside dans le fait qu’ils sont suffisamment petits pour être exécutés localement, pratiquement en temps réel. 
 
-## <a name="training-image"></a>Image d’entraînement
+## <a name="evaluation"></a>Évaluation
 
-Pour créer un classifieur de grande précision, le service Vision personnalisée a besoin de plusieurs images d’entraînement. Une image d’entraînement est une photo de l’image que vous souhaitez que le service Vision personnalisée classe. Par exemple, pour classer des oranges, vous devez charger plusieurs images d’oranges sur le service Vision personnalisée, afin qu’il puisse créer un classifieur capable de reconnaître des oranges. Nous recommandons le chiffre d’au moins 30 images par mot clé.
+Une fois votre classifieur entraîné, vous pouvez soumettre n’importe quelle image d’évaluation à l’aide du point de terminaison https généré automatiquement. Le classifieur retourne un jeu de mots clés prédits, dans l’ordre de certitude.
 
 ## <a name="iteration"></a>Itération
 
 Chaque fois que vous entraînez ou ré-entraînez votre classifieur, vous créez une itération de votre modèle. Nous conservons plusieurs itérations passées afin de vous permettre de mesurer votre progression au fil du temps. Vous pouvez supprimer les itérations qui ne vous sont plus utiles. N’oubliez pas que la suppression d’une itération est définitive, et que vous supprimez avec elle toutes les images ou modifications qui lui étaient propres. 
 
-## <a name="workspace"></a>Espace de travail
+## <a name="precision"></a>Precision
 
-Votre espace de travail contient toutes vos images d’entraînement, et reflète toutes les modifications effectuées à partir de votre itération la plus récente, telles que des images supprimées ou ajoutées. Lorsque vous entraînez votre classifieur, vous créez une itération de votre classifieur en utilisant les images présentes dans votre espace de travail.
-
-## <a name="tags"></a>Balises
-
-Utilisez des mots clés pour étiqueter les objets présents dans vos images d’entraînement. Si vous créez un classifieur pour identifier des chiens et des poneys, vous devez placer un mot clé « chien » sur les images qui contiennent des chiens, un mot clé « poney » sur les images qui contiennent des poneys, et deux mots clés, « chien » et « poney », sur les images qui contiennent à la fois un chien et un poney.
-
-## <a name="evaluation"></a>Évaluation
-
-Une fois votre classifieur entraîné, vous pouvez soumettre n’importe quelle image d’évaluation à l’aide du point de terminaison https généré automatiquement. Le classifieur retourne un jeu de mots clés prédits, dans l’ordre de certitude.
+Lorsque vous classez une image, quelle est la probabilité que votre classifieur classe correctement cette image ? Sur toutes les images utilisées pour entraîner le classifieur (les chiens et les poneys), quel taux de réussite le modèle a-t-il obtenu ? Sur 100 images, 99 mots clés corrects donnent une précision de 99 %.
 
 ## <a name="predictions"></a>Prédictions
 
 À fur et à mesure que votre classifieur accepte de nouvelles images à classer, il les stocke pour vous. Vous pouvez utiliser ces images pour améliorer la précision de votre classifieur, en étiquetant convenablement les images mal prédites. Vous pouvez ensuite utiliser ces nouvelles images pour ré-entraîner votre classifieur.
-
-## <a name="precision"></a>Precision
-
-Lorsque vous classez une image, quelle est la probabilité que votre classifieur classe correctement cette image ? Sur toutes les images utilisées pour entraîner le classifieur (les chiens et les poneys), quel taux de réussite le modèle a-t-il obtenu ? Sur 100 images, 99 mots clés corrects donnent une précision de 99 %.
 
 ## <a name="recall"></a>Rappel
 
@@ -73,7 +61,7 @@ Sur toutes les images qui auraient dû être correctement classées, combien vot
 
 Il existe deux types de paramètres, les paramètres situés au niveau du projet et ceux qui sont situés au niveau de l’utilisateur.
 
-- Paramètres au niveau du projet : 
+- Paramètres au niveau du projet :
   
   Les paramètres au niveau du projet s’appliquent à un projet ou à un classifieur. À savoir :
 
@@ -90,3 +78,15 @@ Il existe deux types de paramètres, les paramètres situés au niveau du projet
    - Usage :
       - Nombre de projets créés
       - Nombre d’appels de l’API d’évaluation/de prédiction effectués.
+
+## <a name="tags"></a>Balises
+
+Utilisez des mots clés pour étiqueter les objets présents dans vos images d’entraînement. Si vous créez un classifieur pour identifier des chiens et des poneys, vous devez placer un mot clé « chien » sur les images qui contiennent des chiens, un mot clé « poney » sur les images qui contiennent des poneys, et deux mots clés, « chien » et « poney », sur les images qui contiennent à la fois un chien et un poney.
+
+## <a name="training-image"></a>Image d’entraînement
+
+Pour créer un classifieur de grande précision, le service Vision personnalisée a besoin de plusieurs images d’entraînement. Une image d’entraînement est une photo de l’image que vous souhaitez que le service Vision personnalisée classe. Par exemple, pour classer des oranges, vous devez charger plusieurs images d’oranges sur le service Vision personnalisée, afin qu’il puisse créer un classifieur capable de reconnaître des oranges. Nous recommandons le chiffre d’au moins 30 images par mot clé.
+
+## <a name="workspace"></a>Espace de travail
+
+Votre espace de travail contient toutes vos images d’entraînement, et reflète toutes les modifications effectuées à partir de votre itération la plus récente, telles que des images supprimées ou ajoutées. Lorsque vous entraînez votre classifieur, vous créez une itération de votre classifieur en utilisant les images présentes dans votre espace de travail.

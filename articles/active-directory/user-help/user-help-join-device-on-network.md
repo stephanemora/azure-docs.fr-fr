@@ -13,12 +13,12 @@ ms.date: 08/03/2018
 ms.author: lizross
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b433d8556377206ea53ece2764e251dcb266eb95
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e2ba6b2d33c3fb5d9fda6821718ac61513a958b7
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192351"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369137"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Joindre votre appareil professionnel au réseau de votre organisation
 Joignez votre appareil Windows 10 professionnel au réseau de votre organisation afin de pouvoir accéder à des ressources potentiellement restreintes.
@@ -26,7 +26,7 @@ Joignez votre appareil Windows 10 professionnel au réseau de votre organisation
 ## <a name="what-happens-when-you-join-your-device"></a>Ce qui se passe quand vous joignez votre appareil
 Quand vous joignez votre appareil Windows 10 au réseau de votre organisation, les actions suivantes se produisent :
 
-- Windows inscrit votre appareil sur le réseau de votre organisation, vous permettant d’accéder à vos ressources à l’aide de votre compte personnel. Une fois votre appareil inscrit, Windows le joint au réseau ; vous pouvez alors utiliser le nom d’utilisateur et le mot de passe de votre organisation pour vous connecter et accéder aux ressources restreintes.
+- Windows inscrit votre appareil au réseau de votre organisation, ce qui vous permet d’accéder à vos ressources à l’aide de votre compte personnel. Une fois votre appareil inscrit, Windows le joint au réseau ; vous pouvez alors utiliser le nom d’utilisateur et le mot de passe de votre organisation pour vous connecter et accéder aux ressources restreintes.
 
 - Selon les choix de votre organisation, vous devrez peut-être configurer une vérification en deux étapes à travers [l’authentification multifacteur](multi-factor-authentication-end-user-first-time.md) ou des [informations de sécurité](user-help-security-info-overview.md).
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f36ce51a9f385933cbc21e27280828b0ff0e43e2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6eae536bd19a2c0e5707d8e0b379774b6eb2707a
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58016686"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58395582"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Quels sont les types de disque disponibles dans Azure ?
 
@@ -27,9 +27,9 @@ Le tableau suivant offre une comparaison des niveaux SSD Ultra (préversion), SS
 |---------|---------|---------|---------|---------|
 |Type de disque   |SSD   |SSD   |SSD   |HDD   |
 |Scénario   |Charges de travail gourmandes en E/S, telles que le système SAP HANA, les bases de données de niveau supérieur (par exemple, SQL et Oracle), et autres charges de travail très lourdes en transactions.   |Charges de travail de production et sensibles aux performances   |Serveurs web, applications d’entreprise peu utilisées et Dev/Test   |Sauvegarde, non critique, accès peu fréquent   |
-|Taille du disque   |65 536 gibioctet (Gio) (préversion)   |4 095 Gio (GA), 32 767 Gio (préversion)    |4 095 Gio (GA), 32 767 Gio (préversion)   |4 095 Gio (GA), 32 767 Gio (préversion)   |
-|Débit max.   |2 000 Mio/s (préversion)   |250 Mio/s (GA), 750 Mio/s (préversion)   |60 Mio/s (GA), 500 Mio/s (préversion)   |60 Mio/s (GA), 500 Mio/s (préversion)   |
-|Nb max. d’E/S par seconde   |160 000 (préversion)   |7 500 (GA), 20 000 (préversion)   |500 (GA), 2 000 (préversion)   |500 (GA), 2 000 (préversion)   |
+|Taille du disque   |65 536 gibioctet (Gio) (préversion)   |32 767 Gio    |32 767 Gio   |32 767 Gio   |
+|Débit max.   |2 000 Mio/s (préversion)   |900 Mio/s   |750 Mio/s   |500 Mio/s   |
+|Nb max. d’E/S par seconde   |160 000 (préversion)   |20 000   |6 000 / 750   |2 000   |
 
 ## <a name="ultra-ssd-preview"></a>SSD Ultra (préversion)
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: f626ef4cfb385a62f68ab611b77dd0c307cd3820
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: ab5fba6bbbf6ade83c7699edec937ba02b222939
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54882377"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370055"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>Préparation à la modification du format dans les journaux de diagnostics Azure Monitor archivés dans un compte de stockage
 
@@ -24,7 +24,7 @@ ms.locfileid: "54882377"
 
 ## <a name="what-is-changing"></a>Changements
 
-Azure Monitor offre une fonctionnalité qui vous permet d’envoyer des données de diagnostics de ressources et des données de journaux d’activités dans un compte de stockage Azure, un espace de noms Event Hubs ou Log Analytics. Afin de résoudre un problème de performances du système, le **1er novembre 2018 à 00:00 UTC**, le format des données de journaux envoyées au stockage d’objets blob sera modifié. Si vous disposez des outils qui lisent les données dans le stockage d’objets blob, vous devez les mettre à jour pour qu’ils comprennent le nouveau format de données.
+Azure Monitor offre une fonctionnalité qui vous permet d’envoyer des données de diagnostic de ressources et des données de journal d’activité dans un compte de stockage Azure, espace de noms Event Hubs, ou dans un espace de travail Analytique de journal dans Azure Monitor. Afin de résoudre un problème de performances du système, le **1er novembre 2018 à 00:00 UTC**, le format des données de journaux envoyées au stockage d’objets blob sera modifié. Si vous disposez des outils qui lisent les données dans le stockage d’objets blob, vous devez les mettre à jour pour qu’ils comprennent le nouveau format de données.
 
 * Le jeudi 1er novembre 2018 à 00:00 UTC, le format des objets blob sera modifié en [lignes JSON](http://jsonlines.org/). Cela signifie que chaque enregistrement sera délimité par une nouvelle ligne, sans tableau d’enregistrements extérieurs ni virgule entre les enregistrements JSON.
 * Le format des objets blob est modifié pour tous les paramètres de diagnostics sur tous les abonnements en même temps. Le premier fichier PT1H.json émis le 1er novembre utilisera ce nouveau format. Les noms des objets blob et du conteneur ne changent pas.

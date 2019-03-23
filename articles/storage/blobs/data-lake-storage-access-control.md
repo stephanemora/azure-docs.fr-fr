@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: 906b1dde3d145268df4fb1ff5c243c7daa8396ec
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a102216a6a2a7dec471678e14f7050cb4ef41d77
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992446"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370106"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Contrôle d’accès dans Azure Data Lake Storage Gen2
 
@@ -279,7 +279,18 @@ L’utilisateur propriétaire peut modifier les autorisations du fichier pour s�
 
 ### <a name="why-do-i-sometimes-see-guids-in-acls"></a>Pourquoi vois-je parfois des GUID dans les ACL ?
 
-Un GUID s’affiche si l’entrée représente un utilisateur et que ce dernier n’existe plus dans Azure AD. Cela se produit généralement lorsque l’utilisateur a quitté l’entreprise ou que son compte a été supprimé dans Azure AD. En outre, les principaux de service et les groupes de sécurité ne sont identifiés par aucun UPN. Par conséquent, ils sont représentés par leur attribut OID (un GUID). 
+Un GUID s’affiche si l’entrée représente un utilisateur et que ce dernier n’existe plus dans Azure AD. Cela se produit généralement lorsque l’utilisateur a quitté l’entreprise ou que son compte a été supprimé dans Azure AD. En outre, les principaux de service et les groupes de sécurité ne sont identifiés par aucun UPN. Par conséquent, ils sont représentés par leur attribut OID (un GUID).
+
+### <a name="how-do-i-set-acls-correctly-for-a-service-principal"></a>Comment définir ACL correctement pour un service principal ?
+
+Lorsque vous définissez des ACL pour les principaux de service, il est important d’utiliser l’ID d’objet (OID) de la *principal du service* pour l’inscription d’application que vous avez créé. Il est important de noter que les applications inscrites ont un principal de service distinct dans spécifique au locataire Azure AD. Applications inscrites ont un OID qui est visible dans le portail Azure, mais la *principal du service* a un autre OID (différent).
+
+Pour obtenir l’OID du principal du service qui correspond à une inscription d’application, vous pouvez utiliser la `az ad sp show` commande. Spécifiez l’ID d’Application comme paramètre. Voici un exemple sur l’obtention de l’OID du principal du service qui correspond à une inscription d’application avec l’Id d’application = 18218b12-1895-43e9-ad80-6e8fc1ea88ce. Dans Azure CLI, exécutez la commande suivante :
+
+`az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
+<<OID will be displayed>>`
+
+Si vous avez l’OID correct pour le principal du service, accédez à l’Explorateur de stockage **gérer l’accès** page pour ajouter l’OID et attribuer des autorisations appropriées pour l’OID. Veillez à sélectionner **enregistrer**.
 
 ### <a name="does-data-lake-storage-gen2-support-inheritance-of-acls"></a>Data Lake Storage Gen2 prend-il en charge l’héritage des ACL ?
 

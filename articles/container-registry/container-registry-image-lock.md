@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 02/19/2019
 ms.author: danlep
-ms.openlocfilehash: cdf457eefc88edcc22f1fbaab4859fbcf3b69bca
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: ebbfaba158e7ddb669111f097eb1adde2373aa6c
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56654628"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361283"
 ---
 # <a name="lock-a-container-image-in-an-azure-container-registry"></a>Verrouiller une image de conteneur dans un Registre de conteneurs Azure
 
@@ -35,6 +35,24 @@ Toutefois, lorsque vous déployez une image de conteneur en production, vous dev
 Consultez les sections suivantes pour obtenir des exemples.
 
 ## <a name="lock-an-image-or-repository"></a>Verrouiller une image ou un référentiel 
+
+### <a name="show-the-current-repository-attributes"></a>Afficher les attributs de référentiel actuel
+Pour afficher les attributs actuels d’un référentiel, exécutez la commande suivante [show de référentiel az acr] [ az-acr-repository-show] commande :
+
+```azurecli
+az acr repository show \
+    --name myregistry --repository myrepo
+    --output jsonc
+```
+
+### <a name="show-the-current-image-attributes"></a>Afficher les attributs d’image actuelle
+Pour afficher les attributs en cours d’une balise, exécutez la commande suivante [show de référentiel az acr] [ az-acr-repository-show] commande :
+
+```azurecli
+az acr repository show \
+    --name myregistry --image image:tag \
+    --output jsonc
+```
 
 ### <a name="lock-an-image-by-tag"></a>Verrouiller une image par balise
 

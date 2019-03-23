@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 02/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: e6e1b304b90b37c93bed22bcb720a646680ee083
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: c171e35c6542febffc666ad5abfab50e093bb698
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223612"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58359277"
 ---
 # <a name="access-data-from-your-datastores"></a>Accéder aux données à partir de vos banques de données
 
@@ -32,7 +32,7 @@ Cette procédure montre des exemples pour les tâches suivantes :
 
 Pour utiliser des magasins de données, vous devez un [espace de travail](concept-azure-machine-learning-architecture.md#workspace) première. 
 
-Commencez soit par [créer un espace de travail](quickstart-create-workspace-with-python.md), soit par en récupérer un existant :
+Commencez soit par [créer un espace de travail](setup-create-workspace.md#sdk), soit par en récupérer un existant :
 
 ```Python
 import azureml.core
@@ -40,8 +40,6 @@ from azureml.core import Workspace, Datastore
 
 ws = Workspace.from_config()
 ```
-
-Ou, [suivent ce démarrage rapide Python](quickstart-create-workspace-with-python.md) pour utiliser le SDK pour créer votre espace de travail et de prise en main.
 
 <a name="access"></a>
 

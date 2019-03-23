@@ -5,21 +5,21 @@ services: storage
 author: cbrooksmsft
 ms.service: storage
 ms.topic: article
-ms.date: 02/22/2019
+ms.date: 03/21/2019
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: c7f7768406ae64615b46abeb396b5469caf2f6e9
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: c34af90f946542608eaf20f4f21d4986f3c80e6b
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750648"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369392"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurer des pare-feux et des réseaux virtuels dans Stockage Azure
 
 Stockage Azure fournit un modèle de sécurité en couche. Ce modèle vous permet de sécuriser vos comptes de stockage pour un ensemble spécifique de réseaux pris en charge. Quand des règles de réseau sont configurées, seules les applications demandant des données sur l’ensemble de réseaux spécifié peuvent accéder à un compte de stockage.
 
-Une application qui accède à un compte de stockage alors que des règles de réseau sont en vigueur requiert une autorisation appropriée sur la demande. L’autorisation est prise en charge avec les informations d’identification Azure Active Directory (AD) (pour les objets blob et les files d’attente) (version préliminaire), une clé d’accès de compte valide ou un jeton SAS.
+Une application qui accède à un compte de stockage alors que des règles de réseau sont en vigueur requiert une autorisation appropriée sur la demande. L’autorisation est pris en charge avec les informations d’identification Azure Active Directory (Azure AD) pour les objets BLOB et files d’attente, avec une clé d’accès de compte valide ou avec un jeton SAP.
 
 > [!IMPORTANT]
 > L’activation des règles de pare-feu pour votre compte de stockage bloque les demandes entrantes pour les données par défaut, sauf si les demandes proviennent d’un service qui fonctionne au sein d’un réseau virtuel (VNet) Azure. Les demandes qui sont bloquées comprennent les demandes émanant d’autres services Azure, du portail Azure, des services de journalisation et de métriques, etc.

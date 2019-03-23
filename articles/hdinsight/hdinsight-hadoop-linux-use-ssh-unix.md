@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 56eb7e7372d2041b52af6bbae2b9186b99f97bbb
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 82f57701a2ba83d500747383d49bbefaa23877f2
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337814"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361215"
 ---
 # <a name="connect-to-hdinsight-apache-hadoop-using-ssh"></a>Se connecter à HDInsight (Apache Hadoop) avec SSH
 
@@ -44,6 +44,8 @@ HDInsight peut utiliser Linux (Ubuntu) comme système d’exploitation pour les 
 >
 > Si vous êtes connecté à un serveur portant le même nom, vous pouvez recevoir un message d’avertissement indiquant que la clé d’hôte stockée ne correspond pas à la clé d’hôte du serveur. Consultez la documentation de votre client SSH pour savoir comment supprimer l’entrée existante associée au nom du serveur.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="ssh-clients"></a>Clients SSH
 
 Les systèmes Linux, Unix et macOS fournissent les commandes `ssh` et `scp`. Le client `ssh` est généralement utilisé pour créer une session de ligne de commande à distance avec un système basé sur Linux ou Unix. Le client `scp` est utilisé pour copier des fichiers en toute sécurité entre votre client et le système distant.
@@ -57,7 +59,7 @@ Microsoft Windows n’installe pas de clients SSH par défaut. Les clients `ssh`
 
 * [Bash sur Ubuntu sur Windows 10](https://msdn.microsoft.com/commandline/wsl/about) les commandes `ssh` et `scp` sont disponibles via le Bash sur la ligne de commande Windows.
 
-* [Client OpenSSH (bêta) :](https://devblogs.microsoft.com/powershell/using-the-openssh-beta-in-windows-10-fall-creators-update-and-windows-server-1709/) il s’agit d’une fonctionnalité facultative introduite dans la mise à jour Windows 10 Fall Creators Update.
+* [Client OpenSSH (bêta) :](https://blogs.msdn.microsoft.com/powershell/2017/12/15/using-the-openssh-beta-in-windows-10-fall-creators-update-and-windows-server-1709/) il s’agit d’une fonctionnalité facultative introduite dans la mise à jour Windows 10 Fall Creators Update.
 
 * [Azure Cloud Shell](../cloud-shell/quickstart.md) : Cloud Shell fournit un environnement Bash dans votre navigateur, ainsi que les commandes `ssh`, `scp` et d’autres commandes Linux courantes.
 
@@ -100,7 +102,7 @@ Vous êtes invité à renseigner diverses informations pendant le processus de c
 | Méthode de création | Utilisation de la clé publique |
 | ------- | ------- |
 | **Portail Azure** | Décochez l’option __Use same password as cluster login__ (Utiliser le même mot de passe que pour la connexion au cluster), puis sélectionnez __Clé publique__ comme type d’authentification SSH. Enfin, sélectionnez le fichier de clé publique ou collez le contenu texte du fichier dans le champ __SSH public key__ (Clé publique SSH).</br>![Boîte de dialogue de clé publique SSH lors de la création du cluster HDInsight](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-public-key.png) |
-| **Azure PowerShell** | Utilisez le paramètre `-SshPublicKey` de l’applet de commande `New-AzureRmHdinsightCluster` et transmettez le contenu de la clé publique sous forme de chaîne.|
+| **Azure PowerShell** | Utilisez le paramètre `-SshPublicKey` de l’applet de commande `New-AzHdinsightCluster` et transmettez le contenu de la clé publique sous forme de chaîne.|
 | **Azure Classic CLI** | Utilisez le paramètre `--sshPublicKey` de la commande `azure hdinsight cluster create` et transmettez le contenu de la clé publique sous forme de chaîne. |
 | **Modèle Resource Manager** | Pour obtenir un exemple d’utilisation des clés SSH avec un modèle, consultez [Deploy HDInsight on Linux (w/ Azure Storage, SSH key)](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-publickey/) (Déployer HDInsight sur Linux (avec Stockage Azure, clé SSH). L’élément `publicKeys` dans le fichier [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-publickey/azuredeploy.json) est utilisé pour transmettre les clés à Azure lors de la création du cluster. |
 
@@ -119,7 +121,7 @@ Les comptes SSH peuvent être sécurisés à l’aide d’un mot de passe. Lorsq
 | Méthode de création | Spécification du mot de passe |
 | --------------- | ---------------- |
 | **Portail Azure** | Par défaut, le compte utilisateur SSH a le même mot de passe que le compte de connexion du cluster. Pour utiliser un autre mot de passe, décochez l’option __Use same password as cluster login__ (Utiliser le même mot de passe que pour la connexion au cluster), puis entrez le mot de passe dans le champ __SSH password__ (Mot de passe SSH).</br>![Boîte de dialogue de mot de passe SSH lors de la création du cluster HDInsight](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-password.png)|
-| **Azure PowerShell** | Utilisez le paramètre `--SshCredential` de l’applet de commande `New-AzureRmHdinsightCluster` et transmettez un objet `PSCredential` qui contient le nom de compte et mot de passe utilisateur SSH. |
+| **Azure PowerShell** | Utilisez le paramètre `--SshCredential` de l’applet de commande `New-AzHdinsightCluster` et transmettez un objet `PSCredential` qui contient le nom de compte et mot de passe utilisateur SSH. |
 | **Azure Classic CLI** | Utilisez le paramètre `--sshPassword` de la commande `azure hdinsight cluster create` et fournissez la valeur de mot de passe. |
 | **Modèle Resource Manager** | Pour obtenir un exemple d’utilisation d’un mot de passe avec un modèle, consultez [Deploy HDInsight cluster with Storage and SSH password](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/) (Déployer un cluster HDInsight avec Stockage Azure et un mot de passe SSH). L’élément `linuxOperatingSystemProfile` dans le fichier [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-password/azuredeploy.json) est utilisé pour transmettre le nom de compte et mot de passe SSH à Azure lors de la création du cluster.|
 

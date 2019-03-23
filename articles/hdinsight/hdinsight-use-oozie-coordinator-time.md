@@ -10,18 +10,20 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/04/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: a47a30995f651204782325a9f984086fdf382a03
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: bf1c7360157b3b4af467cf53634056d70b91ebd2
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202195"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361334"
 ---
 # <a name="use-time-based-apache-oozie-coordinator-with-apache-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>Utiliser le coordinateur Apache Oozie basé sur le temps avec Apache Hadoop dans HDInsight pour définir des workflows et coordonner des tâches
 Dans cet article, vous découvrirez comment définir des workflows et des coordinateurs, et comment déclencher les tâches du coordinateur en fonction de l'heure. Il est utile de lire l’article [Utiliser Apache Oozie avec HDInsight][hdinsight-use-oozie] avant cet article-ci. En plus d’Oozie, vous pouvez utiliser Azure Data Factory pour programmer des tâches. Pour plus d’informations sur Azure Data Factory, consultez [Utiliser Apache Pig et Apache Hive avec Data Factory](../data-factory/transform-data.md).
 
 > [!NOTE]  
 > Cet article requiert un cluster HDInsight basé sur Windows. Pour plus d’informations sur l’utilisation d’Oozie, notamment sur les travaux à durée définie sur un cluster basé sur Linux, consultez [Utiliser Oozie avec Hadoop pour définir et exécuter un flux de travail dans HDInsight basé sur Linux](hdinsight-use-oozie-linux-mac.md)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="what-is-oozie"></a>Présentation d'Oozie
 Apache Oozie est un système de workflow/coordination qui gère les tâches Hadoop. Il est intégré à la pile Hadoop et prend en charge les tâches Hadoop pour Apache Hadoop MapReduce, Apache Pig, Apache Hive et Apache Sqoop. Il peut également être utilisé pour planifier des tâches propres à un système comme des programmes Java ou des scripts shell.
@@ -328,15 +330,15 @@ Pour plus d’informations, consultez [HDInsight : Présentation des tables int
 
     ```powershell
     # Create a storage context object
-    $storageaccountkey = get-azurestoragekey $storageAccountName | %{$_.Primary}
-    $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageaccountkey
+    $storageaccountkey = get-AzStoragekey $storageAccountName | %{$_.Primary}
+    $destContext = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageaccountkey
 
     function uploadOozieFiles()
     {
         Write-Host "Copy HiveQL script, workflow definition and coordinator definition ..." -ForegroundColor Green
-        Set-AzureStorageBlobContent -File $hiveQLScript -Container $containerName -Blob "$destFolder/useooziewf.hql" -Context $destContext
-        Set-AzureStorageBlobContent -File $workflowDefinition -Container $containerName -Blob "$destFolder/workflow.xml" -Context $destContext
-        Set-AzureStorageBlobContent -File $coordDefinition -Container $containerName -Blob "$destFolder/coordinator.xml" -Context $destContext
+        Set-AzStorageBlobContent -File $hiveQLScript -Container $containerName -Blob "$destFolder/useooziewf.hql" -Context $destContext
+        Set-AzStorageBlobContent -File $workflowDefinition -Container $containerName -Blob "$destFolder/workflow.xml" -Context $destContext
+        Set-AzStorageBlobContent -File $coordDefinition -Container $containerName -Blob "$destFolder/coordinator.xml" -Context $destContext
     }
 
     function prepareHiveDataFile()
@@ -686,9 +688,9 @@ $sqlDatabaseName = "<SQLDatabaseName>"
 $sqlDatabaseTableName = "log4jLogsCount"
 
 Write-host "Delete the Hive script output file ..." -ForegroundColor Green
-$storageaccountkey = get-azurestoragekey $storageAccountName | %{$_.Primary}
-$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageaccountkey
-Remove-AzureStorageBlob -Context $destContext -Blob "tutorials/useoozie/output/000000_0" -Container $containerName
+$storageaccountkey = get-AzStoragekey $storageAccountName | %{$_.Primary}
+$destContext = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageaccountkey
+Remove-AzStorageBlob -Context $destContext -Blob "tutorials/useoozie/output/000000_0" -Container $containerName
 
 Write-host "Delete all the records from the log4jLogsCount table ..." -ForegroundColor Green
 $conn = New-Object System.Data.SqlClient.SqlConnection

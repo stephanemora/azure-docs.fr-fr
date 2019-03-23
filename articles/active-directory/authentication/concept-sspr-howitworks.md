@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65c64e420bd22498fa2d778095def96cce218055
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 47a6f475b5f1152850ec918b196883c6974f4d95
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313955"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369996"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Fonctionnement : Réinitialisation de mot de passe en libre-service Azure AD
 
@@ -76,7 +76,7 @@ Les utilisateurs peuvent uniquement réinitialiser leur mot de passe s’ils ont
 > [!WARNING]
 > Les rôles d’administrateur Azure auxquels sont assignés des comptes seront nécessaires pour utiliser les méthodes définies dans la section [Différences en matière de stratégie de réinitialisation par l’administrateur](concept-sspr-policy.md#administrator-reset-policy-differences).
 
-![Authentification][Authentication]
+![Sélection des méthodes d’authentification dans le portail Azure][Authentication]
 
 ### <a name="number-of-authentication-methods-required"></a>Nombre de méthodes d’authentification requises
 
@@ -160,7 +160,7 @@ Exemple : quatre administrateurs font partie d’un environnement. L’administ
 
 Si vous installez, configurez et activez Azure AD Connect, vous disposez des options supplémentaires suivantes pour les intégrations locales. Si ces options sont grisées, la réécriture n’a pas été correctement configurée. Pour plus d’informations, consultez [Configuration de la réécriture du mot de passe](howto-sspr-writeback.md).
 
-![Écriture différée][Writeback]
+![Validation de l’écriture différée de mot de passe est activée et l’utilisation][Writeback]
 
 Cette page fournit un état rapide du client de réécriture local. L’un des messages suivants s’affiche en fonction de la configuration actuelle :
 
@@ -180,7 +180,7 @@ Ce contrôle détermine si la réécriture du mot de passe est activée pour ce 
 
 ### <a name="allow-users-to-unlock-accounts-without-resetting-their-password"></a>Autoriser les utilisateurs à déverrouiller les comptes sans réinitialiser leur mot de passe
 
-Ce contrôle indique si les utilisateurs qui visitent le portail de réinitialisation de mot de passe doivent avoir la possibilité de déverrouiller leurs comptes Active Directory locaux sans devoir réinitialiser leur mot de passe. Par défaut, Azure AD déverrouille les comptes quand il effectue une réinitialisation de mot de passe. Ce paramètre vous permet de séparer ces deux opérations. 
+Ce contrôle indique si les utilisateurs qui visitent le portail de réinitialisation de mot de passe doivent avoir la possibilité de déverrouiller leurs comptes Active Directory locaux sans devoir réinitialiser leur mot de passe. Par défaut, Azure AD déverrouille les comptes quand il effectue une réinitialisation de mot de passe. Ce paramètre vous permet de séparer ces deux opérations.
 
 * Si la valeur est **Oui**, les utilisateurs peuvent réinitialiser leur mot de passe et déverrouiller le compte ou déverrouiller celui-ci sans devoir réinitialiser le mot de passe.
 * Si la valeur est **Non**, les utilisateurs doivent réinitialiser leur mot de passe quand ils déverrouillent leur compte.
@@ -193,9 +193,9 @@ La réinitialisation de mot de passe en libre-service Azure AD est identique à 
 
 La réinitialisation et la modification du mot de passe sont totalement prises en charge sur toutes les configurations B2B. La réinitialisation du mot de passe utilisateur B2B est prise en charge dans les trois cas suivants :
 
-   * **Utilisateurs d’une organisation partenaire disposant d’un locataire Azure AD** : si l’organisation avec laquelle vous avez un partenariat dispose d’un locataire Azure AD, nous *respectons les stratégies de réinitialisation du mot de passe activées sur ce locataire*. Pour que la réinitialisation de mot de passe fonctionne, l’organisation partenaire doit simplement vérifier qu’Azure AD SSPR est activé. Aucun frais supplémentaire n’est appliqué pour les clients Office 365, et l’utilisateur peut activer cette fonctionnalité en suivant les étapes décrites dans notre guide [Bien démarrer avec la gestion des mots de passe](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords).
-   * **Utilisateurs qui s’inscrivent par le biais de l’inscription en libre-service** : si l’organisation avec laquelle vous avez un partenariat a utilisé la fonctionnalité [d’inscription en libre-service](../users-groups-roles/directory-self-service-signup.md) pour accéder à un locataire, nous l’autorisons à réinitialiser le mot de passe en indiquant l’adresse e-mail qu’elle a utilisée pour l’inscription.
-   * **Utilisateurs B2B** : tous les utilisateurs B2B créés à l’aide des nouvelles [fonctionnalités B2B d’Azure AD](../active-directory-b2b-what-is-azure-ad-b2b.md) peuvent également réinitialiser leur mot de passe en indiquant l’adresse e-mail utilisée pour l’inscription.
+* **Utilisateurs d’une organisation partenaire disposant d’un locataire Azure AD** : si l’organisation avec laquelle vous avez un partenariat dispose d’un locataire Azure AD, nous *respectons les stratégies de réinitialisation du mot de passe activées sur ce locataire*. Pour que la réinitialisation de mot de passe fonctionne, l’organisation partenaire doit simplement vérifier qu’Azure AD SSPR est activé. Aucun frais supplémentaire n’est appliqué pour les clients Office 365, et l’utilisateur peut activer cette fonctionnalité en suivant les étapes décrites dans notre guide [Bien démarrer avec la gestion des mots de passe](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords).
+* **Utilisateurs qui s’inscrivent par le biais de l’inscription en libre-service** : si l’organisation avec laquelle vous avez un partenariat a utilisé la fonctionnalité [d’inscription en libre-service](../users-groups-roles/directory-self-service-signup.md) pour accéder à un locataire, nous l’autorisons à réinitialiser le mot de passe en indiquant l’adresse e-mail qu’elle a utilisée pour l’inscription.
+* **Utilisateurs B2B** : tous les utilisateurs B2B créés à l’aide des nouvelles [fonctionnalités B2B d’Azure AD](../active-directory-b2b-what-is-azure-ad-b2b.md) peuvent également réinitialiser leur mot de passe en indiquant l’adresse e-mail utilisée pour l’inscription.
 
 Pour tester ce scénario, accédez à https://passwordreset.microsoftonline.com avec l’un de ces utilisateurs partenaires. Si ces utilisateurs disposent d’une autre adresse de messagerie ou d’un e-mail d’authentification, la réinitialisation du mot de passe fonctionne comme prévu.
 

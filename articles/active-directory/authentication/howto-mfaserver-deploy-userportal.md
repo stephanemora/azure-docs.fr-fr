@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbee5316b78838bedc62454e8c1954eb5f9205ff
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 66a75ee7746d0ab04b505544f91f2905fa392902
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317119"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370361"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Portail de l’utilisateur pour le serveur Azure Multi-Factor Authentication
 
@@ -28,7 +28,7 @@ Les administrateurs du portail de l’utilisateur peuvent être configurés et a
 
 Selon votre environnement, il peut être nécessaire de déployer le portail de l’utilisateur sur le même serveur que le serveur Azure Multi-Factor Authentication ou sur un autre serveur accessible sur Internet.
 
-![Portail de l’utilisateur MFA](./media/howto-mfaserver-deploy-userportal/portal.png)
+![Page de connexion portail utilisateur du serveur MFA](./media/howto-mfaserver-deploy-userportal/portal.png)
 
 > [!NOTE]
 > Le portail de l’utilisateur est disponible uniquement avec le serveur Multi-Factor Authentication. Si vous utilisez Multi-Factor Authentication dans le cloud, invitez vos utilisateurs à se reporter aux articles [Configurer le compte pour la vérification en deux étapes](../user-help/multi-factor-authentication-end-user-first-time.md) ou [Gérer les paramètres de la vérification en deux étapes](../user-help/multi-factor-authentication-end-user-manage-settings.md).
@@ -118,6 +118,7 @@ Maintenant que le portail de l’utilisateur est installé, vous devez configure
 3. Définissez les administrateurs dans l’onglet **Administrateurs**. Vous pouvez créer des autorisations administratives granulaires à l’aide des cases à cocher et des menus déroulants dans les zones Ajouter/Modifier.
 
 Configuration facultative :
+
 - **Questions de sécurité** : définissez les questions de sécurité approuvées pour votre environnement et la langue dans laquelle elles apparaissent.
 - **Sessions précédentes** : configurez l’intégration du portail utilisateur avec un site Web basé sur le formulaire à l’aide de MFA.
 - **Adresses IP de confiance** : autorisez les utilisateurs à ignorer MFA lorsque vous vous authentifiez à partir d’une liste d’adresses IPs et de plages de confiance.
@@ -141,9 +142,12 @@ Le serveur Azure Multi-Factor Authentication fournit plusieurs options pour le p
 | Utiliser le jeton OATH de secours | Permet d’utiliser un jeton OATH si la vérification en deux étapes échoue. Vous pouvez également spécifier le délai d'expiration de la session en minutes. |
 | Activation de la journalisation | Active la journalisation sur le portail de l’utilisateur. Les fichiers journaux se trouvent à l’emplacement suivant : C:\Program Files\Multi-Factor Authentication Server\Logs. |
 
+> [!IMPORTANT]
+> À compter de mars de 2019 les options d’appel téléphonique ne sera pas disponible pour les utilisateurs du serveur MFA dans les locataires gratuit/essai Azure AD. Les messages SMS ne sont pas affectées par cette modification. Appel téléphonique continueront à être disponibles pour les utilisateurs dans payé des locataires Azure AD. Cette modification affecte uniquement les locataires gratuit/essai Azure AD.
+
 L’utilisateur peut voir ces paramètres dès qu’ils sont activés et connectés au portail de l’utilisateur.
 
-![Paramètres du portail de l'utilisateur](./media/howto-mfaserver-deploy-userportal/portalsettings.png)
+![Gérer votre compte de serveur MFA à l’aide du portail de l’utilisateur](./media/howto-mfaserver-deploy-userportal/portalsettings.png)
 
 ### <a name="self-service-user-enrollment"></a>Inscription utilisateur libre-service
 
@@ -159,7 +163,7 @@ Si l’utilisateur doit utiliser un code PIN pour s’authentifier, la page l’
 
 Si l’utilisateur sélectionne la méthode d’authentification par SMS ou si cette méthode a été préconfigurée, la page invite l’utilisateur à saisir son numéro de téléphone mobile. Si l’utilisateur doit utiliser un code PIN pour s’authentifier, la page l’invite également à entrer un code PIN.  Après avoir entré son numéro de téléphone et son code PIN (le cas échéant), l’utilisateur clique sur le bouton **M’envoyer un SMS maintenant pour m’authentifier**. Azure Multi-Factor Authentication envoie un SMS au téléphone mobile de l’utilisateur. L’utilisateur reçoit le SMS avec un code secret à usage unique, puis répond au message en renvoyant ce code et son code PIN (le cas échéant).
 
-![SMS du portail de l'utilisateur](./media/howto-mfaserver-deploy-userportal/text.png)
+![Vérification de portail d’utilisateur à l’aide de SMS](./media/howto-mfaserver-deploy-userportal/text.png)
 
 Si l’utilisateur sélectionne la méthode de vérification Mobile App, la page invite l’utilisateur à installer l’application Microsoft Authenticator sur son appareil et à générer un code d’activation. Une fois l’application installée, l’utilisateur clique sur le bouton Générer le code d’activation.
 

@@ -1,99 +1,133 @@
 ---
 title: Couverture de trafic dans Azure Maps | Microsoft Docs
 description: En savoir plus sur la couverture de trafic dans Azure Maps
-author: dsk-2015
-ms.author: dkshir
-ms.date: 09/12/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 09/22/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 3ef9cce659e1173e419e1ea24cf0a414202013b5
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
-ms.translationtype: HT
+ms.openlocfilehash: ad7d4dceefcaa06effa6b2974b0a8a03ad641372
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575675"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372240"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Couverture du trafic Azure Maps
 
-Azure Maps fournit de riches données sur le trafic, sous la forme de **flux** de trafic et d’**incidents**. Ces données peuvent être visualisées sur les cartes ou utilisées pour générer des itinéraires plus pertinents qui prennent en compte les réelles conditions de conduite. 
+Azure Maps fournit de riches données sur le trafic, sous la forme de **flux** de trafic et d’**incidents**. Ces données peuvent être visualisées sur les cartes ou utilisées pour générer des itinéraires plus pertinents qui prennent en compte les réelles conditions de conduite.
 
 Toutefois, Maps n’a pas le même niveau d’informations et de précision pour toutes les régions. Le tableau suivant fournit des informations sur les types de données de trafic que vous pouvez solliciter pour chaque région : 
 
-|Région  |Incidents  |Flux  |
+## <a name="americas"></a>Amérique
+
+|Pays/région  |Incidents  |Flux  |
 |---------|:---------:|:---------:|
-|Argentine      |         |✓         |
-|Australie     |✓         |✓        |
-|Autriche     |✓         |✓         |
-|Bahreïn     |         |✓         |
-|Belgique     |✓         |✓         |
+|Argentine      |✓         |✓         |
 |Brésil     |✓         |✓         |
-|Bulgarie     |✓         |✓         |
 |Canada     |✓         |✓         |
 |Chili     |✓         |✓         |
-|Colombie      |         |✓         |
-|Croatie     |         |✓         |
+|Colombie      |✓         |✓         |
+|Mexique     |✓         |✓         |
+|Pérou       |✓         |✓         | 
+|États-Unis     |✓         |✓        |
+|+Porto Rico     |✓         |✓         |
+|Uruguay |✓         |✓         |
+
+
+## <a name="asia-pacific"></a>Asie-Pacifique
+
+|Pays/région   |Incidents  |Flux  |
+|---------|:---------:|:---------:|
+|Australie     |✓         |✓        |
+|Brunei   |✓         |✓        |
+|Hong Kong (R.A.S.)     |✓         |✓         |
+|Inde   |✓         |✓         |
+|Indonésie     |✓         |✓         |
+|Macao R.A.S.     |✓         |✓         |
+|Malaisie     |✓         |✓         |
+|Nouvelle-Zélande     |✓         |✓         |
+|Philippines  |✓         |✓         |
+|Singapour     |✓         |✓         |
+|Taïwan     |✓         |✓        |
+|Thaïlande     |✓         |✓        |
+|Vietnam   |✓         |✓         |
+
+
+## <a name="europe"></a>Europe
+
+|Pays/région   |Incidents  |Flux  |
+|---------|:---------:|:---------:|
+|Andorre   |✓         |✓         |
+|Autriche     |✓         |✓         |
+|Belgique     |✓         |✓         |
+|Bulgarie     |✓         |✓         |
+|Croatie     |✓         |✓         |
 |République tchèque     |✓         |✓         |
 |Danemark     |✓         |✓         |
-|Égypte     |         |✓         |
 |Estonie     |         | ✓        |
 |Finlande     |✓         |✓         |
 |+Åland (îles)      |✓         |✓         |
 |France     |✓         |✓         |
-|+Monaco     |✓         |✓         |
+|Monaco     |✓         |✓         |
 |Allemagne     |✓         |✓         |
 |Grèce     |✓         |✓         |
-|Hong Kong (R.A.S.)     |✓         |✓         |
 |Hongrie     |✓         |✓         |
-|Islande     |         |✓         |
-|Indonésie     |✓         |✓         |
+|Islande     |✓         |✓         |
 |Irlande     |✓         |✓         |
-|Israël     |         |✓         |
 |Italie     |✓         |✓        |
-|+Saint-Marin     |✓         |✓         |
-|Koweït     |✓         |✓         |
-|Lettonie     |         |✓         |
+|Lettonie     |✓         |✓         |
 |Lesotho     |✓         |✓         |
-|Lituanie     |         |✓         |
+|Liechtenstein      |✓         |✓         |
+|Lituanie     |✓         |✓         |
 |Luxembourg     |✓         |✓         |
-|Macao R.A.S.     |         |✓         |
-|Malaisie     |✓         |✓         |
 |Malte     |✓         |✓         |
-|Mexique     |✓         |✓         |
-|Maroc     |         |✓         |
+|Monaco   |✓         |✓         |
 |Pays-bas     |✓         |✓         |
-|Nouvelle-Zélande     |✓         |✓         |
 |Norvège     |✓         |✓         |
-|Oman     |         |✓         |
 |Pologne     |✓         |✓         |
 |Portugal     |✓         |✓         |
-|+Açores et Madère     |         |✓         |
-|Qatar     |         |✓         |
-|Roumanie     |         |✓         |
+|+Açores et Madère     |✓         |✓         |
+|Roumanie     |✓         |✓         |
 |Fédération de Russie     |✓         |✓         |
-|Arabie Saoudite     |✓         |✓         |
-|Singapour     |✓         |✓         |
+|Saint-Marin    |✓         |✓         |
 |Slovaquie     |✓         |✓         |
 |Slovénie     |✓         |✓         |
-|Afrique du Sud     |✓         |✓         |
 |Espagne     |✓         |✓         |
 |+Andorre     |✓         |✓         |
 |+Îles Baléares     |✓         |✓         |
 |+Îles Canaries     |✓         |✓         |
-|+Gibraltar     |✓         |✓         |
 |Suède     |✓         |✓         |
 |Suisse     |✓         |✓        |
-|+Liechtenstein      |✓         |✓         |
-|Taïwan     |✓         |✓        |
-|Thaïlande     |✓         |✓        |
 |Turquie     |✓         |✓         |
 |Ukraine     |✓         |✓         |
-|Émirats Arabes Unis     |✓         |✓         |
 |Royaume-Uni     |✓         |✓         |
-|(Guernesey & Jersey)     |✓         |✓         |
-|Île de Man     |✓         |✓         |
-|États-Unis     |✓         |✓        |
-|+Porto Rico     |✓         |✓         |
+|+Gibraltar     |✓         |✓         |
+|+ Guernesey & Jersey     |✓         |✓         |
+|+ Île de Man     |✓         |✓         |
+|Cité du Vatican   |✓         |✓         |
+
+
+## <a name="middle-east-and-africa"></a>Moyen-Orient et Afrique
+
+|Pays/région |Incidents  |Flux  |
+|---------|:---------:|:---------:|
+|Bahreïn     |✓         |✓         |
+|Égypte     |✓         |✓         |
+|Israël     |✓         |✓         |
+|Kenya     |✓         |✓         |
+|Koweït     |✓         |✓         |
+|Maroc     |✓         |✓         |
+|Mozambique  |✓         |✓         |
+|Nigeria   |✓        |✓        |
+|Oman     |✓         |✓         |
+|Qatar     |✓         |✓         |
+|Arabie Saoudite     |✓         |✓         |
+|Afrique du Sud     |✓         |✓         |
+|Émirats Arabes Unis  |✓         |✓         |
+
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur les données de trafic Azure Maps, consultez les pages de référence sur le [trafic](https://docs.microsoft.com/rest/api/maps/traffic).

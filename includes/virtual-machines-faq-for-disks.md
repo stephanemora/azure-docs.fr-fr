@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/30/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 03e10497b033fc3d97fde4cd524b358c05fdc943
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 94893a5b5716c9bd207ad2a8bc8ca457974dddd4
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57458058"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58395685"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Forum aux questions sur les disques de machines virtuelles et les disques Premium gérés et non gérés Azure IaaS
 
@@ -105,7 +105,7 @@ Oui, les disques managés et non managés sont pris en charge. Nous vous recomma
 
 Non.
 
-**Si je crée un disque de 128 Gio et que j’augmente la taille à 130 Gio, suis-je facturé en fonction de la taille de disque supérieure (256 Gio) ?**
+**Si je créer un disque de 128 Go et augmente la taille à 130 gibioctets (Gio), sera être facturé pour la taille du disque suivante (256 Gio) ?**
 
 Oui.
 
@@ -115,7 +115,7 @@ Actuellement, Azure Managed Disks prend uniquement en charge les disques gérés
 
 **Puis-je réduire la taille de mes disques gérés ?**
 
-Non. Cette fonctionnalité n’est pas prise en charge pour l’instant. 
+Non. Cette fonctionnalité n’est pas prise en charge pour l’instant.
 
 **Puis-je résilier un bail sur mon disque ?**
 
@@ -153,7 +153,7 @@ Toutes les régions Azure prennent actuellement en charge les disques SSD Standa
 Oui, le service Sauvegarde Azure est à présent disponible.
 
 **Comment faire pour créer des disques SSD Standard ?**
-Vous pouvez créer des disques SSD Standard en utilisant des modèles Azure Resource Manager, le kit SDK, PowerShell ou CLI. Les paramètres suivants sont nécessaires dans le modèle Resource Manager pour créer des disques SSD Standard :
+Vous pouvez créer des disques SSD Standard à l’aide de modèles Azure Resource Manager, le Kit de développement logiciel, PowerShell ou CLI. Les paramètres suivants sont nécessaires dans le modèle Resource Manager pour créer des disques SSD Standard :
 
 * *apiVersion* pour Microsoft.Compute doit être défini sur `2018-04-01` (ou version ultérieure)
 * Pour *managedDisk.storageAccountType*, indiquez `StandardSSD_LRS`.
@@ -179,7 +179,7 @@ Oui, vous pouvez. Reportez-vous à [Convertir le stockage Managed Disks Azure de
 -AccountType StandardSSD_LRS
 
 **Quel est l’avantage d’utiliser des disques SSD Standard au lieu des disques HDD ?**
-Les disques SSD standard offrent une meilleure latence, cohérence, disponibilité et fiabilité par rapport aux disques HDD. Pour cette raison, les charges de travail des applications s’exécutent beaucoup plus facilement sur les disques SSD Standard. Notez que les disques SSD Premium constituent la solution recommandée pour la plupart des charges de travail de production gourmandes en E/S. 
+Les disques SSD standard offrent une meilleure latence, cohérence, disponibilité et fiabilité par rapport à des disques HDD. Pour cette raison, les charges de travail des applications s’exécutent beaucoup plus facilement sur les disques SSD Standard. Notez que les disques SSD Premium constituent la solution recommandée pour la plupart des charges de travail de production gourmandes en E/S.
 
 **Puis-je utiliser des disques SSD Standard en tant que disques non managés ?**
 Non, les disques SSD Standard sont disponibles seulement comme disques managés.
@@ -191,7 +191,7 @@ Non, les disques SSD standard n’ont pas de SLA de machine virtuelle à instanc
 
 **La migration a-t-elle un impact sur les performances des disques managés ?**
 
-La migration implique le déplacement du disque d’un emplacement de stockage à un autre. Cette opération est effectuée par une copie en arrière-plan des données, qui peuvent prendre plusieurs heures (généralement moins de 24 heures), selon la quantité de données stockées sur les disques. Pendant ce temps, votre application peut afficher une latence de lecture supérieure à la normale car certaines lectures sont redirigées vers l’emplacement d’origine et prennent donc plus de temps. Il n’y a aucun impact sur la latence d’écriture pendant cette période.  
+La migration implique le déplacement du disque d’un emplacement de stockage à un autre. Cela est orchestrée par la copie de sauvegarde de données, ce qui peuvent prendre plusieurs heures, généralement inférieure à 24 heures selon la quantité de données des disques. Pendant ce temps, votre application peut afficher une latence de lecture supérieure à la normale car certaines lectures sont redirigées vers l’emplacement d’origine et prennent donc plus de temps. Il n’y a aucun impact sur la latence d’écriture pendant cette période.  
 
 **Quelles sont les modifications nécessaires dans une configuration de service Sauvegarde Azure préexistante avant/après la migration vers Managed Disks ?**
 
@@ -205,7 +205,7 @@ Oui, les sauvegardes fonctionnent de manière transparente.
 
 Aucune modification n’est nécessaire.
 
-**La migration automatisée d’un groupe de machines virtuelles identiques existant à partir de disques non managés vers Managed Disks est-elle prise en charge ?**
+**Migration automatisée d’une échelle de machine virtuelle existante est définie à partir de disques non gérés vers des disques gérés pris en charge ?**
 
 Non. Vous pouvez créer un groupe de machines virtuelles identiques à l’aide de l’image de votre ancien groupe de machines virtuelles identiques avec des disques non managés.
 
@@ -300,7 +300,7 @@ Il n’existe aucun inconvénient à l’utilisation de TRIM sur des disques Azu
 
 **Quelle est la plus grande taille de disque managé prise en charge pour les disques de système d’exploitation et de données ?**
 
-Le type de partition pris en charge par Azure pour un disque de système d’exploitation est l’enregistrement de démarrage principal (MBR). Le format MBR prend en charge un disque dont la taille peut atteindre 2 Tio. La plus grande taille prise en charge par Azure pour un disque de système d’exploitation est de 2 Tio. Azure prend en charge jusqu’à 32 Tio pour les disques de données managés. Les tailles de disque managé supérieures à 4 Tio sont en préversion. Pour plus d’informations, [lisez notre billet de blog](https://aka.ms/azure-large-disk-32TB-preview-blog).
+Le type de partition pris en charge par Azure pour un disque de système d’exploitation est l’enregistrement de démarrage principal (MBR). Le format MBR prend en charge un disque dont la taille peut atteindre 2 Tio. La plus grande taille prise en charge par Azure pour un disque de système d’exploitation est de 2 Tio. Azure prend en charge jusqu’à 32 Tio pour les disques de données managés. Les tailles de disque managé supérieures à 4 Tio sont en préversion. Pour plus d’informations sur ces derniers, consultez notre [billet de blog](https://aka.ms/azure-large-disk-32TB-preview-blog).
 
 **Quelle est la plus grande taille de disque non managé prise en charge pour les disques de système d’exploitation et de données ?**
 
@@ -333,25 +333,29 @@ Les disques Premium de petite taille de moins de 64 Gio continuent à être fac
 
 Vous pouvez prendre un instantané de vos disques de petite taille et ensuite créer un disque pour changer automatiquement le niveau de tarification vers P4 ou P6 selon la taille fournie.
 
-**Est-il possible de redimensionner des disques managés existants à partir de tailles de moins de 4 Tio pour les nouvelles tailles de disque jusqu’à 32 Tio ?**
+**Possible de redimensionner des disques gérés existants à partir de tailles de moins de 4 tebibytes (TIO) pour les nouvelles tailles de disque nouvellement introduites jusqu'à 32 To ?**
 
 Les nouvelles tailles de disque managé 8 Tio, 16 Tio et 32 Tio sont actuellement en préversion. Nous ne prenons pas encore en charge le redimensionnement des tailles de disque existantes vers les nouvelles tailles de disque.
 
-**Quelle est les plus grande taille de disque prise en charge par Sauvegarde Azure et Azure Site Recovery ?**
+**Quelles sont les plus grandes tailles de disque pris en charge par le service sauvegarde Azure et Azure Site Recovery ?**
 
 La plus grande taille de disque prise en charge par Sauvegarde Azure et Azure Site Recovery est de 4 Tio.
 
-**Quels sont les tailles de machines virtuelles recommandées pour les disques de grande taille (> 4 Tio) pour les disques SSD Standard et HDD Standard afin de bénéficier d’IOPS et d’une bande passante optimisées ?**
+**Quels sont la machine virtuelle recommandée tailles pour les tailles de disque plus volumineux (> 4 TIO) pour disque SSD Standard et des disques HDD Standard d’atteindre optimisée disque IOPS et bande passante ?**
 
-Pour atteindre un débit de disques SSD standard et de disques durs HDD standard de grande capacité (> 4 To) supérieur à 500 IOPS et 60 Mio/s, vous devez utiliser une des tailles de machine virtuelle suivantes pour optimiser vos performances : machines virtuelles des séries B, DSv2, Dsv3, ESv3, Fs, Fsv2, M, GS, NCv2, NCv3 ou Ls.
+Pour atteindre le débit de disque du disque SSD Standard et disques durs Standard de disques de grande taille (> 4 TIO) au-delà de 500 e/s et 60 Mio/s, nous vous recommandons de déployer une nouvelle machine virtuelle à partir d’une des tailles de machine virtuelle suivantes pour optimiser les performances : Série B, séries DSv2, Dsv3-séries, ESv3, série Fs, série Fsv2, série M, série GS, série NCv2, NCv3, série Ls machines virtuelles ou. Attachement de disques volumineux à des machines virtuelles ou des machines virtuelles qui n’utilisent pas les tailles recommandées ci-dessus existant constatez une baisse des performances.
 
-**Dans quelles régions les tailles de disques managés supérieures à 4 Tio sont-elles prises en charge ?**
+**Comment puis-je mettre à niveau mes disques (> 4 TIO) qui ont été déployé pendant la préversion de tailles de disque plus volumineuse afin d’obtenir les IOPS et la bande passante plus élevée à la disponibilité générale ?**
 
-La version préliminaire de tailles de disque géré au-delà de 4 TIO sont pris en charge dans toutes les régions de Production de Azure à l’exception de gouvernement, Chine et Allemagne. 
+Vous pouvez arrêter et démarrer la machine virtuelle que le disque est attaché à ou, détachez et rattachez votre disque. Les objectifs de performance de taille supérieure de disque ont été augmentées pour les disques SSD premium et standards SSDs à la disposition générale.
 
-**Prenez-vous en charge l’activation de la mise en cache de l’hôte sur les tailles de disque plus récentes ?**
+**Quelles régions sont de 8 To, TIO 16 et 32 TIO pris en charge dans les tailles de disque géré ?**
 
-Nous prenons en charge la mise en cache d’hôte en lecture seule et en lecture/écriture sur les tailles de disque inférieures à 4 Tio. Pour les tailles de disque supérieures à 4 Tio, nous ne prenons en charge que la mise en cache définie sur None (Aucun). Nous vous recommandons de tirer parti de la mise en cache pour les plus petites tailles de disque, où vous pouvez vous attendre à observer une amélioration des performances avec les données mises en cache dans la machine virtuelle.
+Du 8 TiB TIO 16, 32 TIO disque références SKU et est prises en charge dans toutes les régions sous Azure global. Prise en charge de Microsoft Azure Government et Azure China 21Vianet n’est pas encore disponible.
+
+**Nous prennent en charge l’activation de la mise en cache de l’hôte sur toutes les tailles de disque ?**
+
+Nous prenons en charge la mise en cache d’hôte de ReadOnly et en lecture/écriture sur les tailles de disque inférieure à 4 To. Pour les tailles de disque supérieures à 4 Tio, nous ne prenons en charge que la mise en cache définie sur None (Aucun). Nous vous recommandons de tirer parti de la mise en cache pour les plus petites tailles de disque, où vous pouvez vous attendre à observer une amélioration des performances avec les données mises en cache dans la machine virtuelle.
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>Que dois-je faire si je n’ai pas trouvé de réponse à ma question ici ?
 

@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: garyericson
-ms.author: garye
+author: sdgilley
+ms.author: sgilley
 ms.custom: seodec18
-ms.date: 01/03/2018
-ms.openlocfilehash: 4483fc82ad4bf935153c76922fbece84c6ca2ea8
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.date: 03/22/2019
+ms.openlocfilehash: d89a701f1d4528e1f3dff08daf31873891778f07
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816899"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369188"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>La science des données pour les débutants, vidéo 1 : Les cinq questions auxquelles répond la science des données
 Découvrez la science des données dans la série de cinq courtes vidéos de présentation *Science des données pour les débutants* d’un célèbre spécialiste des données. Ces vidéos sont simples mais utiles, que vous souhaitiez travailler sur la science des données ou collaborer avec d’autres scientifiques.

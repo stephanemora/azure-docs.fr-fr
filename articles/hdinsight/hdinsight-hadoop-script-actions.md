@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 93313557781c6b3788d8b4d43d6676fc17625709
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: d8f7808401b2e11a38b239a353e3b7af2ffcffb3
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201311"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361300"
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>Développer des scripts d’action de script pour des clusters HDInsight Windows
 Découvrez comment écrire des scripts d’action de script pour HDInsight. Pour plus d’informations sur les scripts d’action de script, consultez [Personnaliser des clusters HDInsight à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md). Pour accéder au même article écrit pour les clusters HDInsight basés sur Linux, consultez [Développer des scripts d’action de script pour HDInsight](hdinsight-hadoop-script-actions-linux.md).
@@ -32,6 +32,8 @@ L’action de script permet d’installer des logiciels supplémentaires s’ex�
 > System.Management.Automation.CommandNotFoundException; ExceptionMessage : Le terme Save-HDIFile n’est pas reconnu comme nom d’applet de commande, fonction, fichier de script ou programme exécutable. Vérifiez l’orthographe du nom ou, si un chemin d’accès a été inclus, vérifiez que le chemin d’accès est correct et réessayez.
 > 
 > Cela signifie que vous n’avez pas inclus les méthodes d’assistance.  Consultez [Méthodes d’assistance pour les scripts personnalisés](hdinsight-hadoop-script-actions.md#helper-methods-for-custom-scripts).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="sample-scripts"></a>Exemples de scripts
 Pour créer des clusters HDInsight sur un système d’exploitation Windows, l’action de script est le script Azure PowerShell. Le script suivant est un exemple pour configurer les fichiers de configuration de site :
@@ -191,8 +193,8 @@ Les scripts utilisés pour personnaliser un cluster doivent être soit dans le c
 
 Dans cet exemple, vous devez vous assurer que le conteneur `somecontainer` du compte de stockage `somestorageaccount` est accessible publiquement. Sinon, le script lève une exception « Introuvable » et échoue.
 
-### <a name="pass-parameters-to-the-add-azurermhdinsightscriptaction-cmdlet"></a>Transmettez les paramètres à l’applet de commande Add-AzureRmHDInsightScriptAction
-Pour transmettre plusieurs paramètres à l’applet de commande Add-AzureRmHDInsightScriptAction, vous devez mettre en forme la valeur de chaîne pour qu’elle contienne tous les paramètres du script. Par exemple : 
+### <a name="pass-parameters-to-the-add-azhdinsightscriptaction-cmdlet"></a>Passer des paramètres à l’applet de commande Add-AzHDInsightScriptAction
+Pour passer plusieurs paramètres à l’applet de commande Add-AzHDInsightScriptAction, vous devez mettre en forme la valeur de chaîne pour qu’il contienne tous les paramètres du script. Par exemple : 
 
     "-CertifcateUri wasb:///abc.pfx -CertificatePassword 123456 -InstallFolderName MyFolder"
 

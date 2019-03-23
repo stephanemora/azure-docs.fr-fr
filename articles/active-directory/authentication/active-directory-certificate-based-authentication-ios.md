@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7243249e7aabf588115ef74f838be8ca67a94c7
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: cda1b1c2a484f3aa627b8b9cf486528d13f27be8
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309501"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369426"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>Authentification par certificat Azure Active Directory sur iOS
 
@@ -35,16 +35,16 @@ Cette fonctionnalité est disponible en version préliminaire dans les plans Off
 
 | Applications | Support |
 | --- | --- |
-| Application Azure Information Protection |![Vérification][1] |
-| Portail d’entreprise Intune |![Vérification][1] |
-| Microsoft Teams |![Vérification][1] |
-| OneNote |![Vérification][1] |
-| OneDrive |![Vérification][1] |
-| Outlook |![Vérification][1] |
-| Power BI |![Vérification][1] |
-| Skype Entreprise |![Vérification][1] |
-| Word / Excel / PowerPoint |![Vérification][1] |
-| Yammer |![Vérification][1] |
+| Application Azure Information Protection |![Case à cocher ce qui signifie la prise en charge pour cette application][1] |
+| Portail d’entreprise Intune |![Case à cocher ce qui signifie la prise en charge pour cette application][1] |
+| Microsoft Teams |![Case à cocher ce qui signifie la prise en charge pour cette application][1] |
+| OneNote |![Case à cocher ce qui signifie la prise en charge pour cette application][1] |
+| OneDrive |![Case à cocher ce qui signifie la prise en charge pour cette application][1] |
+| Outlook |![Case à cocher ce qui signifie la prise en charge pour cette application][1] |
+| Power BI |![Case à cocher ce qui signifie la prise en charge pour cette application][1] |
+| Skype Entreprise |![Case à cocher ce qui signifie la prise en charge pour cette application][1] |
+| Word / Excel / PowerPoint |![Case à cocher ce qui signifie la prise en charge pour cette application][1] |
+| Yammer |![Case à cocher ce qui signifie la prise en charge pour cette application][1] |
 
 ## <a name="requirements"></a>Configuration requise
 

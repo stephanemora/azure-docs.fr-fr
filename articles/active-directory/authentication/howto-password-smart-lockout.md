@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 402a2d6afc7b58d4dfc1c9fa67e354b4d157bd4c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 5c81a9f3891130f1c6fc2f1a665d7065fb983227
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310232"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370188"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Verrouillage intelligent Azure Active Directory
 
@@ -40,8 +40,8 @@ Le verrouillage intelligent peut être intégré aux déploiements hybrides à l
 
 Lorsque vous utilisez [l’authentification directe](../hybrid/how-to-connect-pta.md), vous devez vérifier que :
 
-   * Le seuil de verrouillage d’Azure AD est **inférieur** au seuil de verrouillage de compte Active Directory. Définissez les valeurs de sorte que le seuil de verrouillage de compte Active Directory soit au moins deux ou trois fois supérieur au seuil de verrouillage d’Azure AD. 
-   * La durée de verrouillage d’Azure AD, **exprimée en secondes**, est **plus longue** que la durée après laquelle réinitialiser le compteur de verrouillage de compte Active Directory, **exprimée en minutes**.
+* Le seuil de verrouillage d’Azure AD est **inférieur** au seuil de verrouillage de compte Active Directory. Définissez les valeurs de sorte que le seuil de verrouillage de compte Active Directory soit au moins deux ou trois fois supérieur au seuil de verrouillage d’Azure AD. 
+* La durée de verrouillage d’Azure AD, **exprimée en secondes**, est **plus longue** que la durée après laquelle réinitialiser le compteur de verrouillage de compte Active Directory, **exprimée en minutes**.
 
 > [!IMPORTANT]
 > Actuellement, un administrateur ne peut pas déverrouiller les comptes cloud des utilisateurs si ceux-ci ont été verrouillés à l’aide de la fonctionnalité Verrouillage intelligent. L’administrateur doit attendre que la durée de verrouillage expire.
@@ -55,7 +55,7 @@ Utilisez les instructions suivantes pour vérifier les stratégies de verrouilla
 3. Accédez à **Configuration de l’ordinateur** > **Stratégies** > **Paramètres Windows** > **Paramètres de sécurité** > **Stratégies de compte** > **Stratégie de verrouillage de compte**.
 4. Vérifiez vos valeurs de **Seuil de verrouillage de compte** et **Réinitialiser le compteur de verrouillage de compte après**.
 
-![Modifier la stratégie de verrouillage des comptes locaux Active Directory à l’aide d’un objet de stratégie de groupe](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
+![Modifier la stratégie de verrouillage de compte Active Directory en local](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
 
 ## <a name="manage-azure-ad-smart-lockout-values"></a>Gérer les valeurs du verrouillage intelligent Azure AD
 
@@ -78,9 +78,7 @@ Lorsque le seuil de verrouillage intelligent est déclenché, vous obtiendrez le
 
 **Votre compte est verrouillé de façon temporaire afin d'éviter toute utilisation non autorisée. Réessayez plus tard. Si le problème persiste, contactez votre administrateur.**
 
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Découvrez comment interdire les mots de passe incorrects dans votre organisation à l’aide d’Azure AD](howto-password-ban-bad.md)
-
-[Configurez la réinitialisation de mot de passe libre-service pour permettre aux utilisateurs de déverrouiller leur compte.](quickstart-sspr.md)
+* [Découvrez comment interdire les mots de passe incorrects dans votre organisation à l’aide d’Azure AD](howto-password-ban-bad.md)
+* [Configurez la réinitialisation de mot de passe libre-service pour permettre aux utilisateurs de déverrouiller leur compte.](quickstart-sspr.md)

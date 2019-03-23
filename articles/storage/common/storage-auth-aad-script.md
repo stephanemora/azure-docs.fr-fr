@@ -5,25 +5,25 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/06/2019
+ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: f8fd3cdcf73749d787fc6f1c2222946961091f80
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6c57367a3a11aeb5bdded8e19ce57b7e265aeea9
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57849837"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369239"
 ---
 # <a name="use-an-azure-ad-identity-to-access-azure-storage-with-cli-or-powershell"></a>Utiliser une identité Azure AD pour accéder au stockage Azure avec CLI ou PowerShell
 
-Stockage Azure fournit des extensions pour Azure CLI et PowerShell qui vous permettent de connecter et exécuter des commandes de script sous une identité Azure Active Directory (Azure AD). L’identité Azure AD peut correspondre à un utilisateur, un groupe ou un principal de service d’application, ou éventuellement à une [identité managée pour ressources Azure](../../active-directory/managed-identities-azure-resources/overview.md). Vous pouvez affecter des autorisations d’accès aux ressources de stockage à l’identité Azure AD via le contrôle d’accès en fonction du rôle (RBAC). Pour plus d’informations sur les rôles RBAC dans Stockage Azure, consultez [Gérer les droits d’accès aux données Stockage Azure avec RBAC (préversion)](storage-auth-aad-rbac.md).
+Stockage Azure fournit des extensions pour Azure CLI et PowerShell qui vous permettent de vous connecter et exécuter des commandes de script sous une identité Azure Active Directory (Azure AD). L’identité Azure AD peut correspondre à un utilisateur, un groupe ou un principal de service d’application, ou éventuellement à une [identité managée pour ressources Azure](../../active-directory/managed-identities-azure-resources/overview.md). Vous pouvez affecter des autorisations d’accès aux ressources de stockage à l’identité Azure AD via le contrôle d’accès en fonction du rôle (RBAC). Pour plus d’informations sur les rôles RBAC dans le stockage Azure, consultez [gérer les droits d’accès aux données de stockage Azure avec RBAC](storage-auth-aad-rbac.md).
 
-Lorsque vous vous connectez à Azure CLI ou PowerShell avec une identité Azure AD, un jeton d’accès est retourné pour accéder à Stockage Azure sous cette identité. Ce jeton est ensuite utilisé automatiquement par CLI ou PowerShell pour autoriser les opérations dans Stockage Azure. Pour les opérations prises en charge, vous n’avez plus besoin de fournir une clé de compte ou le jeton SAP avec la commande.
+Lorsque vous vous connectez à Azure CLI ou PowerShell avec une identité Azure AD, un jeton d’accès est retourné pour accéder au stockage Azure sous cette identité. Ce jeton est ensuite utilisé automatiquement par CLI ou PowerShell pour autoriser les opérations dans Stockage Azure. Pour les opérations prises en charge, vous n’avez plus besoin de fournir une clé de compte ou le jeton SAP avec la commande.
 
 ## <a name="supported-operations"></a>Opérations prises en charge
 
-Les extensions sont prises en charge pour les opérations sur les conteneurs et les files d’attente. Les opérations que vous pouvez appeler dépendent des autorisations accordées à l’identité Azure AD avec laquelle vous vous connectez à Azure CLI ou PowerShell. Les autorisations sur les conteneurs ou les files d’attente Stockage Azure sont attribuées via le contrôle d’accès en fonction du rôle (RBAC). Par exemple, si un rôle de lecteur de données est attribué à l’identité, vous pouvez exécuter des commandes de script qui lisent les données d’un conteneur ou d’une file d’attente. Si un rôle de contributeur de données est attribué à l’identité, vous pouvez exécuter des commandes de script qui lisent, écrivent ou suppriment un conteneur ou une file d’attente, ou les données qu’ils contiennent. 
+Les extensions sont prises en charge pour les opérations sur les conteneurs et les files d’attente. Les opérations que vous pouvez appeler varie selon les autorisations accordées à l’identité Azure AD avec lequel vous être connecté à Azure CLI ou PowerShell. Les autorisations sur les conteneurs ou les files d’attente Stockage Azure sont attribuées via le contrôle d’accès en fonction du rôle (RBAC). Par exemple, si un rôle de lecteur de données est attribué à l’identité, vous pouvez exécuter des commandes de script qui lisent les données d’un conteneur ou d’une file d’attente. Si un rôle de contributeur de données est attribué à l’identité, vous pouvez exécuter des commandes de script qui lisent, écrivent ou suppriment un conteneur ou une file d’attente, ou les données qu’ils contiennent. 
 
 Pour plus d’informations sur les autorisations requises pour chaque opération Stockage Azure sur un conteneur ou une file d’attente, consultez [Autorisations pour appeler les opérations REST](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations).  
 
@@ -61,10 +61,10 @@ L’exemple suivant montre comment créer un conteneur dans un compte de stockag
         --encryption-services blob
     ```
     
-1. Avant de créer le conteneur, affecter le [contributeur aux données Blob de stockage (version préliminaire)](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) rôle à vous-même. Même si vous êtes le propriétaire du compte, vous avez besoin d’autorisations explicites pour effectuer des opérations de données sur le compte de stockage. Pour plus d’informations sur l’affectation des rôles RBAC, consultez [accorder l’accès aux conteneurs Azure et de files d’attente avec RBAC dans le portail Azure (aperçu)](storage-auth-aad-rbac.md).
+1. Avant de créer le conteneur, affecter le [contributeur aux données stockage Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) rôle à vous-même. Même si vous êtes le propriétaire du compte, vous avez besoin d’autorisations explicites pour effectuer des opérations de données sur le compte de stockage. Pour plus d’informations sur l’affectation des rôles RBAC, consultez [accorder l’accès aux conteneurs Azure et de files d’attente avec RBAC dans le portail Azure](storage-auth-aad-rbac.md).
 
     > [!IMPORTANT]
-    > La version préliminaire de prise en charge d’Azure AD pour les objets BLOB et files d’attente, les attributions de rôles RBAC peuvent prendre jusqu'à 5 minutes pour se propager.
+    > Attributions de rôles RBAC peuvent prendre quelques minutes pour se propager.
     
 1. Appelez le [créer de conteneur de stockage az](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) commande avec le `--auth-mode` paramètre défini sur `login` pour créer le conteneur à l’aide de vos informations d’identification Azure AD :
 
@@ -114,10 +114,10 @@ L’exemple suivant montre comment créer un conteneur dans un compte de stockag
     $ctx = New-AzStorageContext -StorageAccountName "<storage-account>" -UseConnectedAccount
     ```
 
-1. Avant de créer le conteneur, affecter le [contributeur aux données Blob de stockage (version préliminaire)](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) rôle à vous-même. Même si vous êtes le propriétaire du compte, vous avez besoin d’autorisations explicites pour effectuer des opérations de données sur le compte de stockage. Pour plus d’informations sur l’affectation des rôles RBAC, consultez [accorder l’accès aux conteneurs Azure et de files d’attente avec RBAC dans le portail Azure (aperçu)](storage-auth-aad-rbac.md).
+1. Avant de créer le conteneur, affecter le [contributeur aux données stockage Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) rôle à vous-même. Même si vous êtes le propriétaire du compte, vous avez besoin d’autorisations explicites pour effectuer des opérations de données sur le compte de stockage. Pour plus d’informations sur l’affectation des rôles RBAC, consultez [accorder l’accès aux conteneurs Azure et de files d’attente avec RBAC dans le portail Azure](storage-auth-aad-rbac.md).
 
     > [!IMPORTANT]
-    > La version préliminaire de prise en charge d’Azure AD pour les objets BLOB et files d’attente, les attributions de rôles RBAC peuvent prendre jusqu'à 5 minutes pour se propager.
+    > Attributions de rôles RBAC peuvent prendre quelques minutes pour se propager.
 
 1. Créer un conteneur en appelant [New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer). Étant donné que cet appel utilise le contexte créé dans les étapes précédentes, le conteneur est créé à l’aide de vos informations d’identification Azure AD. 
 
@@ -128,6 +128,6 @@ L’exemple suivant montre comment créer un conteneur dans un compte de stockag
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour en savoir plus sur les rôles RBAC relatifs au stockage Azure, consultez [Gérer les droits d’accès aux données de stockage avec RBAC (préversion)](storage-auth-aad-rbac.md).
-- Pour plus d’informations sur l’utilisation des identités managées pour les ressources Azure avec le stockage Azure, consultez [S’authentifier auprès d’Azure AD à partir d’une identité Managed Service Identity Azure (préversion)](storage-auth-aad-msi.md).
+- Pour en savoir plus sur les rôles RBAC pour le stockage Azure, consultez [gérer les droits d’accès aux données de stockage avec RBAC](storage-auth-aad-rbac.md).
+- Pour en savoir plus sur l’utilisation des identités gérées pour les ressources Azure avec le stockage Azure, consultez [authentifier l’accès aux objets BLOB et files d’attente avec Azure managed identités pour les ressources Azure](storage-auth-aad-msi.md).
 - Pour apprendre à autoriser l’accès aux conteneurs et aux files d’attente à partir de vos applications de stockage, consultez [Utiliser Azure AD avec les applications de stockage](storage-auth-aad-app.md).

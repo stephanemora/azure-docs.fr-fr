@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: danlep
-ms.openlocfilehash: 5382c565e5afc42d65a3198d797b51d1b1a9dde6
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: c6c82ee26fdbd824bdf42720ed7fc08135a872da
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550768"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372402"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Déployer des instance de conteneur dans un réseau virtuel Azure
 
@@ -114,13 +114,13 @@ Les sections suivantes décrivent comment déployer des groupes de conteneurs da
 
 Tout d’abord, déployez un groupe de conteneurs et spécifiez les paramètres d’un nouveau réseau virtuel et d’un nouveau sous-réseau. Lorsque vous spécifiez ces paramètres, Azure crée le réseau virtuel et le sous-réseau, délègue le sous-réseau à Azure Container instances et crée un profil réseau. Une fois ces ressources créées, votre groupe de conteneurs est déployé dans le sous-réseau.
 
-Exécutez la commande [az container create][az-container-create] qui spécifie les paramètres d’un nouveau réseau virtuel et d’un nouveau sous-réseau. Vous devez fournir le nom d’un groupe de ressources qui a été créé dans une région qui [prend en charge](#preview-limitations) des groupes de conteneurs dans un réseau virtuel. Cette commande déploie le conteneur [microsoft/aci-helloworld][aci-helloworld] qui exécute un petit serveur web Node.js qui gère une page web statique. Dans la section suivante, vous allez déployer un deuxième groupe de conteneurs dans le même sous-réseau et tester la communication entre les deux instances de conteneur.
+Exécutez la commande [az container create][az-container-create] qui spécifie les paramètres d’un nouveau réseau virtuel et d’un nouveau sous-réseau. Vous devez fournir le nom d’un groupe de ressources qui a été créé dans une région qui [prend en charge](#preview-limitations) des groupes de conteneurs dans un réseau virtuel. Cette commande déploie le public Microsoft [aci-helloworld] [ aci-helloworld] conteneur qui exécute un petit serveur Web des Node.js desservant une page web statique. Dans la section suivante, vous allez déployer un deuxième groupe de conteneurs dans le même sous-réseau et tester la communication entre les deux instances de conteneur.
 
 ```azurecli
 az container create \
     --name appcontainer \
     --resource-group myResourceGroup \
-    --image microsoft/aci-helloworld \
+    --image mcr.microsoft.com/azuredocs/aci-helloworld \
     --vnet aci-vnet \
     --vnet-address-prefix 10.0.0.0/16 \
     --subnet aci-subnet \
@@ -210,7 +210,7 @@ properties:
   containers:
   - name: appcontaineryaml
     properties:
-      image: microsoft/aci-helloworld
+      image: mcr.microsoft.com/azuredocs/aci-helloworld
       ports:
       - port: 80
         protocol: TCP
@@ -241,9 +241,9 @@ Une fois le déploiement terminé, exécutez la commande [az container show][az-
 
 ```console
 $ az container show --resource-group myResourceGroup --name appcontaineryaml --output table
-Name              ResourceGroup    Status    Image                     IP:ports     Network    CPU/Memory       OsType    Location
-----------------  ---------------  --------  ------------------------  -----------  ---------  ---------------  --------  ----------
-appcontaineryaml  myResourceGroup  Running   microsoft/aci-helloworld  10.0.0.5:80  Private    1.0 core/1.5 gb  Linux     westus
+Name              ResourceGroup    Status    Image                                       IP:ports     Network    CPU/Memory       OsType    Location
+----------------  ---------------  --------  ------------------------------------------  -----------  ---------  ---------------  --------  ----------
+appcontaineryaml  myResourceGroup  Running   mcr.microsoft.com/azuredocs/aci-helloworld  10.0.0.5:80  Private    1.0 core/1.5 gb  Linux     westus
 ```
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
@@ -310,7 +310,7 @@ Plusieurs ressources et fonctionnalités de réseau virtuel ont été abordées 
 [aci-vnet-01]: ./media/container-instances-vnet/aci-vnet-01.png
 
 <!-- LINKS - External -->
-[aci-helloworld]: https://hub.docker.com/r/microsoft/aci-helloworld/
+[aci-helloworld]: https://hub.docker.com/_/microsoft-azuredocs-aci-helloworld
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
 <!-- LINKS - Internal -->

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
 ms.subservice: common
-ms.openlocfilehash: fd72e2a75c00c30fdc5497e0d88e9c83dc5fcad8
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: fdca10c54c798bd47a34eb0f8af091908bcc2711
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317355"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372316"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migration vers le stockage Azure Premium (disques non gérés)
 
@@ -69,10 +69,10 @@ Les comptes de stockage Premium ont les objectifs d’évolutivité suivants en 
 |:--- |:--- |
 | Capacité du disque : 35 To<br />Capacité d’instantané : 10 To |Jusqu'à 50 Go par seconde pour les données entrantes/sortantes |
 
-Pour plus d'informations sur les spécifications du Stockage Premium, consultez les [Objectifs d'extensibilité et de performances du Stockage Azure](storage-scalability-targets.md#premium-storage-account-scale-limits).
+Pour plus d'informations sur les spécifications du Stockage Premium, consultez les [Objectifs d'extensibilité et de performances du Stockage Azure](storage-scalability-targets.md#premium-performance-storage-account-scale-limits).
 
 #### <a name="disk-caching-policy"></a>Stratégie de mise en cache du disque
-Par défaut, la stratégie de mise en cache est *Lecture seule* pour tous les disques de données Premium et *Lecture-écriture* pour le disque du système d’exploitation Premium attaché à la machine virtuelle. Ce paramètre de configuration est recommandé pour optimiser les performances des E/S de votre application. Pour les disques de données en écriture seule ou avec d'importantes opérations d'écriture (par ex., les fichiers journaux de SQL Server), désactivez la mise en cache du disque pour de meilleures performances de l'application. Les paramètres du cache pour les disques de données existants peuvent être mis à jour à l’aide du [portail Azure Portal](https://portal.azure.com) ou du paramètre *-HostCaching* de l’applet de commande *Set-AzureDataDisk*.
+Par défaut, la stratégie de mise en cache est *Lecture seule* pour tous les disques de données Premium et *Lecture-écriture* pour le disque du système d’exploitation Premium attaché à la machine virtuelle. Ce paramètre de configuration est recommandé pour optimiser les performances des E/S de votre application. Pour les disques de données en écriture seule ou avec d'importantes opérations d'écriture (par ex., les fichiers journaux de SQL Server), désactivez la mise en cache du disque pour de meilleures performances de l'application. Les paramètres du cache pour les disques de données existants peuvent être mis à jour à l’aide de la [portail Azure](https://portal.azure.com) ou *- HostCaching* paramètre de la *Set-AzureDataDisk* applet de commande.
 
 #### <a name="location"></a>Lieu
 Choisissez un emplacement où le stockage Azure Premium est disponible. Pour obtenir des informations à jour sur les emplacements disponibles, consultez [Services Azure par région](https://azure.microsoft.com/regions/#services) . Les machines virtuelles situées dans la même région que le compte de stockage qui stocke les disques de la machine virtuelle offrent des performances bien meilleures que si elles se trouvent dans des régions distinctes.
