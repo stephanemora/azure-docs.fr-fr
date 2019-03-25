@@ -10,17 +10,19 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 14b3d62235cfcc8bbc8a929757a16cf99b860753
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: fae3ae16ee0100ad446c0b6c7851553a3376bb4f
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815759"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400973"
 ---
 # <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>Migration de votre code SQL vers SQL Data Warehouse
+
 Cet article vous explique les éventuelles modifications de code que vous aurez à réaliser lors de la migration de votre code depuis une autre base de données vers SQL DATA Warehouse. Certaines fonctionnalités de SQL Data Warehouse peuvent améliorer considérablement les performances, dans la mesure où elles sont conçues pour fonctionner selon un modèle distribué. Toutefois, pour maintenir des niveaux appropriés de performance et d’évolutivité, certaines fonctions ne sont pas disponibles.
 
 ## <a name="common-t-sql-limitations"></a>Limites courantes de T-SQL
+
 La liste suivante répertorie les fonctionnalités les plus courantes que SQL Data Warehouse ne prend pas en charge. Les liens vous présentent des solutions de contournement pour les fonctionnalités non prises en charge :
 
 * [Jointures ANSI sur les opérations UPDATE][ANSI joins on updates]
@@ -45,12 +47,12 @@ La liste suivante répertorie les fonctionnalités les plus courantes que SQL Da
 * [Regroupement par clause à l’aide des options rollup/cube/grouping sets][group by clause with rollup / cube / grouping sets options]
 * [Imbrication des niveaux au-delà de 8][nesting levels beyond 8]
 * [Mise à jour par le biais de vues][updating through views]
-* [Utilisation de Select pour l’attribution des variables][use of select for variable assignment]
 * [Pas de type de données MAX pour les chaînes SQL dynamiques][no MAX data type for dynamic SQL strings]
 
 Fort heureusement, la plupart de ces restrictions peuvent être contournées. Des explications sont fournies dans les articles de développement référencés ci-dessus.
 
 ## <a name="supported-cte-features"></a>Fonctionnalités CTE prises en charge
+
 Les expressions de table communes (CTE) sont partiellement prises en charge dans SQL Data Warehouse.  Les fonctionnalités CTE actuellement prises en charge sont les suivantes :
 
 * Une CTE peut être spécifiée dans une instruction SELECT.
@@ -63,6 +65,7 @@ Les expressions de table communes (CTE) sont partiellement prises en charge dans
 * Plusieurs définitions de requête CTE peuvent être définies dans une expression de table commune.
 
 ## <a name="cte-limitations"></a>Limitations d’une CTE
+
 Les expressions de table communes présentent certaines restrictions dans SQL Data Warehouse, notamment :
 
 * Une CTE doit être suivie d’une instruction SELECT unique. Les instructions INSERT, UPDATE, DELETE et MERGE ne sont pas prises en charge.
@@ -73,9 +76,11 @@ Les expressions de table communes présentent certaines restrictions dans SQL Da
 * Lorsqu’une CTE est utilisée dans des instructions préparées par sp_prepare, celle-ci se comporte de la même façon que les autres instructions SELECT dans PDW. Toutefois, si les expressions de table communes sont utilisées dans le cadre de CETAS préparées par sp_prepare, le comportement peut différer selon qu’il s’agit d’instructions SQL Server ou PDW en raison de la façon dont la liaison est mise en œuvre pour sp_prepare. Si l’instruction SELECT qui référence CTE utilise une colonne erronée, qui n’existe pas dans CTE, sp_prepare transmet sans détecter l’erreur, mais l’erreur est levée pendant l’instruction sp_execute.
 
 ## <a name="recursive-ctes"></a>CTE récursives
+
 Les expressions de table communes récursives ne sont pas prises en charge dans SQL Data Warehouse.  La migration de CTE récursives peut être relativement complexe et la meilleure solution reste de décomposer le processus en plusieurs étapes. Vous pouvez généralement utiliser une boucle pour une table temporaire pendant que vous parcourez les requêtes intermédiaires récursives. Une fois la table temporaire remplie, vous pouvez renvoyer les données sous forme d’un seul jeu de résultats. Une approche similaire a été utilisée pour résoudre `GROUP BY WITH CUBE` dans l’article [Regroupement par clause à l’aide des options rollup/cube/grouping sets][group by clause with rollup / cube / grouping sets options].
 
 ## <a name="unsupported-system-functions"></a>Fonctions système non prises en charge
+
 Certaines fonctions système ne sont pas prises en charge. Voici les principales fonctions habituellement associées aux entrepôts de données :
 
 * NEWSEQUENTIALID()
@@ -88,11 +93,12 @@ Certaines fonctions système ne sont pas prises en charge. Voici les principales
 Certains de ces problèmes peuvent être contournés.
 
 ## <a name="rowcount-workaround"></a>Solution de contournement pour @@ROWCOUNT
+
 Pour contourner l’absence de prise en charge de @@ROWCOUNT, créez une procédure stockée qui récupère le dernier nombre de lignes de sys.dm_pdw_request_steps puis exécute `EXEC LastRowCount` après une instruction DML.
 
 ```sql
 CREATE PROCEDURE LastRowCount AS
-WITH LastRequest as 
+WITH LastRequest as
 (   SELECT TOP 1    request_id
     FROM            sys.dm_pdw_exec_requests
     WHERE           session_id = SESSION_ID()
@@ -111,6 +117,7 @@ SELECT TOP 1 row_count FROM LastRequestRowCounts ORDER BY step_index DESC
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Pour obtenir la liste complète de toutes les instructions T-SQL prises en charge, consultez les [rubriques Transact-SQL][Transact-SQL topics].
 
 <!--Image references-->
