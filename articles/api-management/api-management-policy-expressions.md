@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 8cfaacad4619bb06536d41e72b9da1eb9c160dc2
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
-ms.translationtype: HT
+ms.openlocfilehash: 90b2dfdbec0d6dc81a05b845832fda92fe36d98c
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163903"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403089"
 ---
 # <a name="api-management-policy-expressions"></a>Expressions de stratégie de la Gestion des API
 Cet article décrit la syntaxe des expressions de stratégie de C# 7. Chaque expression a accès à la variable de [contexte](api-management-policy-expressions.md#ContextVariables) fournie implicitement et à un [sous-ensemble](api-management-policy-expressions.md#CLRTypes) autorisé de types .NET Framework.
@@ -32,15 +32,15 @@ Pour plus d'informations :
 - Découvrez comment utiliser les expressions avec les stratégies [Get from cache](api-management-caching-policies.md#GetFromCache) et [Store to cache](api-management-caching-policies.md#StoreToCache) pour configurer la durée de mise en cache des réponses de Gestion des API. Définissez une durée qui correspond à la mise en cache des réponses du service principal comme le spécifie la directive `Cache-Control` du service principal.
 - Découvrez comment effectuer le filtrage de contenu. Supprimez des éléments de données de la réponse reçue du service principal à l’aide des stratégies [Control flow](api-management-advanced-policies.md#choose) et [Set body](api-management-transformation-policies.md#SetBody).
 - Pour télécharger les instructions de stratégie, consultez le référentiel GitHub [api-management-samples/policies](https://github.com/Azure/api-management-samples/tree/master/policies).
-  
-  
+
+
 ## <a name="Syntax"></a> Syntaxe
 Les expressions à instruction unique sont entre `@(expression)`, où `expression` est une instruction d’expression C# bien formée.
-  
+
 Les expressions à instructions multiples sont entre `@{expression}`. Tous les chemins d’accès de code au sein des expressions à instructions multiples doivent se terminer par une instruction `return`.
-  
+
 ## <a name="PolicyExpressionsExamples"></a> Exemples
-  
+
 ```
 @(true)
 
@@ -64,18 +64,20 @@ Les expressions à instructions multiples sont entre `@{expression}`. Tous les c
   }
 }
 ```
-  
+
 ## <a name="PolicyExpressionsUsage"></a>Utilisation
 Les expressions peuvent être utilisées comme valeurs d’attribut ou valeurs de texte dans l’une des [stratégies](api-management-policies.md) de la Gestion des API, sauf si la référence de la stratégie le spécifie autrement.
-  
+
 > [!IMPORTANT]
 > Lorsque vous utilisez des expressions de stratégie, elles ne font l’objet que d’une vérification limitée lors de la définition de la stratégie. Les expressions sont exécutées par la passerelle lors de l’exécution, et toutes les exceptions générées par les expressions de stratégie entraînent une erreur d’exécution.
-  
+
 ## <a name="CLRTypes"></a> Types .NET Framework autorisés dans les expressions de stratégie
 Le tableau suivant liste les types .NET Framework et leurs membres qui sont autorisés dans les expressions de stratégie.
-  
-|Type CLR|Membres pris en charge|
+
+|Type|Membres pris en charge|
 |--------------|-----------------------|
+|Newtonsoft.Json.Formatting|Tous|
+|Newtonsoft.Json.JsonConvert|SerializeObject, DeserializeObject|
 |Newtonsoft.Json.Linq.Extensions|Tous|
 |Newtonsoft.Json.Linq.JArray|Tous|
 |Newtonsoft.Json.Linq.JConstructor|Tous|
@@ -86,42 +88,63 @@ Le tableau suivant liste les types .NET Framework et leurs membres qui sont auto
 |Newtonsoft.Json.Linq.JToken|Tous|
 |Newtonsoft.Json.Linq.JTokenType|Tous|
 |Newtonsoft.Json.Linq.JValue|Tous|
-|System.Collections.Generic.IReadOnlyCollection<T\>|Tous|
-|System.Collections.Generic.IReadOnlyDictionary<TKey,  TValue>|Tous|
-|System.Collections.Generic.ISet<TKey, TValue>|Tous|
-|System.Collections.Generic.KeyValuePair<TKey,  TValue>|Key, Value|
-|System.Collections.Generic.List<TKey, TValue>|Tous|
-|System.Collections.Generic.Queue<TKey, TValue>|Tous|
-|System.Collections.Generic.Stack<TKey, TValue>|Tous|
+|System.Array|Tous|
+|System.BitConverter|Tous|
+|System.Boolean|Tous|
+|System.Byte|Tous|
+|System.Char|Tous|
+|System.Collections.Generic.Dictionary<TKey, TValue>|Tous|
+|System.Collections.Generic.HashSet<T>|Tous|
+|System.Collections.Generic.ICollection<T>|Tous|
+|System.Collections.Generic.IDictionary<TKey, TValue>|Tous|
+|System.Collections.Generic.IEnumerable<T>|Tous|
+|System.Collections.Generic.IEnumerator<T>|Tous|
+|System.Collections.Generic.IList<T>|Tous|
+|System.Collections.Generic.IReadOnlyCollection<T>|Tous|
+|System.Collections.Generic.IReadOnlyDictionary<TKey, TValue>|Tous|
+|System.Collections.Generic.ISet<T>|Tous|
+|System.Collections.Generic.KeyValuePair<TKey, TValue>|Tous|
+|System.Collections.Generic.List<T>|Tous|
+|System.Collections.Generic.Queue<T>|Tous|
+|System.Collections.Generic.Stack<T>|Tous|
 |System.Convert|Tous|
-|System.DateTime|Tous|
+|System.DateTime|(Constructeur), ajouter, AddDays, AddHours, AddMilliseconds, AddMinutes, AddMonths, AddSeconds, AddTicks, AddYears, Date, jour, DayOfWeek, DayOfYear, DaysInMonth, heure, IsDaylightSavingTime, IsLeapYear, MaxValue, milliseconde, Minute, MinValue, mois, maintenant , Analyse, deuxièmement, soustraire, graduations TimeOfDay, aujourd'hui, ToString, UtcNow, année|
 |System.DateTimeKind|Utc|
 |System.DateTimeOffset|Tous|
 |System.Decimal|Tous|
 |System.Double|Tous|
+|System.Exception|Tous|
 |System.Guid|Tous|
-|System.IEnumerable<T\>|Tous|
-|System.IEnumerator<T\>|Tous|
 |System.Int16|Tous|
 |System.Int32|Tous|
 |System.Int64|Tous|
-|System.Linq.Enumerable<T\>|Tous|
+|System.IO.StringReader|Tous|
+|System.IO.StringWriter|Tous|
+|System.Linq.Enumerable|Tous|
 |System.Math|Tous|
 |System.MidpointRounding|Tous|
 |System.Net.WebUtility|Tous|
-|System.Nullable<T\>|Tous|
+|System.Nullable|Tous|
 |System.Random|Tous|
 |System.SByte|Tous|
-|System.Security.Cryptography. HMACSHA384|Tous|
-|System.Security.Cryptography. HMACSHA512|Tous|
+|System.Security.Cryptography.AsymmetricAlgorithm|Tous|
+|System.Security.Cryptography.CipherMode|Tous|
 |System.Security.Cryptography.HashAlgorithm|Tous|
+|System.Security.Cryptography.HashAlgorithmName|Tous|
 |System.Security.Cryptography.HMAC|Tous|
 |System.Security.Cryptography.HMACMD5|Tous|
 |System.Security.Cryptography.HMACSHA1|Tous|
 |System.Security.Cryptography.HMACSHA256|Tous|
+|System.Security.Cryptography.HMACSHA384|Tous|
+|System.Security.Cryptography.HMACSHA512|Tous|
 |System.Security.Cryptography.KeyedHashAlgorithm|Tous|
 |System.Security.Cryptography.MD5|Tous|
+|System.Security.Cryptography.Oid|Tous|
+|System.Security.Cryptography.PaddingMode|Tous|
 |System.Security.Cryptography.RNGCryptoServiceProvider|Tous|
+|System.Security.Cryptography.RSA|Tous|
+|System.Security.Cryptography.RSAEncryptionPadding|Tous|
+|System.Security.Cryptography.RSASignaturePadding|Tous|
 |System.Security.Cryptography.SHA1|Tous|
 |System.Security.Cryptography.SHA1Managed|Tous|
 |System.Security.Cryptography.SHA256|Tous|
@@ -130,8 +153,18 @@ Le tableau suivant liste les types .NET Framework et leurs membres qui sont auto
 |System.Security.Cryptography.SHA384Managed|Tous|
 |System.Security.Cryptography.SHA512|Tous|
 |System.Security.Cryptography.SHA512Managed|Tous|
+|System.Security.Cryptography.SymmetricAlgorithm|Tous|
+|System.Security.Cryptography.X509Certificates.PublicKey|Tous|
+|System.Security.Cryptography.X509Certificates.RSACertificateExtensions|Tous|
+|System.Security.Cryptography.X509Certificates.X500DistinguishedName|Nom|
+|System.Security.Cryptography.X509Certificates.X509Certificate|Tous|
+|System.Security.Cryptography.X509Certificates.X509Certificate2|Tous|
+|System.Security.Cryptography.X509Certificates.X509ContentType|Tous|
+|System.Security.Cryptography.X509Certificates.X509NameType|Tous|
 |System.Single|Tous|
 |System.String|Tous|
+|System.StringComparer|Tous|
+|System.StringComparison|Tous|
 |System.StringSplitOptions|Tous|
 |System.Text.Encoding|Tous|
 |System.Text.RegularExpressions.Capture|Index, Length, Value|
@@ -139,21 +172,27 @@ Le tableau suivant liste les types .NET Framework et leurs membres qui sont auto
 |System.Text.RegularExpressions.Group|Captures, Success|
 |System.Text.RegularExpressions.GroupCollection|Count, Item|
 |System.Text.RegularExpressions.Match|Empty, Groups, Result|
-|System.Text.RegularExpressions.Regex|(Constructor),IsMatch, Match, Matches, Replace|
-|System.Text.RegularExpressions.RegexOptions|Compiled, IgnoreCase, IgnorePatternWhitespace, Multiline, None, RightToLeft, Singleline|
+|System.Text.RegularExpressions.Regex|(Constructor), IsMatch, Match, Matches, Replace, Unescape, Split|
+|System.Text.RegularExpressions.RegexOptions|Tous|
+|System.Text.StringBuilder|Tous|
 |System.TimeSpan|Tous|
+|System.TimeZone|Tous|
+|System.TimeZoneInfo.AdjustmentRule|Tous|
+|System.TimeZoneInfo.TransitionTime|Tous|
+|System.TimeZoneInfo|Tous|
 |System.Tuple|Tous|
 |System.UInt16|Tous|
 |System.UInt32|Tous|
 |System.UInt64|Tous|
 |System.Uri|Tous|
+|System.UriPartial|Tous|
 |System.Xml.Linq.Extensions|Tous|
 |System.Xml.Linq.XAttribute|Tous|
 |System.Xml.Linq.XCData|Tous|
 |System.Xml.Linq.XComment|Tous|
 |System.Xml.Linq.XContainer|Tous|
 |System.Xml.Linq.XDeclaration|Tous|
-|System.Xml.Linq.XDocument|Tous|
+|System.Xml.Linq.XDocument|Tous, à l’exception de : charger|
 |System.Xml.Linq.XDocumentType|Tous|
 |System.Xml.Linq.XElement|Tous|
 |System.Xml.Linq.XName|Tous|
@@ -165,10 +204,10 @@ Le tableau suivant liste les types .NET Framework et leurs membres qui sont auto
 |System.Xml.Linq.XProcessingInstruction|Tous|
 |System.Xml.Linq.XText|Tous|
 |System.Xml.XmlNodeType|Tous|
-  
+
 ## <a name="ContextVariables"></a> Variable de contexte
 Une variable nommée `context` est implicitement disponible dans toutes les [expressions](api-management-policy-expressions.md#Syntax) de stratégie. Ses membres fournissent des informations pertinentes pour la `\request`. Tous les membres `context` sont en lecture seule.
-  
+
 |Variable de contexte|Méthodes, propriétés et valeurs de paramètres autorisées|
 |----------------------|-------------------------------------------------------|
 |context|Api: IApi<br /><br /> Déploiement<br /><br /> Elapsed: TimeSpan (intervalle de temps entre la valeur Timestamp et l’heure actuelle)<br /><br /> LastError<br /><br /> Opération<br /><br /> Produit<br /><br /> Requête<br /><br /> RequestId: Guid (identificateur de requête unique)<br /><br /> response<br /><br /> Abonnement<br /><br /> Timestamp: DateTime (point dans le temps où la requête a été reçue)<br /><br /> Tracing: bool (indique si le traçage est activé ou désactivé) <br /><br /> Utilisateur<br /><br /> Variables: IReadOnlyDictionary<string, object><br /><br /> void Trace(message: string)|
@@ -181,8 +220,8 @@ Une variable nommée `context` est implicitement disponible dans toutes les [exp
 |string context.Request.Headers.GetValueOrDefault(headerName: string, defaultValue: string)|headerName: string<br /><br /> defaultValue: string<br /><br /> Renvoie des valeurs d’en-tête de demande séparées par des virgules ou `defaultValue` si l’en-tête est introuvable.|
 |context.Response|Corps : IMessageBody<br /><br /> Headers: IReadOnlyDictionary<string, string[]><br /><br /> StatusCode: int<br /><br /> StatusReason: string|
 |string context.Response.Headers.GetValueOrDefault(headerName: string, defaultValue: string)|headerName: string<br /><br /> defaultValue: string<br /><br /> Renvoie des valeurs d’en-tête de réponse séparées par des virgules ou `defaultValue` si l’en-tête est introuvable.|
-|context.Subscription|CreatedTime: Datetime<br /><br /> EndDate: DateTime?<br /><br /> Id: string<br /><br /> Key: string<br /><br /> Name: string<br /><br /> PrimaryKey: string<br /><br /> SecondaryKey: string<br /><br /> StartDate: DateTime?|
-|context.User|Email: string<br /><br /> FirstName: string<br /><br /> Groups: IEnumerable<IGroup\><br /><br /> Id: string<br /><br /> Identities: IEnumerable<IUserIdentity\><br /><br /> LastName: string<br /><br /> Note: string<br /><br /> RegistrationDate: Datetime|
+|context.Subscription|CreatedTime: DateTime<br /><br /> EndDate: DateTime?<br /><br /> Id: string<br /><br /> Key: string<br /><br /> Name: string<br /><br /> PrimaryKey: string<br /><br /> SecondaryKey: string<br /><br /> StartDate: DateTime?|
+|context.User|Email: string<br /><br /> FirstName: string<br /><br /> Groups: IEnumerable<IGroup\><br /><br /> Id: string<br /><br /> Identities: IEnumerable<IUserIdentity\><br /><br /> LastName: string<br /><br /> Note: string<br /><br /> RegistrationDate: DateTime|
 |IApi|Id: string<br /><br /> Name: string<br /><br /> Path: string<br /><br /> Protocols: IEnumerable<string\><br /><br /> ServiceUrl: IUrl<br /><br /> SubscriptionKeyParameterNames: ISubscriptionKeyParameterNames|
 |IGroup|Id: string<br /><br /> Name: string|
 |IMessageBody|As<T\>(preserveContent: bool = false): Where T: string, JObject, JToken, JArray, XNode, XElement, XDocument<br /><br /> Les méthodes `context.Request.Body.As<T>` et `context.Response.Body.As<T>` sont utilisées pour lire un corps de message de demande et de réponse dans un type `T` spécifié. Par défaut, la méthode utilise le flux du corps du message d’origine et le rend indisponible après son retour. Pour éviter cela en faisant en sorte que la méthode travaille sur une copie du flux du corps, définissez le paramètre `preserveContent` sur `true`. Accédez [ici](api-management-transformation-policies.md#SetBody) pour voir un exemple.|
@@ -196,7 +235,7 @@ Une variable nommée `context` est implicitement disponible dans toutes les [exp
 |BasicAuthCredentials|Password: string<br /><br /> UserId: string|
 |Jwt AsJwt(input: this string)|input: string<br /><br /> Si le paramètre d’entrée contient une valeur valide d’en-tête de jeton JWT, la méthode renvoie un objet de type `Jwt` ; sinon, la méthode renvoie `null`.|
 |bool TryParseJwt(input: this string, result: out Jwt)|input: string<br /><br /> result: out Jwt<br /><br /> Si le paramètre d’entrée contient une valeur valide d’en-tête de jeton JWT, la méthode renvoie `true` et le paramètre de résultats contient une valeur de type `Jwt` ; sinon, la méthode renvoie `false`.|
-|Jwt|Algorithm: string<br /><br /> Audience: IEnumerable<string\><br /><br /> Claims: IReadOnlyDictionary<string, string[]><br /><br /> ExpirationTime: DateTime?<br /><br /> Id: string<br /><br /> Issuer: string<br /><br /> NotBefore: DateTime?<br /><br /> Subject: string<br /><br /> Type: string|
+|Jwt|Algorithm: string<br /><br /> Audience: IEnumerable<string\><br /><br /> Claims: IReadOnlyDictionary<string, string[]><br /><br /> ExpirationTime: DateTime?<br /><br /> Id: string<br /><br /> Issuer: string<br /><br /> IssuedAt : DateTime?<br /><br /> NotBefore: DateTime?<br /><br /> Subject: string<br /><br /> Type: string|
 |string Jwt.Claims.GetValueOrDefault(claimName: string, defaultValue: string)|claimName: string<br /><br /> defaultValue: string<br /><br /> Renvoie des valeurs de revendication séparées par des virgules ou `defaultValue` si l’en-tête est introuvable.|
 |byte[] Encrypt(input: this byte[], alg: string, key:byte[], iv:byte[])|input - texte brut à déchiffrer<br /><br />alg - nom de l'algorithme de chiffrement symétrique<br /><br />key - clé de chiffrement<br /><br />iv - vecteur d'initialisation<br /><br />Renvoie un texte brut chiffré.|
 |byte[] Encrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm)|input - texte brut à déchiffrer<br /><br />alg - algorithme de chiffrement<br /><br />Renvoie un texte brut chiffré.|
@@ -213,4 +252,4 @@ Pour plus d’informations sur l’utilisation de stratégies, consultez les pag
 + [Stratégies dans Gestion des API](api-management-howto-policies.md)
 + [Transform and protect your API](transform-api.md) (Transformer et protéger votre API)
 + [Référence de stratégie](api-management-policy-reference.md) pour obtenir la liste complète des instructions et des paramètres de stratégie
-+ [API Management policy samples](policy-samples.md) (Exemples de stratégie de gestion d’API)   
++ [API Management policy samples](policy-samples.md) (Exemples de stratégie de gestion d’API)

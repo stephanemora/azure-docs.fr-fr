@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/04/2019
+ms.date: 03/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 52d2061262fd04e68ed13aac8932c23b7074f83e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 125ad28f049662ae6d91c61bb5ee79c1c1428af5
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113768"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401754"
 ---
-# <a name="azure-data-box-edge-system-requirements-preview"></a>Configuration système Azure Data Box Edge (Préversion)
+# <a name="azure-data-box-edge-system-requirements"></a>Configuration requise Edge de zone de données Azure
 
 Cet article décrit la configuration système importante pour votre solution Microsoft Azure Data Box Edge et pour les clients se connectant à Azure Data Box Edge. Nous vous recommandons de lire attentivement les informations suivantes avant de déployer votre solution Data Box Edge. Reportez-vous aussi souvent que nécessaire à ces informations pendant le déploiement, et après, pour son fonctionnement.
 
@@ -23,9 +23,6 @@ La configuration système requise pour Data Box Edge inclut ce qui suit :
 
 - **Configuration logicielle pour les hôtes** : décrit les plateformes prises en charge, les navigateurs pour l’interface utilisateur de configuration locale, les clients SMB et les exigences supplémentaires pour les clients qui accèdent à l’appareil.
 - **Configuration réseau pour l’appareil** : fournit des informations sur la configuration réseau nécessaire au fonctionnement de l’appareil physique.
-
-> [!IMPORTANT]
-> Data Box Edge est en préversion. Veuillez lire les [conditions d’utilisation de la préversion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) avant de déployer cette solution.
 
 ## <a name="supported-os-for-clients-connected-to-device"></a>Systèmes d’exploitation pris en charge pour les clients connectés à l’appareil
 
@@ -63,10 +60,7 @@ Utilisez le tableau suivant pour configurer les ports des serveurs hébergeant l
 
 | N° de port | Entrant ou sortant | Étendue de ports | Obligatoire | Assistance |
 |----------|-----------|------------|----------|----------|
-| TCP 5671 (AMQP)| Sortie       | WAN        | OUI      | Protocole de communication par défaut pour IoT Edge. Doit être ouvert si Azure IoT Edge n’est pas configuré pour les autres protocoles pris en charge ou si AMQP est le protocole de communication souhaité. <br>5672 pour AMQP n’est pas pris en charge par IoT Edge. <br>Bloquez ce port quand Azure IoT Edge utilise un autre protocole IoT Hub pris en charge. |
-| TCP 443 (HTTPS)| Sortie       | WAN        | OUI      | Sortie ouverte pour le déploiement de IoT Edge. Si vous disposez d’une passerelle transparente avec des appareils de nœud terminal pouvant envoyer des requêtes de méthode. Dans ce cas, le port 443 n’a pas besoin d’être ouvert aux réseaux externes pour se connecter à IoTHub ou fournir des services IoTHub via Azure IoT Edge. La règle entrante peut donc être limitée uniquement à l’ouverture du trafic entrant en provenance du réseau interne. |
-| TCP 5671 (AMQP) | Dans        |            | Non        | Les connexions entrantes doivent être bloquées.|
-| TCP 443 (HTTPS) | Dans        |            | Dans certains cas, consultez les commentaires. | Les connexions entrantes ne peuvent être ouvertes que dans certaines situations uniquement. Si les protocoles non HTTP tels que AMQP, MQTT ne peuvent pas être configurés, les messages peuvent être envoyés sur WebSockets via le port 443. |
+| TCP 443 (HTTPS)| Sortie       | WAN        | Oui      | Sortie ouverte pour le déploiement de IoT Edge. Cette configuration est requise en cas d’utilisation de scripts manuels ou du service Azure IoT Device Provisioning.|
 
 Pour plus d'informations, consultez [Règles de configuration du pare-feu et des ports pour le déploiement d’IoT Edge](https://docs.microsoft.com/azure/iot-edge/troubleshoot).
 

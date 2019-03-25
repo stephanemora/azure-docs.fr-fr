@@ -1,22 +1,22 @@
 ---
-title: Créer un pool de l’hôte avec un modèle Azure Resource Manager (version préliminaire) - Azure
-description: Comment créer un pool de l’hôte dans un bureau virtuel Windows avec un modèle Azure Resource Manager.
+title: Créer un pool d’hôte de Windows Virtual Desktop Preview avec un modèle Azure Resource Manager - Azure
+description: Comment créer un pool d’hôte dans la version préliminaire de Windows Virtual Desktop avec un modèle Azure Resource Manager.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 7f4849c19d56bb385e7ad3ce0aa95e16d5c53c23
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 262ec35a8a177652dff12bccb3b5435cb5856d81
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318463"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401416"
 ---
-# <a name="create-a-host-pool-with-an-azure-resource-manager-template-preview"></a>Créer un pool de l’hôte avec un modèle Azure Resource Manager (version préliminaire)
+# <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>Créer un pool de l’hôte avec un modèle Azure Resource Manager
 
-Les pools d’hôte sont une collection d’un ou plusieurs machines virtuelles identiques dans les environnements de bureau virtuel Windows client (version préliminaire). Chaque pool de l’hôte peut contenir un groupe d’application que les utilisateurs peuvent interagir avec comme ils le feraient sur un ordinateur de bureau physique.
+Les pools d’hôte sont une collection d’un ou plusieurs machines virtuelles identiques au sein d’environnements de client Windows Virtual Desktop Preview. Chaque pool de l’hôte peut contenir un groupe d’application que les utilisateurs peuvent interagir avec comme ils le feraient sur un ordinateur de bureau physique.
 
 Suivez les instructions de cette section pour créer un pool d’hôte pour un client de bureau virtuel Windows avec un modèle Azure Resource Manager fourni par Microsoft. Cet article vous indique comment créer un pool de l’hôte dans un bureau virtuel Windows, créez un groupe de ressources avec des machines virtuelles dans un abonnement Azure, joindre ces machines virtuelles au domaine AD et inscrire les machines virtuelles avec le bureau virtuel Windows.
 

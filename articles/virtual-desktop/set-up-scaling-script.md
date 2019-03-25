@@ -1,22 +1,22 @@
 ---
-title: Automatiquement à l’échelle des hôtes de session - Azure
-description: Décrit comment configurer le script de mise à l’échelle automatique pour les ordinateurs hôtes de session de bureau virtuel Windows (version préliminaire).
+title: Automatiquement à l’échelle des hôtes de session Windows Virtual Desktop Preview - Azure
+description: Décrit comment configurer le script de mise à l’échelle automatique pour les ordinateurs hôtes de session Windows Virtual Desktop Preview.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: d800b45310ae476ec0c54460d9719c17e35dfe5a
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: bee02549d68b1dbdba3f0e62477b28bbd475ea32
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318358"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402488"
 ---
 # <a name="automatically-scale-session-hosts"></a>Hôtes de session de mise à l’échelle automatiquement
 
-Pour de nombreux déploiements de bureau virtuel Windows dans Azure, les coûts de la machine virtuelle représentent une partie significative du coût de déploiement de bureau virtuel Windows total. Pour réduire les coûts, il est préférable d’arrêter et désallouer session héberger des ordinateurs virtuels (VM) pendant les heures creuses, puis redémarrez-les pendant les heures de pointe.
+Pour de nombreux déploiements de Windows Virtual Desktop Preview dans Azure, les coûts de la machine virtuelle représentent une partie significative du coût de déploiement de bureau virtuel Windows total. Pour réduire les coûts, il est préférable d’arrêter et désallouer session héberger des ordinateurs virtuels (VM) pendant les heures creuses, puis redémarrez-les pendant les heures de pointe.
 
 Cet article utilise un script de mise à l’échelle simple à l’échelle automatiquement session héberger des ordinateurs virtuels dans votre environnement de bureau virtuel Windows. Pour en savoir plus sur le fonctionnement du script de mise à l’échelle, consultez le [comment fonctionne le script de mise à l’échelle](#how-the-scaling-script-works) section.
 

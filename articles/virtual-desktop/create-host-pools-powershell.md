@@ -1,22 +1,22 @@
 ---
-title: Créer un pool de l’hôte avec PowerShell (version préliminaire) - Azure
-description: Comment créer un pool de l’hôte dans un bureau virtuel Windows avec les applets de commande PowerShell.
+title: Créer un pool d’hôte de Windows Virtual Desktop Preview avec PowerShell - Azure
+description: Comment créer un pool d’hôte dans la version préliminaire de bureau virtuel Windows avec les applets de commande PowerShell.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 4b65d7614db94a9cc3fdca3f4b784c2c84ebaef8
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 7b9b7ffbb034a7fb1256d9cc44048cfa55b02245
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318538"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402726"
 ---
-# <a name="create-a-host-pool-with-powershell-preview"></a>Créer un pool de l’hôte avec PowerShell (version préliminaire)
+# <a name="create-a-host-pool-with-powershell"></a>Créer un pool de l’hôte avec PowerShell
 
-Les pools d’hôte sont une collection d’un ou plusieurs machines virtuelles identiques dans les environnements de bureau virtuel Windows client (version préliminaire). Chaque pool de l’hôte peut contenir un groupe d’application que les utilisateurs peuvent interagir avec comme ils le feraient sur un ordinateur de bureau physique.
+Les pools d’hôte sont une collection d’un ou plusieurs machines virtuelles identiques au sein d’environnements de client Windows Virtual Desktop Preview. Chaque pool de l’hôte peut contenir un groupe d’application que les utilisateurs peuvent interagir avec comme ils le feraient sur un ordinateur de bureau physique.
 
 ## <a name="use-your-powershell-client-to-create-a-host-pool"></a>Utilisez votre client PowerShell pour créer un pool de l’hôte
 
@@ -70,12 +70,12 @@ Vous pouvez créer une machine virtuelle de plusieurs façons :
 - [Créer une machine virtuelle à partir d’une image managée](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-generalized-managed)
 - [Créer une machine virtuelle à partir d’une image non managée](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
 
-## <a name="prepare-the-virtual-machines-for-windows-virtual-desktop-agent-installations"></a>Préparer les ordinateurs virtuels pour les installations d’agent de bureau virtuel Windows
+## <a name="prepare-the-virtual-machines-for-windows-virtual-desktop-preview-agent-installations"></a>Préparer les ordinateurs virtuels pour les installations d’agent Windows Virtual Desktop Preview
 
 Vous devez effectuer les opérations suivantes pour préparer vos machines virtuelles avant de pouvoir installer les agents de bureau virtuel Windows et inscrire les machines virtuelles à votre pool d’hôte de bureau virtuel Windows :
 
 - Vous devez la machine de jonction de domaine. Ainsi, les utilisateurs entrants de bureau virtuel Windows à être mappées à partir de leur compte Azure Active Directory à leur compte Active Directory et a été autorisé à accéder à la machine virtuelle.
-- Vous devez installer le rôle hôte de Session de bureau à distance (RDSH) (version préliminaire) si la machine virtuelle exécute un système d’exploitation de Windows Server. Le rôle RDSH permet aux agents bureau virtuel Windows à l’installation.
+- Vous devez installer le rôle hôte de Session de bureau à distance (RDSH) si la machine virtuelle exécute un système d’exploitation de Windows Server. Le rôle RDSH permet aux agents bureau virtuel Windows à l’installation.
 
 Pour correctement jonction de domaine, procédez comme suit sur chaque machine virtuelle :
 
@@ -85,7 +85,7 @@ Pour correctement jonction de domaine, procédez comme suit sur chaque machine v
 4. Sélectionnez **domaine** , puis entrez le domaine Active Directory sur le réseau virtuel.
 5. S’authentifier avec un compte de domaine qui dispose de privilèges pour les machines de jonction de domaine.
 
-## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool"></a>Inscrire les machines virtuelles au pool hôte bureau virtuel Windows
+## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-preview-host-pool"></a>Inscrire les machines virtuelles au pool hôte Windows Virtual Desktop Preview
 
 Enregistrer les ordinateurs virtuels à un pool d’hôte de bureau virtuel Windows est aussi simple que l’installation des agents de bureau virtuel Windows.
 
@@ -114,7 +114,7 @@ Pour inscrire les agents de bureau virtuel de Windows, procédez comme suit sur 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez créé un pool de l’hôte, il est temps pour l’alimenter avec RemoteApps (version préliminaire). Pour en savoir plus sur la gestion des applications de bureau virtuel de Windows, consultez le didacticiel de groupes d’application gérer.
+Maintenant que vous avez créé un pool de l’hôte, vous pouvez le remplir avec RemoteApps. Pour en savoir plus sur la gestion des applications de bureau virtuel de Windows, consultez le didacticiel de groupes d’application gérer.
 
 > [!div class="nextstepaction"]
 > [Gérer le didacticiel de groupes d’applications](./manage-app-groups.md)

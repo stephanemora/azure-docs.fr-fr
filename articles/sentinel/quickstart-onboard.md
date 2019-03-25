@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/12/2019
 ms.author: rkarlin
-ms.openlocfilehash: 30f6d08594bdf2e5d78bc8c7881a135d6e57f397
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b6ea852c9a1bb8ea6eb51df310aab97e9b10d48e
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57852196"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58399681"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>Aperçu de la sentinelle Azure intégrée
 
@@ -75,7 +75,6 @@ Par exemple, cliquez sur **Azure Active Directory**. Si vous vous connectez à c
 En bas, Sentinel Azure fournit des recommandations pour les tableaux de bord, vous devez installer pour chaque connecteur afin de vous pouvez immédiatement obtenir des intéressants insights sur vos données. <br> Suivez les instructions d’installation ou [consultez le guide de connexion pertinentes](connect-data-sources.md) pour plus d’informations. Pour plus d’informations sur les connecteurs de données, consultez [services Microsoft de se connecter](connect-data-sources.md).
 
 Une fois que vos données sources sont connectés, vos données démarre la diffusion en continu dans Azure Sentinel et sont prêtes à commencer à utiliser. Vous pouvez afficher les journaux dans le [tableaux de bord intégrés](quickstart-get-visibility.md) et commencez à créer des requêtes dans Analytique de journal à [examiner les données](tutorial-investigate-cases.md).
-
 
 
 

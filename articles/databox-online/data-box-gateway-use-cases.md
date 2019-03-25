@@ -1,18 +1,18 @@
 ---
-title: Cas d’utilisation pour Microsoft Azure Data Box Gateway | Microsoft Docs
-description: Décrit les cas d’utilisation pour Azure Data Box Gateway, solution de stockage d’appliance virtuelle qui vous permet de transférer des données vers Azure.
+title: Cas d’usage de passerelle de zone de données Microsoft Azure | Microsoft Docs
+description: Décrit les cas d’usage pour la passerelle de zone de données Azure, une solution de stockage d’appliance virtuelle qui vous permet de transférer des données dans Azure
 services: databox
 author: alkohli
 ms.service: databox
 ms.topic: article
-ms.date: 01/17/2019
+ms.date: 03/2/2019
 ms.author: alkohli
-ms.openlocfilehash: d1367504182eb8d8335796dc37800c30e0a563b8
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 37ec1d05d07f33343b9ff21380a277d00b242b7c
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438590"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403797"
 ---
 # <a name="use-cases-for-azure-data-box-gateway"></a>Cas d’utilisation pour Azure Data Box Gateway
 
@@ -26,8 +26,6 @@ Utilisez Data Box Gateway pour les scénarios suivants :
 
 Chacun de ces scénarios est décrit en détail dans les sections qui suivent.
 
-> [!IMPORTANT]
-> Data Box Gateway est disponible en préversion. Veuillez lire les [conditions d’utilisation de la préversion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) avant de déployer cette solution.
 
 ## <a name="continuous-data-ingestion"></a>Ingestion continue des données
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 2c5a7dc08886e21ef8e287540d9139ec555b11a2
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: bc8a644f99d9a84e1f2c177a87e2668ae9a57868
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242290"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400631"
 ---
 # <a name="collect-data-from-threat-intelligence-providers"></a>Collecter des données à partir de fournisseurs d’informations 
 
@@ -31,6 +31,8 @@ Une fois que vous diffusez vos données dans Azure Sentinel, vous pouvez enrichi
 Pour activer cross vérifier vos alertes et des règles avec la valeur true sur les menaces, par exemple, si vous recevez une alerte à partir d’une adresse IP spécifique, votre intégration du fournisseur de threat intelligence pourront vous permettent de savoir si cette adresse IP a été récemment trouvée malveillante , Sentinel azure permet l’intégration avec [fournisseurs d’intelligence des menaces](https://aka.ms/graphsecuritytips). 
 
 Vous pouvez diffuser des journaux à partir de fournisseurs d’informations dans Azure Sentinel avec un seul clic. Cette connexion vous permet d’incorporer des indicateurs contenant différents types d’observables comme l’adresse IP, domaine, URL et le hachage de fichier pour rechercher et créer des règles dans Azure Sentinel d’alerte.  
+> [!NOTE]
+> Vous pouvez entrer des indicateurs de menace personnalisé dans Azure Sentinel pour une utilisation dans les règles d’alerte, les tableaux de bord et les scénarios de chasse en intégrant le [tiIndicator de sécurité de Microsoft Graph](https://aka.ms/graphsecuritytiindicators) entité ou en utilisant un [Microsoft Sécurité de graphique intégrée Threat Intelligence Platform](https://aka.ms/graphsecuritytips).
 
 ## <a name="prerequisites"></a>Conditions préalables  
 

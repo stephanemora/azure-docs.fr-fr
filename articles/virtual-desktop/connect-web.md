@@ -1,22 +1,22 @@
 ---
-title: Se connecter avec le client web (version préliminaire) - Azure
-description: Comment se connecter au client web HTML5 de bureau virtuel Windows.
+title: Se connecter avec le client web de Windows Virtual Desktop Preview - Azure
+description: Comment se connecter au client web Windows Virtual Desktop aperçu HTML5.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 23c830549ed2b63eb2330f3e1c0a78bfb236adc1
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 231dc2b777ce7fa37f445215863a55e93562e411
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339451"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403746"
 ---
-# <a name="connect-with-the-web-client-preview"></a>Se connecter avec le client web (version préliminaire)
+# <a name="connect-with-the-web-client"></a>Se connecter avec le client web
 
-Le client web vous permet d’accéder à vos ressources de bureau virtuel Windows (version préliminaire) depuis un navigateur web sans le processus d’installation de longue durée.
+Le client web vous permet d’accéder à vos ressources de la version préliminaire de bureau virtuel Windows à partir d’un navigateur web sans le processus d’installation de longue durée.
 
 >[!NOTE]
 >Le client web ne contient pas de système d’exploitation mobile prend en charge.

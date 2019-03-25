@@ -6,22 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/05/2019
+ms.date: 03/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 30e0c37d3d0c03e77b6dab9c06c0a50bff27e8bc
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: a687398032adffe5e787ef1469abe0b2627a38fe
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55966654"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403539"
 ---
-# <a name="azure-data-box-edge-limits-preview"></a>Limites d’Azure Data Box Edge (Préversion)
+# <a name="azure-data-box-edge-limits"></a>Limites de bord de zone de données Azure
 
 Tenez compte de ces limites quand vous déployez et utilisez votre solution Microsoft Azure Data Box Edge.
-
-> [!IMPORTANT]
-> Data Box Edge est en préversion. Veuillez lire les [conditions d’utilisation de la préversion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) avant de déployer cette solution.
-
 
 ## <a name="data-box-edge-service-limits"></a>Limites du service Azure Data Box Edge
 
@@ -33,9 +29,9 @@ Le tableau suivant décrit les limites de l’appareil Data Box Edge.
 
 | Description | Valeur |
 |---|---|
-| Non. de fichiers par appareil |100 millions |
-| Non. de partages par appareil |24 |
-| Non. de partages par conteneur |1 |
+|Non. de fichiers par appareil |100 millions |
+|Non. de partages par appareil |24 |
+|Non. de partages par conteneur |1 |
 |Taille de fichier maximale écrite sur un partage| 5 To |
 
 ## <a name="azure-storage-limits"></a>Limites du stockage Azure

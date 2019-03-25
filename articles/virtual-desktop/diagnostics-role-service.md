@@ -1,22 +1,22 @@
 ---
-title: Identifier les problèmes avec la fonctionnalité de diagnostic (version préliminaire) - Azure
-description: Décrit la fonctionnalité de diagnostic de bureau virtuel Windows et comment l’utiliser.
+title: Identifier les problèmes avec la fonctionnalité de diagnostics Windows Virtual Desktop Preview - Azure
+description: Décrit la fonctionnalité de diagnostics Windows Virtual Desktop Preview et comment l’utiliser.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: f44f4d632fa1fc607f3933be8e15eb939e20a8ae
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: a9b8be58e8dfb27fbe896cf1c8d8dc0e91e3b24c
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318613"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402845"
 ---
-# <a name="identify-issues-with-the-diagnostics-feature-preview"></a>Identifier les problèmes avec la fonctionnalité de diagnostic (version préliminaire)
+# <a name="identify-issues-with-the-diagnostics-feature"></a>Identifier les problèmes avec la fonctionnalité de diagnostic
 
-Bureau virtuel Windows (version préliminaire) offre une fonctionnalité de diagnostics (version préliminaire) qui permet à l’administrateur identifier les problèmes via une interface unique. Les rôles de bureau virtuel Windows connecter à une activité de diagnostic chaque fois qu’un utilisateur interagit avec le système. Chaque journal contient des informations pertinentes telles que les rôles de bureau virtuel Windows impliquées dans la transaction, messages d’erreur, informations de locataire et les informations utilisateur. Activités de diagnostic sont créées par l’utilisateur final et les actions d’administration et peuvent être classées en trois catégories principales :
+Version préliminaire de Windows Virtual Desktop offre une fonctionnalité de diagnostic qui permet à l’administrateur identifier les problèmes via une interface unique. Les rôles de bureau virtuel Windows connecter à une activité de diagnostic chaque fois qu’un utilisateur interagit avec le système. Chaque journal contient des informations pertinentes telles que les rôles de bureau virtuel Windows impliquées dans la transaction, messages d’erreur, informations de locataire et les informations utilisateur. Activités de diagnostic sont créées par l’utilisateur final et les actions d’administration et peuvent être classées en trois catégories principales :
 
 * Flux d’activités de l’abonnement : l’utilisateur final déclenche ces activités chaque fois qu’ils tentent de se connecter à leur flux via des applications de bureau à distance Microsoft.
 * Activités de connexion : l’utilisateur final déclenche ces activités chaque fois qu’ils tentent de se connecter à un bureau ou à RemoteApp via des applications de bureau à distance Microsoft.
@@ -145,7 +145,7 @@ Le tableau suivant répertorie les erreurs liées à que vos administrateurs sus
 |8000|InvalidAuthorizationRoleScope|Le nom du rôle que vous avez entré ne correspond pas à aucun nom de rôle existant. Vérifiez le nom de rôle pour les fautes de frappe et réessayez. |
 |8001|UserNotFound |Le nom d’utilisateur que vous avez entré ne correspond pas à aucun nom d’utilisateur existant. Vérifiez le nom de frappe et réessayez.|
 |8005|UserNotFoundInAAD |Le nom d’utilisateur que vous avez entré ne correspond pas à aucun nom d’utilisateur existant. Vérifiez le nom de frappe et réessayez.|
-|8008|TenantConsentRequired|Suivez les instructions [ici](tenant-setup-azure-active-directory.md#grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-service) à donner son consentement pour votre client.|
+|8008|TenantConsentRequired|Suivez les instructions [ici](tenant-setup-azure-active-directory.md#grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-preview-service) à donner son consentement pour votre client.|
 
 ### <a name="external-connection-error-codes"></a>Codes d’erreur de connexion externe
 
@@ -164,6 +164,6 @@ Le tableau suivant répertorie les erreurs liées à que vos administrateurs sus
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur les rôles au sein d’un bureau virtuel Windows, consultez [environnement de bureau virtuel Windows](environment-setup.md).
+Pour en savoir plus sur les rôles au sein d’un bureau virtuel Windows, consultez [environnement en version préliminaire de bureau virtuel Windows](environment-setup.md).
 
 Pour obtenir une liste des applets de commande PowerShell disponibles pour bureau virtuel de Windows, consultez le [référence PowerShell](/powershell/windows-virtual-desktop/overview).

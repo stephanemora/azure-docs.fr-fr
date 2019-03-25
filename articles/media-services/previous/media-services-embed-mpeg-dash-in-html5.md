@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: ff14afc9e438c2b493219e9fa207b2e8793b3c87
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 1390d68a93dd3d80b5977bab6665553ea3f8b398
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189204"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403072"
 ---
 # <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>Incorporation d’une vidéo de diffusion en continu adaptative MPEG-DASH dans une application HTML5 avec DASH.js  
 
@@ -55,7 +55,7 @@ La première étape consiste à créer une page HTML standard qui contient l’�
 ```
 
 ## <a name="adding-the-dashjs-player"></a>Ajout du lecteur DASH.js
-Pour ajouter l’implémentation de référence dash.js à l’application, vous devez extraire le fichier dash.all.js de la version 1.0 du projet dash.js. Celui-ci doit être enregistré dans le dossier JavaScript de votre application. Ce fichier est un fichier de convenance qui rassemble tout le code dash.js requis dans un seul fichier. En examinant le contenu du dépôt dash.js, vous trouverez entre autres les fichiers individuels et le code de test, mais si vous voulez seulement utiliser dash.js, alors c’est du fichier dash.all.js dont vous avez besoin.
+Pour ajouter l’implémentation de référence dash.js à l’application, vous devez extraire le fichier dash.all.js de la dernière version du projet dash.js. Celui-ci doit être enregistré dans le dossier JavaScript de votre application. Ce fichier est un fichier de convenance qui rassemble tout le code dash.js requis dans un seul fichier. En examinant le contenu du dépôt dash.js, vous trouverez entre autres les fichiers individuels et le code de test, mais si vous voulez seulement utiliser dash.js, alors c’est du fichier dash.all.js dont vous avez besoin.
 
 Pour ajouter le lecteur dash.js à vos applications, ajoutez une balise de script à la section d'en-tête de basicPlayer.html :
 

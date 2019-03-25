@@ -1,22 +1,22 @@
 ---
 title: Préparer et personnaliser une image de disque dur virtuel principale - Azure
-description: Comment préparer, personnaliser et charger une image principale du bureau virtuel Windows (version préliminaire) dans Azure.
+description: Comment préparer, personnaliser et charger une image principale de bureau virtuel Windows version préliminaire dans Azure.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 53bf33aad6511cc282f53659bbe43873cacfc3ff
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: ca186090f28f04811030e83b159782a9bfeb87f9
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318418"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400773"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Préparer et personnaliser une image de disque dur virtuel principale
 
-Cet article vous indique comment préparer une image de disque dur virtuel (VHD) maître pour les télécharger dans Azure, y compris comment créer des machines virtuelles (VM) et installer et configurer les logiciels sur les. Ces instructions concernent une configuration spécifiques au bureau virtuel Windows (version préliminaire) qui peut être utilisée avec des processus existants de votre organisation.
+Cet article vous indique comment préparer une image de disque dur virtuel (VHD) maître pour les télécharger dans Azure, y compris comment créer des machines virtuelles (VM) et installer et configurer les logiciels sur les. Ces instructions concernent une configuration de bureau virtuel Windows Preview spécifique qui peut être utilisée avec des processus existants de votre organisation.
 
 ## <a name="create-a-vm"></a>Créer une machine virtuelle
 
@@ -370,8 +370,8 @@ Les instructions suivantes vous indiquera comment charger votre image principale
 
 Maintenant que vous avez une image, vous pouvez créer ou mettre à jour des pools de l’hôte. Pour en savoir plus sur la création et de mettre à jour des pools d’hôte, consultez les articles suivants :
 
-- [Créer un pool de l’hôte avec un modèle Azure Resource Manager (version préliminaire)](create-host-pools-arm-template.md)
-- [Tutoriel : Créer un pool de l’hôte avec la place de marché Azure (version préliminaire)](create-host-pools-azure-marketplace.md)
-- [Créer un pool de l’hôte avec PowerShell (version préliminaire)](create-host-pools-powershell.md)
+- [Créer un pool de l’hôte avec un modèle Azure Resource Manager](create-host-pools-arm-template.md)
+- [Tutoriel : Créer un pool de l’hôte avec la place de marché Azure](create-host-pools-azure-marketplace.md)
+- [Créer un pool de l’hôte avec PowerShell](create-host-pools-powershell.md)
 - [Configurez un partage de profil utilisateur pour un pool de l’hôte](create-host-pools-user-profile.md)
 - [Configurer la méthode d’équilibrage de charge de bureau virtuel Windows](configure-host-pool-load-balancing.md)

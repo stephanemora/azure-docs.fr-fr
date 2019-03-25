@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 03/21/2019
 ms.author: alkohli
-ms.openlocfilehash: b3effdbace2be582bfe85d0402088f8aa0d96fe7
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 9b0e94deda205497cda4ebf383f302c6c3bb896a
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57556451"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403593"
 ---
-# <a name="manage-an-azure-data-box-edge-device-via-windows-powershell-preview"></a>Gérer un appareil Edge de zone de données Azure via Windows PowerShell (version préliminaire)
+# <a name="manage-an-azure-data-box-edge-device-via-windows-powershell"></a>Gérer un appareil Edge de zone de données Azure via Windows PowerShell
 
 Solution de données boîte Edge Azure vous permet de traiter les données et les envoyer sur le réseau à Azure. Cet article décrit certaines des tâches de configuration et la gestion de votre appareil Edge de zone de données. Vous pouvez utiliser le portail Azure, interface utilisateur web locale ou l’interface Windows PowerShell pour gérer votre appareil.
 
@@ -32,18 +32,9 @@ Cet article inclut les procédures suivantes :
 - Les journaux de calcul
 - Surveiller et résoudre les modules de calcul
 
-> [!IMPORTANT]
-> Azure Edge de zone de données est actuellement en version préliminaire publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## <a name="connect-to-the-powershell-interface"></a>Se connecter à l’interface de PowerShell
 
 [!INCLUDE [Connect to admin runspace](../../includes/data-box-edge-gateway-connect-minishell.md)]
-
-## <a name="start-a-support-session"></a>Démarrer une session de support
-
-[!INCLUDE [Connect to support runspace](../../includes/data-box-edge-gateway-connect-support.md)]
 
 ## <a name="create-a-support-package"></a>Création d’un package de prise en charge
 
@@ -73,11 +64,15 @@ Si le rôle de calcul est configuré sur votre appareil, vous pouvez également 
     ```
     Get-AzureDataBoxEdgeComputeRoleLogs -Path "\\hcsfs\logs\myacct" -Credential "username/password" -RoleInstanceName "IotRole" -FullLogCollection
     ```
-    Voici une description des paramètres utilisés pour l’applet de commande : 
+    Voici une description des paramètres utilisés pour l’applet de commande :
     - `Path`: Fournir un chemin d’accès réseau au partage dans lequel vous souhaitez créer le package de journaux de calcul.
     - `Credential`: Fournir le nom d’utilisateur et le mot de passe pour le partage réseau.
     - `RoleInstanceName`: Fournissez cette chaîne `IotRole` pour ce paramètre.
     - `FullLogCollection`: Ce paramètre garantit que le package de journaux contiendra tous les journaux de calcul. Par défaut, le package de journaux contient uniquement un sous-ensemble des journaux.
+
+## <a name="monitor-and-troubleshoot-compute-modules"></a>Surveiller et résoudre les modules de calcul
+
+[!INCLUDE [Monitor and troubleshoot compute modules](../../includes/data-box-edge-monitor-troubleshoot-compute.md)]
 
 
 ## <a name="next-steps"></a>Étapes suivantes

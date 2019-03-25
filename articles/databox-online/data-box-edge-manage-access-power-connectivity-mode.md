@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 03/21/2019
 ms.author: alkohli
-ms.openlocfilehash: e0aa3468bda9f904d62e9e20545ac5f990cef521
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.openlocfilehash: e0b8b35c654f0716fae1e6ab785f57dcf04e1a5a
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57905312"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400900"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-edge-preview"></a>Gérer l’accès, de puissance et de mode de connectivité pour votre zone de données Azure Edge (version préliminaire)
 
@@ -31,11 +31,11 @@ Dans cet article, vous apprendrez comment :
 
 ## <a name="manage-device-access"></a>Gérer l’accès aux appareils
 
-L’accès à votre appareil Edge de zone de données est contrôlé par l’utilisation d’un mot de passe d’administrateur. Ce mot de passe est modifiable sur l’interface utilisateur web locale. Vous pouvez également le réinitialiser sur le Portail Azure.
+L’accès à votre appareil Edge de zone de données est contrôlé par l’utilisation d’un mot de passe du périphérique. Vous pouvez modifier le mot de passe via l’interface utilisateur web locale. Vous pouvez également réinitialiser le mot de passe dans le portail Azure.
 
-### <a name="change-device-administrator-password"></a>Modifier le mot de passe d’administrateur de l’appareil
+### <a name="change-device-password"></a>Modifier le mot de passe d’un appareil
 
-Suivez ces étapes sur l’interface utilisateur locale pour modifier le mot de passe d’administrateur de l’appareil.
+Suivez ces étapes dans l’interface utilisateur locale pour modifier le mot de passe.
 
 1. Sur l’interface utilisateur web locale, accédez à **Maintenance > Modification du mot de passe**.
 2. Entrez le mot de passe actuel, puis le nouveau. Le mot de passe indiqué doit comporter entre 8 et 16 caractères, d’au moins trois types : majuscule, minuscule, chiffre et caractère spécial. Confirmez le nouveau mot de passe.
@@ -44,7 +44,7 @@ Suivez ces étapes sur l’interface utilisateur locale pour modifier le mot de 
 
 3. Sélectionnez **Modifier le mot de passe**.
  
-### <a name="reset-device-administrator-password"></a>Réinitialiser le mot de passe d'administrateur de l'appareil
+### <a name="reset-device-password"></a>Réinitialiser le mot de passe de l'appareil
 
 Le workflow de réinitialisation n’implique pas de se rappeler l’ancien mot de passe, ce qui est utile en cas de perte. Il s’effectue sur le Portail Azure.
 
@@ -63,7 +63,7 @@ Mis à part le mode totalement connecté par défaut, votre appareil peut égale
 
 - **Entièrement connecté** -c’est le mode normal par défaut dans lequel l’appareil fonctionne. Le téléchargement de cloud et le téléchargement de données est activée dans ce mode. Vous pouvez utiliser le portail Azure ou l’interface utilisateur web locale pour gérer l’appareil.
 
-- **Partiellement déconnecté** – Dans ce mode, l’appareil ne peut pas charger de données sur les partages. Il est en revanche possible de le gérer sur le Portail Azure.
+- **Partiellement déconnecté** – dans ce mode, l’appareil ne peut pas charger ou télécharger n’importe quel partage de données peuvent toutefois être gérées via le portail Azure.
 
     Ce mode est généralement utilisé sur un réseau satellite limité, dans l’objectif de réduire la consommation de bande passante réseau. Une consommation réseau minimale peut subsister pour les opérations de monitoring des appareils.
 

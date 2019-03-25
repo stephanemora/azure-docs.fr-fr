@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 03/22/2019
 ms.author: alkohli
-ms.openlocfilehash: e3a24117cfd01c1c0bd0f08e8eca5adddf5ee7b6
-ms.sourcegitcommit: f596d88d776a3699f8c8cf98415eb874187e2a48
+ms.openlocfilehash: 43de22f7e56178559df4fc45980d064962580d2b
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2019
-ms.locfileid: "58119783"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403389"
 ---
-# <a name="data-box-edge-security-and-data-protection-preview"></a>Données boîte Edge security et protection des données (version préliminaire)
+# <a name="data-box-edge-security-and-data-protection"></a>Données boîte Edge security et protection des données
 
 Sécurité est une préoccupation majeure lors de l’adoption d’une nouvelle technologie, surtout si cette technologie est utilisée avec des données confidentielles ou propriétaires. Solution Microsoft Azure données boîte Edge garantit que seules les entités autorisées peuvent afficher, modifier ou supprimer vos données.
 
@@ -27,9 +27,6 @@ La solution Edge de zone de données Azure se compose de quatre composants princ
 - **L’unité de bord de la zone données** – l’appareil de transfert est livré à importer vos données locales dans Azure.
 - **Les clients/hôtes connectés à l’appareil** – les clients dans votre infrastructure qui se connectent à l’appareil Edge de zone de données et contiennent des données qui doivent être protégées.
 - **Le stockage cloud** : emplacement dans le cloud Azure où les données sont stockées. Cet emplacement est généralement lié à la ressource de données boîte Edge que vous avez créé le compte de stockage.
-
-> [!IMPORTANT]
-> Data Box Edge est en préversion. Avant de commander et déployer cette solution, lisez les [conditions d’utilisation de la préversion Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 
 ## <a name="data-box-edgedata-box-gateway-service-protection"></a>Protection de service de zone Edge/données zone passerelle de données
@@ -44,7 +41,7 @@ Le service de passerelle de zone de données boîte Edge/Data est un service de 
 Le périphérique périmétrique de zone de données est un périphérique local qui permet de transformer les données par le traitement de localement, puis l’envoyer vers Azure. Votre appareil :
 
 - A besoin d’une clé d’activation pour accéder au service de passerelle de données boîte Edge/données boîte.
-- Est protégé à tout moment par un mot de passe d’administrateur.
+- Est protégé à tout moment par un mot de passe du périphérique.
 - Est un appareil verrouillé. Le périphérique BMC et BIOS sont protégés par mot de passe avec un utilisateur-accès limité pour le BIOS.
 - Le démarrage sécurisé est activé.
 - Exécute Windows Defender Device Guard. Device Guard vous autorise à exécuter uniquement les applications de confiance que vous définissez dans vos stratégies d’intégrité du code. 
@@ -68,14 +65,14 @@ Les mots de passe vous assurer que vos données sont accessibles aux seuls utili
 Vous pouvez :
 
 - Se connecter à l’interface utilisateur de l’appareil via un navigateur de web local, puis indiquez un mot de passe pour se connecter à l’appareil.
-- Se connecter à distance à l’interface PowerShell de périphérique sur HTTP. Gestion à distance est activée par défaut. Vous pouvez ensuite fournir le mot de passe administrateur pour vous connecter à l’appareil. Pour plus d’informations, accédez à [connexion à distance à votre appareil Edge de zone de données](data-box-edge-connect-powershell-interface.md#connect-to-the-powershell-interface).
+- Se connecter à distance à l’interface PowerShell de périphérique sur HTTP. Gestion à distance est activée par défaut. Vous pouvez ensuite fournir le mot de passe pour se connecter à l’appareil. Pour plus d’informations, accédez à [connexion à distance à votre appareil Edge de zone de données](data-box-edge-connect-powershell-interface.md#connect-to-the-powershell-interface).
 
 Gardez à l'esprit les meilleures pratiques suivantes :
 
 - Le service de données boîte Edge ne peut pas récupérer les mots de passe existants : il peut uniquement réinitialiser via le portail Azure. Nous vous recommandons de stocker tous les mots de passe dans un endroit sûr, afin de ne pas être obligé de réinitialiser un mot de passe en cas d’oubli. Si vous réinitialisez un mot de passe, veillez à informer tous les utilisateurs avant que vous le réinitialisez.
 - Utilisez local web UI à [modifier le mot de passe](data-box-gateway-manage-access-power-connectivity-mode.md#manage-device-access). Si vous modifiez le mot de passe, veillez à informer tous les utilisateurs de l’accès à distance afin qu’ils ne connaissent pas un échec de connexion.
 - Vous pouvez accéder à distance à l’interface Windows PowerShell de votre appareil via HTTP. Pour des raisons de sécurité, vous devez utiliser HTTP uniquement sur des réseaux approuvés.
-- Assurez-vous que les mots de passe administrateur d’appareil sont forts et bien protégés. Suivez le [meilleures pratiques de mot de passe](https://docs.microsoft.com/azure/security/azure-security-identity-management-best-practices#enable-password-management).
+- Assurez-vous que les mots de passe de périphérique sont forts et bien protégés. Suivez le [meilleures pratiques de mot de passe](https://docs.microsoft.com/azure/security/azure-security-identity-management-best-practices#enable-password-management).
 
 ## <a name="protect-the-data"></a>Protéger les données
 

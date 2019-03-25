@@ -8,19 +8,16 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: alkohli
-ms.openlocfilehash: 8ef35709e90c0a58cc0ff8df1afb6e864adc0a23
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: ab3d3a13f8bfa69bd9e13dae344cfbcc3731cc77
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57994715"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402590"
 ---
-# <a name="azure-data-box-edge-technical-specifications-preview"></a>Spécifications de techniques Edge de zone de données Azure (version préliminaire)
+# <a name="azure-data-box-edge-technical-specifications"></a>Spécifications techniques Edge de zone de données Azure
 
 Les composants matériels de votre appareil Microsoft Azure données boîte Edge respectent les spécifications techniques et les normes réglementaires présentées dans cet article. Les spécifications techniques décrivent les unités d’alimentation (blocs d’alimentation), la capacité de stockage, boîtiers et des normes environnementales. 
-
-> [!IMPORTANT]
-> Data Box Edge est en préversion. Avant de commander et déployer cette solution, lisez les [conditions d’utilisation de la préversion Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 ## <a name="power-supply-unit-specifications"></a>Spécifications unité d’alimentation
 
@@ -28,7 +25,7 @@ Le périphérique périmétrique de zone de données a deux 100-240 V unités d�
 
 | Caractéristique           | LE BLOC D’ALIMENTATION DE 750 W                  |
 |-------------------------|----------------------------|
-| Puissance de sortie maximale    |  750 W                     |
+| Puissance de sortie maximale    | 750 W                     |
 | Fréquence               | 50/60 Hz                   |
 | Sélection de la plage de tension | Plage automatique : 100-240 V CA |
 | Enfichable à chaud           | Oui                        |

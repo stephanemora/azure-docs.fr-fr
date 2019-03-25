@@ -3,7 +3,7 @@ title: Utiliser les recommandations Azure Security Center pour améliorer la sé
 description: " Découvrez comment utiliser les stratégies de sécurité et les recommandations d’Azure Security Center pour prévenir une attaque de sécurité. "
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: ''
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/2/2019
-ms.author: rkarlin
-ms.openlocfilehash: 5ff59a9ed7dc44bb7a4176f7a174be1e7d0ec9b6
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.date: 3/24/2019
+ms.author: monhaber
+ms.openlocfilehash: 8c8108697e39153aef8727942c166a741cb8398c
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104904"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402760"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Utiliser les recommandations Azure Security Center pour améliorer la sécurité
-Vous pouvez réduire les risques d’un incident de sécurité en configurant une stratégie de sécurité, puis en implémentant les recommandations fournies par Azure Security Center. Cet article explique comment utiliser les stratégies de sécurité et les recommandations d'Azure Security Center pour prévenir une attaque de sécurité.
+Vous pouvez réduire les risques d’un incident de sécurité en configurant une stratégie de sécurité, puis en implémentant les recommandations fournies par Azure Security Center. Cet article explique comment utiliser les stratégies de sécurité et les recommandations d'Azure Security Center pour prévenir une attaque de sécurité. 
 
-Le Centre de sécurité analyse l’état de sécurité de vos ressources Azure. Quand Security Center identifie des failles de sécurité potentielles, des recommandations sont créées. Celles-ci vous guident tout au long du processus de configuration des contrôles de sécurité nécessaires.
+Security Center s’exécute automatiquement des analyses en continu pour analyser l’état de sécurité de vos ressources Azure. Quand Security Center identifie des failles de sécurité potentielles, des recommandations sont créées. Celles-ci vous guident tout au long du processus de configuration des contrôles de sécurité nécessaires. Security Center met à jour les recommandations toutes les 24 heures.
 
 ## <a name="scenario"></a>Scénario
 Ce scénario vous montre comment utiliser Security Center pour réduire les risques d’incident en supervisant les recommandations de Security Center et en prenant les mesures nécessaires. Le scénario utilise la société fictive Contoso et les rôles présentés dans le [Guide de planification et de fonctionnement](security-center-planning-and-operations-guide.md#security-roles-and-access-controls) de Security Center. Dans ce scénario, nous nous concentrons sur les rôles des personnages suivants :

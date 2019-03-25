@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f4a04f1598b3ab0efd9ff95a707d3837bb37503
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 2fcc400f952cc89f5fb4bf6e8d6f0f331483868e
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56196023"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401299"
 ---
 # <a name="whats-new-for-authentication"></a>Quelles sont les nouveautés en matière d’authentification ? 
 
@@ -42,6 +42,37 @@ Le système d’authentification modifie et ajoute des fonctionnalités en perma
 ## <a name="upcoming-changes"></a>Changements à venir
 
 Aucun n’est planifié pour l’instant. 
+
+## <a name="march-2019"></a>Mars 2019
+
+### <a name="looping-clients-will-be-interrupted"></a>Les clients de bouclage sera interrompue
+
+**Date d’effet** : 25 mars 2019
+
+**Points de terminaison impactés** : V1.0 et v2.0
+
+**Protocole impacté** : Tous les flux
+
+Les applications clientes peuvent parfois mener émettant des centaines de la même demande de connexion pendant une courte période de temps.  Ces demandes peuvent être ou non réussies, mais toutes contribuent à l’expérience utilisateur médiocre et charges de travail renforcées pour le fournisseur d’identité, accroître la latence pour tous les utilisateurs et réduire la disponibilité du fournisseur d’identité.  Ces applications sont en dehors des limites d’utilisation normale et doivent être mis à jour pour se comporter correctement.  
+
+Les clients qui émettent des demandes dupliquées plusieurs fois recevront un `invalid_grant` erreur : `AADSTS50196: The server terminated an operation because it encountered a loop while processing a request`. 
+
+La plupart des clients ne devrez pas modifier le comportement pour éviter cette erreur.  Seuls les clients mal configurées (ceux sans mise en cache de jeton ou ceux présentant des boucles d’invite déjà) seront affectées par cette erreur.  Les clients sont suivis sur une base par instance localement (par le biais de cookie) sur les facteurs suivants :
+
+* Indicateur de l’utilisateur, le cas échéant
+
+* Étendues ou la ressource demandée
+
+* ID client
+
+* URI de redirection
+
+* Mode et le type de réponse
+
+Applications effectuant des demandes multiples (15 +) sur une courte période de temps (5 minutes) recevront un `invalid_grant` message d’erreur expliquant qu’ils sont en boucle.  Les jetons des durées de vie suffisamment longue durées (minimum de 10 minutes, 60 minutes par défaut), par conséquent, répéter les demandes sur cette période de temps demandés ne sont pas nécessaires.  
+
+Toutes les applications doivent gérer `invalid_grant` en affichant une invite interactive, plutôt qu’en mode silencieux demande un jeton.  Pour éviter cette erreur, les clients doivent s’assurer qu’ils sont correctement la mise en cache les jetons qu’ils reçoivent.
+
 
 ## <a name="october-2018"></a>Octobre 2018
 

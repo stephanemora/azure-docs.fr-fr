@@ -1,23 +1,16 @@
+                                        ---
+author: alkohli ms.service: databox  
+ms.topic: include ms.date: 03/21/2019 ms.author: alkohli
 ---
-author: alkohli
-ms.service: databox
-ms.topic: include
-ms.date: 02/04/2019
-ms.author: alkohli
-ms.openlocfilehash: db51ea71e48f01800a45059927331c189660cb8a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118699"
----
-Voici la liste des systèmes d’exploitation pris en charge pour les clients ou hôtes connectés à votre appareil.
+
+Voici la liste des systèmes d’exploitation pris en charge pour les clients ou hôtes connectés à votre appareil. Ces versions de système d’exploitation ont été testées en interne.
 
 | **Système d’exploitation/plateforme** | **Versions** |
 | --- | --- |
 | Windows Server |2012 R2 <br> 2016 <br> 2019|
-|  Windows |8, 10 |
+| Windows |8, 10 |
 | SUSE Linux |Enterprise Server 12 (x86_64)|
 | Ubuntu |16.04.3 LTS|
 | CentOS | 7.0 |
 | Mac OS | 10.14.1 |
+                                                                                                                                                                                                                                                                                                                                                                                              

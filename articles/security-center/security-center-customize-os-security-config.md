@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/26/2018
+ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 15707e9854e79b3aa05ff9024fc5b3c7a38fa8f2
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: c0c37724e61490c8c33b5e2d37879549bbc6d7ce
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106883"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402114"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Personnaliser les configurations de la sécurité du système d’exploitation dans Azure Security Center (version préliminaire)
 
@@ -112,7 +112,7 @@ Chaque catégorie possède son propre ensemble d’attributs. Vous pouvez modifi
 
     - Liste des groupes d’utilisateurs autorisés, par exemple : *Administrators* (Administrateurs), *Backup Operators* (Opérateurs de sauvegarde)
 
--   **state** : chaîne qui peut contenir l’option *Disabled* ou *Enabled* (« Désactivé » ou « Activé ») Dans cette préversion privée, la chaîne respecte la casse.
+-   **state** : chaîne qui peut contenir l’option *Disabled* ou *Enabled* (« Désactivé » ou « Activé ») Pour cette version, la chaîne respecte la casse.
 
 Ce sont les seuls champs configurables. Si vous ne respectez pas le format ou la taille de fichier, vous ne pourrez pas enregistrer la modification. Un message d’erreur indique que vous devez pour charger un fichier de configuration JSON valide.
 

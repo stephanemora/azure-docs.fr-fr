@@ -6,22 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 02/14/2019
+ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 34aac9a589516ace080906095ef3c14b34469bbd
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: e80b03f696a78887676e9f16750055a4dcfac230
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311186"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401596"
 ---
-# <a name="azure-data-box-gateway-limits-preview"></a>Limites d’Azure Data Box Gateway (préversion)
-
+# <a name="azure-data-box-gateway-limits"></a>Limites de la passerelle de zone de données Azure
 
 Tenez compte de ces limites quand vous déployez et utilisez votre solution Microsoft Azure Data Box Gateway. 
-
-> [!IMPORTANT] 
-> Data Box Gateway est disponible en préversion. Veuillez lire les [conditions d’utilisation de la préversion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) avant de déployer cette solution. 
 
 
 ## <a name="data-box-gateway-service-limits"></a>Limites de service Data Box Gateway
@@ -34,9 +30,9 @@ Le tableau suivant décrit les limites de l’appareil Data Box Gateway.
 
 | Description | Valeur |
 |---|---|
-| Non. de fichiers par appareil |100 millions <br> La limite est d’environ 25 millions de fichiers pour 2 To d’espace disque avec une limite maximale à 100 millions |
-| Non. de partages par appareil |24 |
-| Non. de partages par conteneur de stockage Azure |1 |
+|Non. de fichiers par appareil |100 millions <br> La limite est d’environ 25 millions de fichiers pour 2 To d’espace disque avec une limite maximale à 100 millions |
+|Non. de partages par appareil |24 |
+|Non. de partages par conteneur de stockage Azure |1 |
 |Taille de fichier maximale écrite sur un partage|Pour un appareil virtuel de 2 To, la taille de fichier maximale est de 500 Go. <br> La taille maximale de fichier augmente proportionnellement avec la taille du disque de données, jusqu’à atteindre la taille maximale de 5 To. |
 
 ## <a name="azure-storage-limits"></a>Limites du stockage Azure

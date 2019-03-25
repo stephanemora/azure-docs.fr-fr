@@ -2,23 +2,18 @@
 title: Qu’est-ce qu’une réservation Azure ? | Microsoft Docs
 description: Découvrez les réservations et tarifs Azure pour économiser sur vos machines virtuelles, les bases de données SQL, Azure Cosmos DB et les coûts d’autres ressources.
 services: billing
-documentationcenter: ''
 author: yashesvi
 manager: yashar
-editor: ''
 ms.service: billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/06/2019
+ms.date: 03/22/2019
 ms.author: banders
-ms.openlocfilehash: a4ad3574849d3c80f671abc93e463b06454289e4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3081ab352152d6d736f20da94ed0b513121e231b
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57904165"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401791"
 ---
 # <a name="what-are-azure-reservations"></a>Qu’est-ce qu’une réservation Azure ?
 
@@ -44,17 +39,11 @@ Pour les machines virtuelles Windows et SQL Database, vous pouvez couvrir les co
 
 ## <a name="whos-eligible-to-purchase-a-reservation"></a>Qui peut acheter une réservation ?
 
-Peuvent acheter une réservation les clients Azure ayant souscrit les types d’abonnements suivants :
+Pour acheter un plan, vous devez disposer d’un rôle de propriétaire d’abonnement dans une entreprise (MS-AZR - 0017p ou MS-AZR - 0148p) ou d’un abonnement de paiement à l’utilisation (MS-AZR - 003p ou MS-AZR - 0023P). Fournisseurs de solutions cloud peuvent utiliser le portail Azure ou [partenaires](/partner-center/azure-reservations) d’acheter des réservations d’Azure.
 
-- Offre d’abonnement de type contrat Entreprise (MS-AZR-0017P ou MS-AZR-0148P).
-- Offre d’abonnement de type paiement à l’utilisation (MS-AZR-003P ou MS-AZR-0023P).
-- Les partenaires fournisseurs de solutions cloud (CSP) peuvent utiliser le portail Azure ou l’[Espace partenaires](https://docs.microsoft.com/partner-center/azure-reservations) pour acheter des réservations Azure.
+Les clients EA peuvent limiter les achats aux administrateurs de l’EA en désactivant le **ajouter des Instances réservées** option dans le portail EA. Les administrateurs EA doivent être un propriétaire d’abonnement au moins un abonnement EA pour acheter une réservation. L’option est utile pour les entreprises qui veulent une équipe centralisée pour acheter des réservations pour les centres de coûts différentes. Après l’achat, équipes centralisés peuvent ajouter des propriétaires de centre de coût pour les réservations. Propriétaires peuvent ensuite définir l’étendue la réservation à leurs abonnements. L’équipe centrale n’a pas besoin d’avoir accès à l’abonnement propriétaire où la réservation est achetée.
 
 Une remise sur réservation s’applique uniquement aux ressources associées aux types d’abonnements CSP, Entreprise ou avec paiement à l’utilisation.
-
- Pour acheter un abonnement logiciel :
-
-- Vous devez avoir un rôle de propriétaire pour au moins un abonnement Entreprise ou Paiement à l’utilisation.
 
 ## <a name="how-is-a-reservation-billed"></a>Comment une réservation est-elle facturée ?
 

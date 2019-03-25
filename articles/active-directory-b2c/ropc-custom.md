@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 816d25473bfe5f9dc61d6d6f2e50d6cd82ace50c
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 265f1405a8779cdca101f18cf37b64f1933c2ff3
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562185"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400764"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Configurer le flux des informations d’identification par mot de passe de propriétaire de ressource dans Azure Active Directory B2C en utilisant un stratégie personnalisée
 
-[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
 Dans Azure Active Directory (Azure AD) B2C, le flux des informations d’identification par mot de passe de propriétaire ressource (ROPC) est un flux d’authentification standard OAuth. Dans ce flux, une application, également appelée partie de confiance, échange des informations d’identification valides pour des jetons. Les informations d’identification incluent un ID utilisateur et un mot de passe. Les jetons retournés sont un jeton d’ID, un jeton d’accès et un jeton d’actualisation.
 
@@ -35,7 +35,7 @@ Les flux suivants ne sont pas pris en charge :
 - **Application monopage** : application frontale principalement écrite en JavaScript. Souvent, l’application est écrite en utilisant une infrastructure comme AngularJS, Ember.js ou Durandal.js.
 - **Flux client confidentiel** : l’ID du client d’application est validé, mais le secret d’application ne l’est pas.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Suivez les étapes de l’article [Prise en main des stratégies personnalisées dans Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
 

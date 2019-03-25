@@ -1,22 +1,22 @@
 ---
-title: Environnement de bureau virtuel Windows (version préliminaire) - Azure
-description: Les éléments de base d’un environnement de bureau virtuel Windows.
+title: Environnement Windows virtuel Desktop Preview - Azure
+description: Les éléments de base d’un environnement Windows virtuel Desktop Preview.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: c503f665e3e2f99cd59f207c3fc4823b927eaac3
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: ceed6a8bb74206b7c6689ce542482148800e4ba9
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318448"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403508"
 ---
-# <a name="windows-virtual-desktop-environment-preview"></a>Environnement de bureau virtuel Windows (version préliminaire)
+# <a name="windows-virtual-desktop-preview-environment"></a>Environnement de version préliminaire de Windows Virtual Desktop
 
-Bureau virtuel Windows (version préliminaire) est un service qui permet aux utilisateurs un accès facile et sécurisé à leurs postes de travail virtualisés et le RemoteApps. Cette rubrique vous indiquera un peu plus d’informations sur la structure générale de l’environnement de bureau virtuel Windows.
+Windows Virtual Desktop Preview est un service qui permet aux utilisateurs un accès facile et sécurisé à leurs postes de travail virtualisés et le RemoteApps. Cette rubrique vous indiquera un peu plus d’informations sur la structure générale de l’environnement de bureau virtuel Windows.
 
 ## <a name="tenants"></a>Locataires
 
@@ -57,11 +57,11 @@ Une fois que vous avez affecté des utilisateurs à leurs groupes d’applicatio
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur l’accès délégué et comment attribuer des rôles aux utilisateurs à [délégué l’accès dans un bureau virtuel Windows](delegated-access-virtual-desktop.md).
+En savoir plus sur l’accès délégué et comment attribuer des rôles aux utilisateurs à [délégué l’accès dans la version préliminaire de Windows Virtual Desktop](delegated-access-virtual-desktop.md).
 
-Pour savoir comment configurer votre client de bureau virtuel de Windows, consultez [créer un client de bureau virtuel Windows](tenant-setup-azure-active-directory.md).
+Pour savoir comment configurer votre client de bureau virtuel de Windows, consultez [créer un client en version préliminaire de Windows Virtual Desktop](tenant-setup-azure-active-directory.md).
 
 Pour savoir comment se connecter à un bureau virtuel Windows, consultez les articles suivants :
 
 - [Se connecter au client Bureau à distance sur Windows 7 et Windows 10](connect-windows-7-and-10.md)
-- [Se connecter au client web de bureau virtuel Windows](connect-web.md)
+- [Se connecter au client web Windows Virtual Desktop Preview](connect-web.md)

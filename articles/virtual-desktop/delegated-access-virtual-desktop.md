@@ -1,22 +1,22 @@
 ---
-title: Accès délégué dans un bureau virtuel Windows (version préliminaire) - Azure
-description: Comment déléguer des fonctionnalités d’administration sur un déploiement de bureau virtuel de Windows, y compris des exemples.
+title: Accès délégué dans Windows Desktop version d’évaluation virtuel - Azure
+description: Comment déléguer des fonctionnalités d’administration sur un déploiement de Windows Virtual Desktop Preview, y compris des exemples.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 49645b697071abb8a2f8c85ebde1e6761a3536ab
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 250aea52de63a6397ce00e9cadcadf3a8ba39858
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336097"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400004"
 ---
-# <a name="delegated-access-in-windows-virtual-desktop-preview"></a>Accès délégué dans un bureau virtuel Windows (version préliminaire)
+# <a name="delegated-access-in-windows-virtual-desktop-preview"></a>Accès délégué dans la version préliminaire de Windows Virtual Desktop
 
-Bureau virtuel Windows (version préliminaire) a un modèle d’accès délégué qui vous permet de définir les droits d’accès de qu'un utilisateur particulier est autorisé à avoir en leur attribuant un rôle. Une attribution de rôle comporte trois composants : principal de sécurité, la définition de rôle et étendue. Le modèle d’accès délégué de bureau virtuel Windows est basé sur le modèle RBAC d’Azure. Pour en savoir plus sur les attributions de rôles spécifiques et leurs composants, consultez [la vue d’ensemble du contrôle de l’accès en fonction du rôle Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles).
+Windows Virtual Desktop Preview dispose d’un modèle d’accès délégué qui vous permet de définir les droits d’accès de qu'un utilisateur particulier est autorisé à avoir en leur attribuant un rôle. Une attribution de rôle comporte trois composants : principal de sécurité, la définition de rôle et étendue. Le modèle d’accès délégué de bureau virtuel Windows est basé sur le modèle RBAC d’Azure. Pour en savoir plus sur les attributions de rôles spécifiques et leurs composants, consultez [la vue d’ensemble du contrôle de l’accès en fonction du rôle Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles).
 
 Bureau virtuel Windows déléguée access prend en charge les valeurs suivantes pour chaque élément de l’attribution de rôle :
 
@@ -66,4 +66,4 @@ Vous pouvez modifier les trois applets de commande base avec les paramètres sui
 
 Pour obtenir une liste plus complète des applets de commande PowerShell chaque rôle peut utiliser, consultez le [référence PowerShell](/powershell/windows-virtual-desktop/overview).
 
-Pour obtenir des instructions pour savoir comment configurer un environnement de bureau virtuel de Windows, consultez [configurer un environnement de bureau virtuel Windows](environment-setup.md).
+Pour obtenir des instructions pour savoir comment configurer un environnement de bureau virtuel de Windows, consultez [environnement en version préliminaire de bureau virtuel Windows](environment-setup.md).

@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 02/07/2019
+ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 0ad94799320e25d88f616117f1bfcf9f0513aadf
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: d46d74544181a6b9cbfd049b2f5461b20b928483
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873017"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401443"
 ---
-# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway-preview"></a>Gérer l’accès, la puissance et le mode de connectivité d’Azure Data Box Gateway (préversion)
+# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Gérer l’accès, de puissance et de mode de connectivité pour votre passerelle de zone de données Azure
 
 Cet article explique comment gérer l’accès, la puissance et le mode de connectivité d’Azure Data Box Gateway. Ces opérations sont effectuées sur l’interface utilisateur web locale ou le Portail Azure.
 
@@ -26,16 +26,13 @@ Dans cet article, vous apprendrez comment :
 > * Gérer le mode de connectivité
 > * Gérer la puissance
 
-> [!IMPORTANT]
-> Data Box Gateway est disponible en préversion. Veuillez lire les [conditions d’utilisation de la préversion Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) avant de commander et déployer cette solution.
-
 ## <a name="manage-device-access"></a>Gérer l’accès aux appareils
 
-L’accès à un appareil Data Box Gateway est contrôlé par l’utilisation d’un mot de passe d’administrateur. Ce mot de passe est modifiable sur l’interface utilisateur web locale. Vous pouvez également le réinitialiser sur le Portail Azure.
+L’accès à votre périphérique de passerelle de zone de données est contrôlé par l’utilisation d’un mot de passe du périphérique. Vous pouvez modifier le mot de passe via l’interface utilisateur web locale. Vous pouvez également réinitialiser le mot de passe dans le portail Azure.
 
-### <a name="change-device-administrator-password"></a>Modifier le mot de passe d’administrateur de l’appareil
+### <a name="change-device-password"></a>Modifier le mot de passe d’un appareil
 
-Suivez ces étapes sur l’interface utilisateur locale pour modifier le mot de passe d’administrateur de l’appareil.
+Suivez ces étapes dans l’interface utilisateur locale pour modifier le mot de passe.
 
 1. Sur l’interface utilisateur web locale, accédez à **Maintenance > Modification du mot de passe**.
 2. Entrez le mot de passe actuel, puis le nouveau. Le mot de passe indiqué doit comporter entre 8 et 16 caractères, d’au moins trois types : majuscule, minuscule, chiffre et caractère spécial. Confirmez le nouveau mot de passe.
@@ -44,7 +41,7 @@ Suivez ces étapes sur l’interface utilisateur locale pour modifier le mot de 
 
 3. Cliquez sur **Modifier le mot de passe**.
  
-### <a name="reset-device-administrator-password"></a>Réinitialiser le mot de passe d'administrateur de l'appareil
+### <a name="reset-device-password"></a>Réinitialiser le mot de passe de l'appareil
 
 Le workflow de réinitialisation n’implique pas de se rappeler l’ancien mot de passe, ce qui est utile en cas de perte. Il s’effectue sur le Portail Azure.
 

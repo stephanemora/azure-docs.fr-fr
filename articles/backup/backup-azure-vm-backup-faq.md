@@ -1,37 +1,60 @@
 ---
-title: Forum aux questions sur la sauvegarde de machines virtuelles Azure
-description: 'Réponses aux questions courantes sur : le fonctionnement de la sauvegarde de machine virtuelle Azure, ses limitations et ce qu’il se passe lors d’un changement de stratégie'
+title: Forum aux questions sur la sauvegarde des machines virtuelles Azure avec sauvegarde Azure
+description: Réponses aux questions courantes sur la sauvegarde des machines virtuelles Azure avec sauvegarde Azure.
 services: backup
 author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/16/2018
+ms.date: 03/22/2019
 ms.author: sogup
-ms.openlocfilehash: 10b49c5ebcd73010a52da1fada32ba55198b287a
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: ef46c37fec3e5438aeb4f9309201d45365a96fdc
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961531"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402063"
 ---
-# <a name="frequently-asked-questions-azure-backup"></a>Questions fréquentes (FAQ) - Sauvegarde Azure
+# <a name="frequently-asked-questions-back-up-azure-vms"></a>Forum aux questions : sauvegarder des machines virtuelles Azure
 
-Cet article répond aux questions courantes sur le service [Sauvegarde Azure](backup-introduction-to-azure-backup.md).
-
-## <a name="general-questions"></a>Questions générales
-
-### <a name="what-azure-vms-can-you-back-up-using-azure-backup"></a>Quelles machines virtuelles Azure pouvez-vous sauvegarder à l’aide de Sauvegarde Azure ?
-[Consultez](backup-azure-arm-vms-prepare.md#before-you-start) les systèmes d’exploitation pris en charge et les limitations.
+Cet article répond aux questions courantes sur la sauvegarde des machines virtuelles Azure avec le [sauvegarde Azure](backup-introduction-to-azure-backup.md) service.
 
 
 ## <a name="backup"></a>Sauvegarde
 
+### <a name="which-vm-images-can-be-enabled-for-backup-when-i-create-them"></a>Les images de machine virtuelle peuvent être activées pour la sauvegarde lorsque je crée les ?
+Lorsque vous créez une machine virtuelle, vous pouvez activer la sauvegarde pour les machines virtuelles en cours d’exécution [les systèmes d’exploitation pris en charge](backup-support-matrix-iaas.md#supported-backup-actions)
+ 
+### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>Est le coût de sauvegarde inclus dans le coût de la machine virtuelle ? 
+
+Non. Les coûts de sauvegarde sont distincts des coûts d’une machine virtuelle. En savoir plus sur [tarification d’Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
+ 
+### <a name="which-permissions-are-required-to-enable-backup-for-a-vm"></a>Les autorisations sont nécessaires pour activer la sauvegarde d’une machine virtuelle ? 
+
+Si vous êtes un contributeur de machine virtuelle, vous pouvez activer la sauvegarde sur la machine virtuelle. Si vous utilisez un rôle personnalisé, vous devez disposer des autorisations suivantes pour activer la sauvegarde sur la machine virtuelle : 
+
+- Microsoft.RecoveryServices/Vaults/write 
+- Microsoft.RecoveryServices/Vaults/read 
+- Microsoft.RecoveryServices/locations/* 
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read 
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read 
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write 
+- Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write 
+- Microsoft.RecoveryServices/Vaults/backupPolicies/read 
+- Microsoft.RecoveryServices/Vaults/backupPolicies/write 
+ 
+Si votre coffre Recovery Services et la machine virtuelle ont différents groupes de ressources, assurez-vous que vous disposez des autorisations d’écriture dans le groupe de ressources pour le coffre Recovery Services.  
+
+
+### <a name="what-azure-vms-can-you-back-up-using-azure-backup"></a>Quelles machines virtuelles Azure pouvez-vous sauvegarder à l’aide de Sauvegarde Azure ?
+
+Examinez le [matrice de prise en charge](backup-support-matrix-iaas.md) pour les détails de la prise en charge et les limitations.
+
 ### <a name="does-an-on-demand-backup-job-use-the-same-retention-schedule-as-scheduled-backups"></a>Est-ce qu’un travail de sauvegarde à la demande utilise le même planning de conservation que les autres sauvegardes planifiées ?
-Non. Vous devez spécifier la plage de rétention pour un travail de sauvegarde à la demande. Par défaut, il est conservé pendant 30 jours s’il a été déclenché à partir du portail.
+Non. Spécifiez la durée de rétention pour un travail de sauvegarde à la demande. Par défaut, il est conservé pendant 30 jours s’il a été déclenché à partir du portail.
 
 ### <a name="i-recently-enabled-azure-disk-encryption-on-some-vms-will-my-backups-continue-to-work"></a>J’ai récemment activé Azure Disk Encryption sur certaines machines virtuelles. Est-ce que mes sauvegardes continueront de fonctionner ?
-Vous devez accorder au service Sauvegarde Azure l’autorisation d’accéder à Key Vault. Spécifiez les autorisations dans PowerShell, comme décrit dans la section **Activer la sauvegarde** de la documentation sur [PowerShell et Sauvegarde Azure](backup-azure-vms-automation.md).
+Accordez des autorisations pour la sauvegarde Azure à accéder à Key Vault. Spécifiez les autorisations dans PowerShell, comme décrit dans la section **Activer la sauvegarde** de la documentation sur [PowerShell et Sauvegarde Azure](backup-azure-vms-automation.md).
 
 ### <a name="i-migrated-vm-disks-to-managed-disks-will-my-backups-continue-to-work"></a>J’ai migré des disques de machine virtuelle vers des disques managés. Est-ce que mes sauvegardes continueront de fonctionner ?
 Oui, les sauvegardes fonctionnent de manière transparente. Vous n’avez rien à reconfigurer.
@@ -57,7 +80,7 @@ Non. La date et l’heure indiquées sur votre ordinateur local correspond à la
 Le service Sauvegarde Azure peut sauvegarder des machines virtuelles dotées de 16 disques au maximum. Une prise en charge de 16 disques est fournie dans la [restauration instantanée](backup-instant-restore-capability.md).
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disk"></a>Le service Sauvegarde Azure prend-il en charge les disques managés SSD standard ?
-Le service Sauvegarde Azure prend en charge les [disques managés SSD standard](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). Les disques managés SSD offrent un nouveau type de stockage durable aux machines virtuelles Azure. Une prise en charge disques managés SSD est fournie dans la [restauration instantanée](backup-instant-restore-capability.md).
+Le service Sauvegarde Azure prend en charge les [disques managés SSD standard](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). Disques SSD gérés fournissent un nouveau type de stockage durable pour les machines virtuelles Azure. Une prise en charge disques managés SSD est fournie dans la [restauration instantanée](backup-instant-restore-capability.md).
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>Pouvons-nous sauvegarder une machine virtuelle dotée d’un disque avec Accélérateur d’écriture ?
 Il n’est pas possible de prendre des instantanés sur un disque avec Accélérateur d’écriture. Toutefois, le service Sauvegarde Azure peut exclure un tel disque de la sauvegarde. L’exclusion de disques sur les machines virtuelles dotées de disques avec Accélérateur d’écriture est prise en charge uniquement pour les abonnements mis à niveau vers la restauration instantanée.
@@ -65,17 +88,17 @@ Il n’est pas possible de prendre des instantanés sur un disque avec Accélér
 ### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>J’ai une machine virtuelle dotée de disques avec Accélérateur d’écriture et sur laquelle SAP HANA est installé. Comment faire pour effectuer une sauvegarde ?
 Sauvegarde Azure ne peut pas sauvegarder le disque avec Accélérateur d’écriture, mais peut l’exclure de la sauvegarde. Toutefois, la sauvegarde ne garantit pas la cohérence de la base de données car les informations situées sur le disque avec Accélérateur d’écriture ne sont pas sauvegardées. Vous pouvez sauvegarder des disques dans une telle configuration si vous souhaitez que la sauvegarde porte sur les disques du système d’exploitation et les disques sans Accélérateur d’écriture.
 
-Nous disposons déjà d’une préversion privée pour une sauvegarde SAP HANA avec un RPO de 15 minutes. Cette version est générée de manière similaire à la sauvegarde de base de données SQL et utilise l’interface backInt pour des solutions tierces certifiées par SAP HANA. Si cette préversion privée vous intéresse, envoyez-nous un e-mail à l’adresse ` AskAzureBackupTeam@microsoft.com ` avec l’objet **Inscription à la préversion privée pour la sauvegarde de SAP HANA sur des machines virtuelles Azure**.
+Nous exécutons une préversion privée pour une sauvegarde SAP HANA avec un RPO de 15 minutes. Cette version est générée de manière similaire à la sauvegarde de base de données SQL et utilise l’interface backInt pour des solutions tierces certifiées par SAP HANA. Si vous êtes intéressé, envoyez-nous un e-mail à ` AskAzureBackupTeam@microsoft.com ` avec l’objet **s’inscrire à la préversion privée pour la sauvegarde de SAP HANA sur des machines virtuelles Azure**.
 
 
 ## <a name="restore"></a>Restore
 
 ### <a name="how-do-i-decide-whether-to-restore-disks-only-or-a-full-vm"></a>Comment déterminer si je dois restaurer des disques uniquement ou une machine virtuelle complète ?
-Considérez qu’une restauration de machine virtuelle est une option de création rapide d’une machine virtuelle Azure. Cette option modifie les noms des disques, les conteneurs utilisés par les disques, les adresses IP publiques et les noms d’interface réseau. Cette modification permet de conserver des ressources uniques lors de la création d’une machine virtuelle. La machine virtuelle n’est pas ajoutée à un groupe à haute disponibilité.
+Considérez qu’une restauration de machine virtuelle est une option de création rapide d’une machine virtuelle Azure. Cette option modifie les noms de disques, les conteneurs utilisés par les disques, les adresses IP publiques et les noms d’interface réseau. Cette modification permet de conserver des ressources uniques lors de la création d’une machine virtuelle. La machine virtuelle n’est pas ajoutée à un groupe à haute disponibilité.
 
 L’option de restauration de disque convient dans les cas suivants :
-  * Vous voulez personnaliser la machine virtuelle créée. Par exemple, vous voulez modifier sa taille.
-  * Vous voulez ajouter des paramètres de configuration qui n’existaient pas au moment de la sauvegarde.
+  * Vous voulez personnaliser la machine virtuelle créée. Par exemple, modifier la taille.
+  * Ajouter des paramètres de configuration qui n’ont pas été il au moment de la sauvegarde.
   * Vous voulez contrôler la convention d’affectation de noms pour les ressources créées.
   * Vous voulez ajouter la machine virtuelle à un groupe à haute disponibilité.
   * Vous voulez ajouter tout autre paramètre devant être configuré à l’aide de PowerShell ou d’un modèle.
@@ -114,6 +137,6 @@ La machine virtuelle est sauvegardée selon la planification et les paramètres 
 
 1. Interrompez temporairement la sauvegarde et conservez les données de sauvegarde.
 2. Déplacez la machine virtuelle vers le groupe de ressources cible.
-3. Réactivez la sauvegarde dans le nouveau ou même coffre.
+3. Sauvegarde réactivée dans le coffre même ou nouveau.
 
 Vous pouvez restaurer la machine virtuelle à partir des points de restauration disponibles créés avant l’opération de déplacement.

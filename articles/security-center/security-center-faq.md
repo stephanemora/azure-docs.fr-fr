@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: monhaber
-ms.openlocfilehash: 7e4a4572a53338dc0c7b5d7d11dca7130c8979be
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 276b2815b36f05aa49183681b6c9e622155938e9
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226893"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401129"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>FAQ du Centre de sécurité Azure
 Cette FAQ répond aux questions concernant Azure Security Center, qui vous aide à prévenir, détecter et résoudre les menaces grâce à une meilleure visibilité et à un meilleur contrôle de la sécurité de vos ressources Microsoft Azure.
@@ -291,11 +291,14 @@ Security Center est un service Azure qui surveille en continu l'environnement Az
 Azure Security Center surveille les ressources Azure suivantes :
 
 * Machines virtuelles (VM) (y compris [Cloud Services](../cloud-services/cloud-services-choose-me.md))
+* Machines virtuelles identiques (VMSSs)
 * Réseaux virtuels Azure
 * Service SQL Azure
 * un compte Azure Storage.
 * Azure Web Apps (dans [App Service Environment](../app-service/environment/intro.md))
 * Solutions de partenaires intégrées à votre abonnement Azure, par exemple pare-feu d’applications web sur les machines virtuelles et sur App Service Environment
+
+En outre, les ordinateurs non Azure (notamment en local) peuvent également être surveillés par Azure Security Center (les deux [les ordinateurs Windows](./quick-onboard-windows-computer.md) et [des ordinateurs Linux](./quick-onboard-linux-computer.md) sont pris en charge)
 
 ## <a name="virtual-machines"></a>Virtual Machines
 ### <a name="what-types-of-virtual-machines-are-supported"></a>Quels sont les types de machines virtuelles pris en charge ?

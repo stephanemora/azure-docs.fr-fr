@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: 9cb3abff10482ec7e58b4b049f051e99178cb742
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 2f84c48092581a313ff7bead7a862221e0fe4eee
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371977"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400917"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Connexion à des réseaux virtuels Azure à partir d’Azure Logic Apps à l'aide d'un environnement de service d’intégration (ISE)
 
@@ -49,9 +49,9 @@ Pour plus d’informations sur les environnements de service d’intégration, c
   * Votre réseau virtuel doit avoir quatre *vide* sous-réseaux pour le déploiement et la création de ressources dans votre ISE. Vous pouvez créer ces sous-réseaux à l’avance, ou vous pouvez attendre jusqu'à ce que vous créez votre ISE où vous pouvez créer des sous-réseaux en même temps. En savoir plus sur [exigences du sous-réseau](#create-subnet). 
   
     > [!NOTE]
-    > Si vous utilisez [ExpressRoute](../expressroute/expressroute-introduction.md), qui fournit une connexion privée aux services cloud Microsoft, vous devez [ajouter l’itinéraire suivant à chaque sous-réseau](../virtual-network/virtual-network-manage-subnet.md) utilisé par votre ISE. Si vous utilisez une table de routage avec vos sous-réseaux, [ajouter l’itinéraire suivant à votre table d’itinéraires](../virtual-network/manage-route-table.md):
+    > Si vous utilisez [ExpressRoute](../expressroute/expressroute-introduction.md), qui fournit une connexion privée aux services cloud Microsoft, vous devez [créer une table de routage](../virtual-network/manage-route-table.md) qui possède ce qui suit acheminer et lier cette table avec chaque sous-réseau utilisé par votre ISE :
     > 
-    > **Nom** : D3655BASE-route<br>
+    > **Nom**: <*nom d’itinéraire*><br>
     > **Préfixe d’adresse**: 0.0.0.0/0<br>
     > **Tronçon suivant** : Internet
 
@@ -146,9 +146,9 @@ Dans la liste des résultats, sélectionnez **Environnement de service d’inté
 
      Pour en savoir plus sur le calcul des adresses, consultez [blocs CIDR de IPv4](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks).
 
-   * Si vous utilisez [ExpressRoute](../expressroute/expressroute-introduction.md), n’oubliez pas de [ajouter l’itinéraire suivant à chaque sous-réseau](../virtual-network/virtual-network-manage-subnet.md) utilisé par votre ISE. Si vous utilisez une table de routage avec vos sous-réseaux, [ajouter l’itinéraire suivant à cette table de routage](../virtual-network/manage-route-table.md):
+   * Si vous utilisez [ExpressRoute](../expressroute/expressroute-introduction.md), n’oubliez pas de [créer une table de routage](../virtual-network/manage-route-table.md) qui possède ce qui suit acheminer et lier cette table avec chaque sous-réseau utilisé par votre ISE :
 
-     **Nom** : D3655BASE-route<br>
+     **Nom**: <*nom d’itinéraire*><br>
      **Préfixe d’adresse**: 0.0.0.0/0<br>
      **Tronçon suivant** : Internet
 
