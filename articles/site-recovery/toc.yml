@@ -24,6 +24,12 @@ items:
       href: azure-to-azure-tutorial-failover-failback.md
     - name: Exécuter une restauration automatique
       href: azure-to-azure-tutorial-failback.md
+  - name: Déplacer des machines virtuelles Azure
+    items:
+    - name: Déplacer des machines virtuelles Azure vers une autre région
+      href: azure-to-azure-tutorial-migrate.md
+    - name: Déplacer des machines virtuelles Azure vers des zones de disponibilité
+      href: move-Azure-VMs-AVset-Azone.md
   - name: Récupération d’urgence de machine virtuelle VMware vers Azure
     items:
     - name: Préparer Azure
@@ -60,19 +66,11 @@ items:
       href: migrate-tutorial-windows-server-2008.md
     - name: Migrer des instances AWS vers Azure
       href: migrate-tutorial-aws-azure.md
-  - name: Déplacer des machines virtuelles Azure
-    items:
-    - name: Vue d’ensemble
-      href: azure-to-azure-move-overview.md
-    - name: Déplacer des machines virtuelles Azure vers une autre région
-      href: azure-to-azure-tutorial-migrate.md
-    - name: Déplacer des machines virtuelles Azure vers des zones de disponibilité
-      href: move-Azure-VMs-AVset-Azone.md
 - name: Concepts
   items:
   - name: Questions courantes sur Site Recovery
     href: site-recovery-faq.md
-  - name: À propos de la récupération d’urgence de machine virtuelle Azure vers Azure
+  - name: À propos de la reprise d’activité après sinistre pour les machines virtuelles Azure
     items:
     - name: Architecture Azure vers Azure
       href: azure-to-azure-architecture.md
@@ -80,12 +78,14 @@ items:
       href: azure-to-azure-common-questions.md
     - name: Matrice de prise en charge Azure vers Azure
       href: azure-to-azure-support-matrix.md
+    - name: Utilisation de Site Recovery avec Sauvegarde Azure
+      href: site-recovery-backup-interoperability.md
     - name: Mise en réseau accélérée pour la reprise d’activité de machines virtuelles Azure
       href: azure-vm-disaster-recovery-with-accelerated-networking.md
     - name: ExpressRoute avec la récupération d’urgence de machines virtuelles Azure
       href: azure-vm-disaster-recovery-with-expressroute.md
-    - name: Reprise d’activité de machines virtuelles Azure et interopérabilité de Sauvegarde Azure
-      href: site-recovery-backup-interoperability.md
+  - name: À propos du déplacement de machines virtuelles Azure
+    href: azure-to-azure-move-overview.md
   - name: À propos de la récupération d’urgence de machine virtuelle VMware vers Azure
     items:
     - name: Présentation de la récupération d’urgence VMware
@@ -468,9 +468,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Mises à jour de service
     href: https://azure.microsoft.com/updates/?product=site-recovery
-ms.openlocfilehash: 5286e3479561e6effd279978e84f045207a0a7a3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 66b14ba7100b8bd8e4bb3a100e8fd10d226f555e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835297"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317100"

@@ -1,0 +1,149 @@
+items:
+- name: Vue d’ensemble
+  items:
+  - name: À propos des réseaux Azure
+    href: networking-overview.md
+  - name: Architecture
+    items:
+    - name: Centres de données virtuels
+      href: /azure/architecture/vdc/networking-virtual-datacenter
+    - name: Routage asymétrique avec chemins d’accès réseau multiples
+      href: ../expressroute/expressroute-asymmetric-routing.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Conceptions de réseau sécurisé
+      href: ../best-practices-network-security.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Topologie hub-and-spoke
+      href: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke
+    - name: Meilleures pratiques en matière de sécurité réseau
+      href: ../security/azure-security-network-security-best-practices.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Appliances réseau virtuelles hautement disponible
+      href: https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha
+    - name: Combiner des méthodes d’équilibrage de charge
+      href: ../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Récupération d’urgence à l’aide d’Azure DNS et Traffic Manager
+      href: disaster-recovery-dns-traffic-manager.md
+  - name: Planifier et concevoir
+    items:
+    - name: Réseaux virtuels
+      href: ../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Connectivité entre différents locaux - VPN
+      href: ../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Options de connectivité entre différents locaux - Connexion privée dédiée
+      href: ../expressroute/expressroute-workflows.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Interopérabilité de connectivité du serveur principal
+      items:
+      - name: Préface et initialisation (tearDown) de test
+        href: connectivty-interoperability-preface.md?toc=%2fazure%2fnetworking%2ftoc.json
+      - name: Configuration de l’initialisation (tearDown) de test
+        href: connectivty-interoperability-configuration.md?toc=%2fazure%2fnetworking%2ftoc.json
+      - name: Analyse du plan de contrôle
+        href: connectivty-interoperability-control-plane.md?toc=%2fazure%2fnetworking%2ftoc.json
+      - name: Analyse du plan de données
+        href: connectivty-interoperability-data-plane.md?toc=%2fazure%2fnetworking%2ftoc.json
+  - name: Concepts
+    items:
+    - name: Réseaux virtuels
+      href: ../virtual-network/virtual-networks-overview.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Équilibrage de charge réseau
+      href: ../load-balancer/load-balancer-overview.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Équilibrage de charge d’application
+      href: ../application-gateway/overview.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: DNS
+      href: ../dns/dns-overview.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Distribution du trafic DNS
+      href: ../traffic-manager/traffic-manager-overview.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Se connecter en local - VPN
+      href: ../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Se connecter en local - Connexion dédiée
+      href: ../expressroute/expressroute-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json
+- name: Prise en main
+  items:
+  - name: Créer votre premier réseau virtuel
+    href: ../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+- name: Procédures
+  items:
+  - name: Connectivité Internet
+    items:
+    - name: Équilibrage de charge réseau des serveurs publics
+      href: ../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Équilibrage de charge des applications des serveurs publics
+      href: ../application-gateway/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Protéger les applications web
+      href: ../application-gateway/application-gateway-web-application-firewall-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Répartir le trafic entre les emplacements
+      href: ../traffic-manager/traffic-manager-configure-geographic-routing-method.md?toc=%2fazure%2fnetworking%2ftoc.json
+  - name: Connectivité interne
+    items:
+    - name: Équilibrage de charge réseau des serveurs privés
+      href: ../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Équilibrage de charge des applications des serveurs privés
+      href: ../application-gateway/application-gateway-ilb-arm.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Connecter des réseaux virtuels (même emplacement)
+      href: ../virtual-network/virtual-networks-create-vnetpeering-arm-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Connecter des réseaux virtuels (emplacements différents)
+      href: ../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+  - name: Connectivité intersite
+    items:
+    - name: Créer une connexion VPN S2S (IPsec/IKE)
+      href: ../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Créer une connexion VPN P2S (SSTP avec certificats)
+      href: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Créer une connexion privée dédiée (ExpressRoute)
+      href: ../expressroute/expressroute-howto-circuit-portal-resource-manager.md?toc=%2fazure%2fnetworking%2ftoc.json
+  - name: gestion
+    items:
+    - name: Vue d’ensemble de la supervision réseau
+      href: network-monitoring-overview.md
+    - name: Vérifier l’utilisation des ressources par rapport aux limites Azure
+      href: check-usage-against-limits.md
+    - name: Afficher la topologie du réseau
+      href: ../network-watcher/network-watcher-topology-powershell.md?toc=%2fazure%2fnetworking%2ftoc.json
+  - name: Exemples de scripts
+    items:
+    - name: Azure CLI
+      href: cli-samples.md
+    - name: Azure PowerShell
+      href: powershell-samples.md
+  - name: Tutoriels
+    items:
+    - name: Équilibrer la charge des machines virtuelles
+      href: ../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Connecter un ordinateur à un réseau virtuel
+      href: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+- name: Informations de référence
+  items:
+  - name: Azure CLI
+    href: https://docs.microsoft.com/cli/azure/network
+  - name: Azure PowerShell
+    href: https://docs.microsoft.com/powershell/module/azurerm.network/?view=azurermps-3.8.0
+  - name: .Net
+    href: https://docs.microsoft.com/dotnet/api/microsoft.azure.management.network?view=azuremgmtnetwork-9.1.0-preview
+  - name: Node.js
+    href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
+  - name: REST
+    href: https://msdn.microsoft.com/library/mt163658.aspx
+- name: Ressources
+  items:
+  - name: Créer des modèles
+    href: /azure/azure-resource-manager/resource-group-authoring-templates?toc=%2fazure%2fnetworking%2ftoc.json
+  - name: Feuille de route Azure
+    href: https://azure.microsoft.com/roadmap/?category=networking
+  - name: Modèles fournis par la communauté
+    href: https://azure.microsoft.com/resources/templates/
+  - name: Blog sur la mise en réseau
+    href: https://azure.microsoft.com/blog/topics/networking
+  - name: Tarifs
+    href: https://azure.microsoft.com/pricing
+  - name: Calculatrice de prix
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Disponibilité régionale
+    href: https://azure.microsoft.com/regions/services/
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-virtual-network
+  - name: Videos
+    href: https://azure.microsoft.com/resources/videos/index/?services=virtual-network
+ms.openlocfilehash: 2c6eff267e9f612afe9fdc7214a1dc387325d733
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58341252"

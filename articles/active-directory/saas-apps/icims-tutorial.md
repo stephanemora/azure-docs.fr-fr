@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à ICIMS | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à ICIMS | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et ICIMS.
 services: active-directory
 documentationCenter: na
@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 72dbd649-e4b1-4d72-ad76-636d84922596
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfeb5669b6af231577b71b52c17027614f776604
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: b0966fe01c90d5bf0bdaefba893b678f877805c5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869307"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835161"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-icims"></a>Didacticiel : Intégration d’Azure Active Directory à ICIMS
+# <a name="tutorial-azure-active-directory-integration-with-icims"></a>Tutoriel : Intégration d’Azure Active Directory à ICIMS
 
 Dans ce didacticiel, vous allez apprendre à intégrer ICIMS dans Azure Active Directory (Azure AD).
 L’intégration d’ICIMS dans Azure AD offre les avantages suivants :
@@ -148,7 +148,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

@@ -94,14 +94,20 @@ items:
 - name: Aide du portail MyApps
   items:
   - name: Vue d’ensemble
-    href: user-help-my-apps-overview.md
-  - name: Qu’est-ce que le portail MyApps ?
-    href: active-directory-saas-access-panel-introduction.md
+    href: my-apps-portal-end-user-overview.md
+  - name: Accéder au portail Mes applications et l’utiliser
+    href: my-apps-portal-end-user-access.md
+  - name: Mettre à jour vos informations de profil et de compte
+    href: my-apps-portal-end-user-update-profile.md
+  - name: Mettre à jour les informations de vos groupes
+    href: my-apps-portal-end-user-groups.md
+  - name: Effectuer vos propres révisions d’accès
+    href: my-apps-portal-end-user-access-reviews.md
   - name: Problèmes de dépannage
-    href: active-directory-saas-access-panel-user-help.md
-ms.openlocfilehash: ce88ac8f7ca81009f7c28b08408723ac5161eda1
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+    href: my-apps-portal-end-user-troubleshoot.md
+ms.openlocfilehash: be7c20053ab6ee3a18f81aec9dc973a3032aa5c6
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340059"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339534"

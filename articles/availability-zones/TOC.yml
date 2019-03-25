@@ -1,0 +1,104 @@
+items:
+- name: Résilience Azure
+  items:
+  - name: Page de fonctionnalité de résilience Azure
+    href: https://azure.microsoft.com/features/resiliency
+  - name: Concevoir des applications résilientes pour Azure
+    href: https://docs.microsoft.com/azure/architecture/resiliency/
+- name: Haute disponibilité
+  items:
+  - name: Haute disponibilité des applications Azure
+    href: https://docs.microsoft.com/azure/architecture/resiliency/high-availability-azure-applications
+  - name: Documentation sur les zones de disponibilité
+    items:
+    - name: Que sont les zones de disponibilité ?
+      href: az-overview.md
+    - name: Machines virtuelles
+      items:
+      - name: Créer une machine virtuelle Linux dans une zone de disponibilité avec l’interface CLI
+        href: ../virtual-machines/linux/create-cli-availability-zone.md
+      - name: Créer une machine virtuelle Windows dans une zone de disponibilité avec PowerShell
+        href: ../virtual-machines/windows/create-powershell-availability-zone.md
+      - name: Créer une machine virtuelle Windows dans une zone de disponibilité avec le portail Azure
+        href: ../virtual-machines/windows/create-portal-availability-zone.md
+    - name: Disques gérés
+      items:
+      - name: Ajouter un disque managé dans des zones de disponibilité avec l’interface CLI
+        href: ../virtual-machines/linux/add-disk.md#use-managed-disks
+      - name: Ajouter un disque managé dans des zones de disponibilité avec PowerShell
+        href: ../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine
+    - name: 'Groupes identiques de machines virtuelles '
+      items:
+      - name: Créer un groupe identique dans une zone de disponibilité
+        href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md
+    - name: Load Balancer
+      items:
+      - name: Qu’est-ce que l’équilibrage de charge ?
+        href: ../load-balancer/load-balancer-standard-overview.md
+      - name: Standard Load Balancer et zones de disponibilité
+        href: ../load-balancer/load-balancer-standard-availability-zones.md
+      - name: Créer un équilibrage de charge standard public et redondant dans une zone
+        href: ../load-balancer/load-balancer-get-started-internet-az-portal.md
+        items:
+        - name: Créer un équilibrage de charge standard public et redondant dans une zone (PowerShell)
+          href: ../load-balancer/load-balancer-get-started-internet-az-powershell.md
+        - name: Créer un équilibrage de charge standard public et redondant dans une zone (CLI)
+          href: ../load-balancer/load-balancer-get-started-internet-az-cli.md
+      - name: Créer un équilibrage de charge standard public et zonal
+        href: ../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-portal.md
+        items:
+        - name: Créer un équilibrage de charge standard public et zonal (PowerShell)
+          href: ../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-powershell.md
+        - name: Créer un équilibrage de charge standard public et redondant dans une zone (CLI)
+          href: ../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-cli.md
+      - name: Équilibrer la charge de machines virtuelles entre des zones de disponibilité
+        href: ../load-balancer/load-balancer-standard-public-availability-zones-portal.md
+        items:
+        - name: Équilibrer la charge de machines virtuelles entre des zones de disponibilité avec Azure (CLI)
+          href: ../load-balancer/load-balancer-standard-public-zone-redundant-cli.md
+    - name: Adresse IP publique
+      href: ../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address
+    - name: Base de données SQL
+      items:
+      - name: Zones de disponibilité avec SQL Database
+        href: ../sql-database/sql-database-high-availability.md#zone-redundant-configuration
+    - name: Stockage
+      items:
+      - name: Stockage redondant interzone
+        href: ../storage/common/storage-redundancy-zrs.md
+    - name: Event Hubs
+      items:
+      - name: Géo-reprise d’activité après sinistre Event Hubs
+        href: ../event-hubs/event-hubs-geo-dr.md#availability-zones-preview
+    - name: Service Bus
+      items:
+      - name: Géo-reprise d’activité après sinistre Service Bus
+        href: ../service-bus-messaging/service-bus-geo-dr.md#availability-zones-preview
+    - name: Passerelle VPN
+      items:
+      - name: Créer une passerelle de réseau virtuel redondante interzone
+        href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md
+    - name: ExpressRoute
+      items:
+      - name: Créer une passerelle de réseau virtuel redondante interzone
+        href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md
+- name: Récupération d’urgence
+  items:
+  - name: Utiliser Azure Site Recovery
+    href: https://docs.microsoft.com/azure/site-recovery/
+- name: Sauvegarde Azure
+  items:
+  - name: Utiliser la Sauvegarde Azure
+    href: https://docs.microsoft.com/azure/backup/
+- name: Ressources
+  items:
+  - name: Feuille de route Azure
+    href: https://azure.microsoft.com/roadmap/
+  - name: Régions Azure
+    href: https://azure.microsoft.com/regions/
+ms.openlocfilehash: 45a73ec4d5e3649be38133e5ce055f206ecf80ab
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58340674"

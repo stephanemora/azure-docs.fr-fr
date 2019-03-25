@@ -7,21 +7,21 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 7b2c3ac5-17f1-49a0-8961-c541b258d4b1
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: ace39ad587fa8a3bf78f3807cbee4970d29c910e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 93ac6009e593fa5eaefd14b09ce8eecd513688e5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878436"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864845"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-flock"></a>Tutoriel : Intégration d’Azure Active Directory à Flock
+# <a name="tutorial-azure-active-directory-integration-with-flock"></a>Didacticiel : Intégration d’Azure Active Directory à Flock
 
 Dans ce tutoriel, vous allez apprendre à intégrer Flock Suite à Azure Active Directory (Azure AD).
 L’intégration de Flock à Azure AD offre les avantages suivants :
@@ -163,7 +163,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
@@ -212,7 +212,7 @@ Les utilisateurs Azure AD doivent avoir fait l’objet d’une attribution dans 
 
     ![Ajouter un employé](./media/flock-tutorial/user2.png)
 
-4. Entrez l’adresse e-mail de l’utilisateur, par exemple, **Brittasimon@contoso.com**, puis sélectionnez **Ajouter des utilisateurs**.
+4. Entrez l’adresse e-mail de l’utilisateur, par exemple, **Brittasimon\@contoso.com**, puis sélectionnez **Ajouter des utilisateurs**.
 
     ![Ajouter un employé](./media/flock-tutorial/user3.png)
 

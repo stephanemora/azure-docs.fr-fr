@@ -10,14 +10,14 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: b9141fcef8bda181cd7b679f58d22d4ba2895b14
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: d6f14a7cdcb77c1ca47d0f79f587e0bf3606b5d5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004579"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893269"
 ---
-# <a name="tutorial-secure-a-single-or-pooled-database"></a>Tutoriel : Sécuriser une base de données unique ou en pool
+# <a name="tutorial-secure-a-single-or-pooled-database"></a>Didacticiel : Sécuriser une base de données unique ou en pool
 
 Azure SQL Database sécurise les données dans une base de données unique ou en pool en vous permettant de :
 
@@ -77,11 +77,11 @@ Pour configurer une règle de pare-feu au niveau du serveur :
 
 1. Dans la page **Vue d’ensemble**, sélectionnez **Définir le pare-feu du serveur**. La page **Paramètres de pare-feu** du serveur de base de données s’ouvre.
 
-    1. Dans la barre d’outils, sélectionnez **Ajouter une adresse IP de client** pour ajouter votre adresse IP actuelle à une nouvelle règle de pare-feu. Une règle peut ouvrir le port 1433 pour une seule adresse IP ou une plage d’adresses IP. Sélectionnez **Enregistrer**.
+   1. Dans la barre d’outils, sélectionnez **Ajouter une adresse IP de client** pour ajouter votre adresse IP actuelle à une nouvelle règle de pare-feu. Une règle peut ouvrir le port 1433 pour une seule adresse IP ou une plage d’adresses IP. Sélectionnez **Enregistrer**.
 
-    ![définir la règle de pare-feu de serveur](./media/sql-database-security-tutorial/server-firewall-rule2.png)
+      ![définir la règle de pare-feu de serveur](./media/sql-database-security-tutorial/server-firewall-rule2.png)
 
-    1. Sélectionnez **OK** pour fermer la page **Paramètres de pare-feu**.
+   1. Sélectionnez **OK** pour fermer la page **Paramètres de pare-feu**.
 
 Vous pouvez maintenant vous connecter à n’importe quelle base de données du serveur avec l’adresse IP ou la plage d’adresses IP spécifiée.
 
@@ -90,7 +90,7 @@ Vous pouvez maintenant vous connecter à n’importe quelle base de données du 
 
 ### <a name="setup-database-firewall-rules"></a>Configurer des règles de pare-feu de base de données
 
-Les règles de pare-feu au niveau de la base de données s’appliquent uniquement à des bases de données individuelles. Ces règles sont portables et suivent la base de données lors d’un basculement de serveur. Vous pouvez uniquement configurer des règles de pare-feu au niveau de la base de données à l’aide d’instructions Transact-SQL et uniquement après avoir configuré une règle de pare-feu au niveau du serveur.
+Les règles de pare-feu au niveau de la base de données s’appliquent uniquement à des bases de données individuelles. La base de données conservent ces règles lors d’un basculement de serveur. Vous pouvez uniquement configurer des règles de pare-feu au niveau de la base de données à l’aide d’instructions Transact-SQL et uniquement après avoir configuré une règle de pare-feu au niveau du serveur.
 
 Pour configurer une règle de pare-feu au niveau de la base de données :
 
@@ -142,7 +142,7 @@ Pour plus d’informations sur la configuration d’Azure AD, consultez :
 
 - [Intégrer des identités locales à Azure AD](../active-directory/hybrid/whatis-hybrid-identity.md)
 - [Ajouter votre propre nom de domaine à Azure AD](../active-directory/active-directory-domains-add-azure-portal.md)
-- [Microsoft Azure prend désormais en charge la fédération avec Windows Server AD](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/)
+- [Microsoft Azure prend désormais en charge la fédération avec Windows Server AD](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)
 - [Administration de votre annuaire Azure AD](../active-directory/fundamentals/active-directory-administer.md)
 - [Gérer Azure AD avec PowerShell](/powershell/azure/overview?view=azureadps-2.0)
 - [Ports et protocoles nécessaires à l’identité hybride](../active-directory/hybrid/reference-connect-ports.md)
@@ -248,11 +248,11 @@ Pour activer Advanced Data Security :
 
 1. Dans la page **Serveur SQL**, recherchez la section **Sécurité** et sélectionnez **Advanced Data Security**.
 
-    1. Sélectionnez **ACTIVÉ** sous **Advanced Data Security** pour activer la fonctionnalité. Choisissez un compte de stockage pour l’enregistrement des résultats de l’évaluation de la vulnérabilité. Ensuite, sélectionnez **Enregistrer**.
+   1. Sélectionnez **ACTIVÉ** sous **Advanced Data Security** pour activer la fonctionnalité. Choisissez un compte de stockage pour l’enregistrement des résultats de l’évaluation de la vulnérabilité. Ensuite, sélectionnez **Enregistrer**.
 
-    ![Volet de navigation](./media/sql-database-security-tutorial/threat-settings.png)
+      ![Volet de navigation](./media/sql-database-security-tutorial/threat-settings.png)
 
-    Vous pouvez également configurer des e-mails pour recevoir des alertes de sécurité, des détails de stockage et des types de détection des menaces.
+      Vous pouvez également configurer des e-mails pour recevoir des alertes de sécurité, des détails de stockage et des types de détection des menaces.
 
 1. Revenez à la page **Bases de données SQL** de votre base de données, puis sélectionnez **Advanced Data Security** dans la section **Sécurité**. Vous y trouverez divers indicateurs de sécurité disponibles pour la base de données.
 
@@ -264,7 +264,7 @@ Si des activités anormales sont détectées, vous recevez un e-mail contenant p
 
 ### <a name="auditing"></a>Audit
 
-La fonctionnalité d’audit effectue le suivi des événements de la base de données. Elle écrit ces événements dans un journal d’audit, soit dans un stockage Azure, le service Log Analytics ou un hub d’événements. L’audit vous aide à respecter une conformité réglementaire, à comprendre l’activité de la base de données et à découvrir des discordances et anomalies susceptibles d’indiquer des violations potentielles de la sécurité.
+La fonctionnalité d’audit effectue le suivi des événements de la base de données. Elle écrit ces événements dans un journal d’audit, soit dans un stockage Azure, les journaux d'activité Azure Monitor ou un hub d’événements. L’audit vous aide à respecter une conformité réglementaire, à comprendre l’activité de la base de données et à découvrir des discordances et anomalies susceptibles d’indiquer des violations potentielles de la sécurité.
 
 Pour activer l’audit :
 
@@ -274,25 +274,25 @@ Pour activer l’audit :
 
 1. Sous les paramètres **Audit**, définissez les valeurs suivantes :
 
-    1. Définissez **Audit** sur **ACTIVÉ**.
+   1. Définissez **Audit** sur **ACTIVÉ**.
 
-    1. Sélectionnez l’une des **destinations du journal d’audit** suivantes :
+   1. Sélectionnez l’une des **destinations du journal d’audit** suivantes :
 
-        - **Stockage**, un compte de stockage Azure où les journaux des événements sont enregistrés et peuvent être téléchargés sous forme de fichiers *.xel*.
+       - **Stockage**, un compte de stockage Azure où les journaux des événements sont enregistrés et peuvent être téléchargés sous forme de fichiers *.xel*.
 
-           > [!TIP]
-           > Utilisez le même compte de stockage pour toutes les bases de données auditées afin de profiter au mieux des modèles de rapport d’audit.
+          > [!TIP]
+          > Utilisez le même compte de stockage pour toutes les bases de données auditées afin de profiter au mieux des modèles de rapport d’audit.
 
-        - **Log Analytics**, qui stocke automatiquement les événements à des fins de requête ou d’analyse plus approfondie.
+       - **Log Analytics**, qui stocke automatiquement les événements à des fins de requête ou d’analyse plus approfondie.
 
-            > [!NOTE]
-            > Un **espace de travail Log Analytics** est nécessaire pour prendre en charge des fonctionnalités avancées comme l’analytique, les règles d’alerte personnalisées et les exportations Excel ou Power BI. Sans espace de travail, seul l’éditeur de requête est disponible.
+           > [!NOTE]
+           > Un **espace de travail Log Analytics** est nécessaire pour prendre en charge des fonctionnalités avancées comme l’analytique, les règles d’alerte personnalisées et les exportations Excel ou Power BI. Sans espace de travail, seul l’éditeur de requête est disponible.
 
-        - **Hub d’événements**, qui permet de router des événements pour une utilisation dans d’autres applications.
+       - **Hub d’événements**, qui permet de router des événements pour une utilisation dans d’autres applications.
 
-    1. Sélectionnez **Enregistrer**.
+   1. Sélectionnez **Enregistrer**.
 
-    ![Paramètre d’audit](./media/sql-database-security-tutorial/audit-settings.png)
+      ![Paramètre d’audit](./media/sql-database-security-tutorial/audit-settings.png)
 
 1. Vous pouvez maintenant sélectionner **Afficher les journaux d’audit** pour voir les données des événements de la base de données.
 
@@ -334,7 +334,7 @@ Pour activer ou vérifier le chiffrement :
     ![Chiffrement transparent des données](./media/sql-database-security-tutorial/encryption-settings.png)
 
 > [!NOTE]
-> Pour voir l’état du chiffrement, connectez-vous à la base de données à l’aide de [SSMS](./sql-database-connect-query-ssms.md) et interrogez la colonne `encryption_state` de la vue [sys.dm_database_encryption_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql?view=sql-server-2017). L’état `3` indique que la base de données est chiffrée.
+> Pour voir l’état du chiffrement, connectez-vous à la base de données à l’aide de [SSMS](./sql-database-connect-query-ssms.md) et interrogez la colonne `encryption_state` de la vue [sys.dm_database_encryption_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql). L’état `3` indique que la base de données est chiffrée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

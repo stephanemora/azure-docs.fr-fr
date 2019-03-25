@@ -6,16 +6,16 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.devlang: NA
-ms.topic: conceptual
-ms.date: 01/18/2019
+ms.topic: overview
+ms.date: 03/17/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: d2086f02cc981ad944c030ad40083d153c520359
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 3c2567564e015ef19adf9f8c776e1f377a9cdf30
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447325"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58133057"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>Qu’est-ce que la « recherche cognitive » dans Recherche Azure ?
 
@@ -92,31 +92,9 @@ Les index sont générés à partir d’un schéma d’index qui définit les ch
 
 ## <a name="where-do-i-start"></a>Par où commencer ?
 
-**Étape 1 : [Créer une ressource Recherche Azure](search-create-service-portal.md) dans une région qui fournit les API** 
+**Étape 1 : [Créer une ressource Recherche Azure](search-create-service-portal.md)** 
 
-+ USA Centre-Ouest
-+ USA Centre Sud
-+ USA Centre Nord
-+ USA Est
-+ USA Est 2
-+ USA Ouest
-+ USA Ouest 2
-+ USA Centre
-+ Centre du Canada
-+ Europe Ouest
-+ Europe Nord
-+ Sud du Royaume-Uni
-+ France Centre
-+ Brésil Sud
-+ Asie Est
-+ Asie Sud-Est
-+ Inde Centre
-+ Japon Ouest
-+ Japon Est
-+ Centre de la Corée
-+ Australie Est
-
-**Étape 2 : Exercice pratique pour maîtriser le workflow**
+**Étape 2 : Essayez quelques départs rapides et des exemples pour avoir une expérience pratique**
 
 + [Démarrage rapide (portail)](cognitive-search-quickstart-blob.md)
 + [Didacticiel (requêtes HTTP)](cognitive-search-tutorial-blob.md)

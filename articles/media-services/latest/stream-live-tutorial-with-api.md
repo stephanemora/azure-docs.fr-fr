@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/28/2019
+ms.date: 03/01/2019
 ms.author: juliako
-ms.openlocfilehash: 394efd023382f9153a6869944a8a3a815203f9dd
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 410955936e07b79128e1892d72644eaeb18ee036
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338595"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863761"
 ---
-# <a name="tutorial-stream-live-with-media-services-v3-using-net"></a>Didacticiel : Diffuser en direct avec Media Services v3 à l’aide de .NET
+# <a name="tutorial-stream-live-with-media-services-v3-using-net"></a>Tutoriel : Diffuser en direct avec Media Services v3 à l’aide de .NET
 
 Dans Azure Media Services, les [événements en direct](https://docs.microsoft.com/rest/api/media/liveevents) sont responsables du traitement de contenu de streaming en direct. Un événement en direct fournit un point de terminaison d’entrée (URL de réception) que vous fournissez ensuite à un encodeur live. Il reçoit des flux d’entrée en temps réel d’un encodeur live et le rend disponible pour le streaming par le biais d’un ou de plusieurs [points de terminaison de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints). Les événements en direct fournissent également un point de terminaison d’aperçu (URL d’aperçu) que vous utilisez pour prévisualiser et valider votre flux avant de poursuivre le traitement ou la distribution. Ce didacticiel explique comment utiliser .NET Core pour créer un type de **canal direct** d’un événement en temps réel. 
 
@@ -33,7 +33,7 @@ Ce didacticiel explique les procédures suivantes :
 > [!div class="checklist"]
 > * Télécharger l’exemple d’application décrit dans la rubrique
 > * Examiner le code qui effectue la diffusion en continu
-> * Surveiller l’événement avec [Lecteur multimédia Azure](http://amp.azure.net/libs/amp/latest/docs/index.html) à l’adresse http://ampdemo.azureedge.net
+> * Surveiller l’événement avec [Lecteur multimédia Azure](https://amp.azure.net/libs/amp/latest/docs/index.html) à l’adresse https://ampdemo.azureedge.net
 > * Supprimer des ressources
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
@@ -81,9 +81,9 @@ Pour commencer à utiliser les API Media Services avec .NET, vous devez créer u
 
 ### <a name="create-a-live-event"></a>Créer un événement en temps réel
 
-Cette section montre comment créer un type de **transmission directe** d’événement en direct (LiveEventEncodingType défini sur Aucun). Si vous voulez créer un événement en direct pour lequel l’encodage live est activé, définissez LiveEventEncodingType sur **Standard**. 
-
-Voici quelques éléments que vous voudrez probablement spécifier lors de la création de l’événement en temps réel :
+Cette section montre comment créer un type de **transmission directe** d’événement en direct (LiveEventEncodingType défini sur Aucun). Pour plus d’informations sur les types d’événements en direct disponibles, consultez [Types d’événements en direct](live-events-outputs-concept.md#live-event-types). 
+ 
+Voici quelques éléments que vous voudrez probablement spécifier lors de la création de l’événement en temps réel :
 
 * Emplacement Media Services 
 * Le protocole de streaming de l’événement en direct (les protocoles RTMP et Smooth Streaming sont actuellement pris en charge).<br/>Vous ne pouvez pas changer l’option de protocole pendant l’exécution de l’événement en direct ou des sorties en direct qui lui sont associées. Si vous avez besoin d’autres protocoles, vous devez créer des événements en direct distincts pour chaque protocole de streaming.  
@@ -166,7 +166,7 @@ Le code suivant montre comment nettoyer votre compte de tous les événements en
 
 ## <a name="watch-the-event"></a>Regarder l’événement
 
-Pour regarder l’événement, copiez l’URL de streaming obtenue à l’exécution du code décrit dans Créer un localisateur de streaming et utilisez le lecteur de votre choix. Vous pouvez utiliser le [Lecteur multimédia Azure](http://amp.azure.net/libs/amp/latest/docs/index.html) pour tester votre flux à l’adresse http://ampdemo.azureedge.net. 
+Pour regarder l’événement, copiez l’URL de streaming obtenue à l’exécution du code décrit dans Créer un localisateur de streaming et utilisez le lecteur de votre choix. Vous pouvez utiliser le [Lecteur multimédia Azure](https://amp.azure.net/libs/amp/latest/docs/index.html) pour tester votre flux à l’adresse https://ampdemo.azureedge.net. 
 
 Une fois arrêté, l’événement en direct est automatiquement converti en contenu à la demande. Même après l’arrêt et la suppression de l’événement, les utilisateurs pourront lire votre contenu archivé en tant que vidéo à la demande tant que vous n’aurez pas supprimé l’élément multimédia. Un élément multimédia ne peut pas être supprimé s’il est utilisé par un événement ; vous devez d’abord supprimer l’événement. 
 

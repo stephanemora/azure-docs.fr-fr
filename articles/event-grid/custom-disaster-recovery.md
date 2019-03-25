@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: tutorial
 ms.date: 01/16/2018
 ms.author: babanisa
-ms.openlocfilehash: a77c208c208ef7e0df170733dbe89963fc5cb846
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: fa0ffa9ad913f0dc3afe8dc31aeaa0254fa2d241
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727177"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863166"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Créer votre propre système de reprise d’activité pour les rubriques personnalisées dans Event Grid
 
@@ -28,7 +28,7 @@ Pour simplifier les tests, déployez une [application web prédéfinie](https://
 
 1. Sélectionnez **Déployer sur Azure** pour déployer la solution sur votre abonnement. Dans le portail Azure, indiquez des valeurs pour les paramètres.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
 1. Le déploiement peut prendre quelques minutes. Une fois le déploiement réussi, affichez votre application web pour vérifier qu’elle s’exécute. Dans un navigateur web, accédez à : `https://<your-site-name>.azurewebsites.net`
 Prenez note de cette URL, car vous en aurez besoin ultérieurement.
@@ -54,10 +54,10 @@ Tout d’abord, créez deux rubriques Event Grid. Il s’agira de la rubrique pr
 
 1. Dans le menu Rubriques Event Grid, sélectionnez **+ Ajouter** pour créer votre rubrique principale.
 
-    * Donnez un nom logique à la rubrique, puis ajoutez «-principale » comme suffixe pour faciliter son suivi.
-    * La région de cette rubrique sera votre région primaire.
+   * Donnez un nom logique à la rubrique, puis ajoutez «-principale » comme suffixe pour faciliter son suivi.
+   * La région de cette rubrique sera votre région primaire.
 
-    ![Boîte de dialogue de création de la rubrique Event Grid principale](./media/custom-disaster-recovery/create-primary-topic.png)
+     ![Boîte de dialogue de création de la rubrique Event Grid principale](./media/custom-disaster-recovery/create-primary-topic.png)
 
 1. Une fois la rubrique créée, accédez à celle-ci, puis copiez le **Point de terminaison de la rubrique**. Vous aurez besoin de l’URI plus tard.
 
@@ -69,11 +69,11 @@ Tout d’abord, créez deux rubriques Event Grid. Il s’agira de la rubrique pr
 
 1. Dans le panneau Rubrique, cliquez sur **+Abonnement aux événements** pour créer un abonnement à connecter au site web récepteur d’événements que vous avez créé dans les prérequis de ce tutoriel.
 
-    * Donnez un nom logique à l’abonnement d’événements, puis ajoutez « -principal » comme suffixe pour faciliter son suivi.
-    * Sélectionnez un webhook de type de point de terminaison.
-    * Définissez le point de terminaison sur l’URL d’événement de votre récepteur d’événements, qui doit ressembler à ceci : `https://<your-event-reciever>.azurewebsites.net/api/updates`
+   * Donnez un nom logique à l’abonnement d’événements, puis ajoutez « -principal » comme suffixe pour faciliter son suivi.
+   * Sélectionnez un webhook de type de point de terminaison.
+   * Définissez le point de terminaison sur l’URL d’événement de votre récepteur d’événements, qui doit ressembler à ceci : `https://<your-event-reciever>.azurewebsites.net/api/updates`
 
-    ![Abonnement d’événements principal Event Grid](./media/custom-disaster-recovery/create-primary-es.png)
+     ![Abonnement d’événements principal Event Grid](./media/custom-disaster-recovery/create-primary-es.png)
 
 1. Répétez la même procédure pour créer votre rubrique et votre abonnement secondaire. Cette fois-ci, remplacez le suffixe « -principal(e) » par le suffixe « -secondaire » pour faciliter le suivi. Enfin, placez-le dans une autre région Azure. Même si vous pouvez le placer n’importe où, il est recommandé d’utiliser les [régions associées Azure](../best-practices-availability-paired-regions.md). Le fait de placer la rubrique et l’abonnement secondaires dans une autre région garantit la transmission des nouveaux événements, même lorsque la région primaire est indisponible.
 

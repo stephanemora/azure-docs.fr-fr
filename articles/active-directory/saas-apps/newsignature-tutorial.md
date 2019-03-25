@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 4ea9f47c-25ca-42b0-a878-9e7aa6f34973
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96937c5e90cc143f41d9577298fee13f1756aa8c
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 81351fc13ddf36d8aeb4fa5cecab10daf152406f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873302"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57875921"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-cloud-management-portal-for-microsoft-azure"></a>Tutoriel : Intégration d’Azure Active Directory à Cloud Management Portal for Microsoft Azure
+# <a name="tutorial-azure-active-directory-integration-with-cloud-management-portal-for-microsoft-azure"></a>Didacticiel : Intégration d’Azure Active Directory à Cloud Management Portal for Microsoft Azure
 
 Dans ce didacticiel, vous allez apprendre à intégrer Cloud Management Portal for Microsoft Azure à Azure Active Directory (Azure AD).
 L’intégration du portail de gestion cloud de Microsoft Azure avec Azure AD vous offre les avantages suivants :
@@ -106,18 +106,21 @@ Pour configurer l’authentification unique Azure AD avec Cloud Management Port
     ![Informations sur l’authentification unique Domaine et URL Cloud Management Portal for Microsoft Azure](common/sp-identifier-reply.png)
 
     a. Dans la zone de texte **URL d’authentification**, tapez une URL au format suivant :
+
     | |
     |--|
     | `https://portal.newsignature.com/<instancename>` |   
     | `https://portal.igcm.com/<instancename>` |
 
     b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant :
+
     | |
     |--|
     | `https://<subdomain>.igcm.com` |
     | `https://<subdomain>.newsignature.com` |
 
     c. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant :
+
     | |
     |--|
     | `https://<subdomain>.igcm.com/<instancename>` |
@@ -163,7 +166,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

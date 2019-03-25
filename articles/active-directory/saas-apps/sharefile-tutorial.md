@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: e14fc310-bac4-4f09-99ef-87e5c77288b6
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc89475ea0338165e7a4477e861ddb199bd73de7
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: d5839329f78fc349210f9439c5b1580a21f5172a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56879898"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57834402"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-sharefile"></a>Tutoriel : Intégration d’Azure Active Directory à Citrix ShareFile
 
@@ -119,6 +119,7 @@ Pour configurer l’authentification unique Azure AD avec Citrix ShareFile, proc
     | |
     
     c. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant :
+    
     | |
     |---|
     | `https://<tenant-name>.sharefile.com/saml/acs`|
@@ -186,7 +187,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
@@ -235,7 +236,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Citrix ShareFile, vo
    
     ![Informations de base](./media/sharefile-tutorial/IC799951.png "Informations de base")
    
-    a. Dans la zone de texte **Email Address** (Adresse e-mail), tapez l’adresse e-mail du compte de Britta Simon au format suivant : **brittasimon@contoso.com**.
+    a. Dans la zone de texte **Email Address** (Adresse e-mail), tapez l’adresse e-mail du compte de Britta Simon au format suivant : **brittasimon\@contoso.com**.
    
     b. Dans la zone de texte **First Name**, entrez le **prénom** de l’utilisateur. Ici, il s’agit de **Britta**.
    

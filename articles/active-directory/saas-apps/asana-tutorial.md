@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 837e38fe-8f55-475c-87f4-6394dc1fee2b
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc0fbc55c73f6d745d39873236df389f121dc9c7
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 73f6126d6bf172a35a284e92b65b1c3ef449949e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880918"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57904131"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-asana"></a>Didacticiel : Intégration d’Azure Active Directory dans Asana
+# <a name="tutorial-azure-active-directory-integration-with-asana"></a>Tutoriel : Intégration d’Azure Active Directory dans Asana
 
 Dans ce didacticiel, vous allez apprendre à intégrer Azure Active Directory (Azure AD) dans Asana.
 L’intégration d’Azure AD dans Asana offre les avantages suivants :
@@ -159,7 +159,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
@@ -204,7 +204,7 @@ Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans A
 
     ![Création d’un utilisateur de test Azure AD](./media/asana-tutorial/tutorial_asana_12.png)
 
-2. Tapez l’e-mail de l’utilisateur, par exemple **britta.simon@contoso.com**, dans la zone de texte, puis sélectionnez **Inviter**.
+2. Tapez l’e-mail de l’utilisateur, par exemple **britta.simon\@contoso.com**, dans la zone de texte, puis sélectionnez **Inviter**.
 
 3. Cliquez sur **Send Invite**(Envoyer l’invitation). Le nouvel utilisateur recevra un e-mail dans son compte e-mail. Il devra créer et valider le compte.
 
@@ -222,4 +222,4 @@ Le fait de cliquer sur la vignette Asana dans le panneau d’accès doit vous co
 
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-* [Configurer l’approvisionnement de l’utilisateur](asana-provisioning-tutorial.md)
+- [Configurer l’approvisionnement de l’utilisateur](asana-provisioning-tutorial.md)

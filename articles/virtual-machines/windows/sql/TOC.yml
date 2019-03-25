@@ -1,0 +1,129 @@
+items:
+- name: Vue d’ensemble
+  items:
+  - name: À propos des machines virtuelles SQL Server Windows
+    href: virtual-machines-windows-sql-server-iaas-overview.md
+  - name: Notes de publication
+    href: virtual-machines-windows-sql-server-iaas-release-notes.md
+- name: Démarrages rapides
+  items:
+  - name: Créer une machine virtuelle SQL - Portail
+    href: quickstart-sql-vm-create-portal.md
+  - name: Créer une machine virtuelle SQL - PowerShell
+    href: quickstart-sql-vm-create-powershell.md
+- name: Concepts
+  items:
+  - name: Bonnes pratiques
+    items:
+    - name: Bonnes pratiques concernant les performances
+      href: virtual-machines-windows-sql-performance.md
+    - name: Considérations relatives à la sécurité
+      href: virtual-machines-windows-sql-security.md
+    - name: Modèles d’application
+      href: virtual-machines-windows-sql-server-app-patterns-dev-strategies.md
+  - name: Continuité des activités
+    items:
+    - name: Options de haute disponibilité
+      href: virtual-machines-windows-sql-high-availability-dr.md
+    - name: Groupe de disponibilité Always On
+      href: virtual-machines-windows-portal-sql-availability-group-overview.md
+    - name: Sauvegarde et restauration
+      href: virtual-machines-windows-sql-backup-recovery.md
+    - name: Sauvegarde automatisée de SQL Server 2014
+      href: virtual-machines-windows-sql-automated-backup.md
+    - name: Sauvegarde automatisée de SQL Server 2016+
+      href: virtual-machines-windows-sql-automated-backup-v2.md
+  - name: gestion
+    items:
+    - name: Se connecter à une machine virtuelle
+      href: virtual-machines-windows-sql-connect.md
+    - name: Configurer le stockage
+      href: virtual-machines-windows-sql-server-storage-configuration.md
+    - name: Automatiser les tâches de gestion
+      items:
+      - name: Utiliser l’extension SQL Server IaaS Agent
+        href: virtual-machines-windows-sql-server-agent-extension.md
+      - name: Mise à jour corrective automatisée
+        href: virtual-machines-windows-sql-automated-patching.md
+      - name: Configurer l’intégration d’Azure Key Vault
+        href: virtual-machines-windows-ps-sql-keyvault.md
+- name: Guides pratiques
+  items:
+  - name: Créer une machine virtuelle SQL
+    items:
+    - name: Utiliser le portail 
+      href: virtual-machines-windows-portal-sql-server-provision.md
+    - name: Utilisation d'Azure PowerShell
+      href: virtual-machines-windows-ps-sql-create.md
+  - name: Modifier le modèle de licence pour une machine virtuelle SQL
+    href: virtual-machines-windows-sql-ahb.md
+  - name: Migrer
+    items:
+    - name: Migrer une base de données SQL Server
+      href: virtual-machines-windows-migrate-sql.md
+  - name: Configurer la haute disponibilité
+    items:
+    - name: Utiliser le Stockage Azure pour la sauvegarde et la restauration
+      href: virtual-machines-windows-use-storage-sql-server-backup-restore.md
+    - name: Groupe de disponibilité Always On
+      items:
+      - name: Interface CLI des machines virtuelles SQL Azure
+        href: virtual-machines-windows-sql-availability-group-cli.md
+      - name: Modèle du portail Azure
+        href: virtual-machines-windows-portal-sql-alwayson-availability-groups.md
+      - name: Modèles de démarrage rapide Microsoft Azure
+        href: virtual-machines-windows-sql-availability-group-quickstart-template.md
+      - name: Plusieurs régions
+        href: virtual-machines-windows-portal-sql-availability-group-dr.md
+      - name: Configurer manuellement
+        items:
+        - name: Prérequis
+          href: virtual-machines-windows-portal-sql-availability-group-prereq.md
+        - name: Didacticiel
+          href: virtual-machines-windows-portal-sql-availability-group-tutorial.md
+        - name: Équilibreur de charge - Portail Azure
+          href: virtual-machines-windows-portal-sql-alwayson-int-listener.md
+        - name: Équilibreur de charge - Azure PowerShell
+          href: virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md
+    - name: Instance de cluster de basculement
+      items:
+      - name: Configuration
+        href: virtual-machines-windows-portal-sql-create-failover-cluster.md
+- name: Informations de référence
+  items:
+  - name: Azure PowerShell
+    href: /powershell/azure/overview
+  - name: Azure CLI
+    href: /cli/azure/
+  - name: T-SQL
+    href: https://docs.microsoft.com/sql/t-sql/language-reference
+  - name: Pilotes SQL Server
+    href: https://docs.microsoft.com/sql/connect/sql-connection-libraries
+  - name: REST
+    href: /rest/api/
+- name: Ressources
+  items:
+  - name: Forum Aux Questions
+    href: virtual-machines-windows-sql-server-iaas-faq.md
+  - name: Tarifs
+    href: virtual-machines-windows-sql-server-pricing-guidance.md
+  - name: PaaS ou IaaS ?
+    href: ../../../sql-database/sql-database-paas-vs-sql-server-iaas.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsql%2ftoc.json
+  - name: Outils SQL Server Data Tools (SSDT)
+    href: https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt
+  - name: SQL Server Management Studio (SSMS)
+    href: https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms
+  - name: Outils SQL Server
+    href: https://docs.microsoft.com/sql/tools/overview-sql-tools
+  - name: Feuille de route Azure
+    href: https://azure.microsoft.com/roadmap/?category=compute
+  - name: Forum MSDN
+    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesforWindows&filter=alltypes&brandIgnore=True&sort=relevancedesc&searchTerm=SQL+Server
+  - name: Stack Overflow
+    href: https://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server
+ms.openlocfilehash: 4e3e565bd700bb4106028e98a2a7833707561376
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58340623"

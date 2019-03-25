@@ -134,8 +134,11 @@ Nous avons créé ce contenu pour vous aider à configurer et utiliser les infor
                     <div class="cardText">
                         <h3>Aide du portail MyApps</h3>
                         <p>
-                        <a href="/azure/active-directory/user-help/active-directory-saas-access-panel-introduction">Qu’est-ce que le portail MyApps ?</a><br/>
-                        <a href="/azure/active-directory/active-directory-saas-access-panel-user-help">Dépannage</a>
+                        <a href="/azure/active-directory/user-help/my-apps-portal-end-user-access">Accéder au portail Mes applications et l’utiliser</a><br/>
+                        <a href="/azure/active-directory/user-help/my-apps-portal-end-user-update-profile">Mettre à jour vos informations de profil et de compte</a><br/>
+                        <a href="/azure/active-directory/user-help/my-apps-portal-end-user-groups">Mettre à jour les informations relatives à vos groupes</a><br/>
+                        <a href="/azure/active-directory/user-help/my-apps-portal-end-user-access-reviews">Effectuer vos propres révisions d’accès</a><br/>
+                        <a href="/azure/active-directory/user-help/my-apps-portal-end-user-troubleshoot">Dépannage</a>
                         </p>
                     </div>
                 </div>

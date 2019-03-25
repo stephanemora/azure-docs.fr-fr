@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Appinux | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Appinux | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Appinux.
 services: active-directory
 documentationCenter: na
@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: f329341b-fb77-42e5-b6a6-0cd641d19670
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 1/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce6d6f08cd507f18db1d072984aecae634aab8db
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 4e40890459315bacf88fa6a12bc5eed7c0708b1c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56877127"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835762"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-appinux"></a>Didacticiel : Intégration d’Azure Active Directory à Appinux
+# <a name="tutorial-azure-active-directory-integration-with-appinux"></a>Tutoriel : Intégration d’Azure Active Directory à Appinux
 
 Dans ce tutoriel, vous allez apprendre à intégrer Appinux dans Azure Active Directory (Azure AD).
 L’intégration d’Appinux dans Azure AD vous offre les avantages suivants :
@@ -186,7 +186,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

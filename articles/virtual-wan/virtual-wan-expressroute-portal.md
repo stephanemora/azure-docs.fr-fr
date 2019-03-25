@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 10/5/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 17d80d07f9b272b0dcb7449404d5d6626e72ce65
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 017c8c2f060f969f2e7f8d387dcbafa2dac426d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692844"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842943"
 ---
-# <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan-preview"></a>Tutoriel : Créer une association ExpressRoute avec Azure Virtual WAN (préversion)
+# <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan-preview"></a>Didacticiel : Créer une association ExpressRoute avec Azure Virtual WAN (préversion)
 
 Ce didacticiel vous montre comment utiliser Azure Virtual WAN pour vous connecter à vos ressources dans Azure via un circuit et une association ExpressRoute. Pour plus d’informations sur le WAN virtuel, consultez [Vue d'ensemble de WAN virtuel](virtual-wan-about.md)
 
@@ -37,11 +37,13 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
 
 ## <a name="register"></a>Inscrire cette fonctionnalité
 
-Avant de pouvoir configurer le WAN virtuel, vous devez tout d’abord inscrire automatiquement votre abonnement à la préversion. Sinon, vous ne serez pas en mesure d’utiliser WAN virtuel dans le portail. Pour vous abonner, envoyez un e-mail à **azurevirtualwan@microsoft.com** avec votre ID d’abonnement. Vous recevrez un e-mail une fois votre abonnement inscrit.
+Avant de pouvoir configurer le WAN virtuel, vous devez tout d’abord inscrire automatiquement votre abonnement à la préversion. Sinon, vous ne serez pas en mesure d’utiliser le WAN virtuel depuis le portail. Pour vous abonner, envoyez un e-mail à **azurevirtualwan\@microsoft.com** avec votre ID d’abonnement. Vous recevrez un e-mail une fois votre abonnement inscrit.
 
 **Considérations relatives à la préversion :**
 
@@ -69,15 +71,15 @@ Dans un navigateur, accédez au [Portail Azure (préversion)](https://aka.ms/azu
 ## <a name="hub"></a>4. Rechercher et associer un circuit au hub
 
 1. Sélectionnez votre vWAN et, sous **Architecture de Virtual WAN**, sélectionnez **Circuits ExpressRoute**.
-2. Si le circuit ExpressRoute se trouve dans le même abonnement que votre vWAN, cliquez sur **Sélectionner circuit ExpressRoute** depuis votre ou vos abonnements. 
-3. Avec la liste déroulante, sélectionnez le circuit ExpressRoute à associer au hub.
-4. Si le circuit ExpressRoute ne se trouve pas dans le même abonnement ou que vous disposez d’[une clé d’autorisation et d’un ID d’homologue](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md), sélectionnez **Trouver un circuit en échange d’une clé d’autorisation**.
-5. Entrez les informations suivantes :
-* **Clé d’autorisation** : générée par le propriétaire du circuit comme décrit ci-dessus.
-* **URI du circuit pair** : URI qui est fourni par le propriétaire du circuit et identifie le circuit de manière unique.
-* **Poids du routage** - [Poids du routage](../expressroute/expressroute-optimize-routing.md) vous permet de privilégier certains chemins lorsque plusieurs circuits provenant de différents sites d’homologation sont connectés au même hub.
-6. Cliquez sur **Trouver le circuit** et sélectionnez le circuit qui s’affiche.
-7. Sélectionnez un ou plusieurs hubs dans la liste déroulante et cliquez sur **Enregistrer**.
+1. Si le circuit ExpressRoute se trouve dans le même abonnement que votre vWAN, cliquez sur **Sélectionner circuit ExpressRoute** depuis votre ou vos abonnements. 
+1. Avec la liste déroulante, sélectionnez le circuit ExpressRoute à associer au hub.
+1. Si le circuit ExpressRoute ne se trouve pas dans le même abonnement ou que vous disposez d’[une clé d’autorisation et d’un ID d’homologue](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md), sélectionnez **Trouver un circuit en échange d’une clé d’autorisation**.
+1. Entrez les informations suivantes :
+1. **Clé d’autorisation** : générée par le propriétaire du circuit comme décrit ci-dessus.
+1. **URI du circuit pair** : URI qui est fourni par le propriétaire du circuit et identifie le circuit de manière unique.
+1. **Poids du routage** - [Poids du routage](../expressroute/expressroute-optimize-routing.md) vous permet de privilégier certains chemins lorsque plusieurs circuits provenant de différents sites d’homologation sont connectés au même hub.
+1. Cliquez sur **Trouver le circuit** et sélectionnez le circuit qui s’affiche.
+1. Sélectionnez un ou plusieurs hubs dans la liste déroulante et cliquez sur **Enregistrer**.
 
 ## <a name="vnet"></a>5. Connecter votre réseau virtuel à un hub
 
@@ -110,10 +112,10 @@ Créez une connexion pour surveiller les communications entre une machine virtue
 
 ## <a name="cleanup"></a>9. Supprimer des ressources
 
-Quand vous n’avez plus besoin de ces ressources, vous pouvez utiliser [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) pour supprimer le groupe de ressources et toutes les ressources qu’il contient. Remplacez « myResourceGroup » par le nom de votre groupe de ressources et exécutez la commande PowerShell suivante :
+Quand vous n’avez plus besoin de ces ressources, vous pouvez utiliser [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) pour supprimer le groupe de ressources et toutes les ressources qu’il contient. Remplacez « myResourceGroup » par le nom de votre groupe de ressources et exécutez la commande PowerShell suivante :
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

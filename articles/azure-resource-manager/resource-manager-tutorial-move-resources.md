@@ -10,19 +10,21 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 12/19/2018
+ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 5bc8a408ce247ad2980983c3eb32807074af599f
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 62e35a361f2fcf9d6f484b699084a78f66121957
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820822"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310095"
 ---
-# <a name="tutorial-move-azure-resources-to-another-resource-group"></a>Tutoriel : Déplacer des ressources Azure vers un autre groupe de ressources
+# <a name="tutorial-move-azure-resources-to-another-resource-group"></a>Didacticiel : Déplacer des ressources Azure vers un autre groupe de ressources
 
 Découvrez comment déplacer des ressources d’un groupe de ressources vers un autre. Vous pouvez également déplacer des ressources Azure d’un abonnement Azure vers un autre. Dans ce didacticiel, vous allez utiliser un modèle Resource Manager pour déployer deux groupes de ressources et un compte de stockage. Vous déplacerez ensuite le compte de stockage d’un groupe de ressources à l’autre.
+
+![Azure Resource Manager déplace le diagramme des ressources](./media/resource-manager-tutorial-move-resources/resource-manager-template-move-resources.png)
 
 Ce tutoriel décrit les tâches suivantes :
 

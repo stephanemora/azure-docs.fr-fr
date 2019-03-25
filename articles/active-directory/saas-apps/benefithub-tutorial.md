@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 4069fe32-a452-463f-973e-7aa0baa4c2fa
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a248464b4b60ffd19dc237d80c7f195a7e7c5c4e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: f70bfbac98904752baa093076ce66f0de4993ea2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56879966"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57849939"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-benefithub"></a>Tutoriel : Intégration d’Azure Active Directory à BenefitHub
+# <a name="tutorial-azure-active-directory-integration-with-benefithub"></a>Didacticiel : Intégration d’Azure Active Directory à BenefitHub
 
 Dans ce didacticiel, vous allez apprendre à intégrer BenefitHub à Azure Active Directory (Azure AD).
 L’intégration de BenefitHub dans Azure AD vous offre les avantages suivants :
@@ -180,7 +180,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

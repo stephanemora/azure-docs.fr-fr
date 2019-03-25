@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: e92c812ffc8b72fe79248c602e48ff01ef9fefcb
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 21a10bcedc25ddce63ba468e400dcea1f77148a0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961006"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863115"
 ---
 # <a name="quickstart-create-an-android-unity-app-with-azure-spatial-anchors"></a>Démarrage rapide : Créer une application Android Unity avec Azure Spatial Anchors
 
@@ -36,6 +36,8 @@ Vous découvrirez comment effectuer les actions suivantes :
 Pour suivre ce guide de démarrage rapide, veillez à avoir :
 
 - Une machine Windows ou macOS dotée d’<a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3+</a> et d’<a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.3+</a>.
+  - Si vous exécutez Windows, vous avez aussi besoin de <a href="https://git-scm.com/download/win" target="_blank">Git pour Windows</a>.
+  - Si vous exécutez macOS, installez Git via HomeBrew. Entrez la commande suivante sur une seule ligne du Terminal : `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Exécutez ensuite `brew install git`.
 - Un appareil Android <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">prêt pour le développement</a> et <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">compatible ARCore</a>.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
@@ -58,32 +60,12 @@ Enregistrez la scène en sélectionnant **File** -> **Save**.
 
 [!INCLUDE [Export Unity Project](../../../includes/spatial-anchors-unity-export-project-snip.md)]
 
-Sélectionnez **Export** pour ouvrir une boîte de dialogue. Sélectionnez ensuite un dossier pour exporter le projet Android Studio.
-
-Une fois l’exportation terminée, un dossier s’affiche dans lequel figure le projet Android Studio exporté ainsi qu’un sous-dossier appelé **HelloAR U3D**.
-
-## <a name="deploy-the-android-application"></a>Déployer l’application Android
-
-Ouvrez Android Studio et sélectionnez **Open an existing Android Studio project**. Sélectionnez ensuite le sous-dossier **HelloAR U3D** du projet Android Studio exporté, puis cliquez sur **OK**.
-
-À l’ouverture, une invite s’affiche vous demandant d’utiliser le wrapper Gradle. Sélectionnez **OK** pour utiliser le wrapper Gradle et ouvrir le projet.
-
-Allumez l’appareil Android, connectez-vous, puis connectez l’appareil au PC au moyen d’un câble USB.
-
-Sélectionnez **Run** dans la barre d’outils Android Studio.
-
-![Déployer et exécuter dans Android Studio](./media/get-started-unity-android/android-studio-deploy-run.png)
-
-Sélectionnez l’appareil Android dans la boîte de dialogue **Select Deployment Target** et sélectionnez **OK** pour exécuter l’application sur l’appareil Android.
+Vérifiez que la case à cocher **Export Project** (Exporter le projet) n’est pas cochée. Cliquez sur **Build And Run** (Générer et exécuter). Vous allez être invité à enregistrer votre fichier `.apk` et vous pouvez choisir n’importe quel nom pour celui-ci.
 
 Suivez les instructions dans l’application pour placer et rappeler une ancre.
 
 > [!NOTE]
 > Pendant l’exécution de l’application, si vous ne voyez pas de caméra en arrière-plan (au lieu de cela, l’arrière-plan est vide, bleu ou présente d’autres textures), vous devez probablement réimporter les ressources dans Unity. Arrêtez l’application. Dans le menu supérieur d’Unity, choisissez **Assets -> Reimport all**. Ensuite, exécutez de nouveau l’application.
-
-Arrêtez l’application en sélectionnant **Stop** dans la barre d’outils Android Studio.
-
-![Bouton Stop dans Android Studio](./media/get-started-unity-android/android-studio-stop.png)
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

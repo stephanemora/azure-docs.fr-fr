@@ -77,7 +77,7 @@ items:
       href: classroom-labs/how-to-create-schedules.md
     - name: Créer un environnement avec plusieurs machines virtuelles dans une machine virtuelle modèle
       href: classroom-labs/how-to-enable-multi-vm-environment.md
-  - name: Laboratoires DevTest
+  - name: DevTest Labs
     items:
     - name: Spécifier un groupe de ressources pour les machines virtuelles lab
       href: resource-group-control.md
@@ -89,6 +89,8 @@ items:
       href: test-app-azure.md
     - name: Exporter ou supprimer des données personnelles
       href: personal-data-delete-export.md
+    - name: Importer des machines virtuelles à partir d’un autre labo
+      href: import-virtual-machines-from-another-lab.md
     - name: Configurer une infrastructure DevTest Labs dans votre entreprise
       href: devtest-lab-guidance-prescriptive-adoption.md
       items:
@@ -250,9 +252,9 @@ items:
       href: https://azure.microsoft.com/resources/videos/index/?services=devtest-lab
     - name: Questions fréquentes (FAQ)
       href: devtest-lab-faq.md
-ms.openlocfilehash: 773faa503cb3fc29ef07b310b5ee2a7af5089d49
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: a0b21dfaa64b351e98b6f505568bdbc06c48dd1c
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189001"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338375"

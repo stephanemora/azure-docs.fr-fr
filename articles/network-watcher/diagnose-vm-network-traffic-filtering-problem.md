@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 6d5c159d030303b90128513d3521a19419e4277e
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: d469ee5148e3742f30795c09acf1a217db1b997a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429228"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58004633"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Démarrage rapide : diagnostiquer un problème de filtre de trafic réseau d’une machine virtuelle en utilisant le portail Azure
 
@@ -85,7 +85,7 @@ Lorsque vous créez une machine virtuelle, Azure autorise et refuse le trafic r�
     | Direction         | Règle de trafic sortant                                                                                          |
     | Adresse IP locale  | 10.0.0.4                                                                                          |
     | Port local      | 60000                                                                                                |
-    | Adresse IP distante | 13.107.21.200 - une des adresses pour www.bing.com.                                             |
+    | Adresse IP distante | 13.107.21.200 : l’une des adresses de <www.bing.com>.                                             |
     | Port distant       | 80                                                                                                |
 
     ![Vérification du flux IP](./media/diagnose-vm-network-traffic-filtering-problem/ip-flow-verify-outbound.png)

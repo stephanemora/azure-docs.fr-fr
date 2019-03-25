@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Hornbill | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Hornbill | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Hornbill.
 services: active-directory
 documentationCenter: na
@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 173061e4-ac1d-458f-bb9b-e9a2493aab0e
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba10ca6856d7b1bbeb934fafe68b8c2afc731271
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 271161dd29bc1b31989775f3223bc30840346aed
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880901"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57892776"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-hornbill"></a>Tutoriel : Intégration d’Azure Active Directory à Hornbill
+# <a name="tutorial-azure-active-directory-integration-with-hornbill"></a>Didacticiel : Intégration d’Azure Active Directory à Hornbill
 
 Dans ce didacticiel, vous allez apprendre à intégrer Hornbill à Azure Active Directory (Azure AD).
 L’intégration de Hornbill dans Azure AD vous offre les avantages suivants :
@@ -173,7 +173,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

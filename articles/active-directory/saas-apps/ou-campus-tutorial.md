@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à OU Campus | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à OU Campus | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et OU Campus.
 services: active-directory
 documentationCenter: na
@@ -7,21 +7,21 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 09315212-3731-4ae1-bcc2-b8b5f2ac6087
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 16fb5b9e988030ee6dd8d7bd57d559aaaefc1faa
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 862594797410c19a60bf6cc34ba50868e52148ad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56881156"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57839370"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-ou-campus"></a>Didacticiel : Intégration d’Azure Active Directory à OU Campus
+# <a name="tutorial-azure-active-directory-integration-with-ou-campus"></a>Tutoriel : Intégration d’Azure Active Directory à OU Campus
 
 Ce tutoriel explique comment intégrer OU Campus avec Azure Active Directory (Azure AD).
 L’intégration d’OU Campus avec Azure AD vous offre les avantages suivants :
@@ -145,7 +145,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

@@ -1,0 +1,85 @@
+items:
+- name: Documentation Data Catalog
+  href: index.md
+- name: Vue d’ensemble
+  items:
+  - name: Présentation de Data Catalog
+    href: data-catalog-what-is-data-catalog.md
+  - name: Scénarios courants
+    href: data-catalog-common-scenarios.md
+  - name: Sources de données prises en charge
+    href: data-catalog-dsr.md
+- name: Prise en main
+  items:
+  - name: Prise en main d’Azure Data Catalog
+    href: data-catalog-get-started.md
+  - name: Adoption d’Azure Data Catalog
+    href: data-catalog-adopting-data-catalog.md
+  - name: Prérequis
+    href: data-catalog-prerequisites.md
+  - name: Forum Aux Questions
+    href: data-catalog-frequently-asked-questions.md
+- name: Procédure
+  items:
+  - name: Inscription des sources de données
+    href: data-catalog-how-to-register.md
+  - name: Découvrir les sources de données
+    href: data-catalog-how-to-discover.md
+  - name: Annoter des sources de données
+    href: data-catalog-how-to-annotate.md
+  - name: Documentation de sources de données
+    href: data-catalog-how-to-documentation.md
+  - name: Se connecter aux sources de données
+    href: data-catalog-how-to-connect.md
+  - name: Utiliser des sources Big Data
+    href: data-catalog-how-to-big-data.md
+  - name: Profilage de données dans des sources de données
+    href: data-catalog-how-to-data-profile.md
+  - name: Gérer les ressources de données
+    href: data-catalog-how-to-manage.md
+  - name: Enregistrer des recherches et épingler des ressources de données
+    href: data-catalog-how-to-save-pin.md
+  - name: Configurer le glossaire métier
+    href: data-catalog-how-to-business-glossary.md
+  - name: Sécuriser l’accès au catalogue de données
+    href: data-catalog-how-to-secure-catalog.md
+  - name: Afficher les ressources de données associées
+    href: data-catalog-how-to-view-related-data-assets.md
+- name: Informations de référence
+  items:
+  - name: Exemples de code
+    href: https://azure.microsoft.com/resources/samples/?service=data-catalog
+  - name: REST
+    href: /rest/api/datacatalog/
+  - name: Modèle Resource Manager
+    href: /azure/templates/microsoft.datacatalog/catalogs
+  - name: Informations de référence sur la syntaxe de recherche
+    href: /rest/api/datacatalog/data-catalog-search-syntax-reference
+  - name: Concepts liés au développement
+    href: data-catalog-developer-concepts.md
+- name: Ressources
+  items:
+  - name: Feuille de route Azure
+    href: https://azure.microsoft.com/roadmap/
+  - name: Raccourcis clavier pour Azure Data Catalog
+    href: data-catalog-keyboard-shortcuts.md
+  - name: Forum MSDN
+    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredatacatalog
+  - name: Tarifs
+    href: https://azure.microsoft.com/pricing/details/data-catalog/
+  - name: Calculatrice de prix
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Notes de publication
+    href: ../active-directory/fundamentals/whats-new.md
+  - name: Mises à jour de service
+    href: https://azure.microsoft.com/updates/?product=data-catalog
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-data-catalog
+  - name: Terminologie
+    href: data-catalog-terminology.md
+ms.openlocfilehash: 47fef3cf68ca9ab34c0dd349106ed4ca8c8ad4f1
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58340640"

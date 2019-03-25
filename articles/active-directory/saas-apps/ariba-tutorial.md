@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 45a8364c-55d1-4dc7-b079-9eb2a701842d
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6882cfc0b972fa0ea2a43081b1d6d62671d9da7
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 6e6655c1f67b5655dbde8c04f09a664f64350e3d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56881581"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57856003"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-ariba"></a>Didacticiel : intégration d’Azure Active Directory à Ariba
+# <a name="tutorial-azure-active-directory-integration-with-ariba"></a>Tutoriel : intégration d’Azure Active Directory à Ariba
 
 Dans ce didacticiel, vous allez apprendre à intégrer Ariba à Azure Active Directory (Azure AD).
 L’intégration d’Ariba dans Azure AD vous offre les avantages suivants :
@@ -106,6 +106,7 @@ Pour configurer l’authentification unique Azure AD avec Ariba, procédez comm
     ![Informations d’authentification unique dans Domaine et URL Ariba](common/sp-identifier.png)
 
     a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant :
+    
     | |
     |--|
     | `https://<subdomain>.sourcing.ariba.com` |
@@ -142,7 +143,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

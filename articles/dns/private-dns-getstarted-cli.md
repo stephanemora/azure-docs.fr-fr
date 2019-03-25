@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: tutorial
-ms.date: 7/25/2018
+ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: 5559e2fc9b9cce95bd7d5d02a64d134e5eaa03be
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 2758817d58fdd2e80b302b5f833308dbde1a6b63
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100616"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57779162"
 ---
 # <a name="create-an-azure-dns-private-zone-using-the-azure-cli"></a>Créer une zone privée Azure DNS avec Azure CLI
 
@@ -47,7 +47,7 @@ az group create --name MyAzureResourceGroup --location "East US"
 
 ## <a name="create-a-dns-private-zone"></a>Créer une zone DN privée DNS
 
-Une zone DNS est créée à l’aide d’une `az network dns zone create`commande avec une valeur de *Private* pour le paramètre **ZoneType**. L’exemple suivant crée une zone DNS appelée **contoso.local** dans le groupe de ressources appelé **MyAzureResourceGroup** et s’assure que la zone DNS soit disponible pour le réseau virtuel appelé **MyAzureVnet**.
+Une zone DNS est créée à l’aide d’une `az network dns zone create`commande avec une valeur de *Private* pour le paramètre **ZoneType**. L’exemple suivant crée une zone DNS appelée **private.contoso.com** dans le groupe de ressources appelé **MyAzureResourceGroup** et s’assure que la zone DNS soit disponible pour le réseau virtuel appelé **MyAzureVnet**.
 
 Si le paramètre **ZoneType** est oublié, la zone sera créée comme une zone publique, c’est pour cela qu’il faut créer une zone privée.
 
@@ -61,7 +61,7 @@ az network vnet create \
   --subnet-prefixes 10.2.0.0/24
 
 az network dns zone create -g MyAzureResourceGroup \
-   -n contoso.local \
+   -n private.contoso.com \
   --zone-type Private \
   --registration-vnets myAzureVNet
 ```
@@ -118,12 +118,12 @@ L’exécution de cette opération nécessite quelques minutes.
 
 Pour créer un enregistrement DNS, utilisez la commande `az network dns record-set [record type] add-record`. Pour obtenir de l’aide, concernant l’ajout d’enregistrements A par exemple, consultez `azure network dns record-set A add-record --help`.
 
- L’exemple suivant crée un enregistrement avec le nom relatif **db** dans la zone DNS **contoso.local**, dans le groupe de ressources **MyAzureResourceGroup**. Le nom complet du jeu d’enregistrements est **db.contoso.local**. Le type d’enregistrement est « A », avec l’adresse IP « 10.2.0.4 ».
+ L’exemple suivant crée un enregistrement avec le nom relatif **db** dans la zone DNS **private.contoso.com**, dans le groupe de ressources **MyAzureResourceGroup**. Le nom complet du jeu d’enregistrements est **db.private.contoso.com**. Le type d’enregistrement est « A », avec l’adresse IP « 10.2.0.4 ».
 
 ```azurecli
 az network dns record-set a add-record \
   -g MyAzureResourceGroup \
-  -z contoso.local \
+  -z private.contoso.com \
   -n db \
   -a 10.2.0.4
 ```
@@ -135,13 +135,13 @@ Pour répertorier les enregistrements DNS dans votre zone, utilisez :
 ```azurecli
 az network dns record-set list \
   -g MyAzureResourceGroup \
-  -z contoso.local
+  -z private.contoso.com
 ```
 N’oubliez pas, vous ne verrez pas les enregistrements A créés automatiquement pour vos deux machines virtuelles de test.
 
 ## <a name="test-the-private-zone"></a>Tester la zone privée
 
-Maintenant vous pouvez désormais tester la résolution de noms pour votre zone privée **contoso.local**.
+Maintenant vous pouvez désormais tester la résolution de noms pour votre zone privée **private.contoso.com**.
 
 ### <a name="configure-vms-to-allow-inbound-icmp"></a>Configurer des machines virtuelles pour autoriser l’ICMP entrant
 
@@ -160,13 +160,13 @@ Répétez l’opération pour myVM02.
 
 1. À partir de l’invite de commandes Windows PowerShell myVM02, faites un test ping de myVM01 en utilisant le nom d’hôte enregistré automatiquement :
    ```
-   ping myVM01.contoso.local
+   ping myVM01.private.contoso.com
    ```
    La sortie doit ressembler à cela :
    ```
-   PS C:\> ping myvm01.contoso.local
+   PS C:\> ping myvm01.private.contoso.com
 
-   Pinging myvm01.contoso.local [10.2.0.4] with 32 bytes of data:
+   Pinging myvm01.private.contoso.com [10.2.0.4] with 32 bytes of data:
    Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
    Reply from 10.2.0.4: bytes=32 time=1ms TTL=128
    Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
@@ -180,13 +180,13 @@ Répétez l’opération pour myVM02.
    ```
 2. Maintenant faites un test ping sur le nom **db** que vous avez créé précédemment :
    ```
-   ping db.contoso.local
+   ping db.private.contoso.com
    ```
    La sortie doit ressembler à cela :
    ```
-   PS C:\> ping db.contoso.local
+   PS C:\> ping db.private.contoso.com
 
-   Pinging db.contoso.local [10.2.0.4] with 32 bytes of data:
+   Pinging db.private.contoso.com [10.2.0.4] with 32 bytes of data:
    Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
    Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
    Reply from 10.2.0.4: bytes=32 time<1ms TTL=128

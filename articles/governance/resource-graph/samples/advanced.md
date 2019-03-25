@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 8bb1733090ac2a4f3fad837e55943706309c4a5a
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 9cb43cfdf930b14449f5c7130df275ef0b8d6484
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56344010"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842615"
 ---
 # <a name="advanced-resource-graph-queries"></a>Requêtes Resource Graph avancées
 
@@ -74,7 +74,7 @@ Search-AzGraph -Query "project tags | summarize buildschema(tags)"
 ## <a name="vm-regex"></a>Machines virtuelles mises en correspondance par expression régulière
 
 Cette requête recherche les machines virtuelles qui correspondent à une [expression régulière](/dotnet/standard/base-types/regular-expression-language-quick-reference) (connue sous le nom _regex_).
-La valeur **correspond à regex @** nous permet de définir l’expression régulière de correspondance, c’est-à-dire `^Contoso(.*)[0-9]+$`. Cette définition d’expression régulière est expliquée comme suit :
+La valeur **correspond à regex \@** nous permet de définir l’expression régulière de correspondance, c’est-à-dire `^Contoso(.*)[0-9]+$`. Cette définition d’expression régulière est expliquée comme suit :
 
 - `^` : doit correspondance au début au commencement de la chaîne.
 - `Contoso` : chaîne sensible à la casse.

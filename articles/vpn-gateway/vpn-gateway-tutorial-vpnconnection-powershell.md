@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ms.author: yushwang
 ms.custom: mvc
-ms.openlocfilehash: a9ca626ecf026736617ba495422ed957d03b2b37
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: f062dcfb22dda015d0dab9727672ca90df5ddb4d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56414598"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58000891"
 ---
-# <a name="tutorial-create-and-manage-s2s-vpn-connections-using-powershell"></a>Didacticiel : Créer et gérer des connexions VPN S2S à l’aide de PowerShell
+# <a name="tutorial-create-and-manage-s2s-vpn-connections-using-powershell"></a>Tutoriel : Créer et gérer des connexions VPN S2S à l’aide de PowerShell
 
 Les connexions VPN S2S Azure fournissent une connectivité sécurisée entre le réseau local du client et Azure. Ce tutoriel vous guide tout au long du cycle de vie d’une connexion VPN S2S IPsec. Il couvre notamment la création et la gestion d’une connexion VPN S2S. Vous allez apprendre à effectuer les actions suivantes :
 
@@ -120,7 +120,7 @@ Get-AzVirtualNetworkGatewayConnectionSharedKey `
   -Name $Connection1 -ResourceGroupName $RG1
 ```
 
-Étant donné l’exemple ci-dessus, le résultat est « **Azure@!b2C3** ». Utilisez la commande ci-dessous pour remplacer la valeur de la clé prépartagée par « **Azure@!_b2=C3** » :
+Étant donné l’exemple ci-dessus, le résultat est « **Azure\@!b2C3** ». Utilisez la commande ci-dessous pour remplacer la valeur de la clé prépartagée par « **Azure\@!_b2=C3** » :
 
 ```azurepowershell-interactive
 Set-AzVirtualNetworkGatewayConnectionSharedKey `

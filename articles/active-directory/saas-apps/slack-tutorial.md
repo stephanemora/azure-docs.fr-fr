@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Slack | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Slack | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Slack.
 services: active-directory
 documentationCenter: na
@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: ffc5e73f-6c38-4bbb-876a-a7dd269d4e1c
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb91dcb65aa14827b9723369a78e2e6eb6696014
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 791b224f141dc0baa5babc401c35d6860a213df5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878572"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57875032"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-slack"></a>Tutoriel : Intégration d’Azure AD à Slack
+# <a name="tutorial-azure-active-directory-integration-with-slack"></a>Didacticiel : Intégration d’Azure AD à Slack
 
 Dans ce didacticiel, vous allez apprendre à intégrer Slack à Azure Active Directory (Azure AD).
 L’intégration de Slack dans Azure AD vous offre les avantages suivants :
@@ -206,7 +206,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
@@ -263,4 +263,4 @@ Lorsque vous cliquez sur la vignette Slack dans le volet d’accès, vous devez 
 
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-* [Configurer l’approvisionnement de l’utilisateur](slack-provisioning-tutorial.md)
+- [Configurer l’approvisionnement de l’utilisateur](slack-provisioning-tutorial.md)
