@@ -7,16 +7,18 @@ items:
     href: data-explorer-overview.md
 - name: Démarrages rapides
   items:
-  - name: 'Créer un cluster : portail Azure'
-    href: create-cluster-database-portal.md
-  - name: 'Créer un cluster : Azure CLI'
-    href: create-cluster-database-cli.md
-  - name: Créer un cluster - PowerShell
-    href: create-cluster-database-powershell.md
-  - name: Créer un cluster - C#
-    href: create-cluster-database-csharp.md
-  - name: Créer un cluster - Python
-    href: create-cluster-database-python.md
+  - name: Créer un cluster et une base de données
+    items:
+    - name: Portail Azure
+      href: create-cluster-database-portal.md
+    - name: Azure CLI
+      href: create-cluster-database-cli.md
+    - name: PowerShell
+      href: create-cluster-database-powershell.md
+    - name: C#
+      href: create-cluster-database-csharp.md
+    - name: Python
+      href: create-cluster-database-python.md
   - name: Réception de données
     items:
     - name: 'Diffusion en continu de données : Event Hub'
@@ -133,9 +135,9 @@ items:
     href: https://aka.ms/adecostestimator
   - name: Mises à jour de service
     href: https://azure.microsoft.com/updates/?product=data-explorer
-ms.openlocfilehash: 485a49d46e76c0e1db7d8d1297e126819ec6cd12
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: f3be712f345e603f3959c753ad3c81faaa1e00cf
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286480"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402658"
