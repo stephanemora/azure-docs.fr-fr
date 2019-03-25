@@ -12,21 +12,22 @@ manager: daveba
 ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0422cc3376caa6c2f99a0838684d84047a5937ed
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: f97b4ee364ecadde7738b8fe077f21d5732365f6
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313564"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371807"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Intégration d'annuaires entre le serveur Azure MFA et Active Directory
 
 Utilisez la section Intégration de répertoires du serveur Azure MFA pour l’intégrer à Active Directory ou un autre répertoire LDAP. Vous pouvez configurer des attributs pour correspondre au schéma du répertoire et configurer la synchronisation automatique des utilisateurs.
 
 ## <a name="settings"></a>Paramètres
+
 Par défaut, le serveur Azure Multi-Factor Authentication (MFA) est configuré pour importer ou synchroniser des utilisateurs à partir d’Active Directory.  L’onglet Intégration de répertoires vous permet d’annuler le comportement par défaut et d’effectuer la liaison à un autre répertoire LDAP, un répertoire ADAM ou un contrôleur de domaine Active Directory spécifique.  Il permet également l'utilisation de l'authentification LDAP sur un proxy LDAP ou une liaison LDAP comme cible RADIUS, la pré-authentification pour l'authentification IIS ou l'authentification principale pour le portail de l'utilisateur.  Le tableau suivant décrit les paramètres individuels.
 
-![Paramètres](./media/howto-mfaserver-dir-ad/dirint.png)
+![Modifier la configuration de LDAP du serveur MFA](./media/howto-mfaserver-dir-ad/dirint.png)
 
 | Fonctionnalité | Description |
 | --- | --- |
@@ -50,9 +51,10 @@ Le tableau suivant décrit les paramètres de la configuration LDAP.
 | Bouton de test |Cliquez sur **Test** pour tester la liaison au serveur LDAP.  <br><br>Vous n’avez pas besoin de sélectionner l’option **Utiliser LDAP** pour tester la liaison. Cela permet de tester la liaison avant d’utiliser la configuration LDAP. |
 
 ## <a name="filters"></a>Filtres
+
 Les filtres vous permettent de définir des critères pour qualifier les enregistrements lorsque vous effectuez une recherche dans l'annuaire.  En définissant le filtre, vous pouvez étendre les objets que vous souhaitez synchroniser.  
 
-![Filtres](./media/howto-mfaserver-dir-ad/dirint2.png)
+![Configurer le filtrage du répertoire du serveur MFA](./media/howto-mfaserver-dir-ad/dirint2.png)
 
 Azure Multi-Factor Authentication comporte les trois options de filtre suivantes :
 
@@ -61,11 +63,12 @@ Azure Multi-Factor Authentication comporte les trois options de filtre suivantes
 * **Filtre d'utilisateur** : spécifiez les critères de filtre utilisés pour qualifier les enregistrements utilisateur lorsque vous effectuez une recherche dans l'annuaire.  Pour Active Directory et ADAM, (&(objectClass=user)(objectCategory=person)) est généralement utilisé.  Pour d’autres répertoires LDAP, utilisez (objectClass=inetOrgPerson) ou autre paramètre similaire en fonction du schéma du répertoire. <br>Remarque :  Si ce champ n’est pas renseigné, (&(objectCategory=person)(objectClass=user)) est utilisé par défaut.
 
 ## <a name="attributes"></a>Attributs
+
 Vous pouvez personnaliser les attributs pour un répertoire spécifique.  Cela vous permet d’ajouter des attributs personnalisés et de régler avec précision la synchronisation uniquement avec les attributs dont vous avez besoin. Utilisez le nom de l’attribut tel que défini dans le schéma de répertoire pour la valeur de chaque champ d’attribut. Le tableau suivant fournit des informations supplémentaires sur chaque fonctionnalité.
 
 Les attributs peuvent être entrés manuellement et ne doivent pas nécessairement correspondre à un attribut de la liste d’attributs.
 
-![Attributs](./media/howto-mfaserver-dir-ad/dirint3.png)
+![Personnaliser les attributs d’intégration de répertoire du serveur MFA](./media/howto-mfaserver-dir-ad/dirint3.png)
 
 | Fonctionnalité | Description |
 | --- | --- |
@@ -96,9 +99,10 @@ Les attributs peuvent être entrés manuellement et ne doivent pas nécessaireme
 
 Pour modifier les attributs, cliquez sur **Modifier** dans l’onglet Attributs.  Cette action ouvre une fenêtre dans laquelle vous pouvez modifier les attributs. Sélectionnez **...** en regard d’un attribut pour ouvrir une fenêtre dans laquelle vous pouvez choisir les attributs à afficher.
 
-![Modifier les attributs](./media/howto-mfaserver-dir-ad/dirint4.png)
+![Modifier le mappage d’attribut directory du serveur MFA](./media/howto-mfaserver-dir-ad/dirint4.png)
 
 ## <a name="synchronization"></a>Synchronisation
+
 La synchronisation maintient la base de données utilisateur Azure MFA synchronisée avec les utilisateurs dans Active Directory ou un autre répertoire LDAP (Lightweight Directory Access Protocol). Le processus est similaire à l'importation manuelle d'utilisateurs à partir d'Active Directory, mais il procède à des interrogations régulières pour connaître les modifications apportées aux utilisateurs et groupes de sécurité Active Directory à traiter.  De même, il désactive ou supprime les utilisateurs qui ont été supprimés d’un conteneur, d’un groupe de sécurité ou d’Active Directory.
 
 Le service Multi-Factor Auth ADSync est un service Windows qui interroge régulièrement Active Directory.  Il n'est pas à confondre avec Azure AD Sync ou Azure AD Connect.  Multi-Factor Auth ADSync, bien que basé sur une base de code similaire, est spécifique au serveur Azure Multi-Factor Authentication.  Il est installé dans un état Arrêté et est démarré par le service du serveur MFA lorsqu'il est configuré pour s'exécuter.  Si vous avez une configuration de serveur MFA, Multi-Factor Auth ADSync ne peut être exécuté que sur un seul serveur.
@@ -107,7 +111,7 @@ Le service Multi-Factor Auth ADSync utilise l'extension de serveur LDAP DirSync 
 
 Si le répertoire LDAP prend en charge le contrôle DirSync et est configuré pour l’utiliser, alors l’interrogation pour connaître les modifications des utilisateurs et des groupes de sécurité fonctionnera de la même manière qu’avec Active Directory.  Si le répertoire LDAP ne prend pas en charge le contrôle DirSync, alors une synchronisation complète est effectuée lors de chaque cycle.
 
-![Synchronisation](./media/howto-mfaserver-dir-ad/dirint5.png)
+![Synchronisation d’objets d’annuaire pour le serveur MFA](./media/howto-mfaserver-dir-ad/dirint5.png)
 
 Le tableau suivant contient des informations supplémentaires sur chaque paramètre de l’onglet Synchronisation.
 
@@ -133,7 +137,8 @@ Les boutons Déplacer vers le haut et Déplacer vers le bas permettent à l'admi
 > [!TIP]
 > Une synchronisation complète doit être effectuée après la suppression d'éléments de synchronisation.  Une synchronisation complète doit être effectuée après la réorganisation d'éléments de synchronisation.  Cliquez sur **Synchroniser maintenant** pour effectuer une synchronisation complète.
 
-## <a name="multi-factor-auth-servers"></a>Serveurs MFA
-Il est possible de configurer des serveurs MFA supplémentaires en tant que proxy RADIUS de secours, proxy LDAP ou pour l'authentification IIS. La configuration de la synchronisation est partagée par tous les agents. Toutefois, le service du serveur MFA ne peut s'exécuter que sur un seul agent. Cet onglet vous permet de sélectionner le serveur MFA qui doit être activé pour la synchronisation.
+## <a name="multi-factor-authentication-servers"></a>Serveurs multi-Factor Authentication
 
-![Serveurs MFA](./media/howto-mfaserver-dir-ad/dirint6.png)
+Les serveurs multi-Factor Authentication supplémentaires peuvent être configurés pour servir en tant que proxy RADIUS de secours, proxy LDAP, ou pour l’authentification IIS. La configuration de la synchronisation est partagée par tous les agents. Toutefois, qu’un seul de ces agents peut avoir l’exécution de service du serveur multi-Factor Authentication. Cet onglet vous permet de sélectionner le serveur multi-Factor Authentication qui doit être activé pour la synchronisation.
+
+![Les serveurs de multi-Factor Authentication associés](./media/howto-mfaserver-dir-ad/dirint6.png)

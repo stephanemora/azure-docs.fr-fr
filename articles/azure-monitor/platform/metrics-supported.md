@@ -8,14 +8,15 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: f7bfb4f403104bb91fb1a9ba4b70cb164e0738b4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: e9b562cb04bb8916245d9df7b9b6d526bd443a24
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58113297"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58352134"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métriques prises en charge avec Azure Monitor
+
 Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compris en créant des graphiques dans le portail, en y accédant via l’API REST ou en envoyant des requêtes avec PowerShell ou l’interface CLI. Voici une liste complète de toutes les métriques actuellement offertes par le pipeline de métrique d’Azure Monitor. D’autres métriques peuvent être disponibles dans le portail ou via les API héritées. La liste ci-dessous englobe uniquement les métriques disponibles en utilisant le pipeline de métriques Azure Monitor consolidé. Pour rechercher ces métriques et y accéder, veuillez utiliser [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions).
 
 > [!NOTE]
@@ -660,7 +661,6 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 | MetadataRequests |    Demandes de métadonnées   |Nombre| Nombre   | Nombre de demandes de métadonnées. Azure Cosmos DB gère la collection des métadonnées système pour chaque compte, ce qui vous permet d’énumérer les collections, les bases de données, etc., ainsi que leur configuration, et ce gratuitement.    | DatabaseName, CollectionName, Region, StatusCode| Tous|  |Permet de surveiller les limitations dues aux requêtes de métadonnées.|
 | MongoRequests |   Requêtes Mongo| Nombre | Nombre|  Nombre de requêtes Mongo effectuées   | DatabaseName, CollectionName, Region, CommandName, ErrorCode| Tous |Mongo Query Request Rate, Mongo Update Request Rate, Mongo Delete Request Rate, Mongo Insert Request Rate, Mongo Count Request Rate|   Permet de surveiller les erreurs de requête Mongo, les utilisations par type de commande. |
 
-
 ### <a name="request-unit-metrics"></a>Métriques d’unités de requête
 
 |Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions| Granularités de temps| Mappage de métrique héritée | Usage |
@@ -673,7 +673,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 |Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions| Granularités de temps| Mappage de métrique héritée | Usage |
 |---|---|---|---|---|---| ---| ---| ---|
-| AvailableStorage| Stockage disponible   |Octets| Total|  Stockage total disponible signalé à une granularité de 5 minutes par région|   DatabaseName, CollectionName, Region|   5 Mo| Stockage disponible|   Permet de surveiller la capacité de stockage disponible (applicable uniquement aux collections de stockage fixe) La granularité minimale doit être de 5 minutes.| 
+| AvailableStorage| Stockage disponible   |Octets| Total|  Stockage total disponible signalé à une granularité de 5 minutes par région|   DatabaseName, CollectionName, Region|   5 Mo| Stockage disponible|   Permet de surveiller la capacité de stockage disponible (applicable uniquement aux collections de stockage fixe) La granularité minimale doit être de 5 minutes.|
 | DataUsage |Utilisation des données |Octets| Total   |Utilisation totale des données signalée à une granularité de 5 minutes par région|    DatabaseName, CollectionName, Region|   5 Mo  |Taille des données  | Permet de surveiller l'utilisation totale des données d'une collection et d'une région, la granularité minimale doit être de 5 minutes.|
 | IndexUsage|   Utilisation d'index|    Octets|  Total   |Utilisation d'index total signalée à une granularité de 5 minutes par région|    DatabaseName, CollectionName, Region|   5 Mo| Taille d'index| Permet de surveiller l'utilisation totale des données d'une collection et d'une région, la granularité minimale doit être de 5 minutes. |
 | DocumentQuota|    Quota de document| Octets|  Total|  Quota de stockage total signalé à une granularité de 5 minutes par région. Applicable pour les collections de stockage fixe| DatabaseName, CollectionName, Region|   5 Mo  |Capacité de stockage|  Permet de surveiller le quota total d'une collection et d'une région, la granularité minimale doit être de 5 minutes.|
@@ -805,6 +805,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |ScaleActionsInitiated|Actions de mise à l’échelle initiées|Nombre|Total|Direction de l’opération de mise à l’échelle.|ScaleDirection|
 
 ## <a name="microsoftinsightscomponents"></a>Microsoft.Insights/Components
+
 (Préversion publique)
 
 |Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
@@ -1224,7 +1225,6 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |Mettre à jour|Mettre à jour|Nombre|Moyenne|Mettre à jour|Computer, Product, Classification, UpdateState, Optional, Approved|
 |Événement|Événement|Nombre|Moyenne|Événement|Source, EventLog, Computer, EventCategory, EventLevel, EventLevelName, EventID|
 
-
 ## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/capacities
 
 |Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
@@ -1608,7 +1608,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |MemoryPercentage|Pourcentage de mémoire|Pourcentage|Moyenne|Pourcentage de mémoire|Instance|
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 * [En savoir plus sur les mesures dans Azure Monitor](../../azure-monitor/platform/data-collection.md)
 * [Créer des alertes sur les mesures](../../azure-monitor/platform/alerts-overview.md)
 * [Exporter des mesures vers le stockage, un hub d’événements ou Log Analytics](../../azure-monitor/platform/diagnostic-logs-overview.md)
-

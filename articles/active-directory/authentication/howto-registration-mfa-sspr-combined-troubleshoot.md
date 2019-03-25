@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f799b671e6216b402aa988aa66da4c2cfc44693
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: d926f7312b62e788289939dfd81c236a33503b43
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317525"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370463"
 ---
 # <a name="troubleshooting-combined-security-information-registration-preview"></a>Résolution des problèmes combinée d’inscription des informations de sécurité (version préliminaire)
 
@@ -31,7 +31,7 @@ Les informations fournies dans cet article peuvent guider les administrateurs à
 
 Les événements consignés pour l’inscription combinée sont sous la catégorie « Méthodes d’authentification » dans Azure AD journaux d’audit.
 
-![Interface montrant une certaine sécurité événements d’informations d’inscription d’un nouvel utilisateur dans le répertoire des journaux de Azure AD d’Audit](media/howto-registration-mfa-sspr-combined-troubleshoot/combined-security-info-audit-log.png)
+![D’Audit Azure AD journaux des événements d’interface montrant l’inscription](media/howto-registration-mfa-sspr-combined-troubleshoot/combined-security-info-audit-log.png)
 
 Vous trouverez ci-dessous tous les événements d’audit générés par une inscription combinée :
 
@@ -162,4 +162,4 @@ Les utilisateurs ne seront plus invités à s’inscrire à l’aide de l’exp�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[En savoir plus sur la version préliminaire de combinée d’inscription pour la réinitialisation de mot de passe libre-service et de l’authentification multifacteur Azure](concept-registration-mfa-sspr-combined.md)
+* [En savoir plus sur la version préliminaire de combinée d’inscription pour la réinitialisation de mot de passe libre-service et de l’authentification multifacteur Azure](concept-registration-mfa-sspr-combined.md)
