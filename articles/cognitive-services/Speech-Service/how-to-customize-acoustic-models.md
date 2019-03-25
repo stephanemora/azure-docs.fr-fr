@@ -1,7 +1,7 @@
 ---
-title: 'Didacticiel : Créer un modèle acoustique avec Speech Service'
+title: 'Tutoriel : Créer un modèle acoustique avec Speech Service'
 titlesuffix: Azure Cognitive Services
-description: Découvrez comment créer un modèle acoustique avec le service Speech dans Azure Cognitive Services.
+description: Découvrez comment créer un modèle acoustique avec les services Speech sur Azure.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: b644d1d227b5dbd69af38cc32defffb8152b0cde
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: f2a111558fa3f515b797745dc51e32f625bbd91f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878117"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57844022"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>Tutoriel : Créer un modèle acoustique personnalisé
 
@@ -33,9 +33,9 @@ Si vous n’avez pas de compte Azure Cognitive Services, créez un [compte gratu
 
 Vérifiez que votre compte Cognitive Services est connecté à un abonnement en ouvrant la page [Cognitive Services Subscriptions](https://cris.ai/Subscriptions) (Abonnements Cognitive Services).
 
-Vous pouvez vous connecter à un abonnement à Speech Service créé dans le portail Azure en sélectionnant **Se connecter à un abonnement existant**.
+Vous pouvez vous connecter à un abonnement à aux services Speech créé dans le portail Azure en sélectionnant **Se connecter à un abonnement existant**.
 
-Pour plus d’informations sur la création d’un abonnement à Speech Services dans le portail Azure, consultez la page [Essayez le service Speech gratuitement](get-started.md).
+Pour plus d’informations sur la création d’un abonnement aux services Speech dans le portail Azure, consultez la page [Essayez les services Speech gratuitement](get-started.md).
 
 ## <a name="prepare-the-data"></a>Préparer les données
 
@@ -69,7 +69,7 @@ Un jeu de données acoustiques pour personnaliser le modèle acoustique se compo
 | Taux d’échantillonnage | 8 000 Hertz (Hz) ou 16 000 Hz |
 | Canaux | 1 (mono) |
 | Format d’échantillonnage | PCM, entiers sur 16 bits |
-| Durée du fichier | 0,1 secondes < durée < 12 secondes | 
+| Durée du fichier | 0,1 secondes < durée < 12 secondes |
 | Silence de début/fin | > 0,1 seconde |
 | Format d’archive | .zip |
 | Taille d’archive maximale | 2 Go |
@@ -96,19 +96,19 @@ Les transcriptions de tous les fichiers WAV doivent se trouver dans un seul fich
 
 Les transcriptions doivent être en texte normalisé pour pouvoir être traitées par le système. Une normalisation importante doit toutefois être effectuée par l’utilisateur _avant_ de charger les données dans Custom Speech Service. Pour la langue appropriée à utiliser lorsque vous préparez vos transcriptions, consultez [Instructions concernant la transcription pour l’utilisation du service Speech](prepare-transcription.md).
 
-Procéder aux étapes décrites dans les sections suivantes à l’aide du [portail Speech Service](https://cris.ai).
+Procéder aux étapes décrites dans les sections suivantes à l’aide du [portail des services Speech](https://cris.ai).
 
 ## <a name="import-the-acoustic-dataset"></a>Importer le jeu de données acoustiques
 
 Une fois que les fichiers audio et les transcriptions ont été préparés, ils sont prêts à être importés dans le portail web du service.
 
-Pour les importer, assurez-vous tout d’abord que vous êtes connecté au [portail Speech Service](https://cris.ai). Ensuite, dans la liste déroulante **Custom Speech** (discours personnalisé) du ruban, sélectionnez **Adaptation Data** (données d’adaptation). S’il s’agit de votre premier chargement de données vers Custom Speech Service, vous verrez un tableau vide appelé **Datasets** (Jeux de données). 
+Pour les importer, assurez-vous tout d’abord que vous êtes connecté au [portail des services Speech](https://cris.ai). Ensuite, dans la liste déroulante **Custom Speech** (discours personnalisé) du ruban, sélectionnez **Adaptation Data** (données d’adaptation). S’il s’agit de votre premier chargement de données vers Custom Speech Service, vous verrez un tableau vide appelé **Datasets** (Jeux de données).
 
 Cliquez sur le bouton **Import** (Importer) dans la ligne **Acoustic Datasets** (Jeux de données acoustiques) : le site affiche une page pour le chargement d’un nouveau jeu de données.
 
 ![Page Importer des données acoustiques](media/stt/speech-acoustic-datasets-import.png)
 
-Dans les champs **Name** (Nom) et **Description**, entrez les informations appropriées. Des descriptions claires vous aident à effectuer le suivi des différents jeux de données que vous chargez. 
+Dans les champs **Name** (Nom) et **Description**, entrez les informations appropriées. Des descriptions claires vous aident à effectuer le suivi des différents jeux de données que vous chargez.
 
 Dans les cases **Transcriptions files (.txt)** (Fichiers transcriptions) et **Audio Files (.zip)** (fichiers audio), sélectionnez **Browse** (Parcourir), puis sélectionnez votre fichier de transcription en texte brut et l’archive zip des fichiers WAV. Quand la préparation est terminée, cliquez sur **Import** (Importer) pour charger vos données. Vos données sont alors chargées. Pour les jeux de données volumineux, le processus d’importation peut prendre plusieurs minutes.
 
@@ -126,11 +126,11 @@ Si vous voulez changer le nom ou la description du jeu de données, vous pouvez 
 
 Une fois que l’état de votre jeu de données acoustiques est *Complete* (Terminé), il peut être utilisé pour créer un modèle acoustique personnalisé. Pour cela, cliquez sur **Acoustic Models** (Modèles acoustiques) dans le menu déroulant **Custom Speech**. Une table intitulée **Your models** (vos modèles) répertorie tous vos modèles acoustiques personnalisés. Ce tableau est vide s’il s’agit de votre première utilisation. Les paramètres régionaux actuels sont indiqués dans le titre du tableau. Actuellement, vous pouvez créer des modèles acoustiques uniquement pour l’anglais des États-Unis.
 
-Pour créer un modèle, cliquez sur **Create New** (Créer nouveau) sous le titre du tableau. Comme auparavant, entrez un nom et une description pour vous aider à identifier ce modèle. Par exemple, le champ **Description** peut être utilisé pour indiquer le modèle de départ et le jeu de données acoustiques qui ont été utilisés pour créer le modèle. 
+Pour créer un modèle, cliquez sur **Create New** (Créer nouveau) sous le titre du tableau. Comme auparavant, entrez un nom et une description pour vous aider à identifier ce modèle. Par exemple, le champ **Description** peut être utilisé pour indiquer le modèle de départ et le jeu de données acoustiques qui ont été utilisés pour créer le modèle.
 
 Ensuite, dans la liste déroulante **Base Acoustic Model** (modèle acoustique de base), sélectionnez un modèle de base. Le modèle de base est le point de départ de votre personnalisation. Vous pouvez choisir entre deux modèles acoustiques de base :
-* Le modèle **Microsoft Search and Dictation AM** (Recherche et dictée) est approprié pour la reconnaissance vocale qui est destinée à une application, comme les commandes, les requêtes de recherche ou la dictée. 
-* Le **modèle Microsoft Conversational** (Oral) est approprié pour la reconnaissance vocale de paroles prononcées dans un style oral. Ce type de discours s’adresse généralement à une autre personne, et peut se tenir dans des centres d’appel ou des réunions. 
+* Le modèle **Microsoft Search and Dictation AM** (Recherche et dictée) est approprié pour la reconnaissance vocale qui est destinée à une application, comme les commandes, les requêtes de recherche ou la dictée.
+* Le **modèle Microsoft Conversational** (Oral) est approprié pour la reconnaissance vocale de paroles prononcées dans un style oral. Ce type de discours s’adresse généralement à une autre personne, et peut se tenir dans des centres d’appel ou des réunions.
 
 Le temps d’attente des résultats partiels dans les modèles Oral est supérieur à celui des modèles Search and Dictation (Recherche et Dictée).
 
@@ -153,6 +153,6 @@ La table des modèles acoustiques affiche une nouvelle entrée qui correspond à
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Obtenir votre abonnement d’essai gratuit à Speech Service](https://azure.microsoft.com/try/cognitive-services/)
+- [Obtenir votre abonnement d’essai gratuit à Speech Services](https://azure.microsoft.com/try/cognitive-services/)
 - [Reconnaissance vocale dans C#](quickstart-csharp-dotnet-windows.md)
 - [Exemples de données Git](https://github.com/Microsoft/Cognitive-Custom-Speech-Service)
