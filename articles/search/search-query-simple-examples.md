@@ -1,5 +1,5 @@
 ---
-title: Exemples de requête simple - Recherche Azure
+title: Exemples de requêtes à l’aide de la syntaxe de recherche « simple » - recherche Azure
 description: Exemples de requêtes simples pour la recherche en texte intégral, la recherche filtrée, la recherche géographique, la recherche à facettes et autres chaînes de requête utilisées pour interroger un index Recherche Azure.
 author: HeidiSteen
 manager: cgronlun
@@ -7,17 +7,17 @@ tags: Simple query analyzer syntax
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 08/09/2018
+ms.date: 03/25/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: a975c95af75e9f3e09e5d0142716795ab4b90e28
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9b7147971bd320a11606a93ab4d988e924cf93b2
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136476"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439112"
 ---
-# <a name="simple-syntax-query-examples-for-building-queries-in-azure-search"></a>Exemples de syntaxe de requête simple pour créer des requêtes dans Recherche Azure
+# <a name="query-examples-using-the-simple-search-syntax-in-azure-search"></a>Exemples de requêtes à l’aide de la syntaxe de recherche « simple » dans la recherche Azure
 
 La [syntaxe de requête simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) appelle l’analyseur de requêtes par défaut pour l’exécution de requêtes de recherche en texte intégral par rapport à un index Recherche Azure. L’analyseur de requêtes simples est rapide et gère des scénarios courants dans Recherche Azure, notamment la recherche en texte intégral, la recherche filtrée et à facettes, ainsi que la recherche géographique. Dans cet article, vous allez découvrir des exemples illustrant les opérations de requête disponibles lors de l’utilisation de la syntaxe simple.
 
@@ -55,7 +55,9 @@ L’URL est composée des éléments suivants :
 
 ## <a name="send-your-first-query"></a>Envoyer votre première requête
 
-En guise d’étape de vérification, collez la requête suivante dans GET et cliquez sur **Envoyer**. Les résultats sont retournés sous forme de documents JSON détaillés. Vous pouvez copier-coller cette URL dans le premier exemple ci-dessous.
+En guise d’étape de vérification, collez la requête suivante dans GET et cliquez sur **Envoyer**. Les résultats sont retournés sous forme de documents JSON détaillés. Documents entiers sont retournés, ce qui vous permet de voir tous les champs et toutes les valeurs.
+
+Collez cette URL dans un client REST comme une étape de validation et afficher la structure du document.
 
   ```http
   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search=*
@@ -74,6 +76,20 @@ Pour les requêtes interactives, vous n’avez rien à spécifier : l’analyse
 Ce premier exemple n’est pas propre à un analyseur, mais nous permet d’introduire le premier concept de requête fondamental : la contenance. Cet exemple limite l’exécution de la requête et la réponse à quelques champs spécifiques. Lors de l’utilisation de l’outil Postman ou Explorateur de recherche, il est important de connaître la structure d’une réponse JSON accessible en lecture. 
 
 Par souci de concision, la requête cible uniquement le champ *business_title* et spécifie que seuls les titres de fonctions sont retournés. La syntaxe est **searchFields** pour restreindre l’exécution de la requête au champ business_title, ainsi que **select** pour spécifier les champs inclus dans la réponse.
+
+### <a name="partial-query-string"></a>Chaîne de requête partielle
+
+```http
+searchFields=business_title&$select=business_title&search=*
+```
+
+Voici la même requête avec plusieurs champs dans une liste délimitée par des virgules.
+
+```http
+search=*&searchFields=business_title, posting_type&$select=business_title, posting_type
+```
+
+### <a name="full-url"></a>URL complète
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&search=*

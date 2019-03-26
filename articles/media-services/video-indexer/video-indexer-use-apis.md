@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: 6a7d79d8a9328eaf0808c79ed359299e1ec37d1a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4c2c22d2d3d68080b1d4e05410121ea1d1be283d
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57862714"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439174"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Didacticiel : Utiliser l’API Video Indexer
 
@@ -73,19 +73,6 @@ Pour faciliter les choses, vous pouvez utiliser l’API **Autorisation** > **Ge
 Les jetons d’accès expirent au bout d’une heure. Assurez-vous que votre jeton d’accès est valide avant d’utiliser l’API Opérations. S’il a expiré, rappelez l’API Autorisation pour obtenir un nouveau jeton d’accès.
  
 Vous êtes prêt à commencer l’intégration avec l’API. Rechercher [la description détaillée de chaque API REST Video Indexer](https://api-portal.videoindexer.ai/).
-
-## <a name="location"></a>Lieu
-
-Toutes les API Opération nécessitent un paramètre de lieu, qui indique la région vers laquelle l’appel doit être routé et dans laquelle le compte a été créé.
-
-Les valeurs décrites dans le tableau suivant s’appliquent. **Valeur param.** est la valeur que vous transmettez lorsque vous utilisez l’API.
-
-|**Nom**|**Valeur param.**|**Description**|
-|---|---|---|
-|Version d’évaluation|traçage|Utilisé pour les comptes d’évaluation.|
-|USA Ouest|westus2|Utilisé pour la région Azure USA Ouest 2.|
-|Europe Nord |northeurope|Utilisé pour la région Azure Europe Nord.|
-|Asie Est|eastasia|Utilisé pour la région Azure Asie-Pacifique.|
 
 ## <a name="account-id"></a>ID de compte 
 
@@ -224,6 +211,6 @@ Debug.WriteLine(playerWidgetLink);
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Examiner les détails de la sortie JSON](video-indexer-output-json-v2.md)
-
-[Présentation de Video Indexer](video-indexer-overview.md)
+- [Examiner les détails de la sortie JSON](video-indexer-output-json-v2.md)
+- [Présentation de Video Indexer](video-indexer-overview.md)
+- [Régions](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)

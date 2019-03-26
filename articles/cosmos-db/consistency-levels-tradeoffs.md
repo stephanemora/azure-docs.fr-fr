@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 2/13/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: cf3dc71e96dac96a6406c97a433398b31a370869
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: ac5b6e0d44376332e005d30b4a8fcc97021c4eda
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57571165"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407519"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Cohérence, disponibilité et compromis sur les performances 
 
@@ -20,13 +20,13 @@ Les bases de données distribuées qui s’appuient sur la réplication pour une
 
 Azure Cosmos DB aborde la cohérence des données en offrant un éventail de choix. Cette approche inclut plus d’options que les deux extrêmes de cohérence, forte et éventuelle. Vous pouvez choisir parmi cinq modèles bien définis sur l’échelle des cohérences. De la plus forte à la plus faible cohérence, les modèles sont les suivants :
 
-- Remarque
-- Bounded staleness (En fonction de l'obsolescence)
-- session
-- Préfixe cohérent
-- Eventual (Éventuel)
+- *Fort*
+- *Obsolescence limitée*
+- *Session*
+- *Préfixe cohérent*
+- *Éventuel*
 
-Chaque modèle propose des compromis entre disponibilité et performances, et repose sur un contrat de niveau de service (SLA) complet.
+Chaque modèle fournit la disponibilité et de performances et repose sur des contrats SLA complets.
 
 ## <a name="consistency-levels-and-latency"></a>Niveaux de cohérence et latence
 
@@ -34,9 +34,9 @@ La latence de lecture est toujours garantie inférieure à 10 millisecondes au 
 
 La latence d’écriture pour tous les niveaux de cohérence est systématiquement être inférieur à 10 millisecondes au 99e centile. La latence d’écriture est garantie par le contrat SLA. La latence d’écriture moyenne (au 50e centile) est généralement inférieure ou égale à 5 millisecondes.
 
-Pour les comptes Azure Cosmos configurés avec une cohérence forte avec plusieurs régions, la latence d’écriture est garantie être temps inférieur à deux fois aller-retour (RTT) entre l’un des deux régions plus éloignées, plus 10 millisecondes au 99e centile. Cette option est actuellement en préversion.
+Pour les comptes Azure Cosmos configurés avec une cohérence forte avec plusieurs régions, la latence d’écriture est garantie être temps inférieur à deux fois aller-retour (RTT) entre l’un des deux régions plus éloignées, plus 10 millisecondes au 99e centile.
 
-La latence exacte de la durée des boucles s’exprime en fonction de la distance à la vitesse de la lumière et de la topologie de réseau Azure. Le réseau Azure ne propose pas de contrat SLA de latence pour la durée des boucles entre deux régions Azure. Pour votre compte Azure Cosmos, les latences de réplication sont affichées dans le portail Azure. Vous pouvez utiliser le portail Azure pour superviser les latences de réplication entre les différentes régions associées à votre compte.
+La latence exacte de la durée des boucles s’exprime en fonction de la distance à la vitesse de la lumière et de la topologie de réseau Azure. Le réseau Azure ne propose pas de contrat SLA de latence pour la durée des boucles entre deux régions Azure. Pour votre compte Azure Cosmos, les latences de réplication sont affichées dans le portail Azure. Vous pouvez utiliser le portail Azure (accédez au panneau métriques) pour surveiller les latences de réplication entre les différentes régions associées à votre compte Azure Cosmos.
 
 ## <a name="consistency-levels-and-throughput"></a>Niveaux de cohérence et débit
 
@@ -46,21 +46,22 @@ La latence exacte de la durée des boucles s’exprime en fonction de la distanc
 
 ## <a id="rto"></a>Niveaux de cohérence et durabilité des données
 
-Dans un environnement de base de données globalement distribuée, il existe une relation directe entre le niveau de cohérence et la durabilité des données en situation de panne à l'échelle d'une région. Au moment de l'élaboration de votre plan de continuité d'activité, vous devez identifier le délai maximal acceptable nécessaire à la récupération complète de l'application après un événement perturbateur. Ce délai s’appelle l’objectif de délai de récupération (RTO, recovery time objective). Vous devez également déterminer sur quelle période maximale l'application peut accepter de perdre les mises à jour de données récentes lors de la récupération après l'événement perturbateur. Il s’agit de l’objectif de point de récupération (RPO, recovery point objective).
+Dans un environnement de base de données globalement distribuée, il existe une relation directe entre le niveau de cohérence et la durabilité des données en situation de panne à l'échelle d'une région. Au moment de l'élaboration de votre plan de continuité d'activité, vous devez identifier le délai maximal acceptable nécessaire à la récupération complète de l'application après un événement perturbateur. Le temps nécessaire pour une application de façon à restaurer est appelé **objectif de délai de récupération** (**RTO**). Vous devez également déterminer sur quelle période maximale l'application peut accepter de perdre les mises à jour de données récentes lors de la récupération après l'événement perturbateur. La période des mises à jour pourrez vous permettre de perdre est appelée **objectif de point de récupération** (**RPO**).
 
-Le tableau définit la relation entre la durabilité de modèle et les données de cohérence en cas de panne large de région. Il est important de noter que dans un système distribué, même avec une cohérence forte, il s’avère impossible d’avoir une base de données distribuée avec un RPO de zéro en raison du théorème CAP. Pour plus d’informations, consultez  [Niveaux de cohérence dans Azure Cosmos DB](consistency-levels.md).
+Le tableau ci-dessous définit la relation entre la durabilité de modèle et les données de cohérence en cas de panne large de région. Il est important de noter que dans un système distribué, même avec une cohérence forte, il est impossible d’avoir une base de données distribuée avec un RPO et le RTO de zéro en raison du théorème CAP. Pour en savoir plus sur la raison, consultez [niveaux de cohérence dans Azure Cosmos DB](consistency-levels.md).
 
 |**Région(s)**|**Mode de réplication**|**Niveau de cohérence**|**RPO**|**RTO**|
 |---------|---------|---------|---------|---------|
 |1|Maître unique ou multimaître|Tous les niveaux de cohérence|< 240 minutes|< 1 semaine|
 |>1|Maître unique|Session, Préfixe cohérent et Éventuel|< 15 minutes|< 15 minutes|
-|>1|Maître unique|Obsolescence limitée|K & T|< 15 minutes|
+|>1|Maître unique|Obsolescence limitée|*K* & *T*|< 15 minutes|
 |>1|Multimaître|Session, Préfixe cohérent et Éventuel|< 15 minutes|0|
-|>1|Multimaître|Obsolescence limitée|K & T|0|
+|>1|Multimaître|Obsolescence limitée|*K* & *T*|0|
 |>1|Maître unique ou multimaître|Remarque|0|< 15 minutes|
 
-K = nombre de versions « K » (mises à jour) d’un élément.
-T = intervalle de temps « T » depuis la dernière mise à jour.
+*K* = nombre de *« K »* versions (par exemple, les mises à jour) d’un élément.
+
+*T* = l’intervalle de temps *« T »* depuis la dernière mise à jour.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

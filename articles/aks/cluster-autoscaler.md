@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: iainfou
-ms.openlocfilehash: dd66ac6392c0afb88d43a8814cef07ec590f6a55
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1ab31662b55f89b23d6aba8ebe4394d1e78092dc
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57990752"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437524"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Preview - automatiquement à l’échelle un cluster pour répondre aux besoins de l’application sur Azure Kubernetes Service (AKS)
 
@@ -38,7 +38,7 @@ az extension add --name aks-preview
 ```
 
 > [!NOTE]
-> Si vous avez installé précédemment le *aks-preview* extension, installez toutes des mises à jour à l’aide de la la `az extension update --name aks-preview` commande.
+> Si vous avez installé précédemment le *aks-preview* extension, installez toutes des mises à jour à l’aide de la `az extension update --name aks-preview` commande.
 
 ### <a name="register-scale-set-feature-provider"></a>Inscrire le fournisseur de fonctionnalités de groupe identique
 
