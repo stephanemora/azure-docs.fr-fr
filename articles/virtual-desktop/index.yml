@@ -1,17 +1,17 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 06b95c24914574a2aea59c6c597e3d9b3d5097cc
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: b9f4cd78288d1b9868a823c5e0ccd0b68b324229
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318733"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400240"
 documentType: LandingData
-title: Documentation Windows Virtual Desktop
+title: Documentation de la préversion de Windows Virtual Desktop
 metadata:
-  title: Documentation Windows Virtual Desktop - Tutoriels, guides de démarrage rapide, informations de référence sur les API | Microsoft Docs
-  description: Windows Virtual Desktop pour Azure est une expérience Windows 10 Entreprise multi-utilisateur virtualisée dans le cloud.
+  title: Documentation de la préversion de Windows Virtual Desktop - Tutoriels, guides de démarrage rapide, informations de référence sur les API | Microsoft Docs
+  description: La préversion de Windows Virtual Desktop pour Azure est une expérience Windows 10 Entreprise multi-utilisateur virtualisée dans le cloud.
   author: Heidilohr
-  manager: dansimp
+  manager: daveba
   ms.service: virtual-desktop
   services: virtual-desktop
   ms.topic: landing-page
@@ -23,11 +23,11 @@ sections:
 - title: Vue d’ensemble
   items:
   - type: paragraph
-    text: Découvrez Windows Virtual Desktop et comment l’utiliser. Les tutoriels, les guides pratiques et le contenu de référence, entre autres, vous montrent comment configurer des pools d’hôtes et des locataires, et comment attribuer des rôles à des utilisateurs pour votre environnement Windows Virtual Desktop.
+    text: Découvrez la préversion de Windows Virtual Desktop et comment l’utiliser. Les tutoriels, les guides pratiques et le contenu de référence, entre autres, vous montrent comment configurer des pools d’hôtes et des locataires, et comment attribuer des rôles à des utilisateurs pour votre environnement Windows Virtual Desktop.
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/virtual-desktop/overview">Qu’est-ce que Windows Virtual Desktop ? (Préversion)</a>
+    - html: <a href="/azure/virtual-desktop/overview">Qu’est-ce que la préversion de Windows Virtual Desktop ?</a>
 - title: Didacticiels pas à pas
   items:
   - type: paragraph
@@ -44,4 +44,4 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="/powershell/windows-virtual-desktop/overview">PowerShell (Préversion)</a>
+    - html: <a href="/powershell/windows-virtual-desktop/overview">PowerShell</a>

@@ -26,10 +26,6 @@ items:
     href: gen2-migration-schedule.md
   - name: Notes de publication archivées
     items:
-    - name: Décembre 2018
-      href: release-notes-december-2018.md
-    - name: Octobre 2018
-      href: release-notes-october-2018.md
     - name: Septembre 2018
       href: release-notes-september-2018.md
     - name: Août 2018
@@ -245,16 +241,18 @@ items:
     items:
     - name: Analyser votre charge de travail
       href: analyze-your-workload.md
-  - name: Surveiller et régler
+  - name: Gestion et surveillance
     items:
-    - name: Superviser votre charge de travail avec des vues de gestion dynamique (DMV)
-      href: sql-data-warehouse-manage-monitor.md
     - name: Mettre à niveau vers la 2e génération
       href: upgrade-to-latest-generation.md
-    - name: Surveillance du cache de deuxième génération
-      href: sql-data-warehouse-how-to-monitor-cache.md
     - name: Moderniser votre entrepôt de données
       href: sql-data-warehouse-restore.md
+    - name: Superviser votre charge de travail - Portail
+      href: sql-data-warehouse-monitor-workload-portal.md
+    - name: Superviser votre charge de travail - DMV
+      href: sql-data-warehouse-manage-monitor.md
+    - name: Surveillance du cache de deuxième génération
+      href: sql-data-warehouse-how-to-monitor-cache.md
   - name: Integrate
     items:
     - name: Utiliser l’apprentissage automatique
@@ -319,9 +317,9 @@ items:
       href: sql-data-warehouse-partner-data-integration.md
     - name: Gestion des données
       href: sql-data-warehouse-partner-data-management.md
-ms.openlocfilehash: 1ee4b1806047d93cbdbe0758b728dd4d835cf8eb
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: e206a9a171736ac7755e670838ee4854dabcdffb
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309450"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402862"
