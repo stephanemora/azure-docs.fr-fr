@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: 0978db31f4aa8caa273c63c2f55d5146b19dea26
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: cdde9f0ec69bec48ae0fb747db0cc49e81920817
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878011"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57872560"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-unity-beta"></a>Démarrage rapide : Reconnaissance vocale avec le SDK Speech pour Unity (bêta).
 
@@ -82,14 +82,14 @@ Quand vous avez terminé, l’interface utilisateur doit ressembler à cette cap
 
 1. Double-cliquez sur le script pour le modifier.
 
-  > [!NOTE]
-  > Vous pouvez configurer l’éditeur de code qui sera lancé sous **Edit** (Edition) > **Preferences** (Préférences). Pour plus d’informations, consultez le [manuel de l’utilisateur Unity](https://docs.unity3d.com/Manual/Preferences.html).
+   > [!NOTE]
+   > Vous pouvez configurer l’éditeur de code qui sera lancé sous **Edit** (Edition) > **Preferences** (Préférences). Pour plus d’informations, consultez le [manuel de l’utilisateur Unity](https://docs.unity3d.com/Manual/Preferences.html).
 
 1. Remplacez tout le code par le suivant :
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-unity/Assets/Scripts/HelloWorld.cs#code)]
 
-1. Recherchez et remplacez la chaîne `YourSubscriptionKey` par votre clé d’abonnement au service Speech.
+1. Recherchez et remplacez la chaîne `YourSubscriptionKey` par votre clé d’abonnement Speech Services.
 
 1. Recherchez et remplacez la chaîne `YourServiceRegion` par la [région](regions.md) associée à votre abonnement. Par exemple, si vous utilisez la version d’évaluation gratuite, la région est `westus`.
 
@@ -97,19 +97,19 @@ Quand vous avez terminé, l’interface utilisateur doit ressembler à cette cap
 
 1. Revenez dans l’éditeur Unity pour ajouter le script en tant que composant à l’un de vos objets de jeu.
 
-  * Cliquez sur l’objet **Canvas** dans la fenêtre de hiérarchie. Cette opération ouvre ses paramètres dans la fenêtre [Inspector](https://docs.unity3d.com/Manual/UsingTheInspector.html) (Inspecteur) affichée par défaut à droite.
-  * Cliquez sur le bouton**Add Component** (Ajouter un composant) dans la fenêtre Inspector, puis recherchez le script HelloWorld créé précédemment et ajoutez-le.
-  * Notez que le composant Hello World a deux propriétés non initialisées, **Output Text** et **Start Reco Button**, qui correspondent aux propriétés publiques de la classe `HelloWorld`.
-    Pour les associer, cliquez sur le sélecteur d’objets (icône en forme de petit cercle à droite de la propriété), puis choisissez les objets Text et Button que vous avez créés précédemment.
+   * Cliquez sur l’objet **Canvas** dans la fenêtre de hiérarchie. Cette opération ouvre le paramètre dans la fenêtre [Inspector](https://docs.unity3d.com/Manual/UsingTheInspector.html) (Inspecteur) affichée par défaut à droite.
+   * Cliquez sur le bouton**Add Component** (Ajouter un composant) dans la fenêtre Inspector, puis recherchez le script HelloWorld créé précédemment et ajoutez-le.
+   * Notez que le composant Hello World a deux propriétés non initialisées, **Output Text** et **Start Reco Button**, qui correspondent aux propriétés publiques de la classe `HelloWorld`.
+     Pour les associer, cliquez sur le sélecteur d’objets (icône en forme de petit cercle à droite de la propriété), puis choisissez les objets Text et Button que vous avez créés précédemment.
 
-    > [!NOTE]
-    > Le bouton comporte également un objet Text imbriqué. Veillez à ne pas le choisir accidentellement pour la sortie de texte (ou renommez un des objets Text à l’aide du champ Name dans la fenêtre Inspector pour éviter toute confusion).
+     > [!NOTE]
+     > Le bouton comporte également un objet Text imbriqué. Veillez à ne pas le choisir accidentellement pour la sortie de texte (ou renommez un des objets Text à l’aide du champ Name dans la fenêtre Inspector pour éviter toute confusion).
 
 ## <a name="run-the-application-in-the-unity-editor"></a>Exécuter l’application dans l’éditeur Unity
 
 * Appuyez sur le bouton **Play** (Lire) dans la barre d’outils de l’éditeur Unity sous la barre de menus.
 
-* Une fois l’application lancée, cliquez sur le bouton et prononcez une phrase en anglais dans le microphone de votre ordinateur. Votre production orale est transmise au service Speech, et transcrite en texte qui apparaît dans la fenêtre.
+* Une fois l’application lancée, cliquez sur le bouton et prononcez une phrase en anglais dans le microphone de votre ordinateur. Votre production orale est transmise aux services vocaux, et transcrite en texte qui apparaît dans la fenêtre.
 
   [![Capture d’écran du guide de démarrage rapide en cours d’exécution dans la fenêtre Game (Jeu) Unity](media/sdk/qs-csharp-unity-03-output-inline.png)](media/sdk/qs-csharp-unity-03-output-expanded.png#lightbox)
 

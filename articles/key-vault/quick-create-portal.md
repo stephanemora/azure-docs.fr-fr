@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/07/2019
+ms.date: 03/14/2019
 ms.author: barclayn
-ms.openlocfilehash: 4dd81fd03c39dec3c34e614234a563ec8c2ced38
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 0902e3fb64a73a095b457306aa561c13519e4066
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117100"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58000618"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Démarrage rapide : Définir et récupérer un secret depuis Azure Key Vault à l’aide du portail Azure
 
@@ -28,7 +28,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous au portail Azure sur http://portal.azure.com.
+Connectez-vous au portail Azure sur https://portal.azure.com.
 
 ## <a name="create-a-vault"></a>Création d'un coffre
 
@@ -43,7 +43,6 @@ Connectez-vous au portail Azure sur http://portal.azure.com.
     - **Abonnement**: Choisissez un abonnement.
     - Sous **Groupe de ressources**, choisissez **Créer** et entrez le nom du groupe de ressources.
     - Dans le menu déroulant **Emplacement**, choisissez un emplacement.
-    - Cochez la case **Épingler au tableau de bord**.
     - Conservez les valeurs par défaut des autres options.
 6. Après avoir renseigné les informations ci-dessus, sélectionnez **Créer**.
 
@@ -70,7 +69,11 @@ Pour ajouter un secret au coffre, vous devez effectuer deux autres opérations. 
 
 Lorsque vous recevez le message confirmant la création du secret, cliquez dessus dans la liste. Certaines propriétés s’affichent. Si vous cliquez sur la version actuelle, vous voyez la valeur que vous avez spécifiée à l’étape précédente.
 
-![Propriétés de secret](./media/quick-create-portal/version.png)
+![Propriétés de secret](./media/quick-create-portal/current-version-hidden.png)
+
+Vous pouvez afficher la valeur masquée en cliquant sur le bouton « Afficher la valeur secrète » dans le volet de droit. 
+
+![Valeur secrète affichée](./media/quick-create-portal/current-version-shown.png)
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

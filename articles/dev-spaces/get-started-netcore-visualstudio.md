@@ -1,23 +1,22 @@
 ---
-title: Créer un espace de développement Kubernetes dans le cloud à l’aide de .NET Core et de Visual Studio | Microsoft Docs
+title: Créer un espace de développement Kubernetes dans le cloud à l’aide de .NET Core et de Visual Studio
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.subservice: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: 07/09/2018
 ms.topic: tutorial
 description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs
-ms.openlocfilehash: f345ff2e64670536771a639a7619c6e1d4d2d82d
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s
+ms.openlocfilehash: 9b5f5d41a35b608ecec5e9ab2161a6c122e7aa82
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823941"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894153"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>Bien démarrer avec l’utilisation d’Azure Dev Spaces conjointement à .NET Core et Visual Studio
 
@@ -34,18 +33,17 @@ Dans ce guide, vous allez apprendre à :
 
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Créer un cluster Kubernetes activé pour Azure Dev Spaces
 
-1. Connectez-vous au portail Azure sur http://portal.azure.com.
+1. Connectez-vous au portail Azure sur https://portal.azure.com.
 1. Choisissez **Créer une ressource** > recherchez **Kubernetes** > sélectionnez **Kubernetes Service** > **Créer**.
 
-   Suivez les étapes sous chaque en-tête du formulaire Créer un cluster AKS.
+   Procédez comme suit sous chaque en-tête du formulaire *Créer un cluster Kubernetes* et vérifiez vos [supports de région Azure Dev Spaces](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams) sélectionnés.
 
-    - **DÉTAILS DU PROJET** : sélectionnez un abonnement Azure et un groupe de ressources Azure (nouveau ou existant).
-    - **DÉTAILS DU CLUSTER** : entrez un nom une région (actuellement, vous devez choisir EastUS, EastUS2, CentralUS, WestEurope, WestUS2, SoutheastAsia, Canadacentral ou CanadaEast), une version et un préfixe de nom DNS pour le cluster AKS.
-    - **ÉCHELLE** : sélectionnez une taille de machine virtuelle pour les nœuds de l’agent AKS et le nombre de nœuds. Si vous débutez avec Azure Dev Spaces, un nœud est suffisant pour explorer toutes les fonctionnalités. Une fois le cluster déployé, il est facile d’ajuster le nombre de nœuds. Notez que la taille de la machine virtuelle ne peut pas être changée une fois le cluster AKS créé. Toutefois, une fois qu’un cluster AKS a été déployé, vous pouvez facilement créer un nouveau cluster AKS avec des machines virtuelles plus volumineuses et utiliser Dev Spaces pour effectuer un nouveau déploiement sur ce cluster plus grand si vous avez besoin de monter en puissance.
-
-   Prenez soin de choisir la version 1.9.6 de Kubernetes ou une version ultérieure.
+   - **DÉTAILS DU PROJET** : sélectionnez un abonnement Azure et un groupe de ressources Azure nouveau ou existant.
+   - **DÉTAILS DU CLUSTER** : entrez le nom, la région, la version et le préfixe de nom DNS du cluster AKS.
+   - **ÉCHELLE** : sélectionnez une taille de machine virtuelle pour les nœuds de l’agent AKS et le nombre de nœuds. Si vous débutez avec Azure Dev Spaces, un nœud est suffisant pour explorer toutes les fonctionnalités. Une fois le cluster déployé, il est facile d’ajuster le nombre de nœuds. Notez que la taille de la machine virtuelle ne peut pas être changée une fois le cluster AKS créé. Toutefois, une fois qu’un cluster AKS a été déployé, vous pouvez facilement créer un nouveau cluster AKS avec des machines virtuelles plus volumineuses et utiliser Dev Spaces pour effectuer un nouveau déploiement sur ce cluster plus grand si vous avez besoin de monter en puissance.
 
    ![Paramètres de configuration Kubernetes](media/common/Kubernetes-Create-Cluster-2.PNG)
+
 
    Sélectionnez **Suivant : Authentification** lorsque vous avez terminé.
 

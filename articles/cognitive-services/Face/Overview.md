@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: overview
 ms.date: 02/20/2019
 ms.author: pafarley
-ms.openlocfilehash: 2f5f57f0978adbdf33ed4ce25ba9b32247ea0484
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: dcfb50c58f1205a5ab31c3fc6b9b22fdb503e4ec
+ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455974"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57588956"
 ---
 # <a name="what-is-the-azure-face-api"></a>Qu’est ce que le l’API Visage Azure ?
 
@@ -26,12 +26,12 @@ L’API Visage fournit plusieurs fonctions différentes, chacune décrite dans l
 
 L’API Visage peut détecter les visages humains dans une image et renvoyer les coordonnées du rectangle de leur emplacement. La détection des visages peut également permettre d’extraire un ensemble d’attributs associés au visage tels que la pose, la posture de la tête, le sexe, l’âge, l’émotion, la pilosité du visage et les lunettes.
 
+> [!NOTE] 
+> La fonctionnalité de détection de visage est également disponible via l’[API Vision par ordinateur](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), mais si vous souhaitez effectuer des opérations supplémentaires avec les données de visage, utilisez l’API Visage (le présent service).
+
 ![Une image d’une femme et d’un homme, avec des rectangles dessinés autour de leur visage, et un âge et un sexe affichés](./Images/Face.detection.jpg)
 
-> [!NOTE] 
-> La fonctionnalité de détection de visage est également disponible via l’[API Vision par ordinateur](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), mais si vous souhaitez effectuer des opérations supplémentaires avec les données de visage, utilisez l’API Visage (le présent service). 
-
-Pour plus d’informations sur la détection de visage, consultez la section [API de détection](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+Pour plus d’informations sur la détection des visages, voir le [guide de détection des visage](face-api-how-to-topics/howtodetectfacesinimage.md), ou parcourez la documentation de référence de l’[API Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 ## <a name="face-verification"></a>Vérification faciale
 

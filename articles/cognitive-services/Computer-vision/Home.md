@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 02/20/2019
+ms.date: 03/04/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 84287191af60a5e9306f03ca2ebd10f9e347c9ac
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 87c5d24f0e9077acf66bacd97097cfc32bd49ead
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453050"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432105"
 ---
 # <a name="what-is-computer-vision"></a>Qu’est-ce que le service Vision par ordinateur ?
 
@@ -42,12 +42,11 @@ Vous pouvez analyser des images pour obtenir des informations détaillées sur l
 |**[Générer une miniature](concept-generating-thumbnails.md)**|Analyser le contenu d’une image pour en générer une miniature. Le service Vision par ordinateur commence par générer une miniature de haute qualité, puis analyse les objets contenus dans l’image pour déterminer la *zone d’intérêt*. Il rogne ensuite l’image pour conserver uniquement la zone d’intérêt. La miniature générée peut être présentée à l’aide de proportions différentes de celles de l’image d’origine selon les besoins de chacun.|
 |**[Obtenir la zone d’intérêt](concept-generating-thumbnails.md#area-of-interest)**|Analyser le contenu d’une image pour retourner les coordonnées de la *zone d’intérêt*. Il s’agit de la même fonction que celle qui est utilisée pour générer une miniature mais, au lieu de rogner l’image, le service Vision par ordinateur retourne les coordonnées de cadre englobant de la région afin que l’application appelante puisse modifier l’image d’origine de la manière souhaitée.|
 
-
 ## <a name="extract-text-from-images"></a>Extraire du texte à partir des images
 
-Vous pouvez utiliser le service Vision par ordinateur pour [extraire du texte à l’aide de la reconnaissance optique de caractères (OCR)](concept-extracting-text-ocr.md) à partir d’une image sous forme d’un flux de caractères lisible par machine. Le cas échéant, la fonction OCR corrige la rotation du texte reconnu et fournit les coordonnées du cadre de chaque mot. La fonction OCR prend en charge 25 langues et détecte automatiquement la langue du texte reconnu.
+Vous pouvez utiliser le service Vision par ordinateur pour extraire le texte d’une image dans un flux de caractères lisible par machine à l’aide d’une [reconnaissance optique de caractères (OCR)](concept-recognizing-text.md#ocr-optical-character-recognition-api). Le cas échéant, la fonction OCR corrige la rotation du texte reconnu et fournit les coordonnées du cadre de chaque mot. La fonction OCR prend en charge 25 langues et détecte automatiquement la langue du texte reconnu.
 
-Vous pouvez également [reconnaître le texte imprimé et le texte manuscrit](concept-recognizing-text.md) dans une image. Le service Vision par ordinateur peut détecter et extraire à la fois le texte imprimé et le texte manuscrit à partir d’images d’objets divers avec différents fonds et surfaces, tels que des reçus, des affiches, des cartes de visite, des courriers ou des tableaux blancs. Pour l’instant, la reconnaissance du texte manuscrit et du texte imprimé est en préversion et prend uniquement en charge l’anglais. 
+Vous pouvez également utiliser l’[API Read](concept-recognizing-text.md#read-api) pour extraire du texte imprimé et manuscrit d’images et de documents contenant beaucoup de texte. L’API Read utilise des modèles à jour et fonctionne pour divers objets dont les surfaces et arrière-plans diffèrent, tels que les accusés de réception, des affiches, des cartes de visite, des lettres et des tableaux blancs. Actuellement, l’API Read est disponible en préversion, et l’anglais est la seule langue prise en charge.
 
 ## <a name="moderate-content-in-images"></a>Modérer du contenu dans les images
 

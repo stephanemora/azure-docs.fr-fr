@@ -4,17 +4,17 @@ description: Utilisez des blueprints Azure pour créer, définir et déployer de
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 03/11/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 7aeb3cf2d56dbe20c85adca2243f5830575693e3
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: fdf87bff026dee4969b3995b37c31de3ead7714b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818661"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58004904"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Définir et affecter un blueprint Azure dans le portail
 
@@ -42,7 +42,7 @@ La première étape de la définition d’un modèle standard à des fins de con
 
    ![Créer un blueprint](./media/create-blueprint-portal/create-blueprint-button.png)
 
-1. Dans **Nom du blueprint**, entrez par exemple « MyBlueprint » (chaîne composée de lettres et de chiffres ne dépassant pas 48 caractères et ne contenant pas d’espaces ou de caractères spéciaux). Laissez **Description du blueprint** vide pour l’instant.  Dans la zone **Emplacement de définition**, cliquez sur les points de suspension à droite, sélectionnez le [groupe d’administration](../management-groups/overview.md) ou l’abonnement dans lequel enregistrer le blueprint, puis cliquez sur **Sélectionner**.
+1. Dans **Nom du blueprint**, entrez par exemple « MyBlueprint » (chaîne composée de lettres et de chiffres ne dépassant pas 48 caractères et ne contenant pas d’espaces ou de caractères spéciaux). Laissez **Description du blueprint** vide pour l’instant. Dans la zone **Emplacement de définition**, cliquez sur les points de suspension à droite, sélectionnez le [groupe d’administration](../management-groups/overview.md) ou l’abonnement dans lequel enregistrer le blueprint, puis cliquez sur **Sélectionner**.
 
 1. Vérifiez que les informations contenues dans les champs **Nom du blueprint** et **Emplacement de définition** sont correctes, car vous ne pourrez pas les changer plus tard. Cliquez ensuite sur **Suivant : Artefacts** en bas de la page ou sur l’onglet **Artefacts** en haut de la page.
 
@@ -84,7 +84,7 @@ La première étape de la définition d’un modèle standard à des fins de con
            },
            "location": {
                "type": "string",
-               "defaultValue": "[resourceGroup().location]",
+               "defaultValue": "[resourceGroups('ResourceGroup').location]",
                "metadata": {
                    "description": "Location for all resources."
                }
@@ -129,7 +129,7 @@ Dans [Créer un blueprint](#create-a-blueprint), aucune description n’a été 
 
 1. Dans la liste des blueprints, cliquez avec le bouton droit sur celui précédemment créé et sélectionnez **Modifier le blueprint**.
 
-1. Dans **Description du blueprint**, fournissez des informations sur le blueprint et les artefacts qui le composent.  Dans ce cas, entrez un texte semblable à celui-ci : « Ce blueprint définit la stratégie des étiquettes et l’attribution de rôle sur l’abonnement, crée un groupe de ressources, et déploie un modèle de ressource et une attribution de rôle sur ce groupe de ressources. »
+1. Dans **Description du blueprint**, fournissez des informations sur le blueprint et les artefacts qui le composent. Dans ce cas, entrez un texte semblable à celui-ci : « Ce blueprint définit la stratégie des étiquettes et l’attribution de rôle sur l’abonnement, crée un groupe de ressources, et déploie un modèle de ressource et une attribution de rôle sur ce groupe de ressources. »
 
 1. Cliquez sur **Suivant : Artefacts** en bas de la page ou sur l’onglet **Artefacts** en haut de la page.
 
@@ -186,13 +186,17 @@ Une fois un blueprint publié, vous pouvez l’affecter à un abonnement. Affect
    > [!NOTE]
    > Une affectation est créée pour chaque abonnement sélectionné, ce qui permet d’apporter par la suite des changements à une seule affectation d’abonnement sans forcer les changements sur le reste des abonnements sélectionnés.
 
-1. Dans **Nom affecté**, donnez un nom unique à cette affectation.
+1. Dans **Nom de l’affectation**, fournissez un nom unique pour cette affectation.
 
-1. Dans **Emplacement**, sélectionnez une région dans laquelle créer l’identité managée. Azure Blueprint utilise cette identité managée pour déployer tous les artefacts dans le blueprint affecté. Pour en savoir plus, consultez [Identités managées pour les ressources Azure](../../active-directory/managed-identities-azure-resources/overview.md).
+1. Dans **Emplacement**, sélectionnez une région dans laquelle créer l’identité managée et un objet de déploiement d’abonnement. Azure Blueprint utilise cette identité managée pour déployer tous les artefacts dans le blueprint affecté. Pour en savoir plus, consultez [Identités managées pour les ressources Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
 1. Dans la liste déroulante **Version de définition du blueprint** des versions **Publiée**, conservez l’entrée « v1 » (par défaut, la dernière version **Publiée**).
 
 1. Pour **Verrouiller l’affectation**, conservez la valeur par défaut **Ne pas verrouiller**. Pour plus d’informations, consultez [Verrouillage des ressources des blueprints](./concepts/resource-locking.md).
+
+   ![Affectation – Verrouillage et identités managées](./media/create-blueprint-portal/assignment-locking-mi.png)
+
+1. Sous **Identité managée**, conservez la valeur par défaut **Affecté(e) par le système**.
 
 1. Pour l’attribution de rôle au niveau de l’abonnement **[Groupe d’utilisateurs ou nom de l’application] : Contributeur**, recherchez et sélectionnez un utilisateur, une application ou un groupe.
 
@@ -245,9 +249,9 @@ Si vous n’en n’avez plus besoin, supprimez une affectation de blueprint d’
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur le [cycle de vie des blueprints](./concepts/lifecycle.md)
-- Comprendre comment utiliser les [paramètres statiques et dynamiques](./concepts/parameters.md)
-- Apprendre à personnaliser [l’ordre de séquencement des blueprints](./concepts/sequencing-order.md)
-- Découvrir comment utiliser le [verrouillage des ressources de blueprint](./concepts/resource-locking.md)
-- Découvrir comment [mettre à jour des affectations existantes](./how-to/update-existing-assignments.md)
-- Résoudre les problèmes durant l’affectation d’un blueprint en suivant les étapes de [dépannage général](./troubleshoot/general.md)
+- Découvrir le [cycle de vie d’un blueprint](./concepts/lifecycle.md).
+- Comprendre comment utiliser les [paramètres statiques et dynamiques](./concepts/parameters.md).
+- Apprendre à personnaliser l’[ordre de séquencement des blueprints](./concepts/sequencing-order.md).
+- Découvrir comment utiliser le [verrouillage de ressources de blueprint](./concepts/resource-locking.md).
+- Découvrir comment [mettre à jour des affectations existantes](./how-to/update-existing-assignments.md).
+- Résoudre les problèmes durant l’affectation d’un blueprint en suivant les étapes de [dépannage général](./troubleshoot/general.md).

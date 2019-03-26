@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/14/2018
 ms.author: mjbrown
-ms.openlocfilehash: a9f6676f1b2fdf812ec87595083ba6317a11873c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: bb5997c2ae8f93068b0ad2a77b5109f6c79b9b30
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462149"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58003515"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Configurer la durée de vie dans Azure Cosmos DB
 
@@ -72,6 +72,20 @@ DocumentCollection ttlEnabledCollection = await client.CreateDocumentCollectionA
     new RequestOptions { OfferThroughput = 20000 });
 ```
 
+### <a id="nodejs-enable-withexpiry"></a>Kit de développement logiciel (SDK) NodeJS
+
+```javascript
+const containerDefinition = {
+          id: "sample container1",
+        };
+
+async function createcontainerWithTTL(db: Database, containerDefinition: ContainerDefinition, collId: any, defaultTtl: number) {
+      containerDefinition.id = collId;
+      containerDefinition.defaultTtl = defaultTtl;
+      await db.containers.create(containerDefinition);
+}
+```
+
 ## <a name="set-time-to-live-on-an-item"></a>Définir la durée de vie sur un élément
 
 Non seulement vous pouvez définir une durée de vie par défaut sur un conteneur, mais vous pouvez aussi définir une durée de vie pour un élément. La définition de la durée de vie au niveau d’un élément remplace la valeur TTL par défaut de l’élément dans le conteneur donné.
@@ -81,6 +95,37 @@ Non seulement vous pouvez définir une durée de vie par défaut sur un conteneu
 * Si l’élément ne présente aucun champ TTL, la durée de vie définie par défaut dans le conteneur s’applique à l’élément.
 
 * Si la TTL est désactivée au niveau du conteneur, le champ TTL de l’élément est ignoré jusqu’à ce que la TTL soit de nouveau activée sur le conteneur.
+
+### <a id="portal-set-ttl-item"></a>Portail Azure
+
+Utilisez les étapes suivantes pour activer la durée de vie sur un élément :
+
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+
+2. Créez un compte Azure Cosmos ou sélectionnez un compte existant.
+
+3. Ouvrez le volet **Explorateur de données**.
+
+4. Sélectionnez un conteneur existant, développez-le et modifiez les valeurs suivantes :
+
+   * Ouvrez la fenêtre **Mise à l’échelle et paramètres**.
+   * Sous **Paramètres**, recherchez **Durée de vie**.
+   * Sélectionnez **Activée (pas par défaut)** ou sélectionnez **Activée** et définissez une valeur de TTL. 
+   * Cliquez sur **Enregistrer** pour enregistrer les modifications.
+
+5. Accédez ensuite à l’élément pour lequel vous souhaitez définir une durée de vie, ajoutez la propriété `ttl`, puis sélectionnez **Mettre à jour**. 
+
+   ```json
+   {
+    "id": "1",
+    "_rid": "Jic9ANWdO-EFAAAAAAAAAA==",
+    "_self": "dbs/Jic9AA==/colls/Jic9ANWdO-E=/docs/Jic9ANWdO-EFAAAAAAAAAA==/",
+    "_etag": "\"0d00b23f-0000-0000-0000-5c7712e80000\"",
+    "_attachments": "attachments/",
+    "ttl": 10,
+    "_ts": 1551307496
+   }
+   ```
 
 ### <a id="dotnet-set-ttl-item"></a>Kit SDK .NET
 
@@ -94,7 +139,7 @@ public class SalesOrder
     public string CustomerId { get; set; }
     // used to set expiration policy
     [JsonProperty(PropertyName = "ttl", NullValueHandling = NullValueHandling.Ignore)]
-    public int? TimeToLive { get; set; }
+    public int? ttl { get; set; }
 
     //...
 }
@@ -103,9 +148,21 @@ SalesOrder salesOrder = new SalesOrder
 {
     Id = "SO05",
     CustomerId = "CO18009186470",
-    TimeToLive = 60 * 60 * 24 * 30;  // Expire sales orders in 30 days
+    ttl = 60 * 60 * 24 * 30;  // Expire sales orders in 30 days
 };
 ```
+
+### <a id="nodejs-set-ttl-item"></a>Kit de développement logiciel (SDK) NodeJS
+
+```javascript
+const itemDefinition = {
+          id: "doc",
+          name: "sample Item",
+          key: "value", 
+          ttl: 2
+        };
+```
+
 
 ## <a name="reset-time-to-live"></a>Réinitialiser la durée de vie
 
@@ -121,7 +178,7 @@ response = await client.ReadDocumentAsync(
     new RequestOptions { PartitionKey = new PartitionKey("CO18009186470") });
 
 Document readDocument = response.Resource;
-readDocument.TimeToLive = 60 * 30 * 30; // update time to live
+readDocument.ttl = 60 * 30 * 30; // update time to live
 response = await client.ReplaceDocumentAsync(readDocument);
 ```
 
@@ -139,14 +196,14 @@ response = await client.ReadDocumentAsync(
     new RequestOptions { PartitionKey = new PartitionKey("CO18009186470") });
 
 Document readDocument = response.Resource;
-readDocument.TimeToLive = null; // inherit the default TTL of the collection
+readDocument.ttl = null; // inherit the default TTL of the collection
 
 response = await client.ReplaceDocumentAsync(readDocument);
 ```
 
 ## <a name="disable-time-to-live"></a>Désactiver la durée de vie
 
-Pour désactiver la durée de vie sur un conteneur et arrêter le processus en arrière-plan qui recherche les éléments ayant expiré, la propriété `DefaultTimeToLive` sur le conteneur doit être supprimée. Supprimer cette propriété ne revient pas à la définir sur -1. Lorsque vous la définissez sur -1, les nouveaux éléments ajoutés au conteneur continuent de vivre indéfiniment, mais vous pouvez remplacer cette valeur sur des éléments spécifiques du conteneur. Lorsque vous supprimez du conteneur la propriété de durée de vie, les éléments expirent même si la précédente valeur de durée de vie par défaut a été explicitement remplacée.
+Pour désactiver la durée de vie sur un conteneur et arrêter le processus en arrière-plan qui recherche les éléments ayant expiré, la propriété `DefaultTimeToLive` sur le conteneur doit être supprimée. Supprimer cette propriété ne revient pas à la définir sur -1. Lorsque vous la définissez sur -1, les nouveaux éléments ajoutés au conteneur continuent de vivre indéfiniment, mais vous pouvez remplacer cette valeur sur des éléments spécifiques du conteneur. Lorsque vous supprimez du conteneur la propriété de durée de vie, les éléments n’expirent jamais, même si la précédente valeur de durée de vie par défaut a été explicitement remplacée.
 
 ### <a id="dotnet-disable-ttl"></a>Kit SDK .NET
 

@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 02/21/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 80c9944628eaa828a34ea16eb9f79271d6cd5728
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 79f0474950cf1f48f3552b1ae843a29b5d8dbb24
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729208"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57883370"
 ---
 # <a name="what-is-translator-text-api"></a>Qu’est-ce que l’API de traduction de texte Translator Text ?
 
@@ -28,7 +28,7 @@ L’API de traduction de texte Translator Text fait partie de la collection d’
 
 Microsoft Translator est un service de traduction informatique. Son service principal est l’API de traduction de texte Translator Text, qui alimente un certain nombre de produits et services Microsoft. Il est utilisé par des milliers d’entreprises à travers le monde, dans leurs applications et flux de travail qui proposent leur contenu à un public international.
 
-La traduction vocale, alimentée par l’API de traduction de texte Translator Text, est également disponible via le [Service Microsoft Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/). Il combine les fonctionnalités de l’API de traduction de conversation Translator Speech,de l’API Reconnaissance vocale Bing et du Custom Speech Service (préversion) en un service unifié et entièrement personnalisable. Le Speech Service remplace l’API de traduction de conversation Translator Speech, qui sera désactivé le 15 octobre 2019.
+La traduction vocale, alimentée par l’API de traduction de texte Translator Text, est également disponible via le [Service Microsoft Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/). Il combine les fonctionnalités de l’API Traduction de conversation Translator Speech et du Custom Speech Service en un service unifié et entièrement personnalisable. Le Speech Service remplace l’API de traduction de conversation Translator Speech, qui sera désactivé le 15 octobre 2019.
 
 ## <a name="language-support"></a>Support multilingue
 

@@ -11,13 +11,13 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: ''
 manager: cgronlun
-ms.date: 02/12/2019
-ms.openlocfilehash: 61c4edc5ec9c690944047ce67f619f0f69f62f6c
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.date: 03/01/2019
+ms.openlocfilehash: e15cf93514f921223fea37aa480730bba46dd195
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236734"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864947"
 ---
 # <a name="quickstart-use-machine-learning-services-with-r-in-azure-sql-database-preview"></a>Démarrage rapide : Utiliser Machine Learning Services (avec R) dans Azure SQL Database (préversion)
 
@@ -29,8 +29,12 @@ Machine Learning Services inclut une distribution de base de R à laquelle Micr
 
 Si vous n’avez pas d’abonnement Azure, [créez un compte](https://azure.microsoft.com/free/) avant de commencer.
 
-> [!NOTE]
-> Machine Learning Services (avec R) dans Azure SQL Database est actuellement en préversion publique. [Inscrivez-vous à la préversion](sql-database-machine-learning-services-overview.md#signup).
+> [!IMPORTANT]
+> Machine Learning Services dans Azure SQL Database est actuellement en préversion publique.
+> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
+> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>
+> [Inscrivez-vous à la préversion](sql-database-machine-learning-services-overview.md#signup).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -154,7 +158,7 @@ Pour l’instant, examinons simplement la valeur par défaut des variables d’e
 
     ![Sortie du script R qui renvoie les données d’une table](./media/sql-database-connect-query-r/r-output-rtestdata.png)
 
-3. Nous allons modifier le nom des variables d’entrée ou de sortie. Le script ci-dessus utilisait les noms de variables d’entrée et de sortie par défaut _InputDataSet_ et _OutputDataSet_. Pour définir les données d’entrée associées avec _InputDatSet_, utilisez la variable *@input_data_1*.
+3. Nous allons modifier le nom des variables d’entrée ou de sortie. Le script ci-dessus utilisait les noms de variables d’entrée et de sortie par défaut _InputDataSet_ et _OutputDataSet_. Pour définir les données d’entrée associées avec _InputDatSet_, utilisez la variable *\@input_data_1*.
 
     Dans ce script, les noms des variables d’entrée et de sortie de la procédure stockée ont été remplacés par *SQL_out* et *SQL_in* :
 
@@ -170,7 +174,7 @@ Pour l’instant, examinons simplement la valeur par défaut des variables d’e
 
     Notez que R respecte la casse, par conséquent, la casse des variables d’entrée et de sortie dans `@input_data_1_name` et `@output_data_1_name` doit correspondre à celle du code R dans `@script`. 
 
-    Notez également que l’ordre des paramètres est important. Vous devez d’abord spécifier les paramètres requis *@input_data_1* et *@output_data_1* pour pouvoir utiliser les paramètres facultatifs *@input_data_1_name* et *@output_data_1_name*.
+    Notez également que l’ordre des paramètres est important. Vous devez d’abord spécifier les paramètres requis *\@input_data_1* et *\@output_data_1* pour pouvoir utiliser les paramètres facultatifs  *\@input_data_1_name* et *\@output_data_1_name*.
 
     Un seul jeu de données d’entrée peut être passé en tant que paramètre, et un seul jeu de données peut être renvoyé. Toutefois, vous pouvez appeler d’autres jeux de données dans votre code R et des sorties d’autres types peuvent être renvoyées en plus du jeu de données. Vous pouvez également ajouter le mot clé OUTPUT à n’importe quel paramètre pour qu’il soit retourné avec les résultats. 
 
@@ -271,34 +275,34 @@ Vous pouvez entraîner un modèle avec R et l’enregistrer dans une table de vo
 
     Les exigences d’un modèle linéaire sont simples :
 
-    - Définissez une formule décrivant la relation entre la variable dépendante `speed` et la variable indépendante `distance`.
+   - Définissez une formule décrivant la relation entre la variable dépendante `speed` et la variable indépendante `distance`.
 
-    - Fournissez les données d’entrée à utiliser pour entraîner le modèle.
+   - Fournissez les données d’entrée à utiliser pour entraîner le modèle.
 
-    > [!TIP]
-    > Si vous avez besoin de vous rafraîchir la mémoire, nous vous recommandons de consulter ce tutoriel sur les modèles linéaires. Il décrit le processus d’ajustement d’un modèle avec rxLinMod : [Ajustement des modèles linéaires](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model)
+     > [!TIP]
+     > Si vous avez besoin de vous rafraîchir la mémoire, nous vous recommandons de consulter ce tutoriel sur les modèles linéaires. Il décrit le processus d’ajustement d’un modèle avec rxLinMod : [Ajustement des modèles linéaires](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model)
 
-    Pour générer le modèle, vous devez définir la formule dans le code R et passer les données comme paramètre d’entrée.
+     Pour générer le modèle, vous devez définir la formule dans le code R et passer les données comme paramètre d’entrée.
 
-    ```sql
-    DROP PROCEDURE IF EXISTS generate_linear_model;
-    GO
-    CREATE PROCEDURE generate_linear_model
-    AS
-    BEGIN
-        EXEC sp_execute_external_script
-        @language = N'R'
-        , @script = N'lrmodel <- rxLinMod(formula = distance ~ speed, data = CarsData);
-            trained_model <- data.frame(payload = as.raw(serialize(lrmodel, connection=NULL)));'
-        , @input_data_1 = N'SELECT [speed], [distance] FROM CarSpeed'
-        , @input_data_1_name = N'CarsData'
-        , @output_data_1_name = N'trained_model'
-        WITH RESULT SETS ((model VARBINARY(max)));
-    END;
-    GO
-    ```
+     ```sql
+     DROP PROCEDURE IF EXISTS generate_linear_model;
+     GO
+     CREATE PROCEDURE generate_linear_model
+     AS
+     BEGIN
+       EXEC sp_execute_external_script
+       @language = N'R'
+       , @script = N'lrmodel <- rxLinMod(formula = distance ~ speed, data = CarsData);
+           trained_model <- data.frame(payload = as.raw(serialize(lrmodel, connection=NULL)));'
+       , @input_data_1 = N'SELECT [speed], [distance] FROM CarSpeed'
+       , @input_data_1_name = N'CarsData'
+       , @output_data_1_name = N'trained_model'
+       WITH RESULT SETS ((model VARBINARY(max)));
+     END;
+     GO
+     ```
 
-    Le premier argument de rxLinMod est le paramètre *formula*, qui définit la distance comme étant dépendante de la vitesse. Les données d’entrée sont stockées dans la variable `CarsData`, qui est renseignée par la requête SQL. Si vous n’attribuez pas de nom spécifique à vos données d’entrée, le nom de variable par défaut est _InputDataSet_.
+     Le premier argument de rxLinMod est le paramètre *formula*, qui définit la distance comme étant dépendante de la vitesse. Les données d’entrée sont stockées dans la variable `CarsData`, qui est renseignée par la requête SQL. Si vous n’attribuez pas de nom spécifique à vos données d’entrée, le nom de variable par défaut est _InputDataSet_.
 
 2. Ensuite, créez une table où vous stockerez le modèle afin de l’entraîner à nouveau ou l’utiliser pour la prédiction. La sortie d’un package R qui crée un modèle est généralement un **objet binaire**. Par conséquent, la table doit contenir une colonne du type **VARBINARY(max)**.
 
@@ -397,23 +401,23 @@ Utilisez le modèle créé dans la section précédente pour attribuer des score
 
     Le script ci-dessus effectue les actions suivantes :
 
-    + Utilisez une instruction SELECT pour récupérer un modèle dans la table et le passer en tant que paramètre d’entrée.
+   + Utilisez une instruction SELECT pour récupérer un modèle dans la table et le passer en tant que paramètre d’entrée.
 
-    + Après avoir récupéré le modèle dans la table, appelez la fonction `unserialize` sur le modèle.
+   + Après avoir récupéré le modèle dans la table, appelez la fonction `unserialize` sur le modèle.
 
-        > [!TIP] 
-        > Intéressez-vous également aux nouvelles [fonctions de sérialisation](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxserializemodel) fournies par RevoScaleR, qui prennent en charge le scoring en temps réel.
-    + Appliquez la fonction `rxPredict` avec les arguments appropriés au modèle de fonction, et fournissez les nouvelles données d’entrée.
+       > [!TIP] 
+       > Intéressez-vous également aux nouvelles [fonctions de sérialisation](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxserializemodel) fournies par RevoScaleR, qui prennent en charge le scoring en temps réel.
+   + Appliquez la fonction `rxPredict` avec les arguments appropriés au modèle de fonction, et fournissez les nouvelles données d’entrée.
 
-    + Dans l’exemple, la fonction `str` est ajoutée au cours de la phase de test, afin de vérifier le schéma de données retourné à partir de R. Vous pourrez supprimer l’instruction ultérieurement.
+   + Dans l’exemple, la fonction `str` est ajoutée au cours de la phase de test, afin de vérifier le schéma de données retourné à partir de R. Vous pourrez supprimer l’instruction ultérieurement.
 
-    + Les noms de colonne utilisés dans le script R ne sont pas nécessairement passés à la sortie de la procédure stockée. Ici, nous avons utilisé la clause WITH RESULTS pour définir des nouveaux noms de colonnes.
+   + Les noms de colonne utilisés dans le script R ne sont pas nécessairement passés à la sortie de la procédure stockée. Ici, nous avons utilisé la clause WITH RESULTS pour définir des nouveaux noms de colonnes.
 
-    **Résultats**
+     **Résultats**
 
-    ![Jeu de résultats pour la prédiction de la distance d’arrêt](./media/sql-database-connect-query-r/r-predict-stopping-distance-resultset.png)
+     ![Jeu de résultats pour la prédiction de la distance d’arrêt](./media/sql-database-connect-query-r/r-predict-stopping-distance-resultset.png)
 
-    Il est également possible d’utiliser [PREDICT in Transact-SQL](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql) pour générer une valeur prédite ou un score basé sur un modèle stocké.
+     Il est également possible d’utiliser [PREDICT in Transact-SQL](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql) pour générer une valeur prédite ou un score basé sur un modèle stocké.
 
 <a name="add-package"></a>
 

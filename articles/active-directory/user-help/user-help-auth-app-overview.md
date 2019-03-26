@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 01/24/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8585557672c7db15e07be6a5e663ba1811e07694
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 4b47b0c5af98198d829c4658877acae2edff5455
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961310"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58001184"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>Qu’est-ce que l’application Microsoft Authenticator ?
 
@@ -28,18 +28,21 @@ L’application Microsoft Authenticator vous aide à vous connecter à vos compt
 
 Vous pouvez utiliser l’application Microsoft Authenticator de plusieurs manières, notamment :
 
-- En fournissant une invite pour appliquer une deuxième méthode de vérification après vous être connecté avec votre nom d’utilisateur et votre mot de passe.
+- Répondre à une invite d’authentification après vous être connecté avec vos nom d’utilisateur et mot de passe.
 
-- En fournissant une connexion sans mot de passe, en utilisant votre nom d’utilisateur et votre appareil mobile avec votre empreinte digitale, votre visage ou votre code PIN.
+- Vous connecter sans entrer de mot de passe, en utilisant votre nom d’utilisateur, l’application d’authentification, et votre appareil mobile avec votre empreinte digitale, votre visage ou votre code PIN.
 
->[!Important]
->L'application Microsoft Authenticator fonctionne avec n'importe quelle application qui utilise la vérification en deux étapes et n'importe quel compte qui prend en charge les mots de passe à usage unique et durée définie (normes TOTP).
+- En tant que générateur de code pour tous les comptes prenant en charge les applications d’authentification.
 
->Votre organisation peut vous obliger à utiliser une application d’authentification pour vous connecter et accéder à ses données et documents. Même si votre nom d’utilisateur peut apparaître dans l’application, le compte n’est pas réellement configuré comme méthode de vérification tant que vous n’avez pas terminé le processus d’inscription. Pour plus d’informations, consultez [Ajouter votre compte professionnel ou scolaire](user-help-auth-app-overview.md).
-
->Si vous rencontrez des problèmes de connexion à votre compte, consultez [Quand vous ne pouvez pas vous connecter à votre compte Microsoft](https://support.microsoft.com/help/12429) pour obtenir de l’aide. Obtenez plus d’informations sur la procédure à suivre quand vous recevez le message [« Ce compte Microsoft n’existe pas »](https://support.microsoft.com/help/13811) lors d’une tentative de connexion à votre compte Microsoft.
+> [!Important]
+> L’application Microsoft Authenticator fonctionne avec tout compte utilisant une vérification en deux étapes et prenant en charge les mots de passe à usage unique et durée définie (normes TOTP).
+> 
+> Votre organisation peut vous obliger à utiliser une application d’authentification pour vous connecter et accéder à ses données et documents. Même si votre nom d’utilisateur peut apparaître dans l’application, le compte n’est pas réellement configuré comme méthode de vérification tant que vous n’avez pas terminé le processus d’inscription. Pour plus d’informations, consultez [Ajouter votre compte professionnel ou scolaire](user-help-auth-app-add-work-school-account.md).
+> 
+> Si vous rencontrez des problèmes de connexion à votre compte, consultez [Quand vous ne pouvez pas vous connecter à votre compte Microsoft](https://support.microsoft.com/help/12429) pour obtenir de l’aide. Obtenez plus d’informations sur la procédure à suivre quand vous recevez le message [« Ce compte Microsoft n’existe pas »](https://support.microsoft.com/help/13811) lors d’une tentative de connexion à votre compte Microsoft.
 
 ## <a name="terminology"></a>Terminologie
+
 |Terme|Description|
 |----|-----------|
 |Vérification à deux facteurs |Un processus de vérification qui vous oblige à utiliser seulement deux éléments d’information de vérification, comme un mot de passe et un code PIN. L’application Microsoft Authenticator prend en charge à la fois la vérification à deux facteurs standard et la connexion sans mot de passe.|

@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 7284dfb6-df62-41f1-a4a4-1b8322b7ef44
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24f816a6629ef561067f5a40ba15064b98b34c99
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 2f8be215f1a972539aff47347395f041d89d4e81
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871432"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57892844"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-accredible"></a>Tutoriel : Intégration d’Azure Active Directory à Accredible
+# <a name="tutorial-azure-active-directory-integration-with-accredible"></a>Didacticiel : Intégration d’Azure Active Directory à Accredible
 
 L’objectif de ce didacticiel est de vous apprendre à intégrer Accredible à Azure Active Directory (Azure AD).
 L’intégration d’Accredible à Azure AD vous offre les avantages suivants :
@@ -51,7 +51,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration d’Accredible à Azure AD, vous devez ajouter Accredible à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter Accredible à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter Accredible à partir de la galerie, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -154,7 +154,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotresociété.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

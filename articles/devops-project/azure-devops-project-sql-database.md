@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Déployer votre application ASP.NET et votre code Azure SQL Database à l’aide d’Azure DevOps Projects'
+title: 'Didacticiel : Déployer votre application ASP.NET et votre code Azure SQL Database à l’aide d’Azure DevOps Projects'
 description: DevOps Projects facilite la prise en main d’Azure. Avec DevOps Projects, vous pouvez déployer votre application ASP.NET et votre code Azure SQL Database en quelques étapes rapides.
 ms.author: mlearned
 ms.manager: douge
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 32f33e4ac66ad456b5ff8807d6a1b5ea5f541fed
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 0d05a2f3de92791572f0a5e6313777b5388af3df
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161397"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57845220"
 ---
-# <a name="tutorial-deploy-your-aspnet-app-and-azure-sql-database-code-by-using-azure-devops-projects"></a>Tutoriel : Déployer votre application ASP.NET et votre code Azure SQL Database à l’aide d’Azure DevOps Projects
+# <a name="tutorial-deploy-your-aspnet-app-and-azure-sql-database-code-by-using-azure-devops-projects"></a>Tutoriel : Déployer votre application ASP.NET et votre code Azure SQL Database à l’aide d’Azure DevOps Projects
 
 Azure DevOps Projects offre une expérience simplifiée dans laquelle vous pouvez apporter vos code et dépôt Git existants ou choisir un exemple d’application pour créer un pipeline d’intégration continue (CI) et de livraison continue (CD) dans Azure. 
 
@@ -26,7 +26,7 @@ De plus, DevOps Projects :
 * Configurer un pipeline de mise en production pour CD 
 * Crée une ressource Azure Application Insights pour la supervision
 
-Avec ce tutoriel, vous allez :
+Ce didacticiel présente les procédures suivantes :
 
 > [!div class="checklist"]
 > * Utiliser Azure DevOps Projects pour déployer votre application ASP.NET et votre code Azure SQL Database
@@ -122,8 +122,8 @@ DevOps Projects crée et configure automatiquement les étapes nécessaires au d
     
 1. À gauche, sélectionnez **Variables**. 
 
-  > [!NOTE]
-  > Effectuez l’étape suivante uniquement si vous avez modifié le mot de passe SQL Server. Il existe une seule variable de mot de passe.
+   > [!NOTE]
+   > Effectuez l’étape suivante uniquement si vous avez modifié le mot de passe SQL Server. Il existe une seule variable de mot de passe.
   
 1. En regard de la zone **Valeur**, sélectionnez l’icône de cadenas, entrez le nouveau mot de passe, puis sélectionnez **Enregistrer**.
 
@@ -136,13 +136,13 @@ DevOps Projects crée et configure automatiquement les étapes nécessaires au d
 1. À droite, sélectionnez **Afficher les mises en production** pour voir l’historique des mises en production.
 
 1. Sélectionnez les points de suspension (...) en regard d’une mise en production, puis sélectionnez **Ouvrir**.  
-    Vous pouvez explorer plusieurs menus, comme un résumé des mises en production, les éléments de travail associés et les tests.
+     Vous pouvez explorer plusieurs menus, comme un résumé des mises en production, les éléments de travail associés et les tests.
 
 1. Sélectionnez **Validations**.  
-    Cette vue montre les validations de code qui sont associées à ce déploiement. Comparez les mises en production pour afficher les différences de validation entre les déploiements.
+     Cette vue montre les validations de code qui sont associées à ce déploiement. Comparez les mises en production pour afficher les différences de validation entre les déploiements.
 
 1. Sélectionnez **Journaux**.  
-    Les journaux contiennent des informations utiles sur le processus de déploiement. Vous pouvez les voir à la fois pendant et après les déploiements.
+     Les journaux contiennent des informations utiles sur le processus de déploiement. Vous pouvez les voir à la fois pendant et après les déploiements.
 
 ## <a name="commit-changes-to-azure-repos-and-automatically-deploy-them-to-azure"></a>Valider les modifications apportées à Azure Repos et les déployer automatiquement dans Azure 
 
@@ -182,10 +182,10 @@ Vous devez disposer des autorisations appropriées pour vous connecter à la bas
 
     Si vous le souhaitez, vous pouvez désormais utiliser les outils clients, tels que SQL Server Management Studio ou Visual Studio, pour vous connecter à SQL Server et à la base de données SQL Azure. Utilisez la propriété **Nom du serveur** pour vous connecter.
 
-    Si vous n’avez pas modifié le nom d’utilisateur de la base de données lors de la configuration initiale du projet dans DevOps Projects, votre nom d’utilisateur correspond à la partie locale de votre adresse e-mail. Par exemple, si votre adresse e-mail est *johndoe@microsoft.com*, votre nom d’utilisateur est *johndoe*.
+    Si vous n’avez pas modifié le nom d’utilisateur de la base de données lors de la configuration initiale du projet dans DevOps Projects, votre nom d’utilisateur correspond à la partie locale de votre adresse e-mail. Par exemple, si votre adresse e-mail est *johndoe\@microsoft.com*, votre nom d’utilisateur est *johndoe*.
 
- > [!NOTE]
- > Si vous modifiez votre mot de passe pour la connexion SQL, vous devez modifier le mot de passe dans la variable du pipeline de mise en production, comme décrit à la section « Examiner le pipeline CD ».
+   > [!NOTE]
+   > Si vous modifiez votre mot de passe pour la connexion SQL, vous devez modifier le mot de passe dans la variable du pipeline de mise en production, comme décrit à la section « Examiner le pipeline CD ».
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
@@ -216,6 +216,6 @@ Pour en savoir plus sur le pipeline CI/CD, consultez :
 > [!div class="nextstepaction"]
 > [Définir votre pipeline de déploiement continu (CD) multiétape](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
 
-## <a name="videos"></a>Vidéos
+## <a name="videos"></a>Videos
 
 > [!VIDEO https://channel9.msdn.com/Events/Build/2018/BRK3308/player]

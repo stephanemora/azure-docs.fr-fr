@@ -1,6 +1,6 @@
 ---
-title: Exemple de script Azure CLI - Création d’une machine virtuelle Linux avec supervision Azure | Microsoft Docs
-description: Exemple de script Azure CLI - Création d’une machine virtuelle Linux avec supervision Azure
+title: Exemple de script Azure CLI – Création d’une machine virtuelle Linux avec Azure Monitor | Microsoft Docs
+description: Exemple de script Azure CLI – Création d’une machine virtuelle Linux avec Azure Monitor
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 70eb7ef93d4802f30bb1343c442c414cda48464b
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 6aed5f40d689fc84c82f37760e78fc7c3fe94dd1
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732785"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535619"
 ---
-# <a name="monitor-a-vm-with-azure-monitoring"></a>Analyser une machine virtuelle avec la supervision Azure
+# <a name="monitor-a-vm-with-azure-monitor"></a>Analyser une machine virtuelle avec Azure Monitor
 
 Ce script crée une machine virtuelle Azure, installe l’agent Log Analytics et inscrit le système auprès d’un espace de travail Log Analytics. Une fois le script exécuté, la machine virtuelle est visible dans la console.
 
@@ -51,7 +51,7 @@ Ce script utilise les commandes suivantes pour créer un groupe de ressources, u
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm) | Crée la machine virtuelle et l’associe à la carte réseau, au réseau virtuel, au sous-réseau et au groupe de sécurité réseau. Cette commande spécifie également l’image de machine virtuelle à utiliser ainsi que les informations d’identification d’administration.  |
-| [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension) | Exécute une extension de machine virtuelle sur une machine virtuelle. Dans ce cas, l’extension de l’agent Log Analytics est utilisée pour installer l’agent Log Analytics et inscrire la machine virtuelle dans un espace de travail Log Analytics. |
+| [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension) | Exécute une extension de machine virtuelle sur une machine virtuelle. Dans ce cas, l’extension de l’agent Azure Monitor est utilisée pour installer l’agent Log Analytics et inscrire la machine virtuelle dans un espace de travail Log Analytics. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 
 ## <a name="next-steps"></a>Étapes suivantes

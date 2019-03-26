@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: ee8dcf1488cfb407793bdb35cdbbee18b2ef15ab
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: f18b2cbf31b50b27c1ae8a6d4fa4a6510781cb12
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750968"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57886483"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Démarrage rapide : Créer et gérer des partages de fichiers Azure à l’aide d’Azure CLI
 Ce guide vous explique les bases de l’utilisation des [partages de fichiers Azure](storage-files-introduction.md) avec Azure CLI. Le partage de fichiers Azure est similaire à d’autres partages de fichiers, mais est stocké dans le cloud et s’appuie sur la plateforme Azure. Il prend en charge le protocole SMB de norme industrielle et permet le partage de fichiers entre plusieurs machines, applications et instances. 
@@ -45,12 +45,12 @@ az group create --name myResourceGroup --location eastus
 ## <a name="create-a-storage-account"></a>Créez un compte de stockage.
 Un compte de stockage est un pool partagé de stockage dans lequel vous pouvez déployer des partages de fichiers Azure, ou d’autres ressources de stockage comme les objets blob ou les files d’attente. Un compte de stockage peut contenir un nombre illimité de partages de fichiers. Un partage peut stocker un nombre illimité de fichiers, dans les limites de capacité du compte de stockage.
 
-L’exemple suivant crée un compte de stockage nommé *mystorageaccount\<numéro aléatoire\>* avec la commande [az storage account create](/cli/azure/storage/account), puis place le nom de ce compte de stockage dans la variable `$STORAGEACCT`. Les noms de comptes de stockage doivent être uniques. L’utilisation de `$RANDOM` ajoute un numéro au nom du compte de stockage pour le rendre unique. 
+L’exemple suivant crée un compte de stockage nommé *mystorageaccount\<numéro aléatoire\>* avec la commande [az storage account create](/cli/azure/storage/account), puis place le nom de ce compte de stockage dans la variable `$STORAGEACCT`. Les noms de compte de stockage devant être uniques, veillez à remplacer « mystorageacct » par un nom unique.
 
 ```azurecli-interactive 
 STORAGEACCT=$(az storage account create \
     --resource-group "myResourceGroup" \
-    --name "mystorageacct$RANDOM" \
+    --name "mystorageacct" \
     --location eastus \
     --sku Standard_LRS \
     --query "name" | tr -d '"')
@@ -92,7 +92,7 @@ Vous pouvez utiliser directement le protocole REST de fichier (c’est-à-dire f
 Dans la plupart des scénarios Azure Files, vous allez utiliser votre partage de fichiers Azure sur le protocole SMB, car cela vous permet d’utiliser les applications et outils existants que l’on s’attend à utiliser. Toutefois, utiliser l’API REST de fichier plutôt que SMB est avantageux pour plusieurs raisons, par exemple :
 
 - Vous naviguez sur votre partage de fichiers à partir d’Azure Bash Cloud Shell (qui ne peut pas monter les partages de fichiers sur SMB).
-- Vous devez exécuter un script ou application à partir d’un client qui ne peut pas monter de partages SMB, notamment les clients locaux qui n’ont pas débloqué le port 445.
+- Vous devez exécuter un script ou une application depuis un client qui ne peut pas monter un partage SMB, tel que des clients locaux, dont le port 445 n’est pas bloqué.
 - Vous tirez profit de ressources serverless, comme [Azure Functions](../../azure-functions/functions-overview.md) par exemple. 
 
 Les exemples suivants montrent comment utiliser l’interface Azure CLI pour manipuler votre partage de fichiers Azure avec le protocole REST de fichier. 

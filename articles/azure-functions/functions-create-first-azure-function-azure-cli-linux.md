@@ -5,22 +5,22 @@ services: functions
 keywords: ''
 author: ggailey777
 ms.author: glenga
-ms.date: 11/28/2018
+ms.date: 03/12/2019
 ms.topic: quickstart
 ms.service: azure-functions
-ms.custom: mvc
+ms.custom: mvc, fasttrack-edit
 ms.devlang: javascript
 manager: jeconnoc
-ms.openlocfilehash: b6df653f89f05a9b253ecea102ed8310ff2a53b7
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 78c2f599ba7d22e6de070f5867398e111a396d45
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438274"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57849735"
 ---
 # <a name="create-your-first-function-hosted-on-linux-using-core-tools-and-the-azure-cli-preview"></a>Créer votre première fonction hébergée sur Linux à l’aide de Core Tools et d’Azure CLI (préversion)
 
-Azure Functions vous permet d’exécuter votre code dans un environnement Linux [sans serveur](https://azure.com/serverless) et sans avoir à créer une machine virtuelle ou à publier une application web au préalable. L’hébergement Linux est actuellement en préversion et requiert le [runtime Functions 2.0](functions-versions.md). Pour en savoir plus sur les considérations relatives à la préversion pour l’exécution de vos applications de fonction sur Linux, consultez [cet article sur les fonctions sur Linux ](https://aka.ms/funclinux).
+Azure Functions vous permet d’exécuter votre code dans un environnement Linux [sans serveur](https://azure.com/serverless) et sans avoir à créer une machine virtuelle ou à publier une application web au préalable. L’hébergement Linux nécessite [le runtime Functions 2.0](functions-versions.md). La prise en charge de l’exécution d’une application de fonction sur Linux dans un [plan de consommation](functions-scale.md#consumption-plan) serverless est actuellement en préversion. Pour en savoir plus, voir [cet article de considérations relatives à la préversion](https://aka.ms/funclinux).
 
 Cet article de démarrage rapide vous guide tout au long de l’utilisation d’Azure CLI pour créer votre première application de fonction exécutée sur Linux. Le code de fonction est créé en local, puis déployé sur Azure à l’aide d’[Azure Functions Core Tools](functions-run-local.md).
 
@@ -49,7 +49,7 @@ func init MyFunctionProj
 Lorsque vous y êtes invité, utilisez les touches de direction pour sélectionner un runtime worker parmi les choix de langage suivants :
 
 + `dotnet` : crée un projet de bibliothèque de classes .NET (.csproj).
-+ `node` : créer un projet JavaScript.
++ `node` : créer un projet JavaScript ou TypeScript. Lorsque vous y êtes invité, choisissez `JavaScript`.
 + `python` : crée un projet Python. Pour plus d’informations sur les fonctions Python, consultez [Démarrage rapide Python](functions-create-first-function-python.md).
 
 Lorsque la commande s’exécute, une sortie similaire à la suivante s’affiche :
@@ -59,6 +59,12 @@ Writing .gitignore
 Writing host.json
 Writing local.settings.json
 Initialized empty Git repository in C:/functions/MyFunctionProj/.git/
+```
+
+Utilisez la commande suivante pour accéder au nouveau dossier du projet `MyFunctionProj`.
+
+```bash
+cd MyFunctionProj
 ```
 
 [!INCLUDE [functions-create-function-core-tools](../../includes/functions-create-function-core-tools.md)]
@@ -71,23 +77,16 @@ Initialized empty Git repository in C:/functions/MyFunctionProj/.git/
 
 [!INCLUDE [functions-create-storage-account](../../includes/functions-create-storage-account.md)]
 
-## <a name="create-a-linux-app-service-plan"></a>Créer un plan App Service Linux
-
-[!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
-
 ## <a name="create-a-linux-function-app-in-azure"></a>Créer une application de fonction Linux dans Azure
 
 Vous devez disposer d’une application de fonction pour héberger l’exécution de vos fonctions sur Linux. L’application de fonction fournit un environnement sans serveur pour l’exécution de votre code de fonction. Elle vous permet de regrouper les fonctions en une unité logique pour faciliter la gestion, le déploiement et le partage des ressources. Créez une application de fonction exécutée sur Linux à l’aide de la commande [az functionapp create](/cli/azure/functionapp#az-functionapp-create).
 
-Dans la commande suivante, utilisez un nom d’application de fonction unique là où se trouve l’espace réservé `<app_name>`, et le nom du compte de stockage pour `<storage_name>`. `<app_name>` représente également le domaine DNS par défaut pour l’application de fonction. Ce nom doit être unique parmi toutes les applications dans Azure. Vous devez également définir le runtime `<language>` pour votre application de fonction à partir de `dotnet` (C#), `node` (JavaScript) ou `python`.
+Dans la commande suivante, utilisez un nom d’application de fonction unique là où se trouve l’espace réservé `<app_name>`, et le nom du compte de stockage pour `<storage_name>`. `<app_name>` représente également le domaine DNS par défaut pour l’application de fonction. Ce nom doit être unique parmi toutes les applications dans Azure. Vous devez également définir le runtime `<language>` pour votre application de fonction à partir de `dotnet` (C#), `node` (JavaScript/TypeScript) ou `python`.
 
 ```azurecli-interactive
 az functionapp create --resource-group myResourceGroup --consumption-plan-location westus --os-type Linux \
 --name <app_name> --storage-account  <storage_name> --runtime <language>
 ```
-
-> [!NOTE]
-> Si vous disposez d’un groupe de ressources existant nommé `myResourceGroup` avec une application App Service n’étant pas hébergée sur Linux, vous devez utiliser un autre groupe de ressources. Vous ne pouvez pas héberger des applications Windows et Linux dans le même groupe de ressources.  
 
 Une fois que l’application de fonction est créée, le message suivant s’affiche :
 
@@ -104,9 +103,4 @@ Vous pouvez désormais publier votre projet sur la nouvelle application de fonct
 
 [!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
-
-Dans cet article, vous avez vu comment héberger votre application de fonction dans un conteneur Azure App Service par défaut. Vous pouvez également héberger vos fonctions sur Linux dans votre propre conteneur personnalisé.
-
-> [!div class="nextstepaction"]
-> [Créer une fonction sur Linux en utilisant une image personnalisée](functions-create-function-linux-custom-image.md)
+[!INCLUDE [functions-quickstart-next-steps-cli](../../includes/functions-quickstart-next-steps-cli.md)]

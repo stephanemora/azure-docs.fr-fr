@@ -9,14 +9,14 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
 ms.date: 02/15/2019
-ms.openlocfilehash: 6ec32a40cea4f95d9225134cfb36d4930245d1c5
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: e306245da2c76560ad447358fa1a57e491c370ee
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750597"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855688"
 ---
-# <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Tutoriel : Extraire, transformer et charger des données à l’aide d’Azure Databricks
+# <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Didacticiel : Extraire, transformer et charger des données à l’aide d’Azure Databricks
 
 Dans ce tutoriel, vous allez effectuer une opération ETL (extraction, transformation et chargement de données) à l’aide d’Azure Databricks. Vous extrayez des données d’Azure Data Lake Storage Gen2 dans Azure Databricks, exécutez des transformations sur les données dans Azure Databricks, puis chargez les données transformées dans Azure SQL Data Warehouse.
 
@@ -40,6 +40,10 @@ Ce tutoriel décrit les tâches suivantes :
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
+> [!Note]
+> Ce didacticiel ne peut pas être suivi avec un **abonnement d’essai gratuit Azure**.
+> Pour utiliser un compte gratuit pour créer le cluster Azure Databricks, avant de créer le cluster, accédez à votre profil et définissez votre abonnement sur **paiement à l’utilisation**. Pour plus d’informations, consultez la page [Compte Azure gratuit](https://azure.microsoft.com/free/).
+     
 ## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer ce tutoriel, effectuez les tâches suivantes :
@@ -50,7 +54,7 @@ Avant de commencer ce tutoriel, effectuez les tâches suivantes :
 
 * Créez un compte de stockage Blob Azure et un conteneur dans celui-ci. Récupérez également la clé d’accès au compte de stockage. Consultez [Démarrage rapide : Créez un compte de stockage Blob Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
 
-* Créez un compte de stockage Azure Data Lake Storage Gen2. Consultez [Créer un compte Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-quickstart-create-account.md).
+* Créez un compte de stockage Azure Data Lake Storage Gen2. Voir [Créer un compte Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-quickstart-create-account.md).
 
 *  Créer un principal de service. Consultez [Procédure : Utilisez le portail pour créer une application Azure AD et un principal du service pouvant accéder aux ressources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 

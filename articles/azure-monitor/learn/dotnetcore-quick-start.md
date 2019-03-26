@@ -1,6 +1,6 @@
 ---
 title: Démarrage rapide avec Azure Application Insights | Microsoft Docs
-description: Fournit des instructions permettant de configurer rapidement une application web ASP.NET Core pour l’analyse avec Application Insights.
+description: Fournit des instructions pour configurer rapidement une application web ASP.NET Core en vue de la supervision avec Application Insights
 services: application-insights
 keywords: ''
 author: mrbullwinkle
@@ -10,18 +10,18 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 14295bca12e64174d03cfd1c2bd8d214d801e8e5
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: fe986d24df8dce6a390d21a262056f7ab857070c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261058"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57886726"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Démarrer l’analyse de votre application web ASP.NET Core
 
 Azure Application Insights vous permet d’analyser facilement la disponibilité, les performances et l’utilisation de votre application web. De plus, vous pouvez rapidement identifier et diagnostiquer les erreurs dans votre application sans attendre qu’un utilisateur ne les signale. 
 
-Ce guide de démarrage rapide vous accompagne tout au long de l’ajout du Kit de développement logiciel (SDK) Application Insights dans une application web ASP.Net Core existante. 
+Ce guide de démarrage rapide vous accompagne tout au long de l’ajout du Kit de développement logiciel (SDK) Application Insights dans une application web ASP.NET Core existante. 
 
 ## <a name="prerequisites"></a>Prérequis
 

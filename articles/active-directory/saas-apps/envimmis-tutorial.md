@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: ab89f8ee-2507-4625-94bc-b24ef3d5e006
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad35d8d3ff04de7e3d99976d637c4fad47c0cd6c
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 7bc40c5043cefad7892eaead8fe8058ac3707865
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869001"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57904709"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-envi-mmis"></a>Tutoriel : Intégration d’Azure Active Directory à Envi MMIS
+# <a name="tutorial-azure-active-directory-integration-with-envi-mmis"></a>Didacticiel : Intégration d’Azure Active Directory à Envi MMIS
 
 Dans ce didacticiel, vous allez apprendre à intégrer Envi MMIS à Azure Active Directory (Azure AD).
 L’intégration d’Envi MMIS à Azure AD vous offre les avantages suivants :
@@ -184,7 +184,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotresociété.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
@@ -237,7 +237,7 @@ Pour se connecter à Envi MMIS, les utilisateurs Azure AD doivent être provisio
 
     ![Ajouter un employé](./media/envimmis-tutorial/user3.png)
 
-    a. Dans la zone de texte **User Name** (Nom d’utilisateur), tapez le nom d’utilisateur du compte de Britta Simon, comme **brittasimon@contoso.com**.
+    a. Dans la zone de texte **User Name** (Nom d’utilisateur), tapez le nom d’utilisateur du compte de Britta Simon, comme **brittasimon\@contoso.com**.
     
     b. Dans la zone de texte **First Name** (Prénom), tapez le prénom de Britta Simon, tel que **Britta**.
 
@@ -245,9 +245,9 @@ Pour se connecter à Envi MMIS, les utilisateurs Azure AD doivent être provisio
 
     d. Dans la zone de texte **Title** (Titre), entrez le titre de l’utilisateur.
     
-    e. Dans la zone de texte **Email Address** (Adresse e-mail), tapez l’adresse e-mail du compte de Britta Simon, comme **brittasimon@contoso.com**.
+    e. Dans la zone de texte **Email Address** (Adresse e-mail), tapez l’adresse e-mail du compte de Britta Simon, comme **brittasimon\@contoso.com**.
 
-    f. Dans la zone de texte **SSO User Name** (Nom d’utilisateur SSO), tapez le nom d’utilisateur du compte de Britta Simon, comme **brittasimon@contoso.com**.
+    f. Dans la zone de texte **SSO User Name** (Nom d’utilisateur SSO), tapez le nom d’utilisateur du compte de Britta Simon, comme **brittasimon\@contoso.com**.
 
     g. Cliquez sur **Enregistrer**.
 

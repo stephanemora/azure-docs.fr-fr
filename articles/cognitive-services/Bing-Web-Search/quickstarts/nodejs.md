@@ -8,21 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 02/12/2019
+ms.date: 03/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 3233357d9013c2a1f9d77178c217ca9310a34ac4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 95a27ff17ca74f930fc1a739c0eb94a90bd82ec4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198199"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57834487"
 ---
-# <a name="search-the-web-using-the-bing-web-search-rest-api-and-nodejs"></a>Effectuer des recherches sur le web à l’aide de l’API REST Recherche Web Bing et de Node.js
+# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-nodejs"></a>Démarrage rapide : Effectuer des recherches sur le web à l’aide de l’API REST Recherche Web Bing et de Node.js
 
 Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l’API Recherche Web Bing et recevoir la réponse JSON. Cette application Node.js envoie une demande de recherche à l’API et affiche la réponse. Alors que cette application est écrite en JavaScript, l’API est un service web RESTful compatible avec la plupart des langages de programmation.
 
 ## <a name="prerequisites"></a>Prérequis
+
 Voici quelques points dont vous aurez besoin avant d’exécuter ce démarrage rapide :
 
 * [Node.js 6](https://nodejs.org/en/download/) ou version ultérieure
@@ -43,7 +44,7 @@ const https = require('https')
 
 ## <a name="set-the-subscription-key"></a>Définir la clé d’abonnement
 
-Cet extrait de code utilise la variable d’environnement `AZURE_SUBSCRIPTION_KEY` pour stocker votre clé d’abonnement ; c’est une bonne pratique pour éviter l’exposition accidentelle de vos clés lors du déploiement de code. [Cliquez ici](https://azure.microsoft.com/try/cognitive-services/my-apis/?apiSlug=search-api-v7) pour rechercher votre clé d’abonnement.
+Cet extrait de code utilise la variable d’environnement `AZURE_SUBSCRIPTION_KEY` pour stocker votre clé d’abonnement ; c’est une bonne pratique pour éviter l’exposition accidentelle de vos clés lors du déploiement de code. Accédez à la [page Vos API](https://azure.microsoft.com/try/cognitive-services/my-apis/?apiSlug=search-api-v7) pour rechercher votre clé d’abonnement.
 
 Si vous êtes familiarisé avec l’utilisation de variables d’environnement, ou que vous cherchez à exécuter cette application le plus rapidement possible, vous pouvez remplacer `process.env['AZURE_SUBSCRIPTION_KEY']` par votre clé d’abonnement définie comme chaîne.
 
@@ -110,7 +111,7 @@ Si vous souhaitez comparer votre code avec le nôtre, voici le programme complet
 const https = require('https')
 const SUBSCRIPTION_KEY = process.env['AZURE_SUBSCRIPTION_KEY']
 if (!SUBSCRIPTION_KEY) {
-  throw new Error('Missing the AZURE_SUBSCRIPTION_KEY environment varable')
+  throw new Error('Missing the AZURE_SUBSCRIPTION_KEY environment variable')
 }
 function bingWebSearch(query) {
   https.get({

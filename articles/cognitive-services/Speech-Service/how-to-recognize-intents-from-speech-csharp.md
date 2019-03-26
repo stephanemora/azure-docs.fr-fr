@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 680c10d8402853f1ac2f519b8f07f81b9718ab9e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: a9b3d8a2670a0b4e6bed2d5e9a9b64e597adcb16
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56866995"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855722"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Tutoriel : Effectuer une reconnaissance des intentions vocales à l’aide du kit SDK Speech pour C#
 
@@ -45,9 +45,9 @@ Assurez-vous de disposer des éléments suivants avant de commencer ce tutoriel.
 
 ## <a name="luis-and-speech"></a>LUIS et Speech
 
-LUIS s’intègre au service Speech pour reconnaître les intentions à partir de la reconnaissance vocale. Vous n’avez besoin que de LUIS, aucun abonnement au service Speech n’est nécessaire.
+LUIS s’intègre aux services Voix pour reconnaître les intentions à partir de la voix. Vous n’avez besoin que de LUIS. Aucun abonnement aux services Voix n’est nécessaire.
 
-LUIS utilise deux types de clés : 
+LUIS utilise deux types de clés :
 
 |Type de clé|Objectif|
 |--------|-------|
@@ -56,7 +56,7 @@ LUIS utilise deux types de clés :
 
 La clé du point de terminaison est la clé LUIS nécessaire pour ce tutoriel. Ce tutoriel utilise l’exemple d’appli domotique Home Automation LUIS, que vous pouvez créer en suivant [Utiliser une appli domotique prédéfinie](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app). Si vous avez créé votre propre appli LUIS, vous pouvez aussi l’utiliser.
 
-Lors de la création d’une appli LUIS, une clé de démarrage est générée automatiquement pour que vous puissiez tester l’appli à l’aide de requêtes de texte. Cette clé n’active pas l’intégration du service Speech et ne fonctionne pas avec ce tutoriel. Vous devez créer une ressource LUIS dans le tableau de bord Azure et l’affecter à l’appli LUIS. Vous pouvez utiliser le niveau d’abonnement gratuit pour ce tutoriel. 
+Lors de la création d’une appli LUIS, une clé de démarrage est générée automatiquement pour que vous puissiez tester l’appli à l’aide de requêtes de texte. Cette clé n’active pas l’intégration des services Voix et ne fonctionne pas avec ce tutoriel. Vous devez créer une ressource LUIS dans le tableau de bord Azure et l’affecter à l’appli LUIS. Vous pouvez utiliser le niveau d’abonnement gratuit pour ce tutoriel.
 
 Après avoir créé la ressource LUIS dans le tableau de bord Azure, connectez-vous au [portail LUIS](https://www.luis.ai/home), choisissez votre application dans la page My apps (Mes applications) et basculez vers la page Manage (Gérer) de l’appli. Enfin, cliquez sur **Keys and Endpoints** (Clés et points de terminaison) dans la barre latérale.
 
@@ -123,7 +123,7 @@ Les sections suivantes comportent un développement du code.
 La première étape de la reconnaissance d’intentions dans la reconnaissance vocale consiste à créer une configuration de reconnaissance vocale à partir de votre région et de votre clé de point de terminaison LUIS. Les configurations de reconnaissance vocale peuvent servir à créer des modules de reconnaissance pour les différentes fonctionnalités du kit SDK Speech. La configuration de reconnaissance vocale offre plusieurs moyens pour spécifier l’abonnement à utiliser. Ici, nous utilisons `FromSubscription`, qui accepte la région et la clé d’abonnement.
 
 > [!NOTE]
-> Utilisez la clé et la région de votre abonnement LUIS, et non celles d’un abonnement Speech.
+> Utilisez la clé et la région de votre abonnement LUIS, et non celles d’un abonnement aux services Voix.
 
 Ensuite, créez un module de reconnaissance de l’intention à l’aide de `new IntentRecognizer(config)`. La configuration sachant déjà quel abonnement utiliser, il est inutile de spécifier à nouveau la clé d’abonnement et le point de terminaison lors de la création du module de reconnaissance.
 
@@ -174,7 +174,7 @@ Le code suivant illustre deux caractéristiques supplémentaires de la reconnais
 
 L’autre caractéristique lit l’audio contenant la reconnaissance vocale à traiter à partir d’un fichier WAV. La création d’une configuration audio utilisable lors de la création du module de reconnaissance de l’intention est pour cela nécessaire. Le fichier doit être de canal unique (mono) avec un taux d’échantillonnage de 16 kHz.
 
-Pour essayer ces caractéristiques, remplacez le corps de la méthode `RecognizeIntentAsync()` par le code suivant. 
+Pour essayer ces caractéristiques, remplacez le corps de la méthode `RecognizeIntentAsync()` par le code suivant.
 
 [!code-csharp[Intent recognition by using events from a file](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#intentContinuousRecognitionWithFile)]
 

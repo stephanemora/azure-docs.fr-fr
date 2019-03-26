@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à dmarcian | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à dmarcian | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et dmarcian.
 services: active-directory
 documentationCenter: na
@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: a04b9383-3a60-4d54-9412-123daaddff3b
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2c6b95d62f6210ecfdd560bc1c00a3e055be3ee
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: c24cbf8ad21c7dd5875a71532a5278e313774e66
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880344"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57883965"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-dmarcian"></a>Tutoriel : Intégration d’Azure Active Directory à dmarcian
+# <a name="tutorial-azure-active-directory-integration-with-dmarcian"></a>Didacticiel : Intégration d’Azure Active Directory à dmarcian
 
 Dans ce didacticiel, vous allez apprendre à intégrer dmarcian à Azure Active Directory (Azure AD).
 L’intégration de dmarcian à Azure AD vous offre les avantages suivants :
@@ -106,6 +106,7 @@ Pour configurer l’authentification unique Azure AD avec dmarcian, effectuez le
     ![Informations d’authentification unique dans dmarcian Domain and URLs (Domaine et URL dmarcian)](common/idp-intiated.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant :
+
     | |
     | -- |
     | `https://us.dmarcian.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
@@ -113,6 +114,7 @@ Pour configurer l’authentification unique Azure AD avec dmarcian, effectuez le
     | `https://dmarcian-ap.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
 
     b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant :
+
     | |
     |--|
     | `https://us.dmarcian.com/login/<ACCOUNT_ID>/handle/` |
@@ -124,6 +126,7 @@ Pour configurer l’authentification unique Azure AD avec dmarcian, effectuez le
     ![Informations d’authentification unique dans dmarcian Domain and URLs (Domaine et URL dmarcian)](common/metadata-upload-additional-signon.png)
 
     Dans la zone de texte **URL d’authentification**, tapez une URL au format suivant :
+    
     | |
     |--|
     | `https://us.dmarcian.com/login/<ACCOUNT_ID>` |
@@ -186,7 +189,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
@@ -239,7 +242,7 @@ Pour se connecter à dmarcian, les utilisateurs Azure AD doivent être approvisi
 
     ![Le nouvel utilisateur](./media/dmarcian-tutorial/tutorial_dmarcian_save.png)
 
-    a. Dans la zone de texte **Nouvel e-mail d’utilisateur**, entrez l’adresse de messagerie de l’utilisateur, par exemple **brittasimon@contoso.com**.
+    a. Dans la zone de texte **Nouvel e-mail d’utilisateur**, entrez l’e-mail de l’utilisateur, par exemple **brittasimon\@contoso.com**.
 
     b. Si vous souhaitez accorder des droits d’administrateur à l’utilisateur, sélectionnez **Make User an Admin** (Rendre l’utilisateur administrateur).
 

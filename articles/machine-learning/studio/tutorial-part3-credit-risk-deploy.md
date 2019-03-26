@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: f64000ed502ee817f907e6ac9c89c2f037725a39
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 7132c2073223008cd82d0ffd54aaf266d0a630ba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823788"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57839015"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio"></a>Tutoriel 3 : Déployer un modèle de risque de crédit - Azure Machine Learning Studio
 
@@ -72,12 +72,11 @@ Vous devez supprimer les modules suivants :
 
 Sélectionnez chaque module et appuyez sur la touche Suppr, ou cliquez avec le bouton droit sur le module puis sélectionnez **Supprimer**. 
 
-![Modèle SVM supprimé](./media/tutorial-part3-credit-risk-deploy/publish3a.png)
-
+![Met en évidence les modules à supprimer pour retirer le modèle de Machine à vecteurs de support](./media/tutorial-part3-credit-risk-deploy/publish3a.png)
 
 Notre modèle doit alors ressembler à ceci :
 
-![Modèle SVM supprimé](./media/tutorial-part3-credit-risk-deploy/publish3.png)
+![Interface obtenue une fois le modèle de Machine à vecteurs de support supprimé](./media/tutorial-part3-credit-risk-deploy/publish3.png)
 
 À présent, nous sommes prêts à déployer ce modèle avec le module [Arbre de décision optimisé à deux classes][two-class-boosted-decision-tree].
 

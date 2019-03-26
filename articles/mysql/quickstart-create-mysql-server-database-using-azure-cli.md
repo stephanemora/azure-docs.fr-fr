@@ -8,14 +8,18 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/09/2019
 ms.custom: mvc
-ms.openlocfilehash: c9944aeae425d3173fa4700caa004097d29d417d
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 10acb353e282508c838bee89b131d94dcd3fa7ee
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870061"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57877817"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-using-azure-cli"></a>Démarrage rapide : Création d’un serveur Azure Database pour MySQL à l’aide de la CLI Azure
+
+> [!TIP]
+> Envisagez d’utiliser la commande Azure CLI plus simple [az mysql up](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) (actuellement en préversion). Essayez le [démarrage rapide](./quickstart-create-server-up-azure-cli.md).
+
 Ce guide de démarrage rapide explique comment utiliser l’interface CLI Azure pour créer un serveur Azure Database pour MySQL dans un groupe de ressources Azure en environ cinq minutes. L’interface de ligne de commande (CLI) Azure permet de créer et gérer des ressources Azure à partir de la ligne de commande ou dans les scripts.
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
@@ -45,7 +49,7 @@ Créez un serveur Azure Database pour MySQL avec la commande **[az mysql server 
 ---|---|---
 Nom | mydemoserver | Choisissez un nom unique qui identifie votre serveur de base de données Azure pour MySQL. Le nom de serveur ne peut contenir que des lettres minuscules, des chiffres et le caractère de trait d’union (-). Il doit inclure entre 3 et 63 caractères.
 resource-group | myResourceGroup | Indiquez le nom du groupe de ressources Azure.
-sku-name | GP_Gen4_2 | Nom du la référence SKU. Suit la convention {niveau tarifaire}_{génération de calcul}_{vCores} dans le raccourci. Consultez le tableau ci-dessous pour plus d’informations sur le paramètre sku-name.
+sku-name | GP_Gen5_2 | Nom du la référence SKU. Suit la convention {niveau tarifaire}\_{génération de calcul}\_{vCores} dans le raccourci. Consultez le tableau ci-dessous pour plus d’informations sur le paramètre sku-name.
 backup-retention | 7 | Durée pendant laquelle la sauvegarde doit être conservée. Exprimée en jours. La plage s’étend de 7 à 35. 
 geo-redundant-backup | Désactivé | Indique si les sauvegardes géoredondantes doivent être activées ou non pour ce serveur. Valeurs autorisées : Activé, Désactivé.
 location | westus | Emplacement Azure du serveur.
@@ -57,7 +61,7 @@ admin-password | *mot de passe sécurisé* | Mot de passe de l’utilisateur Adm
 
 
 La valeur du paramètre sku-name suit la convention {tarification}\_{génération de calcul}\_{vCores} comme dans les exemples ci-dessous :
-+ `--sku-name B_Gen4_1` correspond à De base, Gen 4 et 1 vCore. Cette option correspond à la plus petite référence disponible.
++ `--sku-name B_Gen5_1` correspond à De base, Gen 5 et 1 vCore. Cette option correspond à la plus petite référence disponible.
 + `--sku-name GP_Gen5_32` correspond à Usage général, Gen 5 et 32 vCores.
 + `--sku-name MO_Gen5_2` correspond à Mémoire optimisée, Gen 5 et 2 vCores.
 
@@ -66,7 +70,7 @@ Consultez la documentation des [niveaux tarifaires](./concepts-pricing-tiers.md)
 L’exemple suivant crée un serveur MySQL 5.7 dans la région USA Ouest, nommé `mydemoserver`, dans votre groupe de ressources `myresourcegroup` avec l’identifiant d’administrateur du serveur `myadmin`. Il s’agit d’un serveur à **usage général**, de **4e génération** avec **2 vCores**. Remplacez `<server_admin_password>` par votre propre valeur.
 
 ```azurecli-interactive
-az mysql server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 5.7
+az mysql server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 5.7
 ```
 
 > [!NOTE]
@@ -116,8 +120,8 @@ Le résultat est au format JSON. Prenez note du **fullyQualifiedDomainName** et 
   "resourceGroup": "myresourcegroup",
   "sku": {
     "capacity": 2,
-    "family": "Gen4",
-    "name": "GP_Gen4_2",
+    "family": "Gen5",
+    "name": "GP_Gen5_2",
     "size": null,
     "tier": "GeneralPurpose"
   },
@@ -140,15 +144,15 @@ Connectez-vous à votre serveur avec l’outil en ligne de commande **mysql.exe*
 Tapez les commandes suivantes : 
 
 1. Connectez-vous au serveur avec l’outil de ligne de commande **mysql** :
-```bash
- mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
-```
+   ```bash
+   mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
+   ```
 
 2. Afficher l’état du serveur :
-```sql
- mysql> status
-```
-Si tout se déroule correctement, l’outil en ligne de commande doit générer le texte suivant :
+   ```sql
+   mysql> status
+   ```
+   Si tout se déroule correctement, l’outil en ligne de commande doit générer le texte suivant :
 
 ```dos
 C:\Users\>mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
@@ -194,9 +198,9 @@ mysql>
 > Pour les autres commandes, consultez le [Manuel de référence de MySQL 5.7 - Chapitre 4.5.1](https://dev.mysql.com/doc/refman/5.7/en/mysql.html).
 
 ## <a name="connect-to-the-server-using-the-mysql-workbench-gui-tool"></a>Connectez-vous au serveur à l’aide de l’outil MySQL Workbench GUI
-1.  Lancez l’application MySQL Workbench sur votre ordinateur client. Vous pouvez télécharger et installer MySQL Workbench à partir [d’ici](https://dev.mysql.com/downloads/workbench/).
+1. Lancez l’application MySQL Workbench sur votre ordinateur client. Vous pouvez télécharger et installer MySQL Workbench à partir [d’ici](https://dev.mysql.com/downloads/workbench/).
 
-2.  Dans la boîte de dialogue **Configurer une nouvelle connexion**, entrez les informations suivantes dans l’onglet **Paramètres** :
+2. Dans la boîte de dialogue **Configurer une nouvelle connexion**, entrez les informations suivantes dans l’onglet **Paramètres** :
 
    ![configurer une nouvelle connexion](./media/quickstart-create-mysql-server-database-using-azure-cli/setup-new-connection.png)
 

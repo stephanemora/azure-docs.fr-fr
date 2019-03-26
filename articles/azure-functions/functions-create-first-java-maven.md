@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 08/10/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: a72d6b180db35f3e0f0e0527e8ae0f544a585b25
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 96ac8522f94a3555fe63575baca8bbfbabc272d9
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822961"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570451"
 ---
 # <a name="create-your-first-function-with-java-and-maven"></a>Créer votre première fonction avec Java et Maven
 
@@ -41,7 +41,7 @@ Pour développer des fonctions avec Java, les éléments suivants doivent être 
 
 Dans un dossier vide, exécutez la commande suivante pour générer le projet Functions à partir d’un [archétype Maven](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html).
 
-### <a name="linuxmacos"></a>Linux/MacOS
+### <a name="linuxmacos"></a>Linux/macOS
 
 ```bash
 mvn archetype:generate \
@@ -49,7 +49,14 @@ mvn archetype:generate \
     -DarchetypeArtifactId=azure-functions-archetype 
 ```
 
-### <a name="windows-cmd"></a>Windows (CMD)
+### <a name="windows"></a> Windows
+
+```powershell
+mvn archetype:generate `
+    "-DarchetypeGroupId=com.microsoft.azure" `
+    "-DarchetypeArtifactId=azure-functions-archetype"
+```
+
 ```cmd
 mvn archetype:generate ^
     -DarchetypeGroupId=com.microsoft.azure ^
@@ -159,6 +166,9 @@ Quand le déploiement est terminé, vous voyez l’URL que vous pouvez utiliser 
 ```
 
 Testez l’application de fonction en cours d’exécution sur Azure avec `cURL`. Vous devez modifier l’URL de l’exemple ci-dessous pour qu’elle corresponde à l’URL déployée de votre application de fonction à l’étape précédente.
+
+> [!NOTE]
+> Veillez à définir les **Droits d’accès** sur `Anonymous`. Lorsque vous choisissez le niveau par défaut de `Function`, vous êtes invité à présenter la [clé de fonction](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) dans les demandes d’accès à votre point de terminaison de fonction.
 
 ```
 curl -w '\n' https://fabrikam-function-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions

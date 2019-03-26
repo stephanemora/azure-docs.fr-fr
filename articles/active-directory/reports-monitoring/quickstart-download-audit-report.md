@@ -17,16 +17,16 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d702810ae7de03a14e50f56c2b8e819c31f3ea9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e7a45e85b35ab48f95ecff07043484b322f237a8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192708"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57538049"
 ---
 # <a name="quickstart-download-an-audit-report-using-the-azure-portal"></a>Démarrage rapide : Télécharger un rapport d’audit avec le portail Azure
 
-Dans ce guide de démarrage rapide, vous apprenez à télécharger les journaux d’audit des dernières 24 heures pour votre locataire. Vous pouvez télécharger jusqu’à 5 000 enregistrements à partir du portail Azure. Les enregistrements sont triés par date. Par défaut, les 5 000 enregistrements les plus récents s’affichent. 
+Dans ce guide de démarrage rapide, vous apprenez à télécharger un fichier CSV des journaux d’audit des dernières 24 heures pour votre locataire. Vous pouvez télécharger jusqu’à 250 000 enregistrements à partir du portail Azure. Les enregistrements sont triés par date. Par défaut, les 250 000 enregistrements les plus récents s’affichent. 
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -41,7 +41,7 @@ Ce dont vous avez besoin :
 2. Sélectionnez **Azure Active Directory** à partir du volet de navigation gauche et utilisez le bouton **Changer de répertoire** pour sélectionner votre instance Active Directory.
 3. Dans le tableau de bord, sélectionnez **Azure Active Directory**, puis **Journaux d’audit**. 
 4. Choisissez **Dernières 24 heures** dans la liste déroulante du filtre **Plage de dates** et sélectionnez **Appliquer** pour afficher les journaux d’audit des dernières 24 heures. 
-5. Sélectionnez le bouton **Télécharger** pour télécharger un fichier CSV contenant les enregistrements filtrés. 
+5. Sélectionnez le bouton **Télécharger**, sélectionnez **CSV** comme format de fichier, et spécifiez un nom de fichier pour télécharger un fichier CSV contenant les enregistrements filtrés. 
 
 ![Reporting](./media/quickstart-download-audit-report/download-audit-logs.png)
 

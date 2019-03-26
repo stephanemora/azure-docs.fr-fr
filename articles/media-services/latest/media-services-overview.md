@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 02/26/2019
+ms.date: 03/14/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: de1bd8599682baae860737401d02c7c1dec9e223
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 018392db2ffb510d41385d8e0af19635c35678e6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960647"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58003419"
 ---
 # <a name="what-is-azure-media-services-v3"></a>Présentation d’Azure Media Services v3
 
@@ -49,9 +49,9 @@ Cette version offre les fonctionnalités suivantes :
 
 * **Transformations** : définir des workflows simples des tâches d’analytique ou de traitement multimédia. La transformation est une formule pour le traitement de vos fichiers audio et vidéo. Vous pouvez ensuite l’appliquer à plusieurs reprises pour traiter tous les fichiers dans votre bibliothèque de contenu, en envoyant des travaux à la Transformation.
 * **Travaux** : traiter (encoder ou analyser) vos vidéos. Un contenu d’entrée peut être spécifié sur un travail à l’aide d’URL HTTPS, d’URL SAP ou de chemins d’accès aux fichiers situés dans le Stockage Blob Azure. AMS v3 ne prend pas en charge l’encodage de transfert mémorisé en bloc sur les URL HTTPS.
-* **Notifications** : surveiller la progression ou les états du travail, le démarrage/l’arrêt de Live Channel et les événements d’erreur. Les notifications sont intégrées au système de notification Azure Event Grid. Vous pouvez facilement vous abonner à des événements sur plusieurs ressources dans Azure Media Services. 
-* Vous pouvez utiliser les gabarits **Azure Resource Management** pour créer et déployer des transformations, des points de terminaison de streaming, des canaux et bien plus encore.
-* Il est possible de configurer le **contrôle d’accès en fonction du rôle** au niveau de la ressource, ce qui vous permet de bloquer l’accès à des ressources spécifiques comme les transformations, les canaux et bien plus encore.
+* **Notifications** : surveiller la progression ou les états du travail, le démarrage/l’arrêt de Live Events et les événements d’erreur. Les notifications sont intégrées au système de notification Azure Event Grid. Vous pouvez facilement vous abonner à des événements sur plusieurs ressources dans Azure Media Services. 
+* Vous pouvez utiliser les modèles **Azure Resource Manager** pour créer et déployer des transformations, des points de terminaison de streaming, des événements en direct, etc.
+* Il est possible de configurer le **contrôle d’accès en fonction du rôle** au niveau de la ressource, ce qui vous permet de bloquer l’accès à des ressources spécifiques telles que des transformations, Live Events et bien plus encore.
 * **Kits SDK clients** en plusieurs langages : .NET, .NET core, Python, Go, Java et Node.js.
 
 ## <a name="naming-conventions"></a>Conventions d’affectation de noms

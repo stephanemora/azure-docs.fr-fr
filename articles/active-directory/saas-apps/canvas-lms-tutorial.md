@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Canvas | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Canvas | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Canvas.
 services: active-directory
 documentationCenter: na
@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: bfed291c-a33e-410d-b919-5b965a631d45
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff46d9644848d197051e574106b029fb44efb069
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: b7556e93e6e7b7e9bdb1f19f5a6e5b3c15c7b910
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56877705"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894068"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-canvas"></a>Tutoriel : Intégration d’Azure Active Directory à Canvas
 
@@ -180,7 +180,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
@@ -239,9 +239,9 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Canvas, vous devez l
 
    a. Dans la zone de texte **Full Name** (Nom complet), entrez le nom d’un utilisateur, par exemple **Britta Simon**.
 
-   b. Dans la zone de texte **E-mail**, entrez l’adresse de messagerie de l’utilisateur, par exemple **brittasimon@contoso.com**.
+   b. Dans la zone de texte **E-mail**, entrez l’e-mail de l’utilisateur, par exemple **brittasimon\@contoso.com**.
 
-   c. Dans la zone de texte **Login** (Connexion), entrez l’adresse e-mail Azure AD de l’utilisateur, par exemple **brittasimon@contoso.com**.
+   c. Dans la zone de texte **Login** (Connexion), entrez l’adresse e-mail Azure AD de l’utilisateur, par exemple **brittasimon\@contoso.com**.
 
    d. Sélectionnez **Email the user about this account creation**.
 

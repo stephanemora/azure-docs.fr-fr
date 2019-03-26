@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à iProva | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à iProva | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et iProva.
 services: active-directory
 documentationCenter: na
@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 1eaeef9b-4479-4a9f-b1b2-bc13b857c75c
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c65f8e023e087c3ca49e0d53f5760fbcd9a5f4d9
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 395d3887e35d6e9c043d4d947b605e71eb58bd6b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869205"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57897331"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-iprova"></a>Didacticiel : Intégration d’Azure Active Directory à iProva
+# <a name="tutorial-azure-active-directory-integration-with-iprova"></a>Tutoriel : Intégration d’Azure Active Directory à iProva
 
 Dans ce didacticiel, vous allez apprendre à intégrer iProva à Azure Active Directory (Azure AD).
 L’intégration d’iProva à Azure AD vous offre les avantages suivants :
@@ -221,7 +221,7 @@ Dans cette section, vous allez créer un utilisateur de test nommé Britta Simon
 
     a. Dans la zone **Nom**, entrez un nom tel que **BrittaSimon**.
   
-    b. Dans la zone **Nom d’utilisateur**, entrez *yourname@yourcompanydomain.extension*. 
+    b. Dans la zone **Nom d’utilisateur**, entrez *votrenom\@domainedevotresociété.extension*. 
     Par exemple BrittaSimon@contoso.com.
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
@@ -266,14 +266,14 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 5. Sélectionnez **Ajouter**.
 
-6. Dans la zone **Username** (Nom d’utilisateur), entrez *brittasimon@yourcompanydomain.extension*. 
+6. Dans la zone **Nom d’utilisateur**, entrez *brittasimon\@domainedevotresociété.extension*. 
     Par exemple BrittaSimon@contoso.com.
 
 7. Dans la zone **Full name** (Nom complet), entrez un nom complet comme **BrittaSimon**.
 
 8. Sélectionnez l’option **No password (use single sign-on)** (Aucun mot de passe (utiliser l’authentification unique)).
 
-9. Dans la zone **E-mail address** (Adresse e-mail), entrez *yourname@yourcompanydomain.extension*. 
+9. Dans la zone **Adresse e-mail**, entrez *votrenom\@domainedevotresociété.extension*. 
    Par exemple BrittaSimon@contoso.com.
 
 10. Faites défiler jusqu’à la fin de la page, puis sélectionnez **Finish** (Terminer).

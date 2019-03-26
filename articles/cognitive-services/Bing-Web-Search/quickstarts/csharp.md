@@ -8,30 +8,29 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 02/12/2019
+ms.date: 03/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 08e2ef1b219ed66a39d38c08be80df89814afbaf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 871cca9fe2b3ff50202feb4925a267b93d432700
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180485"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842071"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-c"></a>Démarrage rapide : Effectuer des recherches sur le web à l'aide de l'API REST Recherche Web Bing et de C#
 
-
-Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l’API Recherche Web Bing et recevoir la réponse JSON. Cette application C# envoie une demande de recherche à l’API et affiche la réponse. Alors que cette application est écrite en C#, l’API est un service web RESTful compatible avec la plupart des langages de programmation.
+Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l’API Recherche Web Bing et recevoir la réponse JSON. Cette application C# envoie une requête de recherche à l’API et affiche la réponse. Alors que cette application est écrite en C#, l’API est un service web RESTful compatible avec la plupart des langages de programmation.
 
 ## <a name="prerequisites"></a>Prérequis
+
 Voici quelques points dont vous aurez besoin avant d’exécuter ce démarrage rapide :
 
 * Windows : [Visual Studio 2017](https://www.visualstudio.com/downloads/)
-* Linux/macOS : [Mono](http://www.mono-project.com/)  
+* Linux/macOS : [Mono](https://www.mono-project.com/)  
 * Une clé d’abonnement
 
 Cet exemple de programme utilise uniquement des classes .NET Core.
-
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
@@ -63,7 +62,7 @@ namespace BingSearchApisQuickstart
 
 ## <a name="define-variables"></a>Définir des variables
 
-Quelques variables doivent être définies avant de continuer. Vérifiez que `uriBase` est valide et remplacez la valeur `accessKey` par une clé d’abonnement valide à partir de votre compte Azure. N’hésitez pas à personnaliser la requête de recherche en remplaçant la valeur de `searchTerm`.
+Quelques variables doivent être définies avant de continuer. Vérifiez que `uriBase` est valide et remplacez la valeur `accessKey` par une clé d’abonnement valide à partir de votre compte Azure. N’hésitez pas à personnaliser la requête de recherche en remplaçant la valeur de `searchTerm`. N’oubliez pas d’ajouter ce code à la `Program` comme indiqué ci-dessus.
 
 ```csharp
 // Enter a valid subscription key.
@@ -79,7 +78,7 @@ const string searchTerm = "Microsoft Cognitive Services";
 
 ## <a name="declare-the-main-method"></a>Déclarer la méthode principale
 
-`Main()` est requise et constitue la première méthode appelée lorsque le programme démarre. Dans cette application, la méthode principale valide le `accessKey`, envoie une requête et imprime la réponse JSON.
+La méthode `Main()` est requise et constitue la première méthode appelée lorsque le programme démarre. Dans cette application, la méthode principale valide le `accessKey`, envoie une requête et imprime la réponse JSON.
 
 N’oubliez pas que `main()` dépend de méthodes qui sont créées dans les prochaines sections.
 

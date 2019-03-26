@@ -3,23 +3,22 @@ title: Créer votre première fabrique de données Azure à l’aide d’un mod�
 description: Dans ce didacticiel, vous créez un exemple de pipeline Azure Data Factory en utilisant un modèle Azure Resource Manager.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 02/20/2019
-ms.author: douglasl
-ms.openlocfilehash: c3a9864a901d44d0c84c6946c55e5dc2c700cbac
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+author: gauravmalhot
+ms.author: gamal
+manager: craigg
+ms.openlocfilehash: 1d4eb3d2978be98d81b42dd66a75b21563c23a1a
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447597"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576648"
 ---
-# <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Didacticiel : Créer une fabrique de données Azure à l’aide du modèle Azure Resource Manager
+# <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Tutoriel : Créer une fabrique de données Azure à l’aide du modèle Azure Resource Manager
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-build-your-first-pipeline-using-arm.md)
@@ -34,7 +33,9 @@ Ce démarrage rapide vous montre comment utiliser un modèle Azure Resource Mana
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Installez les modules Azure PowerShell les plus récents en suivant les instructions décrites dans [Comment installer et configurer Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Installez les modules Azure PowerShell les plus récents en suivant les instructions décrites dans [Comment installer et configurer Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ## <a name="resource-manager-templates"></a>Modèles Resource Manager
 
@@ -51,7 +52,7 @@ Créez un fichier JSON nommé **ADFTutorialARM.json** dans le dossier **C:\ADFTu
 ```json
 {
     "contentVersion": "1.0.0.0",
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "parameters": {
         "dataFactoryName": {
             "type": "string",
@@ -328,7 +329,7 @@ Créez un fichier JSON nommé **ADFTutorialARM-Parameters** contient les paramè
 Dans PowerShell, exécutez la commande suivante pour déployer des entités Data Factory à l’aide du modèle Resource Manager que vous avez créé précédemment dans ce démarrage rapide.
 
 ```PowerShell
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFTutorial\ADFTutorialARM.json -TemplateParameterFile C:\ADFTutorial\ADFTutorialARM-Parameters.json
+New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFTutorial\ADFTutorialARM.json -TemplateParameterFile C:\ADFTutorial\ADFTutorialARM-Parameters.json
 ```
 
 Une sortie similaire à l’exemple suivant s’affiche :
@@ -368,9 +369,9 @@ Le modèle déploie les entités Data Factory suivantes :
 - Pipeline avec une activité de copie
 - Déclencheur pour déclencher le pipeline
 
-Le déclencheur déployé est à l’arrêt. Une des méthodes pour démarrer le déclencheur consiste à utiliser l’applet de commande PowerShell **Start-AzureRmDataFactoryV2Trigger**. La procédure suivante fournit des étapes détaillées :
+Le déclencheur déployé est à l’arrêt. Une des méthodes pour démarrer le déclencheur consiste à utiliser l’applet de commande PowerShell **Start-AzDataFactoryV2Trigger**. La procédure suivante fournit des étapes détaillées :
 
-1. Dans la fenêtre PowerShell, créez une variable pour contenir le nom du groupe de ressources. Copiez la commande suivante dans la fenêtre PowerShell et appuyez sur ENTRÉE. Si vous avez spécifié un nom de groupe de ressources différent pour la commande New-AzureRmResourceGroupDeployment, mettez à jour la valeur ici.
+1. Dans la fenêtre PowerShell, créez une variable pour contenir le nom du groupe de ressources. Copiez la commande suivante dans la fenêtre PowerShell et appuyez sur ENTRÉE. Si vous avez spécifié un nom de groupe de ressources différent pour la commande New-AzResourceGroupDeployment, mettez à jour la valeur ici.
 
     ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup"
@@ -388,7 +389,7 @@ Le déclencheur déployé est à l’arrêt. Une des méthodes pour démarrer le
 4. Obtenez l’**état du déclencheur** en exécutant la commande PowerShell suivante après avoir spécifié le nom de votre fabrique de données et de votre déclencheur :
 
     ```powershell
-    Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
+    Get-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
     ```
 
     Voici l'exemple de sortie :
@@ -405,7 +406,7 @@ Le déclencheur déployé est à l’arrêt. Une des méthodes pour démarrer le
 5. **Démarrez le déclencheur**. Le déclencheur exécute le pipeline défini dans le modèle à l’heure suivante. Ainsi, si vous avez exécuté cette commande à 14:25, le déclencheur exécute le pipeline à 15:00 pour la première fois. Ensuite, il exécute le pipeline toutes les heures jusqu’à l’heure de fin que vous avez spécifiée pour le déclencheur.
 
     ```powershell
-    Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
+    Start-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
     ```
     
     Voici l'exemple de sortie :
@@ -416,10 +417,10 @@ Le déclencheur déployé est à l’arrêt. Une des méthodes pour démarrer le
     [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
     True
     ```
-6. Vérifiez que le déclencheur a été démarré en exécutant à nouveau la commande Get-AzureRmDataFactoryV2Trigger.
+6. Vérifiez que le déclencheur a été démarré en exécutant à nouveau la commande Get-AzDataFactoryV2Trigger.
 
     ```powershell
-    Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
+    Get-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
     ```
     
     Voici l'exemple de sortie :
@@ -466,7 +467,7 @@ Le déclencheur déployé est à l’arrêt. Une des méthodes pour démarrer le
 8. Arrêtez le déclencheur une fois que vous voyez une exécution réussie ou un échec. Le déclencheur exécute le pipeline une fois par heure. Le pipeline copie le même fichier à partir du dossier d’entrée dans le dossier de sortie à chaque exécution. Pour arrêter le déclencheur, exécutez la commande suivante dans la fenêtre PowerShell.
     
     ```powershell
-    Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
+    Stop-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
     ```
 
 [!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](../../includes/data-factory-quickstart-verify-output-cleanup.md)]
@@ -604,7 +605,7 @@ Vous définissez un pipeline qui copie les données d’un jeu de données d’o
 
 #### <a name="trigger"></a>Déclencheur
 
-Vous définissez un déclencheur qui exécute le pipeline une fois par heure. Le déclencheur déployé est à l’arrêt. Démarrez le déclencheur à l’aide de l’applet de commande **Start-AzureRmDataFactoryV2Trigger**. Pour plus d’informations sur les déclencheurs, consultez l’article [Exécution de pipelines et déclencheurs](concepts-pipeline-execution-triggers.md#triggers).
+Vous définissez un déclencheur qui exécute le pipeline une fois par heure. Le déclencheur déployé est à l’arrêt. Démarrez le déclencheur avec la cmdlet **Start-AzDataFactoryV2Trigger**. Pour plus d’informations sur les déclencheurs, consultez l’article [Exécution de pipelines et déclencheurs](concepts-pipeline-execution-triggers.md#triggers).
 
 ```json
 {
@@ -647,11 +648,11 @@ Dans ce didacticiel, vous avez créé un modèle pour définir des entités Data
 Exemple :
 
 ```PowerShell
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Dev.json
+New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Dev.json
 
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Test.json
+New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Test.json
 
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Production.json
+New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Production.json
 ```
 
 Notez que la première commande utilise le fichier de paramètres pour l’environnement de développement, la deuxième pour l’environnement de test et la troisième pour l’environnement de production.

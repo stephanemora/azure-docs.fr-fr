@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 2e34aef9a6f184c60fbb23023f798941a1fc11da
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 3ec3abffc7962051f4cfc02d5369581ca193d70e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894426"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57775575"
 ---
-# <a name="tutorial-access-a-classroom-lab-in-azure-lab-services"></a>Tutoriel : Accéder à un laboratoire de salle de classe dans Azure Lab Services
+# <a name="tutorial-access-a-classroom-lab-in-azure-lab-services"></a>Didacticiel : Accéder à un laboratoire de salle de classe dans Azure Lab Services
 Dans ce didacticiel, vous vous connectez en tant qu’étudiant à une machine virtuelle dans un laboratoire de classe. 
 
 Dans ce didacticiel, vous effectuez les actions suivantes :
@@ -44,8 +44,9 @@ Dans ce didacticiel, vous effectuez les actions suivantes :
 1. Sélectionnez **Se connecter** sur la vignette de la machine virtuelle du laboratoire auquel vous souhaitez accéder. 
 
     ![Se connecter à une machine virtuelle](../media/tutorial-connect-vm-in-classroom-lab/connect-vm.png)
-2. Enregistrez le fichier RDP sur le disque dur et ouvrez-le (en supposant qu’il s’agisse d’une machine virtuelle Windows).
-3. Utilisez le **nom d’utilisateur** et le **mot de passe** obtenus auprès de votre formateur/profession pour vous connecter à la machine. 
+2. Effectuez l’une des étapes suivantes : 
+    1. Pour les machines virtuelles **Windows**, enregistrez le fichier **RDP** sur le disque dur. Ouvrez le fichier RDP pour vous connecter à la machine virtuelle. Utilisez le **nom d’utilisateur** et le **mot de passe** obtenus auprès de votre formateur/professeur pour vous connecter à la machine. 
+    3. Pour les machines virtuelles **Linux**, copiez et enregistrez la chaîne de connexion SSH dans la boîte de dialogue **Se connecter à votre machine virtuelle**. Utilisez cette chaîne de connexion dans un terminal SSH (tel que [Putty](https://www.putty.org/)) pour vous connecter à la machine virtuelle. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce didacticiel, vous avez accédé à un laboratoire de classe à l’aide du lien d’inscription obtenu auprès de votre formateur/professeur.

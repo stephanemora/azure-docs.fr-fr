@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 01/19/2018
 ms.author: mscurrell
 ms.custom: mvc
-ms.openlocfilehash: 36d37c2d18823273b5c0f82ecae0f9420e35768c
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: e3fcc8be68282f6ce491ff49f0dc5059d79fa98f
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35621277"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730946"
 ---
 # <a name="what-is-azure-batch"></a>Présentation d’Azure Batch
 
@@ -30,7 +30,7 @@ Les développeurs peuvent utiliser Azure Batch en tant que service de plateforme
 
 L’utilisation d’Azure Batch n’engendre pas de frais supplémentaires. Vous payez uniquement pour les ressources sous-jacentes consommées, telles que les machines virtuelles, le stockage et la mise en réseau.
 
-Pour obtenir une comparaison entre Batch et d’autres solutions HPC utilisées dans Azure, consultez [HPC, Batch, and Big Compute solutions using Azure VMs](../virtual-machines/linux/high-performance-computing.md) (Solutions HPC, Batch et Big Compute utilisant des machines virtuelles Azure).
+Pour obtenir une comparaison entre Batch et d’autres solutions HPC utilisées dans Azure, voir [calcul haute performance (HPC) sur Azure](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/).
 
 ## <a name="run-parallel-workloads"></a>Exécuter des charges de travail parallèles
 Le service Batch fonctionne parfaitement avec les charges de travail intrinsèquement parallèles (ou « massivement parallèles »). Les charges de travail intrinsèquement parallèles sont celles où les applications peuvent s’exécuter indépendamment et chaque instance termine une partie du travail. Lorsque les applications sont en cours d’exécution, elles peuvent accéder à certaines données communes, mais elles ne communiquent pas avec d’autres instances de l’application. Les charges de travail intrinsèquement parallèles peuvent donc être exécutées à grande échelle, déterminée par la quantité de ressources de calcul disponibles pour exécuter simultanément des applications.

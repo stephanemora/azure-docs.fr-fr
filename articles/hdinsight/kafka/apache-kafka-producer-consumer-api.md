@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 11/06/2018
-ms.openlocfilehash: 23a676c64ec2788ec4a9b3d61f86529fa437079f
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 556fc1f04cc6a1d1b594bdd3787ed43d30f607c6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580380"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091169"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Tutoriel : Utiliser les API de producteur et de consommateur Apache Kafka
 
@@ -134,6 +134,8 @@ Le fichier [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-
 
 ## <a name="build-and-deploy-the-example"></a>Générer et déployer l’exemple
 
+Vous pouvez ignorer les étapes 1 et 2 pour la build et télécharger le fichier jars(kafka-producer-consumer.jar) prédéfini à partir de [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/Prebuilt-Jars](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/Prebuilt-Jars). Vous pouvez ensuite copier ce fichier jar vers votre cluster HDInsight.
+
 1. Téléchargez les exemples à partir de [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started).
 
 2. Accédez à l’emplacement du répertoire `Producer-Consumer` et utilisez la commande suivante :
@@ -216,7 +218,7 @@ tmux new-session 'java -jar kafka-producer-consumer.jar consumer test $KAFKABROK
 indow -h 'java -jar kafka-producer-consumer.jar consumer test $KAFKABROKERS mygroup' \; attach
 ```
 
-Cette commande utilise `tmux` pour fractionner le terminal en deux colonnes. Un consommateur est lancé dans chaque colonne, avec la même valeur d’ID de groupe. Une fois que les consommateurs ont terminé la lecture, notez que chacun a lu uniquement une partie des enregistrements. Utilisez __Ctrl + C __ deux fois pour quitter `tmux`.
+Cette commande utilise `tmux` pour fractionner le terminal en deux colonnes. Un consommateur est lancé dans chaque colonne, avec la même valeur d’ID de groupe. Une fois que les consommateurs ont terminé la lecture, notez que chacun a lu uniquement une partie des enregistrements. Appuyez deux fois sur __Ctrl+C__ pour quitter `tmux`.
 
 La consommation par les clients au sein du même groupe est gérée par le biais des partitions de la rubrique. Dans cet exemple de code, la rubrique `test` créée précédemment possède huit partitions. Si vous lancez huit consommateurs, chaque consommateur lit les enregistrements à partir d’une seule partition pour la rubrique.
 

@@ -5,47 +5,48 @@ services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
-ms.topic: conceptual
+ms.topic: quickstart
 ms.subservice: manage
-ms.date: 04/17/2018
+ms.date: 04/18/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 6e4b754c02e21954efaab03b942b6994fd1b7b4d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1aebe3086704c3823bcde470640f547de2beaaee
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472199"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884192"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-powershell"></a>Démarrage rapide : Suspendre et reprendre le calcul dans Azure SQL Data Warehouse avec PowerShell
+
 Utilisez PowerShell pour interrompre le calcul dans Azure SQL Data Warehouse afin de réduire les coûts. [Reprenez le calcul](sql-data-warehouse-manage-compute-overview.md) quand vous êtes prêt à utiliser l’entrepôt de données.
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-Ce didacticiel nécessite le module Azure PowerShell version 5.1.1 ou ultérieure. Exécutez ` Get-Module -ListAvailable AzureRM` pour connaître la version dont vous disposez. Si vous devez installer ou mettre à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
-
 ## <a name="before-you-begin"></a>Avant de commencer
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Ce guide de démarrage rapide part du principe que vous disposez déjà d’un entrepôt de données SQL que vous pouvez suspendre et reprendre. Si vous devez en créer un, vous pouvez utiliser la section [Créer et connecter - Portail](create-data-warehouse-portal.md) pour créer un entrepôt de données nommé **mySampleDataWarehouse**.
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous à votre abonnement Azure avec la commande [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) et suivez les instructions à l’écran.
+Connectez-vous à votre abonnement Azure avec la commande [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) et suivez les instructions indiquées à l’écran.
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
-Pour voir quel abonnement vous utilisez, exécutez [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription).
+Pour voir l’abonnement que vous utilisez, exécutez [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription).
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
-Si vous devez utiliser un abonnement autre que l’abonnement par défaut, exécutez [Set-AzureRmContext](/powershell/module/azurerm.profile/set-azurermcontext).
+Si vous devez utiliser un autre abonnement que celui par défaut, exécutez [Set-AzContext](/powershell/module/az.accounts/set-azcontext).
 
 ```powershell
-Set-AzureRmContext -SubscriptionName "MySubscription"
+Set-AzContext -SubscriptionName "MySubscription"
 ```
 
 ## <a name="look-up-data-warehouse-information"></a>Rechercher des informations sur l’entrepôt de données
@@ -65,40 +66,42 @@ Suivez ces étapes pour rechercher des informations sur l’emplacement de votre
 6. Si votre serveur est foo.database.windows.net, utilisez uniquement la première partie comme nom du serveur dans les applets de commande PowerShell. Dans l’image précédente, le nom complet est newserver-20171113.database.windows.net. Supprimez le suffixe et utilisez **newserver-20171113** comme nom de serveur dans l’applet de commande PowerShell.
 
 ## <a name="pause-compute"></a>Suspension du calcul
+
 Pour réduire les coûts, vous pouvez interrompre et reprendre des ressources de calcul à la demande. Par exemple, si vous n’utilisez pas la base de données pendant la nuit et les week-ends, vous pouvez la suspendre à ces moments et la reprendre pendant la journée. Aucune ressource de calcul ne vous sera facturée tant que la base de données restera suspendue. Le stockage, en revanche, continue à occasionner des frais.
 
-Pour interrompre une base de données, utilisez l’applet de commande [Suspend-AzureRmSqlDatabase](/powershell/module/azurerm.sql/suspend-azurermsqldatabase). L’exemple suivant suspend un entrepôt de données nommé **mySampleDataWarehouse** hébergé sur un serveur nommé **newserver-20171113**. Le serveur est un groupe de ressources Azure nommé **myResourceGroup**.
+Pour suspendre une base de données, utilisez la cmdlet [Suspend-AzureRmSqlDatabase](/powershell/module/az.sql/suspend-azsqldatabase). L’exemple suivant suspend un entrepôt de données nommé **mySampleDataWarehouse** hébergé sur un serveur nommé **newserver-20171113**. Le serveur est un groupe de ressources Azure nommé **myResourceGroup**.
 
 
 ```Powershell
-Suspend-AzureRmSqlDatabase –ResourceGroupName "myResourceGroup" `
+Suspend-AzSqlDatabase –ResourceGroupName "myResourceGroup" `
 –ServerName "newserver-20171113" –DatabaseName "mySampleDataWarehouse"
 ```
 
-Une variante, l'exemple suivant récupère la base de données dans l'objet $database. Puis il redirige l’objet récupéré vers [Suspend-AzureRmSqlDatabase](/powershell/module/azurerm.sql/suspend-azurermsqldatabase). Les résultats sont stockés dans l'objet resultDatabase. La dernière commande affiche les résultats.
+Une variante, l'exemple suivant récupère la base de données dans l'objet $database. Il canalise ensuite l’objet vers [Suspend-AzSqlDatabase](/powershell/module/az.sql/suspend-azsqldatabase). Les résultats sont stockés dans l'objet resultDatabase. La dernière commande affiche les résultats.
 
 ```Powershell
-$database = Get-AzureRmSqlDatabase –ResourceGroupName "myResourceGroup" `
+$database = Get-AzSqlDatabase –ResourceGroupName "myResourceGroup" `
 –ServerName "newserver-20171113" –DatabaseName "mySampleDataWarehouse"
-$resultDatabase = $database | Suspend-AzureRmSqlDatabase
+$resultDatabase = $database | Suspend-AzSqlDatabase
 $resultDatabase
 ```
 
 
 ## <a name="resume-compute"></a>Reprise du calcul
-Pour démarrer une base de données, utilisez l’applet de commande [Resume-AzureRmSqlDatabase](/powershell/module/azurerm.sql/resume-azurermsqldatabase). L’exemple suivant démarre une base de données nommée mySampleDataWarehouse hébergée sur un serveur nommé newserver-20171113. Le serveur est un groupe de ressources Azure nommé myResourceGroup.
+
+Pour démarrer une base de données, utilisez la cmdlet [Resume-AzSqlDatabase](/powershell/module/az.sql/resume-azsqldatabase). L’exemple suivant démarre une base de données nommée mySampleDataWarehouse hébergée sur un serveur nommé newserver-20171113. Le serveur est un groupe de ressources Azure nommé myResourceGroup.
 
 ```Powershell
-Resume-AzureRmSqlDatabase –ResourceGroupName "myResourceGroup" `
+Resume-AzSqlDatabase –ResourceGroupName "myResourceGroup" `
 –ServerName "newserver-20171113" -DatabaseName "mySampleDataWarehouse"
 ```
 
-Une variante, l'exemple suivant récupère la base de données dans l'objet $database. Il redirige ensuite l'objet [Resume-AzureRmSqlDatabase](/powershell/module/azurerm.sql/resume-azurermsqldatabase) et stocke les résultats dans $resultDatabase. La dernière commande affiche les résultats.
+Une variante, l'exemple suivant récupère la base de données dans l'objet $database. Il canalise ensuite l’objet vers [Resume-AzSqlDatabase](/powershell/module/az.sql/resume-azsqldatabase) et stocke les résultats dans $resultDatabase. La dernière commande affiche les résultats.
 
 ```Powershell
-$database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" `
+$database = Get-AzSqlDatabase –ResourceGroupName "ResourceGroup1" `
 –ServerName "Server01" –DatabaseName "Database02"
-$resultDatabase = $database | Resume-AzureRmSqlDatabase
+$resultDatabase = $database | Resume-AzSqlDatabase
 $resultDatabase
 ```
 
@@ -115,17 +118,18 @@ Suivez ces étapes pour nettoyer les ressources selon vos besoins.
 
     ![Supprimer des ressources](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-1. Pour suspendre le calcul, cliquez sur le bouton **Suspendre**. Quand l’entrepôt de données est suspendu, un bouton **Démarrer** est visible.  Pour reprendre le calcul, cliquez sur **Démarrer**.
+2. Pour suspendre le calcul, cliquez sur le bouton **Suspendre**. Quand l’entrepôt de données est suspendu, un bouton **Démarrer** est visible.  Pour reprendre le calcul, cliquez sur **Démarrer**.
 
-2. Pour supprimer l’entrepôt de données afin de ne pas être facturé pour le calcul ou le stockage, cliquez sur **Supprimer**.
+3. Pour supprimer l’entrepôt de données afin de ne pas être facturé pour le calcul ou le stockage, cliquez sur **Supprimer**.
 
-3. Pour supprimer le serveur SQL que vous avez créé, cliquez sur **mynewserver-20171113.database.windows.net**, puis sur **Supprimer**.  N’oubliez pas que la suppression du serveur supprime également toutes les bases de données qui lui sont attribuées.
+4. Pour supprimer le serveur SQL que vous avez créé, cliquez sur **mynewserver-20171113.database.windows.net**, puis sur **Supprimer**.  N’oubliez pas que la suppression du serveur supprime également toutes les bases de données qui lui sont attribuées.
 
-4. Pour supprimer le groupe de ressources, cliquez sur **myResourceGroup**, puis sur **Supprimer le groupe de ressources**.
+5. Pour supprimer le groupe de ressources, cliquez sur **myResourceGroup**, puis sur **Supprimer le groupe de ressources**.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Vous venez de suspendre et de reprendre le calcul pour votre entrepôt de données. Pour en savoir plus sur Azure SQL Data Warehouse, continuez avec le didacticiel de chargement des données.
 
 > [!div class="nextstepaction"]
->[Charger des données dans un entrepôt SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)
+> [Charger des données dans un entrepôt SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 08/16/2018
+ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: 848f319836e492e486bfdcb3c9080860144a7e68
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 3424137b36e4e277a8914ab04cdf7097660930e3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869396"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57860752"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-c"></a>Démarrage rapide : Utiliser le kit SDK Recherche Web Bing pour C#
 
@@ -32,7 +32,7 @@ Voici quelques points dont vous aurez besoin avant d’exécuter ce démarrage r
 * [Visual Studio Code 2017](https://code.visualstudio.com/download)
   * [C# pour Visual Studio Code](https://visualstudio.microsoft.com/downloads/)
   * [Gestionnaire de package NuGet](https://github.com/jmrog/vscode-nuget-package-manager)
-* [SDK .NET Core](https://www.microsoft.com/net/download)
+* [Kit de développement logiciel (SDK) .NET Core](https://www.microsoft.com/net/download)
 
 ## <a name="create-a-project-and-install-dependencies"></a>Créer un projet et installer des dépendances
 
@@ -61,7 +61,7 @@ using System.Linq;
 
 ## <a name="create-project-scaffolding"></a>Créer la génération de modèles automatique du projet
 
-Lorsque vous avez créé votre nouveau projet de console, il est nécessaire de créer un espace de noms et une classe pour votre application. Votre programme doit avoir l’aspect suivant :
+Lorsque vous avez créé votre nouveau projet de console, il est nécessaire de créer un espace de noms et une classe pour votre application. Votre programme doit avoir l’aspect de cet exemple :
 
 ```csharp
 namespace WebSearchSDK
@@ -101,7 +101,7 @@ public static void WebResults(WebSearchAPI client)
 
 ## <a name="handle-the-response"></a>Gérer la réponse
 
-Ensuite, nous allons ajouter du code pour analyser la réponse et imprimer les résultats. Le `name` et `url` pour la première page web, image, vidéo et le premier bulletin d’informations sont imprimés s’ils sont présents dans l’objet de la réponse.
+Ensuite, nous allons ajouter du code pour analyser la réponse et imprimer les résultats. Le `Name` et `Url` pour la première page web, image, vidéo et le premier bulletin d’informations sont imprimés s’ils sont présents dans l’objet de la réponse.
 
 ```csharp
 if (webData?.WebPages?.Value?.Count > 0)
@@ -234,9 +234,10 @@ Maintenant que vous avez effectué votre premier appel à l’API Recherche Web 
 
 ### <a name="limit-the-number-of-results-returned-by-bing"></a>Limiter le nombre de résultats retournés par Bing
 
-Cet exemple utilise les paramètres `count` et `offset` pour limiter le nombre de résultats retournés par la recherche « Meilleurs restaurants à Seattle ». Le `name` et `URL` pour le premier résultat sont imprimés.
+Cet exemple utilise les paramètres `count` et `offset` pour limiter le nombre de résultats retournés par la recherche « Meilleurs restaurants à Seattle ». Le `Name` et `Url` pour le premier résultat sont imprimés.
 
 1. Ajoutez ce code à votre projet de console :
+
     ```csharp
     public static void WebResultsWithCountAndOffset(WebSearchAPI client)
     {
@@ -271,7 +272,9 @@ Cet exemple utilise les paramètres `count` et `offset` pour limiter le nombre d
         }
     }
     ```
+
 2. Ajoutez `WebResultsWithCountAndOffset` à `main` :
+
     ```csharp
     static void Main(string[] args)
     {
@@ -285,13 +288,15 @@ Cet exemple utilise les paramètres `count` et `offset` pour limiter le nombre d
         Console.ReadKey();
     }
     ```
+
 3. Exécutez l'application.
 
 ### <a name="filter-for-news"></a>Filtrer les actualités
 
-Cet exemple utilise le paramètre `response_filter` pour filtrer les résultats de la recherche. Les résultats de la recherche retournés sont limités aux articles d’actualité pour « Microsoft ». Le `name` et `URL` pour le premier résultat sont imprimés.
+Cet exemple utilise le paramètre `response_filter` pour filtrer les résultats de la recherche. Les résultats de la recherche retournés sont limités aux articles d’actualité pour « Microsoft ». Le `Name` et `Url` pour le premier résultat sont imprimés.
 
 1. Ajoutez ce code à votre projet de console :
+
     ```csharp
     public static void WebSearchWithResponseFilter(WebSearchAPI client)
     {
@@ -328,7 +333,9 @@ Cet exemple utilise le paramètre `response_filter` pour filtrer les résultats 
         }
     }
     ```
+
 2. Ajoutez `WebResultsWithCountAndOffset` à `main` :
+
     ```csharp
     static void Main(string[] args)
     {
@@ -344,13 +351,15 @@ Cet exemple utilise le paramètre `response_filter` pour filtrer les résultats 
         Console.ReadKey();
     }
     ```
+
 3. Exécutez l'application.
 
 ### <a name="use-safe-search-answer-count-and-the-promote-filter"></a>Utiliser la recherche sécurisée, le comptage des réponses et le filtre Promouvoir
 
-Cet exemple utilise les paramètres `answer_count`, `promote` et `safe_search` pour filtrer des résultats de recherche pour « Vidéos de musique ». Le `name` et `URL` pour le premier résultat sont affichés.
+Cet exemple utilise les paramètres `answer_count`, `promote` et `safe_search` pour filtrer des résultats de recherche pour « Vidéos de musique ». Le `Name` et `ContentUrl` pour le premier résultat sont affichés.
 
 1. Ajoutez ce code à votre projet de console :
+
     ```csharp
     public static void WebSearchWithAnswerCountPromoteAndSafeSearch(WebSearchAPI client)
     {
@@ -386,7 +395,9 @@ Cet exemple utilise les paramètres `answer_count`, `promote` et `safe_search` p
         }
     }
     ```
+
 2. Ajoutez `WebResultsWithCountAndOffset` à `main` :
+
     ```csharp
     static void Main(string[] args)
     {
@@ -404,6 +415,7 @@ Cet exemple utilise les paramètres `answer_count`, `promote` et `safe_search` p
         Console.ReadKey();
     }
     ```
+
 3. Exécutez l'application.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
