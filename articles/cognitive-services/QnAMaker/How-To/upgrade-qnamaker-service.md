@@ -1,24 +1,38 @@
 ---
 title: Mettre à niveau votre service QnA Maker - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Vous pouvez choisir de mettre à niveau des composants individuels de la pile QnA Maker après la création initiale.
+description: Partager ou mettre à niveau vos services QnA Maker afin de gérer les ressources mieux.
 services: cognitive-services
 author: tulasim88
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 03/25/2019
 ms.author: tulasim
-ms.openlocfilehash: e37a903112f30917ff5051305bb2144981de1c9d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: cb38fdcfa8cbbfa0b90141c2de2280ff1ef08c3b
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883268"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437985"
 ---
-# <a name="upgrade-your-qna-maker-service"></a>Mettre à niveau votre service QnA Maker
+# <a name="share-or-upgrade-your-qna-maker-service"></a>Partager ou mettre à niveau votre service QnA Maker
+Partager ou mettre à niveau vos services QnA Maker afin de gérer les ressources mieux. 
+
 Vous pouvez choisir de mettre à niveau des composants individuels de la pile QnA Maker après la création initiale. Consultez les détails des composants dépendants et la sélection de références SKU [ici](https://aka.ms/qnamaker-docs-capacity).
+
+## <a name="share-existing-services-with-qna-maker"></a>Partager des services existants avec QnA Maker
+
+QnA Maker crée plusieurs ressources Azure. Afin de réduire la gestion et tirer parti de coût de partage, utilisez le tableau suivant pour comprendre ce que vous pouvez et ne peuvent pas partager :
+
+|de diffusion en continu|Partager|
+|--|--|
+|Cognitive Services|X|
+|Plan App Service|✔|
+|App Service|X|
+|Application Insights|✔|
+|Service de recherche|✔|
 
 ## <a name="upgrade-qna-maker-management-sku"></a>Mise à niveau de la référence SKU de gestion de QnA Maker
 

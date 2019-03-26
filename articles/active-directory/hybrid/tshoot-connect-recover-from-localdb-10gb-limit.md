@@ -16,12 +16,12 @@ ms.date: 07/17/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 194f422c1567103e41f3b39f8510931b1f4762b5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4d420c64c5834f7d3cb11d2f5f59e3ed85a54891
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58105180"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58435589"
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect : Comment récupérer depuis la limite de 10 Go de base de données locale
 Azure AD Connect nécessite une base de données SQL Server pour stocker les données d’identité. Vous pouvez utiliser la base de données locale par défaut de SQL Server 2012 installée avec Azure AD Connect ou utiliser votre propre base de données SQL complète. SQL Server Express impose une limite de taille de 10 Go. Lorsque vous utilisez la base de données locale et que cette limite est atteinte, le service de synchronisation Azure AD Connect ne peut plus démarrer ou se synchroniser correctement. Cet article indique les étapes de récupération.
@@ -87,7 +87,7 @@ Par défaut, Azure AD Connect conserve jusqu’à sept jours les données d’hi
 
 3. Sous **Actions**, sélectionnez **Clear Runs... (Effacer les exécutions)**.
 
-4. Vous pouvez choisir l’option **Clear all runs (Effacer toutes les exécutions)** ou **Clear runs before… (Effacer les exécutions avant)<date>**. Il est recommandé de commencer par désactiver les données d’historique d’exécution présentes depuis plus de deux jours. Si vous continuez à rencontrer le problème de taille de base de données, choisissez l’option **Clear all runs (Effacer toutes les exécutions)**.
+4. Vous pouvez choisir **effacer toutes les exécutions** ou **Clear s’exécute avant... \<date >** option. Il est recommandé de commencer par désactiver les données d’historique d’exécution présentes depuis plus de deux jours. Si vous continuez à rencontrer le problème de taille de base de données, choisissez l’option **Clear all runs (Effacer toutes les exécutions)**.
 
 ### <a name="shorten-retention-period-for-run-history-data"></a>Réduire la période de rétention des données d’historique d’exécution
 Cette étape consiste à réduire la probabilité de rencontrer le problème de limite de 10 Go après plusieurs cycles de synchronisation.

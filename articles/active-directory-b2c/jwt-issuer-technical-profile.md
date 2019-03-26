@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 10/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: dabffd88965a10fe4feca2b600cfaf5741e2f664
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 247ebdc8156453062eefe6738c5c281d393a9923
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157905"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436052"
 ---
 # <a name="define-a-technical-profile-for-a-jwt-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique pour un émetteur de jeton JSON Web Token dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -54,7 +54,7 @@ Les éléments **InputClaims**, **OutputClaims** et **PersistClaims** sont vides
 | rolling_refresh_token_lifetime_secs | Non  | Durée de vie de la fenêtre glissante du jeton d'actualisation. Une fois cette période écoulée, l’utilisateur est obligé de s’authentifier de nouveau, quelle que soit la période de validité du dernier jeton d’actualisation acquis par l’application. Si vous ne souhaitez pas appliquer une durée de vie de fenêtre glissante, définissez la valeur d’allow_infinite_rolling_refresh_token sur `true`. La valeur par défaut est 7 776 000 secondes (90 jours). La valeur minimale (inclusive) est 86 400 secondes (24 heures). La valeur maximale (inclusive) est 31 536 000 secondes (365 jours). | 
 | allow_infinite_rolling_refresh_token | Non  | Si la valeur est `true`, la durée de vie de la fenêtre glissante jeton d’actualisation n’expire jamais. |
 | IssuanceClaimPattern | Oui | Contrôle la revendication d’émetteur (iss). Une des valeurs suivantes :<ul><li>AuthorityAndTenantGuid : la revendication iss inclut votre nom de domaine, tel que `login.microsoftonline` ou `tenant-name.b2clogin.com`, et votre identificateur de locataire https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000/v2.0/.</li><li>AuthorityWithTfp : la revendication iss inclut votre nom de domaine, tel que `login.microsoftonline` ou `tenant-name.b2clogin.com`, votre identificateur de locataire et votre nom de stratégie de partie de confiance. https://login.microsoftonline.com/tfp/00000000-0000-0000-0000-000000000000/b2c_1a_tp_sign-up-or-sign-in/v2.0/</li></ul> | 
-| AuthenticationContextReferenceClaimPattern | Non  | Contrôle la valeur de revendication `acr`.<ul><li>None : Azure AD B2C ne génère pas la revendication acr</li><li>PolicyId : la revendication `acr` contient le nom de la stratégie</li></ul>Les options permettant de définir cette valeur sont TFP (Trust Framework Policy) et ACR (Authentication Context Reference). Il est recommandé de définir cette valeur sur TFP. Pour définir la valeur, assurez-vous que `<Item>` avec `Key="AuthenticationContextReferenceClaimPattern"` existe et que la valeur est `None`. Dans votre stratégie de partie de confiance, ajoutez <OutputClaims> item et ajoutez cet élément `<OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />`. Vérifiez également que votre stratégie contient le type de revendication `<ClaimType Id="trustFrameworkPolicy"> <DisplayName>trustFrameworkPolicy</DisplayName>     <DataType>string</DataType> </ClaimType>` | 
+| AuthenticationContextReferenceClaimPattern | Non  | Contrôle la valeur de revendication `acr`.<ul><li>None : Azure AD B2C ne génère pas la revendication acr</li><li>PolicyId : la revendication `acr` contient le nom de la stratégie</li></ul>Les options permettant de définir cette valeur sont TFP (Trust Framework Policy) et ACR (Authentication Context Reference). Il est recommandé de définir cette valeur sur TFP. Pour définir la valeur, assurez-vous que `<Item>` avec `Key="AuthenticationContextReferenceClaimPattern"` existe et que la valeur est `None`. Dans votre stratégie de partie de confiance, ajoutez `<OutputClaims>` item et ajoutez cet élément `<OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />`. Vérifiez également que votre stratégie contient le type de revendication `<ClaimType Id="trustFrameworkPolicy">   <DisplayName>trustFrameworkPolicy</DisplayName>     <DataType>string</DataType> </ClaimType>` | 
 
 ## <a name="cryptographic-keys"></a>Clés de chiffrement
 

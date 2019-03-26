@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: ca186090f28f04811030e83b159782a9bfeb87f9
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: ccea3ebae4bcc19410cfb5537a7140f69b04c4e7
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400773"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438782"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Préparer et personnaliser une image de disque dur virtuel principale
 
@@ -162,8 +162,8 @@ Vous pouvez désactiver manuellement les mises à jour automatiques.
 
 Pour désactiver les mises à jour automatiques :
 
-1. Installer Office 365 en suivant les instructions dans [préparation de l’image Office](set-up-customize-master-image.md#office-image-preparation).
-2. Installer des applications supplémentaires en suivant les instructions dans [configuration de profil utilisateur (FSLogix)](set-up-customize-master-image.md#user-profile-setup-fslogix), [Windows Defender](set-up-customize-master-image.md#windows-defender), et [d’autres applications et la configuration du Registre](set-up-customize-master-image.md#other-applications-and-registry-configuration).
+1. Installer Office 365 en suivant les instructions dans [préparation de logiciels et d’installation](set-up-customize-master-image.md#software-preparation-and-installation).
+2. Installer des applications supplémentaires en suivant les instructions dans [configurer le conteneur de profil utilisateur (FSLogix)](set-up-customize-master-image.md#set-up-user-profile-container-fslogix), [configurer Windows Defender](set-up-customize-master-image.md#configure-windows-defender), et [d’autres applications et le Registre configuration](set-up-customize-master-image.md#other-applications-and-registry-configuration).
 3. Désactiver le Service de mise à jour automatique de Windows sur la machine virtuelle locale.
 4. Ouvrez **éditeur de stratégie de groupe locale\\modèles d’administration\\les composants Windows\\mise à jour Windows**.
 5. Avec le bouton droit **configurer la mise à jour automatique** et affectez-lui la valeur **désactivé**.
@@ -171,7 +171,7 @@ Pour désactiver les mises à jour automatiques :
 Vous pouvez également exécuter la commande suivante dans une invite de commande pour désactiver les mises à jour automatiques.
 
 ```batch
-reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\\WindowsUpdate\AU /v NoAutoUpdate /t REG_DWORD /d 1 /f
+reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU /v NoAutoUpdate /t REG_DWORD /d 1 /f
 ```
 
 Exécutez cette commande pour spécifier une mise en page de démarrage pour les PC Windows 10.
@@ -232,9 +232,7 @@ Bureau virtuel Windows ne prend pas en charge le Skype pour entreprises et équi
 
 ### <a name="set-up-user-profile-container-fslogix"></a>Configurer le conteneur de profil utilisateur (FSLogix)
 
-Pour inclure le conteneur FSLogix en tant que partie de l’image, suivez les instructions de [configurez un partage de profil utilisateur pour un pool de l’hôte](create-host-pools-user-profile.md#configure-the-fslogix-profile-container).
-
-Lorsque vous configurez la clé de Registre de partage de fichier, utilisez le partage de fichiers que vous avez créé dans [configurer des autorisations pour le serveur de fichiers](set-up-customize-master-image.md#configure-permissions-for-the-file-server) où vous envisagez de stocker les conteneurs de profil. Vous pouvez également tester la fonctionnalité du conteneur FSLogix à l’aide de ce [quickstart](https://docs.fslogix.com/display/20170529/Profile+Containers+-+Quick+Start).
+Pour inclure le conteneur FSLogix en tant que partie de l’image, suivez les instructions de [configurez un partage de profil utilisateur pour un pool de l’hôte](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). Vous pouvez tester la fonctionnalité du conteneur FSLogix avec [ce démarrage rapide](https://docs.fslogix.com/display/20170529/Profile+Containers+-+Quick+Start).
 
 ### <a name="configure-windows-defender"></a>Configurer Windows Defender
 

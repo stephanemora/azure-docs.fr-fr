@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: c43d3b236a305f1e6d2bd392527a5206b6a5c974
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 74fb125e2808592c13d3a153ff5a14622b9fc880
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58074894"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58434872"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Comment provisionner des appareils hérités avec des clés symétriques
 
@@ -53,20 +53,22 @@ Dans cette section, vous allez préparer un environnement de développement pour
 
 Le SDK inclut l’exemple de code pour l’appareil simulé. Cet appareil simulé tente le provisionnement durant la séquence de démarrage de l’appareil.
 
-1. Téléchargez la version 3.11.4 du [système de génération de CMake](https://cmake.org/download/). Vérifiez le binaire téléchargé à l’aide de la valeur de hachage de chiffrement correspondante. L’exemple suivant utilise Windows PowerShell pour vérifier le hachage de chiffrement pour la version 3.11.4 de la distribution MSI x64 :
+1. Téléchargez le [système de génération de CMake](https://cmake.org/download/). Vérifiez que le binaire téléchargé à l’aide de la valeur de hachage de chiffrement qui correspond à la version que vous téléchargez. Les valeurs de hachage de chiffrement se trouvent également à partir du lien de téléchargement de CMake déjà fourni.
+
+    L’exemple suivant a utilisé Windows PowerShell pour vérifier le hachage cryptographique pour version 3.13.4 de la x64 distribution de MSI :
 
     ```PowerShell
-    PS C:\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
-    PS C:\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
+    PS C:\Downloads> $hash = get-filehash .\cmake-3.13.4-win64-x64.msi
+    PS C:\Downloads> $hash.Hash -eq "64AC7DD5411B48C2717E15738B83EA0D4347CD51B940487DFF7F99A870656C09"
     True
     ```
-    
-    Les valeurs de hachage suivantes pour la version 3.11.4 étaient celles indiquées sur le site de CMake au moment de la rédaction de cet article :
+
+    Les valeurs de hachage suivantes pour la version 3.13.4 étaient celles indiquées sur le site de CMake au moment de la rédaction de cet article :
 
     ```
-    6dab016a6b82082b8bcd0f4d1e53418d6372015dd983d29367b9153f1a376435  cmake-3.11.4-Linux-x86_64.tar.gz
-    72b3b82b6d2c2f3a375c0d2799c01819df8669dc55694c8b8daaf6232e873725  cmake-3.11.4-win32-x86.msi
-    56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869  cmake-3.11.4-win64-x64.msi
+    563a39e0a7c7368f81bfa1c3aff8b590a0617cdfe51177ddc808f66cc0866c76  cmake-3.13.4-Linux-x86_64.tar.gz
+    7c37235ece6ce85aab2ce169106e0e729504ad64707d56e4dbfc982cb4263847  cmake-3.13.4-win32-x86.msi
+    64ac7dd5411b48c2717e15738b83ea0d4347cd51b940487dff7f99a870656c09  cmake-3.13.4-win64-x64.msi
     ```
 
     Il est important que les composants requis Visual Studio (Visual Studio et la charge de travail « Développement Desktop en C++ ») soient installés sur votre machine, **avant** de commencer l’installation de l’élément `CMake`. Une fois les composants requis en place et le téléchargement effectué, installez le système de génération de CMake.
@@ -292,8 +294,8 @@ Ne perdez pas de vue que ceci laisse la clé d’appareil dérivée incluse dans
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour en savoir plus sur le reprovisionnement, consultez [Concepts du reprovisionnement d’appareils IoT Hub](concepts-device-reprovision.md) 
-* [Démarrage rapide : provisionner un appareil simulé avec des clés symétriques](quick-create-simulated-device-symm-key.md)
+* Pour en savoir plus Reprovisioning, consultez [réapprovisionnement des concepts d’appareil IoT Hub](concepts-device-reprovision.md) 
+* [Démarrage rapide : provisionner un appareil simulé avec des clés symétriques](quick-create-simulated-device-symm-key.md)
 * Pour en savoir plus Deprovisioning, consultez [Guide pratique pour déprovisionner des appareils qui ont été provisionnés automatiquement](how-to-unprovision-devices.md) 
 
 

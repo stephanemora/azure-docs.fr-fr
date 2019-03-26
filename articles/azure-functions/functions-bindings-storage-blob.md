@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: 16899c833d996902cf7a0a3f7ab57479869fbdd9
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: e18a63892f000eff0f72656082d5e6e1f0ca159b
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737779"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437473"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Liaisons Stockage Blob Azure pour Azure Functions
 
@@ -282,7 +282,7 @@ Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), util
   {
       ....
   }
-  ```
+   ```
 
   Pour obtenir un exemple complet, consultez [Déclencheur - exemple C#](#trigger---c-example).
 
@@ -318,8 +318,8 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |---------|---------|----------------------|
 |**type** | n/a | Cette propriété doit être définie sur `blobTrigger`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure.|
 |**direction** | n/a | Cette propriété doit être définie sur `in`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure. Les exceptions sont notées à la section [utilisation](#trigger---usage). |
-|**name** | n/a | Nom de la variable qui représente l’objet blob dans le code de la fonction. | 
-|**path** | **BlobPath** |[Conteneur](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) à superviser.  Peut être un [modèle de nom d’objet blob](#trigger---blob-name-patterns). | 
+|**name** | n/a | Nom de la variable qui représente l’objet blob dans le code de la fonction. |
+|**path** | **BlobPath** |[Conteneur](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) à superviser.  Peut être un [modèle de nom d’objet blob](#trigger---blob-name-patterns). |
 |**Connexion** | **Connection** | Nom d’un paramètre d’application comportant la chaîne de connexion de stockage à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom ici. Par exemple, si vous définissez `connection` sur « MyStorage », le runtime Functions recherche un paramètre d’application qui est nommé « AzureWebJobsMyStorage ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion de stockage par défaut dans le paramètre d’application nommé `AzureWebJobsStorage`.<br><br>La chaîne de connexion doit être destinée à un compte de stockage à usage général, et non pas à un [compte Stockage Blob](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -450,7 +450,9 @@ Les fonctions JavaScript et Java chargent l’objet blob entier en mémoire et l
 
 ## <a name="trigger---polling"></a>Déclencheur : interrogation
 
-Si le conteneur d’objets blob surveillé contient plus de 10 000 objets blob, le runtime Functions recherche les objets blob nouveaux ou modifiés dans les fichiers journaux. Ce processus peut entraîner des retards. Il se peut qu’une fonction ne se déclenche que quelques minutes ou plus après la création de l’objet blob. En outre, les [journaux de stockage sont créés selon le principe du meilleur effort](/rest/api/storageservices/About-Storage-Analytics-Logging). Il n’existe aucune garantie que tous les événements sont capturés. Dans certaines conditions, des journaux peuvent être omis. Si vous avez besoin de traitement d’objets blob plus rapide ou plus fiable, envisagez de créer un [message de file d’attente](../storage/queues/storage-dotnet-how-to-use-queues.md) quand vous créez l’objet blob. Ensuite, utilisez un [déclencheur de file d’attente](functions-bindings-storage-queue.md) plutôt qu’un déclencheur d’objet blob pour traiter l’objet blob. Une autre option consiste à utiliser Event Grid ; consultez le didacticiel [Automatiser le redimensionnement des images téléchargées à l’aide d’Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md).
+Si le conteneur d’objets blob surveillé contient plus de 10 000 objets BLOB (parmi tous les conteneurs), le runtime Functions analyse fichiers journaux pour surveiller les objets BLOB nouveaux ou modifiés. Ce processus peut entraîner des retards. Il se peut qu’une fonction ne se déclenche que quelques minutes ou plus après la création de l’objet blob. En outre, les [journaux de stockage sont créés selon le principe du meilleur effort](/rest/api/storageservices/About-Storage-Analytics-Logging). Il n’existe aucune garantie que tous les événements sont capturés. Dans certaines conditions, des journaux peuvent être omis.
+
+Si vous avez besoin de traitement d’objets blob plus rapide ou plus fiable, envisagez de créer un [message de file d’attente](../storage/queues/storage-dotnet-how-to-use-queues.md) quand vous créez l’objet blob. Ensuite, utilisez un [déclencheur de file d’attente](functions-bindings-storage-queue.md) plutôt qu’un déclencheur d’objet blob pour traiter l’objet blob. Une autre option consiste à utiliser Event Grid ; consultez le didacticiel [Automatiser le redimensionnement des images téléchargées à l’aide d’Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md).
 
 ## <a name="input"></a>Entrée
 
@@ -479,7 +481,7 @@ public static void Run(
 {
     log.LogInformation($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
 }
-```        
+```
 
 ### <a name="input---c-script-example"></a>Entrée - exemple de script C#
 
@@ -802,7 +804,7 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
     { ImageSize.Small,      (640, 400) },
     { ImageSize.Medium,     (800, 600) }
 };
-```        
+```
 
 ### <a name="output---c-script-example"></a>Sortie - exemple Script C#
 

@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
-ms.date: 10/31/2018
+ms.date: 03/25/2019
 ms.author: genli
-ms.openlocfilehash: 875f2d9dbbece4e9587462c6e8bdb2b2d8536c86
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: c61e606bde4b50fa10c194c76c79a3d8a27a4b8e
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979885"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407689"
 ---
 # <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>Réinitialiser les Services Bureau à distance ou le mot de passe administrateur associé dans une machine virtuelle Windows
 Si vous ne pouvez pas vous connecter à une machine virtuelle Windows, vous pouvez réinitialiser le mot de passe d’administrateur local ou la configuration du service Bureau à distance (pas de prise en charge sur les contrôleurs de domaine Windows). Pour réinitialiser le mot de passe, utilisez le Portail Azure ou l’extension d’accès aux machines virtuelles dans Azure PowerShell. Une fois connecté à la machine virtuelle, réinitialisez le mot de passe de cet administrateur local.  
@@ -39,18 +39,19 @@ Commencez par vous connecter au [Portail Azure](https://portal.azure.com), puis,
 
 1. Sélectionnez votre machine virtuelle Windows, puis **Réinitialiser le mot de passe** sous **Support + dépannage**. La fenêtre **Réinitialiser le mot de passe** s’affiche.
 
-1. Sélectionnez **Réinitialiser le mot de passe**, entrez un nom d’utilisateur et un mot de passe, puis sélectionnez **Mettre à jour**. 
+2. Sélectionnez **Réinitialiser le mot de passe**, entrez un nom d’utilisateur et un mot de passe, puis sélectionnez **Mettre à jour**. 
 
-1. Essayez à nouveau de vous connecter à votre machine virtuelle.
+3. Essayez à nouveau de vous connecter à votre machine virtuelle.
 
 ### <a name="reset-the-remote-desktop-services-configuration"></a>**Réinitialiser la configuration des Services Bureau à distance**
 
+Ce processus sera activer le service Bureau à distance dans la machine virtuelle et créer une règle de pare-feu pour le port de protocole RDP par défaut 3389.
+
 1. Sélectionnez votre machine virtuelle Windows, puis **Réinitialiser le mot de passe** sous **Support + dépannage**. La fenêtre **Réinitialiser le mot de passe** s’affiche. 
 
-1. Sélectionnez **Réinitialiser la configuration uniquement** , puis sélectionnez **Mettre à jour**. 
+2. Sélectionnez **Réinitialiser la configuration uniquement** , puis sélectionnez **Mettre à jour**. 
 
-1. Essayez à nouveau de vous connecter à votre machine virtuelle.
-
+3. Essayez à nouveau de vous connecter à votre machine virtuelle.
 
 ## <a name="reset-by-using-the-vmaccess-extension-and-powershell"></a>Réinitialisation en utilisant l’extension VMAccess et PowerShell
 

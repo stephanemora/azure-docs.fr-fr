@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: e0b8b35c654f0716fae1e6ab785f57dcf04e1a5a
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 813563b500b9365289285a89536f2724fb87acad
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400900"
+ms.locfileid: "58417800"
 ---
-# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-edge-preview"></a>Gérer l’accès, de puissance et de mode de connectivité pour votre zone de données Azure Edge (version préliminaire)
+# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-edge"></a>Gérer l’accès, de puissance et de mode de connectivité pour votre zone de données Azure Edge
 
 Cet article décrit comment gérer le mode d’accès, de puissance et de connectivité pour votre zone de données Azure Edge. Ces opérations sont effectuées sur l’interface utilisateur web locale ou le Portail Azure.
 
@@ -26,8 +26,6 @@ Dans cet article, vous apprendrez comment :
 > * Gérer le mode de connectivité
 > * Gérer la puissance
 
-> [!IMPORTANT]
-> Data Box Edge est en préversion. Veuillez lire les [conditions d’utilisation de la préversion Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) avant de commander et déployer cette solution.
 
 ## <a name="manage-device-access"></a>Gérer l’accès aux appareils
 

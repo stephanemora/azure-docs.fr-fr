@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.author: raynew
-ms.openlocfilehash: e83698af6bb1caab1568375b726753d34a8c8467
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1cc86470b9e45469d633d47121869b3c2dc1b052
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57861347"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439003"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Supprimer un coffre Recovery Services
 
@@ -31,7 +31,7 @@ Avant de commencer, il est important de comprendre que vous ne pouvez pas suppri
 - Si vous ne souhaitez pas conserver les données dans le coffre Recovery Services et souhaitez supprimer le coffre, vous pouvez supprimer le coffre en vigueur.
 - Si vous essayez de supprimer un coffre, sans y parvenir, le coffre est encore configuré pour recevoir des données de sauvegarde.
 
-Pour savoir comment supprimer un coffre, consultez la section [Supprimer un coffre à partir du portail Azure](backup-azure-delete-vault.md#delete-a-vault-from-azure-portal). Si la section, [supprimer le coffre de force](backup-azure-delete-vault.md#delete-the-recovery-services-vault-by-force). Si vous ne savez pas ce qui est dans le coffre, et souhaitez vous assurer que vous pouvez le supprimer, consultez la section [Supprimer les dépendances du coffre et supprimer le coffre](backup-azure-delete-vault.md#remove-vault-dependencies-and-delete-vault).
+Pour savoir comment supprimer un coffre, consultez la section [Supprimer un coffre à partir du portail Azure](#delete-a-vault-from-the-azure-portal). Si la section, [supprimer le coffre de force](backup-azure-delete-vault.md#delete-the-recovery-services-vault-by-force). Si vous ne savez pas ce qui est dans le coffre, et souhaitez vous assurer que vous pouvez le supprimer, consultez la section [Supprimer les dépendances du coffre et supprimer le coffre](backup-azure-delete-vault.md#remove-vault-dependencies-and-delete-vault).
 
 ## <a name="delete-a-vault-from-the-azure-portal"></a>Supprimer un coffre à partir du portail Azure
 
@@ -90,7 +90,7 @@ Pour supprimer un coffre Recovery Services :
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
    ```
-9. Si le coffre n’est pas vide, vous recevez l’erreur « Impossible de supprimer qu’il sont a des ressources existantes au sein de ce coffre ». Pour supprimer une relation contenant-contenu dans un coffre, procédez comme suit :
+9. Si le coffre n’est pas vide, vous recevez l’erreur « Impossible de supprimer qu’il sont a des ressources existantes au sein de ce coffre ». Pour supprimer un conteneur dans un coffre, procédez comme suit :
 
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01

@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/28/2019
+ms.date: 03/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: 80577b4585a6c9e4ec83a8f21b358b7609d85268
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 98236133a90cfddfe2ea476486556318b2c88b10
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081251"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418888"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement
 
@@ -49,7 +49,7 @@ Contactez le [support technique](https://portal.azure.com/#blade/Microsoft_Azure
 
 ## <a name="services-that-can-be-moved"></a>Services pouvant être déplacés
 
-La liste suivante fournit une synthèse générale des services Azure qui peuvent être déplacés vers un nouveau groupe de ressources et un nouvel abonnement. Pour plus d’informations, consultez [Prise en charge de l’opération de déplacement pour les ressources](move-support-resources.md).
+La liste suivante fournit une synthèse générale des services Azure qui peuvent être déplacés vers un nouveau groupe de ressources et un nouvel abonnement. Pour obtenir la liste de quelle ressource types prennent en charge de déplacement, consultez [déplacer prise en charge de l’opération pour les ressources](move-support-resources.md).
 
 * Analysis Services
 * Gestion des API
@@ -143,7 +143,7 @@ La liste suivante fournit une synthèse générale des services Azure qui ne peu
 * Dynamics LCS
 * ExpressRoute
 * Kubernetes Service
-* Lab Services : le déplacement vers un nouveau groupe de ressources dans le même abonnement est activé, mais le déplacement entre abonnements ne l’est pas.
+* Lab Services - laboratoires de salle de classe ne peut pas être déplacés vers un nouveau groupe de ressources ou d’un abonnement. Dev/test peut être déplacé vers un nouveau groupe de ressources dans le même abonnement, mais pas entre abonnements.
 * Applications gérées
 * Microsoft Genomics
 * SAP HANA sur Azure

@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: ed91425ca56278eccf21c10db6360b4f770b0660
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: d9de47ad83f37fa976c3816a0cb2e3e3beaa5472
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226536"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437575"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guide des développeurs JavaScript sur Azure Functions
 
@@ -48,7 +48,6 @@ FunctionsProject
  | - host.json
  | - package.json
  | - extensions.csproj
- | - bin
 ```
 
 À la racine du projet se trouve un fichier [host.json](functions-host-json.md) partagé que vous pouvez utiliser pour configurer l’application de fonction. Chaque fonction a un dossier avec ses propres fichier de code (.js) et fichier de configuration de liaison (function.json). Le nom du répertoire parent de `function.json` est toujours le nom de votre fonction.
@@ -616,6 +615,10 @@ Lorsque vous créez une application de fonction qui utilise le plan App Service,
 ### <a name="cold-start"></a>Démarrage à froid
 
 Quand vous développez des fonctions Azure dans le modèle d’hébergement serverless, les démarrages à froid sont une réalité. *Démarrage à froid* fait référence au fait que le démarrage de votre application de fonction prend plus de temps quand elle démarre pour la première fois après une période d’inactivité. En particulier, pour les fonctions JavaScript avec de grandes arborescences de dépendances, le démarrage à froid peut prendre un temps considérable. Pour accélérer le processus de démarrage à froid, [exécutez vos fonctions en tant que fichier de package](run-functions-from-deployment-package.md) lorsque cela est possible. De nombreuses méthodes de déploiement utilisent par défaut le modèle d’exécution à partir d’un package, mais si vous constatez des démarrages à froid particulièrement lents et que vous n’utilisez pas cette méthode d’exécution, cette approche peut accélérer considérablement le démarrage.
+
+### <a name="connection-limits"></a>Limites de connexion
+
+Lorsque vous utilisez un client de service spécifique dans une application Azure Functions, ne créez pas un nouveau client à chaque invocation de fonction. Au lieu de cela, créez un client unique et statique dans la portée globale. Pour plus d’informations, consultez [la gestion des connexions dans Azure Functions](manage-connections.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

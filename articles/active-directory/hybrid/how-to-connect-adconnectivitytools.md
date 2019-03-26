@@ -11,12 +11,12 @@ ms.date: 10/19/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52f8b70a4b098cc7266042499300235588e5303f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 5b2471b28132b26c41844b620f6dcf49e3802a6e
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164309"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436708"
 ---
 # <a name="what-is-the-adconnectivitytool-powershell-module"></a>Présentation du module PowerShell ADConnectivityTool
 
@@ -47,7 +47,7 @@ Par exemple, quand nous tentons d’ajouter un annuaire sur l’écran **Connexi
 
 En fait, Azure AD Connect appelle la fonction `Start-NetworkConnectivityDiagnosisTools` en arrière-plan.  Cette fonction est appelée quand la validation des informations d’identification échoue en raison d’un problème de connectivité réseau.
 
-Pour finir, un fichier journal détaillé est généré chaque fois que l’outil est appelé à partir de l’Assistant. Le journal se trouve dans **C:\ProgramData\AADConnect\ADConnectivityTool-<date>-<time>.log**
+Pour finir, un fichier journal détaillé est généré chaque fois que l’outil est appelé à partir de l’Assistant. Le journal se trouve dans **C:\ProgramData\AADConnect\ADConnectivityTool-\<date >-\<temps > .log**
 
 ## <a name="adconnectivitytools-post-installation"></a>ADConnectivityTools après l’installation
 Après l’installation d’Azure AD Connect, toutes les fonctions du module PowerShell ADConnectivityTools peuvent être utilisées.  

@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 02/09/2019
+ms.date: 03/24/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f2de9274e1b6c996e75148d1a1f018d73a721bb
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3f6ac8a693e09d0efbac080d7effc6ce21c6a094
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443451"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418967"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Fonctionnalité Conditions d’utilisation d’Azure Active Directory
 La fonctionnalité Conditions d’utilisation d’Azure AD offre aux organisations une méthode simple pour présenter des informations aux utilisateurs finaux. Cette présentation permet de garantir que les utilisateurs voient les clauses d’exclusion de responsabilité nécessaires au respect des conditions légales ou de conformité. Cet article vous indique comment prendre en main les conditions d’utilisation.
@@ -190,11 +190,15 @@ Les utilisateurs dans l’étendue voient l’écran suivant au cours de la conn
 
 ![Connexion des utilisateurs sur le web](./media/active-directory-tou/user-tou.png)
 
+Les utilisateurs peuvent afficher les conditions d’utilisation et, si nécessaire, utilisez les boutons pour effectuer un zoom avant et arrière.
+
+![Afficher les conditions d’utilisation avec des boutons de zoom](./media/active-directory-tou/zoom-buttons.png)
+
 L’écran suivant montre comment se présente les conditions d’utilisation sur les appareils mobiles.
 
 ![Connexion des utilisateurs sur un appareil mobile](./media/active-directory-tou/mobile-tou.png)
 
-Les utilisateurs ne doivent accepter les conditions d’utilisation qu’une seule fois et ils ne les verront plus chaque fois qu’ils se reconnectent.
+Les utilisateurs sont uniquement requis pour accepter les conditions d’utilisation qu’une seule fois et ils ne voient pas les conditions d’utilisation à nouveau lors des connexions ultérieures.
 
 ### <a name="how-users-can-review-their-terms-of-use"></a>Comment les utilisateurs peuvent consulter leurs conditions d’utilisation
 Vous pouvez consulter et vérifier les conditions d’utilisation qu’ils ont acceptées en procédant comme suit.

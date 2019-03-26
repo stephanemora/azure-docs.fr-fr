@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: fbb8eabebd5728c3ff772f78f01b8ea93ff0a526
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 719cbe1ec8962b320aa2850053d44cdef7f56a8c
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400186"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437814"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Configurer Application Insights pour votre site web ASP.NET
 
@@ -125,16 +125,16 @@ Pour passer à la [nouvelle version du Kit de développement logiciel (SDK)](htt
 
 Si vous avez apporté des personnalisations à ApplicationInsights.config, conservez-en une copie avant d’effectuer la mise à niveau. Fusionnez ensuite vos modifications dans la nouvelle version.
 
+## <a name="video"></a>Vidéo
+
+* Externe vidéo pas à pas sur [configuration d’Application Insights avec une application .NET à partir de zéro](https://www.youtube.com/watch?v=blnGAVgMAfA).
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Vous pouvez consulter d’autres rubriques selon les aspects qui vous intéressent :
 
 * [Instrumentation d’une application web au moment de l’exécution](../../azure-monitor/app/monitor-performance-live-website-now.md)
 * [Azure Cloud Services](../../azure-monitor/app/cloudservices.md)
-
-## <a name="video"></a>Vidéo
-
-* Externe vidéo pas à pas sur [configuration d’Application Insights avec une application .NET à partir de zéro](https://www.youtube.com/watch?v=blnGAVgMAfA).
 
 ### <a name="more-telemetry"></a>Données de télémétrie supplémentaires
 

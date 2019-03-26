@@ -13,15 +13,15 @@ ms.workload: azure-vs
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.date: 02/19/2019
+ms.date: 03/15/2019
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: b1b47b5353340da9c1d36d8d2035a6c9f5963d80
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3d269db8ada2b939f53f3efadc696941fd830d5d
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449697"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439360"
 ---
 # <a name="visual-studio-images-on-azure"></a>Images de Visual Studio sur Azure
 L’exécution de Visual Studio sur une machine virtuelle Azure préconfigurée est un moyen simple et rapide de créer un environnement de développement opérationnel à partir de rien. Des images système avec différentes configurations de Visual Studio sont disponibles sur la [Place de Marché Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=visual%20studio&page=1).
@@ -33,9 +33,9 @@ La Place de Marché Azure met à disposition des images pour les dernières vers
 
 | Version commerciale                                              | Éditions                     |     Version du produit      |
 |:------------------------------------------------------------:|:----------------------------:|:------------------------:|
-|    Visual Studio 2019 : Préversion (Préversion 3)                   |           Entreprise         | Version 16.0.0 Préversion 3 |
-| Visual Studio 2017 : Version la plus récente (15.9)                    |    Enterprise, Community     |      Version 15.9.7      |
-|         Visual Studio 2017 : RTW                              |    Enterprise, Community     |      Version 15.0.20     |
+|     Visual Studio 2019 : Version préliminaire (RC3)                        |           Entreprise         |    Version 16.0.0 RC3    |
+| Visual Studio 2017 : Version la plus récente (15.9)                    |    Enterprise, Community     |      Version 15.9.9      |
+|         Visual Studio 2017 : RTW                              |    Enterprise, Community     |      Version 15.0.22     |
 |   Visual Studio 2015 : Mise à jour la plus récente (Update 3)                      |    Enterprise, Community     |  Version 14.0.25431.01   |
 |         Visual Studio 2015 : RTW                              |             Aucun             | (Expiration pour maintenance)  |
 

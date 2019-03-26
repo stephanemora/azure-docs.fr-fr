@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 82483d8d84349a929ef4892d5e9571ea65b9a88a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 081adc9421a97f7cafcf7fba946ce0b901a00a0c
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104836"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439428"
 ---
 # <a name="azure-ad-b2c-single-page-app-sign-in-by-using-oauth-20-implicit-flow"></a>Azure AD B2C : Connexion à une application monopage en utilisant un flux implicite OAuth 2.0
 
@@ -27,7 +27,7 @@ De nombreuses applications modernes disposent d’un frontend d’application à
 
 Pour prendre en charge ces applications, Azure Active Directory B2C (Azure AD B2C) utilise le flux implicite OAuth 2.0. Le flux d’autorisation implicite OAuth 2.0 est décrit dans la [section 4.2 de la spécification OAuth 2.0](https://tools.ietf.org/html/rfc6749) . Dans un flux implicite, l’application reçoit des jetons directement du point de terminaison d’autorisation Azure AD, sans aucun échange de serveur à serveur. Tout le traitement de la logique d’authentification et de la gestion des sessions est entièrement exécuté dans le client JavaScript, sans redirections de pages supplémentaires.
 
-Azure AD B2C étend le flux implicite OAuth 2.0 standard au-delà de la simple authentification et de la simple autorisation. Azure AD B2C introduit le [paramètre de stratégie](active-directory-b2c-reference-policies.md). Avec le paramètre de stratégie, vous pouvez utiliser OAuth 2.0 pour ajouter des stratégies à votre application, telles que des flux d’utilisateur d’inscription, de connexion et de gestion des profils. Dans cet article, nous vous montrons comment utiliser le flux implicite et Azure AD pour implémenter chacune de ces expériences dans vos applications à page unique. Vous pouvez consulter nos exemples [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi) ou [Microsoft .NET](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi) pour commencer.
+Azure AD B2C étend le flux implicite OAuth 2.0 standard au-delà de la simple authentification et de la simple autorisation. Azure AD B2C introduit le [paramètre de stratégie](active-directory-b2c-reference-policies.md). Avec le paramètre de stratégie, vous pouvez utiliser OAuth 2.0 pour ajouter des stratégies à votre application, telles que des flux d’utilisateur d’inscription, de connexion et de gestion des profils. Dans cet article, nous vous montrons comment utiliser le flux implicite et Azure AD pour implémenter chacune de ces expériences dans vos applications à page unique.
 
 Dans les exemples de demandes HTTP de cet article, nous utilisons notre exemple d’annuaire Azure AD B2C, **fabrikamb2c.onmicrosoft.com**. Nous utilisons également nos propres exemples d’application et de flux d’utilisateur. Vous pouvez essayer les demandes par vous-même en utilisant ces valeurs ou bien en les remplaçant par les vôtres.
 Découvrez comment [obtenir vos propres flux d’utilisateur, application et annuaire Azure AD B2C](#use-your-own-azure-ad-b2c-tenant).
@@ -274,10 +274,5 @@ Pour essayer vous-même ces demandes, procédez selon les trois étapes suivante
 
 1. [Créez un locataire Azure AD B2C](active-directory-b2c-get-started.md). Utilisez le nom de votre locataire dans les demandes.
 2. [Créez une application](active-directory-b2c-app-registration.md) pour obtenir un ID d’application et une valeur pour `redirect_uri`. Incluez une application web ou une API web dans votre application. Si vous le souhaitez, vous pouvez créer un secret d’application.
-3. [Créez vos flux d’utilisateur](active-directory-b2c-reference-policies.md) pour obtenir vos noms de flux d’utilisateur.
-
-## <a name="samples"></a>Exemples
-
-* [Créer une application à page unique en utilisant Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi)
-* [Créer une application à page unique en utilisant .NET](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)
+3. [Créez vos flux d’utilisateurs](active-directory-b2c-reference-policies.md) pour obtenir vos noms de flux utilisateur.
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: a51c2987781184539edfcc8be9b9f483a215a157
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 88abd3d17218f1168119a66701f1474d27244acf
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58122924"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438255"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Personnaliser l’interface utilisateur d’un parcours utilisateur avec des stratégies personnalisées
 
@@ -150,7 +150,7 @@ Le tableau ci-après décrit l’objectif des pages HTML5 précédentes.
 
 Vous pouvez ajouter un lien à vos modèles HTML5/CSS pour votre parcours utilisateur en modifiant directement une stratégie personnalisée.
 
-Les modèles HTML5/CSS personnalisés à utiliser dans votre parcours utilisateur doivent être spécifiés dans une liste de définitions de contenu pouvant être utilisées dans ces parcours utilisateur. Pour ce faire, un élément XML *<ContentDefinitions>* facultatif doit être déclaré sous la section *<BuildingBlocks>* de votre fichier XML de stratégie personnalisée.
+Les modèles HTML5/CSS personnalisés à utiliser dans votre parcours utilisateur doivent être spécifiés dans une liste de définitions de contenu pouvant être utilisées dans ces parcours utilisateur. Pour ce faire, facultative  *\<ContentDefinitions >* élément XML doit être déclaré sous la  *\<BuildingBlocks >* section de votre fichier XML de stratégie personnalisée.
 
 Le tableau ci-après décrit l’ensemble d’ID de définition de contenu reconnus par le moteur d’expérience d’identité Azure AD B2C et le type des pages qui leur sont associées.
 

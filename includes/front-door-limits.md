@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 9/17/2018
 ms.author: sharadag
 ms.custom: include file
-ms.openlocfilehash: e3fa5616518675d8475937ec63afdd8e1742e8c6
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: a3a43c56a49c243390eac964d31988b7d30fbb56
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553519"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58408006"
 ---
 | Ressource | Limite par défaut |
 | --- | --- |
@@ -41,4 +41,4 @@ ms.locfileid: "57553519"
 |  | Avec le codage (CTE) de transfert mémorisé en bloc | Sans segmentation HTTP |
 | ---- | ------- | ------- |
 | **Télécharger** | Il n’existe aucune limite sur la taille de téléchargement. | Il n’existe aucune limite sur la taille de téléchargement. |
-| **Charger** |  Il n’existe aucune limite tant que chaque chargement de l’expression de table commune est inférieure à 28,6 Mo. | La taille ne peut pas être supérieure à 28,6. MB. |
+| **Charger** |  Il n’existe aucune limite tant que chaque chargement de l’expression de table commune est inférieure à 2 Go. | La taille ne peut pas être supérieure à 2 Go. |

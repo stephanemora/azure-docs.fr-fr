@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 0790b7d5280b3fdf26c34c3903a6257d21bc877c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 28aef1c1b5091db75b4a1fb6786ee712b42a1ea2
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835830"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418769"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Connectivité des appareils dans Azure IoT Central
 
@@ -33,9 +33,9 @@ L’utilisation de points de distribution permet :
 Cet article décrit les cas de quatre usage suivants :
 
 1. [Se connecter rapidement un seul appareil à l’aide de SAS](#connect-a-single-device)
-1. Connecter des appareils à l’échelle à l’aide de SAS
+1. [Connecter des appareils à l’échelle à l’aide de SAS](#connect-devices-at-scale-using-sas)
 1. [Connecter des appareils à l’échelle à l’aide de certificats X.509](#connect-devices-using-x509-certificates) c’est l’approche recommandée pour les environnements de production.
-1. Connecter des appareils sans les inscrire au préalable 
+1. [Connecter des appareils sans les inscrire au préalable](#connect-without-registering-devices)
 
 ## <a name="connect-a-single-device"></a>Connecter un appareil unique
 

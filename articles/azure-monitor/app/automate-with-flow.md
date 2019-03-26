@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: mbullwin
-ms.openlocfilehash: cbb9cceef68febec0af991c3d8d5df3e3404f1c6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 15299be83758c157bf3bc7d9fb27b50763b9148e
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834048"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438935"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Automatiser les processus Azure Application Insights avec le connecteur pour Microsoft Flow
 
@@ -43,7 +43,7 @@ Dans ce didacticiel, vous allez apprendre à créer un flux qui utilise l’algo
 
     ![Sélectionnez le planifier sous build](./media/automate-with-flow/2schedule.png)
 
-1. Dans le le **intervalle** , entrez **1**, puis, dans le **fréquence** boîte, sélectionnez **jour**.
+1. Dans le **intervalle** , entrez **1**, puis, dans le **fréquence** boîte, sélectionnez **jour**.
 2. Cliquez sur **nouvelle étape**
 
     ![Configurer la périodicité de planification à l’entrée de fréquence et l’intervalle](./media/automate-with-flow/3schedulerecurrence.png)

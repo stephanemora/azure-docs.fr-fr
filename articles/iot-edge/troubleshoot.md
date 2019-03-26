@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 2daaa1275d9a97bec43f277e726518ead6eca9ff
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 92294700ac9a491bfdbfa3b3d3f781eb18d5339e
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876362"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437099"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problèmes courants et résolutions pour Azure IoT Edge
 
@@ -338,6 +338,39 @@ Bien que IoT Edge assure une configuration améliorée pour la sécurisation du 
 |AMQP|5671|BLOQUÉ (par défaut)|OUVERT (par défaut)|<ul> <li>Protocole de communication par défaut pour IoT Edge. <li> Doit être configuré sur Ouvert si Azure IoT Edge n’est pas configuré pour les autres protocoles pris en charge ou si AMQP est le protocole de communication souhaité.<li>5672 pour AMQP n’est pas pris en charge par IoT Edge.<li>Bloquez ce port quand Azure IoT Edge utilise un autre protocole IoT Hub pris en charge.<li>Les connexions entrantes doivent être bloquées.</ul></ul>|
 |HTTPS|443|BLOQUÉ (par défaut)|OUVERT (par défaut)|<ul> <li>Configurez la connexion sortante pour être Ouverte sur le port 443 pour le provisionnement d’IoT Edge. Cette configuration est requise en cas d’utilisation de scripts manuels ou du service Azure IoT Device Provisioning. <li>La connexion entrante ne peut être Ouverte que dans certaines situations uniquement : <ul> <li>  Si vous disposez d’une passerelle transparente avec des appareils de nœud terminal pouvant envoyer des requêtes de méthode. Dans ce cas, le port 443 n’a pas besoin d’être ouvert aux réseaux externes pour se connecter à IoTHub ou fournir des services IoTHub via Azure IoT Edge. La règle entrante peut donc être limitée uniquement à l’ouverture du trafic entrant en provenance du réseau interne. <li> Pour les scénarios Client vers Appareil (C2D).</ul><li>80 pour HTTP n’est pas pris en charge par IoT Edge.<li>Si les protocoles non-HTTP (par exemple, AMQP ou MQTT) ne peuvent pas être configurés dans l’entreprise, les messages peuvent être envoyés sur WebSockets. Dans ce cas, le port 443 sera utilisé pour la communication WebSocket.</ul>|
 
+## <a name="edge-agent-module-continually-reports-empty-config-file-and-no-modules-start-on-the-device"></a>Module de l’Agent Edge continuellement rapports « vide config file » et aucun module démarrer sur l’appareil
+
+L’appareil a des difficultés pour démarrer les modules définis dans le déploiement. Uniquement l’edgeAgent est en cours d’exécution, mais en signalant continuellement « fichier de configuration vide... ».
+
+### <a name="potential-root-cause"></a>Cause racine
+Par défaut, IoT Edge démarre les modules dans leur propre réseau de conteneur isolé. L’appareil peut avoir un problème avec la résolution de noms DNS au sein de ce réseau privé.
+
+### <a name="resolution"></a>Résolution :
+Spécifiez le serveur DNS pour votre environnement dans les paramètres de moteur de conteneur. Créez un fichier nommé `daemon.json` en spécifiant le serveur DNS à utiliser. Par exemple : 
+
+```
+{
+    "dns": ["1.1.1.1"]
+}
+```
+
+L’exemple ci-dessus définit le serveur DNS à un service DNS accessible publiquement. Si l’appareil edge ne peut pas accéder à cette adresse IP à partir de son environnement, remplacez-le par adresse de serveur DNS est accessible.
+
+Place `daemon.json` dans l’emplacement approprié pour votre plateforme : 
+
+| Plateforme | Lieu |
+| --------- | -------- |
+| Linux | `/etc/docker` |
+| Hôte de Windows avec les conteneurs Windows | `C:\ProgramData\iotedge-moby-data\config` |
+
+Si l’emplacement contient déjà `daemon.json` , ajoutez le **dns** clé lui et enregistrez le fichier.
+
+*Redémarrez le moteur de conteneur pour les mises à jour en vigueur*
+
+| Plateforme | Commande |
+| --------- | -------- |
+| Linux | `sudo systemctl restart docker` |
+| Windows (Powershell d’administration) | `Restart-Service iotedge-moby -Force` |
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous pensez que vous avez trouvé un bogue dans la plateforme IoT Edge ? [Soumettez un problème](https://github.com/Azure/iotedge/issues) afin que nous puissions poursuivre les améliorations. 

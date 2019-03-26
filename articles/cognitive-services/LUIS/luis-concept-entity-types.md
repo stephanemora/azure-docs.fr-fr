@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: d12ea20f9f510b0e2d3d3512d8d8c71a3fb96eec
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: efe50533a03551a673583265e107263d79cff90a
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372520"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418684"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Types d’entités et leurs objectifs dans LUIS
 
@@ -216,11 +216,20 @@ Si l’entité prédéfinie est marquée avec plus de texte ou de jetons à votr
 
 #### <a name="remove-example-utterance-to-fix-tagging"></a>Supprimer l’énoncé d’exemple pour corriger le balisage 
 
-Votre premier choix consiste à supprimer l’énoncé exemple et recycler l’application. Ajouter à nouveau que le mot ou une phrase qui est l’entité comme un énoncé de l’exemple, puis marquer l’entité et l’apprentissage. Maintenant ajouter à nouveau l’entité prédéfinie et l’énoncé exemple d’origine. L’entité personnalisée doit continuer à être marquée au lieu de l’entité prédéfinie. 
+Votre premier choix consiste à supprimer de l’énoncé de l’exemple. 
+
+1. Supprimer l’énoncé de l’exemple.
+1. Recycler l’application. 
+1. Ajouter à nouveau que le mot ou une phrase qui est l’entité, qui est marquée comme une entité prédéfinie, comme un énoncé de l’exemple complet. Le mot ou expression gardent l’entité prédéfinie marquée. 
+1. Sélectionnez l’entité dans l’énoncé exemple sur le **intention** page et de modifier à votre entité personnalisée et de former à nouveau. Cela doit empêcher LUIS de marquer ce texte exact que l’entité prédéfinie dans n’importe quel énoncés exemple qui utilisent ce texte. 
+1. Ajoutez l’énoncé exemple d’origine entière à l’intention. L’entité personnalisée doit continuer à être marquée au lieu de l’entité prédéfinie. Si l’entité personnalisée n’est pas marquée, vous devez ajouter plus d’exemples de ce texte dans énoncés.
 
 #### <a name="remove-prebuilt-entity-to-fix-tagging"></a>Supprimer une entité prédéfinie pour corriger le balisage
 
-Votre second choix consiste à supprimer l’entité prédéfinie à partir de l’application, identifiez l’entité personnalisée dans l’énoncé de l’exemple, puis ajoutez l’entité prédéfinie vers l’application. Ce correctif suppose que l’entité prédéfinie ne fait pas partie d’une entité composite. 
+1. Supprimer l’entité prédéfinie de l’application. 
+1. Sur le **intention** page, marquez l’entité personnalisée dans l’énoncé de l’exemple.
+1. Effectuez l’apprentissage de l’application.
+1. Ajoutez l’entité prédéfinie à l’application et former l’application. Ce correctif suppose que l’entité prédéfinie ne fait pas partie d’une entité composite.
 
 ## <a name="regular-expression-entity"></a>Entité d’expression régulière 
 

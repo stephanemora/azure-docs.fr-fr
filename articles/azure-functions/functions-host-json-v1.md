@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: glenga
-ms.openlocfilehash: 6f93bbceacff3731206e5f98ba9a252d6a046ac4
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 44bc5a245d1bcbc8ff53991af4193ef86f7cd704
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200070"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436317"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>Informations de référence sur le fichier host.json pour Azure Functions 1.x
 
@@ -244,7 +244,21 @@ Paramètre de configuration pour les [déclencheurs et liaisons de file d’atte
 
 Paramètre de configuration pour les [déclencheurs et liaisons Service Bus](functions-bindings-service-bus.md).
 
-[!INCLUDE [functions-host-json-service-bus](../../includes/functions-host-json-service-bus.md)]
+```json
+{
+    "serviceBus": {
+      "maxConcurrentCalls": 16,
+      "prefetchCount": 100,
+      "autoRenewTimeout": "00:05:00"
+    }
+}
+```
+
+|Propriété  |Default | Description |
+|---------|---------|---------| 
+|maxConcurrentCalls|16|Nombre maximal d’appels simultanés pour le rappel que la pompe de messages doit initier. Par défaut, le runtime Functions traite plusieurs messages simultanément. Pour que le runtime ne traite qu’un message de file d’attente ou de rubrique à la fois, définissez `maxConcurrentCalls` sur 1. | 
+|prefetchCount|n/a|Valeur PrefetchCount par défaut qui est utilisée par l’instance MessageReceiver sous-jacente.| 
+|autoRenewTimeout|00:05:00|Durée maximale pendant laquelle le verrouillage de message doit être renouvelé automatiquement.| 
 
 ## <a name="singleton"></a>singleton
 

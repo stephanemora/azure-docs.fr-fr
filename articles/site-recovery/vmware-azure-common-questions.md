@@ -8,12 +8,12 @@ services: site-recovery
 ms.date: 03/21/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 82ae36eaaf4616dbd85760a0962f301a2b1a20f5
-ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.openlocfilehash: cdb8fe5deb71c014f7e0af01d070e5004d8c9994
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319378"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418786"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Questions courantes sur la réplication de VMware vers Azure
 
@@ -57,12 +57,12 @@ Disques gérés sont facturés légèrement différente de celle des comptes de 
 
 * Compte de stockage standard Visual Studio. Disque géré de disque dur standard
 
-    - **Disque de stockage approvisionné par ASR**: S10
+    - **Disque de stockage approvisionné par Azure Site Recovery**: S10
     - **Compte de stockage standard facturée sur consommé volume**: 5 $ par mois
     - **Disque géré standard facturée sur volume configuré**: 5.89 $ par mois
 
 * Compte de stockage Premium Visual Studio. Disque managé du disque SSD Premium 
-    - **Disque de stockage approvisionné par ASR**: P10
+    - **Disque de stockage approvisionné par Azure Site Recovery**: P10
     - **Compte de stockage Premium est facturé sur volume configuré**: 17.92 $ par mois
     - **Disque géré Premium facturé sur volume configuré**: 17.92 $ par mois
 
@@ -203,7 +203,7 @@ Oui, vous pouvez ajouter de nouvelles machines virtuelles à un groupe de répli
 Pour la réplication VMware vers Azure, vous pouvez modifier la taille de disque. Si vous souhaitez ajouter de nouveaux disques, vous devez ajouter le disque et réactiver la protection de la machine virtuelle.
 
 ### <a name="can-i-migrate-on-premises-machines-to-a-new-vcenter-without-impacting-ongoing-replication"></a>Puis-je migrer sur les ordinateurs locaux à un nouveau serveur Vcenter sans compromettre la réplication en cours ?
-Non, la modification du Vcenter ou de la migration aura une incidence sur la réplication en cours. Vous devez configurer la récupération automatique du système avec le nouveau Vcenter et activer la réplication des machines.
+Non, la modification du Vcenter ou de la migration aura une incidence sur la réplication en cours. Vous devez configurer Azure Site Recovery avec le nouveau serveur Vcenter et activer la réplication des machines.
 
 ### <a name="can-i-replicate-to-cachetarget-storage-account-which-has-a-vnet-with-azure-storage-firewalls-configured-on-it"></a>Puis-je répliquer vers un compte de stockage de cache/cible sur lequel un réseau virtuel (avec des pare-feux de stockage Azure) est configuré ?
 Non, Azure Site Recovery ne prend pas en charge la réplication vers un Stockage sur réseau virtuel.
@@ -275,7 +275,7 @@ Dans le **coffre Recovery Services**, **Gérer** > **Infrastructure Site Recover
 Les programmes d’installation sont conservés dans le dossier **%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository** sur le serveur de configuration.
 
 ## <a name="how-do-i-install-the-mobility-service"></a>Comment installer le service Mobilité ?
-Vous l’installez sur chaque machine virtuelle que vous voulez répliquer par une [installation Push](vmware-azure-install-mobility-service.md) ou une [installation manuelle](vmware-physical-mobility-service-install-manual.md) sur l’interface utilisateur ou sur PowerShell. Vous pouvez également le déployer avec un outil de déploiement comme [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md).
+Vous l’installez sur chaque machine virtuelle que vous voulez répliquer par une [installation Push](vmware-physical-mobility-service-overview.md#push-installation) ou une [installation manuelle](vmware-physical-mobility-service-overview.md#install-mobility-agent-through-ui) sur l’interface utilisateur ou sur PowerShell. Vous pouvez également le déployer avec un outil de déploiement comme [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md).
 
 
 

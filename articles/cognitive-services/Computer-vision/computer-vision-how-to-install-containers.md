@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: article
-ms.date: 3/19/2019
+ms.date: 3/22/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 665e6651db37cc04693d68bd2de2ede6e595eab4
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 84af16c156635f7f7dbfb42972e564dd21a554bb
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58293390"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436887"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>Installer et exécuter des conteneurs Reconnaître le texte
 
@@ -43,7 +43,7 @@ L’utilisation des conteneurs Reconnaître le texte est soumise aux prérequis 
 
 ### <a name="the-host-computer"></a>L’ordinateur hôte
 
-[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-host-computer.md)]
+[!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
 
 ### <a name="container-requirements-and-recommendations"></a>Exigences et suggestions relatives au conteneur

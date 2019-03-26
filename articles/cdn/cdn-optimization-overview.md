@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2018
+ms.date: 03/25/2019
 ms.author: magattus
-ms.openlocfilehash: 5be1835de2aa1631c4ec2115dd34ea85f0267403
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 954d19fb557540e4fdc6b17f313127e01eba97a7
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870888"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58435598"
 ---
 # <a name="optimize-azure-cdn-for-the-type-of-content-delivery"></a>Optimiser Azure CDN pour le type de distribution de contenu
 
@@ -38,6 +38,8 @@ Les profils **Azure CDN Standard fourni par Microsoft** prennent en charge les o
 
 * [Livraison web générale](#general-web-delivery). Cette optimisation est également utilisée pour le streaming de contenu multimédia et le téléchargement de fichiers volumineux.
 
+> [!NOTE]
+> Accélération de site dynamique à partir de Microsoft est proposée via [Azure porte Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview).
 
 Les profils **Azure CDN Standard fourni par Verizon** et **Azure CDN Premium fourni par Verizon** prennent en charge les optimisations suivantes :
 
@@ -120,6 +122,9 @@ Pour plus d’informations sur l’optimisation des fichiers volumineux, consult
 ### <a name="dynamic-site-acceleration"></a>Accélération de site dynamique
 
  L’accélération de site dynamique est disponible pour les profils **Azure CDN Standard fourni par Akamai**, **Azure CDN Standard fourni par Verizon** et **Azure CDN Premium fourni par Verizon**. Cette optimisation implique des frais supplémentaires d’utilisation. Pour plus d’informations, consultez [Tarification Content Delivery Network](https://azure.microsoft.com/pricing/details/cdn/).
+
+> [!NOTE]
+> Accélération de site dynamique à partir de Microsoft est proposée via [Azure porte Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview) qui est global [anycast](https://en.wikipedia.org/wiki/Anycast) en tirant parti de réseau global privé de Microsoft pour fournir vos charges de travail d’application de service.
 
 L’accélération de site dynamique inclut diverses techniques bénéfiques pour la latence et les performances du contenu dynamique. Ces techniques incluent l’optimisation d’itinéraire et de réseau, l’optimisation TCP, et bien plus. 
 

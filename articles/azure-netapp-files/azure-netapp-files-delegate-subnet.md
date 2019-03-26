@@ -14,22 +14,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: b-juche
-ms.openlocfilehash: 6c1a6bf4e7042c28239f57af6b39c0822b63b5e8
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 1cac267be026d0e472db9a7a321f5fff6ab3e917
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768074"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58434770"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>Déléguer un sous-réseau à Azure NetApp Files 
 
 Vous devez déléguer un sous-réseau à Azure NetApp Files.   Lorsque vous créez un volume, vous devez spécifier le sous-réseau délégué.
 
-## <a name="about-this-task"></a>À propos de cette tâche
+## <a name="considerations"></a>Considérations
 * L’Assistant de création d’un sous-réseau applique par défaut un masque réseau /24, qui fournit 251 adresses IP disponibles. L’utilisation d’un masque réseau /28, qui fournit 16 adresses IP utilisables, est suffisante pour le service.
-* Vous ne pouvez pas désigner un groupe de sécurité ou un point de terminaison de service réseau dans le sous-réseau délégué. Cette opération fait échouer la délégation du sous-réseau.
 * Dans chaque réseau virtuel Azure, un seul sous-réseau peut être délégué à Azure NetApp Files.
-* L’accès à un volume depuis un réseau virtuel homologué n’est pas pris en charge actuellement.
+* Vous ne pouvez pas désigner un groupe de sécurité ou un point de terminaison de service réseau dans le sous-réseau délégué. Cette opération fait échouer la délégation du sous-réseau.
+* Accès à un volume à partir d’un réseau virtuel homologué dans le monde entier n’est pas pris en charge.
+* Création [itinéraires personnalisés définis par l’utilisateur](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) sur les sous-réseaux de machine virtuelle avec adresse préfixe (destination) à un sous-réseau délégué à Azure Files de NetApp non pris en charge et affecte la connectivité de machine virtuelle.
 
 ## <a name="steps"></a>Étapes 
 1.  Accédez au panneau **Réseaux virtuels** dans le Portail Azure, puis sélectionnez le réseau virtuel que vous souhaitez utiliser pour Azure NetApp Files.    

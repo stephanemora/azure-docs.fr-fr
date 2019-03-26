@@ -18,12 +18,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9cb9877015f2cfe61799a56be6490a3f4e2fb60
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d976a43173ce4f9deee0a723a895b40678e173b3
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012761"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437881"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocole SAML d’authentification unique
 
@@ -158,7 +158,7 @@ L’élément `Response` inclut le résultat de la demande d’autorisation. Azu
 
 ### <a name="issuer"></a>Émetteur
 
-Azure AD définit l’élément `Issuer` sur `https://login.microsoftonline.com/<TenantIDGUID>/`, où <TenantIDGUID> correspond à l’ID client du client Azure AD.
+Azure AD définit la `Issuer` élément `https://login.microsoftonline.com/<TenantIDGUID>/` où \<TenantIDGUID > est l’ID client du locataire Azure AD.
 
 Exemple de réponse comportant l’élément Issuer :
 
@@ -193,7 +193,7 @@ Outre les éléments `ID`, `IssueInstant` et `Version`, Azure Active Directory d
 
 #### <a name="issuer"></a>Émetteur
 
-Cet élément est défini sur `https://sts.windows.net/<TenantIDGUID>/`, où <TenantIDGUID> correspond à l’ID client du client Azure AD.
+Il est défini sur `https://sts.windows.net/<TenantIDGUID>/`où \<TenantIDGUID > est l’ID client du locataire Azure AD.
 
 ```
 <Issuer>https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>

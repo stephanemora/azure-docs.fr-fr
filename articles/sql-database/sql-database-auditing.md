@@ -12,12 +12,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: ce691ec0622749f1cb7252e237dae25b2657d115
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a98ec18f2ed38b290d04c3fdc36d9a6ff80a675a
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58010525"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407349"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Bien démarrer avec l’audit de bases de données SQL
 
@@ -170,7 +170,6 @@ Si vous choisissez d’écrire les journaux d’audit dans un compte de stockage
   - Après avoir téléchargé plusieurs fichiers (ou un sous-dossier contenant des fichiers journaux), vous pouvez les fusionner localement en suivant les instructions relatives à l’option Fusionner les fichiers d’audit dans SSMS, décrites précédemment.
   - Affichez des journaux d’audit d’objets blob par programmation :
 
-    - Utilisez la bibliothèque C# [Lecteur des événements étendus](https://blogs.msdn.microsoft.com/extended_events/20../../introducing-the-extended-events-reader/).
     - [Interrogez des fichiers d’événements étendus](https://sqlscope.wordpress.com/20../../reading-extended-event-files-using-client-side-tools-only/) avec PowerShell.
 
 ## <a id="subheading-5"></a>Pratiques de production
@@ -258,8 +257,11 @@ Prise en charge de la stratégie étendue avec la clause WHERE pour un filtrage 
 Vous pouvez gérer l’audit de base de données SQL Azure à l’aide de modèles [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), comme indiqué dans ces exemples :
 
 - [Déployer un serveur Azure SQL Server avec l’audit activé pour écrire des journaux d’audit dans le compte de stockage blob Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
-- [Déployer un serveur de SQL Azure avec l’audit est activé pour écrire des journaux d’audit dans les journaux Azure Monitor](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
+- [Déployer un serveur SQL Azure avec l’audit activé pour écrire des journaux d’audit dans Log Analytics](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
 - [Déployer un serveur SQL Azure avec l’audit activé pour écrire des journaux d’audit dans Event Hubs](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub)
+
+> [!NOTE]
+> Les exemples liés se trouvent sur un dépôt public externe et sont fournis « en tant qu’est », sans garantie et ne sont pas pris en charge sous n’importe quel programme/service de prise en charge de Microsoft.
 
 <!--Anchors-->
 [Azure SQL Database Auditing overview]: #subheading-1

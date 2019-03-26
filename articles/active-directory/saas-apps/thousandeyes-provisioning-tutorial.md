@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Configurer ThousandEyes pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
+title: 'Didacticiel : Configurer ThousandEyes pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer Azure Active Directory pour approvisionner et retirer automatiquement des comptes d’utilisateur sur ThousandEyes.
 services: active-directory
 documentationcenter: ''
@@ -16,28 +16,31 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74b9b39cfc6ac760c41b58c050cb1ebf39d3f93a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: f008e981abb11a4927ec045c33342bbac9a05bd8
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180927"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436793"
 ---
 # <a name="tutorial-configure-thousandeyes-for-automatic-user-provisioning"></a>Didacticiel : Configurer ThousandEyes pour l’approvisionnement automatique d’utilisateurs
 
 
 L’objectif de ce didacticiel est de vous montrer les étapes à effectuer dans ThousandEyes et Azure AD pour approvisionner et retirer automatiquement des comptes d’utilisateur entre Azure AD et ThousandEyes. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 *   Un client Azure Active Directory
-*   Un locataire ThousandEyes pour lequel au moins le [plan standard](https://www.thousandeyes.com/pricing) est activé 
-*   Un compte d’utilisateur dans ThousandEyes doté d’autorisations d’administrateur 
+*   Un actif [compte ThousandEyes](https://www.thousandeyes.com/pricing)
+*   Un compte d’utilisateur ThousandEyes qui a été attribué un rôle qui inclut les 3 autorisations suivantes :
+    * afficher tous les utilisateurs
+    * modifier l’utilisateur
+    * Autorisations d’accès API
 
 > [!NOTE]
-> L’intégration de l’approvisionnement d’Azure AD repose sur l’[API ThousandEyes SCIM](https://success.thousandeyes.com/PublicArticlePage?articleIdParam=kA044000000CnWrCAK), mise à la disposition des équipes de ThousandEyes qui relèvent au moins du plan standard.
+> Intégration de l’approvisionnement Azure AD s’appuie sur le [API ThousandEyes SCIM](https://success.thousandeyes.com/PublicArticlePage?articleIdParam=kA044000000CnWrCAK_ThousandEyes-support-for-SCIM). 
 
 ## <a name="assigning-users-to-thousandeyes"></a>Affectation d’utilisateurs à ThousandEyes
 
@@ -51,7 +54,19 @@ Avant de configurer et d’activer le service d’approvisionnement, vous devez 
 
 *   Il est recommandé de n’affecter qu’un seul utilisateur Azure AD à ThousandEyes afin de tester la configuration de l’approvisionnement. Les autres utilisateurs et/ou groupes peuvent être affectés ultérieurement.
 
-*   Quand vous affectez un utilisateur à ThousandEyes, vous devez sélectionner le rôle **utilisateur** ou un autre rôle valide propre à l’application (si disponible) dans la boîte de dialogue d’affectation. Le rôle **Accès par défaut** ne fonctionne pas pour l’approvisionnement et ces utilisateurs sont ignorés.
+*   Quand vous assignez un utilisateur à ThousandEyes, vous devez sélectionner le **utilisateur** rôle ou un autre valide spécifique à l’application (si disponible) dans la boîte de dialogue d’attribution. Le rôle **Accès par défaut** ne fonctionne pas pour l’approvisionnement et ces utilisateurs sont ignorés.
+
+## <a name="configure-auto-provisioned-user-roles-in-thousandeyes"></a>Configurer des rôles d’utilisateur approvisionné automatiquement dans ThousandEyes
+
+Pour chaque groupe de compte, vous êtes le provisionnement automatique des utilisateurs dans vous peuvent configurer un ensemble de rôles à appliquer lorsque le nouveau compte d’utilisateur est créé. Par défaut, l’approvisionnement automatique des utilisateurs sont affectés les _utilisateur standard_ rôle pour le compte de tous les groupes sauf configuration différente.
+
+1. Pour spécifier un nouvel ensemble de rôles pour les utilisateurs d’approvisionné automatiquement en journal ThousandEyes et accédez à la section Paramètres de SCIM **> votre icône de l’utilisateur dans le coin supérieur droit > Paramètres du compte > organisation > sécurité et authentification.** 
+
+   ![Accédez à paramètres de l’API SCIM](https://monosnap.com/file/kqY8Il7eysGFAiCLCQWFizzM27PiBG)
+
+2. Ajoutez une entrée pour chaque groupe de comptes, affecter un ensemble de rôles puis *enregistrer* vos modifications.
+
+   ![Définir des rôles par défaut et les groupes de comptes pour les utilisateurs créés via l’API SCIM](https://monosnap.com/file/16siam6U8xDQH1RTnaxnmIxvsZuNZG)
 
 
 ## <a name="configuring-user-provisioning-to-thousandeyes"></a>Configuration de l'approvisionnement d’utilisateurs pour ThousandEyes 
@@ -59,7 +74,7 @@ Avant de configurer et d’activer le service d’approvisionnement, vous devez 
 Cette section va vous guider afin de connecter votre instance Azure AD à l’API d’approvisionnement de comptes d’utilisateur de ThousandEyes, puis configurer le service d’approvisionnement pour créer, mettre à jour et désactiver des comptes d’utilisateur affectés dans ThousandEyes, en fonction des affectations d’utilisateurs et de groupes dans Azure AD.
 
 > [!TIP]
-> Vous pouvez également choisir d’activer l’authentification unique basée sur SAML pour ThousandEyes, grâce aux instructions disponibles dans le [portail Azure](https://portal.azure.com). L’authentification unique peut être configurée indépendamment de l’approvisionnement automatique, bien que chacune de ces deux fonctionnalités compléte l’autre.
+> Vous pouvez également choisir d’activer basée sur SAML unique Sign-On (SSO) pour ThousandEyes, suivant la [instructions fournies dans la base de connaissances Azure](https://docs.microsoft.com/azure/active-directory/saas-apps/thousandeyes-tutorial) pour terminer l’authentification unique. L’authentification unique peut être configurée indépendamment de l’approvisionnement automatique, bien que ces deux fonctionnalités se complètent.
 
 
 ### <a name="configure-automatic-user-account-provisioning-to-thousandeyes-in-azure-ad"></a>Configurer l’approvisionnement automatique de comptes d’utilisateur pour ThousandEyes dans Azure AD
@@ -75,7 +90,7 @@ Cette section va vous guider afin de connecter votre instance Azure AD à l’AP
 
     ![Approvisionnement de ThousandEyes](./media/thousandeyes-provisioning-tutorial/ThousandEyes1.png)
 
-5. Dans la section **Informations d’identification de l’administrateur**, entrez le **jeton du porteur OAuth** généré par votre compte ThousandEyes (vous pouvez le trouver ou le générer sous la section **Profil** de votre compte ThousandEyes).
+5. Sous le **informations d’identification administrateur** section, entrée le **jeton du porteur OAuth** généré par compte des votre ThousandEyes (vous pouvez trouver et générer un jeton sous votre compte ThousandEyes  **Profil** section).
 
     ![Approvisionnement de ThousandEyes](./media/thousandeyes-provisioning-tutorial/ThousandEyes2.png)
 

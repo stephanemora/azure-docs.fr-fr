@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: a9b8be58e8dfb27fbe896cf1c8d8dc0e91e3b24c
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 6b79a26d63c02dd06b62ea6ad09941f947704dc0
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402845"
+ms.locfileid: "58418633"
 ---
-# <a name="identify-issues-with-the-diagnostics-feature"></a>Identifier les problèmes avec la fonctionnalité de diagnostic
+# <a name="identify-issues-with-the-diagnostics-feature"></a>Identifier les problèmes relatifs à la fonctionnalité de diagnostic
 
 Version préliminaire de Windows Virtual Desktop offre une fonctionnalité de diagnostic qui permet à l’administrateur identifier les problèmes via une interface unique. Les rôles de bureau virtuel Windows connecter à une activité de diagnostic chaque fois qu’un utilisateur interagit avec le système. Chaque journal contient des informations pertinentes telles que les rôles de bureau virtuel Windows impliquées dans la transaction, messages d’erreur, informations de locataire et les informations utilisateur. Activités de diagnostic sont créées par l’utilisateur final et les actions d’administration et peuvent être classées en trois catégories principales :
 
@@ -32,20 +32,20 @@ Diagnostics de bureau virtuel Windows utilise qu’une applet de commande PowerS
 
 ### <a name="retrieve-diagnostic-activities-in-your-tenant"></a>Récupérer les activités de diagnostic dans votre client
 
-Vous pouvez récupérer les activités de diagnostic en entrant le **Get-RdsDiagnosticsActivities** applet de commande. L’applet de commande d’exemple suivante retournera une liste des activités de diagnostic, triés du plus au moins récente.
+Vous pouvez récupérer les activités de diagnostic en entrant le **Get-RdsDiagnosticActivities** applet de commande. L’applet de commande d’exemple suivante retournera une liste des activités de diagnostic, triés du plus au moins récente.
 
 ```powershell
-Get-RdsDiagnosticsActivities -TenantName <tenantName>
+Get-RdsDiagnosticActivities -TenantName <tenantName>
 ```
 
 Comme les autres applets de commande PowerShell de bureau virtuel de Windows, vous devez utiliser le **- TenantName** paramètre pour spécifier le nom du client que vous souhaitez utiliser pour votre requête. Le nom du locataire est applicable pour presque toutes les requêtes d’activité de diagnostic.
 
 ### <a name="retrieve-detailed-diagnostic-activities"></a>Récupérer les activités de diagnostics détaillées
 
-Le **-détaillées** paramètre fournit des détails supplémentaires pour chaque activité de diagnostic retournée. Le format pour chaque activité varie en fonction de son type d’activité. Le **-détaillées** paramètre peut être ajouté à aucun **Get-RdsDiagnosticsActivities** interroger, comme illustré dans l’exemple suivant.
+Le **-détaillées** paramètre fournit des détails supplémentaires pour chaque activité de diagnostic retournée. Le format pour chaque activité varie en fonction de son type d’activité. Le **-détaillées** paramètre peut être ajouté à aucun **Get-RdsDiagnosticActivities** interroger, comme illustré dans l’exemple suivant.
 
 ```powershell
-Get-RdsDiagnosticsActivities -TenantName <tenantName> -Detailed
+Get-RdsDiagnosticActivities -TenantName <tenantName> -Detailed
 ```
 
 ### <a name="retrieve-a-specific-diagnostic-activity-by-activity-id"></a>Récupérer un ID par une activité de diagnostic spécifique

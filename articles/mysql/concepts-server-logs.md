@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.openlocfilehash: b1b5dffed0a82e3e3c91efd4024bafdc64f0d3d2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c5087a038e31c4819ef1ef173bb32faa41e04c97
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58119035"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417766"
 ---
 # <a name="server-logs-in-azure-database-for-mysql"></a>Journaux de serveur dans Azure Database pour MySQL
 Dans Azure Database pour MySQL, le journal des requêtes lentes est disponible pour les utilisateurs. L’accès aux journaux des transactions n’est pas pris en charge. Le journal des requêtes lentes peut être utilisé pour identifier les goulots d’étranglement en matière de performances, afin de les faire disparaître. 
@@ -53,31 +53,31 @@ Le tableau suivant décrit ce que contient chaque journal. En fonction de la mé
 
 | **Propriété** | **Description** |
 |---|---|
-| TenantId | Votre ID d’abonné |
-| SourceSystem | `Azure` |
-| TimeGenerated [UTC] | Horodatage du moment où le journal a été enregistré en UTC |
-| Type | Type de journal. Toujours `AzureDiagnostics` |
-| SubscriptionId | GUID de l’abonnement auquel appartient le serveur |
-| ResourceGroup | Nom du groupe de ressources auquel le serveur appartient |
-| ResourceProvider | Nom du fournisseur de ressources. Toujours `MICROSOFT.DBFORMYSQL` |
-| ResourceType | `Servers` |
-| ResourceId | URI de ressource |
-| Ressource | Nom du serveur |
-| Catégorie | `MySqlSlowLogs` |
-| OperationName | `LogEvent` |
-| Logical_server_name_s | Nom du serveur |
-| start_time_t [UTC] | Heure de début de la requête |
-| query_time_s | Durée totale d’exécution de la requête |
-| lock_time_s | Durée totale pendant laquelle la requête a été verrouillée |
-| user_host_s | Nom d’utilisateur |
-| rows_sent_s | Nombre de lignes envoyées |
-| rows_examined_s | Nombre de lignes examinées |
-| last_insert_id_s | [last_insert_id](https://dev.mysql.com/doc/refman/8.0/en/information-functions.html#function_last-insert-id) |
-| insert_id_s | ID de l’insertion |
-| sql_text_s | Requête complète |
-| server_id_s | ID du serveur |
-| thread_id_s | ID du thread |
-| \_ResourceId | URI de ressource |
+| `TenantId` | Votre ID d’abonné |
+| `SourceSystem` | `Azure` |
+| `TimeGenerated` [UTC] | Horodatage du moment où le journal a été enregistré en UTC |
+| `Type` | Type de journal. Toujours `AzureDiagnostics` |
+| `SubscriptionId` | GUID de l’abonnement auquel appartient le serveur |
+| `ResourceGroup` | Nom du groupe de ressources auquel le serveur appartient |
+| `ResourceProvider` | Nom du fournisseur de ressources. Toujours `MICROSOFT.DBFORMYSQL` |
+| `ResourceType` | `Servers` |
+| `ResourceId` | URI de ressource |
+| `Resource` | Nom du serveur |
+| `Category` | `MySqlSlowLogs` |
+| `OperationName` | `LogEvent` |
+| `Logical_server_name_s` | Nom du serveur |
+| `start_time_t` [UTC] | Heure de début de la requête |
+| `query_time_s` | Durée totale d’exécution de la requête |
+| `lock_time_s` | Durée totale pendant laquelle la requête a été verrouillée |
+| `user_host_s` | Nom d’utilisateur |
+| `rows_sent_s` | Nombre de lignes envoyées |
+| `rows_examined_s` | Nombre de lignes examinées |
+| `last_insert_id_s` | [last_insert_id](https://dev.mysql.com/doc/refman/8.0/en/information-functions.html#function_last-insert-id) |
+| `insert_id_s` | ID de l’insertion |
+| `sql_text_s` | Requête complète |
+| `server_id_s` | ID du serveur |
+| `thread_id_s` | ID du thread |
+| `\_ResourceId` | URI de ressource |
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Comment configurer et accéder aux journaux des serveurs à l’aide de l’interface de ligne de commande Azure](howto-configure-server-logs-in-cli.md).

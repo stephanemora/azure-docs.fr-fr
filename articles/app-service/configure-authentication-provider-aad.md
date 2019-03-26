@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 02/20/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 0c5ceda99fe35fafff23f2bcf4ea766d7dd42b75
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: d687e770fae6c32ee351a597e12d1aca6094e5cb
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403219"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438222"
 ---
 # <a name="configure-your-app-service-app-to-use-azure-active-directory-sign-in"></a>Configurer votre application App Service pour utiliser une connexion Azure Active Directory
 
@@ -43,8 +43,6 @@ Cet article montre comment configurer Azure App Services pour utiliser Azure Act
 5. (Facultatif) Pour restreindre l’accès à votre site aux seuls utilisateurs authentifiés par Azure Active Directory, définissez **Action à exécuter quand une demande n’est pas authentifiée** sur **Se connecter avec Azure Active Directory**. Cela implique que toutes les demandes soient authentifiées. Toutes les demandes non authentifiées sont redirigées vers Azure Active Directory pour être authentifiées.
 6. Cliquez sur **Enregistrer**.
 
-Vous êtes maintenant prêt à utiliser Azure Active Directory pour l'authentification dans votre application App Service.
-
 ## <a name="advanced"> </a>Configurer avec des paramètres avancés
 
 Vous pouvez également fournir manuellement des paramètres de configuration. Il s’agit de la solution préférée si le locataire Azure Active Directory que vous voulez utiliser diffère de celui avec lequel vous vous connectez à Azure. Pour terminer la configuration, vous devez d’abord créer une inscription dans Azure Active Directory, puis fournir des informations d’inscription à App Service.
@@ -57,8 +55,12 @@ Vous pouvez également fournir manuellement des paramètres de configuration. Il
 4. Au bout de quelques secondes, vous devez voir apparaître la nouvelle inscription d’application que vous venez de créer.
 5. Une fois l'inscription de l’application ajoutée, cliquez sur le nom de l’inscription d’application, cliquez sur **Paramètres** en haut, puis cliquez sur **Propriétés** 
 6. Dans la zone **URI d’ID d’application**, collez l’URI de l’application (celui de l’étape 1). Dans la zone **URL de la page d’accueil**, collez l’URL de l’application (celle de l’étape 1), puis cliquez sur **Enregistrer**
-7. Cliquez maintenant sur **URL de réponse**, modifiez l’**URL de réponse**, collez l’URL de l’application (de l’étape 1), puis ajoutez à la fin de l’URL, */.auth/login/aad/callback* (Par exemple, `https://contoso.azurewebsites.net/.auth/login/aad/callback`). Cliquez sur **Enregistrer**.   
-8.  À ce stade, copiez **l’ID d’application** pour l’application. Gardez-le pour une utilisation ultérieure. Vous en aurez besoin pour configurer votre application App Service.
+7. Cliquez maintenant sur le **URL de réponse**, modifier le **URL de réponse**, collez l’URL de l’Application (à l’étape 1), puis ajoutez-le à la fin de l’URL, */.auth/login/aad/callback* (pour exemple, `https://contoso.azurewebsites.net/.auth/login/aad/callback`). Cliquez sur **Enregistrer**.
+
+   > [!NOTE]
+   > Vous pouvez utiliser la même inscription d’application pour plusieurs domaines en ajoutant supplémentaires **URL de réponse**. Veillez à modéliser chaque instance du Service de l’application avec sa propre inscription, par conséquent, il a ses propres autorisations et le consentement. Également envisager d’utiliser des inscriptions d’application distinct pour les emplacements de site distinct. Sert à éviter les autorisations qui est partagées entre les environnements, afin qu’un bogue dans le nouveau code que vous testez n’affecte pas la production.
+    
+8. À ce stade, copiez **l’ID d’application** pour l’application. Gardez-le pour une utilisation ultérieure. Vous en aurez besoin pour configurer votre application App Service.
 9. Fermez la page **Application inscrite**. Dans la page **Inscriptions d’applications**, cliquez en haut sur le bouton **Points de terminaison**, puis copiez l’URL **WS-FEDERATION SIGN-ON ENDPOINT**, mais supprimez la fin `/wsfed` de l’URL. Le résultat final doit ressembler à `https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000`. Le nom de domaine peut être différent dans le cas d’un cloud souverain. Il servira ultérieurement d’URL émettrice de certificat.
 
 ### <a name="secrets"> </a>Ajout d'informations Azure Active Directory à votre application App Service

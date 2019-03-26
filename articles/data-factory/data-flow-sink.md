@@ -6,18 +6,18 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: a56f391aa76bd1216fd51d516adb836a2093bcba
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: a39fa0949276b7e86c7fdd0d0861492a9a0b723e
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371137"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438630"
 ---
 # <a name="mapping-data-flow-sink-transformation"></a>Transformation de réception des flux de données de mappage
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-![Options de réception](media/data-flow/windows1.png "Récepteur 1")
+![Options de réception](media/data-flow/sink1.png "Récepteur 1")
 
 À l’issue de la transformation de votre flux de données, vous pouvez réceptionner vos données transformées dans un jeu de données de destination. Lors d’une transformation de réception, vous pouvez choisir la définition de jeu de données que vous souhaitez utiliser pour les données de sortie de destination. Vous pouvez utiliser autant de transformations de réception que nécessaire pour votre flux de données.
 

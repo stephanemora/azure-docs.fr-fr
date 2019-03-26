@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: d007f688483366f2f714a78b5bf9b56a67c55490
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: b367251e6799031ed96058d21e606446e14636c7
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730104"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407604"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Résoudre les problèmes de domaines et de certificats SSL dans Azure App Service
 
@@ -278,7 +278,7 @@ Lorsque vous achetez un domaine à partir du portail Azure, l’application de S
 
 **Puis-je utiliser un domaine acheté dans le portail Azure pour pointer vers une machine virtuelle Azure à la place ?**
 
-Oui, vous pouvez pointer le domaine à une machine virtuelle, etc. de stockage. Pour plus d’informations, consultez [créer un nom de domaine complet personnalisé dans le portail Azure pour une machine virtuelle Windows](../virtual-machines/windows/portal-create-fqdn.md).
+Oui, vous pouvez pointer le domaine à une machine virtuelle. Pour plus d’informations, consultez [Use Azure DNS to provide custom domain settings for an Azure service](../dns/dns-custom-domain.md) (Utiliser DNS Azure pour fournir des paramètres de domaine personnalisé pour un service Azure).
 
 **Mon domaine est hébergé par GoDaddy ou Azure DNS ?**
 

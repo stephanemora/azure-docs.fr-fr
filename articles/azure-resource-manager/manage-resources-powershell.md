@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 241b820122fe1c82b9a68829db87635745c051d9
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 8e6c4047182901c5282f280f59fa95eca6571ecc
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56824864"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417919"
 ---
 # <a name="manage-azure-resources-by-using-azure-powershell"></a>Gérer les ressources Azure à l’aide d’Azure PowerShell
 
@@ -25,7 +25,7 @@ Découvrez comment utiliser Azure PowerShell avec [Azure Resource Manager](resou
 Autres articles sur la gestion des ressources :
 
 - [Gérer les ressources Azure à l’aide du portail Azure](./manage-resources-portal.md)
-- [Gérer les ressources Azure à l’aide d’Azure PowerShell](./manage-resources-powershell.md)
+- [Gérer les ressources Azure à l’aide d’Azure CLI](./manage-resources-cli.md)
 
 ## <a name="deploy-resources-to-an-existing-resource-group"></a>Déployer des ressources à un groupe de ressources existant
 

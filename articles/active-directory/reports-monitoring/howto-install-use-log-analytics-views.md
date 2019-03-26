@@ -3,7 +3,7 @@ title: Guide pratique pour installer et utiliser les vues Log Analytics pour Azu
 description: Découvrez comment installer et utiliser les vues Log Analytics pour Azure Active Directory (préversion)
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 2290de3c-2858-4da0-b4ca-a00107702e26
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7220fc6b239d20e9f1fc81e7d18b4d7ca6f0ded5
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: d7d1b2262f8f57b2ad180650fa6d4c08fbabfef5
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453628"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437303"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Installer et utiliser les affichages Log Analytics pour Azure Active Directory
 
@@ -31,7 +31,7 @@ Les vues Log Analytics pour Azure Active Directory facilitent la recherche et l�
 * Journaux d’audit : Le [rapport d’activité des journaux d’audit](concept-audit-logs.md) vous permet de consulter l’historique de toutes les tâches effectuées dans votre locataire.
 * Journaux de connexion : Le [rapport d’activité de connexion](concept-sign-ins.md) vous permet d’identifier qui a effectué les tâches consignées dans les journaux d’audit.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour utiliser les vues Log Analytics, vous avez besoin de :
 

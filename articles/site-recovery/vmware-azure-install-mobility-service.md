@@ -1,19 +1,19 @@
 ---
-title: Installer le service Mobilité pour la reprise d’activité de machines virtuelles VMware et serveurs physiques sur Azure | Microsoft Docs
-description: Découvrez comment installer l’agent du service Mobilité pour la reprise d’activité de machines virtuelles VMware et serveurs physiques sur Azure à l’aide du service Azure Site Recovery.
+title: Préparer les machines sources pour installer le Service de mobilité via l’installation push pour la récupération d’urgence des machines virtuelles VMware et des serveurs physiques vers Azure | Microsoft Docs
+description: Découvrez comment préparer votre serveur pour installer l’agent de mobilité via l’installation push pour la récupération d’urgence des machines virtuelles VMware et des serveurs physiques vers Azure à l’aide du service Azure Site Recovery.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 30b177578464653499cdcde8cacf65defa5548ef
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: 628be573d03d42ec62a358071074facfe228852d
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846910"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418667"
 ---
-# <a name="install-the-mobility-service-for-disaster-recovery-of-vmware-vms-and-physical-servers"></a>Installer le service Mobilité pour la reprise d’activité de machines virtuelles VMware et serveurs physiques
+# <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>Préparer l’ordinateur source pour l’installation push de l’agent de mobilité
 
 Lorsque vous configurez la récupération d’urgence sur des serveurs physiques et des machines virtuelles VMware avec [Azure Site Recovery](site-recovery-overview.md), vous installez le [service Mobilité de Site Recovery](vmware-physical-mobility-service-overview.md) sur l’ensemble des serveurs physiques et des machines virtuelles VMware locaux.  Le service Mobilité enregistre les écritures de données sur la machine et les transmet au serveur de traitement Site Recovery.
 
@@ -59,6 +59,10 @@ Sur chaque ordinateur Linux que vous souhaitez protéger, procédez ainsi :
 11. Dans l’onglet **Gérer les comptes**, sélectionnez **Ajouter un compte**.
 12. Ajoutez le compte que vous venez de créer.
 13. Entrez les informations d’identification utilisées lors de l’activation de la réplication d’un ordinateur.
+
+## <a name="anti-virus-on-replicated-machines"></a>Protection antivirus sur les machines répliquées
+
+Si les machines que vous souhaitez répliquer ont un logiciel antivirus actif en cours d'exécution, assurez-vous d'exclure le dossier d'installation du service Mobilité des opérations antivirus (*C:\ProgramData\ASR\agent*). Cela garantit le bon fonctionnement de la réplication.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

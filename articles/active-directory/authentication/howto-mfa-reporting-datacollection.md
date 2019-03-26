@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0c22d4421aa984a9862f83b9be1095d548e5841
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: e2b8d68cc348ce8e157c7d58424eaebb06940335
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314475"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436659"
 ---
 # <a name="azure-multi-factor-authentication-user-data-collection"></a>Collecte de données utilisateur de Microsoft Azure Multi-Factor Authentication
 
@@ -138,7 +138,7 @@ Pour MFA Server version 8.0 ou ultérieure le processus suivant permet aux admin
 - Connectez-vous à votre serveur MFA, accédez à l’onglet **Utilisateurs**, sélectionnez l’utilisateur en question, puis cliquez sur le bouton **Modifier**. Faites des captures d’écran (Alt + Imp. écr.) de chaque onglet pour fournir à l’utilisateur ses paramètres MFA actuels.
 - À partir de la ligne de commande du serveur MFA, exécutez la commande suivante en remplaçant le chemin d’accès en fonction de votre installation `C:\Program Files\Multi-Factor Authentication Server\MultiFactorAuthGdpr.exe export <username>` pour générer un fichier au format JSON.
 - Les administrateurs peuvent également utiliser l’opération GetUserGdpr du Kit de développement logiciel (SDK) Service Web sous forme d’option pour exporter toutes les informations du service cloud MFA collectées pour un utilisateur donné ou les intégrer dans une solution de création de rapports plus vaste.
-- Recherchez `C:\Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log` et toutes les sauvegardes pour “<username>” (incluez les guillemets dans la recherche) pour rechercher toutes les instances de l’enregistrement utilisateur ajoutées ou modifiées.
+- Recherche `C:\Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log` et toutes les sauvegardes pour «\<nom d’utilisateur > » (inclure les guillemets dans la recherche) pour rechercher toutes les instances de l’enregistrement de l’utilisateur sont ajoutées ou modifiées.
    - Ces enregistrements peuvent être limités (mais pas éliminés) en décochant l’option **Consigner les modifications des utilisateurs** dans Expérience utilisateur du serveur MFA, section Journalisation, onglet Fichiers journaux.
    - Si le journal système est configuré, et que l’option **Consigner les modifications des utilisateurs** est cochée dans Expérience utilisateur du serveur MFA, section Journalisation, onglet Syslog, les entrées de journal peuvent être collectées à partir de syslog.
 - Les autres occurrences du nom d’utilisateur dans MultiFactorAuthSvc.log et les autres fichiers journaux du serveur MFA appartenant aux tentatives d’authentification sont considérés comme des données opérationnelles et répétées pour les informations fournies à l’aide de l’exportation de MultiFactorAuthGdpr.exe ou de l’opération GetUserGdpr du Kit de développement logiciel (SDK) Web Service.

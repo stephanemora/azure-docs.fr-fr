@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 7b9b7ffbb034a7fb1256d9cc44048cfa55b02245
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: bd46e5f7428bab58508521b2c7d4d7cca25d689b
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402726"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439071"
 ---
-# <a name="create-a-host-pool-with-powershell"></a>Créer un pool de l’hôte avec PowerShell
+# <a name="create-a-host-pool-with-powershell"></a>Créer un pool d’hôtes avec PowerShell
 
 Les pools d’hôte sont une collection d’un ou plusieurs machines virtuelles identiques au sein d’environnements de client Windows Virtual Desktop Preview. Chaque pool de l’hôte peut contenir un groupe d’application que les utilisateurs peuvent interagir avec comme ils le feraient sur un ordinateur de bureau physique.
 
@@ -54,7 +54,7 @@ Add-RdsAppGroupUser -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGr
 
 Le **Add-RdsAppGroupUser** applet de commande ne prend pas en charge l’ajout de groupes de sécurité et ajoute uniquement un seul utilisateur à la fois pour le groupe de l’application. Si vous souhaitez ajouter plusieurs utilisateurs à l’app group, réexécutez l’applet de commande avec les noms de principal d’utilisateur approprié.
 
-Exécutez l’applet de commande suivante pour exporter le jeton d’inscription à une variable, vous utiliserez plus tard dans [inscrire les machines virtuelles au pool hôte bureau virtuel Windows](#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool).
+Exécutez l’applet de commande suivante pour exporter le jeton d’inscription à une variable, vous utiliserez plus tard dans [inscrire les machines virtuelles au pool hôte bureau virtuel Windows](#register-the-virtual-machines-to-the-windows-virtual-desktop-preview-host-pool).
 
 ```powershell
 $token = (Export-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hostpoolname>).Token

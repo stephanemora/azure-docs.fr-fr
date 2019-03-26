@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/01/2017
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d05f6006476cb17cbe751caf9c830fe3e10047c9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 09ddce0dc398a078b3a901d224f00ef41550bf89
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172686"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437660"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Guide pratique de l’utilisation d’identités managées pour ressources Azure sur une machine virtuelle Azure afin d’acquérir un jeton d’accès 
 
@@ -30,7 +30,7 @@ Les identités managées pour ressources Azure fournissent des services Azure av
 
 Cet article fournit divers exemples de code et de script pour l’acquisition de jeton, ainsi que des conseils sur les rubriques importantes telles que la gestion des erreurs HTTP et des expirations de jeton. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -43,7 +43,7 @@ Si vous envisagez d’utiliser les exemples de Azure PowerShell dans cet article
 > [!IMPORTANT]
 > - La limite de sécurité des identités managées pour ressources Azure est la ressource sur laquelle elles sont utilisées. Tous les scripts et codes exécutés sur une machine virtuelle peuvent demander et récupérer des jetons pour les identités disponibles sur celle-ci. 
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Une application cliente peut demander un [jeton d’accès pour l’application uniquement](../develop/developer-glossary.md#access-token) des identités managées pour ressources Azure afin d’accéder à une ressource donnée. Le jeton est [basé sur le principal du service des identités managées pour ressources Azure](overview.md#how-does-it-work). Par conséquent, il n’est pas nécessaire que le client s’inscrive pour obtenir un jeton d’accès sous son propre principal du service. Le jeton peut être utilisé comme un jeton du porteur dans [les appels de service à service nécessitant des informations d’identification du client](../develop/v1-oauth2-client-creds-grant-flow.md).
 
@@ -153,7 +153,7 @@ using System.Net;
 using System.Web.Script.Serialization; 
 
 // Build request to acquire managed identities for Azure resources token
-HttpWebRequest request = (HttpWebRequest)WebRequest.Create(http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/");
+HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/");
 request.Headers["Metadata"] = "true";
 request.Method = "GET";
 

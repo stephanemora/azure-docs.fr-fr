@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/30/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 94893a5b5716c9bd207ad2a8bc8ca457974dddd4
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 233834bd040362e27ffadc3d0003a87827012352
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58395685"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407862"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Forum aux questions sur les disques de machines virtuelles et les disques Premium gérés et non gérés Azure IaaS
 
@@ -300,7 +300,7 @@ Il n’existe aucun inconvénient à l’utilisation de TRIM sur des disques Azu
 
 **Quelle est la plus grande taille de disque managé prise en charge pour les disques de système d’exploitation et de données ?**
 
-Le type de partition pris en charge par Azure pour un disque de système d’exploitation est l’enregistrement de démarrage principal (MBR). Le format MBR prend en charge un disque dont la taille peut atteindre 2 Tio. La plus grande taille prise en charge par Azure pour un disque de système d’exploitation est de 2 Tio. Azure prend en charge jusqu’à 32 Tio pour les disques de données managés. Les tailles de disque managé supérieures à 4 Tio sont en préversion. Pour plus d’informations sur ces derniers, consultez notre [billet de blog](https://aka.ms/azure-large-disk-32TB-preview-blog).
+Le type de partition pris en charge par Azure pour un disque de système d’exploitation est l’enregistrement de démarrage principal (MBR). Le format MBR prend en charge un disque dont la taille peut atteindre 2 Tio. La plus grande taille prise en charge par Azure pour un disque de système d’exploitation est de 2 Tio. Azure prend en charge jusqu'à 32 To de disques de données gérés dans Azure global, 4 TIO dans les clouds souverains Azure.
 
 **Quelle est la plus grande taille de disque non managé prise en charge pour les disques de système d’exploitation et de données ?**
 
@@ -335,7 +335,7 @@ Vous pouvez prendre un instantané de vos disques de petite taille et ensuite cr
 
 **Possible de redimensionner des disques gérés existants à partir de tailles de moins de 4 tebibytes (TIO) pour les nouvelles tailles de disque nouvellement introduites jusqu'à 32 To ?**
 
-Les nouvelles tailles de disque managé 8 Tio, 16 Tio et 32 Tio sont actuellement en préversion. Nous ne prenons pas encore en charge le redimensionnement des tailles de disque existantes vers les nouvelles tailles de disque.
+Oui.
 
 **Quelles sont les plus grandes tailles de disque pris en charge par le service sauvegarde Azure et Azure Site Recovery ?**
 

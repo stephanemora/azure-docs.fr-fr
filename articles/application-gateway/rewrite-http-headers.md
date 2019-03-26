@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: aedd81af8b5821b1f8032faad1896790804df2a0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 846f07051ee65a542b56624fa84a9bdc4ca0f4e6
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58119290"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418004"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Réécrire des en-têtes HTTP dans Azure Application Gateway (préversion publique)
 
@@ -96,10 +96,12 @@ Cette fonctionnalité prend en charge la réécriture d’en-têtes dans les var
 | -------------------------- | :----------------------------------------------------------- |
 | ciphers_supported          | retourne la liste de chiffrements pris en charge par le client          |
 | ciphers_used               | retourne la chaîne de chiffrements utilisés pour une connexion SSL établie |
+| client_ip                  | Adresse IP du client ; particulièrement utile dans les scénarios où les clients envisagez de réécrire l’en-tête X-Forwarded-For définie par la passerelle d’Application, afin que l’en-tête contient uniquement l’adresse IP sans les informations de port. |
 | client_port                | port client                                                  |
 | client_tcp_rtt             | informations sur la connexion TCP client ; disponibles sur les systèmes qui prennent en charge l’option de socket TCP_INFO |
 | client_user                | lorsque vous utilisez une authentification HTTP, nom d’utilisateur fourni pour l’authentification |
 | host                       | dans cet ordre de priorité : nom d’hôte de la ligne de demande, ou nom d’hôte du champ d’en-tête de demande « Host », ou nom de serveur correspondant à une demande |
+| cookie_*nom*              | le *nom* cookie |
 | http_method                | méthode utilisée pour établir la demande d’URL. Par exemple GET, POST, etc. |
 | HTTP_STATUS                | état de session, par exemple : 200, 400, 403, etc.                       |
 | http_version               | protocole de demande, généralement « HTTP/1.0 », « HTTP/1.1 » ou « HTTP/2.0 » |
@@ -120,10 +122,6 @@ Cette fonctionnalité prend en charge la réécriture d’en-têtes dans les var
 - La prise en charge de la réécriture de l’en-tête HTTP est disponible uniquement sur la nouvelle référence SKU [Standard_V2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant). La fonctionnalité ne sera pas prise en charge sur l’ancienne référence SKU.
 
 - La réécriture des en-têtes Connect, Upgrade et Host n’est pas encore prise en charge.
-
-- Deux variables de serveur importantes, client_ip (adresse IP du client effectuant la requête) et cookie_*name* (cookie *name*), ne pas sont encore prises en charge. La variable de serveur client_ip est particulièrement utile dans les scénarios dans lesquels des clients envisagent de réécrire l’en-tête x-forwarded-for défini par Application Gateway, de sorte que l’en-tête contient uniquement l’adresse IP du client et pas les informations de port.
-
-  Ces deux variables de serveur seront bientôt être prises en charge.
 
 - La fonctionnalité permettant de réécrire les en-têtes HTTP de manière conditionnelle sera bientôt disponible.
 

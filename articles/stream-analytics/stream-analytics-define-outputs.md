@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0a3fd2cc66a066d2790d2e12822e3246dc3db382
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c22b82dcd3438a8175457aa0963d52e84d582abf
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57898871"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438497"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Comprendre les sorties d’Azure Stream Analytics
 Cet article décrit les différents types de sorties disponibles pour un travail Azure Stream Analytics. Les sorties permettent de stocker et d’enregistrer les résultats du travail Stream Analytics. Vous pouvez utiliser ces données pour aller plus loin dans l’analyse marketing et l’entreposage de vos données.
@@ -127,6 +127,7 @@ Quelques paramètres sont requis pour configurer les flux de données Event Hub 
 | Encodage | Pour CSV et JSON, UTF-8 est le seul format d’encodage actuellement pris en charge. |
 | Délimiteur | Applicable uniquement pour la sérialisation CSV. Stream Analytics prend en charge un certain nombre de délimiteurs communs pour sérialiser des données dans un format CSV. Valeurs prises en charge : virgule, point-virgule, espace, tabulation et barre verticale. |
 | Format | Applicable uniquement pour la sérialisation JSON. L’expression « Séparé par une ligne » indique que la sortie sera mise en forme de sorte que tous les objets JSON soient séparés par une nouvelle ligne. Le terme « Tableau » indique que la sortie sera mise en forme en tant que tableau d’objets JSON. Ce tableau se ferme uniquement lorsque le travail s’arrête ou que Stream Analytics est passé à la période suivante. En règle générale, il est préférable d’utiliser du code JSON séparé par des lignes, car il ne requiert aucun traitement spécial pendant que le fichier de sortie est écrit. |
+| Colonnes de propriété [facultatifs] | Les colonnes qui doivent être attachés en tant que propriétés de l’utilisateur d’un message sortant au lieu de la charge utile séparées par des virgules. Plus d’informations sur cette fonctionnalité dans la section « Propriétés de métadonnées personnalisées pour la sortie » |
 
 ## <a name="power-bi"></a>Power BI
 [Power BI](https://powerbi.microsoft.com/) peut être utilisé comme sortie d’une tâche Stream Analytics pour fournir une expérience de visualisation riche des résultats d’analyse. Cette fonctionnalité peut être utilisée pour les tableaux de bord opérationnels, la génération de rapports et la création de rapports pilotés par des métriques.
@@ -230,6 +231,7 @@ La table ci-dessous répertorie les noms de propriétés et leur description pou
 | Encodage |Pour CSV et JSON, UTF-8 est le seul format d’encodage actuellement pris en charge |
 | Délimiteur |Applicable uniquement pour la sérialisation CSV. Stream Analytics prend en charge un certain nombre de délimiteurs communs pour sérialiser des données dans un format CSV. Valeurs prises en charge : virgule, point-virgule, espace, tabulation et barre verticale. |
 | Format |Applicable uniquement pour le type JSON. L’expression « Séparé par une ligne » indique que la sortie sera mise en forme de sorte que tous les objets JSON soient séparés par une nouvelle ligne. Le terme « Tableau » indique que la sortie sera mise en forme en tant que tableau d’objets JSON. |
+| Colonnes de propriété [facultatifs] | Les colonnes qui doivent être attachés en tant que propriétés de l’utilisateur d’un message sortant au lieu de la charge utile séparées par des virgules. Plus d’informations sur cette fonctionnalité dans la section « Propriétés de métadonnées personnalisées pour la sortie » |
 
 Le nombre de partitions est [basé sur la référence Service Bus et sa taille](../service-bus-messaging/service-bus-partitioning.md). La clé de partition est une valeur entière unique pour chaque partition.
 
@@ -248,6 +250,7 @@ Le tableau ci-dessous répertorie les noms de propriétés et leur description p
 | Format de sérialisation de l’événement |Format de sérialisation pour les données de sortie. JSON, CSV et Avro sont pris en charge. |
 | Encodage |Si vous utilisez le format CSV ou JSON, vous devez spécifier un encodage. UTF-8 est le seul format d’encodage actuellement pris en charge |
 | Délimiteur |Applicable uniquement pour la sérialisation CSV. Stream Analytics prend en charge un certain nombre de délimiteurs communs pour sérialiser des données dans un format CSV. Valeurs prises en charge : virgule, point-virgule, espace, tabulation et barre verticale. |
+| Colonnes de propriété [facultatifs] | [Facultatif] Les colonnes qui doivent être attachés en tant que propriétés de l’utilisateur d’un message sortant au lieu de la charge utile séparées par des virgules. Plus d’informations sur cette fonctionnalité dans la section « Propriétés de métadonnées personnalisées pour la sortie » |
 
 Le nombre de partitions est [basé sur la référence Service Bus et sa taille](../service-bus-messaging/service-bus-partitioning.md). La clé de partition est une valeur entière unique pour chaque partition.
 
@@ -293,6 +296,25 @@ Lorsque Azure Stream Analytics reçoit une exception 413 (l’entité de requêt
 
 De plus, si aucun événement n’est signalé dans le temps imparti, aucune sortie n’est générée. De ce fait, la fonction computeResult n’est pas appelée. Ce comportement est cohérent avec les fonctions d’agrégation fenêtrées intégrées.
 
+## <a name="custom-metadata-properties-for-output"></a>Propriétés de métadonnées personnalisées pour la sortie 
+
+Cette fonctionnalité permet l’attachement des colonnes de la requête en tant que propriétés de l’utilisateur aux messages sortants. Ces colonnes n’entrent pas dans la charge utile. Ces propriétés sont présentes sous la forme d’un dictionnaire sur le message de sortie. Clé est le nom de colonne et la valeur est la valeur de colonne dans le dictionnaire de propriétés. Tous les types de données Analytique de Stream sont pris en charge à l’exception d’enregistrement et de tableau.  
+
+Sorties prises en charge : 
+* Files d'attente Service Bus 
+* Rubriques de Service Bus 
+* Event Hub 
+
+Exemple : Dans l’exemple suivant, nous allons ajouter les 2 champs DeviceId et DeviceStatus aux métadonnées. 
+* Requête : `select *, DeviceId, DeviceStatus from iotHubInput` .
+* Configuration de sortie : `DeviceId,DeviceStatus`.
+
+![Colonnes de propriété](./media/stream-analytics-define-outputs/10-stream-analytics-property-columns.png)
+
+Propriétés du Message inspectées EventHub à l’aide de la sortie [Explorateur Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer).
+
+   ![Propriétés de l’événement personnalisées](./media/stream-analytics-define-outputs/09-stream-analytics-custom-properties.png)
+
 ## <a name="partitioning"></a>Partitionnement
 
 Le tableau suivant récapitule la prise en charge de la partition et le nombre de générateurs de sortie pour chaque type de sortie :
@@ -302,7 +324,7 @@ Le tableau suivant récapitule la prise en charge de la partition et le nombre d
 | Azure Data Lake Store | Oui | Utilisez les jetons {date} et {time} dans le modèle de préfixe du chemin. Choisissez le format de date, par exemple, AAAA/MM/JJ, JJ/MM/AAAA, MM-JJ-AAAA. HH est utilisé pour le format de l’heure. | Suit le partitionnement d’entrée des [requêtes entièrement parallélisables](stream-analytics-scale-jobs.md). |
 | Azure SQL Database | Oui | Basée sur la clause PARTITION BY dans la requête | Suit le partitionnement d’entrée des [requêtes entièrement parallélisables](stream-analytics-scale-jobs.md). Pour améliorer vos performances de débit d'écriture lorsque vous chargez des données dans Azure SQL Database, consultez l'article [Sortie Azure Stream Analytics vers Azure SQL Database](stream-analytics-sql-output-perf.md). |
 | Stockage d'objets blob Azure | Oui | Utilisez les jetons {date} et {time} de vos champs d’événement dans le modèle de chemin. Choisissez le format de date, par exemple, AAAA/MM/JJ, JJ/MM/AAAA, MM-JJ-AAAA. HH est utilisé pour le format de l’heure. La sortie d’objet blob peut être partitionnée par un seul attribut d’événement personnalisé {fieldname} ou par {datetime:\<specifier>}. | Suit le partitionnement d’entrée des [requêtes entièrement parallélisables](stream-analytics-scale-jobs.md). |
-| Azure Event Hub | Oui | Oui | Dépend de l’alignement des partitions.<br /> Lorsque la clé de partition Event Hub de sortie s’aligne parfaitement avec l’étape de requête (précédente) en amont, le nombre d’enregistreurs est égal au nombre de partitions Event Hub de sortie. Chaque enregistreur utilise la [classe EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) d’EventHub pour envoyer des événements à la partition concernée. <br /> Lorsque la clé de partition Event Hub de sortie ne s’aligne pas avec l’étape de requête (précédente) en amont, le nombre d’enregistreurs est égal au nombre de partitions de cette précédente étape. Chaque enregistreur utilise la [classe SendBatchAsync](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) d’EventHubClient pour envoyer des événements à toutes les partitions de sortie. |
+| Azure Event Hub | Oui | Oui | Dépend de l’alignement des partitions.<br /> Lorsque la clé de partition Event Hub de sortie s’aligne parfaitement avec l’étape de requête (précédente) en amont, le nombre d’enregistreurs est égal au nombre de partitions Event Hub de sortie. Chaque enregistreur utilise la [classe EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) d’EventHub pour envoyer des événements à la partition concernée. <br /> Lorsque la clé de partition Event Hub de sortie ne s’aligne pas avec l’étape de requête (précédente) en amont, le nombre d’enregistreurs est égal au nombre de partitions de cette précédente étape. Chaque enregistreur utilise la [classe SendBatchAsync](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) d’EventHubClient pour envoyer des événements à toutes les partitions de sortie. |
 | Power BI | Non  | Aucun | Non applicable. |
 | Stockage de tables Azure | Oui | N’importe quelle colonne de sortie.  | Suit le partitionnement d’entrée des [requêtes entièrement mises en parallèle ](stream-analytics-scale-jobs.md). |
 | Rubrique Azure Service Bus | Oui | Choisi automatiquement. Le nombre de partitions est basé sur la [référence Service Bus et sa taille](../service-bus-messaging/service-bus-partitioning.md). La clé de partition est une valeur entière unique pour chaque partition.| Égal au nombre de partitions de la rubrique de sortie.  |

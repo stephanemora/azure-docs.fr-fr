@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 02/06/2019
 ms.author: danlep
-ms.openlocfilehash: 8e9f488f194c3326e79439a65214a060ff16e6c4
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: b8a2280fe82e0f4be8e2812f5494150927642692
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55958746"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417733"
 ---
 # <a name="import-container-images-to-a-container-registry"></a>Importer des images conteneur dans un registre de conteneurs
 
@@ -38,7 +38,7 @@ Pour importer des images conteneur, cet article nécessite que vous exécutiez l
 > Si vous avez besoin de distribuer des images conteneur identiques dans plusieurs régions Azure, Azure Container Registry prend également en charge la [géoréplication](container-registry-geo-replication.md). En géoréplicant un registre (référence SKU Premium requise), vous pouvez servir plusieurs régions avec des noms d’image et d’étiquette identiques à partir d’un seul registre.
 >
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Si vous ne disposez pas d’un registre de conteneurs Azure, créez-en un. Pour connaître les étapes à suivre, voir [Démarrage rapide : Créer un registre de conteneurs privé avec Azure CLI](container-registry-get-started-azure-cli.md).
 
@@ -101,7 +101,7 @@ az acr import --name myregistry --source mysourceregistry.azurecr.io/aci-hellowo
 Dans l’exemple suivant, *mysourceregistry* est dans un autre abonnement que *myregistry*, dans le même locataire Active Directory. Indiquez l’ID de ressource du registre source avec le paramètre `--registry`. Notez que le paramètre `--source` spécifie uniquement le dépôt source et le nom de l’image, pas le nom du serveur de connexion au registre.
  
 ```azurecli
-az acr import --name myregistry --source sourcerepo/aci-helloworld:latest --image aci-hello-world:latest --registry /subscriptions/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sourceResourceGroup/providers/Microsoft.ContainerRegistry/registries/mysourceregistry
+az acr import --name myregistry --source sourcerepo/aci-helloworld:latest --image aci-hello-world:latest --registry /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sourceResourceGroup/providers/Microsoft.ContainerRegistry/registries/mysourceregistry
 ```
 
 ### <a name="import-from-a-registry-using-service-principal-credentials"></a>Importer à partir d’un registre à l’aide des informations d’identification du principal de service

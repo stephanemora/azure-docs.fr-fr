@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.openlocfilehash: b43fe513b15d55ee595acaa6733d96cdb58f4e83
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 836d36cc6f220bb544e0c7723506c624c5f9fc39
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294502"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407298"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Niveaux de cohérence dans Azure Cosmos DB
 
@@ -31,41 +31,41 @@ La cohérence de lecture s’applique à une seule opération de lecture dans la
 
 ## <a name="configure-the-default-consistency-level"></a>Configurer le niveau de cohérence par défaut
 
-Vous pouvez configurer le niveau de cohérence par défaut sur votre compte Azure Cosmos DB à tout moment. Le niveau de cohérence par défaut configuré sur votre compte s’applique à toutes les bases de données Azure Cosmos DB et tous les conteneurs sous ce compte. Toutes les lectures et requêtes émises vers un conteneur ou une base de données utilisent le niveau de cohérence par défaut spécifié. Pour en savoir plus, consultez [Configurer le niveau de cohérence par défaut](how-to-manage-consistency.md#configure-the-default-consistency-level).
+Vous pouvez configurer le niveau de cohérence par défaut sur votre compte Azure Cosmos DB à tout moment. Le niveau de cohérence par défaut configuré sur votre compte s’applique à toutes les bases de données Azure Cosmos et conteneurs sous ce compte. Toutes les lectures et requêtes émises vers un conteneur ou une base de données utilisent le niveau de cohérence par défaut spécifié. Pour en savoir plus, consultez [Configurer le niveau de cohérence par défaut](how-to-manage-consistency.md#configure-the-default-consistency-level).
 
 ## <a name="guarantees-associated-with-consistency-levels"></a>Garanties associées aux niveaux de cohérence
 
-Les contrats de niveau de service complets fournis par Azure Cosmos DB garantissent que 100 % des requêtes de lecture respecteront la garantie de cohérence dans le cadre du niveau de cohérence choisi. Une requête de lecture respecte le contrat de niveau de service de cohérence si toutes les garanties de cohérence associées au niveau de cohérence sont satisfaites. Les définitions précises des cinq niveaux de cohérence dans Azure Cosmos DB (en utilisant le [langage de spécification TLA +](https://lamport.azurewebsites.net/tla/tla.html)) sont fournies dans le référentiel GitHub [azure-cosmos-tla](https://github.com/Azure/azure-cosmos-tla). 
+Les contrats de niveau de service complets fournis par Azure Cosmos DB garantissent que 100 % des requêtes de lecture respecteront la garantie de cohérence dans le cadre du niveau de cohérence choisi. Une requête de lecture respecte le contrat de niveau de service de cohérence si toutes les garanties de cohérence associées au niveau de cohérence sont satisfaites. Les définitions précises des cinq niveaux de cohérence dans Azure Cosmos DB à l’aide du [langage de spécification TLA +](https://lamport.azurewebsites.net/tla/tla.html) sont fournies dans le [azure-cosmos-tla](https://github.com/Azure/azure-cosmos-tla) référentiel GitHub. 
 
 La sémantique des cinq niveaux de cohérence est décrite ici :
 
 - **Remarque**: une cohérence forte offre une garantie de [linéarisabilité](https://aphyr.com/posts/313-strong-consistency-models). Garantit que les lectures retournent la version validée la plus récente d’un élément. Un client ne voit jamais une écriture partielle ou non validée. Les utilisateurs sont toujours assurés de lire la toute dernière écriture validée.
 
-- **Obsolescence limitée**: les lectures honoreront la garantie de préfixe cohérent. Les lectures sont retardées derrière les écritures par, au plus, des versions « K » (c’est-à-dire des « mises à jour ») d’un élément ou un intervalle de temps « t ». Lorsque vous choisissez l’obsolescence limitée, « l’obsolescence » peut être configurée de deux manières : 
+- **Obsolescence limitée**: les lectures honoreront la garantie de préfixe cohérent. Les lectures peuvent rester derrière les écritures par, au maximum *« K »* versions (par exemple, « mises à jour ») d’un élément ou par *« T »* intervalle de temps. En d’autres termes, lorsque vous choisissez d’obsolescence limitée, le « obsolescence » peut être configurée de deux manières : 
 
-  * Nombre de versions (K) de l’élément
-  * Intervalle de temps (t) pendant lequel les lectures peuvent être en retard par rapport aux écritures 
+  * Le nombre de versions (*K*) de l’élément
+  * L’intervalle de temps (*T*) par lequel les lectures peuvent rester derrière les écritures 
 
-  La cohérence de type obsolescence limitée fournit l’ordre global total, en dehors de la « fenêtre d’obsolescence ». Notez que des garanties de lecture unitone existent dans une région à l’intérieur et en dehors de la fenêtre d’obsolescence. La cohérence forte dispose de la même sémantique que l’obsolescence limitée. La fenêtre d’obsolescence est égale à zéro. L’obsolescence limitée est également appelée linéarisabilité retardée. Lorsqu’un client effectue des opérations de lecture dans une région acceptant les écritures, les garanties fournies par une cohérence à obsolescence limitée sont identiques à celles à forte cohérence.
+  La cohérence de type obsolescence limitée fournit l’ordre global total, en dehors de la « fenêtre d’obsolescence ». Notez que des garanties de lecture unitone existent dans une région à l’intérieur et en dehors de la fenêtre d’obsolescence. Cohérence forte a la même sémantique que celui proposé par obsolescence. La fenêtre d’obsolescence est égale à zéro. L’obsolescence limitée est également appelée linéarisabilité retardée. Lorsqu’un client effectue des opérations de lecture dans une région qui accepte les écritures, les garanties fournies par une cohérence obsolescence limitée sont identiques à ces garanties par la cohérence forte.
 
 - **Session**: les lectures honoreront les garanties de préfixe cohérent (en partant du principe qu’il s’agit d’une session à « writer » unique), de lectures unitones, d’écritures unitones, de lecture de vos écritures et d’écriture suivant les lectures. La cohérence de session est limitée à une session client.
 
-- **Préfixe cohérent** : les mises à jour retournées contiennent un préfixe de toutes les mises à jour, sans interruption. Le niveau de cohérence préfixe cohérent garantit que les lectures ne voient jamais d’écritures dans le désordre.
+- **Préfixe cohérent** : les mises à jour retournées contiennent un préfixe de toutes les mises à jour, sans interruption. Niveau de cohérence préfixe cohérent garantit que les lectures ne voient jamais les écritures de désordre.
 
 - **Eventual (Éventuel)**: Il n’existe aucune garantie de classement pour les lectures. En l’absence d’autres écritures, les réplicas finissent par converger.
 
 ## <a name="consistency-levels-explained-through-baseball"></a>Niveaux de cohérence – Exemple du baseball
 
-Prenons comme exemple un scénario de match de base-ball. Imaginez une séquence d’écritures représentant le score d’un match de base-ball. Le score par manche est décrit dans le document [Replicated data consistency through baseball](https://www.microsoft.com/en-us/research/wp-content/uploads/2011/10/ConsistencyAndBaseballReport.pdf) (Cohérence des données répliquées - Exemple du baseball). Ce match de baseball hypothétique est actuellement au milieu de sa septième manche. Il s’agit de la pause de la septième manche. Les visiteurs perdent avec un score de 2 à 5.
+Prenons comme exemple un scénario de match de base-ball. Imaginez une séquence d’écritures représentant le score d’un match de base-ball. Le score par manche est décrit dans le document [Replicated data consistency through baseball](https://www.microsoft.com/en-us/research/wp-content/uploads/2011/10/ConsistencyAndBaseballReport.pdf) (Cohérence des données répliquées - Exemple du baseball). Ce match de baseball hypothétique est actuellement au milieu de sa septième manche. Il s’agit de la pause de la septième manche. Les visiteurs sont trouvent derrière avec un score de 2 à 5 comme indiqué ci-dessous :
 
 | | **1** | **2** | **3** | **4** | **5** | **6** | **7** | **8** | **9** | **Points** |
 | - | - | - | - | - | - | - | - | - | - | - |
 | **Visiteurs** | 0 | 0 | 1 | 0 | 1 | 0 | 0 |  |  | 2 |
 | **Locaux** | 1 | 0 | 1 | 1 | 0 | 2 |  |  |  | 5. |
 
-Un conteneur Azure Cosmos DB conserve les totaux des points des visiteurs et de l’équipe locale. Lorsque le match est en cours, il se peut que les clients lisent des scores différents à cause des différentes garanties de lecture. Le tableau suivant répertorie l’ensemble complet des scores qui pourraient être renvoyés par la lecture des scores des visiteurs et des locaux, en fonction des cinq garanties de cohérence. Le score des visiteurs est répertorié en premier. Les différentes valeurs de retour possibles sont séparées par des virgules.
+Un conteneur Azure Cosmos totaux l’exécution pour les visiteurs et les équipes de base. Lorsque le match est en cours, il se peut que les clients lisent des scores différents à cause des différentes garanties de lecture. Le tableau suivant répertorie l’ensemble complet des scores qui pourraient être renvoyés par la lecture des scores des visiteurs et des locaux, en fonction des cinq garanties de cohérence. Le score des visiteurs est répertorié en premier. Les différentes valeurs de retour possibles sont séparées par des virgules.
 
-| **Niveau de cohérence** | **Scores** |
+| **Niveau de cohérence** | **Scores (visiteurs, accueil)** |
 | - | - |
 | **Fort** | 2-5 |
 | **Obsolescence limitée** | Scores obsolètes (d’une manche tout au plus) : 2-3, 2-4, 2-5 |

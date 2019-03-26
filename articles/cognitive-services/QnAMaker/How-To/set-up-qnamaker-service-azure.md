@@ -8,40 +8,42 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 03/25/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: f90c4cb1e98fe7ac43b21cd8ff01733f1d15cc50
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 94e4d945593c2387b61011b0e7d4056f4af33e01
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862223"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437354"
 ---
 # <a name="create-a-qna-maker-service"></a>Créer un service QnA Maker
 
 Avant de pouvoir créer des bases de connaissances QnA Maker, vous devez tout d’abord configurer un service QnA Maker dans Azure. Toute personne disposant d’autorisations pour créer des ressources dans un abonnement peut configurer un service QnA Maker.
 
-Cette configuration déploie plusieurs ressources Azure. Ensemble, ces ressources gèrent le contenu de la base de connaissances et fournissent des fonctionnalités de réponse aux questions via un point de terminaison.
+## <a name="create-a-new-service"></a>Créer un service
 
-1. Connectez-vous au [portail Azure](<https://portal.azure.com>).
+Cette procédure permet de déployer certaines ressources Azure. Ensemble, ces ressources gèrent le contenu de la base de connaissances et fournissent des fonctionnalités de réponse aux questions via un point de terminaison.
 
-2.  Cliquez sur **Ajouter une nouvelle ressource**, tapez « qna maker » dans la recherche et sélectionnez la ressource QnA Maker
+1. Connectez-vous au [Portail Azure](<https://portal.azure.com>).
+
+1. Sélectionnez **ajouter une nouvelle ressource**et tapez « qna maker » dans la recherche, sélectionnez la ressource de QnA Maker
 
     ![Créer un service QnA Maker - Ajouter une nouvelle ressource](../media/qnamaker-how-to-setup-service/create-new-resource.png)
 
-3.  Cliquez sur **Créer** après avoir lu les conditions générales.
+1. Sélectionnez **créer** après avoir lu les termes et conditions.
 
     ![Créer un nouveau service QnA Maker](../media/qnamaker-how-to-setup-service/create-new-resource-button.png)
 
-4. Dans **QnA Maker**, sélectionnez les niveaux et les régions appropriés.
+1. Dans **QnA Maker**, sélectionnez les niveaux et les régions appropriés.
 
     ![Créer un service QnA Maker - Niveau tarifaire et régions](../media/qnamaker-how-to-setup-service/enter-qnamaker-info.png)
 
     * Renseignez le **Nom** avec un nom unique pour identifier ce service QnA Maker. Ce nom identifie également le point de terminaison QnA Maker auquel vos bases de connaissances seront associées.
     * Choisissez **l’abonnement** dans lequel la ressource QnA Maker sera déployée.
     * Sélectionnez le **Niveau tarifaire de gestion** pour les services d’administration de QnA Maker (portail et API de gestion). Consultez [ici](https://aka.ms/qnamaker-pricing) plus d’informations sur la tarification des références SKU.
-    * Créez un nouveau **Groupe de ressources** (recommandé) ou utilisez un groupe de ressources existant dans lequel déployer cette ressource QnA Maker.
+    * Créez un nouveau **Groupe de ressources** (recommandé) ou utilisez un groupe de ressources existant dans lequel déployer cette ressource QnA Maker. QnA Maker crée plusieurs ressources Azure ; Lorsque vous créez un groupe de ressources contenant ces ressources, vous pouvez facilement rechercher, gérer et supprimer ces ressources par le nom de groupe de ressources.
     * Choisissez le **Niveau tarifaire de recherche** du service Recherche Azure. Si l’option de niveau Gratuit est grisée, cela signifie que vous disposez déjà d’un niveau Recherche Azure Gratuit déployé dans votre abonnement. Dans ce cas, vous devrez commencer par le niveau De base de la Recherche Azure. Consultez les détails sur la tarification de la Recherche Azure [ici](https://azure.microsoft.com/pricing/details/search/).
     * Choisissez **l’emplacement de recherche** où vous souhaitez que les données de Recherche Azure soient déployées. Les restrictions relatives à l’emplacement de stockage des données client indiquent l’emplacement que vous choisissez pour la Recherche Azure.
     * Attribuez un nom à votre App Service dans **Nom de l’application**.
@@ -53,10 +55,11 @@ Cette configuration déploie plusieurs ressources Azure. Ensemble, ces ressource
 
     * Choisissez si vous souhaitez activer **Application Insights** ou non. Si **Application Insights** est activé, QnA Maker collecte les données de télémétrie sur le trafic, les journaux de conversation et les erreurs.
     * Choisissez **l’emplacement d’Application Insights** où la ressource Application Insights sera déployée.
+    * Pour les mesures d’économies de coût, vous pouvez [partager](upgrade-qnamaker-service.md?#share-existing-services-with-qna-maker) certains, mais pas toutes les ressources Azure créés pour QnA Maker. 
 
-5. Une fois que tous les champs sont validés, vous pouvez cliquer sur **Créer** pour commencer le déploiement de ces services dans votre abonnement. L’exécution de cette opération nécessite quelques minutes.
+1. Une fois que tous les champs sont validés, vous pouvez sélectionner **créer** pour démarrer le déploiement de ces services dans votre abonnement. L’exécution de cette opération nécessite quelques minutes.
 
-6.  Une fois le déploiement terminé, vous verrez les ressources suivantes créées dans votre abonnement.
+1. Une fois le déploiement terminé, vous verrez les ressources suivantes créées dans votre abonnement.
 
     ![Service QnA Maker créé par une ressource](../media/qnamaker-how-to-setup-service/resources-created.png)
 

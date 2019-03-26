@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: e7d264e5d5d289117dbc30b71e317506006e1f30
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: b9462866f0be62d288e121b71119d0f9885a0d39
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401576"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439411"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Étendre HDInsight à l’aide d’un réseau virtuel Azure
 
@@ -284,6 +284,7 @@ Si vous utilisez des groupes de sécurité réseau, vous devez autoriser le traf
     | Chine | Chine du Nord | 42.159.96.170</br>139.217.2.219</br></br>42.159.198.178</br>42.159.234.157 | 443 | Trafic entrant |
     | &nbsp; | Chine orientale | 42.159.198.178</br>42.159.234.157</br></br>42.159.96.170</br>139.217.2.219 | 443 | Trafic entrant |
     | &nbsp; | Chine Nord 2 | 40.73.37.141</br>40.73.38.172 | 443 | Trafic entrant |
+    | &nbsp; | Chine orientale 2 | 139.217.227.106</br>139.217.228.187 | 443 | Trafic entrant |
     | Europe | Europe Nord | 52.164.210.96</br>13.74.153.132 | 443 | Trafic entrant |
     | &nbsp; | Europe Ouest| 52.166.243.90</br>52.174.36.244 | 443 | Trafic entrant |
     | France | France Centre| 20.188.39.64</br>40.89.157.135 | 443 | Trafic entrant |

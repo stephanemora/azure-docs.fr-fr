@@ -3,7 +3,7 @@ title: Stratégies de rétention des rapports Azure Active Directory | Microsoft
 description: Stratégies de rétention des données de rapport dans Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 183e53b0-0647-42e7-8abe-3e9ff424de12
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c7b8489f3c90652de7a7d8e03c7293c3fbfab6b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 126eee1664d810850f63e702abe78b241649d665
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206614"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438816"
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Stratégies de rétention des rapports Azure Active Directory
 
@@ -69,7 +69,7 @@ Pour les signaux de sécurité, le processus de collection démarre lorsque vous
 | Rapport                 | Azure AD Gratuit | Azure AD Standard | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--                    | :--           | :--            | :--                 | :--                 |
 | Audit de répertoire        | 7 jours        |  7 jours        | 30 jours             | 30 jours             |
-| Activité de connexion       | N/A           |  N/A           | 30 jours             | 30 jours             |
+| Activité de connexion       | S.O.           |  S.O.           | 30 jours             | 30 jours             |
 | Utilisation d’Azure MFA        | 30 jours       |  30 jours       | 30 jours             | 30 jours             |
 
 Vous pouvez conserver les données d'activité d'audit et de connexion au-delà de la période de conservation par défaut décrite ci-dessus en les acheminant vers un compte de stockage Azure à l'aide d'Azure Monitor. Pour plus d'informations, consultez [Archiver des journaux Azure AD sur un compte de stockage Azure](quickstart-azure-monitor-route-logs-to-storage-account.md).

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 7c8e2297426b098fa6e86a5cda81afc2d71b08f4
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: cdc3e7ec6ec55c3376aeb545e1f64079ad1f6323
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214637"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407400"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>Changer de préférence d'API pour les alertes de journal
 
@@ -37,13 +37,18 @@ L'utilisation de l'[API scheduledQueryRules](https://docs.microsoft.com/rest/api
 
 ## <a name="process-of-switching-from-legacy-log-alerts-api"></a>Processus de basculement à partir de l'API Alertes de journal héritée
 
-Le processus de déplacement des règles d'alerte depuis l'[API Alerte héritée de Log Analytics](api-alerts.md) n'implique aucune modification, de quelque nature que ce soit, de la définition, de la requête ou de la configuration de votre alerte. Les utilisateurs sont libres d'utiliser l'[API Alerte héritée de Log Analytics](api-alerts.md) ou la nouvelle [API scheduleQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Les règles d'alerte créées par l'une ou l'autre de ces API devront être *gérées par la même API*, ainsi que sur le portail Azure. Par défaut, Azure Monitor continuera à utiliser l'[API Alerte héritée de Log Analytics](api-alerts.md) pour créer de nouvelles règles d'alerte à partir du portail Azure.
+Le processus de déplacement des règles d'alerte depuis l'[API Alerte héritée de Log Analytics](api-alerts.md) n'implique aucune modification, de quelque nature que ce soit, de la définition, de la requête ou de la configuration de votre alerte. Vos règles d’alerte et de surveillance sont pas affectée et les alertes n’arrêtera pas ou qu’elle soit bloquées, pendant ou après le commutateur.
+
+Les utilisateurs sont libres d'utiliser l'[API Alerte héritée de Log Analytics](api-alerts.md) ou la nouvelle [API scheduleQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Les règles d'alerte créées par l'une ou l'autre de ces API devront être *gérées par la même API*, ainsi que sur le portail Azure. Par défaut, Azure Monitor continuera à utiliser l'[API Alerte héritée de Log Analytics](api-alerts.md) pour créer de nouvelles règles d'alerte à partir du portail Azure.
 
 Les conséquences du passage à l'API scheduleQueryRules sont compilées ci-dessous :
 
 - Toutes les interactions liées à la gestion des alertes de journal via des interfaces de programmation doivent désormais s'effectuer à l'aide de l'API [scheduleQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Pour plus d'informations, consultez [Exemple d'utilisation via Azure Resource Template](alerts-log.md#managing-log-alerts-using-azure-resource-template) et [Exemple d'utilisation via Azure CLI et PowerShell](alerts-log.md#managing-log-alerts-using-powershell-cli-or-api).
-- Toute nouvelle règle d'alerte de journal créée sur le portail Azure devra utiliser l'API [scheduleQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Les utilisateurs auront également la possibilité d'utiliser la [fonctionnalité supplémentaire de la nouvelle API](#Benefits-of-switching-to-new-Azure-API) via le portail Azure.
+- Toute nouvelle règle d'alerte de journal créée sur le portail Azure devra utiliser l'API [scheduleQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Les utilisateurs auront également la possibilité d'utiliser la [fonctionnalité supplémentaire de la nouvelle API](#benefits-of-switching-to-new-azure-api) via le portail Azure.
 - Gravité pour les règles d’alerte de journal est passé à partir de : *Critique, avertissement et information*à *les valeurs de gravité de 0, 1 et 2*. Avec la possibilité de créer/mettre à jour les règles d’alerte avec une gravité 4.
+
+> [!CAUTION]
+> Une fois qu’un utilisateur choisit pour passer à la nouvelle préférence [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules), les règles ne peut pas accepter précédent ou revenir à l’utilisation des anciennes [hérité API alerte Analytique de journal](api-alerts.md).
 
 Tout client souhaitant passer volontairement à la nouvelle API [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) et bloquer l'utilisation de l'[API Alerte héritée de Log Analytics](api-alerts.md) peut le faire via un appel PUT sur l'API ci-dessous afin de modifier toutes les règles d'alerte associées à l'espace de travail Log Analytics spécifique.
 

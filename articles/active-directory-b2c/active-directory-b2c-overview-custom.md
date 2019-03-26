@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 03/20/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 92bd57822226e683f17582bb1534b84961f61032
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 7921454cc9269278db58fcc50bc63ca49b41b1e0
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187162"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417931"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Stratégies personnalisées dans Azure Active Directory B2C
 
@@ -29,10 +29,10 @@ Les stratégies personnalisées sont des fichiers de configuration qui définiss
 |-|-------------------|-----------------|
 | Utilisateurs cibles | Tous les développeurs d’applications avec ou sans expertise de l’identité | Professionnels de l’identité, intégrateurs système, consultants et équipes d’identité internes. Ils sont à l’aise avec les flux OpenIDConnect et comprennent les fournisseurs d’identité et l’authentification basée sur les revendications. |
 | Mode de configuration | Portail Azure avec interface utilisateur (UI) conviviale | Modification directe des fichiers XML, puis chargement sur le portail Azure |
-| Personnalisation de l’interface utilisateur | Personnalisation de l’interface utilisateur complète avec HTML et CSS<br><br>Prise en charge multilingue avec chaînes personnalisées | Identique |
+| Personnalisation de l’interface utilisateur | Personnalisation de l’interface utilisateur complète avec HTML, CSS et JavaScript.<br><br>Prise en charge multilingue avec chaînes personnalisées | Identique |
 | Personnalisation des attributs | Attributs standard et personnalisés | Identique |
 | Gestion des jetons et des sessions | Options de jetons personnalisés et de sessions multiples | Identique |
-| Identity Providers | Fournisseur social ou local prédéfini | OIDC basé sur les normes, OAUTH et SAML |
+| Identity Providers | Prédéfinis fournisseur local ou social et la plupart des fournisseurs d’identité OIDC, telles que la fédération avec les clients Azure Active Directory. | OIDC basé sur les normes, OAUTH et SAML  L’authentification est également possible à l’aide de l’intégration avec les API REST. |
 | Tâches d’identité | Inscription ou connexion avec des comptes locaux et de nombreux comptes sociaux<br><br>Réinitialisation de mot de passe en libre service<br><br>Modification de profil<br><br>Authentification multifacteur<br><br>Personnalisation des jetons et des sessions<br><br>Flux de jetons d’accès | Réalisation des mêmes tâches que les flux d’utilisateur à l’aide de fournisseurs d’identité personnalisés ou utilisation des étendues personnalisées<br><br>Provisionnement d’un compte d’utilisateur dans un autre système au moment de l’inscription<br><br>Envoi d’un e-mail de bienvenue avec votre propre fournisseur de service de messagerie<br><br>Utilisation d’un magasin d’utilisateurs en dehors d’Azure AD B2C<br><br>Validation des informations fournies par l’utilisateur avec un système approuvé à l’aide d’une API |
 
 ## <a name="policy-files"></a>Fichiers de stratégie

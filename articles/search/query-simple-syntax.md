@@ -4,7 +4,7 @@ description: Informations de référence pour la syntaxe des requêtes simples u
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 03/25/2019
 author: brjohnstmsft
 ms.author: brjohnst
 ms.manager: cgronlun
@@ -19,18 +19,18 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 4f06af8044a79a7dc54d6fde55992111d24d22a7
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 99729141e5e1478f45ad385cf671c44a8e08f21a
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441558"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437490"
 ---
 # <a name="simple-query-syntax-in-azure-search"></a>Syntaxe des requêtes simples dans Recherche Azure
 Recherche Azure implémente deux langages de requête basés sur Lucene : L’[analyseur de requêtes simples](https://lucene.apache.org/core/4_7_0/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) et l’[analyseur de requêtes Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). Dans Recherche Azure, la syntaxe des requêtes simples exclut les options fuzzy/slop.  
 
 > [!NOTE]  
->  Recherche Azure fournit une autre [syntaxe des requêtes Lucene](query-lucene-syntax.md) pour les requêtes plus complexes. Pour plus d’informations sur l’architecture de l’analyse des requêtes et les avantages de chacune des syntaxes de requête, consultez [Fonctionnement de la recherche en texte intégral dans Recherche Azure](https://docs.microsoft.com/azure/search/search-lucene-query-architecture).
+>  Recherche Azure fournit une autre [syntaxe des requêtes Lucene](query-lucene-syntax.md) pour les requêtes plus complexes. Pour plus d’informations sur l’architecture de l’analyse des requêtes et les avantages de chacune des syntaxes de requête, consultez [Fonctionnement de la recherche en texte intégral dans Recherche Azure](search-lucene-query-architecture.md).
 
 ## <a name="how-to-invoke-simple-parsing"></a>Comment appeler l’analyse simple
 
@@ -44,38 +44,38 @@ Aussi simple que cela puisse paraître, un aspect de l’exécution des requête
 
 En règle générale, vous voyez plus probablement ces comportements dans les modèles d’interaction utilisateur pour les applications qui recherchent de contenu, où les utilisateurs sont plus susceptibles d’inclure un opérateur dans une requête, contrairement aux sites de e-commerce qui ont des structures de navigation plus intégrées. Pour plus d’informations, consultez [Opérateur NOT](#not-operator). 
 
-## <a name="operators-in-simple-search"></a>Opérateurs dans une recherche simple
+## <a name="boolean-operators-and-or-not"></a>Opérateurs booléens (AND, OR, NOT) 
 
 Vous pouvez incorporer des opérateurs dans une chaîne de requête pour générer un ensemble de critères par rapport à laquelle sont trouvent les documents correspondants. 
 
-## <a name="and-operator-"></a>Opérateur AND `+`
+### <a name="and-operator-"></a>Opérateur AND `+`
 
 L’opérateur AND est un signe plus. Par exemple, `wifi+luxury` recherche les documents contenant à la fois `wifi` et `luxury`.
 
-## <a name="or-operator-"></a>Opérateur OR `|`
+### <a name="or-operator-"></a>Opérateur OR `|`
 
 L’opérateur OR est une barre verticale. Par exemple, `wifi | luxury` recherche les documents contenant `wifi` ou `luxury`, ou les deux.
 
 <a name="not-operator"></a>
 
-## <a name="not-operator--"></a>Opérateur NOT `-`
+### <a name="not-operator--"></a>Opérateur NOT `-`
 
 L’opérateur NOT est un signe moins. Par exemple, `wifi –luxury` recherche les documents qui ont le terme `wifi` et/ou qui n’ont pas `luxury` (et/ou est contrôlé par `searchMode`).
 
 > [!NOTE]  
 >  L’option `searchMode` contrôle si un terme avec l’opérateur NOT est soumis à l’opération logique AND ou OR avec les autres termes de la requête en l’absence d’un opérateur `+` ou `|`. Rappelez-vous que `searchMode` peut être défini sur `any` (la valeur par défaut) ou sur `all`. Si vous utilisez `any`, cela augmente le rappel des requêtes en incluant plus de résultats, et par défaut, `-` est interprété comme « OR NOT ». Par exemple, `wifi -luxury` établit une correspondance avec les documents qui contiennent le terme `wifi` ou avec ceux qui ne contiennent pas le terme `luxury`. Si vous utilisez `all`, cela augmente la précision des requêtes en incluant moins de résultats, et par défaut, « - » est interprété comme « AND NOT ». Par exemple, `wifi -luxury` établit une correspondance avec les documents qui contiennent le terme `wifi` et ne contiennent pas le terme « luxury ». Il s’agit sans doute d’un comportement plus intuitif pour l’opérateur `-`. Ainsi, vous pouvez préférer `searchMode=all` à `searchMode=any` si vous voulez optimiser les recherches pour la précision au lieu du rappel *et* si vos utilisateurs utilisent fréquemment l’opérateur `-` dans les recherches.
 
-## <a name="suffix-operator-"></a>Opérateur de suffixe `*`
+## <a name="suffix-operator"></a>Opérateur de suffixe
 
-L’opérateur de suffixe est un astérisque. Par exemple, `lux*` recherche les documents contenant un terme qui commence par `lux`, indépendamment de la casse.  
+L’opérateur de suffixe est un astérisque `*`. Par exemple, `lux*` recherche les documents contenant un terme qui commence par `lux`, indépendamment de la casse.  
 
-## <a name="phrase-search-operator--"></a>Opérateur de recherche d’expression `" "`
+## <a name="phrase-search-operator"></a>Opérateur de recherche d’expression
 
-L’opérateur d’expression place une expression entre des guillemets. Par exemple, si `Roach Motel` (sans guillemets) recherche les documents contenant `Roach` et/ou `Motel` n’importe où dans n’importe quel ordre, `"Roach Motel"` (avec des guillemets) établit une correspondance seulement avec les documents qui contiennent cette expression entière, avec les mots dans cet ordre (l’analyse de texte s’applique néanmoins toujours).
+L’opérateur d’expression insère une expression entre guillemets `" "`. Par exemple, si `Roach Motel` (sans guillemets) recherche les documents contenant `Roach` et/ou `Motel` n’importe où dans n’importe quel ordre, `"Roach Motel"` (avec des guillemets) établit une correspondance seulement avec les documents qui contiennent cette expression entière, avec les mots dans cet ordre (l’analyse de texte s’applique néanmoins toujours).
 
-## <a name="precedence-operator--"></a>Opérateur de priorité `( )`
+## <a name="precedence-operator"></a>Opérateur de priorité
 
-L’opérateur de priorité place la chaîne entre des parenthèses. Par exemple, `motel+(wifi | luxury)` recherche les documents contenant le terme « motel », et `wifi` ou `luxury` (ou les deux).  
+L’opérateur de priorité englobe la chaîne entre parenthèses `( )`. Par exemple, `motel+(wifi | luxury)` recherche les documents contenant le terme motel et soit `wifi` ou `luxury` (ou les deux).  
 
 ## <a name="escaping-search-operators"></a>Échappement des opérateurs de recherche  
 

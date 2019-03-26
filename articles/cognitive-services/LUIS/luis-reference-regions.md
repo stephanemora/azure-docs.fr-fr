@@ -1,7 +1,7 @@
 ---
 title: Points de terminaison et régions de publication
 titleSuffix: Azure Cognitive Services
-description: La région dans laquelle vous publiez votre application LUIS correspond à la région ou à l’emplacement que vous spécifiez dans le portail Azure lorsque vous créez une clé de point de terminaison Azure LUIS. Quand vous publiez une application, LUIS génère automatiquement une URL de point de terminaison pour la région associée à la clé.
+description: 3 régions de création et de leurs portails prend en charge toutes les régions de publication nombreux. La région dans laquelle vous publiez votre application LUIS correspond à la région ou à l’emplacement que vous spécifiez dans le portail Azure lorsque vous créez une clé de point de terminaison Azure LUIS. Quand vous publiez une application, LUIS génère automatiquement une URL de point de terminaison pour la région associée à la clé.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,27 +9,33 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/07/2019
+ms.date: 03/25/2019
 ms.author: diberry
-ms.openlocfilehash: bbe46db1972951b466b431c9efc0420e15ff6dee
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 01444cec798763bc4e44bcabe0d7ebb640e537a8
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57765168"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436334"
 ---
 # <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>Création et la publication de régions et des clés associées
 
-La région dans laquelle vous publiez votre application LUIS correspond à la région ou à l’emplacement que vous spécifiez dans le portail Azure lorsque vous créez une clé de point de terminaison Azure LUIS. Lorsque vous [publiez une application](./luis-how-to-publish-app.md), LUIS génère automatiquement une URL de point de terminaison pour la région associée à la clé. Pour publier une application LUIS dans plusieurs régions, vous avez besoin d’au moins une clé par région. 
+Trois régions de création et de leurs portails prend en charge toutes les régions de publication nombreux. La région dans laquelle vous publiez votre application LUIS correspond à la région ou à l’emplacement que vous spécifiez dans le portail Azure lorsque vous créez une clé de point de terminaison Azure LUIS. Lorsque vous [publiez une application](./luis-how-to-publish-app.md), LUIS génère automatiquement une URL de point de terminaison pour la région associée à la clé. Pour publier une application LUIS dans plusieurs régions, vous avez besoin d’au moins une clé par région. 
 
-## <a name="luis-website"></a>Site web LUIS
+<a name="luis-website"></a>
+
+## <a name="luis-authoring-regions"></a>Régions de création de LUIS
 Il existe trois sites web LUIS, en fonction de la région. Vous devez créer et publier dans la même région. 
 
-|LUIS|Région|
-|--|--|
-|[www.luis.ai][www.luis.ai]|Données<br>pas l’Europe<br>pas l’Australie|
-|[au.luis.ai][au.luis.ai]|Australie|
-|[eu.luis.ai][eu.luis.ai]|Europe|
+|LUIS|Région globale|Création de la région dans Azure|
+|--|--|--|
+|[www.luis.ai][www.luis.ai]|Données<br>pas l’Europe<br>pas l’Australie| `westus`|
+|[au.luis.ai][au.luis.ai]|Australie| `australiaeast`|
+|[eu.luis.ai][eu.luis.ai]|Europe|`westeurope`|
+
+Vous pouvez utiliser la région de création permettant d’interagir avec le service LUIS déployé dans une autre région de publication Azure.  
+
+Création de régions ont [basculement régions jumelées](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). 
 
 ## <a name="regions-and-azure-resources"></a>Régions et ressources Azure
 L’application est publiée dans toutes les régions associées aux ressources LUIS ajoutées dans le portail LUIS. Par exemple, pour une application créée sur [www.luis.ai][www.luis.ai], si vous créez une ressource LUIS dans **westus** et que vous l’ajoutez à l’application en tant que ressource, l’application est publiée dans cette région. 

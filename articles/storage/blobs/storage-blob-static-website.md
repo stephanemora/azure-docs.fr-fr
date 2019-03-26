@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 1794aa26fc725207c4a901c11c345eeaa3d2f65d
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: a72182091721dd6a1104cb8e3495aee1a3b25eb8
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867732"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439382"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hébergement de sites web statiques dans le service Stockage Azure
 Les comptes GPv2 du service Stockage Azure vous permettent de distribuer du contenu statique (fichiers HTML, CSS, JavaScript et image) directement à partir d’un conteneur de stockage nommé *$web*. La fonctionnalité d’hébergement dans Stockage Azure vous permet d’utiliser des architectures serverless, notamment [Azure Functions](/azure/azure-functions/functions-overview) et d’autres services PaaS.
@@ -46,6 +46,9 @@ https://contoso.z4.web.core.windows.net/image.png
 ```
 
 Lorsqu’un nom de fichier n’est pas fourni, le nom de fichier par défaut sélectionné est utilisé à la racine et dans tous les sous-répertoires. Si le serveur renvoie une erreur 404 et que vous ne fournissez aucun chemin d’accès de document d’erreur, une page 404 par défaut est renvoyée à l’utilisateur.
+
+> [!NOTE]
+> Le niveau d’accès public par défaut pour les fichiers est privé. Étant donné que les fichiers sont servies par le biais des demandes de l’accès anonyme, ce paramètre est ignoré. Il est accessible à tous les fichiers et autorisations RBAC sont ignorées.
 
 ## <a name="cdn-and-ssl-support"></a>Prise en charge du service CDN (réseau de distribution de contenu) et du protocole SSL
 

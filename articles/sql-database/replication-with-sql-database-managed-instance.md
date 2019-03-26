@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 164448f2e96b796d21419e90a3965390f22d7d38
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: b20a119a69ac796bc9ea85083d335f0a7d2fdf2d
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762974"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417953"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Configurer la réplication dans une base de données d’instances managées Azure SQL Database
 
@@ -45,13 +45,13 @@ La configuration d’une instance managée pour fonctionner en tant qu’éditeu
 Prend en charge :
 
 - La réplication transactionnelle et de capture instantanée pour un mélange d’instances SQL Server locales et d’instances managées Azure SQL Database.
-- Les abonnés peuvent être des bases de données SQL Server locales, des bases de données uniques dans Azure SQL Database, ou des bases de données mises en pool dans des pools élastiques Azure SQL Database.
+- Les abonnés peuvent être dans les bases de données de SQL Server sur site, les instances de bases de données unique/gérées dans Azure SQL Database ou bases de données regroupées dans des pools élastiques Azure SQL Database.
 - La réplication unidirectionnelle ou bidirectionnelle.
 
 Les fonctionnalités suivantes ne sont pas prises en charge dans une instance managée d’Azure SQL Database :
 
 - Abonnements modifiables.
-- Géoréplication active.
+- [Géo-réplication Active](sql-database-active-geo-replication.md) et [groupes de basculement automatique](sql-database-auto-failover-group.md) ne doit pas être utilisé si la réplication transactionnelle est configurée.
 
 ## <a name="configure-publishing-and-distribution-example"></a>Exemple de configuration d’un serveur de publication et d’un serveur de distribution
 

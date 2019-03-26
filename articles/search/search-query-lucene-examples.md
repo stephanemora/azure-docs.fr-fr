@@ -7,23 +7,24 @@ tags: Lucene query analyzer syntax
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 08/09/2018
+ms.date: 03/25/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8ec6a6a24629f72199d5f5afa86200acf53aba01
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c7c120b9bac33f71df72650d8a9d9a72e819d227
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136544"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439183"
 ---
-# <a name="lucene-syntax-query-examples-for-building-advanced-queries-in-azure-search"></a>Exemples de syntaxe de requête Lucene pour créer des requêtes avancées dans Recherche Azure
-Lors de la construction de requêtes pour Recherche Azure, vous pouvez remplacer l’[analyseur de requêtes simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) par défaut par l’[analyseur de requêtes Lucene dans Recherche Azure](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), plus vaste, afin de formuler des définitions de requêtes spécialisées et avancées. 
+# <a name="query-examples-using-full-lucene-search-syntax-advanced-queries-in-azure-search"></a>Exemples de requêtes à l’aide de la syntaxe de recherche « complet » Lucene (des requêtes avancées dans Azure Search)
 
-L’analyseur de requêtes Lucene prend en charge des constructions de requêtes complexes, telles que des requêtes portant sur des champs, la recherche approximative et par caractères génériques, la recherche de proximité, la promotion de termes et la recherche d’expression régulière. Cette fonctionnalité plus puissante nécessite des capacités de traitement supplémentaires et peut donc entraîner des temps d’exécution un peu plus longs. Dans cet article, vous pouvez parcourir des exemples décrivant les opérations de requête disponibles lors de l’utilisation de la syntaxe complète.
+Lors de la construction de requêtes pour Recherche Azure, vous pouvez remplacer l’[analyseur de requêtes simple](query-simple-syntax.md) par défaut par l’[analyseur de requêtes Lucene dans Recherche Azure](query-lucene-syntax.md), plus vaste, afin de formuler des définitions de requêtes spécialisées et avancées. 
+
+L’analyseur Lucene prend en charge les constructions de requêtes complexes, telles que les requêtes sur des champs, probable et recherche par caractères génériques préfixe, recherche de proximité, promotion de termes et recherche d’expression régulière. Cette fonctionnalité plus puissante nécessite des capacités de traitement supplémentaires et peut donc entraîner des temps d’exécution un peu plus longs. Dans cet article, vous pouvez parcourir des exemples décrivant les opérations de requête disponibles lors de l’utilisation de la syntaxe complète.
 
 > [!Note]
-> Une grande partie des constructions de requêtes spécialisées activées par le biais de la syntaxe de requête Lucene complète ne sont pas soumises à une [analyse du texte](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis), ce qui peut être surprenant si vous prévoyez une recherche de radical ou une lemmatisation. L’analyse lexicale est effectuée uniquement sur des termes complets (requête sur un terme ou une expression). Les types de requête avec des termes incomplets (requête de préfixe, de caractère générique, d’expression régulière, partielle) sont ajoutés directement à l’arborescence de requête, en ignorant la phase d’analyse. La seule transformation effectuée sur les termes de requête incomplets est l’utilisation de minuscules. 
+> Une grande partie des constructions de requêtes spécialisées activées par le biais de la syntaxe de requête Lucene complète ne sont pas soumises à une [analyse du texte](search-lucene-query-architecture.md#stage-2-lexical-analysis), ce qui peut être surprenant si vous prévoyez une recherche de radical ou une lemmatisation. L’analyse lexicale est effectuée uniquement sur des termes complets (requête sur un terme ou une expression). Les types de requête avec des termes incomplets (requête de préfixe, de caractère générique, d’expression régulière, partielle) sont ajoutés directement à l’arborescence de requête, en ignorant la phase d’analyse. La seule transformation effectuée sur les termes de requête incomplets est l’utilisation de minuscules. 
 >
 
 ## <a name="formulate-requests-in-postman"></a>Formuler des requêtes dans Postman
@@ -58,13 +59,15 @@ L’URL est composée des éléments suivants :
 
 ## <a name="send-your-first-query"></a>Envoyer votre première requête
 
-En guise d’étape de vérification, collez la requête suivante dans GET et cliquez sur **Envoyer**. Les résultats sont retournés sous forme de documents JSON détaillés. Vous pouvez copier-coller cette URL dans le premier exemple ci-dessous.
+En guise d’étape de vérification, collez la requête suivante dans GET et cliquez sur **Envoyer**. Les résultats sont retournés sous forme de documents JSON détaillés. Documents entiers sont retournés, ce qui vous permet de voir tous les champs et toutes les valeurs.
+
+Collez cette URL dans un client REST comme une étape de validation et afficher la structure du document.
 
   ```http
   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search=*
   ```
 
-La chaîne de requête **`search=*`**, est une recherche non spécifiée équivalente à une recherche nulle ou vide. Elle n’est pas particulièrement utile, mais c’est la recherche la plus simple que vous puissiez effectuer.
+La chaîne de requête **`search=*`**, est une recherche non spécifiée équivalente à une recherche nulle ou vide. Il est à la recherche la plus simple, que vous pouvez effectuer.
 
 Si vous le souhaitez, vous pouvez ajouter **`$count=true`** à l’URL pour retourner le nombre de documents correspondant aux critères de recherche. Une chaîne de recherche vide correspond à tous les documents figurant dans l’index (environ 2800 dans le cas de NYC Jobs).
 
@@ -80,12 +83,26 @@ Tous les exemples de cet article spécifient le paramètre de requête **queryTy
 
 ## <a name="example-1-field-scoped-query"></a>Exemple 1 : Requête sur des champs
 
-Ce premier exemple n’est pas propre à un analyseur, mais nous permet d’introduire le premier concept de requête fondamental : la contenance. Cet exemple limite l’exécution de la requête et la réponse à quelques champs spécifiques. Lors de l’utilisation de l’outil Postman ou Explorateur de recherche, il est important de connaître la structure d’une réponse JSON accessible en lecture. 
+Ce premier exemple n’est pas spécifique au Lucene, mais nous conduire avec lui pour présenter le concept de requête fondamental première : relation contenant-contenu. Cet exemple limite l’exécution de la requête et la réponse à quelques champs spécifiques. Lors de l’utilisation de l’outil Postman ou Explorateur de recherche, il est important de connaître la structure d’une réponse JSON accessible en lecture. 
 
 Par souci de concision, la requête cible uniquement le champ *business_title* et spécifie que seuls les titres de fonctions sont retournés. La syntaxe est **searchFields** pour restreindre l’exécution de la requête au champ business_title, ainsi que **select** pour spécifier les champs inclus dans la réponse.
 
+### <a name="partial-query-string"></a>Chaîne de requête partielle
+
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&search=*
+&search=*&searchFields=business_title&$select=business_title
+```
+
+Voici la même requête avec plusieurs champs dans une liste délimitée par des virgules.
+
+```http
+search=*&searchFields=business_title, posting_type&$select=business_title, posting_type
+```
+
+### <a name="full-url"></a>URL complète
+
+```http
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&queryType=full&$count=true&search=*&searchFields=business_title&$select=business_title
 ```
 
 La réponse pour cette requête doit ressembler à la capture d’écran suivante.
@@ -96,10 +113,24 @@ Vous avez peut-être remarqué le score de recherche dans la réponse. Des score
 
 ## <a name="example-2-intra-field-filtering"></a>Exemple 2 : Filtrage intra-champ
 
-La syntaxe Lucene complète prend en charge les expressions dans un champ. Cette requête recherche les titres de fonctions contenant le terme « senior » mais pas « junior » :
+La syntaxe Lucene complète prend en charge les expressions dans un champ. Cet exemple recherche les titres de fonctions avec le senior terme mais pas « junior ».
+
+### <a name="partial-query-string"></a>Chaîne de requête partielle
+
+```http
+searchFields=business_title&$select=business_title&search=business_title:senior+NOT+junior
+```
+
+Voici la même requête avec plusieurs champs.
+
+```http
+searchFields=business_title, posting_type&$select=business_title, posting_type&search=business_title:senior+NOT+junior AND posting_type:external
+```
+
+### <a name="full-url"></a>URL complète
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:senior+NOT+junior
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:senior+NOT+junior
 ```
 
   ![Exemple de réponse Postman](media/search-query-lucene-examples/intrafieldfilter.png)
@@ -117,49 +148,73 @@ Le champ spécifié dans **fieldname:searchterm** doit être un champ pouvant fa
 
 La syntaxe Lucene complète prend également en charge la recherche approximative, avec une mise en correspondance des termes qui ont une construction similaire. Pour effectuer une recherche partielle, ajoutez le signe tilde `~` à la fin d’un mot avec un paramètre facultatif, une valeur comprise entre 0 et 2, qui spécifie la distance de modification. Par exemple, `blue~` ou `blue~1` retournent blue, blues et glue.
 
+### <a name="partial-query-string"></a>Chaîne de requête partielle
+
+```http
+searchFields=business_title&$select=business_title&search=business_title:asosiate~
+```
+
+Expressions ne sont pas pris en charge directement, mais vous pouvez spécifier une correspondance approximative sur les composants d’une expression.
+
+```http
+searchFields=business_title&$select=business_title&search=business_title:asosiate~ AND comm~ 
+```
+
+
+### <a name="full-url"></a>URL complète
+
 Cette requête recherche les postes à pourvoir contenant le terme « associate » (délibérément mal orthographié) :
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:asosiate~
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:asosiate~
 ```
   ![Réponse de recherche partielle](media/search-query-lucene-examples/fuzzysearch.png)
 
-D’après la [documentation Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), les recherches partielles sont basées sur la [Distance Levenshtein-Damerau](https://en.wikipedia.org/wiki/Damerau%e2%80%93Levenshtein_distance).
 
 > [!Note]
-> Les requêtes approximatives ne sont pas [analysées](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis). Les types de requête avec des termes incomplets (requête de préfixe, de caractère générique, d’expression régulière, partielle) sont ajoutés directement à l’arborescence de requête, en ignorant la phase d’analyse. La seule transformation effectuée sur les termes de requête incomplets est l’utilisation de minuscules.
+> Les requêtes approximatives ne sont pas [analysées](search-lucene-query-architecture.md#stage-2-lexical-analysis). Les types de requête avec des termes incomplets (requête de préfixe, de caractère générique, d’expression régulière, partielle) sont ajoutés directement à l’arborescence de requête, en ignorant la phase d’analyse. La seule transformation effectuée sur les termes de requête incomplets est l’utilisation de minuscules.
 >
 
 ## <a name="example-4-proximity-search"></a>Exemple 4 : Recherche de proximité
 Les recherches de proximité servent à rechercher des termes qui sont proches les uns des autres dans un document. Insérez un signe tilde « ~ » à la fin d’une expression, suivi du nombre de mots qui créent la limite de proximité. Par exemple, "hotel airport"~5 recherche les termes hotel et airport distants de cinq mots ou moins dans un document.
 
+### <a name="partial-query-string"></a>Chaîne de requête partielle
+
+```http
+searchFields=business_title&$select=business_title&search=business_title:%22senior%20analyst%22~1
+```
+
+### <a name="full-url"></a>URL complète
+
 Dans cette requête, on recherche les postes contenant le terme « senior analyst » où les deux mots sont séparés au plus par un mot :
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:%22senior%20analyst%22~1
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:%22senior%20analyst%22~1
 ```
   ![Requête de proximité](media/search-query-lucene-examples/proximity-before.png)
 
 Réessayez, mais en supprimant les mots entre « senior analyst ». Notez que huit documents sont retournés pour cette requête, par opposition à 10 pour la requête précédente.
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:%22senior%20analyst%22~0
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:%22senior%20analyst%22~0
 ```
 
 ## <a name="example-5-term-boosting"></a>Exemple 5 : Promotion de termes
 La promotion de termes signifie que vous pouvez accorder à un document un rang plus élevé s’il contient le terme promu, par rapport aux documents qui ne contiennent pas ce terme. Pour promouvoir un terme, utilisez le signe « ^ » avec un facteur de promotion (un nombre) à la fin du terme recherché. 
 
+### <a name="full-urls"></a>URL complètes
+
 Dans cette requête « avant », on recherche les postes à pourvoir contenant le terme *computer analyst* et on constate l’absence de résultat avec les deux mots *computer* et *analyst*. Par contre, les postes *computer* figurent en haut des résultats.
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:computer%20analyst
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:computer%20analyst
 ```
   ![Promotion de termes avant](media/search-query-lucene-examples/termboostingbefore.png)
 
 Dans la requête « après », on répète la recherche, cette fois en promouvant les résultats contenant le terme *analyst* par rapport au terme *computer* si les deux mots ensemble n’existent pas. 
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:computer%20analyst%5e2
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:computer%20analyst%5e2
 ```
 Une version plus lisible de la requête ci-dessus est `search=business_title:computer analyst^2`. Pour obtenir une requête exploitable, `^2` est encodé sous la forme `%5E2`, ce qui est plus difficile à voir.
 
@@ -176,10 +231,18 @@ Lors de la définition du niveau de facteur, plus le facteur de promotion est é
 
 Une recherche d’expression régulière trouve une correspondance en fonction du contenu placé entre des barres obliques « / », comme le décrit la [classe RegExp](https://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html).
 
-Dans cette requête, on recherche les tâches contenant le terme Senior ou junior : `search=business_title:/(Sen|Jun)ior/``.
+### <a name="partial-query-string"></a>Chaîne de requête partielle
+
+```http
+searchFields=business_title&$select=business_title&search=business_title:/(Sen|Jun)ior/
+```
+
+### <a name="full-url"></a>URL complète
+
+Dans cette requête, rechercher des tâches avec le terme Senior ou « junior » : `search=business_title:/(Sen|Jun)ior/`.
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:/(Sen|Jun)ior/
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:/(Sen|Jun)ior/
 ```
 
   ![Requête par expression régulière](media/search-query-lucene-examples/regex.png)
@@ -191,10 +254,18 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 ## <a name="example-7-wildcard-search"></a>Exemple 7 : Recherche par caractères génériques
 Vous pouvez utiliser la syntaxe généralement reconnue pour effectuer des recherches avec plusieurs caractères génériques (\*) ou un caractère générique unique (?). Notez que l’Analyseur de requêtes Lucene prend en charge l’utilisation de ces symboles avec un terme unique, et non une expression.
 
+### <a name="partial-query-string"></a>Chaîne de requête partielle
+
+```http
+searchFields=business_title&$select=business_title&search=business_title:prog*
+```
+
+### <a name="full-url"></a>URL complète
+
 Dans cette requête, on recherche les postes à pourvoir qui contiennent le préfixe « prog », par exemple ceux contenant les termes « programmation » et « programmeur ». Vous ne pouvez pas utiliser un signe * ou ? comme premier caractère d’une recherche.
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:prog*
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:prog*
 ```
   ![Requête par caractère générique](media/search-query-lucene-examples/wildcard.png)
 

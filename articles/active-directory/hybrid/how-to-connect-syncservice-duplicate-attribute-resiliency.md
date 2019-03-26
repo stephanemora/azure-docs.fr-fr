@@ -16,12 +16,12 @@ ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc27e5cd6af19f06a5eab73e30d3034fada0ccc2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a65af5a5ea0629b617c4e736d8c110cbb9aa540c
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838389"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438299"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Synchronisation des identités et résilience d’attribut en double
 La résilience d’attribut en double est une fonctionnalité d’Azure Active Directory qui élimine les problèmes liés aux conflits entre **UserPrincipalName** et **ProxyAddress** lors de l’exécution de l’un des outils de synchronisation de Microsoft.
@@ -40,7 +40,7 @@ En cas de tentative d’approvisionnement d’un nouvel objet avec une valeur UP
 
 ## <a name="behavior-with-duplicate-attribute-resiliency"></a>Comportement avec une résilience d’attribut en double
 Au lieu de rejeter l’approvisionnement ou la mise à jour d’un objet comportant un attribut en double, Azure Active Directory met en « quarantaine » l’attribut en double qui enfreint la contrainte d’unicité. Si cet attribut est requis pour l’approvisionnement, comme pour UserPrincipalName, le service affecte une valeur d’espace réservé. Le format de ces valeurs temporaires est  
-«***<OriginalPrefix>+ < 4DigitNumber >\@<InitialTenantDomain>. onmicrosoft.com***».  
+«***\<OriginalPrefix > +\<4DigitNumber >\@\<InitialTenantDomain >. onmicrosoft.com***».  
 Si l’attribut n’est pas obligatoire, comme **ProxyAddress**, Azure Active Directory met simplement en quarantaine l’attribut à l’origine du conflit et poursuit la création ou la mise à jour de l’objet.
 
 Lorsque l’attribut est mis en quarantaine, des informations sur le conflit sont envoyées dans le même e-mail de rapport d’erreur utilisé avec l’ancien comportement. Toutefois, ces informations n’apparaissent qu’une fois dans le rapport d’erreurs (lors de la mise en quarantaine) ; elles ne sont pas consignées dans les e-mails suivants. En outre, étant donné que l’exportation de cet objet a réussi, le client de synchronisation ne consigne pas d’erreur et ne retente pas la création/la mise à jour lors des cycles de synchronisation suivants.
@@ -66,7 +66,7 @@ Vous pouvez vérifier si cette fonctionnalité est activée sur votre client en 
 > Vous pouvez n’est plus utiliser l’applet de commande Set-MsolDirSyncFeature pour activer de manière proactive la fonctionnalité de résilience des attributs en double avant qu’elle ne soit activée pour votre locataire. Pour pouvoir tester la fonctionnalité, vous devez créer un nouveau locataire Azure Active Directory.
 
 ## <a name="identifying-objects-with-dirsyncprovisioningerrors"></a>Identification des objets avec DirSyncProvisioningErrors
-Il existe actuellement deux méthodes pour identifier les objets qui comportent ces erreurs en raison de conflits de propriété dupliquée : Azure Active Directory PowerShell et le portail d’administration Office 365. Il est prévu d’augmenter la capacité de génération de rapports dans le portail.
+Il existe actuellement deux méthodes pour identifier les objets qui présentent ces erreurs en raison de conflits de propriété en double, Azure Active Directory PowerShell et le [centre d’administration Microsoft 365](https://admin.microsoft.com). Il est prévu d’augmenter la capacité de génération de rapports dans le portail.
 
 ### <a name="azure-active-directory-powershell"></a>Azure Active Directory PowerShell
 Pour les applets de commande PowerShell dans cette rubrique, les conditions suivantes sont vérifiées :
@@ -113,17 +113,17 @@ Pour effectuer une recherche de chaîne élargie, utilisez l’indicateur **-Sea
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -SearchString User`
 
 #### <a name="in-a-limited-quantity-or-all"></a>Par quantité limitée ou l’ensemble des erreurs
-1. **MaxResults <Int>** peut être utilisé pour limiter la requête à un nombre spécifique de valeurs.
+1. **MaxResults \<Int >** peut être utilisé pour limiter la requête à un nombre spécifique de valeurs.
 2. **All** permet de vérifier que tous les résultats sont récupérés, notamment si le nombre d’erreurs est élevé.
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -MaxResults 5`
 
-## <a name="office-365-admin-portal"></a>Portail d’administration Office 365
-Vous pouvez afficher les erreurs de synchronisation d’annuaires dans le Centre d’administration Office 365. Le rapport sur le portail Office 365 n’affiche que les objets **Utilisateur** qui présentent ces erreurs. Il n’indique pas d’informations sur les conflits entre **Groupes** et **Contacts**.
+## <a name="microsoft-365-admin-center"></a>Centre d’administration Microsoft 365
+Vous pouvez afficher les erreurs de synchronisation d’annuaires dans le centre d’administration Microsoft 365. Le rapport dans l’administrateur de Microsoft 365 center affiche uniquement **utilisateur** objets qui ont ces erreurs. Il n’indique pas d’informations sur les conflits entre **Groupes** et **Contacts**.
 
 ![Utilisateurs actifs](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/1234.png "Utilisateurs actifs")
 
-Pour obtenir des instructions sur l’affichage des erreurs de synchronisation d’annuaires dans le Centre d’administration Office 365, consultez [Identifier les erreurs de synchronisation d’annuaires dans Office 365](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067).
+Pour obtenir des instructions sur l’affichage des erreurs de synchronisation d’annuaires dans le centre d’administration Microsoft 365, consultez [identifier les erreurs de synchronisation d’annuaires dans Office 365](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067).
 
 ### <a name="identity-synchronization-error-report"></a>Rapport d’erreur de synchronisation d’identité
 Lorsqu’un objet présentant un conflit d’attribut en double est traité avec ce nouveau comportement, une notification afférente est incluse dans l’e-mail standard contenant le rapport d’erreur de synchronisation d’identité. Ce dernier est envoyé au contact du client en charge des notifications techniques. Toutefois, ce comportement présente un changement majeur. Auparavant, les informations de conflit d’attribut en double apparaissaient dans chaque rapport d’erreurs généré jusqu’à la résolution du conflit. Avec ce nouveau comportement, la notification d’erreur pour un conflit donné n’apparaît qu’une fois : au moment où l’attribut en conflit est mis en quarantaine.

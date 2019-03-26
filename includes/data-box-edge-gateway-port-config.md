@@ -1,8 +1,16 @@
-      ---
-author: alkohli ms.service: databox  
-ms.topic: include ms.date: 03/21/2019 ms.author: alkohli
 ---
-
+author: alkohli
+ms.service: databox
+ms.topic: include
+ms.date: 03/25/2019
+ms.author: alkohli
+ms.openlocfilehash: 98f9e0377e560fa0bba2fd470ff01431b2ed21d9
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58431345"
+---
 | N° de port| Entrant ou sortant | Étendue de ports| Obligatoire|   Notes |   |
 |--------|-----|-----|-----------|----------|-----------|
 | TCP 80 (HTTP)|Sortie|WAN |Non |Le port de sortie est utilisé pour accéder à Internet afin de récupérer les mises à jour. <br>Le proxy web sortant est configurable par l’utilisateur. |
@@ -15,4 +23,3 @@ ms.topic: include ms.date: 03/21/2019 ms.author: alkohli
 | TCP 443 (HTTPS)|Sortie/Entrée|LAN|Oui|Ce port est le port d’entrée pour l’interface utilisateur locale de l’appareil pour la gestion locale. |
 | TCP 445 (SMB)|Dans|LAN|Dans certains cas<br>Voir les remarques|Ce port est requis seulement si vous vous connectez via SMB. |
 | TCP 2049 (NFS)|Dans|LAN|Dans certains cas<br>Voir les remarques|Ce port est requis seulement si vous vous connectez via NFS. |
-
