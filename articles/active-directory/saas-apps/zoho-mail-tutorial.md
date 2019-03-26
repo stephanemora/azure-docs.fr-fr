@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Zoho | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Zoho | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Zoho.
 services: active-directory
 documentationCenter: na
@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 9874e1f3-ade5-42e7-a700-e08b3731236a
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5ca65ca74e24579f15512722dffd0900a231230
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: dfd3afea4a5f09f1e572030b28d3511b31d81b69
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873336"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57904272"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoho"></a>Tutoriel : Intégration d’Azure Active Directory à Zoho
 
@@ -170,7 +170,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
@@ -228,7 +228,7 @@ Pour que les utilisateurs d’Azure AD puissent se connecter à Zoho Mail, ils 
 
     b. Dans la zone de texte **Last Name**, tapez le nom de l’utilisateur, par exemple **Simon**.
 
-    c. Dans la zone de texte **Email**, tapez l’ID d’e-mail d’un utilisateur, par exemple, **brittasimon@contoso.com**.
+    c. Dans la zone de texte **ID d’e-mail** , tapez l’e-mail de l’utilisateur, par exemple **brittasimon\@contoso.com**.
 
     d. Dans la zone de texte **Password**, tapez le mot de passe de l’utilisateur.
    

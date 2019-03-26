@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 3f378edb-9ac9-494d-a84a-03357b923ee1
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: aad6abce87ce56c0a4ef546e208bf23b14068247
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 94686d62e8019bfc5dba1ccd4a00142512930c0e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56808921"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57862214"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>Didacticiel : Intégration d’Azure Active Directory à Periscope Data
 
@@ -105,6 +105,7 @@ Pour configurer l’authentification unique Azure AD auprès de Periscope Data,
     ![Informations d’authentification unique relatives au domaine et aux URL Periscope Data](common/sp-identifier.png)
 
     a. Dans la zone de texte **URL de connexion**, tapez une de ces URL :
+    
     | |
     |--|
     | `https://app.periscopedata.com/` |
@@ -165,7 +166,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
@@ -218,7 +219,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Periscope Data, vous
 
     b. Dans la zone de texte **Nom**, entrez le nom de l’utilisateur, par exemple **Simon**.
 
-    c. Dans la zone de texte **Email** (E-mail), entrez l’adresse e-mail de l’utilisateur, par exemple **brittasimon@contoso.com**.
+    c. Dans la zone de texte **E-mail**, entrez l’adresse e-mail de l’utilisateur, par exemple **brittasimon\@contoso.com**.
 
     d. Cliquez sur **ADD** (Ajouter).
 

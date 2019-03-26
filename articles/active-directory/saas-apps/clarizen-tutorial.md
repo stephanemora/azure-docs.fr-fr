@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b62bfca7c78e05269e6717f09cc597f09f027829
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 48955354baf86d84c0ddc6618a99f7e806c26c2b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865703"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57840872"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Tutoriel : Intégration d’Azure Active Directory à Clarizen
 
@@ -134,7 +134,7 @@ Pour configurer l’authentification unique Azure AD auprès de Clarizen, effect
 
     ![Sélection de l’option « Settings » (Paramètres) sous votre nom d’utilisateur](./media/clarizen-tutorial/tutorial_clarizen_001.png "Settings") (Paramètres)
 
-1. Cliquez sur l’onglet **Global Settings** (Paramètres globaux). En regard de la zone Federated Authentication (Authentification fédérée), cliquez sur **edit** (modifier).
+1. Cliquez sur l’onglet **Global Settings** (Paramètres globaux). En regard de la zone **Federated Authentication** (Authentification fédérée), cliquez sur **edit** (modifier).
 
     ![Onglet « Global Settings » (Paramètres globaux)](./media/clarizen-tutorial/tutorial_clarizen_002.png "Global Settings") (Paramètres globaux)
 
@@ -172,7 +172,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

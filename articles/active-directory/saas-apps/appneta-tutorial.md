@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à AppNeta Performance Monitor | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à AppNeta Performance Monitor | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et AppNeta Performance Monitor.
 services: active-directory
 documentationCenter: na
@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 643a45fb-d6fc-4b32-b721-68899f8c7d44
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c11d1206a080603f58d2fcb3ffb5b9f8defb16d
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: e48e353df6c14ec24a01fe3b1852de2c6a0a3155
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867539"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57843689"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-appneta-performance-monitor"></a>Didacticiel : Intégration d’Azure Active Directory à AppNeta Performance Monitor
+# <a name="tutorial-azure-active-directory-integration-with-appneta-performance-monitor"></a>Tutoriel : Intégration d’Azure Active Directory à AppNeta Performance Monitor
 
 Dans ce didacticiel, vous allez apprendre à intégrer AppNeta Performance Monitor à Azure Active Directory (Azure AD).
 L’intégration d’AppNeta Performance Monitor à Azure AD vous offre les avantages suivants :
@@ -187,7 +187,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

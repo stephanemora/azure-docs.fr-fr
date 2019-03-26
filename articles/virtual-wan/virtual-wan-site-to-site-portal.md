@@ -5,17 +5,17 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 09/25/2018
+ms.date: 02/26/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 475a1bf7a547a809a17a9aa9b8f98cc7ef4ea252
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: ca18042985669899247c3a0a16b41a98c5c6d1ee
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181241"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58075166"
 ---
-# <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Didacticiel : Créer une connexion de site à site à l’aide d’Azure Virtual WAN
+# <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Tutoriel : Créer une connexion de site à site à l’aide d’Azure Virtual WAN
 
 Ce didacticiel vous montre comment utiliser Virtual WAN pour vous connecter à vos ressources dans Azure via une connexion VPN IPsec/IKE (IKEv1 et IKEv2). Ce type de connexion requiert un périphérique VPN local disposant d’une adresse IP publique exposée en externe. Pour plus d’informations sur le WAN virtuel, consultez [Vue d'ensemble de WAN virtuel](virtual-wan-about.md)
 
@@ -40,7 +40,11 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="vnet"></a>1. Créez un réseau virtuel
 
@@ -48,7 +52,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="openvwan"></a>2. Créer un WAN virtuel
 
-Dans un navigateur, accédez au [portail Azure](http://aka.ms/azurevirtualwanpreviewfeatures) et connectez-vous avec votre compte Azure.
+Dans un navigateur, accédez au [portail Azure](https://aka.ms/azurevirtualwanpreviewfeatures) et connectez-vous avec votre compte Azure.
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-vwan-include.md)]
 
@@ -60,12 +64,12 @@ Créez autant de sites que nécessaire correspondant à vos emplacements physiqu
 2. Sur la page **Sites VPN**, cliquez sur **+Créer un site**.
 3. Sur la page **Créer un site**, renseignez les champs suivants :
 
-  * **Nom** : c’est le nom par lequel vous souhaitez faire référence à votre site local.
-  * **Adresse IP publique** : il s’agit de l’adresse IP publique du périphérique VPN qui réside sur votre site local.
-  * **Espace d’adressage privé** : il s’agit de l’espace d’adresse IP situé sur votre site local. Le trafic destiné à cet espace d’adressage est acheminé vers votre site local.
-  * **Abonnement** : vérifiez l’abonnement.
-  * **Groupe de ressources** : le groupe de ressources que vous souhaitez utiliser.
-  * **Emplacement**.
+   * **Nom** : c’est le nom par lequel vous souhaitez faire référence à votre site local.
+   * **Adresse IP publique** : il s’agit de l’adresse IP publique du périphérique VPN qui réside sur votre site local.
+   * **Espace d’adressage privé** : il s’agit de l’espace d’adresse IP situé sur votre site local. Le trafic destiné à cet espace d’adressage est acheminé vers votre site local.
+   * **Abonnement** : vérifiez l’abonnement.
+   * **Groupe de ressources** : le groupe de ressources que vous souhaitez utiliser.
+   * **Emplacement**.
 4. Cliquez sur **Afficher les options avancées** pour afficher des paramètres supplémentaires. Vous pouvez sélectionner **BGP** pour activer le protocole BGP et ainsi activer cette fonctionnalité sur toutes les connexions créées pour ce site dans Azure. Vous pouvez également renseigner le champ **Informations sur le périphérique** (facultatif). Cela peut aider l’équipe Azure à mieux comprendre votre environnement afin d’ajouter des possibilités d’optimisation supplémentaires ou pour vous aider à résoudre les problèmes.
 5. Cliquez sur **Confirmer**.
 6. Après avoir cliqué sur **Confirmer**, affichez l’état sur la page Sites VPN. Le site passe de l’état **Approvisionnement** à l’état **Approvisionné**.
@@ -265,12 +269,12 @@ Si vous avez besoin d’instructions pour configurer votre périphérique, vous 
 
 Créez une connexion pour surveiller les communications entre une machine virtuelle Azure et un site distant. Pour plus d’informations sur la façon de configurer un contrôleur de connexion, consultez [Surveiller une communication réseau](~/articles/network-watcher/connection-monitor.md). Le champ source est l’adresse IP de la machine virtuelle dans Azure, et l’adresse IP de destination est le l’adresse IP du site.
 
-## <a name="cleanup"></a>11. Supprimer les ressources
+## <a name="cleanup"></a>11. Supprimer des ressources
 
-Quand vous n’avez plus besoin de ces ressources, vous pouvez utiliser [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) pour supprimer le groupe de ressources et toutes les ressources qu’il contient. Remplacez « myResourceGroup » par le nom de votre groupe de ressources et exécutez la commande PowerShell suivante :
+Quand vous n’avez plus besoin de ces ressources, vous pouvez utiliser [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) pour supprimer le groupe de ressources et toutes les ressources qu’il contient. Remplacez « myResourceGroup » par le nom de votre groupe de ressources et exécutez la commande PowerShell suivante :
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

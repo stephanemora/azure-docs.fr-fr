@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 12/27/2018
+ms.date: 02/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 6df44afee26570dbdc5d64b449c4e33d6a0956ae
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: d5b6949930161f78c6edf4213df98471e96b1d42
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885708"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404040"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box"></a>Utiliser l’interface utilisateur web locale pour administrer votre Data Box
 
@@ -25,6 +25,7 @@ Cet article inclut les didacticiels suivants :
 
 - Générer un package de support
 - Arrêter ou redémarrer votre appareil
+- Télécharger les fichiers manifeste ou de nomenclature
 - Afficher la capacité disponible sur l’appareil
 - Ignorer la validation de la somme de contrôle 
 
@@ -104,6 +105,8 @@ Avant de commencer, vérifiez que l’étape **Préparer l’expédition** est t
     |databoxe2etest_AzFile-BOM.txt    |Azure Files         |SMB/NFS         |
     |databoxe2etest_PageBlock_Rest-BOM.txt     |Objets blob de pages         |REST        |
     |databoxe2etest_BlockBlock_Rest-BOM.txt    |Objets blob de blocs         |REST         |
+    |mydbmdrg1_MDisk-BOM.txt    |Disque managé         |SMB/NFS         |
+    |mydbmdrg2_MDisk-BOM.txt     |Disque managé         |SMB/NFS         |
 
 Utilisez cette liste pour vérifier les fichiers chargés dans le compte de stockage Azure une fois la Data Box renvoyée au centre de données Azure. Vous trouverez ci-dessous un exemple de fichier manifeste.
 

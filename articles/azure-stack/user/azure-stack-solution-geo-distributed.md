@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 7c7279f1895764c2a3ed73e824d44c2eed68240c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 3df5bd177dfd88e74a8dbc72dd1966a18a61d0f8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244571"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57860582"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>Tutoriel : Créer une solution d’application géolocalisée avec Azure et Azure Stack
 
@@ -123,7 +123,7 @@ Configurez la CI/CD hybride pour déployer Web App sur Azure et Azure Stack, et 
 
 ### <a name="create-web-app-deployment-in-both-clouds"></a>Création d’un déploiement d’application web dans les deux clouds
 
-1.  Modifiez le fichier **WebApplication.csproj** : Sélectionnez Runtimeidentifier et ajoutez **win10-x64**. (Consultez la documentation sur le [déploiement autonome](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd).)
+1.  Modifiez le fichier **WebApplication.csproj** : Sélectionnez **Runtimeidentifier** et ajoutez **win10-x64**. (Consultez la documentation sur le [déploiement autonome](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd).)
 
     ![Alt text](media/azure-stack-solution-geo-distributed/image3.png)
 
@@ -154,9 +154,9 @@ Azure DevOps et Azure DevOps Server fournissent un pipeline hautement configurab
 
 ![Alt text](media/azure-stack-solution-geo-distributed/image5.png)
 
-1.  Sélectionnez le bouton **plus** pour ajouter une nouvelle mise en production sous l’onglet **Mises en production** dans la page Build et mise en production de Visual Studio Online (VSO).
+1. Sélectionnez le bouton **plus** pour ajouter une nouvelle mise en production sous l’onglet **Mises en production** dans la page Build et mise en production de Visual Studio Online (VSO).
 
-    ![Alt text](media/azure-stack-solution-geo-distributed/image6.png)
+   ![Alt text](media/azure-stack-solution-geo-distributed/image6.png)
 
 2. Appliquez le modèle **Déploiement Azure App Service**.
 
@@ -210,7 +210,7 @@ Azure DevOps et Azure DevOps Server fournissent un pipeline hautement configurab
 
 14. Sélectionnez **l’abonnement** pour le point de terminaison Azure Stack.
 
-  ![Alt text](media/azure-stack-solution-geo-distributed/image20.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image20.png)
 
 15. Définissez le nom de l’application web Azure Stack comme **nom de l’App Service**.
 
@@ -299,11 +299,11 @@ La capture d’écran suivante est un exemple d’une page d’enregistrements D
 
 ![Exemple de page d’enregistrements DNS](media/azure-stack-solution-geo-distributed/image28.png)
 
-1.  Dans le bureau d’enregistrement de noms de domaine, sélectionnez **Ajouter ou Créer** pour créer un enregistrement. Certains fournisseurs ont différents liens pour ajouter divers types d’enregistrements. Consultez la documentation du fournisseur.
+1. Dans le bureau d’enregistrement de noms de domaine, sélectionnez **Ajouter ou Créer** pour créer un enregistrement. Certains fournisseurs ont différents liens pour ajouter divers types d’enregistrements. Consultez la documentation du fournisseur.
 
-2.  Ajoutez un enregistrement CNAME pour mapper un sous-domaine au nom d’hôte par défaut de l’application.
+2. Ajoutez un enregistrement CNAME pour mapper un sous-domaine au nom d’hôte par défaut de l’application.
 
-  Pour l’exemple de domaine www.northwindcloud.com, ajoutez un enregistrement CNAME qui mappe le nom à <nom\_application>.azurewebsites.net.
+   Pour l’exemple de domaine www.northwindcloud.com, ajoutez un enregistrement CNAME qui mappe le nom à <nom\_application>.azurewebsites.net.
 
 Après avoir ajouté l’enregistrement CNAME, la page d’enregistrements DNS ressemble à l’exemple suivant :
 
@@ -311,47 +311,47 @@ Après avoir ajouté l’enregistrement CNAME, la page d’enregistrements DNS r
 
 ### <a name="enable-the-cname-record-mapping-in-azure"></a>Activer le mappage d’enregistrement CNAME dans Azure
 
-1.  Dans un nouvel onglet, connectez-vous au portail Azure.
+1. Dans un nouvel onglet, connectez-vous au portail Azure.
 
-2.  Accédez à App Services.
+2. Accédez à App Services.
 
-3.  Sélectionnez l’application web.
+3. Sélectionnez l’application web.
 
-4.  Dans le volet de navigation gauche de la page d’application du portail Azure, sélectionnez **Domaines personnalisés**.
+4. Dans le volet de navigation gauche de la page d’application du portail Azure, sélectionnez **Domaines personnalisés**.
 
-5.  Cliquez sur l’icône **+** en regard de **Ajouter un nom d’hôte**.
+5. Cliquez sur l’icône **+** en regard de **Ajouter un nom d’hôte**.
 
-1.  Tapez le nom de domaine complet, par exemple `www.northwindcloud.com`.
+1. Tapez le nom de domaine complet, par exemple `www.northwindcloud.com`.
 
-2.  Sélectionnez **Valider**.
+2. Sélectionnez **Valider**.
 
-3.  Si cela est indiqué, ajoutez des enregistrements supplémentaires d’autres types (`A` ou `TXT`) aux enregistrements DNS du bureau d’enregistrement de noms de domaine. Azure fournit les valeurs et les types de ces enregistrements :
+3. Si cela est indiqué, ajoutez des enregistrements supplémentaires d’autres types (`A` ou `TXT`) aux enregistrements DNS du bureau d’enregistrement de noms de domaine. Azure fournit les valeurs et les types de ces enregistrements :
 
-    a.  Un enregistrement **A** pour effectuer un mappage vers l’adresse IP de l’application.
+   a.  Un enregistrement **A** pour effectuer un mappage vers l’adresse IP de l’application.
 
-    b.  Un enregistrement **TXT** pour effectuer un mappage vers le nom d’hôte par défaut de l’application <nom_application>.azurewebsites.net. App Service utilise cet enregistrement uniquement au moment de la configuration, pour vérifier la propriété du domaine personnalisé. Après vérification, supprimez l’enregistrement TXT.
+   b.  Un enregistrement **TXT** pour effectuer un mappage vers le nom d’hôte par défaut de l’application <nom_application>.azurewebsites.net. App Service utilise cet enregistrement uniquement au moment de la configuration, pour vérifier la propriété du domaine personnalisé. Après vérification, supprimez l’enregistrement TXT.
 
-4.  Effectuez cette tâche dans l’onglet du bureau d’enregistrement de domaine et validez à nouveau pour que le bouton **Ajouter un nom d’hôte** soit activé.
+4. Effectuez cette tâche dans l’onglet du bureau d’enregistrement de domaine et validez à nouveau pour que le bouton **Ajouter un nom d’hôte** soit activé.
 
-5.  Assurez-vous que **Type d’enregistrement du nom d’hôte est défini sur **Enregistrement CNAME (exemple.com ou tout sous-domaine)**.
+5. Assurez-vous que **Type d’enregistrement du nom d’hôte est défini sur **Enregistrement CNAME (exemple.com ou tout sous-domaine)**.
 
-6.  Sélectionnez **Ajouter un nom d’hôte**.
+6. Sélectionnez **Ajouter un nom d’hôte**.
 
-7.  Tapez le nom de domaine complet, par exemple `northwindcloud.com`.
+7. Tapez le nom de domaine complet, par exemple `northwindcloud.com`.
 
-8.  Sélectionnez **Valider**.
+8. Sélectionnez **Valider**.
 
-9.  **Ajouter** est activé.
+9. **Ajouter** est activé.
 
 10. Assurez-vous que **Type d’enregistrement du nom d’hôte est défini sur **Enregistrement A (exemple.com)**.
 
 11. **Ajoutez un nom d’hôte**.
 
-  Un certain temps peut être nécessaire pour que les nouveaux noms d’hôte soient reflétés sur la page **Domaines personnalisés** de votre application. Essayez d’actualiser le navigateur pour mettre à jour les données.
+    Un certain temps peut être nécessaire pour que les nouveaux noms d’hôte soient reflétés sur la page **Domaines personnalisés** de votre application. Essayez d’actualiser le navigateur pour mettre à jour les données.
   
-  ![Alt text](media/azure-stack-solution-geo-distributed/image31.png) 
+    ![Alt text](media/azure-stack-solution-geo-distributed/image31.png) 
   
-  En cas d’erreur, une notification d’erreur de vérification s’affiche en bas de la page. ![Erreur de vérification](media/azure-stack-solution-geo-distributed/image32.png)
+    En cas d’erreur, une notification d’erreur de vérification s’affiche en bas de la page. ![Erreur de vérification](media/azure-stack-solution-geo-distributed/image32.png)
 
 > [!Note]  
 >  Les étapes ci-dessus peuvent être répétées pour mapper un domaine générique (\*. northwindcloud.com). Cela vous permet d’ajouter n’importe quel sous-domaine à cet App Service sans avoir à créer un enregistrement CNAME distinct pour chacun. Suivez les instructions du bureau d’enregistrement pour configurer ce paramètre.
@@ -482,15 +482,15 @@ Lorsque vous utilisez IIS ou **Certreq.exe** pour générer la demande de certif
 
 #### <a name="upload-the-ssl-certificate"></a>Charger le certificat SSL
 
-1.  Dans le volet de navigation gauche, sélectionnez **Paramètres SSL**.
+1. Dans le volet de navigation gauche, sélectionnez **Paramètres SSL**.
 
-2.  Sélectionnez **Charger un certificat**.
+2. Sélectionnez **Charger un certificat**.
 
-3.  Dans **Fichier de certificat PFX**, sélectionnez le fichier PFX.
+3. Dans **Fichier de certificat PFX**, sélectionnez le fichier PFX.
 
-4.  4. Dans **Mot de passe du certificat**, tapez le mot de passe créé lors de l’exportation du fichier PFX.
+4. 1. Dans **Mot de passe du certificat**, tapez le mot de passe créé lors de l’exportation du fichier PFX.
 
-5.  Sélectionnez **Télécharger**.
+5. Sélectionnez **Télécharger**.
 
 ![Téléchargement d’un certificat](media/azure-stack-solution-geo-distributed/image38.png)
 
@@ -507,9 +507,9 @@ Lorsque App Service finit de charger le certificat, celui-ci apparaît dans la p
 
 1.  Dans la page **Ajouter une liaison SSL**, utilisez les listes déroulantes pour sélectionner le nom de domaine à sécuriser et le certificat à utiliser.
 
-2.  Dans **Type SSL**, choisissez d’utiliser [**l’indication du nom du serveur (SNI)**](http://en.wikipedia.org/wiki/Server_Name_Indication) ou le protocole SSL basé sur IP.
+2.  Dans **Type SSL**, choisissez d’utiliser [**l’indication du nom du serveur (SNI)**](https://en.wikipedia.org/wiki/Server_Name_Indication) ou le protocole SSL basé sur IP.
 
--   **SSL basé sur SNI** : plusieurs liaisons SSL basées sur SNI peuvent être ajoutées. Cette option permet de sécuriser plusieurs domaines sur la même adresse IP avec plusieurs certificats SSL. La plupart des navigateurs actuels (y compris Internet Explorer, Chrome, Firefox et Opera) prennent en charge SNI (plus d’informations sur la prise en charge des navigateurs dans [Indication du nom du serveur](http://wikipedia.org/wiki/Server_Name_Indication)).
+-   **SSL basé sur SNI** : plusieurs liaisons SSL basées sur SNI peuvent être ajoutées. Cette option permet de sécuriser plusieurs domaines sur la même adresse IP avec plusieurs certificats SSL. La plupart des navigateurs actuels (y compris Internet Explorer, Chrome, Firefox et Opera) prennent en charge SNI (plus d’informations sur la prise en charge des navigateurs dans [Indication du nom du serveur](https://wikipedia.org/wiki/Server_Name_Indication)).
 
 -   **SSL basé sur IP** : une seule liaison SSL basée sur IP peut être ajoutée. Cette option permet de sécuriser une adresse IP publique dédiée avec un seul certificat SSL. Pour sécuriser plusieurs domaines, vous devez tous les sécuriser en utilisant le même certificat SSL. Cette option est sélectionnée par défaut pour la liaison SSL.
 
@@ -588,23 +588,23 @@ L’application autorise [TLS](https://wikipedia.org/wiki/Transport_Layer_Securi
 
 ### <a name="add-traffic-manager-endpoints"></a>Ajouter des points de terminaison Traffic Manager
 
-1.  Dans la barre de recherche du portail, recherchez le nom du **profil Traffic Manager** créé dans la section précédente et sélectionnez le profil Traffic Manager dans les résultats affichés.
+1. Dans la barre de recherche du portail, recherchez le nom du **profil Traffic Manager** créé dans la section précédente et sélectionnez le profil Traffic Manager dans les résultats affichés.
 
-2.  Dans **Profil Traffic Manager**, à la section **Paramètres**, sélectionnez **Points de terminaison**.
+2. Dans **Profil Traffic Manager**, à la section **Paramètres**, sélectionnez **Points de terminaison**.
 
-3.  Sélectionnez **Ajouter**.
+3. Sélectionnez **Ajouter**.
 
-4.  Ajout du point de terminaison Azure Stack.
+4. Ajout du point de terminaison Azure Stack.
 
-5.  Pour **Type**, sélectionnez **Point de terminaison externe**.
+5. Pour **Type**, sélectionnez **Point de terminaison externe**.
 
-6.  Fournissez un **nom** pour ce point de terminaison, dans l’idéal, le nom du déploiement Azure Stack.
+6. Fournissez un **nom** pour ce point de terminaison, dans l’idéal, le nom du déploiement Azure Stack.
 
-7.  Pour le nom de domaine complet (**FQDN**), utilisez l’URL externe de l’application web Azure Stack.
+7. Pour le nom de domaine complet (**FQDN**), utilisez l’URL externe de l’application web Azure Stack.
 
-8.  Sous Mappage géographique, sélectionnez la région/le continent où se trouve la ressource, par exemple, **Europe.**
+8. Sous Mappage géographique, sélectionnez la région/le continent où se trouve la ressource, par exemple, **Europe.**
 
-9.  Sous la liste déroulante Pays/Région qui apparaît, sélectionnez le pays qui s’applique à ce point de terminaison, par exemple, **Allemagne**.
+9. Sous la liste déroulante Pays/Région qui apparaît, sélectionnez le pays qui s’applique à ce point de terminaison, par exemple, **Allemagne**.
 
 10. Vérifiez que la case **Ajouter comme désactivé** est désélectionnée.
 
@@ -628,12 +628,12 @@ L’application autorise [TLS](https://wikipedia.org/wiki/Transport_Layer_Securi
 
 16. Sélectionnez **OK**.
 
-  > [!Note]  
-  >  Créez au moins un point de terminaison en choisissant la portée géographique Tous (Monde) comme point de terminaison par défaut de la ressource.
+    > [!Note]  
+    >  Créez au moins un point de terminaison en choisissant la portée géographique Tous (Monde) comme point de terminaison par défaut de la ressource.
 
-1.  Lorsque l’ajout de deux points de terminaison est terminé, ceux-ci s’affichent dans **Profil Traffic Manager** avec leur état de surveillance défini sur **En ligne**.
+1. Lorsque l’ajout de deux points de terminaison est terminé, ceux-ci s’affichent dans **Profil Traffic Manager** avec leur état de surveillance défini sur **En ligne**.
 
-  ![Alt text](media/azure-stack-solution-geo-distributed/image46.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image46.png)
 
 **Les multinationales s’appuient sur les fonctionnalités de géodistribution Azure**
 

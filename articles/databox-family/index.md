@@ -17,7 +17,7 @@ ms.author: alkohli
 <p>La famille Azure Data Box propose des produits de différentes capacités de stockage pour faciliter l’envoi de téraoctets (To) de données vers Azure de manière rapide, économique et fiable. Microsoft accélère le transfert de données sécurisé en vous envoyant des appareils de stockage propriétaires qui permettent le transfert de données hors connexion ou via le réseau.</p>
 <h2>Transfert de données hors connexion</h2>
 <p>Pour une bande passante réseau limitée ou aucune</p>
-<ul class="cardsA panelContent singlePanelContent cols cols3" style="display:flex!important;">
+<ul class="cardsA panelContent singlePanelContent cols cols3">
     <li>
         <a href="/azure/databox/data-box-disk-overview">
             <div class="cardSize">
@@ -29,7 +29,7 @@ ms.author: alkohli
                             </div>
                         </div>
                         <div class="cardText">
-                            <p><b>Data Box Disk</b> pour les tailles de données inférieures à 40 To. Microsoft vous envoie 1 à 5 disques SSD sur lesquels vous copiez les données avant de le réexpédier.</p>
+                            <p><b>Data Box Disk</b> pour les tailles de données &lt; à 40 To. Microsoft vous envoie 1 à 5 disques SSD sur lesquels vous copiez les données avant de le réexpédier.</p>
                         </div>
                     </div>
                 </div>
@@ -65,7 +65,7 @@ ms.author: alkohli
                             </div>
                         </div>
                         <div class="cardText">
-                            <p><b>Data Box Heavy<SUP>Préversion</SUP></b> pour les tailles de données supérieures à 500 To. Microsoft vous envoie, par transporteur, un appareil d’un pétaoctet (Po) sur lequel vous copiez les données avant de le réexpédier.</p>
+                            <p><b>Data Box Heavy</b> pour les tailles de données &gt; à 500 To. Microsoft vous envoie, par transporteur, un appareil d’un pétaoctet (Po) sur lequel vous copiez les données avant de le réexpédier.</p>
                         </div>
                     </div>
                 </div>
@@ -87,7 +87,7 @@ ms.author: alkohli
                             </div>
                         </div>
                         <div class="cardText">
-                            <p>Appareil virtuel <b>Data Box Gateway <SUP>Préversion</SUP></b> avec stockage. Utiliser cet appareil pour envoyer vos données via le réseau vers Azure.</p>
+                            <p>Appareil virtuel <b>Data Box Gateway </b> avec stockage. Utiliser cet appareil pour envoyer vos données via le réseau vers Azure.</p>
                         </div>
                     </div>
                 </div>
@@ -105,7 +105,7 @@ ms.author: alkohli
                             </div>
                         </div>
                         <div class="cardText">
-                            <p>Appareil physique <b>Data Box Edge <SUP>Préversion</SUP></b> avec stockage et calcul. Utilisez cet appareil quand vous souhaitez analyser, transformer ou filtrer vos données au moment de leur déplacement vers Azure.</p>
+                            <p>Appareil physique <b>Data Box Edge </b> avec stockage et calcul. Utilisez cet appareil quand vous souhaitez analyser, transformer ou filtrer vos données au moment de leur déplacement vers Azure.</p>
                         </div>
                     </div>
                 </div>

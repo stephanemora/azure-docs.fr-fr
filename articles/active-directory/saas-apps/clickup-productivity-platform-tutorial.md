@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à ClickUp Productivity Platform | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à ClickUp Productivity Platform | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et ClickUp Productivity Platform.
 services: active-directory
 documentationCenter: na
@@ -7,21 +7,21 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 06853edd-e8da-4ad2-a4e6-5555d592cee5
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 8ce823503964f09c7b165cdb5e6fe40483d8e710
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: eababa0d83e1db4934fc8b2315e20407ccc77f27
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56808881"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57892946"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-clickup-productivity-platform"></a>Didacticiel : Intégration d’Azure Active Directory à ClickUp Productivity Platform
+# <a name="tutorial-azure-active-directory-integration-with-clickup-productivity-platform"></a>Tutoriel : Intégration d’Azure Active Directory à ClickUp Productivity Platform
 
 Dans ce tutoriel, vous allez apprendre à intégrer ClickUp Productivity Platform à Azure Active Directory (Azure AD).
 L’intégration de ClickUp Productivity Platform à Azure AD vous offre les avantages suivants :
@@ -157,7 +157,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

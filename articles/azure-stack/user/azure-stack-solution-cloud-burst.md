@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: a8c4ef5df586c87862ea8e1634e9a72356401d0b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: bcb538cf2e546e4913ccb223e143c2343e114de7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247423"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57896192"
 ---
 # <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>Tutoriel : Créer des solutions de mise à l’échelle dans le cloud avec Azure
 
@@ -266,7 +266,7 @@ Maintenant que les informations du point de terminaison ont été ajoutées, la 
 
 Utilisez des [modèles Azure Resource Manager](https://azure.microsoft.com/resources/templates/) comme du code d’application web d’Azure Repos pour le déploiement dans les deux clouds.
 
-### <a name="add-code-to-a-azure-repos-project"></a>Ajouter du code à un projet Azure Repos
+### <a name="add-code-to-an-azure-repos-project"></a>Ajouter du code à un projet Azure Repos
 
 1.  Connectez-vous à Azure Repos avec un compte ayant les droits de création de projet sur Azure Stack. La capture d’écran suivante montre comment se connecter au projet HybridCICD.
 

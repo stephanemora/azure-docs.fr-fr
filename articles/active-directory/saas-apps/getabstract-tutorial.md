@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory avec Getabstract | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory avec Getabstract | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Getabstract.
 services: active-directory
 documentationCenter: na
@@ -7,21 +7,21 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 2b63d048-b529-4fad-9e90-f244323409dd
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 749a5dbe16746927b23523f8f44227f00abc4140
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 77ccc3e3ce734bd8dae249d369571e22c6f56943
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56872469"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838950"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-getabstract"></a>Didacticiel : Intégration d’Azure Active Directory à Getabstract
+# <a name="tutorial-azure-active-directory-integration-with-getabstract"></a>Tutoriel : Intégration d’Azure Active Directory à Getabstract
 
 Dans ce didacticiel, vous allez apprendre à intégrer Getabstract à Azure Active Directory (Azure AD).
 L’intégration de Getabstract à Azure AD vous offre les avantages suivants :
@@ -168,7 +168,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

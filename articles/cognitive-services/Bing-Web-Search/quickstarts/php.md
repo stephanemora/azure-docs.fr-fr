@@ -8,24 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 02/12/2019
+ms.date: 03/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 1a02862d3ea2e17cfa25a2a2d96e1454699ae7f1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ba132adc6b0fd2b8423a7bce30ad6d52fccc898e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166281"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57858199"
 ---
 # <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Démarrage rapide : Utiliser PHP pour appeler l’API Recherche Web Bing  
 
 Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l’API Recherche Web Bing et recevoir la réponse JSON. Cette application Node.js envoie une demande de recherche à l’API et affiche la réponse. Alors que cette application est écrite en JavaScript, l’API est un service web RESTful compatible avec la plupart des langages de programmation.
 
 ## <a name="prerequisites"></a>Prérequis
+
 Voici quelques points dont vous aurez besoin avant d’exécuter ce démarrage rapide :
 
-* [PHP 5.6.x](http://php.net/downloads.php) ou version ultérieure
+* [PHP 5.6.x](https://php.net/downloads.php) ou version ultérieure
 * Une clé d’abonnement  
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
@@ -34,11 +35,11 @@ Voici quelques points dont vous aurez besoin avant d’exécuter ce démarrage r
 
 Avant de commencer, recherchez `php.ini` et supprimez les marques de commentaires de cette ligne :
 
-```
-;extension=php_openssl.dll
+```php
+; extension=php_openssl.dll
 ```
 
-## <a name="create-a-project-and-define-variables"></a>Créer un projet et définir des variables  
+## <a name="create-a-project-and-define-variables"></a>Créer un projet et définir des variables
 
 Créez un projet PHP dans votre éditeur ou IDE favori. N’oubliez pas d’ajouter des balises d’ouverture et de fermeture `<?php` et `?>`.
 

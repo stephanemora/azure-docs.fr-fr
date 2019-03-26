@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory avec UltiPro | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory avec UltiPro | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et UltiPro.
 services: active-directory
 documentationCenter: na
@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: afc0f2b9-2eac-47ec-af04-65ed0fb0ca5a
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1152ff23db9c53ef36db537acdd75acb19223b2a
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 77d2312c5a20aa6b90586d47ee120593e807295e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873183"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893575"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ultipro"></a>Tutoriel : Intégration d’Azure Active Directory à UltiPro
 
@@ -106,6 +106,7 @@ Pour configurer l’authentification unique Azure AD avec UltiPro, procédez com
     ![Informations d’authentification unique dans Domaine et URL UltiPro](common/sp-identifier-reply.png)
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant :
+
     | |
     |--|
     | `https://<companyname>.ultipro.com/`|
@@ -113,6 +114,7 @@ Pour configurer l’authentification unique Azure AD avec UltiPro, procédez com
     | ` https://<companyname>.ultipro.ca`|
     
     b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant :
+
     | |
     |--|
     | `https://<companyname>.ultipro.com/adfs/services/trust`|
@@ -120,6 +122,7 @@ Pour configurer l’authentification unique Azure AD avec UltiPro, procédez com
     | `https://<companyname>.ultipro.ca/adfs/services/trust`|
     
     c. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant :
+    
     | |
     |--|
     | `https://<companyname>.ultipro.com/<instancename>`|
@@ -165,7 +168,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

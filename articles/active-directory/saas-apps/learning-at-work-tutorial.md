@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 1d607174-bea1-4f40-8233-54cabe02c66a
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acd6eb0fd4d1821ab74e2fa26d08f2b35c81da4d
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: fcb5f84b7bffe52035e2fee89c3e3fd53b3f0853
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983606"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884572"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-learning-at-work"></a>Didacticiel : Intégration d’Azure Active Directory à Learning at Work
+# <a name="tutorial-azure-active-directory-integration-with-learning-at-work"></a>Tutoriel : Intégration d’Azure Active Directory à Learning at Work
 
 Dans ce didacticiel, vous allez apprendre à intégrer Learning at Work à Azure Active Directory (Azure AD).
 L’intégration de Learning at Work dans Azure AD vous offre les avantages suivants :
@@ -148,7 +148,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

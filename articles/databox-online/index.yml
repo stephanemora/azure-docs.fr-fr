@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 44c7f6d32737fe83e80a2f2df15f0ae078a5849e
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 376f2bd792cb1b3190507f5571a8b7a33daf2542
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400279"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439110"
 documentType: LandingData
 title: Documentation Azure Data Box - Transfert en ligne
 metadata:
@@ -16,10 +16,10 @@ metadata:
   ms.service: databox
   ms.subservice: edge
   ms.topic: landing-page
-  ms.date: 03/22/2019
+  ms.date: 03/25/2019
   ms.author: alkohli
 abstract:
-  description: La famille Azure Data Box vous permet de transférer des centaines de téraoctets de données vers Azure de manière rapide, économique et fiable. Utilisez les appareils Data Box pour les transferts de données hautes performances via le réseau.<p>Choisissez Data Box Gateway<SUP>Préversion</SUP> pour envoyer des données en vue d’un archivage sur le cloud, d’une reprise d’activité ou pour traiter les données à l’échelle du cloud.  Utilisez Data Box Edge<SUP>Préversion</SUP> pour filtrer, analyser et transformer vos données quand vous les déplacez vers Azure.</p><p>Découvrez comment tirer parti de Data Box Gateway et Data Box Edge pour le transfert réseau avec nos tutoriels.</p>
+  description: La famille Azure Data Box vous permet de transférer des centaines de téraoctets de données vers Azure de manière rapide, économique et fiable. Utilisez les appareils Data Box pour les transferts de données hautes performances via le réseau.<p>Choisissez Data Box Gateway pour envoyer des données en vue d’un archivage sur le cloud, d’une reprise d’activité ou pour traiter les données à l’échelle du cloud.  Utilisez Data Box Edge pour filtrer, analyser et transformer vos données quand vous les déplacez vers Azure.</p><p>Découvrez comment tirer parti de Data Box Gateway et Data Box Edge pour le transfert réseau avec nos tutoriels.</p>
 sections:
 - title: Tutoriels
   items:

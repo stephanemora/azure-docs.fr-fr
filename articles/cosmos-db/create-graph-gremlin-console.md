@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: b431d1b739342c54cbc218efdfded1ee516ecaa7
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 06601fbad43b3daf00e06efbe95a092e76559e36
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586390"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57849820"
 ---
-# <a name="quickstart-create-query-and-traverse-a-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Démarrage rapide : Créer, interroger et parcourir une base de données de graphe Azure Cosmos DB à l’aide de la console Gremlin
+# <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Démarrage rapide : Créer, interroger et parcourir une base de données de graphe Azure Cosmos DB à l’aide de la console Gremlin
 
 > [!div class="op_single_selector"]
 > * [Console Gremlin](create-graph-gremlin-console.md)
@@ -81,13 +81,13 @@ serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessage
 
 Veillez à inclure la valeur du paramètre d’hôtes entre crochets []. 
 
-3. Dans votre terminal, exécutez `bin/gremlin.bat` ou `bin/gremlin.sh` pour démarrer la [console Gremlin](https://tinkerpop.apache.org/docs/3.2.5/tutorials/getting-started/).
-4. Dans votre terminal, exécutez `:remote connect tinkerpop.server conf/remote-secure.yaml` pour vous connecter à votre service d’application.
+1. Dans votre terminal, exécutez `bin/gremlin.bat` ou `bin/gremlin.sh` pour démarrer la [console Gremlin](https://tinkerpop.apache.org/docs/3.2.5/tutorials/getting-started/).
+1. Dans votre terminal, exécutez `:remote connect tinkerpop.server conf/remote-secure.yaml` pour vous connecter à votre service d’application.
 
     > [!TIP]
     > Si vous recevez l’erreur `No appenders could be found for logger`, vérifiez que vous avez mis à jour la valeur de sérialiseur dans le fichier remote-secure.yaml comme décrit à l’étape 2. 
 
-5. Exécutez ensuite `:remote console` pour rediriger toutes les commandes de la console au serveur distant.
+1. Exécutez ensuite `:remote console` pour rediriger toutes les commandes de la console au serveur distant.
 
    > [!NOTE]
    > Si vous n’exécutez pas la commande `:remote console` et que vous souhaitez rediriger toutes les commandes de la console au serveur distant, vous devez faire précéder la commande par `:>`. Par exemple, vous devez exécuter la commande comme ceci : `:> g.V().count()`. Ce préfixe, qui fait partie de la commande, est important quand vous utilisez la console Gremlin avec Azure Cosmos DB. Si vous n’indiquez pas ce préfixe, la console doit exécuter la commande en local, le plus souvent sur un graphe en mémoire. L’utilisation du préfixe `:>` indique à la console qu’elle doit exécuter une commande à distance, sur Azure Cosmos DB (l’émulateur localhost ou une instance Azure) dans le cas présent.

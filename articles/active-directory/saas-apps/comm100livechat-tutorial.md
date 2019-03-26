@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Comm100 Live Chat | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Comm100 Live Chat | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Comm100 Live Chat.
 services: active-directory
 documentationCenter: na
@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 0340d7f3-ab54-49ef-b77c-62a0efd5d49c
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 873b9d89889317a5c406313811c74286caf7d0e1
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 203c082275dc75a7dcf948eb42a383300955f355
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882040"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57858097"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-comm100-live-chat"></a>Tutoriel : Intégration d’Azure Active Directory à Comm100 Live Chat
 
@@ -154,29 +154,29 @@ Pour configurer l’authentification unique Azure AD avec Comm100 Live Chat, eff
 
 ### <a name="configure-comm100-live-chat-single-sign-on"></a>Configurer l’authentification unique Comm100 Live Chat
 
-9. Ouvrez une autre fenêtre de navigateur web et connectez-vous à Comm100 Live Chat en tant qu’administrateur de la sécurité.
+1. Ouvrez une autre fenêtre de navigateur web et connectez-vous à Comm100 Live Chat en tant qu’administrateur de la sécurité.
 
-10. Dans l’angle supérieur droit de la page, cliquez sur **My Account** (Mon compte).
+1. Dans l’angle supérieur droit de la page, cliquez sur **My Account** (Mon compte).
 
-    ![Comm100 Live Chat : myaccount](./media/comm100livechat-tutorial/tutorial_comm100livechat_account.png)
+   ![Comm100 Live Chat : myaccount](./media/comm100livechat-tutorial/tutorial_comm100livechat_account.png)
 
-11. Dans le menu, à gauche, cliquez sur **Security** (Sécurité), puis sur **Agent Single Sign-On** (Authentification unique des agents).
+1. Dans le menu, à gauche, cliquez sur **Security** (Sécurité), puis sur **Agent Single Sign-On** (Authentification unique des agents).
 
-    ![Comm100 Live Chat : sécurité](./media/comm100livechat-tutorial/tutorial_comm100livechat_security.png)
+   ![Comm100 Live Chat : sécurité](./media/comm100livechat-tutorial/tutorial_comm100livechat_security.png)
 
-12. Dans la page **Agent Single Sign-On** (Authentification unique des agents), effectuez les opérations suivantes :
+1. Dans la page **Agent Single Sign-On** (Authentification unique des agents), effectuez les opérations suivantes :
 
-    ![Comm100 Live Chat : sécurité](./media/comm100livechat-tutorial/tutorial_comm100livechat_singlesignon.png)
+   ![Comm100 Live Chat : sécurité](./media/comm100livechat-tutorial/tutorial_comm100livechat_singlesignon.png)
 
-    a. Copiez le premier lien en surbrillance et collez-le dans la zone de texte **URL de connexion** de la section **Comm100 Live Chat Domain and URLs** (Domaine et URL Comm100 Live Chat) du Portail Azure.
+   a. Copiez le premier lien en surbrillance et collez-le dans la zone de texte **URL de connexion** de la section **Comm100 Live Chat Domain and URLs** (Domaine et URL Comm100 Live Chat) du Portail Azure.
 
-    b. Dans la zone de texte **SAML SSO URL** (URL d’authentification unique SAML), collez la valeur **URL de connexion** que vous avez copiée dans le portail Azure.
+   b. Dans la zone de texte **SAML SSO URL** (URL d’authentification unique SAML), collez la valeur **URL de connexion** que vous avez copiée dans le portail Azure.
 
-    c. Dans la zone de texte **Remote Logout URL** (URL de déconnexion à distance), collez la valeur de l’**URL de déconnexion** que vous avez copiée à partir du Portail Azure.
+   c. Dans la zone de texte **Remote Logout URL** (URL de déconnexion à distance), collez la valeur de l’**URL de déconnexion** que vous avez copiée à partir du Portail Azure.
 
-    d. Sous **Certificat**, cliquez sur **Choose a File** (Choisir un fichier) pour charger le certificat codé en base 64 que vous avez téléchargé à partir du Portail Azure.
+   d. Sous **Certificat**, cliquez sur **Choose a File** (Choisir un fichier) pour charger le certificat codé en base 64 que vous avez téléchargé à partir du Portail Azure.
 
-    e. Cliquez sur **Enregistrer les modifications**.
+   e. Cliquez sur **Enregistrer les modifications**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
 
@@ -196,7 +196,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
@@ -249,7 +249,7 @@ Pour permettre aux utilisateurs d’Azure AD de se connecter à Comm100 Live Cha
 
     ![Comm100 Live Chat : nouvel agent](./media/comm100livechat-tutorial/tutorial_comm100livechat_newagent.png)
 
-    a. a. Dans la zone de texte **Email** (E-mail), entrez l’adresse e-mail de l’utilisateur, par exemple **Brittasimon@contoso.com**.
+    a. a. Dans la zone de texte **E-mail**, tapez l’adresse e-mail de l’utilisateur, par exemple **brittasimon\@contoso.com**.
 
     b. Dans la zone de texte **Prénom**, entrez le prénom de l’utilisateur, par exemple **Britta**.
 

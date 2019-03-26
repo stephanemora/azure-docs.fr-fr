@@ -8,12 +8,12 @@ ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 0096a7a57cb4a404f5c8e36d8b69eac2c20c1fab
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 31330c3d2b10e6245db775da4039fd1948539df4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139809"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106013"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Tutoriel : Déployer Azure Stream Analytics en tant que module IoT Edge
 
@@ -33,7 +33,8 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Déployer le travail Azure Stream Analytics sur un appareil IoT Edge depuis le portail Azure.
 
 <center>
-![Diagramme - Tutoriel - Structurer, mettre en lots et déployer une tâche ASA](./media/tutorial-deploy-stream-analytics/asa-architecture.png)
+
+![Diagramme – Tutoriel – Structurer, mettre en lots et déployer une tâche ASA](./media/tutorial-deploy-stream-analytics/asa-architecture.png)
 </center>
 
 
@@ -64,7 +65,7 @@ Lorsque vous créez un travail Azure Stream Analytics pour s’exécuter sur un 
 
    | Champ | Valeur |
    | ----- | ----- |
-   | NOM | Fournissez un nom unique pour votre compte de stockage. | 
+   | Nom | Fournissez un nom unique pour votre compte de stockage. | 
    | Lieu | Choisissez un emplacement proche de vous. |
    | Abonnement | Choisissez le même abonnement que votre IoT Hub. |
    | Groupe de ressources | Nous vous recommandons d’utiliser le même groupe de ressources pour toutes les ressources de test que vous créez dans le cadre des démarrages rapides et didacticiels IoT Edge. Par exemple, **IoTEdgeResources**. |
@@ -215,9 +216,9 @@ Vous pouvez désormais aller sur votre appareil IoT Edge pour consulter les inte
    ```cmd/sh
    iotedge list  
    ```
-<!--
+   <!--
    ![Docker output](./media/tutorial-deploy-stream-analytics/docker_output.png)
--->
+   -->
 1. Affichez tous les journaux système et les données des métriques. Utilisez le nom du module Stream Analytics :
 
    ```cmd/sh

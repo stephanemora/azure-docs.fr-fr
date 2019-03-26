@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 25610bd7-8943-4e04-8cbb-5e90ff3c054d
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7972ddb836b7318b232316d751947355d356f6a1
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 507a5d7209c2ae873bbfc2d9f5f5fa1c8fa17758
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875138"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57846869"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-smartfile"></a>Tutoriel : Intégration d’Azure Active Directory à SmartFile
+# <a name="tutorial-azure-active-directory-integration-with-smartfile"></a>Didacticiel : Intégration d’Azure Active Directory à SmartFile
 
 Dans ce tutoriel, vous allez découvrir comment intégrer SmartFile à Azure Active Directory (Azure AD).
 L’intégration de SmartFile dans Azure AD vous offre les avantages suivants :
@@ -148,7 +148,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Créer une base de données Azure Database for MariaDB à l’aide du portail Azure'
+title: 'Didacticiel : Créer une base de données Azure Database for MariaDB à l’aide du portail Azure'
 description: Ce didacticiel explique comment créer et gérer une base de données et un serveur Azure Database for MariaDB à l’aide du Portail Azure.
 author: ajlam
 ms.author: andrela
@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.custom: mvc
-ms.openlocfilehash: 2bbe69d114df61f6ca01add0b3459220d59d83e0
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 29ad35b30e7f75259b9c4d0174c16c6c9c40a917
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880513"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852527"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Tutoriel : Créer une base de données Azure Database for MariaDB à l’aide du portail Azure
 
@@ -90,7 +90,7 @@ Récupérez les valeurs des champs **Nom du serveur** (complet) et **Nom de conn
 
    ![Propriétés de serveur](./media/tutorial-design-database-using-portal/2-server-properties.png)
 
-Dans notre exemple, le nom du serveur est **mydemoserver.mariadb.database.azure.com**, et l’ID de connexion d’administrateur du serveur est **myadmin@mydemoserver**.
+Dans notre exemple, le nom du serveur est **mydemoserver.mariadb.database.azure.com** et le nom de connexion d’administrateur du serveur est **myadmin\@mydemoserver**.
 
 ## <a name="connect-to-the-server-by-using-mysql"></a>Se connecter au serveur à l’aide de mysql
 

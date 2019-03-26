@@ -7,14 +7,14 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 9/25/2018
 ms.author: victorh
-ms.openlocfilehash: 1b157d8292eacff87a28554939a6f144b9f5d0e9
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 7dcbfdaf00b0e628541cfd1a3b79df8cf8334ed3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092091"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536876"
 ---
-# <a name="tutorial-configure-an-alias-record-to-refer-to-an-azure-public-ip-address"></a>Tutoriel : Configurer un enregistrement d’alias pour référencer une adresse IP publique Azure 
+# <a name="tutorial-configure-an-alias-record-to-refer-to-an-azure-public-ip-address"></a>Tutoriel : Configurer un enregistrement d’alias pour faire référence à une adresse IP publique 
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -30,13 +30,13 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 ## <a name="prerequisites"></a>Prérequis
 Vous devez disposer d’un nom de domaine disponible, que vous pouvez héberger dans Azure DNS pour le test. Vous devez disposer d’un contrôle total de ce domaine. Le contrôle total comprend notamment la possibilité de définir les enregistrements de serveur de noms pour le domaine.
 
-Pour obtenir des instructions pour héberger votre domaine dans Azure DNS, consultez [Tutoriel : Héberger votre domaine dans Azure DNS](dns-delegate-domain-azure-dns.md).
+Pour obtenir des instructions sur l’hébergement de votre domaine dans Azure DNS, consultez [Tutoriel : Héberger votre domaine dans Azure DNS](dns-delegate-domain-azure-dns.md).
 
 L’exemple de domaine utilisé pour ce tutoriel est contoso.com, mais utilisez votre propre nom de domaine.
 
 ## <a name="create-the-network-infrastructure"></a>Créer l’infrastructure réseau
 Créez d’abord un réseau virtuel et un sous-réseau pour y placer vos serveurs web.
-1. Connectez-vous au portail Azure sur http://portal.azure.com.
+1. Connectez-vous au portail Azure sur https://portal.azure.com.
 2. Dans le portail en haut à gauche, sélectionnez **Créer une ressource**. Saisissez *groupe de ressources* dans la zone de recherche et créez un groupe de ressources nommé **RG-DNS-Alias-pip**.
 3. Sélectionnez **Créer une ressource** > **Mise en réseau** > **Réseau virtuel**.
 4. Créez un réseau virtuel nommé **VNet-Server**. Placez-le dans le groupe de ressources **RG-DNS-Alias-pip** et nommez le sous-réseau **SN-Web**.
@@ -45,7 +45,7 @@ Créez d’abord un réseau virtuel et un sous-réseau pour y placer vos serveur
 1. Sélectionnez **Créer une ressource** > **Machine virtuelle Windows Server 2016**.
 2. Saisissez **Web-01** pour le nom et placez la machine virtuelle dans le groupe de ressources **RG-DNS-Alias-TM**. Entrez un nom d’utilisateur et un mot de passe, puis sélectionnez **OK**.
 3. Pour **Taille**, sélectionnez une référence SKU avec 8 Go de RAM.
-4. Pour **Paramètres**, sélectionnez le réseau virtuel **VNet-Servers** et le sous-réseau **SN-Web**. Pour les ports d’entrée publics, sélectionnez **HTTP** > **HTTPS** > **RDP (3389)**, puis sélectionnez **OK**.
+4. Pour **Paramètres**, sélectionnez le réseau virtuel **VNet-Servers** et le sous-réseau **SN-Web**. Pour les ports d’entrée publics, sélectionnez **HTTP** > **HTTPS** > **RDP (3389)**, puis **OK**.
 5. Dans la page **Résumé**, sélectionnez **Créer**.
 
 Cette procédure s’achève après quelques minutes.
@@ -70,7 +70,7 @@ Créez un enregistrement d’alias qui pointe vers l’adresse IP publique.
 2. Sélectionnez **Jeu d’enregistrements**.
 3. Dans la zone de texte **Nom**, sélectionnez **web01**.
 4. Laissez le **Type** défini sur un enregistrement **A**.
-5. Sélectionnez la case à cocher **Alias du jeu d’enregistrements**.
+5. Cochez la case **Alias du jeu d’enregistrements**.
 6. Sélectionnez **Choisir un service Azure**, puis l’adresse IP publique **Web-01-ip**.
 
 ## <a name="test-the-alias-record"></a>Tester l’enregistrement d’alias

@@ -1,5 +1,5 @@
 ---
-title: "Tutoriel : Intégration d'Azure Active Directory à Fieldglass | Microsoft Docs"
+title: "Didacticiel : Intégration d'Azure Active Directory à Fieldglass | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Fieldglass.
 services: active-directory
 documentationCenter: na
@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 2510195f-d5b1-4684-b3da-283fb8619df2
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 607167494381d8fc0bb5a3c0dce190c4af64e670
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 0a2c66eba95f286dfa7a84c05c66c14768629312
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865754"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57877902"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-fieldglass"></a>Tutoriel : Intégration d'Azure Active Directory à Fieldglass
+# <a name="tutorial-azure-active-directory-integration-with-fieldglass"></a>Didacticiel : Intégration d'Azure Active Directory à Fieldglass
 
 Dans ce didacticiel, vous allez apprendre à intégrer Fieldglass à Azure Active Directory (Azure AD).
 L’intégration de Fieldglass à Azure AD vous offre les avantages suivants :
@@ -108,6 +108,7 @@ Pour configurer l’authentification unique Azure AD avec Fieldglass, effectuez 
     a. Dans la zone de texte **Identificateur**, entrez l’URL `https://www.fieldglass.com` ou suivez le modèle suivant : `https://<company name>.fgvms.com`
 
     b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant :
+    
     | |
     |--|
     | `https://www.fieldglass.net/<company name>`|
@@ -152,7 +153,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

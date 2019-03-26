@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: rosh
-ms.openlocfilehash: ff214a545023364b09a0e757462a1b3f3d963d44
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d421abf0a3cc402cf8d040363dfe79b07b66bf95
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55885019"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105707"
 ---
 # <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-java"></a>Démarrage rapide : Effectuer une recherche de vidéos avec le SDK Recherche de vidéos Bing pour Java
 
@@ -41,7 +41,7 @@ Installez les dépendances du Kit de développement logiciel (SDK) pour Recherch
   </dependencies> 
 ```
 
-## <a name="create-and-initalize-a-project"></a>Créer et lancer un projet
+## <a name="create-and-initialize-a-project"></a>Créer et initialiser un projet
 
 
 Créez un projet Java dans votre éditeur ou IDE favori, puis importez les bibliothèques suivantes.
@@ -61,7 +61,7 @@ Créez un projet Java dans votre éditeur ou IDE favori, puis importez les bibli
 
 ## <a name="create-a-search-client"></a>Créer un client de recherche
 
-2. Implémentez le client `VideoSearchAPIImpl`, qui requiert votre point de terminaison d’API et une instance de la classe `ServiceClientCredentials`.
+1. Implémentez le client `VideoSearchAPIImpl`, qui requiert votre point de terminaison d’API et une instance de la classe `ServiceClientCredentials`.
 
     ```java
     public static VideoSearchAPIImpl getClient(final String subscriptionKey) {
@@ -115,7 +115,7 @@ Créez un projet Java dans votre éditeur ou IDE favori, puis importez les bibli
         //...
         ```
 
-## <a name="send-a-search-request-and-recieve-the-response"></a>Envoyer une requête de recherche et recevoir la réponse 
+## <a name="send-a-search-request-and-receive-the-response"></a>Envoyer une requête de recherche et recevoir la réponse 
 
 1. Créez une fonction nommée `VideoSearch()` qui prend votre clé d’abonnement comme chaîne. Instanciez le client recherche créé précédemment.
     

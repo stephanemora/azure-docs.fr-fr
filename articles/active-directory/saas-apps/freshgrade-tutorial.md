@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à FreshGrade | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à FreshGrade | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et FreshGrade.
 services: active-directory
 documentationCenter: na
@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 1055bba6-f4df-462e-bc9b-1ad5ada0f638
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 1cb2eb42757d321648ea1ace000913916b1b7a05
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 3dcbbfcdff0f30b8300e4fe767e27efb65723c5b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880663"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57857825"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshgrade"></a>Tutoriel : Intégration d’Azure Active Directory à FreshGrade
 
@@ -105,12 +105,14 @@ Pour configurer l’authentification unique Azure AD avec FreshGrade, effectuez
     ![Informations d’authentification unique relatives au domaine et aux URL FreshGrade](common/sp-identifier.png)
 
      a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant :
+
       | |
       |--|
       | `https://<subdomain>.freshgrade.com/login` |
       | `https://<subdomain>.onboarding.freshgrade.com/login` |
 
     b. Dans la zone de texte **Identificateur (ID d’entité)**, entrez une URL aux formats suivants :
+    
       | |
       |--|
       | `https://login.onboarding.freshgrade.com:443/saml/metadata/alias/<instancename>` |
@@ -145,7 +147,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

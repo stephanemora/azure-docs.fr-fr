@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: seguler
-ms.openlocfilehash: 5bafceca09cfe5a981365a39e4f3803b5865ce73
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 69895fff5e1daaf02caec54a6d38052e36ad8d49
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754813"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57999057"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Démarrage rapide : Charger, télécharger et lister des objets blob à l’aide de Go
 
@@ -89,7 +89,7 @@ Press the enter key to delete the sample files, example container, and exit the 
 Quand vous appuyez sur la touche pour continuer, l’exemple de programme supprime le conteneur de stockage et les fichiers. 
 
 > [!TIP]
-> Vous pouvez également utiliser un outil comme l’[Explorateur Stockage Azure](http://storageexplorer.com) pour afficher les fichiers dans Stockage Blob. L’Explorateur Stockage Azure est un outil multiplateforme gratuit qui vous permet d’accéder aux informations de votre compte de stockage. 
+> Vous pouvez également utiliser un outil comme l’[Explorateur Stockage Azure](https://storageexplorer.com) pour afficher les fichiers dans Stockage Blob. L’Explorateur Stockage Azure est un outil multiplateforme gratuit qui vous permet d’accéder aux informations de votre compte de stockage. 
 >
 
 ## <a name="understand-the-sample-code"></a>Comprendre l’exemple de code
@@ -208,7 +208,7 @@ for marker := (azblob.Marker{}); marker.NotDone(); {
 
 ### <a name="download-the-blob"></a>Télécharger l’objet blob
 
-Téléchargez des objets BLOB à l’aide de la fonction de bas niveau **Download** sur un BlobURL. Ceci renverra un struct **DownloadResponse**. Exécutez la fonction **Body** au niveau du struct pour obtenir un flux de lecture de données **RetryReader**. Si une connexion échoue lors de la lecture, des requêtes supplémentaires seront envoyées pour rétablir une connexion et poursuivre la lecture. En cas de spécification d’une option RetryReaderOption avec MaxRetryRequests défini sur 0 (valeur par défaut), le corps de réponse d’origine est renvoyé et aucune nouvelle tentative ne sera effectuée. Vous pouvez également utiliser l’API de haut niveau **DownloadBlobToBuffer** ou **DownloadBlobToFile** pour simplifier votre code.
+Téléchargez des objets BLOB à l’aide de la fonction de bas niveau **Download** sur un BlobURL. Ceci renverra un struct **DownloadResponse**. Exécutez la fonction **Body** au niveau du struct pour obtenir un flux de lecture de données **RetryReader**. Si une connexion échoue lors de la lecture, des requêtes supplémentaires sont envoyées pour rétablir une connexion et poursuivre la lecture. En cas de spécification d’une option RetryReaderOption avec MaxRetryRequests défini sur 0 (valeur par défaut), le corps de réponse d’origine est renvoyé et aucune nouvelle tentative ne sera effectuée. Vous pouvez également utiliser l’API de haut niveau **DownloadBlobToBuffer** ou **DownloadBlobToFile** pour simplifier votre code.
 
 Le code suivant télécharge l’objet blob à l’aide de la fonction **Download**. Le contenu de l’objet blob est écrit dans une mémoire tampon et affiché sur la console.
 

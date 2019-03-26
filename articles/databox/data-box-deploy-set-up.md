@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 02/08/2019
 ms.author: alkohli
-ms.openlocfilehash: e7c58978c7d6542887854c5a1996b15252fdb025
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: b601ad5936820e2c237b7b9d37d9af73aa468bbc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982401"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57895751"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Tutoriel : Branchement des câbles et connexion à une Azure Data Box
 
@@ -40,7 +40,7 @@ Avant de commencer, assurez-vous que :
     - Être connecté à un réseau haut débit. Nous vous recommandons vivement d’utiliser au minimum une connexion 10 GbE. Si vous ne disposez pas d’une connexion 10 GbE, vous pouvez utiliser une liaison de données 1 GbE. Cependant, cela a une incidence sur les vitesses de copie. 
 6. Vous devez avoir accès à une surface plane sur laquelle placer la Data Box. Si vous souhaitez placer l’appareil sur un rack standard, vous avez besoin d’un emplacement 7U dans le rack de votre centre de données. Vous pouvez placer l’appareil à plat ou en position verticale dans le rack.
 7. Vous disposez des câbles suivants pour connecter votre Data Box à l’ordinateur hôte.
-    - Un ou plusieurs câbles Twinax 10 GbE SFP+ cuivre ou SFP+ fibre optique (à utiliser avec les interface réseau DATA 1, DATA 2). Étant donné que Data Box est équipé de cartes Mellanox ConnectX®-3 Pro EN 10GBASE-T Double port avec l’interface réseau PCI Express 3.0, les câbles qui sont compatibles avec cette interface doivent fonctionner. Par exemple, un câble CISCO SFP-H10GB-CU3M 10GBASE-CU TWINMAX SFP +3M a été utilisé pour les tests internes.
+    - Un ou plusieurs câbles Twinax 10 GbE SFP+ cuivre ou SFP+ fibre optique (à utiliser avec les interface réseau DATA 1, DATA 2). Étant donné que Data Box est équipé de cartes Mellanox ConnectX®-3 Pro EN 10GBASE-T Double port avec l’interface réseau PCI Express 3.0, les câbles qui sont compatibles avec cette interface doivent fonctionner. Par exemple, un câble CISCO SFP-H10GB-CU3M 10GBASE-CU TWINMAX SFP +3M a été utilisé pour les tests internes. Pour plus d’informations, voir la [liste des câbles et commutateurs compatibles de Mellanox](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf).
     - Un câble réseau RJ-45 CAT 6 (à utiliser avec l’interface réseau MGMT)
     - Un câble réseau RJ-45 CAT 6A OU RJ-45 CAT 6 (à utiliser avec l’interface réseau DATA3 et configurés en mode 10 Gbit/s ou 1 Gbit/s, respectivement)
 
@@ -83,10 +83,10 @@ Procédez comme suit pour configurer votre appareil à l’aide de l’interface
     
 7. Indiquez le mot de passe que vous avez obtenu à partir du portail Azure à l’étape précédente pour vous connecter à l’interface utilisateur web locale de l’appareil. Cliquez sur **Se connecter**.
 8. Sur le **tableau de bord**, assurez-vous que les interfaces réseau sont configurées. 
-    - Si le protocole DHCP est activé dans votre environnement, les interfaces réseau sont configurées automatiquement. 
-    - Si DHCP n’est pas activé, accédez à **Définir des interfaces réseau** et affectez des adresses IP statiques si nécessaire.
+   - Si le protocole DHCP est activé dans votre environnement, les interfaces réseau sont configurées automatiquement. 
+   - Si DHCP n’est pas activé, accédez à **Définir des interfaces réseau** et affectez des adresses IP statiques si nécessaire.
 
-    ![Page du tableau de bord d’un appareil](media/data-box-deploy-set-up/data-box-dashboard-1.png)
+     ![Page du tableau de bord d’un appareil](media/data-box-deploy-set-up/data-box-dashboard-1.png)
 
 Une fois que les interfaces réseau de données sont configurées, vous pouvez également utiliser l’adresse IP de n’importe quelle interface, de DATA 1 à DATA 3, pour accéder aux interfaces utilisateur locales web à `https://<IP address of a data network interface>`. 
 

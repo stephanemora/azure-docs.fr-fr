@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Créer une application de machine learning Spark dans Azure HDInsight'
+title: 'Tutoriel : Créer une application de machine learning Spark dans Azure HDInsight'
 description: Instructions détaillées sur la création d’applications de Machine Learning Apache Spark sur des clusters Spark HDInsight à l’aide d’un bloc-notes Jupyter Notebook.
 services: hdinsight
 ms.service: hdinsight
@@ -9,14 +9,14 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 0a0712e4985414263d1e90299d78d5e30fe78a3e
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 54ef9ac72ffeebbf228a85768f6c2eb4b64862c9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608509"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433397"
 ---
-# <a name="tutorial-build-an-apache-spark-machine-learning-application-in-hdinsight"></a>Didacticiel : Créer une application de machine learning Apache Spark dans HDInsight 
+# <a name="tutorial-build-an-apache-spark-machine-learning-application-in-hdinsight"></a>Tutoriel : Créer une application de machine learning Apache Spark dans HDInsight 
 
 Dans ce tutoriel, vous allez apprendre à utiliser [Jupyter Notebook](https://jupyter.org/) afin de créer une application d’apprentissage automatique [Apache Spark](https://spark.apache.org/) pour Azure HDInsight. 
 
@@ -195,5 +195,5 @@ Dans ce tutoriel, vous avez appris à :
 Passez au didacticiel suivant afin de découvrir comment utiliser IntelliJ IDEA pour les travaux Spark. 
 
 > [!div class="nextstepaction"]
-> [Create a Scala Maven application using IntelliJ (Créer une application Scala Maven à l’aide d’IntelliJ)](./apache-spark-create-standalone-application.md)
+> [Créer une application Scala Maven avec IntelliJ](./apache-spark-create-standalone-application.md)
 
