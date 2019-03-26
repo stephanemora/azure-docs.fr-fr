@@ -1,6 +1,6 @@
 ---
-title: 'Démarrage rapide : Exécuter une application dans Azure Container Instances - Portail'
-description: Dans ce guide de démarrage rapide, vous utilisez le portail Azure pour déployer une application de conteneur Docker pour l’exécuter dans un conteneur isolé dans Azure Container Instances.
+title: Guide de démarrage rapide – Déployer un conteneur Docker sur Azure Container Instances – Portail
+description: Dans ce guide de démarrage rapide, vous utilisez le portail Azure pour déployer rapidement une application web conteneurisée qui s’exécute dans une instance de conteneur Azure isolé.
 services: container-instances
 author: dlepow
 ms.service: container-instances
@@ -8,16 +8,18 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: d6a1d442eca0cf5e433a82fb52ed54b09b56c779
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 41313a8b140886247b830db7ca9b34a22257de96
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566089"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729148"
 ---
-# <a name="quickstart-run-a-container-application-in-azure-container-instances-in-the-azure-portal"></a>Démarrage rapide : Exécuter une application de conteneur dans Azure Container Instances dans le portail Azure
+# <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>Démarrage rapide : Déployer un instance de conteneur dans Azure à l’aide du portail Azure
 
-Utilisez Azure Container Instances pour exécuter, facilement et rapidement, des conteneurs Docker dans Azure. Vous n’avez pas besoin de déployer de machines virtuelles ou d’utiliser une plateforme d’orchestration de conteneur complète telle que Kubernetes. Dans ce démarrage rapide, vous utilisez le Portail Azure pour créer un conteneur dans Azure et mettez à disposition son application avec un nom de domaine complet. Après avoir configuré quelques paramètres et déployé le conteneur, vous pouvez accéder à l’application en cours d’exécution :
+Utilisez Azure Container Instances pour exécuter, facilement et rapidement, des conteneurs Docker serverless dans Azure. Déployez une application sur une instance de conteneur à la demande lorsque vous n’avez pas besoin d’une plateforme d’orchestration de conteneur complète telle qu’Azure Kubernetes Service.
+
+Dans cette procédure de démarrage rapide, vous utilisez le portail Azure pour déployer un conteneur Docker isolé et mettre son application à disposition avec un nom de domaine complet (FQDN). Après avoir configuré quelques paramètres et déployé le conteneur, vous pouvez accéder à l’application en cours d’exécution :
 
 ![Application déployée dans Azure Container Instances affichée dans le navigateur][aci-portal-07]
 
@@ -41,9 +43,9 @@ Entrez les valeurs suivantes dans les zones de texte **Nom du conteneur**, **Ima
 
 ![Configuration des paramètres de base pour une nouvelle instance de conteneur dans le portail Azure][aci-portal-03]
 
-Pour ce guide de démarrage rapide, conservez le paramètre par défaut de **Public** afin de déployer l’image `microsoft/aci-helloworld` à partir du registre Docker Hub public. Cette image contient une petite application web écrite en Node.js qui sert une page HTML statique.
+Pour ce guide de démarrage rapide, conservez le paramètre par défaut de **Public** afin de déployer l’image publique `microsoft/aci-helloworld`. Cette image contient une petite application web écrite en Node.js qui sert une page HTML statique.
 
-Sous **Configuration**, spécifiez une **Étiquette du nom DNS** pour votre conteneur. Le nom doit être unique au sein de la région Azure où vous créez l’instance de conteneur. Votre conteneur sera publiquement accessible avec `<dns-name-label>.<region>.azurecontainer.io`.
+Sous **Configuration**, spécifiez une **Étiquette du nom DNS** pour votre conteneur. Le nom doit être unique au sein de la région Azure dans laquelle vous créez l’instance de conteneur. Votre conteneur sera publiquement accessible avec `<dns-name-label>.<region>.azurecontainer.io`. Si vous recevez un message d’erreur « Étiquette de nom DNS indisponible », essayez d’utiliser une autre étiquette de nom DNS.
 
 Conservez les valeurs par défaut des autres paramètres dans **Configuration**, puis cliquez sur **OK** pour valider la configuration.
 

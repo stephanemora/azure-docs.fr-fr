@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 63fb04e6b31fe4026b93cef09d88601d6182101a
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 520d01327b5809d453bb777165899770ea4c130b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448307"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57885031"
 ---
 # <a name="tutorial-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>Tutoriel : Notifications Push vers des applications iOS avec Azure Notification Hubs
 
@@ -50,8 +50,8 @@ Le code complet de ce didacticiel est disponible [sur GitHub](https://github.com
 * Un appareil compatible avec iOS 10 (ou version ultérieure)
 * [programme pour développeurs Apple](https://developer.apple.com/programs/)
   
- > [!NOTE]
- > En raison des exigences de configuration requise pour les notifications Push, vous devez déployer et tester les notifications Push sur un appareil iOS physique (iPhone ou iPad) au lieu du simulateur iOS.
+  > [!NOTE]
+  > En raison des exigences de configuration requise pour les notifications Push, vous devez déployer et tester les notifications Push sur un appareil iOS physique (iPhone ou iPad) au lieu du simulateur iOS.
   
 Vous devez terminer ce didacticiel avant de pouvoir suivre tous les autres didacticiels Notification Hubs pour les applications iOS.
 
@@ -96,9 +96,46 @@ Vous avez maintenant configuré votre hub de notification avec APNS et vous disp
 
     ![Xcode : Fonctionnalités push][12]
 
-5. Téléchargez [Infrastructure de messagerie Azure Windows], puis dézippez le fichier. Dans Xcode, cliquez avec le bouton droit sur votre projet et sélectionnez l’option **Add Files to** pour ajouter le dossier **WindowsAzureMessaging.framework** à votre projet Xcode. Sélectionnez **Options**, assurez-vous que l’option **Copy items if needed** (Copier les éléments si nécessaire) est cochée, puis cliquez sur **Add** (Ajouter).
+5. Ajoutez les modules du Kit de développement logiciel (SDK) Azure Notification Hubs.
 
-    ![Décompresser le SDK Azure][10]
+   Vous pouvez intégrer le Kit de développement logiciel (SDK) Azure Notification Hubs dans votre application à l’aide de [Cocoapods](https://cocoapods.org) ou en ajoutant manuellement les fichiers binaires à votre projet.
+
+   - Intégration via Cocoapods
+
+     Ajoutez les dépendances suivantes à votre `podfile` pour inclure le Kit de développement logiciel (SDK) Azure Notification Hubs dans votre application.
+
+     ```ruby
+     pod 'AzureNotificationHubs-iOS'
+     ```
+
+     Exécutez `pod install` pour installer votre pod récemment défini et ouvrir votre `.xcworkspace`.
+
+     > [!NOTE]
+     > Si vous voyez une erreur telle que ```[!] Unable to find a specification for `AzureNotificationHubs-iOS` ``` lors de l’exécution de `pod install`, réexécutez `pod repo update` pour obtenir les dernières pods à partir du référentiel Cocoapods, puis exécutez `pod install`.
+
+   - Intégration via Carthage
+
+     Ajoutez les dépendances suivantes à votre `Cartfile` pour inclure le Kit de développement logiciel (SDK) Azure Notification Hubs dans votre application.
+
+     ```ruby
+     github "Azure/azure-notificationhubs-ios"
+     ```
+
+     Ensuite, mettez à jour et créez des dépendances :
+
+     ```shell
+     $ carthage update
+     ```
+
+     Pour plus d’informations sur l’utilisation de Carthage, voir le [référentiel GitHub Carthage](https://github.com/Carthage/Carthage).
+
+   - Intégration en copiant les fichiers binaires dans votre projet
+
+     1. Téléchargez l’infrastructure [Kit de développement logiciel (SDK) Azure Notification Hubs](https://github.com/Azure/azure-notificationhubs-ios/releases) fournie dans un fichier zip et décompressez-le.
+
+     2. Dans Xcode, cliquez avec le bouton droit sur votre projet et sélectionnez l’option **Add Files to** pour ajouter le dossier **WindowsAzureMessaging.framework** à votre projet Xcode. Sélectionnez **Options**, assurez-vous que l’option **Copy items if needed** (Copier les éléments si nécessaire) est cochée, puis cliquez sur **Add** (Ajouter).
+
+        ![Décompresser le SDK Azure][10]
 
 6. Ajoutez un nouveau fichier d’en-tête à votre projet nommé `HubInfo.h`. Ce fichier contient les constantes de votre hub de notification. Ajoutez les définitions suivantes et remplacez les espaces réservés des littéraux de chaîne par le *nom de votre hub* et la chaîne *DefaultListenSharedAccessSignature* notée précédemment.
 
@@ -212,17 +249,17 @@ Dans cet exemple simple, vous avez envoyé des notifications Push à tous vos ap
 [35]: ./media/notification-hubs-ios-get-started/notification-hubs-test3.png
 
 <!-- URLs. -->
-[Infrastructure de messagerie Azure Windows]: http://go.microsoft.com/fwlink/?LinkID=799698&clcid=0x409
-[Mobile Services iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
-[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Infrastructure de messagerie Azure Windows]: https://go.microsoft.com/fwlink/?LinkID=799698&clcid=0x409
+[Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/?LinkID=266533
+[Submit an app page]: https://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: https://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: https://go.microsoft.com/fwlink/p/?LinkId=262253
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
-[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
+[iOS Provisioning Portal]: https://go.microsoft.com/fwlink/p/?LinkId=272456
 [Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
 [Azure Notification Hubs Notify Users for iOS with .NET backend]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
-[Local and Push Notification Programming Guide]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
+[Local and Push Notification Programming Guide]: https://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 [Portail Azure]: https://portal.azure.com

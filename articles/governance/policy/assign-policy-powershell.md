@@ -4,23 +4,24 @@ description: Utilisez Azure PowerShell pour créer une affectation de stratégie
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 03/11/2019
 ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: de8192ee0f0dad1ccc385aa28892a3ef4f5c4a86
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 103e0e09d3ac5f3d3f6bb8d8d44e25dd8d8d87e6
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338731"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57726972"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>Créer une affectation de stratégie pour identifier les ressources non conformes à l’aide d’Azure PowerShell
 
-La première étape pour comprendre la conformité dans Azure consiste à identifier l’état de vos ressources. Dans ce démarrage rapide, vous créerez une affectation de stratégie pour identifier les machines virtuelles qui n’utilisent pas de disques managés. Lorsque vous aurez terminé, vous identifierez les machines virtuelles qui ne sont *pas conformes* à l’attribution de stratégie.
+La première étape pour comprendre la conformité dans Azure consiste à identifier l’état de vos ressources. Dans ce démarrage rapide, vous créerez une affectation de stratégie pour identifier les machines virtuelles qui n’utilisent pas de disques managés. Lorsque vous aurez terminé, vous identifierez les machines virtuelles qui ne sont *pas conformes*.
 
-Le module Azure PowerShell est utilisé pour créer et gérer des ressources Azure à partir de la ligne de commande ou dans des scripts. Ce guide explique comment utiliser Az pour créer une attribution de stratégie. La stratégie identifie les ressources non conformes dans votre environnement Azure.
+Le module Azure PowerShell est utilisé pour gérer des ressources Azure à partir de la ligne de commande ou dans des scripts.
+Ce guide explique comment utiliser un module Az pour créer une attribution de stratégie.
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -28,11 +29,11 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Si ce n’est pas déjà fait, installez [ARMClient](https://github.com/projectkudu/ARMClient). C’est un outil qui envoie des requêtes HTTP aux API Azure Resource Manager.
 - Avant de commencer, assurez-vous que la dernière version d’Azure PowerShell est installée. Consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps) pour plus d’informations.
 - Inscrivez le fournisseur de ressources Policy Insights à l’aide d’Azure PowerShell. L’inscription du fournisseur de ressources permet de s’assurer que votre abonnement fonctionne avec lui. Pour inscrire un fournisseur de ressources, vous devez avoir l’autorisation pour une opération de fournisseur de ressources. Cette opération est incluse dans les rôles de contributeur et de propriétaire. Exécutez la commande suivante pour enregistrer le fournisseur de ressources :
 
   ```azurepowershell-interactive
+  # Register the resource provider if it's not already registered
   Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
   ```
 
@@ -40,19 +41,24 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 
 ## <a name="create-a-policy-assignment"></a>Créer une affectation de stratégie
 
-Dans ce guide de démarrage rapide, vous allez créer une affectation de stratégie et affecter la définition *Audit VMs without managed disks* (Auditer les machines virtuelles sans disques managés). Cette stratégie identifie les ressources qui ne sont pas conformes aux conditions définies dans sa définition.
+Dans ce guide de démarrage rapide, vous créez une attribution de stratégie pour la définition *Auditer des machines virtuelles sans disques managés*. Cette définition de stratégie identifie des machines virtuelles n’utilisant pas de disques managés.
 
 Exécutez la commande suivante pour créer une nouvelle attribution de stratégie :
 
 ```azurepowershell-interactive
+# Get a reference to the resource group that will be the scope of the assignment
 $rg = Get-AzResourceGroup -Name '<resourceGroupName>'
+
+# Get a reference to the built-in policy definition that will be assigned
 $definition = Get-AzPolicyDefinition | Where-Object { $_.Properties.DisplayName -eq 'Audit VMs that do not use managed disks' }
+
+# Create the policy assignment with the built-in definition against your resource group
 New-AzPolicyAssignment -Name 'audit-vm-manageddisks' -DisplayName 'Audit VMs without managed disks Assignment' -Scope $rg.ResourceId -PolicyDefinition $definition
 ```
 
 Les commandes précédentes utilisent les informations suivantes :
 
-- **Name** : nom réel de l’attribution.  Pour cet exemple, *audit-vm-manageddisks* a été utilisé.
+- **Name** : nom réel de l’attribution. Pour cet exemple, *audit-vm-manageddisks* a été utilisé.
 - **DisplayName** : nom d’affichage pour l’attribution de stratégie. Dans ce cas, nous allons utiliser l’affectation *Audit VMs without managed disks* (Auditer les machines virtuelles sans disques managés).
 - **Definition** : définition de la stratégie, que vous utilisez pour créer l’attribution. Dans ce cas, il s’agit de l’ID de la définition de stratégie *Auditer les machines virtuelles qui n’utilisent pas de disques managés*.
 - **Scope** : une étendue détermine les ressources ou le regroupement de ressources sur lequel l’attribution de stratégie est appliquée. Elle va d’un abonnement à des groupes de ressources. Assurez-vous de remplacer &lt;scope&gt; par le nom de votre groupe de ressources.
@@ -64,51 +70,40 @@ Vous êtes maintenant prêt à identifier les ressources non conformes pour comp
 Utilisez les informations suivantes pour identifier les ressources qui ne sont pas conformes à l’attribution de stratégie que vous avez créée. Exécutez les commandes suivantes :
 
 ```azurepowershell-interactive
-$policyAssignment = Get-AzPolicyAssignment | Where-Object { $_.Properties.DisplayName -eq 'Audit VMs without managed disks Assignment' }
-$policyAssignment.PolicyAssignmentId
+# Get the resources in your resource group that are non-compliant to the policy assignment
+Get-AzPolicyState -ResourceGroupName $rg.ResourceGroupName -PolicyAssignmentName 'audit-vm-manageddisks' -Filter 'IsCompliant eq false'
 ```
 
-Pour plus d’informations sur les ID d’affectation de stratégie, consultez [Get-AzPolicyAssignment](/powershell/module/az.resources/get-azpolicyassignment).
-
-Exécutez ensuite la commande suivante pour obtenir les ID des ressources non conformes, intégrés dans un fichier JSON :
-
-```console
-armclient post "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2017-12-12-preview&$filter=IsCompliant eq false and PolicyAssignmentId eq '<policyAssignmentID>'&$apply=groupby((ResourceId))" > <json file to direct the output with the resource IDs into>
-```
+Pour plus d’informations sur l’obtention de l’état de la stratégie, voir [Get-AzPolicyState](/powershell/module/az.policyinsights/Get-AzPolicyState).
 
 Vos résultats doivent ressembler à l’exemple suivant :
 
-```json
-{
-    "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest",
-    "@odata.count": 3,
-    "value": [{
-            "@odata.id": null,
-            "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-            "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.compute/virtualmachines/<virtualmachineId>"
-        },
-        {
-            "@odata.id": null,
-            "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-            "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.compute/virtualmachines/<virtualmachine2Id>"
-        },
-        {
-            "@odata.id": null,
-            "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-            "ResourceId": "/subscriptions/<subscriptionName>/resourcegroups/<rgname>/providers/microsoft.compute/virtualmachines/<virtualmachine3ID>"
-        }
-
-    ]
-}
+```output
+Timestamp                   : 3/9/19 9:21:29 PM
+ResourceId                  : /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmId}
+PolicyAssignmentId          : /subscriptions/{subscriptionId}/providers/microsoft.authorization/policyassignments/audit-vm-manageddisks
+PolicyDefinitionId          : /providers/Microsoft.Authorization/policyDefinitions/06a78e20-9358-41c9-923c-fb736d382a4d
+IsCompliant                 : False
+SubscriptionId              : {subscriptionId}
+ResourceType                : /Microsoft.Compute/virtualMachines
+ResourceTags                : tbd
+PolicyAssignmentName        : audit-vm-manageddisks
+PolicyAssignmentOwner       : tbd
+PolicyAssignmentScope       : /subscriptions/{subscriptionId}
+PolicyDefinitionName        : 06a78e20-9358-41c9-923c-fb736d382a4d
+PolicyDefinitionAction      : audit
+PolicyDefinitionCategory    : Compute
+ManagementGroupIds          : {managementGroupId}
 ```
 
-Les résultats sont comparables à ce que vous devriez généralement voir sous **Ressources non conformes** dans la vue du portail Azure.
+Les résultats correspondent à ce que vous voyez sous l’onglet **Conformité des ressources** d’une attribution de stratégie dans la vue du portail Azure.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Utilisez la commande suivante pour supprimer l’affectation créée :
 
 ```azurepowershell-interactive
+# Removes the policy assignment
 Remove-AzPolicyAssignment -Name 'audit-vm-manageddisks' -Scope '/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>'
 ```
 

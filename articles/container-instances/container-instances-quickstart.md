@@ -1,6 +1,6 @@
 ---
-title: 'Démarrage rapide : Exécuter une application dans Azure Container Instances - CLI'
-description: Dans ce guide de démarrage rapide, vous utilisez l'interface de ligne de commande Azure pour déployer une application de conteneur Docker pour l’exécuter dans un conteneur isolé dans Azure Container Instances.
+title: Guide de démarrage rapide – Déployer un conteneur Docker sur Azure Container Instances – CLI
+description: Dans ce guide de démarrage rapide, vous utilisez le Azure CLI pour déployer rapidement une application web conteneurisée qui s’exécute dans une instance de conteneur Azure isolé.
 services: container-instances
 author: dlepow
 ms.service: container-instances
@@ -8,16 +8,18 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 93a41610035d91774256410cea6af1d06b085d30
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 7252636287d634927979d70954f48cab5aecde5d
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562060"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57732277"
 ---
-# <a name="quickstart-run-a-container-application-in-azure-container-instances-with-the-azure-cli"></a>Démarrage rapide : Exécuter une application de conteneur dans Azure Container Instances à l'aide de l'interface de ligne de commande Azure
+# <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-cli"></a>Démarrage rapide : Déployer un instance de conteneur dans Azure à l’aide d’Azure CLI
 
-Utilisez Azure Container Instances pour exécuter, facilement et rapidement, des conteneurs Docker dans Azure. Vous n’avez pas besoin de déployer de machines virtuelles ou d’utiliser une plateforme d’orchestration de conteneur complète telle que Kubernetes. Dans ce guide de démarrage rapide, vous utilisez l'interface de ligne de commande Azure pour créer un conteneur dans Azure et mettez à disposition son application avec un nom de domaine complet. Quelques secondes après l’exécution d’une seule commande de déploiement, vous pouvez accéder à l’application en cours d’exécution :
+Utilisez Azure Container Instances pour exécuter, facilement et rapidement, des conteneurs Docker serverless dans Azure. Déployez une application sur une instance de conteneur à la demande lorsque vous n’avez pas besoin d’une plateforme d’orchestration de conteneur complète telle qu’Azure Kubernetes Service.
+
+Dans cette procédure de démarrage rapide, vous utilisez Azure CLI pour déployer un conteneur Docker isolé et mettre son application à disposition avec un nom de domaine complet (FQDN). Quelques secondes après l’exécution d’une seule commande de déploiement, vous pouvez accéder à l’application en cours d’exécution dans le conteneur :
 
 ![Application déployée dans Azure Container Instances affichée dans le navigateur][aci-app-browser]
 
@@ -25,7 +27,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit][azure-acco
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Vous pouvez utiliser le service Azure Cloud Shell ou une installation locale de l’interface Azure CLI pour procéder à ce démarrage rapide. Si vous souhaitez l’utiliser en local, vous avez besoin de la version 2.0.27 ou versions ultérieures. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][azure-cli-install].
+Vous pouvez utiliser le service Azure Cloud Shell ou une installation locale de l’interface Azure CLI pour procéder à ce démarrage rapide. Si vous souhaitez l’utiliser en local, nous vous recommandons la version 2.0.55 ou une version ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][azure-cli-install].
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -39,11 +41,11 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container"></a>Créez un conteneur.
 
-Maintenant que vous avez un groupe de ressources, vous pouvez exécuter un conteneur dans Azure. Pour créer une instance de conteneur avec Azure CLI, fournissez un nom de groupe de ressources, un nom d’instance de conteneur et l’image de conteneur Docker à la commande [az container create][az-container-create]. Dans ce guide de démarrage rapide, vous utilisez l’image `microsoft/aci-helloworld` à partir du registre Docker Hub public. Cette image contient une petite application web écrite en Node.js qui sert une page HTML statique.
+Maintenant que vous avez un groupe de ressources, vous pouvez exécuter un conteneur dans Azure. Pour créer une instance de conteneur avec Azure CLI, fournissez un nom de groupe de ressources, un nom d’instance de conteneur et l’image de conteneur Docker à la commande [az container create][az-container-create]. Dans ce démarrage rapide, vous utilisez l’image `microsoft/aci-helloworld` publique. Cette image contient une petite application web écrite en Node.js qui sert une page HTML statique.
 
 Vous pouvez exposer vos conteneurs sur Internet en spécifiant un ou plusieurs ports à ouvrir, une étiquette de nom DNS ou les deux. Dans ce guide de démarrage rapide, vous déployez un conteneur avec une étiquette de nom DNS pour que l’application web soit publiquement accessible.
 
-Pour démarrer une instance de conteneur, exécutez la commande suivante. La valeur `--dns-name-label` doit être unique au sein de la région Azure dans laquelle vous créez l’instance. Si vous recevez un message d’erreur « Étiquette de nom DNS indisponible », essayez d’utiliser une autre étiquette de nom DNS.
+Pour démarrer une instance de conteneur, exécutez une commande similaire à la suivante. Définissez une valeur `--dns-name-label` être unique au sein de la région Azure dans laquelle vous créez l’instance. Si vous recevez un message d’erreur « Étiquette de nom DNS indisponible », essayez d’utiliser une autre étiquette de nom DNS.
 
 ```azurecli-interactive
 az container create --resource-group myResourceGroup --name mycontainer --image microsoft/aci-helloworld --dns-name-label aci-demo --ports 80
@@ -97,13 +99,13 @@ En plus de consulter les journaux, vous pouvez joindre vos flux de sortie locale
 Exécutez d’abord la commande [az container attach][az-container-attach] pour joindre votre console locale aux flux de sortie du conteneur :
 
 ```azurecli-interactive
-az container attach --resource-group myResourceGroup -n mycontainer
+az container attach --resource-group myResourceGroup --name mycontainer
 ```
 
 Une fois joints, actualisez votre navigateur quelques fois pour générer des sorties supplémentaires. Ensuite, détachez votre console avec la commande `Control+C`. Le résultat ressemble à ce qui suit :
 
 ```console
-$ az container attach --resource-group myResourceGroup -n mycontainer
+$ az container attach --resource-group myResourceGroup --name mycontainer
 Container 'mycontainer' is in state 'Running'...
 (count: 1) (last timestamp: 2018-03-15 21:17:59+00:00) pulling image "microsoft/aci-helloworld"
 (count: 1) (last timestamp: 2018-03-15 21:18:05+00:00) Successfully pulled image "microsoft/aci-helloworld"
@@ -155,7 +157,7 @@ Pour tester les options d’exécution des conteneurs dans un système d’orche
 <!-- LINKS - External -->
 [app-github-repo]: https://github.com/Azure-Samples/aci-helloworld.git
 [azure-account]: https://azure.microsoft.com/free/
-[node-js]: http://nodejs.org
+[node-js]: https://nodejs.org
 
 <!-- LINKS - Internal -->
 [az-container-attach]: /cli/azure/container#az-container-attach

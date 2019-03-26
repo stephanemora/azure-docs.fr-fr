@@ -15,21 +15,16 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: c1a8b18062f61be9eb020beefd3ad741c41b55f8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c5ff1a0373fcce339bea2b235d86f20dc861a15c
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38652700"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444257"
 ---
 # <a name="tutorial-debug-a-java-application-deployed-on-a-local-service-fabric-cluster"></a>Didacticiel : Déboguer une application Java déployée sur un cluster Service Fabric local
 
 Ce tutoriel est le deuxième d’une série. Vous découvrez comment attacher un débogueur distant à l’aide d’Eclipse pour l’application Service Fabric. En outre, vous apprenez à rediriger les journaux des applications en cours d’exécution vers un emplacement pratique pour le développeur.
-
-Dans ce deuxième volet, vous apprenez à :
-> [!div class="checklist"]
-> * Déboguer une application Java à l’aide d’Eclipse
-> * Rediriger les journaux vers un emplacement configurable
 
 Cette série de tutoriels vous montre comment effectuer les opérations suivantes :
 > [!div class="checklist"]
@@ -38,6 +33,13 @@ Cette série de tutoriels vous montre comment effectuer les opérations suivante
 > * [Déployer l’application sur un cluster Azure](service-fabric-tutorial-java-deploy-azure.md)
 > * [Configurer la surveillance et les diagnostics pour l’application](service-fabric-tutorial-java-elk.md)
 > * [Configurer CI/CD](service-fabric-tutorial-java-jenkins.md)
+
+
+Dans ce deuxième volet, vous apprenez à :
+> [!div class="checklist"]
+> * Déboguer une application Java à l’aide d’Eclipse
+> * Rediriger les journaux vers un emplacement configurable
+
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -63,7 +65,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 
 3. Dans la fenêtre d’importation des projets, choisissez l’option **Select root directory** (Sélectionner le répertoire racine), puis sélectionnez le répertoire **Voting**. Si vous avez suivi la série de didacticiels, le répertoire **Voting** se trouve dans le répertoire **Eclipse-workspace**.
 
-4. Mettez à jour entryPoint.sh du service que vous souhaitez déboguer, afin qu’il démarre le processus Java avec les paramètres de débogage à distance. Pour ce didacticiel, le serveur frontal sans état est utilisé : *Voting/VotingApplication/VotingWebPkg/Code/entryPoint.sh*. Le port 8001 est défini pour le débogage dans cet exemple.
+4. Mettez à jour entryPoint.sh du service que vous souhaitez déboguer, afin qu’il démarre le processus Java avec les paramètres de débogage à distance. Pour ce didacticiel, le serveur frontal sans état est utilisé : *Voting/VotingApplication/VotingWebPkg/Code/entryPoint.sh*. Le port 8001 est défini pour le débogage dans cet exemple.
 
     ```bash
     java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -jar VotingWeb.jar
@@ -89,13 +91,15 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 
 10. Dans l’IDE Eclipse, sélectionnez **Exécuter -> Déboguer des Configurations -> Application Java distante**, cliquez sur la configuration **Voting** que vous avez créée et cliquez sur **Déboguer**.
 
-11. Ouvrez votre navigateur web et accédez à **localhost: 8080** pour atteindre le point d’arrêt, puis entrez **Debug perspective** (Perspective de débogage) dans Eclipse.
+11. Accédez à votre navigateur web puis à **localhost : 8080**. Vous atteignez automatiquement le point d’arrêt et Eclipse ouvre la **perspective Déboguer**.
+
+Vous pouvez maintenant appliquer ces mêmes étapes pour déboguer une application Service Fabric dans Eclipse.
 
 ## <a name="redirect-application-logs-to-custom-location"></a>Rediriger les journaux des applications vers un emplacement personnalisé
 
 Les étapes suivantes décrivent comment rediriger les journaux des applications de l’emplacement */var/log/syslog* par défaut vers un emplacement personnalisé.
 
-1. Actuellement, les applications s’exécutant dans les clusters Linux Service Fabric prennent en charge la sélection d’un seul fichier journal. Par conséquent, les journaux se trouvent toujours dans */tmp/mysfapp0.0.log*. Créez un fichier nommé logging.properties à l’emplacement suivant *Voting/VotingApplication/VotingWebPkg/Code/logging.properties* et ajoutez le contenu ci-après.
+1. Actuellement, les applications s’exécutant dans les clusters Linux Service Fabric prennent uniquement en charge la sélection d’un seul fichier journal. Pour configurer une application de telle sorte que les journaux aillent toujours à */tmp/mysfapp0.0.log*, créez un fichier nommé logging.properties à l’emplacement *Voting/VotingApplication/VotingWebPkg/Code/logging.properties*, pis ajoutez le contenu ci-après.
 
     ```
     handlers = java.util.logging.FileHandler
@@ -103,7 +107,8 @@ Les étapes suivantes décrivent comment rediriger les journaux des applications
     java.util.logging.FileHandler.level = ALL
     java.util.logging.FileHandler.formatter = java.util.logging.SimpleFormatter
 
-    # This value specifies your custom location. You will have to ensure this path has read and write access by the process running the SF Application
+    # This value specifies your custom location.
+    # You will have to ensure this path has read and write access by the process running the SF Application
     java.util.logging.FileHandler.pattern = /tmp/mysfapp0.0.log
     ```
 
@@ -113,7 +118,7 @@ Les étapes suivantes décrivent comment rediriger les journaux des applications
     -Djava.util.logging.config.file=logging.properties
     ```
 
-    L’exemple suivant vous présente une exécution :
+    L’exemple suivant montre un exemple d’exécution avec le débogueur attaché, similaire à l’exécution dans la section précédente.
 
     ```bash
     java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=logging.properties -jar VotingWeb.jar

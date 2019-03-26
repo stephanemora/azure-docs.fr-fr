@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 02/07/2019
+ms.date: 03/18/2019
 ms.author: spelluru
-ms.openlocfilehash: 4abec80df4aeeb4c20d56b43ba122ee7266905a6
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 31bf2de7417a1be6139de3ec9dcc8d531df586d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649582"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58090319"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutoriel : Configurer un laboratoire de salle de classe 
 Dans ce tutoriel, vous allez configurer un laboratoire de classe avec des machines virtuelles utilisées par les étudiants dans la classe.  
@@ -69,9 +69,9 @@ Un propriétaire de laboratoire peut ajouter d’autres utilisateurs au rôle **
 
     ![Page Configurer le modèle une fois terminé](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. Dans la page **Configurer le modèle**, effectuez les étapes suivantes : Ces étapes sont **facultatives** pour le tutoriel.
-    2. Connectez-vous au modèle de machine virtuelle en sélectionnant **Se connecter**. 
-    3. Installez et configurez des logiciels sur votre modèle de machine virtuelle.     
-    5. Entrez une **description** pour le modèle
+    1. Connectez-vous au modèle de machine virtuelle en sélectionnant **Se connecter**. 
+    2. Installez et configurez des logiciels sur votre modèle de machine virtuelle.     
+    3. Entrez une **description** pour le modèle
 9. Sélectionnez **Suivant** sur la page du modèle. 
 10. Sur la page **Publier le modèle**, effectuez les actions suivantes. 
     1. Pour publier le modèle immédiatement, sélectionnez **Publier**.  
@@ -108,15 +108,15 @@ Un propriétaire de laboratoire peut ajouter d’autres utilisateurs au rôle **
     ![Liste des utilisateurs](../media/how-to-configure-student-usage/users-list-new.png)
 
 
-## <a name="send-registration-link-to-students"></a>Envoyer un lien d’inscription aux étudiants
-
+## <a name="send-an-email-with-the-registration-link"></a>Envoyer un e-mail avec le lien d’inscription
 1. Basculez vers la vue **Utilisateurs** si vous n’y êtes pas déjà. 
-2. Sélectionnez **Obtenir un lien d’inscription** dans la barre d’outils.
-1. Dans la boîte de dialogue **Enregistrement de l’utilisateur**, sélectionnez le bouton **Copier**. Le lien est copié dans le Presse-papiers.
+2. Sélectionnez des utilisateurs spécifiques ou tous les utilisateurs dans la liste. Pour sélectionner des utilisateurs spécifiques, activez les cases à cocher dans la première colonne de la liste. Pour sélectionner tous les utilisateurs, sélectionnez la case à cocher devant le titre de la première colonne (**Nom**) ou sélectionnez toutes les cases à cocher pour tous les utilisateurs figurant dans la liste.
+3. Sélectionnez **Envoyer une invitation** dans la barre d’outils. Vous pouvez également pointer la souris sur un nom d’étudiant dans la liste, puis envoyer l’icône de courrier électronique. 
 
-    ![Lien d’inscription](../media/tutorial-setup-classroom-lab/registration-link.png)
-1. Dans la boîte de dialogue **Enregistrement de l’utilisateur**, sélectionnez **Fermer**. 
-2. Partagez le lien d’inscription avec un étudiant afin que ce dernier puisse s’inscrire à la classe.
+    ![Envoyer un lien d’inscription par e-mail](../media/tutorial-setup-classroom-lab/send-email.png)
+4. Dans la page **Envoyer un lien d’inscription par e-mail**, procédez comme suit : 
+    1. Tapez un **message facultatif** que vous souhaitez envoyer aux étudiants. L’e-mail inclut automatiquement le lien d’inscription. 
+    2. Dans la page **Envoyer un lien d’inscription par e-mail**, sélectionnez **Envoyer**. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce tutoriel, vous avez créé un laboratoire de classe et configuré le laboratoire. Pour savoir comment un étudiant peut accéder à une machine virtuelle dans le laboratoire à l’aide du lien d’inscription, passez au didacticiel suivant :
