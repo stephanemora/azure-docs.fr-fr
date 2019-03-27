@@ -1,33 +1,34 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Novatus | Microsoft Docs'
-description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Novatus.
+title: 'Didacticiel : Intégration d’Azure Active Directory avec Empactis | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Empactis.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
-ms.assetid: d2f13779-bdb7-4408-9738-be67ed3de4e5
-ms.service: Azure-Active-Directory
+ms.assetid: ee18d76c-7a05-4b25-8e4f-e151b2268958
+ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/05/2019
+ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 16d5f9ac8e1dbe01fdf812c5193285dcb0a28527
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ed0b5c990bd12e23fefcc433a656a71207b08683
+ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897535"
+ms.lasthandoff: 03/15/2019
+ms.locfileid: "58003743"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-novatus"></a>Tutoriel : Intégration d’Azure Active Directory à Novatus
+# <a name="tutorial-azure-active-directory-integration-with-empactis"></a>Didacticiel : Intégration d’Azure Active Directory avec Empactis
 
-Dans ce didacticiel, vous allez apprendre à intégrer Novatus à Azure Active Directory (Azure AD).
-L’intégration de Novatus dans Azure AD vous offre les avantages suivants :
+Dans ce didacticiel, vous allez apprendre à intégrer Empactis avec Azure Active Directory (Azure AD).
+L’intégration d’Empactis avec Azure AD vous offre les avantages suivants :
 
-* Dans Azure AD, vous pouvez contrôler qui a accès à Novatus.
-* Vous pouvez permettre aux utilisateurs de se connecter automatiquement à Novatus (par le biais de l’authentification unique) avec leur compte Azure AD.
+* Dans Azure AD, vous pouvez contrôler qui a accès à Empactis.
+* Vous pouvez permettre aux utilisateurs de se connecter automatiquement à Empactis (par le biais de l’authentification unique) avec leur compte Azure AD.
 * Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -35,24 +36,22 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour configurer l’intégration d’Azure AD à Novatus, vous avez besoin des éléments suivants :
+Pour configurer l’intégration d’Azure AD à Empactis, vous avez besoin des éléments suivants :
 
 * Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
-* Un abonnement Novatus pour lequel l’authentification unique est activée
+* Abonnement Empactis pour lequel l’authentification unique est activée
 
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
-* Novatus prend en charge l’authentification unique initiée par le **fournisseur de services**.
+* Empactis prend en charge l’authentification unique initiée par le **fournisseur d’identité**.
 
-* Novatus prend en charge l’approvisionnement d’utilisateurs **Juste-à-temps**.
+## <a name="adding-empactis-from-the-gallery"></a>Ajout d’Empactis à partir de la galerie
 
-## <a name="adding-novatus-from-the-gallery"></a>Ajout de Novatus à partir de la galerie
+Pour configurer l’intégration d’Empactis à Azure AD, vous devez ajouter Empactis à partir de la galerie à votre liste d’applications SaaS gérées.
 
-Pour configurer l’intégration de Novatus à Azure AD, vous devez ajouter Novatus à partir de la galerie à votre liste d’applications SaaS gérées.
-
-**Pour ajouter Novatus à partir de la galerie, procédez comme suit :**
+**Pour ajouter Empactis à partir de la galerie, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -66,31 +65,31 @@ Pour configurer l’intégration de Novatus à Azure AD, vous devez ajouter Nov
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, tapez **Novatus**, sélectionnez **Novatus** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, tapez **Empactis**, sélectionnez **Empactis** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
-     ![Novatus dans la liste des résultats](common/search-new-app.png)
+     ![Empactis dans la liste des résultats](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Novatus avec un utilisateur de test appelé **Britta Simon**.
-Pour que l’authentification unique fonctionne, une relation entre l’utilisateur Azure AD et l’utilisateur Novatus associé doit être établie.
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Empactis avec un utilisateur de test appelé **Britta Simon**.
+Pour que l’authentification unique fonctionne, une relation entre l’utilisateur Azure AD et l’utilisateur Empactis associé doit être établie.
 
-Pour configurer et tester l’authentification unique Azure AD avec Novatus, vous devez suivre les indications des sections suivantes :
+Pour configurer et tester l’authentification unique Azure AD avec Empactis, vous devez suivre les indications des sections suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Configurer l’authentification unique Novatus](#configure-novatus-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
+2. **[Configurer l’authentification unique Empactis](#configure-empactis-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
 3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Créer un utilisateur de test Novatus](#create-novatus-test-user)** pour obtenir un équivalent de Britta Simon dans Novatus, lié à la représentation Azure AD associée.
+5. **[Créer un utilisateur de test Empactis](#create-empactis-test-user)** pour avoir un équivalent de Britta Simon dans Empactis lié à la représentation Azure AD associée.
 6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
 Dans cette section, vous activez l’authentification unique Azure AD dans le portail Azure.
 
-Pour configurer l’authentification unique Azure AD avec Novatus, procédez comme suit :
+Pour configurer l’authentification unique Azure AD avec Empactis, procédez comme suit :
 
-1. Dans le [portail Azure](https://portal.azure.com/), sur la page d’intégration de l’application **Novatus**, sélectionnez **Authentification unique**.
+1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **Empactis**, sélectionnez **Authentification unique**.
 
     ![Lien Configurer l’authentification unique](common/select-sso.png)
 
@@ -102,20 +101,15 @@ Pour configurer l’authentification unique Azure AD avec Novatus, procédez co
 
     ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-4. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
+4. Dans la section **Configuration SAML de base**, l’utilisateur n’a rien à faire, car l’application est déjà intégrée à Azure.
 
-    ![Informations d’authentification unique dans Domaine et URL Novatus](common/sp-signonurl.png)
-
-    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://sso.novatuscontracts.com/<companyname>`
-
-    > [!NOTE]
-    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Contactez [l’équipe du support technique Novatus](mailto:jvinci@novatusinc.com) pour obtenir cette valeur. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    ![Informations d’authentification unique dans Domaine et URL Empactis](common/preintegrated.png)
 
 5. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
-6. Dans la section **Configurer Novatus**, copiez la ou les URL appropriées correspondant à vos besoins.
+6. Dans la section **Configurer Empactis**, copiez la ou les URL appropriées en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
@@ -125,9 +119,9 @@ Pour configurer l’authentification unique Azure AD avec Novatus, procédez co
 
     c. URL de déconnexion
 
-### <a name="configure-novatus-single-sign-on"></a>Configurer l’authentification unique Novatus
+### <a name="configure-empactis-single-sign-on"></a>Configurer l’authentification unique Empactis
 
-Pour configurer l’authentification unique côté **Novatus**, vous devez envoyer le **certificat (Base64)** téléchargé et les URL appropriées copiées depuis le portail Azure à l’[équipe du support technique Novatus](mailto:jvinci@novatusinc.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **Empactis**, vous devez envoyer le **certificat (Base64)** téléchargé et les URL correspondantes copiées à partir du portail Azure à l’[équipe du support technique Empactis](mailto:support@empactis.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
 
@@ -147,7 +141,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotresociété.extension**.  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
@@ -156,15 +150,15 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
-Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Novatus.
+Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Empactis.
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis sélectionnez **Novatus**.
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis **Empactis**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-2. Dans la liste des applications, sélectionnez **Novatus**.
+2. Dans la liste des applications, sélectionnez **Empactis**.
 
-    ![Lien Novatus dans la liste des applications](common/all-applications.png)
+    ![Lien Empactis dans la liste des applications](common/all-applications.png)
 
 3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes**.
 
@@ -180,19 +174,15 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-### <a name="create-novatus-test-user"></a>Création d’un utilisateur de test Novatus
+### <a name="create-empactis-test-user"></a>Créer un utilisateur de test Empactis
 
-Dans cette section, un utilisateur nommé Britta Simon est créé dans Novatus. Novatus prend en charge l’approvisionnement d’utilisateurs juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans Novatus, il en est créé un après l’authentification.
-
->[!NOTE]
->Si vous devez créer un utilisateur manuellement, contactez [l’équipe du support technique Novatus](mailto:jvinci@novatusinc.com). 
-> 
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Empactis. Collaborez avec l’ [équipe du support technique Empactis](mailto:support@empactis.com) pour ajouter les utilisateurs dans la plateforme Empactis. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique 
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Le fait de cliquer sur la vignette Novatus dans le panneau d’accès doit vous connecter automatiquement à l’application Novatus pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quand vous cliquez sur la vignette Empactis dans le volet d’accès, vous devez être connecté automatiquement à l’application Empactis pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
