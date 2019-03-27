@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Provisionner un serveur Azure Database pour MySQL à l’aide d’un modèle Azure Resource Manager'
+title: 'Tutoriel : Provisionner un serveur Azure Database pour MySQL à l’aide d’un modèle Azure Resource Manager'
 description: Ce tutoriel explique comment provisionner et automatiser des déploiements de serveur Azure Database pour MySQL à l’aide d’un modèle Azure Resource Manager.
 author: savjani
 ms.author: pariks
@@ -8,14 +8,14 @@ ms.devlang: json
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.custom: mvc
-ms.openlocfilehash: bb7a48b08fde07380276d33393225c3f5220b93f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 5d5398f4da7563c6f53c17d0305f54c4360f1c65
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880697"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58076851"
 ---
-# <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>Didacticiel : Provisionner un serveur Azure Database pour MySQL à l’aide d’un modèle Azure Resource Manager
+# <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>Tutoriel : Provisionner un serveur Azure Database pour MySQL à l’aide d’un modèle Azure Resource Manager
 
 [L’API REST Azure Database pour MySQL](https://docs.microsoft.com/rest/api/mysql/) permet aux ingénieurs DevOps d’automatiser et d’intégrer l’approvisionnement, la configuration et les opérations des bases de données et des serveurs MySQL gérés dans Azure.  L’API permet la création, l’énumération, la gestion et la suppression des bases de données et serveurs MySQL sur le service Azure Database pour MySQL.
 
@@ -87,8 +87,8 @@ Dans cette requête, vous devez personnaliser les valeurs suivantes :
 +   `storageProfile/geoRedundantBackup` -Spécifiez Activé/Désactivé selon les exigences de géo-reprise d’activité.
 +   `sku/tier` -Spécifiez le niveau Basique, Usage général ou Mémoire optimisée pour le déploiement.
 +   `sku/capacity` -Spécifiez la capacité de vCore. Les valeurs possibles sont 2, 4, 8, 16, 32 ou 64.
-+   `sku/family` -Spécifiez Gen4 ou Gen5 pour choisir la génération du matériel pour le déploiement du serveur.
-+   `sku/name` -Spécifiez la valeur TierPrefix_family_capacity. Par exemple B_Gen4_1, GP_Gen5_16, MO_Gen5_32. Pour comprendre les valeurs valides par région et par niveau, consultez la documentation sur les [niveaux tarifaires](./concepts-pricing-tiers.md).
++   `sku/family` - Spécifiez Gen5 pour choisir la génération du matériel pour le déploiement du serveur.
++   `sku/name` -Spécifiez la valeur TierPrefix_family_capacity. Par exemple B_Gen5_1, GP_Gen5_16, MO_Gen5_32. Pour comprendre les valeurs valides par région et par niveau, consultez la documentation sur les [niveaux tarifaires](./concepts-pricing-tiers.md).
 +   `resources/properties/virtualNetworkSubnetId` -Spécifiez l’identificateur Azure du sous-réseau de réseau virtuel dans lequel placer le serveur Azure MySQL. 
 +   `tags(optional)` -Spécifiez les balises facultatives comme paires clé/valeur que vous utiliseriez pour catégoriser les ressources pour la facturation, etc..
 
@@ -127,8 +127,8 @@ Le résultat est au format JSON. Notez les valeurs **fullyQualifiedDomainName** 
   "resourceGroup": "myresourcegroup",
  "sku": {
     "capacity": 2,
-    "family": "Gen4",
-    "name": "GP_Gen4_2",
+    "family": "Gen5",
+    "name": "GP_Gen5_2",
     "size": null,
     "tier": "GeneralPurpose"
   },
@@ -207,5 +207,5 @@ Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
 > * Charger les exemples de données
 > * Données de requête
 > * Mettre à jour des données
-
+> 
 > [Connexion d’applications à la base de données Azure pour MySQL](./howto-connection-string.md)

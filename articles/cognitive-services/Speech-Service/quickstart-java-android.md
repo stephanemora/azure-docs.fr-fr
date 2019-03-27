@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: 2ee5028e0766ec52c407bf0ef0e18885c11734d8
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 9458f052258993ee598ddfbca262faf8f6cb4ab9
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961045"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258545"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Démarrage rapide : Reconnaissance vocale en Java sur Android à l’aide du kit SDK de reconnaissance vocale
 
@@ -30,7 +30,7 @@ Le kit SDK Speech est actuellement compatible avec les appareils Android équip�
 
 ## <a name="prerequisites"></a>Prérequis
 
-Vous avez besoin d’une clé d’abonnement au service Speech pour suivre ce guide de démarrage rapide. Vous pouvez en obtenir une gratuitement. Consultez [Essayer le service Speech gratuitement](get-started.md) pour plus d’informations.
+Vous avez besoin d’une clé d’abonnement au service Speech pour suivre ce guide de démarrage rapide. Vous pouvez en obtenir une gratuitement. Pour plus d’informations, consultez [Essayer le service Speech gratuitement](get-started.md).
 
 ## <a name="create-and-configure-a-project"></a>Créer et configurer un projet
 
@@ -61,11 +61,11 @@ Quelques minutes sont nécessaires à Android Studio pour préparer votre nouvea
 La version actuelle du kit SDK de reconnaissance vocale Cognitive Services est `1.3.1`.
 
 Le SDK Speech pour Android est empaqueté au format [AAR (bibliothèque Android)](https://developer.android.com/studio/projects/android-library), qui inclut les bibliothèques nécessaires et les autorisations Android requises.
-Il est hébergé dans un référentiel Maven dans https://csspeechstorage.blob.core.windows.net/maven/.
+Il est hébergé dans un référentiel Maven sur https:\//csspeechstorage.blob.core.windows.net/maven/.
 
 Configurez votre projet pour utiliser le kit SDK Speech. Ouvrez la fenêtre de structure du projet en choisissant **File (Fichier)** > **Project Structure (Structure de projet)** dans la barre de menus Android Studio. Dans la fenêtre de structure du projet, apportez les modifications suivantes :
 
-1. Dans la liste située sur le côté gauche de la fenêtre, sélectionnez **Project** (Projet). Modifiez les paramètres **Default Library Repository** (Référentiel de bibliothèque par défaut) en ajoutant une virgule et l’URL du référentiel Maven, entourée de guillemets simples. 'https://csspeechstorage.blob.core.windows.net/maven/'
+1. Dans la liste située sur le côté gauche de la fenêtre, sélectionnez **Project** (Projet). Modifiez les paramètres **Default Library Repository** (Référentiel de bibliothèque par défaut) en ajoutant une virgule et l’URL du référentiel Maven, entourée de guillemets simples. 'https:\//csspeechstorage.blob.core.windows.net/maven/'
 
    ![Capture d’écran de la fenêtre de structure d’un projet](media/sdk/qs-java-android-06-add-maven-repository.png)
 
