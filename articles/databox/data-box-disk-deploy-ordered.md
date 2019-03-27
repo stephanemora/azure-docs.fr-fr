@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 01/09/2019
+ms.date: 02/27/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: db10361707d83fcda20f0e4bf2adc2abc4176808
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 67f4eb5383452a81ba288f5fe611242259217951
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156169"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404890"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Tutoriel : Commander une solution Azure Data Box Disk
 
@@ -77,14 +77,28 @@ Procédez comme suit dans le [portail Azure](https://aka.ms/azuredataboxfromdisk
 
     |Paramètre|Valeur|
     |---|---|
-    |NOM|Indiquez un nom convivial pour suivre la commande.<br> Le nom peut comporter entre 3 et 24 caractères qui peuvent être des lettres, des chiffres et des traits d’union. <br> Il doit commencer et se terminer par une lettre ou un chiffre. |
+    |Nom|Indiquez un nom convivial pour suivre la commande.<br> Le nom peut comporter entre 3 et 24 caractères qui peuvent être des lettres, des chiffres et des traits d’union. <br> Il doit commencer et se terminer par une lettre ou un chiffre. |
     |Groupe de ressources| Créez-en un nouveau ou utilisez un groupe existant. <br> Un groupe de ressources est un conteneur logique pour les ressources qui peuvent être gérées ou déployées ensemble. |
     |Région Azure de destination| Sélectionnez une région pour votre compte de stockage.<br> Actuellement, les comptes de stockage de toutes les régions des États-Unis, d’Europe du Nord et de l’Ouest, du Canada et de l’Australie sont pris en charge. |
-    |Compte(s) de stockage|Selon la région Azure spécifiée, effectuez la sélection dans la liste filtrée d’un compte de stockage existant. <br>Vous pouvez également créer un nouveau compte Usage général v1 et Usage général v2. |
     |Taille de données estimée en To| Entrez une estimation en To. <br>Selon la taille des données, Microsoft vous envoie un nombre de disques SSD de 8 To (7 To de capacité utilisable) approprié. <br>La capacité utilisable maximale de 5 disques peut atteindre 35 To. |
     |Clé d’accès de disque| Fournissez la clé d’accès de disque si vous cochez l’option **Utiliser une clé personnalisée à la place de la clé d’accès générée par Azure**. <br> Fournissez une clé alphanumérique comprise entre 12 et 32 caractères, et contenant au moins une valeur numérique et un caractère spécial. Seuls les caractères spéciaux `@?_+` sont autorisés. <br> Vous pouvez choisir d’ignorer cette option et d’utiliser la clé d’accès générée par Azure pour déverrouiller vos disques.|
+    |Destination de stockage     | Choisissez un compte de stockage, des disques managés ou les deux. <br> Selon la région Azure spécifiée, sélectionnez un compte de stockage dans la liste filtrée d’un compte de stockage existant. La Data Box peut être liée à 10 comptes de stockage maximum. <br> Vous pouvez également créer un **compte de stockage blob**, **Usage général v1** ou **Usage général v2**. <br>Vous ne pouvez pas utiliser les comptes de stockage qui ont des règles configurées. Les comptes de stockage doivent **autoriser l’accès à partir de tous les réseaux** dans la section des pare-feu et réseaux virtuels.|
 
-13. Cliquez sur **Suivant**. 
+    Si vous utilisez le compte de stockage comme destination de stockage, vous voyez s’afficher l’écran suivant :
+
+    ![Commande Data Box Disk pour un compte de stockage](media/data-box-disk-deploy-ordered/order-storage-account.png)
+
+    Si vous utilisez Azure Data Box Disk pour créer des disques managés à partir de disques durs virtuels locaux, vous devez également fournir les informations suivantes :
+
+    |Paramètre  |Valeur  |
+    |---------|---------|
+    |Groupe de ressources     | Créez un nouveau groupe de ressources si vous envisagez de créer des disques managés à partir de disques durs virtuels locaux. N’utilisez un groupe de ressources existant que s’il a été créé pour la commande Data Box Disk de disque managé par le service Data Box. <br> Seul un groupe de ressources est pris en charge.|
+
+    ![Commande Data Box Disk pour un disque managé](media/data-box-disk-deploy-ordered/order-managed-disks.png)
+
+    Le compte de stockage spécifié pour les disques managés est utilisé comme compte de stockage intermédiaire. Le service Data Box charge les disques durs virtuels sur le compte de stockage intermédiaire, les convertit en disques managés, puis passe aux groupes de ressources. Pour plus d’informations, voir [Vérifier le chargement des données dans Azure](data-box-disk-deploy-picked-up.md#verify-data-upload-to-azure).
+
+13. Cliquez sur **Suivant**.
 
     ![Fournir les détails de la commande](media/data-box-disk-deploy-ordered/data-box-order-details.png)
 
@@ -102,7 +116,7 @@ Procédez comme suit dans le [portail Azure](https://aka.ms/azuredataboxfromdisk
  
 ## <a name="track-the-order"></a>Suivre la commande
 
-Une fois la commande passée, vous pouvez suivre son état à partir du portail Azure. Accédez à votre commande, puis à **Vue d’ensemble** pour afficher l’état. Le portail affiche le travail dont l’état est **Commandé**. 
+Une fois la commande passée, vous pouvez suivre son état à partir du portail Azure. Accédez à votre commande, puis à **Vue d’ensemble** pour afficher l’état. Le portail affiche le travail dont l’état est **Commandé**.
 
 ![Data Box Disk - État Commandé](media/data-box-disk-deploy-ordered/data-box-portal-ordered.png) 
 
@@ -118,9 +132,9 @@ Ensuite, Microsoft prépare et achemine les disques via un transporteur régiona
 
 ## <a name="cancel-the-order"></a>Annuler la commande
 
-Pour annuler cette commande, dans le portail Azure, accédez à **Vue d’ensemble** et cliquez sur **Annuler** dans la barre de commandes. 
+Pour annuler cette commande, dans le portail Azure, accédez à **Vue d’ensemble** et cliquez sur **Annuler** dans la barre de commandes.
 
-L’annulation est possible uniquement lorsque les disques sont commandés et la commande en cours de traitement en vue de l’expédition. Une fois la commande traitée, vous ne pouvez plus l’annuler. 
+L’annulation est possible uniquement lorsque les disques sont commandés et la commande en cours de traitement en vue de l’expédition. Une fois la commande traitée, vous ne pouvez plus l’annuler.
 
 ![Annuler la commande](media/data-box-disk-deploy-ordered/cancel-order1.png)
 
@@ -140,5 +154,3 @@ Passez au tutoriel suivant pour apprendre à configurer votre Data Box Disk.
 
 > [!div class="nextstepaction"]
 > [Configurer votre Azure Data Box Disk](./data-box-disk-deploy-set-up.md)
-
-
