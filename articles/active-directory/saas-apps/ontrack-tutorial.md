@@ -4,256 +4,238 @@ description: Découvrez comment configurer l’authentification unique entre Azu
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: d2cafba2-3b4a-4471-ba34-80f6a96ff2b9
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/24/2017
+ms.topic: tutorial
+ms.date: 03/13/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd30791ca3876ce776aff45d8bcdfbb37e963f77
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b93d3d272d570ccffb5ce06d7ed4527c20500698
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200698"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181263"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-ontrack"></a>Didacticiel : Intégration d'Azure Active Directory à OnTrack
+# <a name="tutorial-azure-active-directory-integration-with-ontrack"></a>Tutoriel : Intégration d'Azure Active Directory à OnTrack
 
 Ce didacticiel vous montre comment intégrer OnTrack à Azure Active Directory (Azure AD).
-
 L’intégration d’OnTrack à Azure AD vous offre les avantages suivants :
 
-- Dans Azure AD, vous pouvez contrôler qui a accès à OnTrack.
-- Vous pouvez autoriser les utilisateurs à se connecter automatiquement à OnTrack (via l’authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
+* Dans Azure AD, vous pouvez contrôler qui a accès à OnTrack.
+* Vous pouvez permettre aux utilisateurs de se connecter automatiquement à OnTrack (par le biais de l’authentification unique) avec leur compte Azure AD.
+* Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD à OnTrack, vous avez besoin des éléments suivants :
 
-- Un abonnement Azure AD
-- Un abonnement OnTrack pour lequel l’authentification unique est activée
-
-> [!NOTE]
-> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
-
-Vous devez en outre suivre les recommandations ci-dessous :
-
-- N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
+* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+* Abonnement OnTrack pour lequel l’authentification unique est activée
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
-1. Ajout d’OnTrack à partir de la galerie
-1. Configuration et test de l’authentification unique Azure AD
+Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
+
+* OnTrack prend en charge l’authentification unique lancée par le **fournisseur d’identité**
 
 ## <a name="adding-ontrack-from-the-gallery"></a>Ajout d’OnTrack à partir de la galerie
+
 Pour configurer l’intégration d’OnTrack à Azure AD, vous devez ajouter OnTrack, disponible dans la galerie, à votre liste d’applications SaaS managées.
 
 **Pour ajouter OnTrack à partir de la galerie, suivez ces étapes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
-    ![Bouton Azure Active Directory][1]
+    ![Bouton Azure Active Directory](common/select-azuread.png)
 
-1. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+2. Accédez à **Applications d’entreprise**, puis sélectionnez l’option **Toutes les applications**.
 
-    ![Panneau Applications d’entreprise][2]
-    
-1. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-    ![Bouton Nouvelle application][3]
+3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-1. Dans la zone de recherche, tapez **OnTrack**, sélectionnez **OnTrack** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+    ![Bouton Nouvelle application](common/add-new-app.png)
 
-    ![OnTrack dans la liste des résultats](./media/ontrack-tutorial/tutorial_ontrack_addfromgallery.png)
+4. Dans la zone de recherche, tapez **OnTrack**, sélectionnez **OnTrack** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+
+     ![OnTrack dans la liste des résultats](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
-Dans cette section, vous configurez et testez l’authentification unique Azure AD avec OnTrack, au moyen d’un utilisateur de test appelé « Britta Simon ».
-
-Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur OnTrack équivalent dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et un utilisateur OnTrack associé doit être établie.
-
-Dans OnTrack, assignez la valeur de **nom d’utilisateur** dans Azure AD comme étant la valeur de **Username** (Nom d’utilisateur) pour établir la relation.
+Dans cette section, vous configurez et testez l’authentification unique Azure AD avec OnTrack, au moyen d’un utilisateur de test appelé **Britta Simon**.
+Pour que l’authentification unique fonctionne, une relation entre l’utilisateur Azure AD et l’utilisateur OnTrack associé doit être établie.
 
 Pour configurer et tester l’authentification unique Azure AD avec OnTrack, vous devez suivre les indications des sections suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-1. **[Créer un utilisateur de test OnTrack](#create-an-ontrack-test-user)** pour avoir un équivalent de Britta Simon dans OnTrack qui soit lié à la représentation Azure AD associée.
-1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-1. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
+2. **[Configurer l’authentification unique OnTrack](#configure-ontrack-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
+3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Créer un utilisateur de test OnTrack](#create-ontrack-test-user)** pour avoir un équivalent de Britta Simon dans OnTrack qui soit lié à la représentation Azure AD associée.
+6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
-Dans cette section, vous activez l’authentification unique Azure AD dans le portail Azure, et configurez l’authentification unique dans votre application OnTrack.
+Dans cette section, vous activez l’authentification unique Azure AD dans le portail Azure.
 
-**Pour configurer l’authentification unique Azure AD avec OnTrack, suivez ces étapes :**
+Pour configurer l’authentification unique Azure AD avec OnTrack, suivez ces étapes :
 
-1. Dans le portail Azure, sur la page d’intégration de l’application **OnTrack**, cliquez sur **Authentification unique**.
+1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **OnTrack**, sélectionnez **Authentification unique**.
 
-    ![Lien Configurer l’authentification unique][4]
+    ![Lien Configurer l’authentification unique](common/select-sso.png)
 
-1. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
- 
-    ![Boîte de dialogue Authentification unique](./media/ontrack-tutorial/tutorial_ontrack_samlbase.png)
+2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
 
-1. Dans la section **Domaine et URL OnTrack**, procédez comme suit :
+    ![Mode de sélection de l’authentification unique](common/select-saml-option.png)
 
-    ![Informations d’authentification unique dans Domaine et URL OnTrack](./media/ontrack-tutorial/tutorial_ontrack_url.png)
+3. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
 
-    a. Dans la zone de texte **Identificateur**,
-    
+    ![Modifier la configuration SAML de base](common/edit-urls.png)
+
+4. Sur la page **Configurer l’authentification unique avec SAML**, effectuez les étapes suivantes :
+
+    ![Informations d’authentification unique dans Domaine et URL OnTrack](common/idp-intiated.png)
+
+    a. Dans la zone de texte **Identificateur** :
+
     Pour l’environnement de test, tapez l’URL : `https://staging.insigniagroup.com/sso`
 
     Pour l’environnement de production, tapez l’URL : `https://oeaccessories.com/sso`
 
-    b. Dans la zone de texte **URL de réponse**,
-    
+    b. Dans la zone de texte **URL de réponse** :
+
     Pour l’environnement de test, tapez l’URL : `https://indie.staging.insigniagroup.com/sso/autonation.aspx`
 
     Pour l’environnement de production, tapez l’URL : `https://igaccessories.com/sso/autonation.aspx`
 
-1. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
+    > [!NOTE]
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez l’[équipe du support technique OnTrack](mailto:CustomerService@insigniagroup.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-    ![Lien Téléchargement de certificat](./media/ontrack-tutorial/tutorial_ontrack_certificate.png)
+5. Votre application OnTrack attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à la configuration des attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône  **Modifier** pour ouvrir la boîte de dialogue  **Attributs utilisateur** .
 
-1. Votre application OnTrack attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à la configuration des attributs du jeton SAML. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section « **Attributs utilisateur** » sur la page d’intégration des applications. 
+    ![image](common/edit-attribute.png)
 
-    ![Configurer l'authentification unique](./media/ontrack-tutorial/tutorial_attribute.png)
+6. En plus de ce qui précède, l’application OnTrack s’attend à ce que quelques attributs supplémentaires soient repassés dans la réponse SAML. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, effectuez les étapes suivantes pour ajouter le jeton SAML comme indiqué dans le tableau ci-dessous :
 
-1. Dans la section **Attributs utilisateur** de la boîte de dialogue **Authentification unique**, configurez l’attribut du jeton SAML comme sur l’image précédente, puis procédez comme suit :
-    
-    | Nom de l'attribut | Valeur de l’attribut |
+    | Nom | Attribut source|
     | -------------- | ----------------|    
     | User-Role      | "42F432" |
     | Hyperion-Code  | "12345" |
 
     > [!NOTE]
     > Les attributs **User-Role** et **Hyperion-Code** sont mappés, respectivement au rôle d’utilisateur Autonation et au code du concessionnaire. Ces valeurs sont fournies à titre d’exemple uniquement, utilisez le code correct pour l’intégration. Vous pouvez contacter le [Support Autonation](mailto:CustomerService@insigniagroup.com) pour ces valeurs.
-    
-    a. Cliquez sur **Ajouter un attribut** pour ouvrir la boîte de dialogue **Ajouter un attribut**.
 
-    ![Configure Single Sign-On](./media/ontrack-tutorial/tutorial_attribute_04.png) 
+    a. Cliquez sur le bouton **Ajouter une nouvelle revendication** pour ouvrir la boîte de dialogue **Gérer les revendications des utilisateurs**.
 
-    ![Configure Single Sign-On](./media/ontrack-tutorial/tutorial_attribute_05.png)
+    ![image](common/new-save-attribute.png)
+
+    ![image](common/new-attribute-details.png)
 
     b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
 
-    c. Dans la liste **Valeur** , saisissez la valeur d’attribut affichée pour cette ligne.
-    
-    d. Cliquez sur **OK**.
+    c. Laissez le champ **Espace de noms** vide.
 
-1. Cliquez sur le bouton **Enregistrer** .
+    d. Sélectionnez Source comme **Attribut**.
 
-    ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/ontrack-tutorial/tutorial_general_400.png)
+    e. Dans la liste **Attribut de la source**, tapez la valeur d’attribut indiquée pour cette ligne.
 
-1. Pour configurer l’authentification unique côté **OnTrack**, vous devez envoyer le fichier **XML de métadonnées** téléchargé à [l’équipe du support technique OnTrack](mailto:CustomerService@insigniagroup.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+    f. Cliquez sur **OK**.
 
-> [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    g. Cliquez sur **Enregistrer**.
 
-### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
+7. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies selon vos besoins, puis enregistrez-le sur votre ordinateur.
+
+    ![Lien Téléchargement de certificat](common/metadataxml.png)
+
+8. Dans la section **Configurer OnTrack**, copiez les URL appropriées, selon vos besoins.
+
+    ![Copier les URL de configuration](common/copy-configuration-urls.png)
+
+    a. URL de connexion
+
+    b. Identificateur Azure AD
+
+    c. URL de déconnexion
+
+### <a name="configure-ontrack-single-sign-on"></a>Configurer l’authentification unique OnTrack
+
+Pour configurer l’authentification unique côté **OnTrack**, vous devez envoyer le fichier **XML des métadonnées de fédération** téléchargé et les URL appropriées copiées depuis le portail Azure à l’[équipe du support technique OnTrack](mailto:CustomerService@insigniagroup.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
 
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
-   ![Créer un utilisateur de test Azure AD][100]
+1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
 
-**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
+    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](common/users.png)
 
-1. Dans le volet gauche du Portail Azure, cliquez sur le bouton **Azure Active Directory**.
+2. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
 
-    ![Bouton Azure Active Directory](./media/ontrack-tutorial/create_aaduser_01.png)
+    ![Bouton Nouvel utilisateur](common/new-user.png)
 
-1. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+3. Dans les propriétés de l’utilisateur, effectuez les étapes suivantes.
 
-    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](./media/ontrack-tutorial/create_aaduser_02.png)
+    ![Boîte de dialogue Utilisateur](common/user-properties.png)
 
-1. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
+    a. Dans le champ **Nom**, entrez **BrittaSimon**.
+  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    Par exemple, BrittaSimon@contoso.com
 
-    ![Bouton Ajouter](./media/ontrack-tutorial/create_aaduser_03.png)
-
-1. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
-
-    ![Boîte de dialogue Utilisateur](./media/ontrack-tutorial/create_aaduser_04.png)
-
-    a. Dans la zone **Nom**, tapez **BrittaSimon**.
-
-    b. Dans la zone **Nom d’utilisateur** , tapez l’adresse e-mail de l’utilisateur Britta Simon.
-
-    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
+    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
     d. Cliquez sur **Créer**.
- 
-### <a name="create-an-ontrack-test-user"></a>Création d’un utilisateur de test OnTrack
-
-Dans cette section, vous créez un utilisateur appelé Britta Simon dans OnTrack. Collaborez avec l' [équipe du support technique d'OnTrack](mailto:CustomerService@insigniagroup.com)  pour ajouter les utilisateurs à la plateforme OnTrack. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous autorisez Britta Simon à utiliser l’authentification unique Azure en accordant l’accès à OnTrack.
 
-![Attribuer le rôle utilisateur][200] 
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis **OnTrack**.
 
-**Pour affecter Britta Simon à OnTrack, suivez ces étapes :**
+    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
+2. Dans la liste des applications, sélectionnez **OnTrack**.
 
-    ![Affecter des utilisateurs][201] 
+    ![Lien OnTrack dans la liste des applications](common/all-applications.png)
 
-1. Dans la liste des applications, sélectionnez **OnTrack**.
+3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes**.
 
-    ![Lien OnTrack dans la liste des applications](./media/ontrack-tutorial/tutorial_ontrack_app.png)  
+    ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
 
-1. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+4. Cliquez sur le bouton **Ajouter un utilisateur**, puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 
-    ![Lien « Utilisateurs et groupes »][202]
+    ![Volet Ajouter une attribution](common/add-assign-user.png)
 
-1. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
-    ![Volet Ajouter une attribution][203]
+6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
-1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-1. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+### <a name="create-ontrack-test-user"></a>Créer un utilisateur de test OnTrack
 
-1. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
-    
-### <a name="test-single-sign-on"></a>Tester l’authentification unique
+Dans cette section, vous créez un utilisateur appelé Britta Simon dans OnTrack. Collaborez avec l’ [équipe du support technique d’OnTrack](mailto:CustomerService@insigniagroup.com) pour ajouter les utilisateurs à la plateforme OnTrack. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+
+### <a name="test-single-sign-on"></a>Tester l’authentification unique 
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Le fait de cliquer sur la vignette OnTrack dans le volet d’accès vous connecte automatiquement à votre application OnTrack.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
+Quand vous cliquez sur la vignette OnTrack dans le volet d’accès, vous devez être connecté automatiquement à l’application OnTrack pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
+- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/ontrack-tutorial/tutorial_general_01.png
-[2]: ./media/ontrack-tutorial/tutorial_general_02.png
-[3]: ./media/ontrack-tutorial/tutorial_general_03.png
-[4]: ./media/ontrack-tutorial/tutorial_general_04.png
-
-[100]: ./media/ontrack-tutorial/tutorial_general_100.png
-
-[200]: ./media/ontrack-tutorial/tutorial_general_200.png
-[201]: ./media/ontrack-tutorial/tutorial_general_201.png
-[202]: ./media/ontrack-tutorial/tutorial_general_202.png
-[203]: ./media/ontrack-tutorial/tutorial_general_203.png
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6cd463a728d8362221aaf7789258d7815566b23
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: eabc30b28ec6c32295c5eeff0f19b31fba622056
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176252"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095617"
 ---
 # <a name="quickstart-self-service-password-reset"></a>Démarrage rapide : Réinitialisation de mot de passe libre-service
 
@@ -42,11 +42,11 @@ Avec ce guide de démarrage rapide, vous serez guidé pas à pas pour configurer
 3. À partir de la page **Méthodes d’authentification**, sélectionnez les choix suivants :
    * Nombre de méthodes requises pour la réinitialisation : **1**
    * Méthodes disponibles pour les utilisateurs :
-      * **Téléphone mobile**
-      * **Téléphone de bureau**
+      * **E-mail**
+      * **Code d’application mobile (préversion)**
    * Cliquez sur **Enregistrer**.
 
-    ![Authentification][Authentication]
+     ![Authentification][Authentication]
 
 4. À partir de la page **Inscription**, sélectionnez un des choix suivants :
    * Obliger les utilisateurs à s’inscrire durant la connexion : **Oui**

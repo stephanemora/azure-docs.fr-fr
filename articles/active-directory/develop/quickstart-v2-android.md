@@ -3,8 +3,8 @@ title: Démarrage rapide Azure AD v2 Android | Microsoft Docs
 description: Découvrez comment les applications Android peuvent appeler une API qui nécessite des jetons d’accès à partir d’un point de terminaison Azure Active Directory v2.0
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
+author: danieldobalian
+manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/23/2018
-ms.author: andret
+ms.date: 03/20/2019
+ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 227f8691e65e588d4eb274fd11f76ebd01bb7834
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 35cf0f7ffe118a3c878e14e4a81793d18a646fa9
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207311"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202886"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Démarrage rapide : Connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application Android
 
@@ -30,7 +30,7 @@ ms.locfileid: "56207311"
 
 Ce démarrage rapide contient un exemple de code qui montre comment une application Android peut connecter des comptes personnels ou professionnels et scolaires, obtenir un jeton d’accès et appeler l’API Microsoft Graph.
 
-![Fonctionnement de l’exemple d’application généré par ce démarrage rapide](media/quickstart-v2-android/android-intro.png)
+![Fonctionnement de l’exemple d’application généré par ce guide de démarrage rapide](media/quickstart-v2-android/android-intro-updated.png)
 
 > [!NOTE]
 > **Composants requis**

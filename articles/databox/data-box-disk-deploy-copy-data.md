@@ -6,17 +6,17 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 01/09/2019
+ms.date: 02/26/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 75a78e303991e5426c97b8ceb0eb1375e03be2a2
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 47c14379a01da86f547ac917472260a041b67f99
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56868185"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106897"
 ---
-# <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Didacticiel : Copier des données sur Azure Data Box Disk et procéder à une vérification
+# <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Tutoriel : Copier des données sur Azure Data Box Disk et procéder à une vérification
 
 Ce didacticiel explique comment copier des données à partir de votre ordinateur hôte, puis générer les sommes de contrôle pour vérifier l’intégrité des données.
 
@@ -32,35 +32,53 @@ Avant de commencer, assurez-vous que :
 - Vous avez terminé le [Tutoriel : Installer et configurer votre offre Azure Data Box Disk](data-box-disk-deploy-set-up.md).
 - Vos disques sont déverrouillés et connectés à un ordinateur client.
 - Votre ordinateur client utilisé pour copier des données sur les disques doit exécuter un [système d’exploitation pris en charge](data-box-disk-system-requirements.md##supported-operating-systems-for-clients).
-- Vérifiez que le type de stockage prévu pour vos données correspond aux [types de stockage pris en charge](data-box-disk-system-requirements.md#supported-storage-types).
+- Vérifiez que le type de stockage prévu pour vos données correspond aux [types de stockage pris en charge](data-box-disk-system-requirements.md#supported-storage-types-for-upload).
+- Vérifiez les [limites applicables aux disques managés dans la section sur les limites de taille des objets Azure](data-box-disk-limits.md#azure-object-size-limits).
 
 
 ## <a name="copy-data-to-disks"></a>Copier des données sur des disques
 
+Passez en revue les considérations suivantes avant de commencer la copie des données sur les disques :
+
+- C’est à vous de vous assurer que les données sont copiées vers des dossiers compatibles avec le format des données. Par exemple, les données d’objet blob de blocs doivent être copiées dans le dossier des objets blob de blocs. Si le format des données ne correspond pas au dossier (type de stockage), les données ne pourront pas être chargées dans Azure.
+- Lorsque vous copiez des données, vérifiez que la taille des données est conforme aux limites de taille spécifiées dans l’article [Azure storage and Data Box Disk limits](data-box-disk-limits.md) (Limitations relatives au stockage Azure et aux disques Data Box).
+- Si les données, qui sont en cours de chargement via Data Box Disk, sont chargées simultanément par d’autres applications en dehors de Data Box Disk, cela pourrait entraîner l’échec du téléchargement ou des corruptions de données.
+
+Si vous avez spécifié des disques managés dans la commande, passez en revue les considérations supplémentaires suivantes :
+
+- Vous pouvez avoir un seul disque managé du même nom dans un groupe de ressources sur l’ensemble des dossiers précréés et de Data Box Disk. Les disques durs virtuels chargés vers les dossiers précréés doivent donc avoir des noms uniques. Assurez-vous que le nom donné n’a pas déjà été utilisé pour un autre disque managé existant dans un groupe de ressources. Si plusieurs disques durs virtuels ont le même nom, un seul de ces disques est converti en disque managé avec ce nom. Les autres disques durs virtuels sont chargés comme objets blob de pages dans le compte de stockage de préproduction.
+- Vous devez toujours copier les disques durs virtuels dans un des dossiers précréés. Si vous copiez les disques durs virtuels ailleurs que dans ces dossiers ou dans un dossier que vous avez créé vous-même, les disques durs virtuels sont chargés dans le compte de stockage Azure comme objets blob de pages au lieu de disques non managés.
+- Seuls les disques durs virtuels fixes peuvent être chargés pour créer des disques managés. Les disques durs virtuels dynamiques, les disques durs virtuels de différenciation ou les fichiers VHDX ne sont pas pris en charge.
+
+
 Procédez comme suit pour vous connecter et copier des données à partir de votre ordinateur vers le disque Data Box.
 
-1. Affichez le contenu du disque déverrouillé.
+1. Affichez le contenu du disque déverrouillé. La liste des dossiers et sous-dossiers précréés sur le disque varie selon les options sélectionnées au moment de la commande Data Box Disk.
 
-    ![Afficher le contenu du disque](media/data-box-disk-deploy-copy-data/data-box-disk-content.png)
+    |Destination de stockage sélectionnée  |Type de compte de stockage|Type de compte de stockage de préproduction |Dossiers et sous-dossiers  |
+    |---------|---------|---------|------------------|
+    |Compte de stockage     |GPv1 ou GPv2                 | N/D | BlockBlob <br> PageBlob <br> AzureFile        |
+    |Compte de stockage     |Compte de stockage d’objets blob         | N/D | BlockBlob        |
+    |Disques gérés     |N/D | GPv1 ou GPv2         | ManagedDisk<ul> <li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul>        |
+    |Compte de stockage <br> Disques gérés     |GPv1 ou GPv2 | GPv1 ou GPv2         |BlockBlob <br> PageBlob <br> AzureFile <br> ManagedDisk<ul> <li> PremiumSSD </li><li>StandardSSD</li><li>StandardHDD</li></ul>         |
+    |Compte de stockage <br> Disques gérés    |Compte de stockage d’objets blob | GPv1 ou GPv2         |BlockBlob <br> ManagedDisk<ul> <li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul>         |
+
+    La capture d’écran ci-dessous montre un exemple de commande où figure un compte de stockage GPv2 :
+
+    ![Contenu du lecteur de disque](media/data-box-disk-deploy-copy-data/data-box-disk-content.png)
  
-2. Copiez les données qui doivent être importées en tant qu’objets blob de blocs dans le dossier BlockBlob. De même,copiez des données telles que VHD/VHDX vers le dossier PageBlob. 
+2. Copiez les données devant être importées comme objets blob de blocs dans le dossier *BlockBlob*. De même, copiez les données telles que VHD/VHDX dans le dossier *PageBlob* et les données dans le dossier *AzureFile*.
 
     Un conteneur est créé dans le compte de stockage Azure de chaque sous-dossier sous les dossiers BlockBlob et PageBlob. Tous les fichiers sous les dossiers BlockBlob et PageBlob sont copiés dans un conteneur par défaut `$root` dans le compte de stockage Azure. Tous les fichiers présents dans le conteneur `$root` sont systématiquement chargés en tant qu’objets blob de blocs.
 
+   Copiez les fichiers dans un sous-dossier du dossier *AzureFile*. Un sous-dossier dans le dossier *AzureFile* crée un partage de fichiers. Les fichiers copiés directement dans le dossier *AzureFile* échouent et sont chargés en tant qu’objets blob de blocs.
+
     Si les fichiers et les dossiers existent dans le répertoire racine, vous devez les déplacer vers un autre dossier avant de commencer à copier des données.
 
-    Suivez les conventions de dénomination Azure pour les noms de conteneur et d’objet blob.
+    > [!IMPORTANT]
+    > Tous les conteneurs, objets blob et fichiers doivent respecter les [conventions de nommage Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Si ces règles ne sont pas respectées, le chargement des données vers Azure échoue.
 
-    #### <a name="azure-naming-conventions-for-container-and-blob-names"></a>Conventions d’affectation de noms Azure pour les noms de conteneur et d’objet blob
-    |Entité   |Conventions  |
-    |---------|---------|
-    |Noms de conteneur pour l’objet blob de blocs et l’objet blob de pages     |Doit commencer par une lettre ou un chiffre et peut comporter uniquement des lettres minuscules, des chiffres et des traits d’union (-). Chaque trait d’union (-) doit être immédiatement précédé et suivi par une lettre ou un chiffre. Les traits d’union consécutifs ne sont pas autorisés dans les noms. <br>Doit être un nom DNS valide dont la longueur est comprise entre 3 et 63 caractères.          |
-    |Noms d’objet blob pour l’objet blob de blocs et l’objet blob de pages    |Les noms d’objet blob respectent la casse et peuvent contenir une combinaison de caractères. <br>Le nom d’objet blob doit comprendre entre 1 et 1 024 caractères.<br>Les caractères d’URL réservées doivent être correctement placés dans une séquence d’échappement.<br>Le nombre de segments de ligne comprenant le nom d’objet blob ne peut pas dépasser 254. Un segment de chemin représente la chaîne située entre des caractères délimiteurs consécutifs (par exemple, la barre oblique « / ») et correspondant au nom d’un répertoire virtuel.         |
-
-    > [!IMPORTANT] 
-    > Tous les conteneurs et objets blob doivent être conformes aux [conventions d’affectation de noms Azure](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions). Si ces règles ne sont pas respectées, le chargement des données vers Azure échoue.
-
-3. Lorsque vous copiez des fichiers, assurez-vous qu’ils ne dépassent pas ~4,7 Tio pour les objets blob de blocs et ~ 8 Tio pour les objets blob de pages. 
+3. Lorsque vous copiez des fichiers, assurez-vous qu’ils ne dépassent pas environ 4,7 Tio pour les objets blob de blocs, environ 8 Tio pour les objets blob de pages et environ 1 Tio pour Azure Files. 
 4. Vous pouvez utiliser la fonction de glisser-déplacer dans l’Explorateur de fichiers pour copier les données. Vous pouvez également utiliser n’importe quel outil de copie de fichier SMB, comme Robocopy, pour copier vos données. Plusieurs travaux de copie peuvent être lancés simultanément à l’aide de la commande Robocopy suivante :
 
     `Robocopy <source> <destination>  * /MT:64 /E /R:1 /W:1 /NFL /NDL /FFT /Log:c:\RobocopyLog.txt` 
@@ -80,7 +98,7 @@ Procédez comme suit pour vous connecter et copier des données à partir de vot
     |/FFT                | Calcule l’heure des fichiers FAT (à 2 secondes près).        |
     |/Log:<Log File>     | Écrit la sortie d’état dans le fichier journal (remplace le fichier journal existant).         |
 
-    Plusieurs disques peuvent être utilisés en parallèle, avec plusieurs travaux s’exécutant sur chaque disque. 
+    Plusieurs disques peuvent être utilisés en parallèle, avec plusieurs travaux s’exécutant sur chaque disque.
 
 6. Vérifiez l’état de l’opération de copie pendant l’exécution du travail. L’exemple suivant affiche la sortie de la commande robocopy pour copier les fichiers sur le disque Data Box.
 
@@ -151,8 +169,8 @@ Procédez comme suit pour vous connecter et copier des données à partir de vot
     Pour optimiser les performances, utilisez les paramètres robocopy suivants lors de la copie des données.
 
     |    Plateforme    |    Principalement des fichiers de petite taille (< 512 Ko)                           |    Principalement des fichiers de taille moyenne (entre 512 Ko et 1 Mo)                      |    Principalement des fichiers volumineux (> 1 Mo)                             |   
-    |----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|---|
-    |    Data Box Disk        |    4 sessions Robocopy* <br> 16 threads par session    |    2 sessions Robocopy* <br> 16 threads par session    |    2 sessions Robocopy* <br> 16 threads par session    |  |
+    |----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|
+    |    Data Box Disk        |    4 sessions Robocopy* <br> 16 threads par session    |    2 sessions Robocopy* <br> 16 threads par session    |    2 sessions Robocopy* <br> 16 threads par session    |
     
     **Chaque session Robocopy peut avoir un maximum de 7 000 répertoires et 150 millions de fichiers.*
     
@@ -163,17 +181,13 @@ Procédez comme suit pour vous connecter et copier des données à partir de vot
 
 6. Ouvrez le dossier cible pour afficher et vérifier les fichiers copiés. Si vous rencontrez des erreurs au cours du processus de copie, téléchargez les fichiers journaux pour résoudre les problèmes. L’emplacement des fichiers journaux est spécifié dans la commande robocopy.
  
-> [!IMPORTANT]
-> - C’est à vous de vous assurer que les données sont copiées vers des dossiers compatibles avec le format des données. Par exemple, les données d’objet blob de blocs doivent être copiées dans le dossier des objets blob de blocs. Si le format des données ne correspond pas au dossier (type de stockage), les données ne pourront pas être chargées dans Azure.
-> -  Lorsque vous copiez des données, vérifiez que la taille des données est conforme aux limites de taille spécifiées dans l’article [Azure storage and Data Box Disk limits](data-box-disk-limits.md) (Limitations relatives au stockage Azure et aux disques Data Box).
-> - Si les données, qui sont en cours de chargement via Data Box Disk, sont chargées simultanément par d’autres applications en dehors de Data Box Disk, cela pourrait entraîner l’échec du téléchargement ou des corruptions de données.
-
 ### <a name="split-and-copy-data-to-disks"></a>Fractionner et copier des données sur plusieurs disques
 
 Vous pouvez exécuter cette procédure facultative lorsque vous utilisez plusieurs disques et que vous disposez d’un jeu de données volumineux qui doit être fractionné et copié sur la totalité des disques. L’outil Data Box Split Copy vous permet de fractionner et copier les données sur un ordinateur Windows.
 
 >[!IMPORTANT]
 > L’outil Data Box Split Copy valide également vos données. Si vous utilisez l’outil Data Box Split Copy pour copier des données, vous pouvez ignorer l’[étape de validation](#validate-data).
+> L’outil Split Copy n’est pas pris en charge avec des disques managés.
 
 1. L’outil Data Box Split Copy doit avoir été téléchargé et extrait dans un dossier local de votre ordinateur Windows. Cet outil a été téléchargé lorsque vous avez téléchargé l’ensemble d’outils Data Box Disk pour Windows.
 2. Ouvrez l’Explorateur de fichiers. Notez la lettre de lecteur de la source de données et les lettres de lecteur attribuées à Data Box Disk. 
@@ -195,10 +209,10 @@ Vous pouvez exécuter cette procédure facultative lorsque vous utilisez plusieu
  
 5. Modifiez le fichier `SampleConfig.json`.
  
-    - Fournissez un nom de travail. Cette opération crée un dossier dans Data Box Disk qui devient le conteneur dans le compte de stockage Azure associé à ces disques. Le nom du travail doit respecter les conventions d’affectation de noms de conteneur Azure. 
-    - Fournissez un chemin source en notant le format du chemin dans le fichier `SampleConfigFile.json`. 
-    - Entrez les lettres de lecteur correspondant aux disques cibles. Les données sont copiées sur les différents disques à partir du chemin d’accès source.
-    - Fournissez un chemin d’accès pour les fichiers journaux. Par défaut, ces fichiers sont envoyés au répertoire dans lequel se trouve le fichier `.exe`.
+   - Fournissez un nom de travail. Cette opération crée un dossier dans Data Box Disk qui devient le conteneur dans le compte de stockage Azure associé à ces disques. Le nom du travail doit respecter les conventions d’affectation de noms de conteneur Azure. 
+   - Fournissez un chemin source en notant le format du chemin dans le fichier `SampleConfigFile.json`. 
+   - Entrez les lettres de lecteur correspondant aux disques cibles. Les données sont copiées sur les différents disques à partir du chemin d’accès source.
+   - Fournissez un chemin d’accès pour les fichiers journaux. Par défaut, ces fichiers sont envoyés au répertoire dans lequel se trouve le fichier `.exe`.
 
      ![Fractionnement des données de copie](media/data-box-disk-deploy-copy-data/split-copy-5.png)
 

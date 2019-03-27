@@ -3,27 +3,26 @@ title: Synchroniser l’état des appareils à partir d’Azure IoT Hub | Micros
 description: Utiliser les jumeaux d’appareil pour synchroniser l’état entre vos appareils et votre hub IoT
 services: iot-hub
 documentationcenter: ''
-author: dominicbetts
-manager: timlt
-ms.assetid: ''
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/18/2019
-ms.author: dobett
 ms.custom: mvc
-ms.openlocfilehash: 63ef5a36dc5a9d770e3474e15b4733d4165b9937
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: b0e6e75f962383055d4f28356c3db57aac4a088b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421910"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58088075"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
-# <a name="tutorial-configure-your-devices-from-a-back-end-service"></a>Didacticiel : Configurer vos appareils à partir d’un service backend
+# <a name="tutorial-configure-your-devices-from-a-back-end-service"></a>Tutoriel : Configurer vos appareils à partir d’un service backend
 
 Outre la réception de données de télémétrie à partir de vos appareils, vous devrez peut-être configurer vos appareils à partir de votre service back-end. Lorsque vous envoyez une configuration souhaitée à vos appareils, vous pouvez choisir de recevoir des mises à jour d’état et de conformité de ces appareils. Par exemple, vous pouvez définir une plage de température de fonctionnement cible pour un appareil ou collecter des informations sur la version du microprogramme auprès de vos appareils.
 
@@ -76,7 +75,7 @@ az group create --name tutorial-iot-hub-rg --location $location
 az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku F1
 
 # Make a note of the service connection string, you need it later:
-az iot hub show-connection-string --hub-name $hubname -o table
+az iot hub show-connection-string --name $hubname -o table
 
 ```
 
@@ -241,7 +240,7 @@ La capture d’écran suivante montre le résultat de l’application d’appare
 
 ![Appareil simulé](./media/tutorial-device-twins/SimulatedDevice2.png)
 
-La capture d’écran suivante montre le résultat de l’application back-end et comment celle-ci reçoit et traite une mise à jour de propriété rapportée envoyée depuis un appareil :
+La capture d’écran suivante montre le résultat de l’application back-end et comment celle-ci reçoit et traite une mise à jour de propriété rapportée envoyée à partir d’un appareil :
 
 ![Application back-end](./media/tutorial-device-twins/BackEnd2.png)
 
@@ -263,4 +262,4 @@ az group delete --name tutorial-iot-hub-rg
 Dans ce tutoriel vous avez appris à synchroniser les informations d’état entre vos appareils et votre hub IoT. Passez au didacticiel suivant pour découvrir comment utiliser les jumeaux d’appareil pour implémenter un processus de mise à jour du microprogramme.
 
 > [!div class="nextstepaction"]
-[Implémenter un processus de mise à jour de microprogramme d’appareil](tutorial-firmware-update.md)
+> [Implémenter un processus de mise à jour de microprogramme d’appareil](tutorial-firmware-update.md)

@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: aa8f4e188761c50391cd2ead49ae8d8b9081188f
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 770fa89bc08b448482b4a74d21ee307df8a9f836
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55983489"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58167913"
 ---
-# <a name="tutorial-install-the-sql-iis-net-stack-in-a-windows-vm-with-azure-powershell"></a>Didacticiel : Installer la pile SQL, IIS, .NET dans une machine virtuelle Windows avec Azure PowerShell
+# <a name="tutorial-install-the-sql-iis-net-stack-in-a-windows-vm-with-azure-powershell"></a>Tutoriel : Installer la pile SQL, IIS, .NET dans une machine virtuelle Windows avec Azure PowerShell
 
 Dans ce tutoriel, nous installons une pile SQL, IIS, .NET avec Azure PowerShell. Cette pile se compose de deux machines virtuelles exécutant Windows Server 2016 : une avec IIS et .NET, et l’autre avec SQL Server.
 
@@ -38,7 +38,7 @@ Azure Cloud Shell est un interpréteur de commandes interactif et gratuit que vo
 
 Pour ouvrir Cloud Shell, sélectionnez simplement **Essayer** en haut à droite d’un bloc de code. Vous pouvez également lancer Cloud Shell dans un onglet distinct du navigateur en accédant à [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Sélectionnez **Copier** pour copier les blocs de code, collez-les dans Cloud Shell, puis appuyez sur Entrée pour les exécuter.
 
-## <a name="create-a-iis-vm"></a>Créer une machine virtuelle IIS 
+## <a name="create-an-iis-vm"></a>Créer une machine virtuelle IIS 
 
 Dans cet exemple, nous utilisons l’applet de commande [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) de PowerShell Cloud Shell pour créer rapidement une machine virtuelle Windows Server 2016, puis installer IIS et le .NET Framework. Les machines virtuelles IIS et SQL partagent un groupe de ressources et le réseau virtuel. Nous allons donc créer des variables pour ces noms.
 

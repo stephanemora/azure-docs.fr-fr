@@ -10,16 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2019
+ms.date: 02/25/2019
 ms.author: mabrigg
 ms.reviewer: efemmano
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 026e37534169fda8dbbf5a568f72046bc6ff55f7
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 28b8971b61ff09346b2a2f89cd5ea8ae04e44079
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252045"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819358"
 ---
 # <a name="use-the-azure-stack-portal"></a>Utiliser le portail Azure Stack
 
@@ -40,6 +40,10 @@ Votre opérateur Azure Stack (fournisseur de services ou administrateur au sein 
 Le tableau de bord contient un ensemble de vignettes par défaut. Vous pouvez sélectionner **Modifier le tableau de bord** pour modifier le tableau de bord par défaut, ou **Nouveau tableau de bord** pour créer un tableau de bord personnalisé. Vous pouvez facilement personnaliser un tableau de bord en ajoutant ou supprimant des vignettes. Par exemple, pour ajouter une vignette Compute, sélectionnez **+ Créer une ressource**. Cliquez avec le bouton droit sur **Compute**, puis sélectionnez **Épingler au tableau de bord**.
 
 ![Capture d’écran du portail utilisateur d’Azure Stack](media/azure-stack-use-portal/userportal.png)
+
+Pour restaurer les paramètres d’origine du tableau de bord :
+1.  Sélectionnez **Modifier le tableau de bord**. 
+2.  Cliquez avec le bouton droit et sélectionnez **Rétablir l’état par défaut**.
 
 ## <a name="create-subscription-and-browse-available-resources"></a>Créer un abonnement et parcourir les ressources disponibles
 

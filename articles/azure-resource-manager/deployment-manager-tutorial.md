@@ -10,19 +10,17 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/27/2018
+ms.date: 03/05/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 9f548fbb9611b6d4b16efe5c4d26db73d85c9654
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: c9cdac53e43d57feb0d2dc5a8a7153dc05be8a7d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882295"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58170630"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>Tutoriel : Utiliser Azure Deployment Manager avec des modèles Resource Manager (préversion privée)
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Découvrez comment utiliser [Azure Deployment Manager](./deployment-manager-overview.md) pour déployer vos applications dans plusieurs régions. Pour utiliser Deployment Manager, vous devez créer deux modèles :
 
@@ -59,6 +57,13 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléme
     ```powershell
     Install-Module -Name AzureRM.DeploymentManager -AllowPrerelease
     ```
+
+    Si le module Az Azure PowerShell est installé, vous avez besoin de deux commutateurs supplémentaires :
+
+    ```powershell
+    Install-Module -Name AzureRM.DeploymentManager -AllowPrerelease -AllowClobber -Force
+    ```
+
 * [Explorateur Stockage Microsoft Azure](https://azure.microsoft.com/features/storage-explorer/). Explorateur Stockage Azure n’est pas obligatoire, mais il facilite les choses.
 
 ## <a name="understand-the-scenario"></a>Présentation du scénario
@@ -107,7 +112,7 @@ Les deux versions (1.0.0.0 et 1.0.0.1) servent au [déploiement de révision](#d
 
     ![Didacticiel Azure Deployment Manager Créer un modèle d’application web](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-create-web-application-packageuri.png)
 
-    Le modèle appelle un package de déploiement, qui contient les fichiers de l’application web. Dans ce didacticiel, le package compressé contient uniquement un fichier index.html.
+    Le modèle appelle un package de déploiement, qui contient les fichiers de l’application web. Dans ce tutoriel, le package compressé contient uniquement un fichier index.html.
 3. Ouvrez **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateWebApplicationParameters.json**. 
 
     ![Didacticiel Azure Deployment Manager Créer un modèle d’application web paramètres containerRoot](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-create-web-application-parameters-deploypackageuri.png)
@@ -204,9 +209,6 @@ La capture d’écran suivante montre uniquement certaines parties de la topolog
 - **dependsOn** : toutes les ressources de topologie de service dépendent de la ressource de source d’artefact.
 - **artifacts** renvoie vers les artefacts du modèle.  Utilise les chemins d’accès relatifs. Le chemin d’accès complet est construit en concaténant artifactSourceSASLocation (défini dans la source d’artefacts), artifactRoot (défini dans la source d’artefacts), et templateArtifactSourceRelativePath (ou parametersArtifactSourceRelativePath).
 
-> [!NOTE]
-> Les noms des unités de service doivent contenir au maximum 31 caractères. 
-
 ### <a name="topology-parameters-file"></a>Fichier de paramètres de topologie
 
 Vous créez un fichier de paramètres utilisé avec le modèle de topologie.
@@ -276,7 +278,7 @@ Vous créez un fichier de paramètres à utiliser avec le modèle de lancement.
 2. Spécifiez les valeurs de paramètre :
 
     - **namePrefix** : entrez une chaîne de 4 à 5 caractères. Ce préfixe est utilisé pour créer des noms de ressources Azure uniques.
-    - **azureResourceLocation** : Actuellement, les ressources Azure Deployment Manager peuvent être créées uniquement dans USA Centre ou **USA Est 2**.
+    - **azureResourceLocation** : Actuellement, les ressources Azure Deployment Manager peuvent être créées uniquement dans **USA Centre** ou **USA Est 2**.
     - **artifactSourceSASLocation** : saisissez l’URI SAS vers le dossier racine (le conteneur d’objets blob) où le modèle d’unité de service et les fichiers de paramètres sont stockés pour le déploiement.  Consultez [Préparer les artefacts](#prepare-the-artifacts).
     - **binaryArtifactRoot** : sauf si vous modifiez la structure de dossiers des artefacts, utilisez **binaries/1.0.0.0** pour ce tutoriel.
     - **managedIdentityID** : entrez l’identité managée affectée par l’utilisateur. Voir [Créer l’identité managée affectée à l'utilisateur](#create-the-user-assigned-managed-identity). La syntaxe est :
@@ -294,13 +296,13 @@ Azure PowerShell peut être utilisé pour déployer les modèles.
 
 1. Exécutez le script pour déployer la topologie de service.
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     $resourceGroupName = "<Enter a Resource Group Name>"
     $location = "Central US"  
     $filePath = "<Enter the File Path to the Downloaded Tutorial Files>"
     
     # Create a resource group
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+    New-AzureRmResourceGroup -Name $resourceGroupName -Location "$location"
     
     # Create the service topology
     New-AzureRmResourceGroupDeployment `
@@ -317,7 +319,7 @@ Azure PowerShell peut être utilisé pour déployer les modèles.
 
 3. <a id="deploy-the-rollout-template"></a>Déployez le modèle de lancement :
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     # Create the rollout
     New-AzureRmResourceGroupDeployment `
         -ResourceGroupName $resourceGroupName `
@@ -327,19 +329,60 @@ Azure PowerShell peut être utilisé pour déployer les modèles.
 
 4. Vérifiez la progression du lancement à l’aide du script PowerShell suivant :
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     # Get the rollout status
     $rolloutname = "<Enter the Rollout Name>" # "adm0925Rollout" is the rollout name used in this tutorial
     Get-AzureRmDeploymentManagerRollout `
         -ResourceGroupName $resourceGroupName `
-        -Name $rolloutName
+        -Name $rolloutName `
+        -Verbose
     ```
 
-    Les cmdlets PowerShell de Deployment Manager doivent être installées avant de pouvoir exécuter ce cmdlet. Consultez les prérequis.
+    Les cmdlets PowerShell de Deployment Manager doivent être installées avant de pouvoir exécuter ce cmdlet. Consultez les prérequis. Le commutateur -Verbose peut être utilisé pour afficher la totalité de la sortie.
 
     L’exemple suivant affiche l’état d’exécution :
     
     ```
+    VERBOSE: 
+    
+    Status: Succeeded
+    ArtifactSourceId: /subscriptions/<AzureSubscriptionID>/resourceGroups/adm0925rg/providers/Microsoft.DeploymentManager/artifactSources/adm0925ArtifactSourceRollout
+    BuildVersion: 1.0.0.0
+    
+    Operation Info:
+        Retry Attempt: 0
+        Skip Succeeded: False
+        Start Time: 03/05/2019 15:26:13
+        End Time: 03/05/2019 15:31:26
+        Total Duration: 00:05:12
+    
+    Service: adm0925ServiceEUS
+        TargetLocation: EastUS
+        TargetSubscriptionId: <AzureSubscriptionID>
+    
+        ServiceUnit: adm0925ServiceEUSStorage
+            TargetResourceGroup: adm0925ServiceEUSrg
+    
+            Step: Deploy
+                Status: Succeeded
+                StepGroup: stepGroup3
+                Operation Info:
+                    DeploymentName: 2F535084871E43E7A7A4CE7B45BE06510adm0925ServiceEUSStorage
+                    CorrelationId: 0b6f030d-7348-48ae-a578-bcd6bcafe78d
+                    Start Time: 03/05/2019 15:26:32
+                    End Time: 03/05/2019 15:27:41
+                    Total Duration: 00:01:08
+                Resource Operations:
+    
+                    Resource Operation 1:
+                    Name: txq6iwnyq5xle
+                    Type: Microsoft.Storage/storageAccounts
+                    ProvisioningState: Succeeded
+                    StatusCode: OK
+                    OperationId: 64A6E6EFEF1F7755
+
+    ...
+
     ResourceGroupName       : adm0925rg
     BuildVersion            : 1.0.0.0
     ArtifactSourceId        : /subscriptions/<SubscriptionID>/resourceGroups/adm0925rg/providers/Microsoft.DeploymentManager/artifactSources/adm0925ArtifactSourceRollout

@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seodec18
 ms.date: 12/07/2018
-ms.openlocfilehash: dfdccaf929aa382c8003bc4c3cc0988a7123bf2d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: d802fade0ff9c5b4bc329c7451144d8c782f8d3c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316010"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097938"
 ---
 # <a name="analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Analyser les données d’appel téléphonique avec Stream Analytics et visualiser les résultats dans un tableau de bord Power BI
 
@@ -53,7 +53,7 @@ Suivez les étapes ci-dessous pour créer un Event Hub et envoyer les données d
 
    |**Paramètre**  |**Valeur suggérée** |**Description**  |
    |---------|---------|---------|
-   |NOM     | myEventHubsNS        |  Nom unique pour identifier l’espace de noms du hub d’événements.       |
+   |Nom     | myEventHubsNS        |  Nom unique pour identifier l’espace de noms du hub d’événements.       |
    |Abonnement     |   \<Votre abonnement\>      |   Sélectionnez un abonnement Azure dans lequel vous souhaitez créer le hub d’événements.      |
    |Groupe de ressources     |   MyASADemoRG      |  Sélectionnez **Créer** et saisissez le nom du nouveau groupe de ressources pour votre compte.       |
    |Lieu     |   Ouest des États-Unis 2      |    Emplacement où l’espace de noms du hub d’événements peut être déployé.     |
@@ -180,7 +180,7 @@ La dernière étape consiste à définir un récepteur de sortie pour le travail
 3. Sélectionnez **+ Ajouter** > **Power BI**. Remplissez ensuite le formulaire avec les détails suivants, puis sélectionnez **Autoriser** :
 
    |**Paramètre**  |**Valeur suggérée**  |
-   |---------|---------|---------|
+   |---------|---------|
    |Alias de sortie  |  MyPBIoutput  |
    |Nom du jeu de données  |   ASAdataset  |
    |Nom de la table |  ASATable  |
@@ -236,7 +236,7 @@ Vous pouvez tester une requête à partir de l’éditeur de requête en utilisa
 
 4. Sélectionnez **Tester** pour tester la requête. Les résultats suivants doivent s’afficher :
 
-   ![Sortie du test de requête Stream Analytics](media/stream-analytics-manage-job/sample-test-output-restuls.png)
+   ![Résultat du test de requête Stream Analytics](media/stream-analytics-manage-job/sample-test-output-restuls.png)
 
 ## <a name="start-the-job-and-visualize-output"></a>Démarrer le travail et visualiser la sortie
 

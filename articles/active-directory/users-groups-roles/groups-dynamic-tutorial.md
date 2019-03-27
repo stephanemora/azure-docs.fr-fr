@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: tutorial
-ms.date: 01/28/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3883ddcad1c41e131d52016e4fa94a3e668adcd1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 93b59a108d5d87479c12174e97713d4c12d84f2e
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56209725"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200053"
 ---
 # <a name="tutorial-add-or-remove-group-members-automatically"></a>Didacticiel : Ajouter ou supprimer automatiquement des membres dans un groupe
 
@@ -28,7 +28,7 @@ Dans Azure Active Directory (Azure AD), vous pouvez ajouter ou supprimer automat
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > [!div class="checklist"]
-> * Créer un groupe automatiquement rempli d’utilisateurs invités d’une entreprise partenaire spécifique
+> * Créer un groupe automatiquement rempli d’utilisateurs invités d’une entreprise partenaire
 > * Attribuer des licences au groupe pour les fonctionnalités propres au partenaire afin de permettre aux utilisateurs invités d’y accéder
 > * Bonus : sécuriser le groupe **Tous les utilisateurs** en supprimant les utilisateurs invités, par exemple en vue d’autoriser les utilisateurs membres à accéder aux sites à usage interne
 
@@ -44,15 +44,15 @@ Vous n’êtes pas tenu d’attribuer des licences aux utilisateurs pour que ces
 
 Vous allez commencer par créer un groupe de vos utilisateurs invités qui proviennent tous d’une même entreprise partenaire. Ces utilisateurs nécessitent une licence spéciale ; il est donc généralement plus efficace de créer un groupe à cet effet.
 
-1. Connectez-vous au Portail Azure (https://portal.azure.com) en utilisant le compte d’administrateur général de votre locataire.
+1. Connectez-vous au portail Azure (https://portal.azure.com) en utilisant le compte d’administrateur général de votre locataire.
 2. Sélectionnez **Azure Active Directory** > **Groupes** > **Nouveau groupe**.
-  ![Sélection de la commande Nouveau groupe](./media/groups-dynamic-tutorial/new-group.png)
+   ![Sélectionner la commande permettant de démarrer un nouveau groupe](./media/groups-dynamic-tutorial/new-group.png)
 3. Dans le panneau **Groupe** :
   
-  * Sélectionnez le type de groupe **Sécurité**.
-  * Entrez `Guest users Contoso` en guise de nom et de description pour le groupe.
-  * Redéfinissez **Type d’appartenance** sur **Utilisateur dynamique**.
-  * Sélectionnez **Ajouter une requête dynamique**.
+   * Sélectionnez le type de groupe **Sécurité**.
+   * Entrez `Guest users Contoso` en guise de nom et de description pour le groupe.
+   * Redéfinissez **Type d’appartenance** sur **Utilisateur dynamique**.
+   * Sélectionnez **Ajouter une requête dynamique**.
   
 4. Sélectionnez **Règle avancée** puis, dans la zone **Règle avancée**, entrez : `(user.userType -eq "Guest") -and (user.companyName -eq "Contoso")`
 5. Sélectionnez **Ajouter une requête** pour fermer le panneau.

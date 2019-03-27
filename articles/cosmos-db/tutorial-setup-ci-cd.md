@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 11/02/2018
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: b4d8214608e8193172da078fc352c66145253ada
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: c8f7e3cd6a2b4b6105547d7a4429803a00f6999f
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878963"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285511"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configurer un pipeline CI/CD avec la tâche de génération d’émulateur Azure Cosmos DB
 
@@ -31,7 +31,7 @@ Pour utiliser la tâche de génération, nous devons d’abord l’installer dan
 Ensuite, choisissez l’organisation dans laquelle installer l’extension. 
 
 > [!NOTE]
-> Pour installer une extension vers une organisation Azure DevOps, vous devez être propriétaire de compte ou administrateur de collection de projets. Si vous ne disposez pas des autorisations nécessaires, mais que vous êtes un membre de compte, vous pouvez demander des extensions. [En savoir plus.](https://docs.microsoft.com/azure/devops/marketplace/faq-extensions?view=vsts#install-request-assign-and-access-extensions)
+> Pour installer une extension dans une organisation Azure DevOps, vous devez être propriétaire de compte ou administrateur de collection de projets. Si vous ne disposez pas des autorisations nécessaires, mais que vous êtes un membre de compte, vous pouvez demander des extensions. [En savoir plus.](https://docs.microsoft.com/azure/devops/marketplace/faq-extensions?view=vsts#install-request-assign-and-access-extensions)
 
 ![Choisir une organisation Azure DevOps dans laquelle installer une extension](./media/tutorial-setup-ci-cd/addExtension_2.png)
 
@@ -39,7 +39,7 @@ Ensuite, choisissez l’organisation dans laquelle installer l’extension.
 
 Maintenant que l’extension est installée, connectez-vous à votre compte Azure DevOps et recherchez votre projet dans le tableau de bord de projets. Vous pouvez ajouter un [pipeline de build](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav) à votre projet ou modifier un pipeline de build existant. Si vous disposez déjà d’un pipeline de build, vous pouvez passer directement à la section [Ajouter la tâche de génération d’émulateur à une définition de build](#addEmulatorBuildTaskToBuildDefinition).
 
-1. Pour créer une définition de build, accédez à l’onglet **Builds** dans Azure DevOps. Sélectionnez **+Nouveau.**  >  **Nouveau pipeline de build**
+1. Pour créer une définition de build, accédez à l’onglet **Builds** dans Azure DevOps. Sélectionnez **+Nouveau.**  \> **Nouveau pipeline de build**
 
    ![Créer un pipeline de build](./media/tutorial-setup-ci-cd/CreateNewBuildDef_1.png)
 

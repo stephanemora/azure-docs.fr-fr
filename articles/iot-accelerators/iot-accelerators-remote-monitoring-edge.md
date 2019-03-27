@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: d28a88efc1a9f980d74737936bb960ba13573fa3
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: a812155474b244682613b38b9b9379fa6cdcdcd8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56675090"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58166750"
 ---
 # <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Tutoriel : Détecter des anomalies en périphérie avec l’accélérateur de solution de supervision à distance
 
@@ -245,7 +245,7 @@ Ensuite, créez un manifeste de déploiement IoT Edge qui définit les modules �
 
 1. Cliquez sur le déploiement **oil-pump-device**, puis cliquez sur **Télécharger le manifeste IoT Edge**. Enregistrez le fichier sous **oil-pump-device.json** dans un emplacement approprié de votre ordinateur local. Vous aurez besoin de ce fichier dans la section suivante de ce tutoriel.
 
-Vous venez de créer un manifeste IoT Edge devant être importé dans la solution de supervision à distance comme package. En règle générale, le développeur crée les modules et le fichier manifeste IoT Edge.
+Vous venez de créer un manifeste IoT Edge devant être importé dans la solution de supervision à distance en tant que package. En règle générale, le développeur crée les modules et le fichier manifeste IoT Edge.
 
 ## <a name="import-a-package"></a>Importer un package
 

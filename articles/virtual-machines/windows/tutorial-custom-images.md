@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 192ecf0cf4f97a709808fa04f676035e8a672b79
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 74087a6d1ce00293c968837e72c636847081e39e
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55976944"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285976"
 ---
-# <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>Tutoriel : Créer une image personnalisée d’une machine virtuelle Azure avec Azure PowerShell
+# <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>Didacticiel : Créer une image personnalisée d’une machine virtuelle Azure avec Azure PowerShell
 
 Les images personnalisées sont comme des images de la Place de marché, sauf que vous les créez vous-même. Vous pouvez les utiliser pour démarrer des déploiements et en garantir la cohérence sur plusieurs machines virtuelles. Ce tutoriel explique comment créer votre propre image personnalisée d’une machine virtuelle Azure avec PowerShell. Vous allez apprendre à effectuer les actions suivantes :
 
@@ -162,7 +162,7 @@ Ce didacticiel vous montré comment créer une image de machine virtuelle. Vous 
 > * Répertorier toutes les images dans votre abonnement
 > * Supprimer une image
 
-Passez au didacticiel suivant pour en savoir plus sur les machines virtuelles hautement disponibles.
+Passez au tutoriel suivant pour en savoir plus sur la création de machines virtuelles hautement disponibles.
 
 > [!div class="nextstepaction"]
 > [Créer des machines virtuelles hautement disponibles](tutorial-availability-sets.md)

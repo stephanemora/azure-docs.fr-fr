@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à PureCloud by Genesys | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à PureCloud by Genesys | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et PureCloud by Genesys.
 services: active-directory
 documentationCenter: na
@@ -7,21 +7,21 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: e16a46db-5de2-4681-b7e0-94c670e3e54e
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: c9b2770f861098993623d69f6b9f6a1577c9cf27
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: d1cc7735b8caa952a5ab7695d3e1f35b03fec1bb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56890540"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890676"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-purecloud-by-genesys"></a>Tutoriel : Intégration d’Azure Active Directory à PureCloud by Genesys
+# <a name="tutorial-azure-active-directory-integration-with-purecloud-by-genesys"></a>Tutoriel : Intégration d’Azure Active Directory à PureCloud by Genesys
 
 Dans ce tutoriel, vous allez apprendre à intégrer PureCloud by Genesys à Azure Active Directory (Azure AD).
 L’intégration de PureCloud by Genesys à Azure AD offre les avantages suivants :
@@ -105,6 +105,7 @@ Pour configurer l’authentification unique Azure AD avec PureCloud by Genesys,
     ![Informations d’authentification unique de domaine et d’URL PureCloud by Genesys](common/idp-intiated.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL appropriée pour votre région :
+
     | |
     |--|
     | `https://login.mypurecloud.com/saml` |
@@ -114,6 +115,7 @@ Pour configurer l’authentification unique Azure AD avec PureCloud by Genesys,
     | `https://login.mypurecloud.au/saml` |
 
     b. Dans la zone de texte **URL de réponse**, tapez une URL appropriée pour votre région :
+
     | |
     |--|
     | `https://login.mypurecloud.com/saml` |
@@ -127,6 +129,7 @@ Pour configurer l’authentification unique Azure AD avec PureCloud by Genesys,
     ![Informations d’authentification unique de domaine et d’URL PureCloud by Genesys](common/metadata-upload-additional-signon.png)
 
     Dans la zone de texte **URL de connexion**, tapez une URL appropriée pour votre région :
+    
     | |
     |--|
     | `https://login.mypurecloud.com` |
@@ -220,7 +223,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@votredomaineentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
@@ -257,7 +260,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 Pour permettre aux utilisateurs Azure AD de se connecter à PureCloud by Genesys, vous devez les provisionner dans PureCloud by Genesys. Dans PureCloud by Genesys, le provisionnement se fait manuellement.
 
-**Pour provisionner un compte d’utilisateur, procédez comme suit :**
+**Pour approvisionner un compte d’utilisateur, procédez comme suit :**
 
 1. Connectez-vous à PureCloud by Genesys en tant qu’administrateur.
 
@@ -275,7 +278,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à PureCloud by Genesys
 
     a. Dans la zone de texte **Full Name** (Nom complet), entrez le nom d’un utilisateur, par exemple **Brittasimon**.
 
-    b. Dans la zone de texte **Email** (E-mail), entrez l’adresse e-mail de l’utilisateur, par exemple **brittasimon@contoso.com**.
+    b. Dans la zone de texte **E-mail**, tapez l’adresse e-mail de l’utilisateur, par exemple **brittasimon\@contoso.com**.
     
     c. Cliquez sur **Créer**.
 

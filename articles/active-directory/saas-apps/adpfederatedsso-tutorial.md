@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à ADP | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à ADP | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et ADP.
 services: active-directory
 documentationCenter: na
@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 7be5331b-0481-48f7-9d6b-619dfec657e1
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb6943ef6c75f634cdb68557ed2339574bdc2602
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: eba63f8295fb5bebffdc8480f763c852521e331b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878283"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880906"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-adp"></a>Tutoriel : Intégration d’Azure Active Directory à ADP
+# <a name="tutorial-azure-active-directory-integration-with-adp"></a>Didacticiel : Intégration d’Azure Active Directory à ADP
 
 Dans ce didacticiel, vous allez apprendre à intégrer ADP à Azure Active Directory (Azure AD).
 L’intégration d’ADP à Azure AD vous offre les avantages suivants :
@@ -259,7 +259,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@votredomaineentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/19/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 02/19/2019
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: f9ed10c84be86304722020606873b0c7866df1e8
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: aae3ec8ff713959c5cc2485951aba025a6f89a1e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594047"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113280"
 ---
 # <a name="validate-oem-packages"></a>Valider les packages OEM
 
@@ -41,56 +41,98 @@ Lorsque vous utilisez le workflow **Validation de package** pour valider un pack
 
 Créer un conteneur dans votre compte de stockage pour les objets blob de package. Ce conteneur peut être utilisé à chaque fois que la validation de package est exécutée.
 
-1. Accédez au compte de stockage créé dans [configurer votre validation en tant que Ressources de service](azure-stack-vaas-set-up-resources.md) depuis le [Portail Azure](https://portal.azure.com).
-2. Dans le panneau de gauche sous **Service Blob**, sélectionnez **Conteneurs**.
-3. Sélectionnez **+ Conteneur** dans la barre de menus et donnez un nom au conteneur. Par exemple, `vaaspackages`.
+1. Accédez au compte de stockage créé dans [Configurer vos ressources de la validation en tant que service](azure-stack-vaas-set-up-resources.md) depuis le [portail Azure](https://portal.azure.com).
+
+2. Dans le panneau de gauche, sous **Service Blob**, sélectionnez **Conteneurs**.
+
+3. Sélectionnez **+ Conteneur** à partir de la barre de menus.
+    1. Indiquez un nom pour le conteneur, par exemple `vaaspackages`.
+    1. Sélectionnez le niveau d’accès souhaité pour les clients non authentifiés, tels que VaaS. Pour plus d’informations sur la façon d’accorder l’accès VaaS aux packages dans chaque scénario, consultez [Gestion du niveau d’accès du conteneur](#handling-container-access-level).
 
 ### <a name="upload-package-to-storage-account"></a>Charger le package pour le compte de stockage
 
-1. Préparer le package que vous voulez valider. Si votre package contient plusieurs fichiers, compressez-le dans un `.zip` fichier.
-2. Dans le [Portail Azure](https://portal.azure.com), sélectionnez le conteneur de package et chargez le package en sélectionnant **Charger** dans la barre de menus.
-3. Sélectionnez le `.zip`fichier de package à charger. Conservez les valeurs par défaut pour **Type d’objet blob** (par exemple, **objet blob de blocs**) et **Taille de bloc**.
+1. Préparer le package que vous voulez valider. Il s’agit d’un fichier `.zip` dont le contenu doit correspondre à la structure décrite dans [Créer un package OEM](azure-stack-vaas-create-oem-package.md).
 
-> [!NOTE]
-> Veuillez vérifier que les `.zip` contenus soient placés à la racine du `.zip` fichier. Il ne doit y avoir aucun sous-dossier dans le package.
+    > [!NOTE]
+    > Veuillez vérifier que les `.zip` contenus soient placés à la racine du `.zip` fichier. Il ne doit y avoir aucun sous-dossier dans le package.
+
+1. Dans le [portail Azure](https://portal.azure.com), sélectionnez le conteneur de package et chargez le package en sélectionnant **Charger** dans la barre de menus.
+
+1. Sélectionnez le `.zip`fichier de package à charger. Conservez les valeurs par défaut pour **Type d’objet blob** (par exemple, **Objet blob de blocs**) et **Taille de bloc**.
 
 ### <a name="generate-package-blob-url-for-vaas"></a>Générer des URL d’objet blob de package pour VaaS
 
-Lorsque vous créez un workflow **Validation de package** dans le portail VaaS, vous devez fournir une URL au Stockage Blob Azure qui contient votre package.
+Lorsque vous créez un workflow **Validation de package** dans le portail VaaS, vous devez fournir une URL au Stockage Blob Azure qui contient votre package. Certains tests *interactifs*, y compris **Vérification de la mise à jour mensuelle AzureStack** et **Vérification des packages d’extensions OEM**, nécessitent également une URL vers des objets blob de package.
 
-#### <a name="option-1-generating-a-blob-sas-url"></a>Option 1 : Génération d’une URL SAP d’objet blob
+#### <a name="handling-container-access-level"></a>Gestion du niveau d’accès du conteneur
 
-Utilisez cette option si vous ne souhaitez pas activer l’accès en lecture public à votre conteneur de stockage ni aux objets blob.
+Le niveau d’accès minimal exigé par VaaS varie selon que vous créez un workflow de validation de package ou que vous planifiez un test *interactif*.
 
-1. Dans le [portail Azure](https://portal.azure.com/), accédez à votre compte de stockage, puis au fichier .zip contenant votre package
+Dans le cas des niveaux d’accès **Privé** et **Objet blob**, vous devez temporairement accorder l’accès à l’objet blob de package en donnant une [signature d’accès partagé](https://docs.microsoft.com/en-us/azure/storage/common/storage-dotnet-shared-access-signature-part-1?) (SAP) à VaaS. Le niveau d’accès **Conteneur** n’exige pas que vous génériez des URL SAP, mais il autorise l’accès non authentifié au conteneur et à ses objets blob.
 
-2. Sélectionnez **Générer une signature d’accès partagé** dans le menu contextuel
+|Niveau d’accès | Exigence de workflow | Exigence de test |
+|---|---------|---------|
+|Privé | Générez une URL SAP par objet blob de package ([Option 1](#option-1-generate-a-blob-sas-url)). | Générez une URL SAP au niveau du compte et ajoutez manuellement le nom d’objet blob de package ([Option 2](#option-2-construct-a-container-sas-url)). |
+|Blob | Indiquez la propriété de l’URL d’objet blob ([Option 3](#option-3-grant-public-read-access)). | Générez une URL SAP au niveau du compte et ajoutez manuellement le nom d’objet blob de package ([Option 2](#option-2-construct-a-container-sas-url)). |
+|Conteneur | Indiquez la propriété de l’URL d’objet blob ([Option 3](#option-3-grant-public-read-access)). | Indiquez la propriété de l’URL d’objet blob ([Option 3](#option-3-grant-public-read-access)).
 
-3. Sélectionnez **Lecture** dans **Autorisations**
+Les options d’octroi d’accès à vos packages sont classées par ordre d’importance croissante.
 
-4. Définissez **Heure de début** sur l’heure actuelle et **Heure de fin** sur une valeur ultérieure d’au moins 48 heures à la valeur **Heure de fin**. Si vous devez exécuter d’autres tests avec le même package, envisagez d’augmenter la valeur **Heure de fin** pour qu’elle corresponde à la durée de vos tests. Tous les tests planifiés par le biais de VaaS après l’**Heure de fin** échouent et une nouvelle signature d’accès partagé (SAP) doit être générée.
+#### <a name="option-1-generate-a-blob-sas-url"></a>Option 1 : Générer une URL SAP d’objet blob
+
+Utilisez cette option si le niveau d’accès de votre conteneur de stockage est défini sur **Privé**, le conteneur dans ce cas ne permet pas l’accès en lecture public sur le conteneur ou ses objets blob.
+
+> [!NOTE]
+> Cette méthode ne fonctionne pas pour les tests *interactifs*. Voir [Option 2 : Construire une URL SAP de conteneur](#option-2-construct-a-container-sas-url).
+
+1. Dans le [portail Azure](https://portal.azure.com/), accédez à votre compte de stockage, puis au fichier .zip contenant votre package.
+
+2. Sélectionnez **Générer une signature d’accès partagé** dans le menu contextuel.
+
+3. Sélectionnez **Lecture** dans **Autorisations**.
+
+4. Définissez **Heure de début** sur l’heure actuelle et **Heure de fin** sur une valeur ultérieure d’au moins 48 heures à la valeur **Heure de fin**. Si vous devez créer d’autres workflows avec le même package, songez à augmenter l’**Heure de fin** pour englober la durée de vos tests.
 
 5. Sélectionnez **Générer un jeton et une URL SAP d’objet blob**.
 
 Utilisez l’**URL SAP d’objet blob** quand vous fournissez des URL d’objet blob de package au portail.
 
-#### <a name="option-2-grant-public-read-access"></a>Option 2 : Accorder un accès en lecture public
+#### <a name="option-2-construct-a-container-sas-url"></a>Option 2 : Construire une URL SAP de conteneur
+
+Utilisez cette option si le niveau d’accès de votre conteneur de stockage est défini sur **Privé** et qu’il vous faut fournir une URL d’objet blob de package à un test *interactif*. Cette URL peut également être utilisée au niveau du workflow.
+
+1. [!INCLUDE [azure-stack-vaas-sas-step_navigate](includes/azure-stack-vaas-sas-step_navigate.md)]
+
+1. Sélectionnez l’option **Blob** dans **Services autorisés**. Désélectionnez les autres options.
+
+1. Sélectionnez **Conteneur**, et **Objet** dans **Types de ressources autorisés**.
+
+1. Sélectionnez **Lecture** et **Liste** dans **Permissions autorisées**. Désélectionnez les autres options.
+
+1. Sélectionnez **Début** en tant que date actuelle et définissez **Fin** sur une date ultérieure qui tienne compte d’une durée de 14 jours au moins par rapport à celle du **Début**. Si vous devez exécuter d’autres tests avec le même package, envisagez d’augmenter la valeur **Heure de fin** pour qu’elle corresponde à la durée de vos tests. Tous les tests planifiés par le biais de VaaS après l’**Heure de fin** échouent et une nouvelle signature d’accès partagé (SAP) doit être générée.
+
+1. [!INCLUDE [azure-stack-vaas-sas-step_generate](includes/azure-stack-vaas-sas-step_generate.md)]
+    Le format devrait s’afficher comme suit : `https://storageaccountname.blob.core.windows.net/?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
+
+1. Modifier l’URL SAS générée pour inclure le conteneur de packages, `{containername}`et le nom de votre objet blob de package, `{mypackage.zip}`, comme suit :  `https://storageaccountname.blob.core.windows.net/{containername}/{mypackage.zip}?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
+
+    Utilisez cette valeur quand vous fournissez des URL d’objet blob de package au portail.
+
+#### <a name="option-3-grant-public-read-access"></a>Option 3 : Accorder un accès en lecture public
+
+Utilisez cette option s’il est acceptable d’autoriser l’accès des objets blob individuels à des clients non authentifiés ou, dans le cas de tests *interactifs*, l’accès du conteneur.
 
 > [!CAUTION]
 > Cette option ouvre vos objets blob à un accès anonyme en lecture seule.
 
-1. Autoriser l’**accès en lecture publique pour les objets blob uniquement** du conteneur de package en suivant les instructions dans la section [Accorder à des utilisateurs anonymes des autorisations d’accès aux conteneurs et objets blob](https://docs.microsoft.com/azure/storage/storage-manage-access-to-resources#grant-anonymous-users-permissions-to-containers-and-blobs).
+1. Définissez le niveau d’accès du conteneur de package sur **Objet blob** ou sur [Conteneur](https://docs.microsoft.com/azure/storage/storage-manage-access-to-resources#grant-anonymous-users-permissions-to-containers-and-blobs) en suivant les instructions de la section **Accorder à des utilisateurs anonymes des autorisations d’accès aux conteneurs et objets blob**.
 
-> [!NOTE]
-> Si vous fournissez une URL de package à un *test interactif* (par exemple, Vérification de la mise à jour mensuelle Azure Stack ou Vérification des packages d’extensions OEM), vous devez accorder un **accès en lecture public complet** pour continuer les tests.
+    > [!NOTE]
+    > Si vous fournissez une URL de package à un test *interactif*, vous devez accorder l’**accès en lecture public complet** au conteneur pour procéder au test.
 
-2. Dans le conteneur de package, sélectionnez l’objet blob de package pour ouvrir le volet Propriétés.
+1. Dans le conteneur de package, sélectionnez l’objet blob de package pour ouvrir le volet Propriétés.
 
-3. Copiez l’**URL**. Utilisez cette valeur quand vous fournissez des URL d’objet blob de package au portail.
-
-## <a name="apply-monthly-update"></a>Appliquer la mise à jour mensuelle
-
-[!INCLUDE [azure-stack-vaas-workflow-section_update-azs](includes/azure-stack-vaas-workflow-section_update-azs.md)]
+1. Copiez l’**URL**. Utilisez cette valeur quand vous fournissez des URL d’objet blob de package au portail.
 
 ## <a name="create-a-package-validation-workflow"></a>Créer un workflow validation de package
 
@@ -120,7 +162,7 @@ Utilisez l’**URL SAP d’objet blob** quand vous fournissez des URL d’objet 
 
 ## <a name="required-tests"></a>Tests requis
 
-Les tests suivants sont requis pour la validation de package OEM :
+Les tests suivants sont exigés pour la validation de package OEM :
 
 - Vérification des packages d’extensions OEM
 - Cloud Simulation Engine
@@ -133,7 +175,7 @@ Les tests suivants sont requis pour la validation de package OEM :
 
     > [!NOTE]
     > La planification d’un test de validation sur une instance existante créera une nouvelle instance à la place de l’ancienne contenue dans le portail. Les journaux de l’ancienne instance sont conservés, mais ne sont pas accessibles à partir du portail.  
-    Dès lors qu’un test est concluant, l’action de **planification** est désactivée.
+    > Dès lors qu’un test est concluant, l’action de **planification** est désactivée.
 
 2. Sélectionnez l’agent qui exécutera le test. Pour plus d’informations sur l’ajout d’agents d’exécution de test locaux, consultez [Déployer l’agent local](azure-stack-vaas-local-agent.md).
 
@@ -141,9 +183,36 @@ Les tests suivants sont requis pour la validation de package OEM :
 
 4. Passez en revue les paramètres de test, puis sélectionnez **Envoyer** pour planifier l’exécution de la vérification des packages d’extensions OEM.
 
+    La vérification des packages d’extensions OEM se scinde en deux étapes manuelles : la mise à jour Azure Stack et la mise à jour OEM.
+
+   1. **Sélectionnez** « Run » (Exécuter) dans l’interface utilisateur pour exécuter le script de vérification préalable. Il s’agit d’un test automatisé qui prend environ 5 minutes et ne nécessite aucune action.
+
+   1. Dès le script de vérification préalable terminé, passez à l’étape manuelle : **installez** la dernière mise à jour disponible d’Azure Stack par le biais du portail Azure Stack.
+
+   1. **Exécutez** Test-AzureStack sur le tampon. Si des échecs se produisent, ne poursuivez pas le test et contactez [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com).
+
+       Pour plus d’informations sur l’exécution de la commande Test-AzureStack, consultez [Valider l’état du système Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostic-test).
+
+   1. **Sélectionnez** « Next » (Suivant) pour exécuter le script de post-vérification. Il s’agit d’un test automatisé qui marque la fin du processus de mise à jour d’Azure Stack.
+
+   1. **Sélectionnez** « Run » (Exécuter) pour exécuter le script de vérification préalable en vue de la mise à jour OEM.
+
+   1. À l’issue de la pré-vérification, passez à l’étape manuelle : **installez** le package d’extension OEM via le portail.
+
+   1. **Exécutez** Test-AzureStack sur le tampon.
+
+      > [!NOTE]
+      > Comme précisé précédemment, ne poursuivez pas le test et contactez [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) si des échecs se produisent. Cette étape est essentielle, car elle vous économise un redéploiement.
+
+   1. **Sélectionnez** « Next » (Suivant) pour exécuter le script de post-vérification. Cette opération marque la fin de la mise à jour OEM.
+
+   1. Répondez aux questions restantes à la fin du test et **sélectionnez** « Submit » (Soumettre).
+
+   1. Cette opération marque la fin du test interactif.
+
 5. Passez en revue le résultat de la vérification des packages d’extensions OEM. Une fois que le test a réussi, planifiez l’exécution de Cloud Simulation Engine.
 
-Une fois que tous les tests ont été effectués avec succès, envoyez le nom de votre validation de solution VaaS et validation de package à l’adresse [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) pour demander la signature du package.
+Pour soumettre une requête de signature de package, envoyez à [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) le nom de la solution et celui de la validation de package qui sont associés à cette exécution.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

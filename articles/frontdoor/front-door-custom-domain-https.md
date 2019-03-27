@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: b6e378263ac8bcd7cfee36209f70f26680988e6e
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: b3ec0616a7f022a104a20589f3281262b2717e35
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753796"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58014121"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Tutoriel : Configurer HTTPS sur un domaine personnalisé Front Door
 
@@ -141,7 +141,7 @@ Votre enregistrement CNAME doit être au format suivant, où *Nom* désigne le n
 
 | Nom            | type  | Valeur                 |
 |-----------------|-------|-----------------------|
-| www.contoso.com | CNAME | contoso.azurefd.net |
+| <www.contoso.com> | CNAME | contoso.azurefd.net |
 
 Pour plus d’informations sur les enregistrements CNAME, consultez [Create the CNAME DNS record](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain) (Créer l’enregistrement DNS CNAME).
 

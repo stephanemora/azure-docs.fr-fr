@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2018
+ms.date: 03/11/2019
 ms.author: patricka
-ms.reviewer: unknown
-ms.lastreviewed: 12/06/2018
-ms.openlocfilehash: 03c1879c34a00bb09b5a4dee6af7da7b984045fc
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.reviewer: fiseraci
+ms.lastreviewed: 03/11/2019
+ms.openlocfilehash: 3565bf4c4a19bcf1b136b4cbb781006658865a1c
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241183"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767207"
 ---
 # <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>Gérer l’accès aux ressources à l’aide du contrôle d’accès en fonction du rôle dans Azure Stack
 
@@ -93,8 +93,8 @@ Les étapes suivantes permettent de configurer des autorisations pour un utilisa
 2. Dans le volet de navigation de gauche, sélectionnez **Groupes de ressources**.
 3. Choisissez le nom du groupe de ressources sur lequel vous souhaitez définir des autorisations.
 4. Dans le volet de navigation du groupe de ressources, choisissez **Contrôle d’accès (IAM)**. La vue **Attributions de rôles** liste les éléments qui ont accès au groupe de ressources. Vous pouvez regrouper et filtrer les résultats.
-5. Dans la barre de menus **Contrôle d’accès**, choisissez **+ Ajouter une attribution de rôle**.
-6. Dans le volet **Ajouter une attribution de rôle** :
+5. Dans la barre de menus **Contrôle d’accès**, choisissez **Ajouter**.
+6. Sur le volet **Ajouter des autorisations** :
 
    * Choisissez le rôle que vous souhaitez attribuer dans la liste déroulante **Rôle**.
    * Choisissez la ressource dont vous voulez autoriser l’accès dans la liste déroulante **Attribuer l'accès à**.

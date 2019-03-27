@@ -11,17 +11,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 12/07/2018
+ms.topic: conceptual
+ms.date: 03/22/2019
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: def9026fb0422d8868af098f12180617aefe7eff
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: aff9dade7fe0238c0ea8ccc3ae5bba57437c6f89
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56877943"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339548"
 ---
 # <a name="quota-types-in-azure-stack"></a>Types de quotas dans Azure Stack
 
@@ -29,7 +29,7 @@ ms.locfileid: "56877943"
 
 Les [quotas](azure-stack-plan-offer-quota-overview.md#plans) définissent les limites de ressources qu’un abonnement utilisateur peut approvisionner ou consommer. Par exemple, un quota peut autoriser un utilisateur de créer jusqu’à cinq machines virtuelles. Chaque ressource peut avoir ses propres types de quotas.
 
-## <a name="compute-quota-types"></a>Types de quotas de capacité de traitement (compute) 
+## <a name="compute-quota-types"></a>Types de quotas de capacité de traitement (compute)
 
 | **Type** | **Valeur par défaut** | **Description** |
 | --- | --- | --- |
@@ -40,16 +40,15 @@ Les [quotas](azure-stack-plan-offer-quota-overview.md#plans) définissent les li
 | Capacité maximale (en Go) du disque managé standard | 2 048 | Capacité maximale des disques managés standard qui peuvent être créés dans cet emplacement. |
 | Capacité maximale (en Go) du disque managé Premium | 2 048 | Capacité maximale des disques managés Premium qui peuvent être créés dans cet emplacement. |
 
-## <a name="storage-quota-types"></a>Types de quotas de stockage 
+## <a name="storage-quota-types"></a>Types de quotas de stockage
 
 | **Item** | **Valeur par défaut** | **Description** |
 | --- | --- | --- |
-| Capacité maximale (Go) |2 048 |Capacité de stockage totale qui peut être consommée par un abonnement à cet emplacement. |
+| Capacité maximale (Go) |2 048 |Capacité de stockage totale (incluant les objets blob et tous les instantanés, tables et files d’attente associés) qui peut être consommée par un abonnement à cet emplacement. |
 | Nombre total de comptes de stockage |20 |Nombre maximal de comptes de stockage qu’un abonnement peut créer à cet emplacement. |
 
 > [!NOTE]  
 > L’application d’un quota de stockage peut prendre jusqu’à deux heures.
-
 
 ## <a name="network-quota-types"></a>Types de quotas pour les réseaux
 
@@ -69,10 +68,10 @@ Il existe deux façons d’afficher un quota existant :
 
 ### <a name="plans"></a>Plans
 
-1.  Dans le volet de navigation gauche du portail d’administration, sélectionnez **Plans**.
-2.  Sélectionnez le plan pour lequel vous souhaitez afficher les détails, en cliquant sur son nom.
-3.  Dans le panneau qui s’ouvre, sélectionnez **Services et quotas**.
-4.  Sélectionnez le quota que vous aimeriez voir en cliquant dessus dans la colonne **Nom**.
+1. Dans le volet de navigation gauche du portail d’administration, sélectionnez **Plans**.
+2. Sélectionnez le plan pour lequel vous souhaitez afficher les détails, en cliquant sur son nom.
+3. Dans le panneau qui s’ouvre, sélectionnez **Services et quotas**.
+4. Sélectionnez le quota que vous aimeriez voir en cliquant dessus dans la colonne **Nom**.
 
     [![Quotas](media/azure-stack-quota-types/quotas1sm.png "Afficher les quotas")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
@@ -88,14 +87,14 @@ Il existe deux façons différentes de modifier un quota :
 
 ### <a name="edit-a-plan"></a>Modifier un plan
 
-1.  Dans le volet de navigation gauche du portail d’administration, sélectionnez **Plans**.
-2.  Sélectionnez le plan pour lequel vous souhaitez modifier un quota, en cliquant sur son nom.
-3.  Dans le panneau qui s’ouvre, sélectionnez **Services et quotas**.
-4.  Sélectionnez le quota que vous aimeriez modifier en cliquant dessus dans la colonne **Nom**.
+1. Dans le volet de navigation gauche du portail d’administration, sélectionnez **Plans**.
+2. Sélectionnez le plan pour lequel vous souhaitez modifier un quota, en cliquant sur son nom.
+3. Dans le panneau qui s’ouvre, sélectionnez **Services et quotas**.
+4. Sélectionnez le quota que vous aimeriez modifier en cliquant dessus dans la colonne **Nom**.
     [![Quotas](media/azure-stack-quota-types/quotas1sm.png "Afficher les quotas")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
-5.  Dans le panneau qui s’ouvre, sélectionnez **Modifier dans Compute**, **Modifier dans Réseau**, ou **Modifier dans Stockage**.
-    ![Quotas](media/azure-stack-quota-types/quotas3.png "Afficher les quotas")    
+5. Dans le panneau qui s’ouvre, sélectionnez **Modifier dans Compute**, **Modifier dans Réseau**, ou **Modifier dans Stockage**.
+    ![Quotas](media/azure-stack-quota-types/quotas3.png "Afficher les quotas")
 
 Vous pouvez également suivre cette procédure pour modifier un quota :
 
@@ -106,9 +105,9 @@ Vous pouvez également suivre cette procédure pour modifier un quota :
 
 ### <a name="edit-original-configuration"></a>Modifier la configuration d’origine
   
-Vous pouvez choisir de modifier la configuration d’origine d’un quota au lieu d’[utiliser un plan d’extension](create-add-on-plan.md). Lorsque vous modifiez un quota, la nouvelle configuration s’applique automatiquement à tous les plans qui utilisent ce quota et à tous les abonnements existants qui utilisent ces plans. La modification d’un quota est différente de celle d’un plan d’extension visant à fournir un quota modifié, auquel un utilisateur choisit de s’abonner. 
+Vous pouvez choisir de modifier la configuration d’origine d’un quota au lieu d’[utiliser un plan d’extension](create-add-on-plan.md). Lorsque vous modifiez un quota, la nouvelle configuration s’applique automatiquement à tous les plans qui utilisent ce quota et à tous les abonnements existants qui utilisent ces plans. La modification d’un quota est différente de celle d’un plan d’extension visant à fournir un quota modifié, auquel un utilisateur choisit de s’abonner.
 
-Les nouvelles valeurs pour le quota s’appliquent globalement à tous les plans qui utilisent le quota modifié et à tous les abonnements existants qui utilisent ces plans. 
+Les nouvelles valeurs pour le quota s’appliquent globalement à tous les plans qui utilisent le quota modifié et à tous les abonnements existants qui utilisent ces plans.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

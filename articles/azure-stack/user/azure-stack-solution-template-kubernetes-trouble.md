@@ -5,22 +5,21 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2019
-ms.author: mabrigg
+ms.author: mabvrigg
+ms.date: 03/20/2019
 ms.reviewer: waltero
-ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 551958317249cbfa25e3af9922f9ded6850c2521
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.lastreviewed: 03/20/2019
+ms.openlocfilehash: 01a9405c98160149782ab2cf248f64818d631dde
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752294"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293785"
 ---
 # <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>Résoudre les problèmes de votre déploiement Kubernetes sur Azure Stack
 
@@ -67,8 +66,8 @@ Le schéma suivant illustre le processus général de déploiement du cluster.
 
     Le script effectue les tâches suivantes :
     - Installe les ressources etcd, Docker et Kubernetes, telles que kubelet. etcd est un magasin de valeurs de clés distribuées qui offre un moyen de stocker des données sur un cluster de machines. Docker prend en charge des virtualisations extrêmement simples au niveau du système d’exploitation, et connues sous l’appellation de conteneurs. Kubelet est l’agent de nœud qui s’exécute sur chaque nœud Kubernetes.
-    - Configure le service etcd.
-    - Configure le service kubelet.
+    - Configure le service **etcd**.
+    - Configure le service **kubelet**.
     - Démarre Kubelet. Cette tâche implique les étapes suivantes :
         1. Démarrer le service de l’API.
         2. Démarrer le service du contrôleur.
@@ -78,8 +77,8 @@ Le schéma suivant illustre le processus général de déploiement du cluster.
 7. Télécharger et exécuter les extensions de scripts personnalisés.
 
 7. Exécuter le script de l’agent. Le script personnalisé de l’agent effectue les tâches suivantes :
-    - Installe etcd
-    - Configure le service kubelet
+    - Installe **etcd**.
+    - Configure le service **kubelet**.
     - Rejoint le cluster Kubernetes
 
 ## <a name="steps-for-troubleshooting"></a>Étapes pour la résolution de problème
@@ -87,7 +86,7 @@ Le schéma suivant illustre le processus général de déploiement du cluster.
 Vous pouvez collecter des journaux sur les machines virtuelles qui prennent en charge votre cluster Kubernetes. Vous pouvez également consulter le journal de déploiement. Vous aurez peut-être besoin de contacter votre administrateur Azure Stack pour vérifier la version d’Azure Stack à utiliser et obtenir à partir d’Azure Stack les journaux liés à votre déploiement.
 
 1. Examinez l’[état du déploiement](#review-deployment-status) et [récupérez les journaux](#get-logs-from-a-vm) à partir du nœud principal de votre cluster Kubernetes.
-2. Assurez-vous que vous utilisez la version la plus récente d’Azure Stack. Si vous ne savez pas quelle version vous utilisez, contactez votre administrateur Azure Stack. L’élément de cluster Kubernetes version 0.3.0 de la Place de marché requiert Azure Stack 1808 ou une version ultérieure.
+2. Assurez-vous que vous utilisez la version la plus récente d’Azure Stack. Si vous ne savez pas quelle version vous utilisez, contactez votre administrateur Azure Stack.
 3.  Passez en revue vos fichiers de création des machines virtuelles. Vous avez peut-être rencontré les problèmes suivants :  
     - La clé publique peut être non valide. Examinez la clé que vous avez créée.  
     - La création de machines virtuelles peut avoir déclenché une erreur interne ou une erreur de création. Différents facteurs peuvent entraîner des erreurs, y compris les limites de capacité de votre abonnement Azure Stack.
@@ -120,60 +119,52 @@ Lorsque vous déployez votre cluster Kubernetes, vous pouvez consulter l’état
 
     Chaque élément affiche une icône d’état verte ou rouge.
 
-## <a name="get-logs-from-a-vm"></a>Obtenir des journaux à partir d’une machine virtuelle
+## <a name="review-deployment-logs"></a>Examiner les journaux de déploiement
 
-Pour générer des journaux, vous devez vous connecter à la machine virtuelle principale de votre cluster, ouvrir une invite bash, puis exécuter un script. La machine virtuelle maître se trouve dans votre groupe de ressources de cluster et est nommée `k8s-master-<sequence-of-numbers>`. 
+Si le portail Azure Stack ne fournit pas suffisamment d’informations pour vous permettre de résoudre les problèmes ou de surmonter un échec de déploiement, l’étape suivante consiste à analyser en profondeur les journaux de cluster. Pour récupérer manuellement les journaux de déploiement, vous devez généralement vous connecter à l’une des machines virtuelles maîtres du cluster. Une autre approche plus simple consiste à télécharger et exécuter le [script Bash](https://aka.ms/AzsK8sLogCollectorScript) suivant fourni par l’équipe Azure Stack. Ce script se connecte à la machine virtuelle de déploiement et aux machines virtuelles du cluster, collecte les journaux système et de cluster appropriés, puis les télécharge sur votre station de travail.
 
 ### <a name="prerequisites"></a>Prérequis
 
-Vous avez besoin d’une invite bash sur la machine que vous utilisez pour gérer Azure Stack. Utilisez bash pour exécuter les scripts qui accèdent aux journaux. Sur une machine Windows, vous pouvez utiliser l’invite bash installée avec Git. Pour obtenir la version la plus récente de git, consultez les [téléchargements Git](https://git-scm.com/downloads).
+Vous avez besoin d’une invite Bash sur la machine que vous utilisez pour gérer Azure Stack. Sur un ordinateur Windows, vous pouvez obtenir une invite Bash en installant [Git pour Windows](https://git-scm.com/downloads). Après l’installation, recherchez _Git Bash_ dans votre menu Démarrer.
 
-### <a name="get-logs"></a>Obtenir des journaux
+### <a name="retrieving-the-logs"></a>Récupération des journaux
 
-Pour obtenir des journaux, suivez les étapes ci-dessous :
+Suivez ces étapes pour collecter et télécharger les journaux de cluster :
 
-1. Ouvrez une invite bash. Si vous utilisez Git sur une machine Windows, vous pouvez ouvrir une invite bash à partir de l’emplacement suivant : `c:\programfiles\git\bin\bash.exe`.
-2. Exécutez les commandes bash suivantes :
+1. Ouvrez une invite Bash. À partir d’un ordinateur Windows, ouvrez _Git Bash_ ou exécutez : `C:\Program Files\Git\git-bash.exe`.
+
+2. Téléchargez le script de collecteur de journaux en exécutant les commandes suivantes dans votre invite Bash :
 
     ```Bash  
     mkdir -p $HOME/kuberneteslogs
     cd $HOME/kuberneteslogs
     curl -O https://raw.githubusercontent.com/msazurestackworkloads/azurestack-gallery/master/diagnosis/getkuberneteslogs.sh
-    sudo chmod 744 getkuberneteslogs.sh
+    chmod 744 getkuberneteslogs.sh
     ```
 
-    > [!Note]  
-    > Sur Windows, vous n’avez pas besoin d’exécuter `sudo`. Vous pouvez simplement utiliser `chmod 744 getkuberneteslogs.sh` à la place.
+3. Recherchez les informations requises par le script et exécutez-le :
 
-3. Dans la même session, exécutez la commande suivante avec les paramètres mis à jour pour correspondre à votre environnement :
-
-    ```Bash  
-    ./getkuberneteslogs.sh --identity-file id_rsa --user azureuser --vmdhost 192.168.102.37
-    ```
-
-4. Passez en revue les paramètres et définissez les valeurs en fonction de votre environnement.
     | Paramètre           | Description                                                                                                      | Exemples                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-    | -i, --identity-file | Fichier de clé privée RSA pour se connecter à la machine virtuelle principale Kubernetes. La clé doit commencer par `-----BEGIN RSA PRIVATE KEY-----` | C:\data\privatekey.pem                                                        |
-    | -h, --host          | Adresse IP publique ou nom de domaine complet (FQDN) de la machine virtuelle principale du cluster Kubernetes. Le nom de la machine virtuelle commence par `k8s-master-`.                       | Adresse IP : 192.168.102.37<br><br>Nom de domaine complet : k8s-12345.local.cloudapp.azurestack.external      |
-    | -u, --user          | Nom d’utilisateur de la machine virtuelle principale du cluster Kubernetes. Vous définissez ce nom lorsque vous configurez l’élément de la Place de marché.                                                                    | azureuser                                                                     |
-    | -d, --vmdhost       | Adresse IP publique ou nom de domaine complet du DVM. Le nom de la machine virtuelle commence par `vmd-`.                                                       | Adresse IP : 192.168.102.38<br><br>DNS : vmd-dnsk8-frog.local.cloudapp.azurestack.external |
+    | -d, --vmd-host      | Adresse IP publique ou nom de domaine complet (FQDN) de la machine virtuelle de déploiement. Le nom de la machine virtuelle commence par `vmd-`. | Adresse IP : 192.168.102.38<br>DNS : vmd-myk8s.local.cloudapp.azurestack.external |
+    | -h, --help  | Utilisation de la commande d’impression. | |
+    | -i, --identity-file | Fichier de clé privée RSA passé à l’élément de la Place de marché lors de la création du cluster Kubernetes. Nécessaire pour la connexion à distance aux nœuds Kubernetes. | C:\data\id_rsa.pem (PuTTY)<br>~/.ssh/id_rsa (SSH)
+    | -m, --master-host   | Adresse IP publique ou nom de domaine complet (FQDN) d’un nœud maître Kubernetes. Le nom de la machine virtuelle commence par `k8s-master-`. | Adresse IP : 192.168.102.37<br>Nom de domaine complet : k8s-12345.local.cloudapp.azurestack.external      |
+    | -u, --user          | Nom d’utilisateur passé à l’élément de la Place de marché lors de la création du cluster Kubernetes. Nécessaire pour la connexion à distance aux nœuds Kubernetes | azureuser (valeur par défaut) |
 
-   Lorsque vous ajoutez vos valeurs de paramètres, cela peut ressembler à ce qui suit :
+
+   Quand vous ajoutez vos valeurs de paramètres, votre commande peut ressembler à ce qui suit :
 
     ```Bash  
-    ./getkuberneteslogs.sh --identity-file "C:\secretsecret.pem" --user azureuser --vmdhost 192.168.102.37
+    ./getkuberneteslogs.sh --identity-file "C:\id_rsa.pem" --user azureuser --vmd-host 192.168.102.37
      ```
 
-    Une exécution réussie crée les journaux.
+4. Après quelques minutes, le script envoie les journaux collectés dans un répertoire nommé `KubernetesLogs_{{time-stamp}}`. Vous y trouverez un répertoire pour chaque machine virtuelle qui appartient au cluster.
 
-    ![Journaux générés](media/azure-stack-solution-template-kubernetes-trouble/azure-stack-generated-logs.png)
+    Le script de collecteur de journaux recherche également des erreurs dans les fichiers journaux et présente une procédure de résolution s’il rencontre un problème connu. Vérifiez que vous exécutez la dernière version du script afin d’augmenter les chances de détecter les problèmes connus.
 
-
-4. Récupérez les journaux dans les dossiers créés par la commande. La commande crée de nouveaux dossiers et les horodate.
-    - KubernetesLogs*AAAA-MM-JJ-XX-XX-XX-XXX*
-        - Dvmlogs
-        - Acsengine-kubernetes-dvm.log
+> [!Note]  
+> Consultez ce [dépôt](https://github.com/msazurestackworkloads/azurestack-gallery/tree/master/diagnosis) GitHub pour en savoir plus sur le script de collecteur de journaux.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

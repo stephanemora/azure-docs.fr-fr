@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 387e59eccc7dd9b20142bd692a1fe361435d3d57
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 7c4a73c86245067a07dc253041c43ae6c17f7172
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55965016"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58096977"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Accéder à un laboratoire de classe dans Azure Lab Services
 Cet article décrit comment accéder à un laboratoire de classe, se connecter à la machine virtuelle du laboratoire et arrêter la machine virtuelle. 
@@ -46,10 +46,10 @@ Une fois que vous êtes inscrit, vous pouvez voir tous les labos de classe en ef
 
 1. Démarrez la machine virtuelle si elle ne l’est pas déjà, en sélectionnant **Démarrer** dans la vignette. 
 2. Sélectionnez **Se connecter** sur la vignette qui représente la machine virtuelle du laboratoire auquel vous souhaitez accéder. 
-3. Enregistrez le fichier RDP (pour les machines virtuelles Windows) sur le disque dur, puis ouvrez-le. 
-4. Utilisez le **nom d’utilisateur** et le **mot de passe** obtenus auprès de votre formateur/profession pour vous connecter à la machine. 
-
-## <a name="stop-the-virtual-machine-in-a-classroom-lab"></a>Arrêter la machine virtuelle d’un laboratoire de classe
+3. Effectuez l’une des étapes suivantes : 
+   1. Pour les machines virtuelles **Windows**, enregistrez le fichier **RDP** sur le disque dur. Ouvrez le fichier RDP pour vous connecter à la machine virtuelle. Utilisez le **nom d’utilisateur** et le **mot de passe** obtenus auprès de votre formateur/profession pour vous connecter à la machine. 
+   3. Pour les machines virtuelles **Linux**, copiez et enregistrez la chaîne de connexion SSH dans la boîte de dialogue **Se connecter à votre machine virtuelle**. Utilisez cette chaîne de connexion dans un terminal SSH (tel que [Putty](https://www.putty.org/)) pour vous connecter à la machine virtuelle.
+      ## <a name="stop-the-virtual-machine-in-a-classroom-lab"></a>Arrêter la machine virtuelle d’un laboratoire de classe
 
 Pour arrêter votre machine virtuelle, sélectionnez **Arrêter** sur la vignette. Lorsque la machine virtuelle est arrêtée, le bouton **Démarrer** sur la vignette est activé. 
 

@@ -15,12 +15,12 @@ ms.date: 02/08/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 89e75afd3b9001f7a0b8a027744ef71c8bb69690
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 4e623c6a2423d2e61334932d0c40f05e548d3c38
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56299562"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109863"
 ---
 # <a name="install-powershell-for-azure-stack"></a>Installer PowerShell pour Azure Stack
 
@@ -107,7 +107,7 @@ Exécutez le script PowerShell suivant pour installer ces modules sur votre stat
 
     > [!Note]  
     > La version du module Azure Stack 1.7.0 est un changement cassant. Pour migrer à partir d’Azure Stack 1.6.0, consultez le [guide de migration](https://aka.ms/azspshmigration170).
-
+    > Le module AzureRm version 2.4.0 est fourni avec un changement cassant pour la cmdlet Remove-AzureRmStorageAccount. Cette cmdlet s’attend à ce que le paramètre -Force soit spécifié pour la suppression du compte de stockage sans confirmation.
 - Azure Stack 1811 :
 
     ```PowerShell
@@ -217,6 +217,12 @@ L’installation comporte quatre étapes :
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.5.0
     ```
+
+    > [!NOTE]
+    > Sur les ordinateurs sans connexion Internet, nous vous recommandons d’exécuter la cmdlet suivante pour désactiver la collecte des données de télémétrie. Les performances des cmldets pourraient se dégrader si la collecte des données de télémétrie n’est pas désactivée. Cela s’applique uniquement aux ordinateurs sans connexion Internet
+    > ```PowerShell
+    > Disable-AzureRmDataCollection
+    > ```
 
 ### <a name="enable-additional-storage-features"></a>Activer les fonctionnalités de stockage supplémentaire
 

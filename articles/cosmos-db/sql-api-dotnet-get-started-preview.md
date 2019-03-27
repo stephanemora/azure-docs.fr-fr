@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: 2e0dc5c69a6cc875f4e673a494387db79c1dd1fa
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: a942f91dfa03eea2d9dc14b4b44e2ef5ee57c1ba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672542"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078633"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account-sdk-version-3-preview"></a>Créer une application console .NET pour gérer des données dans le compte de l’API SQL Azure Cosmos DB (kit SDK Version 3 - préversion)
 
@@ -65,10 +65,10 @@ Commençons par créer un compte Azure Cosmos DB. Si vous avez déjà un compte 
 1. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur votre nouvelle application console, qui se trouve sous votre solution Visual Studio, puis cliquez sur **Gérer les packages NuGet…**
     
     ![Capture d'écran du menu du clic droit pour le projet](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget.png)
-1. Dans l’onglet **NuGet**, cliquez sur **Parcourir** et tapez **Microsoft.Azure.Cosmos** dans la zone de recherche. Assurez-vous de cocher *Inclure la préversion* pour obtenir la préversion.
+1. Sous l’onglet **NuGet**, cliquez sur **Parcourir** et tapez **Microsoft.Azure.Cosmos** dans la zone de recherche. Assurez-vous de cocher *Inclure la préversion* pour obtenir la préversion.
 1. Dans les résultats, trouvez **Microsoft.Azure.Cosmos** et cliquez sur **Installer**.
    L’ID de package de la bibliothèque cliente d’API SQL Azure Cosmos DB est [Microsoft Azure Cosmos DB Client Library](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/).
-   ![Capture d’écran du menu NuGet pour la recherche du Kit de développement logiciel (SDK) client Azure Cosmos DB](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget-2.png)
+   ![Capture d’écran du menu NuGet pour la recherche du SDK client Azure Cosmos DB](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget-2.png)
 
     Si vous obtenez un message concernant la vérification des modifications apportées à la solution, cliquez sur **OK**. Si vous obtenez un message concernant l’acceptation de la licence, cliquez sur **J’accepte**.
 
@@ -119,9 +119,9 @@ Parfait ! L’installation étant terminée, nous pouvons passer à l’écritu
 
     Copiez l’URI à partir du portail et collez-le dans `<your endpoint URL>` dans le fichier ```Program.cs```. Copiez la CLÉ PRIMAIRE à partir du portail, puis collez-la dans `<your primary key>`.
 
-   ![Capture d’écran de l’obtention des clés Azure Cosmos DB depuis le portail Azure](./media/sql-api-get-started/dotnet-tutorial-portal-keys.png)
+   ![Capture d’écran de l’obtention des clés Azure Cosmos DB à partir du portail Azure](./media/sql-api-get-started/dotnet-tutorial-portal-keys.png)
 
-1. Ensuite, nous allons créer une nouvelle instance de ```CosmosClient``` et configurer une génération de modèles automatique pour notre programme.
+1. Nous allons créer ensuite une nouvelle instance de ```CosmosClient``` et configurer une génération de modèles automatique pour notre programme.
 
     Sous la méthode **Main**, ajoutez une nouvelle tâche asynchrone appelée **GetStartedDemoAsync** qui va instancier notre nouveau ```CosmosClient```. Nous allons utiliser **GetStartedDemoAsync** comme point d’entrée appelant les méthodes qui opèrent sur les ressources Azure Cosmos DB.
 
@@ -321,7 +321,7 @@ Vous pouvez créer un conteneur en utilisant la fonction [**CreateContainerIfNot
         await this.CreateContainer();
     }
     ```
-Sélectionnez **F5** pour exécuter votre application.
+   Sélectionnez **F5** pour exécuter votre application.
 
 Félicitations ! Vous avez créé un conteneur Azure Cosmos DB.  
 
@@ -599,7 +599,7 @@ Félicitations ! Vous avez interrogé un conteneur Azure Cosmos DB.
         await this.ReplaceFamilyItem();
     }
     ```
-Sélectionnez **F5** pour exécuter votre application.
+   Sélectionnez **F5** pour exécuter votre application.
 
 Félicitations ! Vous avez remplacé un élément Azure Cosmos DB.
 

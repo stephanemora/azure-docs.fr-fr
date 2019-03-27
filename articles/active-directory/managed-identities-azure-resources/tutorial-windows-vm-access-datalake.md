@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f20031b41d56e049670491a9aa9a41b21e0bfca4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 99a35c09d60ccb009c0f21d3aea59de2d5e9b63d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197808"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119817"
 ---
-# <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>Tutoriel : Utiliser une identité managée attribuée par le système de la machine virtuelle Windows pour accéder à Azure Data Lake Store
+# <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>Didacticiel : Utiliser une identité managée attribuée par le système de la machine virtuelle Windows pour accéder à Azure Data Lake Store
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -68,7 +68,7 @@ Dans ce didacticiel, vous vous authentifiez sur l’API REST du système de fich
 1. Dans le portail, accédez à **Machines virtuelles** et accédez à votre machine virtuelle Windows puis, dans **Vue d’ensemble**, cliquez sur **Connecter**.
 2. Entrez le **Nom d’utilisateur** et le **Mot de passe** que vous avez ajoutés lorsque vous avez créé la machine virtuelle Windows. 
 3. Maintenant que vous avez créé une **Connexion au Bureau à distance** avec la machine virtuelle, ouvrez **PowerShell** dans la session à distance. 
-4. À l’aide de `Invoke-WebRequest` de Powershell, adressez une requête au point de terminaison des identités managées locales pour les ressources Azure pour obtenir un jeton d’accès pour Azure Data Lake Store.  L’identificateur de ressources pour Data Lake Store est « https://datalake.azure.net/ ».  Data Lake effectue une correspondance exacte sur l’identificateur de ressource et la barre oblique est importante.
+4. À l’aide de `Invoke-WebRequest` de Powershell, adressez une requête au point de terminaison des identités managées locales pour les ressources Azure pour obtenir un jeton d’accès pour Azure Data Lake Store.  L’identificateur de ressources pour Data Lake Store est `https://datalake.azure.net/`.  Data Lake effectue une correspondance exacte sur l’identificateur de ressource et la barre oblique est importante.
 
    ```powershell
    $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -Method GET -Headers @{Metadata="true"}

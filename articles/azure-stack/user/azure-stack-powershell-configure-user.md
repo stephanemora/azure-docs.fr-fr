@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/11/2019
+ms.date: 03/15/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 65071df1dff6e25683510956c2d82de5252b67ac
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: ab23013d8de61e13013aa4cd735be04e1e3213c3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107240"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119936"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-a-user"></a>Se connecter à Azure Stack en tant qu’utilisateur avec PowerShell
 
@@ -96,4 +96,5 @@ New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 
 - [Développer des modèles pour Azure Stack](azure-stack-develop-templates.md)
 - [Déployer des modèles avec PowerShell](azure-stack-deploy-template-powershell.md)
+- [Informations de référence sur le module PowerShell Azure Stack](https://docs.microsoft.com/en-us/powershell/azure/azure-stack/overview)
 - Si vous souhaitez configurer PowerShell pour l’environnement d’opérateur cloud, consultez l’article [Configurer l’environnement PowerShell de l’opérateur Azure Stack](../azure-stack-powershell-configure-admin.md).

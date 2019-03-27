@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 11/15/2018
+ms.date: 3/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: be4cbc7e955e56853809378f98e9733ffe4a20c3
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 288a6e1b1d88fcef6fbd5554ba811acc1dab776e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633722"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994255"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutoriel : Déployer et configurer un pare-feu Azure à l’aide du portail Azure
 
@@ -54,7 +54,7 @@ Tout d’abord, créez un groupe de ressources qui contiendra les ressources né
 
 Le groupe de ressources contient toutes les ressources utilisées dans ce didacticiel.
 
-1. Connectez-vous au portail Azure sur [http://portal.azure.com](http://portal.azure.com).
+1. Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
 2. Dans la page d’accueil du portail Azure, cliquez sur **Groupes de ressources** > **Ajouter**.
 3. Pour **Nom du groupe de ressources**, entrez **Test-FW-RG**.
 4. Pour **Abonnement**, sélectionnez votre abonnement.
@@ -109,12 +109,12 @@ Maintenant créez les machines virtuelles de rebond et de charge de travail, et 
 4. Sous **Règles des ports d’entrée**, pour **Ports d’entrée publics**, cliquez sur **Autoriser les ports sélectionnés**.
 5. Pour **Sélectionner des ports d’entrée**, sélectionnez **RDP (3389)**.
 
-6. Acceptez toutes les autres valeurs par défaut et cliquez sur **Suivant : Disques**.
-7. Acceptez les valeurs de disque par défaut et cliquez sur **Suivant : Réseau**.
+6. Acceptez toutes les autres valeurs par défaut et cliquez sur **Suivant : Disques**.
+7. Acceptez toutes les autres valeurs par défaut et cliquez sur **Suivant : Mise en réseau**.
 8. Assurez-vous que **Test-FW-VN** est sélectionné pour le réseau virtuel et que le sous-réseau est **Jump-SN**.
 9. Pour **Adresse IP publique**, cliquez sur **Créer**.
 10. Tapez **Srv-Jump-PIP** pour le nom de l’adresse IP publique et cliquez sur **OK**.
-11. Acceptez les autres valeurs par défaut et cliquez sur **Suivant : Gestion**.
+11. Acceptez toutes les autres valeurs par défaut et cliquez sur **Suivant : Gestion**.
 12. Cliquez sur **Désactivé** pour désactiver les diagnostics de démarrage. Acceptez les autres valeurs par défaut et cliquez sur **Vérifier + créer**.
 13. Vérifiez les paramètres sur la page de résumé, puis cliquez sur **Créer**.
 
@@ -139,11 +139,11 @@ Déployez le pare-feu dans le réseau virtuel.
 
    |Paramètre  |Valeur  |
    |---------|---------|
-   |NOM     |Test-FW01|
+   |Nom     |Test-FW01|
    |Abonnement     |\<votre abonnement\>|
-   |Groupe de ressources     |**Existant** : Test-FW-RG |
+   |Groupe de ressources     |**Utiliser l’existant** : Test-FW-RG |
    |Lieu     |Sélectionnez le même emplacement que celui utilisé précédemment|
-   |Choisir un réseau virtuel     |**Existant** : Test-FW-VN|
+   |Choisir un réseau virtuel     |**Utiliser l’existant** : Test-FW-VN|
    |Adresse IP publique     |**Créer un nouveau**. L’adresse IP publique doit être le type de référence (SKU) Standard.|
 
 5. Cliquez sur **Revoir + créer**.
@@ -168,7 +168,7 @@ Pour le sous-réseau **Workload-SN**, configurez l’itinéraire sortant par dé
 9. Cliquez sur **Actualiser**, puis sur la table de routage **Firewall-route**.
 10. Cliquez sur **Sous-réseaux** > **Associer**.
 11. Cliquez sur **Réseau virtuel** > **Test-FW-VN**.
-12. Pour **Sous-réseau**, cliquez sur **Workload-SN**. Veillez à ne sélectionner que le sous-réseau **Workload-SN** pour cet itinéraire, sinon votre pare-feu ne fonctionnera pas correctement.
+12. Pour **Sous-réseau**, cliquez sur **Workload-SN**. Veillez à ne sélectionner que le sous-réseau **Workload-SN** pour cette route, sinon votre pare-feu ne fonctionnera pas correctement.
 
 13. Cliquez sur **OK**.
 14. Cliquez sur **Itinéraires** > **Ajouter**.
@@ -218,7 +218,7 @@ Il s’agit de la règle de réseau qui autorise un accès sortant à deux adres
 
 ### <a name="change-the-primary-and-secondary-dns-address-for-the-srv-work-network-interface"></a>Modifier les adresses DNS principales et secondaires de l’interface réseau **Srv-Work**
 
-À des fins de test dans ce tutoriel, vous devez configurer les adresses DNS principales et secondaires. Ceci n’est pas obligatoire pour le Pare-feu Azure.
+À des fins de test dans ce tutoriel, vous devez configurer les adresses DNS principales et secondaires. Ceci n’est pas obligatoire pour le pare-feu Azure.
 
 1. À partir du portail Azure, ouvrez le groupe de ressources **Test-FW-RG**.
 2. Cliquez sur l’interface réseau de la machine virtuelle **Srv-Work**.
@@ -235,16 +235,16 @@ Testez maintenant le pare-feu pour confirmer qu’il fonctionne comme prévu.
 1. À partir du portail Azure, passez en revue les paramètres réseau de la machine virtuelle **Srv-Work** et notez l’adresse IP privée.
 2. Connectez un bureau à distance à la machine virtuelle **Srv-Jump**, et à partir de là, ouvrez une connexion Bureau à distance à l’adresse IP privée **Srv-Work**.
 
-3. Ouvrez Internet Explorer et accédez à http://msn.com.
+3. Ouvrez Internet Explorer et accédez à https://msn.com.
 4. Cliquez sur **OK** > **Fermer** sur les alertes de sécurité.
 
    La page d’accueil MSN doit s’afficher.
 
-5. Accédez à http://www.msn.com.
+5. Accédez à https://www.msn.com.
 
    Vous devriez être bloqué par le pare-feu.
 
-Maintenant que vous avez vérifié que les règles de pare-feu fonctionnent :
+Maintenant que vous avez vérifié que les règles de pare-feu fonctionnent :
 
 - Vous pouvez accéder au nom de domaine complet autorisé, mais pas à d’autres.
 - Vous pouvez résoudre les noms DNS à l’aide du serveur DNS externe configuré.
@@ -256,4 +256,4 @@ Vous pouvez garder vos ressources de pare-feu pour le prochain didacticiel, ou, 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Surveiller les journaux de Pare-feu Azure](./tutorial-diagnostics.md)
+> [Tutoriel : Superviser les journaux de Pare-feu Azure](./tutorial-diagnostics.md)

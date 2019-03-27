@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 1/10/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 287a82292994a629bde8255321c7f603fdf00b67
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 86c00242d2d7dbb9441b09dc327e4ee8cbbd729b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869277"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099965"
 ---
 # <a name="quickstart-perform-a-news-search-using-nodejs-and-the-bing-news-search-rest-api"></a>Démarrage rapide : Effectuer une recherche d’actualités à l’aide de Node.js et l’API REST Recherche d’actualités Bing
 
@@ -71,7 +71,7 @@ Consultez également [Tarification Cognitive Services - API Recherche Bing](http
         });
         ```
 
-    3. Quand un indicateur **end** est signalé, la réponse JSON et ses en-têtes peuvent être affichés.
+    3. Quand un indicateur **end** est signalé, le JSON et ses en-têtes peuvent être visualisés.
 
         ```javascript
         response.on('end', function () {
@@ -184,4 +184,4 @@ Une réponse correcte est retournée au format JSON, comme dans l’exemple suiv
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-[Créer une application web monopage](tutorial-bing-news-search-single-page-app.md)
+> [Créer une application web monopage](tutorial-bing-news-search-single-page-app.md)

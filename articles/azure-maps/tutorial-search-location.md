@@ -3,18 +3,18 @@ title: Rechercher avec Azure Maps | Microsoft Docs
 description: Rechercher un point d’intérêt de proximité à l’aide d’Azure Maps
 author: walsehgal
 ms.author: v-musehg
-ms.date: 01/17/2019
+ms.date: 03/07/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ce425278bfc0f9b95285c33e9863b508246d5e79
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: f04041234bbb7197e276a65b011d16bb15cee90e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992288"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099499"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Rechercher des points d’intérêt de proximité à l’aide d’Azure Maps
 
@@ -42,14 +42,14 @@ Créez un compte Maps en suivant la procédure suivante :
 2. Dans la zone *Rechercher sur la Place de marché*, tapez **Maps**.
 3. Dans les *Résultats*, sélectionnez **Maps**. Cliquez sur le bouton **Créer** qui s’affiche sous la carte.
 4. Sur la page **Créer un compte Maps**, entrez les valeurs suivantes :
-    * Le *Nom* de votre nouveau compte.
     * *L’Abonnement* à utiliser pour ce compte.
     * Le *Groupe de ressources* pour ce compte. Vous pouvez choisir de *Créer* ou d’utiliser un groupe de ressources *Existant*.
-    * Sélectionnez *l’Emplacement du groupe de ressources*.
+    * Le *Nom* de votre nouveau compte.
+    * Le *niveau tarifaire* pour ce compte.
     * Lisez la *Licence* et la *Déclaration de confidentialité*, puis cochez la case pour accepter les conditions.
     * Cliquez sur le bouton **Créer**.
 
-    ![Créer un compte Maps sur le Portail](./media/tutorial-search-location/create-account.png)
+![Créer un compte Maps sur le Portail](./media/tutorial-search-location/create-account.png)
 
 <a id="getkey"></a>
 
@@ -58,10 +58,10 @@ Créez un compte Maps en suivant la procédure suivante :
 Une fois le compte Maps créé, récupérez la clé qui vous permet d’interroger les API Maps.
 
 1. Ouvrez votre compte Maps dans le portail.
-2. Dans la section des paramètres; sélectionnez **Clés**.
+2. Dans la section des paramètres, sélectionnez **Authentification**.
 3. Copiez la **Clé primaire** dans le Presse-papiers. Enregistrez-la localement, vous l’utiliserez plus tard dans ce didacticiel.
 
-    ![Obtenir la clé primaire dans le portail](./media/tutorial-search-location/get-key.png)
+![Obtenir la clé primaire dans le portail](./media/tutorial-search-location/get-key.png)
 
 <a id="createmap"></a>
 
@@ -81,19 +81,18 @@ L’API Map Control est une bibliothèque cliente pratique qui vous permet d’i
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         
         <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css" />
-        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script>
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css" />
+        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script>
         
         <!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
-        <script src="https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=1"></script>
+        <script src="https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=2"></script>
         
         <script>        
-        var map, datasource, client, popup;
-        
         function GetMap(){
             //Add Map Control JavaScript code here.
         }
         </script>
+
         <style>
             html,
             body {
@@ -103,7 +102,7 @@ L’API Map Control est une bibliothèque cliente pratique qui vous permet d’i
                 margin: 0;
             }
             
-            #map {
+            #myMap {
                 width: 100%;
                 height: 100%;
             }
@@ -115,96 +114,114 @@ L’API Map Control est une bibliothèque cliente pratique qui vous permet d’i
     </html>
     ```
 
-   Notez que l’en-tête HTML inclut les fichiers de ressources CSS et JavaScript hébergés par la bibliothèque Azure Map Control. Notez l’événement `onload` sur le corps de la page, qui appelle la fonction `GetMap` lorsque le corps de la page est chargé. Cette fonction est destinée à contenir du code JavaScript inline pour accéder aux API Azure Maps.
+   Notez que l’en-tête HTML inclut les fichiers de ressources CSS et JavaScript hébergés par la bibliothèque Azure Map Control. Notez l’événement `onload` sur le corps de la page, qui appelle la fonction `GetMap` lorsque le corps de la page est chargé. La fonction `GetMap` est destinée à contenir le code JavaScript inline pour accéder aux API Azure Maps.
 
 3. Ajoutez le code JavaScript suivant à la fonction `GetMap` du fichier HTML. Remplacez la chaîne **\<Your Azure Maps Key\>** (Votre clé Azure Maps) par la clé primaire copiée de votre compte Maps.
 
    ```JavaScript
-   //Add your Azure Maps subscription key to the map SDK. Get an Azure Maps key at https://azure.com/maps
-   atlas.setSubscriptionKey('<Your Azure Maps Key>');
-
-   //Initialize a map instance.
-   map = new atlas.Map('myMap');
+   //Instantiate a map object
+   var map = new atlas.Map("myMap", {
+       //Add your Azure Maps subscription key to the map SDK. Get an Azure Maps key at https://azure.com/maps
+       authOptions: {
+        authType: 'subscriptionKey',
+        subscriptionKey: '<Your Azure Maps Key>'
+       }
+   });
    ```
 
-   Ce segment lance l’API Map Control pour votre clé de compte Azure Maps. **atlas** est l’espace de noms qui contient les API et les composants visuels associés. **atlas.Map** fournit le contrôle d’une carte web visuelle et interactive. 
+   Ce segment lance l’API Map Control pour votre clé de compte Azure Maps. **atlas** est l’espace de noms qui contient les API et les composants visuels associés. **atlas.Map** fournit le contrôle d’une carte web visuelle et interactive.
 
 4. Enregistrez vos modifications du fichier, puis ouvrez la page HTML dans un navigateur. Il s’agit de la carte la plus basique que vous pouvez créer en appelant **atlas.map** à l’aide de votre clé de compte.
 
    ![Afficher la carte](./media/tutorial-search-location/basic-map.png)
 
-5. Dans la fonction `GetMap`, après l’initialisation de la carte, ajoutez le code JavaScript suivant. 
+5. Dans la fonction `GetMap`, après l’initialisation de la carte, ajoutez le code JavaScript suivant.
 
    ```JavaScript
-   //Wait until the map resources have fully loaded.
+
+   //Wait until the map resources are loaded.
    map.events.add('load', function () {
 
-      //Create a data source and add it to the map.
-      datasource = new atlas.source.DataSource();
-      map.sources.add(datasource);
-
-      //Add a layer for rendering point data.
-      var resultLayer = new atlas.layer.SymbolLayer(datasource, null, {
-         iconOptions: {
-            iconImage: 'pin-round-darkblue',
+       //Create a data source and add it to the map.
+       datasource = new atlas.source.DataSource();
+       map.sources.add(datasource);
+    
+       //Add a layer for rendering point data.
+       var resultLayer = new atlas.layer.SymbolLayer(datasource, null, {
+          iconOptions: {
+            image: 'pin-round-darkblue',
             anchor: 'center',
             allowOverlap: true
-         }
-      });
-      map.layers.add(resultLayer);
+          },
+          textOptions: {
+            anchor: "top"
+          }
+       });
 
+       map.layers.add(resultLayer);
    });
    ```
 
-   Un événement de chargement est ajouté à la carte, qui est déclenché lorsque les ressources de la carte ont été entièrement chargées. Dans le gestionnaire d’événements de chargement de la carte, une source de données est créée pour stocker des données de résultat. Une couche de symbole est créée et jointe à la source de données. Cette couche spécifie comment les données de résultat dans la source de données doivent être restituées, dans ce cas avec une icône d’épingle ronde bleue foncée centrée sur les coordonnées des résultats et qui autorise le chevauchement d’autres icônes. 
+   Dans ce segment de code, un événement de chargement est ajouté à la carte. Il est déclenché une fois que les ressources de la carte ont été entièrement chargées. Dans le gestionnaire d’événements de chargement de la carte, une source de données est créée pour stocker des données de résultat. Une couche de symbole est créée et jointe à la source de données. Cette couche spécifie comment les données de résultat dans la source de données doivent être restituées, dans ce cas avec une icône d’épingle ronde bleue foncée centrée sur les coordonnées des résultats et qui autorise le chevauchement d’autres icônes. La couche des résultats est ajoutée aux couches de la carte.
 
 <a id="usesearch"></a>
 
 ## <a name="add-search-capabilities"></a>Ajouter les fonctionnalités de recherche
 
-Cette section montre comment utiliser l’API Maps Search pour rechercher un point d’intérêt sur la carte. Il s’agit d’une API RESTful destinée aux développeurs souhaitant mettre en place des fonctionnalités de recherche d’adresses, de points d’intérêt et d’autres informations d’ordre géographique. Search Service affecte une latitude et une longitude à une adresse spécifiée. Le **module de service** expliqué ci-dessous peut être utilisé pour rechercher un emplacement à l’aide de l’API Maps Search.
+Cette section montre comment utiliser l’[API de recherche](https://docs.microsoft.com/rest/api/maps/search) de Maps pour rechercher un point d’intérêt sur votre carte. Il s’agit d’une API RESTful destinée aux développeurs souhaitant mettre en place des fonctionnalités de recherche d’adresses, de points d’intérêt et d’autres informations d’ordre géographique. Search Service affecte une latitude et une longitude à une adresse spécifiée. Le **module de service** expliqué ci-dessous peut être utilisé pour rechercher un emplacement à l’aide de l’API Maps Search.
 
 ### <a name="service-module"></a>Module de service
 
-1. Dans le gestionnaire d’événements de chargement de la carte, instanciez le service client en ajoutant le code JavaScript suivant.
+1. Dans le gestionnaire d’événements de chargement de la carte, construisez l’URL du service de recherche en ajoutant le code JavaScript suivant.
 
     ```JavaScript
-    //Create an instance of the services client.
-     client = new atlas.service.Client(atlas.getSubscriptionKey());
-    ```
+   // Use SubscriptionKeyCredential with a subscription key
+   var subscriptionKeyCredential = new atlas.service.SubscriptionKeyCredential(atlas.getSubscriptionKey());
 
-2. Ajoutez ensuite le bloc de script suivant pour générer la requête de recherche. Il utilise le service Fuzzy Search, qui est l’API de recherche de base de Search Service. Le service Fuzzy Search gère la plupart des entrées partielles comme des adresses, des lieux et des points d’intérêt (POI). Ce code recherche les stations-service à proximité dans le rayon spécifié. La réponse est ensuite analysée au format GeoJSON et ajoutée à la source de données, les données sont alors automatiquement restituées sur la carte par le biais de la couche de symbole. La dernière partie du script définit la vue de caméra de la carte en utilisant le rectangle englobant des résultats à l’aide de la propriété [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) de la carte. Une marge intérieure est ajoutée pour compenser les dimensions en pixels des icônes de symbole, car le rectangle englobant est calculé sur la base des coordonnées. 
+   // Use subscriptionKeyCredential to create a pipeline
+   var pipeline = atlas.service.MapsURL.newPipeline(subscriptionKeyCredential);
+
+   // Construct the SearchURL object
+   var searchURL = new atlas.service.SearchURL(pipeline); 
+   ```
+
+   **SubscriptionKeyCredential** crée un **SubscriptionKeyCredentialPolicy** pour authentifier les requêtes HTTP auprès d’Azure Maps avec la clé d’abonnement. **atlas.service.MapsURL.newPipeline()** prend la stratégie **SubscriptionKeyCredential** et crée une instance de [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest). **searchURL** représente une URL vers les opérations de [recherche](https://docs.microsoft.com/rest/api/maps/search) d’Azure Maps.
+
+2. Ajoutez ensuite le bloc de script suivant pour générer la requête de recherche. Il utilise le service Fuzzy Search, qui est l’API de recherche de base de Search Service. Le service Fuzzy Search gère la plupart des entrées partielles comme des adresses, des lieux et des points d’intérêt (POI). Ce code recherche les stations-service situées à proximité dans le rayon spécifié par la latitude et la longitude fournies. Une collection de fonctionnalités GeoJSON déterminée par la réponse est ensuite extraite à l’aide de la méthode **geojson.getFeatures()** et ajoutée à la source de données. Les données sont alors automatiquement restituées sur la carte par le biais de la couche de symboles. La dernière partie du script définit la vue de caméra de la carte en utilisant le rectangle englobant des résultats à l’aide de la propriété [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) de la carte.
  
    ```JavaScript
-   //Execute a POI search query then add the results to the map.
-    client.search.getSearchPOI('gasoline station', {
-        lat: 47.6292,
-        lon: -122.2337,
-        radius: 100000
-    }).then(response => {
-        //Parse the response into GeoJSON so that the map can understand.
-        var geojsonResponse = new atlas.service.geojson.GeoJsonSearchResponse(response);
-        var results = geojsonResponse.getGeoJsonResults();
+   var query =  'gasoline-station';
+   var radius = 9000;
+   var lat = 47.64452336193245;
+   var lon = -122.13687658309935;
 
-        //Add the results to the data source so they can be rendered. 
-        datasource.add(results);
-
-        // Set the camera bounds
-        map.setCamera({
-            bounds: results.bbox,
-            padding: 50
-        });
+   searchURL.searchPOI(atlas.service.Aborter.timeout(10000), query, {
+       limit: 10,
+       lat: lat,
+       lon: lon,
+       radius: radius
+   }).then((results) => {
+      
+      // Extract GeoJSON feature collection from the response and add it to the datasource
+      var data = results.geojson.getFeatures();
+      datasource.add(data);
+      
+      // set camera to bounds to show the results
+      map.setCamera({
+        bounds: data.bbox,
+        zoom: 10
+      });
     });
    ```
  
-3. Enregistrez le fichier **MapSearch.html**, puis actualisez votre navigateur. Vous devriez désormais constater que la carte est centrée sur Seattle avec des repères bleus marquant l’emplacement des stations-service dans la zone.
+3. Enregistrez le fichier **MapSearch.html**, puis actualisez votre navigateur. Vous devriez maintenant voir que la carte est centrée sur Seattle avec des repères ronds de couleur bleu marquant l’emplacement des stations-service dans la zone.
 
    ![Afficher la carte avec les résultats de la recherche](./media/tutorial-search-location/pins-map.png)
 
 4. Vous pouvez voir les données brutes rendues par la carte en entrant la requête HTTP suivante dans votre navigateur. Remplacez \<Your Azure Maps Key\> (Votre clé Azure Maps) par votre clé primaire.
 
    ```http
-   https://atlas.microsoft.com/search/fuzzy/json?api-version=1.0&query=gasoline%20station&subscription-key=<Your Azure Maps Key>&lat=47.6292&lon=-122.2337&radius=100000
+   https://atlas.microsoft.com/search/poi/json?api-version=2&query=gasoline%20station&subscription-key=<subscription-key>&lat=47.6292&lon=-122.2337&radius=100000
    ```
 
 À ce stade, la page MapSearch peut afficher les emplacements des points d’intérêt renvoyés d’une requête de recherche approximative. Ajoutons quelques fonctionnalités interactives et des informations supplémentaires sur les emplacements.
@@ -250,7 +267,7 @@ La carte développée jusqu’à présent produit des résultats de recherche co
     }
    ```
 
-2. Enregistrez le fichier et actualisez votre navigateur. Désormais, la carte dans le navigateur affiche des fenêtres contextuelles de données lorsque vous survolez les repères de recherche.
+3. Enregistrez le fichier et actualisez votre navigateur. Désormais, la carte dans le navigateur affiche des fenêtres contextuelles de données lorsque vous survolez les repères de recherche.
 
     ![Azure Map Control et Search Service](./media/tutorial-search-location/popup-map.png)
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: sethm
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 4ec662cd60e2ca8e5db76a3fda4c68df6f3164e4
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: b00082ec567d51c320f55210cb38dcab9547e0d9
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893679"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258749"
 ---
 # <a name="manage-key-vault-in-azure-stack-using-powershell"></a>Gérer Key Vault dans Azure Stack à l’aide de PowerShell
 
@@ -92,7 +92,7 @@ New-AzureRmKeyVault -VaultName "Vault01" -ResourceGroupName "VaultRG" -Location 
 
 ![Nouveau coffre de clés](media/azure-stack-key-vault-manage-powershell/image4.png)
 
-La sortie de cette commande affiche les propriétés du coffre de clés que vous avez créé. Lorsqu’une application accède à ce coffre, elle doit utiliser la propriété **URI du coffre**, « https://vault01.vault.local.azurestack.external » dans cet exemple.
+La sortie de cette commande affiche les propriétés du coffre de clés que vous avez créé. Lorsqu’une application accède à ce coffre, elle doit utiliser la propriété **URI du coffre**, « https:\//vault01.vault.local.azurestack.external » dans cet exemple.
 
 ### <a name="active-directory-federation-services-ad-fs-deployment"></a>Déploiement Active Directory Federation Services (AD FS)
 
@@ -127,8 +127,8 @@ Le paramètre **Destination** permet de spécifier que la clé est protégée pa
 
 Vous pouvez maintenant référencer la clé créée à l’aide de son URI. Si vous créez ou importez une clé qui a le même nom qu’une clé existante, la clé d’origine est mise à jour avec les valeurs spécifiées dans la nouvelle clé. Vous pouvez accéder à la version précédente à l’aide de l’URI propre à la version de la clé. Par exemple : 
 
-* Utilisez « https://vault10.vault.local.azurestack.external:443/keys/key01» pour obtenir toujours la version en cours.
-* Utilisez « https://vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a » pour obtenir cette version spécifique.
+* Utilisez « https:\//vault10.vault.local.azurestack.external:443/keys/key01 » pour toujours obtenir la version actuelle.
+* Utilisez « https:\//vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a » pour obtenir cette version spécifique.
 
 ### <a name="get-a-key"></a>Obtenir une clé
 

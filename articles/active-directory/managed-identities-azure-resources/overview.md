@@ -15,12 +15,12 @@ ms.custom: mvc
 ms.date: 10/23/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4dc56384d550854c05a813157b32ac36f5ebfb76
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: df2c4e447ff41e56c4d8b9862282b6fcb452a8c9
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211918"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224292"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>Que sont les identités gérées pour les ressources Azure ?
 
@@ -64,13 +64,12 @@ Le diagramme suivant illustre le fonctionnement des identités de service admini
     1. Met à jour le point de terminaison d’identité Azure Instance Metadata Service avec l’ID client et le certificat du Principal de service.
     1. Provisionne l’extension de machine virtuelle (dont l’abandon est prévu en janvier 2019), et ajoute l’ID client et le certificat du principal de service. (Cette étape sera bientôt abandonnée).
 4. Maintenant que la machine virtuelle possède une identité, utilisez les informations du Principal de service pour accorder aux ressources Azure l’accès à la machine virtuelle. Pour appeler Azure Resource Manager, utilisez le contrôle d’accès en fonction du rôle (RBAC) dans Azure AD pour attribuer le rôle approprié au principal de service de la machine virtuelle. Pour appeler Key Vault, accordez à votre code un accès au secret spécifique ou à la clé dans Key Vault.
-5. Votre code en cours d’exécution sur la machine virtuelle peut demander un jeton à partir de deux points de terminaison qui sont uniquement accessibles à partir de la machine virtuelle :
+5. Votre code en cours d’exécution sur la machine virtuelle peut demander un jeton à partir du point de terminaison d’Azure Instance Metadata Service, accessible uniquement à partir de la machine virtuelle : `http://169.254.169.254/metadata/identity/oauth2/token`
+    - Le paramètre de ressource spécifie le service vers lequel le jeton est envoyé. Pour vous authentifier à Azure Resource Manager, utilisez `resource=https://management.azure.com/`.
+    - Le paramètre de version d’API spécifie la version IMDS, utilisez api-version=2018-02-01 ou version ultérieure.
 
-    - Point de terminaison d’identité Azure Instance Metadata Service (recommandé) : `http://169.254.169.254/metadata/identity/oauth2/token`
-        - Le paramètre de ressource spécifie le service vers lequel le jeton est envoyé. Pour vous authentifier à Azure Resource Manager, utilisez `resource=https://management.azure.com/`.
-        - Le paramètre de version d’API spécifie la version IMDS, utilisez api-version=2018-02-01 ou version ultérieure.
-    - Point de terminaison d’extension de machine virtuelle (dont l’abandon est prévu en janvier 2019) : `http://localhost:50342/oauth2/token` 
-        - Le paramètre de ressource spécifie le service vers lequel le jeton est envoyé. Pour vous authentifier à Azure Resource Manager, utilisez `resource=https://management.azure.com/`.
+> [!NOTE]
+> Votre code peut également demander un jeton à partir du point de terminaison de l’extension de machine virtuelle, mais la dépréciation de cette possibilité est prévue prochainement. Pour plus d’informations sur l’extension de machine virtuelle, consultez [Migrer depuis l’extension de machine virtuelle vers Azure IMDS pour l’authentification](howto-migrate-vm-extension.md).
 
 6. Un appel est passé à Azure AD pour demander un jeton d’accès (comme indiqué à l’étape 5), à l’aide de l’ID client et du certificat configurés à l’étape 3. Azure AD renvoie un jeton d’accès JSON Web Token (JWT).
 7. Votre code envoie le jeton d’accès sur un appel à un service qui prend en charge l’authentification Azure AD.
@@ -87,16 +86,14 @@ Le diagramme suivant illustre le fonctionnement des identités de service admini
    > [!Note]
    > Vous pouvez également effectuer cette étape avant l’étape 3.
 
-5. Votre code en cours d’exécution sur la machine virtuelle peut demander un jeton à partir de deux points de terminaison qui sont uniquement accessibles à partir de la machine virtuelle :
+5. Votre code en cours d’exécution sur la machine virtuelle peut demander un jeton à partir du point de terminaison d’identité d’Azure Instance Metadata Service, accessible uniquement à partir de la machine virtuelle : `http://169.254.169.254/metadata/identity/oauth2/token`
+    - Le paramètre de ressource spécifie le service vers lequel le jeton est envoyé. Pour vous authentifier à Azure Resource Manager, utilisez `resource=https://management.azure.com/`.
+    - Le paramètre ID client spécifie l’identité pour laquelle le jeton est demandé. Cela est nécessaire pour lever l’ambiguïté lorsque plusieurs identités attribuées par l’utilisateur se trouvent sur une même machine virtuelle.
+    - Le paramètre de version d’API spécifie la version d’Azure Instance Metadata Service. Utilisez la version `api-version=2018-02-01` ou ultérieure.
 
-    - Point de terminaison d’identité Azure Instance Metadata Service (recommandé) : `http://169.254.169.254/metadata/identity/oauth2/token`
-        - Le paramètre de ressource spécifie le service vers lequel le jeton est envoyé. Pour vous authentifier à Azure Resource Manager, utilisez `resource=https://management.azure.com/`.
-        - Le paramètre ID client spécifie l’identité pour laquelle le jeton est demandé. Cela est nécessaire pour lever l’ambiguïté lorsque plusieurs identités attribuées par l’utilisateur se trouvent sur une même machine virtuelle.
-        - Le paramètre de version d’API spécifie la version d’Azure Instance Metadata Service. Utilisez la version `api-version=2018-02-01` ou ultérieure.
+> [!NOTE]
+> Votre code peut également demander un jeton à partir du point de terminaison de l’extension de machine virtuelle, mais la dépréciation de cette possibilité est prévue prochainement. Pour plus d’informations sur l’extension de machine virtuelle, consultez [Migrer depuis l’extension de machine virtuelle vers Azure IMDS pour l’authentification](howto-migrate-vm-extension.md).
 
-    - Point de terminaison d’extension de machine virtuelle (dont l’abandon est prévu en janvier 2019) : `http://localhost:50342/oauth2/token`
-        - Le paramètre de ressource spécifie le service vers lequel le jeton est envoyé. Pour vous authentifier à Azure Resource Manager, utilisez `resource=https://management.azure.com/`.
-        - Le paramètre ID client spécifie l’identité pour laquelle le jeton est demandé. Cela est nécessaire pour lever l’ambiguïté lorsque plusieurs identités attribuées par l’utilisateur se trouvent sur une même machine virtuelle.
 6. Un appel est passé à Azure AD pour demander un jeton d’accès (comme indiqué à l’étape 5), à l’aide de l’ID client et du certificat configurés à l’étape 3. Azure AD renvoie un jeton d’accès JSON Web Token (JWT).
 7. Votre code envoie le jeton d’accès sur un appel à un service qui prend en charge l’authentification Azure AD.
 

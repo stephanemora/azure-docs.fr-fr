@@ -3,7 +3,6 @@ title: Automatisation des travaux SQL Azure | Microsoft Docs
 description: Utiliser l’automatisation des travaux pour exécuter des scripts T-SQL (Transact-SQL) sur une ou plusieurs bases de données SQL Azure
 services: sql-database
 ms.service: sql-database
-ms.subservice: database-features
 ms.custom: ''
 ms.devlang: ''
 ms.topic: overview
@@ -12,18 +11,20 @@ ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 1fd524e858b20c75aef4101ad98ac54c4f485d1e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 4e80bbc868376a41212d924bd31df6ac70a52ded
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457205"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901965"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatiser des tâches de gestion avec des travaux de base de données
 
 Azure SQL Database vous permet de créer et de planifier des travaux qui peuvent être exécutées périodiquement sur une ou plusieurs bases de données, pour exécuter des requêtes T-SQL et effectuer des tâches de maintenance. Chaque tâche consigne l’état de l’exécution et retente également automatiquement les opérations en cas d’échec.
 Vous pouvez définir une base de données ou des groupes de bases de données SQL Azure cibles où le travail sera exécuté, et aussi définir des planifications pour l’exécution d’un travail.
 Un travail gère la tâche de connexion à chaque base de données cible. Vous pouvez également définir, gérer et conserver des scripts Transact-SQL à exécuter sur un groupe de bases de données SQL Azure.
+
+## <a name="when-to-use-automated-jobs"></a>Quand utiliser les travaux automatisés
 
 Vous pouvez utiliser l’automatisation des travaux dans plusieurs scénarios :
 
@@ -36,8 +37,10 @@ Vous pouvez utiliser l’automatisation des travaux dans plusieurs scénarios :
   - Agréger des données provenant d’une collection de bases de données SQL Azure dans un tableau de destination unique.
   - Exécuter des requêtes de traitement de données avec un temps d’exécution plus long sur un grand ensemble de bases de données, par exemple, la collection de télémétrie de client. Les résultats sont rassemblés dans une table de destination unique pour une analyse ultérieure.
 - Déplacements de données
- - Créez des travaux qui répliquent les modifications apportées à vos bases de données sur d’autres bases de données, ou qui collectent les mises à jour effectuées dans des bases de données distantes et les appliquent à la base de données.
- - Créez des travaux qui chargent des données depuis ou vers vos bases de données avec SQL Server Integration Services (SSIS).
+  - Créez des travaux qui répliquent les modifications apportées à vos bases de données sur d’autres bases de données, ou qui collectent les mises à jour effectuées dans des bases de données distantes et les appliquent à la base de données.
+  - Créez des travaux qui chargent des données depuis ou vers vos bases de données avec SQL Server Integration Services (SSIS).
+
+## <a name="overview"></a>Vue d’ensemble
 
 Les technologies de planification de travaux suivantes sont disponibles dans Azure SQL Database :
 
@@ -158,9 +161,9 @@ Certaines des fonctionnalités de SQL Agent disponibles dans SQL Server ne sont 
 - Les paramètres de l’Agent SQL sont en lecture seule. La procédure `sp_set_agent_properties` n’est pas prise en charge dans Managed Instance.
 - L’activation/désactivation de SQL Agent n’est actuellement pas prise en charge dans Managed Instance. SQL Agent est toujours en cours d’exécution.
 - Les notifications sont partiellement prises en charge
- - Les récepteurs de radiomessagerie ne sont pas pris en charge.
- - NetSend n’est pas pris en charge.
- - Les alertes ne sont pas encore prises en charge.
+  - Les récepteurs de radiomessagerie ne sont pas pris en charge.
+  - NetSend n’est pas pris en charge.
+  - Les alertes ne sont pas encore prises en charge.
 - Les proxies ne sont pas pris en charge.
 - EventLog n’est pas pris en charge.
 

@@ -7,16 +7,16 @@ manager: femila
 editor: ''
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 02/21/2019
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 3f1c84961f2ad6bd15612917d33982ec96824257
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: d7b2c0a39d6d7287b3f956d824239a40e373ea36
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252266"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594761"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Rendre les groupes de machines virtuelles identiques disponibles dans Azure Stack
 
@@ -27,6 +27,7 @@ Les groupes de machines virtuelles identiques constituent une ressource de calcu
 Cet article vous guide tout au long du processus de mise à disposition des groupes identiques dans la marketplace Azure Stack. Lorsque vous aurez suivi cette procédure, vos utilisateurs pourront ajouter des groupes de machines virtuelles identiques à leurs abonnements.
 
 Les groupes de machines virtuelles identiques sur Azure Stack suivent le même principe que sur Azure. Pour plus d’informations, consultez les vidéos suivantes :
+
 * [Mark Russinovich parle des groupes identiques Azure](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)
 * [Jeux de mise à l’échelle de machine virtuelle, avec Guy Bowerman](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
@@ -34,15 +35,15 @@ Sur Azure Stack, les groupes de machines virtuelles identiques ne sont pas compa
 
 ## <a name="prerequisites"></a>Prérequis
 
-- **Place de marché :** Inscrivez Azure Stack auprès d’Azure pour un déploiement à l’échelle mondiale afin d’activer la disponibilité des éléments dans la Place de marché. Suivez les instructions fournies dans [Inscrire Azure Stack avec Azure](azure-stack-registration.md).
-- **Image du système d’exploitation :** Avant de pouvoir créer un groupe de machines virtuelles identiques (VMSS), vous devez télécharger les images de machine virtuelle à utiliser dans celui-ci à partir de la [Place de marché Azure Stack](azure-stack-download-azure-marketplace-item.md). Pour qu’un utilisateur puisse créer un VMSS, les images doivent déjà être présentes. 
+* **Place de marché :** Inscrivez Azure Stack auprès d’Azure pour un déploiement à l’échelle mondiale afin d’activer la disponibilité des éléments dans la Place de marché. Suivez les instructions fournies dans [Inscrire Azure Stack avec Azure](azure-stack-registration.md).
+* **Image du système d’exploitation :** Avant de pouvoir créer un groupe de machines virtuelles identiques (VMSS), vous devez télécharger les images de machine virtuelle à utiliser dans celui-ci à partir de la [Place de marché Azure Stack](azure-stack-download-azure-marketplace-item.md). Pour qu’un utilisateur puisse créer un VMSS, les images doivent déjà être présentes.
 
-## <a name="use-the-azure-stack-portal"></a>Utiliser le portail Azure Stack 
+## <a name="use-the-azure-stack-portal"></a>Utiliser le portail Azure Stack
 
 >[!IMPORTANT]  
 > Les informations contenues dans cette section s’appliquent lorsque vous utilisez Azure Stack 1808 ou version ultérieure. Si votre version est antérieure à la version 1808, voir [Ajouter le groupe de machines virtuelles identiques (avant 1808)](#add-the-virtual-machine-scale-set-prior-to-version-1808).
 
-1. Connectez-vous au portail Azure Stack. Ensuite, accédez à **Tous les services**, **Groupes de machines virtuelles identiques**, puis, sous **COMPUTE**, sélectionnez les **groupes de machines virtuelles identiques**. 
+1. Connectez-vous au portail Azure Stack. Ensuite, accédez à **Tous les services**, **Groupes de machines virtuelles identiques**, puis, sous **COMPUTE**, sélectionnez les **groupes de machines virtuelles identiques**.
    ![Sélectionner des groupes de machines virtuelles identiques](media/azure-stack-compute-add-scalesets/all-services.png)
 
 2. Sélectionnez Créer ***Groupes de machines virtuelles identiques***.
@@ -51,7 +52,7 @@ Sur Azure Stack, les groupes de machines virtuelles identiques ne sont pas compa
 3. Renseignez les champs vides en choisissant dans les menus déroulants les options appropriées pour **Image du disque du système d’exploitation**, **Abonnement** et **Taille d’Instance**. Sélectionnez **Oui** pour **Utiliser des disques managés**. Cliquez sur **Créer**.
     ![Configurer et créer](media/azure-stack-compute-add-scalesets/create.png)
 
-4. Pour voir votre nouveau groupe de machines virtuelles identiques, accédez à **Toutes les ressources**, recherchez le nom du groupe de machines virtuelles identiques, puis sélectionnez son nom dans les résultats de la recherche. 
+4. Pour voir votre nouveau groupe de machines virtuelles identiques, accédez à **Toutes les ressources**, recherchez le nom du groupe de machines virtuelles identiques, puis sélectionnez son nom dans les résultats de la recherche.
    ![Afficher le groupe identique](media/azure-stack-compute-add-scalesets/search.png)
 
 ## <a name="add-the-virtual-machine-scale-set-prior-to-version-1808"></a>Ajouter le groupe de machines virtuelles identiques (avant la version 1808)
@@ -73,7 +74,7 @@ Après avoir créé un groupe de machines virtuelles identiques, les utilisateur
 
 1. Le modèle de déploiement du groupe de machines virtuelles identiques **spécifie dernière** pour **version** :  
 
-   Lorsque la `version` est définie sur **dernière** dans la section `imageReference` du modèle pour un groupe identique, les opérations de montage en puissance sur le groupe identique utilisent la dernière version disponible de l’image pour les instances de groupe identique. Une fois une montée en puissance terminée, vous pouvez supprimer les instances de groupes de machines virtuelles identiques les plus anciennes. Les valeurs de `publisher`, `offer` et `sku` restent inchangées. 
+   Lorsque la `version` est définie sur **dernière** dans la section `imageReference` du modèle pour un groupe identique, les opérations de montage en puissance sur le groupe identique utilisent la dernière version disponible de l’image pour les instances de groupe identique. Une fois une montée en puissance terminée, vous pouvez supprimer les instances de groupes de machines virtuelles identiques les plus anciennes. Les valeurs de `publisher`, `offer` et `sku` restent inchangées.
 
    L’exemple JSON ci-après spécifie `latest` :  
 
@@ -88,12 +89,12 @@ Après avoir créé un groupe de machines virtuelles identiques, les utilisateur
 
    Avant que la montée en puissance puisse utiliser une nouvelle image, vous devez télécharger cette nouvelle image :  
 
-   - Lorsque l’image sur la Place de marché est une version plus récente que l’image dans le groupe identique, téléchargez la nouvelle image qui remplace l’ancienne. Une fois l’image remplacée, un utilisateur peut continuer à monter en puissance. 
+   * Lorsque l’image sur la Place de marché est une version plus récente que l’image dans le groupe identique, téléchargez la nouvelle image qui remplace l’ancienne. Une fois l’image remplacée, un utilisateur peut continuer à monter en puissance.
 
-   - Lorsque la version de l’image sur la Place de marché est identique à l’image du groupe identique, supprimez l’image qui est utilisée dans le groupe identique et téléchargez la nouvelle. Pendant l’intervalle de temps entre la suppression de l’image d’origine et le téléchargement de la nouvelle image, vous ne pouvez pas monter en puissance. 
-      
-     Ce processus est requis pour resyndiquer les images qui utilisent le format de fichier partiellement alloué, introduit avec la version 1803. 
- 
+   * Lorsque la version de l’image sur la Place de marché est identique à l’image du groupe identique, supprimez l’image qui est utilisée dans le groupe identique et téléchargez la nouvelle. Pendant l’intervalle de temps entre la suppression de l’image d’origine et le téléchargement de la nouvelle image, vous ne pouvez pas monter en puissance.
+
+     Ce processus est requis pour resyndiquer les images qui utilisent le format de fichier partiellement alloué, introduit avec la version 1803.
+
 2. Le modèle de déploiement du groupe de machines virtuelles identiques **ne spécifie pas de dernière** pour **version** et spécifie un numéro de version à la place :  
 
     Si vous téléchargez une image avec une version plus récente (ce qui modifie la version disponible), le groupe identique ne peut pas monter en puissance. Ceci est normal, car la version de l’image spécifiée dans le modèle du groupe identique doit être disponible.  
@@ -107,19 +108,20 @@ Vous pouvez augmenter ou réduire la taille d’un *groupe de machines virtuelle
 1. Dans le portail, sélectionnez votre groupe identique, puis choisissez **Mise à l’échelle**.
 
 2. Utilisez la barre de défilement pour définir la nouvelle échelle pour ce groupe de machines virtuelles identiques, puis cliquez sur **Enregistrer**.
+
      ![Mettre à l’échelle le groupe](media/azure-stack-compute-add-scalesets/scale.png)
 
 ## <a name="remove-a-virtual-machine-scale-set"></a>Supprimer un groupe de machines virtuelles identiques
 
 Pour supprimer un élément de la galerie du groupe de machines virtuelles identiques, exécutez la commande PowerShell suivante :
 
-```PowerShell  
+```powershell  
 Remove-AzsGalleryItem
 ```
 
 > [!NOTE]
-> L’élément de la galerie n’est pas forcément supprimé immédiatement de la marketplace. Pour que l’élément apparaisse comme étant supprimé de la marketplace, vous devrez peut-être actualiser le portail plusieurs fois.
+> L’élément de la galerie n’est pas forcément supprimé immédiatement de la Place de marché. Pour que l’élément apparaisse comme étant supprimé de la Place de marché, vous devrez peut-être actualiser le portail plusieurs fois.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Télécharger des éléments de la Place de marché à partir d’Azure dans Azure Stack](azure-stack-download-azure-marketplace-item.md)
+* [Télécharger des éléments de la Place de marché à partir d’Azure dans Azure Stack](azure-stack-download-azure-marketplace-item.md)

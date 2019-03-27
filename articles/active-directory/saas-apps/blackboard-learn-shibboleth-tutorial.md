@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: e435cbb4-c0f0-400e-943c-5c923fa8ddf2
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b15d49792499ad9d6ded1105e5a4f74f67a0bf9
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 861e8dec9383309a549cdd2c24ecd58d6dfdf25e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870701"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57892385"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-blackboard-learn---shibboleth"></a>Tutoriel : Intégration d’Azure Active Directory à Blackboard Learn - Shibboleth
+# <a name="tutorial-azure-active-directory-integration-with-blackboard-learn---shibboleth"></a>Didacticiel : Intégration d’Azure Active Directory à Blackboard Learn - Shibboleth
 
 Dans ce didacticiel, vous allez apprendre à intégrer Blackboard Learn - Shibboleth à Azure Active Directory (Azure AD).
 L’intégration de Blackboard Learn- Shibboleth dans Azure AD vous offre les avantages suivants :
@@ -150,7 +150,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@votredomaineentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

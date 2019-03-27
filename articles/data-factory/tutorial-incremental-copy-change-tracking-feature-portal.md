@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/12/2018
 ms.author: yexu
-ms.openlocfilehash: 70159b975fd38c918f0b21a384b76666957f058b
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: a5a364c2065a7f4b9607eb4b078456324f261ce8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593146"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58121874"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Charger de façon incrémentielle des données d’Azure SQL Database dans le stockage Blob Azure à l’aide de la technologie de suivi des modifications 
 Dans ce tutoriel, vous allez créer une fabrique de données Azure avec un pipeline qui charge des données delta basées sur des informations de **suivi des modifications** dans la base de données Azure SQL source vers un stockage Blob Azure.  
@@ -144,7 +144,10 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
     ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Installez les modules Azure PowerShell les plus récents en suivant les instructions décrites dans [Comment installer et configurer Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Installez les modules Azure PowerShell les plus récents en suivant les instructions décrites dans [Comment installer et configurer Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ## <a name="create-a-data-factory"></a>Créer une fabrique de données
 
@@ -257,7 +260,7 @@ Dans cette étape, vous créez un jeu de données pour représenter les données
 
     1. Sélectionnez **AzureStorageLinkedService** pour **Service lié**.
     2. Entrez **adftutorial/incchgtracking** pour la partie **dossier** de **filePath**.
-    3. Entrez **@CONCAT('Incremental-', pipeline().RunId, '.txt')** pour la partie **fichier** du **filePath**.  
+    3. Entrez **\@CONCAT('Incremental-', pipeline().RunId, '.txt')** pour la partie **fichier** de **filePath**.  
 
        ![Jeu de données récepteur - connexion](./media/tutorial-incremental-copy-change-tracking-feature-portal/sink-dataset-connection.png)
 
@@ -369,29 +372,29 @@ Dans cette étape, vous créez un pipeline avec les activités suivantes, et vou
     ![Activité de recherche - nom](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-name.png)
 6. Basculez vers les **Paramètres** dans la fenêtre**Propriétés**, et procédez comme suit :
 
-    1. Sélectionnez **SourceDataset** pour le champ **Jeu de données source**.
-    2. Sélectionnez **Requête** pour **Utiliser la requête**. 
-    3. Saisissez la requête SQL suivante pour **Requête**. 
+   1. Sélectionnez **SourceDataset** pour le champ **Jeu de données source**.
+   2. Sélectionnez **Requête** pour **Utiliser la requête**. 
+   3. Saisissez la requête SQL suivante pour **Requête**. 
 
-        ```sql
-        SELECT CHANGE_TRACKING_CURRENT_VERSION() as CurrentChangeTrackingVersion
-        ```
+       ```sql
+       SELECT CHANGE_TRACKING_CURRENT_VERSION() as CurrentChangeTrackingVersion
+       ```
 
-    ![Activité de recherche - paramètres](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-settings.png)
+      ![Activité de recherche - paramètres](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-settings.png)
 7. Dans la boîte à outils **Activités**, développez **Flux de données** et glissez-déposez l’activité **Copie** vers la surface du concepteur de pipeline. Définissez le nom de l’activité sur **IncrementalCopyActivity**. Cette activité permet de copier les données entre la dernière version de suivi des modifications et la version de suivi des modifications en cours dans le magasin de données de destination. 
 
     ![Activité de copie - nom](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-activity-name.png)
 8. Basculez vers l’onglet **Source** dans la fenêtre**Propriétés**, et procédez comme suit :
 
-    1. Sélectionnez **SourceDataset** pour **Jeu de données source**. 
-    2. Sélectionnez **Requête** pour **Utiliser la requête**. 
-    3. Saisissez la requête SQL suivante pour **Requête**. 
+   1. Sélectionnez **SourceDataset** pour **Jeu de données source**. 
+   2. Sélectionnez **Requête** pour **Utiliser la requête**. 
+   3. Saisissez la requête SQL suivante pour **Requête**. 
 
-        ```sql
-        select data_source_table.PersonID,data_source_table.Name,data_source_table.Age, CT.SYS_CHANGE_VERSION, SYS_CHANGE_OPERATION from data_source_table RIGHT OUTER JOIN CHANGETABLE(CHANGES data_source_table, @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.SYS_CHANGE_VERSION}) as CT on data_source_table.PersonID = CT.PersonID where CT.SYS_CHANGE_VERSION <= @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion}
-        ```
+       ```sql
+       select data_source_table.PersonID,data_source_table.Name,data_source_table.Age, CT.SYS_CHANGE_VERSION, SYS_CHANGE_OPERATION from data_source_table RIGHT OUTER JOIN CHANGETABLE(CHANGES data_source_table, @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.SYS_CHANGE_VERSION}) as CT on data_source_table.PersonID = CT.PersonID where CT.SYS_CHANGE_VERSION <= @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion}
+       ```
     
-    ![Activité de copie - paramètres de la source](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-source-settings.png)
+      ![Activité de copie - paramètres de la source](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-source-settings.png)
 9. Basculez vers l’onglet **Récepteur** et sélectionnez **SinkDataset** pour le champ **Jeu de données récepteur**. 
 
     ![Activité de copie - paramètres du récepteur](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-sink-settings.png)
@@ -422,9 +425,9 @@ Dans cette étape, vous créez un pipeline avec les activités suivantes, et vou
 15. Cliquez sur **Valider** dans la barre d’outils. Vérifiez qu’il n’y a aucune erreur de validation. Fermez la fenêtre **Rapport de validation de pipeline** en cliquant sur **>>**. 
 
     ![Bouton de validation](./media/tutorial-incremental-copy-change-tracking-feature-portal/validate-button.png)
-16.  Publiez des entités (services liés, jeux de données et pipelines) sur le service Data Factory en cliquant sur le bouton **Publish All** (Tout publier). Patientez jusqu’à ce que le message **Publication réussie** s’affiche. 
+16. Publiez des entités (services liés, jeux de données et pipelines) sur le service Data Factory en cliquant sur le bouton **Publish All** (Tout publier). Patientez jusqu’à ce que le message **Publication réussie** s’affiche. 
 
-        ![Bouton Publier](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)    
+       ![Bouton Publier](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)    
 
 ### <a name="run-the-incremental-copy-pipeline"></a>Exécuter le pipeline de copie incrémentielle
 1. Cliquez sur **Déclencher** dans la barre d’outils du pipeline, puis cliquez sur **Déclencher maintenant**. 

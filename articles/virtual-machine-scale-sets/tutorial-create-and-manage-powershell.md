@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 05/18/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 10fc55886e4c91a2d468704d13d3b206f4a9cf51
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 0eb5a33b91925260c89e0b1c23800614ed637bdb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980243"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57990637"
 ---
-# <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Tutoriel : Créer et gérer un groupe de machines virtuelles identiques avec Azure PowerShell
+# <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Didacticiel : Créer et gérer un groupe de machines virtuelles identiques avec Azure PowerShell
 
 Un groupe de machines virtuelles identiques vous permet de déployer et de gérer un ensemble de machines virtuelles identiques prenant en charge la mise à l’échelle automatique. Tout au long du cycle de vie du groupe de machines virtuelles identiques, vous devrez peut-être exécuter une ou plusieurs tâches de gestion. Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
@@ -140,7 +140,7 @@ IpAddress
 52.168.121.216
 ```
 
-Créez une connexion distante vers votre première instance de machine virtuelle. Spécifiez votre adresse IP publique et le numéro de port de l’instance de machine virtuelle, comme indiqué dans les commandes précédentes. Lorsque vous y êtes invité, entrez les informations d’identification utilisées lors de la création du groupe identique (par défaut dans les exemples de commandes, *azureuser* et *P@ssw0rd!*). Si vous utilisez Azure Cloud Shell, effectuez cette étape à partir d’une invite de commandes PowerShell locale ou du client Bureau à distance. L’exemple suivant établit une connexion à l’instance de machine virtuelle *1* :
+Créez une connexion distante vers votre première instance de machine virtuelle. Spécifiez votre adresse IP publique et le numéro de port de l’instance de machine virtuelle, comme indiqué dans les commandes précédentes. Lorsque vous y êtes invité, entrez les informations d’identification utilisées lors de la création du groupe identique (par défaut dans les exemples de commandes, *azureuser* et *P\@ssw0rd!*). Si vous utilisez Azure Cloud Shell, effectuez cette étape à partir d’une invite de commandes PowerShell locale ou du client Bureau à distance. L’exemple suivant établit une connexion à l’instance de machine virtuelle *1* :
 
 ```powershell
 mstsc /v 52.168.121.216:50001

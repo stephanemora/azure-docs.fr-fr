@@ -10,19 +10,21 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 01/11/2019
+ms.date: 03/04/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: c7759b9f0787b7926b3642b8b912ec5391347adf
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 84025953e74cb2ace358aa041f55dc1498d22f2f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54911487"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079058"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>Démarrage rapide : Créer et déployer des modèles Azure Resource Manager à l’aide du portail Azure
 
 Découvrez comment générer un modèle Resource Manager à l’aide du portail Azure et le processus de modification et de déploiement du modèle à partir du portail. Les modèles Azure Resource Manager sont des fichiers JSON qui définissent les ressources nécessaires au déploiement de votre solution. Pour comprendre les concepts associés au déploiement et à la gestion de vos solutions Azure, voir [Présentation d’Azure Resource Manager](resource-group-overview.md).
+
+![Schéma du portail de démarrage rapide du modèle Resource manager](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
 
 Après avoir suivi le tutoriel, vous déployez un compte de Stockage Azure. Le même processus peut être utilisé pour déployer d’autres ressources Azure.
 
@@ -32,7 +34,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 La création d’un modèle Resource Manager à partir de zéro n’est pas une tâche facile, surtout si vous débutez avec le déploiement Azure et que vous n’êtes pas familiarisé avec le format JSON. Vous pouvez utiliser le portail Azure pour configurer une ressource, par exemple un compte de Stockage Azure. Avant de déployer la ressource, vous pouvez exporter votre configuration dans un modèle Resource Manager. Vous pouvez enregistrer le modèle et le réutiliser ultérieurement.
 
-De nombreux développeurs de modèles expérimentés utilisent cette méthode pour générer des modèles en état de fonctionnement quand ils tentent de déployer des ressources Azure qu’ils ne maîtrisent pas bien.
+De nombreux développeurs de modèles expérimentés utilisent cette méthode pour générer des modèles quand ils tentent de déployer des ressources Azure qu’ils ne maîtrisent pas bien. Pour plus d’informations sur l’exportation de modèles par le biais du portail, consultez [Exporter des groupes de ressources dans des modèles](./manage-resource-groups-portal.md#export-resource-groups-to-templates). L’autre moyen de trouver un modèle opérationnel consiste à le rechercher à partir des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/).
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Sélectionnez **Créer une ressource** > **Stockage** > **Compte de stockage - blob, fichier, table, file d’attente**.
@@ -40,8 +42,10 @@ De nombreux développeurs de modèles expérimentés utilisent cette méthode po
     ![Créer un compte de stockage Azure dans le portail Azure](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-portal.png)
 3. Entrez les informations suivantes :
 
-    - **Groupe de ressources** : Sélectionnez **Créer nouveau**, puis spécifiez un nom de groupe de ressources de votre choix. Sur la capture d’écran, le nom du groupe de ressources est *mystorage1016rg*. Un groupe de ressources est un conteneur pour les ressources Azure. Un groupe de ressources facilite la gestion des ressources Azure.
-    - **Nom** : attribuez un nom unique à votre compte de stockage. Sur la capture d’écran, le nom est *mystorage1016*.
+    |Nom|Valeur|
+    |----|----|
+    |**Groupe de ressources**|Sélectionnez **Créer nouveau**, puis spécifiez un nom de groupe de ressources de votre choix. Sur la capture d’écran, le nom du groupe de ressources est *mystorage1016rg*. Un groupe de ressources est un conteneur pour les ressources Azure. Un groupe de ressources facilite la gestion des ressources Azure. |
+    |**Nom**|attribuez un nom unique à votre compte de stockage. Le nom du compte de stockage doit être unique dans Azure, et ne contenir que des lettres minuscules et des chiffres. Le nom doit être compris entre 3 et 24 caractères. Si vous obtenez un message d’erreur indiquant que « le nom de compte de stockage 'mystorage1016' est déjà utilisé », essayez d’utiliser **&lt;votre nom>stockage&lt;Date du jour au format MMJJ>**, par exemple  **johndolestorage1016**. Pour plus d’informations, consultez la page [Règles et restrictions de nommage](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions).|
 
     Vous pouvez utiliser les valeurs par défaut pour les autres propriétés.
 
@@ -50,7 +54,7 @@ De nombreux développeurs de modèles expérimentés utilisent cette méthode po
     > [!NOTE]
     > Certains modèles exportés nécessitent des modifications avant leur déploiement.
 
-4. Sélectionnez **Vérifier + créer** au bas de l’écran.
+4. Sélectionnez **Vérifier + créer** au bas de l’écran. Ne sélectionnez pas **Créer** à l’étape suivante.
 5. Sélectionnez **Télécharger un modèle pour l’automatisation** au bas de l’écran. Le portail affiche le modèle généré :
 
     ![Générer un modèle depuis le portail](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template.png)
@@ -59,13 +63,14 @@ De nombreux développeurs de modèles expérimentés utilisent cette méthode po
 
     Il existe six paramètres définis. Un d’eux est appelé **storageAccountName**. La deuxième partie en surbrillance dans la capture d’écran précédente montre comment référencer ce paramètre dans le modèle. Dans la section suivante, vous modifiez le modèle pour utiliser un nom généré pour le compte de stockage.
 
-    Dans le modèle, une ressource Azure est définie. Le type est [Microsoft.Storage/storageAccounts]. Examinez la façon dont la ressource est définie, et la structure de la définition.
-6. Sélectionnez **Télécharger**. Enregistrez le fichier **template.json** à partir du package téléchargé sur votre ordinateur. Dans la section suivante, vous utilisez un outil de déploiement de modèle pour modifier le modèle.
-7. Sélectionnez l’onglet **Paramètre** pour afficher les valeurs que vous avez fournies pour les paramètres. Notez ces valeurs, vous en aurez besoin dans la section suivante lors du déploiement du modèle.
+    Dans le modèle, une ressource Azure est définie. Le type est `Microsoft.Storage/storageAccounts`. Examinez la façon dont la ressource est définie, et la structure de la définition.
+6. Sélectionnez **Télécharger** en haut de l’écran. 
+7. Ouvrez le fichier zip téléchargé, puis enregistrez **template.json** sur votre ordinateur. Dans la section suivante, vous utilisez un outil de déploiement de modèle pour modifier le modèle.
+8. Sélectionnez l’onglet **Paramètre** pour afficher les valeurs que vous avez fournies pour les paramètres. Notez ces valeurs, vous en aurez besoin dans la section suivante lors du déploiement du modèle.
 
     ![Générer un modèle depuis le portail](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template-parameters.png)
 
-    À l’aide du modèle et des fichiers de paramètres, vous pouvez créer un compte de stockage Azure.
+    À l’aide du fichier de modèle et du fichier de paramètres, vous pouvez créer une ressource, dans ce tutoriel, un compte de stockage Azure.
 
 ## <a name="edit-and-deploy-the-template"></a>Modifier et déployer le modèle
 
@@ -81,79 +86,82 @@ Azure requiert que chaque service Azure ait un nom unique. Le déploiement peut 
 4. Sélectionnez **Créer**.
 5. Sélectionnez **Générer votre propre modèle dans l’éditeur**.
 6. Sélectionnez **Charger le fichier**, puis suivez les instructions pour charger le fichier template.json téléchargé dans la section précédente.
-7. Ajoutez une variable comme illustré dans la capture d’écran suivante :
+7. Apportez les trois modifications suivantes au modèle :
 
-    ```json
-    "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'standardsa')]"
-    ```
     ![Modèles Microsoft Azure Resource Manager](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-edit-storage-account-template-revised.png)
 
-    Deux fonctions de modèles sont utilisées ici : `concat()` et `uniqueString()`.
+   - Supprimez le paramètre **storageAccountName**, comme indiqué dans la capture d’écran précédente.
+   - Ajoutez une variable appelée **storageAccountName**, comme illustré dans la capture d’écran précédente :
 
-8. Supprimez le paramètre **storageAccountName** mis en surbrillance dans la capture d’écran précédente.
-9. Mettez à jour l’élément nom de la ressource **Microsoft.Storage/storageaccounts** pour utiliser la variable qui vient d’être définie au lieu du paramètre :
+       ```json
+       "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
+       ```
 
-    ```json
-    "name": "[variables('storageAccountName')]",
-    ```
+       Deux fonctions de modèles sont utilisées ici : `concat()` et `uniqueString()`.
+   - Mettez à jour l’élément nom de la ressource **Microsoft.Storage/storageaccounts** pour utiliser la variable qui vient d’être définie au lieu du paramètre :
 
-    Le modèle final doit ressembler à ce qui suit :
+       ```json
+       "name": "[variables('storageAccountName')]",
+       ```
 
-    ```json
-    {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-            "location": {
-                "type": "string"
-            },
-            "accountType": {
-                "type": "string"
-            },
-            "kind": {
-                "type": "string"
-            },
-            "accessTier": {
-                "type": "string"
-            },
-            "supportsHttpsTrafficOnly": {
-                "type": "bool"
-            }
-        },
-        "variables": {
-            "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'standardsa')]"
-        },
-        "resources": [
-            {
-                "name": "[variables('storageAccountName')]",
-                "type": "Microsoft.Storage/storageAccounts",
-                "apiVersion": "2018-07-01",
-                "location": "[parameters('location')]",
-                "properties": {
-                    "accessTier": "[parameters('accessTier')]",
-                    "supportsHttpsTrafficOnly": "[parameters('supportsHttpsTrafficOnly')]"
-                },
-                "dependsOn": [],
-                "sku": {
-                    "name": "[parameters('accountType')]"
-                },
-                "kind": "[parameters('kind')]"
-            }
-        ],
-        "outputs": {}
-    }
-    ```
-7. Sélectionnez **Enregistrer**.
-8. Saisissez les valeurs suivantes :
+     Le modèle final doit ressembler à ce qui suit :
 
-    - **Groupe de ressources** : sélectionnez **Créer nouveau**, puis attribuez un nom unique à votre groupe de ressources.
-    - **Emplacement** : sélectionnez un emplacement pour le groupe de ressources. Par exemple, **USA Centre**. 
-    - **Emplacement** : sélectionnez un emplacement pour le compte de stockage. Par exemple, **USA Centre**.
-    - **Type de compte** : entrez **Standard_LRS** pour ce démarrage rapide.
-    - **Type** : entrez **StorageV2** pour ce démarrage rapide.
-    - **Niveau d’accès** : entrez **chaud** pour ce démarrage rapide.
-    - **Seul le trafic HTTPS est activé**.  Pour ce guide de démarrage rapide, sélectionnez **true**.
-    - **J’accepte les termes et conditions mentionnés ci-dessus** : (cochez la case)
+     ```json
+     {
+       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+       "contentVersion": "1.0.0.0",
+       "parameters": {
+           "location": {
+               "type": "string"
+           },
+           "accountType": {
+               "type": "string"
+           },
+           "kind": {
+               "type": "string"
+           },
+           "accessTier": {
+               "type": "string"
+           },
+           "supportsHttpsTrafficOnly": {
+               "type": "bool"
+           }
+       },
+       "variables": {
+           "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
+       },
+       "resources": [
+           {
+               "name": "[variables('storageAccountName')]",
+               "type": "Microsoft.Storage/storageAccounts",
+               "apiVersion": "2018-07-01",
+               "location": "[parameters('location')]",
+               "properties": {
+                   "accessTier": "[parameters('accessTier')]",
+                   "supportsHttpsTrafficOnly": "[parameters('supportsHttpsTrafficOnly')]"
+               },
+               "dependsOn": [],
+               "sku": {
+                   "name": "[parameters('accountType')]"
+               },
+               "kind": "[parameters('kind')]"
+           }
+       ],
+       "outputs": {}
+     }
+     ```
+8. Sélectionnez **Enregistrer**.
+9. Saisissez les valeurs suivantes :
+
+    |Nom|Valeur|
+    |----|----|
+    |**Groupe de ressources**|Sélectionnez le nom du groupe de ressources que vous avez créé dans la dernière section. |
+    |**Lieu**|Sélectionnez un emplacement pour le compte de stockage. Par exemple, **USA Centre**. |
+    |**Type de compte**|Entrez **Standard_LRS** pour ce démarrage rapide. |
+    |**Type**|Entrez **StorageV2** pour ce démarrage rapide. |
+    |**Niveau d’accès**|Entrez **chaud** pour ce démarrage rapide. |
+    |**Seul le trafic HTTPS est activé**| Pour ce guide de démarrage rapide, sélectionnez **true**. |
+    |**J’accepte les termes et conditions mentionnés ci-dessus**|(sélection)|
 
     Voici une capture d’écran d’un exemple de déploiement :
 

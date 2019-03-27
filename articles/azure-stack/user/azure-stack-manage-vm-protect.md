@@ -15,24 +15,19 @@ ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 50b3499a52ac646b6c896dd79b2191651c5b277e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.lastreviewed: 3/19/2018
+ms.openlocfilehash: de57ebbf0c0c4e8a18c955200d1692ea4ae9afae
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782936"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295009"
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Protéger des machines virtuelles déployées sur Azure Stack
 
 Utilisez cet article comme guide pour élaborer un plan de protection des machines virtuelles déployées par vos utilisateurs sur Azure Stack.
 
-Pour assurer une protection contre la perte de données et les temps d’arrêt non planifiés, il vous faut implémenter un plan de sauvegarde et récupération ou de récupération d’urgence pour les applications utilisateur et leurs données. Si ce plan peut être propre à chaque application, il suit un cadre établi par la stratégie globale de continuité d’activité et de récupération d’urgence de votre organisation. Il est recommandé de commencer par le guide [Concevoir des applications résilientes pour Azure](https://docs.microsoft.com/azure/architecture/resiliency), qui donne des pratiques et des modèles généraux pour la résilience et la disponibilité des applications.
-
->[!IMPORTANT]
-> Testez régulièrement vos plans de sauvegarde et récupération et de récupération d’urgence. Pour cela, vérifiez que :
-> * Les plans fonctionnent.
-> * Les plans répondent toujours aux besoins pour lesquels ils ont été conçus.
+Pour assurer une protection contre la perte de données et les temps d’arrêt non planifiés, il vous faut implémenter un plan de sauvegarde et récupération ou de récupération d’urgence pour les applications utilisateur et leurs données. Si ce plan peut être propre à chaque application, il suit un cadre établi par la stratégie globale de continuité d’activité et de récupération d’urgence de votre organisation. [Azure Stack : Considérations relatives à la continuité et la reprise d’activité](https://aka.ms/azurestackbcdrconsiderationswp) est un bon point de départ.
 
 ## <a name="azure-stack-infrastructure-recovery"></a>Récupération de l’infrastructure Azure Stack
 
@@ -47,6 +42,9 @@ Au cas où le cloud Azure Stack resterait hors connexion pendant une durée prol
 * permet aux applications de continuer à répondre aux demandes utilisateur.
 
 L’opérateur du cloud Azure Stack est chargé de créer un plan de récupération pour les services et l’infrastructure Azure Stack sous-jacents. Pour plus d’informations, consultez l’article [Récupérer des données suite à une perte catastrophique](https://docs.microsoft.com/azure/azure-stack/azure-stack-backup-recover-data).
+
+## <a name="considerations-for-iaas-vms"></a>Considérations relatives aux machines virtuelles IaaS
+Le système d’exploitation installé dans la machine virtuelle IaaS limitera les produits que vous pouvez utiliser pour protéger les données qu’elle contient. Pour les machines virtuelles IaaS basées sur Windows, vous pouvez utiliser les produits Microsoft et partenaires pour protéger les données. Pour les machines virtuelles IaaS basées sur Linux, la seule option consiste à utiliser les produits partenaires. Reportez-vous à [cette feuille de données pour connaître tous les partenaires de continuité et de reprise d’activité ayant des produits validés pour Azure Stack](https://aka.ms/azurestackbcdrpartners).
 
 ## <a name="sourcetarget-combinations"></a>Combinaisons source/cible
 

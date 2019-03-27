@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Concevoir une base de données Azure Database pour PostgreSQL à l’aide d’Azure CLI'
+title: 'Didacticiel : Concevoir une base de données Azure Database pour PostgreSQL à l’aide d’Azure CLI'
 description: Ce didacticiel montre comment créer, configurer et interroger votre première base de données Azure Database pour PostgreSQL à l’aide de l’interface Azure CLI.
 author: rachel-msft
 ms.author: raagyema
@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 04/01/2018
-ms.openlocfilehash: 937f57190236e3b5d3c92df5f50167880fef4bb4
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: eba1ffcbe07c617661d902de0726f17e4fec0a00
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756714"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57992079"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>Tutoriel : Concevoir une base de données Azure Database pour PostgreSQL à l’aide d’Azure CLI 
 Dans ce didacticiel, vous allez utiliser l’interface Azure CLI (interface de ligne de commande) et d’autres utilitaires pour apprendre à :
@@ -46,12 +46,12 @@ az group create --name myresourcegroup --location westus
 ## <a name="create-an-azure-database-for-postgresql-server"></a>Créer un serveur Azure Database pour PostgreSQL
 Créez un [serveur Azure Database pour PostgreSQL](overview.md) avec la commande [az sql server create](/cli/azure/postgres/server). Un serveur contient un groupe de bases de données gérées en tant que groupe. 
 
-L’exemple suivant crée un serveur nommé `mydemoserver` dans votre groupe de ressources `myresourcegroup` avec l’identifiant d’administrateur serveur `myadmin`. Le nom du serveur correspond au nom DNS et doit ainsi être globalement unique dans Azure. Remplacez `<server_admin_password>` par votre propre valeur. Il s’agit d’un serveur à usage général, de 4e génération avec 2 vCores.
+L’exemple suivant crée un serveur nommé `mydemoserver` dans votre groupe de ressources `myresourcegroup` avec l’identifiant d’administrateur serveur `myadmin`. Le nom du serveur correspond au nom DNS et doit ainsi être globalement unique dans Azure. Remplacez `<server_admin_password>` par votre propre valeur. Il s’agit d’un serveur à usage général, de 5e génération avec 2 vCores.
 ```azurecli-interactive
-az postgres server create --resource-group myresourcegroup --name mydemoserver --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 9.6
+az postgres server create --resource-group myresourcegroup --name mydemoserver --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 9.6
 ```
 La valeur du paramètre sku-name suit la convention {tarification}\_{génération de calcul}\_{vCores} comme dans les exemples ci-dessous :
-+ `--sku-name B_Gen4_4` correspond à Basic, Gen 4 et 4 vCores.
++ `--sku-name B_Gen5_2` correspond à De base, Gen 5 et 2 vCores.
 + `--sku-name GP_Gen5_32` correspond à Usage général, Gen 5 et 32 vCores.
 + `--sku-name MO_Gen5_2` correspond à Mémoire optimisée, Gen 5 et 2 vCores.
 
@@ -98,8 +98,8 @@ Le résultat est au format JSON. Prenez note des valeurs **administratorLogin** 
   "resourceGroup": "myresourcegroup",
   "sku": {
     "capacity": 2,
-    "family": "Gen4",
-    "name": "GP_Gen4_2",
+    "family": "Gen5",
+    "name": "GP_Gen5_2",
     "size": null,
     "tier": "GeneralPurpose"
   },
@@ -121,25 +121,25 @@ Le résultat est au format JSON. Prenez note des valeurs **administratorLogin** 
 Si PostgreSQL est installé sur votre ordinateur client, vous pouvez utiliser une instance locale de [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) ou la console Azure Cloud pour vous connecter à un serveur Azure PostgreSQL. Nous allons maintenant utiliser l’utilitaire de ligne de commande psql pour nous connecter au serveur de base de données Azure pour PostgreSQL.
 
 1. Exécutez la commande psql suivante pour vous connecter à une base de données Azure Database pour PostgreSQL :
-```azurecli-interactive
-psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
-```
+   ```azurecli-interactive
+   psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
+   ```
 
-  Par exemple, la commande suivante se connecte à la base de données par défaut appelée **postgres** sur votre serveur PostgreSQL **mydemoserver.postgres.database.azure.com** à l’aide des informations d’identification d’accès. Saisissez le `<server_admin_password>` que vous avez choisi à l’invite de mot de passe.
+   Par exemple, la commande suivante se connecte à la base de données par défaut appelée **postgres** sur votre serveur PostgreSQL **mydemoserver.postgres.database.azure.com** à l’aide des informations d’identification d’accès. Saisissez le `<server_admin_password>` que vous avez choisi à l’invite de mot de passe.
   
-  ```azurecli-interactive
-psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
-```
+   ```azurecli-interactive
+   psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
+   ```
 
-2.  Une fois que vous êtes connecté au serveur, créez une base de données vide à l’invite :
-```sql
-CREATE DATABASE mypgsqldb;
-```
+2. Une fois que vous êtes connecté au serveur, créez une base de données vide à l’invite :
+   ```sql
+   CREATE DATABASE mypgsqldb;
+   ```
 
-3.  À l’invite, exécutez la commande suivante pour basculer la connexion sur la base de données **mypgsqldb** nouvellement créée :
-```sql
-\c mypgsqldb
-```
+3. À l’invite, exécutez la commande suivante pour basculer la connexion sur la base de données **mypgsqldb** nouvellement créée :
+   ```sql
+   \c mypgsqldb
+   ```
 
 ## <a name="create-tables-in-the-database"></a>Créer des tables dans la base de données
 Maintenant que vous savez comment vous connecter à la base de données Azure Database pour PostgreSQL, vous pouvez effectuer certaines tâches de base :
@@ -192,6 +192,7 @@ az postgres server restore --resource-group myresourcegroup --name mydemoserver-
 ```
 
 La commande `az postgres server restore` a besoin des paramètres suivants :
+
 | Paramètre | Valeur suggérée | Description  |
 | --- | --- | --- |
 | resource-group |  myResourceGroup |  Groupe de ressources dans lequel se trouve le serveur source.  |

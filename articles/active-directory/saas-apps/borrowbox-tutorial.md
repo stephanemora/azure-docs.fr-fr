@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à BorrowBox | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à BorrowBox | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et BorrowBox.
 services: active-directory
 documentationCenter: na
@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: dd8e4178-9a63-492a-bd48-782e94e404af
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09bf4651ac8d2e178614044de90cb1c0ecc1c48f
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: e97b4dbadd34f57b1108621bbfdd922b323eeae0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56982739"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890455"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-borrowbox"></a>Tutoriel : Intégration d’Azure Active Directory à BorrowBox
+# <a name="tutorial-azure-active-directory-integration-with-borrowbox"></a>Didacticiel : Intégration d’Azure Active Directory à BorrowBox
 
 Dans ce didacticiel, vous allez apprendre à intégrer BorrowBox dans Azure Active Directory (Azure AD).
 L’intégration de BorrowBox dans Azure AD offre les avantages suivants :
@@ -155,7 +155,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@votredomaineentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

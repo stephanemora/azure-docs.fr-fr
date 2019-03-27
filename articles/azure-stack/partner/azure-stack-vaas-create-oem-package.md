@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 415cdecc33b7360d482d37a3cb9d4f1bce528ab1
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 568817c6e25952f15a396e5748d314187345945b
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251790"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769044"
 ---
 # <a name="create-an-oem-package"></a>Créer un package OEM
 
@@ -30,11 +30,10 @@ Le Package d’Extension OEM Azure Stack est le mécanisme par lequel le contenu
 
 ## <a name="creating-the-package"></a>Création du package
 
-Une fois créé et validé, le package d’extension OEM peut être utilisé dans VaaS.  Avant de continuer, assurez-vous que vous avez suivi les étapes de [création d’un package OEM](https://microsoft.sharepoint.com/:w:/r/teams/cloudsolutions/Sacramento/_layouts/15/Doc.aspx?sourcedoc=%7BD7406069-7661-419C-B3B1-B6A727AB3972%7D&file=Azure%20Stack%20OEM%20Extension%20Package.docx&action=default&mobileredirect=true). Le package est ensuite envoyé à Microsoft ainsi que les résultats des tests VaaS pour la connexion au workflow de validation de solution. Les étapes suivantes décrivent comment regrouper les fichiers générés dans un seul fichier zip que VaaS peut consommer.
+Une fois créé et validé, le package d’extension OEM peut être utilisé dans VaaS.  Avant de continuer, assurez-vous que vous avez suivi les étapes de [création d’un package OEM](https://microsoft.sharepoint.com/:w:/r/teams/cloudsolutions/Sacramento/_layouts/15/Doc.aspx?sourcedoc=%7BD7406069-7661-419C-B3B1-B6A727AB3972%7D&file=Azure%20Stack%20OEM%20Extension%20Package.docx&action=default&mobileredirect=true). Le package est ensuite envoyé à Microsoft, ainsi que les résultats des tests VaaS pour la connexion au flux de travail de Validation du Package. Les étapes suivantes décrivent comment regrouper les fichiers générés dans un seul fichier zip que VaaS peut consommer.
 
 1. Utilisez le contenu suivant pour le package :
-    - Un exécutable nommé `<Publisher>-<Model>-<Version>.exe`
-    - Un ou plusieurs fichiers binaires nommés `<Publisher><Model>-<Version>-#.bin`, dans lequel # est un numéro à incrémentation séquentielle commençant à 1. Le nombre de fichiers binaires dépend de la taille totale du contenu du package.
+    - Un fichier zip contenant le contenu du package
     - Un fichier manifest nommé `oemMetadata.xml`, dont le contenu doit être identique au fichier metadata.xml à la racine du contenu du package.
 
 2. Sélectionnez les fichiers de contenu et créez un fichier zip à partir des contenus :
@@ -51,7 +50,7 @@ Pour valider la structure de votre fichier zip, inspectez-le et vérifiez qu’i
 
 ![Contenus du package zippé correctement](media/vaas-create-oem-package-3.png)
 
-Le fichier zip peut désormais être chargé vers VaaS et signé par Microsoft au cours du workflow de validation de solution.
+Le fichier zip peut désormais être chargé vers VaaS et signé par Microsoft lors du workflow de Validation du Package.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

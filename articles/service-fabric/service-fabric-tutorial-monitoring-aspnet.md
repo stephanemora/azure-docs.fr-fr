@@ -1,6 +1,6 @@
 ---
 title: Surveillance et diagnostics des services ASP.NET Core dans Azure Service Fabric | Microsoft Docs
-description: Dans ce tutoriel, vous découvrez comment configurer la surveillance et les diagnostics pour une application Azure Service Fabric ASP.NET Core.
+description: Dans ce tutoriel, vous allez découvrir comment configurer la supervision et les diagnostics pour une application ASP.NET Core Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/17/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 27a114378cf72e766e894dc0dd6886197f56a841
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 8657e9cabdf7dcd4900f65b6bef56f62a1caf472
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390253"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901721"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Didacticiel : Surveiller et diagnostiquer une application ASP.NET Core dans Service Fabric à l’aide d’Application Insights
 
@@ -103,50 +103,50 @@ Voici les étapes de configuration du package NuGet :
     ![NuGet du Kit de développement AI](./media/service-fabric-tutorial-monitoring-aspnet/ai-sdk-nuget-new.png)
 5. Cliquez sur **OK** dans la boîte de dialogue *Réviser les modifications* qui s’affiche et *acceptez la licence*. Ceci termine l’ajout du package NuGet aux services.
 6. Vous devez maintenant configurer l’initialiseur de télémétrie dans les deux services. Pour cela, ouvrez *VotingWeb.cs* et *VotingData.cs*. Pour les deux, exécutez la procédure suivante :
-    1. Ajoutez-les *à l’aide* d’instructions en haut de chaque *\<ServiceName>.cs* :
+   1. Ajoutez-les *à l’aide* d’instructions en haut de chaque *\<ServiceName>.cs* :
 
-    ```csharp
-    using Microsoft.ApplicationInsights.Extensibility;
-    using Microsoft.ApplicationInsights.ServiceFabric;
-    ```
+      ```csharp
+      using Microsoft.ApplicationInsights.Extensibility;
+      using Microsoft.ApplicationInsights.ServiceFabric;
+      ```
 
-    2. Dans l’instruction *return* imbriquée de *CreateServiceInstanceListeners()* ou *CreateServiceReplicaListeners()*, sous *ConfigureServices* > *services*, entre les deux services Singleton déclarés, ajoutez : `.AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))`.
-    Cette opération ajoute le *Contexte de service* à vos données de télémétrie, ce qui vous permet de mieux comprendre la source de votre télémétrie dans Application Insights. Votre instruction *return* imbriquée dans *VotingWeb.cs* doit ressembler à ceci :
+   2. Dans l’instruction *return* imbriquée de *CreateServiceInstanceListeners()* ou *CreateServiceReplicaListeners()*, sous *ConfigureServices* > *services*, entre les deux services Singleton déclarés, ajoutez : `.AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))`.
+      Cette opération ajoute le *Contexte de service* à vos données de télémétrie, ce qui vous permet de mieux comprendre la source de votre télémétrie dans Application Insights. Votre instruction *return* imbriquée dans *VotingWeb.cs* doit ressembler à ceci :
 
-    ```csharp
-    return new WebHostBuilder()
-        .UseKestrel()
-        .ConfigureServices(
-            services => services
-                .AddSingleton<HttpClient>(new HttpClient())
-                .AddSingleton<FabricClient>(new FabricClient())
-                .AddSingleton<StatelessServiceContext>(serviceContext)
-                .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext)))
-        .UseContentRoot(Directory.GetCurrentDirectory())
-        .UseStartup<Startup>()
-        .UseApplicationInsights()
-        .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
-        .UseUrls(url)
-        .Build();
-    ```
+      ```csharp
+      return new WebHostBuilder()
+       .UseKestrel()
+       .ConfigureServices(
+           services => services
+               .AddSingleton<HttpClient>(new HttpClient())
+               .AddSingleton<FabricClient>(new FabricClient())
+               .AddSingleton<StatelessServiceContext>(serviceContext)
+               .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext)))
+       .UseContentRoot(Directory.GetCurrentDirectory())
+       .UseStartup<Startup>()
+       .UseApplicationInsights()
+       .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
+       .UseUrls(url)
+       .Build();
+      ```
 
-    De même, dans *VotingData.cs*, vous devriez avoir :
+      De même, dans *VotingData.cs*, vous devriez avoir :
 
-    ```csharp
-    return new WebHostBuilder()
-        .UseKestrel()
-        .ConfigureServices(
-            services => services
-                .AddSingleton<StatefulServiceContext>(serviceContext)
-                .AddSingleton<IReliableStateManager>(this.StateManager)
-                .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext)))
-        .UseContentRoot(Directory.GetCurrentDirectory())
-        .UseStartup<Startup>()
-        .UseApplicationInsights()
-        .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.UseUniqueServiceUrl)
-        .UseUrls(url)
-        .Build();
-    ```
+      ```csharp
+      return new WebHostBuilder()
+       .UseKestrel()
+       .ConfigureServices(
+           services => services
+               .AddSingleton<StatefulServiceContext>(serviceContext)
+               .AddSingleton<IReliableStateManager>(this.StateManager)
+               .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext)))
+       .UseContentRoot(Directory.GetCurrentDirectory())
+       .UseStartup<Startup>()
+       .UseApplicationInsights()
+       .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.UseUniqueServiceUrl)
+       .UseUrls(url)
+       .Build();
+      ```
 
 Vérifiez bien que la méthode `UseApplicationInsights()` est appelée dans les deux fichiers, comme indiqué ci-dessus.
 

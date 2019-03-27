@@ -7,15 +7,15 @@ ms.author: v-orspod
 ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: tutorial
-ms.date: 2/5/2019
-ms.openlocfilehash: c171962fd6177a01afdb8e9605b09574c99f485e
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.date: 3/14/2019
+ms.openlocfilehash: 422813c1ddb77aa11195d3021484744839c4e3bf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889220"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994333"
 ---
-# <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>Tutoriel : Ingérer des données dans Azure Data Explorer sans une seule ligne de code
+# <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>Didacticiel : Ingérer des données dans Azure Data Explorer sans une seule ligne de code
 
 Ce tutoriel va vous apprendre à ingérer des données de journaux de diagnostic et d’activité dans un cluster Azure Data Explorer sans écrire de code. Avec cette méthode d’ingestion simple, vous pouvez commencer rapidement à interroger Azure Data Explorer pour l’analyse de données.
 
@@ -38,29 +38,44 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="azure-monitor-data-provider-diagnostic-and-activity-logs"></a>Fournisseur de données Azure Monitor : journaux de diagnostic et d’activité
 
-Visualisez et interprétez les données fournies par les journaux de diagnostic et d’activité Azure Monitor. Nous allons créer un pipeline d’ingestion basé sur ces schémas de données.
+Visualisez et interprétez les données fournies par les journaux de diagnostic et d’activité Azure Monitor ci-dessous. Nous allons créer un pipeline d’ingestion basé sur ces schémas de données. Notez que chaque événement dans un journal a un tableau d’enregistrements. Ce tableau d’enregistrements sera fractionné plus tard dans le tutoriel.
 
 ### <a name="diagnostic-logs-example"></a>Exemple de journaux de diagnostic
 
-Les journaux de diagnostic Azure sont des métriques émises par un service Azure. Elles fournissent des données sur le fonctionnement de ce service. Les données sont agrégées avec un fragment de temps de 1 minute. Chaque événement d’un journal de diagnostic contient un enregistrement. Voici un exemple de schéma d’événement de métrique Azure Data Explorer pour la durée d’une requête :
+Les journaux de diagnostic Azure sont des métriques émises par un service Azure. Elles fournissent des données sur le fonctionnement de ce service. Les données sont agrégées avec un fragment de temps de 1 minute. Voici un exemple de schéma d’événement de métrique Azure Data Explorer pour la durée d’une requête :
 
 ```json
 {
-    "count": 14,
-    "total": 0,
-    "minimum": 0,
-    "maximum": 0,
-    "average": 0,
-    "resourceId": "/SUBSCRIPTIONS/F3101802-8C4F-4E6E-819C-A3B5794D33DD/RESOURCEGROUPS/KEDAMARI/PROVIDERS/MICROSOFT.KUSTO/CLUSTERS/KEREN",
-    "time": "2018-12-20T17:00:00.0000000Z",
-    "metricName": "QueryDuration",
-    "timeGrain": "PT1M"
+    "records": [
+    {
+        "count": 14,
+        "total": 0,
+        "minimum": 0,
+        "maximum": 0,
+        "average": 0,
+        "resourceId": "/SUBSCRIPTIONS/F3101802-8C4F-4E6E-819C-A3B5794D33DD/RESOURCEGROUPS/KEDAMARI/PROVIDERS/MICROSOFT.KUSTO/CLUSTERS/KEREN",
+        "time": "2018-12-20T17:00:00.0000000Z",
+        "metricName": "QueryDuration",
+        "timeGrain": "PT1M"
+    },
+    {
+        "count": 12,
+        "total": 0,
+        "minimum": 0,
+        "maximum": 0,
+        "average": 0,
+        "resourceId": "/SUBSCRIPTIONS/F3101802-8C4F-4E6E-819C-A3B5794D33DD/RESOURCEGROUPS/KEDAMARI/PROVIDERS/MICROSOFT.KUSTO/CLUSTERS/KEREN",
+        "time": "2018-12-21T17:00:00.0000000Z",
+        "metricName": "QueryDuration",
+        "timeGrain": "PT1M"
+    }
+    ]
 }
 ```
 
 ### <a name="activity-logs-example"></a>Exemple de journaux d’activité
 
-Les journaux d’activité Azure sont des journaux de niveau abonnement qui contiennent une collection d’enregistrements. Les journaux fournissent un insight à propos des opérations effectuées sur les ressources de votre abonnement. Contrairement aux journaux de diagnostic, un événement d’un journal d’activité comporte un tableau d’enregistrements. Nous allons devoir diviser ce tableau d’enregistrements plus tard dans le tutoriel. Voici un exemple d’événement de journal d’activité pour une opération de vérification d’accès :
+Les journaux d’activité Azure sont des journaux de niveau d’abonnement qui fournissent un insight des opérations effectuées sur les ressources de votre abonnement. Voici un exemple d’événement de journal d’activité pour une opération de vérification d’accès :
 
 ```json
 {
@@ -129,6 +144,8 @@ Dans votre base de données Azure Data Explorer *TestDatabase*, sélectionnez **
 
 ### <a name="create-the-target-tables"></a>Créer les tables cibles
 
+Les journaux Azure Monitor n’ont pas une structure tabulaire. Vous allez manipuler les données et développer chaque événement vers un ou plusieurs enregistrements. Les données brutes seront ingérées dans une table intermédiaire nommée *ActivityLogsRawRecords* pour les journaux d’activité ou *DiagnosticLogsRawRecords* pour les journaux de diagnostic. À ce moment-là, les données vont être manipulées et développées. À l’aide d’une stratégie de mise à jour, les données étendues seront ensuite ingérées dans une table *ActivityLogsRecords* pour les journaux d’activité ou une table *DiagnosticLogsRecords* pour les journaux de diagnostic. Vous devez donc créer deux tables distinctes pour l’ingestion des journaux d’activité et deux tables distinctes pour l’ingestion des journaux de diagnostic.
+
 Utilisez l’interface utilisateur web d’Azure Data Explorer pour créer les tables cibles dans la base de données Azure Data Explorer.
 
 #### <a name="the-diagnostic-logs-table"></a>La table des journaux de diagnostic
@@ -143,9 +160,13 @@ Utilisez l’interface utilisateur web d’Azure Data Explorer pour créer les t
 
     ![Exécuter une requête](media/ingest-data-no-code/run-query.png)
 
-#### <a name="the-activity-logs-tables"></a>Les tables des journaux d’activité
+1. Créez la table de données intermédiaire nommée *DiagnosticLogsRawRecords* dans la base de données *TestDatabase* pour la manipulation des données à l’aide de la requête suivante. Sélectionnez **Exécuter** pour créer la table.
 
-La structure des journaux d’activité n’étant pas tabulaire, vous devez manipuler les données et développer chaque événement en un ou plusieurs enregistrements. Les données brutes vont être ingérées dans une table intermédiaire nommée *ActivityLogsRawRecords*. À ce moment-là, les données vont être manipulées et développées. Les données développées vont ensuite être ingérées dans la table *ActivityLogsRecords* à l’aide d’une stratégie de mise à jour. Cela signifie que vous devez créer deux tables distinctes pour l’ingestion des journaux d’activité.
+    ```kusto
+    .create table DiagnosticLogsRawRecords (Records:dynamic)
+    ```
+
+#### <a name="the-activity-logs-tables"></a>Les tables des journaux d’activité
 
 1. Créez une table nommée *ActivityLogsRecords* dans la base de données *TestDatabase* pour recevoir les enregistrements des journaux d’activité. Pour créer la table, exécutez la requête Azure Data Explorer suivante :
 
@@ -174,7 +195,7 @@ La structure des journaux d’activité n’étant pas tabulaire, vous devez man
 Pour mapper les données des journaux de diagnostic à la table, utilisez la requête suivante :
 
 ```kusto
-.create table DiagnosticLogsRecords ingestion json mapping 'DiagnosticLogsRecordsMapping' '[{"column":"Timestamp","path":"$.time"},{"column":"ResourceId","path":"$.resourceId"},{"column":"MetricName","path":"$.metricName"},{"column":"Count","path":"$.count"},{"column":"Total","path":"$.total"},{"column":"Minimum","path":"$.minimum"},{"column":"Maximum","path":"$.maximum"},{"column":"Average","path":"$.average"},{"column":"TimeGrain","path":"$.timeGrain"}]'
+.create table DiagnosticLogsRawRecords ingestion json mapping 'DiagnosticLogsRawRecordsMapping' '[{"column":"Records","path":"$.records"}]'
 ```
 
 #### <a name="table-mapping-for-activity-logs"></a>Mappage de table pour les journaux d’activité
@@ -185,9 +206,11 @@ Pour mapper les données des journaux d’activité à la table, utilisez la req
 .create table ActivityLogsRawRecords ingestion json mapping 'ActivityLogsRawRecordsMapping' '[{"column":"Records","path":"$.records"}]'
 ```
 
-### <a name="create-the-update-policy-for-activity-logs-data"></a>Créer la stratégie de mise à jour pour les données des journaux d’activité
+### <a name="create-the-update-policy-for-log-data"></a>Créer la stratégie de mise à jour pour les données des journaux
 
-1. Créez une [fonction](/azure/kusto/management/functions) qui développe la collection d’enregistrements pour que chaque valeur de la collection reçoive une ligne distincte. Utilisez l’opérateur [`mvexpand`](/azure/kusto/query/mvexpandoperator) :
+#### <a name="activity-log-data-update-policy"></a>Stratégie de mise à jour des données des journaux d’activité
+
+1. Créez une [fonction](/azure/kusto/management/functions) qui développe la collection des enregistrements de journaux d’activité pour que chaque valeur de la collection reçoive une ligne distincte. Utilisez l’opérateur [`mvexpand`](/azure/kusto/query/mvexpandoperator) :
 
     ```kusto
     .create function ActivityLogRecordsExpand() {
@@ -212,6 +235,32 @@ Pour mapper les données des journaux d’activité à la table, utilisez la req
 
     ```kusto
     .alter table ActivityLogsRecords policy update @'[{"Source": "ActivityLogsRawRecords", "Query": "ActivityLogRecordsExpand()", "IsEnabled": "True"}]'
+    ```
+
+#### <a name="diagnostic-log-data-update-policy"></a>Stratégie de mise à jour des données des journaux de diagnostic
+
+1. Créez une [fonction](/azure/kusto/management/functions) qui développe la collection des enregistrements de journaux de diagnostic pour que chaque valeur de la collection reçoive une ligne distincte. Utilisez l’opérateur [`mvexpand`](/azure/kusto/query/mvexpandoperator) :
+     ```kusto
+    .create function DiagnosticLogRecordsExpand() {
+        DiagnosticLogsRawRecords
+        | mvexpand events = Records
+        | project
+            Timestamp = todatetime(events["time"]),
+            ResourceId = tostring(events["resourceId"]),
+            MetricName = tostring(events["metricName"]),
+            Count = toint(events["count"]),
+            Total = todouble(events["total"]),
+            Minimum = todouble(events["minimum"]),
+            Maximum = todouble(events["maximum"]),
+            Average = todouble(events["average"]),
+            TimeGrain = tostring(events["timeGrain"])
+    }
+    ```
+
+2. Ajoutez la [stratégie de mise à jour](/azure/kusto/concepts/updatepolicy) à la table cible. Cette stratégie exécute automatiquement la requête sur toutes les nouvelles données ingérées dans la table de données intermédiaire *DiagnosticLogsRawRecords*, et ingère ses résultats dans la table *DiagnosticLogsRecords* :
+
+    ```kusto
+    .alter table DiagnosticLogsRecords policy update @'[{"Source": "DiagnosticLogsRawRecords", "Query": "DiagnosticLogRecordsExpand()", "IsEnabled": "True"}]'
     ```
 
 ## <a name="create-an-azure-event-hubs-namespace"></a>Créer un espace de noms Azure Event Hubs
@@ -252,12 +301,12 @@ Sélectionnez une ressource à partir de laquelle exporter les métriques. Plusi
     ![Paramètres de diagnostic](media/ingest-data-no-code/diagnostic-settings.png)
 
 1. Le volet **Paramètres de diagnostic** s’ouvre. Procédez comme suit :
-    1. Donnez à vos données de journaux de diagnostic le nom *ADXExportedData*.
-    1. Sous **MÉTRIQUE**, cochez la case **AllMetrics** (facultatif).
-    1. Cochez la case **Diffuser vers Event Hub**.
-    1. Sélectionnez **Configurer**.
+   1. Donnez à vos données de journaux de diagnostic le nom *ADXExportedData*.
+   1. Sous **MÉTRIQUE**, cochez la case **AllMetrics** (facultatif).
+   1. Cochez la case **Diffuser vers Event Hub**.
+   1. Sélectionnez **Configurer**.
 
-    ![Volet Paramètres de diagnostic](media/ingest-data-no-code/diagnostic-settings-window.png)
+      ![Volet Paramètres de diagnostic](media/ingest-data-no-code/diagnostic-settings-window.png)
 
 1. Dans le volet **Sélectionner un hub d’événements** , configurez la façon d’exporter des données de journaux de diagnostic vers le hub d’événements que vous avez créé :
     1. Dans la liste **Sélectionner l’espace de noms de Event Hub**, sélectionnez *AzureMonitoringData*.
@@ -330,7 +379,7 @@ Vous devez maintenant créer les connexions de données pour vos journaux de dia
 
      **Paramètre** | **Valeur suggérée** | **Description du champ**
     |---|---|---|
-    | **Table** | *DiagnosticLogsRecords* | Table que vous avez créée dans la base de données *TestDatabase*. |
+    | **Table** | *DiagnosticLogsRawRecords* | Table que vous avez créée dans la base de données *TestDatabase*. |
     | **Format de données** | *JSON* | Format utilisé dans la table. |
     | **Mappage de colonnes** | *DiagnosticLogsRecordsMapping* | Mappage que vous avez créé dans la base de données *TestDatabase*. Il mappe les données JSON entrantes aux noms de colonnes et aux types de données de la table *DiagnosticLogsRecords*.|
     | | |
@@ -400,6 +449,7 @@ ActivityLogsRecords
 ```
 
 Résultats de la requête :
+
 |   |   |
 | --- | --- |
 |   |  avg(DurationMs) |

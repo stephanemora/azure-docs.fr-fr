@@ -4,7 +4,7 @@ description: Découvrez comment un processus .NET Core peut obtenir un jeton d�
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 1/11/2019
+ms.date: 03/20/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27cc0334e8332e3bc09ae4302e0b0efdda8067f1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5c63269630d0ed74d1b17edbc5cb9e787499604e
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194442"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200513"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>Démarrage rapide : acquérir un jeton et appeler l’API Microsoft Graph à partir d’une application console à l’aide de l’identité de l’application
 
@@ -30,7 +30,7 @@ ms.locfileid: "56194442"
 
 Dans ce guide de démarrage rapide, vous allez découvrir comment écrire une application .NET Core qui obtient un jeton d’accès à l’aide de l’identité de l’application, puis qui appelle l’API Microsoft Graph pour afficher une [liste des utilisateurs](https://docs.microsoft.com/graph/api/user-list) dans l’annuaire. Ce scénario est utile dans les situations où un travail sans périphérique de contrôle et sans assistance ou un service Windows doit s’exécuter avec une identité d’application au lieu d’une identité d’utilisateur.
 
-![Fonctionnement de l’exemple d’application généré par ce démarrage rapide](media/quickstart-v2-netcore-daemon/netcore-daemon-intro.png)
+![Fonctionnement de l’exemple d’application généré par ce guide de démarrage rapide](media/quickstart-v2-netcore-daemon/netcore-daemon-intro-updated.png)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -198,7 +198,7 @@ var app = new ConfidentialClientApplication(
 > |---------|---------|
 > | `secret` | Est le secret client créé pour l’application dans le portail Azure. |
 > | `clientId` | Est l’**ID d’application (client)** de l’application inscrite dans le portail Azure. Vous pouvez retrouver cette valeur dans la page **Vue d’ensemble** de l’application dans le portail Azure. |
-> | `Authority`    | (Facultatif) Point de terminaison STS pour l’utilisateur à authentifier. Généralement https://login.microsoftonline.com/{tenant} pour un cloud public, où {tenant} est le nom ou l’ID de votre locataire.|
+> | `Authority`    | (Facultatif) Point de terminaison STS pour l’utilisateur à authentifier. Généralement <https://login.microsoftonline.com/{tenant}> pour un cloud public, où {tenant} est le nom ou l’ID de votre locataire.|
 > | `redirectUri`  | URL vers laquelle les utilisateurs sont envoyés après l’authentification. Dans ce cas, ce paramètre n’est pas utilisé, car il s’agit d’une application console/non interactive |
 > | `clientCredentials`  | Objet des informations d’identification du client, qui contient le secret ou le certificat |
 > | `userTokenCache`  | Instance d’un cache de jeton pour l’utilisateur. Dans ce cas, cette valeur est Null, car l’application s’exécute dans le contexte de l’application et non de l’utilisateur|

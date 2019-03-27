@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 02/22/2010
 ms.author: jeffgilb
 ms.reviewer: anwestg
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: 0ac20ee9f6197a8322bb741020aee813c690847e
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 839fa7fe8374f1f85b019178d4c3fe53f7137372
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445881"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729642"
 ---
 # <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>App Service sur Azure Stack : Ajouter des rôles d'infrastructure ou de travail
 
@@ -37,11 +37,6 @@ App Service sur Azure Stack, par défaut, prend en charge les niveaux Worker gra
 Si vous n’êtes pas sûr de ce qui a été déployé avec l’installation App Service sur Azure Stack par défaut, vous pouvez consulter des informations supplémentaires dans la [vue d’ensemble d’App Service sur Azure Stack](azure-stack-app-service-overview.md).
 
 Azure App Service sur Azure Stack déploie tous les rôles à l’aide de groupes de machines virtuelles identiques et en tant que tel tire parti des fonctionnalités de mise à l’échelle de cette charge de travail. Par conséquent, toute la mise à l’échelle des niveaux Worker s’effectue via l’administrateur App Service.
-
-> [!IMPORTANT]
-> Actuellement, il n’est pas possible de mettre à l’échelle des jeux des groupes identiques de machines virtuelles dans le portail comme identifié dans les notes de publication Azure Stack. Par conséquent, utilisez l’exemple PowerShell pour effectuer une montée en puissance.
->
->
 
 ## <a name="add-additional-workers-with-powershell"></a>Ajouter des Workers supplémentaires avec PowerShell
 
@@ -80,7 +75,7 @@ Azure App Service sur Azure Stack déploie tous les rôles à l’aide de groupe
 
 3. Surveillez l’état des nouvelles instances de rôle dans l’administration App Service. Pour vérifier l’état d’une instance de rôle individuel, cliquez sur le type de rôle dans la liste.
 
-## <a name="add-additional-workers-directly-within-the-app-service-resource-provider-admin"></a>Ajouter des Workers supplémentaires directement à partir de l’administrateur du fournisseur de ressources App Service.
+## <a name="add-additional-workers-using-the-administration-portal"></a>Ajouter des workers supplémentaires à l’aide du portail d’administration
 
 1. Connectez-vous au portail d’administration Azure Stack en tant qu’administrateur du service.
 

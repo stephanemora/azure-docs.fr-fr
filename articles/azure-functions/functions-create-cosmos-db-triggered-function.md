@@ -6,18 +6,18 @@ documentationcenter: na
 author: ggailey777
 manager: jeconnoc
 ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
-ms.service: azure-functions; cosmos-db
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: e08d76199817dfe15ba190d2deedf450c986c65a
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 941a35084ba811e3bf9224087336db9abbd5b5d5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904282"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58137842"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Créer une fonction déclenchée par Azure Cosmos DB
 
@@ -60,7 +60,7 @@ Créez ensuite une fonction dans la nouvelle Function App.
 
 1. Dans le champ Rechercher, tapez `cosmos`, puis choisissez le modèle **Déclencheur Azure Cosmos DB**.
 
-1. Si vous y êtes invité, sélectionnez **Installer** pour installer l’extension Stockage Azure et toutes les dépendances dans l’application de fonction. Une fois l’installation réussie, sélectionnez **Continuer**.
+1. Si vous y êtes invité, sélectionnez **Installer** pour installer l’extension Azure Cosmos DB dans l’application de fonction. Une fois l’installation réussie, sélectionnez **Continuer**.
 
     ![Installer des extensions de liaison](./media/functions-create-cosmos-db-triggered-function/functions-create-cosmos-db-trigger-portal.png)
 

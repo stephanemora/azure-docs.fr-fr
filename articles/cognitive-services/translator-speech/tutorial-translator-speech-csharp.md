@@ -11,14 +11,14 @@ ms.topic: tutorial
 ms.date: 3/5/2018
 ms.author: v-jerkin
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a3ed13cfe764c4f94dfa50fd096cfc7a8ac7656d
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 81ee3c7da43aa4d81838c90f4e8f41d114da72b5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673749"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57900826"
 ---
-# <a name="tutorial-translator-speech-application-in-c"></a>Didacticiel : Application de traduction de conversation Translator Speech en C#
+# <a name="tutorial-translator-speech-application-in-c"></a>Tutoriel : Application de traduction de conversation Translator Speech en C#
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
@@ -40,7 +40,7 @@ La solution Visual Studio génère également un programme d’installation pour
 
 Vous avez également besoin d’une clé d’abonnement pour le service Translator Speech, que vous pouvez obtenir à partir du tableau de bord Microsoft Azure. Un niveau tarifaire gratuit est disponible : il vous permet de traduire jusqu’à 10 heures de conversation par mois sans aucun frais. Ce niveau est suffisant pour ce didacticiel.
 
-La [bibliothèque tierce JSON.Net](https://www.newtonsoft.com/json) (de Newtonsoft) est également requise. Cet assembly est installé automatiquement par NuGet si les deux cases à cocher Restauration du package sont activées dans les options de Visual Studio.
+La [bibliothèque JSON.NET](https://www.newtonsoft.com/json) tierce (de Newtonsoft) est également nécessaire. Cet assembly est installé automatiquement par NuGet si les deux cases à cocher Restauration du package sont activées dans les options de Visual Studio.
 
 ## <a name="trying-the-translation-app"></a>Essai de l’application de traduction
 

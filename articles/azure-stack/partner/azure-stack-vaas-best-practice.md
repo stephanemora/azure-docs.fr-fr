@@ -1,6 +1,6 @@
 ---
 title: Meilleures pratiques de Validation Azure Stack | Microsoft Docs
-description: Cet article présente les meilleures pratiques concernant la validation en tant que service.
+description: Cet article traite des meilleures pratiques concernant la validation en tant que service.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2fa0912d120760ddba3b3d21f718e214e9d7c26b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 30b7a5327a709fb35c3c3360f4bb0246e9a5f75f
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238922"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57771223"
 ---
 # <a name="best-practices-for-validation-as-a-service"></a>Meilleures pratiques concernant la validation en tant que service
 
@@ -46,7 +46,7 @@ Utilisez une même solution VaaS lors de l’exécution de flux de travail sur u
 
 ### <a name="naming-convention-for-vaas-workflows"></a>Convention d’affectation de noms pour les flux de travail VaaS
 
-Utilisez une convention d’affectation de noms cohérente pour toutes les exécutions de flux de travail VaaS. Par exemple, la construction présente un nom de flux de travail déduit des propriétés de build ci-dessous, comme suit :
+Utilisez une convention d’affectation de noms cohérente pour toutes les exécutions de flux de travail VaaS. Par exemple, créez un nom de flux de travail à partir des propriétés de build ci-dessous, comme suit :
 
 |Numéro de build (majeur) | Date | Taille de la solution | Nom du flux de travail
 |---|---|---| ---|

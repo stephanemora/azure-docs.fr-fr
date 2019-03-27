@@ -5,23 +5,18 @@ author: stephbaron
 layout: LandingPage
 ms.service: service-health
 ms.topic: landing-page
-ms.date: 03/27/2018
+ms.date: 03/4/2019
 ms.author: stbaron
-ms.openlocfilehash: d8d922dd16cb00b5e3a682dc491af6b59f8476f2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881925"
 ---
 # <a name="azure-service-health-documentation"></a>Documentation Azure Service Health
 
-Azure Service Health est une suite d’expériences qui fournit des conseils et un support personnalisés lorsque vous rencontrez des problèmes dans les services Azure. Il peut vous avertir, vous aider à comprendre l’impact des problèmes et vous tenir informer de la résolution du problème. Il peut également vous aider à préparer une maintenance planifiée et des modifications pouvant avoir une incidence sur la disponibilité de vos ressources.
+Azure offre une suite d’expériences vous permettant de rester informé de l’état d’intégrité de vos ressources cloud, notamment des problèmes actuels et à venir, tels que les événements impactant les services, les maintenances planifiées et autres changements susceptibles d’affecter votre disponibilité.
 
-Azure Service Health est composé de :
- 1. **Azure Status** -une vue globale de l’intégrité des services Azure
- 2. **Service Health** - une vue personnalisée de l’intégrité de vos services Azure
- 3. **Resource Health** - une vue plus approfondie de l’intégrité des ressources individuelles configurées pour vous par vos services Azure
+Vous connaissez peut-être la **[page État d’Azure](https://status.azure.com)**, qui offre une vue globale de l’intégrité de tous les services Azure, dans toutes les régions Azure. Cette page constitue une bonne référence pour les incidents ayant un large impact. Toutefois, il est fortement recommandé aux utilisateurs Azure d’utiliser **Azure Service Health** pour rester informés des incidents et de la maintenance concernant les services Azure.
+
+**[Azure Service Health](service-health-overview.md)** fournit une vue personnalisée de l’intégrité de vos services et régions Azure. Il s’agit de l’emplacement idéal pour rechercher des informations relatives aux pannes ou aux activités de maintenance planifiée pouvant impacter les services, et autres avis d’intégrité, puisqu’Azure Service Health connaît les services et les ressources que vous utilisez actuellement. Le meilleur moyen d’utiliser Service Health est de configurer des alertes pour recevoir, par le biais de vos canaux de communication préférés, des notifications vous informant des problèmes affectant les services, des maintenances planifiées et autres changements pouvant impacter les services et régions Azure que vous utilisez.
+
+**[Azure Resource Health](resource-health-overview.md)** fournit des informations sur l’intégrité de vos ressources cloud, telles qu’une instance de machine virtuelle. Avec Azure Monitor, vous pouvez également configurer des alertes pour être averti des changements de disponibilité affectant vos ressources cloud. Azure Resource Health et les notifications Azure Monitor vous permettent d’être mieux informé de la disponibilité de vos ressources à chaque minute. En outre, ils vous permettent de déterminer rapidement si un problème vient de vous ou s’il est lié à un événement de plateforme Azure.
 
 Ensemble, ces expériences vous donnent une vue complète de l’intégrité d’Azure, avec la granularité la plus appropriée pour vous.
 

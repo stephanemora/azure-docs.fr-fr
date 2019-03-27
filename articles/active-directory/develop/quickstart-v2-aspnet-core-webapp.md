@@ -4,7 +4,7 @@ description: Découvrez comment implémenter la connexion Microsoft sur une appl
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2018
+ms.date: 03/20/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35cf4fbe17df05b6d55f3ce309ff8cecbb47d455
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fed62dfc3f7e7dc974fb709261e363f26ce97c51
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204710"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200988"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Démarrage rapide : Ajouter la connexion avec Microsoft à une application web ASP.NET Core
 
@@ -30,8 +30,7 @@ ms.locfileid: "56204710"
 
 Dans ce guide de démarrage rapide, vous allez découvrir comment une application web ASP.NET Core peut connecter des comptes personnels (hotmail.com, outlook.com, etc.) et des comptes professionnels et scolaires à partir de n’importe quelle instance Azure Active Directory (Azure AD).
 
-![Fonctionnement de l’exemple d’application généré par ce démarrage rapide](media/quickstart-v2-aspnet-core-webapp/aspnetcorewebapp-intro.png)
-
+![Fonctionnement de l’exemple d’application généré par ce guide de démarrage rapide](media/quickstart-v2-aspnet-core-webapp/aspnetcorewebapp-intro-updated.png)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Inscrire et télécharger votre application de démarrage rapide
@@ -143,7 +142,7 @@ La ligne contenant `.AddAzureAd` ajoute l’authentification Azure AD à votre a
 > |Where  |  |
 > |---------|---------|
 > | ClientId  | ID d’application (client) de l’application inscrite dans le portail Azure. |
-> | Authority | Point de terminaison STS pour l’utilisateur à authentifier. Généralement, il s’agit de https://login.microsoftonline.com/{tenant}/v2.0 pour le cloud public, où {tenant} est le nom de votre locataire ou l’ID de votre locataire, ou *common* pour une référence au point de terminaison commun (utilisé pour les applications multilocataires). |
+> | Authority | Point de terminaison STS pour l’utilisateur à authentifier. Généralement, il s’agit de <https://login.microsoftonline.com/{tenant}/v2.0> pour le cloud public, où {tenant} est le nom de votre locataire ou l’ID de votre locataire, ou *common* pour une référence au point de terminaison commun (utilisé pour les applications multilocataires). |
 > | TokenValidationParameters | Liste de paramètres pour la validation du jeton. Dans ce cas, `ValidateIssuer` a la valeur `false` pour indiquer qu’il peut accepter des connexions à partir de n’importe quel compte personnel, professionnel ou scolaire. |
 
 ### <a name="protect-a-controller-or-a-controllers-method"></a>Protéger un contrôleur ou la méthode d’un contrôleur

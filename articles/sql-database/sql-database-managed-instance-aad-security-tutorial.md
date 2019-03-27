@@ -10,14 +10,14 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/20/2019
-ms.openlocfilehash: 39877e01eb8b9690dc1ac7b1dbb79bab450814c4
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 7511b85384c2c64c823d93df4369b0fea3e64b51
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456926"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226213"
 ---
-# <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>Tutoriel : Sécurité des instances managées dans Azure SQL Database à l’aide de principaux de serveur (connexions) Azure AD
+# <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>Didacticiel : Sécurité des instances managées dans Azure SQL Database à l’aide de principaux de serveur (connexions) Azure AD
 
 Une instance managée offre quasiment toutes les fonctionnalités de sécurité du dernier moteur de base de données SQL Server (Édition Entreprise) local :
 
@@ -148,13 +148,13 @@ Une fois le principal de serveur (connexion) Azure AD créé et doté des privi
 
 1. Connectez-vous à l’instance managée avec le principal de serveur (connexion) Azure AD, à l’aide de SQL Server Management Studio. Entrez le nom d’hôte de votre instance managée. Pour l’authentification dans SSMS, vous avez le choix entre trois options quand vous vous connectez avec un compte Azure AD :
 
-    - Active Directory - Authentification universelle avec MFA
-    - Active Directory - Authentification par mot de passe
-    - Active Directory - Authentification intégrée </br>
+   - Active Directory - Authentification universelle avec MFA
+   - Active Directory - Authentification par mot de passe
+   - Active Directory - Authentification intégrée </br>
 
-    ![ssms-login-prompt.png](media/sql-database-managed-instance-security-tutorial/ssms-login-prompt.png)
+     ![ssms-login-prompt.png](media/sql-database-managed-instance-security-tutorial/ssms-login-prompt.png)
 
-    Pour plus d’informations, consultez l’article suivant : [Authentification universelle avec SQL Database et SQL Data Warehouse (prise en charge de SSMS pour MFA)](sql-database-ssms-mfa-authentication.md)
+     Pour plus d’informations, consultez l’article suivant : [Authentification universelle avec SQL Database et SQL Data Warehouse (prise en charge de SSMS pour MFA)](sql-database-ssms-mfa-authentication.md)
 
 1. Sélectionnez **Active Directory - Authentification universelle avec MFA**. Cela entraîne l’ouverture de la fenêtre de connexion MFA (Multi-Factor Authentication). Connectez-vous avec votre mot de passe Azure AD.
 
@@ -207,10 +207,10 @@ Une fois le principal de serveur (connexion) Azure AD créé et doté des privi
 1. Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur le serveur, puis choisissez **Nouvelle requête** pour la nouvelle connexion.
 1. Consultez les autorisations du serveur pour le principal de serveur (connexion) Azure AD créé en exécutant la commande suivante :
 
-    ```sql
-    SELECT * FROM sys.fn_my_permissions (NULL, 'DATABASE')
-    GO
-    ```
+      ```sql
+      SELECT * FROM sys.fn_my_permissions (NULL, 'DATABASE')
+      GO
+      ```
 
 > [!NOTE]
 > Les utilisateurs invités Azure AD sont pris en charge pour les connexions d’instances managée uniquement quand ils sont ajoutés en tant que membres d’un groupe Azure AD. Un utilisateur invité Azure AD est un compte invité dans le domaine Azure AD auquel appartient l’instance managée, à partir d’un autre domaine Azure AD. Par exemple, joe@contoso.com (compte Azure AD) ou steve@outlook.com (compte MSA) peuvent être ajoutés à un groupe dans le domaine Azure AD aadsqlmi. Une fois les utilisateurs ajoutés à un groupe, vous pouvez créer une connexion dans la base de données **MASTER** de l’instance managée pour le groupe à l’aide de la syntaxe **CREATE LOGIN**. Les utilisateurs invités membres de ce groupe peuvent se connecter à l’instance managée à l’aide de leurs connexions actuelles (par exemple joe@contoso.com ou steve@outlook.com).
@@ -360,7 +360,7 @@ Une instance managée prend en charge l’emprunt d’identité des principaux a
     GO
     ```
 
-1. Utilisez la commande suivante pour voir que l’utilisateur dont vous empruntez l’identité durant l’exécution de la procédure stockée est **bob@aadsqlmi.net**.
+1. Utilisez la commande suivante pour voir que l’utilisateur dont vous empruntez l’identité durant l’exécution de la procédure stockée est **bob\@aadsqlmi.net**.
 
     ```sql
     Exec dbo.usp_Demo

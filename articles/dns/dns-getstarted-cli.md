@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: quickstart
-ms.date: 12/4/2018
+ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: e61975d81fd5920feb5fd47845c67d0aa5293ae6
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 7a2c300e30050e7e46a2b2c724258539df85e410
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962009"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093420"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-cli"></a>Démarrage rapide : Créer un enregistrement et une zone Azure DNS avec Azure CLI
 
@@ -38,20 +38,20 @@ az group create --name MyResourceGroup --location "East US"
 
 Une zone DNS est créée à l'aide de la commande `az network dns zone create`. Pour consulter l’aide de cette commande, tapez `az network dns zone create -h`.
 
-L’exemple ci-dessous crée une zone DNS appelée *contoso.com* dans le groupe de ressources *MyResourceGroup*. Utilisez l’exemple pour créer une zone DNS, en remplaçant les valeurs indiquées par vos propres valeurs.
+L’exemple ci-dessous crée une zone DNS appelée *contoso.xyz* dans le groupe de ressources *MyResourceGroup*. Utilisez l’exemple pour créer une zone DNS, en remplaçant les valeurs indiquées par vos propres valeurs.
 
 ```azurecli
-az network dns zone create -g MyResourceGroup -n contoso.com
+az network dns zone create -g MyResourceGroup -n contoso.xyz
 ```
 
 ## <a name="create-a-dns-record"></a>Créer un enregistrement DNS
 
 Pour créer un enregistrement DNS, utilisez la commande `az network dns record-set [record type] add-record`. Pour obtenir de l’aide sur les enregistrements A, consultez `azure network dns record-set A add-record -h`.
 
-L’exemple suivant crée un enregistrement avec le nom relatif « www » dans la zone DNS « contoso.com », dans le groupe de ressources « MyResourceGroup ». Le nom complet du jeu d’enregistrements est « www.contoso.com ». Le type d’enregistrement est « A », avec l’adresse IP « 1.2.3.4 », et une durée de vie par défaut de 3 600 secondes (1 heure).
+L’exemple suivant crée un enregistrement avec le nom relatif « www » dans la zone DNS « contoso.xyz », dans le groupe de ressources « MyResourceGroup ». Le nom complet du jeu d’enregistrements est « www.contoso.xzy ». Le type d’enregistrement est « A », avec l’adresse IP « 10.10.10.10 » et une durée de vie (TTL) par défaut de 3 600 secondes (1 heure).
 
 ```azurecli
-az network dns record-set a add-record -g MyResourceGroup -z contoso.com -n www -a 1.2.3.4
+az network dns record-set a add-record -g MyResourceGroup -z contoso.xyz -n www -a 10.10.10.10
 ```
 
 ## <a name="view-records"></a>Affichage des enregistrements
@@ -59,41 +59,43 @@ az network dns record-set a add-record -g MyResourceGroup -z contoso.com -n www 
 Pour répertorier les enregistrements DNS dans votre zone, utilisez :
 
 ```azurecli
-az network dns record-set list -g MyResourceGroup -z contoso.com
+az network dns record-set list -g MyResourceGroup -z contoso.xyz
 ```
 
-## <a name="update-name-servers"></a>Mettre à jour les serveurs de noms
+## <a name="test-the-name-resolution"></a>Tester la résolution de nom
 
-Une fois que vous jugez que votre zone et vos enregistrements DNS ont été configurés correctement, vous devez configurer votre nom de domaine pour utiliser les serveurs de noms de domaine Azure DNS, ce qui permet aux autres utilisateurs sur Internet de rechercher vos enregistrements DNS.
+Maintenant que vous disposez d’une zone DNS test avec un enregistrement « A » test, vous pouvez tester la résolution de noms avec un outil appelé *nslookup*. 
 
-Les serveurs de noms de votre zone sont indiqués par la commande `az network dns zone show`. Pour afficher les noms de serveurs de noms, utilisez la sortie JSON, comme indiqué dans l’exemple suivant.
+**Pour tester la résolution de noms DNS**
 
-```azurecli
-az network dns zone show -g MyResourceGroup -n contoso.com -o json
+1. Exécutez l’applet de commande suivante pour obtenir la liste des serveurs de noms pour votre zone :
 
-{
-  "etag": "00000003-0000-0000-b40d-0996b97ed101",
-  "id": "/subscriptions/a385a691-bd93-41b0-8084-8213ebc5bff7/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com",
-  "location": "global",
-  "maxNumberOfRecordSets": 5000,
-  "name": "contoso.com",
-  "nameServers": [
-    "ns1-01.azure-dns.com.",
-    "ns2-01.azure-dns.net.",
-    "ns3-01.azure-dns.org.",
-    "ns4-01.azure-dns.info."
-  ],
-  "numberOfRecordSets": 3,
-  "resourceGroup": "myresourcegroup",
-  "tags": {},
-  "type": "Microsoft.Network/dnszones"
-}
-```
+   ```azurecli
+   az network dns record-set ns show --resource-group MyResourceGroup --zone-name contoso.xyz --name @
+   ```
 
-Ces serveurs de noms doivent être configurés avec le bureau d’enregistrement de noms de domaine (dans lequel vous avez acheté le nom de domaine). Votre bureau d’enregistrement offre la possibilité de configurer les serveurs de noms pour le domaine. Pour plus d’informations, consultez [Tutoriel : Héberger votre domaine dans Azure DNS](dns-delegate-domain-azure-dns.md#delegate-the-domain).
+1. Copiez un des noms de serveur de noms à partir de la sortie de l’étape précédente.
+
+1. Ouvrez une invite de commandes et exécutez la commande suivante :
+
+   ```
+   nslookup www.contoso.xyz <name server name>
+   ```
+
+   Par exemple : 
+
+   ```
+   nslookup www.contoso.xyz ns1-08.azure-dns.com.
+   ```
+
+   Un écran similaire à celui-ci doit s’afficher :
+
+   ![nslookup](media/dns-getstarted-portal/nslookup.PNG)
+
+Le nom d’hôte **www\.contoso.xyz** se résout en **10.10.10.10**, tel que vous l’avez configuré. Ce résultat confirme que la résolution de noms fonctionne correctement.
 
 ## <a name="delete-all-resources"></a>Supprimer toutes les ressources
- 
+
 Lorsque vous n’en avez plus besoin, vous pouvez supprimer toutes les ressources créées dans ce démarrage rapide en supprimant le groupe de ressources :
 
 ```azurecli

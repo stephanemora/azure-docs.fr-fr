@@ -9,14 +9,15 @@ ms.date: 07/02/2018
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb01ae6514dfb97cc8a923619513383ace0b09a5
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: f4935cc15bf3edeccd6b6ce9da701904a32606db
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669973"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295026"
 ---
 # <a name="quickstart-add-guest-users-to-your-directory-in-the-azure-portal"></a>Démarrage rapide : Ajouter des utilisateurs invités à votre annuaire dans le portail Azure
 
@@ -39,15 +40,15 @@ Pour suivre le scénario décrit dans ce didacticiel, vous avez besoin de ce qui
 2. Sélectionnez **Azure Active Directory** dans le volet de gauche.
 3.  Sous **Gérer**, sélectionnez **Utilisateurs**.
 
-    ![Sélectionnez Azure Active Directory](media/quickstart-add-users-portal/quickstart-users-portal-user.png)
+    ![Capture d’écran montrant l’endroit où sélectionner l’option Utilisateurs](media/quickstart-add-users-portal/quickstart-users-portal-user.png)
 
 4.  Sélectionnez **Nouvel utilisateur invité**.
 
-    ![Sélectionnez Azure Active Directory](media/quickstart-add-users-portal/quickstart-users-portal-user-3.png)
+    ![Capture d’écran montrant l’endroit où sélectionner l’option Nouvel utilisateur invité](media/quickstart-add-users-portal/quickstart-users-portal-user-3.png)
 
 5.  Sous **Nom d’utilisateur**, entrez l’adresse e-mail de l’utilisateur externe. Sous **Inclure un message personnel dans l’invitation**, tapez un message de bienvenue. 
 
-    ![Sélectionnez Azure Active Directory](media/quickstart-add-users-portal/quickstart-users-portal-user-4.png)
+    ![Capture d’écran montrant l’endroit où entrer le message d’invitation adressé à l’utilisateur invité](media/quickstart-add-users-portal/quickstart-users-portal-user-4.png)
 
 6. Sélectionnez **Inviter** pour envoyer automatiquement l’invitation à l’utilisateur invité. Une notification s’affiche dans le coin supérieur droit avec le message **Utilisateur invité avec succès**. 
 7.  Après avoir envoyé l’invitation, le compte d’utilisateur est automatiquement ajouté au répertoire en tant qu’invité.
@@ -59,7 +60,7 @@ Ajoutez l’application Salesforce à votre locataire de test, puis affectez l�
 3.  Sélectionnez **Nouvelle application**.
 4. Sous **Ajouter à partir de la galerie**, recherchez **Salesforce**, puis sélectionnez-le.
 
-    ![Sélectionnez Azure Active Directory](media/quickstart-add-users-portal/quickstart-users-portal-select-salesforce.png)
+    ![Capture d’écran montrant la zone de recherche Ajouter à partir de la galerie](media/quickstart-add-users-portal/quickstart-users-portal-select-salesforce.png)
 5. Sélectionnez **Ajouter**.
 6. Sous **Gérer**, sélectionnez **Mode d’authentification unique**. Ensuite, sous **Mode d’authentification unique**, sélectionnez **Authentification par mot de passe**, puis cliquez sur **Enregistrer**.
 7. Sous **Gérer**, sélectionnez **Utilisateurs et groupes** > **Ajouter un utilisateur** > **Tous les groupes**.
@@ -71,11 +72,11 @@ Connectez-vous en tant qu’utilisateur invité pour voir l’invitation.
 1.  Connectez-vous au compte e-mail de l’utilisateur invité de test.
 2.  Dans votre boîte de réception, recherchez l’e-mail « Vous êtes invité ».
 
-    ![E-mail d’invitation B2B](media/quickstart-add-users-portal/quickstart-users-portal-email-small.png)
+    ![Capture d’écran montrant l’e-mail d’invitation B2B](media/quickstart-add-users-portal/quickstart-users-portal-email-small.png)
 
 3.  Dans le corps de l’e-mail, sélectionnez **Commencer**. La page **Révision des autorisations** s’ouvre dans le navigateur. 
 
-    ![Page d’acceptation de l’invitation B2B](media/quickstart-add-users-portal/quickstart-users-portal-accept.png)
+    ![Capture d’écran montrant la page Passer en revue les autorisations](media/quickstart-add-users-portal/quickstart-users-portal-accept.png)
 
 4. Sélectionnez **Accepter**. Le panneau d’accès s’ouvre et montre les applications auxquelles l’utilisateur invité peut accéder.
 

@@ -23,7 +23,7 @@ items:
       href: search-create-index-dotnet.md
     - name: 2 - Charger les données
       href: search-import-data-dotnet.md
-    - name: 3 - Rechercher dans un index
+    - name: 3 – Rechercher dans un index
       href: search-query-dotnet.md
   - name: postman
     href: search-fiddler.md
@@ -102,7 +102,7 @@ items:
         href: search-dotnet-mgmt-sdk-migration.md
     - name: Mettre à niveau l’API REST
       href: search-api-migration.md
-  - name: Concevoir des index
+  - name: Créer des index
     items:
     - name: Créer un index de base
       href: search-what-is-an-index.md
@@ -120,9 +120,7 @@ items:
       items:
       - name: Créer un suggesteur
         href: index-add-suggesters.md
-      - name: Exemple de suggestion automatique
-        href: search-autosuggest-example.md
-      - name: Exemple d’autocomplétion
+      - name: Exemples (suggestions, saisie semi-automatique)
         href: search-autocomplete-tutorial.md
     - name: Synonymes
       items:
@@ -172,7 +170,7 @@ items:
         href: search-indexer-field-mappings.md
       - name: Résolution des problèmes courants
         href: search-indexer-troubleshooting.md
-  - name: Indexation IA (recherche cognitive)
+  - name: Indexation à l’aide de l’intelligence artificielle (recherche cognitive)
     items:
     - name: Attacher une ressource Cognitive Services
       href: cognitive-search-attach-cognitive-services.md
@@ -202,9 +200,9 @@ items:
       href: query-simple-syntax.md
     - name: Syntaxe de requête complète Lucene
       href: query-lucene-syntax.md
-    - name: Exemples de requête (syntaxe simple)
+    - name: Exemples (syntaxe simple)
       href: search-query-simple-examples.md
-    - name: Exemples de requêtes (Lucene complète)
+    - name: Exemples (Lucene complète)
       href: search-query-lucene-examples.md
   - name: Gérez les résultats
     items:
@@ -309,9 +307,9 @@ items:
     href: https://azure.microsoft.com/pricing/details/search/
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=search
-ms.openlocfilehash: a126d909d90e70324a0f6038ddd89e4a619d0721
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 74d4c29b7a4c70116531ef242929571eee3e4d90
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437745"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500490"

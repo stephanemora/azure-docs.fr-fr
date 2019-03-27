@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 11/28/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: e34856704b474ac1b7d25d589be5f98be2b113cc
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 02f973af71f0ee7e1fd1bcf712a08e001ec41667
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671554"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224955"
 ---
-# <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Tutoriel : Mettre à niveau le runtime d’un cluster Service Fabric dans Azure
+# <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Didacticiel : Mettre à niveau le runtime d’un cluster Service Fabric dans Azure
 
-Ce didacticiel est la troisième partie d’une série de didacticiels et vous montre comment mettre à niveau le runtime Service Fabric sur un cluster Azure Service Fabric. Cette partie du didacticiel concerne les clusters Service Fabric s’exécutant sur Azure ; elle ne s’applique pas aux clusters Service Fabric autonomes.
+Ce didacticiel est la quatrième partie d’une série de didacticiels et vous montre comment mettre à niveau le runtime Service Fabric sur un cluster Azure Service Fabric. Cette partie du didacticiel concerne les clusters Service Fabric s’exécutant sur Azure ; elle ne s’applique pas aux clusters Service Fabric autonomes.
 
 > [!WARNING]
 > Cette partie du didacticiel nécessite PowerShell. Les outils Azure CLI n’assurent pas la prise en charge de la mise à niveau du runtime d’un cluster. Cependant, vous pouvez mettre à niveau un cluster dans le portail. Pour plus d’informations, consultez [Mettre à niveau un cluster Azure Service Fabric](service-fabric-cluster-upgrade.md).
@@ -40,6 +40,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 Cette série de tutoriels vous montre comment effectuer les opérations suivantes :
 > [!div class="checklist"]
 > * Créer un [cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) sécurisé sur Azure à l’aide d’un modèle
+> * [Superviser un cluster](service-fabric-tutorial-monitor-cluster.md)
 > * [Mettre à l’échelle un cluster](service-fabric-tutorial-scale-cluster.md)
 > * Mettre à niveau le runtime d’un cluster
 > * [Supprimer un cluster](service-fabric-tutorial-delete-cluster.md)

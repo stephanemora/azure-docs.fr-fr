@@ -15,12 +15,12 @@ ms.date: 01/16/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 23adf2903a50727d920e4a20b8a325313fa39e2a
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: dc146c6e8877a99570aab25d198ba365abbe7c86
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428005"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078174"
 ---
 # <a name="azure-stack-registration"></a>Inscription d’Azure Stack
 Vous pouvez inscrire le Kit de développement Azure Stack auprès d’Azure pour télécharger des éléments de la Place de marché à partir d’Azure et renvoyer des rapports de données commerciales à Microsoft. L’inscription est obligatoire pour prendre en charge les fonctionnalités complètes d’Azure Stack, notamment la syndication de la Place de marché. L'inscription est requise pour vous permettre de tester les fonctionnalités importantes d'Azure Stack, comme la syndication de marketplace et les rapports d'utilisation. Après avoir inscrit Azure Stack, l’utilisation est signalée à Azure Commerce. Vous pouvez la consulter sous l’abonnement utilisé pour l’inscription. Toutefois, l’utilisation du kit de développement Azure Stack n’est pas facturée à ses utilisateurs.
@@ -38,7 +38,7 @@ $ExecutionContext.SessionState.LanguageMode
 
 Vérifiez que la sortie retourne **FullLanguageMode**. Si tout autre mode de langage est retourné, vous devez exécuter l’inscription sur un autre ordinateur ou définir le mode de langage sur **FullLanguageMode** avant de continuer.
 
-Le compte Azure AD utilisé pour l'inscription doit avoir accès à l'abonnement Azure et disposer des autorisations nécessaires pour créer des applications avec une identité et des principaux de service dans le répertoire associé à cet abonnement. Nous vous recommandons d'inscrire Azure Stack auprès d'Azure à l'aide de l'administration des privilèges minimum en [créant un compte de service à utiliser pour l'inscription](..\azure-stack-registration-role.md) plutôt qu'en utilisant les informations d'identification de l'administrateur général.
+Le compte Azure AD utilisé pour l'inscription doit avoir accès à l'abonnement Azure et disposer des autorisations nécessaires pour créer des applications avec une identité et des principaux de service dans le répertoire associé à cet abonnement. Nous vous recommandons d'inscrire Azure Stack auprès d'Azure à l'aide de l'administration des privilèges minimum en [créant un compte de service à utiliser pour l'inscription](../azure-stack-registration-role.md) plutôt qu'en utilisant les informations d'identification de l'administrateur général.
 
 ## <a name="register-azure-stack-with-azure"></a>Inscrire Azure Stack auprès d’Azure
 Pour inscrire le kit ASDK auprès d’Azure, procédez aux étapes suivantes.
@@ -214,7 +214,7 @@ Vous pouvez utiliser la vignette **Gestion des régions** pour vérifier que l�
 
 2. Dans le tableau de bord, sélectionnez **Gestion des régions**.
 
-    [ ![Vignette Gestion des régions](media/asdk-register/admin1sm.png "Vignette Gestion des régions") ](media/asdk-register/admin1.png#lightbox)
+    [![Vignette Gestion des régions](media/asdk-register/admin1sm.png "Vignette Gestion des régions")](media/asdk-register/admin1.png#lightbox)
 
 3. Sélectionner **Propriétés**. Ce panneau affiche l’état et les détails de votre environnement. L’état peut être **Inscrit** ou **Non inscrit**. S’il est inscrit, il montre également l’ID d’abonnement Azure que vous avez utilisé pour inscrire votre instance Azure Stack ainsi que le groupe de ressources et le nom de l’inscription.
 

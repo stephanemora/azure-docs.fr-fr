@@ -5,20 +5,20 @@ author: tomarchermsft
 manager: jpconnock
 tags: azure-resource-manager
 ms.assetid: ''
-ms.service: devops
+ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
+ms.tgt_pltfrm: jenkins
 ms.workload: infrastructure
 ms.date: 07/31/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: 651e8505c6d3a3952347bba5e598ec9a0a518e8e
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 7cd7b8f7b49915db9fcf17602429e47c1b9da95d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074765"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901421"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Tutoriel : Déployer votre application vers des machines virtuelles Linux dans Azure à l’aide de Jenkins et Azure DevOps Services
 
@@ -60,7 +60,7 @@ Pour ce didacticiel, nous vous recommandons d’utiliser [cet exemple d’applic
 Dupliquez cette application et notez son emplacement (URL) pour pouvoir l’utiliser ultérieurement dans ce didacticiel. Pour plus d’informations, consultez [Fork a repo](https://help.github.com/articles/fork-a-repo/) (Dupliquer un dépôt).    
 
 > [!NOTE]
-> L’application a été générée à l’aide de [Yeoman](http://yeoman.io/learning/index.html). Elle utilise Express, bower et Grunt. Elle contient certains packages npm utilisés comme dépendances.
+> L’application a été générée à l’aide de [Yeoman](https://yeoman.io/learning/index.html). Elle utilise Express, bower et Grunt. Elle contient certains packages npm utilisés comme dépendances.
 > L’exemple contient également un script qui configure Nginx et déploie l’application. Il est exécuté sur les machines virtuelles. Plus précisément, le script effectue les actions suivantes :
 > 1. Il installe Node, Nginx et PM2.
 > 2. Il configure Nginx et PM2.
@@ -141,7 +141,7 @@ Vous avez besoin d’un [groupe de déploiement](https://www.visualstudio.com/do
 8. Après l’installation, vous êtes invité à confirmer les étiquettes du groupe de déploiement. Acceptez les valeurs par défaut.
 9. Dans Azure DevOps Services, recherchez la machine virtuelle que vous venez d’inscrire dans **Cibles** sous **Groupes de déploiement**.
 
-## <a name="create-a-azure-pipelines-release-pipeline"></a>Créer un pipeline de mise en production Azure Pipelines
+## <a name="create-an-azure-pipelines-release-pipeline"></a>Créer un pipeline de mise en production Azure Pipelines
 
 Un pipeline de mise en production spécifie le processus qu’Azure Pipelines utilise pour déployer l’application. Dans cet exemple, vous exécutez un script Shell.
 

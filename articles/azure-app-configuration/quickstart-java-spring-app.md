@@ -14,53 +14,53 @@ ms.tgt_pltfrm: Spring
 ms.workload: tbd
 ms.date: 01/08/2019
 ms.author: yidon
-ms.openlocfilehash: d607d6cd813b23051e1676153cbb134261bcf5bc
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 050a7a3718cb7c9eb864b7ed6ea0787c079e31b9
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960607"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226315"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-app-configuration"></a>Démarrage rapide : Créer une application Java Spring avec App Configuration
 
-Azure App Configuration est un service de configuration managée dans Azure. Il vous permet de stocker et gérer facilement tous les paramètres de votre application à un seul endroit, indépendamment de votre code. Ce guide de démarrage rapide vous montre comment intégrer le service à une application Java Spring.
+Azure App Configuration est un service de configuration managée dans Azure. Vous pouvez vous en servir pour stocker et gérer facilement tous les paramètres de votre application dans un seul endroit, indépendamment de votre code. Ce guide de démarrage rapide vous montre comment intégrer le service à une application Java Spring.
 
-Vous pouvez utiliser l’éditeur de code de votre choix pour exécuter les étapes de ce démarrage rapide. Toutefois, [Visual Studio Code](https://code.visualstudio.com/) est une excellente option disponible sur les plateformes Windows, macOS et Linux.
+Vous pouvez utiliser l’éditeur de code de votre choix pour exécuter les étapes de ce guide de démarrage rapide. [Visual Studio Code](https://code.visualstudio.com/) est une excellente option disponible sur les plateformes Windows, macOS et Linux.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour suivre ce guide de démarrage rapide, installez [Java Development Kit (JDK)](https://aka.ms/azure-jdks) version 8 et [Apache Maven](http://maven.apache.org/) version 3.0 ou ultérieure.
+Pour suivre ce guide de démarrage rapide, installez [Java Development Kit (JDK)](https://aka.ms/azure-jdks) version 8 et [Apache Maven](https://maven.apache.org/) version 3.0 ou ultérieure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-an-app-configuration-store"></a>Créer un magasin de configuration d’application
 
-1. Pour créer un magasin de configuration d’application, commencez par vous connecter au [portail Azure](https://aka.ms/azconfig/portal). Dans le coin supérieur gauche de la page, cliquez sur **+ Créer une ressource**. Dans la zone de texte **Rechercher dans la Place de marché**, tapez **App Configuration** et appuyez sur **Entrée**.
+1. Pour créer un magasin de configuration d’application, connectez-vous au [portail Azure](https://aka.ms/azconfig/portal). Dans le coin supérieur gauche de la page, sélectionnez **+ Créer une ressource**. Dans la zone **Rechercher dans la Place de marché**, entrez **App Configuration** et appuyez sur Entrée.
 
     ![Rechercher App Configuration](./media/quickstarts/azure-app-configuration-new.png)
 
-2. Cliquez sur **App Configuration** dans les résultats de la recherche, puis sur **Créer**.
+2. Dans les résultats de la recherche, sélectionnez **App Configuration**, puis **Créer**.
 
-3. Dans la page **App Configuration** > **Créer**, entrez les paramètres suivants :
+3. Dans la page **App Configuration** > **Créer**, entrez les paramètres suivants.
 
     | Paramètre | Valeur suggérée | Description |
     |---|---|---|
-    | **Nom de la ressource** | Nom globalement unique | Entrez un nom de ressource unique à utiliser pour la ressource du magasin de configuration d’application. Le nom doit être une chaîne de 1 à 63 caractères et contenir uniquement des chiffres, des lettres et le caractère `-`. Le nom ne peut ni commencer ni se terminer par le caractère `-` et il n’accepte pas de caractères `-` consécutifs.  |
+    | **Nom de la ressource** | Nom globalement unique | Entrez un nom de ressource unique à utiliser pour la ressource du magasin de configuration d’application. Le nom doit être une chaîne de 1 à 63 caractères et contenir uniquement des chiffres, des lettres et le caractère `-`. Le nom ne peut ni commencer ni se terminer par le caractère `-`, et il n’accepte pas de caractères `-` consécutifs.  |
     | **Abonnement** | Votre abonnement | Sélectionnez l’abonnement Azure à utiliser pour tester App Configuration. Si votre compte a un seul abonnement, il est automatiquement sélectionné et la liste déroulante **Abonnement** ne s’affiche pas. |
-    | **Groupe de ressources** | *AppConfigTestResources* | Sélectionnez ou créez un groupe de ressources pour votre ressource du magasin de configuration d’application. Ce groupe est utile pour organiser plusieurs ressources que vous pouvez supprimer en même temps en supprimant le groupe de ressources. Pour plus d'informations, consultez la rubrique [Utilisation des groupes de ressources pour gérer vos ressources Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). |
-    | **Lieu** | *USA Centre* | Utilisez **Emplacement** pour indiquer l’emplacement géographique de l’hébergement de votre ressource SignalR. Pour des performances optimales, nous vous recommandons de créer la ressource dans la même région que les autres composants de votre application. |
+    | **Groupe de ressources** | *AppConfigTestResources* | Sélectionnez ou créez un groupe de ressources pour votre ressource du magasin de configuration d’application. Ce groupe est utile pour organiser plusieurs ressources que vous souhaitez supprimer en même temps que vous supprimez ce groupe de ressources. Pour plus d’informations, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). |
+    | **Lieu** | *USA Centre* | Utilisez **Emplacement** pour indiquer l’emplacement géographique de l’hébergement de votre ressource SignalR. Pour des performances optimales, créez la ressource dans la même région que les autres composants de votre application. |
 
     ![Créer un magasin de configuration d’application](./media/quickstarts/azure-app-configuration-create.png)
 
-4. Cliquez sur **Créer**. Le déploiement peut prendre quelques minutes.
+4. Sélectionnez **Créer**. Le déploiement peut prendre quelques instants pour se terminer.
 
-5. Une fois le déploiement terminé, cliquez sur **Paramètres** > **Clés d’accès**. Notez la chaîne de connexion de la clé primaire en lecture seule et en lecture-écriture. Vous allez l’utiliser plus tard pour configurer votre application de sorte qu’elle communique avec le magasin de configuration d’application que vous venez de créer. La chaîne de connexion prend la forme suivante :
+5. À l’issue du déploiement, sélectionnez **Paramètres** > **Clés d’accès**. Prenez note de la chaîne de connexion de la clé primaire, en lecture seule ou en lecture-écriture. Vous utilisez cette chaîne de connexion plus tard pour configurer votre application, afin qu’elle communique avec le magasin de configuration d’application que vous avez créé. La chaîne de connexion prend la forme suivante :
 
         Endpoint=<your_endpoint>;Id=<your_id>;Secret=<your_secret>
 
-    Vous devez utiliser la chaîne entière dans votre application.
+    Utilisez la chaîne entière dans votre application.
 
-6. Cliquez sur **Explorateur de paires clé-valeur** et sur **+ Créer** pour ajouter les paires clé-valeur suivantes :
+6. Sélectionnez **Explorateur de paires clé/valeur** > **+ Créer** pour ajouter les paires clé/valeur suivantes :
 
     | Clé | Valeur |
     |---|---|
@@ -70,20 +70,20 @@ Pour suivre ce guide de démarrage rapide, installez [Java Development Kit (JDK)
 
 ## <a name="create-a-spring-boot-app"></a>Créer une application Spring Boot
 
-Vous allez utiliser [Spring Initializr](https://start.spring.io/) pour créer un projet Spring Boot.
+Vous utilisez [Spring Initializr](https://start.spring.io/) pour créer un projet Spring Boot.
 
 1. Accédez à <https://start.spring.io/>.
 
 2. Spécifiez les options suivantes :
 
    * Générez un projet **Maven** avec **Java**.
-   * Spécifiez une version de **Spring Boot** égale ou supérieure à 2.0.
+   * Spécifiez une version de **Spring Boot** égale ou supérieure à 2.0.
    * Indiquez les noms du **Groupe** et de l’**Artefact** de votre application.
    * Ajoutez la dépendance **Web**.
 
-3. Une fois les options ci-dessus définies, cliquez sur **Générer le projet**. Lorsque vous y êtes invité, téléchargez le projet dans un emplacement défini par un chemin d’accès sur votre ordinateur local.
+3. Une fois les options précédentes spécifiées, sélectionnez **Générer le projet**. Lorsque vous y êtes invité, téléchargez le projet dans un emplacement défini par un chemin d’accès sur votre ordinateur local.
 
-## <a name="connect-to-app-configuration-store"></a>Se connecter au magasin de configuration d’application
+## <a name="connect-to-an-app-configuration-store"></a>Se connecter à un magasin de configuration d’application
 
 1. Après avoir extrait les fichiers sur votre système local, votre application Spring Boot simple est prête à être modifiée. Localisez le fichier *pom.xml* dans le répertoire racine de votre application.
 
@@ -93,11 +93,11 @@ Vous allez utiliser [Spring Initializr](https://start.spring.io/) pour créer un
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-starter-azure-appconfiguration-config</artifactId>
-        <version>1.1.0.RC2</version>
+        <version>1.1.0.M1</version>
     </dependency>
     ```
 
-3. Créez un fichier Java nommé *MessageProperties.java* dans le répertoire du package de votre application. Ajoutez les lignes suivantes.
+3. Créez un fichier Java nommé *MessageProperties.java* dans le répertoire du package de votre application. Ajoutez les lignes suivantes :
 
     ```java
     @ConfigurationProperties(prefix = "config")
@@ -114,7 +114,7 @@ Vous allez utiliser [Spring Initializr](https://start.spring.io/) pour créer un
     }
     ```
 
-4. Créez un fichier Java nommé *HelloController.java* dans le répertoire du package de votre application. Ajoutez les lignes suivantes.
+4. Créez un fichier Java nommé *HelloController.java* dans le répertoire du package de votre application. Ajoutez les lignes suivantes :
 
     ```java
     @RestController
@@ -144,15 +144,10 @@ Vous allez utiliser [Spring Initializr](https://start.spring.io/) pour créer un
     }
     ```
 
-6. Créez un fichier nommé `bootstrap.yaml` sous le répertoire des ressources de votre application, puis ajoutez les lignes suivantes au fichier et remplacez les exemples de valeurs par les propriétés qui conviennent à votre magasin de configuration d’application.
+6. Créez un fichier nommé `bootstrap.properties` sous le répertoire des ressources de votre application, puis ajoutez les lignes suivantes au fichier. Remplacez les exemples de valeurs par les propriétés appropriées pour votre magasin de configuration d’application.
 
-    ```yaml
-    spring:
-        cloud:
-            azure:
-                config:
-                    stores:
-                        - connection-string: [your-connection-string]
+    ```properties
+    spring.cloud.azure.appconfiguration.stores[0].connection-string=[your-connection-string]
     ```
 
 ## <a name="build-and-run-the-app-locally"></a>Générer et exécuter l’application localement
@@ -163,12 +158,12 @@ Vous allez utiliser [Spring Initializr](https://start.spring.io/) pour créer un
     mvn clean package
     mvn spring-boot:run
     ```
-2. Une fois votre application exécutée, vous pouvez utiliser *curl* pour tester votre application. Par exemple :
+2. Lorsque votre application s’exécute, utilisez *curl* pour la tester. Par exemple :
 
       ```shell
       curl -X GET http://localhost:8080/
       ```
-    Vous devez voir le message que vous avez entré dans le magasin de configuration d’application.
+    Vous voyez le message que vous avez entré dans le magasin de configuration d’application.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
@@ -176,9 +171,9 @@ Vous allez utiliser [Spring Initializr](https://start.spring.io/) pour créer un
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En suivant ce guide de démarrage rapide, vous avez créé un magasin de configuration d’application et vous l’avez utilisé avec une application Java Spring. Visitez [Spring dans la page d’accueil Azure](https://docs.microsoft.com/java/azure/spring-framework/) pour plus d’informations.
+En suivant ce guide de démarrage rapide, vous avez créé un magasin de configuration d’application et vous l’avez utilisé avec une application Java Spring. Pour plus d’informations, consultez [Spring sur Azure](https://docs.microsoft.com/java/azure/spring-framework/).
 
-Pour en savoir plus sur l’utilisation d’App Configuration, passez au tutoriel suivant pour découvrir l’authentification.
+Pour en savoir plus sur la façon d’utiliser App Configuration, passez au tutoriel suivant et découvrez l’authentification.
 
 > [!div class="nextstepaction"]
 > [Identités managées pour l’intégration des ressources Azure](./integrate-azure-managed-service-identity.md)

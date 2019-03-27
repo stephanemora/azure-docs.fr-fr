@@ -1,23 +1,23 @@
 ---
 title: 'Tutoriel : Créer et gérer des données exportées depuis Azure Cost Management | Microsoft Docs'
-description: Cet article vous montre comment vous pouvez créer et gérer des données Azure Cost Management pour les utiliser dans des systèmes externes.
+description: Cet article vous montre comment créer et gérer des données Azure Cost Management exportées pour les utiliser dans des systèmes externes.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2019
+ms.date: 03/13/2019
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: a7c503fba534b72323472fa58b14188bc412003c
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: a0b50b86ca164199ca723354e39e194c6cd7423f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100686"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58014134"
 ---
-# <a name="tutorial-create-and-manage-exported-data"></a>Tutoriel : Créer et gérer des données exportées
+# <a name="tutorial-create-and-manage-exported-data"></a>Tutoriel : Créer et gérer des données exportées
 
 Si vous avez lu le tutoriel Analyse du coût, vous êtes familiarisé avec le téléchargement manuel de vos données Cost Management. Cependant, vous pouvez créer une tâche récurrente qui exporte automatiquement sur une base quotidienne, hebdomadaire ou mensuelle vos données Cost Management dans un stockage Azure. Les données exportées sont au format CSV, et elles contiennent toutes les informations collectées par Cost Management. Vous pouvez ensuite utiliser les données exportées dans Stockage Azure avec des systèmes externes et les combiner avec vos propres données personnalisées. Vous pouvez aussi utiliser vos données exportées dans un système externe, comme un tableau de bord ou un autre système financier.
 
@@ -30,7 +30,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Vérifier que les données sont collectées
 
 ## <a name="prerequisites"></a>Prérequis
-L’exportation des données est disponible pour divers types de comptes Azure, notamment pour les clients [Contrat Entreprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/). Pour voir la liste complète des types de comptes pris en charge, consultez [Comprendre les données Cost Management](understand-cost-mgt-data.md). Les autorisations Azure suivantes sont prises en charge par abonnement chaque pour l’exportation de données par utilisateur et par groupe :
+L’exportation des données est disponible pour divers types de comptes Azure, notamment pour les clients [Contrat Entreprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/). Pour accéder à la liste complète des types de comptes pris en charge, voir [Comprendre les données de Cost Management](understand-cost-mgt-data.md). Les autorisations Azure suivantes, ou étendues, sont prises en charge par abonnement pour l’exportation de données par utilisateur et par groupe. Pour plus d’informations sur les étendues, consultez [Comprendre et utiliser les étendues](understand-work-scopes.md).
 
 - Propriétaire : peut créer, modifier ou supprimer des exportations planifiées pour un abonnement.
 - Contributeur : peut créer, modifier ou supprimer ses propres exportations planifiées. Peut modifier le nom d’exportations planifiées créées par d’autres utilisateurs.
@@ -45,9 +45,9 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
 
 ## <a name="create-a-daily-export"></a>Créer une exportation quotidienne
 
-Gestion des coûts + Facturation &gt; Gestion des coûts &gt; sélectionnez un abonnement ou un groupe de ressources dans un abonnement &gt; Exporter &gt; **Ajouter**.
+Pour créer, afficher ou planifier une exportation de données, ouvrez l’étendue souhaitée dans le portail Azure et sélectionnez **Analyse du coût** dans le menu. Par exemple, accédez à **Abonnements**, sélectionnez un abonnement dans la liste, puis sélectionnez **Analyse du coût** dans le menu. En haut de la page Analyse du coût, cliquez sur **Exporter**, puis choisissez une option d’exportation. Par exemple, cliquez sur **Planifier l’exportation**. Pour plus d’informations sur les étendues, consultez [Comprendre et utiliser les étendues](understand-work-scopes.md).
 
-Tapez un nom pour l’exportation et sélectionnez l’option « Exportation quotidienne des coûts en cumul mensuel à ce jour ». Cliquez sur **Suivant**.
+Cliquez sur **Ajouter**, tapez un nom pour l’exportation, puis sélectionnez l’option **Exportation quotidienne des coûts en cumul mensuel à ce jour**. Cliquez sur **Suivant**.
 
 ![Exemple de nouvelle exportation indiquant le type d’exportation](./media/tutorial-export-acm-data/basics_exports.png)
 

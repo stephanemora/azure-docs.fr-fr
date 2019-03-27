@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/27/2018
+ms.date: 2/17/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 67022b1d00c8982d7b6e6eff77ffb648bfc557ec
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 1ab59dfc42213fc5c5ce22841e572e2724e239aa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301279"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119001"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Systèmes d’exploitation invités pris en charge par Azure Stack
 
@@ -32,7 +32,7 @@ ms.locfileid: "56301279"
 Azure Stack prend en charge les systèmes d’exploitation invités Windows répertoriés dans le tableau suivant :
 
 | Système d’exploitation | Description | Disponible sur la Place de marché |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- |
 | Windows Server, version 1709 | 64 bits | Core avec conteneurs |
 | Windows Server 2016 | 64 bits |  Centre de données, centre de données principal, centre de données avec conteneurs |
 | Windows Server 2012 R2 | 64 bits |  Centre de données |
@@ -53,12 +53,12 @@ Les éditions de centre de données sont disponibles au téléchargement sur la
 Les distributions Linux répertoriées comme disponibles sur la Place de marché incluent l’agent Windows Azure Linux (WALA) nécessaire. Si vous ajoutez votre propre image à Azure Stack, suivez les instructions de l’article [Ajouter des images Linux à Azure Stack](azure-stack-linux.md).
 
 > [!NOTE]
-> Les images personnalisées doivent être générées avec la dernière version publique de WALA ou la version 2.2.20. Les versions antérieures à la version 2.2.20 et comprises entre les versions 2.2.20 et 2.2.35 peuvent ne pas fonctionner correctement sur Azure Stack. 
+> Les images personnalisées doivent être générées avec la dernière version publique de WALA ou la version 2.2.20. Les versions antérieures à la version 2.2.20 et comprises entre les versions 2.2.20 et 2.2.36 peuvent ne pas fonctionner correctement sur Azure Stack. 
 >
 > [init-cloud](https://cloud-init.io/) n’est pas pris en charge sur Azure Stack pour le moment.
 
 | Distribution | Description | Publisher | Marketplace |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | CentOS-based 6.9 | 64 bits | Rogue Wave | OUI |
 | CentOS-based 7.4 | 64 bits | Rogue Wave | OUI |
 | ClearLinux | 64 bits | ClearLinux.org | OUI |

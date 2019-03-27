@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Brightidea | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Brightidea | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Brightidea.
 services: active-directory
 documentationCenter: na
@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 3adae3e0-f43b-492f-b373-6a512d2d6046
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 589aa227352a839e1d77a35412d2193fa05df420
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: bc45c63d3168a15b4701dcaff7bb531f759d47ad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873443"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57888704"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brightidea"></a>Didacticiel : Intégration d’Azure Active Directory à Brightidea
 
@@ -163,18 +163,18 @@ Pour configurer l’authentification unique Azure AD auprès de Brightidea, eff
     
     ![Configuration Brightidea](./media/brightidea-tutorial/configure4.png)
     
-     * Entrez le **nom du profil SAML**, comme `Azure Ad SSO`
+   * Entrez le **nom du profil SAML**, comme `Azure Ad SSO`
     
-     * Pour **charger les métadonnées**, cliquez pour choisir le fichier de métadonnées téléchargé à partir du portail Azure.
+   * Pour **charger les métadonnées**, cliquez pour choisir le fichier de métadonnées téléchargé à partir du portail Azure.
 
      > [!NOTE]
      > Après avoir chargé le fichier de métadonnées, les champs restants, **Service d’authentification unique, Émetteur du fournisseur d’identité, Télécharger la clé publique**, se renseignent automatiquement.
 
-     * Dans la zone de texte **E-mail**, entrez la valeur `mail`.
+   * Dans la zone de texte **E-mail**, entrez la valeur `mail`.
      
-     * Dans la zone de texte **Nom d’écran**, entrez la valeur `givenName`.
+   * Dans la zone de texte **Nom d’écran**, entrez la valeur `givenName`.
      
-     * Cliquez sur **Enregistrer les modifications**.  
+   * Cliquez sur **Enregistrer les modifications**.  
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
 
@@ -194,7 +194,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@votredomaineentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

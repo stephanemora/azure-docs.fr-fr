@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Workplace by Facebook | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Workplace by Facebook | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Workplace by Facebook.
 services: active-directory
 documentationCenter: na
@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 30f2ee64-95d3-44ef-b832-8a0a27e2967c
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7be803d229990359846bdc3c447a7d09c3143c8
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 27173c8beeecf2be43e80f59df8907952734c06b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878640"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57900877"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>Didacticiel : Intégration d’Azure Active Directory à Workplace by Facebook | Microsoft Docs
+# <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>Tutoriel : Intégration d’Azure Active Directory à Workplace by Facebook | Microsoft Docs
 
 Dans ce didacticiel, vous allez apprendre à intégrer Workplace by Facebook à Azure Active Directory (Azure AD).
 L’intégration de Workplace by Facebook à Azure AD vous offre les avantages suivants :
@@ -162,9 +162,9 @@ Pour configurer l’authentification unique Azure AD avec Workplace by Facebook,
 
     d. Ouvrez dans le Bloc-notes votre **certificat codé en base 64**, téléchargé à partir du portail Azure, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **SAML Certificate** (Certificat SAML).
 
-    e. Copiez **Audience URL** pour votre instance et collez-la dans la zone de texte  **Identificateur (ID d’entité)** de la section  **Configuration SAML de base** du portail Azure.
+    e. Copiez **Audience URL** pour votre instance et collez-la dans la zone de texte **Identificateur (ID d’entité)** de la section **Configuration SAML de base** du portail Azure.
 
-    f. Copiez **Recipient URL** (URL de destinataire) pour votre instance et collez-la dans la zone de texte  **URL d’authentification** de la section  **Configuration SAML de base** du portail Azure.
+    f. Copiez **Recipient URL** (URL de destinataire) pour votre instance et collez-la dans la zone de texte **URL d’authentification** de la section **Configuration SAML de base** du portail Azure.
 
     g. Faites défiler l’affichage jusqu’au bas de la section et cliquez sur le bouton **Test SSO**. Une fenêtre contextuelle apparaît, avec la page de connexion Azure AD. Entrez normalement vos informations d’identification pour vous authentifier.
 
@@ -205,7 +205,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@votredomaineentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 01/09/2019
-ms.openlocfilehash: e739ed1f7cd1b832ffe11299d3444c9bf0ac99e9
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 296005f68592a8c89f3ec78da8ece4d1741f253f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874458"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880821"
 ---
 # <a name="quickstart-create-an-azure-database-for-mariadb-server-by-using-the-azure-portal"></a>Démarrage rapide : Créer un serveur Azure Database for MariaDB à l’aide du portail Azure
 
@@ -72,11 +72,11 @@ Le service Azure Database for MariaDB crée un pare-feu au niveau du serveur. Le
 
 Pour créer une règle de pare-feu au niveau du serveur :
 
-1.   Une fois le déploiement terminé, localisez votre serveur. Si nécessaire, vous pouvez le rechercher. Par exemple, dans le menu de gauche, sélectionnez **Toutes les ressources**. Ensuite, saisissez le nom du serveur. Par exemple, entrez **mydemoserver** pour rechercher le serveur que vous venez de créer. Sélectionnez le nom du serveur dans la liste des résultats. La page **Vue d’ensemble** de votre serveur s’ouvre. Vous pouvez modifier d’autres paramètres sur cette page.
+1. Une fois le déploiement terminé, localisez votre serveur. Si nécessaire, vous pouvez le rechercher. Par exemple, dans le menu de gauche, sélectionnez **Toutes les ressources**. Ensuite, saisissez le nom du serveur. Par exemple, entrez **mydemoserver** pour rechercher le serveur que vous venez de créer. Sélectionnez le nom du serveur dans la liste des résultats. La page **Vue d’ensemble** de votre serveur s’ouvre. Vous pouvez modifier d’autres paramètres sur cette page.
 
 2. Sur la page de vue d’ensemble du serveur, sélectionnez **Sécurité de la connexion**.
 
-3.  Sous **Règles de pare-feu**, sélectionnez la zone de texte vide de la colonne **Nom de la règle** pour commencer à créer la règle de pare-feu. Spécifiez la plage exacte d’adresses IP des clients qui se connecteront à ce serveur.
+3. Sous **Règles de pare-feu**, sélectionnez la zone de texte vide de la colonne **Nom de la règle** pour commencer à créer la règle de pare-feu. Spécifiez la plage exacte d’adresses IP des clients qui se connecteront à ce serveur.
    
    ![Sécurité de connexion : règles de pare-feu](./media/quickstart-create-mariadb-server-database-using-azure-portal/5-firewall-2.png)
 
@@ -94,7 +94,7 @@ Pour vous connecter à votre serveur de base de données, il vous faut le nom de
 
 2. Pour copier les valeurs, placez votre curseur sur la zone à copier. L’icône de copie s’affiche à droite du texte. Sélectionnez l’icône de copie appropriée pour copier les valeurs qui vous intéressent.
 
-Dans notre exemple, le nom du serveur est **mydemoserver.mariadb.database.azure.com**, et l’ID de connexion d’administrateur du serveur est **myadmin@mydemoserver**.
+Dans notre exemple, le nom du serveur est **mydemoserver.mariadb.database.azure.com** et le nom de connexion d’administrateur du serveur est **myadmin\@mydemoserver**.
 
 ## <a name="connect-to-azure-database-for-mariadb-by-using-the-mysql-command-line"></a>Se connecter à Azure Database for MariaDB à l’aide de la ligne de commande mysql
 
@@ -103,9 +103,9 @@ Vous pouvez utiliser différentes applications pour vous connecter à votre serv
 Tout d’abord, nous allons utiliser l’outil de ligne de commande [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) pour illustrer la procédure de connexion au serveur. Vous pouvez également utiliser un navigateur web et Azure Cloud Shell sans avoir besoin d’installer de logiciel. Si vous avez installé l’utilitaire mysql en local, vous pouvez également vous y connecter depuis cet emplacement.
 
 1. Lancez Azure Cloud Shell via l’icône de la console (**>_**) située dans la barre d’outils en haut à droite sur le Portail Azure.
-![Symbole de terminal Azure Cloud Shell](./media/quickstart-create-mariadb-server-database-using-azure-portal/7-cloud-console.png)
+   ![Symbole de terminal Azure Cloud Shell](./media/quickstart-create-mariadb-server-database-using-azure-portal/7-cloud-console.png)
 
-2.  Azure Cloud Shell s’ouvre dans votre navigateur. Vous pouvez vous servir des commandes de l’interpréteur Bash dans Cloud Shell.
+2. Azure Cloud Shell s’ouvre dans votre navigateur. Vous pouvez vous servir des commandes de l’interpréteur Bash dans Cloud Shell.
 
    ![Invite de commandes - Exemple de ligne de commande mysql](./media/quickstart-create-mariadb-server-database-using-azure-portal/8-bash.png)
 
@@ -126,7 +126,7 @@ Tout d’abord, nous allons utiliser l’outil de ligne de commande [mysql](http
     Paramètre mysql |Valeur suggérée|Description
     ---|---|---
     --host | *nom du serveur* | La valeur du nom du serveur que vous avez utilisée pour créer le serveur Azure Database for MariaDB. Le serveur que nous utilisons dans notre exemple est **mydemoserver.mariadb.database.azure.com**. Utilisez le nom de domaine complet (**\*.mariadb.database.azure.com**), comme indiqué dans l’exemple. Si vous ne vous souvenez pas du nom de votre serveur, effectuez la procédure de la section précédente pour obtenir les informations de connexion.
-    --user | *nom de connexion d’administrateur du serveur* |Le nom d’utilisateur de connexion administrateur du serveur que vous avez utilisé pour créer le serveur Azure Database for MariaDB. Si vous ne vous souvenez pas du nom d’utilisateur, effectuez la procédure de la section précédente pour obtenir les informations de connexion. Le format correct est *username@servername*.
+    --user | *nom de connexion d’administrateur du serveur* |Le nom d’utilisateur de connexion administrateur du serveur que vous avez utilisé pour créer le serveur Azure Database for MariaDB. Si vous ne vous souvenez pas du nom d’utilisateur, effectuez la procédure de la section précédente pour obtenir les informations de connexion. Le format est *nom_utilisateur\@nom_serveur*.
     -p | *votre mot de passe*<br>(patienter jusqu’à être invité) |Lorsque vous y êtes invité, entrez le mot de passe que vous avez utilisé pour créer le serveur. Les caractères du mot de passe que vous tapez ne sont pas visibles au niveau de l’invite bash. Après avoir entré le mot de passe, appuyez sur Entrée.
 
    Une fois l’utilitaire mysql connecté, une invite `mysql>` s’affiche. Vous pouvez entrer des commandes à l’invite. 
@@ -165,14 +165,14 @@ Tout d’abord, nous allons utiliser l’outil de ligne de commande [mysql](http
    > [!TIP]
    > Pour les autres commandes, consultez le [Manuel de référence de MySQL 5.7 - Chapitre 4.5.1](https://dev.mysql.com/doc/refman/5.7/en/mysql.html).
 
-5.  Créez une base de données vide à l’invite `mysql>` en entrant la commande suivante :
+5. Créez une base de données vide à l’invite `mysql>` en entrant la commande suivante :
 
-    ```sql
-    CREATE DATABASE quickstartdb;
-    ```
-    La commande peut prendre quelques instants pour se terminer. 
+   ```sql
+   CREATE DATABASE quickstartdb;
+   ```
+   La commande peut prendre quelques instants pour se terminer. 
 
-    Vous pouvez créer une ou plusieurs bases de données sur un serveur Azure Database for MariaDB. Vous pouvez créer une seule base de données par serveur pour utiliser toutes les ressources, ou créer plusieurs bases de données pour partager les ressources. Il n’existe aucune limite au nombre de bases de données que vous pouvez créer, mais plusieurs bases de données partagent les mêmes ressources de serveur. 
+   Vous pouvez créer une ou plusieurs bases de données sur un serveur Azure Database for MariaDB. Vous pouvez créer une seule base de données par serveur pour utiliser toutes les ressources, ou créer plusieurs bases de données pour partager les ressources. Il n’existe aucune limite au nombre de bases de données que vous pouvez créer, mais plusieurs bases de données partagent les mêmes ressources de serveur. 
 
 6. Pour répertorier les bases de données, entrez la commande suivante à l’invite `mysql>` :
 
@@ -180,7 +180,7 @@ Tout d’abord, nous allons utiliser l’outil de ligne de commande [mysql](http
     SHOW DATABASES;
     ```
 
-7.  Entrez **\q**, puis appuyez sur Entrée pour fermer l’outil mysql. Ensuite, vous pouvez fermer Azure Cloud Shell.
+7. Entrez **\q**, puis appuyez sur Entrée pour fermer l’outil mysql. Ensuite, vous pouvez fermer Azure Cloud Shell.
 
 Vous venez de vous connecter au serveur Azure Database for MariaDB et de créer une base de données utilisateur vide. Dans la section suivante, vous vous connecterez au même serveur à l’aide d’un autre outil commun, MySQL Workbench.
 
@@ -202,7 +202,7 @@ Pour se connecter au serveur à l’aide de MySQL Workbench :
     Méthode de connexion | **Standard (TCP/IP)** | Standard (TCP/IP) est suffisant. |
     Nom d’hôte | *nom du serveur* | La valeur du nom du serveur que vous avez utilisée pour créer le serveur Azure Database for MariaDB. Le serveur que nous utilisons dans notre exemple est **mydemoserver.mariadb.database.azure.com**. Utilisez le nom de domaine complet (**\*.mariadb.database.azure.com**), comme indiqué dans l’exemple. Si vous ne vous souvenez plus du nom de votre serveur, effectuez la procédure décrite précédemment dans cet article pour obtenir les informations de connexion.|
      Port | 3306 | Le port à utiliser lorsque vous vous connectez au serveur Azure Database for MariaDB. |
-    Nom d’utilisateur |  *nom de connexion d’administrateur du serveur* | Les informations de connexion de l’administrateur du serveur que vous avez utilisées pour créer le serveur Azure Database for MariaDB. Dans notre exemple, le nom d’utilisateur est **myadmin@mydemoserver**. Si vous ne vous souvenez pas du nom d’utilisateur, effectuez la procédure décrite précédemment dans cet article pour obtenir les informations de connexion. Le format correct est *username@servername*.
+    Nom d’utilisateur |  *nom de connexion d’administrateur du serveur* | Les informations de connexion de l’administrateur du serveur que vous avez utilisées pour créer le serveur Azure Database for MariaDB. Le nom d’utilisateur dans notre exemple est **myadmin\@mydemoserver**. Si vous ne vous souvenez pas du nom d’utilisateur, effectuez la procédure décrite précédemment dans cet article pour obtenir les informations de connexion. Le format est *nom_utilisateur\@nom_serveur*.
     Mot de passe | *votre mot de passe* | Pour enregistrer le mot de passe, sélectionnez **Stocker dans le coffre-fort**. |
 
 4. Sélectionnez **Tester la connexion** pour vérifier que tous les paramètres sont correctement configurés. Sélectionnez ensuite **OK** pour enregistrer la connexion. 
@@ -227,13 +227,13 @@ Pour supprimer l’intégralité du groupe de ressources, y compris le serveur n
 
 Pour ne supprimer que le serveur nouvellement créé :
 
-1.  Dans le Portail Azure, localisez votre serveur s’il n’est pas déjà ouvert. Dans le menu de gauche, sélectionnez **Toutes les ressources**. Recherchez ensuite le serveur que vous avez créé.
+1. Dans le Portail Azure, localisez votre serveur s’il n’est pas déjà ouvert. Dans le menu de gauche, sélectionnez **Toutes les ressources**. Recherchez ensuite le serveur que vous avez créé.
 
-2.  Dans la page **Vue d’ensemble**, sélectionnez **Supprimer**. 
+2. Dans la page **Vue d’ensemble**, sélectionnez **Supprimer**. 
 
    ![Azure Database for MariaDB : Supprimer le serveur](./media/quickstart-create-mariadb-server-database-using-azure-portal/delete-server.png)
 
-3.  Confirmez le nom du serveur à supprimer. Affichez en dessous les bases de données concernées par la suppression. Entrez le nom de votre serveur (dans notre exemple, **mydemoserver**) pour confirmer la suppression. Sélectionnez **Supprimer**.
+3. Confirmez le nom du serveur à supprimer. Affichez en dessous les bases de données concernées par la suppression. Entrez le nom de votre serveur (dans notre exemple, **mydemoserver**) pour confirmer la suppression. Sélectionnez **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

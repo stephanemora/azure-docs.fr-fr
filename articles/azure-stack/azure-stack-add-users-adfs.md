@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/21/2019
 ms.author: patricka
 ms.reviewer: unknown
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 7ecffacee03650adc709a055ba942ef182da5fb8
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/21/2019
+ms.openlocfilehash: 1b47739200c79317273ea0c788f21a7ee4a3b818
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239977"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56648504"
 ---
 # <a name="add-azure-stack-users-in-ad-fs"></a>Ajouter des utilisateurs Azure Stack dans AD FS
 Vous pouvez utiliser le composant logiciel enfichable **Utilisateurs et ordinateurs Active Directory** pour ajouter des utilisateurs supplémentaires à un environnement Azure Stack en utilisant AD FS comme son fournisseur d’identité.
@@ -29,12 +29,13 @@ Vous pouvez utiliser le composant logiciel enfichable **Utilisateurs et ordinate
 > [!TIP]
 > Cet exemple utilise le répertoire actif ASDK azurestack.local par défaut. 
 
-1.  Connectez-vous à un ordinateur avec un compte fournissant un accès aux outils d’administration Windows, puis ouvrez une nouvelle console MMC (Microsoft Management Console).
-2.  Cliquez sur **Fichier > Ajouter ou supprimer un composant logiciel enfichable**.
-3.  Sélectionnez **Utilisateurs et ordinateurs Active Directory** > **AzureStack.local** > **Utilisateurs**.
-4.  Cliquez sur **Action** > **Nouveau** > **Utilisateur**.
-5.  Dans la fenêtre Nouvel objet – Utilisateur, entrez et confirmez un mot de passe
-6.  Cliquez sur **Suivant** pour finaliser les valeurs et cliquez sur Terminer pour créer l’utilisateur.
+1. Connectez-vous à un ordinateur avec un compte fournissant un accès aux outils d’administration Windows, puis ouvrez une nouvelle console MMC (Microsoft Management Console).
+2. Sélectionnez **Fichier > Ajouter ou supprimer un composant logiciel enfichable**.
+3. Sélectionnez **Utilisateurs et ordinateurs Active Directory** > **AzureStack.local** > **Utilisateurs**.
+4. Sélectionnez **Action** > **Nouveau** > **Utilisateur**.
+5. Dans Nouvel objet – Utilisateur, fournissez les informations utilisateur. Sélectionnez **Suivant**.
+6. Fournissez un mot de passe et confirmez-le.
+7. Sélectionnez **Suivant** pour finaliser les valeurs. Sélectionnez **Terminer** pour créer l’utilisateur.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -10,12 +10,12 @@ ms.topic: overview
 ms.workload: data-services
 ms.custom: seodec18
 ms.date: 12/07/2018
-ms.openlocfilehash: d08fb915870355b49fafa91752cdd4264cbe6ad8
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: f0104bdc4b5ea5c5c6333e12b95defafb34665b3
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887537"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295502"
 ---
 # <a name="what-is-azure-stream-analytics"></a>Qu’est-ce qu’Azure Stream Analytics ?
 
@@ -79,7 +79,7 @@ Comme un service cloud, Stream Analytics est optimisé pour réduire le coût. A
 ## <a name="mission-critical-ready"></a>Intégration stratégique immédiate
 Le moteur Azure Stream Analytics est disponible dans plusieurs régions du monde entier ; il est conçu pour l’exécution des charges de travail critiques tout en prenant en charge les exigences de conformité, de sécurité et de fiabilité.
 ### <a name="reliability"></a>Fiabilité
-Azure Stream Analytics garantit un traitement des événements en « exactement une fois », et une remise des événements « une fois au minimum », ce qui évite la perte d’événements. Le traitement en une fois exactement est garanti avec une sortie sélectionnée, tel que décrit dans [Garanties de remise d’événement](https://docs.microsoft.com/en-us/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics). Azure Stream Analytics dispose de fonctionnalités de récupération intégrées, en cas d’échec de la remise d’un événement. Stream Analytics fournit par ailleurs des points de contrôle intégrés pour gérer l’état de votre travail et assure des résultats reproductibles.
+Azure Stream Analytics garantit un traitement des événements en « exactement une fois », et une remise des événements « une fois au minimum », ce qui évite la perte d’événements. Le traitement en une fois exactement est garanti avec une sortie sélectionnée, comme décrit dans [Garanties de remise d’événement](https://docs.microsoft.com/en-us/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics). Azure Stream Analytics dispose de fonctionnalités de récupération intégrées, en cas d’échec de la remise d’un événement. Stream Analytics fournit par ailleurs des points de contrôle intégrés pour gérer l’état de votre travail et assure des résultats reproductibles.
 
 Stream Analytics est un service managé qui garantit le traitement des événements avec une disponibilité de 99,9 % au niveau Minute. Pour plus d’informations, consultez la page dédiée aux [contrats de niveau de service de Stream Analytics](https://azure.microsoft.com/support/legal/sla/stream-analytics/v1_0/). 
 

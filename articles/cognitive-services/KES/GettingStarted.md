@@ -10,12 +10,12 @@ ms.subservice: knowledge-exploration
 ms.topic: sample
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 815147abba444f0a55a8455c0a818aa048271b92
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: e2678200e2f8c55111e53ab0a341804fd17623a3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309639"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994949"
 ---
 # <a name="get-started-with-the-knowledge-exploration-service"></a>Prendre en main la fonctionnalité Service d’exploration des connaissances
 
@@ -64,7 +64,7 @@ Pour plus d’informations sur la définition de schéma, consultez [Schema Form
 
 ## <a name="generate-data"></a>Générer des données
 
-Le fichier de données décrit la liste des publications à indexer, avec chaque ligne spécifiant les valeurs d’attribut d’un document au [format JSON](http://json.org/).  L’exemple suivant est une ligne unique issue du fichier de données *Academic.data*, mise en forme pour une meilleure lisibilité :
+Le fichier de données décrit la liste des publications à indexer, avec chaque ligne spécifiant les valeurs d’attribut d’un document au [format JSON](https://json.org/).  L’exemple suivant est une ligne unique issue du fichier de données *Academic.data*, mise en forme pour une meilleure lisibilité :
 
 ```
 ...
@@ -207,7 +207,7 @@ Une fois que vous avez une spécification de grammaire XML, vous pouvez la compi
 
 ## <a name="host-the-grammar-and-index-in-a-web-service"></a>Héberger la grammaire et l’index dans un service web
 
-Pour la création rapide de prototypes, vous pouvez héberger la grammaire et l’index dans un service web sur l’ordinateur local, à l’aide de [`kes.exe host_service`](CommandLine.md#host_service-command). Vous pouvez ensuite accéder au service via les [API web](WebAPI.md) pour valider la conception de la grammaire et l’exactitude des données. Dans cet exemple, vous hébergez le fichier de grammaire *Academic.grammar* et le fichier d’index *Academic.index* à l’adresse http://localhost:8000/. Utilisez la commande suivante :
+Pour la création rapide de prototypes, vous pouvez héberger la grammaire et l’index dans un service web sur l’ordinateur local, à l’aide de [`kes.exe host_service`](CommandLine.md#host_service-command). Vous pouvez ensuite accéder au service via les [API web](WebAPI.md) pour valider la conception de la grammaire et l’exactitude des données. Dans cet exemple, vous hébergez le fichier de grammaire *Academic.grammar* et le fichier d’index *Academic.index* à l’adresse `http://localhost:8000/`. Utilisez la commande suivante :
 
 `kes.exe host_service Academic.grammar Academic.index --port 8000`
 
@@ -238,7 +238,7 @@ Dans cet exemple, vous pouvez partir du principe que le conteneur de stockage d�
 
 `kes.exe build_index http://<account>.blob.core.windows.net/<container>/Academic.schema http://<account>.blob.core.windows.net/<container>/Academic.full.data http://<account>.blob.core.windows.net/<container>/Academic.full.index --remote <vm_size>`
 
-Notez que 5 à 10 minutes peuvent être nécessaires pour configurer une machine virtuelle temporaire pour générer l’index. Pour la création rapide de prototypes, vous pouvez :
+Notez que 5 à 10 minutes peuvent être nécessaires pour provisionner une machine virtuelle temporaire pour générer l’index. Pour la création rapide de prototypes, vous pouvez :
 - Procéder au développement avec un jeu de données plus petit en local, sur n’importe quelle machine.
 - [Créer une machine virtuelle Azure](../../../articles/virtual-machines/windows/quick-create-portal.md) manuellement, [vous y connecter](../../../articles/virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) via le Bureau à distance, installer le [Kit de développement logiciel (SDK) de la fonctionnalité Service d’exploration des connaissances](https://www.microsoft.com/en-us/download/details.aspx?id=51488)et exécuter [`kes.exe`](CommandLine.md) à partir de la machine virtuelle.
 

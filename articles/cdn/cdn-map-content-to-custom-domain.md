@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.date: 06/11/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: b9bcba78600e90c28f95c4ea842bf4b25b1c0da7
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: c5eb69ddd9c621024799b940ef58c34e7caaa3ff
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722786"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294023"
 ---
-# <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Tutoriel : Ajouter un domaine personnalisé à votre point de terminaison Azure CDN
+# <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Didacticiel : Ajouter un domaine personnalisé à votre point de terminaison Azure CDN
 Ce didacticiel montre comment ajouter un domaine personnalisé à un point de terminaison de réseau de distribution de contenu (CDN) Azure. Lorsque vous utilisez un point de terminaison CDN pour diffuser du contenu, un domaine personnalisé est nécessaire si vous souhaitez que votre nom de domaine soit visible dans l’URL du CDN. Un nom de domaine visible peut être pratique pour vos clients et utile à des fins de personnalisation. 
 
 Après avoir créé un point de terminaison CDN dans votre profil, le nom de point de terminaison, qui est un sous-domaine de azureedge.net, est inclus dans l’URL de diffusion de contenu CDN par défaut (par exemple, https :\//contoso.azureedge.net/photo.png). Par commodité, Azure CDN offre la possibilité d’associer un domaine personnalisé à un point de terminaison. Avec cette option, vous distribuez votre contenu avec un domaine personnalisé dans votre URL au lieu d’un nom de point de terminaison (par exemple, https :\//www.contoso.com/photo.png). 
@@ -45,10 +45,12 @@ Si vous utilisez Azure pour héberger vos [domaines DNS](https://docs.microsoft.
 
 ## <a name="create-a-cname-dns-record"></a>Créer un enregistrement CNAME DNS
 
-Avant de pouvoir utiliser un domaine personnalisé avec un point de terminaison Azure CDN, vous devez créer un enregistrement de nom canonique (CNAME) avec votre fournisseur de domaine pointant vers votre point de terminaison CDN. Un enregistrement CNAME est un type de fonctionnalité DNS (Domain Name System) qui mappe un nom de domaine source à un nom de domaine de destination. Pour Azure CDN, le domaine source est votre domaine personnalisé et le domaine de destination est votre point de terminaison CDN. Une fois qu’Azure CDN a vérifié l’enregistrement CNAME que vous avez créé, le trafic adressé au domaine source personnalisé (tel que www.contoso.com) est acheminé vers le nom d’hôte du point de terminaison CDN de la destination spécifiée (par exemple, contoso.azureedge.net). 
+Avant de pouvoir utiliser un domaine personnalisé avec un point de terminaison Azure CDN, vous devez créer un enregistrement de nom canonique (CNAME) avec votre fournisseur de domaine pointant vers votre point de terminaison CDN. Un enregistrement CNAME est un type de fonctionnalité DNS (Domain Name System) qui mappe un nom de domaine source à un nom de domaine de destination. Pour Azure CDN, le domaine source est votre domaine personnalisé et le domaine de destination est votre point de terminaison CDN. Une fois qu’Azure CDN a vérifié l’enregistrement CNAME que vous avez créé, le trafic adressé au domaine personnalisé source (tel que www\.contoso.com) est routé vers le nom d’hôte du point de terminaison CDN de la destination spécifiée (par exemple, contoso.azureedge.net). 
 
 Un domaine personnalisé et son sous-domaine peuvent être associés à un seul point de terminaison à la fois. Toutefois, vous pouvez utiliser différents sous-domaines du même domaine personnalisé pour différents points de terminaison de service Azure en utilisant plusieurs enregistrements CNAME. Vous pouvez également mapper un domaine personnalisé ayant différents sous-domaines au même point de terminaison CDN.
 
+> [!NOTE]
+> Il est possible d’utiliser n’importe quel type d’enregistrement d’alias pour les domaines personnalisés si vous utilisez Azure DNS comme fournisseur de domaine. Cette procédure pas à pas utilise le type d’enregistrement CNAME. Si vous utilisez les types d’enregistrements A ou AAAA, suivez simplement les mêmes étapes ci-dessous en remplaçant CNAME par le type d’enregistrement de votre choix. Si vous utilisez un enregistrement d’alias pour ajouter un domaine racine comme domaine personnalisé et que vous voulez activer SSL, vous devez utiliser la validation manuelle comme décrit [ici](https://docs.microsoft.com/azure/cdn/cdn-custom-ssl?tabs=option-1-default-enable-https-with-a-cdn-managed-certificate#custom-domain-is-not-mapped-to-your-cdn-endpoint).
 
 ## <a name="map-the-temporary-cdnverify-subdomain"></a>Mapper le sous-domaine temporaire cdnverify
 
@@ -64,13 +66,13 @@ Pour créer un enregistrement CNAME avec le sous-domaine cdnverify :
 
 3. Créez une entrée d’enregistrement CNAME pour votre domaine personnalisé et renseignez les champs comme indiqué dans le tableau suivant (les noms de champs peuvent varier) :
 
-    | Source                    | type  | Destination                     |
+    | Source                    | Type  | Destination                     |
     |---------------------------|-------|---------------------------------|
     | cdnverify.www.contoso.com | CNAME | cdnverify.contoso.azureedge.NET |
 
-    - Source : entrez votre nom de domaine personnalisé, y compris le sous-domaine cdnverify, au format suivant : cdnverify._&lt;nom_de_domaine_personnalisé&gt;. Par exemple, cdnverify.www.contoso.com.
+    - Source : Entrez votre nom de domaine personnalisé, dont le sous-domaine cdnverify, au format suivant : cdnverify.&lt;nom_de_domaine_personnalisé&gt;. Par exemple, cdnverify.www.contoso.com.
 
-    - Type : entrez *CNAME*.
+    - Tapez : entrez *CNAME*.
 
     - Destination : entrez votre nom d’hôte du point de terminaison CDN, y compris le sous-domaine cdnverify, au format suivant : cdnverify._&lt;nom_de_point_de_terminaison&gt;_.azureedge.net. Par exemple, cdnverify.contoso.azureedge.NET.
 
@@ -90,7 +92,7 @@ Par exemple, la procédure pour le bureau d’enregistrement de domaines GoDaddy
 
     ![Entrée CNAME](./media/cdn-map-content-to-custom-domain/cdn-cdnverify-cname-entry.png)
 
-    - Type : laissez *CNAME* sélectionné.
+    - Tapez : laissez *CNAME* sélectionné.
 
     - Hôte : entrez le sous-domaine de votre domaine personnalisé à utiliser, y compris le nom de sous-domaine cdnverify. Par exemple, cdnverify.www.
 
@@ -123,7 +125,7 @@ Une fois que vous avez enregistré votre domaine personnalisé, vous pouvez l’
 
 4. Pour **Nom d’hôte du point de terminaison**, le nom d’hôte du point de terminaison à utiliser comme domaine de destination de votre enregistrement CNAME est prérempli et dérivé de l’URL du point de terminaison CDN : *&lt;nom d’hôte du point de terminaison&gt;*.azureedge.net. Cette valeur n’est pas modifiable.
 
-5. Pour **Nom d’hôte personnalisé**, entrez votre domaine personnalisé, y compris le sous-domaine, à utiliser comme domaine source de votre enregistrement CNAME. Par exemple, www.contoso.com ou cdn.contoso.com. N’utilisez pas le nom de sous-domaine cdnverify.
+5. Pour **Nom d’hôte personnalisé**, entrez votre domaine personnalisé, y compris le sous-domaine, à utiliser comme domaine source de votre enregistrement CNAME. Par exemple, www\.contoso.com ou cdn.contoso.com. N’utilisez pas le nom de sous-domaine cdnverify.
 
    ![Boîte de dialogue Domaine CDN personnalisé](./media/cdn-map-content-to-custom-domain/cdn-add-custom-domain.png)
 
@@ -158,15 +160,15 @@ Pour créer un enregistrement CNAME pour votre domaine personnalisé :
 
 3. Créez une entrée d’enregistrement CNAME pour votre domaine personnalisé et renseignez les champs comme indiqué dans le tableau suivant (les noms de champs peuvent varier) :
 
-    | Source          | type  | Destination           |
+    | Source          | Type  | Destination           |
     |-----------------|-------|-----------------------|
-    | www.contoso.com | CNAME | contoso.azureedge.net |
+    | <www.contoso.com> | CNAME | contoso.azureedge.net |
 
-    - Source : entrez votre nom de domaine personnalisé (par exemple www.contoso.com).
+   - Source : Entrez votre nom de domaine personnalisé (par exemple www\.contoso.com).
 
-    - Type : entrez *CNAME*.
+   - Tapez : entrez *CNAME*.
 
-    - Destination : entrez le nom d’hôte de votre point de terminaison CDN. Il doit être au format suivant :_&lt;nom de point de terminaison&gt;_. azureedge.net. Par exemple, contoso.azureedge.net.
+   - Destination : entrez le nom d’hôte de votre point de terminaison CDN. Il doit être au format suivant :_&lt;nom de point de terminaison&gt;_. azureedge.net. Par exemple, contoso.azureedge.net.
 
 4. Enregistrez vos modifications.
 
@@ -188,7 +190,7 @@ Par exemple, la procédure pour le bureau d’enregistrement de domaines GoDaddy
 
     ![Entrée CNAME](./media/cdn-map-content-to-custom-domain/cdn-cname-entry.png)
 
-    - Type : laissez *CNAME* sélectionné.
+    - Tapez : laissez *CNAME* sélectionné.
 
     - Hôte : entrez le sous-domaine de votre domaine personnalisé à utiliser. Par exemple, www ou cdn.
 

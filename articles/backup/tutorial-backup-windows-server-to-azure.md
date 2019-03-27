@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 8/22/2018
 ms.author: saurse
 ms.custom: mvc
-ms.openlocfilehash: 9bf4c25b416edf86d29c27bcb19901bf43073bb4
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: f5cfa3de962c51ac7ff43d9b83bdea9f408f5bcf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616187"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097421"
 ---
 # <a name="back-up-windows-server-to-azure"></a>Sauvegarder Windows Server dans Azure
 
@@ -26,12 +26,12 @@ Vous pouvez utiliser Sauvegarde Azure pour protéger votre serveur Windows contr
 > [!div class="checklist"]
 > * Télécharger et configurer l’agent MARS
 > * Configurer les temps de sauvegarde et la planification de rétention pour les sauvegardes de votre serveur
-> * Effectuer une sauvegarde ad-hoc
+> * Effectuer une sauvegarde ad hoc
 
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous au portail Azure sur http://portal.azure.com.
+Connectez-vous au portail Azure sur https://portal.azure.com.
 
 ## <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
 
@@ -88,11 +88,11 @@ L’agent Microsoft Azure Recovery Services (MARS) crée une association entre W
 
 1. Recherchez et double-cliquez sur le fichier **MARSagentinstaller.exe** téléchargé.
 2. L’**Assistant Installation de l’Agent Microsoft Azure Recovery Services** s’affiche. Dans l’Assistant, fournissez les informations suivantes lorsque vous y êtes invité, puis cliquez sur **S’inscrire**.
-    - Emplacement pour le dossier d’installation et de cache.
-    - Informations relatives au serveur proxy, si vous en utilisez un pour vous connecter à Internet.
-    - Votre nom d’utilisateur et votre mot de passe si vous utilisez un proxy authentifié.
+   - Emplacement pour le dossier d’installation et de cache.
+   - Informations relatives au serveur proxy, si vous en utilisez un pour vous connecter à Internet.
+   - Votre nom d’utilisateur et votre mot de passe si vous utilisez un proxy authentifié.
 
-    ![Télécharger l’agent pour Windows Server ou Windows Client](./media/tutorial-backup-windows-server-to-azure/mars-installer.png) 
+     ![Télécharger l’agent pour Windows Server ou Windows Client](./media/tutorial-backup-windows-server-to-azure/mars-installer.png) 
 
 3. À la fin de l’Assistant, cliquez sur **Procéder à l’enregistrement** et fournissez le fichier **Informations d’identification du coffre** que vous avez téléchargé dans la procédure précédente.
  
@@ -128,7 +128,7 @@ Vous utilisez l’agent Microsoft Azure Recovery Services pour planifier quand l
 
 11. Lorsque l’Assistant a terminé la création de la planification de la sauvegarde, cliquez sur **Fermer**.
 
-## <a name="perform-an-ad-hoc-back-up"></a>Effectuer une sauvegarde ad-hoc
+## <a name="perform-an-ad-hoc-back-up"></a>Effectuer une sauvegarde ad hoc
 
 Vous avez établi la planification lors de l’exécution des tâches de sauvegarde. Toutefois, vous n’avez pas sauvegardé le serveur. Comme meilleure pratique en matière de récupération d’urgence, il est recommandé d’exécuter une sauvegarde à la demande pour garantir la résilience de données pour votre serveur.
 

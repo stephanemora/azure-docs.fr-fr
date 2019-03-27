@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.custom: mvc,hdinsightactive
 ms.topic: quickstart
 ms.date: 10/12/2018
-ms.openlocfilehash: 76f09af66e362fb6b03346b43a6be1a3ec7cf681
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: a8ed25f761e3109b0b97ee9b604a7a2d58e5aa8e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976764"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58081336"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Démarrage rapide : Créer un cluster Apache Kafka sur HDInsight
 
@@ -36,9 +36,9 @@ Dans ce guide de démarrage rapide, vous allez apprendre à créer un cluster [A
 
     La commande `ssh` est fournie par défaut sur les systèmes Linux, Unix et macOS. Dans Windows 10, utilisez l’une des méthodes suivantes pour installer la commande `ssh` :
 
-    * Utilisez [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart). Il fournit la commande `ssh` et peut être configuré pour utiliser Bash ou PowerShell comme environnement shell.
+  * Utilisez [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart). Il fournit la commande `ssh` et peut être configuré pour utiliser Bash ou PowerShell comme environnement shell.
 
-    * [Installez le sous-système Windows pour Linux](https://docs.microsoft.com/windows/wsl/install-win10). Les distributions Linux disponibles sur Microsoft Store fournissent la commande `ssh`.
+  * [Installez le sous-système Windows pour Linux](https://docs.microsoft.com/windows/wsl/install-win10). Les distributions Linux disponibles sur Microsoft Store fournissent la commande `ssh`.
 
     > [!IMPORTANT]  
     > Les étapes décrites dans ce document supposent que vous utilisez l’un des clients SSH mentionnés ci-dessus. Si vous utilisez un autre client SSH et que vous rencontrez des problèmes, consultez la documentation de votre client SSH.
@@ -180,6 +180,9 @@ Dans cette section, vous allez obtenir les informations sur l’hôte grâce à 
     ```
 
 2. Pour définir une variable d’environnement associée au nom du cluster, utilisez la commande suivante :
+
+    > [!Important]
+    > Entrez le nom de votre cluster tout en minuscules pour cette commande, même s’il a été provisionné avec un nom en majuscules. Les noms en majuscules ne peuvent pas être utilisés avec Zookeeper ou pour les informations de répartiteur (Broker).
 
     ```bash
     read -p "Enter the Kafka on HDInsight cluster name: " CLUSTERNAME

@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2018
-ms.author: jeffgilb
+ms.date: 03/11/2019
+ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: 0be1814fd501824056bc80d4aeb561ff58735125
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.lastreviewed: 03/11/2019
+ms.openlocfilehash: 58be7b6dc9eeeadd69fe82f1dc03d959aa94f9c8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447444"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58088432"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Avant de commencer avec App Service sur Azure Stack
 
@@ -30,7 +30,7 @@ ms.locfileid: "56447444"
 Avant de déployer Azure App Service sur Azure Stack, vous devez effectuer les étapes de prérequis décrites dans cet article.
 
 > [!IMPORTANT]
-> Appliquez la mise à jour 1809 à votre système intégré Azure Stack ou déployez le dernier Kit de développement Azure Stack (ASDK) avant de déployer Azure App Service 1.4.
+> Appliquez la mise à jour 1901 à votre système intégré Azure Stack ou déployez le dernier Kit de développement Azure Stack (ASDK) avant de déployer Azure App Service 1.5.
 
 ## <a name="download-the-installer-and-helper-scripts"></a>Téléchargez le programme d’installation et les scripts d’assistance
 
@@ -49,15 +49,7 @@ Avant de déployer Azure App Service sur Azure Stack, vous devez effectuer les �
 
 ## <a name="syndicate-the-custom-script-extension-from-the-marketplace"></a>Syndiquez l’extension de script personnalisé à partir d’Azure Marketplace
 
-Azure App Service sur Azure Stack nécessite la version 1.9.0 de l’extension de script personnalisé.  Vous devez [syndiquer l’extension à partir d’Azure Marketplace](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) avant de commencer le déploiement ou la mise à niveau d’Azure App Service sur Azure Stack
-
-## <a name="high-availability"></a>Haute disponibilité
-
-La mise à jour 1802 d’Azure Stack prend en charge les domaines d’erreur. Les nouveaux déploiements d’Azure App Service sur Azure Stack sont distribués sur différents domaines d’erreur et assurent une tolérance de panne.
-
-Pour les déploiements existants d’Azure App Service sur Azure Stack, qui ont été effectués avant la mise à jour 1802, consultez l’article [Rééquilibrer un fournisseur de ressources App Service sur les domaines d’erreur](azure-stack-app-service-fault-domain-update.md).
-
-En outre, déployez le serveur de fichiers requis et les instances de SQL Server dans une configuration hautement disponible.
+Azure App Service sur Azure Stack nécessite la version 1.9.1 de l’extension de script personnalisé.  Vous devez [syndiquer l’extension à partir d’Azure Marketplace](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) avant de commencer le déploiement ou la mise à niveau d’Azure App Service sur Azure Stack
 
 ## <a name="get-certificates"></a>Obtenir des certificats
 
@@ -155,11 +147,11 @@ Le certificat d’identité doit contenir un objet qui correspond au format suiv
 | --- | --- |
 | sso.appservice.\<region\>.\<DomainName\>.\<extension\> | sso.appservice.redmond.azurestack.external |
 
-
 ### <a name="validate-certificates"></a>Valider les certificats
-Avant de déployer le fournisseur de ressources App Service, vous devez [valider les certificats à utiliser](azure-stack-validate-pki-certs.md#perform-platform-as-a-service-certificate-validation) à l’aide de l’outil Azure Stack Readiness Checker disponible dans la [PowerShell Gallery](https://aka.ms/AzsReadinessChecker). L’outil Azure Stack Readiness Checker confirme que les certificats d’infrastructure à clé publique générés conviennent pour le déploiement de services d’application. 
 
-En guise de bonne pratique, quand vous travaillez avec un ou plusieurs des [certificats PKI Azure Stack](azure-stack-pki-certs.md) nécessaires, pensez à garder suffisamment de temps pour tester et réémettre les certificats si nécessaire. 
+Avant de déployer le fournisseur de ressources App Service, vous devez [valider les certificats à utiliser](azure-stack-validate-pki-certs.md#perform-platform-as-a-service-certificate-validation) à l’aide de l’outil Azure Stack Readiness Checker disponible dans la [PowerShell Gallery](https://aka.ms/AzsReadinessChecker). L’outil Azure Stack Readiness Checker confirme que les certificats d’infrastructure à clé publique générés conviennent pour le déploiement de services d’application.
+
+En guise de bonne pratique, quand vous travaillez avec un ou plusieurs des [certificats PKI Azure Stack](azure-stack-pki-certs.md) nécessaires, pensez à garder suffisamment de temps pour tester et réémettre les certificats si nécessaire.
 
 ## <a name="virtual-network"></a>Réseau virtuel
 
@@ -178,6 +170,15 @@ Sous-réseaux
 - PublishersSubnet /24
 - WorkersSubnet /21
 
+## <a name="licensing-concerns-for-required-file-server-and-sql-server"></a>Problèmes de licences pour le serveur de fichiers requis et SQL Server
+
+Azure App Service sur Azure Stack nécessite un serveur de fichiers et SQL Server pour fonctionner.  Vous êtes libre d’utiliser des ressources préexistantes situées en dehors de votre déploiement Azure Stack ou de déployer des ressources au sein de leur Abonnement fournisseur par défaut Azure Stack.
+
+Si vous choisissez de déployer les ressources au sein de votre Abonnement fournisseur par défaut Azure Stack, les licences pour ces ressources (licences Windows Server et licences SQL Server) sont incluses dans le coût d’Azure App Service sur Azure Stack et soumises aux contraintes suivantes :
+
+- l’infrastructure est déployée dans **l’abonnement fournisseur par défaut** ;
+- l’infrastructure est utilisée exclusivement par Azure App Service sur le fournisseur de ressources Azure Stack.  Les autres charges de travail, d’administration (autres fournisseurs de ressources, par exemple SQL-RP) ou de locataire (par exemple applications de locataire, qui nécessitent une base de données), ne sont pas autorisées à utiliser cette infrastructure.
+
 ## <a name="prepare-the-file-server"></a>Préparer le serveur de fichiers
 
 Azure App Service requiert l’utilisation d’un serveur de fichiers. Pour les déploiements de production, le serveur de fichiers doit être configuré en haute disponibilité et capable de gérer les défaillances.
@@ -188,7 +189,7 @@ Pour les déploiements du Kit de développement Azure Stack uniquement, vous pou
 
 ### <a name="quickstart-template-for-highly-available-file-server-and-sql-server"></a>Modèle de démarrage rapide pour une instance de File Server et SQL Server à haute disponibilité
 
-Un [modèle de démarrage rapide d’architecture de référence](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/appservice-fileserver-sqlserver-ha) est désormais disponible. Il permet de déployer une instance de File Server et de SQL Server qui prend en charge l’infrastructure Active Directory dans un réseau virtuel configuré pour la prise en charge d’un déploiement à haute disponibilité d’Azure App Service sur Azure Stack.  
+Un [modèle de démarrage rapide d’architecture de référence](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/appservice-fileserver-sqlserver-ha) est désormais disponible. Il permet de déployer une instance de File Server et de SQL Server qui prend en charge l’infrastructure Active Directory dans un réseau virtuel configuré pour la prise en charge d’un déploiement à haute disponibilité d’Azure App Service sur Azure Stack.
 
 ### <a name="steps-to-deploy-a-custom-file-server"></a>Étapes pour déployer une instance personnalisée de File Server
 
@@ -303,10 +304,19 @@ Pour des raisons de production et de haute disponibilité, vous devez utiliser u
 
 L’instance SQL Server pour Azure App Service sur Azure Stack doit être accessible depuis tous les rôles App Service. SQL Server peut être déployé au sein d’un abonnement de fournisseur par défaut dans Azure Stack. Vous pouvez aussi vous servir d’une infrastructure existante au sein de votre organisation (tant qu’il existe une connectivité avec Azure Stack). Si vous utilisez une image de Place de marché Azure, pensez à configurer le pare-feu en conséquence.
 
->[!NOTE]
+> [!NOTE]
 > Un certain nombre d’images de machines virtuelles IaaS SQL sont disponibles via la fonctionnalité Gestion de la Place de Marché. Assurez-vous de toujours télécharger la dernière version de l’extension Iaas SQL avant de déployer une machine virtuelle à l’aide d’un élément de la Place de marché. Les images SQL sont les mêmes que les machines virtuelles SQL sont disponibles dans Azure. Pour les machines virtuelles SQL créées à partir de ces images, l’extension IaaS et les améliorations apportées au portail correspondantes fournissent des fonctionnalités de mise à jour corrective et de sauvegarde automatique.
->
-Pour tous les rôles SQL Server, vous pouvez utiliser une instance par défaut ou une instance nommée. Si vous utilisez une instance nommée, assurez-vous de démarrer manuellement le service SQL Server Browser et d’ouvrir le port 1434.
+> 
+> Pour tous les rôles SQL Server, vous pouvez utiliser une instance par défaut ou une instance nommée. Si vous utilisez une instance nommée, assurez-vous de démarrer manuellement le service SQL Server Browser et d’ouvrir le port 1434.
+
+Le programme d’installation App Service vérifie que l’autonomie de la base de données est activée sur SQL Server. Pour activer l’autonomie de la base de données sur le serveur SQL Server qui hébergera les bases de données App Service, exécutez ces commandes SQL :
+
+```sql
+sp_configure 'contained database authentication', 1;
+GO
+RECONFIGURE;
+GO
+```
 
 >[!IMPORTANT]
 > Si vous choisissez de déployer App Service dans un réseau virtuel existant, le serveur SQL Server devra être déployé dans un sous-réseau distinct d’App Service et du serveur de fichiers.

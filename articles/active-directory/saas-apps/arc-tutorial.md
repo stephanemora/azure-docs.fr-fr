@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: ae609583-f875-4cb8-b68e-1b0b7938e9a7
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2029b90b4f23b22fa20ad8a89af308f6c16b410e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 8eec05507cd66e2b856e3110bfb60f24c87dfdf7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56872571"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57879960"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-arc-publishing---sso"></a>Tutoriel : Intégration d'Azure Active Directory à Arc Publishing - Authentification unique
+# <a name="tutorial-azure-active-directory-integration-with-arc-publishing---sso"></a>Didacticiel : Intégration d'Azure Active Directory à Arc Publishing - Authentification unique
 
 Dans ce tutoriel, vous allez apprendre à intégrer Arc Publishing - Authentification unique à Azure Active Directory (Azure AD).
 L’intégration d’Arc Publishing - Authentification unique à Azure AD vous offre les avantages suivants :
@@ -154,11 +154,11 @@ Pour configurer l’authentification unique Azure AD avec Arc Publishing - SSO, 
     > [!NOTE]
     > Ici, l’attribut **groups** est mappé sur **user.assignedroles**. Il existe des rôles personnalisés créés dans Azure AD pour remapper les noms de groupe dans l’application. Vous trouverez plus d’informations [ici](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) sur la façon de créer des rôles personnalisés dans Azure AD. 
 
-8. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
-9. Dans la section **Configurer Arc Publishing - SSO**, copiez la ou les URL appropriées en fonction de vos besoins.
+1. Dans la section **Configurer Arc Publishing - SSO**, copiez la ou les URL appropriées en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
@@ -190,7 +190,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@votredomaineentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

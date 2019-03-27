@@ -14,26 +14,28 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 44ae922b182874eef378d4868fb278c3c76252db
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: d5e1e5989f9902d9ab8dcc3e6c2b9d2a71f12df9
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56884412"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224377"
 ---
-# <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Tutoriel : Utiliser la configuration dynamique dans une application ASP.NET Core
+# <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Didacticiel : Utiliser la configuration dynamique dans une application ASP.NET Core
 
-ASP.NET Core offre un système de configuration enfichable capable de lire des données de configuration à partir de diverses sources, ainsi que de gérer instantanément les changements sans entraîner le redémarrage d’une application. Il prend en charge la liaison des paramètres de configuration pour les classes .NET fortement typées et leur injection dans votre code à l’aide de différents modèles `IOptions<T>`. L’un de ces modèles, en particulier `IOptionsSnapshot<T>`, fournit le rechargement automatique de la configuration de l’application quand les données sous-jacentes changent. Vous pouvez injecter `IOptionsSnapshot<T>` dans des contrôleurs de votre application pour accéder à la configuration la plus récente stockée dans Azure App Configuration. De plus, vous pouvez configurer la bibliothèque cliente ASP.NET Core d’App Configuration pour superviser et récupérer en permanence tout changement dans un magasin de configuration d’application par le biais d’une interrogation à un intervalle régulier que vous définissez.
+ASP.NET Core offre un système de configuration enfichable qui peut lire des données de configuration à partir de diverses sources. Il peut gérer instantanément les changements sans entraîner le redémarrage d’une application. ASP.NET Core prend en charge la liaison des paramètres de configuration pour les classes .NET fortement typées. Il les injecte dans votre code à l’aide des différents modèles `IOptions<T>`. L’un de ces modèles, en particulier `IOptionsSnapshot<T>`, recharge automatiquement la configuration de l’application quand les données sous-jacentes changent. 
 
-Ce tutoriel montre comment vous pouvez implémenter des mises à jour de la configuration dynamique dans votre code. Il s’appuie sur l’application web introduite dans les guides de démarrage rapide. Suivez d’abord l’étape [Créer une application ASP.NET Core avec App Configuration](./quickstart-aspnet-core-app.md) avant de continuer.
+Vous pouvez injecter `IOptionsSnapshot<T>` dans des contrôleurs de votre application pour accéder à la configuration la plus récente stockée dans Azure App Configuration. Vous pouvez également configurer la bibliothèque cliente ASP.NET Core d’App Configuration pour superviser et récupérer en continu tout changement dans un magasin de configuration d’application. Vous définissez un intervalle d’interrogation régulier.
 
-Vous pouvez utiliser l’éditeur de code de votre choix pour exécuter les étapes de ce démarrage rapide. Toutefois, [Visual Studio Code](https://code.visualstudio.com/) est une excellente option disponible sur les plateformes Windows, macOS et Linux.
+Ce tutoriel montre comment vous pouvez implémenter des mises à jour de la configuration dynamique dans votre code. Il s’appuie sur l’application web introduite dans les guides de démarrage rapide. Avant de continuer, terminez d’abord l’étape [Créer une application ASP.NET Core avec App Configuration](./quickstart-aspnet-core-app.md).
+
+Vous pouvez utiliser l’éditeur de code de votre choix pour exécuter les étapes de ce guide de démarrage rapide. [Visual Studio Code](https://code.visualstudio.com/) est une excellente option qui est disponible sur les plateformes Windows, macOS et Linux.
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-> * Configurer votre application pour mettre à jour sa configuration en réponse aux changements survenant dans un magasin de configuration d’application
-> * Injecter la configuration la plus récente dans les contrôleurs de votre application
+> * Configurer votre application pour mettre à jour sa configuration en réponse aux changements survenant dans un magasin de configuration d’application.
+> * Injecter la configuration la plus récente dans les contrôleurs de votre application.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -43,7 +45,7 @@ Pour suivre ce guide de démarrage rapide, installez le [SDK .NET Core](https://
 
 ## <a name="reload-data-from-app-configuration"></a>Recharger des données à partir d’Azure App Configuration
 
-1. Ouvrez *Program.cs*, puis mettez à jour la méthode `CreateWebHostBuilder` en ajoutant la méthode `config.AddAzureAppConfiguration()`.
+1. Ouvrez Program.cs, puis mettez à jour la méthode `CreateWebHostBuilder` en ajoutant la méthode `config.AddAzureAppConfiguration()`.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -59,9 +61,9 @@ Pour suivre ce guide de démarrage rapide, installez le [SDK .NET Core](https://
             .UseStartup<Startup>();
     ```
 
-    Le deuxième paramètre de la méthode `.Watch` est la fréquence à laquelle la bibliothèque cliente ASP.NET interroge un magasin de configuration d’application pour voir si le paramètre de configuration spécifique a fait l’objet d’un changement.
+    Le deuxième paramètre de la méthode `.Watch` est la fréquence à laquelle la bibliothèque cliente ASP.NET interroge un magasin de configuration d’application. La bibliothèque cliente vérifie si le paramètre de configuration spécifique a fait l’objet d’un changement.
 
-2. Ajoutez un fichier *Settings.cs* qui définit et implémente une nouvelle classe `Settings`.
+2. Ajoutez un fichier Settings.cs qui définit et implémente une nouvelle classe `Settings`.
 
     ```csharp
     namespace TestAppConfig
@@ -76,7 +78,7 @@ Pour suivre ce guide de démarrage rapide, installez le [SDK .NET Core](https://
     }
     ```
 
-3. Ouvrez *Startup.cs*, puis mettez à jour la méthode `ConfigureServices` pour lier des données de configuration à la classe `Settings`.
+3. Ouvrez Startup.cs, puis mettez à jour la méthode `ConfigureServices` pour lier des données de configuration à la classe `Settings`.
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -95,7 +97,7 @@ Pour suivre ce guide de démarrage rapide, installez le [SDK .NET Core](https://
 
 ## <a name="use-the-latest-configuration-data"></a>Utiliser les données de configuration les plus récentes
 
-1. Ouvrez *HomeController.cs* dans le répertoire *Controllers*, mettez à jour la classe `HomeController` pour recevoir `Settings` via l’injection de dépendance, puis utilisez ses valeurs.
+1. Ouvrez HomeController.cs dans le répertoire Controllers. Mettez à jour la classe `HomeController` pour recevoir `Settings` par le biais de l’injection de dépendance, puis utilisez ses valeurs.
 
     ```csharp
     public class HomeController : Controller
@@ -118,7 +120,7 @@ Pour suivre ce guide de démarrage rapide, installez le [SDK .NET Core](https://
     }
     ```
 
-2. Ouvrez *Index.cshtml* dans le répertoire *Views* > *Home*, puis remplacez son contenu par le suivant :
+2. Ouvrez Index.cshtml dans le répertoire Views > Home, puis remplacez son contenu par le script suivant :
 
     ```html
     <!DOCTYPE html>
@@ -143,21 +145,21 @@ Pour suivre ce guide de démarrage rapide, installez le [SDK .NET Core](https://
 
 ## <a name="build-and-run-the-app-locally"></a>Générer et exécuter l’application localement
 
-1. Pour générer l’application à l’aide de l’interface CLI .NET Core, exécutez la commande suivante dans l’interpréteur de commandes :
+1. Pour générer l’application à l’aide de l’interface CLI .NET Core, exécutez la commande suivante dans l’interpréteur de commandes :
 
         dotnet build
 
-2. Une fois la version terminée, exécutez la commande suivante afin d’exécuter l’application web en local :
+2. Une fois la génération correctement terminée, exécutez la commande suivante pour exécuter l’application web localement :
 
         dotnet run
 
-3. Lancez une fenêtre de navigateur, puis accédez à `http://localhost:5000`, qui est l’URL par défaut pour l’application web hébergée localement.
+3. Ouvrez une fenêtre de navigateur, puis accédez à `http://localhost:5000`, qui est l’URL par défaut de l’application web hébergée localement.
 
     ![Démarrage rapide du lancement d’application local](./media/quickstarts/aspnet-core-app-launch-local-before.png)
 
-4. Connectez-vous au [portail Azure](https://aka.ms/azconfig/portal), puis cliquez sur **Toutes les ressources** et sur l’instance de magasin de configuration d’application que vous avez créée dans le guide de démarrage rapide.
+4. Connectez-vous au [Portail Azure](https://aka.ms/azconfig/portal). Sélectionnez **Toutes les ressources**, puis sélectionnez l’instance de magasin de configuration d’application que vous avez créée dans le démarrage rapide.
 
-5. Cliquez sur **Explorateur de paires clé/valeur**, puis mettez à jour les valeurs des clés suivantes :
+5. Sélectionnez **Explorateur de paires clé/valeur**, puis mettez à jour les valeurs des clés suivantes :
 
     | Clé | Valeur |
     |---|---|

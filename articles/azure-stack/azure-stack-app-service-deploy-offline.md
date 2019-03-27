@@ -12,32 +12,32 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2019
-ms.author: jeffgilb
+ms.date: 02/27/2019
+ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 315a96680674636f7cab9d93b362febcb25f9922
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: b6950e3445f2320f2e3a45f55726befd7077119a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447063"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835907"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Ajouter un fournisseur de ressources App Service à un environnement Azure Stack déconnecté sécurisé par AD FS
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 > [!IMPORTANT]
-> Appliquez la mise à jour 1809 à votre système intégré Azure Stack ou déployez le dernier Kit de développement Azure Stack avant de déployer Azure App Service 1.4.
+> Appliquez la mise à jour 1901 à votre système intégré Azure Stack ou déployez le dernier Kit de développement Azure Stack avant de déployer Azure App Service 1.5.
 
 En suivant les instructions de cet article, vous pouvez installer le [fournisseur de ressources App Service](azure-stack-app-service-overview.md) dans un environnement Azure Stack qui :
 
 - n’est pas connecté à internet ;
 - sécurisé par les services de fédération Active Directory (AD FS).
 
- > [!IMPORTANT]
- > Avant de déployer le fournisseur de ressources, passez en revue les notes de publication pour en savoir plus sur les nouvelles fonctionnalités, les correctifs et les problèmes connus qui pourraient affecter votre déploiement.
- 
+> [!IMPORTANT]  
+> Avant d’exécuter le programme d’installation du fournisseur de ressources, assurez-vous d’avoir suivi les recommandations de la section [Avant de démarrer](azure-stack-app-service-before-you-get-started.md) et d’avoir lu les [notes de publication](azure-stack-app-service-release-notes-update-five.md) qui accompagnent la version 1.5 afin d’en savoir plus sur les nouvelles fonctionnalités, les correctifs et les problèmes connus qui pourraient affecter votre déploiement.
+
 Pour ajouter le fournisseur de ressources App Service à votre déploiement Azure Stack hors connexion, vous devez effectuer ces tâches de niveau supérieur :
 
 1. Effectuez les [étapes préalables](azure-stack-app-service-before-you-get-started.md) (telles que l’achat de certificats, ce qui peut prendre quelques jours avant leur réception).
@@ -82,30 +82,30 @@ Pour déployer App Service dans un environnement déconnecté, vous devez d’ab
     ![Programme d’installation App Service][3]
 
 7. Sur la page suivante :
-    1. Cliquez sur le bouton **Se connecter** situé en regard de la zone **Abonnements Azure Stack**.
-        - Indiquez votre compte Administrateur. Par exemple : cloudadmin@azurestack.local. Entrez votre mot de passe, puis cliquez sur **Se connecter**.
-    2. Dans la zone **Abonnements Azure Stack**, sélectionnez **Abonnement au fournisseur par défaut**.
+   1. Cliquez sur le bouton **Se connecter** situé en regard de la zone **Abonnements Azure Stack**.
+      - Indiquez votre compte Administrateur. Par exemple : cloudadmin@azurestack.local. Entrez votre mot de passe, puis cliquez sur **Se connecter**.
+   2. Dans la zone **Abonnements Azure Stack**, sélectionnez **Abonnement au fournisseur par défaut**.
     
-    > [!NOTE]
-    > Le déploiement d’App Service n’est possible que sur l’**abonnement du fournisseur par défaut**.
-    >
+      > [!NOTE]
+      > Le déploiement d’App Service n’est possible que sur l’**abonnement du fournisseur par défaut**.
+      >
     
-    3. Dans la zone **Emplacements Azure Stack**, sélectionnez l’emplacement qui correspond à la région où vous effectuez le déploiement. Par exemple, sélectionnez **local** si effectuez votre déploiement sur le Kit de développement Azure Stack.
-    4. Cliquez sur **Suivant**.
+   3. Dans la zone **Emplacements Azure Stack**, sélectionnez l’emplacement qui correspond à la région où vous effectuez le déploiement. Par exemple, sélectionnez **local** si effectuez votre déploiement sur le Kit de développement Azure Stack.
+   4. Cliquez sur **Suivant**.
 
-    ![Programme d’installation App Service][4]
+      ![Programme d’installation App Service][4]
 
 8. Vous avez maintenant la possibilité d’effectuer le déploiement sur un réseau virtuel existant en suivant la configuration indiquée dans les étapes mentionnées [ici](azure-stack-app-service-before-you-get-started.md#virtual-network), ou d’autoriser le programme d’installation App Service à créer un réseau virtuel et des sous-réseaux associés.
-    1. Sélectionnez **Créer un réseau virtuel avec les paramètres par défaut**, acceptez les valeurs par défaut, puis cliquez sur **Suivant** ; ou
-    2. Sélectionnez **Utiliser un réseau virtuel et des sous-réseaux existants**.
-        1. Sélectionnez le **Groupe de ressources** qui contient votre réseau virtuel ;
-        2. Choisissez le nom du **Réseau virtuel** sur lequel vous voulez effectuer le déploiement ;
-        3. Sélectionnez les valeurs **Sous-réseau** correspondant à chacun des sous-réseaux de rôle nécessaires ;
-        4. Cliquez sur **Suivant**
+   1. Sélectionnez **Créer un réseau virtuel avec les paramètres par défaut**, acceptez les valeurs par défaut, puis cliquez sur **Suivant** ; ou
+   2. Sélectionnez **Utiliser un réseau virtuel et des sous-réseaux existants**.
+       1. Sélectionnez le **Groupe de ressources** qui contient votre réseau virtuel ;
+       2. Choisissez le nom du **Réseau virtuel** sur lequel vous voulez effectuer le déploiement ;
+       3. Sélectionnez les valeurs **Sous-réseau** correspondant à chacun des sous-réseaux de rôle nécessaires ;
+       4. Cliquez sur **Suivant**
 
-    ![Programme d’installation App Service][5]
+      ![Programme d’installation App Service][5]
 
-9. Entrez les informations du partage de fichiers, puis cliquez sur **Suivant**. L’adresse du partage de fichiers doit utiliser le nom de domaine complet ou l’adresse IP de votre serveur de fichiers. Par exemple, \\\appservicefileserver.local.cloudapp.azurestack.external\websites ou \\\10.0.0.1\websites
+9. Entrez les informations du partage de fichiers, puis cliquez sur **Suivant**. L’adresse du partage de fichiers doit utiliser le nom de domaine complet ou l’adresse IP de votre serveur de fichiers. Par exemple, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, ou \\\10.0.0.1\websites.  Si vous utilisez un serveur de fichiers qui est joint à un domaine, vous devez fournir le nom d’utilisateur complet, y compris le domaine, par exemple, myfileserverdomain\FileShareOwner.
 
     > [!NOTE]
     > Le programme d’installation tente de tester la connectivité au partage de fichiers avant de continuer.  Toutefois, si vous avez choisi d’effectuer le déploiement sur un réseau virtuel existant, il est possible que le programme d’installation ne puisse pas se connecter au partage de fichiers et affiche un avertissement vous demandant si vous souhaitez continuer.  Vérifiez les informations du partage de fichiers et continuez si elles sont correctes.
@@ -152,7 +152,7 @@ Pour déployer App Service dans un environnement déconnecté, vous devez d’ab
     > ```
     > Reportez-vous aux [notes de publication pour Azure App Service sur Azure Stack 1.3](azure-stack-app-service-release-notes-update-three.md) pour plus d’informations.
    
-   ![Programme d’installation App Service][12]
+    ![Programme d’installation App Service][12]
 
 13. Passez en revue de l’instance de rôle et les options de la référence SKU. Les valeurs par défaut sont remplies avec le nombre minimal d’instances et la référence (SKU) minimale pour chaque rôle dans un déploiement ASDK. Un résumé des exigences en termes de processeur virtuel et de mémoire est fourni pour vous aider à planifier votre déploiement. Une fois vos sélections effectuées, cliquez sur **Suivant**.
 
@@ -196,6 +196,11 @@ Pour déployer App Service dans un environnement déconnecté, vous devez d’ab
 
     ![Programme d’installation App Service][18]
 
+## <a name="post-deployment-steps"></a>Étapes de post-déploiement
+
+> [!IMPORTANT]  
+> Si vous avez indiqué le fournisseur de ressources App Service avec une instance SQL Always On, vous DEVEZ [ajouter les bases de données appservice_hosting et appservice_metering à un groupe de disponibilité](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) et synchroniser les bases de données pour éviter toute perte de service en cas de basculement d’une base de données.
+
 ## <a name="validate-the-app-service-on-azure-stack-installation"></a>Valider l’installation App Service sur Azure Stack
 
 1. Dans le portail administrateur d’Azure Stack, allez dans **Administration - App Service**.
@@ -205,7 +210,7 @@ Pour déployer App Service dans un environnement déconnecté, vous devez d’ab
     ![Gestion d’App Service](media/azure-stack-app-service-deploy/image12.png)
 
 > [!NOTE]
-> Si vous avez choisi de déployer un modèle dans un réseau virtuel existant et une adresse IP interne pour vous connecter à votre serveur de fichiers, vous devez ajouter une règle de sécurité sortante, qui autorise le trafic SMB entre le sous-réseau Worker et le serveur de fichiers.  Pour ce faire, accédez au WorkersNsg dans le portail d’administration, puis ajoutez une règle de sécurité sortante comportant les propriétés suivantes :
+> Si vous avez choisi de procéder au déploiement dans un réseau virtuel existant et une adresse IP interne pour vous connecter à votre serveur de fichiers, vous devez ajouter une règle de sécurité sortante, qui autorise le trafic SMB entre le sous-réseau Worker et le serveur de fichiers.  Pour ce faire, accédez au WorkersNsg dans le portail d’administration, puis ajoutez une règle de sécurité sortante comportant les propriétés suivantes :
 > * Source : Quelconque
 > * Plage de ports source : : *
 > * Destination : Adresses IP
@@ -248,7 +253,7 @@ Après avoir déployé et inscrit le fournisseur de ressources App Service, test
 
 1. Dans le portail du locataire Azure Stack, cliquez sur **+**, accédez à la Place de marché Azure, déployez un site web Django et attendez que l’opération se termine. La plateforme web Django utilise une base de données basée sur système de fichiers. Elle ne nécessite aucun fournisseur de ressources supplémentaire comme SQL ou MySQL.
 
-2. Si vous avez également déployé un fournisseur de ressources MySQL, vous pouvez déployer un site web WordPress à partir de la Place de marché. Lorsque vous êtes invité à entrer les paramètres de la base de données, entrez le nom d’utilisateur *User1@Server1*, avec le nom d’utilisateur et le nom de serveur de votre choix.
+2. Si vous avez également déployé un fournisseur de ressources MySQL, vous pouvez déployer un site web WordPress à partir de la Place de marché. Lorsque vous êtes invité à entrer les paramètres de la base de données, entrez le nom d’utilisateur *User1\@Server1*, avec le nom d’utilisateur et le nom de serveur de votre choix.
 
 3. Si vous avez également déployé un fournisseur de ressources SQL Server, vous pouvez déployer un site web DNN à partir de la Place de marché. Lorsque vous êtes invité à entrer les paramètres de la base de données, sélectionnez une base de données sur l’ordinateur exécutant SQL Server connecté à votre fournisseur de ressources.
 

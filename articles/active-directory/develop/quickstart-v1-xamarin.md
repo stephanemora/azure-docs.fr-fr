@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6266ec1f01a50756f745c3e8185c9fe34e102b4a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2e25848359de91d67925f49901c6c170978ea592
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56196193"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078701"
 ---
 # <a name="quickstart-build-a-xamarin-app-that-integrates-microsoft-sign-in"></a>Démarrage rapide : Créer une application Xamarin qui intègre la connexion Microsoft
 
@@ -59,11 +59,12 @@ Pour autoriser l’application à obtenir des jetons, vous devez tout d’abord 
 3. Cliquez sur **Tous les services** dans le volet de gauche, puis sélectionnez **Azure Active Directory**.
 4. Cliquez sur **Inscriptions des applications**, puis sélectionnez **Ajouter**.
 5. Pour créer une **application cliente native**, suivez les invites.
-  * Le champ **Nom** décrit l’application aux utilisateurs.
-  * **L’URI de redirection** est une combinaison de schémas et de chaînes qu’Azure AD utilise pour renvoyer des réponses concernant les jetons. Entrez une valeur (par exemple, http://DirectorySearcher).
+   * Le champ **Nom** décrit l’application aux utilisateurs.
+   * **L’URI de redirection** est une combinaison de schémas et de chaînes qu’Azure AD utilise pour renvoyer des réponses concernant les jetons. Entrez une valeur (par exemple, `http://DirectorySearcher`).
 6. Une fois l’inscription terminée, Azure AD affecte un ID d’application unique à l’application. Copiez la valeur de l’onglet **Application**, car vous en aurez besoin ultérieurement.
 7. Sur la page **Paramètres**, sélectionnez **Autorisations requises**, puis **Ajouter**.
-8. Sélectionnez l’API **Microsoft Graph**. Sous **Autorisations déléguées**, ajoutez l’autorisation **Lire les données de l’annuaire**. Cette action permet à l’application d’interroger l’API Graph pour les utilisateurs.
+8. Sélectionnez l’API **Microsoft Graph**. Sous **Autorisations déléguées**, ajoutez l’autorisation **Lire les données de l’annuaire**. 
+   Cette action permet à l’application d’interroger l’API Graph pour les utilisateurs.
 
 ## <a name="step-3-install-and-configure-adal"></a>Étape 3 : Installer et configurer la bibliothèque ADAL
 
@@ -95,9 +96,9 @@ Maintenant que vous disposez d’une application dans Azure AD, vous pouvez inst
 2. Dans le projet DirectorySearcherLib, ouvrez DirectorySearcher.cs.
 3. Remplacez les valeurs de membre de classe par les valeurs que vous avez entrées sur le Portail Azure. Votre code se réfère à ces valeurs chaque fois qu’il utilise la bibliothèque ADAL.
 
-  * *tenant* est le domaine de votre client Azure AD (par exemple, contoso.onmicrosoft.com).
-  * *clientId* est l’ID client de l’application, que vous avez copié à partir du portail.
-  * *returnUri* est l’URI de redirection que vous avez entrée sur le portail (par exemple, http://DirectorySearcher).
+   * *tenant* est le domaine de votre client Azure AD (par exemple, contoso.onmicrosoft.com).
+   * *clientId* est l’ID client de l’application, que vous avez copié à partir du portail.
+   * *returnUri* est l’URI de redirection que vous avez entré sur le portail (par exemple, `http://DirectorySearcher`).
 
 ## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>Étape 4 : Utiliser la bibliothèque ADAL pour obtenir des jetons à partir d’Azure AD
 

@@ -8,12 +8,12 @@ ms.author: sngun
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 881677916bb22d4b1046f19047819a636027290d
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 2e43b2d6f5a127f7f0f81c2dfc2fd3737c9ee787
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56585795"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880260"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-sdk-and-azure-cosmos-db"></a>Démarrage rapide : Générer une application Cassandra avec le SDK .NET et Azure Cosmos DB
 
@@ -144,7 +144,7 @@ Maintenant, retournez dans le portail Azure afin d’obtenir les informations de
 
 5. Enregistrez le fichier Program.cs.
     
-## <a name="run-the-net-app"></a>Exécuter l’application .Net
+## <a name="run-the-net-app"></a>Exécuter l’application .NET
 
 1. Dans Visual Studio, sélectionnez **Outils** > **Gestionnaire de package NuGet** > **Console du gestionnaire de package**.
 

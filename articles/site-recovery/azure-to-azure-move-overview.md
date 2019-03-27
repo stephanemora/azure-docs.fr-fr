@@ -8,105 +8,99 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: a73eac1dea731bbf1ffb903ddf2438e791fec9d5
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: dc49b33fd3e6d582b31af5fe0507884e60205757
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56726447"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078004"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Déplacer des machines virtuelles Azure vers une autre région
 
-Azure enregistre une croissance galopante à l’image de sa base de clients et prend en charge de plus en plus de nouvelles régions pour répondre à une demande en hausse. Chaque service voit le nombre de ses nouvelles fonctionnalités augmenter tous les mois. C’est pour cela que vous pouvez être amené à déplacer vos machines virtuelles dans une autre région ou dans d’autres zones de disponibilité pour en augmenter la disponibilité.
+Azure enregistre une croissance à l’image de sa base de clients et prend en charge de nouvelles régions pour répondre à une demande en hausse. De nouvelles fonctionnalités sont également ajoutées chaque mois aux services. Vous souhaiterez peut-être déplacer vos machines virtuelles dans une autre région ou dans d’autres zones de disponibilité pour en augmenter la disponibilité.
 
-Ce document décrit les différents scénarios de déplacement des machines virtuelles et vous guide dans la manière de configurer l’architecture dans la cible pour atteindre un meilleur niveau de disponibilité. 
+Ce tutoriel décrit les différents scénarios dans lesquels vous pourriez vouloir déplacer vos machines virtuelles. Il décrit également comment configurer l’architecture dans la région cible pour garantir une meilleure disponibilité. 
+
+Dans ce tutoriel, vous allez découvrir :
+
 > [!div class="checklist"]
-> * [Pourquoi déplacer des machines virtuelles Azure ?](#why-would-you-move-azure-vms)
-> * [Comment déplacer des machines virtuelles Azure ?](#how-to-move-azure-vms)
-> * [Architectures classiques](#typical-architectures-for-a-multi-tier-deployment)
-> * [Déplacer des machines virtuelles en l’état vers une région cible](#move-azure-vms-to-another-region)
-> * [Déplacer des machines virtuelles pour augmenter la disponibilité](#move-vms-to-increase-availability)
+> 
+> * Les raisons pouvant motiver un déplacement de machines virtuelles
+> * Les architectures classiques
+> * Le déplacement de machines virtuelles en l’état vers une région cible
+> * Le déplacement de machines virtuelles pour augmenter la disponibilité
 
+## <a name="reasons-to-move-azure-vms"></a>Raisons pouvant motiver un déplacement de machines virtuelles Azure
 
-## <a name="why-would-you-move-azure-vms"></a>Pourquoi déplacer des machines virtuelles Azure ?
+Vous pouvez déplacer des machines virtuelles pour les raisons suivantes :
 
-Les clients déplacent les machines virtuelles pour les raisons suivantes :
+- Vous avez déjà effectué un déploiement dans une région, et une nouvelle région plus proche des utilisateurs finaux de votre application ou service est maintenant prise en charge. Dans ce scénario, vous pourriez avoir envie de déplacer vos machines virtuelles en l’état vers cette nouvelle région afin de réduire la latence. Adoptez la même approche si vous voulez regrouper des abonnements ou si des règles de gouvernance/de l’organisation vous obligent à effectuer un tel déplacement
+- Votre machine virtuelle a été déployée en tant que machine virtuelle à instance unique ou dans le cadre d’un groupe à haute disponibilité. Si vous souhaitez augmenter les contrats SLA de disponibilité, vous pouvez déplacer vos machines virtuelles dans une zone de disponibilité
 
-- Si vous aviez déjà effectué un déploiement dans une région et qu’une nouvelle région plus proche des utilisateurs finaux de votre application ou service devenait prise en charge, vous pourriez avoir envie de **déplacer vos machines virtuelles en l’état vers cette nouvelle région** pour des questions de réduction de latence. Vous adopteriez la même approche si vous vouliez regrouper des abonnements ou si des règles de gouvernance/de l’organisation vous obligeaient à effectuer un tel déplacement. 
-- Si votre machine virtuelle était déployée en tant qu’instance unique ou dans le cadre d’un groupe à haute disponibilité, vous pourriez, pour augmenter les SLA de disponibilité, **la déplacer vers une zone de disponibilité**. 
+## <a name="steps-to-move-azure-vms"></a>Étapes pour déplacer des machines virtuelles Azure
 
-## <a name="how-to-move-azure-vms"></a>Comment déplacer des machines virtuelles Azure ?
 Déplacer des machines virtuelles implique les étapes suivantes :
 
-1. Vérifier la configuration requise 
-2. Préparer les machines virtuelles sources 
-3. Préparer la région cible 
-4. Copier les données dans la région cible - Utiliser la technologie de réplication Azure Site Recovery pour copier les données de la machine virtuelle source vers la région cible
-5. Tester la configuration : Une fois que la réplication est terminée, testez la configuration en effectuant un test de basculement vers un réseau hors production.
-6. Effectuer le déplacement 
-7. Supprimer les ressources dans la région source 
-
-
-> [!IMPORTANT]
-> Actuellement, Azure Site Recovery prend en charge le déplacement des machines virtuelles d’une région à une autre, mais pas le déplacement au sein d’une région. 
+1. Assurez-vous que la configuration requise est respectée.
+2. Préparez les machines virtuelles sources.
+3. Préparez la région cible.
+4. Copiez les données vers la région cible. Utilisez la technologie de réplication Azure Site Recovery pour copier les données de la machine virtuelle source vers la région cible.
+5. Testez la configuration. Une fois la réplication terminée, testez la configuration en effectuant un test de basculement vers un réseau hors production.
+6. Effectuez le déplacement.
+7. Supprimez les ressources dans la région source.
 
 > [!NOTE]
-> Des instructions détaillées sur ces étapes sont fournies dans la documentation de chaque scénario, comme indiqué [ici](#next-steps).
+> Les détails de ces étapes sont fournis dans les sections suivantes.
+> [!IMPORTANT]
+> Actuellement, Azure Site Recovery prend en charge le déplacement des machines virtuelles d’une région à une autre, mais pas le déplacement au sein d’une région.
 
 ## <a name="typical-architectures-for-a-multi-tier-deployment"></a>Architectures classiques d’un déploiement multicouche
-La section ci-dessous décrit les architectures de déploiement les plus courantes que les clients adoptent pour une application multicouche dans Azure. L’exemple auquel nous nous intéressons ici est celui d’une application à trois couches avec une adresse IP publique. Chaque couche (Web, Application et Base de données) a deux machines virtuelles et se connecte aux autres couches par le biais d’un équilibreur de charge. La couche Base de données a une réplication SQL Always ON entre les machines virtuelles à des fins de haute disponibilité (HA).
 
-1.  **Machines virtuelles à instance unique déployées sur diverses couches** : chaque machine virtuelle d’une couche est configurée en tant qu’instance unique, connectée par des équilibreurs de charge aux autres couches. Cette configuration est la plus simple que les clients adoptent.
+Cette section décrit les architectures de déploiement les plus courantes pour une application multicouche dans Azure. L’exemple est une application à trois couches avec une adresse IP publique. Chaque couche (web, application et base de données) comporte deux machines virtuelles et est connectée aux autres couches par le biais d’un équilibreur de charge Azure. La couche Base de données a une réplication SQL Server Always On entre les machines virtuelles à des fins de haute disponibilité.
 
-       ![single-VMs](media/move-vm-overview/regular-deployment.PNG)
+* **Machines virtuelles à instance unique déployées sur diverses couches** : chaque machine virtuelle d’une couche est configurée en tant qu’instance unique et connectée par des équilibreurs de charge aux autres couches. Cette configuration est la plus simple à adopter.
 
-2. **Machines virtuelles de chaque couche déployées dans un groupe à haute disponibilité** : chaque machine virtuelle d’une couche est configurée dans un groupe à haute disponibilité. Les [groupes à haute disponibilité](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) garantissent que les machines virtuelles que vous déployez sur Azure sont distribuées sur plusieurs nœuds matériels isolés dans un cluster. Leur utilisation garantit qu’en cas de défaillance matérielle ou logicielle dans Azure, seul un sous-ensemble de vos machines virtuelles est affecté et que votre solution globale reste disponible et opérationnelle. 
-   
-      ![avset](media/move-vm-overview/AVset.PNG)
+     ![Déploiement de machines virtuelles à instance unique entre les couches](media/move-vm-overview/regular-deployment.png)
 
-3. **Machines virtuelles de chaque couche déployées dans un groupe à haute disponibilité** : chaque machine virtuelle d’une couche est configurée dans des [zones de disponibilité](https://docs.microsoft.com/azure/availability-zones/az-overview). Une zone de disponibilité dans une région Azure est une combinaison d’un domaine d’erreur et d’un domaine de mise à jour. Par exemple, si vous créez trois ou plusieurs machines virtuelles dans trois zones d’une région Azure, vos machines virtuelles sont efficacement réparties sur trois domaines d’erreur et trois domaines de mise à jour. La plateforme Azure reconnaît cette répartition entre les domaines de mise à jour pour vous assurer que les machines virtuelles des différentes zones ne sont pas mises à jour en même temps.
+* **Machines virtuelles de chaque couche déployées entre groupes à haute disponibilité** : chaque machine virtuelle d’une couche est configurée dans un groupe à haute disponibilité. Les [groupes à haute disponibilité](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) garantissent que les machines virtuelles que vous déployez sur Azure sont distribuées sur plusieurs nœuds matériels isolés dans un cluster. Leur utilisation garantit qu’en cas de défaillance matérielle ou logicielle dans Azure, seule une partie de vos machines virtuelles est affectée tandis que votre solution globale reste disponible et opérationnelle.
 
-      ![zone-deploymnt](media/move-vm-overview/zone.PNG)
+     ![Déploiement de machines virtuelles entre groupes à haute disponibilité](media/move-vm-overview/avset.png)
 
+* **Machines virtuelles de chaque couche déployées entre zones de disponibilité** : chaque machine virtuelle d’une couche est configurée dans des [zones de disponibilité](https://docs.microsoft.com/azure/availability-zones/az-overview). Une zone de disponibilité dans une région Azure est une combinaison d’un domaine d’erreur et d’un domaine de mise à jour. Par exemple, si vous créez trois ou plusieurs machines virtuelles dans trois zones d’une région Azure, vos machines virtuelles sont efficacement réparties sur trois domaines d’erreur et trois domaines de mise à jour. La plateforme Azure reconnaît cette répartition entre les domaines de mise à jour pour vous assurer que les machines virtuelles des différentes zones ne sont pas mises à jour en même temps.
 
+     ![Déploiement de zone de disponibilité](media/move-vm-overview/zone.png)
 
 ## <a name="move-vms-as-is-to-a-target-region"></a>Déplacer des machines virtuelles en l’état vers une région cible
 
 Selon les [architectures](#typical-architectures-for-a-multi-tier-deployment) mentionnées ci-dessus, voici ce à quoi vont ressembler les déploiements une fois que vous aurez effectué le déplacement en l’état vers la région cible.
 
+* **Machines virtuelles à instance unique déployées sur diverses couches**
 
-1. **Machines virtuelles à instance unique déployées sur diverses couches** 
+     ![Déploiement de machines virtuelles à instance unique entre les couches](media/move-vm-overview/single-zone.png)
 
-     ![single-zone.PNG](media/move-vm-overview/single-zone.PNG)
+* **Machines virtuelles de chaque couche déployées entre groupes à haute disponibilité**
 
-2. **Machines virtuelles de chaque couche déployées dans un groupe à haute disponibilité**
+     ![Groupes à haute disponibilité inter-régions](media/move-vm-overview/crossregionaset.png)
 
-     ![crossregionAset.PNG](media/move-vm-overview/crossregionAset.PNG)
+* **Machines virtuelles de chaque couche déployées entre zones de disponibilité**
 
-
-3. **Machines virtuelles de chaque couche déployées dans des zones de disponibilité**
-      
-
-     ![AzoneCross.PNG](media/move-vm-overview/AzoneCross.PNG)
+     ![Déploiement de machines virtuelles entre zones de disponibilité](media/move-vm-overview/azonecross.png)
 
 ## <a name="move-vms-to-increase-availability"></a>Déplacer des machines virtuelles pour augmenter la disponibilité
 
-1. **Machines virtuelles à instance unique déployées sur diverses couches** 
+* **Machines virtuelles à instance unique déployées sur diverses couches**
 
-     ![single-zone.PNG](media/move-vm-overview/single-zone.PNG)
+     ![Déploiement de machines virtuelles à instance unique entre les couches](media/move-vm-overview/single-zone.png)
 
-2. **Machines virtuelles de chaque couche déployées dans un groupe à haute disponibilité** : vous pouvez choisir de placer vos machines virtuelles incluses dans un groupe à haute disponibilité dans des zones de disponibilité distinctes, quand vous choisissez d’activer la réplication de vos machines virtuelles à l’aide d’Azure Site Recovery. Le contrat de niveau de service (SLA) s’élèvera à 99,9 % de disponibilité quand vous aurez terminé l’opération de déplacement.
+* **Machines virtuelles de chaque couche déployées entre groupes à haute disponibilité** : Vous pouvez configurer vos machines virtuelles dans un groupe à haute disponibilité dans des zones de disponibilité distinctes quand vous activez la réplication pour votre machine virtuelle à l’aide d’Azure Site Recovery. Le contrat de niveau de service (SLA) s’élèvera à 99,9 % de disponibilité une fois que vous aurez terminé l’opération de déplacement.
 
-     ![aset-Azone.PNG](media/move-vm-overview/aset-Azone.PNG)
-
+     ![Déploiement de machines virtuelles entre groupes à haute disponibilité et zones de disponibilité](media/move-vm-overview/aset-azone.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce document, vous trouverez des instructions générales sur le déplacement des machines virtuelles. Pour obtenir les procédures pas à pas, reportez-vous aux articles suivants :
-
-
 > [!div class="nextstepaction"]
+> 
 > * [Déplacer des machines virtuelles Azure vers une autre région](azure-to-azure-tutorial-migrate.md)
-
-> * [Déplacer des machines virtuelles Azure vers des zones de disponibilité](move-azure-VMs-AVset-Azone.md)
+> 
+> * [Déplacer des machines virtuelles Azure vers des zones de disponibilité](move-azure-vms-avset-azone.md)
 

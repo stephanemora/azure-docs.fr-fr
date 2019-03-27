@@ -10,17 +10,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviwer: xiaofmao
 ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: 11736b978242416bcfb95d3025975028e4148e98
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: bbf5076c195fde6a7c5fcabd8e347b7a0d433e8f
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486536"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57763247"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Stockage Azure Stack : Différences et considérations
 
@@ -44,6 +44,7 @@ Cet article récapitule les différences connues entre le stockage Azure Stack e
 |Taille maximale d’un objet blob de blocs|4,75 To (100 Mo X 50 000 blocs)|4,75 To (100 Mo x 50 000 blocs) pour la mise à jour 1802 ou une version plus récente. 50 000 x 4 Mo (environ 195 Go) pour les versions précédentes.
 |Copie d’instantané d’objet blob de pages|Prise en charge des disques de machine virtuelle non gérés par Sauvegarde Azure attachés à une machine virtuelle en fonctionnement|Pas encore pris en charge.
 |Copie d’instantané incrémentiel d’objet blob de pages|Objets blob de pages Azure Premium et standard pris en charge|Pas encore pris en charge.
+|Facturation d’objet blob de pages|Des frais sont liés aux pages uniques, qu’elles soient dans l’objet blob ou dans la capture instantanée. Il n’y a aucuns frais supplémentaires pour les captures instantanées associées à un objet blob jusqu’à ce que l’objet blob de base soit mis à jour.|Des frais sont liés à l’objet blob de base et les captures instantanées associées. Il y a des frais supplémentaires pour chaque capture instantanée individuelle.
 |Niveaux de stockage pour le Stockage Blob|Niveaux de stockage chaud, à froid et archivage.|Pas encore pris en charge.
 |Suppression réversible pour le Stockage Blob|Disponibilité générale|Pas encore pris en charge.
 |Taille maximale d’un objet blob de pages|8 To|1 To

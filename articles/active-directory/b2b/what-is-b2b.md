@@ -10,13 +10,14 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fa36ab67957dcba7b5282e219706e442be9dc97
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: a77d502182da8128624bfb5fc0481f2f8786ec37
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674478"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293632"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>Qu’est-ce que l’accès utilisateur invité dans Azure Active Directory B2B ?
 
@@ -34,7 +35,7 @@ Avec Azure AD B2B, vos partenaires utilisent leur propre solution de gestion des
 - Vous n’avez pas à gérer les comptes externes ni les mots de passe. 
 - Vous n’avez pas à synchroniser les comptes ni à gérer les cycles de vie des comptes.  
 
-![ajout d’un membre](media/what-is-b2b/add-member.png)
+![Capture d’écran montrant la page Ajouter des membres](media/what-is-b2b/add-member.png)
 
 ## <a name="invite-guest-users-with-a-simple-invitation-and-redemption-process"></a>Inviter des utilisateurs invités avec un simple processus d’invitation et d’échange d’invitation
 Les utilisateurs invités peuvent se connecter à vos applications et services avec leurs propres identités professionnelles, scolaires ou sociales. Si l’utilisateur invité n’a pas de compte Microsoft ou de compte Azure AD, un compte est créé pour lui au moment où il active l’invitation. 
@@ -42,7 +43,7 @@ Les utilisateurs invités peuvent se connecter à vos applications et services a
 - Envoyez directement un lien vers une application, ou envoyez une invitation au panneau d’accès de l’utilisateur invité. 
 - Les utilisateurs invités suivent quelques étapes simples d’échange d’invitation pour se connecter.
 
-![volet d’accès](media/what-is-b2b/consentscreen.png)
+![Capture d’écran montrant la page Passer en revue les autorisations](media/what-is-b2b/consentscreen.png)
 
 ## <a name="use-policies-to-securely-share-your-apps-and-services"></a>Utiliser des stratégies pour partager vos applications et vos services de manière sécurisée
 Vous pouvez utiliser des stratégies d’autorisation pour protéger le contenu de votre entreprise. Les stratégies d’accès conditionnel, telles que l’authentification multifacteur, peuvent être appliquées :
@@ -50,7 +51,7 @@ Vous pouvez utiliser des stratégies d’autorisation pour protéger le contenu 
 - Au niveau de l’application
 - Pour certains utilisateurs invités afin de protéger les données et les applications d’entreprise
 
-![ajouter des utilisateurs invités](media/what-is-b2b/tutorial-mfa-policy-2.png)
+![Capture d’écran montrant l’option Accès conditionnel](media/what-is-b2b/tutorial-mfa-policy-2.png)
 
 
 ## <a name="easily-add-guest-users-in-the-azure-ad-portal"></a>Ajouter facilement des utilisateurs invités dans le portail Azure AD
@@ -60,7 +61,7 @@ En tant qu’administrateur, vous pouvez facilement ajouter des utilisateurs inv
 - L’utilisateur invité reçoit immédiatement une invitation personnalisable qui lui permet de se connecter à son panneau d’accès.
 - Les utilisateurs invités de l’annuaire peuvent être affectés à des applications ou à des groupes.  
 
-![ajouter des utilisateurs invités](media/what-is-b2b/adding-b2b-users-admin.png)
+![Capture d’écran montrant la page d’entrée de l’invitation Nouvel utilisateur invité](media/what-is-b2b/adding-b2b-users-admin.png)
 
 ## <a name="let-application-and-group-owners-manage-their-own-guest-users"></a>Déléguer à chaque propriétaire d’application ou de groupe la gestion de ses propres utilisateurs invités
 
@@ -68,7 +69,7 @@ Vous pouvez déléguer la gestion des utilisateurs invités aux propriétaires d
  - Les administrateurs configurent la gestion des applications et des groupes libre-service.
  - Les utilisateurs qui ne sont pas administrateurs utilisent leur [panneau d’accès](https://myapps.microsoft.com) pour ajouter des utilisateurs invités aux applications ou aux groupes.
 
-![ajouter des utilisateurs invités](media/what-is-b2b/access-panel-manage-app.png)
+![Capture d’écran montrant le panneau d’accès pour un utilisateur invité](media/what-is-b2b/access-panel-manage-app.png)
 
 ## <a name="use-apis-and-sample-code-to-easily-build-applications-to-onboard"></a>Utilisez les API et l’exemple de code pour créer facilement des applications à intégrer
 
@@ -76,7 +77,7 @@ Intégrez vos partenaires externes de façon personnalisée en fonction des beso
 - Utilisez les [API d’invitation B2B Collaboration](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) pour personnaliser votre expérience d’intégration, notamment pour créer des portails d’inscription libre-service. 
 - Utilisez l’exemple de code pour un portail libre-service fourni [sur GitHub](https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web).
 
-![portail d’inscription](media/what-is-b2b/sign-up-portal.png)
+![Capture d’écran montrant l’exemple de portail d’inscription](media/what-is-b2b/sign-up-portal.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

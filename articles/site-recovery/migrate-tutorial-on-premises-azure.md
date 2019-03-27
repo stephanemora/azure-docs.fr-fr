@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6c97289cd1ad406769613621afdc16c8096f4aeb
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: d5b229d96c0f63e27e36fb95122b36d3d8c128ac
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116165"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110305"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migrer des machines sur site vers Azure
 
@@ -36,6 +36,8 @@ Il s’agit du troisième didacticiel d’une série. Ce didacticiel suppose que
 
 Avant de commencer, il est utile d’examiner les architectures [VMware](vmware-azure-architecture.md) et [Hyper-V](hyper-v-azure-architecture.md) pour la récupération d’urgence.
 
+> [!TIP]
+> Vous recherchez un moyen de migrer des machines virtuelles VMware vers Azure sans agent ? [Cliquez ici](https://aka.ms/migrateVMs-signup)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -54,7 +56,6 @@ Les appareils exportés par les pilotes paravirtualisés ne sont pas pris en cha
    ![Nouveau coffre](./media/migrate-tutorial-on-premises-azure/onprem-to-azure-vault.png)
 
 Le nouveau coffre est ajouté à la zone **Tableau de bord** dans **Toutes les ressources** et dans la page principale **Coffres Recovery Services**.
-
 
 
 ## <a name="select-a-replication-goal"></a>Sélectionner un objectif de réplication
@@ -112,10 +113,10 @@ Exécutez un basculement pour les machines que vous souhaitez migrer.
 5. Vérifiez que la machine virtuelle Azure s’affiche dans Azure comme prévu.
 6. Dans **Éléments répliqués**, cliquez avec le bouton droit sur la machine virtuelle > **Terminer la migration**. Cette opération effectue les actions suivantes :
 
-    - Termine le processus de migration, arrête la réplication pour la machine virtuelle AWS et arrête la facturation Site Recovery pour la machine virtuelle.
-    - Cette étape nettoie les données de réplication. Elle ne supprime pas les machines virtuelles migrées.
+   - Termine le processus de migration, arrête la réplication pour la machine virtuelle AWS et arrête la facturation Site Recovery pour la machine virtuelle.
+   - Cette étape nettoie les données de réplication. Elle ne supprime pas les machines virtuelles migrées.
 
-    ![Terminer la migration](./media/migrate-tutorial-on-premises-azure/complete-migration.png)
+     ![Terminer la migration](./media/migrate-tutorial-on-premises-azure/complete-migration.png)
 
 
 > [!WARNING]

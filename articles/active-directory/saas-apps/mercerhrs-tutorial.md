@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration de Azure Active Directory à Mercer BenefitsCentral (MBC) | Microsoft Docs'
+title: 'Didacticiel : Intégration de Azure Active Directory à Mercer BenefitsCentral (MBC) | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Mercer BenefitsCentral (MBC).
 services: active-directory
 documentationCenter: na
@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 3788b28c-49aa-4208-9acd-630362008e89
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 9dde23d0d860e5777239cb9c51e96a8d46e67841
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 8debca0b473807c3ef6d49dcd29d528b266a1e31
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983372"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57900792"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mercer-benefitscentral-mbc"></a>Tutoriel : Intégration de Azure Active Directory à Mercer BenefitsCentral (MBC)
 
@@ -147,7 +147,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@votredomaineentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

@@ -16,12 +16,12 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: jeconnoc
 ms.custom: seodec18
-ms.openlocfilehash: 90eaf7f57f524cb6e47d9d0f4e160855acd6daf5
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 67e4f99046820aa21392ff1238318e1b48bb5354
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633655"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901081"
 ---
 # <a name="create-an-app-service-app-with-continuous-deployment-using-azure-cli"></a>Créer une application App Service avec un déploiement continu à l’aide d’Azure CLI
 

@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 62675df9f440df77d1098d5c89bd6810349fb3af
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 3474d4ee8751bcd472aa109e9e541d639344276d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750002"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118082"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>Tutoriel : Copier des données sur Azure Data Box Disk par le biais de SMB
 
@@ -41,9 +41,10 @@ Avant de commencer, assurez-vous que :
 
 Selon le compte de stockage sélectionné, Data Box crée jusqu’à :
 - Trois partages pour chaque compte de stockage associé pour GPv1 et GPv2.
-- Un partage pour un compte de stockage Premium ou Blob
+- Un partage pour le stockage Premium. 
+- Un partage pour le compte de stockage Blob. 
 
-Sous les partages d’objet blob de blocs et d’objet blob de pages, les entités de premier niveau sont des conteneurs et les entités de second niveau sont des blobs. Sous les partages Azure Files, les entités de premier niveau sont des partages et les entités de second niveau sont des fichiers.
+Sous les partages d’objet blob de blocs et d’objet blob de pages, les entités de premier niveau sont des conteneurs et les entités de second niveau sont des objets blob. Sous les partages Azure Files, les entités de premier niveau sont des partages et les entités de second niveau sont des fichiers.
 
 Le tableau suivant montre le chemin UNC aux partages sur votre Data Box et l’URL de chemin Stockage Azure où les données sont chargées. La dernière URL de chemin de Stockage Azure peut être dérivée à partir du chemin de partage UNC.
  
@@ -195,8 +196,8 @@ L’exemple suivant affiche la sortie de la commande robocopy pour copier les fi
 Pour optimiser les performances, utilisez les paramètres robocopy suivants lors de la copie des données.
 
 |    Plateforme    |    Principalement des fichiers de petite taille (< 512 Ko)                           |    Principalement des fichiers de taille moyenne (entre 512 Ko et 1 Mo)                      |    Principalement des fichiers volumineux (> 1 Mo)                             |   
-|----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|---|
-|    Data Box         |    2 sessions Robocopy <br> 16 threads par session    |    3 sessions Robocopy <br> 16 threads par session    |    2 sessions Robocopy <br> 24 threads par session    |  |
+|----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|
+|    Data Box         |    2 sessions Robocopy <br> 16 threads par session    |    3 sessions Robocopy <br> 16 threads par session    |    2 sessions Robocopy <br> 24 threads par session    |
 
 
 Pour plus d’informations sur la commande Robocopy, consultez [Robocopy and a few examples](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx) (Robocopy et quelques exemples).

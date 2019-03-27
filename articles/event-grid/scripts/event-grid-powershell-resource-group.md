@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: fe36336bb1bcc3b0d1cc718724ca05f6d23110c7
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: db4be11286825a8a990918a80c687f86c2294c6d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270533"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58186729"
 ---
 # <a name="subscribe-to-events-for-a-resource-group-with-powershell"></a>S’inscrire aux événements d’un groupe de ressources avec PowerShell
 
@@ -29,9 +29,13 @@ L’exemple de script en préversion requiert le module Event Grid. Pour l’ins
 
 ## <a name="sample-script---stable"></a>Exemple de script : stable
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 [!code-powershell[main](../../../powershell_scripts/event-grid/subscribe-to-resource-group/subscribe-to-resource-group.ps1 "Subscribe to resource group")]
 
-## <a name="sample-script---preview-module"></a>Exemple de script : module en préversion
+## <a name="sample-script---preview-module"></a>Exemple de script - module en préversion
+
+[!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
 
 [!code-powershell[main](../../../powershell_scripts/event-grid/subscribe-to-resource-group-preview/subscribe-to-resource-group-preview.ps1 "Subscribe to resource group")]
 
@@ -41,7 +45,7 @@ Ce script utilise la commande suivante pour créer l’abonnement aux événemen
 
 | Commande | Notes |
 |---|---|
-| [New-AzureRmEventGridSubscription](https://docs.microsoft.com/powershell/module/azurerm.eventgrid/new-azurermeventgridsubscription) | Créer un abonnement Event Grid. |
+| [New-AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridsubscription) | Créer un abonnement Event Grid. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

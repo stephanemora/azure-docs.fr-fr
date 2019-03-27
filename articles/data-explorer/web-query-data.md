@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 7ce66d3f6117a5e395920dc2232efb0e43f4cd18
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 9dade2ccebfb96cd54bdb9c8ef70c14fdeadad76
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106445"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225771"
 ---
 # <a name="quickstart-query-data-in-azure-data-explorer"></a>Démarrage rapide : Interroger des données dans Azure Data Explorer
 
@@ -39,7 +39,11 @@ Avant de commencer à exécuter des requêtes, vous devez ajouter une connexion 
 
 1. Dans la partie supérieure gauche de l’application, sélectionnez **Ajouter un cluster**.
 
-1. Dans la boîte de dialogue **Ajouter un cluster**, entrez `https://help.kusto.windows.net` et sélectionnez **Ajouter**.
+1. Dans la boîte de dialogue **Ajouter un cluster**, entrez l’URI, puis sélectionnez **Ajouter**.
+
+   Vous pouvez utiliser l’URI du cluster help : `https://help.kusto.windows.net`. Si vous disposez de votre propre cluster, indiquez son URI. Par exemple, `https://mydataexplorercluster.westus.kusto.windows.net` comme dans l’image suivante :
+
+    ![URI du serveur sur le portail](media/web-query-data/server-uri.png)
 
 1. Dans le volet gauche, vous devriez maintenant voir le cluster **help**. Développez la base de données **Samples** afin de pouvoir voir les exemples de tables auxquels vous avez accès.
 

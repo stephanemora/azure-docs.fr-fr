@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/18/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: c9fb24cd6bcfae273c5430eee8d1fa8df58c6202
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 1ebac5476c90b3cb49fccbb95ef8dedf413a6127
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236309"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200291"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Didacticiel : Configurer HTTPS sur un domaine personnalisé Azure CDN
 
@@ -172,7 +172,7 @@ Votre enregistrement CNAME doit être au format suivant, où *Nom* est le nom de
 
 | Nom            | type  | Valeur                 |
 |-----------------|-------|-----------------------|
-| www.contoso.com | CNAME | contoso.azureedge.net |
+| <www.contoso.com> | CNAME | contoso.azureedge.net |
 
 Pour plus d’informations sur les enregistrements CNAME, consultez [Create the CNAME DNS record](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain) (Créer l’enregistrement DNS CNAME).
 
@@ -190,7 +190,7 @@ Si l’entrée d’enregistrement CNAME pour votre point de terminaison n’exis
 >[!NOTE]
 >La validation par e-mail d’une propriété de domaine personnalisée n’est pas disponible pour les profils **Azure CDN fournis par Akamai**. Cette fonctionnalité est dans notre backlog. 
 
-Dès que vous avez activé HTTPS sur votre domaine personnalisé, l’autorité de certification DigiCert valide la propriété de votre domaine en contactant son inscrit, en fonction de ses informations [WHOIS](http://whois.domaintools.com/) du domaine. Une prise de contact est établie par le biais de l’adresse de messagerie (par défaut) ou le numéro de téléphone répertorié dans l’inscription WHOIS. Vous devez effectuer la validation de domaine avant que le protocole HTTPS soit activé sur votre domaine personnalisé. Vous disposez de six jours ouvrables pour approuver le domaine. Les requêtes qui ne sont pas approuvées dans ce délai de six jours ouvrables sont automatiquement annulées. 
+Dès que vous soumettez une requête pour activer HTTPS sur votre domaine personnalisé, l’autorité de certification DigiCert valide la propriété de votre domaine en contactant son inscrit, en fonction des informations [WHOIS](http://whois.domaintools.com/) du domaine pour cet inscrit. Une prise de contact est établie par le biais de l’adresse de messagerie (par défaut) ou le numéro de téléphone répertorié dans l’inscription WHOIS. Vous devez effectuer la validation de domaine avant que le protocole HTTPS soit activé sur votre domaine personnalisé. Vous disposez de six jours ouvrables pour approuver le domaine. Les requêtes qui ne sont pas approuvées dans ce délai de six jours ouvrables sont automatiquement annulées. 
 
 ![Enregistrement WHOIS](./media/cdn-custom-ssl/whois-record.png)
 

@@ -5,21 +5,23 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: overview
-ms.date: 09/26/2018
+ms.date: 03/05/2019
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: db6a02db3a154193a9326e2957038e5daa2faae7
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 0960977a17925ffd922e75fa03847b7023241c4e
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52992358"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201498"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Service Azure Kubernetes (AKS)
 
 Azure Kubernetes Service (AKS) simplifie le déploiement d’un cluster Kubernetes géré dans Azure. AKS permet de réduire la complexité et la surcharge opérationnelle de la gestion d’un cluster Kubernetes en déléguant une grande partie de cette responsabilité à Azure. En tant que service Kubernetes hébergé, Azure gère pour vous des tâches critiques telles que l’analyse de l'intégrité et la maintenance. Les maîtres Kubernetes sont gérés par Azure. Vous gérez et tenez à jour uniquement les nœuds d’agent. En tant que service Kubernetes managé, AKS est gratuit. Vous payez uniquement pour les nœuds de l’agent au sein de vos clusters, pas pour les maîtres.
 
 Vous pouvez créer un cluster AKS dans le portail Azure, avec Azure CLI ou des options de déploiement piloté par modèle, comme les modèles Resource Manager et Terraform. Lors du déploiement d’un cluster AKS, le maître Kubernetes et tous les nœuds sont déployés et configurés pour vous. Des fonctionnalités supplémentaires telles que la mise en réseau avancée, l’intégration d’Azure Active Directory et la surveillance peuvent aussi être configurées lors du processus de déploiement.
+
+Pour plus d’informations sur les principes fondamentaux de Kubernetes, consultez [Concepts de base de Kubernetes pour AKS][concepts-clusters-workloads].
 
 Pour commencer, effectuez le démarrage rapide d’AKS [dans le portail Azure][aks-portal] ou [avec Azure CLI][aks-cli].
 
@@ -30,6 +32,8 @@ Pour améliorer la sécurité et la gestion, AKS vous permet d’intégrer avec 
 ### <a name="identity-and-security-management"></a>Gestion de la sécurité et identité
 
 Pour limiter l’accès aux ressources de cluster, AKS prend en charge le [contrôle d’accès en fonction du rôle (RBAC) de Kubernetes][kubernetes-rbac]. RBAC vous permet de contrôle l’accès aux ressources et aux espaces de noms Kubernetes, ainsi que les autorisations sur ces ressources. Un cluster AKS peut aussi être configuré pour s’intégrer à Azure Active Directory (AD). Avec l’intégration Azure AD, l’accès à Kubernetes peut être configuré en fonction de l’identité et de l’appartenance du groupe existantes. Vos utilisateurs et groupes Azure AD existants peuvent disposer de l’accès aux ressources AKS et avec une expérience d’authentification intégrée.
+
+Pour plus d’informations sur l’identité, consultez [Options d’accès et d’identité pour AKS][concepts-identity].
 
 Pour sécuriser vos clusters AKS, consultez [Intégrer Azure Active Directory à AKS][aks-aad].
 
@@ -65,13 +69,17 @@ Pour plus d’informations, consultez [Utilisation de processeurs graphiques (GP
 
 Pour supporter les charges de travail d’application, vous pouvez monter des volumes de stockage pour les données persistantes. Les volumes statiques et dynamiques peuvent être utilisés. En fonction du nombre de pods connectés qui doivent partager le stockage, vous pouvez utiliser un stockage soutenu par Azure Disks pour l’accès d’un pod unique ou Azure Files pour l’accès simultané de plusieurs pods.
 
-Prenez en main les volumes persistants dynamiques avec [Azure Disks][azure-disk] ou [Azure Files][azure-files].
+Pour plus d’informations, consultez [Options de stockage pour les applications dans AKS][concepts-storage].
+
+Démarrez avec les volumes persistants dynamiques en utilisant [Disques Azure][azure-disk] ou [Azure Files][azure-files].
 
 ## <a name="virtual-networks-and-ingress"></a>Réseaux virtuels et entrée
 
 Un cluster AKS peut être déployé dans un réseau virtuel existant. Dans cette configuration, chaque pod du cluster se voit affecter une adresse IP dans le réseau virtuel et peut communiquer directement avec les autres pods du cluster et les autres nœuds du réseau virtuel. Les pods peuvent se connecter à d’autres services dans un réseau virtuel appairé, et à d’autres réseaux locaux via des connexions ExpressRoute ou VPN site à site (S2S).
 
-Pour plus d’informations, consultez [Vue d’ensemble de la mise en réseau AKS][aks-networking].
+Pour plus d’informations, consultez les [Concepts réseau pour les applications dans AKS][aks-networking].
+
+Pour vous familiariser avec le trafic en entrée, consultez [Routage d’applications HTTP][aks-http-routing].
 
 ### <a name="ingress-with-http-application-routing"></a>Entrée avec un routage d’applications HTTP
 
@@ -101,7 +109,7 @@ Azure Kubernetes Service (AKS) a été certifié conforme à Kubernetes par CNCF
 
 ## <a name="regulatory-compliance"></a>Conformité aux normes
 
-Azure Kubernetes Service (AKS) est conforme aux normes SOC, ISO, PCI DSS et HIPAA.
+Azure Kubernetes Service (AKS) est conforme aux normes SOC, ISO, PCI DSS et HIPAA. Pour plus d’informations, consultez [Présentation de la conformité Microsoft Azure][compliance-doc].
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -112,10 +120,8 @@ En savoir plus sur le déploiement et la gestion d’AKS avec le démarrage rapi
 
 <!-- LINKS - external -->
 [aks-engine]: https://github.com/Azure/aks-engine
-[draft]: https://github.com/Azure/draft
-[helm]: https://helm.sh/
 [kubectl-overview]: https://kubernetes.io/docs/user-guide/kubectl-overview/
-[kubernetes-rbac]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
+[compliance-doc]: https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942
 
 <!-- LINKS - internal -->
 [acr-docs]: ../container-registry/container-registry-intro.md
@@ -134,3 +140,7 @@ En savoir plus sur le déploiement et la gestion d’AKS avec le démarrage rapi
 [container-health]: ../monitoring/monitoring-container-health.md
 [aks-master-logs]: view-master-logs.md
 [aks-supported versions]: supported-kubernetes-versions.md
+[concepts-clusters-workloads]: concepts-clusters-workloads.md
+[kubernetes-rbac]: concepts-identity.md#role-based-access-controls-rbac
+[concepts-identity]: concepts-identity.md
+[concepts-storage]: concepts-storage.md

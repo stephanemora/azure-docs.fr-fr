@@ -1,31 +1,38 @@
 items:
-- name: Documentation relative à la personnalisation du portail Azure
+- name: Documentation du portail Azure
   href: index.yml
-- name: Tableaux de bord Azure
+- name: Vue d’ensemble
+  items:
+  - name: À propos du portail Azure
+    href: azure-portal-overview.md
+  - name: Navigateurs et appareils pris en charge
+    href: azure-portal-supported-browsers-devices.md
+- name: Concepts
   items:
   - name: Créer et partager des tableaux de bord Azure
     href: azure-portal-dashboards.md
-  - name: Utiliser une vignette Markdown personnalisée
-    href: azure-portal-markdown-tile.md
   - name: Partager des tableaux de bord à l’aide du contrôle d’accès en fonction du rôle
     href: azure-portal-dashboard-share-access.md
-  - name: Structure des tableaux de bord Azure
-    href: azure-portal-dashboards-structure.md
   - name: Créer par programmation des tableaux de bord Azure
     href: azure-portal-dashboards-create-programmatically.md
-- name: Paramètres
+- name: Guides pratiques
+  items:
+  - name: Activer le contraste élevé ou modifier le thème
+    href: azure-portal-change-theme-high-contrast.md
+  - name: Utiliser une vignette Markdown personnalisée
+    href: azure-portal-markdown-tile.md
+  - name: Exporter ou supprimer des paramètres utilisateur
+    href: azure-portal-export-delete-settings.md
+- name: Informations de référence
   items:
   - name: Raccourcis clavier
     href: azure-portal-keyboard-shortcuts.md
-  - name: Navigateurs et appareils pris en charge
-    href: ../azure-preview-portal-supported-browsers-devices.md
-  - name: Activer le contraste élevé ou modifier le thème
-    href: azure-portal-change-theme-high-contrast.md
-  - name: Exporter ou supprimer des paramètres utilisateur
-    href: azure-portal-export-delete-settings.md
-  expanded: true
+  - name: Structure des tableaux de bord Azure
+    href: azure-portal-dashboards-structure.md
 - name: Ressources
   items:
+  - name: Série de vidéos de procédures sur le portail Azure
+    href: https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR
   - name: Feuille de route Azure
     href: https://azure.microsoft.com/updates/
   - name: Développer vos compétences avec Microsoft Learn
@@ -34,13 +41,13 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Disponibilité régionale
     href: https://azure.microsoft.com/regions/services/
-  - name: Dépassement de capacité de la pile
+  - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-management-portal
-  - name: vidéos
+  - name: Vidéos Azure
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-portal&sort=newest
-ms.openlocfilehash: 7fee5a433470309384931e6ea43817288aecf7a8
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 43a009582b565f10261c0cc6cc24507c3ef6e44e
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902769"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58443871"

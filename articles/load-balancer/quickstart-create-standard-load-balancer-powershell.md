@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/22/2018
+ms.date: 03/05/2019
 ms.author: kumud
 ms:custom: seodec18
-ms.openlocfilehash: 56fc3942b82d43273ea39f6075382bcb255fc0f7
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 87c1d047e783715b3a5beee4604e064322f965dd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673817"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58101885"
 ---
 # <a name="get-started"></a>Démarrage rapide : Créer un Standard Load Balancer à l’aide d’Azure PowerShell
 
-Ce démarrage rapide vous montre comment créer un Standard Load Balancer à l’aide d’Azure PowerShell. Pour tester l’équilibreur de charge, vous déployez deux machines virtuelles exécutant un serveur Windows, puis vous équilibrez la charge d’une application web entre les machines virtuelles. Pour plus d’informations sur l’équilibreur de charge standard, consultez [Qu’est-ce que Standard Load Balancer](load-balancer-standard-overview.md).
+Ce démarrage rapide vous montre comment créer un Standard Load Balancer à l’aide d’Azure PowerShell. Pour tester l’équilibreur de charge, vous déployez deux machines virtuelles exécutant un serveur Windows, puis vous équilibrez la charge d’une application web entre les machines virtuelles. Pour plus d’informations sur l’équilibreur de charge standard, consultez [Qu’st-ce que Standard Load Balancer](load-balancer-standard-overview.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -227,7 +227,7 @@ Créez des cartes réseau virtuelles avec [New-AzNetworkInterface](/powershell/m
 $nicVM1 = New-AzNetworkInterface `
 -ResourceGroupName 'myResourceGroupLB' `
 -Location 'EastUS' `
--Name 'MyNic1' `
+-Name 'MyVM1' `
 -LoadBalancerBackendAddressPool $backendPool `
 -NetworkSecurityGroup $nsg `
 -LoadBalancerInboundNatRule $natrule1 `
@@ -237,7 +237,7 @@ $nicVM1 = New-AzNetworkInterface `
 $nicVM2 = New-AzNetworkInterface `
 -ResourceGroupName 'myResourceGroupLB' `
 -Location 'EastUS' `
--Name 'MyNic2' `
+-Name 'MyVM2' `
 -LoadBalancerBackendAddressPool $backendPool `
 -NetworkSecurityGroup $nsg `
 -LoadBalancerInboundNatRule $natrule2 `
@@ -245,19 +245,6 @@ $nicVM2 = New-AzNetworkInterface `
 ```
 
 ### <a name="create-virtual-machines"></a>Créer des machines virtuelles
-Pour améliorer la haute disponibilité de votre application, placez vos machines virtuelles dans un groupe à haute disponibilité.
-
-Créez un groupe à haute disponibilité avec la commande [New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset). L’exemple suivant permet de créer un groupe à haute disponibilité nommé *myAvailabilitySet* :
-
-```azurepowershell-interactive
-$availabilitySet = New-AzAvailabilitySet `
-  -ResourceGroupName "myResourceGroupLB" `
-  -Name "myAvailabilitySet" `
-  -Location "EastUS" `
-  -Sku aligned `
-  -PlatformFaultDomainCount 2 `
-  -PlatformUpdateDomainCount 2
-```
 
 Définissez un nom d’utilisateur administrateur et un mot de passe pour les machines virtuelles avec [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential) :
 
@@ -265,7 +252,7 @@ Définissez un nom d’utilisateur administrateur et un mot de passe pour les ma
 $cred = Get-Credential
 ```
 
-Vous pouvez maintenant créer les machines virtuelles avec [New-AzVM](/powershell/module/az.compute/new-azvm). L’exemple suivant crée deux machines virtuelles et les composants de réseau virtuel requis s’ils n’existent pas déjà :
+Vous pouvez maintenant créer les machines virtuelles avec [New-AzVM](/powershell/module/az.compute/new-azvm). L’exemple suivant crée deux machines virtuelles ainsi que les composants de réseau virtuel nécessaires s’ils n’existent pas encore. Dans cet exemple, les cartes réseau (*VM1* et *VM2*) créées à l’étape précédente sont automatiquement affectées aux machines virtuelles *VM1* et *VM2*, car leur nom est identique et le réseau virtuel (*myVnet*) et le sous-réseau (*mySubnet*) qui leur sont affectés sont les mêmes. Par ailleurs, comme les cartes réseau sont associées au pool back-end de l’équilibreur de charge, les machines virtuelles sont automatiquement ajoutées au pool back-end.
 
 ```azurepowershell-interactive
 for ($i=1; $i -le 2; $i++)
@@ -278,7 +265,6 @@ for ($i=1; $i -le 2; $i++)
         -SubnetName "mySubnet" `
         -SecurityGroupName "myNetworkSecurityGroup" `
         -OpenPorts 80 `
-        -AvailabilitySetName "myAvailabilitySet" `
         -Credential $cred `
         -AsJob
 }
@@ -292,11 +278,11 @@ Installez IIS avec une page web personnalisée sur les deux machines virtuelles 
 
 1. Obtenez l’adresse IP publique de l’équilibreur de charge. À l’aide de `Get-AzPublicIPAddress`, obtenez l’adresse IP publique de l’équilibreur de charge.
 
-  ```azurepowershell-interactive
+   ```azurepowershell-interactive
     Get-AzPublicIPAddress `
     -ResourceGroupName "myResourceGroupLB" `
     -Name "myPublicIP" | select IpAddress
-  ```
+   ```
 2. Créez une connexion Bureau à distance à VM1 à l’aide de l’adresse IP publique que vous avez obtenue dans l’étape précédente. 
 
    ```azurepowershell-interactive

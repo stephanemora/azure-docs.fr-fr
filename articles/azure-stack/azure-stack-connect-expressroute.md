@@ -10,22 +10,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 03/22/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 3f23f62554ce7f4b90b4116fdd6085027e71650d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 0ebd17eca363d7fc02daeb851bb24b8d1d307efc
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770161"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339599"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Connexion d’Azure Stack à Azure à l’aide d’Azure ExpressRoute
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-Cet article vous explique comment connecter un réseau virtuel Azure Stack à un réseau virtuel Azure à l’aide d’une connexion directe de [Microsoft Azure ExpressRoute](/azure/expressroute/).
+Cet article décrit comment connecter un réseau virtuel Azure Stack à un réseau virtuel Azure à l’aide d’une connexion directe de [Microsoft Azure ExpressRoute](/azure/expressroute/).
 
 Vous pouvez utiliser cet article sous forme de didacticiel et utiliser les exemples pour configurer le même environnement de test. Ou bien, vous pouvez utiliser l’article comme une procédure pas-à-pas qui vous guide à travers la configuration de votre propre environnement ExpressRoute.
 
@@ -104,7 +104,7 @@ Suivez les procédures ci-dessous pour créer les ressources réseau nécessaire
 
 4. Sous **Sélection**, sélectionnez **Réseau virtuel**.
 
-5. Sous **Créer un réseau virtuel**, entrez, au sein des champs appropriés, les valeurs indiquées dans le tableau suivant :
+5. Sous **Créer un réseau virtuel**, dans les champs appropriés, entrez les valeurs indiquées dans le tableau suivant :
 
    |Champ  |Valeur  |
    |---------|---------|
@@ -150,7 +150,7 @@ La ressource de passerelle de réseau local identifie la passerelle distante pr�
 1. Sous **Place de marché Azure**, sélectionnez **Mise en réseau**.
 1. Sélectionnez **Passerelle de réseau local** dans la liste des ressources.
 1. Dans le champ **Nom**, saisissez **ER-Router-GW**.
-1. Pour le champ **Adresse IP**, reportez-vous à la figure2. L’adresse IP de la sous-interface LAN du routeur ExpressRoute pour le locataire 1 est 10.60.3.255. Pour votre propre environnement, entrez l’adresse IP de l’interface correspondante de votre routeur.
+1. Pour le champ **Adresse IP**, reportez-vous à la figure2. L’adresse IP de la sous-interface LAN du routeur ExpressRoute pour le locataire 1 est 10.60.3.255. Pour votre propre environnement, entrez l’adresse IP de l’interface correspondante de votre routeur.
 1. Dans le champ **Espace d’adressage**, entrez l’espace d’adressage des réseaux virtuels auxquels se connecter dans Azure. Les sous-réseaux pour le locataire 1 dans la *Figure 2* sont les suivants :
 
    * 192.168.2.0/24 est le réseau virtuel hub dans Azure.
@@ -159,7 +159,7 @@ La ressource de passerelle de réseau local identifie la passerelle distante pr�
    > [!IMPORTANT]
    > Cet exemple suppose que vous utilisiez des itinéraires statiques pour la connexion VPN de site à site entre la passerelle Azure Stack et le routeur ExpressRoute.
 
-1. Vérifiez l’exactitude des valeurs des champs **Abonnement**, **Groupe de ressources** et **Emplacement**. Cliquez ensuite sur **Créer**.
+1. Vérifiez l’exactitude des valeurs des champs **Abonnement**, **Groupe de ressources** et **Emplacement**. Sélectionnez ensuite **Créer**.
 
 #### <a name="create-the-connection"></a>Créer la connexion
 
@@ -174,9 +174,9 @@ La ressource de passerelle de réseau local identifie la passerelle distante pr�
 1. Dans le champ **Clé partagée (PSK)**, entrez **abc123**, puis sélectionnez **OK**.
 1. Sous **Résumé**, sélectionnez **OK**.
 
-#### <a name="get-the-virtual-network-gateway-public-ip-address"></a>Obtenir l’adresse IP publique de passerelle de réseau virtuel
+#### <a name="get-the-virtual-network-gateway-public-ip-address"></a>Obtenir l’adresse IP publique de la passerelle de réseau virtuel
 
-Après avoir créé la passerelle de réseau virtuel, vous pouvez obtenir son adresse IP publique. Prenez note de cette adresse au cas où vous en avez besoin plus tard pour votre déploiement. Selon votre déploiement, cette adresse est utilisée comme **Adresse IP interne**.
+Après avoir créé la passerelle de réseau virtuel, vous pouvez obtenir son adresse IP publique. Prenez note de cette adresse au cas où vous en auriez besoin plus tard pour votre déploiement. Selon votre déploiement, cette adresse est utilisée comme **Adresse IP interne**.
 
 1. Dans le portail utilisateur Azure Stack, sélectionnez **Toutes les ressources**.
 1. Sous **toutes les ressources**, sélectionnez la passerelle de réseau virtuel, **GW1** dans l’exemple.
@@ -223,14 +223,14 @@ Si vous prévoyez d’utiliser le locataire 2 en exemple, n’oubliez pas de mod
 > [!IMPORTANT]
 > Cette section concerne uniquement les déploiements du Kit de développement Azure Stack (ASDK). La traduction d’adresses réseau (NAT) n’est pas nécessaire pour les déploiements à plusieurs nœuds.
 
-Le Kit de développement Azure Stack est autonome et isolé du réseau sur lequel est déployé l’hôte physique. Le réseau VIP auquel les passerelles sont connectées n’est pas externe. Il est masqué derrière un routeur qui procède à la traduction d’adresses réseau (NAT).
+Le Kit de développement Azure Stack est autonome et isolé du réseau sur lequel est déployé l’hôte physique. Le réseau VIP auquel les passerelles sont connectées n’est pas externe : il est masqué derrière un routeur qui procède à la traduction d’adresses réseau (NAT).
 
 Le routeur est une machine virtuelle Windows Server (AzS-BGPNAT01) qui exécute le rôle RRAS (Routing and Remote Access Services). Vous devez configurer la traduction d’adresses réseau sur la machine virtuelle AzS-BGPNAT01 pour permettre à la connexion VPN de site à site de se connecter aux deux extrémités.
 
 #### <a name="configure-the-nat"></a>Configurer NAT
 
 1. Connectez-vous à l’ordinateur hôte Azure Stack avec votre compte Administrateur.
-1. Copiez et modifiez le script PowerShell suivant. Remplacez `"your administrator password"` par votre mot de passe administrateur, puis exécutez le script dans une fenêtre PowerShell ISE avec élévation de privilèges. Le script renvoie votre **adresse BGPNAT externe**.
+1. Copiez et modifiez le script PowerShell suivant. Remplacez `your administrator password` par votre mot de passe administrateur, puis exécutez le script dans une fenêtre PowerShell ISE avec élévation de privilèges. Le script renvoie votre **adresse BGPNAT externe**.
 
    ```PowerShell
    cd \AzureStack-Tools-master\connect
@@ -243,7 +243,7 @@ Le routeur est une machine virtuelle Windows Server (AzS-BGPNAT01) qui exécute
     -Password $Password
    ```
 
-1. Pour configurer le NAT, copiez et modifiez le script PowerShell suivant. Modifiez le script pour remplacer `'External BGPNAT address'` et `'Internal IP address'` par les valeurs d’exemple suivantes :
+1. Pour configurer le NAT, copiez et modifiez le script PowerShell suivant. Modifiez le script pour remplacer `External BGPNAT address` et `Internal IP address` par les valeurs d’exemple suivantes :
 
    * Pour *l’adresse BGPNAT externe*, utilisez 10.10.0.62
    * Pour *l’adresse IP interne*, utilisez 192.168.102.1
@@ -289,18 +289,17 @@ Le routeur est une machine virtuelle Windows Server (AzS-BGPNAT01) qui exécute
       -InternalIPAddress $Using:IntBgpNat `
       -ExternalPort 4500 `
       -InternalPort 4500}
-
    ```
 
 ## <a name="configure-azure"></a>Configuration d’Azure
 
-Après avoir terminé la configuration d’Azure Stack, vous pouvez déployer les ressources Azure. La figure suivante représente un exemple de réseau virtuel locataire dans Azure. Vous pouvez utiliser n’importe quel nom et schéma d’adressage pour désigner votre réseau virtuel dans Azure. Toutefois, la plage d’adresses des réseaux virtuels dans Azure et Azure Stack doit être unique et ne doit pas se chevaucher.
+Après avoir terminé la configuration d’Azure Stack, vous pouvez déployer les ressources Azure. La figure suivante représente un exemple de réseau virtuel locataire dans Azure. Vous pouvez utiliser n’importe quel nom et schéma d’adressage pour désigner votre réseau virtuel dans Azure. Toutefois, les plages d’adresses des réseaux virtuels dans Azure et Azure Stack doivent être uniques et ne doivent pas se chevaucher :
 
 *Figure 3 : Réseaux virtuels Azure*
 
 ![Réseaux virtuels Azure](media/azure-stack-connect-expressroute/AzureArchitecture.png)
 
-Les ressources que vous déployez dans Azure sont semblables aux ressources déployées dans Azure Stack. Vous allez déployer les composants suivants :
+Les ressources que vous déployez dans Azure sont semblables aux ressources déployées dans Azure Stack. Vous déployez les composants suivants :
 
 * Des réseaux virtuels et des sous-réseaux
 * Un sous-réseau de passerelle
@@ -310,7 +309,7 @@ Les ressources que vous déployez dans Azure sont semblables aux ressources dép
 
 L’infrastructure réseau Azure donnée en exemple est configurée de la façon suivante :
 
-* Un modèle de réseau virtuel Hub (192.168.2.0/24) et Spoke (10.100.0.0./16) standard. Pour plus d’informations sur une topologie de réseau Hub et Spoke, consultez [Implémenter une topologie de réseau Hub et Spoke dans Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
+* Un modèle de réseau virtuel Hub (192.168.2.0/24) et Spoke (10.100.0.0./16) standard. Pour plus d’informations sur une topologie réseau hub-and-spoke, consultez [Implémenter une topologie réseau hub-and-spoke dans Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
 * Les charges de travail sont déployées dans le réseau virtuel Spoke et le circuit ExpressRoute est connecté au réseau virtuel Hub.
 * Les deux réseaux virtuels sont connectés à l’aide de l’homologation de réseau virtuel.
 
@@ -367,7 +366,7 @@ Vous pouvez utiliser n’importe quel routeur qui prend en charge le VPN IKEv2 e
 
 L’exemple de configuration du routeur des services d’agrégation Cisco ASR 1000 ci-après prend en charge l’infrastructure réseau représentée dans le diagramme *Configuration du routeur ExpressRoute*.
 
-```
+```shell
 ip vrf Tenant 1
  description Routing Domain for PRIVATE peering to Azure for Tenant 1
  rd 1:1
@@ -628,7 +627,7 @@ Si vous souhaitez connaître le volume de trafic qui transite via votre connexio
 1. Connectez-vous au portail utilisateur Azure Stack avec votre compte locataire et sélectionnez **Toutes les ressources**.
 1. Accédez au groupe de ressources pour lequel votre passerelle VPN a été créée et sélectionnez le type d’objet **Connexions**.
 1. Sélectionnez la connexion **ConnectToAzure** dans la liste.
-1. Dans **Connexions**>**Vue d’ensemble**, vous pouvez visualiser les statistiques de **données entrantes** et de **données sortantes**. Vous devriez voir des valeurs non nulles.
+1. Dans **Connexions** > **Vue d’ensemble**, vous pouvez visualiser les statistiques de **données entrantes** et de **données sortantes**. Vous devriez voir des valeurs non nulles.
 
    ![Données entrantes et Données sortantes](media/azure-stack-connect-expressroute/DataInDataOut.png)
 

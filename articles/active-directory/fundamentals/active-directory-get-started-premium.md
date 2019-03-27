@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97c70c6187672c47a9f6dc09e1ccb8e6eadeff6a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ed01b2b122724ba1428fb685bb3f1f52b7099a7b
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187676"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287058"
 ---
 # <a name="sign-up-for-azure-active-directory-premium-editions"></a>S’inscrire aux éditions Azure Active Directory Premium
 Vous pouvez acheter des éditions Azure Active Directory (Azure AD) Premium et les associer à votre abonnement Azure. Si vous devez créer un nouvel abonnement Azure, vous devez aussi activer votre offre de licences et l’accès au service Azure AD.
@@ -65,17 +65,17 @@ Si vous vous êtes inscrit par l’intermédiaire d’une nouvelle offre de lice
 ### <a name="to-activate-your-license-plan"></a>Pour activer votre offre de licences
 - Ouvrez l’e-mail de confirmation que vous avez reçu de Microsoft après vous être inscrit, puis cliquez sur **Se connecter** ou **S’inscrire**.
    
-    ![Se connecter](media/active-directory-get-started-premium/MOLSEmail.png)
+    ![E-mail de confirmation contenant les liens de connexion et d’inscription](media/active-directory-get-started-premium/MOLSEmail.png)
 
     - **Se connecter.** Choisissez ce lien si vous disposez d’un locataire existant, puis connectez-vous avec votre compte Administrateur existant. Vous devez être administrateur général sur le locataire où les licences vont être activées.
 
     - **S’inscrire.** Choisissez ce lien si vous voulez ouvrir la page **Créer un profil de compte** et créer un locataire Azure AD pour votre offre de licences.
 
-        ![Créer un profil de compte](media/active-directory-get-started-premium/MOLSAccountProfile.png)
+        ![Page Créer un profil de compte, avec les informations de l’exemple](media/active-directory-get-started-premium/MOLSAccountProfile.png)
 
 Lorsque vous avez terminé, une boîte de confirmation s’affiche vous remerciant de l’activation de l’offre de licences pour votre locataire.
 
-![Confirmation](media/active-directory-get-started-premium/MOLSThankYou.png)
+![Boîte de confirmation avec remerciement](media/active-directory-get-started-premium/MOLSThankYou.png)
 
 ## <a name="activate-your-azure-ad-access"></a>Activer votre accès Azure AD
 Si vous ajoutez de nouvelles licences Azure AD Premium à un abonnement existant, votre accès Azure AD doit être déjà activé. Dans le cas contraire, vous devez activer l’accès à Azure AD après avoir reçu l’**e-mail de Bienvenue**.  
@@ -89,11 +89,11 @@ Dès que vos licences achetées sont provisionnées dans votre annuaire, vous re
 
 1. Ouvrez l’**E-mail de bienvenue**, puis cliquez sur **Se connecter**.
    
-    ![e-mail de Bienvenue](media/active-directory-get-started-premium/AADEmail.png)
+    ![E-mail de bienvenue, avec lien de connexion mis en évidence](media/active-directory-get-started-premium/AADEmail.png)
 
 2. Après vous être connecté avec succès, vous accédez à la vérification en deux étapes sur appareil mobile.
    
-    ![Vérification du mobile](media/active-directory-get-started-premium/SignUppage.png)
+    ![Page de vérification en deux étapes avec la vérification sur appareil mobile](media/active-directory-get-started-premium/SignUppage.png)
 
 Le processus d’activation ne prend généralement que quelques minutes, après lesquelles vous pourrez utiliser votre locataire Azure AD. 
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: kumud
 ms:custom: seodec18
-ms.openlocfilehash: 6b27c21944131d01254e75c7120520a119998132
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 0bdad2d59528775d23d882831cfdbdc09471e12e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673766"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109795"
 ---
 # <a name="get-started"></a>Démarrage rapide : Créer un équilibreur de charge public à l’aide d’Azure PowerShell
 
@@ -59,7 +59,7 @@ Dans cette section, vous allez établir la configuration IP front-end et configu
 
 ### <a name="create-front-end-ip"></a>Créer une configuration IP front-end
 
-Créez une configuration IP front-end avec [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig). L’exemple suivant crée une configuration IP front-end nommée *myFrontEnd* et joint l’adresse *myPublicIP* :
+Créez une configuration IP front-end avec [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig). L’exemple suivant crée une configuration IP de serveur frontal nommée *myFrontEnd* et joint l’adresse *myPublicIP* :
 
 ```azurepowershell-interactive
 $frontendIP = New-AzLoadBalancerFrontendIpConfig `
@@ -229,7 +229,7 @@ Créez des cartes réseau virtuelles avec [New-AzNetworkInterface](/powershell/m
 $nicVM1 = New-AzNetworkInterface `
 -ResourceGroupName 'myResourceGroupLB' `
 -Location 'EastUS' `
--Name 'MyNic1' `
+-Name 'MyVM1' `
 -LoadBalancerBackendAddressPool $backendPool `
 -NetworkSecurityGroup $nsg `
 -LoadBalancerInboundNatRule $natrule1 `
@@ -239,7 +239,7 @@ $nicVM1 = New-AzNetworkInterface `
 $nicVM2 = New-AzNetworkInterface `
 -ResourceGroupName 'myResourceGroupLB' `
 -Location 'EastUS' `
--Name 'MyNic2' `
+-Name 'MyVM2' `
 -LoadBalancerBackendAddressPool $backendPool `
 -NetworkSecurityGroup $nsg `
 -LoadBalancerInboundNatRule $natrule2 `
@@ -268,7 +268,7 @@ Définissez un nom d’utilisateur administrateur et un mot de passe pour les ma
 $cred = Get-Credential
 ```
 
-Vous pouvez maintenant créer les machines virtuelles avec [New-AzVM](/powershell/module/az.compute/new-azvm). L’exemple suivant crée deux machines virtuelles ainsi que les composants de réseau virtuel nécessaires s’ils n’existent pas encore. Lors de la création de la machine virtuelle dans l’exemple ci-dessous, les cartes réseau créées précédemment sont associées aux machines virtuelles dans la mesure où le même réseau virtuel (*myVnet*) et le même sous-réseau (*mySubnet*) leur sont affectés :
+Vous pouvez maintenant créer les machines virtuelles avec [New-AzVM](/powershell/module/az.compute/new-azvm). L’exemple suivant crée deux machines virtuelles ainsi que les composants de réseau virtuel nécessaires s’ils n’existent pas encore. Dans cet exemple, les cartes réseau (*VM1* et *VM2*) créées à l’étape précédente sont automatiquement affectées aux machines virtuelles *VM1* et *VM2*, car leur nom est identique et le réseau virtuel (*myVnet*) et le sous-réseau (*mySubnet*) qui leur sont affectés sont les mêmes. Par ailleurs, comme les cartes réseau sont associées au pool back-end de l’équilibreur de charge, les machines virtuelles sont automatiquement ajoutées au pool back-end.
 
 ```azurepowershell-interactive
 for ($i=1; $i -le 2; $i++)
@@ -295,18 +295,18 @@ Installez IIS avec une page web personnalisée sur les deux machines virtuelles 
 
 1. Obtenez l’adresse IP publique de l’équilibreur de charge. À l’aide de `Get-AzPublicIPAddress`, obtenez l’adresse IP publique de l’équilibreur de charge.
 
-  ```azurepowershell-interactive
+   ```azurepowershell-interactive
     Get-AzPublicIPAddress `
     -ResourceGroupName "myResourceGroupLB" `
     -Name "myPublicIP" | select IpAddress
-  ```
+   ```
 2. Créez une connexion Bureau à distance à VM1 à l’aide de l’adresse IP publique que vous avez obtenue dans l’étape précédente. 
 
-  ```azurepowershell-interactive
+   ```azurepowershell-interactive
 
       mstsc /v:PublicIpAddress:4221  
   
-  ```
+   ```
 3. Entrez les informations d’identification de *VM1* pour démarrer la session RDP.
 4. Lancez Windows PowerShell sur VM1 et utilisez les commandes suivantes pour installer le serveur IIS et mettre à jour le fichier htm par défaut.
     ```azurepowershell-interactive

@@ -12,14 +12,14 @@ ms.custom: mvc
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.date: 07/31/2018
-ms.openlocfilehash: 9d2fe2c18452537f734a8bf176130e1ad68d40e1
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: e1d845d1d90a3a70590778013504fea7c0aec85c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231030"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097659"
 ---
-# <a name="quickstart-create-and-automate-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Démarrage rapide : créer et automatiser des tâches, des processus et des flux de travail avec Azure Logic Apps - Visual Studio
+# <a name="quickstart-create-and-automate-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Démarrage rapide : Créer et automatiser des tâches, des processus et des workflows avec Azure Logic Apps - Visual Studio
 
 Avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et Visual Studio, vous pouvez créer des workflows pour automatiser des tâches et des processus qui intègrent des applications, des données, des systèmes et des services dans les entreprises et organisations. Ce démarrage rapide montre comment vous pouvez concevoir et générer ces workflows en créant des applications logiques dans Visual Studio et en déployant ces applications sur <a href="https://docs.microsoft.com/azure/guides/developer/azure-developer-guide" target="_blank">Azure</a> dans le cloud. Et bien que vous puissiez effectuer ces tâches dans le <a href="https://portal.azure.com" target="_blank">portail Azure</a>, Visual Studio vous permet d’ajouter des applications logiques pour le contrôle de code source, la publication de différentes versions et la création de modèles Azure Resource Manager pour divers environnements de déploiement. 
 
@@ -61,7 +61,7 @@ Pour commencer, créez un [projet de groupe de ressources Azure](../azure-resour
 
 1. Démarrez Visual Studio et connectez-vous avec votre compte Azure.
 
-2. Dans le menu **Fichier**, sélectionnez **Nouveau** > **Projet**. (Clavier : Ctrl + Maj + N)
+2. Dans le menu **Fichier**, sélectionnez **Nouveau** > **Projet**. (Clavier : Ctrl+Maj+N)
 
    ![Dans le menu « Fichier », sélectionnez « Nouveau » > « Projet »](./media/quickstart-create-logic-apps-with-visual-studio/create-new-visual-studio-project.png)
 
@@ -83,11 +83,13 @@ Pour commencer, créez un [projet de groupe de ressources Azure](../azure-resour
 
 Après avoir créé votre projet de groupe de ressources Azure, créez et générez votre application logique à partir du modèle **Application logique vide**.
 
-1. Dans l’Explorateur de solutions, ouvrez le menu contextuel pour le fichier **LogicApp.json**. Sélectionnez **Open With Logic App Designer** (Ouvrir avec le Concepteur d’application logique). (Clavier : Ctrl + L)
+1. Dans l’Explorateur de solutions, ouvrez le menu contextuel pour le fichier **LogicApp.json**. 
+   Sélectionnez **Ouvrir avec le Concepteur d’application logique**. (Clavier : Ctrl+L)
 
    ![Ouvrir le fichier .json d’application logique avec le Concepteur d’application logique](./media/quickstart-create-logic-apps-with-visual-studio/open-logic-app-designer.png)
 
-2. Dans **Abonnement**, sélectionnez l’abonnement Azure que vous voulez utiliser. Pour **Groupe de ressources**, sélectionnez **Créer nouveau...**, afin de créer un groupe de ressources Azure. 
+2. Dans **Abonnement**, sélectionnez l’abonnement Azure que vous voulez utiliser. 
+   Pour **Groupe de ressources**, sélectionnez **Créer nouveau...**, afin de créer un groupe de ressources Azure. 
 
    ![Sélectionner un abonnement Azure, un groupe de ressources et un emplacement de ressource](./media/quickstart-create-logic-apps-with-visual-studio/select-azure-subscription-resource-group-location.png)
 
@@ -101,7 +103,8 @@ Après avoir créé votre projet de groupe de ressources Azure, créez et géné
    | **Lieu** | MyLogicApp-RG2 <br> (USA Ouest) | Un autre emplacement si vous ne souhaitez pas utiliser l’emplacement du groupe de ressources |
    ||||
 
-3. Le Concepteur d’application logique s’ouvre et affiche une page contenant une vidéo de présentation et les déclencheurs couramment utilisés. Faites défiler la vidéo et les déclencheurs. Sous **Modèles**, sélectionnez **Application logique vide**.
+3. Le Concepteur d’application logique s’ouvre et affiche une page contenant une vidéo de présentation et les déclencheurs couramment utilisés. 
+   Faites défiler la vidéo et les déclencheurs. Sous **Modèles**, sélectionnez **Application logique vide**.
 
    ![Sélectionner « Application logique vide »](./media/quickstart-create-logic-apps-with-visual-studio/choose-blank-logic-app-template.png)
 
@@ -109,7 +112,7 @@ Après avoir créé votre projet de groupe de ressources Azure, créez et géné
 
 Ensuite, ajoutez un [déclencheur](../logic-apps/logic-apps-overview.md#logic-app-concepts) qui s’active lorsqu’un nouvel élément de flux RSS apparaît. Chaque application logique doit commencer avec un déclencheur, qui s’active quand des critères spécifiques sont remplis. Chaque fois que le déclencheur est activé, le moteur Logic Apps crée une instance d’application logique qui exécute votre workflow.
 
-1. Dans le Concepteur d’application logique, entrez « rss » dans la zone de recherche. Sélectionnez le déclencheur suivant : **Lors de la publication d’un élément de flux**
+1. Dans le Concepteur d’application logique, entrez « rss » dans la zone de recherche. Sélectionner le déclencheur : **Quand un élément de flux est publié**
 
    ![Générer votre application logique en ajoutant un déclencheur et des actions](./media/quickstart-create-logic-apps-with-visual-studio/add-trigger-logic-app.png)
 
@@ -123,7 +126,7 @@ Ensuite, ajoutez un [déclencheur](../logic-apps/logic-apps-overview.md#logic-ap
 
    ![Application logique terminée](./media/quickstart-create-logic-apps-with-visual-studio/finished-logic-app.png)
 
-3. Pour enregistrer votre application logique, enregistrez votre solution Visual Studio. (Clavier : Ctrl + S)
+3. Pour enregistrer votre application logique, enregistrez votre solution Visual Studio. (Clavier : Ctrl+S)
 
 Maintenant, avant de pouvoir tester votre application logique, déployez votre application dans Azure.
 

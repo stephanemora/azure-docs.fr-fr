@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 759adf95604e66209cf3ec5083246d16e952114a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c0a947c9cf2c1d4a11d310b9bab0774a70534a1e
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884186"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259429"
 ---
 # <a name="provision-throughput-for-a-database-in-azure-cosmos-db"></a>Approvisionner le débit d’une base de données dans Azure Cosmos DB
 
-Cet article explique comment approvisionner le débit d’une base de données dans Azure Cosmos DB. Vous pouvez approvisionner le débit d’un seul [conteneur](how-to-provision-container-throughput.md) ou d’une base de données et le partager entre les conteneurs au sein de la base de données. Vous pouvez provisionner le débit au niveau d’une base de données via le portail Azure ou à l’aide des kits SDK Azure Cosmos DB.
+Cet article explique comment approvisionner le débit d’une base de données dans Azure Cosmos DB. Vous pouvez approvisionner le débit d’un seul [conteneur](how-to-provision-container-throughput.md) ou d’une base de données et le partager entre les conteneurs au sein de la base de données. Pour savoir quand utiliser le débit au niveau du conteneur et au niveau de la base de données, consultez l’article [Cas d’usage du provisionnement du débit des conteneurs et des bases de données](set-throughput.md). Vous pouvez provisionner le débit au niveau d’une base de données via le portail Azure ou à l’aide des kits SDK Azure Cosmos DB.
 
 ## <a name="provision-throughput-by-using-azure-portal"></a>Approvisionner le débit à l’aide du portail Azure
 
@@ -23,7 +23,7 @@ Cet article explique comment approvisionner le débit d’une base de données d
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
-1. [Créez un compte Azure Cosmos DB](create-sql-api-dotnet.md#create-a-database-account), ou sélectionnez un compte existant.
+1. [Créez un compte Azure Cosmos DB](create-sql-api-dotnet.md#create-account), ou sélectionnez un compte existant.
 
 1. Ouvrez le volet **Explorateur de données**, puis sélectionnez **Nouvelle base de données**. Fournissez les détails suivants :
 

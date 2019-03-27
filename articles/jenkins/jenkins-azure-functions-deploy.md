@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 02/23/2019
-ms.openlocfilehash: 1138af0e073f68842861df86acd4d9d6eb467782
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: bd8fa10ca0a9809891efc67ff930ab01d502eda9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56824709"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117079"
 ---
 # <a name="deploy-to-azure-functions-using-the-jenkins-azure-functions-plugin"></a>Effectuer un déploiement sur Azure Functions à l’aide du plug-in Azure Functions Jenkins
 
@@ -24,8 +24,8 @@ ms.locfileid: "56824709"
 - **Abonnement Azure** : Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
 - **Serveur Jenkins** : Si aucun serveur Jenkins n’est installé, consultez l’article [Créer un serveur Jenkins sur Azure](./install-jenkins-solution-template.md).
 
- > [!TIP]
- > Le code source utilisé pour ce tutoriel se trouve dans le [dépôt GitHub de Visual Studio Chine](https://github.com/VSChina/odd-or-even-function/blob/master/src/main/java/com/microsoft/azure/Function.java).
+  > [!TIP]
+  > Le code source utilisé pour ce tutoriel se trouve dans le [dépôt GitHub de Visual Studio Chine](https://github.com/VSChina/odd-or-even-function/blob/master/src/main/java/com/microsoft/azure/Function.java).
 
 ## <a name="create-a-java-function"></a>Créer une fonction Java
 
@@ -89,6 +89,14 @@ Les étapes suivantes expliquent comment préparer le serveur Jenkins :
 
 1. À l’aide du principal de service Azure, ajoutez le type d’informations d’identification « Microsoft Azure Service Principal » à Jenkins. Reportez-vous au tutoriel [Effectuer un déploiement sur Azure App Service](./tutorial-jenkins-deploy-web-app-azure-app-service.md#add-service-principal-to-jenkins).
 
+## <a name="fork-the-sample-github-repo"></a>Dupliquer (fork) le dépôt d’exemples GitHub
+
+1. [Connectez-vous au dépôt GitHub pour consulter l’exemple d’application odd-or-even](https://github.com/VSChina/odd-or-even-function.git).
+
+1. En haut à droite de GitHub, choisissez **Fork** (Dupliquer).
+
+1. Suivez les invites pour sélectionner votre compte GitHub et terminer la duplication.
+
 ## <a name="create-a-jenkins-pipeline"></a>Créer un pipeline Jenkins
 
 Dans cette section, vous allez créer le [pipeline Jenkins](https://jenkins.io/doc/book/pipeline/).
@@ -107,7 +115,27 @@ Dans cette section, vous allez créer le [pipeline Jenkins](https://jenkins.io/d
     
 1. Dans la section **Pipeline->Définition**, sélectionnez **Script de pipeline à partir de SCM**.
 
-1. Entrez l’URL du dépôt SCM et le chemin du script à l’aide de l’[exemple de script](https://github.com/VSChina/odd-or-even-function/blob/master/doc/resources/jenkins/JenkinsFile) fourni.
+1. Entrez l’URL et le chemin du script de votre duplication (fork) GitHub (« doc/ressources/jenkins/JenkinsFile ») qui doivent être utilisés dans l’[exemple JenkinsFile](https://github.com/VSChina/odd-or-even-function/blob/master/doc/resources/jenkins/JenkinsFile).
+
+   ```
+   node {
+    stage('Init') {
+        checkout scm
+        }
+
+    stage('Build') {
+        sh 'mvn clean package'
+        }
+
+    stage('Publish') {
+        azureFunctionAppPublish appName: env.FUNCTION_NAME, 
+                                azureCredentialsId: env.AZURE_CRED_ID, 
+                                filePath: '**/*.json,**/*.jar,bin/*,HttpTrigger-Java/*', 
+                                resourceGroup: env.RES_GROUP, 
+                                sourceDirectory: 'target/azure-functions/odd-or-even-function-sample'
+        }
+    }
+    ```
 
 ## <a name="build-and-deploy"></a>Générer et déployer
 

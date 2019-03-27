@@ -15,12 +15,12 @@ ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: b7214230d55831fa33d547ecf9e65051aa5bb4d9
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 6e4402be7108f242e1d285ebe91dfece744f0805
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55891451"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532148"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-azure-active-directory"></a>Déployer Kubernetes sur Azure Stack à l’aide d’Azure Active Directory
 
@@ -53,7 +53,7 @@ Pour commencer, assurez-vous que vous disposez des autorisations appropriées et
 
 Créer un principal de service dans Azure. Le principal de service offre à votre application l’accès aux ressources Azure Stack.
 
-1. Connectez-vous au [portail Azure](http://portal.azure.com) global.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) global.
 
 1. Vérifiez que vous vous êtes connecté à l’aide du locataire Azure AD associé à l’instance Azure Stack. Vous pouvez changer d’identification en cliquant sur l’icône de filtre dans la barre d’outils Azure.
 
@@ -167,3 +167,5 @@ Accordez l’accès à votre abonnement au principal de service afin qu’il pui
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Se connecter à votre cluster](azure-stack-solution-template-kubernetes-deploy.md#connect-to-your-cluster)
+
+[Activer le tableau de bord Kubernetes](azure-stack-solution-template-kubernetes-dashboard.md)

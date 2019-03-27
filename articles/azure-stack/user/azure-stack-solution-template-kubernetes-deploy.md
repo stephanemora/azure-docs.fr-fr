@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: c96fdbfb56fe5274de941c0f9ab1a12cbcc241b6
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 6b00f63fac0110a8964270b9cbcad5330ac44645
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658417"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56986241"
 ---
 # <a name="deploy-kubernetes-to-azure-stack"></a>Déployer Kubernetes sur Azure Stack
 
@@ -39,7 +39,7 @@ Vous pouvez utiliser Kubernetes pour ce qui suit :
 
 - Développer des applications hautement évolutives et extensibles, qui peuvent être déployées en quelques secondes. 
 - Simplifier la conception de vos applications et améliorer leur fiabilité à l’aide de différentes applications Helm. [Helm](https://github.com/kubernetes/helm) est un outil d’empaquetage open source qui vous aide à installer et à gérer le cycle de vie d’applications Kubernetes.
-- Surveiller et diagnostiquer facilement l’intégrité de vos applications grâce à des fonctionnalités de mise à l’échelle et de mise à niveau.
+- Surveillez et diagnostiquez facilement l’intégrité de vos applications.
 
 Vous êtes facturé seulement pour l’utilisation des ressources de calcul qui est nécessaire aux nœuds où se trouve votre cluster. Pour plus d’informations, consultez [Utilisation et facturation dans Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-billing-and-chargeback).
 
@@ -60,6 +60,8 @@ Vous êtes maintenant prêt à vous connecter à votre cluster. Le maître se tr
 Le gestionnaire de package **Helm** peut également s’avérer utile pour installer et déployer des applications sur votre cluster. Pour obtenir des instructions sur l’installation et l’utilisation de Helm avec votre cluster, consultez [helm.sh](https://helm.sh/).
 
 ## <a name="next-steps"></a>Étapes suivantes
+
+[Activer le tableau de bord Kubernetes](azure-stack-solution-template-kubernetes-dashboard.md)
 
 [Ajouter un cluster Kubernetes à la Place de marché (pour l’opérateur Azure Stack)](../azure-stack-solution-template-kubernetes-cluster-add.md)
 

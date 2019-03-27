@@ -12,12 +12,12 @@ ms.date: 09/10/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39a5ef9d929899ac5e66c5a0e342040fc3c5074b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b294163a4486ab1db0590f39ca9235ae46ef1dfe
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194816"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286990"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Démarrage rapide : Créer un locataire dans Azure Active Directory
 Vous pouvez effectuer toutes vos tâches d’administration à l’aide du portail Azure Active Directory (Azure AD), notamment la création d’un locataire pour votre organisation. 
@@ -29,7 +29,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 Connectez-vous au [portail Azure](https://portal.azure.com/) de votre organisation avec un compte d’administrateur général.
 
-![Écran du Portail Azure](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
+![Écran du portail Azure, avec l’option Azure AD](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
 
 ## <a name="create-a-new-tenant-for-your-organization"></a>Créer un locataire pour votre organisation
 Une fois connecté au portail Azure, vous pouvez créer un locataire pour votre organisation. Votre nouveau locataire représente votre organisation et vous permet de gérer une instance particulière des services cloud de Microsoft pour vos utilisateurs internes et externes.
@@ -60,7 +60,7 @@ Si vous ne pensez pas continuer à utiliser cette application, vous pouvez suppr
 
     Le locataire et ses informations associées sont supprimés.
 
-    ![Page de création d’un annuaire](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)
+    ![Page Créer le répertoire, avec les exemples d’informations](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Pour modifier ou ajouter des noms de domaine supplémentaires, consultez [Guide pratique pour ajouter un nom de domaine personnalisé à Azure Active Directory](add-custom-domain.md).

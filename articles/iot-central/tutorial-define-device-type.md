@@ -3,20 +3,20 @@ title: Définir un nouveau type d’appareil dans Azure IoT Central | Microsoft 
 description: Ce didacticiel vous indique comment définir un nouveau type d’appareil dans votre application Azure IoT Central en votre qualité de générateur. Vous définissez la télémétrie, l’état, les propriétés et les paramètres pour votre type d’appareil.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/30/2018
+ms.date: 01/28/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 1ed1790d9fe1cdaa8d00b45e0684531984906c7f
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: e4c5942dfba62a2c869e4eeceb9018fc926d9de9
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661817"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259537"
 ---
-# <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Didacticiel : Définir un nouveau type d’appareil dans votre application Azure IoT Central
+# <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application-new-ui-design"></a>Tutoriel : Définir un nouveau type d’appareil dans votre application Azure IoT Central (nouvelle conception d’interface utilisateur)
 
 Ce didacticiel vous indique comment utiliser un modèle d’appareil pour définir un nouveau type d’appareil dans votre application Microsoft Azure IoT Central en votre qualité de générateur. Un modèle d’appareil définit la télémétrie, l’état, les propriétés et les paramètres pour votre type d’appareil.
 
@@ -25,7 +25,7 @@ Pour vous permettre de tester votre application avant de connecter un appareil r
 Dans ce didacticiel, vous allez créer le modèle d’appareil **Climatiseur connecté**. Un climatiseur connecté :
 
 * envoie des données de télémétrie comme la température et l’humidité ;
-* signale son état, par exemple allumé ou éteint ;
+* signale son état, par exemple, allumé ou éteint ;
 * Il présente diverses propriétés d’appareil, telles que la version du microprogramme et le numéro de série.
 * Il comporte divers paramètres, comme la température de la cible.
 
@@ -43,8 +43,6 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Utiliser des commandes
 > * Affichez votre appareil simulé dans le tableau de bord
 
-[!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
-
 ## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel, vous devez disposer d’une application Azure IoT Central. Si vous avez suivi le guide de démarrage rapide [Créer votre application Azure IoT Central](quick-deploy-iot-central.md), vous pouvez réutiliser l’application que vous avez créée dans le cadre de ce guide. Dans le cas contraire, créez une application Azure IoT Central vide en procédant comme suit :
@@ -53,101 +51,102 @@ Pour suivre ce didacticiel, vous devez disposer d’une application Azure IoT Ce
 
 2. Entrez l’adresse e-mail et le mot de passe que vous utilisez pour accéder à votre abonnement Azure :
 
-   ![Saisie de votre compte d’entreprise](./media/tutorial-define-device-type/sign-in.png)
+    ![Entrer votre compte d’entreprise](./media/tutorial-define-device-type/sign-in.png)
 
-3. Pour commencer à créer une application Azure IoT Central, choisissez **Nouvelle application** :
+3. Pour commencer à créer une application Azure IoT Central, sélectionnez **Nouvelle application** :
 
     ![Page du Gestionnaire d’applications d’Azure IoT Central](./media/tutorial-define-device-type/iotcentralhome.png)
 
 4. Pour créer une nouvelle application Azure IoT Central :
     
-    * Choisissez **Version d’évaluation**. Vous n’avez pas besoin d’un abonnement Azure pour créer une application d’évaluation.
+   * Choisissez **Version d’évaluation**. Vous n’avez pas besoin d’un abonnement Azure pour créer une application d’évaluation.
     
-       Pour plus d’informations sur les répertoires et les abonnements, consultez le guide de démarrage rapide [Créer une application](quick-deploy-iot-central.md).
+      Pour plus d’informations sur les répertoires et les abonnements, consultez le guide de démarrage rapide [Créer une application](quick-deploy-iot-central.md).
     
-    * Choisissez **Application personnalisée**.
+   * Choisissez **Application personnalisée**.
     
-    * Vous pouvez éventuellement choisir un nom d’application convivial, tel que **Climatiseurs Contoso**. Azure IoT Central génère un préfixe d’URL unique pour vous. Vous pouvez remplacer ce préfixe d’URL par une chaîne plus facile à mémoriser.
+   * Vous pouvez éventuellement choisir un nom d’application convivial, tel que **Climatiseurs Contoso**. Azure IoT Central génère un préfixe d’URL unique pour vous. Vous pouvez remplacer ce préfixe d’URL par une chaîne plus facile à mémoriser.
     
-    * Cliquez sur **Créer**.
+   * Sélectionnez **Créer**.
 
-    ![Page de création d’une application Azure IoT Central](./media/tutorial-define-device-type/iotcentralcreate.png)
+     ![Page de création d’une application Azure IoT Central](./media/tutorial-define-device-type/iotcentralcreate.png)
 
-    Pour plus d’informations, consultez [Créer une application](quick-deploy-iot-central.md).
+     Pour plus d’informations, consultez [Créer une application](quick-deploy-iot-central.md).
 
-## <a name="create-a-new-custom-device-template"></a>Créer un modèle d’appareil personnalisé
+## <a name="create-a-device-template"></a>Créer un modèle d’appareil
 
 En tant que générateur, vous pouvez créer et modifier les modèles d’appareil dans votre application. Lorsque vous créez un modèle d’appareil, Azure IoT Central génère un appareil simulé à partir du modèle. L’appareil simulé génère la télémétrie qui vous permet de tester le comportement de votre application avant de connecter un appareil réel.
 
-Pour ajouter un nouveau modèle d’appareil à votre application, vous devez accéder à la page **Application Builder** (Générateur d’applications). Pour ce faire, choisissez **Application Builder** (Générateur d’applications) dans le menu de navigation gauche.
+Pour ajouter un nouveau modèle d’appareil à votre application, vous devez accéder à la page **Modèles d’appareil**. Pour cela, sélectionnez **Modèles d’appareil** dans le menu de navigation de gauche.
 
-![Page Générateur d’applications](./media/tutorial-define-device-type/builderhome.png)
+![Page Modèles d’appareil](./media/tutorial-define-device-type/devicetemplates.png)
 
-## <a name="add-a-device-and-define-telemetry"></a>Ajouter un appareil et définir la télémétrie
+## <a name="add-a-device-template"></a>Ajouter un modèle d’appareil
 
 La procédure ci-après vous explique comment créer un modèle d’appareil **Climatiseur connecté** pour les appareils qui envoient des données de télémétrie de température à votre application :
 
-1. Sur la page **Application Builder** (Générateur d’applications), choisissez **Create Device Template** (Créer un modèle d’appareil) :
+1. Dans la page **Modèles d’appareil**, sélectionnez **+ Nouveau** :
 
-    ![Option de création d’un modèle d’appareil sur la page du générateur d’applications](./media/tutorial-define-device-type/builderhomedevices.png)
+    ![Page Modèles d’appareil, Créer un modèle d’appareil](./media/tutorial-define-device-type/newtemplate.png)
 
-2. Sur la page **Device Templates** (Modèles d’appareil), choisissez **Custom** (Personnalisé). Un modèle d’appareil **Custom** (Personnalisé) vous permet de définir l’ensemble des caractéristiques et des comportements de votre climatiseur connecté :
+2. La page affiche les modèles que vous pouvez choisir.
 
-    ![Appareils](./media/tutorial-define-device-type/builderhomedevicescustom.png)
+    ![Bibliothèque des modèles d’appareil](./media/tutorial-define-device-type/devicetemplatelibrary.png)
 
-3. Sur la page **New Device Template** (Nouveau modèle d’appareil), entrez **Climatiseur connecté** comme nom pour votre appareil, puis choisissez **Create** (Créer). Vous pouvez également charger une image de votre appareil qui est visible par les opérateurs dans Device Explorer :
+3. Sélectionnez **Personnalisé**, entrez **Climatiseur connecté** comme nom pour votre appareil, puis sélectionnez **Créer**. Vous pouvez également charger une image de votre appareil qui est visible par les opérateurs dans Device Explorer :
 
     ![Appareil personnalisé](./media/tutorial-define-device-type/createcustomdevice.png)
 
-4. Dans le modèle d’appareil **Climatiseur connecté**, vérifiez que vous vous trouvez sur la page **Measurements** (Mesures) dans laquelle vous définissez la télémétrie. Chaque modèle d’appareil que vous définissez comporte différentes pages vous permettant de :
+4. Dans le modèle d’appareil **Climatiseur connecté**, vérifiez que vous vous trouvez sous l’onglet **Mesures** où vous définissez la télémétrie. Chaque modèle d’appareil que vous définissez comporte différents onglets dans lesquels vous pouvez :
 
-    * spécifier les mesures, telles que les données de télémétrie, d’événement et d’état, qui sont envoyées par l’appareil ;
-    
-    * définir les paramètres permettant de contrôler l’appareil ;
-    
-    * Définissez les propriétés qui sont les métadonnées d’appareil.
+   * Spécifier les _mesures_, telles que les données de télémétrie, d’événement et d’état, qui sont envoyées par l’appareil.
 
-    * Définissez les commandes à exécuter directement sur l’appareil.
-    
-    * définir les règles associées à l’appareil ;
-    
-    * personnaliser le tableau de bord de l’appareil pour vos opérateurs.
+   * Définir les _paramètres_ de contrôle de l’appareil.
 
-    Chaque fois que vous définissez le modèle d’appareil, choisissez **Modifier le modèle** en premier lieu afin de modifier le modèle. Quand vous avez fini, choisissez **Terminé**. 
+   * Définir les _propriétés_ qui sont les métadonnées de l’appareil.
 
-    ![Mesures de climatiseur](./media/tutorial-define-device-type/airconmeasurements.png)
+   * Définir les _commandes_ à exécuter directement sur l’appareil.
 
-    > [!NOTE]
-    > Pour renommer l’appareil ou le modèle d’appareil, cliquez sur le texte en haut de la page.
+   * Définir les _règles_ associées à l’appareil.
 
-5. Pour ajouter la mesure de télémétrie de température, choisissez **New Measurement** (Nouvelle mesure). Puis choisissez **Telemetry** (Télémétrie) comme type de mesure :
+   * Personnaliser le _tableau de bord_ de l’appareil pour vos opérateurs.
+
+     ![Mesures de climatiseur](./media/tutorial-define-device-type/airconmeasurements.png)
+
+     > [!NOTE]
+     > Pour renommer le modèle d’appareil, sélectionnez son nom en haut de la page.
+
+5. Pour ajouter la mesure des données de télémétrie de température, sélectionnez **+ Nouvelle mesure**. Puis choisissez **Telemetry** (Télémétrie) comme type de mesure :
 
     ![Mesures de climatiseur connecté](./media/tutorial-define-device-type/airconmeasurementsnew.png)
 
 6. Chaque type de télémétrie que vous définissez pour un modèle d’appareil inclut des [options de configuration](howto-set-up-template.md) telles que :
 
-    * les options d’affichage ;
+   * les options d’affichage ;
 
-    * les détails de la télémétrie ;
+   * les détails de la télémétrie ;
 
-    * les paramètres de simulation.
+   * les paramètres de simulation.
 
-    Pour configurer la télémétrie de **température**, utilisez les informations du tableau suivant :
+     Pour configurer la télémétrie de **température**, utilisez les informations du tableau suivant :
 
-    | Paramètre              | Valeur         |
-    | -------------------- | -----------   |
-    | Nom d’affichage         | Température   |
-    | Nom du champ           | température   |
-    | Units                | F             |
-    | Min                  | 60            |
-    | max                  | 110           |
-    | Nombre de décimales       | 0             |
+     | Paramètre              | Valeur         |
+     | -------------------- | -----------   |
+     | Nom d’affichage         | Température   |
+     | Nom du champ           | température   |
+     | Units                | F             |
+     | Min                  | 60            |
+     | max                  | 110           |
+     | Nombre de décimales       | 0             |
 
-    Vous pouvez également choisir une couleur pour l’affichage de la télémétrie. Pour enregistrer la définition de la télémétrie, choisissez **Enregistrer** :
+     Vous pouvez également choisir une couleur pour l’affichage de la télémétrie. Pour enregistrer la définition de télémétrie, sélectionnez **Enregistrer** :
 
-    ![Configuration de la simulation de température](./media/tutorial-define-device-type/temperaturesimulation.png)
+     ![Configuration de la simulation de température](./media/tutorial-define-device-type/temperaturesimulation.png)
 
-7. Après un court instant, la page **Measurements** (Mesures) affiche un graphique de la télémétrie de température de votre climatiseur connecté simulé. Utilisez les contrôles pour gérer la visibilité ou l’agrégation, ou pour modifier la définition de télémétrie :
+7. Après un court instant, l’onglet **Mesures** affiche un graphique de la télémétrie de température de votre climatiseur connecté simulé. Utilisez les contrôles pour gérer la visibilité ou l’agrégation, ou pour modifier la définition de télémétrie :
+ 
+    > [!NOTE]
+    > Pour les données de télémétrie, l’agrégation est définie sur **Moyenne** par défaut. 
 
     ![Visualisation de la simulation de température](./media/tutorial-define-device-type/viewsimulation.png)
 
@@ -155,11 +154,11 @@ La procédure ci-après vous explique comment créer un modèle d’appareil **C
 
     ![Personnalisation du graphique](./media/tutorial-define-device-type/customizechart.png)
 
-## <a name="define-event-measurement"></a>Définir une mesure d’événement
+## <a name="add-an-event-measurement"></a>Ajouter une mesure d’événement
 
-La mesure de type Event (Événement) vous permet de définir des données ponctuelles qui sont envoyées par l’appareil pour signaler une situation significative, telle qu’une erreur ou une défaillance de composant. Comme les mesures de télémétrie, Azure IoT Central peut simuler des événements d’appareil pour vous permettre de tester le comportement de votre application avant de connecter un appareil réel. Vous définissez des mesures d’événement pour votre type d’appareil dans la vue **Measurements** (Mesures).
+Utilisez des événements pour définir les données dans le temps que l’appareil envoie quand un événement tel qu’une erreur ou une défaillance d’un composant se produit. Azure IoT Central peut simuler des événements d’appareil pour vous permettre de tester le comportement de votre application avant de connecter un appareil réel. Définissez les mesures d’événement pour votre modèle d’appareil dans la vue **Mesures**.
 
-1. Pour ajouter la mesure d’événement **Erreur du moteur du ventilateur**, choisissez **New Measurement** (Nouvelle mesure). Puis choisissez **Event** (Événement) comme type de mesure :
+1. Pour ajouter la mesure d’événement **Erreur du moteur du ventilateur**, sélectionnez **+ Nouvelle mesure**. Puis choisissez **Event** (Événement) comme type de mesure :
 
     ![Mesures de climatiseur connecté](./media/tutorial-define-device-type/eventnew.png)
 
@@ -171,35 +170,35 @@ La mesure de type Event (Événement) vous permet de définir des données ponct
 
    * la gravité.
 
-    Pour configurer l’événement **Erreur du moteur du ventilateur**, utilisez les informations du tableau suivant :
+     Pour configurer l’événement **Erreur du moteur du ventilateur**, utilisez les informations du tableau suivant :
 
-    | Paramètre              | Valeur             |
-    | -------------------- | -----------       |
-    | Nom d’affichage         | Erreur du moteur du ventilateur   |
-    | Nom du champ           | fanmotorerr       |
-    | Severity             | Error             |
+     | Paramètre              | Valeur             |
+     | -------------------- | -----------       |
+     | Nom d’affichage         | Erreur du moteur du ventilateur   |
+     | Nom du champ           | fanmotorerr       |
+     | Severity             | Error             |
 
-    Pour enregistrer la définition de l’événement, choisissez **Enregistrer** :
+     Pour enregistrer la définition de l’événement, sélectionnez **Enregistrer** :
 
-    ![Configuration de la mesure d’événement](./media/tutorial-define-device-type/eventconfiguration.png)
+     ![Configuration de la mesure d’événement](./media/tutorial-define-device-type/eventconfiguration.png)
 
-3. Après un court instant, la page **Measurements** (Mesures) affiche un graphique des événements générés aléatoirement par votre climatiseur connecté simulé. Utilisez les contrôles pour gérer la visibilité ou pour modifier la définition d’événement :
+3. Après un court instant, l’onglet **Mesures** affiche un graphique des événements générés aléatoirement par votre climatiseur connecté simulé. Utilisez les contrôles pour gérer la visibilité ou pour modifier la définition d’événement :
 
     ![Visualisation de la simulation d’événement](./media/tutorial-define-device-type/eventview.png)
 
-1. Pour voir des détails supplémentaires sur l’événement, cliquez sur l’événement dans le graphique :
+1. Pour voir des détails supplémentaires sur l’événement, sélectionnez l’événement dans le graphique :
 
     ![Visualisation des détails de l’événement](./media/tutorial-define-device-type/eventviewdetail.png)
 
-## <a name="define-state-measurement"></a>Définir une mesure d’état
+## <a name="define-a-state-measurement"></a>Définir une mesure d’état
 
-Vous pouvez utiliser la mesure État pour définir et visualiser l’état de l’appareil ou de son composant sur une période spécifique. Comme les mesures de télémétrie, Azure IoT Central peut simuler des états d’appareil pour vous permettre de tester le comportement de votre application avant de connecter un appareil réel. Vous définissez des mesures d’état pour votre type d’appareil dans la vue **Measurements** (Mesures).
+Vous pouvez utiliser la mesure d’état pour définir et visualiser l’état de l’appareil ou de son composant sur une période spécifique. Azure IoT Central peut simuler un état d’appareil pour vous permettre de tester le comportement de votre application avant de connecter un appareil réel. Vous définissez des mesures d’état pour votre type d’appareil dans la vue **Measurements** (Mesures).
 
-1. Pour ajouter la mesure **Mode du ventilateur**, choisissez **New Measurement** (Nouvelle mesure). Puis choisissez **État** comme type de mesure :
+1. Pour ajouter une mesure d’état **Mode du ventilateur**, sélectionnez **+ Nouvelle mesure**. Puis choisissez **État** comme type de mesure :
 
     ![Mesures d’état de climatiseur connecté](./media/tutorial-define-device-type/statenew.png)
 
-2. Chaque type d’état que vous définissez pour un modèle d’appareil inclut des [options de configuration](howto-set-up-template.md) telles que :
+2. Chaque type d’état que vous définissez pour un modèle d’appareil inclut des [options de configuration](howto-set-up-template.md) telles que :
 
    * le nom d’affichage ;
 
@@ -209,42 +208,40 @@ Vous pouvez utiliser la mesure État pour définir et visualiser l’état de l�
 
    * la couleur de chaque valeur.
 
-    Pour configurer l’état **Mode du ventilateur**, utilisez les informations du tableau suivant :
+     Pour configurer l’état **Mode du ventilateur**, utilisez les informations du tableau suivant :
 
-    | Paramètre              | Valeur             |
-    | -------------------- | -----------       |
-    | Nom d’affichage         | Mode du ventilateur          |
-    | Nom du champ           | fanmode           |
-    | Valeur                | 1                 |
-    | Étiquette d’affichage        | En fonctionnement         |
-    | Valeur                | 0                 |
-    | Étiquette d’affichage        | Arrêté           |
+     | Paramètre              | Valeur             |
+     | -------------------- | -----------       |
+     | Nom d’affichage         | Mode du ventilateur          |
+     | Nom du champ           | fanmode           |
+     | Valeur                | 1                 |
+     | Étiquette d’affichage        | En fonctionnement         |
+     | Valeur                | 0                 |
+     | Étiquette d’affichage        | Arrêté           |
 
-    Pour enregistrer la définition de l’état, choisissez **Enregistrer** :
+     Pour enregistrer la définition de la mesure d’état, sélectionnez **Enregistrer** :
 
-    ![Configuration de la mesure d’état](./media/tutorial-define-device-type/stateconfiguration.png)
+     ![Configuration de la mesure d’état](./media/tutorial-define-device-type/stateconfiguration.png)
 
-3. Après un court instant, la page **Measurements** (Mesures) affiche un graphique des états générés aléatoirement par votre climatiseur connecté simulé. Utilisez les contrôles pour gérer la visibilité ou pour modifier la définition d’état :
+3. Après un court instant, l’onglet **Mesures** affiche un graphique des états générés aléatoirement par votre climatiseur connecté simulé. Utilisez les contrôles pour gérer la visibilité ou pour modifier la définition d’état :
 
     ![Visualisation de la simulation d’état](./media/tutorial-define-device-type/stateview.png)
 
-4. Si l’appareil envoie un nombre de points de données excessif sur une courte période, la mesure d’état s’affiche avec un visuel différent, comme illustré ci-dessous. Si vous cliquez sur le graphique, tous les points de données de cette période sont affichés par ordre chronologique. Vous pouvez également réduire l’intervalle de temps pour voir les mesures de manière plus détaillée.
-
-    ![Visualisation des détails de l’état](./media/tutorial-define-device-type/stateviewdetail.png)
+4. Si l’appareil envoie un nombre de points de données excessif sur une courte période, la mesure d’état s’affiche avec un visuel différent. Sélectionnez le graphique pour voir tous les points de données de cette période, affichés par ordre chronologique. Vous pouvez également réduire l’intervalle de temps pour voir les mesures de manière plus détaillée.
 
 ## <a name="settings-properties-and-commands"></a>Paramètres, propriétés et commandes
 
 Les propriétés, les commandes et les paramètres constituent des valeurs distinctes qui sont définies dans un modèle d’appareil et qui sont associées à chaque appareil :
 
-* Les _paramètres_ vous permettent d’envoyer des données de configuration à un appareil à partir de votre application. Par exemple, un opérateur peut utiliser un paramètre pour remplacer l’intervalle de télémétrie de deux secondes par un intervalle de cinq secondes. Lorsqu’un opérateur modifie un paramètre, ce dernier est marqué comme étant en attente dans l’interface utilisateur jusqu’à ce que l’appareil confirme la prise en compte de la modification du paramètre.
+* Les _paramètres_ vous permettent d’envoyer des données de configuration à un appareil à partir de votre application. Par exemple, un opérateur peut utiliser un paramètre pour remplacer l’intervalle de télémétrie de deux secondes par un intervalle de cinq secondes. Quand un opérateur modifie un paramètre, ce dernier est marqué comme étant en attente dans l’interface utilisateur jusqu’à ce que l’appareil retourne une confirmation.
 
 * Les _propriétés_ vous permettent de définir les métadonnées qui sont associées à votre appareil. Il existe deux catégories de propriété :
     
-    * Les _propriétés d’application_ vous permettent d’enregistrer des informations concernant votre appareil dans votre application. Par exemple, vous pouvez utiliser les propriétés d’application pour enregistrer l’emplacement d’un appareil ainsi que sa dernière date de service. Ces propriétés sont stockées dans l’application et ne se synchronisent pas avec l’appareil. Un opérateur peut assigner des valeurs aux propriétés.
+  * Les _propriétés d’application_ vous permettent d’enregistrer des informations concernant votre appareil dans votre application. Par exemple, vous pouvez utiliser les propriétés d’application pour enregistrer l’emplacement d’un appareil ainsi que sa dernière date de service. Ces propriétés sont stockées dans l’application et ne se synchronisent pas avec l’appareil. Un opérateur peut assigner des valeurs aux propriétés.
 
-    * Les _propriétés d’appareil_ vous permettent d’autoriser un appareil à envoyer des valeurs de propriété à votre application. Ces propriétés sont uniquement modifiables par l’appareil. Les propriétés d’appareil sont en lecture seule pour un opérateur. Dans le cas d’un climatiseur connecté, la version du microprogramme et le numéro de série de l’appareil sont des propriétés d’appareil signalées par ce dernier. 
+  * Les _propriétés d’appareil_ vous permettent d’autoriser un appareil à envoyer des valeurs de propriété à votre application. Ces propriétés sont uniquement modifiables par l’appareil. Les propriétés d’appareil sont en lecture seule pour un opérateur. Dans le cas d’un climatiseur connecté, la version du microprogramme et le numéro de série de l’appareil sont des propriétés d’appareil signalées par ce dernier.
     
-    Pour plus d’informations, consultez la section [Propriétés][lnk-define-template] du guide pratique de configuration d’un modèle de périphérique.
+    Pour plus d’informations, consultez la section [Propriétés](howto-set-up-template.md#properties) dans le guide pratique de configuration d’un modèle d’appareil.
 
 * Vous utilisez des _commandes_ pour gérer à distance votre appareil à partir de votre application. Vous pouvez exécuter directement des commandes sur l’appareil à partir du cloud pour contrôler les appareils. Par exemple, un opérateur peut exécuter des commandes telles que le redémarrage, pour redémarrer l’appareil immédiatement.
 
@@ -252,13 +249,9 @@ Les propriétés, les commandes et les paramètres constituent des valeurs disti
 
 Vous utilisez les *paramètres* pour autoriser un opérateur à envoyer des données de configuration à un appareil. Dans cette section, vous allez ajouter un paramètre à votre modèle d’appareil **Climatiseur connecté** pour permettre à un opérateur de définir la température cible du climatiseur connecté.
 
-1. Accédez à la page **Settings** (Paramètres) de votre modèle d’appareil **Climatiseur connecté** :
+1. Accédez à l’onglet **Paramètres** de votre modèle d’appareil **Climatiseur connecté**.
 
-    ![Préparation de l’ajout d’un paramètre](./media/tutorial-define-device-type/deviceaddsetting.png)
-
-    Vous pouvez créer différents types de paramètres, tels que des valeurs numériques ou du texte.
-
-2. Choisissez **Number** (Nombre) pour ajouter un paramètre de type valeur numérique à votre appareil.
+2. Vous pouvez créer différents types de paramètres, tels que des valeurs numériques ou du texte. Sélectionnez **Nombre** pour ajouter un paramètre de type valeur numérique à votre appareil.
 
 3. Pour configurer votre paramètre **Température réglée**, utilisez les informations du tableau suivant :
 
@@ -273,28 +266,24 @@ Vous utilisez les *paramètres* pour autoriser un opérateur à envoyer des donn
     | Valeur initiale        | 80              |
     | Description          | Température cible du climatiseur |
 
-    Puis choisissez **Enregistrer** :
+    Sélectionnez ensuite **Enregistrer** :
 
     ![Configuration du paramètre Température réglée](./media/tutorial-define-device-type/configuresetting.png)
 
     > [!NOTE]
     > Lorsque l’appareil accuse réception d’une modification de paramètre, le paramètre prend l’état **synchronisé**.
 
-4. Vous pouvez personnaliser la disposition de la page **Settings** (Paramètres) en déplaçant et en redimensionnant les vignettes de paramètres :
+4. Vous pouvez personnaliser la disposition de l’onglet **Paramètres** en déplaçant et en redimensionnant les vignettes de paramètres :
 
     ![Personnalisation de la disposition des paramètres](./media/tutorial-define-device-type/settingslayout.png)
 
-## <a name="use-properties"></a>Utiliser les propriétés 
+## <a name="use-properties"></a>Utiliser les propriétés
 
-Les *propriétés d’application* vous permettent de stocker des informations concernant votre appareil dans l’application. Dans cette section, vous allez ajouter des propriétés d’application à votre modèle d’appareil **Climatiseur connecté** pour stocker l’emplacement de l’appareil et la dernière date de service. Notez que ces deux éléments sont des propriétés modifiables de l’appareil. Il existe également des propriétés d’appareil en lecture seule consignées par l’appareil et qui ne sont pas modifiables, par exemple le numéro de série de l’appareil et la version du microprogramme.
- 
-1. Accédez à la page **Propriétés** de votre modèle d’appareil **Climatiseur connecté** :
+Les *propriétés d’application* vous permettent de stocker des informations concernant votre appareil dans l’application. Dans cette section, vous allez ajouter des propriétés d’application à votre modèle d’appareil **Climatiseur connecté** pour stocker l’emplacement de l’appareil et la dernière date de service. Ces propriétés sont modifiables dans l’application. L’appareil indique également des propriétés telles que le numéro de série et la version du microprogramme qui sont en lecture seule dans l’application.
 
-    ![Préparation de l’ajout d’une propriété](./media/tutorial-define-device-type/deviceaddproperty.png)
+1. Accédez à l’onglet **Propriétés** de votre modèle d’appareil **Climatiseur connecté**.
 
-    Vous pouvez créer différents types de propriétés d’appareil, comme des nombres ou du texte. Pour ajouter une propriété d’emplacement à votre modèle d’appareil, choisissez **Emplacement**.
-
-1. Pour configurer votre propriété d’emplacement, utilisez les informations du tableau suivant :
+1. Vous pouvez créer différents types de propriétés d’appareil, comme des nombres ou du texte. Pour ajouter une propriété d’emplacement à votre modèle d’appareil, choisissez **Emplacement**. Pour configurer votre propriété d’emplacement, utilisez les informations du tableau suivant :
 
     | Champ                | Valeur                |
     | -------------------- | -------------------- |
@@ -307,7 +296,7 @@ Les *propriétés d’application* vous permettent de stocker des informations c
 
     ![Configuration des propriétés de l’appareil](./media/tutorial-define-device-type/configureproperties.png)
 
-    Choisissez **Enregistrer**.
+    Sélectionnez **Enregistrer**.
 
 1. Pour ajouter une propriété de dernière date de service à votre modèle d’appareil, choisissez **Date**.
 
@@ -317,20 +306,18 @@ Les *propriétés d’application* vous permettent de stocker des informations c
     | -------------------- | ----------------------- |
     | Nom d’affichage         | Dernière date de service       |
     | Nom du champ           | serviceDate             |
-    | Valeur initiale        | 1/1/2018                |
+    | Valeur initiale        | 1/1/2019                |
     | Description          | Dernière utilisation           |
 
     ![Configuration des propriétés de l’appareil](./media/tutorial-define-device-type/configureproperties2.png)
 
-    Choisissez **Enregistrer**.
+    Sélectionnez **Enregistrer**.
 
-5. Vous pouvez personnaliser la disposition de la page **Propriétés** en déplaçant et en redimensionnant les vignettes de propriétés :
-
-    ![Personnalisation de la mise en page des propriétés](./media/tutorial-define-device-type/propertieslayout.png)
+1. Vous pouvez personnaliser la disposition de l’onglet **Propriétés** en déplaçant et en redimensionnant les vignettes de propriétés.
 
 1. Pour ajouter une propriété à l’appareil, par exemple, pour ajouter une version du microprogramme au modèle d’appareil, choisissez **Propriété de l’appareil**.
 
-1.  Pour configurer votre version du microprogramme, utilisez les informations du tableau suivant :
+1. Pour configurer votre version du microprogramme, utilisez les informations du tableau suivant :
 
     | Champ                | Valeur                   |
     | -------------------- | ----------------------- |
@@ -340,8 +327,8 @@ Les *propriétés d’application* vous permettent de stocker des informations c
     | Description          | La version du microprogramme du climatiseur |
 
     ![Configurer la version du microprogramme](./media/tutorial-define-device-type/configureproperties3.png)
-    
-    Choisissez **Enregistrer**.
+
+    Sélectionnez **Enregistrer**.
 
 1. Pour ajouter une propriété à l’appareil, par exemple, pour ajouter un numéro de série au modèle d’appareil, choisissez **Propriété de l’appareil**.
 
@@ -355,9 +342,9 @@ Les *propriétés d’application* vous permettent de stocker des informations c
     | Description          | Le numéro de série du climatiseur  |
 
     ![Configurer le numéro de série](./media/tutorial-define-device-type/configureproperties4.png)
-    
-    Choisissez **Enregistrer**.
-    
+
+    Sélectionnez **Enregistrer**.
+
     > [!NOTE]
     > Les propriétés de l’appareil sont envoyées de l’appareil vers l’application. Les valeurs de version du microprogramme et du numéro de série seront mises à jour lorsque vous connecterez votre véritable appareil à IoT Central.
 
@@ -365,11 +352,9 @@ Les *propriétés d’application* vous permettent de stocker des informations c
 
 Vous utilisez les _commandes_ pour permettre à un opérateur d’exécuter des commandes directement sur l’appareil. Dans cette section, vous ajoutez une commande à votre modèle d’appareil **Climatiseur connecté** afin d’activer un opérateur, lequel renvoie un message à l’écran du climatiseur connecté.
 
-1. Accédez à la page **Commandes** de votre modèle d’appareil **Climatiseur connecté** pour modifier le modèle. 
+1. Accédez à l’onglet **Commandes** de votre modèle d’appareil **Climatiseur connecté** pour modifier le modèle.
 
-1. Cliquez sur **Nouvelle commande** pour ajouter une commande à votre appareil et commencer à configurer votre nouvelle commande.
-
-   Vous pouvez créer des commandes de différents types, selon vos besoins. 
+1. Sélectionnez **+ Nouvelle commande** pour ajouter une commande à votre appareil et commencer à configurer votre nouvelle commande.
 
 1. Pour configurer votre nouvelle commande, utilisez les informations du tableau suivant :
 
@@ -381,27 +366,21 @@ Vous utilisez les _commandes_ pour permettre à un opérateur d’exécuter des 
     | Type d’affichage         | texte            |
     | Description          | Commande d’appareil  |  
 
-    Vous pouvez ajouter des entrées supplémentaires à la commande en cliquant sur **+** pour les **Champs d’entrée**.
+    Vous pouvez ajouter des entrées supplémentaires à la commande en sélectionnant **+** pour **Champs d’entrée**.
 
-    ![Préparation de l’ajout d’un paramètre](media/tutorial-define-device-type/commandsecho1.png)
+    ![Préparation de l’ajout d’un paramètre](./media/tutorial-define-device-type/commandsecho1.png)
 
-     Choisissez **Enregistrer**.
+     Sélectionnez **Enregistrer**.
 
-1. Vous pouvez personnaliser la disposition de la page **Commandes** en déplaçant et en redimensionnant les vignettes de commandes :
-
-    ![Personnalisation de la disposition des paramètres](media/tutorial-define-device-type/commandstileresize1.png)
+1. Vous pouvez personnaliser la disposition de l’onglet **Commandes** en déplaçant et en redimensionnant les vignettes de commandes.
 
 ## <a name="view-your-simulated-device"></a>Visualiser votre appareil simulé
 
-Après avoir défini votre modèle d’appareil **Climatiseur connecté**, vous pouvez personnaliser son **Dashboard** (Tableau de bord) pour y inclure les mesures, les paramètres et les propriétés que vous avez définis. Vous pouvez visualiser un aperçu du tableau de bord en tant qu’opérateur :
+Après avoir défini votre modèle d’appareil **Climatiseur connecté**, vous pouvez personnaliser son **tableau de bord** pour y inclure les mesures, les paramètres et les propriétés que vous avez définis. Vous pouvez visualiser un aperçu du tableau de bord en tant qu’opérateur :
 
-1. Accédez à la page **Dashboard** (Tableau de bord) de votre modèle d’appareil **Climatiseur connecté** :
+1. Accédez à l’onglet **Tableau de bord** de votre modèle d’appareil **Climatiseur connecté**.
 
-    ![Tableau de bord de climatiseur connecté](./media/tutorial-define-device-type/aircondashboards.png)
-
-1. Choisissez **Graphique en courbes** pour ajouter ce composant sur le **Dashboard** (Tableau de bord) :
-
-    ![Composants de tableau de bord](./media/tutorial-define-device-type/dashboardcomponents1.png)
+1. Sélectionnez **Graphique en courbes** pour ajouter ce composant au **tableau de bord**.
 
 1. Configurez le composant **Graphique en courbes** en utilisant les informations du tableau suivant :
 
@@ -409,23 +388,23 @@ Après avoir défini votre modèle d’appareil **Climatiseur connecté**, vous 
     | ------------ | ----------- |
     | Intitulé        | Température |
     | Intervalle de temps   | 30 dernières minutes |
-    | Mesures     | Température (choisissez **Visibilité** en regard de **Température**) |
+    | Mesures     | Température (sélectionnez **Visibilité** à côté de **Température**) |
 
     ![Paramètres de graphique en courbes](./media/tutorial-define-device-type/linechartsettings.png)
 
-    Puis choisissez **Enregistrer**.
+    Ensuite, sélectionnez **Enregistrer**.
 
-1. Configurez le composant **Historique des événements** en utilisant les informations du tableau suivant :
+1. Sélectionnez le composant **Historique des événements** en utilisant les informations du tableau suivant :
 
     | Paramètre      | Valeur       |
     | ------------ | ----------- |
-    | Intitulé        | Événements |
+    | Intitulé        | Événements du moteur de ventilateur |
     | Intervalle de temps   | 30 dernières minutes |
-    | Mesures     | Erreur du moteur du ventilateur (choisissez **Visibilité** en regard de **Erreur du moteur du ventilateur**) |
+    | Mesures     | Erreur du moteur du ventilateur (sélectionnez **Visibilité** à côté de **Erreur du moteur du ventilateur**) |
 
-    ![Paramètres de graphique en courbes](./media/tutorial-define-device-type/dashboardeventchartsetting.png)
+    ![Paramètres du graphique des événements](./media/tutorial-define-device-type/dashboardeventchartsetting.png)
 
-    Puis choisissez **Enregistrer**.
+    Ensuite, sélectionnez **Enregistrer**.
 
 1. Configurez le composant **Historique des états** en utilisant les informations du tableau suivant :
 
@@ -433,60 +412,30 @@ Après avoir défini votre modèle d’appareil **Climatiseur connecté**, vous 
     | ------------ | ----------- |
     | Intitulé        | Mode du ventilateur |
     | Intervalle de temps   | 30 dernières minutes |
-    | Mesures | Mode du ventilateur (choisissez **Visibilité** en regard de **Mode du ventilateur**) |
+    | Mesures | Mode du ventilateur (sélectionnez **Visibilité** à côté de **Mode du ventilateur**) |
 
     ![Paramètres de graphique en courbes](./media/tutorial-define-device-type/dashboardstatechartsetting.png)
 
-    Puis choisissez **Enregistrer**.
+    Ensuite, sélectionnez **Enregistrer**.
 
-1. Pour ajouter le paramètre de température réglée au tableau de bord, choisissez **Paramètres et propriétés**. Cliquez sur **Ajouter/Supprimer** pour ajouter les paramètres ou les propriétés que vous aimeriez voir dans le tableau de bord. 
-
-    ![Composants de tableau de bord](./media/tutorial-define-device-type/dashboardcomponents4.png)
+1. Pour ajouter les paramètres et propriétés de l’appareil au tableau de bord, choisissez **Paramètres et propriétés**. Sélectionnez **Ajouter/Supprimer** pour ajouter les paramètres ou les propriétés que vous aimeriez voir dans le tableau de bord.
 
 1. Configurez le composant **Settings and Properties** (Paramètres et propriétés) en utilisant les informations du tableau suivant :
 
     | Paramètre                 | Valeur         |
     | ----------------------- | ------------- |
-    | Intitulé                   | Température cible réglée |
-    | Settings and Properties (Paramètres et propriétés) | Température définie |
+    | Intitulé                   | Propriétés de l’appareil |
+    | Settings and Properties (Paramètres et propriétés) | Température définie<br/>Numéro de série<br/>Version du microprogramme |
 
-    Les paramètres et propriétés que vous avez précédemment définis sur les pages Paramètres et propriétés sont affichés dans les colonnes disponibles. 
+    Les paramètres et propriétés que vous avez précédemment définis dans les pages **Paramètres et propriétés** sont affichés dans **Colonnes disponibles**.
 
     ![Définir des paramètres de propriété de température](./media/tutorial-define-device-type/propertysettings4.png)
 
-    Choisissez **OK**.
+    Ensuite, sélectionnez **Enregistrer**.
 
-1. Pour ajouter le numéro de série d’appareil au tableau de bord, choisissez **Paramètres et propriétés** :
+1. Vous voyez maintenant des données simulées pour votre climatiseur connecté dans le tableau de bord. Vous pouvez modifier les vignettes et la disposition dans le tableau de bord :
 
-    ![Composants de tableau de bord](./media/tutorial-define-device-type/dashboardcomponents3.png)
-
-1. Configurez le composant **Settings and Properties** (Paramètres et propriétés) en utilisant les informations du tableau suivant :
-
-    | Paramètre                 | Valeur         |
-    | ----------------------- | ------------- |
-    | Intitulé                   | Numéro de série |
-    | Settings and Properties (Paramètres et propriétés) | Numéro de série |
-
-    ![Paramètres de la propriété de numéro de série](./media/tutorial-define-device-type/propertysettings5.png)
-
-    Choisissez **OK**.
-
-1. Pour ajouter la version du microprogramme de l’appareil au tableau de bord, choisissez **Paramètres et propriétés** :
-
-    ![Composants de tableau de bord](./media/tutorial-define-device-type/dashboardcomponents4.png)
-
-1. Configurez le composant **Settings and Properties** (Paramètres et propriétés) en utilisant les informations du tableau suivant :
-
-    | Paramètre                 | Valeur            |
-    | ----------------------- | ---------------- |
-    | Intitulé                   | Version du microprogramme |
-    | Settings and Properties (Paramètres et propriétés) | Version du microprogramme |
-
-    ![Paramètres de la propriété de numéro de série](./media/tutorial-define-device-type/propertysettings6.png)
-
-    Choisissez **OK**.
-
-1. Pour afficher le tableau de bord en tant qu’opérateur, désactivez le mode **Modifier le modèle** dans la partie supérieure droite de la page.
+    ![Afficher le tableau de bord](./media/tutorial-define-device-type/dashboard.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -505,9 +454,7 @@ Dans ce tutoriel, vous avez appris à :
 > * Utiliser des commandes
 > * Affichez votre appareil simulé dans le tableau de bord
 
-Maintenant que vous avez défini un modèle d’appareil dans votre application Azure IoT Central, voici les étapes suivantes suggérées :
+Maintenant que vous avez défini un modèle d’appareil dans votre application Azure IoT Central, voici les étapes suivantes suggérées :
 
 * [Configurer des règles et des actions pour votre appareil](tutorial-configure-rules.md)
 * [Personnaliser la vue de l’opérateur](tutorial-customize-operator.md)
-
-[lnk-define-template]: /azure/iot-central/howto-set-up-template#properties

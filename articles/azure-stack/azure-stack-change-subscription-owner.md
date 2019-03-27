@@ -11,17 +11,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: sethm
 ms.reviewer: shnatara
 ms.lastreviewed: 10/19/2018
-ms.openlocfilehash: de5c20cf2113bcd6ce902a05d4613376145a4da3
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 1d9dd7d19c196679ead9b552bcf296b4acd4ca68
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649405"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842887"
 ---
 # <a name="change-the-owner-for-an-azure-stack-user-subscription"></a>Modifier le propriétaire d’un abonnement utilisateur Azure Stack
 
@@ -49,7 +49,7 @@ Remplacez les valeurs suivantes dans le script avant de l’exécuter :
 - **$ArmEndpoint** : Point de terminaison Resource Manager pour votre environnement.
 - **$TenantId** : Votre ID de locataire.
 - **$SubscriptionId** : Votre ID d’abonnement.
-- **$OwnerUpn** : Compte comme **user@example.com** à ajouter en tant que nouveau propriétaire de facturation.
+- **$OwnerUpn** : Compte, par exemple **user\@example.com**, à ajouter en tant que nouveau propriétaire de facturation.
 
 ```powershell
 # Set up Azure Stack admin environment

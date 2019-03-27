@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2019
+ms.date: 03/13/2019
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 931732c047a5ffe22ad456a115c36d7c882d01bc
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 55407ec1846a0fe2eb037756dc2e97d8b05e7330
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769849"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57997302"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Démarrage rapide : Explorer et analyser les coûts avec l’analyse du coût
 
@@ -51,7 +51,7 @@ Pour plus d’informations sur l’attribution de l’accès aux données Cost M
 
 ## <a name="review-costs-in-cost-analysis"></a>Passer en revue les coûts dans l’analyse du coût
 
-Pour passer en revue vos coûts avec l’analyse des coûts, dans le portail Azure, accédez à **Cost Management + facturation** &gt; **Analyse du coût**. Sélectionner **Étendue : _ScopeName_**, choisissez une étendue, puis cliquez sur **Sélectionner**.
+Pour examiner vos coûts via la fonctionnalité d’analyse des coûts, ouvrez l’étendue souhaitée sur le portail Azure et sélectionnez **Analyse du coût** dans le menu. Par exemple, accédez à **Abonnements**, sélectionnez un abonnement dans la liste, puis sélectionnez **Analyse du coût** dans le menu. Utilisez le paramètre **Étendue** pour passer à une autre étendue dans l’analyse des coûts. Pour plus d’informations sur les étendues, consultez [Comprendre et utiliser les étendues](understand-work-scopes.md).
 
 L’étendue que vous sélectionnez est utilisée à travers Cost Management pour consolider les données et contrôler l’accès aux informations sur les coûts. Quand vous utilisez des étendues, vous n’opérez pas une sélection multiple. À la place, vous sélectionnez une étendue plus grande qui englobe d’autres étendues, puis vous appliquez un filtre pour trouver ce qui vous intéresse. Il est important de bien comprendre ceci, car certaines personnes ne doivent pas avoir accès à une étendue parente englobant des étendues enfants.
 

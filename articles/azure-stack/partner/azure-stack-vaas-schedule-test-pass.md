@@ -9,17 +9,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: How to
-ms.date: 11/26/2018
+ms.topic: conceptual
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
-ms.openlocfilehash: cb26aae743d267866a8a7d1de76a319a0a681a08
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 03/11/2019
+ms.openlocfilehash: 3fb5c3deeddb6f3ee381ca45df76feebf3405b21
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252062"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766564"
 ---
 # <a name="scheduling-a-test"></a>Planification d’un test
 
@@ -53,7 +53,7 @@ Connectez-vous au portail, sélectionnez ou créez une solution, puis sélection
 
 ![Texte de remplacement](media/vaas_test_pass_parameters.png)
 
-Définissez le flux de travail pour votre solution. Ce dernier comporte les étapes du processus permettant de tester votre solution.
+Spécifiez des paramètres qui s’appliquent à tous les tests dans le flux de travail.
 
 1. [!INCLUDE [azure-stack-vaas-workflow-step_naming](includes/azure-stack-vaas-workflow-step_naming.md)]
 2. [!INCLUDE [azure-stack-vaas-workflow-step_upload-stampinfo](includes/azure-stack-vaas-workflow-step_upload-stampinfo.md)]
@@ -63,22 +63,23 @@ Définissez le flux de travail pour votre solution. Ce dernier comporte les éta
 
 ## <a name="select-tests-to-run"></a>Sélectionner les tests à exécuter
 
-Choisissez les tests que vous souhaitez exécuter dans votre flux de travail.
+Les tests que vous sélectionnez seront planifiés une fois le flux de travail créé.
 
 1. Sélectionnez le ou les tests à exécuter dans votre flux de travail.
 
     Si vous souhaitez remplacer les paramètres communs (autrement dit, les paramètres fournis dans la section précédente) pour tous les tests, sélectionnez ensuite le lien **Modifier** pour spécifier les nouvelles valeurs.
 
 1. [!INCLUDE [azure-stack-vaas-workflow-step_select-agent](includes/azure-stack-vaas-workflow-step_select-agent.md)]
+
 1. Sélectionnez **Suivant** pour réviser le flux de travail.
 
 ## <a name="review-and-submit"></a>Passer en revue et soumettre
 
-Passez en revue, créez, puis planifiez vos flux de travail.
+Terminez la création du flux de travail.
 
 1. Vérifiez les informations affichées.
 
-    Les services créent votre flux de travail avec les informations fournies et les tests sélectionnés seront planifiés.
+    Le service crée votre flux de travail avec les informations fournies et les tests sélectionnés seront planifiés.
 
     Si vous voyez une information incorrecte, utilisez les boutons **Précédent** pour accéder à une section antérieure.
 

@@ -11,17 +11,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/04/2018
-ms.openlocfilehash: 4fb636a91389309b44f2308efec1a6c257c41078
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b43fb3ff158a7df609d7a828192815db6b15963b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242584"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850058"
 ---
 # <a name="validate-azure-identity"></a>Valider l’identité Azure 
 Utilisez l’outil Azure Stack Readiness Checker (AzsReadinessChecker) pour vérifier que votre annuaire Azure Active Directory (Azure AD) peut être utilisé avec Azure Stack. Validez votre solution d’identité Azure avant de commencer un déploiement Azure Stack.  
@@ -56,7 +56,7 @@ Vérifiez les prérequis suivants.
 
    > `Install-Module Microsoft.AzureStack.ReadinessChecker -Force`
 
-2. À l’invite PowerShell, exécutez ce qui suit pour affecter à *$serviceAdminCredential* l’administrateur de service de votre locataire Azure AD.  Remplacez *serviceadmin@contoso.onmicrosoft.com* par votre compte et votre locataire. 
+2. À l’invite PowerShell, exécutez ce qui suit pour affecter à *$serviceAdminCredential* l’administrateur de service de votre locataire Azure AD.  Remplacez *serviceadmin\@contoso.onmicrosoft.com* par votre compte et votre locataire. 
    > `$serviceAdminCredential = Get-Credential serviceadmin@contoso.onmicrosoft.com -Message "Enter Credentials for Service Administrator of Azure Active Directory Tenant"` 
 
 3. À l’invite PowerShell, exécutez ce qui suit pour démarrer la validation de votre annuaire Azure AD. 

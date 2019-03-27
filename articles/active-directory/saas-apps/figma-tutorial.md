@@ -7,22 +7,22 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 8569cae1-87dd-4c40-9bbb-527ac80d6a96
-ms.service: Azure-Active-Directory
+ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/12/2019
+ms.date: 03/13/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecfdd76e171ed237e3e87c98f6596634784faea1
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: d58da4781a7c5c93d897e0efd7cf3d5aee612d78
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865312"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225674"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-figma"></a>Tutoriel : Intégration d'Azure Active Directory à Figma
+# <a name="tutorial-azure-active-directory-integration-with-figma"></a>Didacticiel : Intégration d'Azure Active Directory à Figma
 
 Dans ce tutoriel, vous allez apprendre à intégrer Figma avec Azure Active Directory (Azure AD).
 L’intégration de Figma avec Azure AD vous offre les avantages suivants :
@@ -32,14 +32,16 @@ L’intégration de Figma avec Azure AD vous offre les avantages suivants :
 * Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD avec Figma, vous avez besoin des éléments suivants :
 
 * Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
-* Abonnement Figma pour lequel l’authentification unique est activée
+* Plan d’organisation Figma
+
+>[!NOTE]
+>Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production. Les nouveaux clients et les abonnés actifs de Figma Professional Team peuvent contacter Figma pour mettre à niveau leur abonnement vers le [plan d’organisation Figma](https://www.figma.com/pricing/).
 
 ## <a name="scenario-description"></a>Description du scénario
 
@@ -107,20 +109,20 @@ Pour configurer l’authentification unique Azure AD avec Figma, effectuez les 
 
     ![Informations d’authentification unique dans Domaine et URL Figma](common/idp-intiated.png)
 
-    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://www.figma.com/saml/<ORG_SAML_CONFIG_ID>`
+    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://www.figma.com/saml/<TENANT ID>`
 
-    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://www.figma.com/saml/<ORG_SAML_CONFIG_ID>/consume`
+    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://www.figma.com/saml/<TENANT ID>/consume`
 
 5. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
     ![Informations d’authentification unique dans Domaine et URL Figma](common/metadata-upload-additional-signon.png)
 
-    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://www.figma.com/saml/<ORG_SAML_CONFIG_ID>/start`
+    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://www.figma.com/saml/<TENANT ID>/start`
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Contactez l’[équipe du support technique du client Figma](mailto:support@figma.com) pour obtenir ces valeurs. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Vous obtiendrez le `TENANT ID` à l’étape 11 de l’article de Figma [Configure Azure Active Directory SAML SSO process](https://help.figma.com/article/243-configure-azure-active-directory-saml-sso).
 
-6. L’application Figma s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à la configuration de vos attributs de jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône Modifier pour ajouter les attributs.
+6. L’application Figma s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à la configuration de vos attributs de jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Attributs utilisateur**.
 
     ![image](common/edit-attribute.png)
 
@@ -154,13 +156,13 @@ Pour configurer l’authentification unique Azure AD avec Figma, effectuez les 
 
     g. Cliquez sur **Enregistrer**.
 
-8. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération d’application** et enregistrez-la sur votre ordinateur.
+8. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération d’application**, puis enregistrez-la sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/copy-metadataurl.png)
-
+  
 ### <a name="configure-figma-single-sign-on"></a>Configurer l’authentification unique Figma
 
-Pour configurer l’authentification unique côté Figma, remplissez ce formulaire : [https://goo.gl/forms/XkRB1z5ed4eVUzXn2](https://goo.gl/forms/XkRB1z5ed4eVUzXn2). Il accepte votre **URL des métadonnées de fédération d’application** de l’étape 8.
+Pour configurer l’authentification unique côté Figma, vous devez suivre l’article de Figma [Configure Azure Active Directory SAML SSO process](https://help.figma.com/article/243-configure-azure-active-directory-saml-sso).
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
 
@@ -180,7 +182,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@votredomaineentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
@@ -230,3 +232,4 @@ Quand vous cliquez sur la vignette Figma dans le volet d’accès, vous devez ê
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+

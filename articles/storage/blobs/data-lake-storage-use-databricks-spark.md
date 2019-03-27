@@ -1,21 +1,21 @@
 ---
 title: 'Tutoriel : Accéder aux données Azure Data Lake Storage Gen2 avec Azure Databricks à l’aide de Spark | Microsoft Docs'
-description: Ce tutoriel montre comment exécuter des requêtes Spark sur un cluster Azure Databricks afin d’accéder aux données dans un compte de stockage Azure Data Lake Storage Gen2.
+description: Ce tutoriel montre comment exécuter des requêtes Spark sur un cluster Azure Databricks, afin d’accéder aux données dans un compte de stockage Azure Data Lake Storage Gen2.
 services: storage
 author: dineshmurthy
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
-ms.date: 01/29/2019
+ms.date: 03/11/2019
 ms.author: dineshm
-ms.openlocfilehash: 14e8d54b7b9cf579bb5dcbce595e2591c158b841
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 7f712bcf3e82005480d4960484cb0ea3ad51fbff
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56585424"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226757"
 ---
-# <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>Tutoriel : Accéder aux données Data Lake Storage Gen2 avec Azure Databricks à l’aide de Spark
+# <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>Didacticiel : Accéder aux données Data Lake Storage Gen2 avec Azure Databricks à l’aide de Spark
 
 Ce tutoriel vous montre comment connecter un cluster Azure Databricks aux données contenues dans un compte de stockage Azure compatible avec Azure Data Lake Storage Gen2. Cette connexion vous permet d’exécuter en mode natif des requêtes et analyses sur des données à partir de votre cluster.
 
@@ -38,16 +38,16 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 * Installez AzCopy v10. Consultez [Transférer des données avec AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-*  Créer un principal de service. Consultez [Procédure : Utilisez le portail pour créer une application Azure AD et un principal du service pouvant accéder aux ressources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+* Créer un principal de service. Consultez [Procédure : Utilisez le portail pour créer une application Azure AD et un principal du service pouvant accéder aux ressources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
-   Vous devrez faire certaines choses spécifiques pendant que vous suivrez les étapes décrites dans cet article.
+  Vous devrez faire certaines choses spécifiques pendant que vous suivrez les étapes décrites dans cet article.
 
-   :heavy_check_mark: Au cours des étapes décrites dans la section [Attribuer un rôle à l’application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) de l’article, veillez à affecter le rôle **Contributeur aux données Blob du stockage** au principal de service.
+  :heavy_check_mark: Au cours des étapes décrites dans la section [Attribuer un rôle à l’application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) de l’article, veillez à affecter le rôle **Contributeur aux données Blob du stockage** au principal de service.
 
-   > [!IMPORTANT]
-   > Veillez à attribuer le rôle dans l’étendue du compte de stockage Data Lake Storage Gen2. Vous pouvez attribuer un rôle à l’abonnement ou au groupe de ressources parent, mais des erreurs d’autorisation sont générées tant que ces attributions de rôles ne sont pas propagées au compte de stockage.
+  > [!IMPORTANT]
+  > Veillez à attribuer le rôle dans l’étendue du compte de stockage Data Lake Storage Gen2. Vous pouvez attribuer un rôle à l’abonnement ou au groupe de ressources parent, mais des erreurs d’autorisation sont générées tant que ces attributions de rôles ne sont pas propagées au compte de stockage.
 
-   :heavy_check_mark: Au cours des étapes indiquées dans la section [Obtenir les valeurs de connexion](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) de l’article, collez les valeurs de l’ID de locataire, de l’ID d’application et de la clé d’authentification dans un fichier texte. Vous en aurez besoin bientôt.
+  :heavy_check_mark: Au cours des étapes indiquées dans la section [Obtenir les valeurs de connexion](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) de l’article, collez les valeurs de l’ID de locataire, de l’ID d’application et de la clé d’authentification dans un fichier texte. Vous en aurez besoin bientôt.
 
 ### <a name="download-the-flight-data"></a>Téléchargement des données de vol
 
@@ -147,12 +147,12 @@ Dans cette section, vous allez créer un système de fichiers et un dossier dans
 
    * `storage-account-name` est le nom de votre compte de stockage Azure Data Lake Storage Gen2.
 
-    > [!NOTE]
-    > Dans un environnement de production, songez à stocker votre clé d’authentification dans Azure Databricks. Ensuite, ajoutez une clé de recherche à votre bloc de code au lieu de la clé d’authentification. Après avoir suivi ce guide de démarrage rapide, consultez l’article [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) sur le site web Azure Databricks pour voir des exemples de cette approche.
+   > [!NOTE]
+   > Dans un environnement de production, songez à stocker votre clé d’authentification dans Azure Databricks. Ensuite, ajoutez une clé de recherche à votre bloc de code au lieu de la clé d’authentification. Après avoir suivi ce guide de démarrage rapide, consultez l’article [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) sur le site web Azure Databricks pour voir des exemples de cette approche.
 
 19. Appuyez sur les touches **Maj +Entrée** pour exécuter le code de ce bloc.
 
-    Laissez ce notebook ouvert car vous allez y ajouter des commandes plus tard.
+   Laissez ce notebook ouvert car vous allez y ajouter des commandes plus tard.
 
 ## <a name="ingest-data"></a>Réception de données
 
@@ -171,9 +171,10 @@ Utilisez AzCopy pour copier des données de votre fichier *.csv* dans votre comp
 2. Pour copier des données du compte *.csv*, entrez la commande suivante.
 
    ```bash
-   azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<file-system-name>/folder1/On_Time
+   azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<file-system-name>/folder1/On_Time.csv
    ```
-   * Remplacez la valeur d’espace réservé `<csv-folder-path>` par le chemin du répertoire du fichier *.csv* (sans inclure le nom du fichier).
+
+   * Remplacez la valeur d’espace réservé `<csv-folder-path>` par le chemin du fichier *.csv*.
 
    * Remplacez la valeur d’espace réservé `storage-account-name` par le nom de votre compte de stockage.
 
@@ -181,28 +182,28 @@ Utilisez AzCopy pour copier des données de votre fichier *.csv* dans votre comp
 
 ### <a name="use-databricks-notebook-to-convert-csv-to-parquet"></a>Utiliser Databricks Notebook pour convertir CSV en Parquet
 
-Dans le notebook que vous avez créé précédemment, ajoutez une nouvelle cellule et collez-y le code suivant. Remplacez la valeur d’espace réservé `storage-account-name` dans cet extrait de code par le nom du dossier dans lequel vous avez enregistré le fichier csv.
+Dans le notebook que vous avez créé précédemment, ajoutez une nouvelle cellule et collez-y le code suivant. 
 
 ```python
 # Use the previously established DBFS mount point to read the data.
 # create a data frame to read data.
 
-flightDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/On_Time/<your-folder-name>/*.csv")
+flightDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/*.csv")
 
 # read the airline csv file and write the output to parquet format for easy query.
- flightDF.write.mode("append").parquet("/mnt/flightdata/parquet/flights")
- print("Done")
- ```
+flightDF.write.mode("append").parquet("/mnt/flightdata/parquet/flights")
+print("Done")
+```
 
 ## <a name="explore-data"></a>Explorer les données
 
-Dans une nouvelle cellule, collez le code suivant pour obtenir la liste des fichiers CSV téléchargés par le biais d’AzCopy. Remplacez la valeur d’espace réservé `<csv-folder-path>` par la même valeur que celle de l’espace réservé que vous avez utilisé précédemment.
+Dans une nouvelle cellule, collez le code suivant pour obtenir la liste des fichiers CSV téléchargés par le biais d’AzCopy.
 
 ```python
 import os.path
 import IPython
 from pyspark.sql import SQLContext
-display(dbutils.fs.ls("/mnt/flightdata/On_Time/<your-folder-name>"))
+display(dbutils.fs.ls("/mnt/flightdata"))
 ```
 
 Pour créer un nouveau fichier et répertorier les fichiers dans le dossier *parquet/flights* dossier, exécutez ce script :
@@ -220,13 +221,11 @@ Vous pouvez ensuite commencer à interroger les données que vous avez chargées
 
 Pour créer des trames de données pour vos sources de données, exécutez le script suivant :
 
-* Remplacez la valeur d’espace réservé `<csv-folder-path>` par le chemin du répertoire du fichier *.csv* (sans inclure le nom du fichier).
-
-* Remplacez la valeur d’espace réservé `<your-csv-file-name` par le nom de votre fichier *csv*.
+* Remplacez la valeur d’espace réservé `<csv-folder-path>` par le chemin du fichier *.csv*.
 
 ```python
 #Copy this into a Cmd cell in your notebook.
-acDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/On_Time/<your-folder-name>/<your-csv-file-name>.csv")
+acDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/On_Time.csv")
 acDF.write.parquet('/mnt/flightdata/parquet/airlinecodes')
 
 #read the existing parquet file for the flights database that was created earlier
@@ -285,5 +284,5 @@ Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources et toute
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[!div class="nextstepaction"] 
+> [!div class="nextstepaction"] 
 > [Extraire, transformer et charger des données à l’aide d’Apache Hive sur Azure HDInsight](data-lake-storage-tutorial-extract-transform-load-hive.md)

@@ -12,23 +12,22 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
-ms.author: jeffgilb
+ms.date: 02/27/2019
+ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 332722a1774eea41ab3566051da138f2383fef98
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 808c2f38be875e70b4f52698b7a6278aa781a6ca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447665"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58124076"
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack"></a>Mise à jour hors connexion d’Azure App Service sur Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 > [!IMPORTANT]
-> Appliquez la mise à jour 1809 ou version ultérieure à votre système intégré Azure Stack ou déployez le dernier Kit de développement Azure Stack avant de déployer Azure App Service 1.4. Avant de mettre à jour le fournisseur de ressources, passez en revue les notes de publication pour en savoir plus sur les nouvelles fonctionnalités, les correctifs et les problèmes connus qui pourraient affecter votre déploiement.
+> Appliquez la mise à jour 1901 ou version ultérieure à votre système intégré Azure Stack ou déployez le dernier Kit de développement Azure Stack avant de déployer Azure App Service 1.5. 
 
 En suivant les instructions de cet article, vous pouvez mettre à niveau le [fournisseur de ressources App Service](azure-stack-app-service-overview.md) déployé dans un environnement Azure Stack qui :
 
@@ -36,9 +35,7 @@ En suivant les instructions de cet article, vous pouvez mettre à niveau le [fou
 * sécurisé par les services de fédération Active Directory (AD FS).
 
 > [!IMPORTANT]
-> Avant d’exécuter la mise à niveau, assurez-vous d’avoir déjà effectué le [déploiement d’Azure App Service sur le fournisseur de ressources Azure Stack](azure-stack-app-service-deploy-offline.md)
->
->
+> Avant d’exécuter la mise à niveau, assurez-vous d’avoir déjà effectué le [déploiement d’Azure App Service sur le fournisseur de ressources Azure Stack](azure-stack-app-service-deploy-offline.md) et que vous avez lu les [notes de publication](azure-stack-app-service-release-notes-update-five.md) qui accompagnent la version 1.5, afin d’en savoir plus sur les nouvelles fonctionnalités, les correctifs et les problèmes connus qui pourraient affecter votre déploiement.
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>Exécuter le programme d’installation du fournisseur de ressources App Service
 
@@ -100,14 +97,14 @@ Pour mettre à niveau App Service dans un environnement déconnecté, vous devez
 7. Sur la page suivante :
 
    1. Cliquez sur le bouton **Se connecter** situé en regard de la zone **Abonnements Azure Stack**.
-        * Si vous utilisez Azure Active Directory (Azure AD), entrez votre compte et mot de passe d’administrateur Azure AD que vous avez indiqués lors du déploiement d’Azure Stack. Cliquez sur **Se connecter**.
-        * Si vous utilisez Active Directory Federation Services (AD FS), fournissez votre compte d’administrateur. Par exemple _cloudadmin@azurestack.local_. Entrez votre mot de passe, puis cliquez sur **Se connecter**.
+      * Si vous utilisez Azure Active Directory (Azure AD), entrez votre compte et mot de passe d’administrateur Azure AD que vous avez indiqués lors du déploiement d’Azure Stack. Cliquez sur **Se connecter**.
+      * Si vous utilisez Active Directory Federation Services (AD FS), fournissez votre compte d’administrateur. Par exemple : _cloudadmin@azurestack.local_. Entrez votre mot de passe, puis cliquez sur **Se connecter**.
    2. Dans la zone **Abonnements Azure Stack**, sélectionnez **Abonnement au fournisseur par défaut**.
    3. Dans la zone **Emplacements Azure Stack**, sélectionnez l’emplacement qui correspond à la région où vous effectuez le déploiement. Par exemple, sélectionnez **local** si effectuez votre déploiement sur le Kit de développement Azure Stack.
    4. Si un déploiement App Service existant est détecté, le groupe de ressources et le compte de stockage sont renseignés et grisés.
    5. Cliquez sur **Suivant** pour passer en revue le résumé de la mise à niveau.
 
-    ![Installation d’App Service détectée][4]
+      ![Installation d’App Service détectée][4]
 
 8. Sur la page de résumé :
    1. Vérifiez les choix effectués. Pour apporter des modifications, utilisez les boutons **Précédent** pour visiter les pages précédentes.

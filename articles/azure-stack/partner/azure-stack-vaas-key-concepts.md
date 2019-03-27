@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 01/07/2019
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1f5c47dd3453c0c8f02f1b0a87e5f2fff123f8be
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 3830dc15cebe24a8fb910b641b7b986437aeec52
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242805"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57768976"
 ---
 # <a name="validation-as-a-service-key-concepts"></a>Concepts clés de la Validation en tant que service
 
@@ -46,18 +46,18 @@ Les flux de travail sont classés par type de scénario de test. Concernant les 
 ![Vignettes de flux de travail VaaS](media/tile_all-workflows.png)
 
 > [!NOTE]
-> Le workflow **Validation de solution** prend en charge deux scénarios : [Valider les packages OEM](azure-stack-vaas-validate-oem-package.md) et [Valider les mises à jour logicielles de Microsoft](azure-stack-vaas-validate-microsoft-updates.md).
+> Le workflow **Validation du package** prend en charge deux scénarios : [Valider les packages OEM](azure-stack-vaas-validate-oem-package.md) et [Valider les mises à jour logicielles de Microsoft](azure-stack-vaas-validate-microsoft-updates.md).
 
 Pour plus d’informations sur les types de workflow, consultez l’article [Qu’est-ce que la validation en tant que service pour Azure Stack ?](azure-stack-vaas-overview.md).
 
 ### <a name="getting-started-with-vaas-workflows"></a>Prise en main des flux de travail VaaS
 
-1. Sur le tableau de bord des solutions, créez une solution ou sélectionnez une solution existante. Cela actualise et permet de générer des vignettes de workflow.
+1. Sur le tableau de bord des solutions, créez une solution ou sélectionnez une solution existante. Cela actualise et active les vignettes de workflow.
 2. Pour créer un nouveau flux de travail, sélectionnez **Démarrer** sur n’importe quelle vignette. Pour des informations spécifiques à chaque flux de travail, consultez les articles suivants :
     - Passe de test : [Démarrage rapide : Utiliser le portail de validation en tant que service pour planifier votre premier test](azure-stack-vaas-schedule-test-pass.md)
     - Validation de solution : [Valider une nouvelle solution Azure Stack](azure-stack-vaas-validate-solution-new.md)
-    - Validation de solution : [Valider les mises à jour logicielles issues de Microsoft](azure-stack-vaas-validate-microsoft-updates.md)
-    - Validation de solution : [Valider les packages OEM](azure-stack-vaas-validate-oem-package.md)
+    - Validation du package (mise à jour mensuelle) : [Valider les mises à jour logicielles issues de Microsoft](azure-stack-vaas-validate-microsoft-updates.md)
+    - Validation du package (signature de package) : [Valider les packages OEM](azure-stack-vaas-validate-oem-package.md)
 
 3. Pour gérer ou surveiller un flux de travail existant, sélectionnez **Gérer** au niveau de la vignette de flux de travail. Sélectionnez le nom du flux de travail et utilisez le bouton **Modifier** pour afficher les propriétés ou modifier les paramètres de test communs.
 
@@ -65,7 +65,7 @@ Pour plus d’informations sur les propriétés et paramètres du workflow, cons
 
 ## <a name="tests"></a>Tests
 
-Un test dans VaaS se compose d’une suite d’actions exécutées sur une solution Azure Stack. Les tests ont différents rôles identifiés par une catégorie, par exemple fonctionnel ou fiabilité, et ciblent un ou plusieurs services d’Azure Stack. Chaque test définit son propre ensemble de paramètres, dont certains sont spécifiés par des paramètres communs du flux de travail contenant.
+Un test dans VaaS se compose d’une suite d’opérations exécutées sur une solution Azure Stack. Les tests ont différents rôles identifiés par une catégorie, par exemple fonctionnel ou fiabilité, et ciblent un ou plusieurs services d’Azure Stack. Chaque test définit son propre ensemble de paramètres, dont certains sont spécifiés par des paramètres communs du flux de travail contenant.
 
 Pour plus d’informations sur les tests de gestion et de surveillance, consultez [Surveiller un test avec le service Validation en tant que service pour Azure Stack](azure-stack-vaas-monitor-test.md).
 

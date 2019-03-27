@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 03/14/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2018
-ms.openlocfilehash: 5ececb2d3c52a1da8c1a537e6223f17a9b83921f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1c21cc778ed398c28077ef1a20ebbb7b295c2baa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207532"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012387"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Considérations relatives à l’intégration au centre de données pour les systèmes intégrés Azure Stack
 Si vous êtes intéressé par un système intégré Azure Stack, vous devez comprendre les considérations principales sur la planification traitant du déploiement et la façon dont le système s’adapte à votre centre de données. Cet article fournit une vue d’ensemble de ces considérations pour vous aider à prendre des décisions d’infrastructure importantes pour votre système Azure Stack à plusieurs nœuds. Comprendre ces considérations est utile pour collaborer avec votre fournisseur de matériel OEM lorsqu’il déploie Azure Stack vers votre centre de données.  
@@ -162,7 +162,7 @@ Le tableau suivant récapitule la liste des options actuellement disponibles.
 | Domaine | Solution de surveillance externe |
 | -- | -- |
 | Logiciel Azure Stack | [Pack d’administration Azure Stack pour Operations Manager](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/)<br>[Plug-in Nagios](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)<br>Appels d’API basés sur REST | 
-| Serveurs physiques (BMC via IPMI) | Matériel OEM : pack d’administration de fournisseur Operations Manager<br>Solution fournie par le fabricant de matériel OEM<br>Plu-gins Nagios du fabricant de matériel | Solution de surveillance prise en charge par le partenaire OEM (inclus) | 
+| Serveurs physiques (BMC via IPMI) | Matériel OEM : pack d’administration de fournisseur Operations Manager<br>Solution fournie par le fabricant de matériel OEM<br>Plu-gins Nagios du fabricant de matériel.<br>Solution de surveillance prise en charge par le partenaire OEM (inclus) | 
 | Périphériques réseau (SNMP) | Découverte des périphériques réseau Operations Manager<br>Solution fournie par le fabricant de matériel OEM<br>Plug-in de commutateur Nagios |
 | Surveillance de l’intégrité de l’abonnement client | [Pack d’administration System Center pour Windows Azure](https://www.microsoft.com/download/details.aspx?id=50013) | 
 |  |  | 

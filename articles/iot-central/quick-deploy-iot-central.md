@@ -3,18 +3,18 @@ title: Créer une application Azure IoT Central | Microsoft Docs
 description: Créez une application Azure IoT Central. Créez une application d’évaluation ou avec paiement à l’utilisation à l’aide d’un modèle d’application.
 author: viv-liu
 ms.author: viviali
-ms.date: 10/31/2018
+ms.date: 02/20/2019
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 3ffc361421f57b405c284742b662a833b178f9da
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 5df798f0f5f9588b1f2cd792e99d6409e565337e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52260321"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58098074"
 ---
 # <a name="create-an-azure-iot-central-application"></a>Créer une application Azure IoT Central
 
@@ -29,14 +29,15 @@ Pour commencer à créer une application Azure IoT Central, sélectionnez **Nouv
 Pour créer une nouvelle application Azure IoT Central :
 
 1. Choisissez un plan de paiement :
-    - Les applications **d’évaluation** sont gratuites pendant 7 jours avant leur expiration. Elles peuvent être passées en paiement à l’utilisation à tout moment avant leur expiration.
-    - Les applications avec **paiement à l’utilisation** sont facturées par appareil : les 5 premiers sont gratuits.
+   - Les applications **d’évaluation** sont gratuites pendant 7 jours avant leur expiration. Elles peuvent être passées en paiement à l’utilisation à tout moment avant leur expiration.
+   - Les applications avec **paiement à l’utilisation** sont facturées par appareil : les 5 premiers sont gratuits.
 
-    Apprenez-en davantage au sujet de la tarification sur la [page de tarification d’Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/).
+     Apprenez-en davantage au sujet de la tarification sur la [page de tarification d’Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/).
 
 1. Choisissez un nom d’application convivial, tel que **Contoso IoT**. Azure IoT Central génère un préfixe d’URL unique pour vous. Vous pouvez remplacer ce préfixe d’URL par une chaîne plus facile à mémoriser.
 
 1. Choisissez un modèle d’application. Un modèle d’application peut contenir des éléments prédéfinis, comme des modèles d’appareil et des tableaux de bord pour vous aider à démarrer.
+
     | Modèle d’application | Description |
     | -------------------- | ----------- |
     | Exemple Contoso       | Crée une application qui comprend un modèle d’appareil déjà créé pour une machine de distribution réfrigérée. Utilisez ce modèle pour commencer à explorer Azure IoT Central. |
@@ -44,20 +45,21 @@ Pour créer une nouvelle application Azure IoT Central :
     | Application personnalisée   | Crée une application vide, que vous pouvez remplir avec vos propres modèles d’appareil et vos propres appareils. |
 
 1. Si vous créez une application avec **paiement à l’utilisation**, vous devez sélectionner votre *Répertoire*, votre *Abonnement Azure* et votre *Région*. 
-    - Le *Répertoire* correspond au répertoire Azure Active Directory servant à créer votre application. Il contient les identités des utilisateurs, les informations d’identification et d’autres informations de l’organisation. Si vous n’avez pas de répertoire AAD, un répertoire est créé pour vous quand vous créez un abonnement Azure.
 
-    - Un *Abonnement Azure* vous permet de créer des instances de services Azure. IoT Central approvisionne des ressources dans votre abonnement. Si vous n’avez pas d’abonnement Azure, vous pouvez en créer un dans la [page d’inscription à Azure](https://aka.ms/createazuresubscription). Après avoir créé l’abonnement Azure, revenez à la page **Créer une application**. Votre nouvel abonnement apparaît dans la liste déroulante **Abonnement Azure**.
+   - *Annuaire* correspond à l’annuaire Azure Active Directory (AD) servant à créer votre application. Il contient les identités des utilisateurs, les informations d’identification et d’autres informations de l’organisation. Si vous n’avez pas d’annuaire Azure AD, il s’en crée un automatiquement quand vous créez un abonnement Azure.
 
-    - La *Région* est l’emplacement physique où vous souhaitez créer votre application. En règle générale, vous devez choisir la région qui est physiquement la plus proche de vos appareils pour obtenir des performances optimales. Vous pouvez voir les régions dans lesquelles Azure IoT Central est disponible dans la page [Disponibilité des produits par région](https://azure.microsoft.com/regions/services/).
+   - Un *Abonnement Azure* vous permet de créer des instances de services Azure. IoT Central approvisionne des ressources dans votre abonnement. Si vous n’avez pas d’abonnement Azure, vous pouvez en créer un dans la [page d’inscription à Azure](https://aka.ms/createazuresubscription). Après avoir créé l’abonnement Azure, revenez à la page **Créer une application**. Votre nouvel abonnement apparaît dans la liste déroulante **Abonnement Azure**.
 
-    > [!Note]
-    > Une fois que vous avez choisi une région, vous ne pouvez plus déplacer votre application dans une autre région.
+   - La *Région* est l’emplacement physique où vous souhaitez créer votre application. En règle générale, vous devez choisir la région qui est physiquement la plus proche de vos appareils pour obtenir des performances optimales. Vous pouvez voir les régions dans lesquelles Azure IoT Central est disponible dans la page [Disponibilité des produits par région](https://azure.microsoft.com/regions/services/).
 
-1. Cliquez sur **Créer**.
+     > [!Note]
+     > Une fois que vous avez choisi une région, vous ne pouvez plus déplacer votre application dans une autre région.
+
+1. Sélectionnez **Créer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 En suivant ce guide de démarrage rapide, vous avez créé une application IoT Central. Voici la prochaine étape suggérée :
 
 > [!div class="nextstepaction"]
-> [Visite guidée d’IoT Central](https://docs.microsoft.com/azure/iot-central/overview-iot-central-tour)
+> [Visite guidée d’IoT Central](overview-iot-central-tour.md)

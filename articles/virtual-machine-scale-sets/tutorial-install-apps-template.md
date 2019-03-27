@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 262d7a6a4399a72e762c4ad3c87a878c54e22af4
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 176cf31d7a87b08755ee2acb94aea23684647213
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750390"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57996566"
 ---
-# <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-an-azure-template"></a>Didacticiel : Installer des applications dans des groupes de machines virtuelles identiques avec un modèle Azure
+# <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-an-azure-template"></a>Tutoriel : Installer des applications dans des groupes de machines virtuelles identiques avec un modèle Azure
 Pour exécuter des applications sur des instances de machine virtuelle d’un groupe identique, vous devez d’abord installer les composants d’application et les fichiers requis. Dans un didacticiel précédent, vous avez appris à créer et utiliser une image personnalisée de machine virtuelle pour déployer vos instances de machine virtuelle. Cette image personnalisée comprenait l’installation et la configuration manuelles d’applications. Vous pouvez également automatiser l’installation des applications pour un groupe identique après le déploiement de chaque instance de machine virtuelle, ou mettre à jour une application déjà exécutée dans un groupe identique. Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
@@ -115,7 +115,7 @@ Laissez le navigateur web ouvert afin que vous puissiez voir une version mise à
 
 
 ## <a name="update-app-deployment"></a>Déployer une mise à jour d’application
-Tout au long du cycle de vie d’un groupe identique, vous devrez peut-être déployer une version mise à jour de votre application. Avec l’extension de script personnalisé, vous pouvez faire référence à un script de déploiement de mises à jour puis réappliquer l’extension pour votre groupe identique. Une fois le groupe identique créé à l’étape précédente, *upgradePolicy' a été défini sur *Automatique*. Ce paramètre permet aux instances de machine virtuelle dans le groupe identique de mettre automatiquement à jour et d’appliquer la dernière version de votre application.
+Tout au long du cycle de vie d’un groupe identique, vous devrez peut-être déployer une version mise à jour de votre application. Avec l’extension de script personnalisé, vous pouvez faire référence à un script de déploiement de mises à jour puis réappliquer l’extension à votre groupe identique. À l’issue de la création du groupe identique à l’étape précédente, *upgradePolicy* a été défini sur *Automatique*. Ce paramètre permet aux instances de machine virtuelle dans le groupe identique de mettre automatiquement à jour et d’appliquer la dernière version de votre application.
 
 Pour mettre à jour la définition de l’extension de script personnalisé, modifiez votre modèle pour faire référence à un nouveau script d’installation. Un nouveau nom de fichier doit être utilisé pour que l’extension de script personnalisé puisse reconnaître la modification. L’extension de script personnalisé n’examine pas le contenu du script pour déterminer les modifications. La définition suivante utilise un script d’installation mis à jour avec la mention *_v2* ajoutée à son nom :
 

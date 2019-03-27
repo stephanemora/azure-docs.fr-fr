@@ -9,12 +9,12 @@ ms.date: 11/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6acdbdf5ed5312dc9bc9aa5120bad6e7cf0935b7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 7a5a92635114be87e59fe8f779c36d4c401a1427
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075826"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087157"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Tutoriel : Effectuer la classification d'images en périphérie avec le service Vision personnalisée
 
@@ -22,13 +22,18 @@ Grâce à Azure IoT Edge, votre solution IoT peut gagner en efficacité, via le 
 
 Par exemple, Custom Vision sur un appareil IoT Edge peut déterminer si le trafic sur une autoroute est plus ou moins dense que la normale, ou si un parking dispose de places libres dans une ligne. Ces insights peuvent être partagés avec un autre service pour entreprendre des actions. 
 
-
 Ce tutoriel vous montre comment effectuer les opérations suivantes : 
 
 > [!div class="checklist"]
+>
 > * Créer un classifieur d’images avec Custom Vision.
 > * Développer un module IoT Edge qui interroge le serveur web Custom Vision sur votre appareil.
 > * Envoyer les résultats du classifieur d’images à IoT Hub.
+
+<center>
+
+![Diagramme - Tutoriel : Structurer, mettre en lots et déployer un classifieur](./media/tutorial-deploy-custom-vision/custom-vision-architecture.png)
+</center>
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -43,7 +48,7 @@ Ressources cloud :
 
 * Un niveau standard [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) dans Azure. 
 * Un registre de conteneurs. Ce didacticiel utilise [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/). 
-    * Connaître les informations d’identification du [compte administrateur](../container-registry/container-registry-authentication.md#admin-account) de votre registre de conteneurs.
+* Connaître les informations d’identification du [compte administrateur](../container-registry/container-registry-authentication.md#admin-account) de votre registre de conteneurs.
 
 Ressources de développement :
 
@@ -72,7 +77,7 @@ Une fois votre classifieur d’images créé et entraîné, vous pouvez l’expo
 
    | Champ | Valeur |
    | ----- | ----- |
-   | NOM | Donnez un nom à votre projet, par exemple **EdgeTreeClassifier**. |
+   | Nom | Donnez un nom à votre projet, par exemple **EdgeTreeClassifier**. |
    | Description | Description facultative du projet. |
    | Groupe de ressources | Acceptez **l’essai gratuit limité** par défaut. |
    | Types de projet | **Classification** |

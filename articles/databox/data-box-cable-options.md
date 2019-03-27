@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 10/24/2018
 ms.author: alkohli
-ms.openlocfilehash: ab6048ff54f9c593bb62fb3e9c40af930bf1edad
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 4759676eff03606998759a586f758b7a26ead23d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50091587"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077545"
 ---
 # <a name="cabling-options-for-your-azure-data-box"></a>Options de câblage de votre Azure Data Box
 
@@ -39,7 +39,7 @@ Procédez comme suit pour brancher les câbles de l’appareil.
     - **Adresse IP** sur 192.168.100.5
     - **Sous-réseau** sur 255.255.255.0
 
-3. Accédez à l’interface utilisateur web locale de l’appareil à l’adresse 192.168.100.10. Connectez-vous et déverrouillez le Data Box à l’aide du mot de passe de déverrouillage du portail Azure.
+3. Accédez à l’interface utilisateur web locale de l’appareil à l’adresse : 192.168.100.10. Connectez-vous et déverrouillez le Data Box à l’aide du mot de passe de déverrouillage du portail Azure.
 
 
 ## <a name="transfer-via-data-port-with-static-ips"></a>Transfert via un port DATA avec des adresses IP statiques
@@ -62,12 +62,12 @@ Procédez comme suit pour brancher les câbles de l’appareil.
 2. Utilisez un câble RJ45 pour DATA 3 ou SFP+ pour connecter DATA 1 ou DATA 2 au serveur servant de source de données. Pour des bonnes performances, nous vous recommandons d’utiliser le port 10 GbE DATA 1 ou DATA 2.
 3. Sur le serveur, définissez :
 
-    - **Adresse IP** sur 192.168.100.5
-    - **Sous-réseau** sur 255.255.255.0
+   - **Adresse IP** sur 192.168.100.5
+   - **Sous-réseau** sur 255.255.255.0
 
-    ![Configuration à deux ports](media/data-box-cable-options/cabling-2-port-setup.png)
+     ![Configuration à deux ports](media/data-box-cable-options/cabling-2-port-setup.png)
 
-3. Accédez à l’interface utilisateur web locale de l’appareil à l’adresse 192.168.100.10. Connectez-vous et déverrouillez le Data Box à l’aide du mot de passe de déverrouillage du portail Azure.
+3. Accédez à l’interface utilisateur web locale de l’appareil à l’adresse : 192.168.100.10. Connectez-vous et déverrouillez le Data Box à l’aide du mot de passe de déverrouillage du portail Azure.
 4. Assignez des adresses IP statiques aux ports de données que vous avez configurés.
 
 ### <a name="option-2---initial-setup-via-separate-computer"></a>Option 2 - Configuration initiale via un ordinateur distinct
@@ -78,12 +78,12 @@ Procédez comme suit pour brancher les câbles de l’appareil.
 2. Utilisez un câble RJ45 pour DATA 3 ou SFP+ pour connecter DATA 1 ou DATA 2 au serveur. Pour des bonnes performances, nous vous recommandons d’utiliser le port 10 GbE DATA 1 ou DATA 2. Les ports de données sont connectés au serveur contenant des données via un commutateur 10 GbE.
 3. Configurez la carte Ethernet sur l’ordinateur portable que vous utilisez pour vous connecter à l’appareil avec :
 
-    - **Adresse IP** 192.168.100.5
-    - **Sous-réseau** 255.255.255.0.
+   - **Adresse IP** 192.168.100.5
+   - **Sous-réseau** 255.255.255.0.
 
-    ![Configuration à deux ports avec un commutateur](media/data-box-cable-options/cabling-with-static-ip.png)
+     ![Configuration à deux ports avec un commutateur](media/data-box-cable-options/cabling-with-static-ip.png)
 
-3. Accédez à l’interface utilisateur web locale de l’appareil à l’adresse 192.168.100.10. Connectez-vous et déverrouillez le Data Box à l’aide du mot de passe de déverrouillage du portail Azure.
+3. Accédez à l’interface utilisateur web locale de l’appareil à l’adresse : 192.168.100.10. Connectez-vous et déverrouillez le Data Box à l’aide du mot de passe de déverrouillage du portail Azure.
 4. Identifiez les adresses IP assignées au serveur DHCP.
 
 ## <a name="transfer-via-data-port-with-static-ips-using-a-switch"></a>Transfert via un port DATA avec des adresses IP statiques à l’aide d’un commutateur 
@@ -102,12 +102,12 @@ Procédez comme suit pour brancher les câbles de l’appareil.
 2. Utilisez un câble RJ45 pour DATA 3 ou SFP+ pour connecter DATA 1 ou DATA 2 au serveur. Pour des bonnes performances, nous vous recommandons d’utiliser le port 10 GbE DATA 1 ou DATA 2.
 3. Configurez la carte Ethernet sur l’ordinateur portable que vous utilisez pour vous connecter à l’appareil avec :
 
-    - **Adresse IP** 192.168.100.5
-    - **Sous-réseau** 255.255.255.0.
+   - **Adresse IP** 192.168.100.5
+   - **Sous-réseau** 255.255.255.0.
 
-    ![Configuration à deux ports avec un commutateur](media/data-box-cable-options/cabling-with-switch-static-ip.png)
+     ![Configuration à deux ports avec un commutateur](media/data-box-cable-options/cabling-with-switch-static-ip.png)
 
-3. Accédez à l’interface utilisateur web locale de l’appareil à l’adresse 192.168.100.10. Connectez-vous et déverrouillez le Data Box à l’aide du mot de passe de déverrouillage du portail Azure.
+3. Accédez à l’interface utilisateur web locale de l’appareil à l’adresse : 192.168.100.10. Connectez-vous et déverrouillez le Data Box à l’aide du mot de passe de déverrouillage du portail Azure.
 4. Assignez des adresses IP statiques aux ports de données que vous avez configurés.
 
 

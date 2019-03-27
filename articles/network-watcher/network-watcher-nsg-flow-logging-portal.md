@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 09d43386b994ffc046f8c3e22c82f13ec15acd38
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: bfe4abe4a83a6b22d05942f91f4152d5c0e62be9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428969"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58124079"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Tutoriel : journaliser le trafic réseau à destination et en provenance d’une machine virtuelle à l’aide du portail Azure
 
@@ -100,7 +100,10 @@ L’enregistrement du flux NSG nécessite le fournisseur **Microsoft.Insights**.
 
 6. Dans la liste des groupes de sécurité réseau, sélectionnez le groupe de sécurité réseau nommé **myVm-nsg**.
 7. Sous **Paramètres des journaux de flux**, sélectionnez **Activé**.
-8. Sélectionnez la version de journalisation des flux. La version 2 contient des statistiques de session des flux (octets et paquets). ![Sélection de la version des journaux de flux](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
+8. Sélectionnez la version de journalisation des flux. La version 2 contient des statistiques de session des flux (octets et paquets).
+
+   ![Sélectionner la version des journaux de flux](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
+
 9. Sélectionnez le compte de stockage que vous avez créé à l’étape 3.
 10. Définissez le paramètre **Rétention (jours)** sur 5, puis sélectionnez **Enregistrer**.
 
@@ -109,19 +112,15 @@ L’enregistrement du flux NSG nécessite le fournisseur **Microsoft.Insights**.
 1. Dans Network Watcher, dans le portail, sélectionnez **Journaux de flux NSG** sous **JOURNAUX**.
 2. Sélectionnez **Vous pouvez télécharger les journaux de flux à partir de comptes de stockage configurés** comme illustré sur l’image suivante :
 
-  ![Télécharger des journaux de flux](./media/network-watcher-nsg-flow-logging-portal/download-flow-logs.png)
+   ![Télécharger des journaux de flux](./media/network-watcher-nsg-flow-logging-portal/download-flow-logs.png)
 
 3. Sélectionnez le compte de stockage que vous avez configuré à l’étape 2 [Activer le journal de flux NSG](#enable-nsg-flow-log).
-4. Sous **SERVICE BLOB**, sélectionnez **Conteneurs**, puis le conteneur **insights-logs-networksecuritygroupflowevent**, comme illustré sur l’image suivante :
+4. Sous **Service Blob**, sélectionnez **Objets blob**, puis sélectionnez le conteneur **insights-logs-networksecuritygroupflowevent**.
+5. Dans le conteneur, parcourez l’arborescence des dossiers jusqu’à accéder au fichier PT1H.json, comme illustré dans l’image suivante : Les fichiers journaux sont écrits dans une arborescence des dossiers qui respecte la convention de nommage suivante : https://{NomCompteStockage}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{IDAbonnement}/RESOURCEGROUPS/{NomGroupeRessources}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{NomNSG}/y={année}/m={mois}/d={jour}/h={heure}/m=00/macAddress={AdresseMac}/PT1H.json
 
-    ![Sélectionner un conteneur](./media/network-watcher-nsg-flow-logging-portal/select-container.png)
-5. Parcourez l’arborescence des dossiers jusqu’à accéder au fichier PT1H.json comme illustré sur l’image suivante :
+   ![Journal de flux](./media/network-watcher-nsg-flow-logging-portal/log-file.png)
 
-    ![Fichier journal](./media/network-watcher-nsg-flow-logging-portal/log-file.png)
-
-    Les fichiers journaux sont écrits dans une arborescence des dossiers qui suit la convention d’affectation de noms suivante : https://{NomCompteStockage}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{IDAbonnement}/RESOURCEGROUPS/{NomGroupeRessources}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{NomNSG}/y={année}/m={mois}/d={
-
-6. our}/h={heure}/m=00/macAddress={AdresseMac}/PT1H.jsonSélectionnez **...** à droite du fichier PT1H.json, puis **Télécharger**.
+6. Sélectionnez **...** à droite du fichier PT1H.json, puis **Télécharger**.
 
 ## <a name="view-flow-log"></a>Afficher le journal de flux
 
@@ -196,7 +195,6 @@ Le texte JSON suivant est un exemple de ce que vous verrez dans le fichier PT1H.
 }
 ```
 
-
 La valeur de la zone **mac** dans la sortie précédente est l’adresse MAC de l’interface réseau qui a été créée lors de la création de la machine virtuelle. Les informations séparées par des virgules dans **flowTuples** sont les suivantes :
 
 | Exemple de données | Ce que représentent les données   | Explication                                                                              |
@@ -213,7 +211,7 @@ La valeur de la zone **mac** dans la sortie précédente est l’adresse MAC de 
 | 30 | Paquets envoyés - Source vers destination **Version 2 uniquement** | Nombre total de paquets TCP ou UDP envoyés de la source à la destination depuis la dernière mise à jour. |
 | 16978 | Octets envoyés - Source vers destination **Version 2 uniquement** | Nombre total d’octets de paquets TCP ou UDP envoyés de la source vers la destination depuis la dernière mise à jour. Les octets de paquets incluent l’en-tête et la charge utile du paquet. | 
 | 24 | Paquets envoyés - Destination vers source **Version 2 uniquement** | Nombre total de paquets TCP ou UDP envoyés de la destination vers la source depuis la dernière mise à jour. |
-| 14008| Octets envoyés - Destination vers source **Version 2 uniquement** | Le nombre total d’octets de paquets TCP et UDP envoyés de la destination à la source depuis la dernière mise à jour. Les octets de paquets incluent l’en-tête et la charge utile du paquet.| |
+| 14008| Octets envoyés - Destination vers source **Version 2 uniquement** | Le nombre total d’octets de paquets TCP et UDP envoyés de la destination à la source depuis la dernière mise à jour. Les octets de paquets incluent l’en-tête et la charge utile du paquet.|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

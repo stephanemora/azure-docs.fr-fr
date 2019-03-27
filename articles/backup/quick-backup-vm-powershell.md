@@ -4,135 +4,170 @@ description: Découvrez comment sauvegarder vos machines virtuelles avec Azure P
 services: backup
 author: rayne-wiselman
 manager: carmonm
-tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 01/31/2019
+ms.date: 03/05/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: c62f6f41711308f1a7150c79ab71570190af825a
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: aa637571ca11ea294b1f95df49855d7ee81b3001
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55495545"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258868"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Sauvegarder une machine virtuelle dans Azure avec PowerShell
-Le module Azure PowerShell est utilisé pour créer et gérer des ressources Azure à partir de la ligne de commande ou dans des scripts. Vous pouvez protéger vos données en effectuant des sauvegardes à intervalles réguliers. La sauvegarde Azure crée des points de récupération pouvant être stockés dans des coffres de récupération géo-redondants. Cet article explique comment sauvegarder une machine virtuelle (VM) avec le module Azure PowerShell. Vous pouvez également suivre ces étapes avec l’interface [Azure CLI](quick-backup-vm-cli.md) ou [le portail Azure](quick-backup-vm-portal.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Le module [AZ Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) est utilisé pour créer et gérer des ressources Azure à partir de la ligne de commande ou dans des scripts. 
+
+La [sauvegarde Azure](backup-overview.md) sauvegarde les applications et machines locales, ainsi que les machines virtuelles Azure. Cet article montre comment sauvegarder une machine virtuelle Azure avec le module AZ. Vous pouvez également sauvegarder une machine virtuelle en utilisant l’interface [Azure CLI](quick-backup-vm-cli.md), ou le [portail Azure](quick-backup-vm-portal.md).
 
 Ce démarrage rapide permet la sauvegarde sur une machine virtuelle Azure existante. Si vous devez créer une machine virtuelle, vous pouvez [créer une machine virtuelle avec Azure PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json).
 
-Ce démarrage rapide requiert le module Azure PowerShell version 4.4 ou ultérieure. Exécutez ` Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+Ce guide de démarrage rapide nécessite le module AZ Azure PowerShell version 1.0.0 ou ultérieure. Exécutez ` Get-Module -ListAvailable Az` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps).
 
 
-## <a name="log-in-to-azure"></a>Connexion à Azure
-Connectez-vous à votre abonnement Azure avec la commande `Connect-AzureRmAccount` et suivez les instructions à l’écran.
+## <a name="log-in-and-register"></a>Se connecter et s’inscrire
 
-```powershell
-Connect-AzureRmAccount
-```
+1. Connectez-vous à votre abonnement Azure avec la commande `Connect-AzAccount` et suivez les instructions à l’écran.
 
-Si vous utilisez la sauvegarde Azure pour la première fois, vous devez inscrire le fournisseur de services Azure Recovery Services dans votre abonnement avec [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider).
+    ```powershell
+    Connect-AzAccount
+    ```
+2. Si vous utilisez la sauvegarde Azure pour la première fois, vous devez inscrire le fournisseur Azure Recovery Services dans votre abonnement avec [Register-AzResourceProvider](/powershell/module/az.Resources/Register-azResourceProvider), de la façon suivante :
 
-```powershell
-Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
-```
+    ```powershell
+    Register-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
+    ```
 
 
-## <a name="create-a-recovery-services-vaults"></a>Créer des coffres Recovery Services
-Un coffre Recovery Services est un conteneur logique qui stocke les données de sauvegarde de chaque ressource protégée, telles que des machines virtuelles Azure. Lorsque le travail de sauvegarde d’une ressource protégée s’exécute, il crée un point de récupération à l’intérieur du coffre Recovery Services. Vous pouvez ensuite utiliser un de ces points de récupération pour restaurer des données à un moment donné dans le temps.
+## <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
 
-Créez un coffre Recovery Services avec [New-AzureRmRecoveryServicesVault](/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault). Spécifiez le même groupe de ressources et le même emplacement que ceux de la machine virtuelle que vous souhaitez protéger. Si vous avez utilisé l’[exemple de script](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json) pour créer votre machine virtuelle, le groupe de ressources est nommé *myResourceGroup*, la machine virtuelle est nommée *myVM* et les ressources se trouvent à l’emplacement *WestEurope*.
+Un [coffre Recovery Services](backup-azure-recovery-services-vault-overview.md) est un conteneur logique qui stocke des données de sauvegarde pour des ressources protégées, telles que les machines virtuelles Azure. Lorsqu’un travail de sauvegarde s’exécute, il crée un point de récupération à l’intérieur du coffre Recovery Services. Vous pouvez ensuite utiliser un de ces points de récupération pour restaurer des données à un moment donné dans le temps.
 
-```powershell
-New-AzureRmRecoveryServicesVault `
-    -ResourceGroupName "myResourceGroup" `
-    -Name "myRecoveryServicesVault" `
+Lorsque vous créez le coffre :
+
+- Pour l’emplacement et le groupe de ressources, spécifiez l’emplacement et le groupe de ressources de la machine virtuelle que vous souhaitez sauvegarder.
+- Si vous avez utilisé cet [exemple de script](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json) pour créer la machine virtuelle, le groupe de ressources est **myResourceGroup**, la machine virtuelle est **myVM** et les ressources se trouvent dans la région **WestEurope**.
+- La sauvegarde Azure gère automatiquement le stockage des données sauvegardées. Par défaut, le coffre utilise [le stockage géoredondant (GRS)](../storage/common/storage-redundancy-grs.md). La géoredondance s’assure que les données sauvegardées sont répliquées dans une région Azure secondaire, à des centaines de kilomètres de la région primaire.
+
+À présent, créez un coffre.
+
+
+1. Utilisez [New-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/new-azrecoveryservicesvault) pour créer le coffre :
+
+    ```powershell
+    New-AzRecoveryServicesVault `
+        -ResourceGroupName "myResourceGroup" `
+        -Name "myRecoveryServicesVault" `
     -Location "WestEurope"
-```
+    ```
 
-Par défaut, le coffre est défini pour le stockage géo-redondant. Pour mieux protéger vos données, ce niveau de redondance de stockage garantit que vos données de sauvegarde sont répliquées dans une région Azure secondaire, située à des centaines de kilomètres de la région principale.
+2. Définissez le contexte du coffre avec [Set-AzRecoveryServicesVaultContext](/powershell/module/az.RecoveryServices/Set-azRecoveryServicesVaultContext), de la façon suivante :
 
-Pour utiliser ce coffre avec les étapes restantes, définissez le contexte du coffre avec [Set-AzureRmRecoveryServicesVaultContext](/powershell/module/AzureRM.RecoveryServices/Set-AzureRmRecoveryServicesVaultContext).
-
-```powershell
-Get-AzureRmRecoveryServicesVault `
-    -Name "myRecoveryServicesVault" | Set-AzureRmRecoveryServicesVaultContext
-```
+    ```powershell
+    Get-AzRecoveryServicesVault `
+        -Name "myRecoveryServicesVault" | Set-AzRecoveryServicesVaultContext
+    ```
 
 
 ## <a name="enable-backup-for-an-azure-vm"></a>Activer la sauvegarde pour une machine virtuelle Azure
-Vous créez et utilisez des stratégies pour définir l’exécution d’un travail de sauvegarde et la durée de stockage des points de récupération. La stratégie de protection par défaut exécute un travail de sauvegarde chaque jour, et conserve les points de récupération pendant 30 jours. Vous pouvez utiliser ces valeurs de stratégie par défaut pour protéger rapidement votre machine virtuelle. Tout d’abord, définissez la stratégie par défaut avec [Get-AzureRmRecoveryServicesBackupProtectionPolicy](/powershell/module/AzureRM.RecoveryServices.Backup/Get-AzureRmRecoveryServicesBackupProtectionPolicy) :
 
-```powershell
-$policy = Get-AzureRmRecoveryServicesBackupProtectionPolicy -Name "DefaultPolicy"
-```
+Vous activez la sauvegarde d’une machine virtuelle Azure et spécifiez une stratégie de sauvegarde.
 
-Pour activer la protection des sauvegardes pour une machine virtuelle, utilisez [Enable-AzureRmRecoveryServicesBackupProtection](/powershell/module/AzureRM.RecoveryServices.Backup/Enable-AzureRmRecoveryServicesBackupProtection). Spécifiez la stratégie à utiliser, puis le groupe de ressources et la machine virtuelle à protéger :
+- La stratégie définit les moments auxquels les sauvegardes s’exécutent, et la durée de conservation des points de récupération créés par les sauvegardes.
+- La stratégie de protection par défaut effectue une sauvegarde quotidienne pour la machine virtuelle, et conserve les points de récupération créés pendant 30 jours. Vous pouvez utiliser cette stratégie par défaut pour rapidement protéger votre machine virtuelle. 
 
-```powershell
-Enable-AzureRmRecoveryServicesBackupProtection `
-    -ResourceGroupName "myResourceGroup" `
-    -Name "myVM" `
-    -Policy $policy
-```
+Configurez la sauvegarde de la façon suivante :
+
+1. Tout d’abord, définissez la stratégie par défaut avec [Get-AzRecoveryServicesBackupProtectionPolicy](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy) :
+
+    ```powershell
+    $policy = Get-AzRecoveryServicesBackupProtectionPolicy     -Name "DefaultPolicy"
+    ```
+
+2. Activez la sauvegarde de machine virtuelle avec [Enable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection). Spécifiez la stratégie, le groupe de ressources et le nom de la machine virtuelle.
+
+    ```powershell
+    Enable-AzRecoveryServicesBackupProtection `
+        -ResourceGroupName "myResourceGroup" `
+        -Name "myVM" `
+        -Policy $policy
+    ```
 
 
 ## <a name="start-a-backup-job"></a>Démarrer un travail de sauvegarde
-Pour démarrer une sauvegarde sans attendre que la stratégie par défaut exécute le travail à l’heure planifiée, utilisez [Backup-AzureRmRecoveryServicesBackupItem](/powershell/module/azurerm.recoveryservices.backup/backup-azurermrecoveryservicesbackupitem). Ce premier travail de sauvegarde crée un point de récupération complet. Chaque travail de sauvegarde après cette sauvegarde initiale crée des points de récupération incrémentielle. Les points de récupération incrémentielle constituent un mode de stockage rapide et efficace, car ils transfèrent uniquement les modifications apportées depuis la dernière sauvegarde.
 
-Dans le jeu de commandes suivant, vous spécifiez un conteneur dans le coffre Recovery Services qui contient vos données de sauvegarde avec [Get-AzureRmRecoveryServicesBackupContainer](/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupcontainer). Chaque machine virtuelle à sauvegarder est traitée comme un élément. Pour démarrer un travail de sauvegarde, obtenez des informations sur l’élément de votre machine virtuelle avec [Get-AzureRmRecoveryServicesBackupItem](/powershell/module/AzureRM.RecoveryServices.Backup/Get-AzureRmRecoveryServicesBackupItem).
+Les sauvegardes s’exécutent conformément à la planification spécifiée dans la stratégie de sauvegarde. Vous pouvez également effectuer une sauvegarde ad hoc :
+
+- La première tâche de sauvegarde, la sauvegarde initiale, crée un point de récupération complet.
+- Après cette sauvegarde initiale, chaque travail de sauvegarde crée des points de récupération incrémentielle.
+- Les points de récupération incrémentielle constituent un mode de stockage rapide et efficace, car ils transfèrent uniquement les modifications apportées depuis la dernière sauvegarde.
+
+Pour exécuter une sauvegarde ad hoc, vous utilisez [Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem). 
+- Vous spécifiez un conteneur dans le coffre qui contient vos données de sauvegarde avec [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupcontainer).
+- Chaque machine virtuelle à sauvegarder est traitée comme un élément. Pour démarrer un travail de sauvegarde, vous obtenez des informations sur la machine virtuelle avec [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem).
+
+Exécutez un travail de sauvegarde ad hoc de la façon suivante :
+
+1. Spécifiez le conteneur, obtenez des informations de machine virtuelle et exécutez la sauvegarde.
+
+    ```powershell
+    $backupcontainer = Get-AzRecoveryServicesBackupContainer `
+        -ContainerType "AzureVM" `
+        -FriendlyName "myVM"
+
+    $item = Get-AzRecoveryServicesBackupItem `
+        -Container $backupcontainer `
+        -WorkloadType "AzureVM"
+
+    Backup-AzRecoveryServicesBackupItem -Item $item
+    ```
+
+2. À partir du moment où ce premier travail de sauvegarde crée un point de récupération complet, il est possible que votre attente dure un certain temps, sans toutefois excéder 20 minutes. Supervisez le travail tel qu’il est décrit dans la procédure suivante.
+
+
+## <a name="monitor-the-backup-job"></a>Superviser le travail de sauvegarde
+
+1. Exécutez [Get-AzRecoveryservicesBackupJob](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) pour superviser l’état du travail.
+
+    ```powershell
+    Get-AzRecoveryservicesBackupJob
+    ```
+    Le résultat est similaire à l’exemple suivant, et montre la tâche **en cours** d’exécution :
+
+    ```
+    WorkloadName   Operation         Status       StartTime              EndTime                JobID
+    ------------   ---------         ------       ---------              -------                -----
+    myvm           Backup            InProgress   9/18/2017 9:38:02 PM                          9f9e8f14
+    myvm           ConfigureBackup   Completed    9/18/2017 9:33:18 PM   9/18/2017 9:33:51 PM   fe79c739
+    ```
+
+2. Lorsque l’état du travail est **Terminé**, la machine virtuelle est protégée, et dotée d’un point de récupération complet stocké.
+
+
+## <a name="clean-up-the-deployment"></a>Nettoyer le déploiement
+
+Si vous n’avez plus besoin de sauvegarder la machine virtuelle, vous pouvez la nettoyer.
+- Si vous voulez essayer de restaurer la machine virtuelle, ignorez cette opération de nettoyage.
+- Si vous avez utilisé une machine virtuelle existante, vous pouvez ignorer l’applet de commande finale [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) pour laisser en place le groupe de ressources et la machine virtuelle.
+
+Désactivez la protection, supprimez les points de restauration et le coffre. Ensuite, vous pouvez supprimer le groupe de ressources et les ressources de machine virtuelle associées, comme suit :
 
 ```powershell
-$backupcontainer = Get-AzureRmRecoveryServicesBackupContainer `
-    -ContainerType "AzureVM" `
-    -FriendlyName "myVM"
-
-$item = Get-AzureRmRecoveryServicesBackupItem `
-    -Container $backupcontainer `
-    -WorkloadType "AzureVM"
-
-Backup-AzureRmRecoveryServicesBackupItem -Item $item
-```
-
-Étant donné que ce premier travail de sauvegarde crée un point de récupération complet, le processus peut prendre jusqu’à 20 minutes.
-
-
-## <a name="monitor-the-backup-job"></a>Surveiller le travail de sauvegarde
-Pour surveiller l’état des travaux de sauvegarde, utilisez [Get-AzureRmRecoveryservicesBackupJob](/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupjob) :
-
-```powershell
-Get-AzureRmRecoveryservicesBackupJob
-```
-
-La sortie est similaire à l’exemple suivant, qui montre que le travail de sauvegarde est **En cours** :
-
-```
-WorkloadName   Operation         Status       StartTime              EndTime                JobID
-------------   ---------         ------       ---------              -------                -----
-myvm           Backup            InProgress   9/18/2017 9:38:02 PM                          9f9e8f14
-myvm           ConfigureBackup   Completed    9/18/2017 9:33:18 PM   9/18/2017 9:33:51 PM   fe79c739
-```
-
-Lorsque l’*état* des rapports des travaux de sauvegarde correspond à *Terminé*, votre machine virtuelle est protégée par Recovery Services et présente un point de récupération complet stocké.
-
-
-## <a name="clean-up-deployment"></a>Nettoyer le déploiement
-Lorsqu’elle n’est plus nécessaire, vous pouvez désactiver la protection sur la machine virtuelle, supprimer les points de restauration et le coffre Recovery Services, puis supprimer le groupe de ressources et les ressources de machine virtuelle associées. Si vous avez utilisé une machine virtuelle existante, vous pouvez ignorer la cmdlet finale [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) pour laisser en place le groupe de ressources et la machine virtuelle.
-
-Si vous vous apprêtez à passer à un didacticiel de sauvegarde expliquant comment restaurer des données pour votre machine virtuelle, ignorez les étapes de cette section et accédez à [Étapes suivantes](#next-steps). 
-
-```powershell
-Disable-AzureRmRecoveryServicesBackupProtection -Item $item -RemoveRecoveryPoints
-$vault = Get-AzureRmRecoveryServicesVault -Name "myRecoveryServicesVault"
-Remove-AzureRmRecoveryServicesVault -Vault $vault
-Remove-AzureRmResourceGroup -Name "myResourceGroup"
+Disable-AzRecoveryServicesBackupProtection -Item $item -RemoveRecoveryPoints
+$vault = Get-AzRecoveryServicesVault -Name "myRecoveryServicesVault"
+Remove-AzRecoveryServicesVault -Vault $vault
+Remove-AzResourceGroup -Name "myResourceGroup"
 ```
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce guide de démarrage rapide, vous avez créé un coffre Recovery Services, activé la protection sur une machine virtuelle et créé le point de récupération initial. Pour en savoir plus sur la sauvegarde Azure et Recovery Services, passez aux didacticiels.
 
-> [!div class="nextstepaction"]
-> [Sauvegarder plusieurs machines virtuelles Azure](./tutorial-backup-vm-at-scale.md)
+Dans ce guide de démarrage rapide, vous avez créé un coffre Recovery Services, activé la protection sur une machine virtuelle et créé le point de récupération initial. 
+
+- [Découvrez comment](tutorial-backup-vm-at-scale.md) sauvegarder des machines virtuelles dans le portail Azure.
+- [Découvrez comment](tutorial-restore-disk.md) rapidement restaurer une machine virtuelle

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/11/2019
+ms.date: 02/28/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 09e1f99c7d0b56f5e2af893385dde19b8f358a19
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.lastreviewed: 02/28/2019
+ms.openlocfilehash: ddcf3428f32698c9825f13975929bc4677139acf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099137"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58081047"
 ---
 # <a name="azure-stack-1811-update"></a>Mise à jour 1811 d’Azure Stack
 
@@ -87,6 +87,8 @@ Azure Stack publie des correctifs logiciels à intervalles réguliers. Avant d�
 
     Lors de l’installation de cette mise à jour, le portail utilisateur d’Azure Stack est indisponible pendant la configuration de l’hôte d’extension. La configuration de l’hôte d’extension peut prendre jusqu’à 5 heures. Pendant ce temps, vous pouvez vérifier l’état d’une mise à jour ou reprendre l’installation d’une mise à jour ayant échoué à l’aide [d’Azure Stack Administrator PowerShell ou du point de terminaison privilégié](azure-stack-monitor-update.md).
 
+- Lorsqu’Azure Stack est géré par System Center Operations Manager (SCOM), veillez à mettre à jour le Pack d’administration pour Microsoft Azure Stack vers la version 1.0.3.11 avant d’appliquer la version 1811.
+
 ## <a name="new-features"></a>Nouvelles fonctionnalités
 
 Cette mise à jour inclut les nouvelles fonctionnalités et améliorations suivantes pour Azure Stack :
@@ -120,13 +122,13 @@ Cette mise à jour inclut les nouvelles fonctionnalités et améliorations suiva
 - Cette publication introduit des actions d’alerte de type **Réparer** pour l’opérateur Azure Stack. Certaines alertes dans 1811 incluent un bouton **Réparer** que vous pouvez actionner pour résoudre le problème. Pour plus d’informations, voir [Surveiller l’intégrité et les alertes dans Azure Stack](azure-stack-monitor-health.md).
 
 - Nouvelle expérience de mise à jour dans Azure Stack. Voici quelques-unes des améliorations de la mise à jour : 
-    - Onglets scindant les mises à jour de l'historique des mises à jour pour mieux suivre les mises à jour en cours et terminées.
-    - Visualisations améliorées des états dans la section des Essentials avec de nouvelles icônes et une nouvelle présentation pour les versions actuelles et OEM, ainsi que la date de la dernière mise à jour.
-    - Le lien **Afficher** de la colonne Notes de publication permet à l'utilisateur d'accéder directement à la documentation spécifique à la mise à jour, et non à la page de mise à jour générique.
-    - L'onglet **Historique des mises à jour** permet de déterminer le temps d'exécution de chaque mise à jour et propose des fonctionnalités de filtrage améliorées.  
-    - Les unités d'échelle Azure Stack connectées reçoivent automatiquement la **Mise à jour disponible**.
-    - Les unités d’échelle Azure Stack non connectées peuvent importer les mises à jour comme précédemment. 
-    - Le processus de téléchargement des journaux JSON à partir du portail reste inchangé. Les opérateurs Azure Stack pourront suivre la progression des différentes étapes.
+  - Onglets scindant les mises à jour de l'historique des mises à jour pour mieux suivre les mises à jour en cours et terminées.
+  - Visualisations améliorées des états dans la section des Essentials avec de nouvelles icônes et une nouvelle présentation pour les versions actuelles et OEM, ainsi que la date de la dernière mise à jour.
+  - Le lien **Afficher** de la colonne Notes de publication permet à l'utilisateur d'accéder directement à la documentation spécifique à la mise à jour, et non à la page de mise à jour générique.
+  - L'onglet **Historique des mises à jour** permet de déterminer le temps d'exécution de chaque mise à jour et propose des fonctionnalités de filtrage améliorées.  
+  - Les unités d'échelle Azure Stack connectées reçoivent automatiquement la **Mise à jour disponible**.
+  - Les unités d’échelle Azure Stack non connectées peuvent importer les mises à jour comme précédemment. 
+  - Le processus de téléchargement des journaux JSON à partir du portail reste inchangé. Les opérateurs Azure Stack pourront suivre la progression des différentes étapes.
 
     Pour plus d’informations, consultez [Effectuer des mises à jour dans Azure Stack](azure-stack-apply-updates.md).
 
@@ -254,17 +256,17 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
 <!-- 1264761 - IS ASDK -->  
 - Vous risquez de recevoir des alertes pour le composant **Contrôleur d’intégrité** contenant les informations suivantes :  
 
-    - Alerte 1 :
-       - NOM :  Rôle d’infrastructure défectueux
-       - Niveau de gravité : Avertissement
-       - COMPOSANT : Contrôleur d’intégrité
-       - DESCRIPTION : L’analyseur de pulsations du contrôleur d’intégrité n’est pas disponible. Cela peut affecter les rapports et les métriques d’intégrité.  
+  - Alerte 1 :
+     - NOM :  Rôle d’infrastructure défectueux
+     - Niveau de gravité : Avertissement
+     - COMPOSANT : Contrôleur d’intégrité
+     - DESCRIPTION : L’analyseur de pulsations du contrôleur d’intégrité n’est pas disponible. Cela peut affecter les rapports et les métriques d’intégrité.  
 
-    - Alerte 2 :
-       - NOM :  Rôle d’infrastructure défectueux
-       - Niveau de gravité : Avertissement
-       - COMPOSANT : Contrôleur d’intégrité
-       - DESCRIPTION : L’analyseur d’erreur du contrôleur d’intégrité n’est pas disponible. Cela peut affecter les rapports et les métriques d’intégrité.
+  - Alerte 2 :
+     - NOM :  Rôle d’infrastructure défectueux
+     - Niveau de gravité : Avertissement
+     - COMPOSANT : Contrôleur d’intégrité
+     - DESCRIPTION : L’analyseur d’erreur du contrôleur d’intégrité n’est pas disponible. Cela peut affecter les rapports et les métriques d’intégrité.
 
     Ces deux alertes peuvent être ignorées en toute sécurité. Elles se ferment automatiquement dans le temps.  
 
@@ -344,7 +346,7 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
 - Durant la *rotation des secrets* Azure Stack, une période de deux à cinq minutes s’écoule pendant laquelle les adresses IP publiques sont inaccessibles.
 
 <!-- 2664148 - IS ASDK --> 
--   Lorsque le locataire accède à des machines virtuelles à l’aide d’un tunnel VPN S2S, il peut être confronté à une situation où les tentatives de connexion échouent si le sous-réseau local a été ajouté à la passerelle de réseau local après la création de la passerelle. 
+- Lorsque le locataire accède à des machines virtuelles à l’aide d’un tunnel VPN S2S, il peut être confronté à une situation où les tentatives de connexion échouent si le sous-réseau local a été ajouté à la passerelle de réseau local après la création de la passerelle. 
 
 - Dans le portail Azure Stack, lorsque vous modifiez une adresse IP statique pour une configuration IP liée à une carte réseau connectée à une instance de machine virtuelle, le message d’avertissement suivant s’affiche : 
 
@@ -356,9 +358,9 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
 
 - Dans le portail, si vous ajoutez une règle de sécurité de trafic entrant et sélectionnez **Balise du service** en tant que source, plusieurs options s’affichent dans la liste **Balise source**, qui ne sont pas disponibles pour Azure Stack. Les seules options valides dans Azure Stack sont les suivantes :
 
-    - **Internet**
-    - **VirtualNetwork**
-    - **AzureLoadBalancer**
+  - **Internet**
+  - **VirtualNetwork**
+  - **AzureLoadBalancer**
   
     Les autres options ne sont pas pris en charge en tant que balises sources dans Azure Stack. De même, si vous ajoutez une règle de sécurité de trafic sortant et sélectionnez **Balise du service** en tant que destination, la même liste d’options s’affiche pour **Balise source**. Les seules options valides sont les mêmes que pour **Balise source**, comme décrit dans la liste précédente.
 

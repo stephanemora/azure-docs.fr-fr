@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 01/31/2019
+ms.date: 03/01/2019
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3711f2b2901ddbe49b4d6a49cabef12ac5dab3e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b303841dffd09e2c2f8250e4a7885fda36ab4a38
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192470"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58168603"
 ---
 # <a name="what-is-device-management-in-azure-active-directory"></a>En quoi consiste la gestion des appareils dans Azure Active Directory ?
 
@@ -89,7 +89,7 @@ Il existe différentes manières de déployer Azure AD Join :
 
 L’implémentation d’appareils joints Azure AD vous offre les avantages suivants :
 
-- **L’authentification unique** à vos applications et services SaaS gérés par Azure. Vos utilisateurs ne voient pas les invites d’authentification supplémentaires lorsqu’ils accèdent aux ressources de travail. La fonctionnalité d’authentification unique est disponible même lorsqu’ils ne sont pas connectés au réseau de domaine disponible.
+- **L’authentification unique** à vos applications et services SaaS gérés par Azure. Vos utilisateurs ne voient pas les invites d’authentification supplémentaires lorsqu’ils accèdent aux ressources de travail. La fonctionnalité d’authentification unique est disponible, même lorsque vos utilisateurs ne sont pas connectés au réseau avec domaine.
 
 - **L’itinérance compatible avec l’entreprise** des paramètres utilisateur sur les appareils joints. Les utilisateurs n’ont pas besoin de se connecter à un compte Microsoft (par exemple, Hotmail) pour afficher les paramètres sur les appareils.
 

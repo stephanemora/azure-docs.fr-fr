@@ -9,12 +9,12 @@ manager: carmonm
 ms.topic: tutorial
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 5cf09753645d8238232e064af2ba1a301a2a7217
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: d247369647106cf1671a8770a6dce21f1a34a4b9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41918753"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58082192"
 ---
 # <a name="onboard-update-and-change-tracking-solutions-to-azure-automation"></a>Intégrer les solutions de mises à jour et Change Tracking pour Azure Automation
 
@@ -81,7 +81,7 @@ Maintenant que les solutions sont activées, vous pouvez ajouter une machine vir
    ![Activer la solution Update pour la machine virtuelle](media/automation-onboard-solutions/enable-update.png)
 
 > [!NOTE]
-> Si vous n’attendez pas la fin de l’autre solution, quand vous activez la solution suivante, vous recevez un message indiquant : *Une autre solution est en cours d’installation sur cette machine virtuelle ou sur une autre. Au terme de l’opération, le bouton Activer est disponible et vous pouvez demander l’installation de la solution sur cette machine virtuelle.*
+> Si vous n’attendez pas la fin de l’autre solution, quand vous activez la solution suivante, vous recevez un message indiquant : *Une autre solution est en cours d’installation sur cette machine virtuelle ou sur une autre. Au terme de l’opération, le bouton Activer est disponible et vous pouvez demander l’installation de la solution sur cette machine virtuelle.*
 
 ## <a name="install-and-update-modules"></a>Installer et mettre à jour les modules
 
@@ -105,7 +105,7 @@ Dans la page **Modules**, sélectionnez **Parcourir la galerie** pour ouvrir la 
 1. Sélectionnez **Parcourir la galerie**.
 1. Recherchez **Update et Change Tracking**, cliquez sur le runbook et sélectionnez **Importer** dans la page **Afficher la source**. Sélectionnez **OK** pour importer le runbook dans le compte Automation.
 
-  ![Importer le runbook d’intégration](media/automation-onboard-solutions/import-from-gallery.png)
+   ![Importer le runbook d’intégration](media/automation-onboard-solutions/import-from-gallery.png)
 
 1. Dans la page **Runbook**, sélectionnez **Modifier**, puis **Publier**. Dans la boîte de dialogue **Publier le runbook**, sélectionnez **Oui** pour le publier.
 

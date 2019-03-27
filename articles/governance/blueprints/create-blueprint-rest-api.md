@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 634b175ec0b5771e3ff2fa061532106eb124ea4e
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 9dada3c6f0718db41a24368aca594bbd3215fec5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338425"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994860"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Définir et affecter un blueprint Azure avec l’API REST
 
@@ -70,6 +70,9 @@ Dans chaque URI d’API REST, vous devez remplacer les variables utilisées par 
 
 - Remplacer `{YourMG}` par l’ID de votre groupe d’administration
 - Remplacer `{subscriptionId}` par votre ID d’abonnement
+
+> [!NOTE]
+> Les blueprints peuvent aussi être créés au niveau de l’abonnement. Pour plus d’informations, consultez cet [exemple de création de blueprint au niveau de l’abonnement](/rest/api/blueprints/blueprints/createorupdate#subscriptionblueprint).
 
 1. Créez l’objet _blueprint_ initial. Le **corps de la requête** inclut des propriétés du blueprint, les groupes de ressources à créer et tous les paramètres au niveau du blueprint. Les paramètres sont définis durant l’affectation et utilisés par les artefacts ajoutés aux étapes ultérieures.
 
@@ -262,7 +265,7 @@ Dans chaque URI d’API REST, vous devez remplacer les variables utilisées par 
                      "tags": {
                         "[parameters('tagNameFromBP')]": "[parameters('tagValueFromBP')]"
                      },
-                     "location": "[resourceGroup().location]",
+                     "location": "[resourceGroups('storageRG').location]",
                      "sku": {
                          "name": "[parameters('storageAccountTypeFromBP')]"
                      },
@@ -335,7 +338,7 @@ Dans chaque URI d’API REST, vous devez remplacer les variables utilisées par 
 - Remplacer `{YourMG}` par l’ID de votre groupe d’administration
 - Remplacer `{subscriptionId}` par votre ID d’abonnement
 
-1. Octroyez au principal de service Azure Blueprint le rôle **Propriétaire** sur l’abonnement cible. L’AppId est statique (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), mais l’ID de principal de service varie en fonction du locataire. Vous pouvez demander les détails de votre locataire à l’aide de l’API REST suivante. Elle utilise [l’API Graph Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md) qui a une autorisation différente.
+1. Octroyez au principal de service Azure Blueprint le rôle **Propriétaire** sur l’abonnement cible. L’ID d’application est statique (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), mais l’ID de principal de service varie en fonction du locataire. Vous pouvez demander les détails de votre locataire à l’aide de l’API REST suivante. Elle utilise [l’API Graph Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md) qui a une autorisation différente.
 
    - URI de l’API REST
 
@@ -435,9 +438,9 @@ Pour supprimer le blueprint, utilisez l’opération d’API REST suivante :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur le [cycle de vie des blueprints](./concepts/lifecycle.md)
-- Comprendre comment utiliser les [paramètres statiques et dynamiques](./concepts/parameters.md)
-- Apprendre à personnaliser [l’ordre de séquencement des blueprints](./concepts/sequencing-order.md)
-- Découvrir comment utiliser le [verrouillage des ressources de blueprint](./concepts/resource-locking.md)
-- Découvrir comment [mettre à jour des affectations existantes](./how-to/update-existing-assignments.md)
-- Résoudre les problèmes durant l’affectation d’un blueprint en suivant les étapes de [dépannage général](./troubleshoot/general.md)
+- Découvrir le [cycle de vie d’un blueprint](./concepts/lifecycle.md).
+- Comprendre comment utiliser les [paramètres statiques et dynamiques](./concepts/parameters.md).
+- Apprendre à personnaliser l’[ordre de séquencement des blueprints](./concepts/sequencing-order.md).
+- Découvrir comment utiliser le [verrouillage de ressources de blueprint](./concepts/resource-locking.md).
+- Découvrir comment [mettre à jour des affectations existantes](./how-to/update-existing-assignments.md).
+- Résoudre les problèmes durant l’affectation d’un blueprint en suivant les étapes de [dépannage général](./troubleshoot/general.md).

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory avec Learningpool Act | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory avec Learningpool Act | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Learningpool Act.
 services: active-directory
 documentationCenter: na
@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 51e8695f-31e1-4d09-8eb3-13241999d99f
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1b988fe2049a81fe98636d52f56c85f7b80f9e4
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 16cf541dca003446e7b49033018d5b9950bfc54f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56986258"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57889571"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-learningpool-act"></a>Didacticiel : Intégration d’Azure Active Directory à Learningpool Act
+# <a name="tutorial-azure-active-directory-integration-with-learningpool-act"></a>Tutoriel : Intégration d’Azure Active Directory à Learningpool Act
 
 Dans ce didacticiel, vous allez apprendre à intégrer Learningpool Act à Azure Active Directory (Azure AD).
 L’intégration de Learningpool Act dans Azure AD vous offre les avantages suivants :
@@ -108,6 +108,7 @@ Pour configurer l’authentification unique Azure AD auprès de Learningpool Ac
     a. Dans la zone de texte **URL de connexion**, tapez l’URL : `https://parliament.preview.Learningpool.com/auth/shibboleth/index.php`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant :
+    
     | |
     |--|
     | `https://<subdomain>.Learningpool.com/shibboleth` |
@@ -117,7 +118,7 @@ Pour configurer l’authentification unique Azure AD auprès de Learningpool Ac
     > [!NOTE]
     > La valeur de l'identificateur n'est pas réelle. Mettez à jour cette valeur avec l’identificateur réel. Pour obtenir cette valeur, contactez l’[équipe du support technique de Learningpool Act](https://www.learningpool.com/support). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-5. Votre application Learningpool Act attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration d’attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône  **Modifier** pour ouvrir la boîte de dialogue des attributs d’utilisateur.
+5. Votre application Learningpool Act attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration d’attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône  **Modifier** pour ouvrir la boîte de dialogue Attributs d’utilisateur.
 
     ![image](common/edit-attribute.png)
 
@@ -185,7 +186,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@votredomaineentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

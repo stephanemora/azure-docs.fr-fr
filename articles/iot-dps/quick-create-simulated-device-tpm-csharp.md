@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: f574c85252614fd24734657affe3264d72130dd3
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 9ec8f8f1c6e1d1b806c5d965d3c2287027885c44
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997000"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901580"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Créer et approvisionner un appareil TPM simulé auprès du service IoT Hub Device Provisioning à l’aide du C# Device SDK
 
@@ -37,7 +37,7 @@ Cet article présente les inscriptions individuelles.
 <a id="setupdevbox"></a>
 ## <a name="prepare-the-development-environment"></a>Préparer l’environnement de développement 
 
-1. Vérifiez que le Kit de développement logiciel (SDK) [.Net Core 2.1 ou version ultérieure](https://www.microsoft.com/net/download/windows) est bien installé sur votre ordinateur. 
+1. Vérifiez que le kit [SDK .NET Core 2.1 ou version ultérieure](https://www.microsoft.com/net/download/windows) est installé sur votre machine. 
 
 1. Assurez-vous que l’élément `git` est installé sur votre machine et est ajouté aux variables d’environnement accessibles à la fenêtre de commande. Consultez la section relative aux [outils clients de Software Freedom Conservancy](https://git-scm.com/download/) pour accéder à la dernière version des outils `git` à installer, qui inclut **Git Bash**, l’application de ligne de commande que vous pouvez utiliser pour interagir avec votre référentiel Git local. 
 
@@ -78,14 +78,14 @@ Cet article présente les inscriptions individuelles.
 4. Dans le panneau de résumé du service Device Provisioning du portail Azure, sélectionnez **Gérer les inscriptions**. Sélectionnez l’onglet **Inscriptions individuelles**, puis cliquez sur le bouton **Ajouter une inscription individuelle** dans la partie supérieure. 
 
 5. Sous **Ajouter une inscription**, entrez les informations suivantes :
-    - Sélectionnez **TPM** comme *mécanisme* d’attestation d’identité.
-    - Entrez l'*ID d'inscription* et la *paire de clés de type EK (Endorsement Key)* de votre appareil TPM que vous avez notés précédemment.
-    - Vous pouvez aussi sélectionner un hub IoT lié à votre service d’approvisionnement.
-    - Entrez un ID d’appareil unique. Vous pouvez entrer l’ID d’appareil proposé dans l’exemple de sortie ou votre propre ID. Si vous utilisez le vôtre, évitez les données sensibles au moment de le nommer. 
-    - Vous pouvez également mettre à jour l'**État initial du jumeau d'appareil** avec la configuration initiale de votre choix pour l'appareil.
-    - Cela fait, cliquez sur le bouton **Enregistrer**. 
+   - Sélectionnez **TPM** comme *mécanisme* d’attestation d’identité.
+   - Entrez l'*ID d'inscription* et la *paire de clés de type EK (Endorsement Key)* de votre appareil TPM que vous avez notés précédemment.
+   - Vous pouvez aussi sélectionner un hub IoT lié à votre service d’approvisionnement.
+   - Entrez un ID d’appareil unique. Vous pouvez entrer l’ID d’appareil proposé dans l’exemple de sortie ou votre propre ID. Si vous utilisez le vôtre, évitez les données sensibles au moment de le nommer. 
+   - Vous pouvez également mettre à jour l'**État initial du jumeau d'appareil** avec la configuration initiale de votre choix pour l'appareil.
+   - Cela fait, cliquez sur le bouton **Enregistrer**. 
 
-    ![Saisir les informations d’inscription d’appareil dans le panneau du portail](./media/quick-create-simulated-device-tpm-csharp/enterdevice-enrollment.png)  
+     ![Saisir les informations d’inscription d’appareil dans le panneau du portail](./media/quick-create-simulated-device-tpm-csharp/enterdevice-enrollment.png)  
 
    Lorsque l’inscription aboutit, *l’ID d’inscription* de votre appareil s’affiche dans la liste sous l’onglet *Inscriptions individuelles*. 
 

@@ -9,12 +9,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 12/07/2018
-ms.openlocfilehash: 6509db136524d90db11b83acb701bda71c541060
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 54a7f308163cb2463554da32f0fae8b897c0742f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882616"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58080537"
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Tutoriel : Analyse d'opinions sur des données de diffusion en continu à l’aide d'Azure Databricks
 
@@ -40,6 +40,10 @@ Ce tutoriel décrit les tâches suivantes :
 > * Exécuter des analyses d’opinions sur des tweets
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
+
+> [!Note]
+> Ce tutoriel ne peut pas être effectué à l’aide d’un **abonnement d’essai gratuit Azure**.
+> Pour utiliser un compte gratuit pour créer le cluster Azure Databricks, avant de créer le cluster, accédez à votre profil et définissez votre abonnement sur **paiement à l’utilisation**. Pour plus d’informations, consultez la page [Compte Azure gratuit](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -97,11 +101,11 @@ Dans cette section, vous créez un espace de travail Azure Databricks en utilisa
 
     Acceptez toutes les valeurs par défaut autres que les suivantes :
 
-    * Entrez un nom pour le cluster.
-    * Pour cet article, créez un cluster avec le runtime **4.0 (bêta)**.
-    * Veillez à cocher la case **Arrêter après \_\_ minutes d’inactivité**. Spécifiez une durée (en minutes) pour arrêter le cluster, si le cluster n’est pas utilisé.
+   * Entrez un nom pour le cluster.
+   * Pour cet article, créez un cluster avec le runtime **4.0 (bêta)**.
+   * Veillez à cocher la case **Arrêter après \_\_ minutes d’inactivité**. Spécifiez une durée (en minutes) pour arrêter le cluster, si le cluster n’est pas utilisé.
 
-    Sélectionnez **Créer un cluster**. Une fois que le cluster est en cours d’exécution, vous pouvez y attacher des notebooks et exécuter des travaux Spark.
+     Sélectionnez **Créer un cluster**. Une fois que le cluster est en cours d’exécution, vous pouvez y attacher des notebooks et exécuter des travaux Spark.
 
 ## <a name="create-a-twitter-application"></a>Création d'une application Twitter
 
@@ -125,16 +129,16 @@ Enregistrez les valeurs que vous avez récupérées pour l’application Twitter
 
 Dans ce didacticiel, vous allez utiliser les API Twitter pour envoyer des tweets à Event Hubs. Vous allez aussi utiliser le [connecteur Apache Spark Event Hubs](https://github.com/Azure/azure-event-hubs-spark) pour lire et écrire des données dans Azure Event Hubs. Pour utiliser ces API au sein de votre cluster, ajoutez-les en tant que bibliothèques à Azure Databricks puis associez-les à votre cluster Spark. Les instructions suivantes expliquent comment ajouter la bibliothèque au dossier **Partagé** dans votre espace de travail.
 
-1.  Dans l’espace de travail Azure Databricks, sélectionnez **Espace de travail**, puis cliquez avec le bouton droit sur **Partagé**. Dans le menu contextuel, sélectionnez **Créer** > **Bibliothèque**.
+1. Dans l’espace de travail Azure Databricks, sélectionnez **Espace de travail**, puis cliquez avec le bouton droit sur **Partagé**. Dans le menu contextuel, sélectionnez **Créer** > **Bibliothèque**.
 
-    ![Boîte de dialogue Ajouter une bibliothèque](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-option.png "Boîte de dialogue Ajouter une bibliothèque")
+   ![Boîte de dialogue Ajouter une bibliothèque](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-option.png "Boîte de dialogue Ajouter une bibliothèque")
 
 2. Sur la page Nouvelle bibliothèque, sélectionnez **Coordonnées Maven** comme **Source**. Pour **Coordonnées**, saisissez les coordonnées du package que vous voulez ajouter. Voici les coordonnées Maven des bibliothèques utilisées dans ce didacticiel :
 
-    * Connecteur Spark Event Hubs : `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.5`
-    * API Twitter : `org.twitter4j:twitter4j-core:4.0.6`
+   * Connecteur Spark Event Hubs : `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.5`
+   * API Twitter : `org.twitter4j:twitter4j-core:4.0.6`
 
-    ![Renseigner des coordonnées Maven](./media/databricks-sentiment-analysis-cognitive-services/databricks-eventhub-specify-maven-coordinate.png "Renseigner des coordonnées Maven")
+     ![Renseigner des coordonnées Maven](./media/databricks-sentiment-analysis-cognitive-services/databricks-eventhub-specify-maven-coordinate.png "Renseigner des coordonnées Maven")
 
 3. Sélectionnez **Créer une bibliothèque**.
 
@@ -164,13 +168,13 @@ Dans ce tutoriel, vous allez utiliser les [API Analyse de texte de Microsoft Cog
 
     ![Créer un compte Cognitive Services](./media/databricks-sentiment-analysis-cognitive-services/create-cognitive-services-account.png "Créer un compte Cognitive Services")
 
-    - Saisissez un nom pour le compte Cognitive Services.
-    - Sélectionnez un abonnement sous lequel est créé le compte.
-    - Sélectionnez un emplacement Azure.
-    - Sélectionnez un niveau tarifaire pour le service. Pour en savoir plus sur la tarification de Cognitive Services, consultez la [page sur la tarification](https://azure.microsoft.com/pricing/details/cognitive-services/).
-    - Indiquez si vous souhaitez créer un groupe de ressources Azure ou sélectionner un groupe existant.
+   - Saisissez un nom pour le compte Cognitive Services.
+   - Sélectionnez un abonnement sous lequel est créé le compte.
+   - Sélectionnez un emplacement Azure.
+   - Sélectionnez un niveau tarifaire pour le service. Pour en savoir plus sur la tarification de Cognitive Services, consultez la [page sur la tarification](https://azure.microsoft.com/pricing/details/cognitive-services/).
+   - Indiquez si vous souhaitez créer un groupe de ressources Azure ou sélectionner un groupe existant.
 
-    Sélectionnez **Créer**.
+     Sélectionnez **Créer**.
 
 5. Une fois le compte créé, sélectionnez **Afficher les clés d'accès** dans l'onglet **Vue d'ensemble**.
 

@@ -12,16 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5d5b8dc21e40f38aee8f082e84a5a5bea1baf11c
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 20ad58c2e7209f8bed8014d5ce1dff094907590c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276350"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182504"
 ---
 # <a name="create-event-grid-custom-topic-with-powershell"></a>Créer une rubrique personnalisée Event Grid avec PowerShell
 
 Ce script crée une rubrique personnalisée Event Grid.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -35,7 +37,7 @@ Ce script utilise la commande suivante pour créer la rubrique personnalisée. C
 
 | Commande | Notes |
 |---|---|
-| [New-AzureRmEventGridTopic](https://docs.microsoft.com/powershell/module/azurerm.eventgrid/new-azurermeventgridtopic) | Crée une rubrique personnalisée Event Grid. |
+| [New-AzEventGridTopic](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridtopic) | Crée une rubrique personnalisée Event Grid. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

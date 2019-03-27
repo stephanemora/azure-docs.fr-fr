@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/28/2019
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: e1a00ea36efa6af816c371f5498085fc2cf491b6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.lastreviewed: 02/28/2019
+ms.openlocfilehash: 68e8bfa16c56b8c864ac99cdf6c19243bc7e881c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165023"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101871"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>Ajouter des serveurs d’hébergement pour le fournisseur de ressources MySQL
 
@@ -44,6 +44,8 @@ Assurez-vous de détenir les informations d’identification d’un compte dispo
 4. Spécifiez les détails de connexion de votre instance de MySQL Server.
 
    * Pour **Nom du serveur d’hébergement MySQL**, fournissez le nom de domaine complet (FQDN) ou une adresse IPv4 valide. N’utilisez pas le nom court de la machine virtuelle.
+   * Le **Nom d’utilisateur** d’administrateur par défaut des images Bitnami MySQL disponibles dans la Place de marché Azure Stack est *root*. 
+   * Si vous ne connaissez pas le **Mot de passe** racine, consultez la [Documentation Bitnami](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials) pour savoir comment l’obtenir. 
    * Une instance MySQL par défaut n’est pas fournie, donc vous devez spécifier la **taille du serveur d’hébergement en Go**. Entrez une taille qui est proche de la capacité du serveur de base de données.
    * Conservez la valeur par défaut pour **Abonnement**.
    * Pour **Groupe de ressources**, créez un groupe ou utilisez un groupe existant.
@@ -58,8 +60,8 @@ Assurez-vous de détenir les informations d’identification d’un compte dispo
    Le **nom** de la référence SKU doit refléter les propriétés de la référence SKU pour que les utilisateurs puissent déployer leurs bases de données sur la référence SKU appropriée.
 
 6. Sélectionnez **OK** pour créer la référence SKU.
-> [!NOTE]
-> Une heure entière peut être nécessaire avant que les références n’apparaissent dans le portail. Vous ne pouvez pas créer de base de données tant que la référence (SKU) n’a pas été déployée et exécutée.
+   > [!NOTE]
+   > Une heure entière peut être nécessaire avant que les références n’apparaissent dans le portail. Vous ne pouvez pas créer de base de données tant que la référence (SKU) n’a pas été déployée et exécutée.
 
 7. Sous **Ajouter un serveur d’hébergement MySQL**, sélectionnez **Créer**.
 

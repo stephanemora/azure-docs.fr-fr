@@ -10,18 +10,18 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 12/27/2018
-ms.openlocfilehash: 5814c3f386ed31d8804469fa1a261ab9bda6b8f8
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 220549c4ac3b6db584654b2c8bf27d9b4519b54a
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865856"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225805"
 ---
 # <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-resource-manager-template"></a>Démarrage rapide : Prise en main d’Apache Hadoop et Apache Hive dans Azure HDInsight à l’aide du modèle Resource Manager
 
 Dans cet article, vous allez apprendre à créer des clusters [Apache Hadoop](https://hadoop.apache.org/) dans HDInsight à l’aide d’un modèle Resource Manager, puis à exécuter des travaux Hive dans HDInsight. La plupart des tâches Hadoop sont des tâches de traitements par lots. Vous créez un cluster, exécutez certaines tâches, puis supprimez le cluster. Dans cet article, vous allez effectuer les trois tâches.
 
-Dans ce guide de démarrage rapide, vous allez utiliser un modèle Resource Manager pour créer un cluster HDInsight Hadoop. Vous pouvez également utiliser le [Portail Azure](apache-hadoop-linux-create-cluster-get-started-portal.md) pour cela.  Vous pouvez aussi voir des modèles similaires dans les [Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular). La référence de modèle est disponible [ici](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/allversions).
+Dans ce guide de démarrage rapide, vous allez utiliser un modèle Resource Manager pour créer un cluster HDInsight Hadoop. Vous pouvez également utiliser le [Portail Azure](apache-hadoop-linux-create-cluster-get-started-portal.md) pour cela.  Vous pouvez aussi voir des modèles similaires dans les [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular). La référence de modèle est disponible [ici](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/allversions).
 
 HDInsight est actuellement fournie avec [sept types de cluster](./apache-hadoop-introduction.md#cluster-types-in-hdinsight). Chaque type de cluster prend en charge un ensemble de composants bien spécifiques. Tous les types de cluster prennent en charge Hive. Pour obtenir la liste des composants pris en charge dans HDInsight, consultez [Nouveautés des versions de cluster Hadoop fournies par HDInsight](../hdinsight-component-versioning.md)  
 
@@ -121,10 +121,10 @@ Comment obtenir les outils HDInsight Tools dans Visual Studio, consultez [Utilis
 
 Vous pouvez créer et exécuter des requêtes Hive de deux façons :
 
-* Création de requêtes ad hoc
+* Créer des requêtes ad hoc
 * Création d’une application Hive
 
-Pour créer et exécuter des requêtes ad hoc :
+Pour créer et exécuter des requêtes ad hoc :
 
 1. Dans l’**Explorateur de serveurs**, sélectionnez **Azure** > **Clusters HDInsight**.
 

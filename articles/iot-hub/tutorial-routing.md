@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: cc3f7c72acc0723c522b595ea106f72947e9d014
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 87d0339de117330bf6d586cd653b0d4d16a8cbca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728724"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087701"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>Tutoriel : Configurer le routage des messages avec IoT Hub
 
@@ -144,7 +144,7 @@ echo "Service Bus namespace = " $sbNameSpace
 az servicebus namespace create --resource-group $resourceGroup \
     --name $sbNameSpace \
     --location $location
-    
+
 # The Service Bus queue name must be globally unique, so add a random number to the end.
 sbQueueName=ContosoSBQueue$RANDOM
 echo "Service Bus queue name = " $sbQueueName
@@ -276,7 +276,7 @@ Vous vous apprêtez à acheminer les messages vers différentes ressources en fo
 
 Configurez maintenant le routage pour le compte de stockage. Vous accédez au volet Routage des messages, puis vous ajoutez une route. Lors de l’ajout de la route, définissez un nouveau point de terminaison pour la route. Une fois ceci configuré, les messages pour lesquels la propriété **level** est définie sur **storage** sont automatiquement écrits dans un compte de stockage. 
 
-Les données sont écrites dans le stockage d’objets blob au format Avro.
+Par défaut, les données sont écrites dans le stockage d’objets blob au format Avro.
 
 1. Dans le [portail Azure](https://portal.azure.com), cliquez sur **Groupes de ressources**, puis sélectionnez votre groupe de ressources. Ce didacticiel utilise **ContosoResources**. 
 
@@ -301,8 +301,9 @@ Les données sont écrites dans le stockage d’objets blob au format Avro.
    > 
    > Par exemple, utilisez le format du nom de fichier de l’objet blob par défaut si le nom du hub est ContosoTestHub, et que la date/heure est le 30 octobre 2018 à 10h56. Le nom de l’objet blob ressemblera à ceci : `ContosoTestHub/0/2018/10/30/10/56`.
    > 
-   > Les objets blob sont écrits au format Avro.
-   >
+   > Par défaut, les objets blob sont écrits au format Avro. Vous pouvez choisir d’écrire les fichiers au format JSON. La fonctionnalité permettant d’encoder au format JSON est en préversion dans toutes les régions où IoT Hub est disponible, à l’exception des régions USA Est, USA Ouest et Europe Ouest. Consultez les [instructions concernant le routage vers le stockage Blob](iot-hub-devguide-messages-d2c.md#azure-blob-storage).
+   > 
+   > Pour effectuer un routage vers le stockage Blob, nous vous recommandons d’inscrire les objets Blob, puis d’exécuter une itération sur ces derniers, afin de garantir que tous les conteneurs seront lus, sans avoir à faire de suppositions concernant la partition. La plage de partition peut changer pendant un [basculement initié par Microsoft](iot-hub-ha-dr.md#microsoft-initiated-failover) ou pendant un [basculement manuel](iot-hub-ha-dr.md#manual-failover-preview) IoT Hub. Pour savoir comment énumérer la liste des objets blob, consultez [Routage vers le stockage Blob](iot-hub-devguide-messages-d2c.md#azure-blob-storage)
 
 8. Cliquez sur **Créer** pour créer le point de terminaison de stockage et l’ajouter à la route. Vous revenez au volet **Ajouter une route**.
 
@@ -311,15 +312,15 @@ Les données sont écrites dans le stockage d’objets blob au format Avro.
    **Nom** : entrez un nom pour votre requête de routage. Ce tutoriel utilise **StorageRoute**.
 
    **Point de terminaison** : ce champ présente le point de terminaison que vous venez de configurer. 
-   
+
    **Source de données** : sélectionnez **Messages de télémétrie des appareils** dans la liste déroulante.
 
    **Activer la route** : vérifiez que ceci est activé.
-   
+
    **Requête de routage** : entrez `level="storage"` pour la chaîne de requête. 
 
    ![Capture d’écran montrant la création d’une requête de routage pour le compte de stockage.](./media/tutorial-routing/message-routing-finish-route-storage-ep.png)  
-   
+
    Cliquez sur **Enregistrer**. Une fois l’opération terminée, vous êtes redirigé vers le volet Routage des messages, où vous pouvez voir la nouvelle requête de routage pour le stockage. Fermez le volet Itinéraires, ce qui vous redirige vers la page Groupe de ressources.
 
 ### <a name="routing-to-a-service-bus-queue"></a>Routage vers une file d’attente Service Bus 
@@ -337,14 +338,14 @@ Configurez maintenant le routage pour la file d’attente Service Bus. Vous acc�
 4. Renseignez les champs :
 
    **Nom du point de terminaison** : Entrez un nom pour le point de terminaison. Ce didacticiel utilise **CriticalQueue**.
-   
+
    **Espace de noms Service Bus** : cliquez sur ce champ pour afficher la liste déroulante ; sélectionnez l'espace de noms Service Bus que vous avez configuré lors des étapes de préparation. Ce didacticiel utilise **ContosoSBNamespace**.
 
    **File d'attente Service Bus** : cliquez sur ce champ pour afficher la liste déroulante ; sélectionnez-y la file d'attente Service Bus. Ce didacticiel utilise **contososbqueue**.
 
 5. Cliquez sur **Créer** pour ajouter le point de terminaison de file d’attente Service Bus. Vous revenez au volet **Ajouter une route**. 
 
-6.  Vous complétez maintenant le reste des informations de la requête de routage. Cette requête spécifie les critères pour l’envoi des messages à la file d’attente Service Bus que vous venez d’ajouter comme point de terminaison. Renseignez les champs affichés à l’écran. 
+6. Vous complétez maintenant le reste des informations de la requête de routage. Cette requête spécifie les critères pour l’envoi des messages à la file d’attente Service Bus que vous venez d’ajouter comme point de terminaison. Renseignez les champs affichés à l’écran. 
 
    **Nom** : entrez un nom pour votre requête de routage. Ce tutoriel utilise **SBQueueRoute**. 
 
@@ -401,7 +402,7 @@ La file d’attente Service Bus doit être utilisée pour recevoir des messages 
    ![Capture d’écran montrant la configuration de la connexion pour la file d’attente Service Bus.](./media/tutorial-routing/logic-app-define-connection.png)
 
    Cliquez sur l’espace de noms Service Bus. Ce didacticiel utilise **ContosoSBNamespace**. Lorsque vous sélectionnez l’espace de noms, le portail interroge l’espace de noms Service Bus pour récupérer les clés. Sélectionnez **RootManageSharedAccessKey** et cliquez sur **Créer**. 
-   
+
    ![Capture d’écran montrant la fin de la configuration de la connexion.](./media/tutorial-routing/logic-app-finish-connection.png)
 
 6. Dans l’écran suivant, sélectionnez le nom de la file d’attente (ce didacticiel utilise **contososbqueue**) dans la liste déroulante. Vous pouvez utiliser les valeurs par défaut pour les autres champs. 
@@ -442,9 +443,9 @@ Pour afficher les données dans une visualisation Power BI, commencez par config
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Ajouter une entrée à la tâche Stream Analytics
 
-4. Sous **Topologie de la tâche**, cliquez sur **Entrées**.
+1. Sous **Topologie de la tâche**, cliquez sur **Entrées**.
 
-5. Dans le volet **Entrées**, cliquez sur **Ajouter une entrée de flux** et sélectionnez IoT Hub. Dans l’écran qui s’affiche, renseignez les champs suivants :
+1. Dans le volet **Entrées**, cliquez sur **Ajouter une entrée de flux** et sélectionnez IoT Hub. Dans l’écran qui s’affiche, renseignez les champs suivants :
 
    **Alias d'entrée** : Ce didacticiel utilise **contosoinputs**.
 
@@ -457,12 +458,12 @@ Pour afficher les données dans une visualisation Power BI, commencez par config
    **Nom de la stratégie d'accès partagé** : sélectionnez **iothubowner**. Le portail renseigne la clé de la stratégie d’accès partagé pour vous.
 
    **Groupe de consommateurs** : sélectionnez le groupe de consommateurs que vous avez créé précédemment. Ce didacticiel utilise **contosoconsumers**.
-   
+
    Pour les autres champs, acceptez les valeurs par défaut. 
 
    ![Capture d’écran montrant comment configurer les entrées du travail Stream Analytics.](./media/tutorial-routing/stream-analytics-job-inputs.png)
 
-6. Cliquez sur **Enregistrer**.
+1. Cliquez sur **Enregistrer**.
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Ajouter une sortie à la tâche Stream Analytics
 
@@ -631,4 +632,4 @@ Dans ce didacticiel, vous avez appris à utiliser le routage des messages pour a
 Passez au didacticiel suivant pour découvrir comment gérer l’état d’un appareil IoT. 
 
 > [!div class="nextstepaction"]
-[Configurer et utiliser des métriques et des diagnostics avec un hub IoT](tutorial-use-metrics-and-diags.md)
+> [Configurer et utiliser des métriques et des diagnostics avec un hub IoT](tutorial-use-metrics-and-diags.md)

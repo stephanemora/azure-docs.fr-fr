@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58b0d2c12a4e2088964e397b1bc499fa4adfdff3
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 172bc96857c6aa0ab19fd4f1a13870dd493100bf
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244553"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295706"
 ---
 # <a name="what-is-authentication"></a>Qu’est-ce que l’authentification ?
 
@@ -79,7 +79,7 @@ Azure AD représente les applications selon un modèle spécifique conçu pour r
 
 Dans Azure AD, un **objet d’application** décrit une application en tant qu’entité abstraite. Les développeurs travaillent avec des applications. Au moment du déploiement, Azure AD utilise un objet d’application donné en tant que plan pour créer un **principal de service**. Ce dernier représente une instance concrète d’une application dans un répertoire ou un locataire. C’est le principal de service qui définit les actions réelles d’une application dans un répertoire cible spécifique, les utilisateurs qui peuvent s’en servir, les ressources auxquelles elle a accès, etc. Azure AD crée un principal de service à partir d’un objet d’application via le **consentement**.
 
-Le diagramme suivant illustre un flux d’approvisionnement Azure AD simplifié piloté par consentement.
+Le diagramme suivant illustre un flux d’approvisionnement Azure AD simplifié piloté par consentement.  Dans celui-ci, se trouvent deux locataires (A et B), le locataire A possédant l’application, et le locataire B instanciant l’application via un principal de service.  
 
 ![Flux d’approvisionnement simplifié piloté par consentement](./media/authentication-scenarios/simplified-provisioning-flow-consent.png)
 
@@ -87,14 +87,14 @@ Dans ce flux d’approvisionnement :
 
 |   |   |
 |---|---|
-| 1 | Un utilisateur issu de B tente de se connecter avec l’application |
+| 1 | Un utilisateur issu du locataire B tente de se connecter avec l’application |
 | 2 | Les informations d’identification de l’utilisateur sont acquises et vérifiées |
 | 3 | L’utilisateur est invité à donner son consentement pour que l’application accède au locataire B |
-| 4 | Azure AD utilise l’objet d’application A en tant que plan pour créer un principal de service dans B |
+| 4 | Azure AD utilise l’objet d’application dans A en tant que blueprint pour créer un principal de service dans le locataire B |
 | 5. | L’utilisateur reçoit le jeton demandé |
 |   |   |
 
-Vous pouvez répéter ce processus autant de fois que vous le souhaitez pour les autres locataires (C, D, etc.). Le répertoire A conserve le plan pour l’application (objet d’application). Les utilisateurs et les administrateurs de tous les autres locataires où l’application a obtenu le consentement gardent le contrôle sur les actions de l’application grâce à l’objet du principal de service correspondant dans chaque locataire. Pour en savoir plus, consultez l’article sur les [objets d’application et de principal de service dans Azure AD)](app-objects-and-service-principals.md).
+Vous pouvez répéter ce processus autant de fois que vous le souhaitez pour les autres locataires (C, D, etc.). Le locataire A conserve le blueprint pour l’application (objet d’application). Les utilisateurs et les administrateurs de tous les autres locataires où l’application a obtenu le consentement gardent le contrôle sur les actions de l’application grâce à l’objet du principal de service correspondant dans chaque locataire. Pour en savoir plus, consultez l’article sur les [objets d’application et de principal de service dans Azure AD)](app-objects-and-service-principals.md).
 
 ## <a name="claims-in-azure-ad-security-tokens"></a>Revendications dans les jetons de sécurité Azure AD
 

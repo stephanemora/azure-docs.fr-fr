@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 01/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4ebc9b83c3aa135c90f18ff982621e862cb01d72
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 5ff065816e287e0d4e37cdea9a7770c9ff806520
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56879609"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890744"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Qu’est-il arrivé à Azure Machine Learning Workbench ?
 
@@ -60,7 +60,7 @@ Les historiques des exécutions sont maintenant dénommés **expériences**. Vou
 
 Le tableau de bord d’espace de travail du portail est pris en charge uniquement sur les navigateurs Microsoft Edge, Chrome et Firefox :
 
-[![Portail en ligne](./media/overview-what-happened-to-workbench/image001.png)] (./media/overview-what-happened-to-workbench/image001.png#lightbox)
+[![Portail en ligne](./media/overview-what-happened-to-workbench/image001.png)](./media/overview-what-happened-to-workbench/image001.png#lightbox)
 
 Commencez à entraîner vos modèles et à effectuer le suivi des historiques d’exécutions à l’aide de la nouvelle interface CLI et du nouveau SDK. Pour découvrir comment faire, consultez le [Tutoriel : Entraîner des modèles avec le service Azure Machine Learning](tutorial-train-models-with-aml.md).
 
@@ -68,7 +68,7 @@ Commencez à entraîner vos modèles et à effectuer le suivi des historiques d�
 
 Vos fichiers de préparation de données préexistants ne sont pas portables vers la dernière version dans la mesure où Machine Learning Workbench n’existe plus. Toutefois, vous pouvez toujours préparer des jeux de données de toute taille en vue de la modélisation.   
 
-Avec des jeux de données de toute taille, vous pouvez utiliser le [SDK de préparation des données Azure Machine Learning](http://aka.ms/data-prep-sdk) pour préparer rapidement vos données avant la modélisation en écrivant du code Python. 
+Avec des jeux de données de toute taille, vous pouvez utiliser le [SDK de préparation des données Azure Machine Learning](https://aka.ms/data-prep-sdk) pour préparer rapidement vos données avant la modélisation en écrivant du code Python. 
 
 Vous pouvez suivre [ce tutoriel](tutorial-data-prep.md) pour en savoir plus sur l’utilisation du SDK de préparation des données Azure Machine Learning.
 
@@ -84,7 +84,7 @@ run = exp.submit(source_directory = script_folder, script = 'train.py', run_conf
 Découvrez comment commencer dans [Python avec le SDK principal](quickstart-create-workspace-with-python.md) ou en utilisant le [portail Azure](quickstart-get-started.md).
 
 ## <a name="what-about-my-registered-models-and-images"></a>Qu’en est-il de mes modèles et images inscrits ?
- 
+
 Les modèles que vous avez enregistrés dans votre ancien registre de modèles doivent être migrés vers votre nouvel espace de travail si vous voulez continuer à les utiliser. Pour migrer vos modèles, téléchargez les modèles et réinscrivez-les dans votre nouvel espace de travail. 
 
 Les images que vous avez créées dans votre ancien registre d’images doivent être recréées dans le nouvel espace de travail pour continuer à les utiliser. Vous pouvez recréer ces images en suivant les sections [Configurer et créer une image](how-to-deploy-and-where.md#configureimage). 
@@ -109,7 +109,7 @@ En utilisant le nouveau SDK Python de la dernière version, vous pouvez interagi
 
 Dans cette dernière version, l’extension a été renommée en Azure Machine Learning pour Visual Studio Code, et a été développée et améliorée de manière à être compatible avec les nouvelles fonctionnalités précédentes.
 
-[![Azure Machine Learning pour Visual Studio Code](./media/overview-what-happened-to-workbench/vscode.png)] (./media/overview-what-happened-to-workbench/vscode-big.png#lightbox)
+[![Azure Machine Learning pour Visual Studio Code](./media/overview-what-happened-to-workbench/vscode.png)](./media/overview-what-happened-to-workbench/vscode-big.png#lightbox)
 
 ## <a name="what-about-domain-packages"></a>Qu’en est-il des packages de domaine ?
 

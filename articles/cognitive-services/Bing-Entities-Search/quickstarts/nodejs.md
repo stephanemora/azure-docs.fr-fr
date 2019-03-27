@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 87afdd9e949ec866c6ee962c2b68af42590bee67
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 8007d576a6b896f12423087cfd4a483d9171abc5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878712"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104367"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-nodejs"></a>Démarrage rapide : Envoyer une requête de recherche à l’API REST Recherche d’entités Bing en utilisant Node.js
 
@@ -74,7 +74,7 @@ Alors que cette application est écrite en JavaScript, l’API est un service we
         });
         ```
 
-    3. Quand un indicateur **end** est signalé, analysez le JSON, puis imprimez-le.
+    3. Quand un indicateur **end** est signalé, analysez le JSON, puis affichez-le.
 
         ```javascript
         response.on ('end', function () {
@@ -87,24 +87,24 @@ Alors que cette application est écrite en JavaScript, l’API est un service we
 
 1. Créez une fonction appelée `Search` pour envoyer une requête de recherche. Dans cette requête, effectuez les étapes ci-après.
 
-    1. Créez un objet JSON qui contient vos paramètres de requête : utilisez `Get` pour la méthode et ajoutez vos informations d’hôte et de chemin. Ajoutez votre clé d’abonnement à l’en-tête `Ocp-Apim-Subscription-Key`. 
-    2. Utilisez `https.request()` pour envoyer la requête avec le gestionnaire de réponse créé précédemment, ainsi que vos paramètres de recherche.
+   1. Créez un objet JSON qui contient vos paramètres de requête : utilisez `Get` pour la méthode et ajoutez vos informations d’hôte et de chemin. Ajoutez votre clé d’abonnement à l’en-tête `Ocp-Apim-Subscription-Key`. 
+   2. Utilisez `https.request()` pour envoyer la requête avec le gestionnaire de réponse créé précédemment, ainsi que vos paramètres de recherche.
     
-    ```javascript
-    let Search = function () {
-        let request_params = {
-            method : 'GET',
-            hostname : host,
-            path : path + query,
-            headers : {
-                'Ocp-Apim-Subscription-Key' : subscriptionKey,
-            }
-        };
+      ```javascript
+      let Search = function () {
+       let request_params = {
+           method : 'GET',
+           hostname : host,
+           path : path + query,
+           headers : {
+               'Ocp-Apim-Subscription-Key' : subscriptionKey,
+           }
+       };
     
-        let req = https.request (request_params, response_handler);
-        req.end ();
-    }
-    ```
+       let req = https.request (request_params, response_handler);
+       req.end ();
+      }
+      ```
 
 2. Appelez la fonction `Search()`.
 
@@ -148,7 +148,7 @@ Une réponse correcte est retournée au format JSON, comme dans l’exemple suiv
         "_type": "Restaurant",
         "webSearchUrl": "https://www.bing.com/search?q=Pickles+and+Preserves...",
         "name": "Munson's Pickles and Preserves Farm",
-        "url": "http://www.princi.com/",
+        "url": "https://www.princi.com/",
         "entityPresentationInfo": {
           "entityScenario": "ListItem",
           "entityTypeHints": [

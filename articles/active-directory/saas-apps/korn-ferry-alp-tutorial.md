@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Korn Ferry ALP | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Korn Ferry ALP | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Korn Ferry ALP.
 services: active-directory
 documentationCenter: na
@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 6f5b53b7-6d1d-4bed-a95a-127e2d4d8b3f
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f9fe3f53d9d54c2a8fdc0b0c663d0085d137188
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 426162d6655a107aad6fc7dd1081ca9352099449
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873727"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57899330"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-korn-ferry-alp"></a>Didacticiel : Intégration d’Azure Active Directory à Korn Ferry ALP
+# <a name="tutorial-azure-active-directory-integration-with-korn-ferry-alp"></a>Tutoriel : Intégration d’Azure Active Directory à Korn Ferry ALP
 
 Dans ce tutoriel, vous allez apprendre à intégrer Korn Ferry ALP à Azure AD (Azure AD).
 L’intégration de Korn Ferry ALP à Azure AD vous offre les avantages suivants :
@@ -106,6 +106,7 @@ Pour configurer l’authentification unique Azure AD avec Korn Ferry ALP, effect
     ![Informations d’authentification unique dans Domaine et URL Korn Ferry ALP](common/sp-identifier.png)
 
     a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant :
+
     | |
     |--|
     | `https://intappextin01/portalweb/sso/client/audience?guid=<customerguid>` | 
@@ -113,6 +114,7 @@ Pour configurer l’authentification unique Azure AD avec Korn Ferry ALP, effect
     | `https://assessments.kornferry.com/portalweb/sso/client/audience?guid=<customerguid>` |
 
     b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant :
+    
     | |
     |--|
     | `https://intappextin01/portalweb/sso/client/audience?guid=<customerguid>` |
@@ -148,7 +150,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@votredomaineentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

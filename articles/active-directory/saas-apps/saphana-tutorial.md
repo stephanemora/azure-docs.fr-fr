@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : intégration d’Azure Active Directory à SAP HANA | Microsoft Docs'
+title: 'Tutoriel : intégration d’Azure Active Directory à SAP HANA | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et SAP HANA.
 services: active-directory
 documentationCenter: na
@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: cef4a146-f4b0-4e94-82de-f5227a4b462c
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 017d693f0d71692abfb432216ca0645dee80d7df
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: f8def13360bba2f82d5adf315503dc7d655f490d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865227"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57899824"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sap-hana"></a>Didacticiel : intégration d’Azure Active Directory à SAP HANA
+# <a name="tutorial-azure-active-directory-integration-with-sap-hana"></a>Tutoriel : intégration d’Azure Active Directory à SAP HANA
 
 Dans ce didacticiel, vous allez apprendre à intégrer SAP HANA à Azure Active Directory (Azure AD).
 L’intégration de SAP HANA à Azure AD vous offre les avantages suivants :
@@ -195,7 +195,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@votredomaineentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
@@ -248,8 +248,8 @@ Si vous avez besoin de créer un utilisateur manuellement, effectuez les étapes
 
 4. Ajouter **l’identité externe** (dans ce cas, BrittaSimon) ou choisissez **Quelconque**. Sélectionnez ensuite **OK**.
 
-    >[!Note]
-    >Si la case **Quelconque** n’est pas cochée, le nom d’utilisateur dans HANA doit correspondre exactement au nom de l’utilisateur dans le nom d’utilisateur principal avant le suffixe de domaine. (Par exemple, BrittaSimon@contoso.com deviendrait BrittaSimon dans HANA.)
+   > [!Note]
+   > Si la case **Quelconque** n’est pas cochée, le nom d’utilisateur dans HANA doit correspondre exactement au nom de l’utilisateur dans le nom d’utilisateur principal avant le suffixe de domaine. (Par exemple, BrittaSimon@contoso.com deviendrait BrittaSimon dans HANA.)
 
 5. À des fins de test, affectez tous les rôles **XS** à l’utilisateur.
 

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 7cfcf68a7725ba6c8a7ad4e0a88c5eed814b38ba
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 4b8d26868c3880852e0d2f9c43b06ca1b25d094f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729710"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176376"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-nodejs"></a>Démarrage rapide : Rechercher des mots avec le dictionnaire bilingue en utilisant Node.js
 
@@ -32,7 +32,7 @@ Ce démarrage rapide nécessite :
 
 ## <a name="create-a-project-and-import-required-modules"></a>Créez un projet et importez les modules requis
 
-Créez un nouveau projet dans votre IDE ou votre éditeur favori. Copiez cet extrait de code dans votre projet, dans un fichier nommé `dictionary-lookup.js`.
+Créez un projet avec votre IDE ou votre éditeur favori, ou créez un dossier sur votre poste de travail. Copiez cet extrait de code dans votre projet/dossier, dans un fichier nommé `alt-translations.js`.
 
 ```javascript
 const request = require('request');
@@ -114,7 +114,7 @@ request(options, function(err, res, body){
 Voilà, vous avez installé un programme simple qui appellera l’API de traduction de texte Translator Text et enverra une réponse JSON. Il est maintenant temps d’exécuter votre programme :
 
 ```console
-node dictionary-lookup.js
+node alt-translations.js
 ```
 
 Si vous souhaitez comparer votre code avec le nôtre, l’exemple de code complet est disponible sur [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS).

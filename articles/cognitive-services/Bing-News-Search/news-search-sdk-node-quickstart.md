@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 01/10/2019
 ms.author: v-gedod
 ms.custom: seodec2018
-ms.openlocfilehash: 262f7f49987dba8340ba4a1f0e6e505b9858e1e5
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 1930ef761b4be9d8085fd6e1785e78146c6b5547
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863871"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109159"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-nodejs"></a>Démarrage rapide : Effectuer une recherche d’actualités avec le Kit de développement logiciel (SDK) Recherche d’actualités Bing pour Node.js
 
@@ -35,7 +35,7 @@ Pour configurer une application console à l’aide du SDK Recherche d’actuali
 
 ## <a name="create-and-initialize-the-application"></a>Créer et initialiser l’application
 
-1. Créez une instance de `CognitiveServicesCredentials`. Créez des variables pour votre clé d’abonnement ainsi qu’un terme de recherche.
+1. Créez une instance de `CognitiveServicesCredentials`. Créez des variables pour votre clé d’abonnement et un terme de recherche.
 
     ```javascript
     const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
@@ -52,7 +52,7 @@ Pour configurer une application console à l’aide du SDK Recherche d’actuali
 
 ## <a name="send-a-search-query"></a>Envoyer une requête de recherche
 
-3. Utilisez le client pour rechercher un terme de requête, en l’occurrence « Winter Olympics » :
+1. Utilisez le client pour rechercher un terme de requête, en l’occurrence « Winter Olympics » :
     
     ```javascript
     client.newsOperations.search(search_term).then((result) => {
@@ -72,4 +72,4 @@ Le code envoie les éléments `result.value` à la console sans analyser le text
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-[Créer une application web monopage](tutorial-bing-news-search-single-page-app.md)
+> [Créer une application web monopage](tutorial-bing-news-search-single-page-app.md)

@@ -16,18 +16,18 @@ ms.date: 05/18/2018
 ms.author: anwestg
 ms.reviewer: sethm
 ms.lastreviewed: 05/18/2018
-ms.openlocfilehash: 0fa938b02b24bd79017bede5346b882e6587bd5d
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: d57b06a33421a94c4f849a1c1fd7cd6f1f4248dd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766922"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848896"
 ---
 # <a name="app-service-on-azure-stack-update-2-release-notes"></a>Notes de publication d’App Service sur Azure Stack Update 2
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-Ces notes de publication décrivent les améliorations et les correctifs apportés à Azure App Service sur Azure Stack Update 2, ainsi que les problèmes connus. Les problèmes connus ont été divisés selon qu’ils concernent le déploiement, le processus de mise à jour ou la build (après l’installation).
+Ces notes de publication décrivent les améliorations et les correctifs apportés à Azure App Service sur Azure Stack Update 2, ainsi que les problèmes connus. Les problèmes connus ont été répartis selon qu’ils concernent le déploiement, le processus de mise à jour ou la build (après l’installation).
 
 > [!IMPORTANT]
 > Appliquez la mise à jour 1804 à votre système intégré Azure Stack ou déployez le dernier Kit de développement Azure Stack avant de déployer Azure App Service 1.2.
@@ -64,7 +64,7 @@ Azure App Service sur Azure Stack Update 2 inclut les améliorations et correcti
     - NodeJS 8.11.1
   - Ajout des versions **NPM** :
     - 5.6.0
-  - Mise à jour des composants .Net Core pour qu’ils soient cohérents avec Azure App Service dans le cloud public.
+  - Mise à jour des composants .NET Core pour qu’ils soient cohérents avec Azure App Service dans le cloud public.
   - Mise à jour de Kudu
 
 - Activation de la fonctionnalité d’échange automatique des emplacements de déploiement - [Configuration de l’échange automatique](https://docs.microsoft.com/azure/app-service/deploy-staging-slots#configure-auto-swap)
@@ -84,15 +84,15 @@ Azure App Service sur Azure Stack Update 2 inclut les améliorations et correcti
 - Les Workers ne peuvent pas atteindre le serveur de fichiers si App Service est déployé dans un réseau virtuel existant et si le serveur de fichiers est uniquement disponible sur le réseau privé.
 
 Si vous avez choisi de procéder au déploiement dans un réseau virtuel existant et une adresse IP interne pour vous connecter à votre serveur de fichiers, vous devez ajouter une règle de sécurité sortante, qui autorise le trafic SMB entre le sous-réseau Worker et le serveur de fichiers. Pour ce faire, accédez au WorkersNsg dans le portail d’administration, puis ajoutez une règle de sécurité sortante comportant les propriétés suivantes :
- * Source : Quelconque
- * Plage de ports source : : *
- * Destination : Adresses IP
- * Plage d’adresses IP de destination : plage d’adresses IP de votre serveur de fichiers
- * Plage de ports de destination : 445
- * Protocole : TCP
- * Action : AUTORISER
- * Priorité : 700
- * Nom : Outbound_Allow_SMB445
+* Source : Quelconque
+* Plage de ports source : : *
+* Destination : Adresses IP
+* Plage d’adresses IP de destination : plage d’adresses IP de votre serveur de fichiers
+* Plage de ports de destination : 445
+* Protocole : TCP
+* Action : AUTORISER
+* Priorité : 700
+* Nom : Outbound_Allow_SMB445
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Problèmes connus des administrateurs cloud utilisant Azure App Service sur Azure Stack
 

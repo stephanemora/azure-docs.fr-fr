@@ -5,17 +5,17 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 1/30/2019
+ms.date: 3/18/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: cf3c691553f2bc7ae8f10345daee92a8380aba25
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 973d5c5c3822eaddce2bc77d06d01930606994c5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815742"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182572"
 ---
-# <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Tutoriel : Déployer et configurer un pare-feu Azure dans un réseau hybride à l’aide d’Azure PowerShell
+# <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Didacticiel : Déployer et configurer un pare-feu Azure dans un réseau hybride à l’aide d’Azure PowerShell
 
 Lorsque vous connectez votre réseau local à un réseau virtuel Azure pour créer un réseau hybride, la possibilité de contrôler l’accès à vos ressources réseau Azure représente une part importante dans un plan de sécurité générale.
 
@@ -25,7 +25,7 @@ Pour ce tutoriel, vous créez trois réseaux virtuels :
 
 - **VNet-Hub** : Le pare-feu se trouve dans ce réseau virtuel.
 - **VNet-Spoke** : Le réseau virtuel spoke correspond à la charge de travail sur Azure.
-- **VNet-Onprem** : Le réseau virtuel local représente un réseau local. Dans un déploiement réel, il peut être connecté via un VPN ou une connexion Route. Par souci de simplicité, ce tutoriel utilise une connexion de passerelle VPN, sachant qu’un réseau virtuel situé sur Azure est utilisé pour représenter un réseau local.
+- **VNet-Onprem** : Le réseau virtuel local représente un réseau local. Dans un déploiement réel, il peut être connecté via un VPN ou une connexion ExpressRoute. Par souci de simplicité, ce tutoriel utilise une connexion de passerelle VPN, sachant qu’un réseau virtuel situé sur Azure est utilisé pour représenter un réseau local.
 
 ![Pare-feu dans un réseau hybride](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
@@ -51,13 +51,16 @@ Il existe trois conditions clés pour que ce scénario fonctionne correctement :
 
 - Un itinéraire défini par l’utilisateur (UDR) sur le sous-réseau spoke qui pointe vers l’adresse IP du Pare-feu Azure en tant que passerelle par défaut. La propagation des itinéraires BGP doit être **désactivée** sur cette table de routage.
 - Un UDR sur le sous-réseau de passerelle hub doit pointer vers l’adresse IP du pare-feu comme prochain tronçon pour les réseaux spoke.
-- Aucun UDR n’est requis sur le sous-réseau du Pare-feu Azure, puisqu’il apprend les itinéraires à partir de BGP.
+
+   Aucun UDR n’est requis sur le sous-réseau du Pare-feu Azure, puisqu’il apprend les itinéraires à partir de BGP.
 - Assurez-vous de définir **AllowGatewayTransit** lors de l’appairage de VNet-Hub avec VNet-Spoke et **UseRemoteGateways** lors de l’appairage de VNet-Spoke avec VNet-Hub.
 
-Consultez la section Créer les itinéraires de ce tutoriel pour voir comment ces itinéraires sont créés.
+Consultez la section [Créer des itinéraires](#create-the-routes) de ce didacticiel pour voir comment ces itinéraires sont créés.
 
 >[!NOTE]
->Le Pare-feu Azure doit avoir une connectivité Internet directe. Si vous avez activé le tunneling forcé en local via ExpressRoute ou Application Gateway, vous devez configurer UDR 0.0.0.0/0 avec la valeur **NextHopType** définie en tant que **Internet**, puis l’attribuer à **AzureFirewallSubnet**.
+>Le Pare-feu Azure doit avoir une connectivité Internet directe. Par défaut, AzureFirewallSubnet doit autoriser uniquement un UDR 0.0.0.0/0 avec la valeur **NextHopType** définie sur **Internet**.
+>
+>Si vous avez activé le tunneling forcé localement via ExpressRoute ou Application Gateway, vous devez configurer explicitement UDR 0.0.0.0/0 avec la valeur NextHopType définie sur **Internet**, puis l’associer à votre AzureFirewallSubnet. Si votre organisation a besoin d’un tunneling forcé pour le trafic du pare-feu Azure, contactez le support technique pour qu’il ajoute votre abonnement à la liste verte afin de garantir le maintien de la connectivité Internet du pare-feu.
 
 >[!NOTE]
 >Le trafic entre les réseaux virtuels directement appairés est acheminé directement même si l’UDR pointe vers le Pare-feu Azure en tant que passerelle par défaut. Pour envoyer un trafic de sous-réseau à sous-réseau au pare-feu dans ce scénario, un UDR doit contenir explicitement le préfixe du réseau cible dans les deux sous-réseaux.

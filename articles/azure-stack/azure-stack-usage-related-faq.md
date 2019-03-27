@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 02/26/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.lastreviewed: 11/08/2018
-ms.openlocfilehash: 92774592f86a71a8482fd3d44eca404fcf2d4e6e
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.lastreviewed: 02/26/2019
+ms.openlocfilehash: 9f835382cbfe56c1601267ae994a94b56c0c3692
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429551"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727040"
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Forum aux questions sur l’API d’utilisation d’Azure Stack
 
@@ -197,15 +197,15 @@ Des rapports d’utilisation sont générés pour les fournisseurs de ressources
 **Unité** : Go\*mois      
 **Remarques**: taille réelle du disque managé Premium 
 
-**ID du compteur** : 75d4b707-1027-4403-9986-6ec7c05579c8  
+**ID du compteur** : 108fa95b-be0d-4cd9-96e8-5b0d59505df1  
 **Nom du compteur** : ActualStandardSnapshotSize   
 **Unité** : Go\*mois   
 **Remarques**: taille réelle de la capture instantanée sur le disque managé Standard.  
 
-**ID du compteur** : 5ca1cbb9-6f14-4e76-8be8-1ca91547965e   
+**ID du compteur** : 578ae51d-4ef9-42f9-85ae-42b52d3d83ac   
 **Nom du compteur** : ActualPremiumSnapshotSize   
 **Unité** : Go\*mois   
-**Remarques**: taille réelle de la capture instantanée sur le disque managé Premium.   
+**Remarques**: Taille réelle de la capture instantanée sur le disque managé Premium.   
 
 **ID du compteur** : 5d76e09f-4567-452a-94cc-7d1f097761f0   
 **Nom du compteur** : S4   
@@ -285,7 +285,11 @@ Des rapports d’utilisation sont générés pour les fournisseurs de ressources
 **ID du compteur** : 95b0c03f-8a82-4524-8961-ccfbf575f536   
 **Nom du compteur** : ActualPremiumSnapshotSize   
 **Unité** : octets\*heures   
-**Remarques**: taille réelle de la capture instantanée sur le disque managé Premium - Déconseillé 
+**Remarques**: Taille réelle de la capture instantanée sur le disque managé Premium (déconseillé) 
+
+**ID du compteur** : 75d4b707-1027-4403-9986-6ec7c05579c8 **Nom du compteur** : ActualStandardSnapshotSize **Unité** : Go\*mois **Remarques** : taille réelle de la capture instantanée sur le disque managé Standard - Déconseillé  
+
+**ID du compteur** : 5ca1cbb9-6f14-4e76-8be8-1ca91547965e **Nom du compteur** : ActualPremiumSnapshotSize **Unité** : Go\*mois **Remarques** : Taille réelle de la capture instantanée sur le disque managé Premium (déconseillé)  
 
 ### <a name="sql-rp"></a>Sql RP
   
@@ -407,6 +411,10 @@ Actuellement, vous pouvez interroger uniquement par *Heure du rapport*.
 | 400 - Demande incorrecte |*SubscriptionIdMissingInRequest* |L’ID d’abonnement de l’appelant est manquant. |
 | 400 - Demande incorrecte |*InvalidAggregationGranularity* |Une granularité d’agrégation non valide a été demandée. Les valeurs valides sont « quotidienne » et « horaire ». |
 | 503 |*ServiceUnavailable* |Une erreur renouvelable s’est produite, car le service est occupé ou l’appel est limité. |
+
+## <a name="what-is-the-policy-for-charging-for-vms"></a>Quelle est la stratégie de facturation pour les machines virtuelles ?
+
+Les machines virtuelles en cours d’exécution ou arrêtés génèrent des données d’utilisation. De manière cohérente avec Azure, la désallocation est nécessaire pour arrêter l’émission de données d’utilisation. Si le portail n’est pas disponible, mais que le fournisseur de ressources de calcul est en cours d’exécution, une utilisation est émise.
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Facturation des clients et rétrofacturation dans Azure Stack](azure-stack-billing-and-chargeback.md)

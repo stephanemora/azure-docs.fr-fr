@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 1/22/2019
+ms.date: 03/20/2019
 ms.author: victorh
-ms.openlocfilehash: c574e3ab82f97f5fffc7c834a53d19df93fc426f
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: bb849e80e83edc4a25ad2f891d2c6c433ba0d106
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448940"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225533"
 ---
 # <a name="what-is-azure-application-gateway"></a>Qu’est-ce qu’Azure Application Gateway ?
 
@@ -70,11 +70,15 @@ Le pare-feu d’applications Web (WAF) est une fonctionnalité de passerelle d�
 
 Les applications Web sont de plus en plus la cible d’attaques malveillantes qui exploitent des vulnérabilités connues. Les types d’attaques les plus courantes sont l’injection de code SQL, les attaques de script site à site, entre autres. Empêcher ces attaques dans le code d’application peut se révéler difficile et nécessiter une maintenance rigoureuse, des mises à jour correctives ainsi que la surveillance au niveau d’un grand nombre de couches de la topologie de l’application. Un pare-feu d’applications web centralisé facilite grandement la gestion de la sécurité et offre une meilleure garantie de protection aux administrateurs de l’application contre les menaces ou les intrusions. Une solution WAF peut également réagir plus rapidement à une menace de sécurité en exécutant la mise à jour corrective d’une vulnérabilité connue dans un emplacement central plutôt que de sécuriser individuellement chacune des applications web. Les passerelles d’application existantes peuvent être facilement converties en une passerelle d’application avec un pare-feu d’applications web.
 
+Pour plus d’informations, consultez [Pare-feu d’applications web (WAF) dans Application Gateway](https://docs.microsoft.com/azure/application-gateway/waf-overview).
+
 ## <a name="url-based-routing"></a>Routage basé sur des URL
 
 Le routage basé sur le chemin d’accès de l’URL vous permet d’acheminer le trafic vers des pools de serveurs principaux en fonction des chemins d’accès de l’URL de la demande. L’un des scénarios consiste à acheminer les requêtes pour différents types de contenu vers un pool différent.
 
 Par exemple, les requêtes adressées à `http://contoso.com/video/*` sont acheminées vers VideoServerPool et les requêtes adressées à `http://contoso.com/images/*` sont acheminées vers ImageServerPool. DefaultServerPool est sélectionné si aucun des modèles de chemin d’accès ne correspond.
+
+Pour plus d’informations, consultez [Routage basé sur l’URL avec Application Gateway](https://docs.microsoft.com/azure/application-gateway/url-route-overview).
 
 ## <a name="multiple-site-hosting"></a>Hébergement de plusieurs sites
 
@@ -83,6 +87,8 @@ L’hébergement de plusieurs sites vous permet de configurer plusieurs sites we
 Les requêtes adressées à `http://contoso.com` sont acheminées vers ContosoServerPool et les requêtes adressées à `http://fabrikam.com` sont acheminées vers FabrikamServerPool.
 
 De même, deux sous-domaines du même domaine parent peuvent également être hébergés sur le même déploiement de passerelle d’application. Par exemple, les sous-domaines `http://blog.contoso.com` et `http://app.contoso.com` peuvent être hébergés sur un déploiement de passerelle d’application unique.
+
+Pour plus d’informations, consultez [Hébergement de plusieurs sites avec Application Gateway](https://docs.microsoft.com/azure/application-gateway/multiple-site-overview).
 
 ## <a name="redirection"></a>Redirection
 
@@ -96,6 +102,8 @@ La prise en charge de la redirection Application Gateway offre les fonctionnalit
 - Redirection basée sur un chemin d’accès. Ce type de redirection permet la redirection HTTP vers HTTPS uniquement sur une zone de site spécifique, par exemple une zone de panier d’achat indiquée par `/cart/*`.
 - Procédez à la redirection vers un site externe.
 
+Pour plus d’informations, consultez [Redirection du trafic](https://docs.microsoft.com/azure/application-gateway/redirect-overview) avec Application Gateway.
+
 ## <a name="session-affinity"></a>Affinité de session
 
 La fonctionnalité d’affinité de session basée sur les cookies est utile lorsque vous souhaitez conserver une session utilisateur sur le même serveur. En utilisant des cookies gérés de passerelle, la passerelle Application Gateway peut diriger le trafic pour traitement à partir d’une session utilisateur vers le même serveur. Ceci est important lorsque l’état de la session est enregistré localement sur le serveur pour une session utilisateur.
@@ -105,6 +113,8 @@ La fonctionnalité d’affinité de session basée sur les cookies est utile lor
 Application Gateway prend en charge les protocoles WebSocket et HTTP/2 de manière native. Il n’existe aucun paramètre configurable par l’utilisateur permettant d’activer ou de désactiver de manière sélective la prise en charge de WebSocket.
 
 Les protocoles WebSocket et HTTP/2 permettent une communication en duplex intégral entre le serveur et le client via une connexion TCP de longue durée. Cela assure une communication plus interactive entre le serveur web et le client, qui peut être bidirectionnelle sans nécessiter d’interrogations, comme c’est le cas pour les implémentations basées sur le protocole HTTP. Ces protocoles engendrent une faible surcharge et peuvent réutiliser la même connexion TCP pour plusieurs demandes/réponses, ce qui entraîne une utilisation plus efficace des ressources. Ces protocoles sont conçus pour fonctionner sur les ports HTTP traditionnels (80 et 443).
+
+Pour plus d’informations, consultez [Prise en charge de WebSocket](https://docs.microsoft.com/azure/application-gateway/application-gateway-websocket) et [Prise en charge de HTTP/2](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http2-support). 
 
 ## <a name="rewrite-http-headers-public-preview"></a>Réécrire les en-têtes HTTP (préversion publique)
 

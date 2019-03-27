@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/12/2018
+ms.date: 02/21/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 11/12/2018
-ms.openlocfilehash: 03a6f649f15f6a4905433d6e2ec292a901340929
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b498283ee117935438c55e5162e92acdb0f5ebfe
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249678"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649898"
 ---
 # <a name="windows-server-in-azure-stack-marketplace-faq"></a>Questions fréquentes sur Windows Server dans la Place de marché Azure Stack
 
@@ -38,7 +38,7 @@ Ensuite, si des groupes de machines virtuelles identiques font référence à un
 
 Les images Windows Server proposées par Microsoft par le biais de la Place de marché Azure Stack sont disponibles en deux versions :
 
-- **Paiement à l’utilisation** : ces images sont associées à des compteurs Windows plein tarif. 
+- **Paiement à l’utilisation** : ces images sont associées à des compteurs Windows plein tarif.
    Public visé : clients Contrat Entreprise (EA) utilisant le *modèle de facturation Consommation* et fournisseurs de services cloud ne souhaitant pas utiliser de licence SPLA.
 - **BYOL (apportez votre propre licence)**  : ces images sont associées à des compteurs de base.
    Public visé : clients EA disposant d’une licence Windows Server et fournisseurs de services cloud utilisant une licence SPLA.
@@ -74,20 +74,20 @@ Pour activer une machine virtuelle Windows Server sur Azure Stack, les condition
 
 ### <a name="how-can-i-verify-that-my-virtual-machine-is-activated"></a>Comment vérifier que ma machine virtuelle est activée ?
 
-Exécutez la commande suivante à partir d’une invite de commandes avec élévation de privilèges : 
+Exécutez la commande suivante à partir d’une invite de commandes avec élévation de privilèges :
 
 ```shell
 slmgr /dlv
-``` 
+```
 
 Si la machine virtuelle est correctement activée, c’est clairement indiqué et le nom d’hôte apparaît dans la sortie `slmgr`. Ne vous fiez pas aux filigranes à l’écran car ils peuvent soit ne pas être à jour, soit provenir d’une autre machine virtuelle derrière la vôtre.
 
 ### <a name="my-vm-is-not-set-up-to-use-avma-how-can-i-fix-it"></a>Comment réparer ma machine virtuelle si elle n’est pas configurée pour utiliser AVMA ?
 
-Exécutez la commande suivante à partir d’une invite de commandes avec élévation de privilèges : 
+Exécutez la commande suivante à partir d’une invite de commandes avec élévation de privilèges :
 
 ```shell
-slmgr /ipk <AVMA key> 
+slmgr /ipk <AVMA key>
 ```
 
 Consultez l’article [Activation automatique de machine virtuelle](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)) pour obtenir les clés à utiliser pour votre image.

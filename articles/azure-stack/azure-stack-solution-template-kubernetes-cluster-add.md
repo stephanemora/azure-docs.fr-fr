@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 02/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: d0051f081f005d61a1eed43d177a11781b2b3fa8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: ca58059716ebebfaf663412b37014ae4f534d0e3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997082"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58081506"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Ajouter Kubernetes sur la Place de marché Azure Stack
 
@@ -31,7 +31,7 @@ ms.locfileid: "55997082"
 
 Vous pouvez créer une offre Kubernetes et la mettre à disposition des utilisateurs en tant qu’élément de la Place de marché. Vos utilisateurs peuvent alors déployer Kubernetes en une seule opération coordonnée.
 
-L’article suivant décrit comment utiliser un modèle Azure Resource Manager pour déployer et provisionner les ressources d’un cluster Kubernetes autonome. L’élément de la Place de marché Cluster Kubernetes version 0.3.0 nécessite Azure Stack 1808. Avant de commencer, vérifiez les paramètres Azure Stack et les paramètres du locataire Azure global. Collectez les informations sur Azure Stack requises. Ajoutez les ressources nécessaires à votre locataire et à la Place de marché Azure Stack. Le cluster dépend d’un serveur Ubuntu, du script personnalisé et des éléments Kubernetes à ajouter à la Place de marché.
+L’article suivant décrit comment utiliser un modèle Azure Resource Manager pour déployer et provisionner les ressources d’un cluster Kubernetes autonome. Avant de commencer, vérifiez les paramètres Azure Stack et les paramètres du locataire Azure global. Collectez les informations sur Azure Stack requises. Ajoutez les ressources nécessaires à votre locataire et à la Place de marché Azure Stack. Le cluster dépend d’un serveur Ubuntu, du script personnalisé et un élément Place de marché du cluster Kubernetes à ajouter à la Place de marché.
 
 ## <a name="create-a-plan-an-offer-and-a-subscription"></a>Créer un plan, une offre et un abonnement
 
@@ -220,12 +220,12 @@ Ajoutez Kubernetes à partir de la Place de marché :
 1. Entrez `Custom Script for Linux`.
 
 1. Sélectionnez le script avec le profil suivant :
-    - **Offre** : Script personnalisé pour Linux 2.0
-    - **Version** : 2.0.6 (ou la dernière version)
-    - **Éditeur** : Microsoft Corp
+   - **Offre** : Script personnalisé pour Linux 2.0
+   - **Version** : 2.0.6 (ou la dernière version)
+   - **Éditeur** : Microsoft Corp
 
-    > [!Note]  
-    > Plusieurs versions d’un script personnalisé pour Linux peuvent être répertoriées. Vous devez ajouter la dernière version de l’élément.
+     > [!Note]  
+     > Plusieurs versions d’un script personnalisé pour Linux peuvent être répertoriées. Vous devez ajouter la dernière version de l’élément.
 
 1. Sélectionnez **Télécharger**.
 

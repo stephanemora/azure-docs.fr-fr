@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
-ms.author: jeffgilb
+ms.date: 03/13/2019
+ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 20b79b3c2581db94627746f52ed6837aa80b6be5
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.lastreviewed: 03/13/2019
+ms.openlocfilehash: 06bafbcf3e668ba17b1245b9352e942e02569997
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447735"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852363"
 ---
 # <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>Planification de la capacité pour les rôles serveur Azure App Service dans Azure Stack
 
@@ -52,7 +52,7 @@ Le contrôleur Azure App Service consomme généralement peu d’UC, de mémoire
 
 **Minimum recommandé** : Deux instances de A1 Standard
 
-Le front-end route les requêtes vers les traitements web en fonction de leur disponibilité. Pour une haute disponibilité, vous devez disposer de plusieurs front-ends. À des fins de planification de la capacité, notez que chaque cœur peut traiter approximativement 100 demandes par seconde.
+Le front-end achemine les requêtes vers les traitements web en fonction de leur disponibilité. Pour une haute disponibilité, vous devez disposer de plusieurs front-ends. À des fins de planification de la capacité, notez que chaque cœur peut traiter approximativement 100 demandes par seconde.
 
 ## <a name="management-role"></a>Rôle de gestion
 
@@ -93,9 +93,17 @@ Quand vous choisissez le nombre de traitements web partagés à utiliser, passez
 
    Pour plus d’informations sur l’ajout d’instances de traitement supplémentaires, consultez [Ajout de rôles de travail supplémentaires](azure-stack-app-service-add-worker-roles.md).
 
+### <a name="additional-considerations-for-dedicated-workers-during-upgrade-and-maintenance"></a>Considérations supplémentaires pour les workers dédiés au cours de la mise à niveau et la maintenance
+
+Pendant la mise à niveau et la maintenance des workers, Azure App Service sur Azure Stack effectue la maintenance sur 20 % de chaque niveau de worker à tout moment.  Par conséquent, les administrateurs cloud doivent toujours conserver un pool de 20 % de workers non alloués par niveau de worker pour garantir que leurs locataires ne subissent pas de perte de service pendant la mise à niveau et la maintenance.  Par exemple, si vous avez 10 workers dans un niveau de worker, vous devez vous assurer que 2 ne sont pas alloués pour permettre la mise à niveau et la maintenance. Si les 10 workers sont alloués, vous devez mettre à l’échelle le niveau de worker pour gérer un pool de workers non alloués. Pendant la mise à niveau et la maintenance, Azure App Service déplace les charges de travail vers les workers non alloués pour garantir le fonctionnement des charges de travail. Toutefois, s’il n’y a aucun worker non alloué disponible au cours de la mise à niveau, alors il existe un risque de temps d’arrêt pour la charge de travail du locataire.  En ce qui concerne les workers partagés, les clients n’ont pas besoin de provisionner des workers supplémentaires, car le service alloue automatiquement des applications de locataire au sein des workers disponibles, à des fins de haute disponibilité. Toutefois, au moins deux workers dans ce niveau sont requis.
+
+Les administrateurs cloud peuvent surveiller leur allocation de niveau de worker dans la zone Administration App Service du portail d’administration Azure Stack.  Accédez à App Service, puis sélectionnez Niveaux de worker dans le volet gauche.  Le tableau Niveaux de worker indique le nom du niveau de worker, la taille, l’image utilisée, le nombre de workers disponibles (non alloués), le nombre total de workers dans chaque niveau et l’état global du niveau de worker.
+
+![Administration App Service - Niveaux de worker][1]
+
 ## <a name="file-server-role"></a>Rôle de serveur de fichiers
 
-Pour le rôle de serveur de fichiers, vous pouvez utiliser un serveur de fichiers autonome pour le développement et le test. Par exemple, lors du déploiement d’Azure App Service sur le Kit de développement Azure Stack (ASDK), vous pouvez utiliser ce modèle : https://aka.ms/appsvconmasdkfstemplate. À des fins de production, vous devez utiliser un serveur de fichiers Windows préconfiguré ou un serveur de fichiers préconfiguré autre que Windows.
+Pour le rôle de serveur de fichiers, vous pouvez utiliser un serveur de fichiers autonome pour le développement et le test. Par exemple, lors du déploiement d’Azure App Service sur le Kit de développement Azure Stack (ASDK), vous pouvez utiliser [ce modèle](https://aka.ms/appsvconmasdkfstemplate).  À des fins de production, vous devez utiliser un serveur de fichiers Windows préconfiguré ou un serveur de fichiers préconfiguré autre que Windows.
 
 Dans les environnements de production, le rôle de serveur de fichiers fait face à des E/S de disque intensives. Étant donné qu’il héberge tous les fichiers de contenu et d’application des sites web des utilisateurs, vous devez préconfigurer l’un des éléments suivants pour ce rôle :
 
@@ -105,10 +113,13 @@ Dans les environnements de production, le rôle de serveur de fichiers fait face
 - Cluster de serveurs de fichiers non Windows
 - Appareil NAS (Network Attached Storage)
 
-Pour plus d’informations, consultez la rubrique [Provisionner un serveur de fichiers](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server).
+Pour plus d’informations, consultez l’article suivant : [Provisionner un serveur de fichiers](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations, consultez l’article suivant :
 
 [Avant de commencer avec App Service sur Azure Stack](azure-stack-app-service-before-you-get-started.md)
+
+<!--Image references-->
+[1]: ./media/azure-stack-app-service-capacity-planning/worker-tier-allocation.png

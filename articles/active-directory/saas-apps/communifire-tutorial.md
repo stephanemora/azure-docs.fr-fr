@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Communifire | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Communifire | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Communifire.
 services: active-directory
 documentationCenter: na
@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: de2a164d-2115-43e7-a9ed-e54f483f4aeb
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbd51700ec3045e6fbe66f7005444d9b56082869
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: cb82c3112634163328e08b330083f5b4942798ab
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875279"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880951"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-communifire"></a>Didacticiel : Intégration d’Azure Active Directory à Communifire
+# <a name="tutorial-azure-active-directory-integration-with-communifire"></a>Tutoriel : Intégration d’Azure Active Directory à Communifire
 
 Dans ce didacticiel, vous allez apprendre à intégrer Communifire à Azure Active Directory (Azure AD).
 L’intégration de Communifire à Azure AD vous offre les avantages suivants :
@@ -166,7 +166,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@votredomaineentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

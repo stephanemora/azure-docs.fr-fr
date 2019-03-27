@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0463a2ad3fa74f33a52e15a246dfd4ffd63107a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0f8e0b79d5aebd1e92dd71bba72efa7430aa475b
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200868"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224649"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Didacticiel : Réinitialisation du mot de passe Azure AD depuis l’écran de connexion
 
@@ -33,8 +33,10 @@ Dans ce tutoriel, vous allez autoriser les utilisateurs à réinitialiser leurs 
    * [joints à Azure AD](../device-management-azure-portal.md) ou
    * [joints à Azure AD Hybride](../device-management-hybrid-azuread-joined-devices-setup.md), avec une connexion réseau à un contrôleur de domaine.
 * Vous devez activer la réinitialisation de mot de passe en libre-service Azure AD.
-* Si vos appareils Windows 10 se trouvent derrière un pare-feu ou un serveur proxy, vous devez ajouter les URL `passwordreset.microsoftonline.com` et `ajax.aspnetcdn.com` à votre liste d’URL autorisées pour le trafic HTTPS (port 443).
+* Si vos appareils Windows 10 se trouvent derrière un pare-feu ou un serveur proxy, vous devez ajouter les URL `passwordreset.microsoftonline.com` et `ajax.aspnetcdn.com` à votre liste d’URL autorisées pour le trafic HTTPS (port 443).
+* SSPR pour Windows 10 est uniquement pris en charge avec les proxys de niveau machine
 * Passez en revue les limitations ci-dessous avant d’essayer cette fonctionnalité dans votre environnement.
+* Si vous utilisez une image, avant d’exécuter sysprep, vérifiez que le cache web est effacé pour le compte Administrateur intégré avant d’effectuer l’étape CopyProfile. Vous trouverez plus d’informations à ce sujet dans l’article de support [Performances médiocres lors de l’utilisation du profil d’utilisateur par défaut personnalisé](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
 
 ## <a name="configure-reset-password-link-using-intune"></a>Configurer le lien de réinitialisation du mot de passe à l’aide d’Intune
 

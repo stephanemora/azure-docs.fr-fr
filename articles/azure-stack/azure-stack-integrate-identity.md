@@ -6,29 +6,19 @@ author: PatAltimore
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/23/19
+ms.date: 03/04/2019
 ms.author: patricka
 ms.reviewer: thoroet
-ms.lastreviewed: 01/23/19
-ms.openlocfilehash: a71362f4d6a69f2eaed36dd549437bb5857d555f
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.lastreviewed: 03/04/2019
+ms.openlocfilehash: 5f34991dca4dbb4275033c764981c44492b9920e
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456994"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58257803"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Intégration au centre de données Azure Stack - Identité
-Vous pouvez déployer Azure Stack en utilisant Azure Active Directory (Azure AD) ou Active Directory Federation Services (AD FS) en tant que fournisseur d’identité. Vous devez faire le choix avant de déployer Azure Stack. Le déploiement à l’aide d’AD FS est également appelé déploiement d’Azure Stack en mode déconnecté.
-
-Le tableau suivant montre les différences entre ces deux choix d’identité :
-
-||Déconnecté d’Internet|Connecté à Internet|
-|---------|---------|---------|
-|Facturation|Doit être une capacité<br> Contrat Entreprise (EA) uniquement|Selon la capacité ou paiement à l’utilisation<br>EA ou fournisseur de solutions cloud (CSP)|
-|Identité|Doit être AD FS|Azure AD ou AD FS|
-|Marketplace |Pris en charge<br>Licences BYOL|Pris en charge<br>Licences BYOL|
-|Inscription|Requis, nécessite un support amovible<br> et un appareil connecté distinct.|Automatisé|
-|Correctifs et mises à jour|Requis, nécessite un support amovible<br> et un appareil connecté distinct.|Un package de mise à jour peut être téléchargé directement<br> depuis Internet dans Azure Stack.|
+Vous pouvez déployer Azure Stack en utilisant Azure Active Directory (Azure AD) ou Active Directory Federation Services (AD FS) en tant que fournisseur d’identité. Vous devez faire le choix avant de déployer Azure Stack. Dans un scénario connecté, vous pouvez choisir Azure AD ou AD FS. Pour un scénario déconnecté, seul AD FS est pris en charge.
 
 > [!IMPORTANT]
 > Vous ne pouvez pas changer de fournisseur d’identité sans redéployer la solution Azure Stack complète.
@@ -43,7 +33,7 @@ L’authentification est un composant d’identité. Pour gérer le contrôle d�
 
 Les services AD FS existants représentent le service d'émission de jeton de sécurité du compte qui envoie des demandes aux services AD FS d’Azure Stack (STS ressource). Dans Azure Stack, l’automation crée l’approbation de fournisseur de revendications avec le point de terminaison de métadonnées pour les services AD FS existants.
 
-Sans les services AD FS existants, une partie de confiance doit être configurée. Cette étape n’est pas effectuée par l’automation et doit être configurée par l’opérateur. Le point de terminaison de métadonnées Azure Stack est documenté dans le fichier AzureStackStampDeploymentInfo.JSON, ou via le point de terminaison privilégié en exécutant la commande `Get-AzureStackInfo`.
+Sans les services AD FS existants, une partie de confiance doit être configurée. Cette étape n’est pas effectuée par l’automation et doit être configurée par l’opérateur. Le point de terminaison de l’adresse IP virtuelle Azure Stack pour AD FS peut être créé en utilisant le modèle `https://adfs.<Region>.<ExternalFQDN>/`.
 
 La configuration de la partie de confiance nécessite également la configuration des règles de transformation de revendication fournies par Microsoft.
 
@@ -132,7 +122,7 @@ Les informations suivantes sont nécessaires en entrée pour les paramètres Aut
 |Paramètre|Description|Exemples|
 |---------|---------|---------|
 |CustomAdfsName|Nom du fournisseur de revendications.<br>Il apparaît ainsi dans la page d’accueil AD FS.|Contoso|
-|CustomAD<br>FSFederationMetadataEndpointUri|Lien Métadonnées de fédération|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
+|CustomAD<br>FSFederationMetadataEndpointUri|Lien Métadonnées de fédération| https:\//ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
 
 
 ### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>Déclencher l’automation pour configurer un fournisseur de revendications de confiance dans Azure Stack

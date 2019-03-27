@@ -1,20 +1,20 @@
 ---
 title: Configurer le cloud pour le service IoT Hub Device Provisioning dans le portail | Microsoft Docs
 description: Approvisionnement d’appareils automatique IoT Hub dans le portail Azure
-author: sethmanheim
-ms.author: sethm
+author: wesmc7777
+ms.author: wesmc
 ms.date: 09/05/2017
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
+manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 971b00f54d59782d5aa7ca752fc06e490d372760
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 8f06d3f033a2bf5907dc2ee324359bef0eb247d0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514840"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58170732"
 ---
 # <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Configurer les ressources de cloud pour l’approvisionnement d’appareils avec le service IoT Hub Device Provisioning
 
@@ -81,23 +81,23 @@ L’étape suivante consiste à lier le service Device Provisioning et le hub Io
 
 4. Dans la page **Ajouter un lien au hub IoT**, fournissez les informations suivantes, puis cliquez sur **Enregistrer** :
 
-    * **Abonnement :** assurez-vous que l’abonnement qui contient l’hub IoT est sélectionné. Vous pouvez établir un lien vers un hub IoT qui se trouve dans un autre abonnement.
+    * **Abonnement :** Vérifiez que l’abonnement qui contient l’hub IoT est sélectionné. Vous pouvez établir un lien vers un hub IoT qui se trouve dans un autre abonnement.
 
-    * **Hub IoT :** choisissez le nom du hub IoT que vous souhaitez lier avec cette instance de service Device Provisioning.
+    * **Hub IoT** : choisissez le nom du hub IoT que vous souhaitez lier à cette instance du service Device Provisioning.
 
-    * **Stratégie d’accès :** sélectionnez **iothubowner** comme informations d’identification pour établir le lien avec le hub IoT.
+    * **Stratégie d’accès :** sélectionnez **iothubowner** comme informations d’identification permettant d’établir le lien avec le hub IoT.
 
    ![Lier le nom du hub à lier au service Device Provisionning dans le portail](./media/tutorial-set-up-cloud/link-iot-hub-to-dps-portal.png)
 
 ## <a name="set-the-allocation-policy-on-the-device-provisioning-service"></a>Définir la stratégie d’allocation sur le service Device Provisioning
 
-La stratégie d’allocation est un paramètre du service IoT Hub Device Provisioning qui détermine la façon dont les appareils sont assignés à un hub IoT. Trois stratégies d’allocation sont prises en charge : 
+La stratégie d’allocation est un paramètre du service IoT Hub Device Provisioning qui détermine la façon dont les appareils sont affectés à un hub IoT. Trois stratégies d’allocation sont prises en charge : 
 
-1. **Latence la plus faible** : les appareils sont configurés pour un hub IoT en fonction du hub ayant la plus faible latence sur l’appareil.
+1. **Latence la plus faible** : les appareils sont provisionnés dans le hub IoT dont la latence est la plus faible.
 
-2. **Distribution uniformément pondérée** (par défaut) : les hubs IoT liés sont susceptibles d’avoir des appareils approvisionnés dans des proportions égales. Il s’agit du paramètre par défaut. Si vous approvisionnez des appareils sur un seul hub IoT, vous pouvez conserver ce paramètre. 
+2. **Distribution uniformément pondérée** (par défaut) : les hubs IoT liés ont tous la même probabilité d’être provisionnés. Il s’agit du paramètre par défaut. Si vous approvisionnez des appareils sur un seul hub IoT, vous pouvez conserver ce paramètre. 
 
-3. **Configuration statique par le biais de la liste d’inscriptions** : la spécification du hub IoT souhaité dans la liste d’inscriptions est prioritaire sur la stratégie d’allocation au niveau du service Device Provisioning.
+3. **Configuration statique par le biais de la liste d’inscriptions** : le hub IoT spécifié dans la liste d’inscriptions a priorité sur la stratégie d’allocation au niveau du service Device Provisioning.
 
 Pour définir la stratégie d’allocation, dans la page Service Device Provisioning, cliquez sur **Gérer la stratégie d’allocation**. Assurez-vous que la stratégie d’allocation est définie sur **Distribution uniformément pondérée** (valeur par défaut). Si vous apportez des modifications, cliquez sur **Enregistrer** quand vous avez terminé.
 

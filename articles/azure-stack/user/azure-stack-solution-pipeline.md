@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/19/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 11/07/2018
-ms.openlocfilehash: deaf7defe5aca4f53df073b19e471a52bd7b8a5d
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 9c7e6640bdb17e9f996545c2c3315c0c1ade42d1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878742"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57902210"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Tutoriel : Déployer des applications sur Azure et Azure Stack
 
@@ -78,17 +78,17 @@ Ce tutoriel suppose que vous disposez de connaissances de base sur Azure et Azur
 ### <a name="azure-stack-requirements"></a>Configuration requise d’Azure Stack
 
 * Utilisez un système intégré Azure Stack ou déployez le Kit de développement Azure Stack (ASDK). Pour déployer l’ASDK :
-    * Le [Didacticiel : déployer le kit de développement Azure Stack à l’aide du programme d’installation](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-deploy) fournit des instructions de déploiement détaillées.
-    * Utilisez le script PowerShell [ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 ) pour automatiser les étapes de post-déploiement ASDK.
+  * Le [Didacticiel : déployer le kit de développement Azure Stack à l’aide du programme d’installation](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-deploy) fournit des instructions de déploiement détaillées.
+  * Utilisez le script PowerShell [ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 ) pour automatiser les étapes de post-déploiement ASDK.
 
     > [!Note]
     > Comme l’installation du Kit de développement Azure Stack prend environ 7 heures, adaptez votre planification en conséquence.
 
- * Déployez les services PaaS [App Service](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) sur Azure Stack.
- * Créez des [plans/offres](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview) dans Azure Stack.
- * Créez un [abonnement de locataire](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm) dans Azure Stack.
- * Créez une application web dans l’abonnement de locataire. Notez l’URL de la nouvelle application web, car elle sera utilisée plus tard.
- * Déployez une machine virtuelle Windows Serveur 2012 dans l’abonnement de locataire. Ce serveur vous servira de serveur de builds et vous permettra d’exécuter Azure DevOps Services.
+  * Déployez les services PaaS [App Service](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) sur Azure Stack.
+  * Créez des [plans/offres](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview) dans Azure Stack.
+  * Créez un [abonnement de locataire](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm) dans Azure Stack.
+  * Créez une application web dans l’abonnement de locataire. Notez l’URL de la nouvelle application web, car elle sera utilisée plus tard.
+  * Déployez une machine virtuelle Windows Serveur 2012 dans l’abonnement de locataire. Ce serveur vous servira de serveur de builds et vous permettra d’exécuter Azure DevOps Services.
 * Fournissez une image Windows Server 2016 avec .NET 3.5 pour une machine virtuelle. Cette machine virtuelle est créée sur votre service Azure Stack en tant qu’agent de build privé.
 
 ### <a name="developer-tool-requirements"></a>Configuration requise de l’outil de développeur
@@ -97,8 +97,8 @@ Ce tutoriel suppose que vous disposez de connaissances de base sur Azure et Azur
 * [Installez Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio), puis [connectez-vous à Azure DevOps Services](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
 * Connectez-vous à votre projet et [clonez-le localement](https://www.visualstudio.com/docs/git/gitquickstart).
 
- > [!Note]
- > Votre environnement Azure Stack a besoin des images correctes syndiquées pour exécuter Windows Server et SQL Server. Le service App Service doit également y être déployé.
+  > [!Note]
+  > Votre environnement Azure Stack a besoin des images correctes syndiquées pour exécuter Windows Server et SQL Server. Le service App Service doit également y être déployé.
 
 ## <a name="prepare-the-private-azure-pipelines-agent-for-azure-devops-services-integration"></a>Préparer l’agent Azure Pipelines privé pour l’intégration d’Azure DevOps Services
 
@@ -363,7 +363,7 @@ La CI/CD hybride peut s’appliquer au code d’application et au code d’infra
 
 2. Accédez à la page **Build Web Application** (Créer une application web) du projet.
 
-3. Dans **Arguments**, ajoutez le code **-r win10-x64**. Cette action est requise pour déclencher un déploiement autonome avec .NET Core.
+3. Dans **Arguments**, ajoutez le code **-r win10-x64**. Cette action est nécessaire pour déclencher un déploiement autonome avec .NET Core.
 
     ![Ajouter un pipeline de build d’argument](media/azure-stack-solution-hybrid-pipeline/020_publish_additions.png)
 

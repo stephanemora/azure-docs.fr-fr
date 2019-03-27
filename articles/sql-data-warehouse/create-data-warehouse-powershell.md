@@ -5,17 +5,17 @@ services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
-ms.topic: conceptual
+ms.topic: quickstart
 ms.subservice: manage
-ms.date: 11/15/2018
+ms.date: 11/16/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 3358c415e620165bf07e2810bc8f1873d1dea0d2
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 01a1c1fef5dd2dabf99677d59126caf41e1f6885
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466385"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57900605"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Démarrage rapide : créer et interroger un entrepôt de données SQL Azure avec Azure PowerShell
 
@@ -23,32 +23,29 @@ Créez rapidement un entrepôt de données SQL Azure à l’aide d’Azure Power
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-Ce didacticiel nécessite le module Azure PowerShell version 5.1.1 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour connaître la version dont vous disposez. Si vous devez installer ou mettre à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). 
-
-
 > [!NOTE]
 > La création d’un entrepôt SQL Data Warehouse peut entraîner un nouveau service facturable.  Pour en savoir plus, voir [SQL Data Warehouse - Tarification](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
->
->
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous à votre abonnement Azure avec la commande [Add-AzureRmAccount](/powershell/module/azurerm.profile/add-azurermaccount) et suivez les instructions à l’écran.
+Connectez-vous à votre abonnement Azure avec la commande [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) et suivez les instructions indiquées à l’écran.
 
 ```powershell
-Add-AzureRmAccount
+Connect-AzAccount
 ```
 
-Pour voir quel abonnement vous utilisez, exécutez [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription).
+Pour voir l’abonnement que vous utilisez, exécutez [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription).
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
-Si vous devez utiliser un abonnement autre que l’abonnement par défaut, exécutez [Set-AzureRmContext](/powershell/module/azurerm.profile/set-azurermcontext).
+Si vous devez utiliser un autre abonnement que celui par défaut, exécutez [Set-AzContext](/powershell/module/az.accounts/set-azcontext).
 
 ```powershell
-Set-AzureRmContext -SubscriptionName "MySubscription"
+Set-AzContext -SubscriptionName "MySubscription"
 ```
 
 
@@ -75,17 +72,17 @@ $databasename = "mySampleDataWarehosue"
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Créez un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) avec la commande [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Un groupe de ressources est un conteneur logique dans lequel les ressources Azure sont déployées et gérées en tant que groupe. L’exemple suivant crée un groupe de ressources nommé `myResourceGroup` à l’emplacement `westeurope`.
+Créez un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) avec la commande [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Un groupe de ressources est un conteneur logique dans lequel les ressources Azure sont déployées et gérées en tant que groupe. L’exemple suivant crée un groupe de ressources nommé `myResourceGroup` à l’emplacement `westeurope`.
 
 ```powershell
-New-AzureRmResourceGroup -Name $resourcegroupname -Location $location
+New-AzResourceGroup -Name $resourcegroupname -Location $location
 ```
 ## <a name="create-a-logical-server"></a>Création d'un serveur logique
 
-Créez un [serveur logique SQL Azure](../sql-database/sql-database-logical-servers.md) avec la commande [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver). Un serveur logique contient un groupe de bases de données gérées en tant que groupe. L’exemple suivant illustre la création d’un serveur nommé de façon aléatoire dans votre groupe de ressources avec un utilisateur administrateur nommé `ServerAdmin` et un mot de passe `ChangeYourAdminPassword1`. Remplacez les valeurs prédéfinies par ce que vous souhaitez.
+Créez un [serveur logique SQL Azure](../sql-database/sql-database-logical-servers.md) avec la commande [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver). Un serveur logique contient un groupe de bases de données gérées en tant que groupe. L’exemple suivant illustre la création d’un serveur nommé de façon aléatoire dans votre groupe de ressources avec un utilisateur administrateur nommé `ServerAdmin` et un mot de passe `ChangeYourAdminPassword1`. Remplacez les valeurs prédéfinies par ce que vous souhaitez.
 
 ```powershell
-New-AzureRmSqlServer -ResourceGroupName $resourcegroupname `
+New-AzSqlServer -ResourceGroupName $resourcegroupname `
     -ServerName $servername `
     -Location $location `
     -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
@@ -93,10 +90,10 @@ New-AzureRmSqlServer -ResourceGroupName $resourcegroupname `
 
 ## <a name="configure-a-server-firewall-rule"></a>Configurer une règle de pare-feu du serveur
 
-Créez une [règle de pare-feu au niveau du serveur SQL Azure](../sql-database/sql-database-firewall-configure.md) avec la commande [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule). Une règle de pare-feu au niveau du serveur permet à une application externe, comme SQL Server Management Studio ou l’utilitaire SQLCMD, de se connecter à un entrepôt de données SQL via le pare-feu du service SQL Data Warehouse. Dans l’exemple suivant, le pare-feu n’est ouvert qu’à d’autres ressources Azure. Pour activer la connectivité externe, remplacez l’adresse IP par une adresse correspondant à votre environnement. Pour ouvrir toutes les adresses IP, utilisez 0.0.0.0 comme adresse IP de début et 255.255.255.255 comme adresse de fin.
+Créez une [règle de pare-feu de niveau serveur SQL Azure](../sql-database/sql-database-firewall-configure.md) avec la commande [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule). Une règle de pare-feu au niveau du serveur permet à une application externe, comme SQL Server Management Studio ou l’utilitaire SQLCMD, de se connecter à un entrepôt de données SQL via le pare-feu du service SQL Data Warehouse. Dans l’exemple suivant, le pare-feu n’est ouvert qu’à d’autres ressources Azure. Pour activer la connectivité externe, remplacez l’adresse IP par une adresse correspondant à votre environnement. Pour ouvrir toutes les adresses IP, utilisez 0.0.0.0 comme adresse IP de début et 255.255.255.255 comme adresse de fin.
 
 ```powershell
-New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
+New-AzSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
     -ServerName $servername `
     -FirewallRuleName "AllowSome" -StartIpAddress $startip -EndIpAddress $endip
 ```
@@ -110,7 +107,7 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 Cet exemple crée un entrepôt de données à l’aide de variables préalablement définies.  Il spécifie que l’objectif du service est DW400, ce qui correspond à un point de départ peu coûteux pour votre entrepôt de données. 
 
 ```Powershell
-New-AzureRmSqlDatabase `
+New-AzSqlDatabase `
     -ResourceGroupName $resourcegroupname `
     -ServerName $servername `
     -DatabaseName $databasename `
@@ -133,7 +130,7 @@ Les paramètres facultatifs sont :
 - **CollationName** : s’il n’est pas spécifié, le classement par défaut est SQL_Latin1_General_CP1_CI_AS. Le classement ne peut pas être modifié sur une base de données.
 - **MaxSizeBytes** : par défaut, la taille maximale d’une base de données est de 10 Go.
 
-Pour plus d’informations sur les options de paramètre, consultez [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase).
+Pour plus d’informations sur les options de paramètre, consultez [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase).
 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
@@ -145,7 +142,7 @@ D’autres tutoriels de démarrage rapide de cette collection reposent sur ce d�
 >
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
+Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

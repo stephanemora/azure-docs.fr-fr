@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à BlueJeans | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à BlueJeans | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et BlueJeans.
 services: active-directory
 documentationCenter: na
@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: dfc634fd-1b55-4ba8-94a8-b8288429b6a9
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de0e20eb096ba127790019c1c07fbdd504d3a480
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: b22a7a86862f02c3320b7c14cc1ed878a57bd23d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56877909"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901948"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-bluejeans"></a>Didacticiel : Intégration d’Azure Active Directory à BlueJeans
+# <a name="tutorial-azure-active-directory-integration-with-bluejeans"></a>Tutoriel : Intégration d’Azure Active Directory à BlueJeans
 
 Dans ce didacticiel, vous allez apprendre à intégrer BlueJeans à Azure Active Directory (Azure AD).
 L’intégration de BlueJeans à Azure AD vous offre les avantages suivants :
@@ -182,7 +182,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@votredomaineentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
@@ -244,7 +244,7 @@ L’objectif de cette section est de créer un utilisateur appelé Britta Simon 
 
     e. Dans la zone de texte **Company** (Entreprise), entrez votre entreprise.
 
-    f. Dans la zone de texte **Adresse e-mail**, saisissez l’adresse e-mail de l’utilisateur, par exemple **brittasimon@contoso.com**.
+    f. Dans la zone de texte **Adresse e-mail**, tapez l’adresse e-mail de l’utilisateur, par exemple **brittasimon\@contoso.com**.
 
     g. Dans la zone de texte **Create a BlueJeans Meeting I.D**  (Créer un ID de réunion BlueJeans), entrez votre ID de réunion.
 

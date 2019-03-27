@@ -11,16 +11,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 03/11/2019
 ms.author: jeffgilb
 ms.reviewer: anwestg
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: a638d5cdfbd3af46335cfb8e4970306534fc1c3b
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: ba2a322cdbcf929bef586f9f35ec2dc394f7af53
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445982"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57778516"
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Vue d’ensemble d’App Service sur Azure Stack
 
@@ -53,7 +53,7 @@ Votre application peut être composée d’applications App Service de différen
 - Déployer les deux (serveur frontal et API) sur une seule application web
 - Déployer votre code frontal dans une application web et votre code principal dans une application API.
 
-   [ ![Vue d’ensemble d’App Service avec des données de supervision](media/azure-stack-app-service-overview/image01.png "Vue d’ensemble d’App Service avec des données de supervision") ](media/azure-stack-app-service-overview/image01.png#lightbox)
+   [![Vue d’ensemble d’App Service avec des données de supervision](media/azure-stack-app-service-overview/image01.png "Vue d’ensemble d’App Service avec des données de supervision")](media/azure-stack-app-service-overview/image01.png#lightbox)
 
 ## <a name="what-is-an-app-service-plan"></a>Qu’est-ce qu’un plan App Service ?
 

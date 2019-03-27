@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: 2555ce4b9485ba6464bde3422df114343b579641
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 5108d4f65208f12875ad592e2e9222f8e1fdb130
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243417"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991079"
 ---
 # <a name="app-service-on-azure-stack-update-4-release-notes"></a>Notes de publication d’App Service sur Azure Stack Update 4
 
@@ -95,6 +95,11 @@ Azure App Service sur Azure Stack Update 4 inclut les améliorations et corre
 - Affichage d’un message d’erreur dans l’interface utilisateur du portail d’administration d’App Service lorsque le plan de contrôle du fournisseur de ressources ne parvient pas à se connecter à l’instance de SQL Server configurée
 
 - Vérification de la spécification du point de terminaison dans la chaîne de connexion du stockage personnalisé en cas de spécification dans la nouvelle application de fonction
+
+### <a name="post-deployment-steps"></a>Étapes de post-déploiement
+
+> [!IMPORTANT]  
+> Si vous avez indiqué le fournisseur de ressources App Service avec une instance SQL Always On, vous DEVEZ [ajouter les bases de données appservice_hosting et appservice_metering à un groupe de disponibilité](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) et synchroniser les bases de données pour éviter toute perte de service en cas de basculement d’une base de données.
 
 ### <a name="post-update-steps-optional"></a>Étapes post-mise à jour (facultatif)
 

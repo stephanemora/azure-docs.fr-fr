@@ -1,5 +1,5 @@
 ---
-title: "Tutoriel : Intégration d'Azure Active Directory à ClickTime | Microsoft Docs"
+title: "Didacticiel : Intégration d'Azure Active Directory à ClickTime | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et ClickTime.
 services: active-directory
 documentationCenter: na
@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: d437b5ab-4d71-4c13-96d0-79018cebbbd4
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2728ce2c375519646d0781005fc10a4174cf2483
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: ea643622973456f6334333731f3a3e7be6a41089
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56881360"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57889520"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clicktime"></a>Tutoriel : Intégration d'Azure Active Directory à ClickTime
 
@@ -108,6 +108,7 @@ Pour configurer l’authentification unique Azure AD avec ClickTime, effectuez l
     a. Dans la zone de texte **Identificateur**, tapez une URL : `https://app.clicktime.com/sp/`
 
     b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant :
+    
     | |
     |--|
     | `https://app.clicktime.com/Login/` |
@@ -163,7 +164,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@votredomaineentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
@@ -222,7 +223,7 @@ Dans le cas de ClickTime, l’approvisionnement est une tâche manuelle.
    
     a.  Dans la zone de texte **Full Name** (Nom complet), tapez le nom complet d’un utilisateur, par exemple, **Britta Simon**. 
   
-    b.  Dans la zone de texte **Email address** (Adresse e-mail), tapez l’adresse e-mail d’un utilisateur, par exemple, **brittasimon@contoso.com**.
+    b.  Dans la zone de texte **Email address** (Adresse e-mail), tapez l’e-mail de l’utilisateur, par exemple **brittasimon\@contoso.com**.
        
     > [!NOTE]
     > Si vous le souhaitez, vous pouvez définir d’autres propriétés relatives à l’objet de la nouvelle personne.
