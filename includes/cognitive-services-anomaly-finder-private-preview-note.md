@@ -7,15 +7,15 @@ manager: cgrounlun
 ms.service: cognitive-services
 ms.technology: anomaly-finder
 ms.topic: include
-ms.date: 11/15/2018
+ms.date: 03/21/2019
 ms.author: nitinme
 ms.custom: include file
-ms.openlocfilehash: e93b889ee3ead06c28f9fec5659a61aad2752bac
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
-ms.translationtype: HT
+ms.openlocfilehash: 1dab9b0e23b5fe574f9b4506fdcad510d378bfef
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51716172"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58495138"
 ---
 > [!NOTE]
-> Anomaly Finder est disponible en préversion privée. Pour accéder à la préversion privée d’Anomaly Finder, [contactez-nous](mailto:kenshoteam@microsoft.com). Une fois que vous obtenez l’accès, consultez la [documentation sur la préversion privée d’Anomaly Finder](https://aka.ms/AnomalyFinderPrivatePreview) à accès contrôlé pour plus d’informations.
+> L’API de détecteur d’anomalie (actuellement en version préliminaire publique) remplace le laboratoire de recherche d’anomalies. Les laboratoires de recherche d’anomalies existants seront supprimés le 30 avril 2019. Nous vous encourageons à migrer vers le détecteur d’anomalies avant cette date. Consultez le [documentation de l’API de détecteur d’anomalies](../articles/cognitive-services/anomaly-detector/index.yml) pour plus d’informations. 

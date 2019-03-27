@@ -4,15 +4,15 @@ description: Fournit des informations sur l’appliance Collector dans Azure Mig
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 03/26/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 78ef88d0710e8a82d30fa26b60073aa75e363c15
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 224511b9748c540f2cd48a3d8393a9c74f76ce32
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315298"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498415"
 ---
 # <a name="about-the-collector-appliance"></a>À propos de l’appliance Collector
 
@@ -150,6 +150,9 @@ Serveur vCenter | TCP 443 | Le collecteur doit être en mesure de communiquer av
 RDP | TCP 3389 |
 
 ## <a name="collected-metadata"></a>Métadonnées collectées
+
+> [!NOTE]
+> Métadonnées détectées par les Azure Migrate appliance collecteur est utilisé pour vous aider à dimensionner correctement vos applications lorsque vous les migrez vers Azure, effectuer l’analyse d’adéquation Azure, l’analyse de dépendance application et planification du coût. Microsoft n’utilise pas ces données par rapport à un audit de conformité de licence.
 
 L’appliance collecteur détecte les métadonnées de configuration suivantes pour chaque machine virtuelle. Les données de configuration relatives à la machine virtuelle sont disponibles une heure après le démarrage de la détection.
 

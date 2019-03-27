@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: d558f0fa5abc421785ff6f9fcc2a6318819e3ebc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ae2384d0ac6773ccd362778d2913cdcaa9cb4d6c
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012732"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446707"
 ---
 # <a name="introduction-to-azure-storage"></a>Présentation de Stockage Azure
 
@@ -93,23 +93,15 @@ Le stockage Azure comprend également des fonctionnalités de disque géré et n
 
 Pour plus d’informations sur les types de comptes de stockage, voir [Vue d’ensemble des comptes de stockage Azure](storage-account-overview.md). 
 
-## <a name="accessing-your-blobs-files-and-queues"></a>Accéder aux objets blob, aux fichiers et aux files d’attente
+## <a name="securing-access-to-storage-accounts"></a>Sécurisation de l’accès aux comptes de stockage
 
-Chaque compte de stockage dispose deux clés d’authentification, qu’il est possible d’utiliser pour n’importe quelle opération. Vous pouvez ainsi passer de temps en temps d’une clé à l’autre et améliorer la sécurité. Il est essentiel que ces clés soient sécurisées, car leur possession, avec le nom du compte, offre un accès illimité à toutes les données du compte de stockage.
+Chaque demande vers le stockage Azure doit être autorisé. Stockage Azure prend en charge les méthodes d’autorisation suivantes :
 
-Cette section présente deux façons de sécuriser le compte de stockage et ses données. Pour en savoir plus sur la sécurisation de votre compte de stockage et de vos données, consultez le [guide de sécurité pour le stockage Azure](storage-security-guide.md).
-
-### <a name="securing-access-to-storage-accounts-using-azure-ad"></a>Sécuriser l’accès aux comptes de stockage à l’aide d’Azure AD
-
-Contrôler l’accès aux clés du compte de stockage permet de sécuriser l’accès à vos données de stockage. Avec le contrôle d’accès en fonction du rôle (RBAC) de Resource Manager, vous pouvez attribuer des rôles aux utilisateurs, aux groupes ou aux applications. Ces rôles sont liés à un ensemble spécifique d’actions, autorisées ou non. L’utilisation du service RBAC pour accorder l’accès à un compte de stockage ne permet de gérer que les opérations de gestion pour ce compte de stockage, telles que la modification du niveau d’accès. Vous ne pouvez pas utiliser le service RBAC pour accorder l’accès à des objets de données tels qu’un conteneur ou un partage de fichier spécifique. Toutefois, vous pouvez utiliser le service RBAC pour accorder l’accès aux clés du compte de stockage, qu’il sera alors possible d’utiliser pour lire les objets de données.
-
-### <a name="securing-access-using-shared-access-signatures"></a>Sécuriser l’accès à l’aide des signatures d’accès partagé
-
-Vous pouvez utiliser les signatures d’accès partagé et les stratégies d’accès stockées pour sécuriser vos objets de données. Une signature d’accès partagé (SAP) est une chaîne contenant un jeton de sécurité qui peut être associé à l’URI pour une ressource et vous permet de déléguer l’accès aux objets de stockage et de spécifier des restrictions telles que les autorisations et la plage des dates/heures d’accès. Cette fonctionnalité dispose de fonctionnalités étendues. Pour en savoir plus, consultez [Utilisation des signatures d’accès partagé (SAP)](storage-dotnet-shared-access-signature-part-1.md).
-
-### <a name="public-access-to-blobs"></a>Accès public aux objets blob
-
-Le service BLOB vous permet d’offrir un accès public à un conteneur et ses objets blob, ou à un objet blob spécifique. Lorsque vous indiquez qu'un conteneur ou un objet blob est public, n'importe qui peut le lire de manière anonyme ; aucune authentification n'est requise. Vous pouvez offrir un accès public lorsque vous disposez d’un site Web qui utilise des images, des vidéos ou des documents provenant d’un stockage d’objets blob. Pour en savoir plus, consultez la section [Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob](../blobs/storage-manage-access-to-resources.md)
+- **Intégration d’Azure Active Directory (Azure AD) pour les données d’objet blob et file d’attente.** Stockage Azure prend en charge l’authentification et autorisation avec les informations d’identification Azure AD pour les services Blob et file d’attente par le biais de contrôle d’accès en fonction du rôle (RBAC). Autorisation des requêtes avec Azure AD est recommandée pour la sécurité et facilité d’utilisation. Pour plus d’informations, consultez [authentifier l’accès à Azure d’objets BLOB et files d’attente à l’aide d’Azure Active Directory](storage-auth-aad.md).
+- **Autorisation AD Azure sur SMB pour les fichiers Azure (version préliminaire).** Azure Files prend en charge l’autorisation basée sur l’identité sur SMB (Server Message Block) via Azure Active Directory Domain Services. Votre domaine Windows virtual machines virtuelles peuvent accéder aux partages de fichiers Azure à l’aide des informations d’identification Azure AD. Pour plus d’informations, consultez [autorisation de vue d’ensemble d’Azure Active Directory sur SMB pour les fichiers Azure (aperçu)](../files/storage-files-active-directory-overview.md).
+- **Autorisation avec la clé partagée.** Les services Azure Storage Blob, file d’attente et Table Azure Files prend en charge d’autorisation avec client Key.A partagé à l’aide de la clé partagée autorisation transmet un en-tête avec chaque requête qui est signé à l’aide de la clé d’accès de compte stockage. Pour plus d’informations, consultez [Autoriser avec une clé partagée](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key).
+- **À l’aide de l’autorisation accès signatures partagé (SAP).** Une signature d’accès partagé (SAP) est une chaîne contenant un jeton de sécurité qui peut être ajouté à l’URI pour une ressource de stockage. Le jeton de sécurité encapsule les contraintes telles que les autorisations et l’intervalle d’accès. Pour plus d’informations, consultez [à l’aide de l’accès Signatures partagé (SAP)](storage-dotnet-shared-access-signature-part-1.md).
+- **Accès anonyme aux conteneurs et objets BLOB.** Un conteneur et ses objets BLOB peut-être être publiquement disponibles. Lorsque vous spécifiez qu’un conteneur ou un objet blob est public, tout le monde peut lire de manière anonyme ; Aucune authentification n’est requise. Pour en savoir plus, consultez la section [Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob](../blobs/storage-manage-access-to-resources.md)
 
 ## <a name="encryption"></a>Chiffrement
 

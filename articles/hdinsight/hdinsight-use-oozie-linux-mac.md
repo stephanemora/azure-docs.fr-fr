@@ -9,12 +9,12 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.openlocfilehash: dfbf9a3a9b800fec5df4cf527ddd4ec8e3f55b37
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: daee7ddd0a09d43132bbcf0f4553601846d31433
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57853237"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448239"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Utiliser Apache Oozie avec Apache Hadoop pour définir et exécuter un workflow sur Azure HDInsight Linux
 
@@ -717,8 +717,7 @@ Par exemple, pour le travail de ce document, vous utiliseriez les étapes suivan
 
 Dans ce didacticiel, vous avez appris comment définir un flux de travail Oozie et comment exécuter un travail Oozie. Pour en savoir plus sur l’utilisation de HDInsight, consultez les articles suivants :
 
-* [Utiliser le coordinateur Apache Oozie basé sur le temps avec Hadoop dans HDInsight][hdinsight-oozie-coordinator-time]
-* [Charger des données pour des tâches Apache Hadoop dans HDInsight][hdinsight-upload-data]
+* [Charger des données pour des travaux Apache Hadoop dans HDInsight][hdinsight-upload-data]
 * [Utiliser Apache Sqoop avec Apache Hadoop dans HDInsight][hdinsight-use-sqoop]
 * [Utiliser Apache Hive avec Apache Hadoop sur HDInsight][hdinsight-use-hive]
 * [Utiliser Apache Pig avec Apache Hadoop sur HDInsight][hdinsight-use-pig]
@@ -726,7 +725,6 @@ Dans ce didacticiel, vous avez appris comment définir un flux de travail Oozie 
 
 [hdinsight-cmdlets-download]: https://go.microsoft.com/fwlink/?LinkID=325563
 [azure-data-factory-pig-hive]: ../data-factory/transform-data.md
-[hdinsight-oozie-coordinator-time]: hdinsight-use-oozie-coordinator-time.md
 [hdinsight-versions]:  hdinsight-component-versioning.md
 [hdinsight-storage]: hdinsight-use-blob-storage.md
 [hdinsight-get-started]: hdinsight-get-started.md
@@ -756,8 +754,8 @@ Dans ce didacticiel, vous avez appris comment définir un flux de travail Oozie 
 
 [cindygross-hive-tables]: https://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
-[img-workflow-diagram]: ./media/hdinsight-use-oozie/HDI.UseOozie.Workflow.Diagram.png
-[img-preparation-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.Preparation.Output1.png
+[img-workflow-diagram]: ./media/hdinsight-use-oozie-linux-mac/HDI.UseOozie.Workflow.Diagram.png
+[img-preparation-output]: ./media/hdinsight-use-oozie-linux-mac/HDI.UseOozie.Preparation.Output1.png
 [img-runworkflow-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.RunWF.Output.png
 
 [technetwiki-hive-error]: https://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx

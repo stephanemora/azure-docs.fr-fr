@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 398b984f4d97005fdc4d749f3fe072423cc5bbd7
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 1d1e0f100a90c28bd7469991dee559abcd88f9a2
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309296"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499464"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>Installer le runtime Azure IoT Edge sur Linux (x64)
 
@@ -23,7 +23,7 @@ Le runtime Azure IoT Edge est ce qui transforme un appareil en appareil IoT Edge
 
 Pour plus d’informations, consultez [comprendre le runtime Azure IoT Edge et son architecture](iot-edge-runtime.md).
 
-Cet article répertorie les étapes pour installer le runtime Azure IoT Edge sur votre Linux x64 (Intel/AMD) appareil IoT Edge. Reportez-vous à [prise en charge Azure IoT Edge](support.md#operating-systems) pour obtenir la liste des systèmes d’exploitation AMD64.
+Cet article répertorie les étapes pour installer le runtime Azure IoT Edge sur votre Ubuntu Linux x64 (Intel/AMD) appareil IoT Edge. Reportez-vous à [prise en charge Azure IoT Edge](support.md#operating-systems) pour obtenir la liste des systèmes d’exploitation AMD64.
 
 > [!NOTE]
 > Chaque package des référentiels de logiciels Linux est soumis aux termes du contrat de licence qu’il contient (/usr/share/doc/*nom_package*). Lisez les termes du contrat de licence avant d’utiliser le package. Le fait d’installer et d’utiliser le package revient à accepter ces termes. Si vous n’acceptez pas les termes du contrat de licence, n’utilisez pas le package.
@@ -33,11 +33,22 @@ Cet article répertorie les étapes pour installer le runtime Azure IoT Edge sur
 Préparez-vous à votre appareil IoT Edge installation du runtime.
 
 
-Installer la configuration du référentiel. Remplacez **\<release\>** avec **16.04** ou **18.04** selon les besoins de votre version d’Ubuntu.
+Installer la configuration du référentiel. Choisissez le **16.04** ou **18.04** extrait de code comme il convient pour votre version d’Ubuntu.
 
+> [!IMPORTANT]
+> Assurez-vous que vous choisissez l’extrait de code dans la zone de code correct pour votre version d’Ubuntu.
+
+* Pour **Ubuntu 16.04**:
    ```bash
-   curl https://packages.microsoft.com/config/ubuntu/<release>/prod.list > ./microsoft-prod.list
+   curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > ./microsoft-prod.list
    ```
+
+* Pour **Ubuntu 18.04**:
+   ```bash
+   curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list > ./microsoft-prod.list
+   ```
+   
+Installer la configuration du référentiel. Choisissez le **16.04** ou **18.04** extrait de code comme il convient pour votre version d’Ubuntu.
 
 Copiez la liste générée.
 

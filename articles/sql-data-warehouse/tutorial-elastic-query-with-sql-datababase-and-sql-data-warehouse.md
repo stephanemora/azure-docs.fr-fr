@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Requête élastique avec Azure SQL Data Warehouse | Microsoft Docs'
+title: 'Didacticiel : Requête élastique avec Azure SQL Data Warehouse | Microsoft Docs'
 description: Ce tutoriel utilise la fonctionnalité de requête élastique pour exécuter une requête dans Azure SQL Data Warehouse depuis Azure SQL Database.
 services: sql-data-warehouse
 author: hirokib
@@ -10,14 +10,14 @@ ms.subservice: implement
 ms.date: 04/14/2018
 ms.author: elbutter
 ms.reviewer: igorstan
-ms.openlocfilehash: b1ac2edd39ac2e5a765eaf6223ba01c9f9e5df91
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 4dc0be045bceaaac4b71c653d82f7f9db834c3ec
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238333"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486045"
 ---
-# <a name="tutorial-use-elastic-query-to-access-data-in-azure-sql-data-warehouse-from-azure-sql-database"></a>Tutoriel : Utiliser la requête élastique pour accéder à des données dans Azure SQL Data Warehouse à partir d'Azure SQL Database
+# <a name="tutorial-use-elastic-query-to-access-data-in-azure-sql-data-warehouse-from-azure-sql-database"></a>Didacticiel : Utiliser la requête élastique pour accéder à des données dans Azure SQL Data Warehouse à partir d'Azure SQL Database
 
 Ce tutoriel utilise la fonctionnalité de requête élastique pour exécuter une requête dans Azure SQL Data Warehouse depuis Azure SQL Database. 
 
@@ -94,8 +94,8 @@ Dans les étapes suivantes, nous allons créer une table dans notre instance de 
    ```sql
    CREATE TABLE [dbo].[OrderInformation]
    ( 
-       [OrderID] [int] NOT NULL 
-   ,   [CustomerID] [int] NOT NULL 
+       [OrderID] [int] NOT NULL, 
+       [CustomerID] [int] NOT NULL 
    ) 
    INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (123, 1) 
    INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (149, 2) 
@@ -106,19 +106,19 @@ Dans les étapes suivantes, nous allons créer une table dans notre instance de 
 
 3. À l’aide de SSMS ou d’un autre client de requête, ouvrez une nouvelle requête pour **la base de données SQL** sur votre serveur logique.
 
-4. Exécutez la requête suivante pour créer une définition de table externe pointant vers la table **OrdersInformation** dans l’instance de l’entrepôt de données.
+4. Envoyez la requête suivante pour créer une définition de table externe qui pointe vers le **OrderInformation** table dans l’instance de l’entrepôt de données.
 
    ```sql
    CREATE EXTERNAL TABLE [dbo].[OrderInformation]
    ( 
-       [OrderID] [int] NOT NULL
-   ,   [CustomerID] [int] NOT NULL 
+       [OrderID] [int] NOT NULL,
+       [CustomerID] [int] NOT NULL 
    ) 
    WITH 
    (
-        DATA_SOURCE = EnterpriseDwSrc
-   ,    SCHEMA_NAME = N'dbo'
-   ,    OBJECT_NAME = N'OrderInformation'
+        DATA_SOURCE = EnterpriseDwSrc,
+    SCHEMA_NAME = N'dbo',
+    OBJECT_NAME = N'OrderInformation'
    )
    ```
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: barclayn
-ms.openlocfilehash: afec42551f124890dd2cc7b03cce48c359fc88c4
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 25ebd72c512eb92c5d9a464a4b4d74f9e41ae389
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194093"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484106"
 ---
 # <a name="azure-key-vault-logging"></a>Journalisation d’Azure Key Vault
 
@@ -55,7 +55,7 @@ La première étape dans la configuration d’enregistrement de frappe est point
 
 Démarrez une session Azure PowerShell et connectez-vous à votre compte Azure en utilisant la commande suivante :  
 
-```PowerShell
+```powershell
 Connect-AzAccount
 ```
 
@@ -63,13 +63,13 @@ Dans la fenêtre contextuelle de votre navigateur, entrez votre nom d’utilisat
 
 Vous devrez peut-être spécifier l’abonnement que vous avez utilisé pour créer votre coffre de clés. Entrez la commande suivante pour afficher les abonnements de votre compte :
 
-```PowerShell
+```powershell
 Get-AzSubscription
 ```
 
 Ensuite, pour spécifier l’abonnement associé au coffre de clés que vous allez vous connecter, entrez :
 
-```PowerShell
+```powershell
 Set-AzContext -SubscriptionId <subscription ID>
 ```
 
@@ -81,7 +81,7 @@ Bien que vous pouvez utiliser un compte de stockage existant pour vos journaux, 
 
 Pour faciliter encore de gestion, nous utiliserons également le même groupe de ressources que celui qui contient le coffre de clés. À partir de la [didacticiel mise en route](key-vault-get-started.md), ce groupe de ressources est nommé **ContosoResourceGroup**, et nous allons continuer à utiliser l’emplacement Asie de l’est. Remplacez ces valeurs par les vôtres, selon le cas :
 
-```PowerShell
+```powershell
  $sa = New-AzStorageAccount -ResourceGroupName ContosoResourceGroup -Name contosokeyvaultlogs -Type Standard_LRS -Location 'East Asia'
 ```
 
@@ -94,7 +94,7 @@ Pour faciliter encore de gestion, nous utiliserons également le même groupe de
 
 Dans le [didacticiel mise en route](key-vault-get-started.md), le nom de coffre de clés a été **ContosoKeyVault**. Nous allons continuer à utiliser ce nom et de stocker les détails dans une variable nommée **kv**:
 
-```PowerShell
+```powershell
 $kv = Get-AzKeyVault -VaultName 'ContosoKeyVault'
 ```
 
@@ -102,7 +102,7 @@ $kv = Get-AzKeyVault -VaultName 'ContosoKeyVault'
 
 Pour activer la journalisation pour Key Vault, nous allons utiliser le **Set-AzDiagnosticSetting** applet de commande, ainsi que les variables que nous avons créé pour le nouveau compte de stockage et le coffre de clés. Nous allons également définir le **-activé** indicateur **$true** et la catégorie **AuditEvent** (la seule catégorie pour la journalisation de Key Vault) :
 
-```PowerShell
+```powershell
 Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent
 ```
 
@@ -122,7 +122,7 @@ Cette sortie confirme que la journalisation est maintenant activée pour votre c
 
 Si vous le souhaitez, vous pouvez définir une stratégie de rétention pour vos journaux telles que les anciens journaux sont automatiquement supprimés. Par exemple, définir la stratégie de rétention en définissant le **- RetentionEnabled** indicateur **$true**et définissez le **- RetentionInDays** paramètre **90**afin que les journaux de plus de 90 jours sont automatiquement supprimés.
 
-```PowerShell
+```powershell
 Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent -RetentionEnabled $true -RetentionInDays 90
 ```
 
@@ -141,13 +141,13 @@ Journaux de coffre de clés sont stockés dans le **insights-logs-auditevent** c
 
 Commencez par créer une variable pour le nom du conteneur. Vous utiliserez cette variable dans le reste de la procédure pas à pas.
 
-```PowerShell
+```powershell
 $container = 'insights-logs-auditevent'
 ```
 
 Pour répertorier tous les objets BLOB dans ce conteneur, entrez :
 
-```PowerShell
+```powershell
 Get-AzStorageBlob -Container $container -Context $sa.Context
 ```
 
@@ -174,19 +174,19 @@ Les valeurs de date et d’heure utilisent UTC.
 
 Créez un dossier pour télécharger les objets BLOB. Par exemple : 
 
-```PowerShell 
+```powershell 
 New-Item -Path 'C:\Users\username\ContosoKeyVaultLogs' -ItemType Directory -Force
 ```
 
 Procurez-vous la liste de tous les objets blob :  
 
-```PowerShell
+```powershell
 $blobs = Get-AzStorageBlob -Container $container -Context $sa.Context
 ```
 
 Redirigez cette liste via **Get-AzStorageBlobContent** pour télécharger les objets BLOB dans le dossier de destination :
 
-```PowerShell
+```powershell
 $blobs | Get-AzStorageBlobContent -Destination C:\Users\username\ContosoKeyVaultLogs'
 ```
 
@@ -196,19 +196,19 @@ Pour télécharger les objets blob de façon sélective, utilisez des caractère
 
 * Si vous disposez de plusieurs coffres de clés et souhaitez télécharger les journaux d’un seul d’entre eux nommé CONTOSOKEYVAULT3 :
 
-  ```PowerShell
+  ```powershell
   Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/VAULTS/CONTOSOKEYVAULT3
   ```
 
 * Si vous disposez de plusieurs groupes de ressources et souhaitez télécharger les journaux d’un seul d’entre eux, utilisez `-Blob '*/RESOURCEGROUPS/<resource group name>/*'`:
 
-  ```PowerShell
+  ```powershell
   Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
   ```
 
 * Si vous souhaitez télécharger tous les journaux pour le mois de janvier 2019, utilisez `-Blob '*/year=2019/m=01/*'`:
 
-  ```PowerShell
+  ```powershell
   Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/year=2016/m=01/*'
   ```
 
@@ -221,7 +221,7 @@ Vous êtes maintenant prêt à commencer les recherches dans le contenu des jour
 
 Les objets blob individuels sont stockés sous forme de texte en tant qu’objet blob JSON. Examinons un exemple d’entrée de journal. Exécutez cette commande :
 
-```PowerShell
+```powershell
 Get-AzKeyVault -VaultName 'contosokeyvault'`
 ```
 

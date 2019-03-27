@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/07/2018
 ms.author: cephalin;sisirap
 ms.custom: seodec18
-ms.openlocfilehash: 011caaad2f9cb3b0b891df172002dcb6b6aa8206
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: 1f94544a2e7a26ab00432a3564bb752c71254844
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53607049"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484878"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Déployer votre application sur Azure App Service avec un fichier ZIP ou WAR
 
@@ -38,7 +38,7 @@ Le fichier [WAR](https://wikipedia.org/wiki/WAR_(file_format)) est déployé sur
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour accomplir les étapes décrites dans cet article :
 
@@ -100,7 +100,7 @@ curl -X POST -u <username> --data-binary @"<war_file_path>" https://<app_name>.s
 
 L’exemple suivant utilise [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) pour envoyer une requête qui contient le fichier .war. Remplacez les espaces réservés `<deployment_user>`, `<deployment_password>`, `<zip_file_path>` et `<app_name>`.
 
-```PowerShell
+```powershell
 $username = "<deployment_user>"
 $password = "<deployment_password>"
 $filePath = "<war_file_path>"

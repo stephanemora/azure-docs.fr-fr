@@ -9,12 +9,12 @@ ms.date: 08/11/2018
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
-ms.openlocfilehash: 1ae35c30e0379ed7a0f1fac16c279651e3bcd8fd
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 7911bd398b6760fb4f83382868f040382b86cd1f
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315875"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480538"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Surveillance de l’utilisation et de l’estimation des coûts
 
@@ -138,7 +138,7 @@ isGrandFatherableSubscription optedInDate
 
 Pour migrer cet abonnement vers le nouveau modèle de tarification, exécutez :
 
-```PowerShell
+```powershell
 $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
 Invoke-AzResourceAction `
  -ResourceId $ResourceID `
@@ -149,7 +149,7 @@ Invoke-AzResourceAction `
 
 Pour vérifier la réussite de la modification, exécutez à nouveau :
 
-```PowerShell
+```powershell
 $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
 Invoke-AzResourceAction `
  -ResourceId $ResourceID `
@@ -170,7 +170,7 @@ optInDate contient maintenant un timestamp indiquant à quel moment cet abonneme
 
 Si vous devez revenir à l’ancien modèle de tarification, exécutez :
 
-```PowerShell
+```powershell
  $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
 Invoke-AzResourceAction `
  -ResourceId $ResourceID `
@@ -183,7 +183,7 @@ Si vous exécutez à nouveau le script précédent comportant ``-Action listmigr
 
 Si vous avez plusieurs abonnements à migrer hébergés sous le même locataire, vous pouvez créer votre propre variante en utilisant des parties des scripts suivants :
 
-```PowerShell
+```powershell
 #Query tenant and create an array comprised of all of your tenants subscription ids
 $TenantId = <Your-tenant-id>
 $Tenant =Get-AzSubscription -TenantId $TenantId
@@ -192,7 +192,7 @@ $Subscriptions = $Tenant.Id
 
 Pour vérifier si tous les abonnements du locataire ont le droit d’être basés sur le nouveau modèle de tarification, vous pouvez exécuter :
 
-```PowerShell
+```powershell
 Foreach ($id in $Subscriptions)
 {
 $ResourceID ="/subscriptions/$id/providers/microsoft.insights"
@@ -206,7 +206,7 @@ Invoke-AzResourceAction `
 
 Vous pouvez davantage affiner le script en créant un script qui génère trois tableaux. Le premier tableau se compose de tous les ID d’abonnement dont la valeur ```isGrandFatherableSubscription``` est définie sur True et la valeur optedInDate est vide pour le moment. Le deuxième tableau contient les abonnements actuellement basés sur le nouveau modèle de tarification. Et le troisième tableau est renseigné uniquement avec les ID d’abonnement du locataire qui n’ont pas le droit d’être basés sur le nouveau modèle de tarification :
 
-```PowerShell
+```powershell
 [System.Collections.ArrayList]$Eligible= @{}
 [System.Collections.ArrayList]$NewPricingEnabled = @{}
 [System.Collections.ArrayList]$NotEligible = @{}
@@ -242,7 +242,7 @@ $Result= Invoke-AzResourceAction `
 
 Maintenant que vos abonnements sont divisés en trois tableaux, vous devez examiner attentivement les résultats. Vous pouvez effectuer une copie de sauvegarde du contenu des tableaux afin de pouvoir annuler facilement les modifications ultérieurement si nécessaire. Si vous décidez de convertir tous les abonnements éligibles actuellement basés sur l’ancien modèle de tarification vers le nouveau modèle de tarification, vous pouvez maintenant effectuer cette tâche avec :
 
-```PowerShell
+```powershell
 Foreach ($id in $Eligible)
 {
 $ResourceID ="/subscriptions/$id/providers/microsoft.insights"

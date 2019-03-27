@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/17/2017
 ms.author: manayar
-ms.openlocfilehash: 656645326314fec42ba909957c9dc27fe88ae338
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a9141adfb1dd05efd73061379be89ddf27ab3832
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57773297"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487496"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Mise en réseau pour des groupes de machines virtuelles identiques Azure
 
@@ -170,12 +170,12 @@ Exemple de modèle : [201-vmss-public-ip-linux](https://github.com/Azure/azure-
 Pour répertorier les adresses IP publiques attribuées à des machines virtuelles d’un groupe identique avec l’interface CLI, utilisez la commande **az vmss list-instance-public-ips**.
 
 Pour lister les adresses IP publiques d’un groupe identique à l’aide de PowerShell, utilisez la commande _Get-AzPublicIpAddress_. Par exemple : 
-```PowerShell
+```powershell
 Get-AzPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
 ```
 
 Vous pouvez également interroger les adresses IP publiques en référençant directement l’ID de ressource de la configuration d’adresse IP publique. Par exemple : 
-```PowerShell
+```powershell
 Get-AzPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
 ```
 

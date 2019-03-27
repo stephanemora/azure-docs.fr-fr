@@ -12,13 +12,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: b12fdcec32aca65b0c66f6a3fb14595453d36fdb
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.date: 03/26/2019
+ms.openlocfilehash: b1e952d9af474e2318ef91a6bdcc2605a3c30018
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301755"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497922"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Contrôle et autorisation d’accès aux bases de données SQL Database et SQL Data Warehouse
 
@@ -203,6 +203,12 @@ Prenez en compte les aspects suivants lors de la gestion des connexions et des u
            WHERE  [name] = N'database_name')
   DROP DATABASE [database_name];
   GO
+  ```
+  
+  Au lieu de cela, utilisez l’instruction Transact-SQL suivante :
+  
+  ```sql
+  DROP DATABASE IF EXISTS [database_name]
   ```
 
 - Lors de l’exécution de l’instruction `CREATE USER` avec l’option `FOR/FROM LOGIN`, elle doit être la seule instruction du batch Transact-SQL.

@@ -8,12 +8,12 @@ ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: a8be44201a2181ab252dfba501469719dd675ffa
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 166ffea9cbeb3f343d70737de9049ee721fa9a98
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57410160"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448671"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Résolution des problèmes rencontrés avec Update Management
 
@@ -65,7 +65,7 @@ Cette erreur se produit lorsque vous créez un déploiement de mise à jour dans
 
 #### <a name="resolution"></a>Résolution :
 
-Vous devez utiliser la solution de contournement suivante pour planifier la mise à jour. Vous pouvez utiliser la cmdlet [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule?view=azurermps-6.13.0) avec le commutateur `-ForUpdate` pour créer une planification et utiliser la cmdlet [New-AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration?view=azurermps-6.13.0
+Vous devez utiliser la solution de contournement suivante pour planifier la mise à jour. Vous pouvez utiliser la cmdlet [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) avec le commutateur `-ForUpdate` pour créer une planification et utiliser la cmdlet [New-AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration
 ) et faire passer les machines de l’autre client au paramètre `-NonAzureComputer`. L’exemple suivant vous montre comment procéder :
 
 ```azurepowershell-interactive

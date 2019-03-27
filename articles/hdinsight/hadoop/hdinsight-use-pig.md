@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 3f4f99a37718fac3ae4baa14553290d63c7bce63
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: 2b0f3a4394267a808b6e6e0a73abfaf1e698ff1c
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653966"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445020"
 ---
 # <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>Utiliser Apache Pig avec Apache Hadoop sur HDInsight
 
@@ -27,7 +27,7 @@ Apache Pig est une plateforme qui permet de créer des programmes pour Apache Ha
 | [SSH](apache-hadoop-use-pig-ssh.md) |✔ |✔ |Linux |Linux, Unix, Mac OS X ou Windows |
 | [API REST](apache-hadoop-use-pig-curl.md) |&nbsp; |✔ |Linux ou Windows |Linux, Unix, Mac OS X ou Windows |
 | [Kit de développement logiciel (SDK) .NET pour Hadoop](apache-hadoop-use-pig-dotnet-sdk.md) |&nbsp; |✔ |Linux ou Windows |Windows (pour l’instant) |
-| [Windows PowerShell](apache-hadoop-use-pig-powershell.md) |&nbsp; |✔ |Linux ou Windows | Windows |
+| [Windows PowerShell](apache-hadoop-use-pig-powershell.md) |&nbsp; |✔ |Linux ou Windows |Windows |
 
 > [!IMPORTANT]  
 > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -96,7 +96,7 @@ HDInsight peut exécuter des tâches Pig Latin de différentes façons. Utilise
 | [SSH](apache-hadoop-use-pig-ssh.md) |✔ |✔ |Linux |Linux, Unix, Mac OS X ou Windows |
 | [Curl](apache-hadoop-use-pig-curl.md) |&nbsp; |✔ |Linux ou Windows |Linux, Unix, Mac OS X ou Windows |
 | [Kit de développement logiciel (SDK) .NET pour Hadoop](apache-hadoop-use-pig-dotnet-sdk.md) |&nbsp; |✔ |Linux ou Windows |Windows (pour l’instant) |
-| [Windows PowerShell](apache-hadoop-use-pig-powershell.md) |&nbsp; |✔ |Linux ou Windows | Windows |
+| [Windows PowerShell](apache-hadoop-use-pig-powershell.md) |&nbsp; |✔ |Linux ou Windows |Windows |
 
 > [!IMPORTANT]  
 > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -117,7 +117,7 @@ Maintenant que vous avez vu comment utiliser Pig avec HDInsight, utilisez les li
 * [Téléchargement de données vers HDInsight](../hdinsight-upload-data.md)
 * [Utilisation d’Apache Hive avec HDInsight][hdinsight-use-hive]
 * [Utiliser Apache Sqoop avec HDInsight](hdinsight-use-sqoop.md)
-* [Utiliser Apache Oozie avec HDInsight](../hdinsight-use-oozie.md)
+* [Utiliser Apache Oozie avec HDInsight](../hdinsight-use-oozie-linux-mac.md)
 * [Utilisation des tâches MapReduce avec HDInsight][hdinsight-use-mapreduce]
 
 [apachepig-home]: https://pig.apache.org/

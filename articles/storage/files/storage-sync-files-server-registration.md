@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 493f6f3380dee4ed70bb6e0bc9bba24f93071097
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 954cbe66bfc4a0cebf7692a90aeee637ffcb6ca3
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165329"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485053"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Gérer des serveurs inscrits avec Azure File Sync
 Azure File Sync vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Pour ce faire, Azure File Sync transforme vos serveurs Windows en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible sur Windows Server pour accéder à vos données localement (y compris SMB, NFS et FTPS) et vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -25,7 +25,7 @@ L’article suivant décrit comment inscrire un serveur au service de synchronis
 ## <a name="registerunregister-a-server-with-storage-sync-service"></a>Inscrire/désinscrire un serveur au service de synchronisation de stockage
 L’inscription d’un serveur à Azure File Sync établit une relation d’approbation entre Windows Server et Azure. Cette relation peut ensuite être utilisée pour créer des *points de terminaison de serveur* sur le serveur, qui représentent des dossiers spécifiques qui doivent être synchronisés avec un partage de fichiers Azure (également appelé un *point de terminaison de cloud*). 
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables
 Pour inscrire un serveur à un service de synchronisation de stockage, vous devez d’abord préparer votre serveur avec les prérequis nécessaires :
 
 * Votre appareil doit exécuter une version prise en charge de Windows Server. Pour plus d’informations, consultez [Configuration requise et interopérabilité d’Azure File Sync](storage-sync-files-planning.md#azure-file-sync-system-requirements-and-interoperability).
@@ -101,7 +101,7 @@ Pour utiliser un serveur comme *point de terminaison de serveur* dans un *groupe
 #### <a name="register-the-server-with-powershell"></a>Inscrire le serveur avec PowerShell
 Vous pouvez également effectuer l’inscription du serveur via PowerShell. Il s’agit de la seule méthode d’inscription de serveur prise en charge pour les abonnements Fournisseur de solutions cloud (CSP) :
 
-```PowerShell
+```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
 Login-AzureRmStorageSync -SubscriptionID "<your-subscription-id>" -TenantID "<your-tenant-id>"
 Register-AzureRmStorageSyncServer -SubscriptionId "<your-subscription-id>" - ResourceGroupName "<your-resource-group-name>" - StorageSyncService "<your-storage-sync-service-name>"
@@ -116,7 +116,7 @@ Plusieurs étapes sont nécessaires pour désinscrire un serveur du service de s
 #### <a name="optional-recall-all-tiered-data"></a>(Facultatif) Rappeler toutes les données hiérarchisées
 Si vous voulez que les fichiers qui sont actuellement hiérarchisés soient disponibles après la suppression d’Azure File Sync (autrement dit, il s’agit d’un environnement de production et non de test), rappelez tous les fichiers sur chaque volume contenant des points de terminaison de serveur. Désactivez la hiérarchisation cloud pour tous les points de terminaison de serveur, puis exécutez l’applet de commande PowerShell suivante :
 
-```PowerShell
+```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Invoke-StorageSyncFileRecall -Path <a-volume-with-server-endpoints-on-it>
 ```
@@ -134,7 +134,7 @@ Avant de désinscrire le serveur du service de synchronisation de stockage, tous
 
 Cette opération peut également être effectuée avec un script PowerShell simple :
 
-```PowerShell
+```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
 
 $accountInfo = Connect-AzAccount
@@ -172,20 +172,20 @@ Vous pouvez limiter l’utilisation du réseau d’Azure File Sync en utilisant 
 
 Par exemple, créez une nouvelle limite pour vous assurer qu’Azure File Sync n’utilise pas plus de 10 Mbits/s entre 9h et 17h en semaine : 
 
-```PowerShell
+```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 New-StorageSyncNetworkLimit -Day Monday, Tuesday, Wednesday, Thursday, Friday -StartHour 9 -EndHour 17 -LimitKbps 10000
 ```
 
 Vous pouvez voir votre limite à l’aide de l’applet de commande suivante :
 
-```PowerShell
+```powershell
 Get-StorageSyncNetworkLimit # assumes StorageSync.Management.ServerCmdlets.dll is imported
 ```
 
 Pour supprimer des limites réseau, utilisez `Remove-StorageSyncNetworkLimit`. Par exemple, la commande suivante supprime toutes les limites réseau :
 
-```PowerShell
+```powershell
 Get-StorageSyncNetworkLimit | ForEach-Object { Remove-StorageSyncNetworkLimit -Id $_.Id } # assumes StorageSync.Management.ServerCmdlets.dll is imported
 ```
 

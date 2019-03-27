@@ -1,27 +1,27 @@
 ---
-title: Mise à niveau vers un compte de stockage v2 à usage général - Stockage Azure | Microsoft Docs
-description: Mettez à niveau vers des comptes de stockage v2 à usage général.
+title: Mise à niveau vers un compte de stockage à usage général v2 - stockage Azure | Microsoft Docs
+description: Mettre à niveau pour les comptes de stockage à usage général v2.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 03/26/2019
 ms.author: tamram
-ms.openlocfilehash: df9bc1680f20fe6264da0109cd52db1072fd9fc5
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: a1ee95ad847d20159c79af8f080cc7878e114759
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311133"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444516"
 ---
-# <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Mettre à niveau vers un compte de stockage v2 à usage général
+# <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Mise à niveau vers un compte de stockage à usage général v2
 
-Les comptes de stockage v2 à usage général prennent en charge les dernières fonctionnalités du Stockage Azure, et intègrent toutes les fonctionnalités des comptes de stockage v1 à usage général et des comptes de stockage d’objets blob. Les comptes de stockage v2 à usage général sont adaptés à la plupart des scénarios. Pour le Stockage Azure, ce sont les comptes v2 à usage général qui offrent les tarifs de capacité par gigaoctet les plus bas. En outre, le prix des transactions est l’un des plus compétitifs du secteur.
+Les comptes de stockage à usage général v2 prend en charge les dernières fonctionnalités de stockage Azure et intègrent toutes les fonctionnalités de v1 à usage général et comptes de stockage d’objets Blob. Les comptes de stockage v2 à usage général sont adaptés à la plupart des scénarios. Pour le Stockage Azure, ce sont les comptes v2 à usage général qui offrent les tarifs de capacité par gigaoctet les plus bas. En outre, le prix des transactions est l’un des plus compétitifs du secteur.
 
-La mise à niveau vers un compte de stockage v2 à usage général à partir d’un compte de stockage v1 à usage général ou d’un compte de stockage d’objets blob est une opération très simple. Pour ce faire, vous pouvez utiliser le Portail Azure, PowerShell ou Azure CLI.
+Mise à niveau vers un compte de stockage à usage général v2 à partir de votre usage général v1 ou comptes de stockage Blob est simple. Pour ce faire, vous pouvez utiliser le Portail Azure, PowerShell ou Azure CLI.
 
 > [!IMPORTANT]
-> La mise à niveau d’un compte de stockage v1 à usage général v2 est définitive et ne peut pas être annulée.
+> La mise à niveau un v1 à usage général ou un compte de stockage d’objets Blob stockage à usage général v2 est définitive et ne peut pas être annulée.
 
 ## <a name="upgrade-using-the-azure-portal"></a>Mise à niveau à l’aide du Portail Azure
 
@@ -32,11 +32,13 @@ La mise à niveau vers un compte de stockage v2 à usage général à partir d�
 5. Sous **Confirmer la mise à niveau**, saisissez le nom de votre compte.
 6. Cliquez sur l’option **Mettre à niveau** figurant en bas du panneau.
 
+    ![Type de compte de mise à niveau](../blobs/media/storage-blob-account-upgrade/upgrade-to-gpv2-account.png)
+
 ## <a name="upgrade-with-powershell"></a>Mise à niveau à l’aide de PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Pour mettre à niveau un compte v1 à usage général vers un compte v2 à usage général à l’aide de PowerShell, commencez par mettre à jour PowerShell afin d’utiliser la dernière version du module **Az.Storage**. Pour plus d’informations sur l’installation de PowerShell, consultez l’article [Installation et configuration d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+Pour mettre à niveau un compte v1 à usage général à un compte v2 à usage général à l’aide de PowerShell, tout d’abord mettre à jour les PowerShell pour utiliser la dernière version de la **Az.Storage** module. Pour plus d’informations sur l’installation de PowerShell, consultez l’article [Installation et configuration d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
 Ensuite, appelez la commande suivante pour mettre à niveau le compte, en remplaçant le nom de votre groupe de ressources et de votre compte de stockage :
 
@@ -46,7 +48,7 @@ Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-a
 
 ## <a name="upgrade-with-azure-cli"></a>Mise à niveau à l’aide de l’interface de ligne de commande Azure
 
-Pour mettre à niveau un compte v1 à usage général vers un compte v2 à usage général à l’aide d’Azure CLI, commencez par installer la dernière version d’Azure CLI. Pour plus d’informations sur l’installation de l’interface de ligne de commande, consultez l’article [Installer Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Pour mettre à niveau un compte v1 à usage général à un compte v2 à usage général à l’aide d’Azure CLI, d’abord installer la dernière version d’Azure CLI. Pour plus d’informations sur l’installation de l’interface de ligne de commande, consultez l’article [Installer Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 Ensuite, appelez la commande suivante pour mettre à niveau le compte, en remplaçant le nom de votre groupe de ressources et de votre compte de stockage :
 
@@ -56,16 +58,16 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 
 ## <a name="specify-an-access-tier-for-blob-data"></a>Spécifier un niveau d’accès pour les données blob
 
-Les comptes v2 à usage général prennent en charge tous les services de stockage et objets de données Azure, mais les niveaux d’accès sont uniquement disponibles pour les objets blob de blocs dans le stockage d’objets blob. Lorsque vous passez à un compte de stockage v2 à usage général, vous pouvez spécifier un niveau d’accès pour vos données blob.
+Les comptes v2 à usage général prennent en charge tous les services de stockage et objets de données Azure, mais les niveaux d’accès sont uniquement disponibles pour les objets blob de blocs dans le stockage d’objets blob. Lorsque vous migrez vers un compte de stockage à usage général v2, vous pouvez spécifier un niveau d’accès pour vos données d’objet blob.
 
 Les niveaux d’accès vous permettent de choisir la solution de stockage la plus économique en fonction des modèles d’utilisation prévus. Les objets blob de blocs peuvent être stockés dans un niveau de stockage chaud, froid ou archive. Pour plus d’informations sur les niveaux d’accès, consultez [Stockage Blob Azure : Niveaux de stockage chaud, à froid et archivage](../blobs/storage-blob-storage-tiers.md).
 
-Par défaut, un compte de stockage est créé dans le niveau d’accès chaud, et un compte de stockage Usage général v1 est mis à niveau vers le niveau d’accès chaud. Si vous cherchez à déterminer le niveau d’accès à utiliser suite à la mise à niveau des données, examinez votre scénario. Les utilisateurs se trouvent généralement face à deux scénarios lors de la migration vers un compte v2 à usage général :
+Par défaut, un compte de stockage est créé dans le niveau d’accès à chaud, et un compte de stockage à usage général v1 est mis à niveau vers le niveau d’accès à chaud. Si vous cherchez à déterminer le niveau d’accès à utiliser suite à la mise à niveau des données, examinez votre scénario. Il existe deux scénarios utilisateur classiques pour la migration vers un compte v2 à usage général :
 
-* Vous disposez d’un compte de stockage v1 universel et envisagez de passer à un compte de stockage v2 universel, assorti du niveau d’accès de stockage adapté aux données blob.
-* Vous avez décidé d’utiliser un compte de stockage v2 universel ou vous disposez déjà d’un tel compte et souhaitez savoir si vous devez utiliser le niveau d’accès de stockage chaud ou froid pour les données blob.
+* Vous disposez d’un compte de stockage à usage général v1 et que vous voulez évaluer une mise à niveau vers un compte de stockage à usage général v2, avec le niveau d’accès de stockage approprié pour les données blob.
+* Vous avez décidé de les utiliser un compte de stockage à usage général v2 ou déjà un et à évaluer si vous devez utiliser le niveau d’accès de stockage chaud ou froid pour les données blob.
 
-Dans les deux cas, la priorité est d’estimer les coûts de stockage, d’exploitation des données stockées dans un compte de stockage v2 à usage général et d’accès à celles-ci pour les comparer avec vos frais actuels.
+Dans les deux cas, la première priorité doit estimer le coût de stockage, accès et d’exploitation sur vos données stockées dans un compte de stockage à usage général v2 et comparer avec vos frais actuels.
 
 ## <a name="pricing-and-billing"></a>Tarification et facturation
 
@@ -81,7 +83,7 @@ Tous les comptes de stockage utilisent un modèle de tarification pour le stocka
 
 * **Coûts de transfert de données de géoréplication** : ces coûts s’appliquent uniquement aux comptes pour lesquels la géoréplication est configurée, notamment GRS et RA-GRS. Le transfert de données de géoréplication implique des frais par gigaoctet.
 
-* **Coûts de transfert de données sortantes** : les transferts de données sortantes (données transférées hors d’une région Azure) sont facturés pour l’utilisation de la bande passante par gigaoctet. Cette facturation est cohérente avec les comptes de stockage à usage général.
+* **Coûts de transfert de données sortantes** : Transferts de données sortantes (données transférées hors d’une région Azure) entraînent la facturation pour l’utilisation de la bande passante sur une base par gigaoctet, cohérente avec les comptes de stockage à usage général.
 
 * **Modification du niveau d’accès de stockage** : Le passage du niveau d’accès de stockage froid au niveau d’accès de stockage chaud implique des frais correspondant à la lecture de toutes les données existant dans le compte de stockage. Par ailleurs, le passage du niveau d’accès de stockage chaud au niveau d’accès de stockage froid implique des frais correspondant à l’écriture de toutes les données dans le niveau froid (comptes GPv2 uniquement).
 
@@ -90,7 +92,7 @@ Tous les comptes de stockage utilisent un modèle de tarification pour le stocka
 
 ### <a name="estimate-costs-for-your-current-usage-patterns"></a>Estimer les coûts de vos modèles d’utilisation actuels
 
-Pour estimer le coût de stockage et d’accès aux données blob stockées dans un compte de stockage v2 à usage général (et avec un niveau particulier), vous devez évaluer votre modèle d’utilisation existant ou faire une estimation du modèle d’utilisation souhaité. En général, vous souhaitez connaître :
+Pour estimer le coût de stockage et l’accès aux données d’objet blob dans un compte de stockage à usage général v2 dans un niveau particulier, d’évaluer votre modèle d’utilisation existant ou de se rapprocher de votre modèle d’utilisation attendu. En général, vous souhaitez connaître :
 
 * Votre consommation pour le stockage d’objets blob, en gigaoctets :
     - Quelle est la quantité des données stockées dans le compte de stockage ?
@@ -116,7 +118,7 @@ Lorsque cette option est activée, les données de capacité sont enregistrées 
 Pour analyser les modèles d’accès aux données pour le service de stockage d’objets blob, vous devez activer les métriques de transaction par heure à partir de l’API. Lorsque cette option est activée, les transactions par API sont agrégées toutes les heures et enregistrées comme une entrée de table écrite dans la table *$MetricsHourPrimaryTransactionsBlob* dans le même compte de stockage. La table *$MetricsHourSecondaryTransactionsBlob* enregistre les transactions vers le point de terminaison secondaire lorsqu’il s’agit de comptes de stockage RA-GRS.
 
 > [!NOTE]
-> Ce processus d’estimation n’est pas applicable si vous avez un compte de stockage à usage général dans lequel vous avez stocké des objets blob de pages et des disques de machines virtuelles ou bien des files d’attente, des fichiers ou des tables, en même temps que des données d’objets blob de blocs et d’ajout. Les données de capacité ne distinguent pas les objets blob de blocs des autres types et le processus ne fournit pas de données de capacité pour les autres types de données. Si vous utilisez ces types, une méthodologie alternative consiste à examiner les quantités sur votre plus récente facture.
+> Si vous avez un compte de stockage à usage général dans lequel vous avez stocké des objets BLOB de pages et les disques de machine virtuelle ou les files d’attente, des fichiers ou tables, en même temps que le bloc et d’ajout de données d’objets blob, ce processus d’estimation n’est pas applicable. Les données de capacité ne distinguent pas les objets blob de blocs des autres types et le processus ne fournit pas de données de capacité pour les autres types de données. Si vous utilisez ces types, une méthodologie alternative consiste à examiner les quantités sur votre plus récente facture.
 
 Pour avoir une bonne estimation de votre consommation de données et de votre modèle d’accès, nous vous recommandons de sélectionner pour les métriques une période de rétention représentative de votre utilisation régulière et d’extrapoler. Une option consiste à conserver les données de métriques pendant sept jours et à collecter les données chaque semaine pour les analyser à la fin du mois. Une autre option consiste à conserver les données de métriques pendant les 30 derniers jours et à collecter et analyser les données à la fin de la période de 30 jours.
 

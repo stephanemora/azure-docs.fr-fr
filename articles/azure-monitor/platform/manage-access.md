@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: magoedte
-ms.openlocfilehash: be285b6a51ae5a0f4239b841ce64100f1875d785
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 6990bed4065183ecabb502ea90b5ddf26db563b4
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294346"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500183"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Gérer les données de journal et les espaces de travail dans Azure Monitor
 Azure Monitor stocke les données de journal dans un espace de travail Log Analytics, qui n'est autre qu'un conteneur de données et d'informations de configuration. Pour gérer l'accès aux données de journal, vous accomplissez diverses tâches administratives liées aux espaces de travail. Vous ou d’autres membres de votre organisation pouvez utiliser plusieurs espaces de travail pour gérer différents ensembles de données provenant de tout ou partie de votre infrastructure informatique.
@@ -114,7 +114,7 @@ Le tableau suivant récapitule les modes d’accès :
 |:---|:---|:---|
 | Qui sert chaque modèle ? | Administration centrale. Administrateurs qui ont besoin pour configurer la collecte de données et les utilisateurs qui ont besoin d’accéder à un large éventail de ressources. Également actuellement requis pour les utilisateurs aient accès aux journaux des ressources en dehors d’Azure. | Équipes de l’application. Administrateurs de ressources Azure en cours d’analyse. |
 | Qu’un utilisateur a-t-il besoin pour afficher les journaux ? | Autorisations pour l’espace de travail. Consultez **autorisations de l’espace de travail** dans [gérer les comptes et utilisateurs](#manage-accounts-and-users). | Accès en lecture à la ressource. Consultez **les autorisations de ressource** dans [gérer les comptes et utilisateurs](#manage-accounts-and-users). Les autorisations peuvent être héritées (comme le groupe de ressources contenant) ou directement affectée à la ressource. Autorisation dans les journaux pour la ressource est automatiquement attribuée. |
-| Quelle est la portée des autorisations ? | Espace de travail. Les utilisateurs ayant accès à l’espace de travail peuvent interroger tous les journaux dans cet espace de travail à partir de tables qu’ils sont autorisés à. Consultez [contrôle d’accès de Table](#table-access-control) | Ressources Azure. Utilisateur peut interroger les journaux pour les ressources qu’ils ont accès à partir de n’importe quel espace de travail, mais ne peuvent pas interroger les journaux pour d’autres ressources. |
+| Quelle est la portée des autorisations ? | Espace de travail. Les utilisateurs ayant accès à l’espace de travail peuvent interroger tous les journaux dans cet espace de travail à partir de tables qu’ils sont autorisés à. Consultez [contrôle d’accès de Table](#table-level-rbac) | Ressources Azure. Utilisateur peut interroger les journaux pour les ressources qu’ils ont accès à partir de n’importe quel espace de travail, mais ne peuvent pas interroger les journaux pour d’autres ressources. |
 | Comment peut-il journaux d’accès utilisateur ? | Démarrer **journaux** de **Azure Monitor** menu ou **espaces de travail Analytique de journal**. | Démarrer **journaux** dans le menu pour la ressource Azure. |
 
 
@@ -150,13 +150,13 @@ Vous pouvez modifier ce paramètre sur le **propriétés** page pour l’espace 
 
 Utilisez la commande suivante pour examiner le mode de contrôle d’accès pour tous les espaces de travail dans l’abonnement :
 
-```PowerShell
+```powershell
 Get-AzResource -ResourceType Microsoft.OperationalInsights/workspaces -ExpandProperties | foreach {$_.Name + ": " + $_.Properties.features.enableLogAccessUsingOnlyResourcePermissions} 
 ```
 
 Pour définir le mode de contrôle d’accès pour un espace de travail spécifique, utilisez le script suivant :
 
-```PowerShell
+```powershell
 $WSName = "my-workspace"
 $Workspace = Get-AzResource -Name $WSName -ExpandProperties
 if ($Workspace.Properties.features.enableLogAccessUsingOnlyResourcePermissions -eq $null) 
@@ -168,7 +168,7 @@ Set-AzResource -ResourceId $Workspace.ResourceId -Properties $Workspace.Properti
 
 Utilisez le script suivant pour définir le mode de contrôle d’accès pour tous les espaces de travail dans l’abonnement
 
-```PowerShell
+```powershell
 Get-AzResource -ResourceType Microsoft.OperationalInsights/workspaces -ExpandProperties | foreach {
 if ($_.Properties.features.enableLogAccessUsingOnlyResourcePermissions -eq $null) 
     { $_.Properties.features | Add-Member enableLogAccessUsingOnlyResourcePermissions $true -Force }
@@ -273,13 +273,13 @@ Lors de l’interrogation des utilisateurs ouvre une session à partir d’un es
 
 Cette autorisation est accordée généralement à partir d’un rôle qui inclut  _\*/lecture ou_ _\*_ autorisations tels que le compte [lecteur](../../role-based-access-control/built-in-roles.md#reader) et [ Contributeur](../../role-based-access-control/built-in-roles.md#contributor) rôles. Notez que les rôles personnalisés qui incluent des actions spécifiques ou des rôles intégrés dédiés peut ne pas incluent cette autorisation.
 
-Consultez [définissant le contrôle d’accès par table](#defining-per-table-access-control) ci-dessous si vous souhaitez créer le contrôle d’accès différents pour différentes tables.
+Consultez [définissant le contrôle d’accès par table](#table-level-rbac) ci-dessous si vous souhaitez créer le contrôle d’accès différents pour différentes tables.
 
 
 ## <a name="table-level-rbac"></a>RBAC au niveau table
 **RBAC au niveau de la table** vous permet de fournir un contrôle plus précis à des données dans un espace de travail Analytique de journal en plus des autres autorisations. Ce contrôle vous permet de définir les types de données spécifiques qui sont accessibles uniquement à un ensemble spécifique d’utilisateurs.
 
-Implémenter le contrôle d’accès de table avec [des rôles personnalisés Azure](../../role-based-access-control/custom-roles.md) pour accorder ou refuser l’accès à spécifique [tables](../log-query/log-query-overview.md#how-azure-monitor-log-data-is-organized) dans l’espace de travail. Ces rôles sont appliqués aux espaces de travail avec centré sur l’espace de travail ou centré sur les ressources [modes de contrôle d’accès](#access-control-modes) , quel que soit l’utilisateur [mode d’accès](#access-mode).
+Implémenter le contrôle d’accès de table avec [des rôles personnalisés Azure](../../role-based-access-control/custom-roles.md) pour accorder ou refuser l’accès à spécifique [tables](../log-query/log-query-overview.md#how-azure-monitor-log-data-is-organized) dans l’espace de travail. Ces rôles sont appliqués aux espaces de travail avec centré sur l’espace de travail ou centré sur les ressources [modes de contrôle d’accès](#access-control-mode) , quel que soit l’utilisateur [mode d’accès](#access-modes).
 
 Créer un [rôle personnalisé](../../role-based-access-control/custom-roles.md) avec les actions suivantes pour définir l’accès au contrôle d’accès de table.
 

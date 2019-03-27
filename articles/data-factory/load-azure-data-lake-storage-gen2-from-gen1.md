@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: jingwang
-ms.openlocfilehash: e1dd3953925d4907617295fbc14a1a4e042213e1
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: b975b34c638db812d3809bf50d1eccbb651028b5
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309605"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448929"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Copier les données depuis Azure Data Lake Storage Gen1 vers Gen2 avec Azure Data Factory
 
@@ -30,7 +30,7 @@ Azure Data Factory offre une solution de déplacement des données managées qui
 
 Cet article vous explique comment utiliser l’outil de copie de données de Data Factory pour copier des données depuis _Azure Data Lake Storage Gen1_ vers _Azure Data Lake Store Gen2_. Vous pouvez procéder de même pour copier des données à partir d’autres types de banques de données.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Abonnement Azure : Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * Compte Azure Data Lake Storage Gen1 contenant des données.
@@ -38,9 +38,10 @@ Cet article vous explique comment utiliser l’outil de copie de données de Dat
 
 ## <a name="create-a-data-factory"></a>Créer une fabrique de données
 
-1. Dans le menu de gauche, sélectionnez **Nouveau** > **Données + Analytique** > **Data Factory** :
+1. Dans le menu de gauche, sélectionnez **créer une ressource** > **données + Analytique** > **Data Factory**:
    
-   ![Créer une fabrique de données](./media/load-azure-data-lake-storage-gen2-from-gen1/new-azure-data-factory-menu.png)
+   ![Sélection Data Factory dans le volet « Nouveau »](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 2. Sur la page **Nouvelle fabrique de données**, fournissez les valeurs des champs qui apparaissent dans l’image suivante : 
       
    ![Page Nouvelle fabrique de données](./media/load-azure-data-lake-storage-gen2-from-gen1/new-azure-data-factory.png)

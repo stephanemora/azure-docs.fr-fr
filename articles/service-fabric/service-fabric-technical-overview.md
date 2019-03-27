@@ -3,7 +3,7 @@ title: Découvrir la terminologie de Service Fabric | Microsoft Docs
 description: Présentation de la terminologie de Service Fabric. Décrit les concepts et termes principaux utilisés dans le reste de la documentation.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: masnider
 manager: timlt
 editor: chackdan;subramar
 ms.assetid: 3a970679-e19e-43b3-9be8-71773f307c57
@@ -13,21 +13,21 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/17/2018
-ms.author: ryanwi
-ms.openlocfilehash: fda6af0f253457aaf3aef1e8444850592255b318
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: masnider
+ms.openlocfilehash: d9012ff37693b406d4e91560c880d6bed66c051b
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58113671"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498296"
 ---
 # <a name="service-fabric-terminology-overview"></a>Présentation de la terminologie Service Fabric
 Azure Service Fabric est une plateforme de systèmes distribués qui permet d’empaqueter, de déployer et de gérer facilement des microservices scalables et fiables.  Vous pouvez [héberger des clusters Service Fabric n'importe où](service-fabric-deploy-anywhere.md) : dans Azure, dans un centre de données local ou auprès de n'importe quel fournisseur de services cloud.  Service Fabric est l’orchestrateur qui alimente [Azure Service Fabric Mesh](/azure/service-fabric-mesh). Vous pouvez utiliser n’importe quelle infrastructure pour écrire vos services, et choisir l’emplacement où exécuter l’application parmi plusieurs options d’environnement. Cet article décrit en détail la terminologie utilisée dans Service Fabric pour que vous compreniez les termes utilisés dans la documentation.
 
 ## <a name="infrastructure-concepts"></a>Concepts d’infrastructure
-**Cluster** : groupe de machines virtuelles ou physiques connectées au réseau et au sein duquel vos microservices sont déployés et gérés.  Les clusters peuvent être mis à l’échelle pour des milliers de machines.
+**Cluster**: groupe de machines virtuelles ou physiques connectées au réseau et au sein duquel vos microservices sont déployés et gérés.  Les clusters peuvent être mis à l’échelle pour des milliers de machines.
 
-**Nœud** : machine ou machine virtuelle faisant partie d'un cluster. ** Un nom (chaîne) est affecté à chaque nœud. Les nœuds présentent des caractéristiques, telles que des propriétés de placement. Chaque machine ou machine virtuelle a un service Windows à démarrage automatique, `FabricHost.exe`, qui commence à s’exécuter dès le démarrage, puis démarre deux exécutables : `Fabric.exe` et `FabricGateway.exe`. Ces deux exécutables constituent le nœud. Pour les scénarios de test, vous pouvez héberger plusieurs nœuds sur une seule et même machine ou sur une seule et même machine virtuelle en exécutant plusieurs instances de `Fabric.exe` et `FabricGateway.exe`.
+**Nœud** : Une machine ou une machine virtuelle faisant partie d’un cluster est appelée un *nœud*. Un nom (chaîne) est affecté à chaque nœud. Les nœuds présentent des caractéristiques, telles que des propriétés de placement. Chaque machine ou machine virtuelle a un service Windows à démarrage automatique, `FabricHost.exe`, qui commence à s’exécuter dès le démarrage, puis démarre deux exécutables : `Fabric.exe` et `FabricGateway.exe`. Ces deux exécutables constituent le nœud. Pour les scénarios de test, vous pouvez héberger plusieurs nœuds sur une seule et même machine ou sur une seule et même machine virtuelle en exécutant plusieurs instances de `Fabric.exe` et `FabricGateway.exe`.
 
 ## <a name="application-and-service-concepts"></a>Concepts de l’application et du service
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/21/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: c7fa81f6d23962eedb3dfeafdd397b62a83d130e
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 4c66f35537cff87eb53a6cfe9bc0389f038f1a10
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372680"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449755"
 ---
 Azure fournit les rôles RBAC intégrés suivants pour l’accès aux données de stockage :
 
@@ -24,5 +24,8 @@ Azure fournit les rôles RBAC intégrés suivants pour l’accès aux données d
 - [Lecteur de données de file d’attente de stockage](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-reader-preview): permet d’accorder des autorisations en lecture seule aux files d’attente Azure.
 - [Stockage de données de file d’attente de messages processeur](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-processor-preview): Utilisez grant peek, récupérer et les autorisations de suppression pour les messages dans les files d’attente de stockage Azure.
 - [Expéditeur de Message de données de file d’attente de stockage](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-sender-preview): Permet d’accorder ajouter des autorisations à des messages dans les files d’attente de stockage Azure.
+
+> [!IMPORTANT]
+> Attributions de rôles RBAC peuvent prendre jusqu'à cinq minutes pour se propager.
 
 Pour plus d’informations sur la définition des rôles intégrés pour le Stockage Azure, consultez [Comprendre les définitions de rôles](../articles/role-based-access-control/role-definitions.md#management-and-data-operations-preview). Pour plus d’informations sur la création des rôles RBAC personnalisés, consultez [créer des rôles personnalisés pour le contrôle d’accès](../articles/role-based-access-control/custom-roles.md). 

@@ -3,7 +3,7 @@ title: Déployer rapidement une application existante dans un cluster Microsoft 
 description: Utilisez un cluster Microsoft Azure Service Fabric pour héberger une application Node.js existante avec Visual Studio.
 services: service-fabric
 documentationcenter: nodejs
-author: rwike77
+author: msfussell
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,19 +13,19 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
-ms.author: ryanwi
-ms.openlocfilehash: 2e7511f0efa36243a9e7e8e25f1697bdd3e60b63
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: HT
+ms.author: mfussell
+ms.openlocfilehash: 90ecf8a3f6d660c665cf3cdee3e1158bebee9d12
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005292"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499724"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Héberger une application Node.js sur Microsoft Azure Service Fabric
 
 Ce démarrage rapide vous permet de déployer une application existante (Node.js dans cet exemple) dans un cluster Service Fabric s’exécutant sur Azure.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Avant de commencer, assurez-vous que vous avez bien [configuré votre environnement de développement](service-fabric-get-started.md). Cela inclut l’installation du kit de développement logiciel (SDK) de Service Fabric et de Visual Studio 2017 ou 2015.
 
@@ -126,13 +126,13 @@ Une fois que votre service a été publié, testez-le dans un navigateur web.
 
 Tout d’abord, ouvrez le portail Azure et recherchez votre service Service Fabric.
 
-Consultez le panneau Vue d’ensemble de l’adresse du service. Utilisez le nom de domaine de la propriété _Point de terminaison de connexion du client_. Par exemple : `http://mysvcfab1.westus2.cloudapp.azure.com`.
+Consultez le panneau Vue d’ensemble de l’adresse du service. Utilisez le nom de domaine de la propriété _Point de terminaison de connexion du client_. Par exemple : `http://mysvcfab1.westus2.cloudapp.azure.com`.
 
 ![Panneau Vue d’ensemble de Service Fabric sur le portail Azure][overview]
 
 Accédez à cette adresse où vous verrez la réponse `HELLO WORLD`.
 
-## <a name="delete-the-cluster"></a>Suppression du cluster
+## <a name="delete-the-cluster"></a>Supprimer le cluster
 
 N’oubliez pas de supprimer toutes les ressources que vous avez créées pour ce démarrage rapide, car celles-ci vous sont facturées.
 

@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 03/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6b9ab48ea971a5e7f5e9c72f9e729d2fcb5ed37f
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: c1c6e0408145ea76ad93b6dc3803fd56a01dc6d4
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437864"
+ms.locfileid: "58444652"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notes de publication du service Azure Machine Learning
 
@@ -29,6 +29,23 @@ Dans cet article, découvrez les versions du service Azure Machine Learning.  Po
 
 + **Nouvelles fonctionnalités**
   + Le *azureml.core.Run.create_children* méthode permet la création d’une faible latence de plusieurs enfants s’exécute avec un seul appel.
+
+### <a name="azure-machine-learning-data-prep-sdk-v110"></a>Kit de développement logiciel v1.1.0 de préparation des données d’Azure Machine Learning
+
++ **Dernières modifications**
+  + Le concept du Package de préparation des données a été déconseillé et n’est plus pris en charge. Au lieu de conserver plusieurs flux de données dans un seul Package, vous pouvez conserver les flux de données individuellement.
+    + Guide pratique : [Ouverture et enregistrer le flux de données portable](https://aka.ms/aml-data-prep-open-save-dataflows-nb)
+
++ **Nouvelles fonctionnalités**
+  + Préparation des données peut désormais reconnaître les colonnes qui correspondent à un Type particulier de sémantique et de fractionnement en conséquence. Les STypes actuellement pris en charge incluent : adresse de messagerie, les coordonnées géographiques (latitude et longitude), les adresses IPv4 et IPv6, numéro de téléphone américain et code postal américain.
+    + Guide pratique : [Sémantique bloc-notes de Types](https://aka.ms/aml-data-prep-semantic-types-nb)
+  + Préparation des données prend désormais en charge les opérations suivantes pour générer une colonne obtenue à partir de deux colonnes numériques : soustraire, multiplier, diviser et de modulo.
+  + Vous pouvez appeler `verify_has_data()` sur un flux de données pour vérifier si le flux de données produirait enregistrements si exécutée.
+
++ **Correctifs de bogues et améliorations**
+  + Vous pouvez maintenant spécifier le nombre de compartiments à utiliser dans un histogramme pour les profils de colonne numérique.
+  + Le `read_pandas_dataframe` transformation requiert désormais la trame de données avoir chaîne - ou octet des noms de colonne typée.
+  + Correction d’un bogue dans le `fill_nulls` transformation, où les valeurs ont été pas correctement remplies lorsque la colonne est manquante.
 
 ## <a name="2019-03-11"></a>2019-03-11
 

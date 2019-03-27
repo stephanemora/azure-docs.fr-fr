@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 820a9ae0df91fba8cf00764428867bec6196841a
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: a6304a93b1409cff871ed1c4c1d7e66d6c8c6f53
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58335859"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497684"
 ---
 # <a name="language-support-for-qna-maker"></a>Prise en charge linguistique pour QnA Maker
 
@@ -37,7 +37,7 @@ QnA Maker prend en charge l’extraction de questions/réponses dans n’import
 
 La langue principale utilisée pour la détection est définie pour la ressource de QnA Maker et toutes les bases de connaissances créés sur cette ressource, lorsque le premier document ou l’URL est ajouté à la première base de connaissances. La langue ne peut pas être modifiée. 
 
-Si l’utilisateur prévoit de prendre en charge plusieurs langues, dont ils ont besoin d’avoir une nouvelle ressource de QnA Maker pour chaque langue. Découvrez comment [créer une base de connaissances en langage QnA Maker](/how-to/language-knowledge-base.md).  
+Si l’utilisateur prévoit de prendre en charge plusieurs langues, dont ils ont besoin d’avoir une nouvelle ressource de QnA Maker pour chaque langue. Découvrez comment [créer une base de connaissances en langage QnA Maker](../how-to/language-knowledge-base.md).  
 
 Vérifiez que la langue principale en procédant comme suit :
 

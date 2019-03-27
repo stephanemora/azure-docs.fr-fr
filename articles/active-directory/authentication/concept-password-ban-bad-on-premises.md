@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0a25dd3a2228f0b1b3ab33db0c9c689d7b2899d
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 6e6623e18fa319066f121dced551dcada133ebd5
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310555"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58479527"
 ---
 # <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Appliquer la protection de mot de passe Azure AD pour Windows Server Active Directory
 
@@ -32,8 +32,15 @@ Protection de mot de passe Azure AD est conçue avec ces principes à l’esprit
 * Aucun minimum domaine ou forêt niveau fonctionnel Active Directory (niveau fonctionnel du domaine/FFL) n’est requis.
 * Le logiciel ne créer ou requièrent des comptes dans les domaines Active Directory qu’il protège.
 * Le contrôleur de domaine ne laissez pas les mots de passe utilisateur en texte clair lors des opérations de validation de mot de passe ou à tout moment.
-* Déploiement incrémentiel est pris en charge. Mais la stratégie de mot de passe est appliquée uniquement où est installé l’Agent (Agent contrôleur de domaine) du contrôleur de domaine.
-* Nous vous recommandons d’installer l’Agent du contrôleur de domaine sur tous les contrôleurs de domaine pour vous assurer d’application universelle de mot de passe de la sécurité de protection.
+* Déploiement incrémentiel est pris en charge, mais la stratégie de mot de passe est appliquée uniquement où est installé l’Agent (Agent contrôleur de domaine) du contrôleur de domaine. Consultez la rubrique suivante pour plus d’informations.
+
+## <a name="incremental-deployment"></a>Déploiement incrémentiel
+
+Protection de mot de passe Azure AD prend en charge le déploiement incrémentiel entre les contrôleurs de domaine dans un domaine Active Directory, mais il est important de comprendre ce que cela signifie et quelles sont les compromis.
+
+Le logiciel de l’agent de protection contrôleur de domaine de mot de passe Azure AD permettre valider uniquement les mots de passe lorsqu’il est installé sur un contrôleur de domaine et uniquement pour les modifications de mot de passe sont envoyées à ce contrôleur de domaine. Il n’est pas possible de contrôler les contrôleurs de domaine sont choisies par les ordinateurs clients Windows pour le traitement des modifications de mot de passe utilisateur. Afin de garantir un comportement cohérent et application universelle de mot de passe de la sécurité de protection, le logiciel de l’agent du contrôleur de domaine doit être installé sur tous les contrôleurs de domaine dans un domaine.
+
+De nombreuses organisations souhaiteront effectuer des tests approfondis de protection par mot de passe Azure AD sur un sous-ensemble de leurs contrôleurs de domaine avant de faire un déploiement complet. Protection de mot de passe Azure AD ne prend pas en charge le déploiement partiel, Internet Explorer le logiciel de l’agent contrôleur de domaine sur un contrôleur de domaine donné activement validera les mots de passe même quand les autres contrôleurs de domaine dans le domaine logiciel ne sont pas le contrôleur de domaine agent installé. Déploiements partielles de ce type ne sont pas sécuriser et ne sont pas recommandés différente à des fins de test.
 
 ## <a name="architectural-diagram"></a>Diagramme architectural
 

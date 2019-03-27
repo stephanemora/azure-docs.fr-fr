@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 07/23/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 672bfee600f19661c6bc68535a68fff4a0ccc43f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f39def90aa8a5b6532f5e7c58db1dc455acb24d5
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57835365"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486884"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-june-2018"></a>Nouveautés dans Azure SQL Data Warehouse Juin 2018
 Azure SQL Data Warehouse reçoit continuellement des améliorations. Cet article décrit les nouvelles fonctionnalités et les modifications qui ont été introduites en juin 2018. 
@@ -27,7 +27,7 @@ SQL Data Warehouse prend automatiquement des instantanés de votre entrepôt de 
 
 SQL Data Warehouse prend désormais en charge [points de restauration défini par l’utilisateur](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/) via la [New-AzSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint) applet de commande.
 
-```PowerShell
+```powershell
 New-AzSqlDatabaseRestorePoint
     -ResourceGroupName $ResourceGroupName
     -ServerName $ServerName

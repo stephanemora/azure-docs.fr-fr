@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: kfollis
-ms.openlocfilehash: 21119816477d460aa48560b8ca231f23144a901b
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: b24a0397a1365479907fedc6348caa54508dbbb0
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888489"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444881"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Créer par programmation des tableaux de bord Azure
 
@@ -26,9 +26,9 @@ Ce document vous guide tout au long des processus de création par programmation
 
 ![exemple de tableau de bord](./media/azure-portal-dashboards-create-programmatically/sample-dashboard.png)
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
-Les tableaux de bord partagés dans Azure sont des [ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) tout comme les machines virtuelles et les comptes de stockage.  Ainsi, vous pouvez les gérer par programmation via les [API REST Azure Resource Manager](/rest/api/), l’[interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure), les [commandes Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.2.0) et de nombreuses fonctionnalités du [portail Azure](https://portal.azure.com) générées sur ces API pour faciliter la gestion des ressources.  
+Les tableaux de bord partagés dans Azure sont des [ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) tout comme les machines virtuelles et les comptes de stockage.  Ainsi, vous pouvez les gérer par programmation via les [API REST Azure Resource Manager](/rest/api/), l’[interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure), les [commandes Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps) et de nombreuses fonctionnalités du [portail Azure](https://portal.azure.com) générées sur ces API pour faciliter la gestion des ressources.  
 
 Chacun de ces outils et API offre des moyens de créer, répertorier, récupérer, modifier et supprimer des ressources.  Étant donné que les tableaux de bord sont des ressources, vous pouvez choisir l’API/outil que vous préférez utiliser.
 

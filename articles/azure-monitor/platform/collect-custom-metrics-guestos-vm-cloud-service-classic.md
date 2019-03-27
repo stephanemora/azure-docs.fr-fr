@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 6523c2b26a0340fa5347d8224ac8bf6c5e285926
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 90e841628d989a16f504d2efd7a2c7b18335ff48
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57759047"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482621"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Envoyer des métriques de système d’exploitation invité au magasin de métriques Azure Monitor pour les services cloud classiques 
 
@@ -142,26 +142,26 @@ Enregistrez ce fichier de diagnostics en local.
 
 Lancez PowerShell et connectez-vous à Azure. 
 
-```PowerShell
+```powershell
 Login-AzAccount 
 ```
 
 Utilisez les commandes suivantes pour stocker les informations du compte de stockage que vous avez créé précédemment. 
 
-```PowerShell
+```powershell
 $storage_account = <name of your storage account from step 3> 
 $storage_keys = <storage account key from step 3> 
 ```
 
 De la même façon, définissez le chemin du fichier de diagnostics sur une variable en utilisant la commande suivante :
 
-```PowerShell
+```powershell
 $diagconfig = “<path of the Diagnostics configuration file with the Azure Monitor sink configured>” 
 ```
 
 Déployez l’extension Diagnostics dans votre service cloud à l’aide du fichier de diagnostics, avec le récepteur Azure Monitor configuré à l’aide de la commande suivante :  
 
-```PowerShell
+```powershell
 Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -StorageAccountName $storage_account -StorageAccountKey $storage_keys -DiagnosticsConfigurationPath $diagconfig 
 ```
 

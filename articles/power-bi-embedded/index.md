@@ -1,6 +1,6 @@
 ---
-title: Documentation Azure Power BI Embedded - Didacticiels, informations de référence sur les API | Microsoft Docs
-description: Apprenez à incorporer des visualisations de données et des rapports interactifs Power BI dans des applications. Didacticiels, références d’API et autres documents.
+title: "Documentation Azure Power BI Embedded\_- Didacticiels, informations de référence sur les API\_| Microsoft\_Docs"
+description: 'Apprenez à incorporer des visualisations de données et des rapports interactifs Power BI dans des applications. Didacticiels, références d’API et autres documents.'
 services: power-bi-embedded
 author: markingmyname
 ms.author: maghan
@@ -9,13 +9,8 @@ layout: LandingPage
 ms.service: power-bi-embedded
 ms.topic: landing-page
 ms.date: 07/31/2018
-ms.openlocfilehash: 051b7d725a121b3160e8a572c5fab91e8289f44b
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678234"
 ---
+
 # <a name="power-bi-embedded-documentation"></a>Documentation Power BI Embedded
 
 Découvrez comment ajouter des visualisations de données et des rapports interactifs à des applications avec Power BI Embedded. Des didacticiels, références d’API et autres documents vous montrent comment intégrer en toute transparence des rapports et des tableaux de bord Power BI dans des applications.
@@ -105,7 +100,7 @@ Découvrez comment ajouter des visualisations de données et des rapports intera
                 <div class="card">
                     <div class="cardText">
                         <h3>PowerShell</h3>
-                        <p><a href="https://docs.microsoft.com/powershell/module/azurerm.powerbiembedded/?view=azurermps-6.5.0#power_bi_embedded_capacity">PowerShell</a></p>
+                        <p><a href="https://docs.microsoft.com/powershell/module/azurerm.powerbiembedded/#power_bi_embedded_capacity">PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -116,7 +111,7 @@ Découvrez comment ajouter des visualisations de données et des rapports intera
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Langues</h3>
+                        <h3>Languages</h3>
                         <p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.management.powerbiembedded?view=azure-dotnet">.NET</a></p>
                         <p><a href="https://www.nuget.org/packages/Microsoft.PowerBI.Api/">Téléchargement du Kit de développement logiciel (SDK) .NET</a></p>
                         <p><a href="https://microsoft.github.io/PowerBI-JavaScript/">JavaScript</a></p>

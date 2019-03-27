@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 0fc34c913453abd174009213233a54e30b9346d3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3a0df408e70ed61355ffba319f6261f90d8e4348
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57881382"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499156"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>Stocker des données à la périphérie avec le Stockage Blob Azure sur IoT Edge (préversion)
 
@@ -345,7 +345,7 @@ Voici un exemple des propriétés souhaitées pour ce module : ![, définissez 
     }
 
    ```
-  ## <a name="logs"></a>Journaux
+## <a name="logs"></a>Journaux
 
 Suivez les instructions à [configurer vos journaux de docker pour les modules IoT Edge](production-checklist.md#set-up-logs-and-diagnostics)
 
@@ -383,9 +383,10 @@ Les guides de démarrage rapide suivants utilisent des langages qui sont égalem
 * [Node.JS](../storage/blobs/storage-quickstart-blobs-nodejs.md) 
 
 ### <a name="azure-storage-explorer"></a>Explorateur de stockage Azure
-Vous pouvez également essayer [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) pour vous connecter à votre compte de stockage local. Nous avons essayé avec [précédente version 1.5.0](https://github.com/Microsoft/AzureStorageExplorer/releases/tag/v1.5.0) de l’Explorateur Azure.
+Vous pouvez également essayer « Explorateur de stockage Azure » pour vous connecter à votre compte de stockage local. Il fonctionne avec [Explorateur de stockage Azure version 1.5.0](https://github.com/Microsoft/AzureStorageExplorer/releases/tag/v1.5.0).
+
 > [!NOTE]
-> Vous pouvez rencontrer des erreurs lors de l’exécution des étapes ci-dessous, ignorer et actualiser. 
+> Vous pouvez rencontrer des erreurs lors de l’exécution des étapes suivantes, telles que l’ajout d’une connexion à un compte de stockage local, ou créer des conteneurs dans le compte de stockage local. Veuillez ignorer et actualiser. 
 
 1. Téléchargez et installez l’Explorateur de stockage Azure
 2. Se connecter au stockage Azure à l’aide d’une chaîne de connexion

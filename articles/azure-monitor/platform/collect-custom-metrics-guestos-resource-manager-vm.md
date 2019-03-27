@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 63b134ab9bfdac3617c845da7a14ee6b9234c84d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 5647802ff383ce046d108f25384df81bcbd08cd3
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782018"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484895"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>Envoyer des métriques de système d’exploitation invité vers le magasin de métriques d’Azure Monitor à l’aide d’un modèle Resource Manager pour une machine virtuelle Windows
 
@@ -243,12 +243,12 @@ Pour déployer le modèle Resource Manager, vous allez utiliser Azure PowerShell
 1. Obtenez la liste de vos abonnements à l’aide de `Get-AzSubscription`.
 1. Définissez l’abonnement que vous utilisez pour créer/mettre à jour la machine virtuelle dans :
 
-   ```PowerShell
+   ```powershell
    Select-AzSubscription -SubscriptionName "<Name of the subscription>"
    ```
 1. Pour créer un nouveau groupe de ressources pour la machine virtuelle en cours de déploiement, exécutez la commande suivante :
 
-   ```PowerShell
+   ```powershell
     New-AzResourceGroup -Name "<Name of Resource Group>" -Location "<Azure Region>"
    ```
    > [!NOTE]
@@ -258,7 +258,7 @@ Pour déployer le modèle Resource Manager, vous allez utiliser Azure PowerShell
    > [!NOTE]
    > Si vous souhaitez mettre à jour une machine virtuelle existante, ajoutez simplement *-Mode Incremental* à la fin de la commande suivante.
 
-   ```PowerShell
+   ```powershell
    New-AzResourceGroupDeployment -Name "<NameThisDeployment>" -ResourceGroupName "<Name of the Resource Group>" -TemplateFile "<File path of your Resource Manager template>" -TemplateParameterFile "<File path of your parameters file>"
    ```
 

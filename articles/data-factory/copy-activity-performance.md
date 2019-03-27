@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: jingwang
-ms.openlocfilehash: 835ba407fb72a8cb512425e59cf56ba1a1cc8a4b
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: 47b9ede2d529f78b14c21f53c6cd18ed691a3df3
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301269"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445841"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guide sur les performances et le réglage de l’activité de copie
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -134,7 +134,7 @@ Pour chaque exécution d’activité de copie, Data Factory détermine le nombre
 | Copie de données de n’importe quel magasin de données source vers le stockage Table Azure |4 |
 | Tous les autres scénarios de copie |1 |
 
-[!TIP]
+> [!TIP]
 > Lors de la copie de données entre magasins basés sur un fichier, le comportement par défaut (déterminé automatiquement) offre généralement le meilleur débit. 
 
 Pour contrôler la charge sur les machines qui hébergent vos banques de données ou pour optimiser les performances de copie, vous pouvez choisir de remplacer la valeur par défaut et spécifier une valeur pour la propriété **parallelCopies**. La valeur doit être un nombre entier supérieur ou égal à 1. Au moment de l’exécution, pour des performances optimales, l’activité de copie utilise une valeur inférieure ou égale à la valeur que vous avez définie.
@@ -397,7 +397,7 @@ Un ou plusieurs des facteurs suivants peuvent entraîner un goulot d’étrangle
 
 Dans ce cas, la compression de données bzip2 pourrait ralentir l’ensemble du pipeline. Un basculement vers le codec de compression gzip peut résoudre ce goulot d’étranglement.
 
-## <a name="reference"></a>Informations de référence
+## <a name="reference"></a>Référence
 
 Voici des références relatives au monitoring et au réglage des performances pour quelques magasins de données pris en charge :
 

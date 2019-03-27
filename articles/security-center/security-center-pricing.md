@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/17/2019
 ms.author: monhaber
-ms.openlocfilehash: 5f49de453f9cd694598918500a8ac0221937bdb1
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 680e39b291cbaa1012cd972e188ab4e5f7aef694
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201685"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449018"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Passer au niveau tarifaire Standard de Security Center pour une sécurité renforcée
 Azure Security Center fournit une gestion unifiée de la sécurité et une protection avancée contre les menaces pour les charges de travail s’exécutant dans Azure, en local et dans d’autres clouds. Il fournit une visibilité et un contrôle sur les charges de travail cloud hybrides, des défenses actives qui réduisent votre exposition aux menaces et une détection intelligente pour vous aider à suivre le rythme des cyberattaques en constante évolution.
@@ -49,7 +49,7 @@ Pour obtenir le niveau Standard :
 ![Tarification de Security Center](./media/security-center-pricing/get-standard.png)
 
 > [!NOTE]
-> Pour activer toutes les fonctionnalités de Security Center, vous devez appliquer le niveau de tarification Standard à l’abonnement ou au groupe de ressources contenant les machines virtuelles concernées. La configuration de la tarification d’un espace de travail n’active pas l’accès juste à temps à la machine virtuelle, les contrôles d’application adaptatifs, ni les détections réseau pour les ressources Azure.
+> Pour activer toutes les fonctionnalités de Security Center, vous devez appliquer la norme niveau tarifaire vers l’abonnement contenant les machines virtuelles concernées. La configuration de la tarification d’un espace de travail n’active pas l’accès juste à temps à la machine virtuelle, les contrôles d’application adaptatifs, ni les détections réseau pour les ressources Azure.
 >
 >
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/15/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 777b3a8d414f0b785d908c37da98e987445ed96d
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: c54d2aef2d8e748e31bffcecef323c4806d15f60
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317457"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482050"
 ---
 # <a name="azure-instance-metadata-service"></a>Service de métadonnées d’instance Azure
 
@@ -96,6 +96,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 > Toutes les requêtes de métadonnées d’instance respectent la casse.
 
 ### <a name="data-output"></a>Sortie des données
+
 Par défaut, le service de métadonnées d’instance retourne des données au format JSON (`Content-Type: application/json`). Toutefois, différentes API retournent des données dans des formats différents si nécessaire.
 Le tableau suivant répertorie les autres formats de données que les API peuvent prendre en charge.
 
@@ -111,6 +112,9 @@ Pour accéder à un format de réponse autre que le format par défaut, spécifi
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
 ```
 
+> [!NOTE]
+> Pour les nœuds terminaux le `format=json` ne fonctionne pas. Pour ces requêtes `format=text` doit être spécifié explicitement si le format par défaut est json.
+
 ### <a name="security"></a>Sécurité
 
 Le point de terminaison du service de métadonnées d’instance est accessible uniquement à partir de l’instance de machine virtuelle active sur une adresse IP non routable. En outre, toute demande contenant un en-tête `X-Forwarded-For` est rejetée par le service.
@@ -123,8 +127,8 @@ S’il existe un élément de données introuvable ou une requête mal formée, 
 Code d’état HTTP | Motif
 ----------------|-------
 200 OK |
-400 Demande incorrecte | En-tête `Metadata: true` manquant
-404 Introuvable | L’élément demandé n’existe pas 
+400 Demande incorrecte | Manquant `Metadata: true` en-tête ou manquante au format lors de l’interrogation d’un nœud terminal
+404 Introuvable | L’élément demandé n’existe pas
 405 Méthode non autorisée | Seules les demandes `GET` et `POST` sont prises en charge
 429 Trop de demandes | L’API prend actuellement en charge un maximum de 5 requêtes par seconde
 500 Erreur de service     | Recommencez l’opération plus tard
@@ -503,12 +507,12 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 Azure dispose de plusieurs clouds souverains comme [Azure Government](https://azure.microsoft.com/overview/clouds/government/). Vous avez parfois besoin de l’environnement Azure pour prendre certaines décisions liées au runtime. L’exemple suivant vous montre comment obtenir ce comportement.
 
 **Requête**
-``` bash
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text"
 ```
 
 **Réponse**
-```
+```bash
 AZUREPUBLICCLOUD
 ```
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/6/2019
 ms.author: victorh
-ms.openlocfilehash: 9929b09280cea56a5fadcd4d0d9aba5b851f326e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: f7d1c5bc54d909d1a948123839d95e1ee1158a5c
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544034"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444815"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>Passerelle d’application redondante interzone et avec mise à l’échelle automatique (préversion publique)
 
@@ -29,6 +29,29 @@ Application Gateway et le pare-feu d’applications web (WAF) sont désormais di
 > La référence SKU de la passerelle d’application redondante interzone et avec mise à l’échelle automatique est disponible en préversion publique. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ![](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
+
+## <a name="feature-comparison-between-v1-sku-and-v2-sku"></a>Comparaison des fonctionnalités de la référence (SKU) v1 et v2 référence (SKU)
+
+Le tableau suivant compare les fonctionnalités disponibles avec chaque référence (SKU).
+
+|                                                   | référence (SKU) v1   | référence (SKU) v2   |
+| ------------------------------------------------- | -------- | -------- |
+| Mise à l’échelle automatique                                       |          | &#x2713; |
+| Redondance de zone                                   |          | &#x2713; |
+| &nbsp;Adresse IP virtuelle statique&nbsp;&nbsp;                      |          | &#x2713; |
+| Routage basé sur des URL                                 | &#x2713; | &#x2713; |
+| Hébergement de plusieurs sites                             | &#x2713; | &#x2713; |
+| Redirection du trafic                               | &#x2713; | &#x2713; |
+| Pare-feu d’applications web (WAF)                    | &#x2713; | &#x2713; |
+| Terminaison SSL (Secure Sockets Layer)            | &#x2713; | &#x2713; |
+| Chiffrement SSL de bout en bout                         | &#x2713; | &#x2713; |
+| Affinité de session                                  | &#x2713; | &#x2713; |
+| Pages d’erreur personnalisées                                | &#x2713; | &#x2713; |
+| Réécrire les en-têtes HTTP (S)                           |          | &#x2713; |
+| Prise en charge de WebSocket                                 | &#x2713; | &#x2713; |
+| Assistance HTTP/2                                    | &#x2713; | &#x2713; |
+| Vidage des connexions                               | &#x2713; | &#x2713; |
+| Azure contrôleur d’entrée de Kubernetes Service (AKS) |          | &#x2713; |
 
 ## <a name="supported-regions"></a>Régions prises en charge
 
@@ -48,7 +71,7 @@ La version préliminaire, aucun frais n’est. Vous êtes facturé pour les ress
 |Groupe de sécurité réseau pour plage de ports entrants| - 65 200 à 65 535 pour référence (SKU) Standard_v2<br>- 65 503 à 65 534 pour référence (SKU) Standard<br>Pour plus d’informations, visitez le [FAQ](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
 |Journaux de performances dans les diagnostics Azure|Non pris en charge.<br>Les métriques Azure doivent être utilisées.|
 |Facturation|Aucune facturation.|
-|Mode FIPS, WebSocket|Ils ne sont pas pris en charge.|
+|Mode FIPS|Ils ne sont pas pris en charge.|
 |Mode ILB uniquement|Non pris en charge actuellement. Les modes public et ILB sont pris en charge ensemble.|
 |Intégration de Network Watcher|Non prise en charge dans la Préversion publique.|
 
