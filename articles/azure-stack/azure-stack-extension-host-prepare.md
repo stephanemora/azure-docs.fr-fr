@@ -1,22 +1,22 @@
 ---
 title: Préparation de l’hôte d’extension pour Azure Stack | Microsoft Docs
-description: Apprenez à préparer l’hôte d’extension, qui est automatiquement activé grâce à un nouveau package de mise à jour Azure Stack.
+description: Apprenez à préparer l’hôte d’extension, qui est automatiquement activé avec un nouveau package de mise à jour Azure Stack.
 services: azure-stack
 keywords: ''
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 02/07/2019
+ms.date: 03/07/2019
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
-ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: b0d3b3e4901fbcece13c201938be8bccb1bb9c82
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.lastreviewed: 03/07/2019
+ms.openlocfilehash: 47cc7d9f09b7fb22cf99ad010f1dc75e6388c314
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55962364"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731923"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>Préparer l’hôte d’extension pour Azure Stack
 
@@ -66,15 +66,14 @@ L’outil de vérification de la disponibilité Azure Stack offre la possibilit�
     > [!Note]  
     > Si vous effectuez votre déploiement à l’aide des services de fédération Active Directory (AD FS), les répertoires suivants doivent être ajoutés à **$directories** dans le script : `ADFS`, `Graph`.
 
-4. Exécutez cmdlets suivants pour démarrer la vérification du certificat :
+4. Placez les certificats existants, que vous utilisez actuellement dans Azure Stack, dans les répertoires appropriés. Par exemple, placez le certificat **Admin ARM** dans le dossier `Arm Admin`. Puis, placez les certificats d’hébergement qui viennent d’être créés les répertoires `Admin extension host` et `Public extension host`.
+5. Exécutez la cmdlet suivante pour démarrer la vérification du certificat :
 
     ```PowerShell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
 
     Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD
     ```
-
-5. Placez le(s) certificat(s) dans les répertoires appropriés.
 
 6. Vérifiez que la sortie et tous les certificats réussissent tous les tests.
 
@@ -141,7 +140,7 @@ L’article [Intégration au centre de données Azure Stack : publier des point
 
 ### <a name="publish-new-endpoints"></a>Publier les nouveaux points de terminaison
 
-Il existe deux nouveaux points de terminaison requis pour être publiés via votre pare-feu. Les adresses IP allouées à partir du pool d’adresses IP virtuelles peuvent être récupérées à l'aide du code suivant qui doit être exécuté via le [point de terminaison privilégié de votre environnement](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint) Azure Stack.
+Il existe deux nouveaux points de terminaison requis pour être publiés via votre pare-feu. Les adresses IP allouées à partir du pool d’adresses IP virtuelles peuvent être récupérées à l'aide du code suivant qui doit être exécuté à partir du [point de terminaison privilégié de votre environnement](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint) Azure Stack.
 
 ```PowerShell
 # Create a PEP Session

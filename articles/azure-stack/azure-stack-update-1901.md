@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2019
+ms.date: 03/20/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 02/09/2019
-ms.openlocfilehash: 2acc26fc473d0e8dcb93b1439de316fbef67ae98
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.lastreviewed: 03/20/2019
+ms.openlocfilehash: e02a09bdc8bd80b93f7fa33632c32a75c1d705bd
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416511"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226859"
 ---
 # <a name="azure-stack-1901-update"></a>Mise à jour 1901 d’Azure Stack
 
@@ -34,7 +34,14 @@ Cet article décrit le contenu de la mise à jour 1901. La mise à jour inclut 
 
 ## <a name="build-reference"></a>Référence de build
 
-Le numéro de build de la mise à jour 1901 d’Azure Stack est **1.1901.0.95**.
+La numéro de build de mise à jour d’Azure Stack 1901 est **1.1901.0.95** ou **1.1901.0.99** après le 26 février 2019. Voir la remarque suivante :
+
+> [!IMPORTANT]  
+> Microsoft a détecté un problème qui peut impacter la mise à jour des clients de 1811 (1.1811.0.101) à 1901 et a publié un package 1901 mis à jour pour résoudre ce problème : build 1.1901.0.99, mis à jour à partir de 1.1901.0.95. Les clients qui ont déjà mis à jour vers 1.1901.0.95 n’ont rien à faire.
+>
+> Les clients connectés qui utilisent 1811 verront automatiquement le nouveau package 1901 (1.1901.0.99) disponible dans le portail d’administration et doivent l’installer lorsqu’ils sont prêts. Les clients déconnectés peuvent télécharger et importer le nouveau package 1901 en utilisant le même processus que celui [décrit ici](azure-stack-apply-updates.md).
+>
+> Les clients avec des versions de 1901 ne seront pas impactés par l’installation du package intégral ou du correctif logiciel suivant.
 
 ## <a name="hotfixes"></a>Correctifs logiciels
 
@@ -51,18 +58,20 @@ Les correctifs logiciels Azure Stack sont uniquement applicables aux systèmes i
 
 - **1809** : [KB 4481548 – Correctif logiciel d’Azure Stack 1.1809.12.114](https://support.microsoft.com/help/4481548/)
 - **1811** : Aucun correctif logiciel actuellement disponible.
-- **1901** : Aucun correctif logiciel actuellement disponible.
+- **1901** : [KB 4481548 – Correctif logiciel d’Azure Stack 1.1901.2.103](https://support.microsoft.com/help/4494720)
 
 ## <a name="prerequisites"></a>Prérequis
 
 > [!IMPORTANT]
-- Avant d’installer la mise à jour 1901, installez le [dernier correctif logiciel d’Azure Stack](#azure-stack-hotfixes) pour la build 1811.
+> - Avant d’installer la mise à jour 1901, installez le [dernier correctif logiciel d’Azure Stack](#azure-stack-hotfixes) pour la build 1811.
 
 - Avant de démarrer l’installation de cette mise à jour, exécutez [Test-AzureStack](azure-stack-diagnostic-test.md) avec les paramètres suivants pour valider l’état de votre Azure Stack et résoudre les éventuels problèmes opérationnels détectés, y compris tous les avertissements et les échecs. Examinez aussi les alertes actives et résolvez toutes celles qui nécessitent une action :
 
     ```PowerShell
     Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
     ```
+
+- Lorsqu’Azure Stack est géré par System Center Operations Manager (SCOM), veillez à mettre à jour le Pack d’administration pour Microsoft Azure Stack vers la version 1.0.3.11 avant d’appliquer la version 1901.
 
 ## <a name="new-features"></a>Nouvelles fonctionnalités
 
@@ -80,7 +89,7 @@ Cette mise à jour inclut les nouvelles fonctionnalités et améliorations suiva
    * **AzureRm.Storage**  
          Le module de correctif cumulatif AzureRm inclut désormais la version 5.0.4 déjà publiée qui prend en charge **api-version 2017-10-01**.  
    * **AzureRm.Compute**  
-         Ajout d’un jeu de paramètres simples dans `New-AzureRMVM` et `NewAzureRMVMSS`, `-ImageName` pour prendre en charge la spécification des images utilisateur.  
+         Ajout d’un jeu de paramètres simples dans `New-AzureRmVM` et `New-AzureRmVmss`, `-Image` pour prendre en charge la spécification des images utilisateur.  
    * **AzureRm.Insights**  
          Le module de correctif cumulatif AzureRm inclut désormais la version 5.1.5 déjà publiée qui prend en charge **api-version 2018-01-01** pour les métriques, les définitions de métriques et les types de ressources.
 
@@ -106,7 +115,8 @@ Pour consulter la référence des modules mis à jour, lisez [Référence du mod
 <!-- 16523695 – IS, ASDK -->
 - Correction d’un problème où, après avoir modifié les paramètres DNS de votre réseau virtuel en remplaçant l’option **Utiliser le DNS Azure Stack** par l’option **DNS personnalisé**, les instances n’étaient pas mises à jour avec le nouveau paramètre.
 
-- <!-- 3235634 – IS, ASDK --> Correction d’un problème où, pour déployer des machines virtuelles dont les tailles contenaient le suffixe **v2** (par exemple, **Standard_A2_v2**), vous deviez spécifier le suffixe avec un « v » minuscule (**Standard_A2_v2**). Comme dans l’ensemble des produits Azure, vous pouvez désormais utiliser la forme **Standard_A2_V2** (avec un « V » majuscule).
+- <!-- 3235634 – IS, ASDK -->
+  Correction d’un problème où, pour déployer des machines virtuelles dont les tailles contenaient le suffixe **v2** (par exemple, **Standard_A2_v2**), vous deviez spécifier le suffixe avec un « v » minuscule (**Standard_A2_v2**). Comme dans l’ensemble des produits Azure, vous pouvez désormais utiliser la forme **Standard_A2_V2** (avec un « V » majuscule).
 
 <!-- 2869209 – IS, ASDK --> 
 - Correction d’un problème où, quand vous utilisiez l’[applet de commande Add-AzsPlatformImage](/powershell/module/azs.compute.admin/add-azsplatformimage), vous deviez spécifier le paramètre **-OsUri** comme l’URI du compte de stockage où le disque était chargé. Vous pouvez désormais utiliser le chemin local du disque.
@@ -170,33 +180,6 @@ Pour consulter la référence des modules mis à jour, lisez [Référence du mod
 
    Update-AzsHomeDirectoryTenant -AdminResourceManagerEndpoint $adminResourceManagerEndpoint `
      -DirectoryTenantName $homeDirectoryTenantName -Verbose
-   ```
-
-- Dans Azure Stack, certaines extensions peuvent être déployées sans que vous ayez à les télécharger explicitement via la syndication Place de marché. Les versions suivantes de ces extensions sont en cours de suppression. Les opérateurs Azure Stack doivent désormais syndiquer explicitement ces extensions à partir de la Place de marché Azure Stack :
-
-   | Type                     | Version        |
-   |--------------------------|----------------|
-   | DSC                      | 2.19.0.0       |
-   | IaaSAntimalware          | 1.4.0.0        |
-   | BGInfo                   | 2.1            |
-   | VMAccessAgent            | 2.0            |
-   | CustomScriptExtension    | 1.8            |
-   | MicrosoftMonitoringAgent | 1.0.10900.0    |
-   | IaaSDiagnostics          | 1.10.1.1       |
-   | VMAccessForLinux         | 1.4.0.0        |
-   | CustomScriptForLinux     | 1.5.2.0        |
-   | DockerExtension          | 1.1.1606092330 |
-   | JsonADDomainExtension    | 1.3            |
-   | OSPatchingForLinux       | 2.3.0.1        |
-   | WebRole                  | 4.3000.14.0    |
-
-   Lors du déploiement d’extensions, les utilisateurs Azure Stack doivent définir `autoUpgradeMinorVersion` sur **true**. Par exemple : 
-
-   ```json
-   "type": "Extension",
-           "publisher": "ExtensionPublisher",
-           "typeHandlerVersion": "1.2",
-           "autoUpgradeMinorVersion": "true"
    ```
 
 - Un nouvel élément doit être pris en compte afin de planifier correctement la capacité Azure Stack. Avec la mise à jour 1901, le nombre total de machines virtuelles pouvant être créées est limité.  Cette limite est destinée à être temporaire et a pour but de garantir la stabilité de la solution. Nous recherchons actuellement la cause du problème de stabilité en présence d’un plus grand nombre de machines virtuelles, mais aucun échéancier n’a encore été déterminé pour y remédier. Avec la mise à jour 1901, il y a désormais une limite de 60 machines virtuelles par serveur, la limite totale pour la solution étant de 700.  Par exemple, la limite pour 8 serveurs Azure Stack serait 480 machines virtuelles (8 * 60).  Pour une solution Azure Stack de 12 à 16 serveurs, la limite serait 700. Cette limite a été définie en gardant à l’esprit toutes les considérations relatives à la capacité de calcul, telles que la réserve de résilience et le rapport virtuel/physique de l’UC qu’un opérateur souhaite conserver. Pour plus d’informations, consultez la nouvelle version de l’outil de planification de la capacité.  
@@ -309,9 +292,9 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
 <!-- 3632798 - IS, ASDK -->
 - Dans le portail, si vous ajoutez une règle de sécurité de trafic entrant et sélectionnez **Balise du service** en tant que source, plusieurs options s’affichent dans la liste **Balise source**, qui ne sont pas disponibles pour Azure Stack. Les seules options valides dans Azure Stack sont les suivantes :
 
-    - **Internet**
-    - **VirtualNetwork**
-    - **AzureLoadBalancer**
+  - **Internet**
+  - **VirtualNetwork**
+  - **AzureLoadBalancer**
   
     Les autres options ne sont pas pris en charge en tant que balises sources dans Azure Stack. De même, si vous ajoutez une règle de sécurité de trafic sortant et sélectionnez **Balise du service** en tant que destination, la même liste d’options s’affiche pour **Balise source**. Les seules options valides sont les mêmes que pour **Balise source**, comme décrit dans la liste précédente.
 

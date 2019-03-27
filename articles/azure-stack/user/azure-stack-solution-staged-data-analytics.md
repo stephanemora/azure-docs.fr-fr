@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/01/2018
+ms.date: 03/04/2018
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: be7bf4596989cf8dfd154e0a366f93650546224b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c3ea877e3271dcb5bea527d661e12827eb64fa0c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247355"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57997419"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>Tutoriel : Créer une solution d'analyse des données mises en lots avec Azure et Azure Stack 
 
@@ -54,7 +54,7 @@ Certaines tâches de préparation sont nécessaires pour générer cette solutio
 
 -   Un abonnement Azure. (Créer un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
 
--   Télécharger et installer l’[Explorateur de Stockage Microsoft Azure](http://storageexplorer.com/).
+-   Télécharger et installer l’[Explorateur de Stockage Microsoft Azure](https://storageexplorer.com/).
 
 -   Vous devrez fournir vos propres données pour que les fonctions puissent les traiter. Les données doivent être générées et disponibles pour leur téléchargement vers le conteneur d’objets blob de stockage Azure Stack.
 
@@ -110,7 +110,7 @@ Le compte de stockage et le conteneur d’objets blob conservent toutes les donn
 
 6.  Dans le panneau du compte, sous le titre **SERVICE BLOB**, sélectionnez **Conteneurs**.
 
-7.  En haut du panneau, sélectionnez **+ Conteneur** et sélectionnez **Conteneur**.
+7.  En haut du panneau, sélectionnez **+ Conteneur**, puis sélectionnez **Conteneur**.
 
     ![Alt text](media/azure-stack-solution-staged-data-analytics/image2.png)
 
@@ -175,25 +175,25 @@ Créez une nouvelle fonction Azure Stack pour déplacer les données propres d�
 
 ## <a name="create-a-blob-storage-triggered-function"></a>Créer une fonction déclenchée par le stockage Blob
 
-1.  Développez l’application de fonction, puis sélectionnez le bouton **+** en regard de **Fonctions**.
+1. Développez l’application de fonction, puis sélectionnez le bouton **+** en regard de **Fonctions**.
 
-2.  Dans la zone de recherche, saisissez `blob`, puis sélectionnez la langue souhaitée pour le modèle de **déclencheur d’objet Blob**.
+2. Dans la zone de recherche, saisissez `blob`, puis sélectionnez la langue souhaitée pour le modèle de **déclencheur d’objet Blob**.
 
-  ![Sélectionnez le modèle déclencheur de stockage d’objets blob.](media/azure-stack-solution-staged-data-analytics/image10.png)
+   ![Sélectionnez le modèle déclencheur de stockage d’objets blob.](media/azure-stack-solution-staged-data-analytics/image10.png)
 
-3.  Utilisez les paramètres spécifiés dans le tableau ci-dessous :
+3. Utilisez les paramètres spécifiés dans le tableau ci-dessous :
 
-    | Paramètre | Valeur suggérée | Description |
-    | ------- | ------- | ------- |
-    | NOM | Unique dans votre Function App | Nom de cette fonction déclenchée par l’objet Blob. |
-    | path | \<chemin d’accès à partir de l’emplacement de stockage ci-dessus> | Emplacement du stockage Blob analysé. Le nom de fichier de l’objet blob est transmis dans la liaison en tant que paramètre name. |
-    | Connexion au compte de stockage | Connexion de l’application de fonction | Vous pouvez utiliser la connexion de compte de stockage qui est déjà utilisée par votre application de fonction ou en créer une. |
+   | Paramètre | Valeur suggérée | Description |
+   | ------- | ------- | ------- |
+   | Nom | Unique dans votre Function App | Nom de cette fonction déclenchée par l’objet Blob. |
+   | path | \<chemin d’accès à partir de l’emplacement de stockage ci-dessus> | Emplacement du stockage Blob analysé. Le nom de fichier de l’objet blob est transmis dans la liaison en tant que paramètre name. |
+   | Connexion au compte de stockage | Connexion de l’application de fonction | Vous pouvez utiliser la connexion de compte de stockage qui est déjà utilisée par votre application de fonction ou en créer une. |
 
-    **Exemple :**
+   **Exemple :**
 
-    ![Création de la fonction déclenchée par le stockage Blob.](media/azure-stack-solution-staged-data-analytics/image11.png)
+   ![Création de la fonction déclenchée par le stockage Blob.](media/azure-stack-solution-staged-data-analytics/image11.png)
 
-4.  Sélectionnez **Créer** pour créer la fonction.
+4. Sélectionnez **Créer** pour créer la fonction.
 
 ### <a name="test-the-function"></a>Tester la fonction
 
@@ -245,7 +245,7 @@ Utilisez les étapes et paramètres ci-dessus pour créer un autre compte de sto
 
     | Paramètre | Valeur suggérée | Description |
     | ------- | ------- | ------- |
-    | NOM | Unique dans votre Function App | Nom de cette fonction déclenchée par la file d’attente. |
+    | Nom | Unique dans votre Function App | Nom de cette fonction déclenchée par la file d’attente. |
     | path | \<chemin d’accès à partir de l’emplacement de stockage ci-dessus> | Emplacement de stockage surveillé. Le nom de fichier de la file d’attente est transmis dans la liaison en tant que paramètre name. |
     | Connexion au compte de stockage | Connexion de l’application de fonction | Vous pouvez utiliser la connexion de compte de stockage qui est déjà utilisée par votre application de fonction ou en créer une. |
 
@@ -253,21 +253,21 @@ Utilisez les étapes et paramètres ci-dessus pour créer un autre compte de sto
 
 ## <a name="test-the-queue-triggered-function"></a>Tester la fonction déclenchée par une file d’attente
 
-1.  Dans le portail Azure Stack, accédez à la fonction. Développez les **journaux** en bas de la page et vérifiez que la diffusion en continu des journaux n’est pas suspendue.
+1. Dans le portail Azure Stack, accédez à la fonction. Développez les **journaux** en bas de la page et vérifiez que la diffusion en continu des journaux n’est pas suspendue.
 
-2.  Ouvrez l’Explorateur Stockage et connectez-vous au compte de stockage créé au début de cette section.
+2. Ouvrez l’Explorateur Stockage et connectez-vous au compte de stockage créé au début de cette section.
 
-3.  Développez le compte de stockage, les **conteneurs d’objets blob** et l’objet blob que vous avez créé précédemment. Sélectionnez **Charger**, puis **Charger des fichiers**.
+3. Développez le compte de stockage, les **conteneurs d’objets blob** et l’objet blob que vous avez créé précédemment. Sélectionnez **Charger**, puis **Charger des fichiers**.
 
-    ![Chargement d’un fichier dans le conteneur d’objets blob.](media/azure-stack-solution-staged-data-analytics/image12.png)
+   ![Chargement d’un fichier dans le conteneur d’objets blob.](media/azure-stack-solution-staged-data-analytics/image12.png)
 
-4.  Dans la boîte de dialogue Charger des fichiers, cliquez sur le champ Fichiers. Accédez à un fichier sur un ordinateur local, par exemple un fichier image, sélectionnez-le, puis sélectionnez **Ouvrir** et **Charger**.
+4. Dans la boîte de dialogue Charger des fichiers, cliquez sur le champ Fichiers. Accédez à un fichier sur un ordinateur local, par exemple un fichier image, sélectionnez-le, puis sélectionnez **Ouvrir** et **Charger**.
 
-5.  Revenez aux journaux de fonction et vérifiez que l’objet blob a été lu.
+5. Revenez aux journaux de fonction et vérifiez que l’objet blob a été lu.
 
-  **Exemple :**
+   **Exemple :**
 
-    ![Affichage du message dans les journaux.](media/azure-stack-solution-staged-data-analytics/image13.png)
+   ![Affichage du message dans les journaux.](media/azure-stack-solution-staged-data-analytics/image13.png)
 
 ## <a name="securely-stored-and-accessed-compliant-data"></a>Données conformes stockées et accessibles en toute sécurité
 

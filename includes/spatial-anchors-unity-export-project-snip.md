@@ -4,13 +4,13 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 1/2/2019
 ms.author: crtreasu
-ms.openlocfilehash: 97623cae9620bc27981573f2d1d38619c747d760
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: d0c3c9bdac1dc344dd8520f5270b6afb583c1fa4
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56752542"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58305293"
 ---
-Ouvrez **Build Settings** (Paramètres de build) en sélectionnant **File** -> **Build Settings**.
+Ouvrez **Build Settings** (Paramètres de build) en sélectionnant **File** (Fichier) > **Build Settings** (Paramètres de build).
 
-Sous **Scenes In Build** (Scènes dans la build), cochez la scène `AzureSpatialAnchorsPlugin/Examples/AzureSpatialAnchorsBasicDemo` et supprimez les coches de toutes les autres scènes.
+Sous **Scenes In Build** (Scènes dans la build), cochez la scène `AzureSpatialAnchorsPlugin/Examples/AzureSpatialAnchorsBasicDemo` et décochez les cases de toutes les autres scènes.

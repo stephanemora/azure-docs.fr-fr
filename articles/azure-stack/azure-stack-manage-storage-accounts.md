@@ -10,30 +10,31 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
-ms.topic: get-started-article
-ms.date: 01/18/2019
+ms.topic: conceptual
+ms.date: 03/19/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: aa88c2c63d348d0c82e0ad93115ea49437a63567
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.lastreviewed: 03/19/2019
+ms.openlocfilehash: 34e49060a28869015f067f058b81239ec13eff47
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895056"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226397"
 ---
-# <a name="manage-storage-accounts-in-azure-stack"></a>Gérer les comptes de stockage dans Azure Stack
+# <a name="manage-azure-stack-storage-accounts"></a>Gérer des comptes de stockage Azure Stack
 
-Découvrez comment gérer les comptes de stockage dans Azure Stack pour rechercher, restaurer et récupérer de la capacité de stockage en fonction des besoins de l’entreprise.
+Découvrez comment gérer des comptes de stockage Azure Stack. Rechercher et récupérer de la capacité de stockage en fonction des besoins de l’entreprise.
 
 ## <a name="find-a-storage-account"></a>Rechercher un compte de stockage
+
 La liste des comptes de stockage de la région peut être affichée dans Azure Stack comme suit :
 
 1. Connectez-vous au [portail d’administration](https://adminportal.local.azurestack.external).
 
-2. Sélectionnez **Tous les services** > **Comptes de stockage**.
+2. Sélectionnez **Tous les services** > **Stockage** > **Comptes de stockage**.
 
-   ![](media/azure-stack-manage-storage-accounts/image4.png)
+   ![Comptes de stockage Azure Stack](media/azure-stack-manage-storage-accounts/image4.png)
 
 Par défaut, les 10 premiers comptes sont affichés. Vous pouvez choisir d’en afficher plus en cliquant sur le lien **Charger plus** en bas de la liste.
 
@@ -45,17 +46,18 @@ Si vous êtes intéressé par un compte de stockage particulier, vous pouvez **f
 **Pour filtrer les comptes :**
 
 1. Sélectionnez **Filtrer** en haut du volet.
-2. Dans le volet Filtrer, vous pouvez spécifier un **nom de compte**, un **ID d’abonnement ou un **statut** pour affiner la liste des comptes de stockage à afficher. Utilisez-les pour filtrer selon vos besoins.
-3. Sélectionnez **Update**. La liste est normalement actualisée en conséquence.
+2. Dans le volet Filtrer, vous pouvez spécifier un **nom de compte**, un **ID d’abonnement** ou un **statut** pour affiner la liste des comptes de stockage à afficher. Utilisez-les pour filtrer selon vos besoins.
+3. Lorsque vous tapez, la liste applique automatiquement le filtre.  .
    
-    ![](media/azure-stack-manage-storage-accounts/image5.png)
+    ![Filtrer des comptes de stockage Azure Stack](media/azure-stack-manage-storage-accounts/image5.png)
+
 4. Pour réinitialiser le filtre, sélectionnez **Filtrer**, effacez les sélections, puis mettez à jour la liste.
 
 La zone de texte de recherche (en haut du volet de la liste de comptes de stockage) vous permet de mettre en surbrillance le texte sélectionné dans la liste des comptes. Vous pouvez l’utiliser lorsque le nom complet ou l’ID n’est pas facilement disponible.
 
 Vous pouvez utiliser ici du texte libre pour rechercher le compte qui vous intéresse.
 
-![](media/azure-stack-manage-storage-accounts/image6.png)
+![Rechercher des comptes de stockage Azure Stack](media/azure-stack-manage-storage-accounts/image6.png)
 
 ## <a name="look-at-account-details"></a>Accéder aux détails du compte
 Une fois que vous avez trouvé les comptes qui vous intéressent, vous pouvez sélectionner un compte particulier pour afficher certains détails. Un nouveau volet s’ouvre avec les informations détaillées du compte, comme le type du compte, l’heure de création, l’emplacement, etc.
@@ -97,9 +99,8 @@ Le paramètre de période de conservation permet à un opérateur cloud de spéc
 
 1. Connectez-vous au [portail d’administration](https://adminportal.local.azurestack.external).
 2. Sélectionnez **Tous les services** > **Gestion des régions** sous **Administration**.
-3. Sélectionnez **Stockage** dans la liste **Fournisseurs de ressources**.
-4. Sélectionnez **Paramètres** en haut pour ouvrir le volet des paramètres.
-5. Sélectionnez **Configuration**, puis modifiez la valeur de la période de conservation.
+3. Sélectionnez **Fournisseurs de ressources** > **Stockage** > **Paramètres**. Votre chemin d’accès est Accueil > *région* - Fournisseurs de ressources > Stockage.
+4. Sélectionnez **Configuration**, puis modifiez la valeur de la période de conservation.
 
    Définissez le nombre de jours et enregistrez-le.
    
