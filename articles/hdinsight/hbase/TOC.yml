@@ -79,21 +79,6 @@ items:
       - name: Publier des applications HDInsight dans la Place de marché Azure
         href: ../hdinsight-apps-publish-applications.md
         maintainContext: true
-      - name: 'Installer une application publiée : CDAP (Cask Data Application Platform)'
-        href: ../hdinsight-apps-install-cask.md
-        maintainContext: true
-      - name: 'Installer une application publiée : Dataiku'
-        href: ../hdinsight-apps-install-dataiku.md
-        maintainContext: true
-      - name: 'Installer une application publiée : Datameer'
-        href: ../hdinsight-apps-install-datameer.md
-        maintainContext: true
-      - name: 'Installer une application publiée : H2O'
-        href: ../hdinsight-apps-install-h2o.md
-        maintainContext: true
-      - name: 'Installer une application publiée : Streamsets'
-        href: ../hdinsight-apps-install-streamsets.md
-        maintainContext: true
   - name: Sécuriser
     items:
     - name: Utiliser SSH avec HDInsight
@@ -231,9 +216,6 @@ items:
       - name: Paramètres Apache Hive pour résoudre les erreurs de mémoire insuffisante
         href: ../hdinsight-hadoop-hive-out-of-memory-error-oom.md
         maintainContext: true
-      - name: Utiliser les vues Apache Ambari pour déboguer les travaux Apache TEZ
-        href: ../hdinsight-debug-ambari-tez-view.md
-        maintainContext: true
       - name: Optimiser les requêtes Apache Hive
         href: ../hdinsight-hadoop-optimize-hive-query.md
         maintainContext: true
@@ -303,33 +285,6 @@ items:
     - name: Migrer des solutions .NET vers des clusters Linux
       href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md
       maintainContext: true
-    - name: Exécuter des exemples Apache Hadoop MapReduce
-      href: ../hdinsight-run-samples.md
-      maintainContext: true
-    - name: Utiliser Apache Giraph pour traiter des graphiques à grande échelle
-      href: ../hdinsight-hadoop-giraph-install.md
-      maintainContext: true
-    - name: Utiliser Apache Oozie pour les flux de travail
-      href: ../hdinsight-use-oozie.md
-      maintainContext: true
-    - name: Déploiement et gestion des topologies Apache Storm
-      href: ../storm/apache-storm-deploy-monitor-topology.md
-      maintainContext: true
-    - name: Utiliser Apache Maven pour créer des applications Java
-      href: ../hdinsight-hbase-build-java-maven.md
-      maintainContext: true
-    - name: Accéder aux journaux d’applications YARN Apache Hadoop
-      href: ../hdinsight-hadoop-access-yarn-app-logs.md
-      maintainContext: true
-    - name: Générer des recommandations de films en utilisant Apache Mahout
-      href: ../hdinsight-mahout.md
-      maintainContext: true
-    - name: Développer des actions de script
-      href: ../hdinsight-hadoop-script-actions.md
-      maintainContext: true
-    - name: Surveiller des clusters à l’aide des API Apache Ambari
-      href: ../hdinsight-monitor-use-ambari-api.md
-      maintainContext: true
 - name: Ressources
   items:
   - name: Notes de publication
@@ -352,9 +307,9 @@ items:
   - name: Outils Windows pour HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: e00619810711e0a27c2c49224e96818e7d184d1f
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 39bc984d593f9026a3f6db85da8b8d1b80038335
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58360020"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444417"

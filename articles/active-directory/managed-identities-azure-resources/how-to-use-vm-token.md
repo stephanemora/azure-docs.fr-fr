@@ -3,7 +3,7 @@ title: Guide pratique de l’utilisation d’identités managées pour ressource
 description: Instructions et exemples détaillés concernant l’utilisation d’identités managées pour ressources Azure sur une machine virtuelle afin d’acquérir un jeton d’accès OAuth.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
-ms.author: priyamo
+ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09ddce0dc398a078b3a901d224f00ef41550bf89
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: c7354ed8362412c40d52a3895a9b4118eb7c1544
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437660"
+ms.locfileid: "58449391"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Guide pratique de l’utilisation d’identités managées pour ressources Azure sur une machine virtuelle Azure afin d’acquérir un jeton d’accès 
 

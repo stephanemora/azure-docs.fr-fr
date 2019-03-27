@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 62137f64f0f138ea1c2dfbdf97bde791227617db
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: 7e2f5c344a0fb632956ab5d5b951ee69cff528ec
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53793034"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482798"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>Résultats des tests de la réplication Hyper-V vers un site secondaire
 
@@ -175,10 +175,10 @@ Ce tableau récapitule les mesures de performances et les compteurs utilisés lo
 | UC |\Processor(_Total)\% temps processeur |
 | Mémoire disponible |\Memory\Available MBytes |
 | E/S par seconde |\PhysicalDisk(_Total)\Disk Transfers/sec |
-| Nombre d’opérations d’E/S par seconde en lecture de la VM |\Hyper-V Virtual Storage Device(<VHD>)\Read Operations/Sec |
-| Nombre d’opérations d’E/S par seconde en écriture de la VM |\Hyper-V Virtual Storage Device(<VHD>)\Write Operations/S |
-| Débit de lecture des VM |\Hyper-V Virtual Storage Device(<VHD>)\Read Bytes/sec |
-| Débit d’écriture des VM |\Hyper-V Virtual Storage Device(<VHD>)\Write Bytes/sec |
+| Nombre d’opérations d’E/S par seconde en lecture de la VM |Dispositif de stockage virtuel \Hyper-V (\<VHD >) \Read opérations/s |
+| Nombre d’opérations d’E/S par seconde en écriture de la VM |Dispositif de stockage virtuel \Hyper-V (\<VHD >) \Write opérations/S |
+| Débit de lecture des VM |Dispositif de stockage virtuel \Hyper-V (\<VHD >) \Read octets/s |
+| Débit d’écriture des VM |Dispositif de stockage virtuel \Hyper-V (\<VHD >) \Write octets/s |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

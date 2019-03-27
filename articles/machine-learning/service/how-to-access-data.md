@@ -11,18 +11,18 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 02/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: c171e35c6542febffc666ad5abfab50e093bb698
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 25da234e4210c98ce17bdeb502493c5c649dab28
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58359277"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481635"
 ---
 # <a name="access-data-from-your-datastores"></a>Accéder aux données à partir de vos banques de données
 
-Magasins de données vous permettent d’interagir avec et accéder à vos données si vous exécutez votre code localement, sur un cluster de calcul, ou sur une machine virtuelle. Dans cet article, vous découvrez les flux de travail Azure Machine Learning qui garantissent que vos banques de données est accessibles et disponibles pour votre contexte de calcul.
+ Dans le service Azure Machine Learning, les banques de données sont calcul indépendante de l’emplacement des mécanismes pour accéder au stockage sans avoir à modifier votre code source. Si vous écrivez du code de formation pour spécifier un chemin d’accès en tant que paramètre, ou fournissez une banque de données directement à un estimator, flux de travail Azure Machine Learning Vérifiez vos emplacements de magasin de données sont accessibles et mis à disposition votre contexte de calcul.
 
-Cette procédure montre des exemples pour les tâches suivantes :
+Cette procédure montre des exemples des tâches suivantes :
 * [Choisissez une banque de données](#access)
 * [Obtenir des données](#get)
 * [Charger et télécharger des données aux magasins de données](#up-and-down)
@@ -30,7 +30,7 @@ Cette procédure montre des exemples pour les tâches suivantes :
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-Pour utiliser des magasins de données, vous devez un [espace de travail](concept-azure-machine-learning-architecture.md#workspace) première. 
+Pour utiliser des banques de données, vous devez tout d’abord disposer d’un [espace de travail](concept-azure-machine-learning-architecture.md#workspace).
 
 Commencez soit par [créer un espace de travail](setup-create-workspace.md#sdk), soit par en récupérer un existant :
 
@@ -49,14 +49,16 @@ Vous pouvez utiliser le magasin de données par défaut ou apportez votre propre
 
 ### <a name="use-the-default-datastore-in-your-workspace"></a>Utiliser le magasin de données par défaut dans votre espace de travail
 
-Pas nécessaire de créer ou configurer un compte de stockage dans la mesure où chaque espace de travail a une banque de données par défaut. Vous pouvez utiliser que la banque de données immédiatement tel qu’il est déjà inscrit dans l’espace de travail. 
+ Chaque espace de travail a une banque de données par défaut inscrit, vous pouvez utiliser tout de suite.
 
 Pour obtenir la banque de données par défaut de l’espace de travail :
+
 ```Python
 ds = ws.get_default_datastore()
 ```
 
 ### <a name="register-your-own-datastore-with-the-workspace"></a>Inscrire votre propre magasin de données avec l’espace de travail
+
 Si vous avez du stockage Azure, vous pouvez l’inscrire en tant que banque de données sur votre espace de travail.   Toutes les méthodes d’inscription sont sur le [ `Datastore` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) classe et ont la forme register_azure_ *. 
 
 Les exemples suivants montrent que vous enregistriez un conteneur d’objets Blob Azure ou un partage de fichiers Azure comme banque de données.
@@ -145,19 +147,17 @@ ds.download(target_path='your target path',
 <a name="train"></a>
 ## <a name="access-datastores-during-training"></a>Accès des magasins de données pendant la formation
 
-Une fois que vous apportez votre banque de données disponibles sur le calcul à distance, vous pouvez l’accéder lors des exécutions d’apprentissage (par exemple, les données de formation ou de validation) en passant simplement le chemin d’accès à celui-ci en tant que paramètre dans votre script de formation.
+Une fois que vous apportez votre banque de données disponibles sur la cible de calcul, vous pouvez l’accéder lors des exécutions d’apprentissage (par exemple, les données de formation ou de validation) en passant simplement le chemin d’accès à celui-ci en tant que paramètre dans votre script de formation.
 
-Le tableau suivant répertorie le commun [ `DataReference` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) ou les méthodes qui rendent les banques de données disponibles sur le calcul à distance.
+Le tableau suivant répertorie les [ `DataReference` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) méthodes qui indiquent comment utiliser le magasin de données lors des exécutions à la cible de calcul.
 
-# #
-
-moyen|Méthode|Description
+moyen|Méthode|Description|
 ----|-----|--------
-Monter| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--)| Permet de monter une banque de données sur le calcul à distance. Mode par défaut pour les banques de données.
-Téléchargement|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-)|Utilisez pour télécharger des données à partir de l’emplacement spécifié par `path_on_compute` dans votre banque de données pour le calcul à distance.
-Télécharger|[`as_upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)| Utiliser pour charger des données à la racine de votre banque de données à partir de l’emplacement spécifié par `path_on_compute`.
+Monter| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--)| Permet de monter la banque de données sur la cible de calcul.
+Téléchargement|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-)|Pour télécharger le contenu de votre banque de données à l’emplacement spécifié par `path_on_compute`. <br> Pour le contexte de la formation de s’exécuter, ce téléchargement se produit avant l’exécution.
+Télécharger|[`as_upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)| Permet de charger un fichier à partir de l’emplacement spécifié par `path_on_compute` à votre banque de données. <br> Pour le contexte de la formation de s’exécuter, ce chargement se produit après l’exécution.
 
-```Python
+ ```Python
 import azureml.data
 from azureml.data import DataReference
 
@@ -166,22 +166,38 @@ ds.as_download(path_on_compute='your path on compute')
 ds.as_upload(path_on_compute='yourfilename')
 ```  
 
-Pour référencer un dossier ou fichier spécifique dans votre banque de données, utilisez la fonction [`path()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#path-path-none--data-reference-name-none-) de la banque de données.
+Pour faire référence à un dossier ou fichier spécifique dans votre banque de données et le rendre disponible sur la cible de calcul, utilisez le magasin de données [ `path()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#path-path-none--data-reference-name-none-) (fonction).
 
 ```Python
-#download the contents of the `./bar` directory from the datastore to the remote compute
+#download the contents of the `./bar` directory in ds to the compute target
 ds.path('./bar').as_download()
 ```
 
+> [!NOTE]
+> N’importe quel `ds` ou `ds.path` objet correspond à un nom de variable d’environnement du format `"$AZUREML_DATAREFERENCE_XXXX"` dont la valeur représente le chemin d’accès de montage/téléchargement sur l’ordinateur cible. Le chemin d’accès de banque de données sur l’ordinateur cible ne peut pas être le même que le chemin d’accès de l’exécution du script de formation.
+
+### <a name="compute-context-and-datastore-type-matrix"></a>Calcul de matrice de type de contexte et de la banque de données
+
+La matrice suivante affiche les fonctionnalités d’accès de données disponibles pour les scénarios de contexte et de la banque de données de calcul différents. Le terme « Pipeline » dans cette matrice fait référence à la possibilité d’utiliser des magasins de données comme entrée ou sortie dans [Azure Machine Learning Pipelines](https://docs.microsoft.com/azure/machine-learning/service/concept-ml-pipelines).
+
+||Calcul local|Capacité de calcul Azure Machine Learning|Transfert de données|Databricks|HDInsight|Azure Batch|Azure DataLake Analytics|Virtual Machines|
+-|--|-----------|----------|---------|-----|--------------|---------|---------|
+|AzureBlobDatastore|[`as_download()`] [`as_upload()`]|[`as_mount()`]<br> [`as_download()`] [`as_upload()`] <br> Pipeline|Pipeline|Pipeline|[`as_download()`] <br> [`as_upload()`]|Pipeline||[`as_download()`] <br> [`as_upload()`]|
+|AzureFileDatastore|[`as_download()`] [`as_upload()`]|[`as_mount()`]<br> [`as_download()`] [`as_upload()`] Pipeline |||[`as_download()`] [`as_upload()`]|||[`as_download()`] [`as_upload()`]|
+|AzureDataLakeDatastore|||Pipeline|Pipeline|||Pipeline||
+|AzureDataLakeGen2Datastore|||Pipeline||||||
+|AzureDataPostgresSqlDatastore|||Pipeline||||||
+|AzureSqlDatabaseDataDatastore|||Pipeline||||||
 
 
 > [!NOTE]
-> Tout objet `ds` ou `ds.path` est résolu en un nom de variable d’environnement au format `"$AZUREML_DATAREFERENCE_XXXX"`, dont la valeur représente le chemin de montage/téléchargement sur la cible de calcul distante. Le chemin d’accès de banque de données sur le calcul à distance ne peut pas être le même que le chemin d’accès de l’exécution du script de formation.
+> Il peut y avoir des scénarios dans lesquels hautement itératif, processus de données volumineuses s’exécutent plus rapidement à l’aide de [`as_download()`] au lieu de [`as_mount()`] ; Cela peut être validé de façon expérimentale.
 
 ### <a name="examples"></a>Exemples 
 
-Les éléments suivants illustrent des exemples spécifiques à la [ `Estimator` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) classe pour accéder à votre banque de données pendant la formation.
+Les exemples de code suivants sont spécifiques à la [ `Estimator` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) classe pour accéder à votre banque de données pendant la formation.
 
+Ce code crée un estimator utilisant le script de formation, `train.py`, à partir du répertoire source indiqué à l’aide des paramètres définis dans `script_params`, tous sur la cible de calcul spécifiée.
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -191,17 +207,16 @@ script_params = {
 }
 
 est = Estimator(source_directory='your code directory',
+                entry_script='train.py',
                 script_params=script_params,
-                compute_target=compute_target,
-                entry_script='train.py')
+                compute_target=compute_target
+                )
 ```
 
-Dans la mesure où `as_mount()` est le mode par défaut pour une banque de données, vous pourriez également directement passer `ds` à la `'--data_dir'` argument.
-
-Ou passer dans la liste des banques de données au constructeur estimateur `inputs` paramètre à monter ou à copier vers/à partir de vos banques de données. Cet exemple de code :
-* Télécharge le contenu de la banque de données `ds1` pour le calcul à distance avant votre script de formation `train.py` est exécuté
-* Le dossier Téléchargements `'./foo'` dans le magasin de données `ds2` pour le calcul à distance avant `train.py` est exécuté
-* Télécharge le fichier `'./bar.pkl'` à partir du calcul à distance jusqu'à la banque de données `ds3` après l’exécution de votre script
+Vous pouvez également passer dans la liste des banques de données au constructeur estimateur `inputs` paramètre à monter ou à copier vers/à partir de vos banques de données. Cet exemple de code :
+* Télécharge le contenu de la banque de données `ds1` à la cible de calcul avant votre script de formation `train.py` est exécuté
+* Le dossier Téléchargements `'./foo'` dans le magasin de données `ds2` à la cible de calcul avant `train.py` est exécuté
+* Télécharge le fichier `'./bar.pkl'` à partir de la cible de calcul jusqu'à la banque de données `ds3` après l’exécution de votre script
 
 ```Python
 est = Estimator(source_directory='your code directory',
@@ -209,7 +224,6 @@ est = Estimator(source_directory='your code directory',
                 entry_script='train.py',
                 inputs=[ds1.as_download(), ds2.path('./foo').as_download(), ds3.as_upload(path_on_compute='./bar.pkl')])
 ```
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

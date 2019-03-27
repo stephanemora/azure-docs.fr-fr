@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/06/2019
 ms.author: ramamill
-ms.openlocfilehash: ef0e29217e03b3c5d1b2880a6ce755c6cc02ceba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fb558644f29cd7b84156f976f525a88080f101dc
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004458"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449208"
 ---
 # <a name="deploy-a-configuration-server"></a>Déployer un serveur de configuration
 
@@ -121,7 +121,7 @@ Si vous souhaitez ajouter une carte d’interface réseau supplémentaire au ser
 
 ### <a name="configure-settings"></a>Configurer les paramètres
 
-1. Dans l’assistant de gestion de serveur de configuration, sélectionnez **Configurer la connectivité**. Dans les menus déroulants, sélectionnez la carte réseau par le serveur de processus intégré pour l’installation push et la découverte du service mobilité sur les machines sources, puis sélectionnez la carte réseau qui utilise le serveur Configuration pour la connectivité avec Azure. Ensuite, sélectionnez **Enregistrer**. Vous ne pouvez pas modifier ce paramètre après sa configuration. Il est fortement déconseillé de modifier l'adresse IP d'un serveur de configuration. Vérifiez que l’adresse IP affectée au serveur de configuration est une adresse IP statique et pas une adresse IP DHCP.
+1. Dans l’assistant de gestion de serveur de configuration, sélectionnez **Configurer la connectivité**. Dans les menus déroulants, commencez par sélectionner la carte réseau que le serveur de processus intégré utilise pour l’installation push du service Mobilité sur les machines sources, puis sélectionnez la carte réseau que le serveur de configuration utilise pour la connectivité avec Azure. Ensuite, sélectionnez **Enregistrer**. Vous ne pouvez pas modifier ce paramètre après sa configuration. Il est fortement déconseillé de modifier l'adresse IP d'un serveur de configuration. Vérifiez que l’adresse IP affectée au serveur de configuration est une adresse IP statique et pas une adresse IP DHCP.
 2. Dans **sélectionner les Services de récupération du coffre**, connectez-vous à Microsoft Azure avec les informations d’identification utilisées dans **étape 6** de «[enregistrer un serveur avec Azure Site Recovery Services configuration](#register-the-configuration-server-with-azure-site-recovery-services)» .
 3. Une fois la connexion, sélectionnez votre abonnement Azure et le groupe de ressources pertinentes et le coffre.
 
@@ -184,7 +184,7 @@ Pour éviter toute interruption d’une réplication continue, assurez-vous que 
     Dans le **coffre Recovery Services**, **Gérer** > **Infrastructure Site Recovery** > **Serveurs de configuration**. Dans Serveurs, sélectionnez **Télécharger une clé d’inscription** pour télécharger le fichier d’informations d’identification du coffre.
 10. Puis-je cloner un serveur de configuration existant et l’utiliser pour l’orchestration de la réplication ?
 
-    **Non**, l’utilisation d’un composant de serveur de configuration cloné n’est pas prise en charge.
+    **Non**, l’utilisation d’un composant de serveur de configuration cloné n’est pas prise en charge. Clone du serveur de processus de montée en puissance est également un scénario non pris en charge. Le clonage de Site Recovery composants un impact sur les réplications en cours.
 
 11. Puis-je changer l’adresse IP du serveur de configuration ?
 

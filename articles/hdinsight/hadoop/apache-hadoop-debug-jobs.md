@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 4d3d45434a90e89e011bf8aa7c3fd37909e25386
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: a035789af08aa4c0d877a06295d9bd6fdedf6844
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203062"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449483"
 ---
 # <a name="analyze-apache-hadoop-logs"></a>Analyser les journaux Apache Hadoop
 
@@ -315,6 +315,5 @@ Certains de ces messages d'erreur peuvent également apparaître dans le portail
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Utiliser les vues Apache Ambari pour déboguer les travaux Apache Tez dans HDInsight](../hdinsight-debug-ambari-tez-view.md)
 * [Activer les dumps de tas pour les services Apache Hadoop sur HDInsight sur Linux](../hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 * [Gérer des clusters HDInsight à l’aide de l’interface utilisateur web d’Apache Ambari](../hdinsight-hadoop-manage-ambari.md)

@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: 4c2c22d2d3d68080b1d4e05410121ea1d1be283d
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 41c665a2a1aec56cc07d5465742d01e41e6adfff
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439174"
+ms.locfileid: "58443579"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Didacticiel : Utiliser l’API Video Indexer
 
@@ -23,7 +23,7 @@ ms.locfileid: "58439174"
 
 Video Indexer consolide plusieurs technologies audio et vidéo d’intelligence artificielle (IA) proposées par Microsoft dans un seul service intégré, ce qui simplifie le développement. Les API sont conçues pour permettre aux développeurs de se concentrer sur l’utilisation des technologies d’intelligence artificielle multimédia sans vous soucier de la mise à l’échelle, de la portée mondiale, de la disponibilité ou de la fiabilité de la plateforme cloud. Vous pouvez utiliser l’API, entre autres, pour charger vos fichiers, obtenir des aperçus détaillés des vidéos et obtenir les URL des widgets de lecteur et des informations, afin de les incorporer dans votre application.
 
-Lorsque vous créez un compte Video Indexer, vous pouvez choisir un compte d’essai gratuit (où vous obtenez un certain nombre de minutes d’indexation gratuites) ou une option payante (où vous n’êtes pas limités par le quota). Avec l’essai gratuit, Video Indexer fournit jusqu’à 600 heures d’indexation gratuite aux utilisateurs du site web et jusqu’à 2 400 heures d’indexation gratuite aux utilisateurs de l’API. Avec l’option payante, vous créez un compte Video Indexer [connecté à votre abonnement Azure et un compte Azure Media Services](connect-to-azure.md). Vous payez pour les minutes indexées, ainsi que pour les frais liés au compte Azure Media Services. 
+Lorsque vous créez un compte Video Indexer, vous pouvez choisir un compte d’essai gratuit (où vous obtenez un certain nombre de minutes d’indexation gratuites) ou une option payante (où vous n’êtes pas limités par le quota). Avec l’essai gratuit, Video Indexer fournit jusqu’à 600 heures d’indexation gratuite aux utilisateurs du site web et jusqu’à 2 400 heures d’indexation gratuite aux utilisateurs de l’API. Avec l’option payante, vous créez un compte Video Indexer [connecté à votre abonnement Azure et un compte Azure Media Services](connect-to-azure.md). Vous payez pour les minutes indexées, ainsi que pour les frais liés au compte Azure Media Services. 
 
 Cet article explique comment les développeurs peuvent tirer parti de l’[API Video Indexer](https://api-portal.videoindexer.ai/).
 
@@ -209,8 +209,12 @@ Debug.WriteLine(playerWidgetLink);
 
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="see-also"></a>Voir aussi
 
-- [Examiner les détails de la sortie JSON](video-indexer-output-json-v2.md)
 - [Présentation de Video Indexer](video-indexer-overview.md)
 - [Régions](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
+
+## <a name="next-steps"></a>Étapes suivantes
+
+[Examiner les détails de la sortie JSON](video-indexer-output-json-v2.md)
+

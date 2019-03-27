@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: b367251e6799031ed96058d21e606446e14636c7
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: c316176094f6d9b8b45b812acaad04ad37f4bce2
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407604"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449122"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Résoudre les problèmes de domaines et de certificats SSL dans Azure App Service
 
@@ -314,7 +314,7 @@ Oui. Lorsque vous accédez à la panneau domaines personnalisés et SSL dans le 
 
 **Puis-je transférer un domaine d’un abonnement vers un autre abonnement ?**
 
-Vous pouvez déplacer un domaine vers un autre groupe ressources/abonnement à l’aide du [Move-AzureRmResource](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Move-AzureRmResource?view=azurermps-6.13.0) applet de commande PowerShell.
+Vous pouvez déplacer un domaine vers un autre groupe ressources/abonnement à l’aide du [Move-AzureRmResource](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Move-AzureRmResource) applet de commande PowerShell.
 
 **Comment puis-je gérer mon domaine personnalisé si je n’ai pas actuellement une application Azure App Service ?**
 

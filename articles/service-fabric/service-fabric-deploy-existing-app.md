@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
 ms.author: aljo
-ms.openlocfilehash: 5831a21225b80e613f713a516d2f000f8b33f096
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fa883f819c53f57a8e281069b2a3db1c55efc6c6
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57853152"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480535"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Empaqueter et déployer un fichier exécutable existant sur Service Fabric
 Lors de l’empaquetage d’un fichier exécutable en tant [qu’exécutable invité](service-fabric-guest-executables-introduction.md), vous pouvez choisir d’utiliser un modèle de projet Visual Studio ou de [créer le package d’application manuellement](#manually). À l’aide de Visual Studio, la structure de package d’application et les fichiers manifeste sont créés pour vous par le modèle de nouveau projet.
@@ -254,7 +254,7 @@ Les fichiers journaux sont enregistrés dans un des répertoires de travail du s
 ## <a name="deployment"></a>Déploiement
 La dernière étape consiste à [déployer votre application](service-fabric-deploy-remove-applications.md). Le script PowerShell ci-dessous indique comment déployer votre application dans le cluster de développement local et comment démarrer un nouveau service Service Fabric.
 
-```PowerShell
+```powershell
 
 Connect-ServiceFabricCluster localhost:19000
 

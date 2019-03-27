@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/12/2017
+ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53c14ce92a422c2254a1e9b7fc4989b49790a88a
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: eeb2af6283e5c9d8a41e74152a94b85efdae1866
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774436"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487313"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Synchronisation d’Azure AD Connect : Configurer le filtrage
 L’utilisation du filtrage vous permet de contrôler les objets de votre annuaire local qui doivent apparaître dans Azure Active Directory (Azure AD). La configuration par défaut concerne l’ensemble des objets présents dans tous les domaines des forêts configurées. En général, il s’agit de la configuration recommandée. Les utilisateurs qui utilisent les charges de travail Office 365, telles qu’Exchange Online et Skype Entreprise, peuvent tirer parti d’une liste d’adresses globale complète pour envoyer des courriers électroniques et appeler tout le monde. La configuration par défaut leur offre la même expérience qu’une implémentation locale d’Exchange ou de Lync.
@@ -99,6 +99,12 @@ Configuration de filtrage basé sur un domaine se compose des étapes suivantes�
 3. [Appliquer et vérifier les modifications](#apply-and-verify-changes)
 
 ### <a name="select-the-domains-to-be-synchronized"></a>Sélectionner les domaines à synchroniser
+Il existe deux façons pour sélectionner les domaines à synchroniser :
+    - L’utilisation du Service de synchronisation
+    - À l’aide de l’Assistant Azure AD Connect.
+
+
+#### <a name="select-the-domains-to-be-synchronized-using-the-synchronization-service"></a>Sélectionnez les domaines à synchroniser à l’aide du Service de synchronisation
 Pour définir le filtre de domaine, procédez comme suit :
 
 1. Connectez-vous au serveur qui exécute Azure AD Connect Sync en utilisant un compte membre du groupe de sécurité **ADSyncAdmins** .
@@ -112,6 +118,17 @@ Pour définir le filtre de domaine, procédez comme suit :
    ![Actualisation requise](./media/how-to-connect-sync-configure-filtering/refreshneeded.png)  
 6. Quand vous avez terminé, fermez la boîte de dialogue **Propriétés** en cliquant sur **OK**. Si vous avez supprimé des domaines de la forêt, un message contextuel vous indique qu’un domaine a été supprimé et que la configuration va être nettoyée.
 7. Continuez à ajuster les profils d'exécution.
+
+#### <a name="select-the-domains-to-be-synchronized-using-the-azure-ad-connect-wizard"></a>Sélectionnez les domaines à synchroniser à l’aide de l’Assistant Azure AD Connect
+Pour définir le filtre de domaine, procédez comme suit :
+
+1.  Démarrer l’Assistant Azure AD Connect
+2.  Cliquez sur **Configurer**.
+3.  Sélectionnez **personnaliser les Options de synchronisation** et cliquez sur **suivant**.
+4.  Entrez vos informations d’identification Azure AD.
+5.  Sur le **répertoires connectés** écran, cliquez sur **suivant**.
+6.  Sur le **page filtrage domaine et unité organisationnelle** cliquez sur **Actualiser**.  Nouveaux domaines malades apparaissent maintenant et domaines supprimés disparaît.
+   ![Partitions](./media/how-to-connect-sync-configure-filtering/update2.png)  
 
 ### <a name="update-the-run-profiles"></a>Mettre à jour les profils d’exécution
 Si vous avez mis à jour votre filtre de domaine, vous devez également procéder à la mise à jour des profils d’exécution.

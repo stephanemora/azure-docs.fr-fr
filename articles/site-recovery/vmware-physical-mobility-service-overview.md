@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 6b06ee7710dedbf2283fc4e365b767aa57547e7c
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 0e5e4e207542a74ef3fc5ff7fc78431b7956e54c
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58417817"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449253"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>À propos du service Mobilité pour serveurs physiques et machines virtuelles VMware
 
@@ -43,7 +43,8 @@ Pendant l’installation push de l’agent de mobilité, les étapes suivantes s
 2. Une fois l’agent est copié sur les vérifications de configuration requise du serveur sont effectuées sur le serveur. L’installation échoue si une ou plusieurs de la [conditions préalables](vmware-physical-azure-support-matrix.md) ne sont pas remplies. Si toutes les conditions préalables sont remplies, l’installation est déclenchée.
 3. Le fournisseur VSS de récupération de Site Azure est installé sur le serveur dans le cadre de l’installation de l’agent de mobilité. Ce fournisseur est utilisé pour générer des points de cohérence d’Application. En cas d’installation du fournisseur VSS, cette étape sera ignorée et l’installation de l’agent va continuer.
 4. Si l’agent installation réussit, mais l’installation du fournisseur VSS échoue, état de la tâche est marquée comme « Avertissement ». Cela n’affecte pas la génération de points de cohérence sur incident.
-    a. Pour générer des points de cohérence d’application, reportez-vous à [nos conseils](vmware-physical-manage-mobility-service.md#install-site-recovery-vss-provider-on-source-machine) pour terminer l’installation du fournisseur VSS de récupération de Site manuellement.
+
+    a. Pour générer des points de cohérence d’application, reportez-vous à [nos conseils](vmware-physical-manage-mobility-service.md#install-site-recovery-vss-provider-on-source-machine) pour terminer l’installation du fournisseur VSS de récupération de Site manuellement. </br>
     b.  Si vous ne souhaitez pas de points cohérent d’application à générer, [modifier la stratégie de réplication](vmware-azure-set-up-replication.md#create-a-policy) pour désactiver les points de cohérence d’application.
 
 ### <a name="before-922-versions"></a>Avant les 9.22 versions
