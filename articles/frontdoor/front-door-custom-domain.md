@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 0e1c5e4c3e4b40fd04ca9d48aba9b1e5194d4261
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 3c98359950bd9539ea75f5a031ac1ce9f2ebe812
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330923"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58002718"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-front-door"></a>Tutoriel : Ajouter un domaine personnalisé à votre Front Door
 Ce tutoriel montre comment ajouter un domaine personnalisé à votre Front Door. Quand vous utilisez Azure Front Door Service pour la livraison d’applications, vous avez besoin d’un domaine personnalisé si vous souhaitez que votre propre nom de domaine soit visible dans votre requête d’utilisateur final. Un nom de domaine visible peut être pratique pour vos clients et utile à des fins de personnalisation.
@@ -43,7 +43,7 @@ Si vous utilisez Azure pour héberger vos [domaines DNS](https://docs.microsoft.
 
 ## <a name="create-a-cname-dns-record"></a>Créer un enregistrement CNAME DNS
 
-Avant de pouvoir utiliser un domaine personnalisé avec votre Front Door, vous devez d’abord créer un enregistrement de nom canonique (CNAME) auprès de votre fournisseur de domaine pour pointer vers l’hôte frontend par défaut du Front Door (par exemple, contoso.azurefd.net). Un enregistrement CNAME est un type de fonctionnalité DNS (Domain Name System) qui mappe un nom de domaine source à un nom de domaine de destination. Pour Azure Front Door Service, le nom de domaine source correspond au nom de domaine personnalisé, et le nom de domaine de destination correspond au nom d’hôte par défaut du Front Door. Une fois que Front Door a vérifié l’enregistrement CNAME que vous avez créé, le trafic adressé au domaine personnalisé source (par exemple www.contoso.com) est acheminé vers l’hôte frontend par défaut du Front Door de destination spécifié (par exemple contoso.azurefd.net). 
+Avant de pouvoir utiliser un domaine personnalisé avec votre Front Door, vous devez d’abord créer un enregistrement de nom canonique (CNAME) auprès de votre fournisseur de domaine pour pointer vers l’hôte frontend par défaut du Front Door (par exemple, contoso.azurefd.net). Un enregistrement CNAME est un type de fonctionnalité DNS (Domain Name System) qui mappe un nom de domaine source à un nom de domaine de destination. Pour Azure Front Door Service, le nom de domaine source correspond au nom de domaine personnalisé, et le nom de domaine de destination correspond au nom d’hôte par défaut du Front Door. Une fois que Front Door a vérifié l’enregistrement CNAME que vous avez créé, le trafic adressé au domaine personnalisé source (par exemple www\.contoso.com) est acheminé vers l’hôte frontend par défaut du Front Door de destination spécifié (par exemple contoso.azurefd.net). 
 
 Un domaine personnalisé et son sous-domaine ne peuvent être associés qu’à un seul Front Door à la fois. Toutefois, vous pouvez utiliser différents sous-domaines du même domaine personnalisé pour différents services Front Door à l’aide de plusieurs enregistrements CNAME. Vous pouvez également mapper un domaine personnalisé ayant différents sous-domaines au même Front Door.
 
@@ -62,7 +62,7 @@ Pour créer un enregistrement CNAME avec le sous-domaine afdverify :
 
 3. Créez une entrée d’enregistrement CNAME pour votre domaine personnalisé et renseignez les champs comme indiqué dans le tableau suivant (les noms de champs peuvent varier) :
 
-    | Source                    | type  | Destination                     |
+    | Source                    | Type  | Destination                     |
     |---------------------------|-------|---------------------------------|
     | afdverify.www.contoso.com | CNAME | afdverify.contoso.azurefd.net |
 
@@ -111,7 +111,7 @@ Après avoir inscrit votre domaine personnalisé, vous pouvez l’ajouter à vot
 
 4. Pour **Hôte frontend**, l’hôte frontend à utiliser en tant que domaine de destination de votre enregistrement CNAME est prérempli et est dérivé de votre Front Door : *&lt;nom d’hôte par défaut&gt;*.azurefd.net. Cette valeur n’est pas modifiable.
 
-5. Pour **Nom d’hôte personnalisé**, entrez votre domaine personnalisé, y compris le sous-domaine, à utiliser comme domaine source de votre enregistrement CNAME. Par exemple, www.contoso.com ou cdn.contoso.com. N’utilisez pas le nom de sous-domaine afdverify.
+5. Pour **Nom d’hôte personnalisé**, entrez votre domaine personnalisé, y compris le sous-domaine, à utiliser comme domaine source de votre enregistrement CNAME. Par exemple, www\.contoso.com ou cdn.contoso.com. N’utilisez pas le nom de sous-domaine afdverify.
 
 6. Sélectionnez **Ajouter**.
 
@@ -139,15 +139,15 @@ Pour créer un enregistrement CNAME pour votre domaine personnalisé :
 
 3. Créez une entrée d’enregistrement CNAME pour votre domaine personnalisé et renseignez les champs comme indiqué dans le tableau suivant (les noms de champs peuvent varier) :
 
-    | Source          | type  | Destination           |
+    | Source          | Type  | Destination           |
     |-----------------|-------|-----------------------|
-    | www.contoso.com | CNAME | contoso.azurefd.net |
+    | <www.contoso.com> | CNAME | contoso.azurefd.net |
 
-    - Source : entrez votre nom de domaine personnalisé (par exemple www.contoso.com).
+   - Source : Entrez votre nom de domaine personnalisé (par exemple www\.contoso.com).
 
-    - Tapez : entrez *CNAME*.
+   - Tapez : entrez *CNAME*.
 
-    - Destination : entrez votre hôte front-end Front Door par défaut. Il doit être au format suivant : _&lt;nom_hôte&gt;_.azurefd.net. Exemple : contoso.azurefd.net.
+   - Destination : entrez votre hôte front-end Front Door par défaut. Il doit être au format suivant : _&lt;nom_hôte&gt;_.azurefd.net. Exemple : contoso.azurefd.net.
 
 4. Enregistrez vos modifications.
 

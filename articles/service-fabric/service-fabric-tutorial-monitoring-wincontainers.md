@@ -1,6 +1,6 @@
 ---
 title: Surveillance et diagnostics des conteneurs Windows dans Azure Service Fabric | Microsoft Docs
-description: Dans ce tutoriel, vous configurez Log Analytics pour la surveillance et les diagnostics des conteneurs Windows orchestré sur Azure Service Fabric.
+description: Dans ce tutoriel, vous configurez les journaux Azure Monitor pour la surveillance et les diagnostics de conteneurs Windows sur Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
@@ -15,23 +15,25 @@ ms.workload: NA
 ms.date: 06/08/2018
 ms.author: aljo, dekapur
 ms.custom: mvc
-ms.openlocfilehash: f6aa0dcfa4a4f9e2780c8fb886523da347eeaa31
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 085357e5922378d413dab75e434c932c534e135b
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806451"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244217"
 ---
-# <a name="tutorial-monitor-windows-containers-on-service-fabric-using-log-analytics"></a>Tutoriel : Superviser des conteneurs Windows sur Service Fabric à l’aide de Log Analytics
+# <a name="tutorial-monitor-windows-containers-on-service-fabric-using-azure-monitor-logs"></a>Didacticiel : surveiller des conteneurs Windows sur Service Fabric avec les journaux Azure Monitor
 
-Il s’agit de la troisième partie d’un didacticiel, qui vous guide dans la configuration de Log Analytics pour surveiller vos conteneurs Windows orchestrés sur Service Fabric.
+Il s’agit de la troisième partie du tutoriel, qui vous guide dans la configuration des journaux Azure Monitor pour surveiller vos conteneurs Windows orchestrés sur Service Fabric.
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-> * configurer Log Analytics pour votre cluster Service Fabric ;
+> * configurer les journaux Azure Monitor pour votre cluster Service Fabric ;
 > * utiliser un espace de travail Log Analytics pour afficher et interroger des journaux à partir de vos conteneurs et de vos nœuds ;
 > * configurer l’agent Log Analytics pour collecter des mesures sur les conteneurs et les nœuds.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -40,14 +42,14 @@ Avant de commencer ce didacticiel, vous devez :
 * disposer d’un cluster sur Azure, ou en [créer un avec ce didacticiel](service-fabric-tutorial-create-vnet-and-windows-cluster.md) ;
 * [y déployer une application en conteneur](service-fabric-host-app-in-a-container.md).
 
-## <a name="setting-up-log-analytics-with-your-cluster-in-the-resource-manager-template"></a>Configurer Log Analytics avec un cluster dans le modèle Resource Manager
+## <a name="setting-up-azure-monitor-logs-with-your-cluster-in-the-resource-manager-template"></a>Configurer les journaux Azure Monitor avec un cluster dans le modèle Resource Manager
 
-Si vous avez utilisé le [modèle fourni](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-OMS-UnSecure) dans la première partie de ce didacticiel, il devrait normalement inclure les ajouts suivants à un modèle Azure Resource Manager Service Fabric générique. Si, au contraire, vous cherchez à configurer votre propre cluster pour surveiller des conteneurs avec Log Analytics :
+Si vous avez utilisé le [modèle fourni](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-OMS-UnSecure) dans la première partie de ce didacticiel, il devrait normalement inclure les ajouts suivants à un modèle Azure Resource Manager Service Fabric générique. Si, au contraire, vous cherchez à configurer votre propre cluster pour surveiller des conteneurs avec les journaux Azure Monitor :
 
 * Apportez les modifications suivantes à votre modèle Resource Manager.
 * Déployez-le avec PowerShell pour mettre à niveau votre cluster en [déployant le modèle](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm). Azure Resource Manager se rend compte que la ressource existe, et par conséquent la déploie comme une mise à niveau.
 
-### <a name="adding-log-analytics-to-your-cluster-template"></a>Ajouter Log Analytics à un modèle de cluster
+### <a name="adding-azure-monitor-logs-to-your-cluster-template"></a>Ajout de journaux Azure Monitor à votre modèle de cluster
 
 Apportez les modifications suivantes à votre *template.json* :
 
@@ -202,7 +204,7 @@ Revenez à votre *groupe de ressources*, où vous devriez à présent voir la so
 
 ![Page de destination de la solution Conteneur](./media/service-fabric-tutorial-monitoring-wincontainers/solution-landing.png)
 
-Si vous cliquez sur la **Solution de monitorage des conteneurs**, vous accéderez à un tableau de bord plus détaillé, ce qui vous permettra de parcourir plusieurs panneaux et d’exécuter des requêtes dans Log Analytics.
+Si vous cliquez sur la **Solution de monitorage des conteneurs**, vous accéderez à un tableau de bord plus détaillé, ce qui vous permettra de parcourir plusieurs panneaux et d’exécuter des requêtes dans les journaux Azure Monitor.
 
 *Notez que, depuis septembre 2017, la solution est en cours de mise à jour : ignorez les erreurs que vous pourriez rencontrer sur les événements Kubernetes, car nous travaillons à l’intégration de plusieurs orchestrateurs dans la même solution.*
 
@@ -210,7 +212,7 @@ Si vous cliquez sur la **Solution de monitorage des conteneurs**, vous accédere
 
 ![Tableau de bord de la solution Conteneur](./media/service-fabric-tutorial-monitoring-wincontainers/container-metrics.png)
 
-Si vous cliquez sur l’un de ces panneaux, vous accéderez à la requête Log Analytics qui génère la valeur affichée. Modifiez la requête avec *\** pour afficher les différents types de journaux collectés. À ce stade, vous pouvez interroger ou filtrer sur les performances du conteneur ou les journaux, ou bien examiner les événements de la plateforme Service Fabric. Vos agents émettent en permanence une pulsation sur chaque nœud, que vous pouvez examiner pour vérifier que les données sont toujours collectées sur toutes vos machines si votre configuration de clusters change.
+Si vous cliquez sur l’un de ces panneaux, vous accéderez à la requête Kusto qui génère la valeur affichée. Modifiez la requête avec *\** pour afficher les différents types de journaux collectés. À ce stade, vous pouvez interroger ou filtrer sur les performances du conteneur ou les journaux, ou bien examiner les événements de la plateforme Service Fabric. Vos agents émettent en permanence une pulsation sur chaque nœud, que vous pouvez examiner pour vérifier que les données sont toujours collectées sur toutes vos machines si votre configuration de clusters change.
 
 ![Requête de conteneur](./media/service-fabric-tutorial-monitoring-wincontainers/query-sample.png)
 
@@ -221,7 +223,7 @@ Le fait de pouvoir modifier les compteurs de performances que vous souhaitez col
 Vous accédez ainsi à votre espace de travail Log Analytics où vous pouvez consulter vos solutions, créer des tableaux de bord personnalisés et configurer l’agent Log Analytics. 
 * Cliquez sur **Paramètres avancés** pour ouvrir le menu Paramètres avancés.
 * Cliquez sur **Sources connectées** > **Serveurs Windows** pour vérifier que vous avez *cinq ordinateurs Windows connectés*.
-* Cliquez sur **Données** > **Compteurs de performances Windows** pour rechercher et ajouter de nouveaux compteurs de performances. Vous verrez une liste de recommandations, fournie par Log Analytics, de compteurs de performances que vous pouvez recueillir. Vous avez également la possibilité de rechercher d’autres compteurs. Vérifiez que les compteurs **Processor(_Total)\% Processor Time** et **Memory(*)\Available MBytes** sont collectés.
+* Cliquez sur **Données** > **Compteurs de performances Windows** pour rechercher et ajouter de nouveaux compteurs de performances. Vous verrez une liste de recommandations, fournie par les journaux Azure Monitor, de compteurs de performances que vous pouvez recueillir. Vous avez également la possibilité de rechercher d’autres compteurs. Vérifiez que les compteurs **Processor(_Total)\% Processor Time** et **Memory(*)\Available MBytes** sont collectés.
 
 **Actualisez** votre solution de monitorage des conteneurs après quelques minutes : vous devriez commencer à voir arriver des données *Performances de l’ordinateur*. Cela vous aidera à comprendre l’utilisation des ressources. Vous pouvez également utiliser ces mesures pour prendre les décisions adaptées quant à la mise à l’échelle de votre cluster, ou pour vérifier qu’un cluster équilibre votre charge comme prévu.
 
@@ -234,13 +236,13 @@ Vous accédez ainsi à votre espace de travail Log Analytics où vous pouvez con
 Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
-> * configurer Log Analytics pour votre cluster Service Fabric ;
+> * configurer les journaux Azure Monitor pour votre cluster Service Fabric ;
 > * utiliser un espace de travail Log Analytics pour afficher et interroger des journaux à partir de vos conteneurs et de vos nœuds ;
 > * configurer l’agent Log Analytics pour collecter des mesures sur les conteneurs et les nœuds.
 
 Maintenant que vous avez configuré le monitorage de votre application en conteneur, essayez les opérations suivantes :
 
-* Configurez Log Analytics pour un cluster Linux, en suivant les étapes ci-dessus. Référencez [ce modèle](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux) pour apporter des modifications à votre modèle Resource Manager.
-* Configurez Log Analytics pour paramétrer l’[alerte automatisée](../log-analytics/log-analytics-alerts.md) afin de faciliter la détection et les diagnostics.
+* Configurez les journaux Azure Monitor pour un cluster Linux, en suivant les étapes ci-dessus. Référencez [ce modèle](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux) pour apporter des modifications à votre modèle Resource Manager.
+* Configurez les journaux Azure Monitor pour paramétrer l’[alerte automatisée](../log-analytics/log-analytics-alerts.md) afin de faciliter la détection et les diagnostics.
 * Explorez la liste Service Fabric de [compteurs de performances recommandés](service-fabric-diagnostics-event-generation-perf.md) à configurer pour vos clusters.
-* Familiarisez-vous avec les fonctionnalités de [requêtes et recherches dans les journaux](../log-analytics/log-analytics-log-searches.md) proposées par Log Analytics.
+* Familiarisez-vous avec les fonctionnalités de [requêtes et recherches dans les journaux](../log-analytics/log-analytics-log-searches.md) proposées par les journaux Azure Monitor.

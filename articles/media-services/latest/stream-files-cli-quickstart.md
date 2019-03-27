@@ -1,5 +1,5 @@
 ---
-title: Diffuser en streaming des fichiers vidéo avec Azure Media Services - CLI | Microsoft Docs
+title: Diffuser en streaming des fichiers vidéo avec Azure Media Services et Azure CLI | Microsoft Docs
 description: Suivez les étapes de ce démarrage rapide pour créer un compte Azure Media Services, encoder un fichier et le diffuser en continu sur Azure Media Player.
 services: media-services
 documentationcenter: ''
@@ -13,19 +13,20 @@ ms.topic: quickstart
 ms.custom: ''
 ms.date: 02/19/2019
 ms.author: juliako
-ms.openlocfilehash: 8de004b0ca55cb46336a072dabb682f342c7d8dd
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: a323cbe4188207fa77525648297b366c9c57121b
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446492"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244721"
 ---
 # <a name="quickstart-stream-video-files---cli"></a>Démarrage rapide : Diffuser des fichiers vidéo en streaming - CLI
 
-Ce démarrage rapide vous montre combien il est facile de coder et de lancer la diffusion en continu de vidéos sur une grande variété de navigateurs et d’appareils à l’aide d’Azure Media Services. Un contenu d’entrée peut être spécifié à l’aide d’URL HTTPS, d’URL SAP ou de chemins d’accès aux fichiers situés dans le Stockage Blob Azure.
-Dans cette rubrique, l’exemple encode du contenu que vous mettez à disposition via une URL HTTPS. AMS v3 ne prend pas en charge l’encodage de transfert mémorisé en bloc sur les URL HTTPS.
+Ce démarrage rapide vous montre combien il est facile d’encoder et de diffuser en streaming des vidéos sur une grande variété de navigateurs et d’appareils à l’aide d’Azure Media Services et d’Azure CLI. Vous pouvez spécifier un contenu d’entrée à l’aide d’URL HTTPS ou SAP ou de chemins d’accès aux fichiers situés dans le Stockage Blob Azure.
 
-À la fin du démarrage rapide, vous serez en mesure de diffuser en continu une vidéo.  
+Dans cet article, l’exemple encode du contenu que vous mettez à disposition via une URL HTTPS. Media Services v3 ne prend pas en charge actuellement l’encodage de transfert mémorisé en bloc sur les URL HTTPS.
+
+À la fin du démarrage rapide, vous serez en mesure de diffuser en streaming une vidéo.  
 
 ![Lire la vidéo](./media/stream-files-dotnet-quickstart/final-video.png)
 
@@ -33,9 +34,9 @@ Dans cette rubrique, l’exemple encode du contenu que vous mettez à dispositio
 
 ## <a name="create-a-media-services-account"></a>Créer un compte Media Services
 
-Pour commencer à chiffrer, coder, analyser, gérer et diffuser en continu du contenu multimédia dans Azure, vous devez créer un compte Media Services. Un compte Media Services doit être associé à un ou plusieurs comptes de stockage.
+Avant que vous puissiez commencer à chiffrer, encoder, analyser, gérer et diffuser en streaming du contenu multimédia dans Azure, vous devez créer un compte Media Services. Ce compte doit être associé à un ou plusieurs comptes de stockage.
 
-Le compte Media Services et tous les comptes de stockage associés doivent être faire partie du même abonnement Azure. Il est fortement recommandé d’utiliser des comptes de stockage situés au même emplacement que le compte Media Services afin d’éviter des frais supplémentaires de sortie des données et une importante latence.
+Votre compte Media Services et tous les comptes de stockage associés doivent faire partie du même abonnement Azure. Nous vous recommandons d’utiliser des comptes de stockage situés au même emplacement que le compte Media Services afin de limiter la latence et les frais liés à la sortie des données.
 
 ### <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -45,21 +46,21 @@ az group create -n amsResourceGroup -l westus2
 
 ### <a name="create-an-azure-storage-account"></a>Créer un compte de stockage Azure
 
-Dans cet exemple, nous créons un compte v2 universel, LRS standard.
+Dans cet exemple, vous allez créer un compte LRS standard v2 à usage général.
 
-Si vous voulez faire des expériences avec des comptes de stockage, utilisez `--sku Standard_LRS`. Cependant, lors de la sélection d’une référence SKU pour la production, envisagez `--sku Standard_RAGRS`, qui offre la réplication géographique pour la continuité de l’activité. Pour plus d’informations, consultez [Comptes de stockage](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest).
+Si vous voulez faire des expériences avec des comptes de stockage, utilisez `--sku Standard_LRS`. Lorsque vous sélectionnez une référence SKU pour la production, envisagez d’utiliser `--sku Standard_RAGRS`, qui offre la réplication géographique pour la continuité de l’activité. Pour plus d’informations, consultez [Comptes de stockage](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest).
  
 ```azurecli
 az storage account create -n amsstorageaccount --kind StorageV2 --sku Standard_LRS -l westus2 -g amsResourceGroup
 ```
 
-### <a name="create-an-azure-media-service-account"></a>Créer un compte Azure Media Services
+### <a name="create-an-azure-media-services-account"></a>Créer un compte Azure Media Services
 
 ```azurecli
 az ams account create --n amsaccount -g amsResourceGroup --storage-account amsstorageaccount -l westus2
 ```
 
-Vous recevez une réponse similaire à celle ci :
+La réponse ressemble à ceci :
 
 ```
 {
@@ -80,15 +81,15 @@ Vous recevez une réponse similaire à celle ci :
 }
 ```
 
-## <a name="start-streaming-endpoint"></a>Démarrer un point de terminaison de streaming
+## <a name="start-the-streaming-endpoint"></a>Démarrer le point de terminaison de streaming
 
-La commande CLI suivante démarre le **point de terminaison de streaming** par défaut.
+La commande Azure CLI suivante démarre le **point de terminaison de streaming** par défaut.
 
 ```azurecli
 az ams streaming-endpoint start  -n default -a amsaccount -g amsResourceGroup
 ```
 
-Une fois qu’il est démarré, vous obtenez une réponse similaire à celle-ci :
+La réponse ressemble à ceci :
 
 ```
 az ams streaming-endpoint start  -n default -a amsaccount -g amsResourceGroup
@@ -118,7 +119,7 @@ az ams streaming-endpoint start  -n default -a amsaccount -g amsResourceGroup
 }
 ```
 
-Si le point de terminaison de streaming est déjà en cours d’exécution, vous obtenez
+Si le point de terminaison de streaming est déjà en cours d’exécution, vous obtenez ce message :
 
 ```
 (InvalidOperation) The server cannot execute the operation in its current state.
@@ -126,13 +127,13 @@ Si le point de terminaison de streaming est déjà en cours d’exécution, vous
 
 ## <a name="create-a-transform-for-adaptive-bitrate-encoding"></a>Créer une transformation pour l’encodage à débit adaptatif
 
-Créez une **transformation** pour configurer des tâches courantes d’encodage ou d’analyse des vidéos. Dans cet exemple, nous voulons effectuer un encodage à débit adaptatif. Ensuite, vous envoyez un **travail** sous la transformation que vous avez créée. Le travail est la demande réelle envoyée à Media Services pour appliquer la transformation à un contenu vidéo ou audio d’entrée donné.
+Créez une **transformation** pour configurer des tâches courantes d’encodage ou d’analyse des vidéos. Dans cet exemple, vous allez effectuer un encodage à débit adaptatif. Ensuite, vous allez envoyer un travail sous la transformation que vous avez créée. Le travail est la demande envoyée à Media Services pour appliquer la transformation à un contenu vidéo ou audio donné.
 
 ```azurecli
 az ams transform create --name testEncodingTransform --preset AdaptiveStreaming --description 'a simple Transform for Adaptive Bitrate Encoding' -g amsResourceGroup -a amsaccount
 ```
 
-Vous recevez une réponse similaire à celle ci :
+La réponse ressemble à ceci :
 
 ```
 {
@@ -158,13 +159,13 @@ Vous recevez une réponse similaire à celle ci :
 
 ## <a name="create-an-output-asset"></a>Créer une ressource de sortie
 
-Crée un **actif multimédia** de sortie qui est utilisé comme sortie du travail d’encodage.
+Créez un **élément multimédia** de sortie qui est utilisé comme sortie du travail d’encodage.
 
 ```azurecli
 az ams asset create -n testOutputAssetName -a amsaccount -g amsResourceGroup
 ```
 
-Vous recevez une réponse similaire à celle ci :
+La réponse ressemble à ceci :
 
 ```
 {
@@ -183,21 +184,22 @@ Vous recevez une réponse similaire à celle ci :
 }
 ```
 
-## <a name="start-job-with-https-input"></a>Démarrer un travail avec une entrée HTTPS
+## <a name="start-a-job-by-using-https-input"></a>Démarrer un travail à l’aide d’une entrée HTTPS
 
-Dans Media Services v3, lorsque vous soumettez des travaux pour traiter vos vidéos, vous devez indiquer à Media Services où trouver la vidéo d’entrée. Une des options consiste à spécifier une URL HTTPS comme entrée de travail (comme illustré dans cet exemple). 
+Lorsque vous soumettez des travaux pour traiter des vidéos, vous devez indiquer à Media Services où trouver la vidéo d’entrée. Une option consiste à spécifier une URL HTTPS comme entrée de travail (comme illustré dans cet exemple).
 
-Quand vous exécutez `az ams job start`, vous pouvez définir une étiquette sur la sortie du travail. L’étiquette peut être utilisée ultérieurement pour identifier l’objectif de cet actif multimédia de sortie. 
+Quand vous exécutez `az ams job start`, vous pouvez définir une étiquette sur la sortie du travail. Vous pouvez ensuite utiliser l’étiquette pour identifier l’objectif de cet élément multimédia de sortie.
 
-- Si vous affectez une valeur à l’étiquette, définissez « --output-assets » sur « assetname=label »
-- Si vous n’affectez pas de valeur à l’étiquette, définissez « --output-assets » sur « assetname= »
-  Notez que vous ajoutez « = » à `output-assets`. 
+- Si vous affectez une valeur à l’étiquette, définissez « --output-assets » sur « assetname=label ».
+- Si vous n’affectez pas de valeur à l’étiquette, définissez « --output-assets » sur « assetname= ».
+
+  Notez que vous ajoutez « = » à `output-assets`.
 
 ```azurecli
 az ams job start --name testJob001 --transform-name testEncodingTransform --base-uri 'https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/' --files 'Ignite-short.mp4' --output-assets testOutputAssetName= -a amsaccount -g amsResourceGroup 
 ```
 
-Vous recevez une réponse similaire à celle ci :
+La réponse ressemble à ceci :
 
 ```
 {
@@ -234,23 +236,23 @@ Vous recevez une réponse similaire à celle ci :
 
 ### <a name="check-status"></a>Vérification du statut
 
-5 minutes plus tard, vérifier l’état du travail. Il doit être « Terminé ». Si ce n’est pas le cas, revérifiez après quelques minutes. Une fois que l’état est « Terminé », passez à l’étape suivante et créez un **localisateur de streaming**.
+5 minutes plus tard, vérifiez l’état du travail. L’état doit être défini sur « Terminé ». Si ce n’est pas le cas, revérifiez quelques minutes plus tard. Une fois que l’état est « Terminé », passez à l’étape suivante et créez un **localisateur de streaming**.
 
 ```azurecli
 az ams job show -a amsaccount -g amsResourceGroup -t testEncodingTransform -n testJob001
 ```
 
-## <a name="create-streaming-locator-and-get-path"></a>Créer un localisateur de streaming et obtenir le chemin
+## <a name="create-a-streaming-locator-and-get-a-path"></a>Créer un localisateur de streaming et obtenir un chemin
 
-Une fois l’encodage terminé, l’étape suivante consiste rendre la vidéo dans la sortie disponible pour lecture par des clients. Vous pouvez le faire en deux étapes : d’abord, créez un **localisateur de streaming**, puis générez les URL de streaming que les clients peuvent utiliser.
+Une fois l’encodage terminé, l’étape suivante consiste rendre la vidéo dans la sortie disponible pour lecture par des clients. Pour ce faire, commencez par créer un localisateur de streaming. Ensuite, générez des URL de streaming que les clients peuvent utiliser.
 
-### <a name="create-a-streaming-locator"></a>Créer un localisateur de streaming
+### <a name="create-a-streaming-locator"></a>Créer un localisateur de diffusion en continu
 
 ```azurecli
 az ams streaming-locator create -n testStreamingLocator --asset-name testOutputAssetName --streaming-policy-name Predefined_ClearStreamingOnly  -g amsResourceGroup -a amsaccount 
 ```
 
-Vous recevez une réponse similaire à celle ci :
+La réponse ressemble à ceci :
 
 ```
 {
@@ -276,7 +278,7 @@ Vous recevez une réponse similaire à celle ci :
 az ams streaming-locator get-paths -a amsaccount -g amsResourceGroup -n testStreamingLocator
 ```
 
-Vous recevez une réponse similaire à celle ci :
+La réponse ressemble à ceci :
 
 ```
 {
@@ -307,46 +309,42 @@ Vous recevez une réponse similaire à celle ci :
 }
 ```
 
-Copiez le chemin Hls. Dans ce cas : `/e01b2be1-5ea4-42ca-ae5d-7fe704a5962f/ignite.ism/manifest(format=m3u8-aapl)`.
+Copiez le chemin HTTP live Streaming (HLS). Dans ce cas, il s’agit de `/e01b2be1-5ea4-42ca-ae5d-7fe704a5962f/ignite.ism/manifest(format=m3u8-aapl)`.
 
-## <a name="build-url"></a>Créer l’URL 
+## <a name="build-the-url"></a>Générer l’URL 
 
-### <a name="get-streaming-endpoint-host-name"></a>Obtenir le nom d’hôte du point de terminaison de streaming
+### <a name="get-the-streaming-endpoint-host-name"></a>Obtenir le nom d’hôte du point de terminaison de streaming
 
 ```azurecli
 az ams streaming-endpoint list -a amsaccount -g amsResourceGroup -n default
 ```
+Copiez la valeur de `hostName`. Dans ce cas, il s’agit de `amsaccount-usw22.streaming.media.azure.net`.
 
-Copiez la valeur de `hostName`. Dans ce cas : `amsaccount-usw22.streaming.media.azure.net`.
-
-### <a name="assemble-url"></a>Assembler l’URL
+### <a name="assemble-the-url"></a>Assembler l’URL
 
 « https:// » + &lt;valeur de hostName&gt; + &lt;valeur du chemin Hls&gt;
 
-#### <a name="example"></a>Exemples
+Voici un exemple :
 
 `https://amsaccount-usw22.streaming.media.azure.net/7f19e783-927b-4e0a-a1c0-8a140c49856c/ignite.ism/manifest(format=m3u8-aapl)`
 
-## <a name="test-playback-with-azure-media-player"></a>Tester la lecture avec le lecteur multimédia Azure
-
-Pour tester la diffusion en continu, cet article utilise le lecteur multimédia Azure. 
+## <a name="test-playback-by-using-azure-media-player"></a>Tester la lecture avec le lecteur multimédia Azure
 
 > [!NOTE]
-> Si un lecteur est hébergé sur un site https, veillez à mettre à jour l’URL vers « https ».
+> Si un lecteur est hébergé sur un site HTTPS, veillez à débuter l’URL par « https ».
 
 1. Ouvrez un navigateur web et accédez à [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
-2. Dans la zone **URL :**, collez l’URL que vous avez créée dans la section précédente. 
+2. Dans la zone **URL**, collez l’URL que vous avez créée dans la section précédente. Vous pouvez coller l’URL au format HLS, Dash ou Smooth. Le lecteur multimédia Azure utilise automatiquement un protocole de streaming approprié pour la lecture sur votre appareil.
+3. Sélectionnez **Update Player (Mettre à jour le lecteur)**.
 
-  Vous pouvez coller l’URL dans le format HLS, Dash ou Smooth : le lecteur multimédia Azure passe automatiquement à un protocole de streaming approprié pour la lecture sur votre appareil.
-3. Appuyez sur **Mise à jour du Lecteur Windows Media**.
-
-Le lecteur multimédia Azure peut être utilisé pour effectuer des tests, mais ne doit pas être utilisé dans un environnement de production. 
+>[!NOTE]
+>Le lecteur multimédia Azure peut être utilisé pour effectuer des tests, mais ne doit pas être utilisé dans un environnement de production.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Si vous n’avez plus besoin des ressources de votre groupe de ressources, notamment les comptes Media Services et de stockage que vous avez créés dans ce guide de démarrage rapide, supprimez le groupe de ressources.
 
-Exécutez la commande CLI suivante :
+Exécutez cette commande CLI :
 
 ```azurecli
 az group delete --name amsResourceGroup
@@ -358,5 +356,4 @@ Consultez [Codes d’erreur des travaux](https://docs.microsoft.com/rest/api/med
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-> [!div class="nextstepaction"]
 > [Exemples d’interface de ligne de commande](cli-samples.md)

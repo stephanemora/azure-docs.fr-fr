@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/26/2018
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 04756481b676ed198120b67ca4368093ca8acead
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9b64631b274423edda35189a942e2f142ae591f1
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250872"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57761166"
 ---
 # <a name="monitor-and-manage-tests-in-the-vaas-portal"></a>Surveiller et gérer les tests dans le portail VaaS
 
@@ -40,7 +40,7 @@ Suite à la planification de tests relatifs à votre solution Azure Stack, Valid
 
 ## <a name="change-workflow-parameters"></a>Modifier les paramètres de workflow
 
-Chaque type de workflow vous permet de modifier les [paramètres de test](azure-stack-vaas-parameters.md#test-parameters) spécifiés lors de la création du workflow.
+Vous pouvez modifier les [paramètres de test](azure-stack-vaas-parameters.md#test-parameters) spécifiés lors de la création du workflow pour n’importe quel type de workflow.
 
 1. Dans la page de résumé de tests, sélectionnez le bouton **Modifier**.
 
@@ -60,7 +60,7 @@ Dans les workflows **Passe de Test**, les boutons **Ajouter des tests** et **Mod
 
 ## <a name="managing-test-instances"></a>Gestion des instances de test
 
-Pour les exécutions non officielles (par exemple, le workflow **Passe de Test**), la page de résumé des tests répertorie les tests planifiés relatifs à la solution Azure Stack.
+Pour les exécutions non officielles (par exemple le workflow **Passe de Test**), la page de résumé des tests répertorie les tests planifiés relatifs à la solution Azure Stack.
 
 Pour les exécutions officielles (par exemple, les workflows **Validation**), la page de résumé des tests répertorie les tests planifiés nécessaires à la validation de la solution Azure Stack. Les tests de validation sont planifiés à partir de cette page.
 
@@ -81,7 +81,7 @@ Chaque instance de test planifiée affiche les informations suivantes :
 
 ### <a name="actions"></a>Actions
 
-Chaque instance de test répertorie les actions disponibles que vous pouvez effectuer lorsque vous cliquez sur le menu contextuel **[...]**  dans la table des instances de test.
+Chaque instance de test répertorie les actions disponibles que vous pouvez effectuer lorsque vous sélectionnez le menu contextuel **[...]**  dans la table des instances de test.
 
 #### <a name="view-information-about-the-test-definition"></a>Afficher des informations sur la définition du test
 
@@ -118,7 +118,7 @@ Sélectionnez **Affichage des opérations** à partir du menu contextuel pour af
 
 #### <a name="download-logs-for-a-completed-test-instance"></a>Télécharger les journaux pour une instance de test terminée
 
-Sélectionnez **Télécharger les journaux** dans le menu contextuel pour télécharger un fichier `.zip` de la sortie des journaux pendant l’exécution du test. Cette action est disponible uniquement pour les tests terminés, par exemple, un test avec un statut `Cancelled`, `Failed`, `Aborted`, ou `Succeeded`.
+Sélectionnez **Télécharger les journaux** dans le menu contextuel pour télécharger un fichier `.zip` de la sortie des journaux pendant l’exécution du test. Cette action est disponible uniquement pour les tests terminés, par exemple, un test avec un statut `Cancelled`, `Failed`, `Aborted` ou `Succeeded`.
 
 #### <a name="reschedule-a-test-instance-or-schedule-a-test"></a>Replanifier une instance de test ou planifier un test
 

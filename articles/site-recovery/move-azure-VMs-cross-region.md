@@ -8,149 +8,144 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: efa8f4fc604440b8c1396aa654834ce83a41844e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 0f73e68fd0c01d4323e8675d3fa12f7ca1051cdb
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875809"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192920"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Déplacer des machines virtuelles Azure vers une autre région
 
-Vous pouvez avoir besoin de déplacer vos machines virtuelles Azure IaaS existantes d’une région à une autre pour diverses raisons, comme améliorer la fiabilité et la disponibilité des machines virtuelles existantes, faciliter la gestion, répondre à des besoins de gouvernance, etc., comme décrit. 
-
-Ce tutoriel vous montre comment déplacer des machines virtuelles Azure vers une autre région à l’aide d’Azure Site Recovery. Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Vous souhaitez peut-être déplacer les machines virtuelles de l’infrastructure Azure en tant que service (IaaS) d’une région à une autre afin d’en améliorer la fiabilité, la disponibilité, la gestion ou la gouvernance. Ce tutoriel vous montre comment déplacer des machines virtuelles vers une autre région à l’aide d’Azure Site Recovery. Vous découvrirez comment effectuer les actions suivantes :
 
 > [!div class="checklist"]
-> * [Vérifier la configuration requise](#verify-prerequisites)
-> * [Préparer les machines virtuelles sources](#prepare-the-source-vms)
-> * [Préparer la région cible](#prepare-the-target-region)
-> * [Copier des données vers la région cible](#copy-data-to-the-target-region)
-> * [Tester la configuration](#test-the-configuration)
-> * [Effectuer le déplacement](#perform-the-move-to-the-target-region-and-confirm)
-> * [Supprimer les ressources dans la région source](#discard-the-resource-in-the-source-region)
+> * Vérifier la configuration requise
+> * Préparer les machines virtuelles sources
+> * Préparer la région cible
+> * Copier les données vers la région cible
+> * Tester la configuration
+> * Effectuer le déplacement
+> * Supprimer les ressources de la région source
+
 
 > [!IMPORTANT]
-> Ce document vous explique comment déplacer des machines virtuelles Azure d’une région à une autre en l’état. Si vous devez améliorer la disponibilité de votre infrastructure en déplaçant des machines virtuelles vers des zones de disponibilité, reportez-vous au tutoriel ici.
+> Cet article décrit comment déplacer des machines virtuelles Azure d’une région à une autre *telles quelles*. Si votre objectif est d’améliorer la disponibilité de votre infrastructure en déplaçant les machines virtuelles vers les zones de disponibilité, consultez [Déplacer des machines virtuelles Azure vers des zones de disponibilité](move-azure-vms-avset-azone.md).
 
-## <a name="verify-prerequisites"></a>Vérifier la configuration requise
+## <a name="prerequisites"></a>Prérequis
 
-- Vérifiez que vous avez des machines virtuelles Azure dans la région Azure source à partir de laquelle vous souhaitez effectuer le déplacement.
-- Assurez-vous de choisir une [combinaison région source/région cible prise en charge](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support) et de sélectionner la région cible appropriée.
+- Vérifiez que vous avez des machines virtuelles Azure dans la région Azure source *à partir de laquelle* vous souhaitez effectuer le déplacement.
+- Vérifiez que votre choix de [combinaison de région source/région cible est pris en charge](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support) et sélectionnez la région cible appropriée.
 - Assurez-vous que vous comprenez [l’architecture et les composants du scénario](azure-to-azure-architecture.md).
 - Examinez les [exigences et les limites de prise en charge](azure-to-azure-support-matrix.md).
-- Vérifiez les autorisations du compte : Si vous venez de créer votre compte Azure gratuit, vous êtes l’administrateur de votre abonnement. Si vous n’êtes pas administrateur de l’abonnement, collaborez avec l’administrateur pour affecter les autorisations dont vous avez besoin. Pour activer la réplication d’une machine virtuelle et copier éventuellement des données vers la cible à l’aide d’Azure Site Recovery, vous devez avoir les autorisations suivantes :
+- Vérifiez les autorisations du compte. Si vous venez de créer votre compte Azure gratuit, *vous* êtes l’administrateur de votre abonnement. Si vous n’êtes pas administrateur, contactez l’administrateur pour obtenir les autorisations dont vous avez besoin :
+  -  Pour activer la réplication pour une machine virtuelle et copier des données vers l’emplacement cible à l’aide de Site Recovery, vous devez disposer des autorisations pour créer une machine virtuelle dans vos ressources Azure. Le rôle intégré Contributeur de machines virtuelles a ces autorisations. Avec les autorisations, vous pouvez :
+        - Créer une machine virtuelle dans le groupe de ressources sélectionné
+        - Créer une machine virtuelle dans le réseau virtuel sélectionné
+        - Écrire dans le compte de stockage sélectionné
 
-    1. Des autorisations pour créer une machine virtuelle dans les ressources Azure. Le rôle prédéfini « Contributeur de machines virtuelles » a ces autorisations, incluant :
-        - L’autorisation de créer une machine virtuelle dans le groupe de ressources sélectionné
-        - L’autorisation de créer une machine virtuelle dans le réseau virtuel sélectionné
-        - L’autorisation d’écrire dans le compte de stockage sélectionné
-
-    2. Vous devez également avoir l’autorisation de gérer les opérations Azure Site Recovery. Le rôle « Collaborateur Site Recovery » a toutes les autorisations nécessaires pour gérer les opérations Site Recovery dans un coffre Recovery Services.
+  - Vous devez également avoir les autorisations nécessaires pour gérer les opérations Site Recovery. Le rôle Contributeur Site Recovery a toutes les autorisations nécessaires pour gérer les opérations Site Recovery dans un coffre Azure Recovery Services.
 
 ## <a name="prepare-the-source-vms"></a>Préparer les machines virtuelles sources
 
-1. Assurez-vous que tous les certificats racines les plus récents sont présents sur les machines virtuelles Azure à déplacer. À défaut, la copie de données vers la région cible ne peut pas être activée en raison des contraintes de sécurité.
+1. Vérifiez que les machines virtuelles Azure que vous envisagez de déplacer disposent des certificats racines les plus récents. Si ce n’est pas le cas, vous ne pouvez pas activer la copie des données vers la région cible en raison de contraintes de sécurité.
 
-    - Pour les machines virtuelles Windows, installez-y toutes les mises à jour de Windows les plus récentes afin que tous les certificats racines approuvés s’y trouvent. Dans un environnement déconnecté, suivez les processus Windows Update et de mise à jour de certificat standard en vigueur pour votre organisation.
-    - Pour les machines virtuelles Linux, suivez les instructions fournies par votre distributeur Linux pour obtenir les certificats racines approuvés les plus récents et la dernière liste de révocation de certificats sur la machine virtuelle.
+    - Pour les machines virtuelles Windows, installez-y les mises à jour de Windows les plus récentes afin que tous les certificats racines approuvés s’y trouvent. Dans un environnement déconnecté, suivez les processus Windows Update et de mise à jour de certificat standard en vigueur pour votre organisation.
+    - Pour les machines virtuelles Linux, suivez les instructions fournies par votre distributeur Linux pour obtenir les derniers certificats racines approuvés et la dernière liste de révocation de certificats.
 2. N’utilisez pas de proxy d’authentification dans le but de contrôler la connectivité réseau pour les machines virtuelles que vous voulez déplacer.
-3. Si la machine virtuelle que vous voulez déplacer n’a pas d’accès à Internet et utilise un proxy de pare-feu pour contrôler l’accès sortant, vérifiez la configuration requise détaillée [ici](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity).
-4. Identifiez et listez la topologie du réseau source et toutes les ressources que vous utilisez actuellement pour votre vérification, notamment mais sans s’y limiter, les équilibreurs de charge, les groupes de sécurité réseau, l’adresse IP publique, etc.
+3. Si une des machines virtuelles que vous voulez déplacer n’a pas d’accès à Internet et si elle utilise un proxy de pare-feu pour contrôler l’accès sortant, [vérifiez la configuration requise](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity).
+4. Documentez la topologie du réseau source et toutes les ressources que vous utilisez actuellement pour votre vérification, notamment mais sans s’y limiter, les équilibreurs de charge, les groupes de sécurité réseau et l’adresse IP publique.
 
 ## <a name="prepare-the-target-region"></a>Préparer la région cible
 
-1. Vérifiez que votre abonnement Azure vous permet de créer des machines virtuelles dans la région cible utilisée pour la récupération d’urgence. Contactez le support technique pour activer le quota nécessaire au besoin.
+1. Dans votre abonnement Azure, vérifiez que vous pouvez créer des machines virtuelles dans la région cible utilisée pour la reprise d’activité. Contactez le support technique pour activer le quota nécessaire au besoin.
 
-2. Assurez-vous que votre abonnement dispose de suffisamment de ressources pour prendre en charge des machines virtuelles de tailles correspondant à vos machines virtuelles source. Si vous l’utilisez pour copier des données vers la cible, Site Recovery choisit une machine virtuelle cible de la même taille ou de la taille la plus proche possible.
+2. Vérifiez que votre abonnement dispose de suffisamment de ressources pour prendre en charge la taille de vos machines virtuelles sources. Si vous l’utilisez pour copier des données vers la cible, Site Recovery choisit une machine virtuelle cible de la même taille ou de la taille la plus proche possible.
 
-3. Veillez à créer une ressource cible pour chaque composant identifié dans la topologie du réseau source. Cette étape est importante pour garantir que vos machines virtuelles, après leur déplacement final vers la région cible, offriront toutes les fonctionnalités et capacités qui étaient disponibles dans la région source.
+3. Veillez à créer une ressource cible pour chaque composant que vous avez identifié dans la topologie du réseau source. Ceci permet de garantir que vos machines virtuelles offriront dans la région cible toutes les fonctionnalités et capacités dont elles disposaient dans la région source.
 
-    > [!NOTE]
-    > Azure Site Recovery détecte et crée automatiquement un réseau virtuel et un compte de stockage quand vous activez la réplication de la machine virtuelle source. Vous pouvez aussi précréer ces ressources et les affecter à la machine virtuelle au moment de l’étape d’activation de la réplication. En revanche, pour toutes les autres ressources, comme mentionné ci-dessous, vous devez les créer manuellement dans la région cible.
+   Azure Site Recovery détecte et crée automatiquement un réseau virtuel et un compte de stockage quand vous activez la réplication pour la machine virtuelle source. Vous pouvez également créer au préalable ces ressources et les affecter à la machine virtuelle dans le cadre de l’étape d’activation de la réplication. Mais vous devez créer manuellement toutes les autres ressources dans la région cible. Consultez la documentation suivante pour créer les ressources réseau courantes dont vous avez besoin, en fonction de la configuration de votre machine virtuelle source :
 
-     Consultez la documentation suivante pour créer les ressources réseau courantes dont vous avez besoin, en fonction de la configuration de la machine virtuelle source.
-
-    - [Groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-    - [Équilibreurs de charge](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
-    - [Adresse IP publique](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+   - [Groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
+   - [Équilibreurs de charge](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+   - [Adresse IP publique](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
     
-    Pour tous les autres composants réseau, reportez-vous à cette [documentation](https://docs.microsoft.com/azure/#pivot=products&panel=network) sur la mise en réseau. 
+   Pour tous les autres composants réseau, consultez la [documentation Azure sur la mise en réseau](https://docs.microsoft.com/azure/#pivot=products&panel=network). 
 
-4. Vous devez [créer un réseau hors production](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) manuellement dans la région cible si vous souhaitez tester la configuration avant d’effectuer le déplacement final vers la région cible. Cette pratique est recommandée dans la mesure où elle limite les interférences avec l’environnement de production.
+4. Pour tester la configuration avant d’effectuer le déplacement final vers la région cible, vous devez [créer un réseau hors production](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) manuellement dans la région cible. Le test de la configuration est une pratique recommandée dans la mesure où elle limite les interférences avec l’environnement de production.
     
 ## <a name="copy-data-to-the-target-region"></a>Copier les données vers la région cible
-Suivez les étapes ci-dessous pour copier les données vers la région cible à l’aide d’Azure Site Recovery.
+Les étapes ci-dessous copient les données vers la région cible à l’aide d’Azure Site Recovery.
 
-### <a name="create-the-vault-in-any-region-except-the-source-region"></a>Créez le coffre dans n’importe quelle région, à l’exception de la région source.
+### <a name="create-the-vault-in-any-region-except-the-source"></a>Créez le coffre dans n’importe quelle région, à l’exception de la région source.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) > **Recovery Services**.
-2. Cliquez sur **Créer une ressource** > **Outils de gestion** > **Backup and Site Recovery**.
+2. Sélectionnez **Créer une ressource** > **Outils de gestion** > **Backup and Site Recovery**.
 3. Dans **Nom**, indiquez le nom convivial **ContosoVMVault**. Si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié.
 4. Créez un groupe de ressources **ContosoRG**.
-5. Spécifiez une région Azure. Pour découvrir les régions prises en charge, référez-vous à la disponibilité géographique de la page [Tarification de Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
-6. Dans Coffres Recovery Services, cliquez sur **Vue d’ensemble** > **ConsotoVMVault** > **+ Répliquer**.
+5. Spécifiez une région Azure. Pour vérifier les régions prises en charge, consultez [Informations détaillées sur la tarification d’Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
+6. Dans Coffres Recovery Services, sélectionnez **Vue d’ensemble** > **ConsotoVMVault** > **+Répliquer**.
 7. Dans **Source**, sélectionnez **Azure**.
 8. Dans **Emplacement source**, sélectionnez la région Azure source où vos machines virtuelles s’exécutent actuellement.
-9. Sélectionnez le modèle de déploiement Resource Manager. Sélectionnez ensuite **Abonnement source** et **Groupe de ressources source**.
-10. Cliquez sur **OK** pour enregistrer les paramètres.
+9. Sélectionnez le modèle de déploiement Azure Resource Manager. Sélectionnez ensuite **Abonnement source** et **Groupe de ressources source**.
+10. Sélectionnez **OK** pour enregistrer les paramètres.
 
-### <a name="enable-replication-for-azure-vms-and-start-copying-the-data"></a>Activez la réplication des machines virtuelles Azure et démarrez la copie des données.
+### <a name="enable-replication-for-azure-vms-and-start-copying-the-data"></a>Activer la réplication des machines virtuelles Azure et démarrer la copie des données
 
 Site Recovery récupère une liste des machines virtuelles associées à l’abonnement et au groupe de ressources.
 
-1. À l’étape suivante, Sélectionnez la machine virtuelle que vous souhaitez déplacer. Cliquez ensuite sur **OK**.
-3. Dans **Paramètres**, cliquez sur **Récupération d’urgence**.
-4. Dans **Configurer la récupération d’urgence** > **Région cible**, sélectionnez la région cible vers laquelle vous allez effectuer la réplication.
-5. Vous pouvez choisir d’utiliser les ressources cibles par défaut ou celles que vous avez créées au préalable.
-6. Cliquez sur **Activer la réplication**. Cette opération démarre un travail consistant à activer la réplication pour la machine virtuelle.
+1. Sélectionnez la machine virtuelle que vous souhaitez déplacer, puis sélectionnez **OK**.
+2. Dans **Paramètres**, sélectionnez **Récupération d’urgence**.
+3. Dans **Configurer la récupération d’urgence** > **Région cible**, sélectionnez la région cible vers laquelle vous effectuez la réplication.
+4. Choisissez d’utiliser les ressources de la cible par défaut ou celles que vous avez préalablement créées.
+5. Sélectionnez **Activer la réplication** pour démarrer le travail.
 
-    ![activer la réplication](media/tutorial-migrate-azure-to-azure/settings.png)
+   ![Activer la réplication](media/tutorial-migrate-azure-to-azure/settings.png)
 
  
 
 ## <a name="test-the-configuration"></a>Tester la configuration
 
 
-1. Accédez au coffre puis, dans **Paramètres** > **Éléments répliqués**, cliquez sur la machine virtuelle que vous souhaitez déplacer vers la région cible et cliquez sur l’icône **+ Test de basculement**.
-2. Dans **Test de basculement**, sélectionnez un point de récupération à utiliser pour le basculement :
+1. Accédez au coffre. Dans **Paramètres** > **Éléments répliqués**, sélectionnez la machine virtuelle que vous souhaitez déplacer vers la région cible. Sélectionnez ensuite **Test de basculement**.
+2. Dans **Test de basculement**, sélectionnez un point de récupération à utiliser pour le basculement :
 
-   - **Dernier point traité** : bascule la machine virtuelle vers le dernier point de récupération qui a été traité par le service Site Recovery. L’horodatage est affiché. Cette option, qui n’implique aucun traitement de données, offre un objectif de délai de récupération faible.
-   - **Dernier point de cohérence des applications** : cette option bascule toutes les machines virtuelles vers le dernier point de récupération de cohérence des applications. L’horodatage est affiché.
+   - **Dernier point traité** : bascule la machine virtuelle vers le dernier point de récupération qui a été traité par le service Site Recovery. L’horodatage est affiché. Aucun temps n’est passé à traiter les données, et cette option offre donc un objectif de délai de récupération faible (RTO).
+   - **Dernier point de cohérence des applications** : bascule toutes les machines virtuelles vers le dernier point de récupération de cohérence des applications. L’horodatage est affiché.
    - **Personnalisé** : sélectionnez n’importe quel point de récupération.
 
-3. Sélectionnez le réseau virtuel Azure cible vers lequel vous voulez déplacer les machines virtuelles Azure afin de tester la configuration. 
+3. Sélectionnez le réseau virtuel Azure cible vers lequel vous voulez déplacer les machines virtuelles Azure afin de tester la configuration.
 
-> [!IMPORTANT]
-> Nous vous recommandons d’utiliser un réseau machines virtuelles Azure distinct pour faire le test de basculement, et pas le réseau de production dans la région cible vers laquelle vous comptez déplacer vos machines virtuelles au final.
+   > [!IMPORTANT]
+   > Nous vous recommandons d’utiliser un réseau machines virtuelles Azure distinct pour faire le test de basculement, et pas le réseau de production dans la région cible.
 
-4. Pour démarrer le test du déplacement, cliquez sur **OK**. Pour suivre la progression, cliquez sur la machine virtuelle pour ouvrir ses propriétés. Vous pouvez également cliquer sur le travail **Test de basculement** dans le nom du coffre > **Paramètres** > **Travaux** > **Travaux Site Recovery**.
+4. Pour démarrer le test du déplacement, sélectionnez **OK**. Pour suivre la progression, sélectionnez la machine virtuelle pour afficher ses **propriétés**. Sinon, sélectionnez le travail **Test de basculement** dans le coffre. Ensuite, sélectionnez **Paramètres** > **Travaux** > **Travaux Site Recovery**.
 5. Une fois le basculement terminé, la machine virtuelle Azure de réplication apparaît dans le portail Azure > **Machines virtuelles**. Vérifiez que la machine virtuelle est en cours d’exécution, qu’elle est correctement dimensionnée et qu’elle est connectée au réseau approprié.
-6. Si vous souhaitez supprimer la machine virtuelle qui a été créée pour les besoins du test du déplacement, cliquez sur **Nettoyer le test de basculement** sur l’élément répliqué. Cliquez sur **Notes** pour consigner et enregistrer d’éventuelles observations sur le test.
+6. Pour supprimer la machine virtuelle que vous avez créé pour le test, sélectionnez **Nettoyer le test de basculement** sur l’élément répliqué. À partir de **Notes**, consignez et enregistrez les éventuelles observations associées au test.
 
-## <a name="perform-the-move-to-the-target-region-and-confirm"></a>Effectuez et validez le déplacement vers la région cible.
+## <a name="perform-the-move-and-confirm"></a>Effectuer le déplacement et confirmer
 
-1.  Accédez au coffre puis, dans **Paramètres** > **Éléments répliqués**, cliquez sur la machine virtuelle et ensuite sur **Basculement**.
-2. Dans **Basculement**, sélectionnez **Dernier**. 
-3. Sélectionnez **Arrêtez la machine avant de commencer le basculement**. Site Recovery tente d’arrêter la machine virtuelle source avant de déclencher le basculement. Le basculement est effectué même en cas d’échec de l’arrêt. Vous pouvez suivre la progression du basculement sur la page **Tâches**. 
-4. Une fois que la tâche est terminée, vérifiez que la machine virtuelle apparaît bien dans la région Azure cible choisie.
-5. Dans **Éléments répliqués**, cliquez avec le bouton droit sur la machine virtuelle > **Valider**. Cette étape termine le processus de déplacement vers la région cible. Attendez la fin de la tâche de validation.
+1. Accédez au coffre puis, dans **Paramètres** > **Éléments répliqués**, sélectionnez la machine virtuelle et sélectionnez ensuite **Basculement**.
+1. Dans **Basculement**, sélectionnez **Dernier**. 
+2. Sélectionnez **Arrêter la machine avant de commencer le basculement**. Site Recovery tente d’arrêter la machine virtuelle source avant de déclencher le basculement. Mais le basculement se poursuit même en cas d’échec de l’arrêt. Vous pouvez suivre la progression du basculement sur la page **Tâches**.
+3. Une fois le travail terminé, vérifiez que la machine virtuelle apparaît bien dans la région Azure cible choisie.
+4. Dans **Éléments répliqués**, cliquez avec le bouton droit sur la machine virtuelle et sélectionnez **Valider**. Cette étape termine le déplacement. Attendez la fin de la tâche de validation.
 
-## <a name="discard-the-resource-in-the-source-region"></a>Supprimer les ressources dans la région source 
+## <a name="discard-the-resources-from-the-source-region"></a>Supprimer les ressources de la région source
 
-1. Accédez à la machine virtuelle.  Cliquez sur **Désactiver la réplication**.  Cela met fin au processus de copie des données pour la machine virtuelle.  
+- Accédez à la machine virtuelle et sélectionnez **Désactiver la réplication**. Cela met fin au processus de copie des données pour la machine virtuelle.
 
-> [!IMPORTANT]
-> Il est important d’effectuer cette étape pour arrêter la facturation liée à la réplication Azure Site Recovery une fois le déplacement terminé.
+  > [!IMPORTANT]
+  > Effectuez cette étape pour éviter d’être facturé pour la réplication Azure Site Recovery après le déplacement.
 
-Si vous n’envisagez pas de réutiliser les ressources sources, effectuez les étapes suivantes.
+Si vous n’envisagez pas de réutiliser les ressources sources, effectuez les étapes suivantes :
 
-1. Supprimez toutes les ressources réseau appropriées dans la région source (celles que vous avez listées à l’étape 4 dans [Préparer les machines virtuelles sources](#prepare-the-source-vms)). 
+1. Supprimez toutes les ressources réseau appropriées dans la région source (celles que vous avez listées à l’étape 4 dans [Préparer les machines virtuelles sources](#prepare-the-source-vms)).
 2. Supprimez le compte de stockage associé dans la région source.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez déplacé une machine virtuelle Azure vers une autre région. Vous pouvez maintenant configurer la reprise d’activité après sinistre pour la machine virtuelle que vous avez déplacée.
+Dans ce tutoriel, vous avez appris à déplacer des machines virtuelles Azure vers une autre région Azure. Vous pouvez maintenant configurer la reprise d’activité après sinistre pour ces machines virtuelles.
 
 > [!div class="nextstepaction"]
 > [Configurer la récupération d’urgence après la migration](azure-to-azure-quickstart.md)

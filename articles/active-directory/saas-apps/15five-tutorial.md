@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel : Intégration d'Azure Active Directory à 15Five | Microsoft Docs"
+title: "Tutoriel : Intégration d'Azure Active Directory à 15Five | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et 15Five.
 services: active-directory
 documentationCenter: na
@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 2fb301c2-7d7a-4046-8ee1-7dc9e7684806
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 21db7521db6e45f378bed493d0246f2eb8e0e047
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 8ae1578a04bf6a94aeb5a7a3b64ac3ae722fe9ac
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56883604"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835178"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-15five"></a>Didacticiel : Intégration d'Azure Active Directory à 15Five
+# <a name="tutorial-azure-active-directory-integration-with-15five"></a>Tutoriel : Intégration d'Azure Active Directory à 15Five
 
 Dans ce didacticiel, vous allez apprendre à intégrer 15Five dans Azure Active Directory (Azure AD).
 L’intégration de 15Five dans Azure AD vous offre les avantages suivants :
@@ -148,7 +148,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

@@ -1,192 +1,192 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Grovo | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Grovo | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Grovo.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 399cecc3-aa62-4914-8b6c-5a35289820c1
 ms.service: active-directory
-ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/12/2018
+ms.topic: tutorial
+ms.date: 02/18/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 535e4a9c0555636d4ed068a7983b31c2cb91e75f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 37ba3b8082591f5eab97a7544a13c3279160a0ce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198762"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57861959"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-grovo"></a>Tutoriel : Intégration d’Azure Active Directory à Grovo
+# <a name="tutorial-azure-active-directory-integration-with-grovo"></a>Didacticiel : Intégration d’Azure Active Directory à Grovo
 
 Dans ce didacticiel, vous apprenez à intégrer Grovo avec Azure Active Directory (Azure AD).
-
 L’intégration de Grovo avec Azure AD vous offre les avantages suivants :
 
-- Dans Azure AD, vous pouvez contrôler qui a accès à Grovo.
-- Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à Grovo (par authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
+* Dans Azure AD, vous pouvez contrôler qui a accès à Grovo.
+* Vous pouvez permettre aux utilisateurs de se connecter automatiquement à Grovo (par le biais de l’authentification unique) avec leur compte Azure AD.
+* Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD avec Grovo, vous avez besoin des éléments suivants :
 
-- Un abonnement Azure AD
-- Un abonnement Grovo pour lequel l’authentification unique est activée
-
-> [!NOTE]
-> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
-
-Vous devez en outre suivre les recommandations ci-dessous :
-
-- N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
+* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+* Abonnement Grovo pour lequel l’authentification unique est activée
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
-1. Ajout de Grovo depuis la galerie
-1. Configuration et test de l’authentification unique Azure AD
+Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
+
+* Grovo prend en charge l’authentification unique initiée par **le fournisseur de services** et le **fournisseur d’identité**
+
+* Grovo prend en charge l’attribution d’utilisateurs **Juste-à-temps**
 
 ## <a name="adding-grovo-from-the-gallery"></a>Ajout de Grovo depuis la galerie
+
 Pour configurer l’intégration de Grovo à Azure AD, vous devez ajouter Grovo, disponible dans la galerie, à votre liste d’applications SaaS managées.
 
 **Pour ajouter Grovo à partir de la galerie, suivez ces étapes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
-    ![Bouton Azure Active Directory][1]
+    ![Bouton Azure Active Directory](common/select-azuread.png)
 
-1. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+2. Accédez à **Applications d’entreprise**, puis sélectionnez l’option **Toutes les applications**.
 
-    ![Panneau Applications d’entreprise][2]
-    
-1. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-    ![Bouton Nouvelle application][3]
+3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-1. Dans la zone de recherche, tapez **Grovo**, sélectionnez **Grovo** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+    ![Bouton Nouvelle application](common/add-new-app.png)
 
-    ![Grovo dans la liste des résultats](./media/grovo-tutorial/tutorial_grovo_addfromgallery.png)
+4. Dans la zone de recherche, tapez **Grovo**, sélectionnez **Grovo** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+
+     ![Grovo dans la liste des résultats](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
-Dans cette section, vous configurez et testez l’authentification unique Azure AD avec Grovo, au moyen d’un utilisateur de test appelé « Britta Simon ».
-
-Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Grovo équivalent dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et un utilisateur Grovo associé doit être établie.
-
-Dans Grovo, affectez la valeur de **nom d’utilisateur** dans Azure AD comme étant la valeur de **Username** (Nom d’utilisateur) pour établir la relation.
+Dans cette section, vous configurez et testez l’authentification unique Azure AD avec Grovo, au moyen d’un utilisateur de test appelé **Britta Simon**.
+Pour que l’authentification unique fonctionne, une relation entre l’utilisateur Azure AD et l’utilisateur Grovo associé doit être établie.
 
 Pour configurer et tester l’authentification unique Azure AD avec Grovo, vous devez suivre les indications des sections suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-1. **[Créer un utilisateur de test Grovo](#create-a-grovo-test-user)** pour obtenir dans Grovo un équivalent de Britta Simon qui soit lié à la représentation Azure AD associée.
-1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-1. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
+2. **[Configurer l’authentification unique Grovo](#configure-grovo-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
+3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Créer un utilisateur de test Grovo](#create-grovo-test-user)** pour obtenir dans Grovo un équivalent de Britta Simon qui soit lié à la représentation Azure AD associée.
+6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
-Dans cette section, vous activez l’authentification unique Azure AD sur le portail Azure et configurez l’authentification unique dans votre application Grovo.
+Dans cette section, vous activez l’authentification unique Azure AD dans le portail Azure.
 
-**Pour configurer l’authentification unique Azure AD avec Grovo, effectuez les étapes suivantes :**
+Pour configurer l’authentification unique Azure AD avec Grovo, effectuez les étapes suivantes :
 
-1. Dans le portail Azure, dans la page d’intégration de l’application **Grovo**, cliquez sur **Authentification unique**.
+1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **Grovo**, sélectionnez **Authentification unique**.
 
-    ![Lien Configurer l’authentification unique][4]
+    ![Lien Configurer l’authentification unique](common/select-sso.png)
 
-1. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
- 
-    ![Boîte de dialogue Authentification unique](./media/grovo-tutorial/tutorial_grovo_samlbase.png)
+2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
 
-1. Dans la section **Domaines et URL Grovo**, suivez les étapes ci-dessous si vous souhaitez configurer l’application en mode initié par **IDP** :
+    ![Mode de sélection de l’authentification unique](common/select-saml-option.png)
 
-    ![Informations d’authentification unique dans Domaine et URL Grovo](./media/grovo-tutorial/tutorial_grovo_url.png)
+3. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
+
+    ![Modifier la configuration SAML de base](common/edit-urls.png)
+
+4. À la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode initié par **IDP**, suivez les étapes ci-dessous :
+
+    ![Informations d’authentification unique dans Domaine et URL Grovo](common/idp-relay.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<subdomain>.grovo.com/sso/saml2/metadata`
 
-    b. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
+    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
 
-1. Cochez l’option **Afficher les paramètres d’URL avancés**, puis procédez comme suit :
+    c. Cliquez sur **Définir des URL supplémentaires**.
 
-    ![Informations d’authentification unique dans Domaine et URL Grovo](./media/grovo-tutorial/tutorial_grovo_url1.png)
+    d. Dans la zone de texte **État de relais**, entrez une URL en utilisant le modèle suivant : `https://<subdomain>.grovo.com`
 
-    a. Dans la zone de texte **État de relais**, entrez une URL en utilisant le modèle suivant : `https://<subdomain>.grovo.com`
+5. Si vous souhaitez configurer l’application en mode initié par le **fournisseur de service**, procédez comme suit :
 
-    b. Si vous souhaitez configurer l’application en mode initié par le **fournisseur de service**, procédez comme suit :
+    ![Informations d’authentification unique dans Domaine et URL Grovo](common/both-signonurl.png)
 
-    ![Informations d’authentification unique dans Domaine et URL Grovo](./media/grovo-tutorial/tutorial_grovo_url2.png)
-    
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
 
-    > [!NOTE] 
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse, l’URL de connexion et l’état de relais exacts. Pour obtenir ces valeurs, contactez [l’équipe du support technique Grovo](https://www.grovo.com/contact-us).
- 
-1. L’application Grovo attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section « **Attributs utilisateur** » sur la page d’intégration des applications. Mappez l’**Identificateur d’utilisateur** avec **user.mail**, puis configurez les autres attributs tel que représenté dans la capture ci-dessous.
-    
-    ![Configurer l’authentification unique attb](./media/grovo-tutorial/tutorial_grovo_attribute.png)
-    
-1. Dans la section **Attributs utilisateur** de la boîte de dialogue **Authentification unique**, configurez l’attribut de jeton SAML comme sur l’image et procédez comme suit :
-    
-    | Nom de l'attribut | Valeur de l’attribut |
+    > [!NOTE]
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse, l’URL de connexion et l’État de relais exacts. Pour obtenir ces valeurs, contactez l’[équipe de support technique de Grovo](https://www.grovo.com/contact-us). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+
+6. L’application Grovo s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration Attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut, où **nameidentifier** est mappé avec **user.userprincipalname**. L’application Grovo s’attend à ce que **nameidentifier** soit mappé avec **user.mail**. Vous devez donc modifier le mappage d’attribut en cliquant sur l’icône **Modifier**.
+
+    ![image](common/edit-attribute.png)
+
+7. En plus de ce qui précède, l’application Grovo s’attend à ce que quelques attributs supplémentaires soient repassés dans la réponse SAML. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, effectuez les étapes suivantes pour ajouter le jeton SAML comme indiqué dans le tableau ci-dessous :
+
+    | Nom | Attribut source|
     | ------------------- | -------------------- |    
     | Prénom          | user.givenname |
     | Nom           | user.surname |
     | Adresse de messagerie       | user.mail    |
     | employeeID          | user.employeeid |
 
-    a. Cliquez sur **Ajouter un attribut** pour ouvrir la boîte de dialogue **Ajouter un attribut**.
+    a. Cliquez sur le bouton **Ajouter une nouvelle revendication** pour ouvrir la boîte de dialogue **Gérer les revendications des utilisateurs**.
 
-    ![Configurer l’authentification unique Add](./media/grovo-tutorial/tutorial_attribute_04.png)
+    ![image](common/new-save-attribute.png)
 
-    ![Configurer l’authentification unique Addattb](./media/grovo-tutorial/tutorial_attribute_05.png)
+    ![image](common/new-attribute-details.png)
 
     b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
 
-    c. Dans la liste **Valeur** , saisissez la valeur d’attribut affichée pour cette ligne.
+    c. Laissez le champ **Espace de noms** vide.
 
-    d. Laissez le champ **Espace de noms** vide.
-    
-    e. Cliquez sur **OK**.
+    d. Sélectionnez Source comme **Attribut**.
 
+    e. Dans la liste **Attribut de la source**, tapez la valeur d’attribut indiquée pour cette ligne.
 
-1. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
+    f. Cliquez sur **OK**.
 
-    ![Lien Téléchargement de certificat](./media/grovo-tutorial/tutorial_grovo_certificate.png) 
+    g. Cliquez sur **Enregistrer**.
 
-1. Cliquez sur le bouton **Enregistrer** .
+8. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
 
-    ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/grovo-tutorial/tutorial_general_400.png)
+    ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
-1. Dans la section **Configuration de Grovo**, cliquez sur **Configurer Grovo** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l’**ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
+9. Dans la section **Configurer Grovo**, copiez l’URL ou les URL appropriées en fonction de vos besoins.
 
-    ![Configuration de Grovo](./media/grovo-tutorial/tutorial_grovo_configure.png) 
+    ![Copier les URL de configuration](common/copy-configuration-urls.png)
+
+    a. URL de connexion
+
+    b. Identificateur Azure AD
+
+    c. URL de déconnexion
+
+### <a name="configure-grovo-single-sign-on"></a>Configurer l'authentification unique Grovo
 
 1. Dans une autre fenêtre du navigateur web, connectez-vous à Grovo en tant qu’administrateur.
 
-1. Accédez à **Admin** > **Integrations** (Intégrations).
+2. Accédez à **Admin** > **Integrations** (Intégrations).
  
     ![Configuration de Grovo](./media/grovo-tutorial/tutorial_grovo_admin.png) 
 
-1. Cliquez sur **SET UP** (CONFIGURER) sous la section **SP Initiated SAML 2.0** (SAML 2.0 initié SP).
+3. Cliquez sur **SET UP** (CONFIGURER) sous la section **SP Initiated SAML 2.0** (SAML 2.0 initié SP).
 
     ![Configuration de Grovo](./media/grovo-tutorial/tutorial_grovo_setup.png)
 
-1. Dans la fenêtre contextuelle **SP initiated SAML 2.0** (SAML 2.0 initié SP), effectuez les actions suivantes :
+4. Dans la fenêtre contextuelle **SP initiated SAML 2.0** (SAML 2.0 initié SP), effectuez les actions suivantes :
 
     ![Configuration de Grovo](./media/grovo-tutorial/tutorial_grovo_saml.png)
 
-    a. Dans la zone de texte **Entity id** (ID d’entité), collez la valeur de **l’ID d’entité SAML** que vous avez copiée à partir du portail Azure.
+    a. Dans la zone de texte **ID d’entité**, collez l’**Identificateur Azure AD** que vous avez copié dans le portail Azure.
 
-    b. Dans la zone de texte **Single sign on service endpoint** (Point de terminaison du service d’authentification unique), collez la valeur de **SAML Single Sign-On Service URL** (URL du service d’authentification unique SAML) que vous avez copiée à partir du portail Azure.
+    b. Dans la zone de texte **Single sign-on service endpoint** (Point de terminaison du service d’authentification unique), collez la valeur de l’**URL de connexion** que vous avez copiée à partir du portail Azure.
 
     c. Sélectionnez **Single sign on service endpoint binding** (Liaison de point de terminaison du service d’authentification unique) comme étant `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect`.
     
@@ -194,102 +194,75 @@ Dans cette section, vous activez l’authentification unique Azure AD sur le por
 
     e. Cliquez sur **Suivant**.
 
-> [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-
-### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
 
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
-   ![Créer un utilisateur de test Azure AD][100]
+1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
 
-**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
+    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](common/users.png)
 
-1. Dans le volet gauche du Portail Azure, cliquez sur le bouton **Azure Active Directory**.
+2. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
 
-    ![Bouton Azure Active Directory](./media/grovo-tutorial/create_aaduser_01.png)
+    ![Bouton Nouvel utilisateur](common/new-user.png)
 
-1. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+3. Dans les propriétés de l’utilisateur, effectuez les étapes suivantes.
 
-    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](./media/grovo-tutorial/create_aaduser_02.png)
+    ![Boîte de dialogue Utilisateur](common/user-properties.png)
 
-1. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
+    a. Dans le champ **Nom**, entrez **BrittaSimon**.
+  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    Par exemple, BrittaSimon@contoso.com
 
-    ![Bouton Ajouter](./media/grovo-tutorial/create_aaduser_03.png)
-
-1. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
-
-    ![Boîte de dialogue Utilisateur](./media/grovo-tutorial/create_aaduser_04.png)
-
-    a. Dans la zone **Nom**, tapez **BrittaSimon**.
-
-    b. Dans la zone **Nom d’utilisateur** , tapez l’adresse e-mail de l’utilisateur Britta Simon.
-
-    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
+    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
     d. Cliquez sur **Créer**.
-  
-### <a name="create-a-grovo-test-user"></a>Création d’un utilisateur de test Grovo
-
-L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Grovo. Grovo prend en charge le provisionnement juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas déjà, un utilisateur est créé lors d’une tentative d’accès à Grovo.
->[!Note]
->Si vous devez créer un utilisateur manuellement, contactez  [l’équipe du support technique de Grovo](https://www.grovo.com/contact-us).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous autorisez Britta Simon à utiliser l’authentification unique Azure en accordant l’accès à Grovo.
 
-![Attribuer le rôle utilisateur][200] 
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis sélectionnez **Grovo**.
 
-**Pour affecter Britta Simon à Grovo, effectuez les étapes suivantes :**
+    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
+2. Dans la liste des applications, sélectionnez **Grovo**.
 
-    ![Affecter des utilisateurs][201] 
+    ![Lien Grovo dans la liste des applications](common/all-applications.png)
 
-1. Dans la liste des applications, sélectionnez **Grovo**.
+3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes**.
 
-    ![Lien Grovo dans la liste des applications](./media/grovo-tutorial/tutorial_grovo_app.png)  
+    ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
 
-1. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+4. Cliquez sur le bouton **Ajouter un utilisateur**, puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 
-    ![Lien « Utilisateurs et groupes »][202]
+    ![Volet Ajouter une attribution](common/add-assign-user.png)
 
-1. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
 
-    ![Volet Ajouter une attribution][203]
+6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
-1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-1. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+### <a name="create-grovo-test-user"></a>Créer un utilisateur de test Grovo
 
-1. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
-    
-### <a name="test-single-sign-on"></a>Tester l’authentification unique
+Dans cette section, un utilisateur appelé Britta Simon est créé dans Grove. Grove prend en charge le provisionnement d’utilisateurs juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans Grovo, il en est créé un après l’authentification.
+
+>[!Note]
+>Si vous devez créer un utilisateur manuellement, contactez l’[équipe du support technique Grovo](https://www.grovo.com/contact-us).
+
+### <a name="test-single-sign-on"></a>Tester l’authentification unique 
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Le fait de cliquer sur la vignette Grovo dans le volet d’accès vous connecte automatiquement à votre application Grovo.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
+Le fait de cliquer sur la vignette Grovo dans le panneau d’accès doit vous connecter automatiquement à l’application Grovo pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
+- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/grovo-tutorial/tutorial_general_01.png
-[2]: ./media/grovo-tutorial/tutorial_general_02.png
-[3]: ./media/grovo-tutorial/tutorial_general_03.png
-[4]: ./media/grovo-tutorial/tutorial_general_04.png
-
-[100]: ./media/grovo-tutorial/tutorial_general_100.png
-
-[200]: ./media/grovo-tutorial/tutorial_general_200.png
-[201]: ./media/grovo-tutorial/tutorial_general_201.png
-[202]: ./media/grovo-tutorial/tutorial_general_202.png
-[203]: ./media/grovo-tutorial/tutorial_general_203.png
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

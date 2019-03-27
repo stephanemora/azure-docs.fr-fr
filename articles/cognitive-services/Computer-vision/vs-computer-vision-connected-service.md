@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/01/2018
 ms.author: ghogen
 ms.custom: seodec18
-ms.openlocfilehash: 4911a872a4b5479abe84c2e06573256092185cf2
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 6a576f2817069d7095ea863198168be083d0c6b5
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669699"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450940"
 ---
 # <a name="use-connected-services-in-visual-studio-to-connect-to-the-computer-vision-api"></a>Utilisation des Services connectés dans Visual Studio pour se connecter à l’API Vision par ordinateur
 
@@ -92,7 +92,7 @@ Cet article et ceux qui l’accompagnent donnent des détails sur l’utilisatio
       }
    ```
 
-1. Dans le dossier wwwroot de votre projet, ajoutez un dossier images et un fichier image. Par exemple, vous pouvez utiliser l’une des images de cette [page de l’API Vision par ordinateur](https://azure.microsoft.com/services/cognitive-services/computer-vision/). Cliquez avec le bouton droit sur l’une des images et enregistrez-la sur votre disque dur local. Ensuite, dans l’Explorateur de solutions, cliquez avec le bouton droit sur le dossier images et choisissez **Ajouter** > **Élément existant** pour l’ajouter à votre projet. Votre projet devrait se présenter ainsi dans l’Explorateur de solutions : 
+1. Dans le dossier wwwroot de votre projet, ajoutez un dossier images et un fichier image. Par exemple, vous pouvez utiliser l’une des images de cette [page de l’API Vision par ordinateur](https://azure.microsoft.com/services/cognitive-services/computer-vision/). Cliquez avec le bouton droit sur une des images et enregistrez-la sur votre disque dur local. Ensuite, dans l’Explorateur de solutions, cliquez avec le bouton droit sur le dossier des images et choisissez **Ajouter** > **Élément existant** pour l’ajouter à votre projet. Votre projet devrait se présenter ainsi dans l’Explorateur de solutions : 
   
    ![Capture d’écran de la vue Explorateur de solutions dans laquelle un fichier image est sélectionné](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-3.PNG) 
 

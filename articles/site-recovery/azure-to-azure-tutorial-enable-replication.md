@@ -6,21 +6,21 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/27/2018
+ms.date: 03/12/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 0e73c0f94e0aa240349aec45b4a146ba5eb37dab
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: ff18a14b314b5757629205f4bf0eb134411688ec
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700772"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57853109"
 ---
-# <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Configurer la récupération d’urgence pour des machines virtuelles Azure vers une région Azure secondaire
+# <a name="set-up-disaster-recovery-for-azure-vms"></a>Configurer la récupération d’urgence pour les machines virtuelles Azure
 
 Le service [Azure Site Recovery](site-recovery-overview.md) contribue à votre stratégie de reprise d’activité après sinistre en gérant et en coordonnant la réplication, le basculement et la restauration automatique des machines locales et des machines virtuelles Azure.
 
-Ce didacticiel vous montre comment configurer la récupération d’urgence vers une région Azure secondaire pour des machines virtuelles Azure. Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Ce didacticiel vous montre comment configurer la récupération d’urgence pour des machines virtuelles Azure en les répliquant d’une région Azure vers un autre. Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Créer un coffre Recovery Services
@@ -29,14 +29,14 @@ Ce didacticiel vous montre comment configurer la récupération d’urgence vers
 > * Activer la réplication pour une machine virtuelle
 
 > [!NOTE]
-> Cet article fournit des instructions pour déployer la reprise d’activité après sinistre avec les paramètres les plus simples. Si vous souhaitez en savoir plus sur les paramètres personnalisés, consultez les articles listés sous la [section Procédures](azure-to-azure-how-to-enable-replication.md). o
+> Cet article fournit des instructions pour déployer la reprise d’activité après sinistre avec les paramètres les plus simples. Si vous souhaitez en savoir plus sur les paramètres personnalisés, consultez les articles listés sous la [section Procédures](azure-to-azure-how-to-enable-replication.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce tutoriel :
 
 - Assurez-vous que vous comprenez [l’architecture et les composants du scénario](concepts-azure-to-azure-architecture.md).
-- Vérifiez les [exigences de prise en charge](site-recovery-support-matrix-azure-to-azure.md) pour tous les composants.
+- Avant de commencer, consultez les [conditions de prise en charge](site-recovery-support-matrix-azure-to-azure.md).
 
 ## <a name="create-a-vault"></a>Création d'un coffre
 
@@ -65,7 +65,6 @@ Pour que Site Recovery fonctionne comme prévu, vous devez modifier la connectiv
 > Site Recovery ne prend pas en charge l’utilisation d’un proxy d’authentification pour contrôler la connectivité réseau.
 
 
-
 ### <a name="outbound-connectivity-for-urls"></a>Connectivité sortante pour les URL
 
 Si vous utilisez un proxy de pare-feu basé sur des URL pour contrôler la connectivité sortante, autorisez l’accès à ces URL.
@@ -81,9 +80,9 @@ Si vous utilisez un proxy de pare-feu basé sur des URL pour contrôler la conne
 
 Si vous souhaitez contrôler la connectivité sortante à l’aide d’adresses IP au lieu d’utiliser des URL, autorisez ces adresses pour les règles de pare-feu, de proxy et de groupe de sécurité réseau basées sur les adresses IP.
 
-  - [Plages IP de centres de données Microsoft Azure](https://www.microsoft.com/en-us/download/details.aspx?id=41653)
-  - [Plages IP de centres de données Microsoft Azure en Allemagne](https://www.microsoft.com/en-us/download/details.aspx?id=54770)
-  - [Plages IP de centres de données Microsoft Azure en Chine](https://www.microsoft.com/en-us/download/details.aspx?id=42064)
+  - [Plages IP de centres de données Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653)
+  - [Plages IP de centres de données Microsoft Azure en Allemagne](https://www.microsoft.com/download/details.aspx?id=54770)
+  - [Plages IP de centres de données Microsoft Azure en Chine](https://www.microsoft.com/download/details.aspx?id=42064)
   - [URL et plages d’adresses IP Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
   - [Adresses IP de points de terminaison du service Site Recovery](https://aka.ms/site-recovery-public-ips)
 
@@ -106,7 +105,7 @@ Azure Site Recovery fournit trois rôles intégrés pour contrôler les opérati
 
 - **Site Recovery Reader** : Ce rôle dispose des autorisations pour afficher toutes les opérations de gestion de Site Recovery. Ce rôle est tout indiqué pour un responsable de suivi informatique, qui peut surveiller l’état de protection actuel et envoyer des billets d’assistance.
 
-En savoir plus sur les [rôles intégrés Azure RBAC](../role-based-access-control/built-in-roles.md)
+Apprenez-en davantage sur les [rôles intégrés RBAC Azure](../role-based-access-control/built-in-roles.md).
 
 ## <a name="enable-replication"></a>Activer la réplication
 
@@ -116,8 +115,9 @@ En savoir plus sur les [rôles intégrés Azure RBAC](../role-based-access-contr
 2. Dans **Source**, sélectionnez **Azure**.
 3. Dans **Emplacement source**, sélectionnez la région Azure source où vos machines virtuelles s’exécutent actuellement.
 4. Sélectionnez l’**abonnement source** à partir duquel les machines virtuelles sont exécutées. Il peut s’agir de n’importe quel abonnement au sein du même locataire Azure Active Directory où se trouve votre coffre Recovery services.
-5. Sélectionnez le **Groupe de ressources source** pour les machines virtuelles Resource Manager, ou **service cloud** pour les machines virtuelles classiques.
-6. Cliquez sur **OK** pour enregistrer les paramètres.
+5. Sélectionnez le **groupe de ressources Source**, puis cliquez sur **OK** pour enregistrer les paramètres.
+
+    ![Configurer la source](./media/azure-to-azure-tutorial-enable-replication/source.png)
 
 ### <a name="select-the-vms"></a>Sélectionner les machines virtuelles
 
@@ -133,56 +133,50 @@ Site Recovery crée les paramètres par défaut et la stratégie de réplication
 1. Cliquez sur **Paramètres** pour afficher les paramètres de cible et de réplication.
 2. Pour remplacer les paramètres de cible par défaut, cliquez sur **Personnaliser** en regard de **Resource group, Network, Storage and Availability** (Groupe de ressources, réseau, stockage et groupes à haute disponibilité).
 
-  ![Configurer les paramètres](./media/azure-to-azure-tutorial-enable-replication/settings.png)
+   ![Configurer les paramètres](./media/azure-to-azure-tutorial-enable-replication/settings.png)
 
 
-3. Personnalisez les paramètres cibles de la façon suivante :
+3. Personnalisez les paramètres cibles comme récapitulé dans le tableau.
 
-    - **Abonnement cible** : abonnement cible utilisé pour la reprise d’activité. Par défaut, l’abonnement cible sera identique à l’abonnement source. Cliquez sur « Personnaliser » pour sélectionner un abonnement cible différent au sein du même locataire Azure Active Directory.
-    - **Emplacement cible** : région cible utilisée pour la récupération d’urgence. Il est recommandé que l’emplacement cible corresponde à l’emplacement du coffre Site Recovery.
-    - **Groupe de ressources cible** : groupe de ressources dans la région cible qui héberge les machines virtuelles Azure après le basculement. Par défaut, Site Recovery crée un groupe de ressources dans la région cible avec un suffixe « asr ». L’emplacement du groupe de ressources cible peut être n’importe quelle région à l’exception de la région dans laquelle vos machines virtuelles sources sont hébergées.
-    - **Réseau virtuel cible** : réseau dans la région cible où se trouvent les machines virtuelles après le basculement.
-      Par défaut, Site Recovery crée un réseau virtuel (et des sous-réseaux) dans la région cible avec un suffixe « asr ».
-    - **Comptes de stockage de cache** : Site Recovery utilise un compte de stockage dans la région source. Les modifications apportées aux machines virtuelles sources sont envoyées sur ce compte avant la réplication vers l’emplacement cible.
-      >[!NOTE]
-      >Si vous utilisez un compte de stockage de cache autorisé par le pare-feu, vérifiez que l’option « Autoriser les services Microsoft approuvés » est activée. [En savoir plus.](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)
-      >
+    **Paramètre** | **Détails**
+    --- | ---
+    **Abonnement cible** | Par défaut, l’abonnement cible est identique à l’abonnement source. Cliquez sur « Personnaliser » pour sélectionner un abonnement cible différent au sein du même locataire Azure Active Directory.
+    **Emplacement cible** | région cible utilisée pour la récupération d’urgence.<br/><br/> Il est recommandé que l’emplacement cible corresponde à l’emplacement du coffre Site Recovery.
+    **Groupe de ressources cible** | groupe de ressources dans la région cible qui héberge les machines virtuelles Azure après le basculement.<br/><br/> Par défaut, Site Recovery crée un groupe de ressources dans la région cible avec un suffixe « asr ». L’emplacement du groupe de ressources cible peut être n’importe quelle région Azure à l’exception de la région dans laquelle vos machines virtuelles sources sont hébergées.
+    **Réseau virtuel cible** | réseau dans la région cible où se trouvent les machines virtuelles après le basculement.<br/><br/> Par défaut, Site Recovery crée un réseau virtuel (et des sous-réseaux) dans la région cible avec un suffixe « asr ».
+    **Comptes Stockage de cache** | Site Recovery utilise un compte de stockage dans la région source. Les modifications apportées aux machines virtuelles sources sont envoyées sur ce compte avant la réplication vers l’emplacement cible.<br/><br/> Si vous utilisez un compte de stockage de cache autorisé par le pare-feu, veillez à activer l’option **Autoriser les services Microsoft approuvés**. [En savoir plus.](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)
+    **Comptes de stockage cibles (si la machine virtuelle source utilise des disques non managés)** | par défaut, Site Recovery crée un compte de stockage dans la région cible qui reflète le compte de stockage de la machine virtuelle source.<br/><br/> Activez **Autoriser les services Microsoft approuvés** si vous utilisez un compte de stockage de cache autorisé par le pare-feu.
+    **Disques managés de réplica (si la machine virtuelle source utilise des disques managés)** | par défaut, Site Recovery crée des disques managés de réplica dans la région cible pour mettre en miroir les disques managés de la machine virtuelle source avec le même type de stockage (Standard ou Premium) que celui du disque managé de la machine virtuelle source.
+    **Groupes à haute disponibilité cibles** | par défaut, Azure Site Recovery crée un groupe à haute disponibilité dans la région cible avec un nom comportant le suffixe « asr », pour les machines virtuelles qui font partie d’un groupe à haute disponibilité dans la région source. Si le groupe à haute disponibilité créé par Azure Site Recovery existe déjà, il est réutilisé.
+    **Zones de disponibilité cibles** | par défaut, Site Recovery affecte à la région cible le même nombre de zones que la région source, si la région cible prend en charge les zones de disponibilité.<br/><br/> Si la région cible ne prend pas en charge les zones de disponibilité, les machines virtuelles cibles sont configurées comme des instances uniques par défaut.<br/><br/> Cliquez sur **Personnaliser** pour configurer des machines virtuelles d’un groupe à haute disponibilité dans la région cible.<br/><br/> Vous ne pouvez plus modifier le type de disponibilité (instance unique, groupe à haute disponibilité ou zone de disponibilité) une fois que vous avez activé la réplication. Vous devez désactiver puis réactiver la réplication pour modifier le type de disponibilité.
 
-    - **Comptes de stockage cibles (si la machine virtuelle source n’utilise pas de disques managés)** : par défaut, Site Recovery crée un compte de stockage dans la région cible qui reflète le compte de stockage de la machine virtuelle source.
-      >[!NOTE]
-      >Si vous utilisez un compte de stockage source ou cible autorisé par le pare-feu, vérifiez que l’option « Autoriser les services Microsoft approuvés » est activée. [En savoir plus.](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)
-      >
+4. Pour personnaliser les paramètres de stratégie de réplication, cliquez sur **Personnaliser** à côté de **Stratégie de réplication**, puis modifiez les paramètres selon vos besoins.
 
-    - **Disques managés de réplica (si la machine virtuelle source utilise des disques managés)** : par défaut, Site Recovery crée des disques managés de réplica dans la région cible pour mettre en miroir les disques managés de la machine virtuelle source avec le même type de stockage (Standard ou Premium) que celui du disque managé de la machine virtuelle source.
-    - **Groupes à haute disponibilité cibles** : par défaut, Azure Site Recovery crée un groupe à haute disponibilité dans la région cible avec un nom comportant le suffixe « asr », pour les machines virtuelles qui font partie d’un groupe à haute disponibilité dans la région source. Si le groupe à haute disponibilité créé par Azure Site Recovery existe déjà, il est réutilisé.
-    - **Zones de disponibilité cibles** : par défaut, Site Recovery affecte à la région cible le même nombre de zones que la région source, si la région cible prend en charge les zones de disponibilité. 
+    **Paramètre** | **Détails**
+    --- | ---
+    **Nom de la stratégie de réplication** | nom de la stratégie.
+    **Conservation des points de récupération** | par défaut, Site Recovery conserve les points de récupération pendant 24 heures. Vous pouvez configurer une valeur comprise entre 1 et 72 heures.
+    **Fréquence des instantanés de cohérence des applications** | par défaut, Site Recovery prend un instantané de cohérence des applications toutes les 4 heures. Vous pouvez configurer une valeur comprise entre 1 et 12 heures.<br/><br/> Une capture instantanée de cohérence des applications est un instantané à un instant T des données des applications à l’intérieur de la machine virtuelle. Le service VSS (Volume Shadow Copy Service) s’assure que les applications sur la machine virtuelle sont dans un état cohérent au moment de la prise des captures instantanées.
+    **Groupe de réplication** | si votre application a besoin d’une cohérence multimachine virtuelle sur les machines virtuelles, vous pouvez créer un groupe de réplication pour ces machines virtuelles. Par défaut, les machines virtuelles sélectionnés ne font pas partie d’un groupe de réplication.
 
-    Si la région cible ne prend pas en charge les zones de disponibilité, les machines virtuelles cibles sont configurées comme des instances uniques par défaut. Si nécessaire, vous pouvez configurer ces machines virtuelles comme faisant partie de groupes à haute disponibilité dans la région cible, en cliquant sur « Personnaliser ».
+5. Si vous souhaitez ajouter des machines virtuelles à un groupe de réplication nouveau ou existant, dans **Personnaliser**, sélectionnez **Oui** pour activer la cohérence multimachine virtuelle Cliquez ensuite sur **OK**. 
 
     >[!NOTE]
-    >Vous ne pouvez plus modifier le type de disponibilité (instance unique, groupe à haute disponibilité ou zone de disponibilité) une fois que vous avez activé la réplication. Vous devez désactiver puis réactiver la réplication pour modifier le type de disponibilité.
-    >
+    >- Toutes les machines d’un groupe de réplication ont des points de récupération partagés cohérents après incident et cohérents avec les applications lorsqu’elles basculent.
+    >- L’activation de la cohérence multimachine virtuelle peut affecter les performances de la charge de travail (elle utilise intensivement le processeur). Il convient de l’utiliser uniquement si les machines exécutent la même charge de travail et si vous avez besoin de cohérence sur plusieurs machines virtuelles.
+    >- Vous pouvez avoir un maximum de 16 machines virtuelles dans un groupe de réplication.
+    >- Si vous activez la cohérence multimachine virtuelle, les machines du groupe de réplication communiquent entre elles sur le port 20004. Assurez-vous qu’aucun pare-feu ne bloque la communication interne entre les machines virtuelles sur ce port.
+    >- Pour des machines virtuelles Linux dans un groupe de réplication, assurez-vous que le trafic sortant sur le port 20004 a été ouvert manuellement conformément aux instructions relatives à la version Linux.
 
-4. Pour personnaliser les paramètres de stratégie de réplication, cliquez sur **Personnaliser** à côté de **Stratégie de réplication**, puis modifiez les paramètres suivants selon vos besoins :
 
-    - **Nom de la stratégie de réplication** : nom de la stratégie.
-    - **Rétention des points de récupération** : par défaut, Site Recovery conserve les points de récupération pendant 24 heures. Vous pouvez configurer une valeur comprise entre 1 et 72 heures.
-    - **Fréquence des captures instantanées de cohérence d’application** : par défaut, Site Recovery prend un instantané de cohérence des applications toutes les 4 heures. Vous pouvez configurer une valeur comprise entre 1 et 12 heures. Un instantané de cohérence des applications est un instantané à un point dans le temps des données d’application à l’intérieur de la machine virtuelle. Le service VSS (Volume Shadow Copy Service) s’assure que les applications sur la machine virtuelle sont dans un état cohérent au moment de la prise des captures instantanées.
-    - **Groupe de réplication** : si votre application a besoin d’une cohérence multimachine virtuelle sur les machines virtuelles, vous pouvez créer un groupe de réplication pour ces machines virtuelles. Par défaut, les machines virtuelles sélectionnés ne font pas partie d’un groupe de réplication.
-
-5. Si vous souhaitez ajouter des machines virtuelles à un groupe de réplication nouveau ou existant, dans **Personnaliser**, sélectionnez **Oui** pour activer la cohérence multimachine virtuelle Cliquez ensuite sur **OK**.
-
-    - Toutes les machines d’un groupe de réplication ont des points de récupération cohérents après incident et avec les applications lorsqu’elles basculent. L’activation de la cohérence multimachine virtuelle peut influer sur les performances de la charge de travail (utilisation intensive du processeur). Elle ne doit être utilisée que si les machines exécutent la même charge de travail et si vous avez besoin de cohérence entre plusieurs machines virtuelles.
-    - Vous pouvez choisir d’avoir au maximum 16 machines virtuelles dans un groupe de réplication.
-    - Si vous activez la cohérence multimachine virtuelle, les machines du groupe de réplication communiquent entre elles sur le port 20004. Vérifiez qu’aucun dispositif de pare-feu ne bloque la communication interne entre les machines virtuelles sur le port 20004. Si vous voulez que les machines virtuelles Linux fassent partie d’un groupe de réplication, vérifiez que le trafic sortant sur le port 20004 est ouvert manuellement conformément aux instructions de la version Linux spécifique.
 
 ### <a name="configure-encryption-settings"></a>Configurer les paramètres de chiffrement
 
-Si Azure Disk Encryption (ADE) est activé sur la machine virtuelle source, les paramètres de chiffrement sont affichés :
+Si Azure Disk Encryption est activé sur machine virtuelle source, vérifiez les paramètres.
 
-1. Passez en revue les paramètres de chiffrement.
-    - **Coffres de clés de chiffrement de disque** : par défaut, Azure Site Recovery crée un coffre de clés dans la région cible avec un nom ayant le suffixe « asr » en fonction des clés de chiffrement du disque de la machine virtuelle source. Si le coffre de clés créé par Azure Site Recovery existe déjà, il est réutilisé.
-    - **Coffres de clés de chiffrement de clé** : par défaut, Azure Site Recovery crée un coffre de clés dans la région cible avec un nom ayant le suffixe « asr » en fonction des clés de chiffrement de la clé de la machine virtuelle source. Si le coffre de clés créé par Azure Site Recovery existe déjà, il est réutilisé.
+1. Vérifiez les paramètres :
+    - **Coffres de clés de chiffrement de disque** : Par défaut, Site Recovery crée un coffre de clés basé sur les clés de chiffrement de disque de machine virtuelle sources, avec un suffixe « asr ». Si le coffre de clés existe déjà, il est réutilisé.
+    - **Coffres de clés de chiffrement de clé** : Par défaut, Site Recovery crée un coffre de clés dans la région cible. Le nom comporte un suffixe « asr » et est basé sur les clés de chiffrement à clé de machine virtuelle sources. Si le coffre de clés créé par Azure Site Recovery existe déjà, il est réutilisé.
 
 2. Pour sélectionner des coffres de clés personnalisés, cliquez sur **Personnaliser**.
 

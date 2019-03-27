@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 12da1b20c5e4e6299445b8ec8ec90eeec6711e2c
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 961983aad0775f9b9d728269e8a57137ff508f02
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805516"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451788"
 ---
 # <a name="use-jupyter-notebooks-to-explore-azure-machine-learning-service"></a>Utiliser des notebooks Jupyter pour explorer Azure Machine Learning service
 
@@ -82,7 +82,7 @@ Vous pouvez utiliser l’une des options ci-dessus, ou bien installer l’enviro
       + Démarre un notebook Jupyter
       
    >[!NOTE]
-   > Le script prend le nom de l’environnement Conda comme paramètre facultatif. Par défaut, le nom de l’environnement Conda est `azure_automl`. La commande exacte varie selon le système d’exploitation. C’est utile si vous créez un nouvel environnement ou si vous faites une mise à niveau vers une nouvelle version. Par exemple, vous pouvez utiliser « automl_setup.cmd azure_automl_sandbox » pour créer un environnement nommé « azure_automl_sandbox ». 
+   > Le script prend le nom de l’environnement Conda comme paramètre facultatif. Par défaut, le nom de l’environnement Conda est `azure_automl`. La commande exacte varie selon le système d’exploitation. C’est utile si vous créez un nouvel environnement ou si vous faites une mise à niveau vers une nouvelle version. Par exemple, vous pouvez utiliser « automl_setup.cmd azure_automl_sandbox » pour créer un environnement nommé azure_automl_sandbox. 
       
 1. Une fois l’exécution du script terminée, vous voyez la page d’accueil Jupyter Notebook dans votre navigateur.
 

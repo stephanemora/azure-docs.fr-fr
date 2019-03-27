@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 11/28/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: e37d5b050c5ca957b59c1e0a60c88171c1fc4a23
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: df57faad770b252228b6c55d4caff775acfe3594
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582239"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531162"
 ---
-# <a name="tutorial-filter-inbound-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Didacticiel : Filtrer le trafic entrant avec pare-feu Azure DNAT via le portail Azure
+# <a name="tutorial-filter-inbound-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Tutoriel : Filtrer le trafic entrant avec pare-feu Azure DNAT via le portail Azure
 
 Vous pouvez configurer Azure Firewall Destination Network Address Translation (DNAT) pour traduire et filtrer le trafic entrant vers vos sous-réseaux. Lorsque vous configurez le DNAT, l’action de collection de règles NAT est définie sur **DNAT**. Chaque règle de la collection de règles NAT peut ensuite être utilisée pour traduire l’IP et le port publics de votre pare-feu en IP et port privés. Les règles DNAT ajoutent implicitement une règle de réseau correspondante pour autoriser le trafic traduit. Vous pouvez remplacer ce comportement en ajoutant explicitement une collection de règles de réseau avec des règles de refus correspondant au trafic traduit. Pour plus d’informations sur la logique de traitement des règles de Pare-feu Azure, consultez l’article [Logique de traitement des règles du service Pare-feu Azure](rule-processing.md).
 
@@ -37,7 +37,7 @@ Pour ce didacticiel, vous créez deux réseaux virtuels appairés :
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-1. Connectez-vous au portail Azure sur [http://portal.azure.com](http://portal.azure.com).
+1. Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
 2. Dans la page d’accueil du portail Azure, cliquez sur **Groupes de ressources**, puis cliquez sur **Ajouter**.
 3. Pour **Nom du groupe de ressources**, entrez **RG-DNAT-Test**.
 4. Pour **Abonnement**, sélectionnez votre abonnement.
@@ -150,11 +150,11 @@ Une fois le déploiement terminé, notez l’adresse IP privée de la machine vi
 
    |Paramètre  |Valeur  |
    |---------|---------|
-   |NOM     |FW-DNAT-test|
+   |Nom     |FW-DNAT-test|
    |Abonnement     |\<votre abonnement\>|
-   |Groupe de ressources     |**Utiliser l’existant** : RG-DNAT-Test |
+   |Groupe de ressources     |**Utiliser l’existant** : RG-DNAT-Test |
    |Lieu     |Sélectionnez le même emplacement que celui utilisé précédemment|
-   |Choisir un réseau virtuel     |**Utiliser l’existant** : VN-Hub|
+   |Choisir un réseau virtuel     |**Utiliser l’existant** : VN-Hub|
    |Adresse IP publique     |**Créer un nouveau**. L’adresse IP publique doit être le type de référence (SKU) Standard.|
 
 5. Cliquez sur **Revoir + créer**.
@@ -229,4 +229,4 @@ Dans ce tutoriel, vous avez appris à :
 Ensuite, vous pouvez surveiller les journaux de Pare-feu Azure.
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Surveiller les journaux de Pare-feu Azure](./tutorial-diagnostics.md)
+> [Didacticiel : Superviser les journaux de Pare-feu Azure](./tutorial-diagnostics.md)

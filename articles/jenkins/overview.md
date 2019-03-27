@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: overview
 ms.date: 07/25/2018
-ms.openlocfilehash: 69e9a49bf83be5b58faf3e71ab0ffbfb6c6f11a1
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 86d32726280cce12888f125c65254a7b02166704
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329714"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194748"
 ---
 # <a name="azure-and-jenkins"></a>Azure et Jenkins
 
@@ -29,7 +29,7 @@ Hébergez Jenkins dans Azure pour centraliser l’automatisation de votre build 
 - [Machines virtuelles Azure](/azure/virtual-machines/linux/overview). Consultez notre [didacticiel](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd) pour créer une instance de Jenkins sur une machine virtuelle.
 - Sur un cluster Kubernetes qui exécute [Azure Container Service](/azure/container-service/kubernetes/container-service-kubernetes-walkthrough), consultez nos [procédures](/azure/container-service/kubernetes/container-service-kubernetes-jenkins).
 
-Surveiller et gérer votre déploiement Azure Jenkins à l’aide de [Log Analytics](/azure/log-analytics/log-analytics-overview) et d’[Azure CLI](/cli/azure).
+Surveillez et gérez votre déploiement Azure Jenkins à l’aide des [journaux Azure Monitor](/azure/log-analytics/log-analytics-overview) et d’[Azure CLI](/cli/azure).
 
 ## <a name="scale-your-build-automation-on-demand"></a>Mettre à l’échelle l’automatisation de votre build à la demande
 

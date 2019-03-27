@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/26/2019
+ms.date: 02/28/2019
 ms.author: pafarley
-ms.openlocfilehash: d14b9c88b447583eedc8b50f4f9acf80ae4e3c75
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: ffecc07c49db8fd1b27cc2dd82192aa31a7fbd19
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889628"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194977"
 ---
 # <a name="azure-cognitive-services-computer-vision-sdk-for-python"></a>SDK Vision par ordinateur d’Azure Cognitive Services pour Python
 
@@ -42,7 +42,7 @@ Vous cherchez plus de documentation ?
 
 ### <a name="if-you-dont-have-an-azure-subscription"></a>Si vous n’avez pas d’abonnement Azure
 
-Créez une clé gratuite valide pendant 7 jours avec l’expérience d’**essai gratuit**. Quand la clé est créée, copiez-la ainsi que le nom de la région. Vous en aurez besoin pour [créer le client](#create-client).
+Créez une clé gratuite valide pendant 7 jours avec l’expérience d’**[essai gratuit][computervision_resource]** pour le service Vision par ordinateur. Quand la clé est créée, copiez-la ainsi que le nom de la région. Vous en aurez besoin pour [créer le client](#create-client).
 
 Gardez les éléments suivants une fois que la clé est créée :
 
@@ -51,7 +51,7 @@ Gardez les éléments suivants une fois que la clé est créée :
 
 ### <a name="if-you-have-an-azure-subscription"></a>Si vous avez un abonnement Azure
 
-Si vous avez besoin d’un compte d’API Vision par ordinateur, la méthode la plus simple pour en créer un dans votre abonnement consiste à utiliser la commande [Azure CLI][azure_cli] suivante. Vous devez choisir le nom du groupe de ressources, par exemple, « my-cogserv-group » et le nom de la ressource Vision par ordinateur, comme « my-computer-vision-resource ». 
+La méthode la plus simple pour créer une ressource dans votre abonnement consiste à utiliser la commande [Azure CLI][azure_cli] suivante. Elle crée une clé Cognitive Services qui peut être utilisée dans de nombreux services cognitifs. Vous devez choisir le nom du groupe de ressources _existant_, par exemple, « my-cogserv-group » et le nom de la nouvelle ressource Vision par ordinateur, comme « my-computer-vision-resource ». 
 
 ```Bash
 RES_REGION=westeurope 
@@ -62,8 +62,8 @@ az cognitiveservices account create \
     --resource-group $RES_GROUP \
     --name $ACCT_NAME \
     --location $RES_REGION \
-    --kind ComputerVision \
-    --sku S1 \
+    --kind CognitiveServices \
+    --sku S0 \
     --yes
 ```
 
@@ -96,20 +96,18 @@ Une fois votre ressource Vision par ordinateur créée, utilisez sa **région** 
 
 Utilisez ces valeurs quand vous créez l’instance de l’objet client [ComputerVisionAPI][ref_computervisionclient]. 
 
-<!--
-
-For example, use the Bash terminal to set the environment variables:
+Par exemple, utilisez le terminal Bash pour définir les variables d’environnement :
 
 ```Bash
 ACCOUNT_REGION=<resourcegroup-name>
 ACCT_NAME=<computervision-account-name>
 ```
 
-### For Azure subscription usrs, get credentials for key and region
+### <a name="for-azure-subscription-users-get-credentials-for-key-and-region"></a>Pour les utilisateurs avec un abonnement Azure, obtenir des informations d’identification pour la clé et de région
 
-If you do not remember your region and key, you can use the following method to find them. If you need to create a key and region, you can use the method for [Azure subscription holders](#if-you-have-an-azure-subscription) or for [users without an Azure subscription](#if-you-dont-have-an-azure-subscription).
+Si vous ne vous souvenez pas de votre région et de votre clé, vous pouvez utiliser la méthode suivante pour les rechercher. Si vous devez créer une clé et une région, vous pouvez utiliser la méthode pour les [titulaires d’abonnement Azure](#if-you-have-an-azure-subscription) ou pour les [utilisateurs sans abonnement Azure](#if-you-dont-have-an-azure-subscription).
 
-Use the [Azure CLI][cloud_shell] snippet below to populate two environment variables with the Computer Vision account **region** and one of its **keys** (you can also find these values in the [Azure portal][azure_portal]). The snippet is formatted for the Bash shell.
+Utilisez l’extrait [Azure CLI][cloud_shell] ci-dessous pour remplir les deux variables d’environnement avec la **région** et l’une des **clés** du compte Vision par ordinateur (ces valeurs sont également disponibles dans le [portail Azure][azure_portal]). L’extrait de code est mis en forme pour l’interpréteur de commandes Bash.
 
 ```Bash
 RES_GROUP=<resourcegroup-name>
@@ -127,23 +125,30 @@ export ACCOUNT_KEY=$(az cognitiveservices account keys list \
     --query key1 \
     --output tsv)
 ```
--->
+
 
 ### <a name="create-client"></a>Créer un client
 
-Créez l’objet client [ComputerVisionAPI][ref_computervisionclient]. Remplacez les valeurs de clé et de région indiquées dans l’exemple de code suivant par vos propres valeurs.
+Obtenez la région et la clé des variables d’environnement, puis créez l’objet client [ComputerVisionAPI][ref_computervisionclient].  
 
 ```Python
 from azure.cognitiveservices.vision.computervision import ComputerVisionAPI
 from azure.cognitiveservices.vision.computervision.models import VisualFeatureTypes
 from msrest.authentication import CognitiveServicesCredentials
 
-region = "westcentralus"
-key = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+# Get region and key from environment variables
+import os
+region = os.environ['ACCOUNT_REGION']
+key = os.environ['ACCOUNT_KEY']
 
+# Set credentials
 credentials = CognitiveServicesCredentials(key)
+
+# Create client
 client = ComputerVisionAPI(region, credentials)
 ```
+
+## <a name="examples"></a>Exemples
 
 Vous avez besoin d’un objet client [ComputerVisionAPI][ref_computervisionclient] avant d’utiliser une des tâches suivantes.
 
@@ -224,7 +229,7 @@ raw = True
 custom_headers = None
 numberOfCharsInOperationId = 36
 
-# SDK call
+# Async SDK call
 rawHttpResponse = client.recognize_text(url, mode, custom_headers,  raw)
 
 # Get ID from returned headers
@@ -233,7 +238,9 @@ idLocation = len(operationLocation) - numberOfCharsInOperationId
 operationId = operationLocation[idLocation:]
 
 # SDK call
-result = client.get_text_operation_result(operationId)
+while result.status in ['NotStarted', 'Running']:
+    time.sleep(1)
+    result = client.get_text_operation_result(operationId)
 
 # Get data
 if result.status == TextOperationStatusCodes.succeeded:
@@ -321,7 +328,7 @@ Plusieurs exemples du SDK Vision par ordinateur pour Python sont disponibles dan
 [pip]: https://pypi.org/project/pip/
 [python]: https://www.python.org/downloads/
 
-[azure_cli]: https://docs.microsoft.com/cli/azure
+[azure_cli]: https://docs.microsoft.com/en-us/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-create
 [azure_pattern_circuit_breaker]: https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker
 [azure_pattern_retry]: https://docs.microsoft.com/azure/architecture/patterns/retry
 [azure_portal]: https://portal.azure.com
@@ -342,7 +349,7 @@ Plusieurs exemples du SDK Vision par ordinateur pour Python sont disponibles dan
 [ref_httpfailure]: https://docs.microsoft.com/python/api/msrest/msrest.exceptions.httpoperationerror?view=azure-python
 
 
-[computervision_resource]: https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtosubscribe
+[computervision_resource]: https://azure.microsoft.com/en-us/try/cognitive-services/?
 
 [computervision_docs]: https://docs.microsoft.com/azure/cognitive-services/computer-vision/home
 

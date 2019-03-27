@@ -5,17 +5,17 @@ services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
-ms.topic: conceptual
+ms.topic: quickstart
 ms.subservice: manage
-ms.date: 08/01/2018
+ms.date: 08/02/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 317756f8684088b9df52856ce4f10c5401485e86
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 053dccb4ba5798fabd4426d5741d9238af579449
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461863"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57732396"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Démarrage rapide : Découvrez comment créer un entrepôt SQL Azure dans le portail Azure.
 
@@ -24,9 +24,7 @@ Créez et interrogez rapidement un entrepôt SQL Azure dans le portail Azure.
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 > [!NOTE]
-> La création d’un entrepôt SQL Data Warehouse peut entraîner un nouveau service facturable.  Pour en savoir plus, voir [SQL Data Warehouse - Tarification](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
->
->
+> La création d’un entrepôt SQL Data Warehouse peut entraîner un nouveau service facturable. Pour en savoir plus, voir [SQL Data Warehouse - Tarification](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -48,26 +46,28 @@ Suivez ces étapes pour créer un entrepôt de données SQL qui contient l’exe
 
     ![créer un entrepôt de données vide](media/load-data-from-azure-blob-storage-using-polybase/create-empty-data-warehouse.png)
 
-3. Remplissez le formulaire SQL Data Warehouse avec les informations suivantes :   
+3. Remplissez le formulaire SQL Data Warehouse avec les informations suivantes :
 
-    | Paramètre | Valeur suggérée | DESCRIPTION | 
-    | ------- | --------------- | ----------- | 
-    | **Nom de la base de données** | mySampleDataWarehouse | Pour les noms de base de données valides, consultez [Database Identifiers](/sql/relational-databases/databases/database-identifiers) (Identificateurs de base de données). Notez qu’un entrepôt de données est un type de base de données.| 
-    | **Abonnement** | Votre abonnement  | Pour plus d’informations sur vos abonnements, consultez [Abonnements](https://account.windowsazure.com/Subscriptions). |
+    | Paramètre | Valeur suggérée | DESCRIPTION |
+    | :------ | :-------------- | :---------- |
+    | **Nom de la base de données** | mySampleDataWarehouse | Pour les noms de base de données valides, consultez [Database Identifiers](/sql/relational-databases/databases/database-identifiers) (Identificateurs de base de données). Notez qu’un entrepôt de données est un type de base de données.|
+    | **Abonnement** | Votre abonnement | Pour plus d’informations sur vos abonnements, consultez [Abonnements](https://account.windowsazure.com/Subscriptions). |
     | **Groupe de ressources** | myResourceGroup | Pour les noms de groupe de ressources valides, consultez [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Conventions d’affectation de nom). |
     | **Sélectionner une source** | Exemple | Indique qu’il faut charger un exemple de base de données. Notez qu’un entrepôt de données est un type de base de données. |
-    | **Sélectionner un exemple** | AdventureWorksDW | Indique qu’il faut charger l’exemple de base de données AdventureWorksDW.  |
+    | **Sélectionner un exemple** | AdventureWorksDW | Indique qu’il faut charger l’exemple de base de données AdventureWorksDW. |
+    ||||
 
     ![créer un entrepôt de données](media/create-data-warehouse-portal/select-sample.png)
 
 4. Cliquez sur **Serveur** pour créer et configurer un serveur pour votre nouvelle base de données. Remplissez le **formulaire de nouveau serveur** avec les informations suivantes : 
 
-    | Paramètre | Valeur suggérée | DESCRIPTION | 
-    | ------------ | ------------------ | ------------------------------------------------- | 
-    | **Nom du serveur** | Nom globalement unique | Pour les noms de serveur valides, consultez [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Conventions d’affectation de nom). | 
+    | Paramètre | Valeur suggérée | DESCRIPTION |
+    | :------ | :-------------- | :---------- |
+    | **Nom du serveur** | Nom globalement unique | Pour les noms de serveur valides, consultez [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Conventions d’affectation de nom). |
     | **Connexion d’administrateur du serveur** | Nom valide | Pour les noms de connexion valides, consultez [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificateurs de base de données).|
     | **Mot de passe** | Mot de passe valide | Votre mot de passe doit comporter au moins 8 caractères et contenir des caractères appartenant à trois des catégories suivantes : majuscules, minuscules, chiffres et caractères non alphanumériques. |
     | **Lieu** | Emplacement valide | Pour plus d’informations sur les régions, consultez [Régions Azure](https://azure.microsoft.com/regions/). |
+    ||||
 
     ![créer un serveur de base de données](media/load-data-from-azure-blob-storage-using-polybase/create-database-server.png)
 
@@ -75,7 +75,7 @@ Suivez ces étapes pour créer un entrepôt de données SQL qui contient l’exe
 
 6. Cliquez sur **Niveau de performances** pour spécifier la configuration des performances de l’entrepôt de données.
 
-7. Sélectionnez **Gen2** pour ce tutoriel. Par défaut, le curseur est défini sur **DW1000c**.  Déplacez-le vers le haut et le bas pour voir son fonctionnement. 
+7. Sélectionnez **Gen2** pour ce tutoriel. Par défaut, le curseur est défini sur **DW1000c**. Déplacez-le vers le haut et le bas pour voir son fonctionnement. 
 
     ![configurer les performances](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
@@ -91,11 +91,10 @@ Suivez ces étapes pour créer un entrepôt de données SQL qui contient l’exe
 
 ## <a name="create-a-server-level-firewall-rule"></a>Créer une règle de pare-feu au niveau du serveur
 
-Le service SQL Data Warehouse crée un pare-feu au niveau du serveur qui empêche les applications et outils externes de se connecter au serveur ou à toute base de données sur le serveur. Pour activer la connectivité, vous pouvez ajouter des règles de pare-feu qui activent la connectivité pour des adresses IP spécifiques.  Suivez ces étapes pour créer une [règle de pare-feu au niveau du serveur](../sql-database/sql-database-firewall-configure.md) pour l’adresse IP de votre client. 
+Le service SQL Data Warehouse crée un pare-feu au niveau du serveur qui empêche les applications et outils externes de se connecter au serveur ou à toute base de données sur le serveur. Pour activer la connectivité, vous pouvez ajouter des règles de pare-feu qui activent la connectivité pour des adresses IP spécifiques. Suivez ces étapes pour créer une [règle de pare-feu au niveau du serveur](../sql-database/sql-database-firewall-configure.md) pour l’adresse IP de votre client. 
 
 > [!NOTE]
 > SQL Data Warehouse communique sur le port 1433. Si vous essayez de vous connecter à partir d’un réseau d’entreprise, le trafic sortant sur le port 1433 peut être bloqué par le pare-feu de votre réseau. Dans ce cas, vous ne pouvez pas vous connecter à votre serveur Azure SQL Database, sauf si votre service informatique ouvre le port 1433.
->
 
 1. Une fois le déploiement terminé, cliquez sur **Entrepôts de données SQL Data Warehouse** dans le menu de gauche, puis cliquez sur **mySampleDatabase** sur la page **Entrepôts de données SQL Data Warehouse**. La page de présentation de votre base de données s’ouvre, elle affiche le nom de serveur complet (tel que **mynewserver-20180430.database.windows.net**) et fournit des options pour poursuivre la configuration. 
 
@@ -118,7 +117,7 @@ Le service SQL Data Warehouse crée un pare-feu au niveau du serveur qui empêch
 
 6. Cliquez sur **OK**, puis fermez la page **Paramètres de pare-feu**.
 
-Vous pouvez maintenant vous connecter au serveur SQL et à ses entrepôts de données à l’aide de cette adresse IP. La connexion fonctionne à partir de SQL Server Management Studio ou d’un autre outil de votre choix. Quand vous vous connectez, utilisez le compte ServerAdmin que vous avez créé précédemment.  
+Vous pouvez maintenant vous connecter au serveur SQL et à ses entrepôts de données à l’aide de cette adresse IP. La connexion fonctionne à partir de SQL Server Management Studio ou d’un autre outil de votre choix. Quand vous vous connectez, utilisez le compte ServerAdmin que vous avez créé précédemment.
 
 > [!IMPORTANT]
 > Par défaut, l’accès via le pare-feu SQL Database est activé pour tous les services Azure. Cliquez sur **OFF** dans cette page, puis sur **Enregistrer** pour désactiver le pare-feu pour tous les services Azure.
@@ -131,7 +130,7 @@ Obtenez le nom complet de votre serveur SQL dans le portail Azure. Vous utiliser
 2. Sélectionnez **Entrepôts de données SQL Data Warehouse** dans le menu de gauche, puis cliquez sur votre entrepôt de données dans la page **Entrepôts de données SQL Data Warehouse**. 
 3. Dans le volet **Essentials** de la page du portail Azure pour votre base de données, recherchez et copiez le **nom du serveur**. Dans cet exemple, le nom complet est mynewserver-20180430.database.windows.net. 
 
-    ![informations de connexion](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)  
+    ![informations de connexion](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Se connecter au serveur comme administrateur du serveur
 
@@ -141,19 +140,20 @@ Cette section utilise [SQL Server Management Studio](/sql/ssms/download-sql-serv
 
 2. Dans la fenêtre **Se connecter au serveur**, entrez les valeurs suivantes :
 
-   | Paramètre       | Valeur suggérée | Description | 
-   | ------------ | ------------------ | ------------------------------------------------- | 
+   | Paramètre | Valeur suggérée | Description |
+   | :------ | :-------------- | :---------- |
    | Type de serveur | Moteur de base de données | Cette valeur est obligatoire |
    | Nom du serveur | Nom complet du serveur | Voici un exemple : **mynewserver-20180430.database.windows.net**. |
    | Authentification | l’authentification SQL Server | L’authentification SQL est le seul type d’authentification configuré dans ce didacticiel. |
    | Connexion | Compte d’administrateur de serveur | Il s’agit du compte que vous avez spécifié lorsque vous avez créé le serveur. |
    | Mot de passe | Mot de passe de votre compte d’administrateur de serveur | Il s’agit du mot de passe que vous avez spécifié lorsque vous avez créé le serveur. |
+   ||||
 
     ![connect to server](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
 
-4. Cliquez sur **Connecter**. La fenêtre Explorateur d’objets s’ouvre dans SSMS. 
+3. Cliquez sur **Connecter**. La fenêtre Explorateur d’objets s’ouvre dans SSMS. 
 
-5. Dans l’Explorateur d’objets, développez **Bases de données**. Ensuite, développez **mySampleDatabase** pour afficher les objets dans votre nouvelle base de données.
+4. Dans l’Explorateur d’objets, développez **Bases de données**. Ensuite, développez **mySampleDatabase** pour afficher les objets dans votre nouvelle base de données.
 
     ![objets de base de données](media/create-data-warehouse-portal/connected.png) 
 
@@ -161,14 +161,14 @@ Cette section utilise [SQL Server Management Studio](/sql/ssms/download-sql-serv
 
 SQL Data Warehouse utilise T-SQL comme langage de requête. Pour ouvrir une fenêtre de requête et exécuter des requêtes T-SQL, effectuez les étapes suivantes :
 
-1. Cliquez avec le bouton droit sur **mySampleDataWarehouse** et sélectionnez **Nouvelle requête**.  Une nouvelle fenêtre de requête s’ouvre.
+1. Cliquez avec le bouton droit sur **mySampleDataWarehouse** et sélectionnez **Nouvelle requête**. Une nouvelle fenêtre de requête s’ouvre.
 2. Dans la fenêtre de requête, entrez la commande suivante pour afficher la liste des bases de données.
 
     ```sql
     SELECT * FROM sys.databases
     ```
 
-3. Cliquez sur **Exécuter**.  Les résultats de requête montrent deux bases de données : **master** et **mySampleDataWarehouse**.
+3. Cliquez sur **Exécuter**. Les résultats de requête montrent deux bases de données : **master** et **mySampleDataWarehouse**.
 
     ![Interroger des bases de données](media/create-data-warehouse-portal/query-databases.png)
 
@@ -194,16 +194,17 @@ Suivez ces étapes pour nettoyer les ressources selon vos besoins.
 
     ![Supprimer des ressources](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-1. Pour suspendre le calcul, cliquez sur le bouton **Suspendre**. Quand l’entrepôt de données est suspendu, un bouton **Démarrer** est visible.  Pour reprendre le calcul, cliquez sur **Démarrer**.
+2. Pour suspendre le calcul, cliquez sur le bouton **Suspendre**. Quand l’entrepôt de données est suspendu, un bouton **Démarrer** est visible. Pour reprendre le calcul, cliquez sur **Démarrer**.
 
-2. Pour supprimer l’entrepôt de données afin de ne pas être facturé pour le calcul ou le stockage, cliquez sur **Supprimer**.
+3. Pour supprimer l’entrepôt de données afin de ne pas être facturé pour le calcul ou le stockage, cliquez sur **Supprimer**.
 
-3. Pour supprimer le serveur SQL que vous avez créé, cliquez sur **mynewserver-20180430.database.windows.net** dans l’image précédente, puis sur **Supprimer**.  N’oubliez pas que la suppression du serveur supprime également toutes les bases de données qui lui sont attribuées.
+4. Pour supprimer le serveur SQL que vous avez créé, cliquez sur **mynewserver-20180430.database.windows.net** dans l’image précédente, puis sur **Supprimer**. N’oubliez pas que la suppression du serveur supprime également toutes les bases de données qui lui sont attribuées.
 
-4. Pour supprimer le groupe de ressources, cliquez sur **myResourceGroup**, puis sur **Supprimer le groupe de ressources**.
-
+5. Pour supprimer le groupe de ressources, cliquez sur **myResourceGroup**, puis sur **Supprimer le groupe de ressources**.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Vous avez créé un entrepôt de données, créé une règle de pare-feu, vous vous êtes connecté à votre entrepôt de données et vous avez exécuté quelques requêtes. Pour en savoir plus sur Azure SQL Data Warehouse, continuez avec le didacticiel de chargement des données.
+
 > [!div class="nextstepaction"]
->[Charger des données dans un entrepôt SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)
+> [Charger des données dans un entrepôt SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)

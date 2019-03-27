@@ -10,32 +10,32 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/17/2018
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 99a1b218919380dcdb0c1dba4540d9f8219d2df3
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 7f9a4ce4f1e16f69a1d8998e24c1bfe955d17d92
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593639"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767105"
 ---
 # <a name="automate-azure-stack-validation-with-powershell"></a>Automatiser la validation Azure Stack avec PowerShell
 
 La validation en tant que service (VaaS) offre la possibilité d’automatiser le lancement de tests à l’aide du script **LaunchVaaSTests.ps1**.
 
-> [!NOTE]
+> [!NOTE]  
 > Automation est uniquement disponible pour le workflow de passe de test. Les workflows de validation de package et de validation de solution sont uniquement pris en charge par le biais du portail VaaS.
 
-Ce didacticiel vous guide dans la création d’un script qui :
+Ce script peut être utilisé pour :
 
 > [!div class="checklist"]
-> * Installe les composants requis
-> * Installe et démarre l’agent local
-> * Lance une catégorie de tests, tels que l’intégration, le fonctionnement, la fiabilité
-> * Affiche les résultats du test dans un rapport
+> * Installation des composants requis
+> * Installer et démarrer l’agent local
+> * Lancer une catégorie de tests, tels que l’*intégration*, le *fonctionnement*, la *fiabilité*
+> * Générer des rapports sur les résultats des tests
 
 ## <a name="launch-the-test-pass-workflow"></a>Lance le workflow de passe de test
 

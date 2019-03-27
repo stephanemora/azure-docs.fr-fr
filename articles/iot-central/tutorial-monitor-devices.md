@@ -3,20 +3,20 @@ title: Surveiller vos appareils dans Azure IoT Central | Microsoft Docs
 description: En tant qu’opérateur, utilisez votre application Azure IoT Central pour surveiller vos appareils.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/12/2018
+ms.date: 02/01/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 941fbffaa7a0129de30d6fdf14d3d0559429309f
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 561477d8bf3a64397e9964499339c368dec5470d
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200239"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760470"
 ---
-# <a name="tutorial-use-azure-iot-central-to-monitor-your-devices"></a>Tutoriel : Utiliser Azure IoT Central pour surveiller vos appareils
+# <a name="tutorial-use-azure-iot-central-to-monitor-your-devices"></a>Didacticiel : Utiliser Azure IoT Central pour surveiller vos appareils
 
 Ce didacticiel vous explique, en tant qu’opérateur, comment utiliser votre application Microsoft Azure IoT Central pour surveiller vos appareils et modifier les paramètres.
 
@@ -41,7 +41,7 @@ Azure IoT Central envoie des notifications sur les appareils sous forme de courr
 
 Ouvrez le courrier électronique que vous avez reçu à la fin du didacticiel [Configurer des règles et des actions pour votre appareil](tutorial-configure-rules.md). Dans le courrier électronique, choisissez **Cliquez ici pour ouvrir votre appareil** :
 
-![Règles du Générateur d’applications](media/tutorial-monitor-devices/email.png)
+![E-mail de notification d’alerte](media/tutorial-monitor-devices/email.png)
 
 La page **Appareil** de l’appareil simulé **Climatiseur raccordé-1** que vous avez créé dans les didacticiels précédents s’ouvre dans votre navigateur :
 
@@ -55,13 +55,13 @@ Choisissez la vue **Tableau de bord** pour afficher des informations sur l’app
 
 ![Page du tableau de bord d’un appareil](media/tutorial-monitor-devices/initial_screen.png)
 
-Le graphique sur le tableau de bord affiche un tracé de la température de l’appareil. Vous pouvez également consulter la température cible actuelle de l’appareil dans la vignette **Set target temperature** (Température cible réglée). Vous jugez que la température cible est trop élevée.
+Le graphique sur le tableau de bord affiche un tracé de la température de l’appareil. Vous pouvez également consulter la température cible actuelle de l’appareil dans la vignette **Propriétés de l’appareil**. Vous jugez que la température cible est trop élevée.
 
 ## <a name="remediate-an-issue"></a>Résoudre un problème
 
 Pour modifier la température cible de l’appareil, utilisez la page **Paramètres** :
 
-1. Choisissez **Paramètres**. Définissez **Set Temperature** (Température réglée) sur 75. Choisissez **Mettre à jour** pour envoyer la nouvelle température cible à l’appareil. Lorsque l’appareil accuse réception d’une modification de paramètre, la valeur du d’état devient **synchronisé** :
+1. Choisissez **Paramètres**. Définissez **Set Temperature** (Température réglée) sur 75. Choisissez **Mettre à jour** pour envoyer la nouvelle température cible à l’appareil. Quand l’appareil confirme la modification du paramètre, l’état du paramètre passe à **synchronisé** :
 
     ![Mettre à jour les paramètres](media/tutorial-monitor-devices/change_settings.png)
 

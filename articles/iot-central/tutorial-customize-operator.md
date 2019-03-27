@@ -3,19 +3,19 @@ title: Personnaliser les vues de l’opérateur dans Azure IoT Central | Microso
 description: En tant que générateur, personnalisez les vues de l’opérateur dans votre application Azure IoT Central.
 author: sandeeppujar
 ms.author: sandeepu
-ms.date: 10/12/2018
+ms.date: 01/29/2018
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: f65463b534988e0a721a1a5f816183f8dd8ebcaf
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 86c9a7794146edc4106d8ec30106e1c27556248f
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657652"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769674"
 ---
-# <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>Didacticiel : Personnaliser la vue de l’opérateur d’Azure IoT Central
+# <a name="tutorial-customize-the-azure-iot-central-operators-view-new-ui-design"></a>Didacticiel : Personnaliser la vue de l’opérateur d’Azure IoT Central (nouvelle conception d’interface utilisateur)
 
 Ce didacticiel vous montre, en tant que générateur, comment personnaliser la vue de l’opérateur de votre application. Lorsque vous apportez une modification à l’application en tant que générateur, vous pouvez afficher un aperçu de vue de l’opérateur dans l’application Microsoft Azure IoT Central.
 
@@ -28,10 +28,8 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Configurer la disposition des paramètres de votre appareil
 > * Configurer la disposition des propriétés de votre appareil
 > * Afficher un aperçu de l’appareil en tant qu’opérateur
-> * Configurer votre page d’accueil par défaut
-> * Afficher un aperçu de la page d’accueil par défaut en tant qu’opérateur
-
-[!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
+> * Configurer votre tableau de bord d’application par défaut
+> * Afficher un aperçu du tableau de bord d’application par défaut en tant qu’opérateur
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -42,86 +40,66 @@ Avant de commencer, vous devez effectuer les deux didacticiels précédents :
 
 ## <a name="configure-your-device-dashboard"></a>Configurer le tableau de bord de votre appareil
 
-En tant que générateur, vous pouvez définir les informations qui s’affichent sur le tableau de bord d’un appareil. Dans le didacticiel [Définir un nouveau type d’appareil dans votre application](tutorial-define-device-type.md), vous avez ajouté à un graphique linéaire et d’autres informations sur le tableau de bord **Climatiseur raccordé-1**.
+En tant que générateur, vous pouvez définir les informations qui s’affichent sur le tableau de bord d’un appareil. Dans le tutoriel [Définir un nouveau type d’appareil dans votre application](tutorial-define-device-type.md), vous avez ajouté un graphique linéaire et d’autres informations au tableau de bord **Climatiseur connecté**.
 
-1. Pour modifier le modèle d’appareil **Climatiseur raccordé**, choisissez **Explorer** dans le menu de navigation gauche :
+1. Pour modifier le modèle d’appareil **Climatiseur connecté**, choisissez **Modèles d’appareil** dans le menu de navigation de gauche :
 
-    ![Page Explorateur](media/tutorial-customize-operator/explorer.png)
+    ![Page Modèles d’appareil](media/tutorial-customize-operator/devicetemplates.png)
 
-2. Pour commencer à personnaliser le tableau de bord de votre climatiseur raccordé, sélectionnez le modèle d’appareil **Climatiseur raccordé (1.0.0)**. Choisissez l’appareil **Climatiseur raccordé-1** que vous avez créé dans le didacticiel [Définir un nouveau type d’appareil dans votre application](tutorial-define-device-type.md) :
+2. Pour personnaliser le tableau de bord votre appareil, sélectionnez le modèle d’appareil **Climatiseur connecté (1.0.0)** que vous avez créé dans le tutoriel [Définir un nouveau type d’appareil dans votre application](tutorial-define-device-type.md).
 
-    ![Sélectionner le climatiseur raccordé](media/tutorial-customize-operator/selectdevice.png)
-
-    Lorsque vous accédez à un appareil, tel que **Climatiseur raccordé-1**, vous pouvez sélectionner **Modifier un modèle** pour apporter une modification au modèle sous-jacent. Pour plus d’informations, consultez [Créer une nouvelle version de modèle d’appareil](howto-version-devicetemplate.md).
-
-3. Pour modifier le tableau de bord, choisissez **Tableau de bord**, puis sélectionnez **Modifier un modèle** :
-
-    ![Page du tableau de bord de modèle d’appareil](media/tutorial-customize-operator/dashboard.png)
+3. Pour modifier le tableau de bord, sélectionnez l’onglet **Tableau de bord**.
 
 4. Pour ajouter une vignette d’indicateur de performance clé (KPI) au tableau de bord, choisissez **KPI** :
-
-    ![Ajouter un KPI](media/tutorial-customize-operator/addkpi.png)
 
     Pour définir le KPI, utilisez les informations du tableau suivant :
 
     | Paramètre     | Valeur |
     | ----------- | ----- |
     | Nom        | Température maximale |
+    | Période  | 1 semaine précédente |
+    | Type de mesure | Télémétrie |
     | Mesure | température |
     | Agrégation | Maximale |
-    | Période  | 1 semaine précédente |
+    | Visibilité  | activé |
 
-5. Choisissez **Enregistrer**. Vous pouvez maintenant voir la vignette du KPI sur le tableau de bord :
+    ![Ajouter un KPI](media/tutorial-customize-operator/addkpi.png)
+
+5. Sélectionnez **Enregistrer**. Vous pouvez maintenant voir la vignette du KPI sur le tableau de bord :
 
     ![Vignette de KPI](media/tutorial-customize-operator/temperaturekpi.png)
 
-6. Pour déplacer ou redimensionner une vignette sur le tableau de bord, déplacez le pointeur de souris sur la vignette. Vous pouvez faire glisser la vignette vers un nouvel emplacement ou la redimensionner :
-
-    ![Modifier la disposition du tableau de bord](media/tutorial-customize-operator/dashboardlayout.png)
-
-7. Cliquez sur **Terminé** lorsque vous avez terminé vos modifications.
+6. Pour déplacer ou redimensionner une vignette sur le tableau de bord, déplacez le pointeur de souris sur la vignette. Vous pouvez faire glisser la vignette vers un nouvel emplacement ou la redimensionner.
 
 ## <a name="configure-your-settings-layout"></a>Configurer la disposition de vos paramètres
 
-En tant que générateur, vous pouvez également configurer la vue de l’opérateur des paramètres d’appareil. Un opérateur utilise la page des paramètres de l’appareil pour configurer un appareil. Par exemple, un opérateur utilise la page des paramètres pour définir la température cible d’un climatiseur connecté.
+En tant que générateur, vous pouvez également configurer la vue de l’opérateur des paramètres d’appareil. Un opérateur utilise l’onglet des paramètres de l’appareil pour configurer un appareil. Par exemple, un opérateur utilise l’onglet des paramètres pour définir la température cible du climatiseur connecté.
 
-1. Pour modifier la disposition des paramètres de votre climatiseur raccordé, choisissez **Paramètres**, puis sélectionnez **Modifier un modèle** :
-
-    ![Page Paramètres](media/tutorial-customize-operator/settings.png)
+1. Pour modifier la disposition des paramètres de votre climatiseur connecté, choisissez l’onglet **Paramètres**.
 
 2. Vous pouvez déplacer et redimensionner les vignettes de paramètres :
 
     ![Modifier la disposition des paramètres](media/tutorial-customize-operator/settingslayout.png)
 
-3. Cliquez sur **Terminé** lorsque vous avez terminé vos modifications.
-
-> [!NOTE]
-> En mode **Modifier un modèle**, vous ne pouvez pas modifier les valeurs des paramètres.
-
 ## <a name="configure-your-properties-layout"></a>Configurer la disposition de vos propriétés
 
-En plus du tableau de bord et des paramètres, vous pouvez également configurer la vue de l’opérateur des propriétés de l’appareil. Un opérateur utilise la page des propriétés de l’appareil pour gérer les métadonnées de l’appareil. Par exemple, un opérateur utilise la page des propriétés pour afficher le numéro de série d’un appareil ou mettre à jour les informations de contact du fabricant.
+En plus du tableau de bord et des paramètres, vous pouvez également configurer la vue de l’opérateur des propriétés de l’appareil. Un opérateur utilise l’onglet des propriétés de l’appareil pour gérer les métadonnées de l’appareil. Par exemple, un opérateur utilise l’onglet des propriétés pour afficher le numéro de série d’un appareil ou mettre à jour les informations de contact du fabricant.
 
-1. Pour modifier la disposition des propriétés de votre climatiseur raccordé, choisissez **Propriétés**, puis sélectionnez **Modifier un modèle** :
-
-    ![Page Propriétés](media/tutorial-customize-operator/properties.png)
+1. Pour modifier la disposition des propriétés de votre climatiseur connecté, choisissez l’onglet **Propriétés**.
 
 2. Vous pouvez déplacer et redimensionner les champs de propriétés :
 
     ![Modifier la mise en page des propriétés](media/tutorial-customize-operator/propertieslayout.png)
 
-3. Cliquez sur **Terminé** lorsque vous avez terminé vos modifications.
+## <a name="preview-the-device"></a>Afficher un aperçu de l’appareil
 
-> [!NOTE]
-> En mode **Modifier un modèle**, vous ne pouvez pas modifier les valeurs des propriétés.
+Vous utilisez l’onglet **Modèles d’appareil** afin de personnaliser les onglets du tableau de bord, des paramètres et des propriétés pour un opérateur. Vous utilisez l’onglet **Device Explorer** pour voir et utiliser le modèle d’appareil.
 
-## <a name="preview-the-connected-air-conditioner-device-as-an-operator"></a>Afficher un aperçu du climatiseur raccordé en tant qu’opérateur
+1. Pour voir et utiliser le modèle du climatiseur connecté en tant qu’opérateur, accédez à la page **Device Explorer** et choisissez l’appareil simulé qu’IoT Central a généré à partir de votre modèle :
 
-En mode **Modifier un modèle**, vous pouvez personnaliser les pages du tableau de bord, des paramètres et des propriétés pour un opérateur. Si vous n’êtes pas en mode **Modifier un modèle**, vous pouvez afficher l’application en tant qu’opérateur.
+    ![Voir et utiliser le modèle d’appareil](media/tutorial-customize-operator/usetemplate.png)
 
-1. Pour afficher votre climatiseur connecté en tant qu’opérateur, cliquez sur **Terminé** pour arrêter la modification du modèle, puis revenez à l’affichage de l’opérateur pour cet appareil.
-
-2. Pour mettre à jour l’emplacement de cet appareil, modifiez la valeur dans la vignette Emplacement et choisissez **Enregistrer** :
+2. Pour mettre à jour l’emplacement de cet appareil, choisissez **Propriétés** et modifiez la valeur dans la vignette Emplacement. Sélectionnez ensuite **Enregistrer** :
 
     ![Modifier une valeur de propriété](media/tutorial-customize-operator/editproperty.png)
 
@@ -135,34 +113,37 @@ En mode **Modifier un modèle**, vous pouvez personnaliser les pages du tableau 
 
     ![Vue de l’opérateur du tableau de bord de l’appareil](media/tutorial-customize-operator/operatordashboard.png)
 
-## <a name="configure-the-default-home-page"></a>Configurer la page d’accueil par défaut
+## <a name="configure-the-default-dashboard"></a>Configurer le tableau de bord par défaut
 
-Lorsqu’un générateur ou un opérateur se connecte à une application Azure IoT Central, il voit une page d’accueil. En tant que générateur, vous pouvez configurer le contenu de cette page d’accueil afin d’inclure le contenu le plus utile et pertinent pour un opérateur.
+Lorsqu’un créateur ou un opérateur se connecte à une application Azure IoT Central, il voit le tableau de bord de l’application. En tant que créateur, vous pouvez configurer le contenu du tableau de bord par défaut afin d’y ajouter le contenu le plus utile et le plus pertinent pour les opérateurs.
 
-1. Pour personnaliser la page d’accueil par défaut, accédez à la page **Accueil**, puis sélectionnez **Modifier**, en haut à droite de la page. Lorsque vous sélectionnez **Modifier**, un panneau glisse depuis la droite et présente une liste d’objets que vous pouvez ajouter à votre page d’accueil.
+> [!NOTE]
+> Les utilisateurs peuvent également créer leurs propres tableaux de bord personnels et en choisir un comme tableau de bord par défaut.
 
-    ![Page Générateur d’applications](media/tutorial-customize-operator/builderhome.png)
+1. Pour personnaliser le tableau de bord par défaut, accédez à la page **Tableau de bord**, puis sélectionnez **Modifier** en haut à droite de la page. Un panneau s’affiche avec une bibliothèque d’objets que vous pouvez ajouter au tableau de bord.
 
-2. Pour personnaliser la page d’accueil, ajoutez des vignettes à partir de la **bibliothèque**. Choisissez **Link** (Lier) et ajoutez les détails sur le site web de votre organisation. Puis choisissez **Enregistrer** :
+    ![Page du tableau de bord](media/tutorial-customize-operator/builderhome.png)
 
-    ![Ajouter un lien vers la page d'accueil](media/tutorial-customize-operator/addlink.png)
+2. Pour personnaliser le tableau de bord, ajoutez des vignettes à partir de la **Bibliothèque**. Choisissez **Link** (Lier) et ajoutez les détails sur le site web de votre organisation. Puis choisissez **Enregistrer** :
+
+    ![Ajouter un lien au tableau de bord](media/tutorial-customize-operator/addlink.png)
 
     > [!NOTE]
     > Vous pouvez également ajouter des liens vers des pages de votre application Azure IoT Central. Par exemple, vous pouvez ajouter un lien vers le tableau de bord d’un appareil ou une page de paramètres.
 
-3. Si vous le souhaitez, choisissez **Image** et charger une image à afficher sur votre page d’accueil. Une image peut inclure une URL à laquelle vous pouvez accéder lorsque vous cliquez dessus :
+3. Si vous le souhaitez, choisissez **Image** et chargez une image à afficher sur votre tableau de bord. Les images peuvent comprendre une URL à laquelle vous pouvez accéder lorsque vous cliquez dessus :
 
-    ![Ajouter une image à la page d’accueil](media/tutorial-customize-operator/addimage.png)
+    ![Ajouter une image au tableau de bord](media/tutorial-customize-operator/addimage.png)
 
     Pour en savoir plus, consultez [Préparer et charger des images dans votre application Azure IoT Central](howto-prepare-images.md).
 
-## <a name="preview-the-default-home-page-as-an-operator"></a>Afficher un aperçu de la page d’accueil par défaut en tant qu’opérateur
+## <a name="preview-the-dashboard"></a>Aperçu du tableau de bord
 
-Pour afficher un aperçu de la page d’accueil en tant qu’opérateur, sélectionnez **Terminé** en haut à droite de la page
+Pour afficher un aperçu du tableau de bord en tant qu’opérateur, sélectionnez **Terminé** en haut à droite de la page.
 
 ![Activer/désactiver le mode Création](media/tutorial-customize-operator/operatorviewhome.png)
 
-Vous pouvez cliquer sur le lien et des vignettes d’image pour accéder aux URL que vous avez définies en tant que générateur.
+Vous pouvez sélectionner le lien et des vignettes d’image pour accéder aux URL que vous avez définies en tant que créateur.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

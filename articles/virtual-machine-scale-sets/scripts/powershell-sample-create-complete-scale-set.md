@@ -16,16 +16,16 @@ ms.workload: na
 ms.date: 05/29/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 22de937c33edc7c8ec6944acf657937a1ce604f7
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: ebbc47739b2be72d0dd98c0659bfcaba512e79e9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981892"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448913"
 ---
 # <a name="create-a-complete-virtual-machine-scale-set-with-powershell"></a>Créer un groupe de machines virtuelles identiques complet à l’aide de PowerShell
 
-Ce script crée un groupe de machines virtuelles identiques exécutant Windows Server 2016. Les ressources individuelles sont configurées et créés, plutôt que d’utiliser les [options de création de ressources intégrées disponibles ici dans New-AzVmss](powershell-sample-create-simple-scale-set.md). Une fois que vous avez exécuté le script, vous pouvez accéder aux instances de la machine virtuelle via RDP.
+Ce script crée un groupe de machines virtuelles identiques exécutant Windows Server 2016. Les ressources individuelles sont configurées et créées, plutôt que d’utiliser les [options de création de ressources intégrées disponibles ici dans New-AzVmss](powershell-sample-create-simple-scale-set.md). Une fois que vous avez exécuté le script, vous pouvez accéder aux instances de la machine virtuelle via RDP.
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]

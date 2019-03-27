@@ -2,18 +2,19 @@
 title: Effectuer le rendu d’une scène de Blender avec Azure Batch et Batch Explorer
 description: 'Didacticiel : comment effectuer le rendu de plusieurs images à partir d’une scène de Blender avec Azure Batch et l’application cliente Batch Explorer'
 services: batch
+ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: tutorial
-ms.openlocfilehash: 46c65cd7ac5734134fa7c4ad6fd85f39d1188e28
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 8a512676ab0e56f51c0fb9c59f2e530cfcf73333
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392549"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791424"
 ---
-# <a name="tutorial-render-a-blender-scene-using-batch-explorer"></a>Didacticiel : Effectuer le rendu d’une scène de Blender avec Batch Explorer
+# <a name="tutorial-render-a-blender-scene-using-batch-explorer"></a>Tutoriel : Effectuer le rendu d’une scène de Blender avec Batch Explorer
 
 Ce didacticiel montre comment effectuer le rendu de plusieurs images d’une scène de démonstration de Blender. Blender est utilisé pour le didacticiel car il est gratuit pour les machines virtuelles clients et de rendu, mais le processus est très similaire si d’autres applications, telles que Maya ou 3ds Max, sont utilisées.
 
@@ -114,13 +115,13 @@ Lorsqu’une tâche commence à s’exécuter pour la première fois sur une mac
 L’état du rendu peut être déterminé en consultant le fichier journal stdout.txt produit par Blender.  Sélectionnez une tâche, les « sorties de tâche » sont affichées par défaut, le fichier « stdout.txt » peut être sélectionné et affiché.
 ![fichier stdout](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_stdout.png)
 
-Si le pool « blender windows » est sélectionné, les machines virtuelles du pool seront visibles dans un état d’exécution : ![Carte thermique du pool avec les nœuds en cours d’exécution](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_pool_heatmap_running.png)
+Si le pool « blender windows » est sélectionné, les machines virtuelles du pool sont visibles dans un état d’exécution : ![Carte thermique du pool avec les nœuds en cours d’exécution](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_pool_heatmap_running.png)
 
 La production des images ayant fait l’objet d’un rendu demandera plusieurs minutes en fonction de la taille de la machine virtuelle sélectionnée.  À l’aide de la machine virtuelle F16 spécifiée précédemment, le rendu des images prend environ 16 minutes.
 
 ## <a name="view-the-rendering-output"></a>Afficher la sortie du rendu
 
-Une fois le rendu des images terminé, ces tâches seront affichées comme étant terminées : ![Tâches terminées](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_tasks_complete.png)
+Une fois le rendu des images terminé, ces tâches sont affichées comme étant terminées : ![Tâches terminées](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_tasks_complete.png)
 
 L’image rendue est d’abord écrite sur la machine virtuelle et elle peut être affichée en sélectionnant le dossier « wd » : ![Image rendue sur le nœud du pool](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_output_image.png)
 

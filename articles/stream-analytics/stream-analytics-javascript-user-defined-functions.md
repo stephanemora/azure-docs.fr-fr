@@ -1,26 +1,22 @@
 ---
 title: 'Tutoriel : Fonctions JavaScript définies par l’utilisateur Azure Stream Analytics | Microsoft Docs '
 description: Dans ce didacticiel, vous effectuez des requêtes avancées avec les fonctions JavaScript définies par l’utilisateur
-keywords: JavaScript, fonctions définies par l’utilisateur
 services: stream-analytics
 author: rodrigoamicrosoft
-manager: kfile
-ms.assetid: ''
+ms.author: rodrigoa
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc
 ms.date: 04/01/2018
-ms.workload: data-services
-ms.author: rodrigoa
-ms.openlocfilehash: e33b90d6f70bb1b765f5170ac37880d31e87f3a5
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ff8e61c53774429087ffe1a9137d40b155eb3f68
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53088873"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192273"
 ---
-# <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Tutoriel : Fonctions JavaScript définies par l’utilisateur Azure Stream Analytics
+# <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Tutoriel : Fonctions JavaScript définies par l’utilisateur Azure Stream Analytics
  
 Azure Stream Analytics prend en charge les fonctions définies par l’utilisateur écrites en JavaScript. Avec le large éventail de méthodes **String**, **RegExp**, **Math**, **Array** et **Date** que fournit JavaScript, les transformations complexes de données des travaux Stream Analytics sont plus faciles à créer.
 
@@ -50,12 +46,19 @@ Voici quelques actions que vous ne pouvez pas effectuer avec une fonction JavaSc
 Bien qu’elles ne soient pas bloquées dans la définition des fonctions, évitez d’utiliser des fonctions telles que **Date.GetDate()** ou **Math.random()**. Ces fonctions ne retournent **pas** le même résultat à chaque fois que vous les appelez et le service Azure Stream Analytics ne conserve pas de journal des appels de fonction et des résultats retournés. Si une fonction retourne un résultat différent sur les mêmes événements, la reproductibilité n’est pas garantie lorsqu’un travail est relancé par vos soins ou par le service Stream Analytics.
 
 ## <a name="add-a-javascript-user-defined-function-in-the-azure-portal"></a>Ajouter une fonction JavaScript définie par l’utilisateur dans le portail Azure
-Pour créer une simple fonction JavaScript définie par l’utilisateur dans un travail Stream Analytics existant, suivez ces étapes :
+Pour créer une fonction JavaScript simple définie par l’utilisateur dans un travail Stream Analytics existant, suivez ces étapes :
+
+> [!NOTE]
+> Ces étapes fonctionnent sur les travaux Stream Analytics configurés pour s’exécuter dans le cloud. Si votre travail Stream Analytics est configuré pour s’exécuter sur Azure IoT Edge, utilisez plutôt Visual Studio et [écrivez la fonction définie par l’utilisateur en C#](stream-analytics-edge-csharp-udf.md).
 
 1.  Dans le portail Azure, recherchez votre travail Stream Analytics.
-2.  Sous **TOPOLOGIE DE LA TÂCHE**, sélectionnez votre fonction. Une liste vide de fonctions apparaît.
-3.  Pour créer une fonction définie par l’utilisateur, sélectionnez **Ajouter**.
+
+2. Sous l’en-tête **Topologie de la tâche**, sélectionnez **Fonctions**. Une liste vide de fonctions apparaît.
+
+3.  Pour créer une fonction définie par l’utilisateur, sélectionnez **+Ajouter**.
+
 4.  Dans le panneau **Nouvelle fonction**, pour **Type de fonction**, sélectionnez **JavaScript**. Un modèle de fonction par défaut apparaît dans l’éditeur.
+
 5.  Pour l’**alias de fonction définie par l’utilisateur**, entrez **hex2Int**, puis modifiez l’implémentation de la fonction de la façon suivante :
 
     ```javascript
@@ -70,7 +73,7 @@ Pour créer une simple fonction JavaScript définie par l’utilisateur dans un 
 
 ## <a name="call-a-javascript-user-defined-function-in-a-query"></a>Appeler une fonction JavaScript définie par l’utilisateur dans une requête
 
-1. Dans l’éditeur de requêtes, sous **TOPOLOGIE DE LA TÂCHE**, sélectionnez **Requête**.
+1. Dans l’éditeur de requêtes, sous l’en-tête **Topologie de la tâche**, sélectionnez **Requête**.
 2.  Modifiez votre requête, puis appelez la fonction définie par l’utilisateur comme suit :
 
     ```SQL
@@ -97,7 +100,7 @@ Il existe des différences entre les types pris en charge dans le langage de req
 Stream Analytics | JavaScript
 --- | ---
 bigint | Number (JavaScript ne peut représenter les entiers que jusqu’à 2^53 précisément)
-Datetime | Date (JavaScript ne prend en charge que les millisecondes)
+DateTime | Date (JavaScript ne prend en charge que les millisecondes)
 double | Number
 nvarchar(MAX) | Chaîne
 Enregistrement | Object
@@ -111,7 +114,7 @@ Voici les conversions de JavaScript à Stream Analytics :
 JavaScript | Stream Analytics
 --- | ---
 Number | Bigint (si le nombre est rond et entre long.MinValue et long.MaxValue, sinon, double)
-Date | Datetime
+Date | DateTime
 Chaîne | nvarchar(MAX)
 Object | Enregistrement
 Tableau | Tableau

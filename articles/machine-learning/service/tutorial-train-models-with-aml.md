@@ -6,17 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-author: hning86
-ms.author: haining
-ms.reviewer: sgilley
+author: sdgilley
+ms.author: sgilley
 ms.date: 01/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: d7397546d4dc576a8488f605e20a0bfe15a01d7c
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: cc0631052fa915ae946e791c907e405d70713ad2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311169"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57860554"
 ---
 # <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>Tutoriel : Effectuer l’apprentissage d’un modèle de classification d’images avec Azure Machine Learning service
 
@@ -29,13 +28,12 @@ Découvrez comment effectuer les actions suivantes :
 > [!div class="checklist"]
 > * Configurer l’environnement de développement
 > * Accéder aux données et les examiner
-> * Entraîner une régression logistique simple localement à l’aide de la bibliothèque de machine learning populaire scikit-learn 
-> * Entraîner plusieurs modèles sur un cluster distant
+> * Effectuez l’apprentissage d’un modèle de régression logistique simple sur un cluster distant.
 > * Examiner les résultats de l’entraînement et inscrire le meilleur modèle
 
 Vous découvrirez comment sélectionner un modèle et le déployer dans la [deuxième partie de ce tutoriel](tutorial-deploy-models-with-aml.md). 
 
-Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez dès aujourd'hui la [version gratuite ou payante d’Azure Machine Learning service](http://aka.ms/AMLFree).
+Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez dès aujourd'hui la [version gratuite ou payante d’Azure Machine Learning service](https://aka.ms/AMLFree).
 
 >[!NOTE]
 > Le code présenté dans cet article a été testé avec le SDK Azure Machine Learning version 1.0.8.

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à 123ContactForm | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à 123ContactForm | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et 123ContactForm.
 services: active-directory
 documentationCenter: na
@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 5211910a-ab96-4709-959a-524c4d57c43e
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2450548858d3b7eab3fda11b7f309519f6b871c8
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 768afe007141eacbcea1560d3ec1676d9a7d2867
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869035"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852013"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-123contactform"></a>Tutoriel : Intégration d’Azure Active Directory à 123ContactForm
 
@@ -139,7 +139,7 @@ Pour configurer l’authentification unique Azure AD avec 123ContactForm, effect
 
     ![Configurer l'authentification unique](./media/123contactform-tutorial/submit.png) 
 
-    a. Dans la zone de texte **E-mail**, entrez l’e-mail de l’utilisateur, par exemple, **BrittaSimon@Contoso.com**.
+    a. Dans la zone de texte **Email address**, tapez l’adresse e-mail de l’utilisateur, par exemple **brittasimon\@contoso.com**.
 
     b. Cliquez sur **Charger** et accédez au fichier XML de métadonnées que vous avez téléchargé à partir du portail Azure.
 
@@ -173,7 +173,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@votredomaineentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

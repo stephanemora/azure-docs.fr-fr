@@ -1,6 +1,6 @@
 ---
-title: Tutoriel - Utiliser Azure Key Vault avec une machine virtuelle Windows Azure dans .NET - Azure Key Vault | Microsoft Docs
-description: 'Didacticiel : configurer une application ASP.NET Core pour lire un secret dans le coffre de clés'
+title: 'Tutoriel : Utiliser Azure Key Vault avec une machine virtuelle Windows dans .NET | Microsoft Docs'
+description: Dans ce tutoriel, vous allez configurer une application ASP.NET Core pour lire un secret dans votre coffre de clés.
 services: key-vault
 documentationcenter: ''
 author: prashanthyv
@@ -12,52 +12,53 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: a19da45d849facc8fe7ed18d95862ab9e79eaace
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: c66a7d7af2a73e26878b92f34e0f42ce0b3ae7f2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744379"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437495"
 ---
-# <a name="tutorial-how-to-use-azure-key-vault-with-azure-windows-virtual-machine-in-net"></a>Tutoriel : Guide pratique pour utiliser Azure Key Vault avec une machine virtuelle Windows Azure dans .NET
+# <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-net"></a>Didacticiel : Utiliser Azure Key Vault avec une machine virtuelle Windows dans .NET
 
 Azure Key Vault vous permet de protéger des secrets tels que les clés API et les chaînes de connexion de base de données nécessaires pour accéder à vos applications, services et ressources.
 
-Dans ce tutoriel, vous allez suivre les étapes nécessaires pour qu’une application console puisse lire des informations dans Azure Key Vault à l’aide d’identités managées pour les ressources Azure. Vous apprendrez à :
+Dans ce tutoriel, vous allez vous procurer une application console pour lire des informations d’Azure Key Vault. Pour ce faire, vous allez utiliser des identités managées pour des ressources Azure. 
+
+Ce didacticiel explique les procédures suivantes :
 
 > [!div class="checklist"]
+> * Créez un groupe de ressources.
 > * Création d’un coffre de clés
-> * Stockage d’un secret dans le coffre de clés.
+> * Ajoutez un secret au coffre de clés.
 > * Récupération d’un secret à partir du coffre de clés.
-> * Créer une machine virtuelle Azure.
+> * Créez une machine virtuelle Azure.
 > * Activer une [identité managée](../active-directory/managed-identities-azure-resources/overview.md) pour la machine virtuelle.
-> * Octroyer les autorisations nécessaires à l’application console pour lire les données provenant du coffre de clés.
-> * Récupérer des secrets à partir de Key Vault
+> * Attribuez des autorisations à l’identité de machine virtuelle.
 
-Avant d’aller plus loin, lisez les [concepts de base](key-vault-whatis.md#basic-concepts).
+Avant de continuer, lisez les [concepts de base de Key Vault](key-vault-whatis.md#basic-concepts). 
+
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Prérequis
-* Toutes les plateformes :
-  * Git ([télécharger](https://git-scm.com/downloads)).
-  * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
-  * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) version 2.0.4 ou ultérieure. Disponible pour Windows, Mac et Linux.
 
-Ce tutoriel utilise Managed Service Identity
+Pour Windows, Mac et Linux :
+  * [Git](https://git-scm.com/downloads)
+  * Ce didacticiel nécessite que vous exécutiez l’interface Azure CLI localement. Vous devez avoir installé Azure CLI 2.0.4 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau l’interface CLI, consultez l’article [Installation d’Azure CLI 2.0](https://review.docs.microsoft.com/cli/azure/install-azure-cli).
 
-## <a name="what-is-managed-service-identity-and-how-does-it-work"></a>Qu’est-ce que le service Managed Service Identity et comment fonctionne-t-il ?
+## <a name="about-managed-service-identity"></a>À propos de Managed Service Identity (MSI)
 
-Avant d’avancer, il faut comprendre ce qu’est MSI. Azure Key Vault peut stocker des informations d'identification de façon sécurisée afin qu’elles ne se retrouvent pas dans votre code, mais pour les récupérer vous devez vous authentifier sur Azure Key Vault. Pour vous authentifier sur Key Vault, il vous faut des informations d’identification. Problème de démarrage classique. Grâce à la magie d’Azure et Azure AD, MSI offre une « identité de démarrage » qui simplifie grandement le démarrage.
+Azure Key Vault stocke les informations d’identification de manière sécurisée, de façon à ce qu’elles n’apparaissent pas dans votre code. Toutefois, vous devez vous authentifier auprès d’Azure Key Vault pour récupérer vos clés. Pour vous authentifier auprès de Key Vault, vous avez besoin d’informations d’identification. Il s’agit d’un dilemme de démarrage classique. Managed Service Identity (MSI) résout ce problème en fournissant une _identité de démarrage_.
 
-Fonctionnement : Lorsque vous activez MSI pour un service Azure tel que des machines virtuelles, App Service ou Functions, Azure crée un [principal de service](key-vault-whatis.md#basic-concepts) pour l’instance du service dans Azure Active Directory, et injecte les informations d'identification du principal de service dans l’instance du service. 
+Lorsque vous activez MSI pour un service Azure, par exemple, Machines virtuelles Azure, Azure App Service ou Azure Functions, Azure crée un [principal de service](key-vault-whatis.md#basic-concepts). MSI procède ainsi pour l’instance du service dans Azure Active Directory (Azure AD) et injecte les informations d’identification du principal de service dans cette instance. 
 
 ![MSI](media/MSI.png)
 
-Ensuite, votre code appelle un service de métadonnée local disponible dans la ressource Azure pour obtenir un jeton d’accès.
-Il utilise alors le jeton obtenu du point de terminaison local MSI_ENDPOINT pour vous authentifier sur un service Azure Key Vault. 
+Ensuite, pour obtenir un jeton d’accès, votre code appelle un service de métadonnées local disponible dans la ressource Azure. Pour s’authentifier auprès d’un service Azure Key Vault, votre code utilise alors le jeton qu’il obtient du point de terminaison local MSI_ENDPOINT. 
 
-## <a name="sign-in-to-azure"></a>Connexion à Azure
+## <a name="log-in-to-azure"></a>Connexion à Azure
 
-Pour vous connecter à Azure à l’aide de l’interface CLI Azure, entrez ceci :
+Pour vous connecter à Azure à l’aide de l’interface CLI, entrez :
 
 ```azurecli
 az login
@@ -65,25 +66,26 @@ az login
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az-group-create). Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées.
+Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées.
 
-Sélectionnez un nom de groupe de ressources et renseignez l’espace réservé.
-L’exemple suivant crée un groupe de ressources dans l’emplacement USA Ouest :
+Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az-group-create). 
+
+Sélectionnez ensuite un nom de groupe de ressources et renseignez l’espace réservé. L’exemple suivant crée un groupe de ressources dans l’emplacement USA Ouest :
 
 ```azurecli
 # To list locations: az account list-locations --output table
 az group create --name "<YourResourceGroupName>" --location "West US"
 ```
 
-Le groupe de ressources que vous venez de créer est utilisé tout au long de cet article.
+Vous allez utiliser ce nouveau groupe de ressources tout au long du tutoriel.
 
 ## <a name="create-a-key-vault"></a>Création d’un coffre de clés
 
-Ensuite, vous créez un coffre de clés dans le groupe de ressources que vous avez créé à l’étape précédente. Fournissez les informations suivantes :
+Pour créer un coffre de clés dans le groupe de ressources que vous avez créé à l’étape précédente, fournissez les informations suivantes :
 
-* Nom du coffre de clés : le nom doit être une chaîne de 3 à 24 caractères et doit contenir uniquement (0-9, a-z, A-Z et -).
-* Nom du groupe de ressources.
-* Localisation : **USA Ouest**.
+* Nom du coffre de clés : chaîne de 3 à 24 caractères qui ne peut contenir que des chiffres (0-9), des lettres (a-z, A-Z) et des traits d’union (-).
+* Nom de groupe ressources
+* Localisation : **USA Ouest**
 
 ```azurecli
 az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGroupName>" --location "West US"
@@ -92,59 +94,59 @@ az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGr
 
 ## <a name="add-a-secret-to-the-key-vault"></a>Ajouter un secret au coffre de clés
 
-Nous allons ajouter un secret pour montrer comment cela fonctionne. Vous pouvez stocker une chaîne de connexion SQL ou toute autre information que vous devez conserver en toute sécurité mais que vous devez rendre disponible à votre application.
+Nous allons ajouter un secret pour montrer comment cela fonctionne. Il peut s’agir d’une chaîne de connexion SQL ou de toute autre information que vous devez sécuriser et garder à disposition pour votre application.
 
-Saisissez les commandes suivantes pour créer un secret dans le coffre de clés appelé **AppSecret**. Ce secret stockera la valeur **MySecret**.
+Pour créer un secret dans le coffre de clés appelé **AppSecret**, tapez la commande suivante :
 
 ```azurecli
 az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --value "MySecret"
 ```
 
+Ce secret stocke la valeur **MySecret**.
+
 ## <a name="create-a-virtual-machine"></a>Création d'une machine virtuelle
-Suivez les liens ci-dessous pour créer une machine virtuelle Windows
+Vous pouvez créer une machine virtuelle à l’aide de l’une des méthodes suivantes :
 
-[Interface de ligne de commande Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-cli) 
+* [L’interface de ligne de commande Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-cli)
+* [PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell)
+* [Le portail Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
 
-[PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell)
+## <a name="assign-an-identity-to-the-vm"></a>Affecter une identité à la machine virtuelle
+Dans cette étape, vous créez une identité affectée par le système pour la machine virtuelle en exécutant la commande suivante dans Azure CLI :
 
-[Portal](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
-
-## <a name="assign-identity-to-virtual-machine"></a>Affecter l’identité à la machine virtuelle
-Dans cette étape, nous créons une identité affectée par le système pour la machine virtuelle en exécutant la commande suivante dans Azure CLI.
-
-```
+```azurecli
 az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourResourceGroupName>
 ```
 
-Notez la valeur de systemAssignedIdentity indiquée ci-dessous. La sortie de la commande ci-dessus devrait être : 
+Notez l’identité affectée par le système qui est affichée dans le code suivant. La sortie de la commande ci-dessus doit être la suivante : 
 
-```
+```azurecli
 {
   "systemAssignedIdentity": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "userAssignedIdentities": {}
 }
 ```
 
-## <a name="give-vm-identity-permission-to-key-vault"></a>Donner l’autorisation d’identité de la machine virtuelle à Key Vault
-À présent, nous pouvons donner à Key Vault l’autorisation d’identité créée ci-dessus en exécutant la commande suivante :
+## <a name="assign-permissions-to-the-vm-identity"></a>Attribuer des autorisations à l’identité de machine virtuelle
+À présent, vous pouvez attribuer à votre coffre de clés les autorisations d’identité créées précédemment en exécutant la commande suivante :
 
-```
+```azurecli
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list
 ```
 
-## <a name="sign-in-to-the-virtual-machine"></a>Se connecter à la machine virtuelle
+## <a name="log-on-to-the-virtual-machine"></a>Connexion à la machine virtuelle
 
-Vous pouvez suivre ce [tutoriel](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon).
+Pour vous connecter à la machine virtuelle, suivez les instructions de l’article [Se connecter à une machine virtuelle Azure exécutant Windows](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon).
 
 ## <a name="install-net-core"></a>Installez .NET Core
 
-Vous pouvez installer .NET Core en suivant les étapes décrites dans cet [article](https://www.microsoft.com/net/download).
+Pour installer .NET Core, accédez à la page de [téléchargements .NET](https://www.microsoft.com/net/download).
 
-## <a name="create-and-run-sample-dot-net-app"></a>Créer et exécuter l’exemple d’application Dot Net (.Net)
+## <a name="create-and-run-a-sample-net-app"></a>Créer et exécuter l’exemple d’application .NET
 
-Ouvrez une invite de commandes
+Ouvrez une invite de commandes.
 
-En exécutant les commandes ci-dessous, vous devriez voir le texte « Hello World » affiché dans la console.
+Vous pouvez envoyer un message « Hello World » à la console en exécutant les commandes suivantes :
 
 ```
 dotnet new console -o helloworldapp
@@ -152,8 +154,10 @@ cd helloworldapp
 dotnet run
 ```
 
-## <a name="edit-console-app"></a>Modifier l’application console
-Ouvrez le fichier Program.cs et ajoutez ces packages :
+## <a name="edit-the-console-app"></a>Modifier l’application console
+
+Ouvrez le fichier *Program.cs* et ajoutez ces packages :
+
 ```
 using System;
 using System.IO;
@@ -162,20 +166,21 @@ using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 ```
-Ensuite, modifiez le fichier de classe pour contenir le code ci-dessous. Il s’agit d’une procédure en 2 étapes.
 
-1. Récupérez (fetch) un jeton du point de terminaison MSI local sur la machine virtuelle qui, à son tour, extrait un jeton à partir d’Azure Active Directory.
-2. Passez le jeton à Key Vault et récupérez votre secret. 
+Modifiez le fichier de classe pour qu’il contienne le code dans le processus suivant en deux étapes :
+
+1. Récupérer un jeton du point de terminaison MSI local sur la machine virtuelle. Cela extrait également un jeton d’Azure AD.
+1. Passez le jeton au coffre de clés et récupérez votre secret. 
 
 ```
  class Program
     {
         static void Main(string[] args)
         {
-            // Step 1: Get a token from local (URI) Managed Service Identity endpoint which in turn fetches it from Azure Active Directory
+            // Step 1: Get a token from the local (URI) Managed Service Identity endpoint, which in turn fetches it from Azure AD
             var token = GetToken();
 
-            // Step 2: Fetch the secret value from Key Vault
+            // Step 2: Fetch the secret value from your key vault
             System.Console.WriteLine(FetchSecretValueFromKeyVault(token));
         }
 
@@ -212,10 +217,11 @@ Ensuite, modifiez le fichier de classe pour contenir le code ci-dessous. Il s’
     }
 ```
 
+Le code précédent montre comment effectuer des opérations avec Azure Key Vault dans une machine virtuelle Windows.
 
-Le code ci-dessus montre comment effectuer des opérations avec Azure Key Vault dans une machine virtuelle Windows Azure. 
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
-
+Quand ils ne sont plus nécessaires, supprimez la machine virtuelle et le coffre de clés.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

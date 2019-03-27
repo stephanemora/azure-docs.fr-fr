@@ -9,16 +9,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 01/30/2019
+ms.date: 02/22/2019
 ms.author: diberry
-ms.openlocfilehash: 3fe549a63f0fb4662ba5beb2e28f1ca72fcc1ee4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 33541d2a61c52476f6e314f6981a623390de8fa9
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55855881"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193736"
 ---
-# <a name="tutorial-add-common-pattern-template-utterance-formats"></a>Didacticiel : Ajouter des formats d’énoncés de modèles courants
+# <a name="tutorial-add-common-pattern-template-utterance-formats"></a>Tutoriel : Ajouter des formats d’énoncés de modèles courants
 
 Dans ce tutoriel, vous allez utiliser des modèles pour augmenter la prédiction des intentions et des entités tout en fournissant moins d’exemples d’énoncés. Le modèle est fourni par le biais d’un exemple d’énoncé de modèle, qui inclut la syntaxe pour identifier les entités et le texte pouvant être ignoré. Un modèle est une combinaison de correspondance par expression et de machine learning.  Les exemples de modèles d’énoncés, ainsi que les énoncés de l’intention, permettent à LUIS de mieux comprendre quels énoncés correspondent à l’intention. 
 
@@ -221,22 +221,7 @@ Pour qu’un modèle corresponde à un énoncé, les entités au sein de l’én
 
 **Même si les modèles vous permettent de fournir moins d’exemples d’énoncés, si les entités ne sont pas détectées, le modèle ne correspond pas.**
 
-Dans ce tutoriel, vous ajoutez deux nouvelles intentions : `OrgChart-Manager` et `OrgChart-Reports`. 
-
-|Intention|Énoncé|
-|--|--|
-|OrgChart-Manager|À qui Jill Jones rend-il compte ?|
-|OrgChart-Reports|Qui rend compte à Jill Jones ?|
-
-Une fois que LUIS retourne une prédiction à l’application cliente, le nom de l’intention peut être utilisé comme nom de fonction dans l’application cliente, et l’entité Employee peut être utilisée comme paramètre de cette fonction.
-
-```javascript
-OrgChartManager(employee){
-    ///
-}
-```
-
-Souvenez-vous : les employés ont été créés dans le [tutoriel d’entité de liste](luis-quickstart-intent-and-list-entity.md).
+## <a name="add-the-patterns-for-the-orgchart-manager-intent"></a>Ajouter les modèles pour l’intention OrgChart-Manager
 
 1. Sélectionnez **Build** dans le menu supérieur.
 
@@ -259,7 +244,7 @@ Souvenez-vous : les employés ont été créés dans le [tutoriel d’entité d
 
     [![Capture d’écran de la saisie d’énoncés de modèle pour une intention](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png)](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png#lightbox)
 
-4. Sélectionnez l’intention **OrgChart-Reports**, puis entrez les modèles d’énoncés suivants :
+4. Toujours sur la page Modèles, sélectionnez l’intention **OrgChart-Reports**, puis entrez les modèles d’énoncés suivants :
 
     |Modèles d’énoncés|
     |:--|
@@ -272,11 +257,13 @@ Souvenez-vous : les employés ont été créés dans le [tutoriel d’entité d
 
 ## <a name="query-endpoint-when-patterns-are-used"></a>Point de terminaison de requête lorsque des modèles sont utilisés
 
+Maintenant que les modèles sont ajoutés à l’application, formez, publiez et interrogez l’application sur le point de terminaison du runtime de prédiction.
+
 1. Former et publier à nouveau l’application.
 
-2. Rebasculez les onglets de navigateur vers l’onglet URL de point de terminaison.
+1. Rebasculez les onglets de navigateur vers l’onglet URL de point de terminaison.
 
-3. Accédez à la fin de l’URL dans la barre d’adresses, puis entrez `Who is the boss of Jill Jones?` en tant qu’énoncé. Le dernier paramètre de la chaîne de requête est `q`, l’énoncé est **query**. 
+1. Accédez à la fin de l’URL dans la barre d’adresses, puis entrez `Who is the boss of Jill Jones?` en tant qu’énoncé. Le dernier paramètre de la chaîne de requête est `q`, l’énoncé est **query**. 
 
     ```json
     {
@@ -362,11 +349,11 @@ Souvenez-vous : les employés ont été créés dans le [tutoriel d’entité d
     }
     ```
 
-La prédiction de l’intention la prédiction est maintenant beaucoup plus élevée.
+La prédiction de l’intention est maintenant beaucoup plus élevée.
 
 ## <a name="working-with-optional-text-and-prebuilt-entities"></a>Utilisation d’un texte facultatif et d’entités prédéfinies
 
-Les énoncés de modèle précédents dans ce didacticiel possédaient quelques exemples de texte facultatifs tels que l’utilisation possessive de la lettre s, `'s`, et l’utilisation du point d’interrogation, `?`. Supposons que les points de terminaison des énoncés montrent que les gestionnaires et les représentants des ressources humaines recherchent des données historiques et planifient des mutations d’employés au sein de l’entreprise à une date ultérieure.
+Les énoncés de modèle précédents dans ce didacticiel possédaient quelques exemples de texte facultatifs tels que l’utilisation possessive de la lettre s, `'s`, et l’utilisation du point d’interrogation, `?`. Supposons que vous devez tenir compte des dates actuelles et futures dans l’énoncé.
 
 Les exemples d’énoncés sont :
 
@@ -379,23 +366,22 @@ Les exemples d’énoncés sont :
 
 Chacun de ces exemples utilise une conjugaison du verbe, `was`, `is`, `will be`, ainsi qu’une date, `March 3`, `now`, et `in a month`, que requiert LUIS pour effectuer correctement ses prédictions. Notez que les deux derniers exemples utilisent presque le même texte à l’exception de `in` et `on`.
 
-Exemples des énoncés de modèle :
+Exemples d’énoncés de modèle pour ces informations facultatives : 
+
 |Intention|Exemples d’énoncés avec un texte facultatif et des entités prédéfinies|
 |:--|:--|
 |OrgChart-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?`]|
 |OrgChart-Manager|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
-|OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
-|OrgChart-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
+
 
 L’utilisation de la syntaxe facultative des crochets, `[]`, facilite l’ajout d’un énoncé de modèle à ce texte facultatif, ce dernier peut se voir imbriqué à un deuxième niveau, `[[]]`, et peut inclure des entités ou du texte.
 
-**Question : Pourquoi les deux derniers exemples d’énoncés n’ont-ils pas pu fusionner en un seul énoncé de modèle ?** Le modèle ne prend pas en charge la syntaxe OR. Pour entrer à la fois la version `in` et la version `on`, chaque énoncé doit être un énoncé de modèle séparé.
 
 **Question : Pourquoi toutes les lettres `w`, la première lettre de chaque énoncé de modèle, sont en minuscules ? Le fait qu’elles soient en majuscules ou en minuscules n’est-il pas facultatif ?** L’énoncé soumis au point de terminaison de requête par l’application cliente, est converti en minuscules. L’énoncé de modèle peut être en majuscules ou minuscules, tout comme l’énoncé du point de terminaison. La comparaison est toujours effectuée après la conversion en minuscules.
 
 **Question : Pourquoi le nombre prédéfini ne fait pas partie de l’énoncé de modèle alors que le 3 mars est prédit à la fois comme un nombre `3` et une date `March 3` ?** L’énoncé de modèle utilise une date en fonction du contexte, soit littéralement comme dans `March 3`, ou de façon abstraite comme dans `in a month`. Une date peut contenir un nombre mais un nombre ne peut pas nécessairement être considéré comme une date. Utilisez toujours l’entité qui représente au mieux le type à retourner dans les résultats JSON de prédiction.  
 
-**Question : Qu’en est-il des énoncés incompréhensibles comme `Who will {Employee}['s] manager be on March 3?`.** Les conjugaisons grammaticalement différentes, comme dans le cas où le `will` et le `be` sont séparés, doivent constituer un nouvel énoncé de modèle. L’énoncé de modèle existant ne correspond pas. Bien que l’intention de l’énoncé n’ait pas changé, le placement du mot dans l’énoncé a changé. Cette modification affecte la prédiction dans LUIS.
+**Question : Qu’en est-il des énoncés incompréhensibles comme `Who will {Employee}['s] manager be on March 3?`.** Les conjugaisons grammaticalement différentes, comme dans le cas où le `will` et le `be` sont séparés, doivent constituer un nouvel énoncé de modèle. L’énoncé de modèle existant ne correspond pas. Bien que l’intention de l’énoncé n’ait pas changé, le placement du mot dans l’énoncé a changé. Cette modification affecte la prédiction dans LUIS. Vous pouvez [regrouper et/ou](#use-the-or-operator-and-groups) les temps des verbes pour combiner ces énoncés. 
 
 **N’oubliez pas : les entités sont les premières trouvées, le modèle étant ensuite mis en correspondance.**
 
@@ -403,11 +389,9 @@ L’utilisation de la syntaxe facultative des crochets, `[]`, facilite l’ajout
 
 1. Sur le site web de LUIS, sélectionnez **Générer** dans le menu supérieur, puis sélectionnez **Modèles** dans le menu de gauche. 
 
-2. Recherchez l’énoncé de modèle existant, `Who is {Employee}['s] manager[?]`, puis sélectionnez les points de suspension (***...***) à droite. 
+1. Recherchez l’énoncé de modèle existant, `Who is {Employee}['s] manager[?]`, puis sélectionnez les points de suspension (***...***) à droite, puis sélectionnez **Modifier** dans le menu contextuel. 
 
-3. Sélectionnez **Modifier** dans le menu contextuel. 
-
-4. Modifiez l’énoncé de modèle en : `who is {Employee}['s] manager [[on]{datetimeV2}?]]`
+1. Modifiez l’énoncé de modèle en : `who is {Employee}['s] manager [[on]{datetimeV2}?]`
 
 ## <a name="add-new-pattern-template-utterances"></a>Ajouter de nouveaux énoncés de modèle
 
@@ -416,7 +400,6 @@ L’utilisation de la syntaxe facultative des crochets, `[]`, facilite l’ajout
     |Intention|Exemples d’énoncés avec un texte facultatif et des entités prédéfinies|
     |--|--|
     |OrgChart-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?]`|
-    |OrgChart-Manager|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
     |OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
     |OrgChart-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
 
@@ -426,7 +409,7 @@ L’utilisation de la syntaxe facultative des crochets, `[]`, facilite l’ajout
 
 4. Entrez plusieurs énoncés de test pour vérifier que le modèle est mis en correspondance et que le score de l’intention est très élevé. 
 
-    Après avoir entré le premier énoncé, sélectionnez **Inspecter** sous le résultat, afin que vous puissiez voir tous les résultats de prédiction.
+    Après avoir entré le premier énoncé, sélectionnez **Inspecter** sous le résultat, afin que vous puissiez voir tous les résultats de prédiction. Chaque énoncé doit avoir l’intention **OrgChart-Manager** et doit extraire les valeurs pour les entités d’Employee et datetimeV2.
 
     |Énoncé|
     |--|
@@ -438,6 +421,51 @@ L’utilisation de la syntaxe facultative des crochets, `[]`, facilite l’ajout
     |Qui sera le responsable de Jill Jones dans un mois ?|
 
 Tous ces énoncés ont trouvé les entités à l’intérieur, par conséquent, ils correspondent au même modèle et ont un score de prédiction élevé.
+
+## <a name="use-the-or-operator-and-groups"></a>Utiliser l’opérateur OR et les groupes
+
+Plusieurs des énoncés de modèle précédents sont très proches. Utilisez la syntaxe **group** `()` et **OR** `|` afin de réduire les énoncés de modèle. 
+
+Les 2 modèles suivants peuvent être combinés dans un modèle unique à l’aide de la syntaxe group `()` et OR `|`.
+
+|Intention|Exemples d’énoncés avec un texte facultatif et des entités prédéfinies|
+|--|--|
+|OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
+|OrgChart-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
+
+Le nouvel énoncé de modèle sera : 
+
+`who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`. 
+
+Cet exemple utilise un **groupe** autour de la conjugaison du verbe requis `in` et `on` facultatifs avec un canal **ou** entre les deux. 
+
+1. Sur la page **Modèles**, sélectionnez le filtre **OrgChart-Manager**. Limitez la liste en recherchant `manager`. 
+
+    ![Recherchez dans les modèles d’intention OrgChart-Manager le terme « manager »](./media/luis-tutorial-pattern/search-patterns.png)
+
+1. Conservez une version de l’énoncé de modèle (à modifier dans l’étape suivante) et supprimez les autres variations. 
+
+1. Modifiez l’énoncé de modèle en : 
+
+    `who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`.
+
+1. Effectuez l’apprentissage de l’application.
+
+1. Utilisez le volet de test pour tester les versions de l’énoncé :
+
+    |Énoncés à entrer dans le volet de test|
+    |--|
+    |`Who is Jill Jones manager this month`|
+    |`Who is Jill Jones manager on July 5th`|
+    |`Who was Jill Jones manager last month`|
+    |`Who was Jill Jones manager on July 5th`|    
+    |`Who will be Jill Jones manager in a month`|
+    |`Who will be Jill Jones manager on July 5th`|
+
+
+## <a name="use-the-utterance-beginning-and-ending-anchors"></a>Utilisez les ancres de début et de fin de l’énoncé
+
+La syntaxe du modèle fournit la syntaxe d’ancre de début et de fin d’énoncé, à savoir le signe insertion, `^`. Les ancres de début et de fin d’énoncé peuvent être utilisées ensemble pour cibler des énoncé très spécifiques et éventuellement littéraux ou utilisées séparément pour cibler des intentions. 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à AlertOps | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à AlertOps | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et AlertOps.
 services: active-directory
 documentationCenter: na
@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 3db13ed4-35c2-4b1e-bed8-9b5977061f93
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 02/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1874950e733df1cf14fba2f53fdb49d478cb6f8a
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 7914bc3775631f3cc5d6ae68fed10c6d5fecb853
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56866043"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838049"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-alertops"></a>Tutoriel : Intégration d’Azure Active Directory à AlertOps
+# <a name="tutorial-azure-active-directory-integration-with-alertops"></a>Didacticiel : Intégration d’Azure Active Directory à AlertOps
 
 Dans ce tutoriel, vous allez découvrir comment intégrer AlertOps à Azure Active Directory (Azure AD).
 L’intégration d’AlertOps à Azure AD vous offre les avantages suivants :
@@ -176,7 +176,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@votredomaineentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
@@ -227,7 +227,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
     a. Dans la zone de texte **Login User Name** (Nom d’utilisateur de connexion), entrez le nom d’un utilisateur, par exemple **Brittasimon**.
 
-    b. Dans la zone de texte **Official Email** (E-mail officiel), entrez l’adresse e-mail de l’utilisateur, par exemple **Brittasimon@contoso.com**.
+    b. Dans la zone de texte **E-mail officiel**, entrez l’adresse e-mail de l’utilisateur, par exemple **Brittasimon\@contoso.com**.
 
     c. Dans la zone de texte **Prénom**, entrez le prénom de l’utilisateur, par exemple **Britta**.
 

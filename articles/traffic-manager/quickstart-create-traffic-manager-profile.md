@@ -2,7 +2,7 @@
 title: Guide de démarrage rapide - Créer un profil Traffic Manager pour assurer une haute disponibilité à vos applications à l’aide du portail Azure
 description: Cet article de démarrage rapide décrit comment créer un profil Traffic Manager pour créer des applications web hautement disponibles.
 services: traffic-manager
-dauthor: kumudd
+author: KumudD
 Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: kumud
-ms.openlocfilehash: f24bcebb04c3cb17b5e0420695504541c54e88f3
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 2cd8830f4b2b7c972ba8972e686be984bb96fd04
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198217"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760662"
 ---
-# <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application"></a>Démarrage rapide : Créer un profil Traffic Manager pour une application web hautement disponible
+# <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>Démarrage rapide : Créer un profil Traffic Manager à l’aide du portail Azure
 
 Ce démarrage rapide explique comment créer un profil Traffic Manager qui assure une haute disponibilité pour votre application web.
 
@@ -63,7 +63,7 @@ Pour ce guide de démarrage rapide, vous aurez besoin de deux instances d’une 
 
     | Paramètre | Valeur |
     | --------| ----- |
-    | NOM | Attribuez un nom unique à votre application web. |
+    | Nom | Attribuez un nom unique à votre application web. |
     | Abonnement | Sélectionnez l’abonnement auquel vous souhaitez appliquer l’application web. |
     | Groupe de ressources | Sélectionnez **Créer**, puis entrez *myResourceGroupTM2*. |
     | SE | Sélectionnez **Windows** comme système d’exploitation. |
@@ -81,7 +81,7 @@ Créez un profil Traffic Manager qui dirige le trafic utilisateur en fonction de
 
     | Paramètre | Valeur |
     | --------| ----- |
-    | NOM | Attribuez un nom unique à votre profil Traffic Manager.|
+    | Nom | Attribuez un nom unique à votre profil Traffic Manager.|
     | Méthode de routage | Sélectionnez **Priorité**.|
     | Abonnement | Sélectionnez l’abonnement auquel vous souhaitez appliquer le profil Traffic Manager. |
     | Groupe de ressources | Sélectionnez *myResourceGroupTM1*.|
@@ -100,8 +100,8 @@ Ajoutez le site web dans la région *USA Est* en tant que point de terminaison p
 
     | Paramètre | Valeur |
     | ------- | ------|
-    | type | Sélectionnez **Point de terminaison Azure**. |
-    | NOM | Entrez *myPrimaryEndpoint*. |
+    | Type | Sélectionnez **Point de terminaison Azure**. |
+    | Nom | Entrez *myPrimaryEndpoint*. |
     | Type de ressource cible | Sélectionner **App Service**. |
     | Ressource cible | Sélectionnez **Choisir un service d’application** > **USA Est**. |
     | Priorité | Sélectionnez **1**. Tout le trafic se dirige vers ce point de terminaison quand il est sain. |
@@ -113,8 +113,8 @@ Ajoutez le site web dans la région *USA Est* en tant que point de terminaison p
 
     | Paramètre | Valeur |
     | ------- | ------|
-    | type | Sélectionnez **Point de terminaison Azure**. |
-    | NOM | Entrez *myFailoverEndpoint*. |
+    | Type | Sélectionnez **Point de terminaison Azure**. |
+    | Nom | Entrez *myFailoverEndpoint*. |
     | Type de ressource cible | Sélectionner **App Service**. |
     | Ressource cible | Sélectionnez **Choisir un service d’application** > **Europe Ouest**. |
     | Priorité | Sélectionnez **2**. Tout le trafic se dirige vers ce point de terminaison de basculement si le point de terminaison principal n’est pas sain. |

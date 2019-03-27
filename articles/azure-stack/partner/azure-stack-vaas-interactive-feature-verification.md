@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/07/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 01/07/2019
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 20a48e67a24763af7bcce9e8831e2a1d1846d094
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: d3db8ea8639f73f3522ddaa358195e7c9ef2f9a9
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594302"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766000"
 ---
 # <a name="interactive-feature-verification-testing"></a>Test de vérification des fonctionnalités interactives  
 
@@ -35,13 +35,13 @@ Cet article décrit un scénario manuel simple. Le test vérifie le remplacement
 
 ## <a name="overview-of-interactive-testing"></a>Vue d’ensemble du test interactif
 
-Un test du remplacement d’un disque est un scénario courant. Dans cet exemple, le test comprend sept étapes :
+Un test du remplacement d’un disque est un scénario courant. Dans cet exemple, le test comprend 5 étapes :
 
-1. Créer un workflow **Passe de test**
-1. Sélectionner **Disk Identification Test**
-1. Effectuer l’étape manuelle quand vous y êtes invité
-1. Vérifier le résultat du scénario
-1. Envoyer le résultat du test à Microsoft
+1. Créez un workflow **Test Pass** (passe de test).
+2. Sélectionnez le test d’identification de disque **Disk Identification Test**.
+3. Effectuez l’étape manuelle quand vous y êtes invité.
+4. Vérifiez le résultat du scénario.
+5. Envoyez le résultat du test à Microsoft.
 
 ## <a name="create-a-new-test-pass"></a>Créer une passe de test
 

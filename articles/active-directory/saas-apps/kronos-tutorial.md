@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Kronos | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Kronos | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Kronos.
 services: active-directory
 documentationCenter: na
@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: e28d6191-c375-43c6-b2df-22daa88d9939
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35e7ef28a98cc660f11ec12c19cf45f8c3e224cf
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 126d5b501b9c4239fbdbe06318604bcfaf861150
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56879694"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838348"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-kronos"></a>Tutoriel : Intégration d’Azure Active Directory à Kronos
+# <a name="tutorial-azure-active-directory-integration-with-kronos"></a>Didacticiel : Intégration d’Azure Active Directory à Kronos
 
 Dans ce didacticiel, vous allez apprendre à intégrer Kronos à Azure Active Directory (Azure AD).
 L’intégration de Kronos dans Azure AD vous offre les avantages suivants :
@@ -68,7 +68,7 @@ Pour configurer l’intégration de Kronos avec Azure AD, vous devez ajouter Kr
 4. Dans la zone de recherche, tapez **Kronos**, sélectionnez **Kronos** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
      ![Kronos dans la liste des résultats](common/search-new-app.png)
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
+   ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
 Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Kronos avec un utilisateur de test appelé **Britta Simon**.
 Pour que l’authentification unique fonctionne, une relation entre un utilisateur Azure AD et l’utilisateur Kronos associé doit être établie.
@@ -155,7 +155,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

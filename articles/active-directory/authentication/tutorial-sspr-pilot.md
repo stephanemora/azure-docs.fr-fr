@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0fe472a45d99f966c851934ea44a346326cb4201
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b85284a5c2c3017e7ccc0a7e06a712e41c2a9561
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175147"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57215589"
 ---
-# <a name="tutorial-complete-an-azure-ad-self-service-password-reset-pilot-roll-out"></a>Didacticiel : Effectuer un déploiement pilote de réinitialisation de mot de passe en libre-service pour Azure AD
+# <a name="tutorial-complete-an-azure-ad-self-service-password-reset-pilot-roll-out"></a>Tutoriel : Effectuer un déploiement pilote de réinitialisation de mot de passe en libre-service pour Azure AD
 
 Dans ce didacticiel, vous activez un déploiement pilote de réinitialisation de mot de passe en libre-service (SSPR) pour Azure AD dans votre organisation et le testez à l’aide d’un compte non-administrateurs.
 
@@ -42,8 +42,8 @@ Il est important de réaliser les tests de réinitialisation de mot de passe en 
       * Vérifiez que les utilisateurs du groupe que vous avez choisis disposent d’une licence correcte.
    * Cliquez sur **Enregistrer**.
 1. Sur la page **Méthodes d'authentification**
-   * Définissez l’option **Nombre de méthodes requises pour réinitialiser** sur **2**.
-   * Choisissez les **méthodes disponibles pour les utilisateurs** que votre entreprise souhaite autoriser. Pour ce didacticiel, cochez les cases permettant d’activer **E-mail**, **Téléphone mobile** et **Téléphone (bureau)**.
+   * Définissez l’option **Nombre de méthodes requises pour réinitialiser** sur **1**.
+   * Choisissez les **méthodes disponibles pour les utilisateurs** que votre entreprise souhaite autoriser. Pour ce tutoriel, cochez les cases permettant d’activer **E-mail** et **Code d’application mobile (préversion)**.
    * Cliquez sur **Enregistrer**.
 1. Sur la page **Inscription**
    * Sélectionnez **Oui** pour l’option **Obliger les utilisateurs à s’inscrire durant la connexion**.

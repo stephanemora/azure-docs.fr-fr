@@ -17,16 +17,16 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eeb5a06aa4eb21ba374344623f9f96ce92a59ff5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 39f3f0954a271f3abd30e99e306ebfc940e20a7f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168815"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57547807"
 ---
 # <a name="quickstart-download-a-sign-in-report-using-the-azure-portal"></a>Démarrage rapide : télécharger un rapport de connexion à l’aide du portail Azure
 
-Dans ce guide de démarrage rapide, vous apprenez à télécharger les données de connexion des dernières 24 heures pour votre locataire. Vous pouvez télécharger jusqu’à 5 000 enregistrements à partir du portail Azure. Les enregistrements sont triés par date. Par défaut, les 5 000 enregistrements les plus récents s’affichent. 
+Dans ce guide de démarrage rapide, vous apprenez à télécharger les données de connexion des dernières 24 heures pour votre locataire. Vous pouvez télécharger jusqu’à 250 000 enregistrements à partir du portail Azure. Les enregistrements sont triés par date. Par défaut, les 250 000 enregistrements les plus récents s’affichent. 
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -41,7 +41,7 @@ Ce dont vous avez besoin :
 2. Sélectionnez **Azure Active Directory** à partir du volet de navigation gauche et utilisez le bouton **Changer de répertoire** pour sélectionner votre instance Active Directory.
 3. Dans le tableau de bord, sélectionnez **Azure Active Directory**, puis **Connexions**. 
 4. Choisissez **Dernières 24 heures** dans la liste déroulante du filtre **Date** et sélectionnez **Appliquer** pour afficher les connexions des dernières 24 heures. 
-5. Sélectionnez le bouton **Télécharger** pour télécharger un fichier CSV contenant les enregistrements filtrés. 
+5. Sélectionnez le bouton **Télécharger**, sélectionnez **CSV** comme format de fichier et spécifiez un nom de fichier pour télécharger un fichier CSV contenant les enregistrements filtrés. 
 
 ![Reporting](./media/quickstart-download-sign-in-report/download-sign-ins.png)
 

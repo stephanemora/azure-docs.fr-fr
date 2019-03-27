@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: overview
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: b0b835dde4b98619238eaac9449432aaa9acffd3
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 724352ae9f7c66dfeab293473ea79438e3b36254
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50670485"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56989317"
 ---
 # <a name="what-is-avere-vfxt-for-azure"></a>En quoi consiste Avere vFXT pour Azure ? 
 
@@ -19,8 +19,8 @@ Avere vFXT pour Azure est une solution de mise en cache des systèmes de fichier
 
 AVERE vFXT prend en charge ces scénarios de calcul courants : 
 
-* Architecture cloud hybride : Avere vFXT pour Azure peut fonctionner avec un système de stockage matériel, qui offre les avantages du cloud computing sans avoir à déplacer les fichiers. 
-* Cloud Bursting : Avere vFXT pour Azure peut vous aider à déplacer vos données vers le cloud pour un projet unique. Il peut aussi effectuer une migration « lift-and-shift » de l’intégralité du flux de travail de manière définitive. 
+* Architecture cloud hybride : Avere vFXT pour Azure peut fonctionner avec un système de stockage matériel, qui offre les avantages du cloud computing sans avoir à déplacer les fichiers. 
+* Cloud Bursting : Avere vFXT pour Azure peut vous aider à déplacer vos données vers le cloud pour un projet unique. Il peut aussi effectuer une migration « lift-and-shift » de l’intégralité du flux de travail de manière définitive. 
 
 ![diagramme montrant les détails du système Avere vFXT à l’intérieur d’un abonnement Azure connecté au stockage blob et à un centre de données local](media/avere-vfxt-hybrid.png)
 
@@ -67,10 +67,10 @@ Avere vFXT utilise les ressources Azure suivantes :
 
 |Composant Azure|   |
 |----------|-----------|
-|Machines virtuelles|Au moins trois D16s_v3 ou E32s_v3|
-|Stockage SSD Premium|200 Go d’espace de système d’exploitation, et de 1 To à 4 To d’espace de cache par nœud |
+|Machines virtuelles|3 E32s_v3 ou plus|
+|Stockage SSD Premium|200 Go d’espace de système d’exploitation, et de 1 To à 4 To d’espace de cache par nœud |
 |Compte de stockage (facultatif) |v2|
-|Stockage du serveur principal de données (facultatif) | Un conteneur d’objets blob LRS vide |
+|Stockage back-end de données (facultatif) | Un conteneur d’objets blob LRS vide |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

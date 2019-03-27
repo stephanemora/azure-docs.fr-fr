@@ -3,20 +3,20 @@ title: Configurer des règles et des actions dans Azure IoT Central
 description: Ce didacticiel vous montre, en tant que générateur, comment configurer des règles et des actions basées sur la télémétrie dans votre application Azure IoT Central.
 author: ankitscribbles
 ms.author: ankitgup
-ms.date: 10/12/2018
+ms.date: 01/28/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: d7269f61579ce1ffd9a686634effd153837a2f25
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 096daa28b7548401adc857c3c6c8327ef1d1eb00
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662980"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769402"
 ---
-# <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>Tutoriel : Configurer des règles et des actions pour votre appareil dans Azure IoT Central
+# <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central-new-ui-design"></a>Tutoriel : Configurer des règles et des actions pour votre appareil dans Azure IoT Central (nouvelle conception d’interface utilisateur)
 
 *Cet article s’applique aux opérateurs, aux créateurs et aux administrateurs.*
 
@@ -28,31 +28,23 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Créer une règle basée sur la télémétrie
 > * Ajouter une action
 
-[!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
-
 ## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer, vous devez effectuer le tutoriel [Définir un nouveau type d’appareil dans votre application](tutorial-define-device-type.md) pour créer le modèle d’appareil **Climatiseur raccordé** à utiliser.
 
 ## <a name="create-a-telemetry-based-rule"></a>Créer une règle basée sur la télémétrie
 
-1. Pour ajouter une nouvelle règle basée sur la télémétrie pour votre application, dans le menu de navigation de gauche, choisissez **Device Explorer** :
+1. Pour ajouter une nouvelle règle basée sur la télémétrie pour votre application, dans le menu de navigation de gauche, sélectionnez **Modèles d’appareil** :
 
-    ![Page Device Explorer](media/tutorial-configure-rules/explorerpage1.png)
+    ![Page Modèles d’appareil](media/tutorial-configure-rules/templatespage1.png)
 
-    Vous voyez le modèle d’appareil **Climatiseur raccordé (1.0.0)** et l’appareil **Climatiseur raccordé-1** que vous avez créé dans le didacticiel précédent.
+    Vous voyez le modèle d’appareil **Climatiseur connecté (1.0.0)** que vous avez créé dans le tutoriel précédent.
 
-2. Pour commencer à personnaliser votre climatiseur raccordé, choisissez l’appareil que vous avez créé dans le didacticiel précédent :
+2. Pour personnaliser votre modèle d’appareil, sélectionnez le modèle **Climatiseur connecté** que vous avez créé dans le tutoriel précédent.
 
-    ![Page du climatiseur raccordé](media/tutorial-configure-rules/builderdevicelist1.png)
+3. Pour ajouter une règle basée sur la télémétrie dans la vue **Règles**, sélectionnez **Règles**, sélectionnez **+Nouvelle règle**, puis sélectionnez **Télémétrie** :
 
-3. Pour commencer à ajouter une règle dans la vue **Règles**, choisissez **Règles**, puis cliquez sur **Modifier le modèle** :
-
-    ![Vue Règles](media/tutorial-configure-rules/builderedittemplate.png)
-
-4. Pour créer une règle de télémétrie basée sur un seuil, cliquez sur **Nouvelle règle**, puis sur **Télémétrie**.
-
-    ![Modifier un Modèle](media/tutorial-configure-rules/buildernewrule.png)
+    ![Vue Règles](media/tutorial-configure-rules/newrule.png)
 
 5. Pour définir votre règle, utilisez les informations du tableau suivant :
 
@@ -60,19 +52,20 @@ Avant de commencer, vous devez effectuer le tutoriel [Définir un nouveau type d
     | -------------------------------------------- | ------------------------------    |
     | Nom                                         | Alerte de température du climatiseur |
     | Activer la règle pour tous les appareils de ce modèle | Il en va                                |
-    | Activer la règle sur cet appareil                   | Il en va                                |
     | Condition                                    | Température supérieure à 90    |
     | Agrégation                                  | Aucun                              |
 
-    ![Condition de règle de température](media/tutorial-configure-rules/buildertemperaturerule1.png)
+    ![Condition de règle de température](media/tutorial-configure-rules/temperaturerule.png)
+
+    Ensuite, sélectionnez **Enregistrer**.
 
 ## <a name="add-an-action"></a>Ajouter une action
 
-Lorsque vous définissez une règle, vous définissez également une action à exécuter lorsque les conditions de la règle sont remplies. Dans ce didacticiel, vous ajoutez une action pour envoyer un courrier électronique sous forme de notification indiquant que la règle est déclenchée.
+Lorsque vous définissez une règle, vous définissez également une action à exécuter lorsque les conditions de la règle sont remplies. Dans ce tutoriel, vous créez une règle avec une action qui envoie une notification par e-mail.
 
-1. Pour ajouter une **Action**, **enregistrez** d’abord la règle, puis faites défiler vers le bas le panneau **Configurer une règle de télémétrie** et choisissez **+** en regard de **Actions**, puis **E-mail** :
+1. Pour ajouter une **action**, **enregistrez** d’abord la règle, puis faites défiler vers le bas le panneau **Configurer une règle de télémétrie**. Choisissez **+** à côté de **Actions**, puis choisissez **E-mail** :
 
-    ![Action de règle de température](media/tutorial-configure-rules/builderaddaction1.png)
+    ![Action de règle de température](media/tutorial-configure-rules/addaction.png)
 
 2. Pour définir votre action, utilisez les informations du tableau suivant :
 
@@ -84,23 +77,16 @@ Lorsque vous définissez une règle, vous définissez également une action à e
     > [!NOTE]
     > Pour recevoir une notification par courrier électronique, l’adresse e-mail doit être un [ID d’utilisateur dans l’application](howto-administer.md), et l’utilisateur doit s’être connecté au moins une fois à l’application.
 
-    ![Action de température du Générateur d’applications](media/tutorial-configure-rules/buildertemperatureaction.png)
+    ![Action Température](media/tutorial-configure-rules/temperatureaction.png)
 
-3. Choisissez **Enregistrer**. Votre règle est répertoriée dans la page **Règles** :
-
-    ![Règles du Générateur d’applications](media/tutorial-configure-rules/builderrules1.png)
-
-4. Choisissez **Terminé** pour quitter le mode **Modifier le modèle**.
- 
+3. Sélectionnez **Enregistrer**. Votre règle est listée dans la page **Règles**.
 
 ## <a name="test-the-rule"></a>Tester la règle
 
 Peu après l’enregistrement de la règle, elle devient active. Lorsque les conditions définies dans la règle sont remplies, votre application envoie un message à l’adresse e-mail que vous avez spécifiée dans l’action.
 
-![Action Courrier électronique](media/tutorial-configure-rules/email.png)
-
 > [!NOTE]
-> Une fois le test terminé, désactivez la règle pour ne plus recevoir d’alertes dans votre boîte de réception. 
+> Une fois le test terminé, désactivez la règle pour ne plus recevoir d’alertes dans votre boîte de réception.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -111,7 +97,7 @@ Dans ce tutoriel, vous avez appris à :
 > * Créer une règle basée sur la télémétrie
 > * Ajouter une action
 
-Maintenant que vous avez défini une règle basée sur un seuil, l’étape suivante suggérée consiste à [Personnaliser les vues de l’opérateur](tutorial-customize-operator.md).
+Maintenant que vous avez défini une règle basée sur un seuil, nous vous suggérons de passer à l’étape suivante, [Personnaliser les vues de l’opérateur](tutorial-customize-operator.md).
 
 Pour en savoir plus sur les différents types de règles dans Azure IoT Central et comment paramétrer la définition de règle, consultez :
 * [Créer une règle de télémétrie et configurer des notifications](howto-create-telemetry-rules.md).
