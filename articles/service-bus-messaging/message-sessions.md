@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: b45b59775abd2db7cea9d0fa9b0cc23f7ce31277
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: d6c46d6ebfa8ae44c9bfac4929d3478f6701758a
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54848833"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497837"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>Sessions de messagerie : premier entré, premier sorti (FIFO) 
 
 Les sessions Microsoft Azure Service Bus permettent un traitement conjoint et chronologique de séquences illimitées de messages associés. Pour garantir l’application de la méthode FIFO dans Service Bus, utilisez Sessions. Service Bus ne fournit aucun détail concernant la nature de la relation entre les messages, et ne définit aucun modèle spécifique permettant de déterminer le début et la fin d’une séquence de messages.
 
 > [!NOTE]
-> Le niveau de base de Service Bus ne prend pas en charge les sessions. Les niveaux standard et premium prennent en charge les sessions. Pour plus d’informations, consultez [Tarification Service Bus](service-bus-pricing-billing.md).
+> Le niveau de base de Service Bus ne prend pas en charge les sessions. Les niveaux standard et premium prennent en charge les sessions. Pour plus d’informations, consultez [Tarification Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 
 Lors de l’envoi de messages dans une rubrique ou dans une file d’attente, tout expéditeur peut créer une session en définissant la propriété [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) sur un identificateur défini par l’application unique pour la session. Au niveau du protocole AMQP 1.0, cette valeur est mappée sur la propriété *group-id*.
 

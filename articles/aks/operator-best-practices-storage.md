@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: iainfou
-ms.openlocfilehash: 691decb88188a428edfeab1ea9e99c48876b6d9f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 7476747de31819907cf144e5a6b33cb29e1f866f
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53110957"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58496172"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Meilleures pratiques relatives au stockage et aux sauvegardes dans Azure Kubernetes Service (AKS)
 
@@ -91,9 +91,9 @@ Pour plus d’informations sur les options de classe de stockage, consultez les 
 
 ## <a name="secure-and-back-up-your-data"></a>Sécuriser et sauvegarder vos données
 
-**Conseils pour une utilisation optimale** : sauvegardez vos données à l’aide d’un outil adapté à votre type de stockage, tel que Heptio Ark ou Azure Site Recovery. Vérifiez l’intégrité et la sécurité de ces sauvegardes.
+**Meilleures pratiques** - sauvegarde de vos données à l’aide d’un outil approprié pour votre type de stockage, tels que Velero ou Azure Site Recovery. Vérifiez l’intégrité et la sécurité de ces sauvegardes.
 
-Lorsque vos applications stockent et exploitent des données conservées sur des disques ou dans des fichiers, vous devez effectuer des sauvegardes ou des captures instantanées régulières de ces données. Les disques Azure peuvent utiliser des technologies de capture instantanée intégrées. Vous aurez peut-être besoin d’avoir recours à un hook pour que vos applications vident les écritures sur le disque avant d’effectuer l’opération de capture instantanée. [Heptio Ark][heptio-ark] peut sauvegarder des volumes persistants avec des ressources de cluster et des configurations supplémentaires. Si vous ne pouvez pas [supprimer l’état de vos applications][remove-state], sauvegardez les données à partir de volumes persistants et testez régulièrement les opérations de restauration pour vérifier l’intégrité des données et des processus requis.
+Lorsque vos applications stockent et exploitent des données conservées sur des disques ou dans des fichiers, vous devez effectuer des sauvegardes ou des captures instantanées régulières de ces données. Les disques Azure peuvent utiliser des technologies de capture instantanée intégrées. Vous aurez peut-être besoin d’avoir recours à un hook pour que vos applications vident les écritures sur le disque avant d’effectuer l’opération de capture instantanée. [Velero] [ velero] peut sauvegarder des volumes persistants avec les ressources de cluster supplémentaire et leur configuration. Si vous ne pouvez pas [supprimer l’état de vos applications][remove-state], sauvegardez les données à partir de volumes persistants et testez régulièrement les opérations de restauration pour vérifier l’intégrité des données et des processus requis.
 
 Identifiez les limitations des différentes approches en matière de sauvegarde de données et déterminez si vous devez suspendre vos données avant la capture instantanée. Les sauvegardes de données ne vous permettent pas nécessairement de restaurer votre environnement d’application de déploiement de cluster. Pour plus d’informations sur ces scénarios, consultez [Best practices for business continuity and disaster recovery in AKS][best-practices-multi-region] (Meilleures pratiques pour la continuité d’activité et la récupération d’urgence dans AKS).
 
@@ -102,7 +102,7 @@ Identifiez les limitations des différentes approches en matière de sauvegarde 
 Cet article se concentre sur les meilleures pratiques de stockage dans AKS. Pour plus d’informations sur les principes fondamentaux du stockage dans Kubernetes, consultez [Options de stockage pour les applications dans AKS (Azure Kubernetes Service)][aks-concepts-storage].
 
 <!-- LINKS - External -->
-[heptio-ark]: https://github.com/heptio/ark
+[velero]: https://github.com/heptio/velero
 [dysk]: https://github.com/Azure/kubernetes-volume-drivers/tree/master/flexvolume/dysk
 [blobfuse]: https://github.com/Azure/azure-storage-fuse
 

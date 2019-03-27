@@ -3,7 +3,7 @@ title: Mettre à jour un cluster Azure Service Fabric pour qu’il utilise un no
 description: Découvrez comment basculer un cluster Service Fabric de l’utilisation d’empreintes de certificat à l’utilisation du nom commun du certificat.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: aljo
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/01/2019
-ms.author: ryanwi
-ms.openlocfilehash: e1a52aff0890e32ae739285c0380258939f29597
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.author: aljo
+ms.openlocfilehash: 7280424c57e2dfab0a64794855cb522bcf69e135
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312869"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500498"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Modifier un cluster pour qu’il passe de l’utilisation d’une empreinte de certificat à l’utilisation d’un nom commun
 Deux certificats ne peuvent pas avoir la même empreinte, ce qui complique la gestion ou le renouvellement des certificats de cluster. Toutefois, plusieurs certificats peuvent avoir le même nom commun ou objet.  Basculer un cluster déployé de l’utilisation des empreintes de certificat à l’utilisation des noms communs de certificat simplifie considérablement la gestion des certificats. Cet article décrit la mise à jour d’un cluster Service Fabric en cours d’exécution pour utiliser le nom commun d’un certificat à la place de son empreinte.

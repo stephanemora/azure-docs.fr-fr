@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 8d0d37b988f36e23d8bd12b5a225b1714205b3fc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: ca96dbd2073540d47fe09caaa8a337e292445590
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158075"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486765"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer la connexion avec un fournisseur SAML Salesforce en utilisant des stratégies personnalisées dans Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "55158075"
 
 Cet article explique comment autoriser la connexion d’utilisateurs à partir d’une organisation Salesforce à l’aide de [stratégies personnalisées](active-directory-b2c-overview-custom.md) dans Azure Active Directory (Azure AD) B2C. Vous allez activer la connexion en ajoutant un [profil technique SAML](saml-technical-profile.md) à une stratégie personnalisée.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 - Suivez les étapes de l’article [Prise en main des stratégies personnalisées dans Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
 - Si vous n’avez pas déjà fait, inscrivez-vous pour un [compte édition développeur gratuit](https://developer.salesforce.com/signup). Cet article utilise le [Lightning Experience de Salesforce](https://developer.salesforce.com/page/Lightning_Experience_FAQ).
@@ -72,7 +72,7 @@ Les demandes envoyées à Salesforce doivent être signées par Azure AD B2C. Po
 > [!NOTE]
 > Veillez à mettre à jour le nom et le mot de passe du locataire dans les deux lignes du haut.
 
-```PowerShell
+```powershell
 $tenantName = "<YOUR TENANT NAME>.onmicrosoft.com"
 $pwdText = "<YOUR PASSWORD HERE>"
 

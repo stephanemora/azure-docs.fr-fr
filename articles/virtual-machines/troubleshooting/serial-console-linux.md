@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 4fd96aedc658833493d6fddb704104a70c01df44
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f407d87249c44ad3a4773b2cd8fc85ee09506ceb
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58010982"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445652"
 ---
 # <a name="virtual-machine-serial-console-for-linux"></a>Console série de machine virtuelle pour Linux
 
@@ -41,9 +41,9 @@ Pour en savoir plus sur la console série des machines virtuelles Windows, consu
 
 - Un compte qui utilise une console série doit disposer du [rôle Contributeur de machine virtuelle](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) pour la machine virtuelle et du compte de stockage de [diagnostics de démarrage](boot-diagnostics.md) :
 
-    - La machine virtuelle dans laquelle vous accédez à une console série doit disposer d’un compte avec mot de passe. Vous pouvez en créer un avec la fonction [Réinitialiser le mot de passe](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) de l’extension d’accès aux machines virtuelles. Sélectionnez **Réinitialiser le mot de passe** dans la section **Support + dépannage**.
+- La machine virtuelle dans laquelle vous accédez à une console série doit disposer d’un compte avec mot de passe. Vous pouvez en créer un avec la fonction [Réinitialiser le mot de passe](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) de l’extension d’accès aux machines virtuelles. Sélectionnez **Réinitialiser le mot de passe** dans la section **Support + dépannage**.
 
-    - Pour découvrir les paramètres spécifiques des distributions Linux, consultez [Disponibilité de distributions Linux pour la console série](#serial-console-linux-distribution-availability).
+- Pour découvrir les paramètres spécifiques des distributions Linux, consultez [Disponibilité de distributions Linux pour la console série](#serial-console-linux-distribution-availability).
 
 
 
@@ -85,12 +85,11 @@ Images Linux personnalisées     | Afin d’activer la console série pour votre
 
 Scénario          | Actions à effectuer dans la console série
 :------------------|:-----------------------------------------
-Fichier *FSTAB* endommagé | Appuyez sur la touche **Entrée** pour continuer, puis utilisez un éditeur de texte pour réparer le fichier *FSTAB*. Vous devrez peut-être activer le mode mono-utilisateur pour ce faire. Pour en savoir plus, consultez [Résoudre les incidents fstab](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) et [Utiliser la console série pour accéder au GRUB et au mode mono-utilisateur](serial-console-grub-single-user-mode.md).
-Règles de pare-feu incorrectes | Accédez à la console série et corrigez les tables d’adresses IP.
-Contrôle de la corruption du système de fichiers | Accédez à la console série et récupérez le système de fichiers.
-Problèmes de configuration SSH/RDP | Accédez à la console série et modifiez les paramètres.
-Système de verrouillage du réseau| Accédez à la console série à partir du portail Azure pour gérer le système.
-Interaction avec le chargeur de démarrage | Redémarrez votre machine virtuelle à partir du panneau de la console série pour accéder au GRUB sur votre machine virtuelle Linux. Pour en savoir plus, consultez [Utiliser la console série pour accéder au GRUB et au mode mono-utilisateur](serial-console-grub-single-user-mode.md).
+Fichier *FSTAB* endommagé | Appuyez sur la touche **Entrée** pour continuer, puis utilisez un éditeur de texte pour réparer le fichier *FSTAB*. Vous devrez peut-être activer le mode mono-utilisateur pour ce faire. Pour plus d’informations, consultez la section de la console série de [comment résoudre les problèmes fstab](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) et [utilisez la console série pour accéder aux GRUB et mode mono-utilisateur](serial-console-grub-single-user-mode.md).
+Règles de pare-feu incorrectes |  Si vous avez configuré iptables pour bloquer la connectivité SSH, vous pouvez utiliser la console série pour interagir avec votre machine virtuelle sans avoir besoin de SSH. Vous trouverez plus d’informations sur la [iptables page de manuel](https://linux.die.net/man/8/iptables). De même, si vous firewalld bloque l’accès SSH, vous pouvez accéder à la machine virtuelle via la console série et reconfigurer firewalld. Vous trouverez plus de détails dans le [firewalld documentation](https://firewalld.org/documentation/).
+Contrôle de la corruption du système de fichiers | Consultez la section de la console série de [Azure VM Linux ne peut pas démarrer en raison d’erreurs de système de fichiers](https://support.microsoft.com/en-us/help/3213321/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck) pour plus d’informations sur la résolution des problèmes endommagé des systèmes de fichiers à l’aide de la console série.
+Problèmes de configuration SSH | Accédez à la console série et modifiez les paramètres. Console série peut être utilisée quelle que soit la configuration SSH d’une machine virtuelle car il ne nécessite pas de connectivité réseau fonctionne de la machine virtuelle. Un guide de dépannage est disponible à l’adresse [résoudre les connexions SSH à une machine virtuelle Linux Azure échoue, les erreurs, ou qui est refusée](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-ssh-connection). Plus de détails sont disponibles dans [détaillées SSH étapes de résolution des problèmes de connexion à une VM Linux dans Azure](./detailed-troubleshoot-ssh-connection.md)
+Interaction avec le chargeur de démarrage | Redémarrez votre machine virtuelle à partir du panneau de la console série pour accéder au GRUB sur votre machine virtuelle Linux. Pour plus d’informations et des informations spécifiques à la distribution, consultez [utilisez la console série pour accéder aux GRUB et mode mono-utilisateur](serial-console-grub-single-user-mode.md).
 
 ## <a name="disable-the-serial-console"></a>Désactiver la console série
 Par défaut, tous les abonnements ont accès à la console série pour toutes les machines virtuelles. Vous pouvez désactiver la console série au niveau de l’abonnement ou de la machine virtuelle.

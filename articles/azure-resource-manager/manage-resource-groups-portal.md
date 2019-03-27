@@ -9,14 +9,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: cbbc710c9408c84c601d7b9eb9560641b5313a05
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cb1eb5ac27c53f4c0d48fe3644febc62f848486d
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090931"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484693"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Gérer des groupes de ressources Azure Resource Manager à l’aide du portail Azure
 
@@ -122,7 +122,7 @@ Il existe deux façons d’exporter un modèle :
 
 Cette méthode exporte les modèles pour certains déploiements. Si vous avez modifié les ressources à partir du portail, ou ajouté ou supprimé des ressources dans plusieurs déploiements, consultez [exporter des modèles de groupes de ressources](#export-templates-from-resource-groups).
 
-1. Ouvrez le groupe de ressources que vous souhaitez supprimer.  Consultez [ouvrir des groupes de ressources](#open-resource-groups).
+1. Ouvrez le groupe de ressources que vous voulez exporter.  Consultez [ouvrir des groupes de ressources](#open-resource-groups).
 2. Dans le volet gauche, sélectionnez **déploiements**, ou sélectionnez le lien situé sous **déploiements**.  Sur la capture d’écran suivante, il montre **Succeeded 4** suite à des quatre séparées par des déploiements avec quatre noms de déploiement différents. Vous pouvez voir **1 réussite**.
 
     ![modèles d’exportation de groupe de ressources Azure](./media/manage-resource-groups-portal/manage-resource-groups-export-templates-deployment-history.png)
@@ -148,8 +148,8 @@ Cette méthode exporte les modèles pour certains déploiements. Si vous avez mo
 
 Si vous avez modifié vos ressources à partir du portail, ou ajoutez/supprimer des ressources dans plusieurs déploiements, la récupération d’un modèle à partir de l’historique de déploiement ne reflète l’état actuel du groupe de ressources. Cette section vous montre comment exporter un modèle qui représente l’état actuel du groupe de ressources. Il s’agit d’un instantané du groupe de ressources, qui vous permet de refaire un déploiement sur le même groupe de ressources. Pour utiliser le modèle exporté pour d’autres solutions, vous devez le modifier considérablement.
 
-1. Ouvrez le groupe de ressources que vous souhaitez supprimer.  Consultez [ouvrir des groupes de ressources](#open-resource-groups).
-2. Dans le volet gauche, sélectionnez **script d’automatisation**. Resource Manager récupère pour vous les six fichiers ci-dessous :
+1. Ouvrez le groupe de ressources que vous voulez exporter.  Consultez [ouvrir des groupes de ressources](#open-resource-groups).
+2. Dans le volet gauche, sélectionnez **exporter le modèle**. Resource Manager récupère pour vous les six fichiers ci-dessous :
 
    - **Modèle** - Modèle définissant l’infrastructure de votre solution. Lorsque vous avez créé le compte de stockage via le portail, Resource Manager a utilisé un modèle pour le déployer et a enregistré ce modèle pour référence ultérieure.
    - **Paramètres** - Fichier de paramètres que vous pouvez utiliser pour transmettre des valeurs au cours du déploiement. Il contient les valeurs que vous avez fournies pendant le premier déploiement. Vous pouvez modifier ces valeurs lorsque vous redéployez le modèle.

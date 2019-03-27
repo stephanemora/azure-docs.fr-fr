@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: bd1d3c71660ae584b0aa57c7cc765fdc519f4b1b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 284d0e888b89d340088f770af22c026a861a4685
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57863591"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498381"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Infrastructure de sécurité : gestion des configurations | Atténuation des risques 
 | Produit/Service | Article |
@@ -85,7 +85,7 @@ Example: var str="alert(1)"; eval(str);
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | S.O.  |
-| **Informations de référence**              | [Vue d’ensemble du débogage ASP.NET](https://msdn2.microsoft.com/library/ms227556.aspx), [Vue d’ensemble du traçage ASP.NET](https://msdn2.microsoft.com/library/bb386420.aspx), [Guide pratique pour activer le traçage d’une application ASP.NET](https://msdn2.microsoft.com/library/0x5wc973.aspx), [Guide pratique pour activer le débogage pour les applications ASP.NET](https://msdn2.microsoft.com/library/e8z01xdh(VS.80).aspx) |
+| **Informations de référence**              | [Vue d’ensemble du débogage ASP.NET](https://msdn.microsoft.com/library/ms227556.aspx), [Vue d’ensemble du traçage ASP.NET](https://msdn.microsoft.com/library/bb386420.aspx), [Guide pratique pour activer le traçage d’une application ASP.NET](https://msdn.microsoft.com/library/0x5wc973.aspx), [Guide pratique pour activer le débogage pour les applications ASP.NET](https://msdn.microsoft.com/library/e8z01xdh(VS.80).aspx) |
 | **Étapes** | Lorsque le traçage est activé pour la page, chaque navigateur demandant la page obtient également les informations de traçage qui contiennent des données sur l’état et le workflow du serveur interne. Ces informations peuvent être liées à la sécurité. Lorsque le débogage est activé pour la page, les erreurs qui surviennent sur le serveur entraînent la présentation de données de trace de la pile complètes au navigateur. Ces données peuvent exposer des informations liées à la sécurité concernant le workflow du serveur. |
 
 ## <a id="js-trusted"></a>Accéder aux scripts JavaScript tiers émanant uniquement de sources approuvées

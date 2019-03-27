@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/05/2018
 ms.author: bwren
-ms.openlocfilehash: b65613de8f11aa36c398d15176541ac43a3dba69
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: e6d953841e5c22c21640f874ecad942f8db76ad1
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770218"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448894"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Supervision des données collectées par Azure Monitor
 [Azure Monitor](../overview.md) est un service qui vous permet de surveiller vos applications et les ressources dont elles dépendent. Au cœur de cette fonction se trouve le stockage de données de télémétrie et d’autres données tirées des ressources supervisées. Cet article décrit de manière exhaustive la façon dont ces données sont stockées et utilisées par Azure Monitor.
@@ -102,7 +102,7 @@ Les tâches que vous pouvez effectuer avec les métriques sont les suivantes :
 - Acheminer les métriques vers les journaux pour analyser les données métriques avec les données de journal et stocker les valeurs métriques pendant plus de 93 jours. 
 - Transmettre en continu les métriques vers un [Event Hub](stream-monitoring-data-event-hubs.md) pour les acheminer vers [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md) ou vers des systèmes externes.
 - [Archivez](../../azure-monitor/learn/tutorial-archive-data.md) l’historique des performances ou d’intégrité de votre ressource à des fins de conformité, d’audit ou de création de rapports hors connexion.
-- Accéder à des valeurs métriques à partir d’une ligne de commande ou à l’aide d’une application personnalisée avec les [cmdlets PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/?view=azurermps-6.7.0) ou l’[API REST](rest-api-walkthrough.md).
+- Accéder à des valeurs métriques à partir d’une ligne de commande ou à l’aide d’une application personnalisée avec les [cmdlets PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/) ou l’[API REST](rest-api-walkthrough.md).
 
 
 
@@ -146,7 +146,7 @@ Les tâches réalisables avec les journaux sont les suivantes :
 - Configurer une [règle d’alerte de journal](alerts-log.md) qui envoie une notification ou prend une [action de façon automatique](action-groups.md) lorsque les résultats de la requête correspondent à un résultat spécifique.
 - Générer un flux de travail en fonction des données de journal à l’aide de [Logic Apps](~/articles/logic-apps/index.yml).
 - Exporter les résultats d’une requête vers [Power BI](powerbi.md) pour utiliser différentes visualisations et les partager avec les utilisateurs extérieurs à Azure.
-- Accéder à des valeurs métriques à partir d’une ligne de commande ou à l’aide d’une application personnalisée avec les [cmdlets PowerShell](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/?view=azurermps-6.8.1) ou l’[API REST](https://dev.loganalytics.io/).
+- Accéder à des valeurs métriques à partir d’une ligne de commande ou à l’aide d’une application personnalisée avec les [cmdlets PowerShell](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) ou l’[API REST](https://dev.loganalytics.io/).
 
 ### <a name="viewing-log-data"></a>Affichage des données de journal
 Toutes les données de journal dans Azure Monitor sont récupérées en utilisant une [requête de journal](../log-query/log-query-overview.md) écrite dans le [langage de requête Kusto](../log-query/get-started-queries.md), qui vous permet de rapidement récupérer, consolider et analyser les données collectées. Utilisez [Log Analytics](../log-query/portals.md) pour écrire et tester des requêtes dans le Portail Azure. Vous pouvez afficher les résultats de manière interactive ou les épingler au tableau de bord pour les voir avec d’autres visualisations. Vous pouvez également récupérer les journaux à l’aide de l’[API REST Azure Monitoring](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).

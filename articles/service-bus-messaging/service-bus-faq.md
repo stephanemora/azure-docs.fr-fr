@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: fce3c2975e4b82583aa09a3862f704f05a363828
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: a10b4d7fac29a6b016b5660b0430d042f2443fbd
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210592"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498075"
 ---
 # <a name="service-bus-faq"></a>FAQ Service Bus
 
@@ -55,7 +55,7 @@ Les propriétés suivantes de file d’attente et de rubrique sont immuables. Te
 ## <a name="pricing"></a>Tarifs
 Cette section répond à certaines questions fréquemment posées sur la tarification de Service Bus.
 
-L’article [Tarification et facturation de Service Bus](service-bus-pricing-billing.md) explique les paramètres de facturation dans Service Bus. Pour obtenir des informations spécifiques sur les options de tarification de Service Bus, consultez les [détails sur la tarification de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
+L’article [Tarification et facturation de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/) explique les paramètres de facturation dans Service Bus. Pour obtenir des informations spécifiques sur les options de tarification de Service Bus, consultez les [détails sur la tarification de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 
 Vous pouvez également consulter les [Questions fréquentes (FAQ) du support Azure](https://azure.microsoft.com/support/faq/) pour obtenir des informations générales sur la tarification Azure. 
 

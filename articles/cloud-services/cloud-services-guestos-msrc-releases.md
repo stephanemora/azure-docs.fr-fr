@@ -11,21 +11,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/14/2019
+ms.date: 3/26/2019
 ms.author: raiye
-ms.openlocfilehash: ec50cff2a2d3323b988632fd7ee96b73f60117b1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 42c241ce6b14eac2f76785b7b16b537d3e88bd8d
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57887287"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500608"
 ---
 # <a name="azure-guest-os"></a>Système d’exploitation invité d'Azure
 Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Response Center) appliquées au système d’exploitation invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au système d’exploitation invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
-
->[!NOTE]
->Le système d’exploitation invité de mars est actuellement déployée pour les machines virtuelles du Service Cloud qui sont configurés pour les mises à jour automatiques. Une fois le déploiement terminé, cette version sera disponible pour les mises à jour manuelles via le portail Azure et les fichiers de configuration. Les correctifs suivants sont inclus dans le système d’exploitation de mars. Cette liste est susceptible d’être modifiée.
-
 
 ## <a name="march-2019-guest-os"></a>Système d’exploitation invité de mars 2019
 

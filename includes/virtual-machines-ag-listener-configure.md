@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: e24ed3921872a4c754967841634ebab23b972e59
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 276ddf0a70fa450451cd3ddc78c7610c4ab1edc1
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55736002"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58494799"
 ---
 L’écouteur de groupe de disponibilité est une adresse IP et un nom réseau sur lesquels le groupe de disponibilité de SQL Server écoute. Pour créer l’écouteur de groupe de disponibilité, procédez comme suit :
 
@@ -86,27 +86,27 @@ L’écouteur de groupe de disponibilité est une adresse IP et un nom réseau s
 
 1. <a name="setparam"></a>Définissez les paramètres de cluster dans PowerShell.
 
-  a. Copiez le script PowerShell suivant sur l’une de vos instances SQL Server. Mettez à jour les variables de votre environnement.
+   a. Copiez le script PowerShell suivant sur l’une de vos instances SQL Server. Mettez à jour les variables de votre environnement.
 
-  - `$ListenerILBIP` est l’adresse IP que vous avez créée sur l’équilibreur de charge Azure pour l’écouteur du groupe de disponibilité.
+   - `$ListenerILBIP` est l’adresse IP que vous avez créée sur l’équilibreur de charge Azure pour l’écouteur du groupe de disponibilité.
     
-  - `$ListenerProbePort` est le port que vous avez configuré sur l’équilibreur de charge Azure pour l’écouteur du groupe de disponibilité.
+   - `$ListenerProbePort` est le port que vous avez configuré sur l’équilibreur de charge Azure pour l’écouteur du groupe de disponibilité.
 
-  ```PowerShell
-  $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
-  $IPResourceName = "<IPResourceName>" # the IP Address resource name
-  $ListenerILBIP = "<n.n.n.n>" # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal.
-  [int]$ListenerProbePort = <nnnnn>
+   ```powershell
+   $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
+   $IPResourceName = "<IPResourceName>" # the IP Address resource name
+   $ListenerILBIP = "<n.n.n.n>" # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal.
+   [int]$ListenerProbePort = <nnnnn>
   
-  Import-Module FailoverClusters
+   Import-Module FailoverClusters
 
-  Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ListenerILBIP";"ProbePort"=$ListenerProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
-  ```
+   Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ListenerILBIP";"ProbePort"=$ListenerProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+   ```
 
-  b. Définissez les paramètres du cluster en exécutant le script PowerShell sur l’un des nœuds du cluster.  
+   b. Définissez les paramètres du cluster en exécutant le script PowerShell sur l’un des nœuds du cluster.  
 
-  > [!NOTE]
-  > Si vos instances SQL Server se trouvent dans différentes régions, vous devez exécuter le script PowerShell à deux reprises. La première fois, utilisez `$ListenerILBIP` et `$ListenerProbePort` à partir de la première région. La seconde fois, utilisez `$ListenerILBIP` et `$ListenerProbePort` à partir de la seconde région. Le nom réseau du cluster et le nom de ressource IP du cluster sont également différents pour chaque région.
+   > [!NOTE]
+   > Si vos instances SQL Server se trouvent dans différentes régions, vous devez exécuter le script PowerShell à deux reprises. La première fois, utilisez `$ListenerILBIP` et `$ListenerProbePort` à partir de la première région. La seconde fois, utilisez `$ListenerILBIP` et `$ListenerProbePort` à partir de la seconde région. Le nom réseau du cluster et le nom de ressource IP du cluster sont également différents pour chaque région.
 
 1. Activez le rôle de cluster de groupe de disponibilité. Dans le **Gestionnaire du cluster de basculement**, sous **Rôles**, cliquez avec le bouton droit sur le rôle, puis sélectionnez **Démarrer le rôle**.
 
@@ -120,24 +120,24 @@ Si nécessaire, répétez les étapes ci-dessus afin de définir les paramètres
 
 1. <a name="setwsfcparam"></a>Définissez les paramètres de cluster dans PowerShell.
   
-  a. Copiez le script PowerShell suivant sur l’une de vos instances SQL Server. Mettez à jour les variables de votre environnement.
+   a. Copiez le script PowerShell suivant sur l’une de vos instances SQL Server. Mettez à jour les variables de votre environnement.
 
-  - `$ClusterCoreIP` est l’adresse IP que vous avez créée sur l’équilibreur de charge Azure pour la ressource principale de cluster WSFC. Cette adresse est différente de l’adresse IP de l’écouteur du groupe de disponibilité.
+   - `$ClusterCoreIP` est l’adresse IP que vous avez créée sur l’équilibreur de charge Azure pour la ressource principale de cluster WSFC. Cette adresse est différente de l’adresse IP de l’écouteur du groupe de disponibilité.
 
-  - `$ClusterProbePort` est le port que vous avez configuré sur l’équilibreur de charge Azure pour la sonde d’intégrité WSFC. Ce port est différent de la sonde configurée pour l’écouteur du groupe de disponibilité.
+   - `$ClusterProbePort` est le port que vous avez configuré sur l’équilibreur de charge Azure pour la sonde d’intégrité WSFC. Ce port est différent de la sonde configurée pour l’écouteur du groupe de disponibilité.
 
-  ```PowerShell
-  $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
-  $IPResourceName = "<ClusterIPResourceName>" # the IP Address resource name
-  $ClusterCoreIP = "<n.n.n.n>" # the IP Address of the Cluster IP resource. This is the static IP address for the load balancer you configured in the Azure portal.
-  [int]$ClusterProbePort = <nnnnn> # The probe port from the WSFCEndPointprobe in the Azure portal. This port must be different from the probe port for the availability group listener probe port.
+   ```powershell
+   $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
+   $IPResourceName = "<ClusterIPResourceName>" # the IP Address resource name
+   $ClusterCoreIP = "<n.n.n.n>" # the IP Address of the Cluster IP resource. This is the static IP address for the load balancer you configured in the Azure portal.
+   [int]$ClusterProbePort = <nnnnn> # The probe port from the WSFCEndPointprobe in the Azure portal. This port must be different from the probe port for the availability group listener probe port.
   
-  Import-Module FailoverClusters
+   Import-Module FailoverClusters
   
-  Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ClusterCoreIP";"ProbePort"=$ClusterProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
-  ```
+   Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ClusterCoreIP";"ProbePort"=$ClusterProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+   ```
 
-  b. Définissez les paramètres du cluster en exécutant le script PowerShell sur l’un des nœuds du cluster.  
+   b. Définissez les paramètres du cluster en exécutant le script PowerShell sur l’un des nœuds du cluster.  
 
 >[!WARNING]
 >Le port pour la sonde d’intégrité de l’écouteur du groupe de disponibilité doit être différent du port pour la sonde d’intégrité de l’adresse IP principale du cluster. Dans ces exemples, le port de l’écouteur est 59999, et l’adresse IP principale du cluster est 58888. Une règle de pare-feu d’autorisation du trafic entrant doit être définie pour les deux ports.

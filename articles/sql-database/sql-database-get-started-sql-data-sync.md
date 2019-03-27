@@ -9,17 +9,17 @@ ms.devlang: ''
 ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
-ms.reviewer: douglasl
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/14/2019
-ms.openlocfilehash: 01edd378ee85a3e209892250788fd3a26c628648
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 82b85ffd685df52e702db15e5a5b57a53a3b4f64
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090829"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486000"
 ---
-# <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>Tutoriel : configurer SQL Data Sync entre Azure SQL Database et SQL Server en local
+# <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>Didacticiel : configurer SQL Data Sync entre Azure SQL Database et SQL Server en local
 
 Dans ce tutoriel, vous allez apprendre à configurer Azure SQL Data Sync en créant un groupe de synchronisation contenant des instances SQL Database et SQL Server. Le groupe de synchronisation est configuré de manière personnalisée et se synchronise selon la planification définie.
 

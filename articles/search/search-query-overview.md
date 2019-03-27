@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 6afc9325cb2aababb286f653323531c9ebb04b4a
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: cfc9b44963f6880e97859bc7ab77bff12d258471
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438799"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500166"
 ---
 # <a name="how-to-compose-a-query-in-azure-search"></a>Rédiger une requête dans Recherche Azure
 
@@ -76,7 +76,7 @@ Les attributs d’index d’un champ définissent les opérations autorisées, p
 La capture d’écran ci-dessus est une liste partielle des attributs d’index pour l’exemple d’index immobilier. Vous pouvez consulter le schéma d’index complet dans le portail. Pour en savoir plus sur les attributs d’index, consultez [Création d’une API REST d’index](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
 > [!Note]
-> Certaines fonctionnalités de requête s’appliquent à l’ensemble de l’index plutôt qu’à des champs spécifiques. Ces fonctionnalités incluent : les [cartes de synonymes](search-synonyms.md), les [analyseurs personnalisés](index-add-custom-analyzers.md), les [constructions de générateur de suggestions (pour la saisie semi-automatique et la suggestion automatique)](index-add-suggesters.md) et la [logique de notation pour le classement des résultats](index-add-scoring-profiles.md).
+> Certaines fonctionnalités de requête s’appliquent à l’ensemble de l’index plutôt qu’à des champs spécifiques. Ces fonctionnalités incluent : [les cartes de synonymes](search-synonyms.md), [analyseurs personnalisés](index-add-custom-analyzers.md), [Générateur de suggestions construit (pour la saisie semi-automatique et les requêtes suggérées)](index-add-suggesters.md), [logique de calcul de score pour le classement des résultats](index-add-scoring-profiles.md).
 
 ## <a name="elements-of-a-query-request"></a>Éléments d’une demande de requête
 

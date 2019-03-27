@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: cc5b40b6a800ff185c6c52652435b558fabe091f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7e3311aab74f58e3936039393eab76dee12b83ea
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57873884"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58496936"
 ---
 # <a name="object-detection"></a>Détection d’objets
 
@@ -97,7 +97,7 @@ Il est important de noter les limitations de la détection d’objets afin d’�
 
 ## <a name="use-the-api"></a>Utilisation de l’API
 
-La fonctionnalité de détection d'objet fait partie de l'API [Analyser l'image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa). Vous pouvez appeler cette API via un SDK natif ou via des appels REST. Lorsque vous obtenez la réponse JSON complète, analyser la chaîne pour le contenu de la `"objects"` section.
+La fonctionnalité de détection d'objet fait partie de l'API [Analyser l'image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa). Vous pouvez appeler cette API via un SDK natif ou via des appels REST. Inclure `Objects` dans le **visualFeatures** paramètre de requête. Ensuite, lorsque vous obtenez la réponse JSON complète, simplement analyser la chaîne pour le contenu de la `"objects"` section.
 
 * [Démarrage rapide : Analyser une image (SDK .NET)](./quickstarts-sdk/csharp-analyze-sdk.md)
 * [Démarrage rapide : Analyser une image (API REST)](./quickstarts/csharp-analyze.md)

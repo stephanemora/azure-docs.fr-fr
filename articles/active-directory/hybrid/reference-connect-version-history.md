@@ -16,12 +16,12 @@ ms.date: 12/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 840ea818c7c2e197f1ab65f4bd61067bf5e51283
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7ab0e7ce1891dc3553f89f652c7dac70e66a4df0
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57836978"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499911"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect : Historique de publication des versions
 L’équipe Azure Active Directory (Azure AD) met régulièrement à jour Azure AD Connect avec de nouvelles fonctions et fonctionnalités. Tous les ajouts ne sont pas applicables à toutes les configurations.
@@ -40,6 +40,56 @@ Télécharger| [Télécharger Azure AD Connect](https://go.microsoft.com/fwlink/
 
 >[!NOTE]
 >La mise à niveau automatique ne concernera pas toutes les versions d’Azure AD Connect. L’état de la version indique si une version est disponible en mise à niveau automatique ou en téléchargement uniquement. Si la mise à niveau automatique a été activée sur votre serveur Azure AD Connect, celui-ci sera automatiquement mis à niveau vers la dernière version d’Azure AD Connect qui est disponible en mise à niveau automatique. Certaines configurations Azure AD Connect seulement sont éligibles à la mise à niveau automatique. Veuillez suivre ce lien pour en savoir plus sur la [mise à niveau automatique](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
+
+## <a name="13900"></a>1.3.90.0 
+
+### <a name="release-status"></a>État de la version 
+
+3/25/2019: Pas encore été publié 
+ 
+### <a name="new-features-and-improvements"></a>Améliorations et nouvelles fonctionnalités 
+
+
+
+- Ajouter la prise en charge pour l’actualisation de domaine 
+- Fonctionnalité de dossiers publics de messagerie Exchange va GA 
+- Améliorer l’Assistant Gestion des erreurs pour les échecs de service 
+- Ajout d’un lien avertissement pour l’ancienne interface utilisateur sur la page de propriétés du connecteur. 
+- La fonctionnalité d’écriture différée des groupes unifiés est désormais générale 
+- Message d’erreur SSPR améliorée lorsque le contrôleur de domaine n’a pas un contrôle LDAP 
+- Installer diagnostics ajoutées pour les erreurs de Registre DCOM pendant  
+- Traçage d’erreurs RPC de PHS amélioré 
+- Autoriser les informations d’identification de l’EA à partir d’un domaine enfant 
+- Autoriser le nom de la base de données doit être entré lors de l’installation (nom par défaut ADSync)
+- Mise à niveau vers la bibliothèque ADAL 3.19.8 pour sélectionner un correctif de WS-Trust pour la commande Ping et ajouter la prise en charge pour les nouvelles instances Azure 
+- Modifier le groupe des règles de synchronisation à circuler samAccountName, DomainNetbios et DomainFQDN pour cloud - nécessaire pour les revendications 
+- Modification de gestion de règle de synchronisation par défaut – en savoir plus [ici](how-to-connect-fix-default-rules.md).
+- Ajouter un nouvel agent en cours d’exécution comme un service windows. Cet agent, nommé « Admin Agent », permet des diagnostics plus approfondis à distance du serveur Azure AD Connect pour résoudre les Engineers Microsoft lorsque vous ouvrez une demande de support. En savoir plus sur l’Agent d’administration [ici](whatis-aadc-admin-agent.md). 
+- Mise à jour le contrat de licence utilisateur final (CLUF) 
+- Prise en charge automatique mise à niveau pour les déploiements qui utilisent AD FS en tant que leur type de connexion.  Cela a également de mise à jour de l’AD FS Azure AD de confiance dans le cadre du processus de mise à niveau. 
+- Ajouter une tâche de gestion de confiance Azure AD qui fournit deux options : analyser/mettre à jour le niveau de confiance et réinitialiser l’approbation. 
+- Modifié le comportement d’approbation de partie de confiance AD FS Azure AD afin qu’il utilise toujours le commutateur - SupportMultipleDomain (inclut l’approbation et domaine Azure Active Directory mises à jour). 
+- Modifié le comportement de batterie de serveurs installer nouveau AD FS afin que celle-ci demande un certificat .pfx en supprimant la possibilité d’utiliser un certificat préalablement installé.
+- Mise à jour le workflow de batterie de serveurs installer nouveau AD FS afin qu’elle vous permet uniquement de déploiement ADFS 1 et 1 serveur WAP.  Tous les serveurs supplémentaires se fera après l’installation initiale. 
+
+### <a name="fixed-issues"></a>Problèmes résolus 
+
+
+- Correctif SQL se reconnecter logique pour le service ADSync 
+- Correctif pour permettre l’installation propre à l’aide d’une base de données vide SQL AOA 
+- Corriger le script PS autorisations permettant d’affiner les autorisations GWB 
+- Corriger les erreurs VSS avec la base de données locale  
+- Corriger le message d’erreur trompeur lorsque le type d’objet n’est pas dans la portée 
+- Correction d’un problème où l’installation d’Azure AD PowerShell sur un serveur peut éventuellement provoquer un conflit d’assembly avec Azure AD Connect. 
+- Correction du bogue PHS sur le serveur intermédiaire lorsque les informations d’identification du connecteur sont mis à jour dans l’interface utilisateur ancien. 
+- Correction des fuites de mémoire 
+- Divers correctifs de mise à niveau automatique 
+- Divers correctifs à exporter et au traitement d’importation non confirmée 
+- Correction d’un bogue avec la gestion d’une barre oblique inverse dans le domaine et unité d’organisation de filtrage 
+- Correction d’un problème où le service ADSync prend plus de 2 minutes pour arrêter et provoque un problème au moment de la mise à niveau. 
+
+
+
 
 ## <a name="12700"></a>1.2.70.0
 

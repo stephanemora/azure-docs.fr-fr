@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: 5f6708a9c22939395f992c2ac58a7e510b35f763
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 32ad4434db8c2816fe7792b1b851e020021d543a
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317270"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447105"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Déploiement et gestion des topologies Apache Storm sur Azure HDInsight 
 
@@ -23,7 +23,6 @@ Ce document présente les principes fondamentaux de la gestion et du monitoring 
 > [!IMPORTANT]  
 > Les étapes décrites dans cet article nécessitent un cluster Storm Linux sur HDInsight. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement). 
 >
-> Pour plus d’informations sur le déploiement et la supervision des topologies sur HDInsight Windows, consultez [Déploiement et gestion des topologies Apache Storm sur HDInsight Windows](apache-storm-deploy-monitor-topology.md).
 
 
 ## <a name="prerequisites"></a>Conditions préalables

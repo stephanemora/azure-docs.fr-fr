@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: mcollier
 ms.subservice: ''
-ms.openlocfilehash: 12c0ee08435ca4b3077bc3a8c28b217ebaf70e08
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f47e9fd8842f9884ced290385e5f647fac57bc13
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993322"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484980"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Procédure pas à pas d’utilisation de l’API REST d’Azure Monitor
 
@@ -31,7 +31,7 @@ La première étape consiste à authentifier la requête.
 
 Toutes les tâches exécutées sur l’API Azure Monitor utilisent le modèle d’authentification d’Azure Resource Manager. Ainsi, toutes les requêtes doivent être authentifiées avec Azure Active Directory (Azure AD). Une approche pour authentifier l’application client consiste à créer un principal du service Azure AD et récupérer le jeton d’authentification (JWT). L’exemple de script suivant illustre la création d’un principal de service Azure AD via PowerShell. Pour une présentation plus détaillée, reportez-vous à la documentation sur [l’utilisation d’Azure PowerShell pour créer un principal de service pour accéder aux ressources](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps). Il est également possible de [créer un principal du service sur le portail Azure](../../active-directory/develop/howto-create-service-principal-portal.md).
 
-```PowerShell
+```powershell
 $subscriptionId = "{azure-subscription-id}"
 $resourceGroupName = "{resource-group-name}"
 
@@ -60,7 +60,7 @@ New-AzRoleAssignment -RoleDefinitionName Reader `
 
 Pour interroger l’API Azure Monitor, l’application client doit utiliser le principal de service créé précédemment pour s’authentifier. L’exemple de script PowerShell suivant montre une approche utilisant la [bibliothèque d’authentification Active Directory](../../active-directory/develop/active-directory-authentication-libraries.md) (ADAL) pour obtenir le jeton d’authentification JWT. Le jeton JWT est passé en tant que partie d’un paramètre d’autorisation HTTP dans les demandes à l’API REST Azure Monitor.
 
-```PowerShell
+```powershell
 $azureAdApplication = Get-AzADApplication -IdentifierUri "https://localhost/azure-monitor"
 
 $subscription = Get-AzSubscription -SubscriptionId $subscriptionId
@@ -102,7 +102,7 @@ Utilisez [l’API REST de définitions de mesures Azure Monitor](https://docs.mi
 
 Par exemple, pour récupérer les définitions des métriques pour un compte Stockage Azure, la demande s’affiche comme suit :
 
-```PowerShell
+```powershell
 $request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metricDefinitions?api-version=2018-01-01"
 
 Invoke-RestMethod -Uri $request `
@@ -246,7 +246,7 @@ Utilisez le nom « valeur » de la métrique (et non « localizedValue ») pour 
 
 Par exemple, pour récupérer la liste des valeurs de dimension qui ont été émises pour la « dimension du nom de l’API » pour la métrique « Transactions », où la dimension GeoType = « Primary » pendant l’intervalle de temps spécifié, la requête se présente comme suit :
 
-```PowerShell
+```powershell
 $filter = "APIName eq '*' and GeoType eq 'Primary'"
 $request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metrics?metricnames=Transactions&timespan=2018-03-01T00:00:00Z/2018-03-02T00:00:00Z&resultType=metadata&`$filter=${filter}&api-version=2018-01-01"
 Invoke-RestMethod -Uri $request `
@@ -319,7 +319,7 @@ Utilisez la valeur « value » du nom de la métrique (et non « localizedValue 
 
 Par exemple, pour récupérer les 3 premières API, dans l’ordre décroissant des valeurs, par le nombre de « Transactions » pendant une plage de 5 minutes, où le GeotType était « Principal », la requête se présente comme suit :
 
-```PowerShell
+```powershell
 $filter = "APIName eq '*' and GeoType eq 'Primary'"
 $request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metrics?metricnames=Transactions&timespan=2018-03-01T02:00:00Z/2018-03-01T02:05:00Z&`$filter=${filter}&interval=PT1M&aggregation=Total&top=3&orderby=Total desc&api-version=2018-01-01"
 Invoke-RestMethod -Uri $request `
@@ -398,7 +398,7 @@ Utilisez [l’API REST de définitions de mesures Azure Monitor](https://msdn.mi
 
 Par exemple, pour récupérer les définitions des métriques pour une application logique Azure, la demande ressemble à ce qui suit :
 
-```PowerShell
+```powershell
 $request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/microsoft.insights/metricDefinitions?api-version=2016-03-01"
 
 Invoke-RestMethod -Uri $request `
@@ -471,7 +471,7 @@ Une fois les définitions de mesures disponibles connues, il est possible de ré
 
 Par exemple, pour retrouver les points de données de mesure RunsSucceeded pour la plage de temps spécifiée et avec un fragment de temps de 1 heure, la requête est la suivante :
 
-```PowerShell
+```powershell
 $filter = "(name.value eq 'RunsSucceeded') and aggregationType eq 'Total' and startTime eq 2017-08-18T19:00:00 and endTime eq 2017-08-18T23:00:00 and timeGrain eq duration'PT1H'"
 $request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/microsoft.insights/metrics?`$filter=${filter}&api-version=2016-09-01"
 Invoke-RestMethod -Uri $request `
@@ -519,7 +519,7 @@ Le corps de réponse JSON résultant doit ressembler à l’exemple suivant :
 
 Pour récupérer plusieurs points de données ou d’agrégation, ajoutez les noms de définition de mesure et les types d’agrégation au filtre, comme illustré dans l’exemple suivant :
 
-```PowerShell
+```powershell
 $filter = "(name.value eq 'ActionsCompleted' or name.value eq 'RunsSucceeded') and (aggregationType eq 'Total' or aggregationType eq 'Average') and startTime eq 2017-08-18T21:00:00 and endTime eq 2017-08-18T21:30:00 and timeGrain eq duration'PT1M'"
 $request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/microsoft.insights/metrics?`$filter=${filter}&api-version=2016-09-01"
 Invoke-RestMethod -Uri $request `
@@ -631,7 +631,7 @@ L’ID de ressource peut également être obtenu à partir du portail Azure. Pou
 
 L’ID de ressource peut également être récupéré à l’aide des applets de commande d’Azure PowerShell. Par exemple, pour obtenir l’ID de ressource pour une application logique Azure, exécutez la cmdlet Get-AzureLogicApp, comme dans l’exemple suivant :
 
-```PowerShell
+```powershell
 Get-AzLogicApp -ResourceGroupName azmon-rest-api-walkthrough -Name contosotweets
 ```
 
@@ -710,7 +710,7 @@ Le résultat doit être similaire à l’exemple suivant :
 
 Outre les définitions des métriques et les valeurs associées, il est également possible d’utiliser l’API REST d’Azure Monitor pour récupérer des insights supplémentaires intéressants relatifs aux ressources Azure. Par exemple, il est possible d’obtenir les données du [journal d’activité](https://msdn.microsoft.com/library/azure/dn931934.aspx) par requête. L’exemple suivant montre comment utiliser des API REST Azure Monitor pour demander des données de journal d’activité au sein d’une plage de dates spécifique pour un abonnement Azure :
 
-```PowerShell
+```powershell
 $apiVersion = "2015-04-01"
 $filter = "eventTimestamp ge '2017-08-18' and eventTimestamp le '2017-08-19'and eventChannels eq 'Admin, Operation'"
 $request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/microsoft.insights/eventtypes/management/values?api-version=${apiVersion}&`$filter=${filter}"

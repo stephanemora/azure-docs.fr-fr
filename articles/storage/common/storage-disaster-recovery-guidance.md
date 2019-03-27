@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: e14e35cc8589bb524bae791ccd74952da90bdb04
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: f0963e7f558de7b591576a49a74750d6697d7127
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871534"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486046"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Reprise d’activité après sinistre et basculement de compte de stockage (préversion) dans Stockage Azure
 
@@ -121,14 +121,14 @@ La préversion est destinée uniquement à une utilisation hors production. Les 
 
 Pour vous inscrire à la préversion, exécutez les commandes suivantes dans PowerShell. N’oubliez pas de remplacer l’espace réservé entre crochets par votre propre ID d’abonnement :
 
-```PowerShell
+```powershell
 Connect-AzureRmAccount -SubscriptionId <subscription-id>
 Register-AzureRmProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
 Vous recevrez votre approbation pour la préversion sous un à deux jours. Pour vérifier que votre inscription a été approuvée, exécutez la commande suivante :
 
-```PowerShell
+```powershell
 Get-AzureRmProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
@@ -164,6 +164,7 @@ Les fonctionnalités et services suivants ne sont pas pris en charge pour le bas
 - Les comptes de stockage utilisant l’espace de noms hiérarchique Azure Data Lake Storage Gen2 ne peuvent pas être basculés.
 - Un compte de stockage contenant des objets blob archivés ne peut pas être basculé. Conservez les objets blob archivés dans un compte de stockage distinct que vous ne prévoyez pas de basculer.
 - Un compte de stockage contenant des objets blob de blocs premium ne peut pas être basculé. Les comptes de stockage qui prennent en charge les objets blob de blocs premium ne prennent pas en charge la géoredondance.
+- Une fois le basculement terminé les fonctionnalités suivantes ne fonctionnera plus si activé à l’origine : [Abonnements aux événements](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview), [des stratégies de cycle de vie](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts), [journalisation du stockage Analytique](https://docs.microsoft.com/rest/api/storageservices/about-storage-analytics-logging).
 
 ## <a name="copying-data-as-an-alternative-to-failover"></a>Copie de données comme alternative au basculement
 

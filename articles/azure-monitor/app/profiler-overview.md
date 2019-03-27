@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: c42de8cf189c0ebaf5f13ef5971ad91d14d862fb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c07b325f3de6cd2cf3aaa436736786d2cdc42881
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57850273"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498126"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Profiler des applications de production dans Azure avec Application Insights
 ## <a name="enable-application-insights-profiler-for-your-application"></a>Activer Application Insights Profiler pour votre application
@@ -75,7 +75,7 @@ Si **clr!ThePreStub** prend beaucoup de temps pour traiter une demande, la deman
 
 ### <a id="ngencold"></a>Code de chargement ([COLD])
 
-Si le nom de la méthode contient **[COLD]**, par exemple, **mscorlib.ni![COLD]System.Reflection.CustomAttribute.IsDefined**, le runtime du .NET Framework exécute pour la première fois du code qui n’utilise pas d’[optimisation guidée par profil](https://msdn.microsoft.com/library/e7k32f4k.aspx). Pour chaque méthode, il doit s’afficher au maximum une fois pendant le processus.
+Si le nom de la méthode contient **[COLD]**, par exemple, **mscorlib.ni![COLD]System.Reflection.CustomAttribute.IsDefined**, le runtime du .NET Framework exécute pour la première fois du code qui n’utilise pas d’[optimisation guidée par profil](/cpp/build/profile-guided-optimizations). Pour chaque méthode, il doit s’afficher au maximum une fois pendant le processus.
 
 Si le chargement du code prend beaucoup de temps pour une demande, la demande est la première à exécuter la partie non optimisée de la méthode. Vous pouvez envisager d’utiliser un processus de mise en route qui exécute cette partie du code avant que vos utilisateurs y accèdent.
 

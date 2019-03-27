@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: c032961bf89ba470a38ebccfd846659b080f9fab
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 034beeaaebb86786106f7884fc147ff15167538e
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58013224"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480717"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planification d’un déploiement de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -75,7 +75,7 @@ Avant de déployer l’agent Azure File Sync, vous devez évaluer s’il est com
 #### <a name="download-instructions"></a>Instructions de téléchargement
 1. Vérifier que la dernière version de PackageManagement et de PowerShellGet sont est installée (cela vous permet d’installer les modules de préversion)
     
-    ```PowerShell
+    ```powershell
         Install-Module -Name PackageManagement -Repository PSGallery -Force
         Install-Module -Name PowerShellGet -Repository PSGallery -Force
     ```
@@ -83,29 +83,29 @@ Avant de déployer l’agent Azure File Sync, vous devez évaluer s’il est com
 2. Redémarrer PowerShell
 3. Installer les modules
     
-    ```PowerShell
+    ```powershell
         Install-Module -Name Az.StorageSync -AllowPrerelease -AllowClobber -Force
     ```
 
 #### <a name="usage"></a>Usage  
 Vous pouvez appeler l’outil d’évaluation de différentes manières : vous pouvez effectuer les vérifications du système, les vérifications du jeu de données, ou les deux. Pour effectuer à la fois les vérifications du système et les vérifications du jeu de données : 
 
-```PowerShell
+```powershell
     Invoke-AzStorageSyncCompatibilityCheck -Path <path>
 ```
 
 Pour tester uniquement votre jeu de données :
-```PowerShell
+```powershell
     Invoke-AzStorageSyncCompatibilityCheck -Path <path> -SkipSystemChecks
 ```
  
 Pour tester uniquement la configuration requise :
-```PowerShell
+```powershell
     Invoke-AzStorageSyncCompatibilityCheck -ComputerName <computer name>
 ```
  
 Pour afficher les résultats au format CSV :
-```PowerShell
+```powershell
     $errors = Invoke-AzStorageSyncCompatibilityCheck […]
     $errors | Select-Object -Property Type, Path, Level, Description | Export-Csv -Path <csv path>
 ```

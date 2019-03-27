@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: bee02549d68b1dbdba3f0e62477b28bbd475ea32
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 379e73c33aa4570c3e56f902b011d75944c94a8d
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402488"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497895"
 ---
-# <a name="automatically-scale-session-hosts"></a>Hôtes de session de mise à l’échelle automatiquement
+# <a name="automatically-scale-session-hosts"></a>Mettre automatiquement à l’échelle vos hôtes de session
 
 Pour de nombreux déploiements de Windows Virtual Desktop Preview dans Azure, les coûts de la machine virtuelle représentent une partie significative du coût de déploiement de bureau virtuel Windows total. Pour réduire les coûts, il est préférable d’arrêter et désallouer session héberger des ordinateurs virtuels (VM) pendant les heures creuses, puis redémarrez-les pendant les heures de pointe.
 
@@ -81,7 +81,7 @@ Entrez les valeurs appropriées dans les champs suivants pour mettre à jour les
 | currentAzureSubscriptionId    | L’ID de l’abonnement Azure dans lequel exécuter des machines virtuelles de l’hôte de session                        |
 | tenantName                    | Nom de client de bureau virtuel Windows                                                    |
 | hostPoolName                  | Nom du pool hôte bureau virtuel Windows                                                 |
-| RDBroker                      | URL du service WVD, valeur par défaut <https://rdbroker.wvd.microsoft.com>             |
+| RDBroker                      | URL du service WVD, par défaut la valeur https :\//rdbroker.wvd.microsoft.com             |
 | Nom d’utilisateur                      | L’ID d’application du principal du service (il est possible d’avoir le même principal de service comme dans AADApplicationId) ou d’un utilisateur standard sans authentification multifacteur |
 | isServicePrincipal            | Valeurs acceptées sont **true** ou **false**. Indique si le deuxième ensemble d’informations d’identification utilisé est un principal de service ou un compte standard. |
 | BeginPeakTime                 | Lorsque les heures de pointe commence                                                            |

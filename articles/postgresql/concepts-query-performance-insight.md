@@ -5,27 +5,24 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/26/2018
-ms.openlocfilehash: 1a71fb81acc91036ce12ff15f6b2762b808c7473
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.date: 03/26/2019
+ms.openlocfilehash: 69963f34cb49482cc7eae25320a6a3a5f176f8dd
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53541611"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486577"
 ---
 # <a name="query-performance-insight"></a>Query Performance Insight 
 
 **S’applique à :** Azure Database pour PostgreSQL 9.6 et 10
-
-> [!IMPORTANT]
-> La fonctionnalité Query Performance Insight est en préversion publique. 
 
 L’analyse des performances des requêtes vous aide à identifier rapidement vos requêtes les plus longues, comment elles évoluent au fil du temps et les attentes qui les affectent.
 
 ## <a name="permissions"></a>Autorisations
 Les autorisations **Propriétaire** ou **Contributeur** sont nécessaires pour voir le texte des requêtes dans l’analyse des performances des requêtes. Un **Lecteur** peut voir les graphiques et les tableaux, mais pas le texte des requêtes.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Pour que l’analyse des performances des requêtes puisse fonctionner, des données doivent exister dans le [Magasin des requêtes](concepts-query-store.md).
 
 ## <a name="viewing-performance-insights"></a>Affichage d’une analyse des performances

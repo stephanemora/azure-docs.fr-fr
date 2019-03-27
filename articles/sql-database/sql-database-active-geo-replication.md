@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: cb83f0c38f6860340444c15b6c5eef0b990d0ad0
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.date: 03/26/2019
+ms.openlocfilehash: ca53f4bfa80d6fdead24dc7d562c2240bb3fa86d
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295247"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498483"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Création et utilisation de géo-réplication active
 
@@ -75,8 +75,11 @@ Pour assurer vraiment la continuité des activités, l’ajout d’une redondanc
 
   Une application peut accéder à une base de données secondaire pour des opérations en lecture seule avec des principaux de sécurité identiques ou différents de ceux utilisés pour accéder à la base de données primaire. Les bases de données secondaires fonctionnent en mode d’isolement d’instantané pour garantir que la réplication des mises à jour de la base de données primaire n’est pas retardée par des requêtes exécutées sur la base de données secondaire.
 
-  > [!NOTE]
-  > La relecture du journal est différée sur la base de données secondaire s’il existe des mises à jour de schéma sur le Principal. Cette dernière nécessite un verrouillage de schéma sur la base de données secondaire.
+> [!NOTE]
+> La relecture du journal est différée sur la base de données secondaire s’il existe des mises à jour de schéma sur le Principal. Cette dernière nécessite un verrouillage de schéma sur la base de données secondaire.
+> [!IMPORTANT]
+> Vous pouvez utiliser la géo-réplication pour créer une base de données secondaire dans la même région que le réplica principal. Vous pouvez utiliser cette base de données secondaire pour les charges de travail de l’équilibrage de charge en lecture seule dans la même région. Toutefois, une base de données secondaire dans la même région ne fournit pas de résilience aux défaillances supplémentaires et par conséquent n’est pas une cible de basculement approprié pour la récupération d’urgence. Il ne garantira également pas d’isolation de zone avaialability. Utiliser critique pour l’entreprise ou niveau de service Premium avec [configuration de zone redondante](sql-database-high-availability.md#zone-redundant-configuration) à isoler la zone avaialability.   
+>
 
 - **Basculement planifié**
 

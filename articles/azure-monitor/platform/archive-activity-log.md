@@ -8,22 +8,17 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: nikiest
 ms.subservice: logs
-ms.openlocfilehash: 5328173090bce3e3adf51a1503e18c8da5532b0e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: b6009471048232b52020e4bef6272ed8cb1bd35b
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310898"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497752"
 ---
 # <a name="archive-the-azure-activity-log"></a>Archiver le journal d’activité Azure
 Dans cet article, nous vous expliquons comment vous pouvez utiliser le portail Azure, les applets de commande PowerShell ou l’interface de ligne de commande multiplateforme pour archiver votre [**journal d’activité Azure dans un compte de stockage**](../../azure-monitor/platform/activity-logs-overview.md). Cette option est utile si vous souhaitez conserver votre journal d’activité pendant une période supérieure à 90 jours (en disposant d’un contrôle total sur la stratégie de rétention) à des fins d’audit, d’analyse statique ou de sauvegarde. Si vous devez conserver vos événements pendant 90 jours ou moins, il est inutile de configurer l’archivage sur un compte de stockage, puisque les événements du journal d’activité sont conservés dans la plateforme Azure pendant 90 jours sans que l’archivage ne soit activé.
 
-> [!WARNING]
-> À compter du 1er novembre 2018, le format des données de journal dans le compte de stockage deviendra JSON Lines. [Consultez cet article pour en savoir plus sur les conséquences liées à ce changement et pour découvrir comment mettre à jour vos outils pour qu’ils gèrent ce nouveau format.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
->
-> 
-
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Avant de commencer, vous devez [créer un compte de stockage](../../storage/common/storage-quickstart-create-account.md) sur lequel vous pouvez archiver votre journal d’activité. Nous vous recommandons vivement de ne pas utiliser un compte de stockage existant sur lequel sont stockées d’autres données de non-analyse, afin de pouvoir mieux contrôler l’accès aux données d’analyse. En revanche, si vous archivez également des journaux de diagnostic et des métriques sur un compte de stockage, il peut être judicieux d’utiliser ce compte pour votre journal d’activité afin de regrouper toutes vos données d’analyse au même emplacement. Il n’est pas nécessaire que le compte de stockage se trouve dans le même abonnement que l’abonnement générant des journaux, à condition que l’utilisateur qui configure le paramètre ait un accès RBAC approprié aux deux abonnements.
 
 ## <a name="log-profile"></a>Profil de journal
@@ -65,7 +60,7 @@ Pour archiver le journal d’activité à l’aide de l’une des méthodes ci-d
 | --- | --- | --- |
 | StorageAccountId |Oui |ID de ressource du compte de stockage dans lequel les journaux d’activité doivent être enregistrés. |
 | Emplacements |Oui |Liste séparée par des virgules des régions pour lesquelles vous souhaitez collecter les événements du journal d’activité. Vous pouvez voir une liste de toutes les régions pour votre abonnement à l’aide de `(Get-AzLocation).Location`. |
-| RetentionInDays |Non  |Nombre de jours pendant lesquels les événements doivent être conservés, compris entre 1 et 2147483647. Une valeur de zéro signifie que les journaux seront stockés pour une durée indéfinie (pour toujours). |
+| RetentionInDays |Non  |Nombre de jours pour les événements doivent être conservés, compris entre 1 et 365. Une valeur de zéro signifie que les journaux seront stockés pour une durée indéfinie (pour toujours). |
 | Catégories |Non  |Liste séparée par des virgules des catégories d’événements qui doivent être collectées. Les valeurs possibles sont Write, Delete et Action.  Si elles ne sont pas fournies, toutes les valeurs possibles sont supposées. |
 
 ## <a name="archive-the-activity-log-via-cli"></a>Archiver le journal d’activité avec l’interface de ligne de commande
@@ -79,7 +74,7 @@ Pour archiver le journal d’activité à l’aide de l’une des méthodes ci-d
 | Nom |Oui |Nom de votre profil de journal. |
 | storage-account-id |Oui |ID de ressource du compte de stockage dans lequel les journaux d’activité doivent être enregistrés. |
 | Emplacements |Oui |Liste, séparée par des espaces, des régions pour lesquelles vous souhaitez collecter les événements du journal d’activité. Vous pouvez voir une liste de toutes les régions pour votre abonnement à l’aide de `az account list-locations --query [].name`. |
-| days |Oui |Nombre de jours pendant lesquels les événements doivent être conservés, compris entre 1 et 2147483647. Une valeur de zéro signifie que les journaux seront stockés pour une durée indéfinie (pour toujours).  Si zéro est spécifié, le paramètre activé doit être défini sur true. |
+| days |Oui |Nombre de jours pour les événements doivent être conservés, compris entre 1 et 365. Une valeur de zéro signifie que les journaux seront stockés pour une durée indéfinie (pour toujours).  Si zéro est spécifié, le paramètre activé doit être défini sur true. |
 |Activé | Oui |True ou False.  Utilisée pour activer ou désactiver la stratégie de rétention.  Si la valeur est True, le paramètre days doit être une valeur supérieure à 0.
 | Catégories |Oui |Liste, séparée par des espaces, des catégories d’événements qui doivent être collectées. Les valeurs possibles sont Write, Delete et Action. |
 

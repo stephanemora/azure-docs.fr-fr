@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 16455719f05688793e2aee6f10fa00a707d553c0
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 4fce8eae25942d098bb3f3277938bfaa3dafa00b
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469532"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499186"
 ---
 # <a name="interact-with-the-map---mouse-events"></a>Interagir avec la carte - Événements de souris
 
@@ -51,7 +51,7 @@ En savoir plus sur les classes et les méthodes utilisées dans cet article :
 Pour voir des exemples de codes complets, consultez les articles suivants :
 
 > [!div class="nextstepaction"]
-> [Afficher les résultats de la recherche](./map-search-location.md)
+> [L’utilisation du module de Services de Azure Maps](./how-to-use-services-module.md)
 
 > [!div class="nextstepaction"]
 > [Page d’exemples de code](https://aka.ms/AzureMapsSamples)

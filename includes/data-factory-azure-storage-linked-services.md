@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: f7c189c59b5098ef22491a914a618afda2b5f51e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: b8585b62b0728d1ba6e010e42b44840903c46833
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554730"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500863"
 ---
 ### <a name="azure-storage-linked-service"></a>Service lié Stockage Azure
 Le **service lié Stockage Azure** vous permet de lier un compte de stockage Azure à une fabrique de données Azure à l’aide de la **clé de compte**, qui permet à la fabrique de données d’avoir un accès global au Stockage Azure. Le tableau suivant fournit la description des éléments JSON spécifiques au service lié Azure Storage.
@@ -42,8 +42,8 @@ Une signature d’accès partagé (SAP) fournit un accès délégué aux ressour
 > Azure Data Factory prend maintenant uniquement en charge la **signature d’accès partagé SAS**, et pas la signature d’accès partagé du compte. Pour plus d’informations sur ces deux types et leur construction, consultez [Types de signatures d’accès partagé](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures) . Notez l’URL SAS qu’il est possible de générer à partir du portail Azure ou l’Explorateur de stockage est une signature d’accès partagé de compte qui n’est pas prise en charge.
 
 > [!TIP]
-> Vous pouvez exécuter les commandes PowerShell ci-dessous pour générer un SAP de service pour votre compte de stockage (remplacez les espaces réservés et accordez l’autorisation nécessaire) : `$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
-> `New-AzureStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
+> Vous pouvez exécuter les commandes PowerShell ci-dessous pour générer un SAP de service pour votre compte de stockage (remplacez les espaces réservés et accordez l’autorisation nécessaire) : `$context = New-AzStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
+> `New-AzStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
 Le service lié Stockage Azure SAS vous permet de lier un compte de stockage Azure à une fabrique de données Azure à l’aide d’une signature d’accès partagé (SAP). Ainsi, la fabrique de données dispose d’un accès restreint ou limité dans le temps à tout ou partie des ressources (objet blob/conteneur) dans le stockage. Le tableau suivant fournit la description des éléments JSON spécifiques au service lié Azure Storage SAS. 
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51f214688aa1e33bd58e8460baab75228d7c5d1a
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 12cbd9bebf001eb902147175c89b5d7ce49e8449
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317236"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487225"
 ---
 # <a name="azure-ad-password-protection-troubleshooting"></a>Résolution de problèmes de protection par mot de passe Azure AD
 
@@ -105,7 +105,7 @@ S’il est décidé de désinstaller le logiciel de protection de mot de passe A
 2. Désinstallez le logiciel de l’agent DC sur tous les contrôleurs de domaine. Cette étape **requiert** un redémarrage.
 3. Supprimez manuellement tous les points de connexion du service Proxy dans chaque contexte de nommage de domaine. Vous pouvez détecter l’emplacement de ces objets avec la commande PowerShell Active Directory suivante :
 
-   ```PowerShell
+   ```powershell
    $scp = "serviceConnectionPoint"
    $keywords = "{ebefb703-6113-413d-9167-9f8dd4d24468}*"
    Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
@@ -117,7 +117,7 @@ S’il est décidé de désinstaller le logiciel de protection de mot de passe A
 
 4. Supprimez manuellement tous les points de connexion d’agent DC dans chaque contexte de nommage de domaine. Il existe peut-être un ces objets par le contrôleur de domaine dans la forêt, selon la portée d’application le logiciel a été déployé. Vous pouvez détecter l’emplacement de cet objet avec la commande PowerShell Active Directory suivante :
 
-   ```PowerShell
+   ```powershell
    $scp = "serviceConnectionPoint"
    $keywords = "{2bac71e6-a293-4d5b-ba3b-50b995237946}*"
    Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
@@ -129,7 +129,7 @@ S’il est décidé de désinstaller le logiciel de protection de mot de passe A
 
 5. Supprimez manuellement l’état de configuration au niveau de la forêt. L’état de configuration de la forêt est conservé dans un conteneur du contexte de nommage de configuration Active Directory. Il peut être détecté et supprimé comme suit :
 
-   ```PowerShell
+   ```powershell
    $passwordProtectionConfigContainer = "CN=Azure AD Password Protection,CN=Services," + (Get-ADRootDSE).configurationNamingContext
    Remove-ADObject -Recursive $passwordProtectionConfigContainer
    ```

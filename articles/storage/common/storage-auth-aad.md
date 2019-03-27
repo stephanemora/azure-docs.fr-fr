@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ff543b7275ab05a83b1be1d156cbc6059a3b5430
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 08fdc20df70e4a97dd0cb99468354ef2b5c51f2b
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369887"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447031"
 ---
 # <a name="authenticate-access-to-azure-blobs-and-queues-using-azure-active-directory"></a>Authentifier l’accès aux objets BLOB Azure et files d’attente à l’aide d’Azure Active Directory
 
@@ -22,8 +22,6 @@ Le Stockage Azure prend en charge l’authentification et l’autorisation avec 
 L’authentification des utilisateurs et des applications à l’aide des informations d’identification Azure AD est plus sécurisée et plus facile à utiliser que les autres modes d’autorisation. Même si vous pouvez continuer à utiliser l’autorisation de clé partagée avec vos applications, avec Azure AD, vous n’avez plus besoin de stocker votre clé d’accès de compte avec votre code. Vous pouvez également continuer à utiliser des signatures d’accès partagé (SAP) pour accorder un accès affiné aux ressources de votre compte de stockage. Toutefois, Azure AD offre des fonctionnalités similaires sans nécessiter de gestion des jetons SAP, ni de révocation des SAP compromises. Dans la mesure du possible, Microsoft recommande d’utiliser l’authentification Azure AD pour les applications Stockage Azure.
 
 Authentification et autorisation avec les informations d’identification Azure AD est disponible pour tous les v2 à usage général v1 à usage général et comptes de stockage d’objets Blob dans toutes les régions publiques. Seuls les comptes de stockage créé avec la prise en charge du modèle de déploiement Azure Resource Manager d’Azure AD.
-
-[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
 ## <a name="overview-of-azure-ad-for-blobs-and-queues"></a>Vue d’ensemble d’Azure AD pour les objets BLOB et files d’attente
 
@@ -41,7 +39,11 @@ Lorsqu’un rôle RBAC est attribué à un principal de sécurité Azure AD, Azu
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
-Pour savoir comment affecter un rôle intégré dans le portail Azure, consultez [accorder l’accès aux conteneurs Azure et de files d’attente avec RBAC dans le portail Azure](storage-auth-aad-rbac.md).
+Pour savoir comment affecter une RBAC intégrée pour les ressources de stockage Azure, consultez une des rubriques suivantes :
+
+- [Accorder l’accès aux données blob et file d’attente Azure avec RBAC dans le portail Azure](storage-auth-aad-rbac-portal.md)
+- [Accorder l’accès à des données d’objet blob et file d’attente Azure avec RBAC à l’aide d’Azure CLI](storage-auth-aad-rbac-cli.md)
+- [Accorder l’accès à des données d’objet blob et file d’attente Azure avec RBAC à l’aide de PowerShell](storage-auth-aad-rbac-powershell.md)
 
 ### <a name="access-permissions-granted-by-rbac-roles"></a>Autorisations d’accès accordées par les rôles RBAC 
 
@@ -49,7 +51,6 @@ Pour plus d’informations sur les autorisations nécessaires pour appeler des o
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Accorder l’accès à des conteneurs Azure et files d’attente avec RBAC dans le portail Azure](storage-auth-aad-rbac.md)
 - [S’authentifier auprès d’Azure Active Directory à partir d’une application pour accéder aux objets blob et aux files d’attente](storage-auth-aad-app.md)
 - [Authentifier l’accès aux objets BLOB et files d’attente avec des identités gérées pour les ressources Azure](storage-auth-aad-msi.md)
-- [Utiliser une identité Azure AD pour accéder au stockage Azure avec CLI ou PowerShell](storage-auth-aad-script.md)
+- Azure Files prend en charge l’authentification avec Azure AD sur SMB uniquement pour les machines virtuelles jointes au domaine (préversion). Pour en savoir plus sur l’utilisation d’Azure AD sur SMB pour Azure Files, consultez [Vue d’ensemble de l’authentification Azure Active Directory sur SMB pour Azure Files (préversion)](../files/storage-files-active-directory-overview.md).

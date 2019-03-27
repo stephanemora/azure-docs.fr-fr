@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 68f21ef70b402fe45613fdcbda3074bac1d4eb5a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: aa5f8aaef21967a23505c785eb8ef811cf5767cc
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464957"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486443"
 ---
 # <a name="addremove-an-azure-file-sync-server-endpoint"></a>Ajouter/supprimer un point de terminaison de serveur Azure File Sync
 Azure File Sync vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Pour ce faire, Azure File Sync transforme vos serveurs Windows en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible sur Windows Server pour accéder à vos données localement (y compris SMB, NFS et FTPS) et vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -22,7 +22,7 @@ Un *point de terminaison de serveur* représente un emplacement spécifique sur 
 
 Consultez [Comment déployer Azure File Sync](storage-sync-files-deployment-guide.md) pour plus d’informations sur comment déployer Azure File Sync de bout en bout.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Pour créer un point de terminaison de serveur, vous devez d’abord vérifier que les critères suivants sont remplis : 
 - L’agent de synchronisation de fichiers Azure est installé le serveur et ce dernier a été inscrit. Vous trouverez des instructions pour l’installation de l’agent Azure File Sync dans l’article [Inscrire/désinscrire un serveur auprès d’Azure File Sync](storage-sync-files-server-registration.md). 
 - Vérifiez qu’un service de synchronisation de stockage a été déployé. Consultez le [Guide pratique pour déployer Azure File Sync](storage-sync-files-deployment-guide.md) pour en savoir plus sur le déploiement d’un service de synchronisation de stockage. 
@@ -51,7 +51,7 @@ Si vous ne voulez plus utiliser Azure File Sync pour un point de terminaison de 
 
 Pour garantir que tous les fichiers hiérarchisés sont rappelés avant de supprimer le point de terminaison de serveur, désactivez la hiérarchisation cloud sur le point de terminaison de serveur, puis exécutez l’applet de commande PowerShell suivante pour rappeler tous les fichiers hiérarchisés au sein de l’espace de noms de votre point de terminaison de serveur :
 
-```PowerShell
+```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
 ```

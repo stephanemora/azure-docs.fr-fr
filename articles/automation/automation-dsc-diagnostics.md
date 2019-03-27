@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8898280e887392591873f1fc832bfd0c105689fe
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0dad74f75fd7b73e7dab0b2dddbdfda193d5b2ec
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58097284"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445796"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>Transférer des données de rapport dans les journaux d’Azure Monitor la Configuration d’état Azure Automation
 
@@ -44,7 +44,7 @@ Pour commencer à envoyer vos rapports de Configuration d’état Automation dan
 
 Pour commencer l’importation de données à partir d’Azure Automation DSC dans les journaux Azure Monitor, procédez comme suit :
 
-1. Dans PowerShell, connectez-vous à votre compte Azure. Consultez [Log in with Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-4.0.0) (Se connecter avec Azure PowerShell).
+1. Dans PowerShell, connectez-vous à votre compte Azure. Consultez [Log in with Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps) (Se connecter avec Azure PowerShell).
 1. Obtenez le _ResourceId_ de votre compte Automation en exécutant la commande PowerShell suivante : (si vous avez plusieurs comptes Automation, choisissez le _ResourceID_ du compte que vous souhaitez configurer).
 
    ```powershell

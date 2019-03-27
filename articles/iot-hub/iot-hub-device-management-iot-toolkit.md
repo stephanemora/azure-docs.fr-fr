@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: junhan
-ms.openlocfilehash: 9b739fe3a8bd068d55009498b56f315b197769b1
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 03df2ceb2df4d857e48f1790703a1d87647e43d0
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727534"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445274"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-for-azure-iot-hub-device-management"></a>Utiliser Azure IoT Tools pour Visual Studio Code pour la gestion des appareils Azure IoT Hub
 
@@ -48,7 +48,7 @@ Exécuter Azure IoT Tools pour Visual Studio Code avec diverses options de gesti
 * Un abonnement Azure actif.
 * Une instance Azure IoT Hub associée à votre abonnement.
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [Azure IoT Tools pour VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
+* [Azure IoT Tools pour VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) ou [ouvrir ce lien dans Visual Studio Code](vscode:extension/vsciot-vscode.azure-iot-tools).
 
 ## <a name="sign-in-to-access-your-iot-hub"></a>Se connecter pour accéder à votre hub ioT
 

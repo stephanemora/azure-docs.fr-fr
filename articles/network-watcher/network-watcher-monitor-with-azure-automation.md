@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: a102916bb0626f5b110fb134a8a25c902cfaefe7
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: 4995d7ae846652c374a289603f29f88f6f56dfef
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31598130"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485491"
 ---
 # <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>Surveiller les passerelles VPN à l’aide de la résolution des problèmes Network Watcher
 
@@ -84,7 +84,7 @@ Dans cette étape, le runbook est créé. L’exemple de code suivant fournit to
 
 Utilisez le code suivant et cliquez sur **Enregistrer**.
 
-```PowerShell
+```powershell
 # Set these variables to the proper values for your environment
 $o365AutomationCredential = "<Office 365 account>"
 $fromEmail = "<from email address>"

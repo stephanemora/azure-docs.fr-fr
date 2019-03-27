@@ -3,7 +3,7 @@ title: Cesser d’utiliser l’extension de machine virtuelle identité gérée 
 description: Procédure pas à obtenir des instructions détaillées à l’aide de l’extension de machine virtuelle, démarrez à l’aide de Azure Instance Metadata Service (IMDS) pour l’authentification.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/25/2018
-ms.author: priyamo
-ms.openlocfilehash: c29eb22f2606fc44cfd7d948f2c363cb51c811dd
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.author: markvi
+ms.openlocfilehash: 5b3c6c99b05320ee53c3ff49f5c299650c32e939
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227614"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498330"
 ---
 # <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>Procédure d’arrêt à l’aide de la machine virtuelle managed extension des identités et commencer à utiliser le Service de métadonnées Instance Azure
 
@@ -196,7 +196,7 @@ Il existe plusieurs limitations principales à l’aide de l’extension de mach
 
 ## <a name="azure-instance-metadata-service"></a>Service de métadonnées d’instance Azure
 
-Le [Azure Instance Metadata Service (IMDS)](https://docs.microsoft.com/azure/virtual-machines/instance-metadata-service) est un point de terminaison REST qui fournit des informations sur les instances de machine virtuelle qui peuvent être utilisées pour gérer et configurer vos machines virtuelles en cours d’exécution. Le point de terminaison est disponible sur une adresse IP non routable bien connue (`169.254.169.254`) qui est accessible uniquement à partir de la machine virtuelle.
+Le [Azure Instance Metadata Service (IMDS)](/azure/virtual-machines/windows/instance-metadata-service) est un point de terminaison REST qui fournit des informations sur les instances de machine virtuelle qui peuvent être utilisées pour gérer et configurer vos machines virtuelles en cours d’exécution. Le point de terminaison est disponible sur une adresse IP non routable bien connue (`169.254.169.254`) qui est accessible uniquement à partir de la machine virtuelle.
 
 Il existe plusieurs avantages à l’utilisation d’Azure IMDS pour demander des jetons. 
 

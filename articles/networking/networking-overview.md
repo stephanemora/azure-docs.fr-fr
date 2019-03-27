@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: c37e2357038e4f711b015fda80a0de8c4dbd9498
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 02db9f2b8cb2ec71d23ad077b90eeacb905d2a16
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880923"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445641"
 ---
 # <a name="azure-networking"></a>Mise en réseau Azure
 
@@ -34,7 +34,7 @@ Azure fournit un éventail de fonctionnalités de mise en réseau qui peuvent ê
 - [Facilité de gestion](#manageability) : Surveillez et gérez vos ressources réseau Azure.
 - [Outils de déploiement et de configuration](#tools) : Utilisez un portail web ou des outils de ligne de commande multiplateforme pour déployer et configurer les ressources réseau.
 
-## <a name="Connectivity"></a>Connectivité entre les ressources Azure
+## <a name="connectivity"></a>Connectivité entre les ressources Azure
 
 Les ressources Azure, comme les machines virtuelles, les services de cloud computing, les jeux de mise à l’échelle de machines virtuelles et les environnements Azure App Service peuvent communiquer en privé entre elles via un réseau virtuel Azure. Il s’agit d’un isolement logique du cloud Azure dédié à votre [abonnement](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fnetworking%2ftoc.json). Vous pouvez implémenter plusieurs réseaux virtuels au sein de chaque abonnement Azure et de chaque [région](https://azure.microsoft.com/regions) Azure. Chaque réseau virtuel est isolé des autres réseaux virtuels. Pour chaque réseau virtuel, vous pouvez :
 
@@ -150,7 +150,7 @@ Azure fournit les outils suivants pour surveiller et gérer la mise en réseau 
 Vous pouvez déployer et configurer les ressources réseau Azure avec un des outils suivants :
 
 - **Portail Azure :** Une interface utilisateur graphique qui s’exécute dans un navigateur. Ouvrez le [portail Azure](https://portal.azure.com).
-- **Azure PowerShell :** Des outils en ligne de commande pour la gestion d’Azure à partir d’ordinateurs Windows. Apprenez-en davantage sur Azure PowerShell en lisant l’article [Vue d’ensemble d’Azure PowerShell](/powershell/azure/overview?view=azurermps-3.8.0?toc=%2fazure%2fnetworking%2ftoc.json).
+- **Azure PowerShell :** Des outils en ligne de commande pour la gestion d’Azure à partir d’ordinateurs Windows. Apprenez-en davantage sur Azure PowerShell en lisant l’article [Vue d’ensemble d’Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fnetworking%2ftoc.json).
 - **Interface de ligne de commande (CLI) Azure :** Des outils en ligne de commande pour la gestion d’Azure à partir d’ordinateurs Linux, macOS ou Windows. Apprenez-en davantage sur l’interface CLI Azure en lisant l’article [Vue d’ensemble de l’interface CLI Azure](/cli/azure/get-started-with-azure-cli?toc=%2fazure%2fnetworking%2ftoc.json).
 - **Modèles Azure Resource Manager :** Un fichier (au format JSON) définissant l’infrastructure et la configuration d’une solution Azure. Un modèle vous permet de déployer votre solution à plusieurs reprises tout au long de son cycle de vie pour avoir la garantie que vos ressources présentent un état cohérent lors de leur déploiement. Pour en savoir plus sur la création de modèles, lisez les [Meilleures pratiques pour la création de modèles](../azure-resource-manager/resource-manager-template-best-practices.md?toc=%2fazure%2fnetworking%2ftoc.json). Les modèles peuvent être déployés avec le portail Azure, l’interface CLI ou PowerShell. Pour commencer à utiliser des modèles immédiatement, déployez un des nombreux modèles préconfigurés dans la bibliothèque [Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/?term=network). 
 

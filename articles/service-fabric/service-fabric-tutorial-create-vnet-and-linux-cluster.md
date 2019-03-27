@@ -3,7 +3,7 @@ title: Créer un cluster Service Fabric Linux dans Azure | Microsoft Docs
 description: Découvrez comment déployer un cluster Service Fabric Linux dans un réseau virtuel Azure existant à l’aide de l’interface Azure CLI.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/14/2019
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 780f87924bcd25f0485bfed1b9640915b7d8e1d3
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 890f7c207b373781c55e4261a58505d849298d82
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309467"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499146"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Déployer un cluster Service Fabric Linux dans un réseau virtuel Azure
 
@@ -34,6 +34,7 @@ Avant de commencer :
 * Installez l’[interface de ligne de commande (CLI) de Service Fabric](service-fabric-cli.md).
 * Installer [Azure CLI](/cli/azure/install-azure-cli)
 * Pour découvrir les concepts clés des clusters, consultez [Vue d’ensemble des clusters Azure](service-fabric-azure-clusters-overview.md)
+* [Planifier et préparer](service-fabric-cluster-azure-deployment-preparation.md) pour un déploiement de cluster de production.
 
 Les procédures suivantes créent un cluster Service Fabric à sept nœuds. Pour calculer le coût lié à l’exécution d’un cluster Service Fabric dans Azure, utilisez la [calculatrice de prix Azure](https://azure.microsoft.com/pricing/calculator/).
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: magoedte
-ms.openlocfilehash: b9a847f04048cd17d550ca66bd3e6502577746eb
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 4e91e193b3980901e7778a8826989e729517a29a
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878453"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481754"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Solution de gestion Application Insights Connector (déconseillée)
 
@@ -272,7 +272,7 @@ Cette solution ne dispose pas d’un ensemble d’exemples de recherches dans le
 ## <a name="removing-the-connector-with-powershell"></a>Suppression du connecteur avec PowerShell
 Une fois le portail OMS déconseillé, il ne sera pas possible de configurer et de supprimer les connexions existantes du portail. Vous pouvez supprimer des connexions existantes avec le script PowerShell suivant. Vous devez être le propriétaire ou le contributeur de l’espace de travail et lecteur de la ressource Application Insights pour effectuer cette opération.
 
-```PowerShell
+```powershell
 $Subscription_app = "App Subscription Name"
 $ResourceGroup_app = "App ResourceGroup"
 $Application = "Application Name"
@@ -289,7 +289,7 @@ Remove-AzureRmOperationalInsightsDataSource -WorkspaceName $Workspace -ResourceG
 
 Vous pouvez récupérer une liste d’applications avec le script PowerShell suivant, qui invoque un appel d’API REST. 
 
-```PowerShell
+```powershell
 Connect-AzureRmAccount
 $Tenant = "TenantId"
 $Subscription_workspace = "Workspace Subscription Name"

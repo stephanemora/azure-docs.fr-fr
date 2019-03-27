@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: 93ba17c58dfcb5955bafbcc63655778903f60c18
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2bf323b34c5a5301094bdecdc9fa705fe9077320
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076341"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482128"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Utiliser un partage de fichiers Azure avec Windows
 [Azure Files](storage-files-introduction.md) est le système de fichiers cloud facile à utiliser de Microsoft. Il est possible d’utiliser sans problème le partage de fichiers Azure dans Windows et Windows Server. Cet article décrit les considérations concernant l’utilisation d’un partage de fichiers Azure avec Windows et Windows Server.
@@ -49,7 +49,7 @@ Vous pouvez utiliser des partages de fichiers Azure sur une installation Window
 
     La code PowerShell suivant suppose que vous avez installé le module AzureRM PowerShell, consultez [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) (Installer un module Azure PowerShell) pour plus d’informations. N’oubliez pas de remplacer `<your-storage-account-name>` et `<your-resource-group-name>` avec les noms appropriés de votre compte de stockage.
 
-    ```PowerShell
+    ```powershell
     $resourceGroupName = "<your-resource-group-name>"
     $storageAccountName = "<your-storage-account-name>"
 
@@ -87,7 +87,7 @@ Un modèle commun pour délester et déplacer les applications métier (LOB) qui
 ### <a name="persisting-azure-file-share-credentials-in-windows"></a>Persistance des informations d’identification du partage de fichiers Azure dans Windows  
 L’utilitaire [cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) vous permet de stocker vos informations d’identification de compte de stockage dans Windows. Cela signifie que lorsque vous essayez d’accéder à un partage de fichiers Azure via son chemin d’accès UNC ou de monter le partage de fichiers Azure, vous n’aurez pas à spécifier les informations d’identification. Pour enregistrer les informations d’identification de votre compte de stockage, exécutez les commandes PowerShell suivantes, en remplaçant `<your-storage-account-name>` et `<your-resource-group-name>` lorsque cela est approprié.
 
-```PowerShell
+```powershell
 $resourceGroupName = "<your-resource-group-name>"
 $storageAccountName = "<your-storage-account-name>"
 
@@ -107,7 +107,7 @@ Invoke-Expression -Command ("cmdkey /add:$([System.Uri]::new($storageAccount.Con
 
 Vous pouvez vérifier que l’utilitaire cmdkey a stocké les informations d’identification du compte de stockage en utilisant le paramètre de liste :
 
-```PowerShell
+```powershell
 cmdkey /list
 ```
 
@@ -128,7 +128,7 @@ Il existe deux scénarios supplémentaires à prendre en considération avec cmd
 
 Stocker les informations d’identification pour un autre utilisateur sur la machine est très simple : lorsque vous êtes connecté à votre compte, exécutez tout simplement la commande PowerShell suivante :
 
-```PowerShell
+```powershell
 $password = ConvertTo-SecureString -String "<service-account-password>" -AsPlainText -Force
 $credential = New-Object System.Management.Automation.PSCredential -ArgumentList "<service-account-username>", $password
 Start-Process -FilePath PowerShell.exe -Credential $credential -LoadUserProfile
@@ -141,7 +141,7 @@ Il est toutefois impossible de stocker les informations d’identification sur u
 ### <a name="mount-the-azure-file-share-with-powershell"></a>Montage du partage de fichiers Azure avec PowerShell
 Exécutez les commandes suivantes à partir d’une session PowerShell régulière (sans élévation de privilèges) afin de monter le partage de fichiers Azure. N’oubliez pas de remplacer `<your-resource-group-name>`, `<your-storage-account-name>`, `<your-file-share-name>`, et `<desired-drive-letter>` avec les informations appropriées.
 
-```PowerShell
+```powershell
 $resourceGroupName = "<your-resource-group-name>"
 $storageAccountName = "<your-storage-account-name>"
 $fileShareName = "<your-file-share-name>"
@@ -172,7 +172,7 @@ New-PSDrive -Name <desired-drive-letter> -PSProvider FileSystem -Root "\\$($file
 
 Si vous le souhaitez, vous pouvez démonter le partage de fichiers Azure à l’aide de l’applet de commande PowerShell suivant.
 
-```PowerShell
+```powershell
 Remove-PSDrive -Name <desired-drive-letter>
 ```
 
@@ -252,7 +252,7 @@ Avant de supprimer SMB 1 de votre environnement, vous pouvez auditer l’utilisa
 
 Pour activer l’audit, exécutez l’applet de commande suivante à partir d’une session PowerShell avec élévation des privilèges :
 
-```PowerShell
+```powershell
 Set-SmbServerConfiguration –AuditSmb1Access $true
 ```
 
@@ -261,7 +261,7 @@ Set-SmbServerConfiguration –AuditSmb1Access $true
 
 Pour supprimer SMB 1 d’une instance Windows Server, exécutez l’applet de commande suivante à partir d’une session PowerShell avec élévation de privilèges :
 
-```PowerShell
+```powershell
 Remove-WindowsFeature -Name FS-SMB1
 ```
 
@@ -275,7 +275,7 @@ Pour terminer le processus de suppression, redémarrez votre serveur.
 
 Pour supprimer SMB 1 d’un client Windows, exécutez l’applet de commande suivante à partir d’une session PowerShell avec élévation de privilèges :
 
-```PowerShell
+```powershell
 Disable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
 ```
 
@@ -288,7 +288,7 @@ SMB 1 ne peut pas être complètement supprimé sur les versions héritées de W
 
 Vous pouvez le faire facilement avec la cmdlet PowerShell suivante :
 
-```PowerShell
+```powershell
 Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" SMB1 -Type DWORD -Value 0 –Force
 ```
 

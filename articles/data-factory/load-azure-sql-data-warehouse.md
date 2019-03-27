@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 7a478a9f73edae463a5dace1b1a28180e5d09bdc
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 6a7e0a27d3cda4193a04467d541f851a9e57fa46
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437732"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446735"
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Charger des données dans Azure SQL Data Warehouse à l’aide d’Azure Data Factory
 
@@ -45,10 +45,11 @@ Cet article explique comment utiliser l’outil de copie de données Data Factor
 
 ## <a name="create-a-data-factory"></a>Créer une fabrique de données
 
-1. Dans le menu de gauche, sélectionnez **Nouveau** > **Données + Analytique** > **Data Factory** : 
+1. Dans le menu de gauche, sélectionnez **créer une ressource** > **données + Analytique** > **Data Factory**: 
    
-   ![Créer une fabrique de données](./media/load-azure-sql-data-warehouse/new-azure-data-factory-menu.png)
-1. Sur la page **Nouvelle fabrique de données**, fournissez les valeurs des champs qui apparaissent dans l’image suivante :
+   ![Sélection Data Factory dans le volet « Nouveau »](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
+2. Sur la page **Nouvelle fabrique de données**, fournissez les valeurs des champs qui apparaissent dans l’image suivante :
       
    ![Page Nouvelle fabrique de données](./media/load-azure-sql-data-warehouse/new-azure-data-factory.png)
  
@@ -58,8 +59,8 @@ Cet article explique comment utiliser l’outil de copie de données Data Factor
     * **Version** : Sélectionnez **V2**.
     * **Emplacement** : Sélectionnez l’emplacement de la fabrique de données. Seuls les emplacements pris en charge sont affichés dans la liste déroulante. Les magasins de données utilisés par la fabrique de données peuvent se trouver dans d’autres emplacements et régions. Ces magasins de données incluent Azure Data Lake Store, le Stockage Azure, Microsoft Azure SQL Database, etc.
 
-1. Sélectionnez **Créer**.
-1. Une fois la création terminée, accédez à votre fabrique de données. La page d’accueil **Data Factory** devrait s’afficher comme dans l’image suivante :
+3. Sélectionnez **Créer**.
+4. Une fois la création terminée, accédez à votre fabrique de données. La page d’accueil **Data Factory** devrait s’afficher comme dans l’image suivante :
    
    ![Page d’accueil Data Factory](./media/load-azure-sql-data-warehouse/data-factory-home-page.png)
 

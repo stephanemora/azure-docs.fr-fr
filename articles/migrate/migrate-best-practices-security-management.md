@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: 0bd19492c844e217dc520ae0c189ca467bb7ac0a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: afcd180146bc349bda9375f10eb56f85f67ccb52
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58011087"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498735"
 ---
 # <a name="best-practices-for-securing-and-managing-workloads-migrated-to-azure"></a>Meilleures pratiques pour la sécurisation et la gestion des charges de travail migrées vers Azure
 
@@ -437,7 +437,7 @@ Comme Azure Functions fonctionne plus ou moins comme du code, vous devez les sau
 
 **En savoir plus :**
 
-- [Protection des données](https://docs.microsoft.com/azure/devops/articles/team-services-security-whitepaper?view=vsts) pour Azure DevOps.
+- [Protection des données](/azure/devops/organizations/security/data-protection) pour Azure DevOps.
 
 ## <a name="best-practice-set-up-disaster-recovery"></a>Meilleure pratique : Configurer une récupération d'urgence 
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/02/2019
 ms.author: ambapat
-ms.openlocfilehash: 4b3225dd25fee2859a36f98add51fcf612a45c83
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: c54b78a24068758fabb0918cfeb7d6516fd1bce5
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108889"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487233"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Configurer les pare-feux et réseaux virtuels d’Azure Key Vault
 
@@ -84,33 +84,33 @@ Voici comment configurer les pare-feux et les réseaux virtuels Key Vault avec P
 1. Installez la dernière version d’[Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) et [connectez-vous](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
 
 2. Listez les règles de réseau virtuel disponibles. Si vous n’avez pas défini de règles pour ce coffre de clés, la liste est vide.
-   ```PowerShell
+   ```powershell
    (Get-AzKeyVault -VaultName "mykeyvault").NetworkAcls
    ```
 
 3. Activez un point de terminaison de service pour Azure Key Vault sur un réseau virtuel et un sous-réseau existants.
-   ```PowerShell
+   ```powershell
    Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Set-AzVirtualNetworkSubnetConfig -Name "mysubnet" -AddressPrefix "10.1.1.0/24" -ServiceEndpoint "Microsoft.KeyVault" | Set-AzVirtualNetwork
    ```
 
 4. Ajoutez une règle de réseau pour un réseau virtuel et un sous-réseau.
-   ```PowerShell
+   ```powershell
    $subnet = Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzVirtualNetworkSubnetConfig -Name "mysubnet"
    Add-AzKeyVaultNetworkRule -VaultName "mykeyvault" -VirtualNetworkResourceId $subnet.Id
    ```
 
 5. Ajoutez une plage d’adresses IP à partir de laquelle autoriser le trafic.
-   ```PowerShell
+   ```powershell
    Add-AzKeyVaultNetworkRule -VaultName "mykeyvault" -IpAddressRange "16.17.18.0/24"
    ```
 
 6. Si ce coffre de clés doit être accessible à tous les services approuvés, définissez `bypass` sur `AzureServices`.
-   ```PowerShell
+   ```powershell
    Update-AzKeyVaultNetworkRuleSet -VaultName "mykeyvault" -Bypass AzureServices
    ```
 
 7. Activez les règles de réseau en définissant l’action par défaut sur `Deny`.
-   ```PowerShell
+   ```powershell
    Update-AzKeyVaultNetworkRuleSet -VaultName "mykeyvault" -DefaultAction Deny
    ```
 

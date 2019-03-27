@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8502ab3257bc1d121e0440ba765dfd19a6722cec
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 3be702d1f75b0a96e22ea03602c924be580b0968
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311966"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499248"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Déployer la protection par mot de passe d’Azure AD
 
@@ -36,7 +36,7 @@ Une fois que la fonctionnalité a été exécuté en mode audit pendant un déla
 
 ## <a name="deployment-requirements"></a>Composants requis pour le déploiement
 
-* Tous les contrôleurs de domaine permettant d’obtenir l’Agent du contrôleur de domaine de service pour la protection de mot de passe Azure AD installée doit exécuter Windows Server 2012 ou version ultérieure.
+* Tous les contrôleurs de domaine permettant d’obtenir l’Agent du contrôleur de domaine de service pour la protection de mot de passe Azure AD installée doit exécuter Windows Server 2012 ou version ultérieure. Cette exigence n’implique pas que le domaine Active Directory ou la forêt doit également être au niveau fonctionnel de Windows Server 2012 domaine ou forêt. Comme mentionné dans [principes de conception](concept-password-ban-bad-on-premises.md#design-principles), aucun niveau fonctionnel du domaine ou le FFL requis pour un contrôleur de domaine agent ou proxy exécuter le logiciel minimale.
 * Tous les ordinateurs qui obtiennent le proxy de service pour la protection de mot de passe Azure AD installée doit exécuter Windows Server 2012 R2 ou version ultérieure.
 * Tous les ordinateurs où sera installé le service de Proxy de Protection de mot de passe Azure AD doivent avoir .NET 4.7 est installé.
   .NET 4.7 doit déjà être installé sur un serveur Windows entièrement mis à jour. Si ce n’est pas le cas, téléchargez et exécutez le programme d’installation, consultez [le .NET Framework 4.7 un programme d’installation hors connexion pour Windows](https://support.microsoft.com/en-us/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
@@ -85,7 +85,7 @@ Il existe deux programmes d’installation requis pour la protection de mot de p
 1. Ouvrez une fenêtre PowerShell en tant qu’administrateur.
    * Le logiciel de proxy de protection de mot de passe inclut un nouveau module PowerShell, *AzureADPasswordProtection*. Les étapes suivantes exécutent diverses applets de commande à partir de ce module PowerShell. Importez le nouveau module comme suit :
 
-      ```PowerShell
+      ```powershell
       Import-Module AzureADPasswordProtection
       ```
 
@@ -106,7 +106,7 @@ Il existe deux programmes d’installation requis pour la protection de mot de p
 
      * Mode d’authentification interactive :
 
-        ```PowerShell
+        ```powershell
         Register-AzureADPasswordProtectionProxy -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com'
         ```
         > [!NOTE]
@@ -114,7 +114,7 @@ Il existe deux programmes d’installation requis pour la protection de mot de p
 
      * Mode d’authentification de code d’appareil :
 
-        ```PowerShell
+        ```powershell
         Register-AzureADPasswordProtectionProxy -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com' -AuthenticateUsingDeviceCode
         To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code XYZABC123 to authenticate.
         ```
@@ -123,7 +123,7 @@ Il existe deux programmes d’installation requis pour la protection de mot de p
 
      * Mode d’authentification silencieuse (basée sur un mot de passe) :
 
-        ```PowerShell
+        ```powershell
         $globalAdminCredentials = Get-Credential
         Register-AzureADPasswordProtectionProxy -AzureCredential $globalAdminCredentials
         ```
@@ -146,7 +146,7 @@ Il existe deux programmes d’installation requis pour la protection de mot de p
 
      * Mode d’authentification interactive :
 
-        ```PowerShell
+        ```powershell
         Register-AzureADPasswordProtectionForest -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com'
         ```
         > [!NOTE]
@@ -154,7 +154,7 @@ Il existe deux programmes d’installation requis pour la protection de mot de p
 
      * Mode d’authentification de code d’appareil :
 
-        ```PowerShell
+        ```powershell
         Register-AzureADPasswordProtectionForest -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com' -AuthenticateUsingDeviceCode
         To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code XYZABC123 to authenticate.
         ```
@@ -162,7 +162,7 @@ Il existe deux programmes d’installation requis pour la protection de mot de p
         Vous permet d’effectuer l’authentification en suivant les instructions affichées sur un autre appareil.
 
      * Mode d’authentification silencieuse (basée sur un mot de passe) :
-        ```PowerShell
+        ```powershell
         $globalAdminCredentials = Get-Credential
         Register-AzureADPasswordProtectionForest -AzureCredential $globalAdminCredentials
         ```
@@ -221,7 +221,7 @@ Il existe deux programmes d’installation requis pour la protection de mot de p
 1. Facultatif : Configurer le service de proxy pour la protection de mot de passe à l’écoute sur un port spécifique.
    * Le logiciel de l’Agent du contrôleur de domaine pour la protection de mot de passe sur les contrôleurs de domaine utilise RPC sur TCP pour communiquer avec le service de proxy. Par défaut, le service de proxy écoute sur n’importe quel point de terminaison RPC dynamique disponible. Mais vous pouvez configurer le service pour l’écoute sur un port TCP spécifique, si cela est nécessaire en raison de la topologie de réseau ou de la configuration requise du pare-feu dans votre environnement.
       * <a id="static" /></a>Pour configurer le service s’exécute sous un port statique, utilisez le `Set-AzureADPasswordProtectionProxyConfiguration` applet de commande.
-         ```PowerShell
+         ```powershell
          Set-AzureADPasswordProtectionProxyConfiguration –StaticPort <portnumber>
          ```
 
@@ -229,7 +229,7 @@ Il existe deux programmes d’installation requis pour la protection de mot de p
          > Vous devez arrêter et redémarrer le service pour que ces modifications prennent effet.
 
       * Pour configurer le service s’exécute sous un port dynamique, utilisez la même procédure, mais définissez *StaticPort* remettre à zéro :
-         ```PowerShell
+         ```powershell
          Set-AzureADPasswordProtectionProxyConfiguration –StaticPort 0
          ```
 
@@ -241,7 +241,7 @@ Il existe deux programmes d’installation requis pour la protection de mot de p
 
    * Pour exécuter une requête pour la configuration actuelle du service, utilisez le `Get-AzureADPasswordProtectionProxyConfiguration` applet de commande :
 
-      ```PowerShell
+      ```powershell
       Get-AzureADPasswordProtectionProxyConfiguration | fl
 
       ServiceName : AzureADPasswordProtectionProxy

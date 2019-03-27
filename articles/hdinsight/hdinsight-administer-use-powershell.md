@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: tylerfox
-ms.openlocfilehash: 20b232c53427c8ce13ded2cd722a74b1a686b536
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 09574647aae8725a614dd20fd0247b0f8cf8b68a
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58360425"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446980"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Gestion des clusters Apache Hadoop dans HDInsight au moyen d’Azure PowerShell
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -223,7 +223,7 @@ Consultez [Utiliser Apache Sqoop avec HDInsight](hadoop/hdinsight-use-sqoop.md).
 
 **Pour envoyer des travaux Apache Oozie**
 
-Consultez [Utilisation d’Apache Oozie avec Apache Hadoop pour définir et exécuter un workflow Azure HDInsight basé sur Linux](hdinsight-use-oozie.md).
+Consultez [Utilisation d’Apache Oozie avec Apache Hadoop pour définir et exécuter un workflow Azure HDInsight basé sur Linux](hdinsight-use-oozie-linux-mac.md).
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Téléchargement de données vers le stockage d'objets blob Azure
 Consultez la rubrique [Téléchargement de données vers HDInsight][hdinsight-upload-data].

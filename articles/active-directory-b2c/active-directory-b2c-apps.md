@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 116abd259d11e66be2dc158d833c569f06aaa923
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 5324f1ed92ae4513dcd877853cb6fa2f4c7dd8f3
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446373"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497956"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Types d’applications pouvant être utilisés dans Azure Active Directory B2C
 
@@ -108,7 +108,7 @@ Pour savoir comment sécuriser une API web avec Azure AD B2C, consultez les dida
 
 Les applications installées sur des appareils, comme les applications de bureau et les applications mobiles, nécessitent souvent que vous accédiez aux services backend ou aux API web pour le compte de l’utilisateur. Vous pouvez ajouter des expériences personnalisées de gestion des identités à vos applications natives et appeler de manière sécurisée les services backend à l’aide d’Azure AD B2C et du [flux de code d’autorisation OAuth 2.0](active-directory-b2c-reference-oauth-code.md).  
 
-Dans ce flux, l’application exécute des [stratégies](active-directory-b2c-reference-policies.md) et reçoit un `authorization_code` d’Azure AD une fois que l’utilisateur a exécuté la stratégie. `authorization_code` représente l’autorisation de l’application à appeler les services backend pour le compte de l’utilisateur actuellement connecté. L’application peut ensuite échanger `authorization_code` en arrière-plan contre `id_token` et `refresh_token`.  L’application peut utiliser `id_token` pour s’authentifier auprès d’une API web backend dans les requêtes HTTP. Elle peut également utiliser l’élément `refresh_token` pour obtenir un nouvel élément `id_token` lorsque le précédent arrive à expiration.
+Dans ce flux, l’application exécute des [stratégies](active-directory-b2c-reference-policies.md) et reçoit un `authorization_code` d’Azure AD une fois que l’utilisateur a exécuté la stratégie. `authorization_code` représente l’autorisation de l’application à appeler les services backend pour le compte de l’utilisateur actuellement connecté. L’application peut ensuite échanger `authorization_code` en arrière-plan contre `access_token` et `refresh_token`.  L’application peut utiliser `access_token` pour s’authentifier auprès d’une API web backend dans les requêtes HTTP. Elle peut également utiliser l’élément `refresh_token` pour obtenir un nouvel élément `access_token` lorsque le précédent arrive à expiration.
 
 ## <a name="current-limitations"></a>Limitations actuelles
 

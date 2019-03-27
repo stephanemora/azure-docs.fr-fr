@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/24/2019
 ms.author: artemuwka
 ms.subservice: common
-ms.openlocfilehash: ca7081bdfedae3abb5ec426a9d3ec0a7867a2ef9
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: ffc4a0c57681e877250c7be82f5160174178892a
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337015"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486017"
 ---
 # <a name="transfer-data-with-azcopy-v10-preview"></a>Transfert de données avec AzCopy v10 (version préliminaire)
 
@@ -285,6 +285,6 @@ Utilisez la commande suivante pour reprendre un travail échec/annulé. Cette co
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous avez des questions, des problèmes ou des commentaires généraux, envoyez-les [sur GitHub](https://github.com/Azure/azure-storage-azcopy.).
+Si vous avez des questions, des problèmes ou des commentaires généraux, envoyez-les [sur GitHub](https://github.com/Azure/azure-storage-azcopy).
 
 

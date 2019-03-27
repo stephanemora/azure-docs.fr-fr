@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 03/21/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d25963d44960ec3ab15fdee2c264c3bf18e26c2a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 8183ac9241ab57150717eebd85267a33912f1660
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540566"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445432"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>Azure Active Directory v2.0 et le flux d'informations d'identification du client OAuth 2.0
 
@@ -76,10 +76,10 @@ Pour utiliser les autorisations d’application dans votre application, suivez l
 
 #### <a name="request-the-permissions-in-the-app-registration-portal"></a>Demander les autorisations dans le portail d’inscription de l’application
 
-1. Créez et inscrivez une application via le [portail d’inscription des applications](quickstart-v2-register-an-app.md) ou la nouvelle [expérience Inscriptions d’applications (préversion)](quickstart-register-app.md).
-1. Accédez à votre application dans le portail que vous avez utilisé pour créer ou inscrire votre application. Vous devez utiliser au moins une clé secrète d’application lorsque vous créez votre application.
-1. Recherchez la section **Autorisations d’API** puis ajoutez les **autorisations d’application** dont votre application a besoin.
-1. **Enregistrez** l’inscription de l’application.
+1. Inscrire et créer une application via le nouveau [rencontrer des inscriptions d’application (version préliminaire)](quickstart-register-app.md).
+2. Accédez à votre application dans l’expérience d’application des enregistrements (version préliminaire). Accédez à la **certificats et clés secrètes** section et ajouter un **nouvelle clé secrète client**, car vous devez utiliser au moins une clé secrète de client pour demander un jeton.
+3. Recherchez la section **Autorisations d’API** puis ajoutez les **autorisations d’application** dont votre application a besoin.
+4. **Enregistrez** l’inscription de l’application.
 
 #### <a name="recommended-sign-the-user-in-to-your-app"></a>Recommandé : connectez l’utilisateur à votre application
 
@@ -172,7 +172,7 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 | `tenant` | Obligatoire | Le locataire de l’annuaire sur lequel les plans d’application opèrent, au format GUID ou nom de domaine. |
 | `client_id` | Obligatoire | Copiez l’ID d’application affecté à votre application. Ces informations sont disponibles dans le portail où vous avez inscrit votre application. |
 | `scope` | Obligatoire | La valeur transmise pour le paramètre `scope` dans cette demande doit être l’identificateur de ressource (URI ID d’application) de la ressource souhaitée, avec le suffixe `.default`. Dans l’exemple Microsoft Graph, la valeur est `https://graph.microsoft.com/.default`. </br>Cette valeur indique au point de terminaison v2.0 que parmi toutes les autorisations directes d’application que vous avez configurées pour votre application, le point de terminaison doit émettre un jeton pour celles associées à la ressource que vous souhaitez utiliser. Pour en savoir plus sur l’étendue `/.default`, consultez la [documentation sur le consentement](v2-permissions-and-consent.md#the-default-scope). |
-| `client_secret` | Obligatoire | La clé secrète que vous avez générée pour votre application dans le portail d’inscription des applications. Le secret du client doit être codé en URL avant d’être envoyé. |
+| `client_secret` | Obligatoire | Le secret de client que vous avez généré pour votre application dans le portail d’inscription. Le secret du client doit être codé en URL avant d’être envoyé. |
 | `grant_type` | Obligatoire | Cette propriété doit être définie sur `client_credentials`. |
 
 ### <a name="second-case-access-token-request-with-a-certificate"></a>Deuxième cas : Requête de jeton d’accès avec un certificat

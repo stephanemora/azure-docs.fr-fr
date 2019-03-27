@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/15/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: c38b21d860e25c0f31122e75d822257e14ca01db
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 7c5e979f399a487d29138b57d1fc4ee2c77622ff
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351964"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445484"
 ---
 # <a name="azure-instance-metadata-service"></a>Service de métadonnées d’instance Azure
 
@@ -105,11 +105,14 @@ API | Format de données par défaut | Autres formats
 /scheduledevents | json | Aucun
 /attested | json | Aucun
 
-Pour accéder à un format de réponse autre que le format par défaut, spécifiez le format demandé en tant que paramètre de chaîne de requête dans la demande. Par exemple :
+Pour accéder à un format de réponse autre que le format par défaut, spécifiez le format demandé en tant que paramètre de chaîne de requête dans la demande. Par exemple : 
 
 ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
 ```
+
+> [!NOTE]
+> Pour les nœuds terminaux le `format=json` ne fonctionne pas. Pour ces requêtes `format=text` doit être spécifié explicitement si le format par défaut est json.
 
 ### <a name="security"></a>Sécurité
 
@@ -123,8 +126,8 @@ S’il existe un élément de données introuvable ou une requête mal formée, 
 Code d’état HTTP | Motif
 ----------------|-------
 200 OK |
-400 Demande incorrecte | En-tête `Metadata: true` manquant
-404 Introuvable | L’élément demandé n’existe pas 
+400 Demande incorrecte | Manquant `Metadata: true` en-tête ou manquante au format lors de l’interrogation d’un nœud terminal
+404 Introuvable | L’élément demandé n’existe pas
 405 Méthode non autorisée | Seules les demandes `GET` et `POST` sont prises en charge
 429 Trop de demandes | L’API prend actuellement en charge un maximum de 5 requêtes par seconde
 500 Erreur de service     | Recommencez l’opération plus tard

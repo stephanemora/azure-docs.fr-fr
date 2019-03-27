@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 03/26/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: eeb3b2098cf477004ba7ad85a903f1a8e2267392
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 374ffc3a9d181d0596b5a4af1cd8082023e227fe
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58117827"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498517"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Sources de données prises en charge dans Azure Analysis Services
 
@@ -64,6 +64,7 @@ La connexion aux sources de données locales et au serveur Azure AS requiert une
 |Active Directory<sup>[1](#tab1400b)</sup>     |  
 |Analysis Services     |  
 |Système de plateforme d’analyse     |  
+|Fichier CSV  |
 |Dynamics CRM<sup>[1](#tab1400b)</sup>     |  
 |Classeur Excel     |  
 |Exchange<sup>[1](#tab1400b)</sup>     |  
@@ -82,6 +83,7 @@ La connexion aux sources de données locales et au serveur Azure AS requiert une
 |SAP Business Warehouse<sup>[1](#tab1400b)</sup>    |  
 |SharePoint<sup>[1](#tab1400b)</sup>     |   
 |Base de données Sybase     |  
+|Fichier TXT  |
 |Table XML<sup>[1](#tab1400b)</sup>    |  
 ||
  

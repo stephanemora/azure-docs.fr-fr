@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 1b6c8b1af00c2819632c60a27d61d7cf8db44885
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d39c2414aa8299282b3896a9ceb57897fdb25ff1
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012331"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445993"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Liste de contrôle des performances et de l’extensibilité de Microsoft Azure Storage
 ## <a name="overview"></a>Présentation
@@ -98,7 +98,7 @@ Au moment de la rédaction du présent document, les objectifs de bande passante
 Si vous êtes proche de la limite du nombre de comptes de stockage que peut contenir une combinaison abonnement/région particulière, évaluez votre application et l’utilisation des comptes de stockage, et déterminez si l’une de ces conditions s’applique.
 
 * Utilisation de comptes de stockage en tant que disques non managés et ajout de ces disques à vos machines virtuelles. Dans ce scénario, nous vous recommandons d’utiliser des [disques managés](../../virtual-machines/windows/managed-disks-overview.md), car ceux-ci gèrent la scalabilité des disques de stockage pour vous sans que vous ayez à créer ou à gérer des comptes de stockage.
-* Utilisation d’un compte de stockage par client, à des fins d’isolation des données. Dans ce scénario, nous vous recommandons d’utiliser des conteneurs de stockage pour chaque client plutôt qu’un compte de stockage entier. Stockage Azure vous permet désormais de spécifier le contrôle d’accès en fonction du rôle [sur la base de chaque conteneur](storage-auth-aad-rbac.md).
+* Utilisation d’un compte de stockage par client, à des fins d’isolation des données. Dans ce scénario, nous vous recommandons d’utiliser des conteneurs de stockage pour chaque client plutôt qu’un compte de stockage entier. Stockage Azure vous permet désormais de spécifier le contrôle d’accès en fonction du rôle [sur la base de chaque conteneur](storage-auth-aad-rbac-portal.md).
 * Utilisation de plusieurs comptes de stockage afin de bénéficier d’une meilleure scalabilité d’entrée/sortie/iops/capacité. Dans ce scénario, si possible, nous vous recommandons de tirer parti de l’[augmentation des limites](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/) du nombre de comptes de stockage standard, afin de réduire le nombre de comptes de stockage nécessaires pour votre charge de travail.
 
 Si votre application s’approche des objectifs d’extensibilité d’un seul compte de stockage, pensez à appliquer l’une des méthodes suivantes :  

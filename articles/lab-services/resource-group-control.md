@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2019
 ms.author: spelluru
-ms.openlocfilehash: f6e604940c9e2e84f119fdd1859ad4b2cda23aef
-ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
+ms.openlocfilehash: 1001e6aec7ba2f6ce62eb267d218149296048bb9
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57588701"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485881"
 ---
 # <a name="specify-a-resource-group-for-lab-virtual-machines-in-azure-devtest-labs"></a>Spécifier un groupe de ressources pour les machines virtuelles de labo dans Azure DevTest Labs
 
@@ -47,7 +47,7 @@ Suivez ces étapes pour spécifier un groupe de ressources pour toutes les machi
 ## <a name="use-powershell"></a>Utiliser PowerShell 
 L’exemple suivant montre comment utiliser un script PowerShell pour créer toutes les machines virtuelles de laboratoire dans un groupe de ressources.
 
-```PowerShell
+```powershell
 [CmdletBinding()]
 Param(
     $subId,
@@ -71,7 +71,7 @@ az resource update -g $labRg -n $labName --resource-type "Microsoft.DevTestLab/l
 
 Appeler le script à l’aide de la commande suivante. ResourceGroup.ps1 est le fichier qui contient le script précédent :
 
-```PowerShell
+```powershell
 .\ResourceGroup.ps1 -subId <subscriptionID> -labRg <labRGNAme> -labName <LanName> -vmRg <RGName> 
 ```
 

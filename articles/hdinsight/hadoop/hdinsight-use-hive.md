@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 5b5f323e20bbaf91c151641f8dc78fbc8cde8c24
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 6d667df3062112e0c805e3ba26bc6240022cab8b
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351633"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446322"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Présentation d’Apache Hive et HiveQL sur Azure HDInsight
 
@@ -204,8 +204,6 @@ Ces instructions effectuent les opérations suivantes :
 
 Les [documents de conception Apache Hive sur Tez](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez) contiennent des informations détaillées sur les options d’implémentation et les configurations du réglage.
 
-Pour faciliter le débogage des tâches exécutées en utilisant Tez, HDInsight fournit les interfaces utilisateur web suivantes qui vous permettent d’afficher les détails des tâches Tez : [Utilisez la vue Tez Apache Ambari sur HDInsight Linux](../hdinsight-debug-ambari-tez-view.md).
-
 ### <a name="low-latency-analytical-processing-llap"></a>Low Latency Analytical Processing (LLAP)
 
 [LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) (parfois appelé Live Long and Process) est une nouvelle fonctionnalité de Hive 2.0 qui permet la mise en cache en mémoire des requêtes. LLAP accélère considérablement les requêtes Hive, avec dans certains cas des vitesses jusqu’à [26 fois plus rapides qu’avec Hive 1.x](https://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/).
@@ -256,7 +254,7 @@ Maintenant que vous connaissez Hive et que vous avez vu comment l’utiliser ave
 [ssispack]: https://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
 
 [hdinsight-use-pig]: hdinsight-use-pig.md
-[hdinsight-use-oozie]: hdinsight-use-oozie.md
+[hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
 [hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
 
 

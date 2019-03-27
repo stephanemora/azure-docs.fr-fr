@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 12b8fc2fb8df7fd730e220a3c1b60097ed7748a2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 89ad91316da027e399891a7e1b348e66c1d3a4f5
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433720"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499894"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C : Forum Aux Questions (FAQ) 
 Cette page répond aux questions fréquemment posées sur Azure Active Directory (Azure AD) B2C. N'hésitez pas à la consulter pour vous tenir au courant des mises à jour.
@@ -113,7 +113,8 @@ Pas actuellement. Cette fonctionnalité est sur notre feuille de route. La véri
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>Comment supprimer mon client Azure AD B2C ?
 Procédez comme suit pour supprimer votre client Azure AD B2C :
 
-1. Supprimez toutes les stratégies dans votre locataire Azure AD B2C.
+1. Supprimer tous les flux d’utilisateurs (stratégies) dans votre locataire Azure AD B2C.
+1. Supprimer toutes les applications que vous avez inscrit dans votre locataire Azure AD B2C.
 1. Connectez-vous maintenant au [portail Azure](https://portal.azure.com/) en tant qu’administrateur d’abonnements. (Utilisez le compte professionnel ou scolaire ou le compte Microsoft que vous avez utilisé pour vous inscrire à Azure.)
 1. Passez au client Azure AD B2C que vous voulez supprimer.
 2. Accédez au menu Active Directory sur la gauche.

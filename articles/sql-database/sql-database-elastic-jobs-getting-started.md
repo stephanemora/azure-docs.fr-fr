@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 5fd51e2d847b540d2eb8c17c2bc31f4e162a21ee
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 68a5bdef17077d1815b6d85e121d9bb26c2280bf
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57904624"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484252"
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Prise en main de Tâches de bases de données élastiques
 
@@ -52,7 +52,7 @@ Dans ce cas précis, nous créons généralement une cible de carte de partition
 
 ## <a name="creates-a-custom-collection-and-add-all-databases-in-the-server-to-the-custom-collection-target-with-the-exception-of-master"></a>Créer une collecte personnalisée et ajouter toutes les bases de données du serveur à la cible de la collecte personnalisée, à l’exception de la base de données principale
 
-   ```PowerShell
+   ```powershell
     $customCollectionName = "dbs_in_server"
     New-AzureSqlJobTarget -CustomCollectionName $customCollectionName
     $ResourceGroupName = "ddove_samples"
@@ -316,7 +316,7 @@ Si une annulation de tâche est demandée pour une tâche parente, la demande d�
 
 Pour envoyer une demande d’annulation, utilisez l’applet de commande **Stop-AzureSqlJobExecution** et définissez le paramètre **JobExecutionId**.
 
-   ```PowerShell
+   ```powershell
     $jobExecutionId = "{Job Execution Id}"
     Stop-AzureSqlJobExecution -JobExecutionId $jobExecutionId
    ```

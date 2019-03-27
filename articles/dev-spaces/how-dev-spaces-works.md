@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: Décrit les processus qu’espaces de développement Azure power et comment ils sont configurés dans le fichier de configuration azds.yaml
 keywords: azds.yaml, espaces de développement Azure, les espaces de développement, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs
-ms.openlocfilehash: b6f178628961001c4022ffc86bc13ee0e529e3c4
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 622a0780d74618fe694e5b9da0327490e0ec38dd
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438969"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500557"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Comment les espaces de développement Azure fonctionne et est configuré
 
@@ -96,7 +96,7 @@ Lorsque Azure Dev espaces est activée sur votre cluster AKS, il installe le con
 * Supprime tout espace de noms Kubernetes nommé *azds*, si elle existe et crée un nouveau.
 * Déploie un objet de l’initialiseur Kubernetes.
 
-! [Azure Dev espaces préparer cluster]] (media/how-dev-spaces-works/prepare-cluster.svg)
+![Les espaces de développement Azure préparer le cluster](media/how-dev-spaces-works/prepare-cluster.svg)
 
 Pour pouvoir utiliser les espaces de développement Azure, il doit y avoir au moins un espace de développement. Les espaces de développement Azure utilise des espaces de noms Kubernetes dans votre cluster AKS pour les espaces de développement. Lorsqu’un contrôleur est en cours d’installation, il vous invite à créer un nouvel espace de noms Kubernetes ou choisissez un espace de noms existant à utiliser comme votre premier espace de développement. Lorsqu’un espace de noms est désigné comme un espace de développement, le contrôleur ajoute le *azds.io/space=true* étiquette à cet espace de noms pour l’identifier comme un espace de développement. L’espace de développement initial, vous créez ou désignez est sélectionnée par défaut après avoir préparé votre cluster. Lorsqu’un espace est sélectionné, il est utilisé par des espaces de développement Azure pour la création de nouvelles charges de travail.
 

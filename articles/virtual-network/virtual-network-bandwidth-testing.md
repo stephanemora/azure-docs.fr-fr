@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/21/2017
 ms.author: steveesp
-ms.openlocfilehash: b02f5011b9482481ca3fbe439061c160b3c73a1e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 80e8a5e5de1da2098d895e09b36fb209050743a0
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016611"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481397"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>Test de bande passante/débit (NTTTCP)
 
@@ -132,13 +132,13 @@ Dans ce scénario, nous devons activer le mode sans synchronisation pour permett
 
 #### <a name="from-linux-to-windows"></a>De Linux vers Windows :
 
-Récepteur <Windows> :
+Récepteur \<Windows > :
 
 ``` bash
 ntttcp -r -m <2 x nr cores>,*,<Windows server IP>
 ```
 
-Expéditeur <Linux>:
+Expéditeur \<Linux > :
 
 ``` bash
 ntttcp -s -m <2 x nr cores>,*,<Windows server IP> -N -t 300
@@ -146,13 +146,13 @@ ntttcp -s -m <2 x nr cores>,*,<Windows server IP> -N -t 300
 
 #### <a name="from-windows-to-linux"></a>De Windows vers Linux :
 
-Récepteur <Linux> :
+Récepteur \<Linux > :
 
 ``` bash
 ntttcp -r -m <2 x nr cores>,*,<Linux server IP>
 ```
 
-Expéditeur <Windows> :
+Expéditeur \<Windows > :
 
 ``` bash
 ntttcp -s -m <2 x nr cores>,*,<Linux  server IP> -ns -t 300

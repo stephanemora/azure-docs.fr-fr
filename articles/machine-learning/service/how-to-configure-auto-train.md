@@ -9,14 +9,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 03/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 79d013e5836555547cbf254bb25c06add0a717e1
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 0de6cf9be01fc93a26a782189a2062d19eaf73e8
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295383"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499265"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Configurer des expériences de machine learning automatisé
 
@@ -39,21 +39,24 @@ Avant de commencer votre expérience, vous devez déterminer le type de problèm
 
 Si les fonctionnalités du machine learning automatisé sont en disponibilité générale, **la prévision est encore en préversion publique.**
 
-Le machine learning automatisé prend en charge les algorithmes suivants lors du processus d’automatisation et d’optimisation. En tant qu’utilisateur, vous n’avez pas besoin de spécifier l’algorithme.
+Le machine learning automatisé prend en charge les algorithmes suivants lors du processus d’automatisation et d’optimisation. En tant qu’utilisateur, vous n’avez pas besoin de spécifier l’algorithme. Alors que les algorithmes de réseau de neurones profond sont disponibles pendant la formation, ML automatisé ne génère pas de modèles de réseau de neurones profond.
 
 classification ; | régression ; | Prévisions
 |-- |-- |--
 [Logistic Regression](https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression)| [Elastic Net](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)| [Elastic Net](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)
-[Stochastic Gradient Descent (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)|[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)
-[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)|[Gradient Boosting](https://scikit-learn.org/stable/modules/ensemble.html#regression)|[Gradient Boosting](https://scikit-learn.org/stable/modules/ensemble.html#regression)
-[C-Support Vector Classification (SVC)](https://scikit-learn.org/stable/modules/svm.html#classification)|[Decision Tree](https://scikit-learn.org/stable/modules/tree.html#regression)|[Decision Tree](https://scikit-learn.org/stable/modules/tree.html#regression)
-[Linear SVC](https://scikit-learn.org/stable/modules/svm.html#classification)|[K Nearest Neighbors](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)|[K Nearest Neighbors](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)
-[K Nearest Neighbors](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors)|[LARS Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)|[LARS Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)
-[Decision Tree](https://scikit-learn.org/stable/modules/tree.html#decision-trees)|[Stochastic Gradient Descent (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)|[Stochastic Gradient Descent (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)
+[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)
+[Gradient Boosting](https://scikit-learn.org/stable/modules/ensemble.html#classification)|[Gradient Boosting](https://scikit-learn.org/stable/modules/ensemble.html#regression)|[Gradient Boosting](https://scikit-learn.org/stable/modules/ensemble.html#regression)
+[Decision Tree](https://scikit-learn.org/stable/modules/tree.html#decision-trees)|[Decision Tree](https://scikit-learn.org/stable/modules/tree.html#regression)|[Decision Tree](https://scikit-learn.org/stable/modules/tree.html#regression)
+[K Nearest Neighbors](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)|[K Nearest Neighbors](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)|[K Nearest Neighbors](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)
+[Linear SVC](https://scikit-learn.org/stable/modules/svm.html#classification)|[LARS Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)|[LARS Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)
+[C-Support Vector Classification (SVC)](https://scikit-learn.org/stable/modules/svm.html#classification)|[Stochastic Gradient Descent (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)|[Stochastic Gradient Descent (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)
 [Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)|[Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)|[Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
 [Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)|[Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)|[Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)
-[Gradient Boosting](https://scikit-learn.org/stable/modules/ensemble.html#classification)|
-[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|
+[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)|[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)| [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)
+[Classifieur de réseau de neurones profond](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNClassifier)|[Régresseur de réseau de neurones profond](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor) | [Régresseur de réseau de neurones profond](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor)|
+[Classifieur linéaire du réseau de neurones profond](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearClassifier)|[Régresseur linéaire](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)|[Régresseur linéaire](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)
+[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)|
+[Stochastic Gradient Descent (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)|
 
 
 ## <a name="data-source-and-format"></a>Source et format des données
@@ -156,15 +159,15 @@ Vous pouvez spécifier des jeux de données distincts pour l’entraînement et 
 
 ### <a name="k-folds-cross-validation"></a>Validation croisée K-Folds
 
-Utilisez le paramètre `n_cross_validations` pour spécifier le nombre de validations croisées. Le jeu de données d’entraînement est divisé en `n_cross_validations` tranches de taille égale. Lors de chaque passe de validation croisée, une des tranches est utilisée pour la validation du modèle entraîné sur les tranches restantes. Ce processus se répète pour `n_cross_validations` passes jusqu’à ce que chaque tranche soit utilisée une fois comme jeu de validation. Les scores moyens sur l’ensemble des `n_cross_validations` passes sont signalés, et le modèle correspondant est réentraîné sur l’ensemble du jeu de données d’entraînement.
+Utilisez le paramètre `n_cross_validations` pour spécifier le nombre de validations croisées. Le jeu de données d’entraînement est divisé en `n_cross_validations` tranches de taille égale. Lors de chaque passe de validation croisée, une des tranches est utilisée pour la validation du modèle entraîné sur les tranches restantes. Ce processus se répète pour `n_cross_validations` passes jusqu’à ce que chaque tranche soit utilisée une fois comme jeu de validation. Les scores moyens sur l’ensemble des `n_cross_validations` passes sont signalés, et le modèle correspondant est réentraîné sur l’ensemble du jeu de données d’entraînement. 
 
 ### <a name="monte-carlo-cross-validation-aka-repeated-random-sub-sampling"></a>Validation croisée Monte Carlo (Sous-échantillonnage aléatoire répété)
 
-Utilisez `validation_size` pour spécifier le pourcentage du jeu de données d’entraînement qui doit être utilisé pour la validation, et utilisez `n_cross_validations` pour spécifier le nombre de validations croisées. Lors de chaque passe de validation croisée, un sous-ensemble de taille `validation_size` est sélectionné de façon aléatoire pour la validation du modèle entraîné sur les données restantes. Enfin, les scores moyens sur l’ensemble des `n_cross_validations` passes sont signalés, et le modèle correspondant est réentraîné sur l’ensemble du jeu de données d’entraînement.
+Utilisez `validation_size` pour spécifier le pourcentage du jeu de données d’entraînement qui doit être utilisé pour la validation, et utilisez `n_cross_validations` pour spécifier le nombre de validations croisées. Lors de chaque passe de validation croisée, un sous-ensemble de taille `validation_size` est sélectionné de façon aléatoire pour la validation du modèle entraîné sur les données restantes. Enfin, les scores moyens sur l’ensemble des `n_cross_validations` passes sont signalés, et le modèle correspondant est réentraîné sur l’ensemble du jeu de données d’entraînement. Monte Carlo n’est pas pris en charge pour la prévision de séries chronologiques.
 
 ### <a name="custom-validation-dataset"></a>Jeu de données de validation personnalisé
 
-Utilisez un jeu de données de validation personnalisé si la division aléatoire n’est pas acceptable (en général, des données de séries chronologiques ou des données déséquilibrées). Vous pouvez spécifier votre propre jeu de données de validation. Le modèle est alors évalué par rapport au jeu de données de validation spécifié au lieu du jeu de données aléatoire.
+Utiliser le dataset de validation personnalisée si un fractionnement aléatoire n’est pas acceptable, généralement les données de série chronologique ou les données déséquilibrées. Vous pouvez spécifier votre propre jeu de données de validation. Le modèle est alors évalué par rapport au jeu de données de validation spécifié au lieu du jeu de données aléatoire.
 
 ## <a name="compute-to-run-experiment"></a>Capacité de calcul pour exécuter l’expérience
 
@@ -178,7 +181,7 @@ Consultez le [site GitHub](https://github.com/Azure/MachineLearningNotebooks/tre
 
 ## <a name="configure-your-experiment-settings"></a>Configurer les paramètres de votre expérience
 
-Vous disposez de plusieurs options pour configurer votre expérience de machine learning automatisé. Ces paramètres sont définis en instanciant un objet `AutoMLConfig`.
+Vous disposez de plusieurs options pour configurer votre expérience de machine learning automatisé. Ces paramètres sont définis en instanciant un objet `AutoMLConfig`. Pour obtenir la liste complète des paramètres, reportez-vous à la [Classe AutoMLConfig](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py).  
 
 Voici quelques exemples :
 
@@ -223,6 +226,7 @@ Il existe trois valeurs de paramètre `task` différentes, et celles-ci détermi
     * GradientBoosting
     * TensorFlowDNN
     * TensorFlowLinearClassifier
+    * XGBoostClassifier
 * régression ;
     * ElasticNet
     * GradientBoosting
@@ -235,6 +239,7 @@ Il existe trois valeurs de paramètre `task` différentes, et celles-ci détermi
     * LightGBM
     * TensorFlowLinearRegressor
     * TensorFlowDNN
+    * XGBoostRegressor
 * Prévisions
     * ElasticNet
     * GradientBoosting
@@ -247,8 +252,7 @@ Il existe trois valeurs de paramètre `task` différentes, et celles-ci détermi
     * LightGBM
     * TensorFlowLinearRegressor
     * TensorFlowDNN
-
-Pour obtenir la liste complète des paramètres, reportez-vous à la [Classe AutoMLConfig](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py).  
+    * XGBoostRegressor
 
 ## <a name="data-pre-processing-and-featurization"></a>Prétraitement et caractérisation des données
 
@@ -265,6 +269,44 @@ Si vous utilisez `preprocess=True`, les étapes de prétraitement des données s
     * Caractéristiques numériques avec très peu de valeurs uniques transformées en caractéristiques catégorielles.
     * En fonction de la cardinalité des caractéristiques catégorielles, encodage d’étiquettes ou encodage one-hot (hachage).
 
+## <a name="time-series-forecasting"></a>Prévision de séries chronologiques
+Pour le type de tâche prévision temps série, vous avez des paramètres supplémentaires à définir.
+1. time_horizon_name - il s’agit d’un paramètre obligatoire qui définit le nom de la colonne dans la formation séries de données conteneur date/heure. 
+1. max_horizon - définit la durée pendant laquelle que vous souhaitez prédire selon la périodicité des données d’apprentissage. Par exemple si vous avez des données d’apprentissage avec des fragments de temps quotidienne, vous définissez l’amplitude arrière dans jours que vous souhaitez former pour le modèle.
+1. grain_column_names - définit le nom des colonnes qui contiennent des données de séries de temps individuelles dans vos données d’apprentissage. Par exemple, si vous sont prévoir les ventes d’une marque particulière par magasin, vous définirait store et marque les colonnes en tant que colonnes de votre niveau de granularité.
+
+Consultez l’exemple de ces paramètres utilisés ci-dessous, l’exemple de bloc-notes est disponible [ici](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb).
+
+```python
+# Setting Store and Brand as grains for training.
+grain_column_names = ['Store', 'Brand']
+nseries = data.groupby(grain_column_names).ngroups
+
+# View the number of time series data with defined grains
+print('Data contains {0} individual time-series.'.format(nseries))
+```
+
+```python
+time_series_settings = {
+    'time_column_name': time_column_name,
+    'grain_column_names': grain_column_names,
+    'drop_column_names': ['logQuantity'],
+    'max_horizon': n_test_periods
+}
+
+automl_config = AutoMLConfig(task='forecasting',
+                             debug_log='automl_oj_sales_errors.log',
+                             primary_metric='normalized_root_mean_squared_error',
+                             iterations=10,
+                             X=X_train,
+                             y=y_train,
+                             n_cross_validations=5,
+                             enable_ensembling=False,
+                             path=project_folder,
+                             verbosity=logging.INFO,
+                             **time_series_settings)
+```
+
 ## <a name="run-experiment"></a>Exécuter une expérience
 
 Soumettez l’expérience pour qu’elle s’exécute et génère un modèle. Passez `AutoMLConfig` à la méthode `submit` pour générer le modèle.
@@ -277,6 +319,13 @@ run = experiment.submit(automl_config, show_output=True)
 >Les dépendances sont d’abord installées sur une nouvelle machine.  Jusqu’à 10 minutes peuvent être nécessaires avant l’affichage de la sortie.
 >La définition de `show_output` sur `True` fait que la sortie est affichée sur la console.
 
+## <a name="exit-criteria"></a>Critères de sortie 
+Il quelques options que vous pouvez définir pour terminer votre expérience.
+1. Aucun critère - si vous ne définissez aucune ne quitte l’expérience continuera jusqu'à ce qu’aucune progression n’est effectuée sur votre mesure principale de paramètres. 
+1. Nombre d’itérations - vous définissez le nombre d’itérations pour l’expérience à exécuter. Vous pouvez facultatif ajouter iteration_timeout_minutes pour définir une limite de temps en minutes par chaque itération.
+1. Quitte après un certain temps - à l’aide d’experiment_timeout_minutes dans vos paramètres, que vous pouvez définir la durée en minutes doit se poursuivre une expérience dans l’exécution.
+1. Quitter après qu’un score a été atteint - à l’aide d’experiment_exit_score, que vous pouvez choisir d’effectuer l’experiement après qu’un score basé sur la mesure de votre principale a été atteint.
+
 
 ## <a name="explore-model-metrics"></a>Explorer les métriques du modèle
 Vous pouvez consulter vos résultats dans un widget ou en ligne si vous êtes dans un notebook. Pour plus d’informations, consultez [Suivre et évaluer des modèles](how-to-track-experiments.md#view-run-details).
@@ -285,7 +334,7 @@ Vous pouvez consulter vos résultats dans un widget ou en ligne si vous êtes da
 ### <a name="classification-metrics"></a>Métriques de classification
 Les métriques suivantes sont enregistrées dans chaque itération pour une tâche de classification.
 
-|Métrique principale|Description|Calcul|Paramètres supplémentaires
+|Métrique|Description|Calcul|Paramètres supplémentaires
 --|--|--|--|
 AUC_Macro| « AUC » est « Area under the Receiver Operating Characteristic Curve » (la zone sous la courbe caractéristique de fonctionnement du récepteur). « Macro » est la moyenne arithmétique de l’AUC pour chaque classe.  | [Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="macro"|
 AUC_Micro| « AUC » est « Area under the Receiver Operating Characteristic Curve » (la zone sous la courbe caractéristique de fonctionnement du récepteur). « Micro » est calculé globalement en combinant les vrais positifs et les faux positifs de chaque classe| [Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="micro"|
@@ -311,7 +360,7 @@ weighted_accuracy|La précision pondérée est la précision où le poids donné
 ### <a name="regression-and-forecasting-metrics"></a>Métriques de régression et de prévision
 Les métriques suivantes sont enregistrées dans chaque itération pour une tâche de régression ou de prévision.
 
-|Métrique principale|Description|Calcul|Paramètres supplémentaires
+|Métrique|Description|Calcul|Paramètres supplémentaires
 --|--|--|--|
 explained_variance|La variance expliquée est la proportion selon laquelle un modèle mathématique compte pour la variation d’un jeu de données particulier. C’est le pourcentage de diminution de la variance des données d’origine par rapport à la variance des erreurs. Quand la moyenne des erreurs est 0, elle est égale à la variance expliquée.|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|Aucun|
 r2_score|R2 est le coefficient de détermination ou le pourcentage de réduction dans les erreurs quadratiques comparé à un modèle de référence qui génère la moyenne. Quand la moyenne des erreurs est 0, elle est égale à la variance expliquée.|[Calcul](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|Aucun|

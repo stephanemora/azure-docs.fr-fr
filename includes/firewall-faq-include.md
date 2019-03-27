@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: ''
 ms.topic: include
-ms.date: 3/25/2019
+ms.date: 3/26/2019
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 5029fb29aecda1f1bef14dc95f6301b539c60441
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: c632989ea85033c6cbdd4188351d34345e919c49
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58419102"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500659"
 ---
 ### <a name="what-is-azure-firewall"></a>Qu’est-ce qu’un pare-feu Azure ?
 
@@ -45,10 +45,11 @@ Vous pouvez installer Pare-feu Azure via le Portail Microsoft Azure, PowerShell,
 
 Pare-feu Azure prend en charge les règles et les regroupements de règles. Un regroupement de règles est un ensemble de règles qui partagent le même ordre et la même priorité. Les regroupements de règles sont exécutés dans l’ordre de leur priorité. Ainsi, les regroupements de règles Réseau sont prioritaires pas rapport aux regroupements de règles Application, et toutes les règles se terminent.
 
-Il existe deux types de regroupement de règles :
+Il existe trois types de regroupements de règles :
 
-* *Règles d’application* : permettent de configurer des noms de domaine pleinement qualifiés (FQDN) qui sont accessibles depuis un sous-réseau.
-* *Règles de réseau* : permettent de configurer des règles contenant les adresses sources, les protocoles, les ports de destination et les adresses de destination.
+* *Règles d’application* : Configurer des noms de domaine complet (FQDN) qui est accessible à partir d’un sous-réseau.
+* *Règles de réseau* : Configurer des règles qui contiennent des adresses source, les protocoles, les ports de destination et les adresses de destination.
+* *Règles NAT*: Configurer des règles DNAT pour autoriser les connexions entrantes.
 
 ### <a name="does-azure-firewall-support-inbound-traffic-filtering"></a>Pare-feu Azure prend-il en charge le filtrage du trafic entrant ?
 
@@ -94,19 +95,19 @@ Par exemple :
 ```azurepowershell
 # Stop an exisitng firewall
 
-$azfw = Get-AzureRmFirewall -Name "FW Name" -ResourceGroupName "RG Name"
+$azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
 $azfw.Deallocate()
-Set-AzureRmFirewall -AzureFirewall $azfw
+Set-AzFirewall -AzureFirewall $azfw
 ```
 
 ```azurepowershell
 #Start a firewall
 
-$azfw = Get-AzureRmFirewall -Name "FW Name" -ResourceGroupName "RG Name"
-$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
-$publicip = Get-AzureRmPublicIpAddress -Name "Public IP Name" -ResourceGroupName " RG Name"
+$azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
+$vnet = Get-AzVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
+$publicip = Get-AzPublicIpAddress -Name "Public IP Name" -ResourceGroupName " RG Name"
 $azfw.Allocate($vnet,$publicip)
-Set-AzureRmFirewall -AzureFirewall $azfw
+Set-AzFirewall -AzureFirewall $azfw
 ```
 
 > [!NOTE]
@@ -124,6 +125,14 @@ Oui, vous pouvez utiliser Pare-feu Azure dans un réseau virtuel de hub pour ach
 
 Oui. Toutefois, la configuration de l’UDR pour rediriger le trafic entre sous-réseaux dans le même réseau virtuel requiert une attention supplémentaire. Bien que l'utilisation de la plage d'adresses du réseau virtuel comme préfixe cible pour l'UDR soit suffisante, celle-ci achemine également tout le trafic d'une machine vers une autre au sein du même sous-réseau via l'instance du Pare-feu Azure. Pour éviter cela, incluez l'itinéraire du sous-réseau dans l'UDR, avec **VNET** comme type de tronçon suivant. La gestion de ces itinéraires peut être lourde et sujette à erreur. La méthode recommandée pour la segmentation interne du réseau consiste à utiliser des groupes de sécurité réseau, qui ne requièrent pas d'UDR.
 
+### <a name="is-forced-tunnelingchaining-to-a-network-virtual-appliance-supported"></a>Est obligé de tunneling/chaînage une Appliance virtuelle réseau pris en charge ?
+
+Oui.
+
+Pare-feu Azure doit avoir une connectivité Internet directe. Par défaut, AzureFirewallSubnet dispose d’un itinéraire 0.0.0.0/0 avec la valeur de type de tronçon suivant définie sur **Internet**.
+
+Si vous activez le tunneling forcé au niveau local via ExpressRoute ou passerelle VPN, vous devrez configurer un itinéraire de défini par l’utilisateur (UDR) 0.0.0.0/0 avec l’ensemble de valeurs de NextHopType comme Internet et l’associer à votre AzureFirewallSubnet explicitement. Cela remplace une passerelle par défaut potentiels annonce BGP à votre réseau local. Si votre organisation exige que le tunneling forcé pour le pare-feu Azure diriger le trafic de passerelle par défaut par le biais de votre réseau local, contactez le Support technique. Nous pouvons liste verte de votre abonnement pour vous assurer de la connectivité Internet de pare-feu requis est conservée.
+
 ### <a name="are-there-any-firewall-resource-group-restrictions"></a>Les groupes de ressources de pare-feu font-ils l’objet de restrictions ?
 
 Oui. Le pare-feu, le sous-réseau, le réseau virtuel et l’adresse IP publique doivent tous être dans le même groupe de ressources.
@@ -131,3 +140,7 @@ Oui. Le pare-feu, le sous-réseau, le réseau virtuel et l’adresse IP publique
 ### <a name="when-configuring-dnat-for-inbound-network-traffic-do-i-also-need-to-configure-a-corresponding-network-rule-to-allow-that-traffic"></a>Lorsque je configure DNAT pour le trafic réseau entrant, dois-je également configurer une règle de réseau correspondante pour autoriser ce trafic ?
 
 Non. Les règles NAT ajoutent implicitement une règle de réseau correspondante pour autoriser le trafic traduit. Vous pouvez remplacer ce comportement en ajoutant explicitement une collection de règles de réseau avec des règles de refus correspondant au trafic traduit. Pour plus d’informations sur la logique de traitement des règles de Pare-feu Azure, consultez l’article [Logique de traitement des règles du service Pare-feu Azure](../articles/firewall/rule-processing.md).
+
+### <a name="how-to-wildcards-work-in-an-application-rule-target-fqdn"></a>Pour les caractères génériques fonctionnement dans une cible de la règle application FQDN ?
+
+Si vous configurez ***. contoso.com**, il permet de *anyvalue*. contoso.com, mais pas contoso.com (l’extrémité de domaine). Si vous souhaitez autoriser l’extrémité de domaine, vous devez le configurer explicitement comme un nom de domaine complet de la cible.

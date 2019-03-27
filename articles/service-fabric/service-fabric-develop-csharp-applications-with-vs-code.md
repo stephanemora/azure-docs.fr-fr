@@ -3,7 +3,7 @@ title: Développer des applications Azure Service Fabric en .NET Core avec Visua
 description: Cet article montre comment générer, déployer et déboguer des applications Service Fabric en .NET Core à l’aide de Visual Studio Code.
 services: service-fabric
 documentationcenter: .net
-author: JimacoMS2
+author: peterpogorski
 manager: timlt
 editor: ''
 ms.assetid: 96176149-69bb-4b06-a72e-ebbfea84454b
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
-ms.author: v-jamebr
-ms.openlocfilehash: 9da735f10063649222a38498af17e0404137a706
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.author: pepogors
+ms.openlocfilehash: 76efdc28c5c536c193e12a1637d2b57a2582b6bf
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315349"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499389"
 ---
 # <a name="develop-c-service-fabric-applications-with-visual-studio-code"></a>Développer des applications Service Fabric en C# avec Visual Studio Code
 

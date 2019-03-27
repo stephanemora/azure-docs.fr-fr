@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 03/01/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 8faeb06987577d7e0098e3b5047cdde91b1254ae
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 55874d261ac453d559975f25b2272319cdc6a7db
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315229"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448003"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Sauvegarde et restauration dans Azure SQL Data Warehouse
 
@@ -44,7 +44,7 @@ order by run_id desc
 
 ## <a name="user-defined-restore-points"></a>Points de restauration définis par l’utilisateur
 
-Cette fonctionnalité vous permet de manuellement des instantanés de déclencheur pour créer des points de restauration de votre entrepôt de données avant et après des modifications importantes apportées. Cette fonctionnalité garantit que les points de restauration sont logiquement cohérentes, ce qui fournit une protection des données supplémentaires dans le cas des interruptions de la charge de travail ou des erreurs de l’utilisateur pour le temps de récupération rapide. Les points de restauration définis par l’utilisateur sont disponibles pendant sept jours et sont automatiquement supprimés pour votre compte. Vous ne pouvez pas changer la période de conservation des points de restauration définis par l’utilisateur. **42 points de restauration définis par l’utilisateur** sont garantis à un instant donné. Ils doivent donc être [supprimés](https://go.microsoft.com/fwlink/?linkid=875299) avant qu’un autre point de restauration soit créé. Vous pouvez déclencher des captures instantanées pour créer des points de restauration définis par l’utilisateur par le biais de [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoint?view=azurermps-6.2.0#examples) ou du portail Azure.
+Cette fonctionnalité vous permet de manuellement des instantanés de déclencheur pour créer des points de restauration de votre entrepôt de données avant et après des modifications importantes apportées. Cette fonctionnalité garantit que les points de restauration sont logiquement cohérentes, ce qui fournit une protection des données supplémentaires dans le cas des interruptions de la charge de travail ou des erreurs de l’utilisateur pour le temps de récupération rapide. Les points de restauration définis par l’utilisateur sont disponibles pendant sept jours et sont automatiquement supprimés pour votre compte. Vous ne pouvez pas changer la période de conservation des points de restauration définis par l’utilisateur. **42 points de restauration définis par l’utilisateur** sont garantis à un instant donné. Ils doivent donc être [supprimés](https://go.microsoft.com/fwlink/?linkid=875299) avant qu’un autre point de restauration soit créé. Vous pouvez déclencher des captures instantanées pour créer des points de restauration définis par l’utilisateur par le biais de [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoint#examples) ou du portail Azure.
 
 > [!NOTE]
 > Si vous avez besoin de points de restauration de plus de 7 jours, votez pour cette fonctionnalité [ici](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points). Vous pouvez également créer un point de restauration défini par l’utilisateur et effectuer une restauration à partir du point de restauration nouvellement créé dans un nouvel entrepôt de données. Une fois la restauration effectuée, vous retrouvez l’entrepôt de données en ligne que vous pouvez mettre en pause indéfiniment pour réduire les coûts de calcul. La base de données en pause entraîne des frais de stockage aux tarifs du Stockage Premium Azure. Si vous avez besoin d’une copie active de l’entrepôt de données restauré, vous pouvez reprendre, ce qui ne doit prendre que quelques minutes.

@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: e9b562cb04bb8916245d9df7b9b6d526bd443a24
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 89f5294d6ac01a6fa377e8d0763e77f8034ab44a
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58352134"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449563"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métriques prises en charge avec Azure Monitor
 
@@ -1287,8 +1287,8 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |MessageCount|Nombre de messages|Nombre|Total|Nombre total de messages.|Aucune dimension|
 |InboundTraffic|Trafic entrant|Octets|Total|Trafic entrant de service|Aucune dimension|
 |OutboundTraffic|Trafic sortant|Octets|Total|Trafic sortant de service|Aucune dimension|
-|UserErrors|Erreurs d’utilisateur|Pourcentage|Maximale|Pourcentage d’erreurs d’utilisateur|Aucune dimension|
-|SystemErrors|Erreurs système|Pourcentage|Maximale|Pourcentage d’erreurs système|Aucune dimension|
+|UserErrors|Erreurs d’utilisateur|Pourcentage|Moyenne|Pourcentage d’erreurs d’utilisateur|Aucune dimension|
+|SystemErrors|Erreurs système|Pourcentage|Moyenne|Pourcentage d’erreurs système|Aucune dimension|
 
 ## <a name="microsoftsqlserversdatabases"></a>Microsoft.Sql/servers/databases
 

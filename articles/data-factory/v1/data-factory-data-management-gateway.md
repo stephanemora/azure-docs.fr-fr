@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 5fa553d63a33f06432d8ae3e5247d7eca0fde90a
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 00c8d7cefd7539cd53de8081f44fe861bd063bee
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351896"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487785"
 ---
 # <a name="data-management-gateway"></a>Passerelle de gestion de données
 > [!NOTE]
@@ -283,12 +283,12 @@ Vous pouvez désactiver/activer la fonctionnalité de mise à jour automatique c
 2. Accédez au dossier C:\Program Files\Microsoft Integration Runtime\3.0\PowerShellScript\.
 3. Exécutez la commande suivante pour désactiver la fonctionnalité de mise à jour automatique.
 
-    ```PowerShell
+    ```powershell
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -off
     ```
 4. Pour la réactiver :
 
-    ```PowerShell
+    ```powershell
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -on
     ```
    [Pour une passerelle multinœud à haute disponibilité et scalable](data-factory-data-management-gateway-high-availability-scalability.md)
@@ -297,12 +297,12 @@ Vous pouvez désactiver/activer la fonctionnalité de mise à jour automatique c
 3. Exécutez la commande suivante pour désactiver la fonctionnalité de mise à jour automatique.
 
     Pour une passerelle avec une fonctionnalité de haute disponibilité, un paramètre AuthKey supplémentaire est nécessaire.
-    ```PowerShell
+    ```powershell
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -off -AuthKey <your auth key>
     ```
 4. Pour la réactiver :
 
-    ```PowerShell
+    ```powershell
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -on -AuthKey <your auth key>
     ```
 
@@ -485,12 +485,12 @@ Cette section décrit comment créer et enregistrer une passerelle à l’aide d
 1. Lancez **Azure PowerShell** en mode administrateur.
 2. Connectez-vous à votre compte Azure en exécutant la commande suivante et en entrant vos informations d’identification Azure.
 
-    ```PowerShell
+    ```powershell
     Connect-AzAccount
     ```
 3. Utilisez le **New-AzDataFactoryGateway** applet de commande pour créer une passerelle logique comme suit :
 
-    ```PowerShell
+    ```powershell
     $MyDMG = New-AzDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
     ```
     **Exemple de commande et de sortie**:
@@ -513,7 +513,7 @@ Cette section décrit comment créer et enregistrer une passerelle à l’aide d
 
 1. Dans Azure PowerShell, basculez vers le dossier : **C:\\programme Files\Microsoft Data Management Gateway\2.0\PowerShellScript\\**. Exécutez le script **RegisterGateway.ps1** associé à la variable locale **$Key**, comme indiqué dans la commande suivante. Ce script enregistre l’agent client installé sur votre ordinateur avec la passerelle logique que vous avez créée précédemment.
 
-    ```PowerShell
+    ```powershell
     PS C:\> .\RegisterGateway.ps1 $MyDMG.Key
     ```
     ```
@@ -521,25 +521,25 @@ Cette section décrit comment créer et enregistrer une passerelle à l’aide d
     ```
     Vous pouvez inscrire la passerelle sur un ordinateur distant en utilisant le paramètre IsRegisterOnRemoteMachine. Exemple :
 
-    ```PowerShell
+    ```powershell
     .\RegisterGateway.ps1 $MyDMG.Key -IsRegisterOnRemoteMachine true
     ```
 2. Vous pouvez utiliser la **Get-AzDataFactoryGateway** pour obtenir la liste des passerelles dans votre fabrique de données. Lorsque **l’état** est **online**, cela signifie que votre passerelle est prête.
 
-    ```PowerShell        
+    ```powershell        
     Get-AzDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
     ```
    Vous pouvez supprimer une passerelle en utilisant la **Remove-AzDataFactoryGateway** applet de commande et de mise à jour la description d’une passerelle en utilisant la **AzDataFactoryGateway de jeu** applets de commande. Pour obtenir la syntaxe et d’autres détails sur ces applets de commande, consultez la rubrique Référence des applets de commande Azure Data Factory.  
 
 ### <a name="list-gateways-using-powershell"></a>Répertorier les passerelles à l’aide de PowerShell
 
-```PowerShell
+```powershell
 Get-AzDataFactoryGateway -DataFactoryName jasoncopyusingstoredprocedure -ResourceGroupName ADF_ResourceGroup
 ```
 
 ### <a name="remove-gateway-using-powershell"></a>Supprimer une passerelle à l’aide de PowerShell
 
-```PowerShell
+```powershell
 Remove-AzDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName ADF_ResourceGroup -DataFactoryName jasoncopyusingstoredprocedure -Force
 ```
 

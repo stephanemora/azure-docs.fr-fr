@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/21/2018
 ms.author: sikoo
 ms.subservice: files
-ms.openlocfilehash: fe363bd6d16d7beea1c8f1e6ec17710975a80924
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 871eb1663d6cba550f1403215b1d3ce5fe8278d3
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652558"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486102"
 ---
 # <a name="cloud-tiering-overview"></a>Vue d’ensemble de la hiérarchisation cloud
 La hiérarchisation cloud est une fonctionnalité facultative d’Azure File Sync, qui met en cache sur le serveur local les fichiers faisant l’objet d’accès fréquents, tous les autres fichiers étant hiérarchisés sur Azure Files en fonction de paramètres de stratégie. Quand un fichier est hiérarchisé, le filtre du système de fichiers Azure File Sync (StorageSync.sys) remplace le fichier local par un pointeur, ou point d’analyse. Le point d’analyse représente une URL vers le fichier dans Azure Files. Un fichier hiérarchisé a l’attribut « offline » (hors connexion), et son attribut FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS est défini dans le système de fichiers NTFS de façon à ce que des applications tierces puissent identifier sûrement des fichiers hiérarchisés.
@@ -85,7 +85,7 @@ Vous pouvez déterminer de plusieurs façons si un fichier a été hiérarchisé
    * **Utiliser `fsutil` pour rechercher les points d’analyse sur un fichier.**
        Comme indiqué dans l’option précédente, un fichier hiérarchisé a toujours un point d’analyse défini. Un pointeur d’analyse est un pointeur spécial pour le filtre de système de fichiers Azure File Sync (StorageSync.sys). Pour vérifier si un fichier a un point d’analyse, dans une fenêtre d’invite de commandes avec élévation de privilèges ou une fenêtre PowerShell, exécutez l’utilitaire `fsutil` :
     
-        ```PowerShell
+        ```powershell
         fsutil reparsepoint query <your-file-name>
         ```
 
@@ -101,7 +101,7 @@ Pour rappeler un fichier sur le disque, le plus simple consiste à l’ouvrir. L
 
 Vous pouvez également utiliser PowerShell pour forcer le rappel d’un fichier. Cette option peut être utile si vous souhaitez rappeler plusieurs fichiers en même temps (par exemple tous les fichiers d’un dossier). Ouvrez une session PowerShell sur le nœud de serveur sur lequel Azure File Sync est installé, puis exécutez les commandes PowerShell suivantes :
     
-    ```PowerShell
+    ```powershell
     Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
     Invoke-StorageSyncFileRecall -Path <file-or-directory-to-be-recalled>
     ```
@@ -114,7 +114,7 @@ L’Explorateur de fichiers Windows expose deux propriétés pour représenter l
 ### <a name="how-do-i-force-a-file-or-directory-to-be-tiered"></a>Comment faire pour imposer la hiérarchisation d’un fichier ou répertoire ?
 Quand elle est activée, la fonctionnalité de hiérarchisation cloud hiérarchise automatiquement les fichiers en fonction de la date du dernier accès et de la dernière modification afin d’atteindre le pourcentage d’espace libre du volume spécifié sur le point de terminaison cloud. Parfois, cependant, vous pouvez être amené à imposer une hiérarchisation manuelle d’un fichier. Cette opération peut s’avérer utile si vous enregistrez un fichier volumineux que vous n’envisagez pas de réutiliser pendant un certain temps, et que vous souhaitez dédier dans l’immédiat l’espace libre sur le volume à d’autres fichiers et dossiers. Vous pouvez forcer la hiérarchisation à l’aide des commandes PowerShell suivantes :
 
-    ```PowerShell
+    ```powershell
     Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
     Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
     ```

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 501555c68b7b5922bbf5a74d2a7ed5e548b900c5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8a2c149faa0ec9d135713a123a33d7c220522496
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57833535"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58496001"
 ---
 # <a name="migrate-from-the-custom-speech-service-to-the-speech-service"></a>Migrer de Custom Speech Service vers le service Speech
 
@@ -48,7 +48,7 @@ Migrez vos clés de ressources existantes vers les Services de reconnaissance vo
 > [!NOTE]
 > Les ressources clés peuvent être migrées uniquement dans la même région.
 
-1. Connectez-vous au portail [cris.ai](https://www.cris.ai), puis sélectionnez l’abonnement dans le menu en haut à droite.
+1. Connectez-vous au portail [cris.ai](https://cris.ai/Home/CustomSpeech), puis sélectionnez l’abonnement dans le menu en haut à droite.
 
 2. Sélectionnez **Migrer l’abonnement sélectionné**.
 

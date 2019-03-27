@@ -3,7 +3,7 @@ title: Renouveler un certificat de cluster Azure Service Fabric | Microsoft Docs
 description: Découvrez comment renouveler un certificat de cluster Service Fabric identifié par le nom commun du certificat.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: aljo
 ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
-ms.author: ryanwi
-ms.openlocfilehash: 72640a4d917ddb2485199f0df1fead8b0bdcd1c9
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.author: aljo
+ms.openlocfilehash: 549c5fed02402bb17b85fe796fecc4b53b321a66
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55192963"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497072"
 ---
 # <a name="manually-roll-over-a-service-fabric-cluster-certificate"></a>Renouveler manuellement un certificat de cluster Service Fabric
 Lorsqu’un certificat de cluster Service Fabric est proche de la date d’expiration, vous devez le mettre à jour.  Le renouvellement de certificat est un processus simple si le cluster a été [configuré pour utiliser des certificats basés sur un nom commun](service-fabric-cluster-change-cert-thumbprint-to-cn.md) (et pas une empreinte).  Obtenez un nouveau certificat auprès d’une autorité de certification avec une nouvelle date d’expiration.  Les certificats auto-signés ne sont pas pris en charge avec les clusters Service Fabric de production, afin d’inclure les certificats générés dans le cadre du workflow de création de cluster dans le portail Azure. Le nouveau certificat doit présenter le même nom commun que l’ancien certificat. 

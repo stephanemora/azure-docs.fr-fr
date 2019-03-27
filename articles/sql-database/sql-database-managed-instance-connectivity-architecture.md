@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 02/26/2019
-ms.openlocfilehash: 6ef020ff1054416e2b9af5af824b9aa27f0b1e64
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: ad005ff879ef5e4c0fb2fb72ce3062a5dd25d99a
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57247237"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486782"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Architecture de connectivité pour une instance gérée dans la base de données SQL Azure 
 
@@ -67,7 +67,7 @@ Prenons plus en détail dans l’architecture de connectivité pour les instance
 
 ![Architecture de connectivité du cluster virtuel](./media/managed-instance-connectivity-architecture/connectivityarch003.png)
 
-Les clients se connectent à une instance gérée à l’aide d’un nom d’hôte qui se présente sous la forme `<mi_name>.<dns_zone>.database.windows.net`. Ce nom d’hôte correspond à une adresse IP privée, bien qu’il est inscrit dans une zone de nom (DNS) de domaine public et peut être résolu publiquement. Le `zone-id` est généré automatiquement lorsque vous créez le cluster. Si un nouveau cluster héberge une instance gérée secondaire, il partage son ID de zone avec le cluster principal. Pour plus d’informations, consultez [utiliser des groupes de reprise automatique pour permettre un basculement transparent et coordonné de plusieurs bases de données](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets).
+Les clients se connectent à une instance gérée à l’aide d’un nom d’hôte qui se présente sous la forme `<mi_name>.<dns_zone>.database.windows.net`. Ce nom d’hôte correspond à une adresse IP privée, bien qu’il est inscrit dans une zone de nom (DNS) de domaine public et peut être résolu publiquement. Le `zone-id` est généré automatiquement lorsque vous créez le cluster. Si un nouveau cluster héberge une instance gérée secondaire, il partage son ID de zone avec le cluster principal. Pour plus d’informations, consultez [utiliser des groupes de basculement automatique pour permettre un basculement transparent et coordonné de plusieurs bases de données](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets).
 
 Cette adresse IP privée appartient à l’équilibreur de charge interne de l’instance gérée. L’équilibreur de charge dirige le trafic vers passerelle de l’instance gérée. Plusieurs instances gérées pouvant s’exécuter à l’intérieur du même cluster, la passerelle utilise le nom d’hôte de l’instance gérée à rediriger le trafic vers le service de moteur SQL correct.
 
@@ -109,6 +109,8 @@ Déployer une instance gérée dans un sous-réseau dédié à l’intérieur du
 |------------|--------------|--------|-----------------|-----------|------|
 |gestion  |80, 443, 12000|TCP     |Quelconque              |Internet   |AUTORISER |
 |mi_subnet   |Quelconque           |Quelconque     |Quelconque              |SOUS-RÉSEAU MI *  |AUTORISER |
+
+> Assurez-vous qu’une seule règle de trafic entrant pour les ports 9000, 9003, 1438, 1440, 1452 et une règle de trafic sortant pour les ports 80, 443, 12000. L’approvisionnement Instance gérés via les déploiements ARM peut échouer si les règles de trafic entrants et de sortie sont configurés séparément pour chaque ports. 
 
 \* MI sous-réseau fait référence à la plage d’adresses IP pour le sous-réseau dans le formulaire 10.x.x.x/y. Vous pouvez trouver ces informations dans le portail Azure, dans les propriétés du sous-réseau.
 
@@ -167,6 +169,6 @@ Si le réseau virtuel comprend un DNS personnalisé, ajoutez une entrée pour l�
 - [Calculer la taille du sous-réseau](sql-database-managed-instance-determine-size-vnet-subnet.md) où vous souhaitez déployer les instances gérées.
 - Découvrez comment créer une instance managée :
   - À partir du [portail Azure](sql-database-managed-instance-get-started.md).
-  - À l’aide de [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/).
+  - À l’aide de [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md).
   - À l’aide de [un modèle Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
   - À l’aide de [un modèle Azure Resource Manager (à l’aide du serveur de rebond, avec SSMS inclus)](https://portal.azure.com/).

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 71a5ca62dc5d21e30a4944f8be57a77040f4f204
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: ef408022174bc53300626b71f28bafe0561dc343
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733686"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486238"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Sécuriser vos services RESTful à l’aide de l’authentification de base HTTP
 
@@ -27,7 +27,7 @@ Dans cet article, vous ajoutez l’authentification HTTP de base à votre servic
 
 Pour plus d’informations, consultez [Authentification de base dans l’API web ASP.NET](https://docs.microsoft.com/aspnet/web-api/overview/security/basic-authentication).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Effectuez les étapes de l’article [Procédure pas à pas : intégration des échanges de revendications de l’API REST dans votre parcours utilisateur Azure Active Directory B2C comme validation d’une entrée de l’utilisateur](active-directory-b2c-custom-rest-api-netfw.md).
 
 ## <a name="step-1-add-authentication-support"></a>Étape 1 : Ajouter le support de l’authentification
@@ -46,7 +46,7 @@ Effectuez les étapes de l’article [Procédure pas à pas : intégration des �
 
     Pour générer un mot de passe complexe, exécutez le code PowerShell suivant. Vous pouvez utiliser n’importe quelle valeur arbitraire.
 
-    ```PowerShell
+    ```powershell
     $bytes = New-Object Byte[] 32
     $rand = [System.Security.Cryptography.RandomNumberGenerator]::Create()
     $rand.GetBytes($bytes)

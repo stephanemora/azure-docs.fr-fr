@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.openlocfilehash: 73a7c2ef80291920a6d19f0c3ab01b45c1d6b22a
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: 42780eae0a85ec8a2ca7e9d6ca1149f6530c25e1
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53627722"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448972"
 ---
 # <a name="example-apache-storm-topologies-and-components-for-apache-storm-on-hdinsight"></a>Exemples de topologies et de composants Apache Storm pour Apache Storm sur HDInsight
 
@@ -46,7 +46,7 @@ Voici une liste d’exemples créés et gérés par Microsoft à utiliser avec [
 * [Découvrez comment déployer et gérer des topologies Apache Storm avec Apache Storm sur HDInsight][6eb0d3b8]
 
 [2b8c3488]:apache-storm-tutorial-get-started-linux.md "Découvrez comment créer un cluster Apache Storm sur HDInsight et utiliser le tableau de bord Storm pour déployer des exemples de topologies."
-[6eb0d3b8]:apache-storm-deploy-monitor-topology.md "Découvrez comment déployer et gérer des topologies à l’aide du tableau de bord web d’Apache Storm, de l’interface utilisateur Storm ou des outils HDInsight pour Visual Studio."
+[6eb0d3b8]:apache-storm-deploy-monitor-topology-linux.md "Découvrez comment déployer et gérer des topologies à l’aide du tableau de bord web d’Apache Storm, de l’interface utilisateur Storm ou des outils HDInsight pour Visual Studio."
 [16fce2d1]:apache-storm-develop-csharp-visual-studio-topology.md "Découvrez comment créer une topologie Storm en C# à l’aide des outils HDInsight pour Visual Studio."
 [5797064f]:apache-storm-develop-java-topology.md "Découvrez comment créer des topologies Storm dans Java à l’aide de Maven en créant une topologie de comptage de mots de base."
 [844d1d81]:apache-storm-develop-csharp-event-hub-topology.md "Découvrez comment lire et écrire des données à partir d’Azure Event Hubs avec Storm sur HDInsight."

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/14/2016
 ms.author: aelnably
 ms.custom: seodec18
-ms.openlocfilehash: 53cde81ed5df97c4cb6d8360c9bb639b8bdabe20
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 198fedbbd1e97dcda15c9124109e50664f58f8e7
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818134"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487887"
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>Clonage de l’application Azure App Service à l’aide de PowerShell
 
@@ -35,31 +35,31 @@ Scénario : Vous souhaitez cloner le contenu d’une application de la région U
 
 En connaissant le nom du groupe de ressources qui contient l’application source, vous pouvez utiliser la commande PowerShell suivante pour obtenir les informations de l’application source (dans ce cas nommée `source-webapp`) :
 
-```PowerShell
+```powershell
 $srcapp = Get-AzWebApp -ResourceGroupName SourceAzureResourceGroup -Name source-webapp
 ```
 
 Pour créer un plan App Service, vous pouvez utiliser la commande `New-AzAppServicePlan` comme dans l’exemple suivant
 
-```PowerShell
+```powershell
 New-AzAppServicePlan -Location "South Central US" -ResourceGroupName DestinationAzureResourceGroup -Name NewAppServicePlan -Tier Premium
 ```
 
 À l’aide de la commande `New-AzWebApp`, vous pouvez créer l’application dans la région USA Centre Nord et la lier à un plan App Service existant de niveau Premium. Par ailleurs, vous pouvez utiliser le même groupe de ressources que l’application source ou en définir un nouveau, comme le montre la commande suivante :
 
-```PowerShell
+```powershell
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp
 ```
 
 Pour cloner une application existante, notamment tous les emplacements de déploiement associés, vous devez utiliser le paramètre `IncludeSourceWebAppSlots`. La commande PowerShell suivante illustre l’utilisation de ce paramètre avec la commande `New-AzWebApp` :
 
-```PowerShell
+```powershell
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -IncludeSourceWebAppSlots
 ```
 
 Pour cloner une application existante dans la même région, vous devez créer un groupe de ressources et un plan de service d’application dans la même région, puis utiliser la commande PowerShell suivante pour cloner l’application :
 
-```PowerShell
+```powershell
 $destapp = New-AzWebApp -ResourceGroupName NewAzureResourceGroup -Name dest-webapp -Location "South Central US" -AppServicePlan NewAppServicePlan -SourceWebApp $srcap
 ```
 
@@ -68,13 +68,13 @@ Scénario : Vous souhaitez cloner le contenu d’une application de la région U
 
 En connaissant le nom du groupe de ressources qui contient l’application source, vous pouvez utiliser la commande PowerShell suivante pour obtenir les informations de l’application source (dans ce cas nommée `source-webapp`) :
 
-```PowerShell
+```powershell
 $srcapp = Get-AzWebApp -ResourceGroupName SourceAzureResourceGroup -Name source-webapp
 ```
 
 En connaissant le nom de l’environnement ASE et le nom du groupe de ressources auquel l’ASE appartient, vous pouvez créer l’application dans l’environnement ASE, comme le montre la commande suivante :
 
-```PowerShell
+```powershell
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -ASEName DestinationASE -ASEResourceGroupName DestinationASEResourceGroupName -SourceWebApp $srcapp
 ```
 
@@ -85,13 +85,13 @@ Scénario : Vous souhaitez cloner un emplacement de déploiement d’une applica
 
 En connaissant le nom du groupe de ressources qui contient l’application source, vous pouvez utiliser la commande PowerShell suivante pour obtenir les informations de l’emplacement d’application source (dans ce cas nommé `source-appslot`) lié à `source-app` :
 
-```PowerShell
+```powershell
 $srcappslot = Get-AzWebAppSlot -ResourceGroupName SourceAzureResourceGroup -Name source-app -Slot source-appslot
 ```
 
 La commande suivante illustre la création d’un clone de l’application source vers une nouvelle application :
 
-```PowerShell
+```powershell
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-app -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcappslot
 ```
 
@@ -101,20 +101,20 @@ La création d’applications sur plusieurs régions et la configuration d’Azu
 ### <a name="creating-a-new-traffic-manager-profile-while-cloning-an-app"></a>Création d’un profil Traffic Manager lors du clonage d’une application
 Scénario : Vous souhaitez cloner une application vers une autre région tout en configurant un profil de gestionnaire de trafic Azure Resource Manager qui inclut les deux applications. La commande suivante illustre la création d’un clone de l’application source vers une nouvelle application tout en configurant un nouveau profil Traffic Manager :
 
-```PowerShell
+```powershell
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "South Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -TrafficManagerProfileName newTrafficManagerProfile
 ```
 
 ### <a name="adding-new-cloned-app-to-an-existing-traffic-manager-profile"></a>Ajout d’une nouvelle application clonée à un profil Traffic Manager existant
 Scénario : Vous disposez déjà d’un profil de gestionnaire de trafic Azure Resource Manager auquel vous souhaitez ajouter les deux applications comme points de terminaison. Pour ce faire, vous devez tout d’abord assembler l’ID du profile Traffic Manager existant. Vous devez disposer de l’ID d’abonnement, du nom de groupe de ressources et du nom du profil Traffic Manager existant.
 
-```PowerShell
+```powershell
 $TMProfileID = "/subscriptions/<Your subscription ID goes here>/resourceGroups/<Your resource group name goes here>/providers/Microsoft.TrafficManagerProfiles/ExistingTrafficManagerProfileName"
 ```
 
 Une fois l’ID de gestionnaire de trafic obtenu, la commande suivante illustre la création d’un clone de l’application source vers une nouvelle application tout en les ajoutant à un profil Traffic Manager existant :
 
-```PowerShell
+```powershell
 $destapp = New-AzWebApp -ResourceGroupName <Resource group name> -Name dest-webapp -Location "South Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -TrafficManagerProfileId $TMProfileID
 ```
 

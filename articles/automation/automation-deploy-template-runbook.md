@@ -10,12 +10,12 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 keywords: powerShell, runbook, json, azure automation
-ms.openlocfilehash: ef97d4e2fd0951e30a725e8f2f9603a73c61f1ca
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 2008ba697665baa0e8cf73564ec31d6267425404
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416113"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446971"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Déployer un modèle Azure Resource Manager dans un runbook PowerShell Azure Automation
 
@@ -25,14 +25,14 @@ Ainsi, vous pouvez automatiser le déploiement de ressources Azure. Vous pouvez 
 
 Dans cet article, nous créons un runbook PowerShell qui utilise un modèle Resource Manager stocké dans le service [Stockage Azure](../storage/common/storage-introduction.md) pour déployer un nouveau compte de stockage Azure.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour ce tutoriel, vous devez disposer des éléments suivants :
 
 * Abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [activer vos avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou [créer un compte gratuit](https://azure.microsoft.com/free/).
 * [compte Automation](automation-sec-configure-azure-runas-account.md) pour le stockage du Runbook et l’authentification auprès des ressources Azure.  Ce compte doit avoir l’autorisation de démarrer et d’arrêter la machine virtuelle.
 * [Compte de stockage Azure](../storage/common/storage-create-storage-account.md) dans lequel stocker le modèle Resource Manager
-* Azure Powershell installé sur un ordinateur local. Pour plus d'informations sur l’obtention d’Azure PowerShell, consultez la section [Installation et configuration d'Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.1.0).
+* Azure Powershell installé sur un ordinateur local. Pour plus d'informations sur l’obtention d’Azure PowerShell, consultez la section [Installation et configuration d'Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
 
 ## <a name="create-the-resource-manager-template"></a>Créer le modèle Resource Manager
 
@@ -203,7 +203,7 @@ Publish-AzureRmAutomationRunbook @publishParams
 
 ## <a name="start-the-runbook"></a>Démarrer le runbook
 
-Maintenant, nous démarrons le runbook en appelant l’applet de commande [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook?view=azurermps-4.1.0).
+Maintenant, nous démarrons le runbook en appelant l’applet de commande [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook).
 
 Pour plus d’informations sur la façon de démarrer un runbook dans le portail Azure, consultez [Démarrage d’un Runbook dans Azure Automation](automation-starting-a-runbook.md).
 

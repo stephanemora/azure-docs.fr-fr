@@ -4,20 +4,20 @@ description: Découvrez comment créer des règles de stratégie du cycle de vie
 services: storage
 author: yzheng-msft
 ms.service: storage
-ms.topic: article
-ms.date: 11/04/2018
+ms.topic: conceptual
+ms.date: 3/20/2019
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: 1428c2925ab57642899732bd4504b2d5b38781a8
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 0d52b2f59bba2270b3d36ff2499ce1e0e492b228
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315145"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500421"
 ---
-# <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Gestion du cycle de vie de Stockage Blob Azure (préversion)
+# <a name="manage-the-azure-blob-storage-lifecycle"></a>Gérer le cycle de vie du stockage Blob Azure
 
-Les jeux de données ont des cycles de vie différents. Tôt dans le cycle de vie, les utilisateurs accèdent souvent à certaines données. Mais à mesure que les données vieillissent, le nombre d’accès diminue considérablement. Certaines données restent inactives dans le cloud et sont rarement sollicitées une fois stockées. Certaines expirent plusieurs jours ou mois après leur création, tandis que d’autres jeux de données sont lus et modifiés de manière active tout au long de leur vie. La gestion du cycle de vie de Stockage Blob Azure (préversion) offre une stratégie complète basée sur des règles pour les comptes Stockage Blob et GPv2. Utilisez la stratégie pour effectuer la transition de vos données vers les niveaux d’accès appropriés ou pour faire en sorte qu’elles expirent à la fin de leur cycle de vie.
+Les jeux de données ont des cycles de vie différents. Tôt dans le cycle de vie, les utilisateurs accèdent souvent à certaines données. Mais à mesure que les données vieillissent, le nombre d’accès diminue considérablement. Certaines données restent inactives dans le cloud et sont rarement sollicitées une fois stockées. Certaines expirent plusieurs jours ou mois après leur création, tandis que d’autres jeux de données sont lus et modifiés de manière active tout au long de leur vie. Gestion du cycle de vie du stockage d’objets Blob Azure offre une stratégie riche, basé sur une règle pour les comptes de stockage Blob et GPv2. Utilisez la stratégie pour effectuer la transition de vos données vers les niveaux d’accès appropriés ou pour faire en sorte qu’elles expirent à la fin de leur cycle de vie.
 
 La gestion du cycle de vie vous permet de :
 
@@ -34,73 +34,53 @@ La stratégie de gestion du cycle de vie est disponible avec les comptes v2 univ
 
 ## <a name="pricing"></a>Tarifs 
 
-La fonctionnalité de gestion du cycle de vie est gratuite dans la préversion. Les clients sont facturés le coût de fonctionnement normal pour les appels d’API [Répertorier les objets blob](https://docs.microsoft.com/rest/api/storageservices/list-blobs) et [Définir le niveau d’objet blob](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier). Pour plus d’informations sur les prix, consultez [Tarification Objets blob de blocs](https://azure.microsoft.com/pricing/details/storage/blobs/).
+La fonctionnalité de gestion du cycle de vie est gratuite. Les clients sont facturés le coût de fonctionnement normal pour les appels d’API [Répertorier les objets blob](https://docs.microsoft.com/rest/api/storageservices/list-blobs) et [Définir le niveau d’objet blob](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier). Opération de suppression est gratuite. Pour plus d’informations sur les prix, consultez [Tarification Objets blob de blocs](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-## <a name="register-for-preview"></a>S’inscrire pour la préversion 
-Pour vous inscrire à la préversion publique, vous devez envoyer une demande afin d’enregistrer cette fonctionnalité dans votre abonnement. Les demandes sont généralement approuvées dans les 72 heures. Une fois votre demande acceptée, tous les comptes Stockage Blob ou GPv2 nouveaux et existants dans les régions suivantes incluent la fonctionnalité : USA Ouest 2, USA Centre-Ouest, USA Est 2 et Europe Ouest. La préversion prend uniquement en charge les objets blob de blocs. Comme avec la plupart des préversions, vous ne devez pas utiliser cette fonctionnalité pour les charges de production avant qu’elle ne soit en disponibilité générale.
-
-Pour soumettre une requête, exécutez les commandes PowerShell ou CLI suivantes.
-
-### <a name="powershell"></a>PowerShell
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-Pour soumettre une requête :
-
-```powershell
-Register-AzProviderFeature -FeatureName DLM -ProviderNamespace Microsoft.Storage 
-```
-Vous pouvez vérifier l’état de l'approbation de l’inscription à l’aide de la commande suivante :
-```powershell
-Get-AzProviderFeature -FeatureName DLM -ProviderNamespace Microsoft.Storage
-```
-Avec l’approbation et l’inscription appropriée, vous recevez l’état *Inscrit* quand vous envoyez les requêtes précédentes.
-
-### <a name="azure-cli"></a>Azure CLI
-
-Pour soumettre une requête : 
-```cli
-az feature register --namespace Microsoft.Storage --name DLM
-```
-Vous pouvez vérifier l’état de l'approbation de l’inscription à l’aide de la commande suivante :
-```cli
-az feature show --namespace Microsoft.Storage --name DLM
-```
-Avec l’approbation et l’inscription appropriée, vous recevez l’état *Inscrit* quand vous envoyez les requêtes précédentes.
+## <a name="regional-availability"></a>Disponibilité régionale 
+La fonctionnalité de gestion du cycle de vie est disponible dans toutes les régions Azure publiques. 
 
 
 ## <a name="add-or-remove-a-policy"></a>Ajouter ou supprimer une stratégie 
 
-Vous pouvez ajouter, modifier ou supprimer une stratégie à l’aide du portail Azure, de [PowerShell](https://www.powershellgallery.com/packages/Az.Storage), d’[Azure CLI](https://docs.microsoft.com/cli/azure/ext/storage-preview/storage/account/management-policy?view=azure-cli-latest#ext-storage-preview-az-storage-account-management-policy-create), des [API REST](https://docs.microsoft.com/rest/api/storagerp/managementpolicies/createorupdate) ou des outils clients dans les langages suivants : [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby](https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
+Vous pouvez ajouter, modifier ou supprimer une stratégie à l’aide du portail Azure, [Azure PowerShell](https://github.com/Azure/azure-powershell/releases), l’interface CLI, API REST ou un outil client. Cet article explique comment gérer la stratégie en utilisant le portail et les méthodes de PowerShell.  
+
+> [!NOTE]
+> Si vous activez les règles de pare-feu de votre compte de stockage, les requêtes de gestion du cycle de vie peuvent être bloquées. Vous pouvez débloquer ces requêtes en fournissant des exceptions. Pour plus d’informations, consultez la section Exceptions dans [Configurer des pare-feu et des réseaux virtuels](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 ### <a name="azure-portal"></a>Portail Azure
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
-2. Sélectionnez **Toutes les ressources**, puis sélectionnez votre compte de stockage.
+2. Sélectionnez **toutes les ressources** , puis sélectionnez votre compte de stockage.
 
-3. Sélectionnez **Gestion du cycle de vie (préversion)** regroupé sous Service Blob pour afficher ou modifier votre stratégie.
+3. Sous **Service Blob**, sélectionnez **gestion du cycle de vie** pour afficher ou modifier votre stratégie.
 
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-$rules = '{ ... }'
+#Install the latest module
+Install-Module -Name Az -Repository PSGallery 
 
-Set-AzStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName] -StorageAccountName [storageAccountName] -Policy $rules 
+#Create a new action object
 
-Get-AzStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName] -StorageAccountName [storageAccountName]
+$action = Add-AzStorageAccountManagementPolicyAction -BaseBlobAction Delete -daysAfterModificationGreaterThan 2555
+$action = Add-AzStorageAccountManagementPolicyAction -InputObject $action -BaseBlobAction TierToArchive -daysAfterModificationGreaterThan 90
+$action = Add-AzStorageAccountManagementPolicyAction -InputObject $action -BaseBlobAction TierToCool -daysAfterModificationGreaterThan 30
+$action = Add-AzStorageAccountManagementPolicyAction -InputObject $action -SnapshotAction Delete -daysAfterCreationGreaterThan 90
+
+# Create a new filter object
+# PowerShell automatically sets BlobType as “blockblob” because it is the only available option currently
+$filter = New-AzStorageAccountManagementPolicyFilter -PrefixMatch ab,cd 
+
+#Create a new fule object
+#PowerShell automatically sets Type as “Lifecycle” because it is the only available option currently
+$rule1 = New-AzStorageAccountManagementPolicyRule -Name Test -Action $action -Filter $filter
+
+#Set the policy 
+$policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -StorageAccountName $accountName -Rule $rule1
+
 ```
 
-### <a name="azure-cli"></a>Azure CLI
-
-```
-az account set --subscription "[subscriptionName]”
-az extension add --name storage-preview
-az storage account management-policy show --resource-group [resourceGroupName] --account-name [accountName]
-```
-
-> [!NOTE]
-> Si vous activez les règles de pare-feu de votre compte de stockage, les requêtes de gestion du cycle de vie peuvent être bloquées. Vous pouvez débloquer ces requêtes en fournissant des exceptions. Pour plus d’informations, consultez la section Exceptions dans [Configurer des pare-feu et des réseaux virtuels](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 ## <a name="policy"></a>Stratégie
 
@@ -108,10 +88,10 @@ Une stratégie de gestion du cycle de vie est un ensemble de règles dans un doc
 
 ```json
 {
-  "version": "0.5",
   "rules": [
     {
       "name": "rule1",
+      "enabled": true,
       "type": "Lifecycle",
       "definition": {...}
     },
@@ -125,27 +105,27 @@ Une stratégie de gestion du cycle de vie est un ensemble de règles dans un doc
 ```
 
 
-Une stratégie nécessite deux paramètres :
+Une stratégie est une collection de règles :
 
 | Nom du paramètre | Type de paramètre | Notes |
 |----------------|----------------|-------|
-| version        | Une chaîne exprimée sous la forme `x.x` | Le numéro de la préversion est 0.5. |
-| règles          | Un ensemble d’objets de règle | Au moins une règle est requise dans chaque stratégie. Lors de la version préliminaire, vous pouvez spécifier jusqu’à 4 règles stratégie. |
+| règles          | Un ensemble d’objets de règle | Au moins une règle est requise dans une stratégie. Vous pouvez définir jusqu'à 100 règles dans une stratégie.|
 
-Chaque règle au sein de la stratégie nécessite trois paramètres :
+Chaque règle au sein de la stratégie a plusieurs paramètres :
 
-| Nom du paramètre | Type de paramètre | Notes |
-|----------------|----------------|-------|
-| Nom           | Chaîne | Un nom de règle peut inclure n’importe quelle combinaison de caractères alphanumériques. Les noms de règle respectent la casse. Ils doivent être uniques dans la stratégie. |
-| Type           | Une valeur enum | La valeur valide pour la préversion est `Lifecycle`. |
-| Définition     | Un objet qui définit la règle du cycle de vie | Chaque définition se compose d’un jeu de filtres et d’un jeu d’actions. |
+| Nom du paramètre | Type de paramètre | Notes | Obligatoire |
+|----------------|----------------|-------|----------|
+| Nom           | Chaîne |Un nom de règle peut contenir jusqu'à 256 caractères alphanumériques. Les noms de règle respectent la casse.  Ils doivent être uniques dans la stratégie. | True |
+| Activé | Booléen | Une valeur booléenne facultative pour permettre une règle pour être temporaire est désactivé. Valeur par défaut est true si elle n’est pas définie. | False | 
+| Type           | Une valeur enum | Le type actuel valid est `Lifecycle`. | True |
+| Définition     | Un objet qui définit la règle du cycle de vie | Chaque définition se compose d’un jeu de filtres et d’un jeu d’actions. | True |
 
 ## <a name="rules"></a>Règles
 
 Chaque définition de règle se compose d’un jeu de filtres et d’un jeu d’actions. Le [jeu de filtres](#rule-filters) limite les actions de règle à un certain ensemble d’objets dans un conteneur ou des noms d’objets. L’[ensemble d’actions](#rule-actions) applique les actions de niveau ou de suppression à l’ensemble d’objets filtré.
 
 ### <a name="sample-rule"></a>Exemple de règle
-L’exemple de règle suivante filtre le compte pour exécuter les actions uniquement sur `container1/foo`. Exécutez les actions suivantes pour tous les objets qui existent à l’intérieur de `container1` **ET** commencent par `foo` : 
+L’exemple de règle suivante filtre le compte pour exécuter les actions sur les objets qui existent à l’intérieur de `container1` **AND** commencer par `foo`.  
 
 - Niveau objet blob sur accès froid 30 jours après la dernière modification
 - Niveau objet blob sur accès archive 90 jours après la dernière modification
@@ -154,10 +134,10 @@ L’exemple de règle suivante filtre le compte pour exécuter les actions uniqu
 
 ```json
 {
-  "version": "0.5",
   "rules": [
     {
       "name": "ruleFoo",
+      "enabled": true,
       "type": "Lifecycle",
       "definition": {
         "filters": {
@@ -185,18 +165,18 @@ L’exemple de règle suivante filtre le compte pour exécuter les actions uniqu
 
 Les filtres limitent les actions des règles à un sous-ensemble d’objets blob dans le compte de stockage. Si plusieurs filtres sont définis, une opération logique `AND` est exécutée sur tous les filtres.
 
-Lors de la version d’évaluation, les filtres valides sont les suivants :
+Filtres valides sont les suivantes :
 
 | Nom du filtre | Type de filtre | Notes | Est obligatoire |
 |-------------|-------------|-------|-------------|
-| blobTypes   | Un ensemble de valeurs enum prédéfinies. | La préversion prend uniquement en charge `blockBlob`. | Oui |
-| prefixMatch | Un ensemble de chaînes servant à faire correspondre les préfixes. Une chaîne de préfixe doit commencer par un nom de conteneur. Par exemple, si vous souhaitez faire correspondre tous les objets BLOB sous « https :\//myaccount.blob.core.windows.net/container1/foo/... » pour une règle, le prefixMatch est `container1/foo`. | Si vous ne définissez pas prefixMatch, les règles s’appliquent à tous les objets blob dans le compte. | Non  |
+| blobTypes   | Un ensemble de valeurs enum prédéfinies. | La version actuelle prend en charge `blockBlob`. | Oui |
+| prefixMatch | Un ensemble de chaînes servant à faire correspondre les préfixes. Chaque règle peut définir des préfixes jusqu'à 10. Une chaîne de préfixe doit commencer par un nom de conteneur. Par exemple, si vous souhaitez faire correspondre tous les objets blob sous « https://myaccount.blob.core.windows.net/container1/foo/... » pour une règle, le prefixMatch est `container1/foo`. | Si vous ne définissez pas prefixMatch, la règle s’applique à tous les objets BLOB dans le compte de stockage.  | Non  |
 
 ### <a name="rule-actions"></a>Actions de règle
 
-Des actions sont appliquées aux objets blob filtrés lorsque la condition d’exécution est remplie.
+Actions sont appliquées aux objets BLOB filtrés lorsque la condition d’exécution est remplie.
 
-Dans la préversion, la gestion du cycle de vie prend en charge la hiérarchisation et la suppression des objets blob ainsi que la suppression des instantanés d’objets blob. Définissez au moins une action pour chaque règle sur les objets blob ou les instantanés d’objets blob.
+Gestion du cycle de vie prend en charge la hiérarchisation et suppression d’objets BLOB et d’instantanés d’objet blob. Définissez au moins une action pour chaque règle sur les objets blob ou les instantanés d’objets blob.
 
 | Action        | Objet blob de base                                   | Instantané      |
 |---------------|---------------------------------------------|---------------|
@@ -204,12 +184,12 @@ Dans la préversion, la gestion du cycle de vie prend en charge la hiérarchisat
 | tierToArchive | Prend actuellement en charge les objets blob au niveau chaud ou froid | Non pris en charge |
 | delete        | Pris en charge                                   | Pris en charge     |
 
-> [!NOTE]
-> Si vous définissez plusieurs actions sur le même objet blob, la gestion du cycle de vie applique l’action la moins coûteuse à l’objet blob. Par exemple, l’action `delete` est moins coûteuse que l’action `tierToArchive`. L’action `tierToArchive` est moins coûteuse que l’action `tierToCool`.
+>[!NOTE] 
+>Si vous définissez plusieurs actions sur le même objet blob, la gestion du cycle de vie applique l’action la moins coûteuse à l’objet blob. Par exemple, l’action `delete` est moins coûteuse que l’action `tierToArchive`. L’action `tierToArchive` est moins coûteuse que l’action `tierToCool`.
 
-Dans la version préliminaire, les conditions d’exécution des actions sont basées sur l’âge. L’objet blob de base utilise l’heure de dernière modification pour suivre l’âge, tandis que les instantanés d’objets blob utilisent l’heure de création des instantanés.
+Les conditions d’exécution sont basées sur l’âge. L’objet blob de base utilise l’heure de dernière modification pour suivre l’âge, tandis que les instantanés d’objets blob utilisent l’heure de création des instantanés.
 
-| Condition d’exécution de l’action | Valeur de la condition | Description |
+| Action pour lancer la condition | Valeur de la condition | Description |
 |----------------------------|-----------------|-------------|
 | daysAfterModificationGreaterThan | Nombre entier indiquant l’âge en jours | Condition valide pour les actions des objets blob de base |
 | daysAfterCreationGreaterThan     | Nombre entier indiquant l’âge en jours | Condition valide pour les actions des instantanés d’objet blob | 
@@ -223,10 +203,10 @@ Cet exemple montre comment déplacer des objets blob de blocs ayant le préfixe 
 
 ```json
 {
-  "version": "0.5",
   "rules": [
     {
       "name": "agingRule",
+      "enabled": true,
       "type": "Lifecycle",
       "definition": {
         "filters": {
@@ -251,10 +231,10 @@ D’autres sont inactives dans le cloud dès le départ et sont peu, voire pas s
 
 ```json
 {
-  "version": "0.5",
   "rules": [
     {
       "name": "archiveRule",
+      "enabled": true,
       "type": "Lifecycle",
       "definition": {
         "filters": {
@@ -279,10 +259,10 @@ Certaines données sont conçues pour expirer plusieurs jours ou mois après leu
 
 ```json
 {
-  "version": "0.5",
   "rules": [
     {
       "name": "expirationRule",
+      "enabled": true,
       "type": "Lifecycle",
       "definition": {
         "filters": {
@@ -305,11 +285,11 @@ Pour les données qui sont modifiées et consultées régulièrement tout au lon
 
 ```json
 {
-  "version": "0.5",
   "rules": [
     {
       "name": "snapshotRule",
-      "type": "Lifecycle",
+      "enabled": true,
+      "type": "Lifecycle",      
     "definition": {
         "filters": {
           "blobTypes": [ "blockBlob" ],
@@ -327,7 +307,7 @@ Pour les données qui sont modifiées et consultées régulièrement tout au lon
 ```
 ## <a name="faq---i-created-a-new-policy-why-are-the-actions-not-run-immediately"></a>FAQ - J’ai créé une stratégie, pourquoi les actions ne sont pas exécutées immédiatement ? 
 
-La plateforme exécute la stratégie de cycle de vie une fois par jour. Une fois que vous avez défini une nouvelle stratégie, le démarrage et l’exécution de certaines actions (telles que la hiérarchisation et la suppression) peuvent prendre jusqu’à 24 heures.  
+La plateforme exécute la stratégie de cycle de vie une fois par jour. Une fois que vous configurez une stratégie, elle peut prendre jusqu'à 24 heures pour certaines actions (telles que la hiérarchisation et suppression) à exécuter pour la première fois.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -3,7 +3,7 @@ title: Guide pratique pour afficher le principal du service d’une identité ma
 description: Instructions pas à pas pour afficher le principal du service d’une identité managée à l’aide de PowerShell.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/29/2018
-ms.author: priyamo
+ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5bf6687adc367ef32550c4cb70a667050e54298c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 5aa5ab96ae85833e59ed40161cafcc1eb88379be
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200749"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485796"
 ---
 # <a name="view-the-service-principal-of-a-managed-identity-using-powershell"></a>Afficher le principal du service d’une identité managée à l’aide de PowerShell
 
@@ -30,7 +30,7 @@ Dans cet article, vous allez apprendre à afficher le principal du service d’u
 
 [!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 - Si vous n’êtes pas familiarisé avec les identités managées pour ressources Azure, consultez la [section Vue d’ensemble](overview.md).
 - Si vous n’avez pas encore de compte Azure, [inscrivez-vous pour créer un compte gratuit](https://azure.microsoft.com/free/).
@@ -41,7 +41,7 @@ Dans cet article, vous allez apprendre à afficher le principal du service d’u
 
 La commande suivante indique comment afficher le principal du service d’une machine virtuelle ou d’une application sur laquelle est activée une identité affectée par le système. Remplacez `<VM or application name>` par vos propres valeurs.
 
-```PowerShell
+```powershell
 Get-AzADServicePrincipal -DisplayName <VM or application name>
 ```
 

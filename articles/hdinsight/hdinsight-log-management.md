@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: 0f0a22ea4a24a82cb4acf7a3b20a743ee7425c72
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: ac1c1c4ae21ebd184b833fe4d23084f7cf324d2c
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294907"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500472"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Gérer les journaux pour un cluster HDInsight
 
@@ -98,7 +98,7 @@ L’étape suivante examine les fichiers journaux d’exécution des travaux des
 
 ### <a name="access-the-hadoop-log-files"></a>Accéder aux fichiers journaux Hadoop
 
-HDInsight stocke ses fichiers journaux dans le système de fichiers du cluster et dans le stockage Azure. Vous pouvez examiner les fichiers journaux dans le cluster en ouvrant un [SSH](/hdinsight-hadoop-linux-use-ssh-unix.md) connexion au cluster et la navigation sur le système de fichiers, ou à l’aide du portail de l’état YARN Hadoop sur le serveur de nœud principal distant. Vous pouvez examiner les fichiers journaux dans le stockage Azure à l’aide d’outils qui peuvent parcourir et télécharger des données à partir du stockage Azure. Sont des exemples [AzCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer)et l’Explorateur de serveurs Visual Studio. Vous pouvez également utiliser PowerShell et les bibliothèques de client de stockage Azure ou les Kits de développement logiciel Azure .NET pour accéder aux données dans le stockage blob Azure.
+HDInsight stocke ses fichiers journaux dans le système de fichiers du cluster et dans le stockage Azure. Vous pouvez examiner les fichiers journaux dans le cluster en ouvrant un [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) connexion au cluster et la navigation sur le système de fichiers, ou à l’aide du portail de l’état YARN Hadoop sur le serveur de nœud principal distant. Vous pouvez examiner les fichiers journaux dans le stockage Azure à l’aide d’outils qui peuvent parcourir et télécharger des données à partir du stockage Azure. Sont des exemples [AzCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer)et l’Explorateur de serveurs Visual Studio. Vous pouvez également utiliser PowerShell et les bibliothèques de client de stockage Azure ou les Kits de développement logiciel Azure .NET pour accéder aux données dans le stockage blob Azure.
 
 Hadoop exécute les travaux en tant que *tentatives de tâches* sur différents nœuds du cluster. HDInsight peut initier des tentatives de tâches spéculatives, en arrêtant les tentatives de tâches qui ne se terminent. Cela génère une activité importante qui est journalisée dans le contrôleur, stderr et les fichiers journaux syslog à la volée. De plus, plusieurs tentatives de tâches sont exécutées simultanément, mais un fichier journal peut uniquement afficher des résultats de façon linéaire.
 

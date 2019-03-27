@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: spelluru
-ms.openlocfilehash: a79565661ae11e70364d64503b3b11bdeabeabdb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e5c4eca772cf17f04ea10f4d5ae166ea41eaa830
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57899755"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58496919"
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Créer un espace de noms Service Bus à l’aide d’un modèle Azure Resource Manager
 Ce guide de démarrage rapide vous permet de créer un modèle Azure Resource Manager qui génère un espace de noms Service Bus de type **Messagerie** avec une référence SKU **Standard**. L'article définit également les paramètres qui sont spécifiés pour l'exécution du déploiement. Vous pouvez utiliser ce modèle pour vos propres déploiements, ou le personnaliser afin qu’il réponde à vos besoins. Pour en savoir plus sur la création de modèles, consultez [Création de modèles Azure Resource Manager][Authoring Azure Resource Manager templates]. Pour le modèle complet, consultez le [modèle d’espace de noms Service Bus][Service Bus namespace template] sur GitHub.
@@ -44,7 +44,7 @@ Pour créer et déployer le modèle manuellement, parcourez les sections suivant
 ## <a name="prerequisites"></a>Conditions préalables
 Pour suivre ce guide de démarrage rapide, vous devez avoir un abonnement Azure. Si vous n’en avez pas, [créez un compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-Si vous souhaitez utiliser **Azure PowerShell** pour déployer le modèle Resource Manager, [installez Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-5.7.0).
+Si vous souhaitez utiliser **Azure PowerShell** pour déployer le modèle Resource Manager, [installez Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
 
 Si vous souhaitez utiliser **Azure CLI** pour déployer le modèle Resource Manager, [installez Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -205,6 +205,6 @@ Dans cet article, vous avez créé un espace de noms Service Bus. Consultez les 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [Service Bus namespace template]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/
 [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
-[Service Bus pricing and billing]: service-bus-pricing-billing.md
+[Service Bus pricing and billing]: https://azure.microsoft.com/pricing/details/service-bus/
 [Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
 [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md

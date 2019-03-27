@@ -5,21 +5,17 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/12/2019
-ms.openlocfilehash: db62c1ec03ae9005f33a09010486b04ac6976742
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 03/26/2019
+ms.openlocfilehash: c904b6e6cd7a4dc0f9d5a442e20738e43595b369
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58005894"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485915"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Superviser les performances avec le Magasin des requêtes
 
 **S’applique à :** Azure Database pour PostgreSQL 9.6 et 10
-
-> [!IMPORTANT]
-> La fonctionnalité Magasin des requêtes est en préversion publique.
-
 
 La fonctionnalité Magasin des requêtes dans Azure Database pour PostgreSQL fournit un moyen de suivre les performances des requêtes dans le temps. Le Magasin des requêtes simplifie la résolution des problèmes de performances en vous aidant à identifier rapidement les requête dont l’exécution est la plus longue et qui consomment le plus de ressources. Le Magasin des requêtes capture automatiquement un historique des requêtes et des statistiques d’exécution, et les conserve pour que vous les passiez en revue. Il sépare les données par fenêtres de temps afin que vous puissiez voir les modèles d’utilisation des bases de données. Les données de tous les utilisateurs, des bases de données et des requêtes sont stockées dans une base de données nommée **azure_sys** dans l’instance Azure Database pour PostgreSQL.
 

@@ -11,18 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 4857b1771ae66cbee25765bb5173a638cbcd223e
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 5a03805fc055583f1f965854d4da3ae6b0c90e20
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57008591"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444888"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Lier un ID partenaire à vos comptes Azure
 
 En tant que partenaire, vous pouvez suivre votre impact dans tous vos engagements avec les clients. Vous pouvez lier votre ID partenaire aux comptes utilisés pour gérer les ressources d’un client.
-
-Cette fonctionnalité est disponible dans une préversion publique.
 
 ## <a name="get-access-from-your-customer"></a>Accéder à votre client
 
@@ -56,7 +54,7 @@ Lorsque vous avez accès aux ressources du client, utilisez le portail Azure, Po
 
 1. Installez le module PowerShell [AzureRM.ManagementPartner](https://www.powershellgallery.com/packages/AzureRM.ManagementPartner).
 
-2. Connectez-vous au locataire du client avec le compte d’utilisateur ou le principal du service. Pour plus d’informations, consultez [Se connecter avec PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-5.2.0).
+2. Connectez-vous au locataire du client avec le compte d’utilisateur ou le principal du service. Pour plus d’informations, consultez [Se connecter avec PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
  
    ```azurepowershell-interactive
     C:\> Connect-AzureRmAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 

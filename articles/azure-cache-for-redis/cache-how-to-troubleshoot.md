@@ -12,96 +12,98 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 03/15/2019
 ms.author: yegu
-ms.openlocfilehash: 5a8542007d67cb76eaf615da6c5d1db1b1555ea3
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 838fc1da3e167d1df04fbb36a2fea33b8ac248a4
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234915"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482604"
 ---
 # <a name="how-to-troubleshoot-azure-cache-for-redis"></a>Résolution des problèmes du cache Azure pour Redis
-Cet article fournit des conseils permettant de résoudre les catégories suivantes de problèmes liés au cache Azure pour Redis.
 
-* [Résolution des problèmes côté client](#client-side-troubleshooting) : cette section fournit des instructions concernant l’identification et la résolution des problèmes provoqués par la connexion de l’application au cache Azure pour Redis.
-* [Résolution des problèmes côté serveur](#server-side-troubleshooting) : cette section fournit des instructions concernant l’identification et la résolution des problèmes côté serveur du cache Azure pour Redis.
-* [Exceptions au délai d’expiration de StackExchange.Redis](#stackexchangeredis-timeout-exceptions) : cette section fournit des informations concernant la résolution des problèmes liés à l’utilisation du client StackExchange.Redis.
+Cet article vous aide à résoudre les problèmes de différentes catégories de problèmes que vous pouvez rencontrer lors de la connexion avec le Cache Azure pour les instances de Redis.
+
+- [Résolution des problèmes côté client](#client-side-troubleshooting) permet d’identifier et résoudre les problèmes dans l’application qui se connecte à votre cache.
+- [Résolution des problèmes côté serveur](#server-side-troubleshooting) permet d’identifier et résoudre les problèmes qui se produisent sur le Cache Azure Redis côté.
+- [Résolution des problèmes de perte de données](#data-loss-troubleshooting) permet d’identifier et résoudre les incidents où les clés sont attendus, mais introuvable dans le cache.
+- [Exceptions de délai d’expiration de StackExchange.Redis](#stackexchangeredis-timeout-exceptions) fournit des instructions spécifiques sur la résolution des problèmes avec la bibliothèque de StackExchange.Redis.
 
 > [!NOTE]
 > Dans ce guide, plusieurs procédures de résolution de problèmes comprennent des instructions pour exécuter des commandes Redis et surveiller diverses mesures de performances. Pour plus d’informations et d’instructions, consultez les articles dans la section [Informations supplémentaires](#additional-information) .
-> 
-> 
+>
+>
 
 ## <a name="client-side-troubleshooting"></a>Résolution des problèmes côté client
+
 Cette section traite des problèmes qui surviennent à cause d’un souci sur l’application cliente.
 
-* [Saturation de la mémoire sur le client](#memory-pressure-on-the-client)
-* [Augmentation de trafic](#burst-of-traffic)
-* [Utilisation importante du processeur du client](#high-client-cpu-usage)
-* [Bande passante dépassée côté client](#client-side-bandwidth-exceeded)
-* [Taille importante de la demande/réponse](#large-requestresponse-size)
-* [Qu’est-il arrivé à mes données dans Redis ?](#what-happened-to-my-data-in-redis)
+- [Saturation de la mémoire sur le client](#memory-pressure-on-the-client)
+- [Augmentation de trafic](#burst-of-traffic)
+- [Utilisation importante du processeur du client](#high-client-cpu-usage)
+- [Bande passante dépassée côté client](#client-side-bandwidth-exceeded)
+- [Taille importante de la demande/réponse](#large-requestresponse-size)
 
 ### <a name="memory-pressure-on-the-client"></a>Saturation de la mémoire sur le client
-#### <a name="problem"></a>Problème
-Une saturation de la mémoire sur l’ordinateur client génère des problèmes de performances de toutes sortes, susceptibles de retarder le traitement des données envoyées par l’instance Redis sans délai. En cas de saturation de la mémoire, le système doit généralement paginer les données de la mémoire physique dans la mémoire virtuelle située sur le disque. Cette *pagination* ralentit considérablement le système.
 
-#### <a name="measurement"></a>Mesure
-1. Surveillez l’utilisation de la mémoire sur l’ordinateur et vérifiez qu’elle ne dépasse pas la mémoire disponible. 
-2. Surveillez le compteur de performances `Page Faults/Sec`. La plupart des systèmes rencontrent des erreurs de page, même lors d’un fonctionnement normal. Donc, surveillez les pics dans ce compteur de performances, car ils correspondent à des délais d’attente.
+Sollicitation de la mémoire sur l’ordinateur client génère toutes sortes de problèmes de performances qui peuvent retarder le traitement des réponses à partir du cache. Saturation de mémoire, le système peut données de page sur le disque. Cette _pagination_ ralentit considérablement le système.
 
-#### <a name="resolution"></a>Résolution :
-Agrandissez la taille de la machine virtuelle de votre client en lui attribuant davantage de mémoire ou analysez vos graphiques d’utilisation de la mémoire afin d’en réduire la consommation.
+Pour détecter la pression de mémoire sur le client :
+
+- Surveillez l’utilisation de mémoire sur l’ordinateur pour vous assurer qu’il ne dépasse pas la mémoire disponible.
+- Surveiller le client `Page Faults/Sec` compteur de performances. En fonctionnement normal, la plupart des systèmes rencontrent des. Pics de défauts de page correspondant à la demande des délais d’attente peuvent indiquer une sollicitation de la mémoire.
+
+Pression de mémoire élevée sur le client peut être atténuée de plusieurs façons :
+
+- Explorez vos modèles d’utilisation de mémoire pour réduire la consommation de mémoire sur le client.
+- Mettre à niveau votre machine virtuelle cliente pour une plus grande taille avec davantage de mémoire.
 
 ### <a name="burst-of-traffic"></a>Augmentation de trafic
-#### <a name="problem"></a>Problème
+
 Les augmentations de trafic combinées à des paramètres `ThreadPool` insatisfaisants peuvent retarder le traitement des données déjà envoyées par le serveur Redis, mais pas encore consommées côté client.
 
-#### <a name="measurement"></a>Mesure
-Surveillez comment évoluent vos statistiques `ThreadPool` au fil du temps à l’aide d’un code [tel que celui-ci](https://github.com/JonCole/SampleCode/blob/master/ThreadPoolMonitor/ThreadPoolLogger.cs). Vous pouvez également consulter le message `TimeoutException` émis par StackExchange.Redis. Voici un exemple : 
+Moniteur comment votre `ThreadPool` statistiques changer au fil du temps à l’aide [exemple `ThreadPoolLogger` ](https://github.com/JonCole/SampleCode/blob/master/ThreadPoolMonitor/ThreadPoolLogger.cs). Vous pouvez utiliser `TimeoutException` messages à partir de StackExchange.Redis comme ci-dessous examiner en détail :
 
-    System.TimeoutException: Timeout performing EVAL, inst: 8, mgr: Inactive, queue: 0, qu: 0, qs: 0, qc: 0, wr: 0, wq: 0, in: 64221, ar: 0, 
+    System.TimeoutException: Timeout performing EVAL, inst: 8, mgr: Inactive, queue: 0, qu: 0, qs: 0, qc: 0, wr: 0, wq: 0, in: 64221, ar: 0,
     IOCP: (Busy=6,Free=999,Min=2,Max=1000), WORKER: (Busy=7,Free=8184,Min=2,Max=8191)
 
-Dans le message précédent, plusieurs problèmes sont intéressants :
+Dans l’exception précédente, il existe plusieurs problèmes sont intéressants :
 
-1. Notez que dans les sections `IOCP` et `WORKER`, la valeur de `Busy` est supérieure à la valeur de `Min`. Cette différence signifie que vos paramètres de `ThreadPool` ont besoin d’être ajustés.
-2. Vous pouvez également voir `in: 64221`. Cette valeur indique que 64,211 octets ont été reçus au niveau de la couche de socket du noyau, mais ne sont pas encore lus par l’application (par exemple StackExchange.Redis). En général, cette différence signifie que votre application ne lit pas les données du réseau aussi rapidement que le serveur les lui envoie.
+- Notez que dans les sections `IOCP` et `WORKER`, la valeur de `Busy` est supérieure à la valeur de `Min`. Cette différence signifie que votre `ThreadPool` paramètres doivent ajuster.
+- Vous pouvez également voir `in: 64221`. Cette valeur indique que 64,211 octets ont été reçus au niveau de la couche de socket du noyau du client, mais n’ont pas été lues par l’application. En général, cette différence signifie que votre application (par exemple StackExchange.Redis) ne lit pas les données à partir du réseau aussi rapidement que le serveur est lui envoie.
 
-#### <a name="resolution"></a>Résolution :
-Configurez les [paramètres de votre pool de threads](https://gist.github.com/JonCole/e65411214030f0d823cb) pour vous assurer qu’ils s’adaptent rapidement en cas d’augmentation du trafic.
+Vous pouvez [configurer votre `ThreadPool` paramètres](https://gist.github.com/JonCole/e65411214030f0d823cb) pour vous assurer que votre pool de threads s’adaptent rapidement burst scénarios.
 
 ### <a name="high-client-cpu-usage"></a>Utilisation importante du processeur du client
-#### <a name="problem"></a>Problème
-Une utilisation élevée du processeur sur le client révèle que le système n’arrive pas à effectuer le travail qu’on lui demande de faire. En d’autres termes, le client risque de ne pas pouvoir traiter une réponse de Redis dans les délais, même si Redis a envoyé la réponse rapidement.
 
-#### <a name="measurement"></a>Mesure
-Surveillez l’utilisation du processeur par tout le système dans le portail Azure ou à l’aide du compteur de performances associé. Ne tenez pas compte du processeur de *processus* , car un processus peut utiliser faiblement le processeur pendant que le processeur système est fortement sollicité. Regardez les pics d’utilisation du processeur qui correspondent à des délais d’expiration. Lorsque le processeur est très utilisé, vous pouvez également voir s’afficher des valeurs `in: XXX` élevées dans les messages d’erreur `TimeoutException`, comme ceux décrits dans la section [Augmentation de trafic](#burst-of-traffic).
+Client élevé l’utilisation du processeur indique que le système ne peut pas suivre le travail qu’il a demandé de faire. Même si le cache a envoyé la réponse rapidement, le client ne peut pas traiter la réponse en temps voulu.
+
+Surveiller l’utilisation de l’UC de l’échelle du système du client à l’aide de mesures disponibles dans le portail Azure ou via des compteurs de performances sur l’ordinateur. Veillez à ne pas surveiller *processus* UC, car un processus unique peut avoir une faible utilisation du processeur, mais le processeur de l’échelle du système peut être élevé. Regardez les pics d’utilisation du processeur qui correspondent à des délais d’expiration. Processeur élevé peut également provoquer de hautes `in: XXX` valeurs dans `TimeoutException` messages d’erreur comme décrit dans la [augmentation de trafic](#burst-of-traffic) section.
 
 > [!NOTE]
 > StackExchange.Redis 1.1.603 et versions ultérieures inclut la mesure `local-cpu` dans les messages d’erreur `TimeoutException`. Vérifiez que vous utilisez la dernière version en date du [package NuGet StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/). Nous corrigeons en permanence le code pour le rendre plus robuste aux délais d’expiration. Il est donc primordial d’utiliser la dernière version.
-> 
-> 
+>
+>
 
-#### <a name="resolution"></a>Résolution :
-Procédez à la mise à niveau vers une plus grande taille de machine virtuelle avec davantage de capacités processeur ou recherchez la cause des pics d’utilisation du processeur. 
+Pour limiter l’utilisation d’un client élevée du processeur :
+
+- Recherchez la cause des pics du processeur.
+- Mettre à niveau votre client vers une plus grande taille de machine virtuelle avec davantage de capacités processeur.
 
 ### <a name="client-side-bandwidth-exceeded"></a>Bande passante dépassée côté client
-#### <a name="problem"></a>Problème
-Selon l’architecture des ordinateurs clients, ces ordinateurs peuvent afficher des limites concernant la bande passante réseau qu’ils peuvent utiliser. Si le client dépasse la bande passante disponible en surchargeant la capacité du réseau, les données ne sont pas traitées côté client aussi rapidement que le serveur les envoie. Cette situation peut entraîner des délais d’attente.
 
-#### <a name="measurement"></a>Mesure
-Surveillez comment votre utilisation de la bande passante évolue au fil du temps, à l’aide d’un code [tel que celui-ci](https://github.com/JonCole/SampleCode/blob/master/BandWidthMonitor/BandwidthLogger.cs). Ce code peut ne pas s’exécuter correctement dans certains environnements aux autorisations restreintes (tels que les sites web Azure).
+Selon l’architecture des ordinateurs clients, ces ordinateurs peuvent afficher des limites concernant la bande passante réseau qu’ils peuvent utiliser. Si le client dépasse la bande passante disponible en surchargeant la capacité du réseau, les données ne sont pas traitées côté client aussi rapidement que le serveur envoie. Cette situation peut entraîner des délais d’attente.
 
-#### <a name="resolution"></a>Résolution :
-Augmentez la taille de la machine mémoire du client ou réduisez la consommation de la bande passante du réseau.
+Surveiller l’évolution de votre bande passante au fil du temps à l’aide [exemple `BandwidthLogger` ](https://github.com/JonCole/SampleCode/blob/master/BandWidthMonitor/BandwidthLogger.cs). Ce code peut ne pas s’exécuter correctement dans certains environnements aux autorisations restreintes (tels que les sites web Azure).
+
+Pour atténuer, réduire la consommation de bande passante réseau ou augmenter la taille de machine virtuelle vers un autre avec davantage de capacité réseau du client.
 
 ### <a name="large-requestresponse-size"></a>Taille importante de la demande/réponse
-#### <a name="problem"></a>Problème
-Une demande/réponse volumineuse peut entraîner des délais d’expiration. Par exemple, supposons que la durée du délai d’expiration que vous avez configurée sur votre client est de 1 seconde. Votre application demande deux clés (par exemple, « A » et « B ») en même temps (à l’aide de la même connexion réseau physique). La plupart des clients prennent en charge le traitement en « pipeline » des demandes, de sorte que les deux demandes A et B sont envoyées l’une après l’autre au serveur sans attendre les réponses. Le serveur renvoie les réponses dans le même ordre. Si la réponse A est suffisamment volumineuse, elle peut saturer la majeure partie du délai d’expiration des demandes suivantes. 
 
-L’exemple suivant illustre ce cas de figure. Dans ce scénario, les demandes A et B sont envoyées rapidement, le serveur commence à renvoyer rapidement les réponses A et B, mais en raison du temps de transfert des données, la réponse B reste coincée derrière la réponse A et expire même si le serveur a répondu rapidement.
+Une demande/réponse volumineuse peut entraîner des délais d’expiration. Par exemple, supposons que votre valeur de délai d’expiration configurée sur votre client est de 1 seconde. Votre application demande deux clés (par exemple, « A » et « B ») en même temps (à l’aide de la même connexion réseau physique). La plupart des clients prennent en charge le demande « traitement en pipeline », où les deux demandes « A » et « B » sont envoyées les unes après les autres sans attendre leurs réponses. Le serveur renvoie les réponses dans le même ordre. Si la réponse « A » est volumineuse, elle peut saturer la majeure partie du délai d’expiration pour les demandes ultérieures.
+
+Dans l’exemple suivant, la demande « A » et « B » sont envoyées rapidement au serveur. Le serveur commence à envoyer rapidement des réponses « A » et « B ». En raison des temps de transfert de données, « B » doit attendre derrière la réponse « A » de réponse arrive à expiration même si le serveur a répondu rapidement.
 
     |-------- 1 Second Timeout (A)----------|
     |-Request A-|
@@ -110,101 +112,114 @@ L’exemple suivant illustre ce cas de figure. Dans ce scénario, les demandes A
                 |- Read Response A --------|
                                            |- Read Response B-| (**TIMEOUT**)
 
+Cette demande/réponse est difficile à mesurer. Vous pouvez instrumenter votre code client pour effectuer le suivi des requêtes et réponses volumineuses.
 
+Solutions possibles pour les tailles de réponse volumineuse sont variés mais incluent :
 
-#### <a name="measurement"></a>Mesure
-Cette demande/réponse est difficile à mesurer. Vous devez adapter votre code client pour suivre les requêtes et réponses volumineuses. 
-
-#### <a name="resolution"></a>Résolution :
-1. Redis est optimisé pour un grand nombre de petites valeurs plutôt que pour quelques grandes valeurs. La meilleure solution consiste à diviser vos données en valeurs plus petites. Lisez le billet [What is the ideal value size range for redis? Is 100 KB too large?](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ) pour savoir pourquoi les valeurs moins élevées sont recommandées.
-2. Augmentez la taille de votre machine virtuelle (pour le client et le serveur de cache Azure pour Redis) afin d’obtenir une bande passante plus élevée et de réduire ainsi le temps de transfert des réponses volumineuses. L’obtention d’une bande passante supérieure uniquement sur le serveur ou sur le client peut ne pas suffire. Mesurez votre utilisation de la bande passante et comparez-la aux capacités de la taille de votre machine virtuelle.
-3. Augmentez le nombre d’objets `ConnectionMultiplexer` utilisés et traitez les demandes en tourniquet sur différentes connexions.
-
-### <a name="what-happened-to-my-data-in-redis"></a>Qu’est-il arrivé à mes données dans Redis ?
-#### <a name="problem"></a>Problème
-Je m’attendais à trouver certaines données dans mon instance du cache Azure pour Redis, mais elles semblent absentes.
-
-#### <a name="resolution"></a>Résolution :
-Consultez la page [What happened to my data in Redis?](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md) pour identifier les causes et solutions possibles.
+1. Optimiser votre application pour un grand nombre de petites valeurs plutôt que quelques grandes valeurs.
+    - La meilleure solution consiste à diviser vos données en valeurs plus petites.
+    - Consultez le billet [quelle est la plage de tailles de valeur idéale pour redis ? 100 Ko est trop volumineux ? ](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ) pour plus d’informations sur les raisons des valeurs moins élevées sont recommandées.
+1. Augmenter la taille de votre machine virtuelle pour obtenir des capacités de bande passante plus élevées
+    - Davantage de bande passante sur votre client ou d’une machine virtuelle du serveur peut réduire le temps de transfert de données des réponses volumineuses.
+    - Comparez l’utilisation actuelle du réseau sur les deux ordinateurs pour les limites de taille de votre machine virtuelle en cours. Davantage de bande passante uniquement sur le serveur ou uniquement sur le client ne peut pas être suffisant.
+1. Augmenter le nombre d’objets de connexion qu'utilise votre application.
+    - Utiliser une approche de tourniquet (round-robin) pour envoyer des requêtes sur les objets de connexion différents.
 
 ## <a name="server-side-troubleshooting"></a>Résolution des problèmes côté serveur
+
 Cette section traite des problèmes qui surviennent en raison d’un souci sur le serveur du cache.
 
-* [Saturation de la mémoire sur le serveur](#memory-pressure-on-the-server)
-* Utilisation élevée du processeur / charge importante du serveur
-* [Bande passante dépassée côté serveur](#server-side-bandwidth-exceeded)
+- [Saturation de la mémoire sur le serveur](#memory-pressure-on-the-server)
+- [Utilisation élevée du processeur / charge importante du serveur](#high-cpu-usage--server-load)
+- [Bande passante dépassée côté serveur](#server-side-bandwidth-exceeded)
 
 ### <a name="memory-pressure-on-the-server"></a>Saturation de la mémoire sur le serveur
-#### <a name="problem"></a>Problème
-La saturation de la mémoire sur le serveur génère toutes sortes de problèmes de performance susceptibles de retarder le traitement des demandes. En cas de saturation de la mémoire, le système doit généralement paginer les données de la mémoire physique dans la mémoire virtuelle située sur le disque. Cette *pagination* ralentit considérablement le système. Plusieurs causes peuvent être à l’origine de cette saturation de la mémoire : 
 
-1. Le cache de données est saturé. 
-2. Redis constate une fragmentation importante de la mémoire, le plus souvent provoquée par le stockage d’objets volumineux. Redis est optimisé pour les petits objets. Pour en savoir plus, consultez le billet [What is the ideal value size range for redis? Is 100 KB too large?](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ). 
+La saturation de la mémoire sur le serveur génère toutes sortes de problèmes de performance susceptibles de retarder le traitement des demandes. Saturation de mémoire, le système peut données de page sur le disque. Cette _pagination_ ralentit considérablement le système. Plusieurs causes peuvent être à l’origine de cette saturation de la mémoire :
 
-#### <a name="measurement"></a>Mesure
-Redis fournit deux mesures qui peuvent vous aider à identifier ce problème. Il s’agit de `used_memory` et de `used_memory_rss`. [Ces mesures](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) sont disponibles dans le portail Azure ou via la commande [Redis INFO](https://redis.io/commands/info).
+- Le cache est rempli avec des données près de sa capacité maximale.
+- Redis constate la fragmentation de mémoire haute. Cette fragmentation est plus souvent provoquée par le stockage d’objets volumineux dans la mesure où Redis est optimisé pour les petits objets.
 
-#### <a name="resolution"></a>Résolution :
-Vous pouvez apporter plusieurs modifications pour maintenir une utilisation correcte de la mémoire :
+Redis fournit deux statistiques via la [INFO](https://redis.io/commands/info) commande qui peut vous aider à identifier ce problème : « used_memory » et « used_memory_rss ». Vous pouvez [afficher ces mesures](cache-how-to-monitor.md#view-metrics-with-azure-monitor) à l’aide du portail.
 
-1. [Configurez une stratégie de mémoire](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) et définissez des délais d’expiration sur vos clés. Cette configuration peut ne pas suffire si vous constatez une fragmentation.
-2. [Configurez une valeur maxmemory-reserved](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) suffisamment grande pour compenser la fragmentation de la mémoire.
-3. Divisez vos objets volumineux mis en cache en objets plus petits.
-4. [mise à l’échelle](cache-how-to-scale.md) pour augmenter la taille du cache.
-5. Si vous utilisez un [cache premium avec cluster Redis activé](cache-how-to-premium-clustering.md), vous pouvez [augmenter le nombre de partitions](cache-how-to-premium-clustering.md#change-the-cluster-size-on-a-running-premium-cache).
+Il existe plusieurs modifications possibles, que vous pouvez apporter pour aider à garder l’utilisation de la mémoire :
+
+- [Configurez une stratégie de mémoire](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) et définissez des délais d’expiration sur vos clés. Cette stratégie peut ne pas suffire si vous constatez une fragmentation.
+- [Configurez une valeur maxmemory-reserved](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) suffisamment grande pour compenser la fragmentation de la mémoire. Pour plus d’informations, consultez supplémentaires [considérations pour les réservations de mémoire](#considerations-for-memory-reservations) ci-dessous.
+- Divisez vos objets volumineux mis en cache en objets plus petits.
+- [Créer des alertes](cache-how-to-monitor.md#alerts) sur des métriques telles que la mémoire utilisée pour être averti dès le début des impacts potentiels.
+- [Mise à l’échelle](cache-how-to-scale.md) pour une plus grande taille de cache avec davantage de capacités de mémoire.
+
+#### <a name="considerations-for-memory-reservations"></a>Considérations pour les réservations de mémoire
+
+Mettre à jour les valeurs de réservation de mémoire, telles que maxmemory-reserved, peut affecter les performances du cache. Supposons que vous avez un cache de 53 Go est rempli avec 49 Go de données. Modification de la valeur de réservation à 8 Go supprime la mémoire maximale disponible du système à 45 Go. Si _used_memory_ ou _used_memory_rss_ valeurs sont supérieures à 45 Go, le système peut supprimer des données jusqu'à ce que les deux _used_memory_ et _used_memory_rss_ sont inférieures à 45 Go. La suppression de données peut augmenter la fragmentation de la charge et de la mémoire du serveur.
 
 ### <a name="high-cpu-usage--server-load"></a>Utilisation élevée du processeur / charge importante du serveur
-#### <a name="problem"></a>Problème
-En cas d’utilisation élevée du processeur, le client risque de ne pas pouvoir traiter une réponse de Redis dans les délais, même si Redis a renvoyé la réponse rapidement.
 
-#### <a name="measurement"></a>Mesure
-Surveillez l’utilisation du processeur par tout le système dans le portail Azure ou à l’aide du compteur de performances associé. Ne tenez pas compte du processeur de *processus* , car un processus peut utiliser faiblement le processeur pendant que le processeur système est fortement sollicité. Regardez les pics d’utilisation du processeur qui correspondent à des délais d’expiration.
+Une charge élevée de serveur ou l’utilisation du processeur signifie que le serveur ne peut pas traiter les demandes en temps voulu. Le serveur peut être lente et ne peut pas faire face au taux de demandes.
 
-#### <a name="resolution"></a>Résolution :
-* Passez en revue les conseils et alertes de la rubrique [Cache Azure pour Redis Advisor](cache-configure.md#azure-cache-for-redis-advisor).
-* Consultez également les autres recommandations de cette rubrique, ainsi que la rubrique [Meilleures pratiques pour Azure Redis](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f) afin de vérifier si vous avez utilisé toutes les options pour optimiser davantage votre cache et votre client. 
-* Examinez les graphiques [Performance du cache Azure pour Redis](cache-faq.md#azure-cache-for-redis-performance) et vérifiez si vous approchez des seuils supérieurs de votre niveau actuel. Si nécessaire, effectuez une [mise à l’échelle](cache-how-to-scale.md) vers une plus grande taille de cache avec davantage de capacités processeur. Si vous utilisez déjà le niveau Premium, vous souhaiterez peut-être [descendre en puissance avec clustering](cache-how-to-premium-clustering.md)
+[Surveiller les mesures](cache-how-to-monitor.md#view-metrics-with-azure-monitor) telles que de la charge du processeur ou de serveur. Regardez les pics d’utilisation du processeur qui correspondent à des délais d’expiration.
 
+Il existe plusieurs modifications, que vous pouvez apporter à réduire la charge du serveur haute :
+
+- Recherchez la cause des pics du processeur telles que l’exécution [commandes coûteux](#expensive-commands) ou page défaillant en raison de la pression de mémoire élevée.
+- [Créer des alertes](cache-how-to-monitor.md#alerts) sur des métriques telles que la charge du processeur ou de serveur pour être averti dès le début des impacts potentiels.
+- [Mise à l’échelle](cache-how-to-scale.md) pour une plus grande taille de cache avec davantage de capacités processeur.
+
+#### <a name="expensive-commands"></a>Commandes coûteux
+
+Pas toutes les commandes Redis sont également créés : certaines sont plus coûteuses à exécuter que d’autres. Le [documentation des commandes Redis](https://redis.io/commands) montre la complexité temporelle de chaque commande. Il est recommandé de que vous passer en revue les commandes que vous exécutez sur votre cache pour comprendre l’impact sur les performances de ces commandes. Par exemple, le [clés](https://redis.io/commands/keys) commande est souvent utilisée sans savoir qu’il est une opération o (n). Vous pouvez éviter les clés à l’aide de [analyse](https://redis.io/commands/scan) afin de réduire les UC pics.
+
+À l’aide de la [SLOWLOG](https://redis.io/commands/slowlog) commande, vous pouvez mesurer les commandes coûteux en cours d’exécution sur le serveur.
 
 ### <a name="server-side-bandwidth-exceeded"></a>Bande passante dépassée côté serveur
-#### <a name="problem"></a>Problème
-Selon la taille des instances de cache, ces instances peuvent afficher des limites concernant la bande passante réseau qu’elles peuvent utiliser. Si le serveur dépasse la bande passante disponible, les données ne sont pas envoyées au client aussi rapidement. Cette situation peut entraîner des délais d’attente.
 
-#### <a name="measurement"></a>Mesure
-Vous pouvez surveiller la mesure `Cache Read` , qui évalue la quantité de données lues dans le cache en mégaoctets par seconde (Mo/s) pendant l’intervalle de création de rapport. Cette valeur correspond à la bande passante réseau utilisée par ce cache. Si vous souhaitez configurer des alertes pour des limites de bande passante réseau côté serveur, vous pouvez les créer à l’aide du compteur `Cache Read`. Comparez vos relevés aux valeurs indiquées dans [ce tableau](cache-faq.md#cache-performance) afin de connaître les limites de bande passante observées pour plusieurs tailles et niveaux de tarification du cache.
+Tailles de cache différents ont des capacités de bande passante réseau différents. Si le serveur dépasse la bande passante disponible, les données ne sont pas envoyées au client aussi rapidement. Demandes de clients risque d’expirer, car le serveur ne peut pas transmettre des données au client assez rapidement.
 
-#### <a name="resolution"></a>Résolution :
-Si vous êtes constamment près de la bande passante maximale observée pour votre taille et votre niveau de tarification de cache, envisagez une [mise à l’échelle](cache-how-to-scale.md) vers une taille ou un niveau de tarification offrant une bande passante réseau supérieure, en utilisant les valeurs de [ce tableau](cache-faq.md#cache-performance) comme guide.
+Les mesures de « Cache de lecture » et « Cache d’écriture » peuvent être utilisées pour vérifier la bande passante côté serveur est utilisée. Vous pouvez [afficher ces mesures](cache-how-to-monitor.md#view-metrics-with-azure-monitor) dans le portail.
+
+Pour atténuer les situations où l’utilisation de la bande passante réseau est proche de capacité maximale :
+
+- Modifier le comportement d’appel client afin de réduire à la demande du réseau.
+- [Créer des alertes](cache-how-to-monitor.md#alerts) métriques telles que la lecture du cache ou cache d’écriture pour être averti dès le début des impacts potentiels.
+- [Mise à l’échelle](cache-how-to-scale.md) pour une plus grande taille de cache avec davantage de capacités de bande passante réseau.
+
+## <a name="data-loss-troubleshooting"></a>Résolution des problèmes de perte de données
+
+Je m’attendais à trouver certaines données dans mon instance du cache Azure pour Redis, mais elles semblent absentes.
+
+Consultez la page [What happened to my data in Redis?](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md) pour identifier les causes et solutions possibles.
 
 ## <a name="stackexchangeredis-timeout-exceptions"></a>Exceptions au délai d’expiration de StackExchange.Redis
-Pour les opérations synchrones, StackExchange.Redis utilise un paramètre de configuration appelé `synctimeout`, qui a une valeur par défaut de 1000 ms. Si un appel synchrone ne se termine pas dans le délai imparti, le client StackExchange.Redis génère une erreur de délai d’expiration similaire à l’exemple suivant :
+
+StackExchange.Redis utilise une paramètre de configuration appelé `synctimeout` pour les opérations synchrones avec une valeur par défaut de 1 000 ms. Si un appel synchrone ne se termine pendant ce temps, le client StackExchange.Redis génère une erreur de délai d’expiration similaire à l’exemple suivant :
 
     System.TimeoutException: Timeout performing MGET 2728cc84-58ae-406b-8ec8-3f962419f641, inst: 1,mgr: Inactive, queue: 73, qu=6, qs=67, qc=0, wr=1/1, in=0/0 IOCP: (Busy=6, Free=999, Min=2,Max=1000), WORKER (Busy=7,Free=8184,Min=2,Max=8191)
-
 
 Ce message d’erreur contient des mesures qui peuvent vous aider à identifier la cause du problème et à en trouver la solution. Le tableau suivant contient des détails sur les mesures des messages d’erreur.
 
 | Mesure de message d’erreur | Détails |
 | --- | --- |
 | inst |Au cours du dernier intervalle de temps : 0 commandes ont été émises |
-| mgr |Le gestionnaire de socket exécute `socket.select`, c’est-à-dire qu’il demande au système d’exploitation de lui désigner un socket occupé. En fait, le lecteur n’effectue aucune lecture active sur le réseau, car il pense qu’il n’y a rien à faire. |
+| mgr |Le Gestionnaire de socket fait `socket.select`, ce qui signifie qu’il demande le système d’exploitation pour désigner un socket a quelque chose à faire. Le lecteur ne lit pas activement à partir du réseau, car il pense il n’a rien à faire |
 | file d'attente |73 opérations sont en cours. |
-| qu |6 des opérations en cours sont dans en file d’attente et n’ont pas encore été envoyées au réseau sortant. |
-| qs |67 des opérations en cours ont été envoyées au serveur, mais aucune réponse n’est disponible. La réponse peut être `Not yet sent by the server` ou `sent by the server but not yet processed by the client.`. |
-| qc |Aucune des opérations en cours n’a reçu de réponse, mais elles sont marquées comme terminées en raison de leur attente dans la boucle d’exécution. |
-| wr |Un enregistreur est actif (ce qui signifie que les 6 demandes en attente ne sont pas ignorées) octets/enregistreurs actifs |
+| qu |6 des opérations en cours d’exécution se trouvent dans la file d’attente en attente et n’avez pas encore été écrits au réseau sortant. |
+| qs |67 des opérations en cours d’exécution ont été envoyées au serveur, mais une réponse n’est pas encore disponible. La réponse peut être `Not yet sent by the server` ou `sent by the server but not yet processed by the client.`. |
+| qc |0 ou les opérations en cours d’exécution a reçu de réponse, mais ne l’avez pas encore été marquée comme terminée, car il attend la fin de la boucle d’exécution |
+| wr |Il existe un enregistreur active (ce qui signifie que les 6 demandes ne sont pas ignorées) octets/enregistreurs actifs |
 | commencer |Aucun lecteur n’est actif et aucun octet n’est disponible en lecture sur la carte réseau octets/lecteurs actifs |
 
 ### <a name="steps-to-investigate"></a>Procédure d’analyse
-1. Il est recommandé de suivre la procédure ci-dessous pour se connecter, en cas d’utilisation du client StackExchange.Redis.
+
+1. Comme meilleure pratique, assurez-vous que vous utilisez le modèle suivant pour se connecter en utilisant le client StackExchange.Redis.
 
     ```csharp
     private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
     {
         return ConnectionMultiplexer.Connect("cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
-    
+
     });
-    
+
     public static ConnectionMultiplexer Connection
     {
         get
@@ -216,24 +231,24 @@ Ce message d’erreur contient des mesures qui peuvent vous aider à identifier 
 
     Pour plus d’informations, consultez [Utilisation du Cache Redis Azure](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
 
-1. Vérifiez que le cache Azure pour Redis et l’application cliente sont dans la même région dans Azure. Par exemple, vous pouvez rencontrer des délais d’expiration lorsque votre cache est dans la région USA Est, que le client se trouve dans USA Ouest et que la demande n’est pas traitée pendant l’intervalle `synctimeout`. Vous pouvez également rencontrer des délais d’expiration lorsque vous procédez à un débogage à partir de votre ordinateur de développement local. 
-   
-    Il est vivement recommandé de placer le cache et le client dans la même région Azure. Si votre implémentation nécessite des appels interrégionaux, vous devez régler l’intervalle `synctimeout` sur une valeur supérieure à la valeur par défaut (1000 ms), en incluant une propriété `synctimeout` dans la chaîne de connexion. L’exemple suivant montre un extrait de chaîne de connexion StackExchange au cache Azure pour Redis avec une valeur de 2000 ms pour `synctimeout`.
-   
+1. Assurez-vous que votre serveur et l’application cliente sont dans la même région dans Azure. Par exemple, vous pouvez rencontrer des délais d’expiration lorsque votre cache est en cours de l’est des États-Unis, mais le client se trouve dans l’ouest des États-Unis et la demande ne termine pas dans le `synctimeout` intervalle ou vous pouvez également rencontrer des délais d’attente lorsque vous déboguez à partir de votre ordinateur de développement local. 
+
+    Il est vivement recommandé de placer le cache et le client dans la même région Azure. Si votre implémentation nécessite des appels interrégionaux, vous devez régler l’intervalle `synctimeout` sur une valeur supérieure à la valeur par défaut (1000 ms), en incluant une propriété `synctimeout` dans la chaîne de connexion. L’exemple suivant montre un extrait de code d’une chaîne de connexion pour StackExchange.Redis fournies par le Cache Azure pour Redis avec un `synctimeout` de 2 000 ms.
+
         synctimeout=2000,cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...
-2. Vérifiez que vous utilisez la dernière version en date du [package NuGet StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/). Nous corrigeons en permanence le code pour le rendre plus robuste aux délais d’expiration. Il est donc primordial d’utiliser la dernière version.
-3. Si des demandes sont impactées par les limitations de bande passante sur le serveur ou le client, leur traitement prend davantage de temps, ce qui entraîne des délais d’expiration. Pour voir si le délai d’expiration est dû à la bande passante réseau sur le serveur, consultez [Bande passante dépassée côté serveur](#server-side-bandwidth-exceeded). Pour voir si le délai d’expiration est dû à la bande passante réseau sur le client, consultez [Bande passante dépassée côté client](#client-side-bandwidth-exceeded).
-4. Constatez-vous une utilisation intensive du processeur sur le serveur ou sur le client ?
-   
-   * Vérifiez si vous constatez une utilisation intensive du processeur sur votre client, qui pourrait empêcher le traitement de la demande pendant l’intervalle `synctimeout`, entraînant un délai d’expiration. Augmentez la taille de votre client ou répartissez la charge pour résoudre ce problème. 
-   * Vérifiez si vous constatez une utilisation intensive du processeur sur votre serveur, à l’aide de la `CPU` [mesure de performance du cache](cache-how-to-monitor.md#available-metrics-and-reporting-intervals). L’entrée de demandes pendant que Redis utilise intensivement le processeur peut entraîner une expiration du traitement des demandes. Pour résoudre ce problème, vous pouvez répartir la charge sur plusieurs partitions dans un cache premium, ou effectuer une mise à niveau vers une taille ou un niveau de tarification supérieur. Pour plus d’informations, consultez [Bande passante dépassée côté serveur](#server-side-bandwidth-exceeded).
-5. Le traitement de certaines commandes est-il trop long sur le serveur ? Les commandes qui prennent beaucoup de temps sur le serveur redis peuvent entraîner des délais d’expiration. Les commandes `mget` avec un nombre important de clés, `keys *` ou des scripts mal rédigés prennent notamment beaucoup de temps pour s’exécuter. Vous pouvez vous connecter à votre instance de cache Azure pour Redis à l’aide du client redis-cli, ou utiliser la [Console Redis](cache-configure.md#redis-console) et exécuter la commande [SlowLog](https://redis.io/commands/slowlog) pour identifier les demandes prenant davantage de temps que prévu. Le serveur Redis et StackExchange.Redis sont optimisés pour traiter un grand nombre de petites requêtes plutôt qu’un nombre réduit de demandes volumineuses. Fractionner vos données en segments plus petits peut améliorer les choses. 
-   
-    Pour plus d’informations sur la connexion au point de terminaison SSL du cache Azure pour Redis à l’aide de redis-cli et de stunnel, consultez le billet de blog [Announcing ASP.NET Session State Provider for Redis Preview Release](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx). Pour plus d’informations, consultez [SlowLog](https://redis.io/commands/slowlog).
-6. Une charge élevée du serveur Redis peut provoquer des délais d’expiration. Vous pouvez surveiller la charge du serveur à l’aide de la `Redis Server Load` [mesure des performances du cache](cache-how-to-monitor.md#available-metrics-and-reporting-intervals). Une charge serveur de 100 (valeur maximale) signifie que le serveur redis a été occupé à plein temps à traiter des demandes. Pour voir si certaines demandes monopolisent les capacités du serveur, exécutez la commande SlowLog comme indiqué dans le paragraphe précédent. Pour plus d’informations, consultez Utilisation élevée du processeur / charge importante du serveur.
-7. Un autre événement côté client a-t-il pu causer un blocage du réseau ? Sur le client (web, rôle de travail ou MV IaaS), vérifiez si un événement comme la mise à l'échelle du nombre d'instances du client, le déploiement d'une nouvelle version du client ou l'activation de la mise à l'échelle automatique a eu lieu. Lors de notre test, nous avons constaté que la mise à l'échelle automatique ou l'augmentation/la réduction de la taille des instances peut entraîner une perte de connectivité réseau sortante pendant quelques secondes. Le code de StackExchange.Redis résiste à de tels événements et rétablit la connexion. Pendant ce temps de reconnexion, toutes les demandes dans la file d’attente peuvent expirer.
-8. Une demande volumineuse précédant plusieurs petites demandes dans le cache Azure pour Redis a-t-elle expiré ? Le paramètre `qs` du message d’erreur vous indique le nombre de requêtes envoyées du client au serveur, mais qui n’ont pas encore traité une réponse. Cette valeur peut continuer d’augmenter car StackExchange.Redis utilise une seule connexion TCP et ne peut lire qu’une réponse à la fois. L’expiration de la première opération n’empêche pas l’échange des données avec le serveur, et les autres demandes sont bloquées jusqu’à ce que la demande volumineuse soit terminée, ce qui provoque des délais d’expiration. Une solution pour réduire le risque de délais d’expiration consiste à vérifier que le cache est assez grand pour votre charge de travail et à fractionner les valeurs importantes en valeurs plus petites. Une autre solution consiste à utiliser un pool d’objets `ConnectionMultiplexer` dans votre client et à choisir le `ConnectionMultiplexer` le moins chargé lors de l’envoi d’une nouvelle demande. Ceci doit empêcher un délai de faire expirer les autres demandes.
-9. Si vous utilisez `RedisSessionStateProvider`, vérifiez que vous avez configuré correctement le délai d’expiration de nouvelle tentative. `retryTimeoutInMilliseconds` doit être supérieur à `operationTimeoutInMilliseconds`, sans quoi aucune nouvelle tentative ne se produit. Dans l’exemple suivant, `retryTimeoutInMilliseconds` est réglé sur 3 000. Pour plus d’informations, consultez la page [Fournisseur d’état de session ASP.NET pour cache Azure pour Redis](cache-aspnet-session-state-provider.md) et [How to use the configuration parameters of Session State Provider and Output Cache Provider](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration) (Comment utiliser les paramètres de configuration du fournisseur d’état de session et du fournisseur de caches de sortie).
+1. Vérifiez que vous utilisez la dernière version en date du [package NuGet StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/). Nous corrigeons en permanence le code pour le rendre plus robuste aux délais d’expiration. Il est donc primordial d’utiliser la dernière version.
+1. Si vos demandes sont liés par les limitations de bande passante sur le serveur ou le client, il est plus long pour qu’ils puissent effectuer et peut entraîner des délais d’attente. Pour voir si le délai d’expiration est en raison de la bande passante réseau sur le serveur, consultez [bande passante dépassée côté serveur](#server-side-bandwidth-exceeded). Pour voir si le délai d’expiration est en raison de la bande passante du réseau client, consultez [bande passante dépassée côté Client](#client-side-bandwidth-exceeded).
+1. Constatez-vous une utilisation intensive du processeur sur le serveur ou sur le client ?
+
+   - Vérifiez si vous êtes bien utilisation intensive du processeur sur votre client. Processeur élevé peut entraîner la demande ne pas d’être traitées au sein du `synctimeout` intervalle et cause une demande de délai d’attente. Augmentez la taille de votre client ou répartissez la charge pour résoudre ce problème.
+   - Vérifiez si vous obtenez des UC lié sur le serveur en surveillant le `CPU` [mesure de performances du cache](cache-how-to-monitor.md#available-metrics-and-reporting-intervals). Requêtes entrantes pendant que Redis est liée à l’UC peuvent entraîner ces demandes expiration du délai. Pour résoudre ce problème, vous pouvez répartir la charge sur plusieurs partitions dans un cache premium, ou effectuer une mise à niveau vers une taille ou un niveau de tarification supérieur. Pour plus d’informations, consultez [Bande passante dépassée côté serveur](#server-side-bandwidth-exceeded).
+1. Le traitement de certaines commandes est-il trop long sur le serveur ? Les commandes longues qui prennent beaucoup de temps à traiter sur le serveur redis peuvent provoquer des délais d’attente. Pour plus d’informations sur les commandes longues, consultez [commandes coûteux](#expensive-commands). Vous pouvez vous connecter à votre Cache Azure pour instance Redis en utilisant le client redis-cli ou le [Console Redis](cache-configure.md#redis-console). Ensuite, exécutez le [SLOWLOG](https://redis.io/commands/slowlog) demande de commande pour voir s’il existe plus lentement que prévu. Le serveur Redis et StackExchange.Redis sont optimisés pour traiter un grand nombre de petites requêtes plutôt qu’un nombre réduit de demandes volumineuses. Fractionner vos données en segments plus petits peut améliorer les choses.
+
+    Pour plus d’informations sur la connexion au point de terminaison SSL de votre cache à l’aide de redis-cli et stunnel, consultez le blog [Announcing ASP.NET Session State Provider for Redis Preview Release](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx).
+1. Une charge élevée du serveur Redis peut provoquer des délais d’expiration. Vous pouvez surveiller la charge du serveur à l’aide de la `Redis Server Load` [mesure des performances du cache](cache-how-to-monitor.md#available-metrics-and-reporting-intervals). Une charge serveur de 100 (valeur maximale) signifie que le serveur redis a été occupé à plein temps à traiter des demandes. Pour voir si certaines demandes monopolisent les capacités du serveur, exécutez la commande SlowLog comme indiqué dans le paragraphe précédent. Pour plus d’informations, consultez Utilisation élevée du processeur / charge importante du serveur.
+1. Un autre événement côté client a-t-il pu causer un blocage du réseau ? Les événements courants incluent : mise à l’échelle le nombre d’instances de client ou le déploiement vers le bas, une nouvelle version du client, ou à l’échelle automatique est activée. Dans nos tests, nous avons découvert que mise à l’échelle ou la mise à l’échelle vers le haut/bas peut entraîner de connectivité réseau sortante à être perdues pendant plusieurs secondes. Le code de StackExchange.Redis résiste à de tels événements et rétablit la connexion. Lors de la reconnexion, toutes les demandes dans la file d’attente délai d’attente.
+1. Y a-t-il eu une demande importante précédant plusieurs petites demandes au cache ayant expiré ? Le paramètre `qs` dans l’erreur message vous indique combien de requêtes ont été envoyés à partir du client au serveur, mais n’avez pas traité une réponse. Cette valeur peut continuer d’augmenter car StackExchange.Redis utilise une seule connexion TCP et ne peut lire qu’une réponse à la fois. Même si la première opération a expiré, il ne s’arrête pas plus de données d’être envoyé à ou à partir du serveur. Autres demandes sont bloquées jusqu'à ce que la demande volumineuse est terminée et peut entraîner des délais d’expiration. Une solution pour réduire le risque de délais d’expiration consiste à vérifier que le cache est assez grand pour votre charge de travail et à fractionner les valeurs importantes en valeurs plus petites. Une autre solution consiste à utiliser un pool d’objets `ConnectionMultiplexer` dans votre client et à choisir le `ConnectionMultiplexer` le moins chargé lors de l’envoi d’une nouvelle demande. Le chargement de plusieurs objets de connexion doit empêcher un délai de provoquer des autres demandes envoyées à l’expiration du délai également.
+1. Si vous utilisez `RedisSessionStateProvider`, vous avez définie correctement le délai d’attente de nouvelle tentative. `retryTimeoutInMilliseconds` doit être supérieur à `operationTimeoutInMilliseconds`, sans quoi aucune nouvelle tentative ne se produit. Dans l’exemple suivant, `retryTimeoutInMilliseconds` est réglé sur 3 000. Pour plus d’informations, consultez la page [Fournisseur d’état de session ASP.NET pour cache Azure pour Redis](cache-aspnet-session-state-provider.md) et [How to use the configuration parameters of Session State Provider and Output Cache Provider](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration) (Comment utiliser les paramètres de configuration du fournisseur d’état de session et du fournisseur de caches de sortie).
 
     <add
       name="AFRedisCacheSessionStateProvider"
@@ -248,18 +263,17 @@ Ce message d’erreur contient des mesures qui peuvent vous aider à identifier 
       operationTimeoutInMilliseconds = "1000"
       retryTimeoutInMilliseconds="3000" />
 
+1. Vérifiez l’utilisation de la mémoire sur le serveur du cache Azure pour Redis en [surveillant](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) `Used Memory RSS` et `Used Memory`. Si une stratégie d’éviction est en place, Redis commence la suppression de clés lorsque `Used_Memory` atteint la taille du cache. Dans l’idéal, `Used Memory RSS` doit être légèrement supérieur à `Used memory`. Une grande différence signifie que la fragmentation de mémoire (interne ou externe). Lorsque `Used Memory RSS` est inférieur à `Used Memory`, cela signifie que le système d’exploitation a permuté une partie de la mémoire cache. Si cette permutation se produit, vous pouvez rencontrer des latences importantes. Étant donné que Redis ne contrôlez comment ses allocations sont mappées aux pages de mémoire haute `Used Memory RSS` est souvent le résultat d’un pic d’utilisation de la mémoire. Lorsque le serveur Redis libère de la mémoire, l’allocateur prend la mémoire, mais il est peut-être ou ne peut-être pas, rendez la mémoire au système. Il peut y avoir une différence entre la valeur de `Used Memory` et la consommation de mémoire telle qu’elle est indiquée par le système d’exploitation. Mémoire ont été utilisée et publiée par Redis, mais pas restituée au système. Pour aider à atténuer les problèmes de mémoire, vous pouvez effectuer les étapes suivantes :
 
-1. Vérifiez l’utilisation de la mémoire sur le serveur du cache Azure pour Redis en [surveillant](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) `Used Memory RSS` et `Used Memory`. Si une stratégie d’éviction est en place, Redis commence la suppression de clés lorsque `Used_Memory` atteint la taille du cache. Dans l’idéal, `Used Memory RSS` doit être légèrement supérieur à `Used memory`. Une différence importante traduit une fragmentation de la mémoire (interne ou externe). Lorsque `Used Memory RSS` est inférieur à `Used Memory`, cela signifie que le système d’exploitation a permuté une partie de la mémoire cache. Si cette permutation se produit, vous pouvez rencontrer des latences importantes. Comme Redis ne contrôle pas le mode de mappage de ses allocations aux pages mémoire, une valeur élevée de `Used Memory RSS` traduit souvent un pic d’utilisation de la mémoire. Lorsque Redis libère de la mémoire, celle-ci est redonnée à l’allocateur qui peut (ou pas) rendre la mémoire au système. Il peut y avoir une différence entre la valeur de `Used Memory` et la consommation de mémoire telle qu’elle est indiquée par le système d’exploitation. Ceci peut s’expliquer par le fait que la mémoire a été utilisée et libérée par Redis, mais pas restituée au système. Pour réduire les problèmes de mémoire, vous pouvez effectuer les étapes suivantes :
-   
-   * Augmentez la taille du cache, afin de ne plus être soumis aux limitations de mémoire du système.
-   * Définissez des délais d’expiration sur les clés afin que les anciennes valeurs soient supprimées de manière proactive.
-   * Surveillez la mesure de cache `used_memory_rss`. Lorsque cette valeur s’approche de la taille du cache, vous risquez de voir apparaître des problèmes de performance. Répartissez les données sur plusieurs partitions, si vous utilisez un cache premium, ou augmentez la taille du cache.
-   
+   - Mettre à niveau le cache pour une plus grande taille afin que vous n’êtes pas en cours d’exécution par rapport à des limitations de mémoire sur le système.
+   - Définissez des délais d’expiration sur les clés afin que les anciennes valeurs soient supprimées de manière proactive.
+   - Surveillez la mesure de cache `used_memory_rss`. Lorsque cette valeur est proche de la taille de leur cache, vous risquez de commencer à voir les problèmes de performances. Répartir les données entre plusieurs partitions si vous utilisez un cache premium, ou mettre à niveau vers une plus grande taille de cache.
+
    Pour plus d’informations, consultez [Saturation de la mémoire sur le serveur](#memory-pressure-on-the-server).
 
 ## <a name="additional-information"></a>Informations supplémentaires
-* [Que sont les offres de cache Azure pour Redis et quelle taille dois-je utiliser ?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
-* [Comment puis-je évaluer et tester les performances de mon cache ?](cache-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
-* [Comment exécuter des commandes Redis ?](cache-faq.md#how-can-i-run-redis-commands)
-* [Surveillance du cache Azure pour Redis](cache-how-to-monitor.md)
 
+- [Que sont les offres de cache Azure pour Redis et quelle taille dois-je utiliser ?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
+- [Comment puis-je évaluer et tester les performances de mon cache ?](cache-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
+- [Comment exécuter des commandes Redis ?](cache-faq.md#how-can-i-run-redis-commands)
+- [Surveillance du cache Azure pour Redis](cache-how-to-monitor.md)

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/12/2019
+ms.date: 3/26/2019
 ms.author: raiye
-ms.openlocfilehash: c5fdee4e5b1b9d2a283ef55ce99dffab0cb25873
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 955ba0aae41d7e555c1248cf04073b1b6e3f2d4f
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57840840"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499962"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Versions du SE invité et matrice de compatibilité du Kit de développement logiciel (SDK) Azure
 Fournit des informations récentes sur les dernières publications du SE (système d’exploitation) invité de Microsoft Azure pour Cloud Services. Ces informations vous permettent de planifier votre mise à niveau avant la désactivation d’un SE invité. Si vous configurez vos rôles pour utiliser les mises à jour *automatiques* d’un SE invité comme cela est décrit dans [Paramètres de mise à jour du SE invité Azure][Azure Guest OS Update Settings], il n’est pas indispensable que vous lisiez cette page.
@@ -43,6 +43,9 @@ Vous ne savez pas comment mettre à jour votre système d’exploitation invité
 
 ## <a name="news-updates"></a>Nouvelles mises à jour
 
+###### <a name="march-26-2019"></a>**26 mars 2019**
+Le système d’exploitation invité de mars a été publié.
+
 ###### <a name="march-12-2019"></a>**12 mars 2019**
 Le SE invité de février a publié.
 
@@ -63,9 +66,6 @@ Publication de l’OS invité octobre.
 
 ###### <a name="october-12-2018"></a>**12 octobre 2018**
 Publication du système d’exploitation invité du mois de septembre.
-
-###### <a name="september-12-2018"></a>**12 septembre 2018**
-Publication du système d’exploitation invité du mois d’août.
 
 ## <a name="releases"></a>Publications
 
@@ -89,9 +89,10 @@ Publication du système d’exploitation invité du mois d’août.
 
 | Chaîne de configuration | Date de lancement | Date de désactivation |
 | --- | --- | --- |
+| WA-GUEST-OS-6.5_201903-01 |26 mars 2019 |Post 6.7 |
 | WA-GUEST-OS-6.4_201902-01 |12 mars 2019 |Post 6.6 |
-| WA-GUEST-OS-6.3_201901-01 |5 février 2019 |Post 6.5 |
-|~~WA-GUEST-OS-6.2_201812-01~~|24 janvier 2019 |12 mars 2019 |
+|~~WA-GUEST-OS-6.3_201901-01~~ |5 février 2019 |26 mars 2019 |
+|~~WA-GUEST-OS-6.2_201812-01~~ |24 janvier 2019 |12 mars 2019 |
 |~~WA-GUEST-OS-6.1_201811-01~~ |24 janvier 2019 |5 février 2019 |
 
 ## <a name="family-5-releases"></a>Publications de famille 5
@@ -106,13 +107,13 @@ Publication du système d’exploitation invité du mois d’août.
 
 | Chaîne de configuration | Date de lancement | Date de désactivation |
 | --- | --- | --- |
+| WA-GUEST-OS-5.29_201903-01 |26 mars 2019 |Post 5.31 |
 | WA-GUEST-OS-5.28_201902-01 |12 mars 2019 |Post 5.30 |
-| WA-GUEST-OS-5.27_201901-01 |5 février 2019 |Post 5.29 |
-|~~WA-GUEST-OS-5.26_201812-01~~|7 janvier 2019 |12 mars 2019 |
+|~~WA-GUEST-OS-5.27_201901-01~~ |5 février 2019 |26 mars 2019 |
+|~~WA-GUEST-OS-5.26_201812-01~~ |7 janvier 2019 |12 mars 2019 |
 |~~WA-GUEST-OS-5.25_201811-01~~ |14 décembre 2018 |5 février 2019 |
 |~~WA-GUEST-OS-5.24_201810-01~~ |8 novembre 2018 |7 janvier 2019 |
 |~~WA-GUEST-OS-5.23_201809-01~~ |12 octobre 2018 |14 décembre 2018 |
-|~~WA-GUEST-OS-5.22_201808-01~~ |12 septembre 2018 |8 novembre 2018 |
 
 ## <a name="family-4-releases"></a>Publications de famille 4
 **Windows Server 2012 R2**
@@ -121,13 +122,13 @@ Publication du système d’exploitation invité du mois d’août.
 
 | Chaîne de configuration | Date de lancement | Date de désactivation |
 | --- | --- | --- |
+| WA-GUEST-OS-4.64_201903-01 |26 mars 2019 |POST 4.66 |
 | WA-GUEST-OS-4.63_201902-01 |12 mars 2019 |POST 4,65 |
-| WA-GUEST-OS-4.62_201901-01 |5 février 2019 |Post 4.64 |
-|~~WA-GUEST-OS-4.61_201812-01~~|7 janvier 2019 |12 mars 2019 |
+|~~WA-GUEST-OS-4.62_201901-01~~ |5 février 2019 |26 mars 2019 |
+|~~WA-GUEST-OS-4.61_201812-01~~ |7 janvier 2019 |12 mars 2019 |
 |~~WA-GUEST-OS-4.60_201811-01~~ |14 décembre 2018 |5 février 2019 |
 |~~WA-GUEST-OS-4.59_201810-01~~ |8 novembre 2018 |7 janvier 2019 |
 |~~WA-GUEST-OS-4.58_201809-01~~ |12 octobre 2018 |14 décembre 2018 |
-|~~WA-GUEST-OS-4.57_201808-01~~ |12 septembre 2018 |8 novembre 2018 |
 
 ## <a name="family-3-releases"></a>Publications de famille 3
 **Windows Server 2012**
@@ -136,13 +137,13 @@ Publication du système d’exploitation invité du mois d’août.
 
 | Chaîne de configuration | Date de lancement | Date de désactivation |
 | --- | --- | --- |
+| WA-GUEST-OS-3.71_201903-01 |26 mars 2019 |Post 3.73 |
 | WA-GUEST-OS-3.70_201902-01 |12 mars 2019 |Post 3.72 |
-| WA-GUEST-OS-3.69_201901-01 |5 février 2019 |Post 3.71 |
-|~~WA-GUEST-OS-3.68_201812-01~~|7 janvier 2019 |12 mars 2019 |
+|~~WA-GUEST-OS-3.69_201901-01~~ |5 février 2019 |26 mars 2019 |
+|~~WA-GUEST-OS-3.68_201812-01~~ |7 janvier 2019 |12 mars 2019 |
 |~~WA-GUEST-OS-3.67_201811-01~~ |14 décembre 2018 |5 février 2019 |
 |~~WA-GUEST-OS-3.66_201810-01~~ |8 novembre 2018 |7 janvier 2019 |
 |~~WA-GUEST-OS-3.65_201809-01~~ |12 octobre 2018 |14 décembre 2018 |
-|~~WA-GUEST-OS-3.64_201808-01~~ |12 septembre 2018 |8 novembre 2018 |
 
 ## <a name="family-2-releases"></a>Publications de famille 2
 **Windows Server 2008 R2 SP1**
@@ -151,13 +152,13 @@ Publication du système d’exploitation invité du mois d’août.
 
 | Chaîne de configuration | Date de lancement | Date de désactivation |
 | --- | --- | --- |
+| WA-GUEST-OS-2.84_201903-01 |26 mars 2019 |Post 2.86 |
 | WA-GUEST-OS-2.83_201902-01 |12 mars 2019 |Billet de 2,85 |
-| WA-GUEST-OS-2.82_201901-01 |5 février 2019 |Post 2.84 |
+|~~WA-GUEST-OS-2.82_201901-01~~ |5 février 2019 |26 mars 2019 |
 |~~WA-GUEST-OS-2.81_201812-01~~ |7 janvier 2019 |12 mars 2019 |
 |~~WA-GUEST-OS-2.80_201811-01~~ |14 décembre 2018 |5 février 2019 |
 |~~WA-GUEST-OS-2.79_201810-01~~ |8 novembre 2018 |7 janvier 2019 |
 |~~WA-GUEST-OS-2.78_201809-01~~ |12 octobre 2018 |14 décembre 2018 |
-|~~WA-GUEST-OS-2.77_201808-01~~ |12 septembre 2018 |8 novembre 2018 |
 
 ## <a name="msrc-patch-updates"></a>Mises à jour correctives MSRC
 La liste des correctifs inclus dans chaque publication mensuelle du SE invité est disponible [ici][patches].

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 64fb3acf9b134b7188d316633bc663d7dd9b14b8
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 573c205cd2e208a1cb2b526d96fb08ca21331c80
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760220"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481321"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Envoyer des métriques de système d’exploitation invité vers le magasin de métriques d’Azure Monitor à l’aide d’un modèle Azure Resource Manager pour un groupe de machines virtuelles identiques Windows
 
@@ -242,12 +242,12 @@ Pour déployer le modèle Resource Manager, utilisez Azure PowerShell :
 1. Obtenez la liste de vos abonnements à l’aide de `Get-AzSubscription`.
 1. Définissez l’abonnement que vous allez créer ou mettez à jour la machine virtuelle : 
 
-   ```PowerShell
+   ```powershell
    Select-AzSubscription -SubscriptionName "<Name of the subscription>" 
    ```
 1. Créez un nouveau groupe de ressources pour la machine virtuelle déployée. Exécutez la commande suivante : 
 
-   ```PowerShell
+   ```powershell
     New-AzResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>" 
    ```
 
@@ -259,7 +259,7 @@ Pour déployer le modèle Resource Manager, utilisez Azure PowerShell :
    > [!NOTE]  
    > Si vous souhaitez mettre à jour un groupe identique existant, ajoutez **-Mode Incremental** à la fin de la commande. 
  
-   ```PowerShell
+   ```powershell
    New-AzResourceGroupDeployment -Name "VMSSWADTest" -ResourceGroupName "VMSSWADtestGrp" -TemplateFile "<File path of your azuredeploy.JSON file>" -TemplateParameterFile "<File path of your azuredeploy.parameters.JSON file>"  
    ```
 

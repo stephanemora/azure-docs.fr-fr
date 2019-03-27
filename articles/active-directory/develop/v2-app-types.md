@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e6ea0be84cc36ca6fa6547d01054599e37229d7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0aac3e40089c67cd71a2c634280e333964e47902
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162932"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499979"
 ---
 # <a name="application-types-for-v20"></a>Types d’applications pour v2.0
 
@@ -124,7 +124,7 @@ Dans ce flux, l’application reçoit un code d’autorisation à partir du poin
 
 Les applications qui contiennent des processus de longue durée ou qui fonctionnent sans interaction d’un utilisateur doivent également disposer d’un moyen d’accès aux ressources sécurisées, comme les API web. Ces applications peuvent s'authentifier et récupérer des jetons à l'aide de l'identité d'application plutôt qu'avec l'identité déléguée d'un utilisateur avec le flux des informations d'identification du client OAuth 2.0. Vous pouvez prouver l’identité de l’application à l’aide d’une clé secrète client ou d’un certificat. Pour plus d’informations, voir [Authentification auprès d’Azure AD dans les applications démon avec des certificats](https://azure.microsoft.com/resources/samples/active-directory-dotnet-daemon-certificate-credential/).
 
-Dans ce flux, l’application interagit directement avec le point de terminaison `/token` pour obtenir des points de terminaison :
+Dans ce flux, l’application interagit directement avec le `/token` point de terminaison pour obtenir l’accès :
 
 ![Flux d’authentification d’applications démons](./media/v2-app-types/convergence_scenarios_daemon.png)
 

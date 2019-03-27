@@ -1,6 +1,6 @@
 ---
-title: Découverte et classification des données Azure SQL Database | Microsoft Docs
-description: Découverte et classification des données Azure SQL Database
+title: Découverte de données de base de données SQL et SQL Data Warehouse et classification des Azure | Microsoft Docs
+description: Azure SQL Database et les données de découverte et classification
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,15 +11,15 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: ac52d8fa03c3c3ad1d618d014381fadfa752b7d7
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.date: 03/22/2019
+ms.openlocfilehash: 74bd3af3e1ffd126f8cb4f2347e4566cc4708e25
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202977"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58495984"
 ---
-# <a name="azure-sql-database-data-discovery--classification"></a>Découverte et classification des données Azure SQL Database
+# <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>Découverte de données de base de données SQL et SQL Data Warehouse et classification des Azure
 
 Découverte et classification des données (actuellement en préversion) offre des fonctionnalités avancées intégrées à Azure SQL Database pour la **découverte**, la **classification**, l'**étiquetage** & et la **protection** des données sensibles dans vos bases de données.
 La découverte et la classification de vos données les plus sensibles (professionnelles/financières, soins de santé, informations d’identification personnelle, etc.) peuvent jouer un rôle essentiel dans la protection des informations de l’organisation. Elles peuvent servir d’infrastructure pour :
@@ -28,10 +28,10 @@ La découverte et la classification de vos données les plus sensibles (professi
 - Divers scénarios de sécurité, comme la surveillance (audit) et la génération d’alertes en cas d’accès anormaux aux données sensibles.
 - Contrôler l’accès et renforcer la sécurité des bases de données contenant des données sensibles.
 
-Découverte et classification des données fait partie de l'offre [Advanced Data Security](sql-database-advanced-data-security.md) (ADS) qui est un package unifié de fonctionnalités de sécurité SQL avancées. L'accès au composant Découverte et classification des données ainsi que sa gestion se font via le portail SQL ADS central.
+Données découverte et classification fait partie de la [sécurité avancée des données](sql-database-advanced-data-security.md) (ADS) offre, qui est un package unifié incluant des fonctionnalités de sécurité avancées SQL. L'accès au composant Découverte et classification des données ainsi que sa gestion se font via le portail SQL ADS central.
 
 > [!NOTE]
-> Ce document se rapporte uniquement à Azure SQL Database. Pour SQL Server (en local), consultez [découverte de données SQL et la Classification](https://go.microsoft.com/fwlink/?linkid=866999).
+> Ce document est lié à la base de données SQL Azure et Azure SQL Data Warehouse. Par souci de simplicité, la base de données SQL est utilisée pour faire référence à SQL Database et SQL Data Warehouse. Pour SQL Server (en local), consultez [découverte de données SQL et la Classification](https://go.microsoft.com/fwlink/?linkid=866999).
 
 ## <a id="subheading-1"></a>Présentation de Découverte et classification des données
 
