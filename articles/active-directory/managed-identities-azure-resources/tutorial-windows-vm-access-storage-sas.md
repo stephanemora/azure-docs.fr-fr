@@ -3,7 +3,7 @@ title: Utiliser une identité managée affectée par le système de machine virt
 description: Tutoriel montrant comment utiliser une identité managée affectée par le système de machine virtuelle Windows pour accéder au Stockage Azure en utilisant des informations d’identification SAP au lieu d’une clé d’accès au compte de stockage.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: daveba
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/24/2019
-ms.author: priyamo
+ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d4d3c6ad513d67af57423de9f7b0b2c31f73460
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 23ec4d2a67beb9b5f903aa0b7f03196b47db3f78
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56209215"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58443511"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-a-sas-credential"></a>Tutoriel : Utiliser une identité managée affectée par le système de machine virtuelle Windows pour accéder au Stockage Azure avec des informations d’identification SAP
 
@@ -35,7 +35,7 @@ Une SAP de service offre la possibilité d’accorder un accès limité à des o
 > * Autoriser votre machine virtuelle à accéder à la SAP d’un compte stockage dans le Gestionnaire des ressources 
 > * Obtenir un jeton d’accès à l’aide de l’identité de votre machine virtuelle et l’utiliser pour récupérer la SAP à partir du Gestionnaire des ressources 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 

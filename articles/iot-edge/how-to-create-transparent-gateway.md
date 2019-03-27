@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: c769ae8e684a94e60f6a2e31ba404a0593f7aa78
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9d67a87b182758e37c9e379a8f96a6540797ce3e
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096705"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482944"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configurer un appareil IoT Edge en tant que passerelle transparente
 
@@ -71,7 +71,7 @@ Installez OpenSSL pour Windows sur l’ordinateur que vous utilisez pour génér
    
    2. Une fois que vcpkg est installé, à partir d’une invite de Powershell, exécutez la commande suivante pour installer le package OpenSSL pour Windows x64. L’installation prend généralement 5 minutes environ.
 
-      ```PowerShell
+      ```powershell
       .\vcpkg install openssl:x64-windows
       ```
    3. Ajoutez `<VCPKGDIR>\installed\x64-windows\tools\openssl` à votre variable d’environnement PATH afin que le fichier openssl.exe soit appelable.
@@ -84,7 +84,7 @@ Azure IoT device SDK pour C contient des scripts permettant de générer des cer
 
 2. Clonez le référentiel git contenant les scripts de génération de certificats qui ne sont pas en production. Ces scripts vous permettent de créer les certificats nécessaires pour configurer une passerelle transparente. Utilisez la commande `git clone` ou [téléchargez le fichier zip](https://github.com/Azure/azure-iot-sdk-c/archive/master.zip). 
 
-   ```PowerShell
+   ```powershell
    git clone https://github.com/Azure/azure-iot-sdk-c.git
    ```
 
@@ -92,7 +92,7 @@ Azure IoT device SDK pour C contient des scripts permettant de générer des cer
 
 4. Copiez les fichiers de configuration et de script dans votre répertoire de travail. 
 
-   ```PowerShell
+   ```powershell
    copy <path>\azure-iot-sdk-c\tools\CACertificates\*.cnf .
    copy <path>\azure-iot-sdk-c\tools\CACertificates\ca-certs.ps1 .
    ```
@@ -101,25 +101,25 @@ Azure IoT device SDK pour C contient des scripts permettant de générer des cer
 
 5. Définissez la variable d’environnement OPENSSL_CONF pour utiliser le fichier de configuration openssl_root_ca.cnf.
 
-    ```PowerShell
+    ```powershell
     $env:OPENSSL_CONF = "$PWD\openssl_root_ca.cnf"
     ```
 
 6. Activez PowerShell pour exécuter les scripts.
 
-   ```PowerShell
+   ```powershell
    Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
    ```
 
 7. Intégrez les fonctions, utilisées par les scripts, à l’espace de noms global de PowerShell.
    
-   ```PowerShell
+   ```powershell
    . .\ca-certs.ps1
    ```
 
 8. Vérifiez qu’OpenSSL est correctement installé et qu’il n’y aura pas de collisions de noms avec des certificats existants. Si des problèmes se produisent, le script doit décrire comment les corriger sur votre système.
 
-   ```PowerShell
+   ```powershell
    Test-CACertsPrerequisites
    ```
 
@@ -129,19 +129,19 @@ Cette section vise à créer trois certificats, puis à les connecter dans une c
 
 1. Créez le certificat d’autorité de certification propriétaire et faites-le signer un certificat intermédiaire. Les certificats sont tous placés dans *\<WRKDIR>*.
 
-      ```PowerShell
+      ```powershell
       New-CACertsCertChain rsa
       ```
 
 2. Créez la clé privée et le certificat d’autorité de certification d’appareil Edge avec la commande suivante. Donnez un nom à l’appareil de passerelle, qui sera utilisé pour nommer les fichiers et lors de la génération du certificat. 
 
-   ```PowerShell
+   ```powershell
    New-CACertsEdgeDevice "<gateway name>"
    ```
 
 3. Créez une chaîne de certification à partir du certificat d’autorité de certification propriétaire, du certificat intermédiaire et du certificat d’autorité de certification d’appareil Edge avec la commande suivante. 
 
-   ```PowerShell
+   ```powershell
    Write-CACertsCertificatesForEdgeDevice "<gateway name>"
    ```
 

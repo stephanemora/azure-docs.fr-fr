@@ -1,24 +1,21 @@
 ---
 title: Recommandations sur les performances dans Azure Database pour PostgreSQL
-description: Cet article décrit les recommandations sur les performances qu’il est possible d’obtenir dans Azure Database pour PostgreSQL.
+description: Cet article décrit la fonctionnalité de recommandation sur les performances dans Azure Database pour PostgreSQL.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/26/2018
-ms.openlocfilehash: 1dedc08f27d1a483290dc61cce879290ca66592d
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.date: 03/26/2018
+ms.openlocfilehash: d8edbc2847c06e95e658a1324f2e85f1758e60be
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548090"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487938"
 ---
 # <a name="performance-recommendations-in-azure-database-for-postgresql"></a>Recommandations sur les performances dans Azure Database pour PostgreSQL
 
-**S’applique à :** Azure Database pour PostgreSQL 9.6 et 10
-
-> [!IMPORTANT]
-> La fonctionnalité Recommandations sur les performances est en préversion publique.
+**S’applique à :** Azure Database pour PostgreSQL 9.6 et 10
 
 La fonctionnalité Recommandations sur les performances identifie les principaux index qui peuvent être créés dans votre serveur Azure Database pour PostgreSQL pour améliorer les performances. Pour produire des recommandations d’index, la fonctionnalité prend en compte différentes caractéristiques de base de données, notamment son schéma et la charge de travail comme indiqué par le Magasin des requêtes. Après avoir implémenté une recommandation sur les performances, les clients doivent tester les performances pour évaluer l’impact des changements. 
 

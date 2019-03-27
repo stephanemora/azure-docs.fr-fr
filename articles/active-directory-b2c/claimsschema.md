@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 635700529007cc90c7e9b79c224f55f34b326f0f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 5d7036f2c7301223b27c80402dace8e9ea05b7f1
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167068"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487819"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -106,8 +106,8 @@ L’élément **Mask** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| Type | Oui | Type du masque de revendication. Valeurs possibles : `Simple` ou `Regex`. La valeur `Simple` indique qu’un masque de texte simple est appliqué à la partie gauche d’une revendication de chaîne. La valeur `Regex` indique qu’une expression régulière est appliquée à la revendication de chaîne dans son ensemble.  Si la valeur `Regex` est spécifiée, un attribut facultatif doit également être défini avec l’expression régulière à utiliser. |
-| Expression régulière | Non  | Si **Type** a la valeur `Regex`, spécifiez l’expression régulière à utiliser.
+| `Type` | Oui | Type du masque de revendication. Valeurs possibles : `Simple` ou `Regex`. La valeur `Simple` indique qu’un masque de texte simple est appliqué à la partie gauche d’une revendication de chaîne. La valeur `Regex` indique qu’une expression régulière est appliquée à la revendication de chaîne dans son ensemble.  Si la valeur `Regex` est spécifiée, un attribut facultatif doit également être défini avec l’expression régulière à utiliser. |
+| `Regex` | Non  | Si **`Type`** a la valeur `Regex`, spécifiez l’expression régulière à utiliser.
 
 L’exemple suivant configure une revendication **PhoneNumber** avec le masque `Simple` :
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: 051c9cb0c6c1af121a1bdd1f553ef124f980b49d
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: d17d7c9d7b57e6ca040e4f81c9665789c8bc26e2
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977149"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483248"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Vue d’ensemble d’agent de machine virtuelle Azure
 L’agent de machine virtuelle Microsoft Azure est un processus léger et sécurisé qui gère l’interaction des machines virtuelles avec le contrôleur de structure Azure. L’agent de machine virtuelle a un rôle essentiel dans l’activation et l’exécution des extensions de machine virtuelle. Les extensions de machine virtuelle permettent la configuration post-déploiement de machines virtuelles, par exemple l’installation et la configuration de logiciels. Les extensions de machine virtuelle permettent également d’utiliser des fonctionnalités de récupération, telles que la réinitialisation du mot de passe d’administration d’une machine virtuelle. Sans l’agent de machine virtuelle Azure, vous ne pouvez pas exécuter d’extensions de machine virtuelle.
@@ -80,7 +80,7 @@ Get-AzVM
 
 L’exemple de sortie condensée suivant montre la propriété *ProvisionVMAgent* imbriquée dans *OSProfile*. Cette propriété peut être utilisée pour déterminer si l’agent de machine virtuelle a été déployé sur la machine virtuelle :
 
-```PowerShell
+```powershell
 OSProfile                  :
   ComputerName             : myVM
   AdminUsername            : myUserName
@@ -91,7 +91,7 @@ OSProfile                  :
 
 Vous pouvez utiliser le script suivant pour retourner une liste concise des noms de machines virtuelles et l’état de l’agent de machine virtuelle :
 
-```PowerShell
+```powershell
 $vms = Get-AzVM
 
 foreach ($vm in $vms) {

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: f871174982e965a32d5f2dca5e2e53c5dc436055
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: eeb9765cfd6242ecdc14dd59dd9b5337cc56c597
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405485"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481213"
 ---
 # <a name="deploy-azure-file-sync"></a>Déployer Azure File Sync
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -28,7 +28,7 @@ Nous vous recommandons fortement de lire les articles [Planification d’un dép
 * Avoir au moins une instance de Windows Server ou d’un cluster Windows Server prise en charge pour la synchronisation avec Azure File Sync. Pour plus d’informations sur les versions de Windows Server prises en charge, consultez [Interopérabilité avec Windows Server](storage-sync-files-planning.md#azure-file-sync-system-requirements-and-interoperability).
 * Vérifiez que PowerShell 5.1 est installé sur votre serveur Windows. Si vous utilisez Windows Server 2012 R2, vérifiez que vous exécutez au moins PowerShell 5.1.\*. Vous pouvez ignorer cette vérification sur Windows Server 2016, car PowerShell 5.1 est la version intégrée par défaut. Sur Windows Server 2012 R2, vous pouvez vérifier que vous exécutez PowerShell 5.1.\* en regardant la valeur de la propriété **PSVersion** de l’objet **$PSVersionTable** :
 
-    ```PowerShell
+    ```powershell
     $PSVersionTable.PSVersion
     ```
 
@@ -40,7 +40,7 @@ Nous vous recommandons fortement de lire les articles [Planification d’un dép
     - Le module Az peut être installé en suivant les instructions ci-dessous : [Installez et configurez Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). 
     - Le module AzureRM PowerShell peut être installé en exécutant la cmdlet PowerShell suivante :
     
-        ```PowerShell
+        ```powershell
         Install-Module AzureRM
         ```
 
@@ -59,7 +59,7 @@ Pour chaque serveur que vous souhaitez utiliser avec Azure File Sync, y compris 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 Pour désactiver la configuration de sécurité renforcée d’Internet Explorer, exécutez la commande suivante à partir d’une session PowerShell avec élévation de privilèges :
 
-```PowerShell
+```powershell
 # Disable Internet Explorer Enhanced Security Configuration 
 # for Administrators
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0 -Force
@@ -100,7 +100,7 @@ Avant d’interagir avec les applets de commande de gestion de Azure File Sync, 
 > [!Note]  
 > Le package StorageSync.Management.PowerShell.Cmdlets.dll, qui contient les applets de commande de gestion de Azure File Sync, contient (intentionnellement) un applet de commande avec un verbe non approuvé (`Login`). Le nom `Login-AzureStorageSync` a été choisi pour correspondre à l’alias d’applet de commande `Login-AzAccount` dans le module Azure PowerShell. Ce message d'erreur est supprimé (de même que la cmdlet) lorsque l'agent Azure File Sync est ajouté au module Azure PowerShell.
 
-```PowerShell
+```powershell
 $acctInfo = Login-AzAccount
 
 # The location of the Azure File Sync Agent. If you have installed the Azure File Sync 
@@ -160,7 +160,7 @@ Login-AzureRmStorageSync `
 
 Une fois que vous avez créé le contexte Azure File Sync avec l’applet de commande `Login-AzureR,StorageSync`, vous pouvez créer le service de synchronisation de stockage. Veillez à remplacer `<my-storage-sync-service>` par le nom de votre service de synchronisation de stockage.
 
-```PowerShell
+```powershell
 $storageSyncName = "<my-storage-sync-service>"
 New-AzureRmStorageSyncService -StorageSyncServiceName $storageSyncName
 ```
@@ -188,7 +188,7 @@ Exécutez le code PowerShell suivant pour télécharger la version appropriée d
 > [!Important]  
 > Si vous comptez utiliser Azure File Sync avec un cluster de basculement, l’agent Azure File Sync doit être installé sur chaque nœud du cluster. Chaque nœud du cluster doit être inscrit pour fonctionner avec Azure File Sync.
 
-```PowerShell
+```powershell
 # Gather the OS version
 $osver = [System.Environment]::OSVersion.Version
 
@@ -242,7 +242,7 @@ Une fois que vous êtes connecté, vous êtes invité à fournir les information
 Après avoir sélectionné les informations appropriées, sélectionnez **S’inscrire** pour effectuer l’inscription du serveur. Dans le cadre du processus d’inscription, vous êtes invité à effectuer une nouvelle connexion.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
-```PowerShell
+```powershell
 $registeredServer = Register-AzureRmStorageSyncServer -StorageSyncServiceName $storageSyncName
 ```
 
@@ -271,14 +271,14 @@ Dans le volet qui s’ouvre, entrez les informations suivantes pour créer un gr
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 Pour créer le groupe de synchronisation, exécutez la commande PowerShell suivante. N’oubliez pas de remplacer `<my-sync-group>` par le nom du groupe de synchronisation.
 
-```PowerShell
+```powershell
 $syncGroupName = "<my-sync-group>"
 New-AzureRmStorageSyncGroup -SyncGroupName $syncGroupName -StorageSyncService $storageSyncName
 ```
 
 Une fois le groupe de synchronisation créé avec succès, vous pouvez créer votre point de terminaison cloud. Veillez à remplacer `<my-storage-account>` et `<my-file-share>` par les valeurs attendues.
 
-```PowerShell
+```powershell
 # Get or create a storage account with desired name
 $storageAccountName = "<my-storage-account>"
 $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroup | Where-Object {
@@ -335,7 +335,7 @@ Pour ajouter le point de terminaison de serveur, sélectionnez **Créer**. Vos f
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 Exécutez les commandes PowerShell suivantes pour créer le point de terminaison de serveur, et veillez à remplacer `<your-server-endpoint-path>` et `<your-volume-free-space>` par les valeurs souhaitées.
 
-```PowerShell
+```powershell
 $serverEndpointPath = "<your-server-endpoint-path>"
 $cloudTieringDesired = $true
 $volumeFreeSpacePercentage = <your-volume-free-space>

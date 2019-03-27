@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5267467b2874c1cc36c8a9f5f27cc1c348eba7ac
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: a2adb0dbbacbec28f241ae89d1b9f763e0f00b90
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369766"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447590"
 ---
 # <a name="update-management-solution-in-azure"></a>Solution Update Management dans Azure
 
@@ -238,7 +238,7 @@ Vous pouvez également créer des déploiements de mises à jour par programmati
 
 ### <a name="multi-tenant"></a>Déploiements de mise à jour inter-tenants
 
-Si des machines se trouvent dans un autre rapport de tenant Azure pour Update Management que vous devez corriger, vous devez utiliser la solution de contournement suivante pour planifier l’opération. Vous pouvez utiliser la cmdlet [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule?view=azurermps-6.13.0) avec le commutateur `-ForUpdate` pour créer une planification, et utiliser la cmdlet [New-AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration?view=azurermps-6.13.0
+Si des machines se trouvent dans un autre rapport de tenant Azure pour Update Management que vous devez corriger, vous devez utiliser la solution de contournement suivante pour planifier l’opération. Vous pouvez utiliser la cmdlet [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) avec le commutateur `-ForUpdate` pour créer une planification, et utiliser la cmdlet [New-AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration
 ) et faire passer les machines de l’autre tenant au paramètre `-NonAzureComputer`. L’exemple suivant vous montre comment procéder :
 
 ```azurepowershell-interactive

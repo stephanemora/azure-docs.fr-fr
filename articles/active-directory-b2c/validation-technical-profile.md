@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 3172354752e2c6a1a7368b297e3cc6e763cd2fcb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 466ed4c2bd353e4a5ec3bec5535b70a90446ee0b
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57900571"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483894"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique de validation dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -65,8 +65,8 @@ L’élément **Precondition** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| Type | Oui | Le type de vérification ou de requête à exécuter pour la condition préalable. Soit vous spécifiez `ClaimsExist` pour vous assurer que les actions seront effectuées si les revendications spécifiées existent dans l’ensemble de revendications actuel de l’utilisateur, soit vous spécifiez `ClaimEquals` pour que les actions soient exécutées si la revendication spécifiée existe et que sa valeur est égale à la valeur spécifiée. |
-| ExecuteActionsIf | Oui | Indique si les actions de la condition préalable doivent être effectuées si le test est true ou false. |
+| `Type` | Oui | Le type de vérification ou de requête à exécuter pour la condition préalable. Soit vous spécifiez `ClaimsExist` pour vous assurer que les actions seront effectuées si les revendications spécifiées existent dans l’ensemble de revendications actuel de l’utilisateur, soit vous spécifiez `ClaimEquals` pour que les actions soient exécutées si la revendication spécifiée existe et que sa valeur est égale à la valeur spécifiée. |
+| `ExecuteActionsIf` | Oui | Indique si les actions de la condition préalable doivent être effectuées si le test est true ou false. |
 
 L’élément **Precondition** contient les éléments suivants :
 

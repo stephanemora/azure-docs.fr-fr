@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: lyrana
-ms.openlocfilehash: 94217deace731f6650db8003d2e1e3c6c63dcb66
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: 2d437f3fd96c38bebac52d6bb9dacf2c01b20a3c
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121020"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58443686"
 ---
 # <a name="role-based-access-control-in-azure-digital-twins"></a>Contrôle d’accès en fonction du rôle dans Azure Digital Twins
 
@@ -67,7 +67,7 @@ Une définition de rôle est une collection d’autorisations et d’autres attr
 Les articles de documentation de référence suivants décrivent :
 
 - Comment [rechercher l’ID d’objet d’un utilisateur](https://docs.microsoft.com/powershell/module/azuread/get-azureaduser?view=azureadps-2.0).
-- Comment [obtenir l’ID d’objet d’un principal de service](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermadserviceprincipal?view=azurermps-6.8.1).
+- Comment [obtenir l’ID d’objet d’un principal de service](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermadserviceprincipal).
 - Comment [récupérer l’ID d’objet d’un locataire Azure AD](../active-directory/develop/quickstart-create-new-tenant.md).
 
 ## <a name="role-assignments"></a>Affectations de rôles

@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/06/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4e8253238bf5edb5e0ea3f89fe67d6aa39f4a2d7
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 501c5ffa86f2360e44c187e087f7285bbf4084fd
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54855453"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482961"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Scénario pris en charge pour des grandes instances HANA
 Ce document décrit les scénarios pris en charge, avec les détails de leur architecture pour les grandes instances HANA.
@@ -40,7 +40,7 @@ Découvrons les termes et définitions utilisés dans ce document.
 - Multi SID : Système doté de plusieurs instances configurées. Également appelé environnement MCOS.
 
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Les grandes instances HANA prennent en charge un large éventail d’architectures pour répondre aux besoins de votre entreprise. La liste suivante présente les scénarios ainsi que les détails de leur configuration. 
 
 La conception de l’architecture dérivée s’appuie exclusivement sur la perspective de l’infrastructure, et vous devez consulter SAP ou vos partenaires d’implémentation pour le déploiement HANA. Si vos scénarios ne sont pas répertoriés, contactez l’équipe des comptes Microsoft pour examiner l’architecture et trouver une solution qui vous convienne.
@@ -68,10 +68,10 @@ Chaque serveur provisionné est préconfiguré avec les jeux d’interfaces Ethe
 | b | TYPE I | eth2.tenant | eno3.tenant | Nœud à nœud |
 | C | TYPE I | eth1.tenant | eno2.tenant | Nœud à stockage |
 | D | TYPE I | eth4.tenant | eno4.tenant | STONITH |
-| A | TYPE II | vlan<tenantNo> | team0.tenant | Client à HLI |
-| b | TYPE II | vlan<tenantNo+2> | team0.tenant+2 | Nœud à nœud |
-| C | TYPE II | vlan<tenantNo+1> | team0.tenant+1 | Nœud à stockage |
-| D | TYPE II | vlan<tenantNo+3> | team0.tenant+3 | STONITH |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client à HLI |
+| b | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Nœud à nœud |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Nœud à stockage |
+| D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | STONITH |
 
 Vous utilisez les interfaces en fonction de la topologie configurée sur l’unité HLI. Par exemple, l’interface « B » est configurée pour la communication de nœud à nœud, ce qui est utile lorsque vous avez une topologie de montée en charge configurée. Dans le cas d’une configuration de montée en puissance sur un nœud unique, cette interface n’est pas utilisée. Étudiez les scénarios dont vous avez besoin (plus loin dans ce document) pour obtenir plus d’informations sur l’utilisation de l’interface. 
 
@@ -101,7 +101,7 @@ Une configuration à deux adresses IP ne convient pas aux déploiements de répl
 Le stockage est préconfiguré en fonction de la topologie demandée. Les tailles de volume et le point de montage varient en fonction du nombre de serveurs, des références SKU et de la topologie configurée. Pour plus d’informations, étudiez les scénarios dont vous avez besoin (plus loin dans ce document). Si un stockage supplémentaire est nécessaire, vous pouvez l’acheter par incrément d’un To.
 
 >[!NOTE]
->Le point de montage /usr/sap/<SID> est un lien symbolique vers le point de montage/hana/shared.
+>Point demontage/usr/sap/\<SID > est un lien symbolique vers le point de montage/hana/shared.
 
 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
@@ -142,10 +142,10 @@ Les interfaces réseau suivantes sont préconfigurées :
 | b | TYPE I | eth2.tenant | eno3.tenant | Configuré mais non utilisé |
 | C | TYPE I | eth1.tenant | eno2.tenant | Nœud à stockage |
 | D | TYPE I | eth4.tenant | eno4.tenant | Configuré mais non utilisé |
-| A | TYPE II | vlan<tenantNo> | team0.tenant | Client à HLI |
-| b | TYPE II | vlan<tenantNo+2> | team0.tenant+2 | Configuré mais non utilisé |
-| C | TYPE II | vlan<tenantNo+1> | team0.tenant+1 | Nœud à stockage |
-| D | TYPE II | vlan<tenantNo+3> | team0.tenant+3 | Configuré mais non utilisé |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client à HLI |
+| b | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Configuré mais non utilisé |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Nœud à stockage |
+| D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Configuré mais non utilisé |
 
 ### <a name="storage"></a>Stockage
 Les points de montage suivants sont préconfigurés :
@@ -177,10 +177,10 @@ Les interfaces réseau suivantes sont préconfigurées :
 | b | TYPE I | eth2.tenant | eno3.tenant | Configuré mais non utilisé |
 | C | TYPE I | eth1.tenant | eno2.tenant | Nœud à stockage |
 | D | TYPE I | eth4.tenant | eno4.tenant | Configuré mais non utilisé |
-| A | TYPE II | vlan<tenantNo> | team0.tenant | Client à HLI |
-| b | TYPE II | vlan<tenantNo+2> | team0.tenant+2 | Configuré mais non utilisé |
-| C | TYPE II | vlan<tenantNo+1> | team0.tenant+1 | Nœud à stockage |
-| D | TYPE II | vlan<tenantNo+3> | team0.tenant+3 | Configuré mais non utilisé |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client à HLI |
+| b | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Configuré mais non utilisé |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Nœud à stockage |
+| D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Configuré mais non utilisé |
 
 ### <a name="storage"></a>Stockage
 Les points de montage suivants sont préconfigurés :
@@ -217,10 +217,10 @@ Les interfaces réseau suivantes sont préconfigurées :
 | b | TYPE I | eth2.tenant | eno3.tenant | Configuré mais non utilisé |
 | C | TYPE I | eth1.tenant | eno2.tenant | Nœud à stockage |
 | D | TYPE I | eth4.tenant | eno4.tenant | Configuré mais non utilisé |
-| A | TYPE II | vlan<tenantNo> | team0.tenant | Client à HLI |
-| b | TYPE II | vlan<tenantNo+2> | team0.tenant+2 | Configuré mais non utilisé |
-| C | TYPE II | vlan<tenantNo+1> | team0.tenant+1 | Nœud à stockage |
-| D | TYPE II | vlan<tenantNo+3> | team0.tenant+3 | Configuré mais non utilisé |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client à HLI |
+| b | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Configuré mais non utilisé |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Nœud à stockage |
+| D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Configuré mais non utilisé |
 
 ### <a name="storage"></a>Stockage
 Les points de montage suivants sont préconfigurés :
@@ -258,10 +258,10 @@ Les interfaces réseau suivantes sont préconfigurées :
 | b | TYPE I | eth2.tenant | eno3.tenant | Configuré mais non utilisé |
 | C | TYPE I | eth1.tenant | eno2.tenant | Nœud à stockage |
 | D | TYPE I | eth4.tenant | eno4.tenant | Configuré mais non utilisé |
-| A | TYPE II | vlan<tenantNo> | team0.tenant | Client à HLI |
-| b | TYPE II | vlan<tenantNo+2> | team0.tenant+2 | Configuré mais non utilisé |
-| C | TYPE II | vlan<tenantNo+1> | team0.tenant+1 | Nœud à stockage |
-| D | TYPE II | vlan<tenantNo+3> | team0.tenant+3 | Configuré mais non utilisé |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client à HLI |
+| b | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Configuré mais non utilisé |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Nœud à stockage |
+| D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Configuré mais non utilisé |
 
 ### <a name="storage"></a>Stockage
 Les points de montage suivants sont préconfigurés :
@@ -312,10 +312,10 @@ Les interfaces réseau suivantes sont préconfigurées :
 | b | TYPE I | eth2.tenant | eno3.tenant | Configuré mais non utilisé |
 | C | TYPE I | eth1.tenant | eno2.tenant | Nœud à stockage |
 | D | TYPE I | eth4.tenant | eno4.tenant | Utilisé pour STONITH |
-| A | TYPE II | vlan<tenantNo> | team0.tenant | Client à HLI |
-| b | TYPE II | vlan<tenantNo+2> | team0.tenant+2 | Configuré mais non utilisé |
-| C | TYPE II | vlan<tenantNo+1> | team0.tenant+1 | Nœud à stockage |
-| D | TYPE II | vlan<tenantNo+3> | team0.tenant+3 | Utilisé pour STONITH |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client à HLI |
+| b | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Configuré mais non utilisé |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Nœud à stockage |
+| D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Utilisé pour STONITH |
 
 ### <a name="storage"></a>Stockage
 Les points de montage suivants sont préconfigurés :
@@ -360,10 +360,10 @@ Les interfaces réseau suivantes sont préconfigurées :
 | b | TYPE I | eth2.tenant | eno3.tenant | Configuré mais non utilisé |
 | C | TYPE I | eth1.tenant | eno2.tenant | Nœud à stockage |
 | D | TYPE I | eth4.tenant | eno4.tenant | Utilisé pour STONITH |
-| A | TYPE II | vlan<tenantNo> | team0.tenant | Client à HLI |
-| b | TYPE II | vlan<tenantNo+2> | team0.tenant+2 | Configuré mais non utilisé |
-| C | TYPE II | vlan<tenantNo+1> | team0.tenant+1 | Nœud à stockage |
-| D | TYPE II | vlan<tenantNo+3> | team0.tenant+3 | Utilisé pour STONITH |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client à HLI |
+| b | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Configuré mais non utilisé |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Nœud à stockage |
+| D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Utilisé pour STONITH |
 
 ### <a name="storage"></a>Stockage
 Les points de montage suivants sont préconfigurés :
@@ -419,10 +419,10 @@ Les interfaces réseau suivantes sont préconfigurées :
 | b | TYPE I | eth2.tenant | eno3.tenant | Communication nœud à nœud |
 | C | TYPE I | eth1.tenant | eno2.tenant | Nœud à stockage |
 | D | TYPE I | eth4.tenant | eno4.tenant | Configuré mais non utilisé |
-| A | TYPE II | vlan<tenantNo> | team0.tenant | Client à HLI |
-| b | TYPE II | vlan<tenantNo+2> | team0.tenant+2 | Communication nœud à nœud |
-| C | TYPE II | vlan<tenantNo+1> | team0.tenant+1 | Nœud à stockage |
-| D | TYPE II | vlan<tenantNo+3> | team0.tenant+3 | Configuré mais non utilisé |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client à HLI |
+| b | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Communication nœud à nœud |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Nœud à stockage |
+| D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Configuré mais non utilisé |
 
 ### <a name="storage"></a>Stockage
 Les points de montage suivants sont préconfigurés :
@@ -460,10 +460,10 @@ Les interfaces réseau suivantes sont préconfigurées :
 | b | TYPE I | eth2.tenant | eno3.tenant | Communication nœud à nœud |
 | C | TYPE I | eth1.tenant | eno2.tenant | Nœud à stockage |
 | D | TYPE I | eth4.tenant | eno4.tenant | Configuré mais non utilisé |
-| A | TYPE II | vlan<tenantNo> | team0.tenant | Client à HLI |
-| b | TYPE II | vlan<tenantNo+2> | team0.tenant+2 | Communication nœud à nœud |
-| C | TYPE II | vlan<tenantNo+1> | team0.tenant+1 | Nœud à stockage |
-| D | TYPE II | vlan<tenantNo+3> | team0.tenant+3 | Configuré mais non utilisé |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client à HLI |
+| b | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Communication nœud à nœud |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Nœud à stockage |
+| D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Configuré mais non utilisé |
 
 ### <a name="storage"></a>Stockage
 Les points de montage suivants sont préconfigurés :
@@ -496,10 +496,10 @@ Les interfaces réseau suivantes sont préconfigurées :
 | b | TYPE I | eth2.tenant | eno3.tenant | Communication nœud à nœud |
 | C | TYPE I | eth1.tenant | eno2.tenant | Nœud à stockage |
 | D | TYPE I | eth4.tenant | eno4.tenant | Configuré mais non utilisé |
-| A | TYPE II | vlan<tenantNo> | team0.tenant | Client à HLI |
-| b | TYPE II | vlan<tenantNo+2> | team0.tenant+2 | Communication nœud à nœud |
-| C | TYPE II | vlan<tenantNo+1> | team0.tenant+1 | Nœud à stockage |
-| D | TYPE II | vlan<tenantNo+3> | team0.tenant+3 | Configuré mais non utilisé |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client à HLI |
+| b | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Communication nœud à nœud |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Nœud à stockage |
+| D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Configuré mais non utilisé |
 
 ### <a name="storage"></a>Stockage
 Les points de montage suivants sont préconfigurés :
@@ -535,10 +535,10 @@ Les interfaces réseau suivantes sont préconfigurées :
 | b | TYPE I | eth2.tenant | eno3.tenant | Communication nœud à nœud |
 | C | TYPE I | eth1.tenant | eno2.tenant | Nœud à stockage |
 | D | TYPE I | eth4.tenant | eno4.tenant | Configuré mais non utilisé |
-| A | TYPE II | vlan<tenantNo> | team0.tenant | Client à HLI |
-| b | TYPE II | vlan<tenantNo+2> | team0.tenant+2 | Communication nœud à nœud |
-| C | TYPE II | vlan<tenantNo+1> | team0.tenant+1 | Nœud à stockage |
-| D | TYPE II | vlan<tenantNo+3> | team0.tenant+3 | Configuré mais non utilisé |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client à HLI |
+| b | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Communication nœud à nœud |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Nœud à stockage |
+| D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Configuré mais non utilisé |
 
 ### <a name="storage"></a>Stockage
 Les points de montage suivants sont préconfigurés :

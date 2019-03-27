@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a6b6728d7eaa263bb7e9da0f08a47ffe2f1e961a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 81e31a6e5fd1260ec844cc36f28a64e44334ebec
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58009462"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482765"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Haute disponibilité des machines virtuelles Azure pour SAP NetWeaver
 
@@ -455,14 +455,14 @@ Pour les systèmes SAP de production, déployez les machines virtuelles Azure av
 2. Dans la boîte de dialogue **SUBNETID** (ID de sous-réseau), vous devez ajouter la chaîne complète de l’ID du sous-réseau Azure préparé sur lequel vous envisagez de déployer vos machines virtuelles Azure.
 3. Pour obtenir la liste de tous les sous-réseaux du réseau Azure, exécutez cette commande PowerShell :
 
-   ```PowerShell
+   ```powershell
    (Get-AzureRmVirtualNetwork -Name <azureVnetName>  -ResourceGroupName <ResourceGroupOfVNET>).Subnets
    ```
 
    Le champ **ID** indique l’ID de sous-réseau (**SUBNETID**).
 4. Pour obtenir la liste de toutes les valeurs **SUBNETID** (ID de sous-réseau), exécutez cette commande PowerShell :
 
-   ```PowerShell
+   ```powershell
    (Get-AzureRmVirtualNetwork -Name <azureVnetName>  -ResourceGroupName <ResourceGroupOfVNET>).Subnets.Id
    ```
 
@@ -1196,7 +1196,7 @@ Pour ajouter un port de sondage :
 
 1. Vérifiez le paramètre **ProbePort** actuel en exécutant la commande PowerShell suivante. Exécutez-la depuis l’une des machines virtuelles de la configuration de cluster.
 
-   ```PowerShell
+   ```powershell
    $SAPSID = "PR1"     # SAP <SID>
 
    $SAPNetworkIPClusterName = "SAP $SAPSID IP"
@@ -1213,7 +1213,7 @@ Pour ajouter un port de sondage :
 
    Pour définir une nouvelle valeur ProbePort pour la ressource de cluster **SAP <*SID*> IP**, exécutez le script PowerShell suivant. Mettez à jour les variables PowerShell de votre environnement. Après l’exécution du script, vous serez invité à redémarrer le groupe de clusters SAP pour activer les modifications.
 
-   ```PowerShell
+   ```powershell
    $SAPSID = "PR1"      # SAP <SID>
    $ProbePort = 62000   # ProbePort of the Azure Internal Load Balancer
 
@@ -1271,7 +1271,7 @@ Pour ajouter un port de sondage :
 
    Après avoir mis en ligne le rôle de cluster **SAP <*SID*>**, vérifiez que **ProbePort** est défini sur la nouvelle valeur.
 
-   ```PowerShell
+   ```powershell
    $SAPSID = "PR1"     # SAP <SID>
 
    $SAPNetworkIPClusterName = "SAP $SAPSID IP"
@@ -1287,7 +1287,7 @@ Pour ajouter un port de sondage :
 
 Vous devez ouvrir un port de sondage du pare-feu Windows sur les deux nœuds de cluster. Utilisez le script suivant pour ouvrir un port de sondage du pare-feu Windows. Mettez à jour les variables PowerShell de votre environnement.
 
-  ```PowerShell
+  ```powershell
   $ProbePort = 62000   # ProbePort of the Azure Internal Load Balancer
 
   New-NetFirewallRule -Name AzureProbePort -DisplayName "Rule for Azure Probe Port" -Direction Inbound -Action Allow -Protocol TCP -LocalPort $ProbePort
@@ -1347,7 +1347,7 @@ _**Figure 62 :** Dans SIOS DataKeeper, répliquer le volume local du nœud de 
    - Utiliser le Gestionnaire du cluster de basculement  
    - Utiliser l’applet de commande PowerShell de cluster de basculement
 
-   ```PowerShell
+   ```powershell
    $SAPSID = "PR1"     # SAP <SID>
 
    $SAPClusterGroup = "SAP $SAPSID"

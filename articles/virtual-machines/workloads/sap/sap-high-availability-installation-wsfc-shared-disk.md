@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0c87aca6c480d9ebc4add7943a341fe94d640a4c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1229b7f9e2a430a663a3e78bb457c03cf4a4a590
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58001295"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480581"
 ---
 # <a name="install-sap-netweaver-ha-on-a-windows-failover-cluster-and-shared-disk-for-an-sap-ascsscs-instance-in-azure"></a>Installer la haute disponibilité SAP NetWeaver sur un cluster de basculement Windows et un disque partagé pour une instance SAP ASCS/SCS dans Azure
 
@@ -251,7 +251,7 @@ Pour ajouter un port de sondage :
 
 1. Vérifiez la valeur **ProbePort** actuelle en exécutant la commande PowerShell suivante :
 
-   ```PowerShell
+   ```powershell
    $SAPSID = "PR1"     # SAP <SID>
 
    $SAPNetworkIPClusterName = "SAP $SAPSID IP"
@@ -270,7 +270,7 @@ Pour ajouter un port de sondage :
 
    Pour définir une nouvelle valeur ProbePort pour la ressource de cluster SAP \<SID\> IP, exécutez le script PowerShell suivant pour mettre à jour les variables PowerShell en fonction de votre environnement :
 
-   ```PowerShell
+   ```powershell
    $SAPSID = "PR1"      # SAP <SID>
    $ProbePort = 62000   # ProbePort of the Azure internal load balancer
 
@@ -328,7 +328,7 @@ Pour ajouter un port de sondage :
 
    Après avoir mis en ligne le rôle de cluster SAP \<SID\>, vérifiez que **ProbePort** est défini sur la nouvelle valeur.
 
-   ```PowerShell
+   ```powershell
    $SAPSID = "PR1"     # SAP <SID>
 
    $SAPNetworkIPClusterName = "SAP $SAPSID IP"
@@ -345,7 +345,7 @@ Pour ajouter un port de sondage :
 
 Ouvrez un port de sondage du pare-feu Windows sur les deux nœuds de cluster. Utilisez le script suivant pour ouvrir un port de sondage du pare-feu Windows. Mettez à jour les variables PowerShell de votre environnement.
 
-  ```PowerShell
+  ```powershell
   $ProbePort = 62000   # ProbePort of the Azure internal load balancer
 
   New-NetFirewallRule -Name AzureProbePort -DisplayName "Rule for Azure Probe Port" -Direction Inbound -Action Allow -Protocol TCP -LocalPort $ProbePort
@@ -405,7 +405,7 @@ _**Figure 7 :** Dans SIOS DataKeeper, répliquer le volume local du nœud de c
    - Gestionnaire du cluster de basculement  
    - Applet de commande PowerShell de cluster de basculement
 
-   ```PowerShell
+   ```powershell
    $SAPSID = "PR1"     # SAP <SID>
 
    $SAPClusterGroup = "SAP $SAPSID"

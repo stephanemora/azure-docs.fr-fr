@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/24/2019
-ms.openlocfilehash: df1542d6d20120a9b1e087fadf3743479ecebf07
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: c89764d746f07e6100b1f250d4c107bb700fe014
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533831"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445850"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>Copier les nouveaux fichiers basés sur le nom de fichier partitionnée de temps à l’aide de l’outil Copier des données de façon incrémentielle
 
@@ -54,9 +54,10 @@ Préparez votre stockage d’objets Blob pour le didacticiel effectuant les éta
 
 ## <a name="create-a-data-factory"></a>Créer une fabrique de données
 
-1. Dans le menu sur la gauche, sélectionnez **+ Nouveau** > **Données + Analytique** > **Data Factory** : 
+1. Dans le menu de gauche, sélectionnez **créer une ressource** > **données + Analytique** > **Data Factory**: 
    
-   ![Création de la nouvelle fabrique de données](./media/tutorial-copy-data-tool/new-azure-data-factory-menu.png)
+   ![Sélection Data Factory dans le volet « Nouveau »](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 2. Sur la page **Nouvelle fabrique de données**, entrez **ADFTutorialDataFactory** dans le champ **Nom**. 
       
     ![Nouvelle fabrique de données](./media/tutorial-copy-data-tool/new-azure-data-factory.png)

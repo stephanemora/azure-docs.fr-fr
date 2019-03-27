@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a64a60603cd9898386a975313afc676e3b253326
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
-ms.translationtype: HT
+ms.openlocfilehash: 071db2d9aeda2373c85ae62c47bbef175dcb7678
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353595"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483401"
 ---
 # <a name="connect-a-virtual-network-to-hana-large-instances"></a>Connecter un réseau virtuel à de grandes instances HANA
 
@@ -34,7 +34,7 @@ S’il existe déjà une passerelle, vérifiez qu’il s’agit d’une passerel
   - Si vous utilisez le portail Azure, ajoutez une nouvelle **passerelle de réseau virtuel**, puis sélectionnez **ExpressRoute** comme type de passerelle.
   - Si vous utilisez PowerShell, commencez par télécharger et par utiliser le dernier [SDK Azure PowerShell](https://azure.microsoft.com/downloads/). Les commandes suivantes créent une passerelle ExpressRoute. Le texte précédé par un _$_ correspond à des variables définies par l’utilisateur qui doivent être mises à jour avec vos propres informations.
 
-```PowerShell
+```powershell
 # These Values should already exist, update to match your environment
 $myAzureRegion = "eastus"
 $myGroupName = "SAP-East-Coast"
@@ -71,7 +71,7 @@ Le réseau virtuel Azure a maintenant une passerelle ExpressRoute. Utilisez les 
 
 Exécutez les commandes suivantes pour chaque passerelle de réseau virtuel, en utilisant un AuthGUID différent pour chaque connexion. Les deux premières entrées dans le script suivant proviennent des informations fournies par Microsoft. En outre, AuthGUID est spécifique à chaque réseau virtuel et à sa passerelle. Si vous souhaitez ajouter un autre réseau virtuel Azure, vous devez obtenir un autre AuthID pour votre circuit ExpressRoute qui connecte les grandes instances HANA dans Azure. 
 
-```PowerShell
+```powershell
 # Populate with information provided by Microsoft Onboarding team
 $PeerID = "/subscriptions/9cb43037-9195-4420-a798-f87681a0e380/resourceGroups/Customer-USE-Circuits/providers/Microsoft.Network/expressRouteCircuits/Customer-USE01"
 $AuthGUID = "76d40466-c458-4d14-adcf-3d1b56d1cd61"

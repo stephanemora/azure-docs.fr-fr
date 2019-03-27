@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: bb33427712533e669ecf41f48474c02313e2a411
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: d636d5f31e78828a518882091af29b25f7219304
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57568881"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58443985"
 ---
 # <a name="troubleshoot-linux-vm-device-name-changes"></a>Résoudre les problèmes liés aux modifications des noms de périphérique de machine virtuelle Linux
 
@@ -36,15 +36,17 @@ Vous pourriez rencontrer les problèmes suivants lors de l’exécution de machi
 
 Les chemins des périphériques dans Linux ne sont pas toujours cohérents entre les redémarrages. Les noms de périphérique se composent de numéros principaux (lettre) et secondaires. Quand le pilote du périphérique de stockage Linux détecte un nouveau périphérique, il lui attribue un numéro principal et un numéro secondaire à partir de la plage disponible pour lui. Quand vous retirez un périphérique, ses numéros peuvent être réutilisés.
 
-Le problème se produit parce que l’analyse des périphériques dans Linux, telle qu’elle est planifiée par le sous-système SCSI, est asynchrone. Par conséquent, le nom du chemin d’un périphérique peut varier d’un redémarrage à l’autre. 
+Le problème se produit parce que l’analyse des périphériques dans Linux, telle qu’elle est planifiée par le sous-système SCSI, est asynchrone. Par conséquent, le nom du chemin d’un périphérique peut varier d’un redémarrage à l’autre.
 
 ## <a name="solution"></a>Solution
 
-Pour résoudre ce problème, utilisez un dispositif d’affectation de noms persistants. Il existe quatre façons d’utiliser l’affectation de noms persistants : étiquette de système de fichiers, UUID, ID ou chemin. Nous vous recommandons d’utiliser l’étiquette de système de fichiers ou un UUID pour les machines virtuelles Linux Azure. 
+Pour résoudre ce problème, utilisez un dispositif d’affectation de noms persistants. Il existe quatre façons d’utiliser l’affectation de noms persistants : étiquette de système de fichiers, UUID, ID ou chemin. Nous vous recommandons d’utiliser l’étiquette de système de fichiers ou un UUID pour les machines virtuelles Linux Azure.
 
-La plupart des distributions fournissent les paramètres `fstab` **nofail** ou **nobootwait**. Ces paramètres permettent à un système de démarrer quand le disque n’est pas monté au moment du démarrage. Pour plus d’informations sur ces paramètres, consultez la documentation de votre distribution. Pour plus d’informations sur la manière de configurer une machine virtuelle Linux pour qu’elle utiliser un UUID lorsque vous ajoutez un disque de données, consultez la section [Se connecter à la machine virtuelle Linux afin de monter le nouveau disque](../linux/add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk). 
+La plupart des distributions fournissent les paramètres `fstab` **nofail** ou **nobootwait**. Ces paramètres permettent à un système de démarrer quand le disque n’est pas monté au moment du démarrage. Pour plus d’informations sur ces paramètres, consultez la documentation de votre distribution. Pour plus d’informations sur la manière de configurer une machine virtuelle Linux pour qu’elle utiliser un UUID lorsque vous ajoutez un disque de données, consultez la section [Se connecter à la machine virtuelle Linux afin de monter le nouveau disque](../linux/add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk).
 
 Quand l’agent Linux Azure est installé sur une machine virtuelle, il utilise des règles Udev pour construire un ensemble de liens symboliques sous le chemin /dev/disk/azure. Les applications et les scripts utilisent des règles Udev pour identifier les disques attachés à la machine virtuelle, ainsi que le type de disque et les numéros d’unités logiques de disque.
+
+Si vous avez déjà modifié votre fstab de sorte que votre machine virtuelle ne démarre pas et vous ne pouvez pas SSH à votre machine virtuelle, vous pouvez utiliser la [Console série de machine virtuelle](./serial-console-linux.md) entrer [mode mono-utilisateur](./serial-console-grub-single-user-mode.md) et modifier votre fstab.
 
 ### <a name="identify-disk-luns"></a>Identifier les numéros d’unité logique des disques
 
@@ -83,29 +85,29 @@ Les informations de numéro d’unité logique de l’invité sont utilisées av
 
     $ az vm show --resource-group testVM --name testVM | jq -r .storageProfile.dataDisks
     [
-      {
-        "caching": "None",
-          "createOption": "empty",
-        "diskSizeGb": 1023,
-          "image": null,
-        "lun": 0,
-        "managedDisk": null,
-        "name": "testVM-20170619-114353",
-        "vhd": {
-          "uri": "https://testVM.blob.core.windows.net/vhd/testVM-20170619-114353.vhd"
-        }
-      },
-      {
-        "caching": "None",
-        "createOption": "empty",
-        "diskSizeGb": 512,
-        "image": null,
-        "lun": 1,
-        "managedDisk": null,
-        "name": "testVM-20170619-121516",
-        "vhd": {
-          "uri": "https://testVM.blob.core.windows.net/vhd/testVM-20170619-121516.vhd"
-        }
+    {
+    "caching": "None",
+      "createOption": "empty",
+    "diskSizeGb": 1023,
+      "image": null,
+    "lun": 0,
+    "managedDisk": null,
+    "name": "testVM-20170619-114353",
+    "vhd": {
+      "uri": "https://testVM.blob.core.windows.net/vhd/testVM-20170619-114353.vhd"
+    }
+    },
+    {
+    "caching": "None",
+    "createOption": "empty",
+    "diskSizeGb": 512,
+    "image": null,
+    "lun": 1,
+    "managedDisk": null,
+    "name": "testVM-20170619-121516",
+    "vhd": {
+      "uri": "https://testVM.blob.core.windows.net/vhd/testVM-20170619-121516.vhd"
+      }
       }
     ]
 
@@ -138,7 +140,7 @@ Toutes les partitions supplémentaires figurant dans la liste `blkid` résident 
 
     lrwxrwxrwx 1 root root 10 Jun 19 15:57 /dev/disk/by-uuid/b0048738-4ecc-4837-9793-49ce296d2692 -> ../../sdc1
 
-    
+
 ### <a name="get-the-latest-azure-storage-rules"></a>Obtenir les dernières règles de stockage Azure
 
 Pour obtenir les dernières règles de stockage Azure, exécutez les commandes suivantes :

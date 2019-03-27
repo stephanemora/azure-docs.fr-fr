@@ -1,20 +1,20 @@
 ---
 title: Créer un compte Cognitive Services dans le portail Azure
 titlesuffix: Azure Cognitive Services
-description: Guide pratique de création d’un compte d’API Microsoft Cognitive Services sur le Portail Azure.
+description: Comment créer un compte d’API d’Azure Cognitive Services dans le portail Azure.
 services: cognitive-services
 author: garyericson
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 02/01/2018
+ms.date: 03/22/2019
 ms.author: garye
-ms.openlocfilehash: 21e1eb00f688f2e7061e876cc4375d6d780838fc
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7df429aa848c6f9fb9abe09fbf4357db20fcde6a
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534801"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58472852"
 ---
 # <a name="quickstart-create-a-cognitive-services-account-in-the-azure-portal"></a>Démarrage rapide : Créer un compte Cognitive Services dans le portail Azure
 
@@ -29,7 +29,7 @@ Dans ce guide de démarrage rapide, vous allez apprendre à vous inscrire à Azu
 Avant de commencer, il est important de noter qu’il existe deux types d’abonnements Azure Cognitive Services. Le premier est un abonnement à un seul service, comme Vision par ordinateur ou les services Speech. Un abonnement monoservice est limité à une ressource. Le second est un abonnement multiservice à Azure Cognitive Services. Cet abonnement permet d’utiliser la plupart des services Azure Cognitive Services avec un seul abonnement. Cette option permet également de consolider la facturation. Pour plus d’informations, consultez les [tarifs de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/).
 
 >[!WARNING]
-> À ce stade, les services suivants **ne prennent pas en charge** les clés multiservices : QnA Maker, Speech et Vision personnalisée.
+> À ce stade, les services suivants **ne prennent pas en charge** les clés multiservices : QnA Maker Services Speech, Vision personnalisée et détecteur d’anomalies.
 
 Les sections suivantes vous guident tout au long de création d’un abonnement monoservice ou multiservice.
 

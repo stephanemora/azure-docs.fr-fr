@@ -16,16 +16,16 @@ ms.workload: infrastructure
 ms.date: 12/12/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 32862d06cfa6a9a8dd9b99459362ec53fd88cec2
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 02f2bd78ca5656534b106c6f7f18c05165b4b9ff
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978943"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444496"
 ---
 # <a name="create-a-windows-virtual-machine-with-the-simplified-new-azvm-cmdlet-in-cloud-shell"></a>Créer une machine virtuelle Windows avec l’applet de commande New-AzVM simplifiée dans Cloud Shell 
 
-L’applet de commande [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm?view=azurermps-6.8.1) a ajouté un jeu de paramètres simplifié pour la création d’une nouvelle machine virtuelle à l’aide de PowerShell. Cette rubrique explique comment utiliser PowerShell dans Azure Cloud Shell, avec la dernière version de l’applet de commande New-AzureVM préinstallée, pour créer une machine virtuelle. Nous allons utiliser un jeu de paramètres simplifié qui crée automatiquement toutes les ressources nécessaires à l’aide de valeurs par défaut pertinentes. 
+L’applet de commande [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) a ajouté un jeu de paramètres simplifié pour la création d’une nouvelle machine virtuelle à l’aide de PowerShell. Cette rubrique explique comment utiliser PowerShell dans Azure Cloud Shell, avec la dernière version de l’applet de commande New-AzureVM préinstallée, pour créer une machine virtuelle. Nous allons utiliser un jeu de paramètres simplifié qui crée automatiquement toutes les ressources nécessaires à l’aide de valeurs par défaut pertinentes. 
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -36,7 +36,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="create-the-vm"></a>Création de la machine virtuelle
 
-Vous pouvez utiliser l’applet de commande [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm?view=azurermps-6.8.1) pour créer une machine virtuelle avec les valeurs par défaut, ce qui implique l’utilisation de l’image Windows Server 2016 Datacenter de la Place de marché Azure. Vous pouvez utiliser New-AzVM avec le paramètre **-Name** uniquement, et l’applet de commande utilisera cette valeur pour tous les noms de ressources. Dans cet exemple, nous définissons le paramètre **-Name** en tant que *myVM*. 
+Vous pouvez utiliser l’applet de commande [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) pour créer une machine virtuelle avec les valeurs par défaut, ce qui implique l’utilisation de l’image Windows Server 2016 Datacenter de la Place de marché Azure. Vous pouvez utiliser New-AzVM avec le paramètre **-Name** uniquement, et l’applet de commande utilisera cette valeur pour tous les noms de ressources. Dans cet exemple, nous définissons le paramètre **-Name** en tant que *myVM*. 
 
 Vérifiez que **PowerShell** est sélectionné dans Cloud Shell et tapez :
 

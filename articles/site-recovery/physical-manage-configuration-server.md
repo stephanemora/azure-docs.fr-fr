@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
-ms.openlocfilehash: 338c4a97bced7d9e524f96fcd82f19e5230ff143
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: b4a35cb853326aa3e54c7b261eaa72f15929a84c
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317338"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483962"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Gérer le serveur de configuration pour la reprise après sinistre d’un serveur physique
 
@@ -158,7 +158,7 @@ Vous pouvez modifier les paramètres de proxy pour la machine du serveur de conf
 6. Ouvrez une fenêtre de commandes PowerShell administrateur.
 7. Exécutez la commande suivante :
 
-   ```PowerShell
+   ```powershell
    $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
    Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $Pwd
    net stop obengine
@@ -178,7 +178,7 @@ Vous pouvez modifier les paramètres de proxy pour la machine du serveur de conf
 6. Ouvrez une fenêtre de commandes PowerShell administrateur.
 7. Exécutez la commande suivante
 
-    ```PowerShell
+    ```powershell
     $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
     Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $Pwd
     net stop obengine
@@ -265,7 +265,7 @@ Mettez à niveau le serveur comme suit :
 
 ## <a name="delete-or-unregister-a-configuration-server-powershell"></a>Supprimer ou désinscrire un serveur de configuration (PowerShell)
 
-1. [Installez](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.4.0) le module Azure PowerShell.
+1. [Installez](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) le module Azure PowerShell.
 2. Connectez-vous à votre compte Azure à l’aide de la commande suivante :
     
     `Connect-AzureRmAccount`
@@ -274,7 +274,7 @@ Mettez à niveau le serveur comme suit :
      `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`
 3.  Configurez votre contexte de coffre.
     
-    ```PowerShell
+    ```powershell
     $Vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
     Set-AzureRmSiteRecoveryVaultSettings -ARSVault $Vault
     ```

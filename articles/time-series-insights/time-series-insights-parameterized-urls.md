@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 11/21/2017
 ms.custom: seodec18
-ms.openlocfilehash: 305d81d6614d1f0654e0d96b10f1759498683003
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: 172e6f53b25a1aeef67afea0c1769e6fcaf497cd
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558462"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487870"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Partager une vue personnalisée à l’aide d’une URL paramétrable
 
@@ -81,13 +81,13 @@ Le paramètre « multiChartStack=<true/false> » permet l’empilement dans le g
 - 'multiChartStack=false&multiChartSameScale=true' 
   - L’empilement doit être activé pour pouvoir utiliser la même échelle de l’axe des ordonnées entre les termes.  « False » est activé par défaut, donc passer sur « True » pour activer cette fonctionnalité.  
   
-« timeBucketUnit=<Unit>&timeBucketSize=<integer> » permet d’ajuster le curseur intervalle pour générer une vue plus granulaire, plus simple, ou plus globale du graphique.  
-- 'timeBucketUnit=<Unit>&timeBucketSize=<integer>'
+Le `timeBucketUnit=<Unit>&timeBucketSize=<integer>` vous permet d’ajuster le curseur intervalle pour fournir plus précis ou plus lisse, plus agrégées vue du graphique.  
+- `timeBucketUnit=<Unit>&timeBucketSize=<integer>`
   - Unités = jours, heures, minutes, secondes, millisecondes.  Mettez toujours les unités en majuscules.
   - Définissez le nombre d’unités en passant l’entier souhaité pour timeBucketSize.  Notez que vous simplifiez jusqu'à 7 jours.  
   
-Le paramètre « timezoneOffset =<integer> » vous permet de définir le fuseau horaire pour le graphique afin qu’il s’affiche en tant qu’offset de fuseau horaire UTC.  
-  - 'timezoneOffset=-<integer>'
+Le `timezoneOffset=<integer>` paramètre vous permet de définir le fuseau horaire pour le graphique à afficher en tant qu’offset UTC.  
+  - `timezoneOffset=-<integer>`
     - L’entier est toujours en millisecondes.  
     - Notez que cette fonctionnalité est légèrement différente de celle que nous proposons dans l’Explorateur TSI, dans lequel nous vous permettons de choisir l’heure locale (l’heure du navigateur) ou l’heure UTC.  
  

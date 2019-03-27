@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: magoedte
-ms.openlocfilehash: 963fd1bfd67a20033f0712d3b447091abda40d11
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: de27d5c4fd65515e25319f9e7ac3eafc4110b137
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369895"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481561"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Gestion et maintenance de l’agent Log Analytics sous Windows et Linux
 
@@ -39,7 +39,7 @@ Après le déploiement initial du journal Analytique Windows ou de l’agent Lin
 
 #### <a name="remove-a-workspace-using-powershell"></a>Supprimer un espace de travail à l’aide de PowerShell
 
-```PowerShell
+```powershell
 $workspaceId = "<Your workspace Id>"
 $mma = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'
 $mma.RemoveCloudWorkspace($workspaceId)
@@ -48,7 +48,7 @@ $mma.ReloadConfiguration()
 
 #### <a name="add-a-workspace-in-azure-commercial-using-powershell"></a>Ajouter un espace de travail dans Azure commercial à l’aide de PowerShell
 
-```PowerShell
+```powershell
 $workspaceId = "<Your workspace Id>"
 $workspaceKey = "<Your workspace Key>"
 $mma = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'
@@ -58,7 +58,7 @@ $mma.ReloadConfiguration()
 
 #### <a name="add-a-workspace-in-azure-for-us-government-using-powershell"></a>Ajouter un espace de travail dans Azure pour US Government à l’aide de PowerShell
 
-```PowerShell
+```powershell
 $workspaceId = "<Your workspace Id>"
 $workspaceKey = "<Your workspace Key>"
 $mma = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'
@@ -117,7 +117,7 @@ Pour permettre à l’agent de communiquer avec le service via un serveur proxy 
 
 Copiez l’exemple de code PowerShell suivant, mettez-le à jour avec les informations propres à votre environnement et enregistrez-le avec une extension de fichier PS1. Exécutez le script sur chaque ordinateur qui se connecte directement à l’espace de travail Analytique de journal dans Azure Monitor.
 
-```PowerShell
+```powershell
 param($ProxyDomainName="https://proxy.contoso.com:30443", $cred=(Get-Credential))
 
 # First we get the Health Service configuration object. We need to determine if we

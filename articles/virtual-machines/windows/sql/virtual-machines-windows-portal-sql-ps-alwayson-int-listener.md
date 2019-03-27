@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/06/2019
 ms.author: mikeray
-ms.openlocfilehash: 1b15a3966c6e408fb17655b112c1ec900bd86c5f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 822dce08d4555d9039ce310464ba49b6e3d4849c
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57999790"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480649"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Configurer un ou plusieurs écouteurs de groupe de disponibilité AlwaysOn - Resource Manager
 Cette rubrique explique comment effectuer les opérations suivantes :
@@ -64,13 +64,13 @@ Le [modèle Microsoft](virtual-machines-windows-portal-sql-alwayson-availability
 
 Les exemples présentés dans cet article spécifient un équilibreur de charge standard. Dans les exemples, le script inclut `-sku Standard`.
 
-```PowerShell
+```powershell
 $ILB= New-AzureRmLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe -sku Standard
 ```
 
 Pour créer un équilibreur de charge de base, supprimez `-sku Standard` de la ligne qui crée l'équilibreur de charge. Par exemple : 
 
-```PowerShell
+```powershell
 $ILB= New-AzureRmLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe
 ```
 

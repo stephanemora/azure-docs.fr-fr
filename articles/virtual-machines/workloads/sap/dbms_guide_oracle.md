@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6ef8498ae1aa9be0322f508b3723778311e2cdd5
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 6abfd26e63cc8001f501371fffce0a4c10f4ff85
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327780"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483511"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Déploiement de SGBD sur des machines virtuelles Azure pour une charge de travail SAP
 
@@ -158,7 +158,7 @@ ms.locfileid: "56327780"
 [deploy-template-portal]:../../../resource-group-template-deploy-portal.md
 [deploy-template-powershell]:../../../resource-group-template-deploy.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 [getting-started-dbms]:get-started.md#1343ffe1-8021-4ce6-a08d-3a1553a4db82
@@ -172,7 +172,7 @@ ms.locfileid: "56327780"
 [getting-started-windows-classic-ha-sios]:../../virtual-machines-windows-classic-sap-get-started.md#4bb7512c-0fa0-4227-9853-4004281b1037
 [getting-started-windows-classic-planning]:../../virtual-machines-windows-classic-sap-get-started.md#f2a5e9d8-49e4-419e-9900-af783173481c
 
-[ha-guide-classic]:http://go.microsoft.com/fwlink/?LinkId=613056
+[ha-guide-classic]:https://go.microsoft.com/fwlink/?LinkId=613056
 
 [install-extension-cli]:virtual-machines-linux-enable-aem.md
 
@@ -314,7 +314,7 @@ Ce document décrit les différents points à prendre en compte quand vous dépl
 Vous trouverez des informations sur les versions d’Oracle et les versions des systèmes d’exploitation correspondantes qui sont prises en charge pour l’exécution de SAP sur Oracle dans Azure dans la note SAP [2039619].
 
 Pour obtenir des informations d’ordre général sur l’exécution de SAP Business Suite sur Oracle, consultez [SAP sur Oracle](https://www.sap.com/community/topic/oracle.html).
-Les logiciels Oracle sont pris en charge par Oracle pour s’exécuter dans Microsoft Azure. Pour plus d’informations sur la prise en charge générale de Windows Hyper-V et d’Azure, consultez le [Forum aux questions sur Oracle et Microsoft Azure](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html). 
+Les logiciels Oracle sont pris en charge par Oracle pour s’exécuter dans Microsoft Azure. Pour plus d’informations sur la prise en charge générale de Windows Hyper-V et d’Azure, consultez le [Forum aux questions sur Oracle et Microsoft Azure](https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html). 
 
 ## <a name="sap-notes-relevant-for-oracle-sap-and-azure"></a>Notes SAP utiles pour Oracle, SAP et Azure 
 
@@ -426,7 +426,7 @@ Pour les déploiements d’Oracle sur Windows, nous recommandons fortement l’a
 [Facteurs à prendre en compte pour le déploiement de SGBD sur des machines virtuelles Azure pour la charge de travail SAP](dbms_guide_general.md) décrit d’autres concepts importants liés aux déploiements de machines virtuelles avec Oracle Database, notamment les groupes à haute disponibilité et la surveillance de SAP.
 
 ## <a name="specifics-for-oracle-database-on-oracle-linux"></a>Spécificités d’Oracle Database sur Oracle Linux
-Les logiciels Oracle sont pris en charge par Oracle pour s’exécuter dans Microsoft Azure avec Oracle Linux comme système d’exploitation invité. Pour plus d’informations sur la prise en charge générale de Windows Hyper-V et d’Azure, consultez le [Forum aux questions sur Azure et Oracle](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html). 
+Les logiciels Oracle sont pris en charge par Oracle pour s’exécuter dans Microsoft Azure avec Oracle Linux comme système d’exploitation invité. Pour plus d’informations sur la prise en charge générale de Windows Hyper-V et d’Azure, consultez le [Forum aux questions sur Azure et Oracle](https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html). 
 
 Le scénario spécifique d’applications SAP exploitant des bases de données Oracle est également pris en charge. Les détails sont présentés dans la partie suivante du document.
 
@@ -463,12 +463,13 @@ Si vous utilisez des disques basés sur le stockage d’objets blob de pages Azu
 Pour connaître les types de machines virtuelles Azure pris en charge, consultez la note SAP [1928533].
 
 Configuration minimale :
+
 | Composant | Disque | Mise en cache | Agrégation par bandes* |
 | --- | ---| --- | --- |
-| /oracle/<SID>/origlogaA & mirrlogB | Premium | Aucun | Inutile |
-| /oracle/<SID>/origlogaB & mirrlogA | Premium | Aucun | Inutile |
-| /oracle/<SID>/sapdata1...n | Premium | Lecture seule | Peut être utilisé |
-| /oracle/<SID>/oraarch | standard | Aucun | Inutile |
+| /Oracle/\<SID > / origlogaA & mirrlogB | Premium | Aucun | Inutile |
+| /Oracle/\<SID > / origlogaB & mirrlogA | Premium | Aucun | Inutile |
+| /Oracle/\<SID > / sapdata1... n | Premium | Lecture seule | Peut être utilisé |
+| /Oracle/\<SID > / oraarch | standard | Aucun | Inutile |
 | Oracle Home, saptrace, ... | Disque de système d’exploitation | | Inutile |
 
 *Agrégation par bandes : Volume LVM agrégé par bandes ou MDADM à l’aide de RAID0
@@ -476,15 +477,16 @@ Configuration minimale :
 La sélection de disque pour l’hébergement des journaux de phase de restauration par progression en ligne d’Oracle doit être motivée par les exigences d’IOPS. Il est possible de stocker tous les sapdata1...n (espaces disque logiques) sur un même disque monté tant que le volume, les IOPS et le débit répondent aux exigences. 
 
 Configuration des performances :
+
 | Composant | Disque | Mise en cache | Agrégation par bandes* |
 | --- | ---| --- | --- |
-| /oracle/<SID>/origlogaA | Premium | Aucun | Peut être utilisé  |
-| /oracle/<SID>/origlogaB | Premium | Aucun | Peut être utilisé |
-| /oracle/<SID>/mirrlogAB | Premium | Aucun | Peut être utilisé |
-| /oracle/<SID>/mirrlogBA | Premium | Aucun | Peut être utilisé |
-| /oracle/<SID>/sapdata1...n | Premium | Lecture seule | Recommandé  |
-| /oracle/SID/sapdata(n+1)* | Premium | Aucun | Peut être utilisé |
-| /oracle/<SID>/oraarch* | Premium | Aucun | Inutile |
+| /Oracle/\<SID > / origlogaA | Premium | Aucun | Peut être utilisé  |
+| /Oracle/\<SID > / origlogaB | Premium | Aucun | Peut être utilisé |
+| /Oracle/\<SID > / mirrlogAB | Premium | Aucun | Peut être utilisé |
+| /oracle/\<SID>/mirrlogBA | Premium | Aucun | Peut être utilisé |
+| /Oracle/\<SID > / sapdata1... n | Premium | Lecture seule | Recommandé  |
+| /oracle/\<SID>/sapdata(n+1)* | Premium | Aucun | Peut être utilisé |
+| /Oracle/\<SID > / oraarch * | Premium | Aucun | Inutile |
 | Oracle Home, saptrace, ... | Disque de système d’exploitation | Inutile |
 
 *Agrégation par bandes : Volume LVM agrégé par bandes ou MDADM à l’aide de RAID0

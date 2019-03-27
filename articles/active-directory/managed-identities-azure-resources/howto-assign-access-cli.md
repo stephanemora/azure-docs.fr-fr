@@ -3,7 +3,7 @@ title: Guide pratique pour affecter à une identité managée l’accès à une 
 description: Instructions détaillées pour affecter à une identité managée sur une ressource l’accès à une autre ressource à l’aide d’Azure CLI.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2017
-ms.author: priyamo
+ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37f6a13913c80689955486f897b119cf4994e25c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 2fb16b1762f1e5330cf058c37a6b7e0f008eb447
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177391"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58443712"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-using-azure-cli"></a>Affecter à une identité managée l’accès à une ressource à l’aide d’Azure CLI
 
@@ -28,7 +28,7 @@ ms.locfileid: "56177391"
 
 Après avoir configuré une ressource Azure avec une identité managée, vous pouvez accorder à cette dernière un accès à une autre ressource, tout comme n’importe quel principal de sécurité. Cet exemple montre comment accorder à l’identité managée d’une machine virtuelle ou d’un groupe de machines virtuelles identiques Azure l’accès à un compte de stockage Azure, à l’aide d’Azure CLI.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 - Si vous n’êtes pas familiarisé avec les identités managées pour ressources Azure, consultez la [section Vue d’ensemble](overview.md). **Veillez à consulter la [différence entre les identités managées affectées par le système et celles affectées par l’utilisateur](overview.md#how-does-it-work)**.
 - Si vous n’avez pas encore de compte Azure, [inscrivez-vous à un essai gratuit](https://azure.microsoft.com/free/) avant de continuer.
