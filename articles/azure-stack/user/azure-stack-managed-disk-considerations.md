@@ -1,6 +1,6 @@
 ---
-title: Différences et considérations relatives aux disques managés dans Azure Stack | Microsoft Docs
-description: Découvrez les différences et considérations à prendre en compte lors de l’utilisation de Managed Disks dans Azure Stack.
+title: Différences et considérations relatives aux disques et images managés dans Azure Stack | Microsoft Docs
+description: Découvrez les différences et considérations à prendre en compte lors de l’utilisation de disques et d’images managés dans Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,27 +12,27 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 03/23/2019
 ms.author: sethm
 ms.reviewer: jiahan
-ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: c1a0e77f98d269185bc065c86a367c3ed6519fb5
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.lastreviewed: 03/23/2019
+ms.openlocfilehash: c1975c885efc0a2a22b2ab478f8bc9afbcc8bce3
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961973"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400364"
 ---
-# <a name="azure-stack-managed-disks-differences-and-considerations"></a>Managed Disks Azure Stack : différences et considérations
+# <a name="azure-stack-managed-disks-differences-and-considerations"></a>Disques managés Azure Stack : différences et considérations
 
-Cet article résume les différences connues entre les services [Managed Disks Azure Stack](azure-stack-manage-vm-disks.md) et [Managed Disks pour Azure](../../virtual-machines/windows/managed-disks-overview.md). Pour en savoir plus sur les principales différences entre Azure Stack et Azure, consultez l’article [Principales considérations](azure-stack-considerations.md).
+Cet article résume les différences connues entre les [disques managés Azure Stack](azure-stack-manage-vm-disks.md) et les [disques managés pour Azure](../../virtual-machines/windows/managed-disks-overview.md). Pour en savoir plus sur les principales différences entre Azure Stack et Azure, consultez l’article [Principales considérations](azure-stack-considerations.md).
 
-Le service Managed Disks simplifie la gestion des disques des machines virtuelles Azure IaaS en gérant les [comptes de stockage](../azure-stack-manage-storage-accounts.md) associés aux disques de machines virtuelles.
+Les disques managés simplifient la gestion des disques des machines virtuelles Azure IaaS en gérant les [comptes de stockage](../azure-stack-manage-storage-accounts.md) associés aux disques de machines virtuelles.
 
 > [!Note]  
-> Le service Managed Disks sur Azure Stack est disponible depuis la mise à jour 1808. Il activé par défaut lors de la création de machines virtuelles via le portail Azure Stack depuis la mise à jour 1811.
+> Les disques managés sur Azure Stack sont disponibles depuis la mise à jour 1808. Ce service est activé par défaut lors de la création de machines virtuelles via le portail Azure Stack depuis la mise à jour 1811.
   
-## <a name="cheat-sheet-managed-disk-differences"></a>Aide-mémoire : Différences entre les disques managés
+## <a name="cheat-sheet-managed-disk-differences"></a>Aide-mémoire : différences entre les disques managés
 
 | Fonctionnalité | Azure (global) | Azure Stack |
 | --- | --- | --- |
@@ -61,7 +61,7 @@ Il existe également des différences sur le plan des métriques de stockage :
 
 ## <a name="api-versions"></a>Versions d’API
 
-Les service Managed Disks d’Azure Stack prend en charge les versions d’API suivantes :
+Les disques managés Azure Stack prennent en charge les versions d’API suivantes :
 
 - 2017-03-30
 - 2017-12-01
@@ -134,13 +134,32 @@ Azure Stack prend en charge les *images managées* qui vous permettent de créer
 - Vous avez généralisé les machines virtuelles non managées et souhaitez utiliser des disques managés à l’avenir.
 - Vous possédez une machine virtuelle managée généralisée et souhaitez créer plusieurs machines virtuelles managées similaires.
 
-### <a name="migrate-unmanaged-vms-to-managed-disks"></a>Migrer des machines virtuelles non managées vers des disques managés
+### <a name="step-1-generalize-the-vm"></a>Étape 1 : Généraliser la machine virtuelle
 
-Suivez les instructions [ici](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-vhd-in-a-storage-account) pour créer une image managée à partir d’un disque dur virtuel généralisé dans un compte de stockage. Cette image peut être utilisée pour créer des machines virtuelles managées par la suite.
+Pour Windows, consultez la section [Généraliser la machine virtuelle de Windows à l’aide de Sysprep](/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep). Pour Linux, suivez l’étape 1 [ici](/azure/virtual-machines/linux/capture-image#step-1-deprovision-the-vm).
 
-### <a name="create-managed-image-from-vm"></a>Créer une image managée à partir d’une machine virtuelle
+> [!NOTE]
+> Veillez à généraliser votre machine virtuelle. La création d’une machine virtuelle mal généralisée entraîne une erreur **VMProvisioningTimeout**.
+
+### <a name="step-2-create-the-managed-image"></a>Étape 2 : Créer l'image managée
+
+Vous pouvez utiliser le portail, PowerShell ou CLI pour créer l’image managée. Suivez les étapes de l’article Azure [ici](/azure/virtual-machines/windows/capture-image-resource).
+
+### <a name="step-3-choose-the-use-case"></a>Étape 3 : Choisir le cas d’usage
+
+#### <a name="case-1-migrate-unmanaged-vms-to-managed-disks"></a>Cas 1 : Migrer des machines virtuelles non managées vers des disques managés
+
+Veillez à généraliser correctement votre machine virtuelle avant d’effectuer cette étape. Après la généralisation, vous ne pouvez plus utiliser cette machine virtuelle. La création d’une machine virtuelle mal généralisée entraîne une erreur **VMProvisioningTimeout**.
+
+Suivez les instructions [ici](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-vhd-in-a-storage-account) pour créer une image managée à partir d’un disque dur virtuel généralisé dans un compte de stockage. Vous pouvez utiliser cette image pour créer ultérieurement des machines virtuelles managées.
+
+#### <a name="case-2-create-managed-vm-from-managed-image-using-powershell"></a>Cas 2 : Créer une machine virtuelle managée à partir d’une image managée à l’aide de Powershell
 
 Après avoir créé une image à partir d’une machine virtuelle de disque managé existante en utilisant le script [ici](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-managed-disk-using-powershell), l’exemple de script suivant crée une machine virtuelle Linux similaire à partir d’un objet image existant :
+
+Module Azure Stack PowerShell 1.7.0 ou version ultérieure : suivez les instructions [ici](../../virtual-machines/windows/create-vm-generalized-managed.md).
+
+Module Azure Stack PowerShell 1.6.0 ou version antérieure :
 
 ```powershell
 # Variables for common values
@@ -181,6 +200,7 @@ $nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName $resourceGroup
   -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
 
 $image = get-azurermimage -ResourceGroupName $imagerg -ImageName $imagename
+
 # Create a virtual machine configuration
 $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize Standard_D1 | `
 Set-AzureRmVMOperatingSystem -Linux -ComputerName $vmName -Credential $cred | `
@@ -191,11 +211,11 @@ Add-AzureRmVMNetworkInterface -Id $nic.Id
 New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 ```
 
-Pour plus d’informations, voir les articles sur les images managées Azure, [Créer une image managée d’une machine virtuelle généralisée dans Azure](../../virtual-machines/windows/capture-image-resource.md) et [Créer une machine virtuelle à partir d’une image managée](../../virtual-machines/windows/create-vm-generalized-managed.md).
+Vous pouvez également utiliser le portail pour créer une machine virtuelle à partir d’une image managée. Pour plus d’informations, voir les articles sur les images managées Azure, [Créer une image managée d’une machine virtuelle généralisée dans Azure](../../virtual-machines/windows/capture-image-resource.md) et [Créer une machine virtuelle à partir d’une image managée](../../virtual-machines/windows/create-vm-generalized-managed.md).
 
 ## <a name="configuration"></a>Configuration
 
-Après avoir appliqué la mise à jour 1808 ou une version ultérieure, vous devez appliquer la configuration suivante avant d’utiliser Managed Disks :
+Après avoir appliqué la mise à jour 1808 ou une version ultérieure, vous devez appliquer la configuration suivante avant d’utiliser des disques managés :
 
 - Si un abonnement a été créé avant la mise à jour 1808, procédez comme suit pour mettre à jour l’abonnement. Sinon, le déploiement de machines virtuelles dans cet abonnement peut échouer avec un message d’erreur « Erreur interne dans le gestionnaire de disque ».
    1. Dans le portail locataire, accédez à **Abonnements** et recherchez l’abonnement. Cliquez sur **Fournisseurs de ressources**, sur **Microsoft.Compute**, puis sur **Réinscrire**.

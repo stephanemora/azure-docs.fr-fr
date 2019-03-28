@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 09/24/2018
 ms.author: deborahc
-ms.openlocfilehash: 221397030377b80c1c63baa3429610a218c5cd75
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: b5f79fccf040c893d02ed82a397f361ae9bf3fd2
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699669"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537539"
 ---
 # <a name="azure-cosmos-db-nodejs-examples"></a>Exemples Node.js pour Azure Cosmos DB
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ Vous avez également besoin du [Kit de développement logiciel (SDK) JavaScript]
    > 
 
 ## <a name="database-examples"></a>Exemples de base de données
-Le fichier [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/DatabaseManagement/app.js) du projet [DatabaseManagement](https://github.com/Azure/azure-cosmos-js/tree/master/samples/DatabaseManagement) explique comment effectuer les tâches suivantes.
+Le fichier [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/DatabaseManagement/app.js) du projet [DatabaseManagement](https://github.com/Azure/azure-cosmos-js/tree/master/samples/DatabaseManagement) explique comment effectuer les tâches suivantes. Pour en savoir plus sur les bases de données Azure Cosmos avant d’exécuter les exemples suivants, consultez l’article conceptuel [Utiliser des bases de données, des conteneurs et des éléments](databases-containers-items.md). 
 
 | Tâche | Informations de référence sur l'API |
 | --- | --- |
@@ -56,7 +56,7 @@ Le fichier [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples
 | [Supprimer une base de données](https://github.com/Azure/azure-cosmos-js/blob/216672a679ab389e5b341280eeacab1cab3691e4/samples/DatabaseManagement/app.js#L57-L60) |[Database.delete](https://docs.microsoft.com/javascript/api/%40azure/cosmos/database?view=azure-node-latest) |
 
 ## <a name="container-examples"></a>Exemples de conteneur
-Le fichier [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ContainerManagement/app.js) du projet [Container.Management](https://github.com/Azure/azure-cosmos-js/tree/master/samples/ItemManagement) explique comment effectuer les tâches suivantes.
+Le fichier [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ContainerManagement/app.js) du projet [Container.Management](https://github.com/Azure/azure-cosmos-js/tree/master/samples/ItemManagement) explique comment effectuer les tâches suivantes. Pour en savoir plus sur les collections Azure Cosmos avant d’exécuter les exemples suivants, consultez l’article conceptuel [Utiliser des bases de données, des conteneurs et des éléments](databases-containers-items.md). 
 
 | Tâche | Informations de référence sur l'API |
 | --- | --- |
@@ -66,7 +66,7 @@ Le fichier [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples
 | [Supprimer un conteneur](https://github.com/Azure/azure-cosmos-js/blob/216672a679ab389e5b341280eeacab1cab3691e4/samples/ContainerManagement/app.js#L54-L55) |[Container.delete](https://docs.microsoft.com/javascript/api/%40azure/cosmos/container?view=azure-node-latest) |
 
 ## <a name="item-examples"></a>Exemples d’éléments
-Le fichier [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ItemManagement/app.js) du projet [ItemManagement](https://github.com/Azure/azure-cosmos-js/tree/master/samples/ItemManagement) explique comment effectuer les tâches suivantes.
+Le fichier [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ItemManagement/app.js) du projet [ItemManagement](https://github.com/Azure/azure-cosmos-js/tree/master/samples/ItemManagement) explique comment effectuer les tâches suivantes. Pour en savoir plus sur les documents Azure Cosmos avant d’exécuter les exemples suivants, consultez l’article conceptuel [Utiliser des bases de données, des conteneurs et des éléments](databases-containers-items.md). 
 
 | Tâche | Informations de référence sur l'API |
 | --- | --- |
@@ -80,7 +80,7 @@ Le fichier [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples
 | [Supprimer un élément](https://github.com/Azure/azure-cosmos-js/blob/216672a679ab389e5b341280eeacab1cab3691e4/samples/ItemManagement/app.js#L162-L164) |[Item.delete](https://docs.microsoft.com/javascript/api/%40azure/cosmos/item?view=azure-node-latest) |
 
 ## <a name="indexing-examples"></a>Exemples d'indexation
-Le fichier [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/IndexManagement/app.js) du projet [IndexManagement](https://github.com/Azure/azure-cosmos-js/tree/master/samples/IndexManagement) explique comment effectuer les tâches suivantes.
+Le fichier [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/IndexManagement/app.js) du projet [IndexManagement](https://github.com/Azure/azure-cosmos-js/tree/master/samples/IndexManagement) explique comment effectuer les tâches suivantes.  Pour en savoir plus sur l’indexation dans Azure Cosmos DB avant d’exécuter les exemples suivants, consultez les articles conceptuels sur les [stratégies d’indexation](index-policy.md), les [types d’indexation](index-types.md) et les [chemins d’indexation](index-paths.md). 
 
 | Tâche | Informations de référence sur l'API |
 | --- | --- |
@@ -92,11 +92,8 @@ Le fichier [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples
 | [Créer un index de plage sur un chemin d’accès de la chaîne](https://github.com/Azure/azure-cosmos-js/blob/216672a679ab389e5b341280eeacab1cab3691e4/samples/IndexManagement/app.js#L281-L346) |[IndexKind.Range](https://docs.microsoft.com/javascript/api/%40azure/cosmos/indexkind?view=azure-node-latest), [IndexingPolicy](https://docs.microsoft.com/javascript/api/%40azure/cosmos/indexingpolicy?view=azure-node-latest), [Items.query](https://docs.microsoft.com/javascript/api/%40azure/cosmos/items?view=azure-node-latest) |
 | [Créer un conteneur avec la valeur par défaut indexPolicy, puis la mettre à jour en ligne](https://github.com/Azure/azure-cosmos-js/blob/216672a679ab389e5b341280eeacab1cab3691e4/samples/IndexManagement/app.js#L435-L507) |[Containers.create](https://docs.microsoft.com/javascript/api/%40azure/cosmos/containers?view=azure-node-latest)
 
-
-Pour plus d’informations sur l’indexation, consultez [Stratégies d’indexation d’Azure Cosmos DB](index-policy.md).
-
 ## <a name="server-side-programming-examples"></a>Exemples de programmation côté serveur
-Le fichier [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ServerSideScripts/app.js) du projet [ServerSideScripts](https://github.com/Azure/azure-cosmos-js/tree/master/samples/ServerSideScripts) explique comment effectuer les tâches suivantes.
+Le fichier [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ServerSideScripts/app.js) du projet [ServerSideScripts](https://github.com/Azure/azure-cosmos-js/tree/master/samples/ServerSideScripts) explique comment effectuer les tâches suivantes. Pour en savoir plus sur la programmation côté serveur dans Azure Cosmos DB avant d’exécuter les exemples suivants, consultez l’article conceptuel [Procédures stockées, déclencheurs et fonctions définies par l’utilisateur](stored-procedures-triggers-udfs.md). 
 
 | Tâche | Informations de référence sur l'API |
 | --- | --- |

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Palo Alto Networks Captive Portal | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Palo Alto Networks Captive Portal | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Palo Alto Networks Captive Portal.
 services: active-directory
 documentationCenter: na
@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 67a0b476-2305-4157-8658-2ec3625850d5
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 627275855f231f5a4336075df3864448325127f2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0a62aa573d49ccdd237e692b63a6fda0dd83d52a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211867"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57888295"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks-captive-portal"></a>Tutoriel : Intégration d’Azure Active Directory à Palo Alto Networks Captive Portal
+# <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks-captive-portal"></a>Didacticiel : Intégration d’Azure Active Directory à Palo Alto Networks Captive Portal
 
 Dans ce tutoriel, vous découvrez comment intégrer Palo Alto Networks Captive Portal à Azure Active Directory (Azure AD).
 
@@ -105,12 +105,12 @@ Tout d’abord, activez l’authentification unique Azure AD dans le portail Azu
 
     ![Volet Configuration SAML de base pour Palo Alto Networks Captive Portal](common/idp-intiated.png)
 
-    1. Pour **Identificateur**, entrez une URL au format `https://<customer_firewall_host_name>/SAML20/SP`.
+   1. Pour **Identificateur**, entrez une URL au format `https://<customer_firewall_host_name>/SAML20/SP`.
 
-    2. Pour **URL de réponse**, entrez une URL au format `https://<customer_firewall_host_name>/SAML20/SP/ACS`.
+   2. Pour **URL de réponse**, entrez une URL au format `https://<customer_firewall_host_name>/SAML20/SP/ACS`.
 
-    > [!NOTE]
-    > Mettez à jour les valeurs d’espace réservé à cette étape avec les URL d’identificateur et de réponse réelles. Pour obtenir les valeurs réelles, contactez l’[équipe de support client Palo Alto Networks Captive Portal](https://support.paloaltonetworks.com/support).
+      > [!NOTE]
+      > Mettez à jour les valeurs d’espace réservé à cette étape avec les URL d’identificateur et de réponse réelles. Pour obtenir les valeurs réelles, contactez l’[équipe de support client Palo Alto Networks Captive Portal](https://support.paloaltonetworks.com/support).
 
 5. Dans la section **Certificat de signature SAML**, en regard de **XML de métadonnées de fédération**, sélectionnez **Télécharger**. Enregistrez le fichier téléchargé sur votre ordinateur.
 
@@ -158,7 +158,7 @@ Ensuite, créez un utilisateur de test nommé *Britta Simon* dans le portail Azu
 
     1. Pour **Nom**, entrez **BrittaSimon**.
   
-    2. Pour **Nom d’utilisateur**, entrez **BrittaSimon @\<domaine_de_votre_entreprise\>**. Par exemple : **BrittaSimon@contoso.com**.
+    2. Pour **Nom d’utilisateur**, entrez **BrittaSimon\@\<domaine_de_votre_entreprise\>**. Par exemple, **BrittaSimon\@contoso.com**.
 
     3. Pour **Mot de passe**, entrez un mot de passe. Nous vous recommandons de conserver un enregistrement du mot de passe que vous entrez. Vous pouvez cocher la case **Afficher le mot de passe** pour afficher le mot de passe.
 

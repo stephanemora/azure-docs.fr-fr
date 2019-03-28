@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Jobbadmin | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Jobbadmin | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Jobbadmin.
 services: active-directory
 documentationCenter: na
@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: c5208b0d-66a3-49ed-9aad-70d21f54aee0
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c5bd23f3190a9af2d159c56feee18cda36229ef
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 895066b2ce21e75095d544de47b817866cd1a8ef
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984133"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855850"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-jobbadmin"></a>Didacticiel : Intégration d’Azure Active Directory à Jobbadmin
+# <a name="tutorial-azure-active-directory-integration-with-jobbadmin"></a>Tutoriel : Intégration d’Azure Active Directory à Jobbadmin
 
 Dans ce didacticiel, vous allez apprendre à intégrer Jobbadmin à Azure Active Directory (Azure AD).
 L’intégration de Jobbadmin à Azure AD vous offre les avantages suivants :
@@ -150,7 +150,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

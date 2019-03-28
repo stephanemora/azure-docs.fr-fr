@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: overview
-ms.date: 08/14/2018
+ms.date: 03/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 2cf135cc984ce032113de65bead210bd4c5e95ce
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b6e546130efd52312fca62ab4e6a22626778a19e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861797"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57847981"
 ---
 # <a name="what-is-the-bing-web-search-api"></a>Qu’est-ce que l’API Recherche Web Bing ?
 
-L’API Recherche Web Bing est un service RESTful fournissant des réponses instantanées aux requêtes utilisateur. Les résultats de la recherche sont facilement configurés pour inclure des pages web, des images, des vidéos, des actualités, des traductions et bien davantage. Les résultats sont fournis au format JSON et basés sur la pertinence de la recherche et sur vos abonnements API Recherche Web Bing.
+L’API Recherche Web Bing est un service RESTful fournissant des réponses instantanées aux requêtes utilisateur. Les résultats de la recherche sont facilement configurés pour inclure des pages web, des images, des vidéos, des actualités, des traductions et bien davantage. Recherche Web Bing fournit les résultats au format JSON basés sur la pertinence de la recherche et sur vos abonnements API Recherche Web Bing.
 
 Cette API répond de manière optimale aux besoins des applications qui doivent accéder à l’ensemble du contenu pertinent pour une requête de recherche utilisateur. Si vous créez une application ne nécessitant qu’un type de résultat spécifique, envisagez d’utiliser [l’API Recherche d’images Bing](../Bing-Image-Search/overview.md), [l’API Recherche de vidéos Bing](../Bing-Video-Search/search-the-web.md) ou [l’API Recherche d’actualités Bing](../Bing-News-Search/search-the-web.md). Pour obtenir la liste complète des API Recherche Bing, Consultez la section [API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services).
 
@@ -28,7 +28,7 @@ Vous souhaitez découvrir le fonctionnement de l’API ? Essayez notre [démonst
 
 ## <a name="features"></a>Caractéristiques  
 
-Outre les réponses instantanées, le service Recherche Web Bing offre des fonctionnalités et capacités supplémentaires vous permettant de personnaliser les résultats de la recherche pour vos utilisateurs.
+Recherche Web Bing ne vous donne pas seulement accès à des réponses instantanées. Il offre en outre des fonctionnalités et capacités supplémentaires vous permettant de personnaliser les résultats de la recherche pour vos utilisateurs.
 
 | Fonctionnalité | Description |
 |---------|-------------|
@@ -40,7 +40,7 @@ Outre les réponses instantanées, le service Recherche Web Bing offre des fonct
 
 ## <a name="workflow"></a>Workflow
 
-L’API Recherche Web Bing peut être facilement appelée à partir de n’importe quel langage de programmation permettant d’exécuter des requêtes HTTP et d’analyser des réponses JSON. Ce service est accessible à l’aide de [l’API REST](quickstarts/python.md) ou des [Kits de développement logiciel (SDK) Recherche Web Bing](web-sdk-python-quickstart.md).  
+L’API Recherche Web Bing peut être facilement appelée à partir de n’importe quel langage de programmation permettant d’exécuter des requêtes HTTP et d’analyser des réponses JSON. Ce service est accessible à l’aide de [l’API REST](quickstarts/python.md) ou des [Kits de développement logiciel (SDK) Recherche Web Bing](web-sdk-python-quickstart.md).
 
 1. Créez un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) disposant d’un accès aux API Recherche Bing. Si vous n’avez pas d’abonnement Azure, vous pouvez [créer un compte gratuit](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).  
 2. Envoyez une [requête à l’API Recherche Web Bing](quickstarts/python.md).

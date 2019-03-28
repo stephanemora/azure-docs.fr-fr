@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 48409fec8a9edd8a56f6e0664e1451e9677c4281
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: e3b0aeeacadc918d9b17e1cd873170c73eced510
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155032"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57834759"
 ---
 # <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-c-service-sdk"></a>Inscrire un appareil TPM auprès du service IoT Hub Device Provisioning à l’aide du C# Service SDK
 
@@ -27,7 +27,7 @@ Ces étapes montrent comment créer par programmation une inscription individuel
 ## <a name="prepare-the-development-environment"></a>Préparer l’environnement de développement
 
 1. Assurez-vous que votre machine est équipée de [Visual Studio 2017](https://www.visualstudio.com/vs/). 
-2. Vérifiez que le [.Net core SDK](https://www.microsoft.com/net/download/windows) est bien installé sur votre ordinateur. 
+2. Vérifiez que le [kit .NET Core SDK](https://www.microsoft.com/net/download/windows) est bien installé sur votre ordinateur. 
 3. Veillez à compléter les étapes décrites dans la section [Configuration du service d’approvisionnement d’appareil Azure IoT Hub avec le portail Azure](./quick-setup-auto-provision.md) avant de continuer.
 4. (Facultatif) Si vous souhaitez inscrire un appareil simulé à la fin de ce démarrage rapide, suivez les étapes dans [Créer et configurer un appareil TPM simulé à l’aide du C# Device SDK](quick-create-simulated-device-tpm-csharp.md) jusqu’à l’étape où vous obtenez une paire de clés de type EK (Endorsement Key) pour l’appareil. Notez la paire de clés de type EK, l’ID d’inscription et, éventuellement, l’ID d’appareil. Vous devrez les utiliser ultérieurement dans ce démarrage rapide. **Ne suivez pas les étapes de création d’une inscription individuelle à l’aide du portail Azure.**
 

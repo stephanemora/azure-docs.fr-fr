@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à GoodPractice Toolkit | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à GoodPractice Toolkit | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et GoodPractice Toolkit.
 services: active-directory
 documentationCenter: na
@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 65b2979d-9e2f-4530-bc08-546975269ebc
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae010825e16178cdfb8544c7bd1c6fd0e9c57b90
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: fd8453c93b4e48a076d8efbe1d438d15d8131fc9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874645"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864403"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-goodpractice-toolkit"></a>Tutoriel : Intégration d’Azure Active Directory à GoodPractice Toolkit
+# <a name="tutorial-azure-active-directory-integration-with-goodpractice-toolkit"></a>Didacticiel : Intégration d’Azure Active Directory à GoodPractice Toolkit
 
 Dans ce didacticiel, vous allez apprendre à intégrer GoodPractice Toolkit à Azure Active Directory (Azure AD).
 L’intégration de GoodPractice Toolkit à Azure AD vous offre les avantages suivants :
@@ -69,7 +69,7 @@ Pour configurer l’intégration de GoodPractice Toolkit à Azure AD, vous devez
 4. Dans la zone de recherche, tapez **GoodPractice Toolkit**, sélectionnez **GoodPractice Toolkit** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
      ![GoodPractice Toolkit dans la liste des résultats](common/search-new-app.png)
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
+   ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
 Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec GoodPractice Toolkit avec un utilisateur de test appelé **Britta Simon**.
 Pour que l’authentification unique fonctionne, une relation entre l’utilisateur Azure AD et l’utilisateur GoodPractice Toolkit associé doit être établie.
@@ -146,7 +146,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

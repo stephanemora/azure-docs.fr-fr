@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Apptio | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Apptio | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Apptio.
 services: active-directory
 documentationCenter: na
@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: b23eba91-7698-47e7-ae75-0ceafd739965
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41b768d1bfca5946051f6000358889d8668483de
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: f239c7ab92ad2de4391468b646ff08fb61721517
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56881785"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884861"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-apptio"></a>Tutoriel : Intégration d’Azure Active Directory à Apptio
+# <a name="tutorial-azure-active-directory-integration-with-apptio"></a>Didacticiel : Intégration d’Azure Active Directory à Apptio
 
 Dans ce didacticiel, vous apprenez comment intégrer Apptio à Azure Active Directory (Azure AD).
 L’intégration d’Apptio à Azure AD vous offre les avantages suivants :
@@ -176,7 +176,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

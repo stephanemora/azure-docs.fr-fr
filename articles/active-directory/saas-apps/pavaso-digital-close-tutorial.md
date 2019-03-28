@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 23d83f82-39c3-4fc2-88c9-f8074cc44d43
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16cc1fc232eb5c7b4704fb4dfeb239ba72d51e77
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: b9e6a271f4e2c2190abf0074eb11c2a5e0e60755
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870004"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57861517"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-pavaso-digital-close"></a>Didacticiel : Intégration d’Azure Active Directory à Pavaso Digital Close
+# <a name="tutorial-azure-active-directory-integration-with-pavaso-digital-close"></a>Tutoriel : Intégration d’Azure Active Directory à Pavaso Digital Close
 
 Dans ce tutoriel, vous allez apprendre à intégrer Pavaso Digital Close à Azure Active Directory (Azure AD).
 L’intégration de Pavaso Digital Close à Azure AD vous offre les avantages suivants :
@@ -154,7 +154,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

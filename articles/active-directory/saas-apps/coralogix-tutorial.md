@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Coralogix | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Coralogix | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Coralogix.
 services: active-directory
 documentationCenter: na
@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: ba79bfc1-992e-4924-b76a-8eb0dfb97724
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 1/2/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a98a41984692e9a20b3606c30e387b7674cf7bb
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: feb34ab8d811d813e751b25c2a6b6d4bf0397f9b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874158"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884050"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-coralogix"></a>Didacticiel : Intégration d’Azure Active Directory à Coralogix
+# <a name="tutorial-azure-active-directory-integration-with-coralogix"></a>Tutoriel : Intégration d’Azure Active Directory à Coralogix
 
 Dans ce tutoriel, vous allez apprendre à intégrer Coralogix à Azure Active Directory (Azure AD).
 L’intégration de Coralogix à Azure AD vous offre les avantages suivants :
@@ -108,6 +108,7 @@ Pour configurer l’authentification unique Azure AD auprès de Coralogix, effe
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<SUBDOMAIN>.coralogix.com`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)**, tapez une URL :
+
     | |
     |--|
     | `https://api.coralogix.com/saml/metadata.xml` |
@@ -170,7 +171,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

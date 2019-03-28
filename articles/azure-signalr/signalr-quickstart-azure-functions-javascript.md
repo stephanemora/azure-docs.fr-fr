@@ -1,18 +1,18 @@
 ---
-title: Démarrage rapide Azure SignalR Service serverless - JavaScript
+title: Démarrage rapide d’Azure SignalR Service serverless – JavaScript
 description: Un démarrage rapide pour utiliser le service Azure SignalR et Azure Functions afin de créer une salle de conversation.
 author: sffamily
 ms.service: signalr
 ms.devlang: javascript
 ms.topic: quickstart
-ms.date: 09/23/2018
+ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: f0044ca206d15762d44d8d4ea2d58c93950c5e1e
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: c66323a430e86053627577b40f66b3f4be11c74f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252454"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535612"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-javascript"></a>Démarrage rapide : Créer une salle de conversation avec Azure Functions et SignalR Service à l’aide de JavaScript
 
@@ -81,7 +81,7 @@ Connectez-vous au portail Azure sur <https://portal.azure.com/> avec votre compt
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce démarrage rapide, vous avez généré et exécuté une application serverless en temps réel dans Visual Studio. Découvrez ensuite comment développer et déployer Azure Functions avec Visual Studio.
+Dans ce démarrage rapide, vous avez généré et exécuté une application serverless en temps réel dans VS Code. Apprenez-en plus sur le déploiement d’Azure Functions à partir de VS Code.
 
 > [!div class="nextstepaction"]
-> [Développer Azure Functions à l’aide de Visual Studio](../azure-functions/functions-develop-vs.md)
+> [Déployer Azure Functions avec VS Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started)

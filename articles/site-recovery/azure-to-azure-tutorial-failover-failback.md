@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 46dae28fd6c9eaa3d5e03f5f06c5e92449653679
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: ba1e65ca915c576d2424b166488b89baa92c24a9
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737720"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729038"
 ---
-# <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>Basculer et restaurer automatiquement des machines virtuelles Azure entre des régions Azure
+# <a name="fail-over-and-reprotect-azure-vms-between-azure-regions"></a>Basculer et reprotéger des machines virtuelles Azure entre des régions Azure
 
 Le service [Azure Site Recovery](site-recovery-overview.md) contribue à votre stratégie de récupération d’urgence en gérant et en coordonnant la réplication, le basculement et la restauration automatique des machines locales et des machines virtuelles Azure.
 
@@ -24,9 +24,7 @@ Ce didacticiel explique comment basculer une seule machine virtuelle Azure vers 
 
 > [!div class="checklist"]
 > * Basculer la machine virtuelle Azure
-> * Reprotéger la machine virtuelle Azure secondaire, afin qu’elle soit répliquée vers la région primaire
-> * Restaurer automatiquement la machine virtuelle secondaire
-> * Reprotéger la machine virtuelle principale vers la région secondaire
+> * Reprotéger la machine virtuelle Azure secondaire, afin qu’elle soit répliquée vers la région primaire.
 
 > [!NOTE]
 > Ce tutoriel a pour but de guider l’utilisateur à travers les étapes à suivre pour effectuer un basculement vers une région cible avec une personnalisation minimale. Si vous souhaitez en savoir plus sur les différents aspects associés à l’exécution d’un basculement, y compris les éléments à prendre en compte concernant la mise en réseau, l’automation ou le dépannage, consultez les documents dans « Procédure... » pour les machines virtuelles Azure.
@@ -74,12 +72,5 @@ Après avoir basculé la machine virtuelle, vous devez la reprotéger afin qu’
 > Pour plus d’informations sur le flux de travail de reprotection et sur ce qui se passe pendant la reprotection, consultez [la section de procédure de cet article](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection).
 
 
-## <a name="fail-back-to-the-primary-region"></a>Effectuer une restauration automatique vers la région primaire
-
-Une fois les machines virtuelles reprotégées, vous pouvez effectuer une restauration automatique vers la région primaire en fonction de vos besoins. Pour effectuer cette opération, configurez un basculement de la région secondaire vers la région primaire, comme décrit dans cet article.
-
-![Cliquer avec le bouton droit pour reprotéger](./media/azure-to-azure-tutorial-failover-failback/failback.png)
-
-Dans la capture d’écran précédente, la machine virtuelle « ContosoWin2016 » a fait l’objet d’un basculement de la région USA Centre vers la région USA Est, et d’une restauration automatique de la région USA Est vers la région USA Centre.
-
-Le basculement arrête la machine virtuelle dans la région secondaire, c’est-à-dire la région de reprise d’activité, et crée et démarre la machine virtuelle dans la région primaire. **Notez** que les machines virtuelles de reprise d’activité restent dans l’état Arrêté (libéré) comme indiqué ci-dessus. Ce comportement est normal, car Azure Site Recovery enregistre les informations de la machine virtuelle qui peuvent s’avérer utiles par la suite lors du basculement de la région primaire vers la région secondaire. Les machines virtuelles libérées ne vous étant pas facturées, gardez-les telles quelles.
+## <a name="next-steps"></a>Étapes suivantes
+- Lisez [comment restaurer automatiquement. ](azure-to-azure-tutorial-failback.md).

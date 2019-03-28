@@ -16,12 +16,12 @@ ms.date: 03/22/2019
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: aff9dade7fe0238c0ea8ccc3ae5bba57437c6f89
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 3d9376ba5945c97d18f6cf68c242d5217beee679
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339548"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58349703"
 ---
 # <a name="quota-types-in-azure-stack"></a>Types de quotas dans Azure Stack
 
@@ -40,7 +40,10 @@ Les [quotas](azure-stack-plan-offer-quota-overview.md#plans) définissent les li
 | Capacité maximale (en Go) du disque managé standard | 2 048 | Capacité maximale des disques managés standard qui peuvent être créés dans cet emplacement. |
 | Capacité maximale (en Go) du disque managé Premium | 2 048 | Capacité maximale des disques managés Premium qui peuvent être créés dans cet emplacement. |
 
-## <a name="storage-quota-types"></a>Types de quotas de stockage
+> [!NOTE]  
+> La capacité maximale d’un disque non managé (objets blob par page) est distincte du quota de disque managé et doit être définie dans le quota de stockage.
+
+## <a name="storage-quota-types"></a>Types de quotas de stockage 
 
 | **Item** | **Valeur par défaut** | **Description** |
 | --- | --- | --- |
@@ -48,7 +51,7 @@ Les [quotas](azure-stack-plan-offer-quota-overview.md#plans) définissent les li
 | Nombre total de comptes de stockage |20 |Nombre maximal de comptes de stockage qu’un abonnement peut créer à cet emplacement. |
 
 > [!NOTE]  
-> L’application d’un quota de stockage peut prendre jusqu’à deux heures.
+> L’application d’un quota de stockage peut prendre jusqu’à deux heures. La capacité maximale d’un disque managé (objets blob par page) est distincte du quota total de stockage et doit être définie dans le quota de calcul.
 
 ## <a name="network-quota-types"></a>Types de quotas pour les réseaux
 

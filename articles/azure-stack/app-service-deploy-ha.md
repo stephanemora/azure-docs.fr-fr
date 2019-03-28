@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: ''
-ms.date: 03/13/2019
+ms.date: 03/23/2019
 ms.author: jeffgilb
 ms.reviewer: anwestg
-ms.lastreviewed: 03/13/2019
-ms.openlocfilehash: db95be94028fcf16871a9dcfee5f0d87eb5d2cdc
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.lastreviewed: 03/23/2019
+ms.openlocfilehash: 1c105548f19994c4ca0ce161eedcfe11736864c7
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285664"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370021"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>Déployer App Service dans une configuration hautement disponible
 
@@ -54,8 +54,7 @@ Avant d’utiliser ce modèle, vérifiez que les [éléments de la Place de marc
 ### <a name="deploy-the-app-service-infrastructure"></a>Déployer l’infrastructure App Service
 Utilisez les étapes de cette section pour créer un déploiement personnalisé à l’aide du modèle de démarrage rapide Azure Stack **appservice-fileshare-sqlserver-ha**.
 
-1. 
-   [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
+1. [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. Sélectionnez **\+** **Créer une ressource** > **Personnalisé**, puis **Déploiement de modèle**.
 
@@ -94,8 +93,7 @@ Vérifiez que vous enregistrez chacune de ces valeurs de sortie :
 
 Suivez ces étapes pour découvrir les valeurs de sortie de modèle :
 
-1. 
-   [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
+1. [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. Dans le portail d’administration, sélectionnez **Groupes de ressources**, puis le nom du groupe de ressources que vous avez créé pour le déploiement personnalisé (**app-service-ha** dans cet exemple). 
 
@@ -168,9 +166,20 @@ Pour déployer le fournisseur de ressources App Service, procédez comme suit :
 
     ![Informations sur les sorties pour le partage de fichiers](media/app-service-deploy-ha/07.png)
 
-9. Étant donné que la machine utilisée pour installer App Service ne se trouve pas sur le même réseau virtuel que le serveur de fichiers utilisé pour héberger le partage de fichiers App Service, vous ne serez pas en mesure de résoudre le nom. Ce comportement est normal.<br><br>Vérifiez que les informations entrées pour le chemin UNC du partage de fichiers et les informations relatives aux comptes sont correctes, puis appuyez sur **Oui** dans la boîte de dialogue d’alerte pour continuer l’installation d’App Service.
+9. Étant donné que la machine utilisée pour installer App Service ne se trouve pas sur le même réseau virtuel que le serveur de fichiers utilisé pour héberger le partage de fichiers App Service, vous ne serez pas en mesure de résoudre le nom. **Ce comportement est normal**.<br><br>Vérifiez que les informations entrées pour le chemin UNC du partage de fichiers et les informations relatives aux comptes sont correctes, puis appuyez sur **Oui** dans la boîte de dialogue d’alerte pour continuer l’installation d’App Service.
 
     ![Boîte de dialogue d’erreur attendue](media/app-service-deploy-ha/08.png)
+
+    Si vous avez choisi de procéder au déploiement dans un réseau virtuel existant et une adresse IP interne pour vous connecter à votre serveur de fichiers, vous devez ajouter une règle de sécurité sortante, qui autorise le trafic SMB entre le sous-réseau Worker et le serveur de fichiers. Accédez au WorkersNsg dans le portail d’administration, puis ajoutez une règle de sécurité sortante comportant les propriétés suivantes :
+    - Source : Quelconque
+    - Plage de ports source : : *
+    - Destination : Adresses IP
+    - Plage d’adresses IP de destination : plage d’adresses IP de votre serveur de fichiers
+    - Plage de ports de destination : 445
+    - Protocole : TCP
+    - Action : AUTORISER
+    - Priorité : 700
+    - Nom : Outbound_Allow_SMB445
 
 10. Fournissez l’ID d’application d’identité, le chemin et les mots de passe pour les certificats d’identité, puis cliquez sur **Suivant** :
     - Certificat d’application d’identité (au format **sso.appservice.local.azurestack.external.pfx**)
@@ -189,7 +198,7 @@ Pour déployer le fournisseur de ressources App Service, procédez comme suit :
 
     ![Informations de connexion SQL Server](media/app-service-deploy-ha/10.png)
 
-12. Étant donné que la machine utilisée pour installer App Service ne se trouve pas sur le même réseau virtuel que le serveur SQL Server utilisé pour héberger les bases de données App Service, vous ne serez pas en mesure de résoudre le nom.  Ce comportement est normal.<br><br>Vérifiez que les informations entrées pour le nom SQL Server et les informations relatives aux comptes sont correctes, puis appuyez sur **Oui** pour continuer l’installation d’App Service. Cliquez sur **Suivant**.
+12. Étant donné que la machine utilisée pour installer App Service ne se trouve pas sur le même réseau virtuel que le serveur SQL Server utilisé pour héberger les bases de données App Service, vous ne serez pas en mesure de résoudre le nom.  **Ce comportement est normal**.<br><br>Vérifiez que les informations entrées pour le nom SQL Server et les informations relatives aux comptes sont correctes, puis appuyez sur **Oui** pour continuer l’installation d’App Service. Cliquez sur **Suivant**.
 
     ![Informations de connexion SQL Server](media/app-service-deploy-ha/11.png)
 
@@ -231,3 +240,5 @@ Pour déployer le fournisseur de ressources App Service, procédez comme suit :
 [Effectuer un scale-out d’App Service](azure-stack-app-service-add-worker-roles.md). Vous devrez peut-être ajouter d’autres workers de rôle d’infrastructure App Service pour répondre à la demande d’applications attendue dans votre environnement. Par défaut, App Service sur Azure Stack prend en charge les niveaux Worker gratuits et partagés. Pour ajouter d’autres niveaux Worker, vous devez ajouter davantage de rôles de travail.
 
 [Configurer des sources de déploiement](azure-stack-app-service-configure-deployment-sources.md). Une configuration supplémentaire est requise pour prendre en charge le déploiement à la demande à partir de plusieurs fournisseurs de contrôle de code source comme GitHub, BitBucket, OneDrive et DropBox.
+
+[Sauvegarder App Service](app-service-back-up.md). Après avoir déployé et configuré App Service, vous devez vous assurer que tous les composants nécessaires pour la récupération d’urgence sont sauvegardés, afin d’éviter la perte de données et des temps d’arrêt de service inutiles lors des opérations de récupération.

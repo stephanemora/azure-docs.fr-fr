@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel : Intégration d'Azure Active Directory à Envoy | Microsoft Docs"
+title: "Tutoriel : Intégration d'Azure Active Directory à Envoy | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Envoy.
 services: active-directory
 documentationCenter: na
@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 71f7afcc-1033-4098-9b7e-4f9f2b26f734
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12a97dc33075de4dc39802d6299e0c3a819cae02
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 590e7e301b33fdab4122c4b776ebc52f6ed92b08
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873064"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57881178"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-envoy"></a>Didacticiel : Intégration d'Azure Active Directory à Envoy
+# <a name="tutorial-azure-active-directory-integration-with-envoy"></a>Tutoriel : Intégration d'Azure Active Directory à Envoy
 
 Dans ce didacticiel, vous allez apprendre à intégrer Envoy à Azure Active Directory (Azure AD).
 L’intégration d’Envoy à Azure AD vous offre les avantages suivants :
@@ -177,7 +177,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

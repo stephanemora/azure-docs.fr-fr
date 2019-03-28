@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ce55185effc67709157ce6219c405bb8e32dd5db
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 023f5ed43453d7fb20dec5d91651230aa8fb4370
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768577"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57571301"
 ---
 # <a name="what-is-azure-maps"></a>Qu’est-ce qu’Azure Maps ?
 
@@ -22,15 +22,21 @@ Azure Maps est une collection de services géospatiaux qui s’appuient sur les 
 
 La vidéo suivante explique Azure Maps plus en détail :
 
-<iframe src="https://channel9.msdn.com/Shows/Azure-Friday/Azure-Location-Based-Services/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
+<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Maps/player?format=ny" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
 ## <a name="map-controls"></a>Contrôles de carte
 
-### <a name="web-control"></a>Contrôle web
+### <a name="web-sdk"></a>Kit de développement logiciel (SDK) web
 
-Le contrôle web Azure Maps vous permet de personnaliser des cartes interactives avec du contenu et des images qui vous sont propres pour les afficher dans vos applications web ou mobiles. Ce contrôle utilise WebGL, ce qui vous permet d’afficher d’importants jeux de données avec des performances élevées. Développez avec le contrôle à l’aide de JavaScript ou de TypeScript.
+Le Kit de développement logiciel (SDK) web Azure Maps vous permet de personnaliser des cartes interactives avec du contenu et des images qui vous sont propres pour les afficher dans vos applications web ou mobiles. Ce contrôle utilise WebGL, ce qui vous permet d’afficher d’importants jeux de données avec des performances élevées. Développez avec le Kit de développement logiciel (SDK) en utilisant JavaScript ou TypeScript.
 
-![Contrôle web Azure Maps](media/about-azure-maps/Introduction_WebMapControl.png)
+![Kit de développement logiciel (SDK) web Azure Maps](media/about-azure-maps/Introduction_WebMapControl.png)
+
+### <a name="android-sdk"></a>Kit de développement logiciel Android
+
+Le Kit de développement logiciel Android SDK Azure Maps vous permet de créer de puissantes applications de mappage mobiles. 
+
+![Android SDK Azure Maps](media/about-azure-maps/AndroidSDK.png)
 
 ## <a name="services-in-azure-maps"></a>Services d’Azure Maps
 

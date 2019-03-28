@@ -10,22 +10,24 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 12/06/2018
+ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 1f831f2d962626de6f847e2fe775605b7bfca5b8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 68199083369018cab1c9f83dd6781653a8cae37c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097588"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57849293"
 ---
 # <a name="tutorial-utilize-the-azure-resource-manager-template-reference"></a>Tutoriel : Utiliser la référence du modèle Azure Resource Manager
 
 Découvrez comment trouver les informations concernant le schéma de modèle et utiliser ces informations pour créer des modèles Azure Resource Manager.
 
 Dans ce didacticiel, vous utiliserez un modèle de base pris dans les modèles de démarrage rapide Azure. À l’aide des documents de référence du modèle, vous personnalisez le modèle de base pour créer un compte de stockage chiffré.
+
+![Référence du modèle Resource Manager déployer compte de stockage chiffré](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-tutorial-deploy-encrypted-storage-account.png)
 
 Ce tutoriel décrit les tâches suivantes :
 
@@ -76,9 +78,9 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléme
 
 ## <a name="find-the-template-reference"></a>Trouver la référence du modèle
 
-1. Accédez aux [modèles Azure](https://docs.microsoft.com/azure/templates/).
-2. Dans **Filtrer par titre**, entrez **comptes de stockage**.
-3. Sélectionnez **Référence/Référence de modèle/Stockage/<Version>/Comptes de stockage**, comme indiqué dans la capture d’écran suivante :
+1. Accédez à la [documentation de référence du modèle Azure](https://docs.microsoft.com/azure/templates/).
+2. Dans la zone **Filtrer par titre**, entrez **Comptes de stockage**.
+3. Sélectionnez **Référence/Référence de modèle/Stockage/&lt;Version/Comptes de stockage**, comme indiqué dans la capture d’écran suivante :
 
     ![Resource Manager modèle référence compte de stockage](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts.png)
 

@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: overview
 ms.date: 12/05/2018
 ms.custom: seodec18
-ms.openlocfilehash: 847eddc78f8abc938e68e6fe383a773dadeaf779
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 7f8731f48b96ccbe0e77970af1ccefa1d7a7155f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557833"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438769"
 ---
 # <a name="azure-time-series-insights-preview-overview"></a>Vue d’ensemble de la préversion d’Azure Time Series Insights
 
@@ -44,7 +44,7 @@ Un flux de données IoT classique est illustré dans l’image suivante.
 
 ## <a name="azure-time-series-insights-for-industrial-iot"></a>Azure Time Series Insights pour l’IoT sectoriel
 
-Le paysage actuel de l’IoT est divers et varié, Les clients couvrent la fabrication, l’industrie automobile, l’énergie, les utilitaires, les bâtiments intelligents et le secteur du conseil. Les scénarios incluent l’exploration de données ad-hoc où la forme des données est inconnue. Les scénarios incluent également l’analyse du fonctionnement sur des données schématisées ou explicitement modélisées, pour renforcer l’efficacité. En général, ces scénarios coexistent et supportent différents cas d’usage. Les fonctionnalités de plateforme essentielles à la réussite des entreprises IoT de l’industrie et de leur révolution numérique incluent :
+Le paysage actuel de l’IoT est divers et varié, Les clients couvrent la fabrication, l’industrie automobile, l’énergie, les utilitaires, les bâtiments intelligents et le secteur du conseil. Les scénarios incluent l’exploration de données ad hoc où la forme des données est inconnue. Les scénarios incluent également l’analyse du fonctionnement sur des données schématisées ou explicitement modélisées, pour renforcer l’efficacité. En général, ces scénarios coexistent et supportent différents cas d’usage. Les fonctionnalités de plateforme essentielles à la réussite des entreprises IoT de l’industrie et de leur révolution numérique incluent :
 
 - Le stockage multicouche, chaud et froid. 
 - La capacité de stocker des dizaines d’années de données de séries chronologiques. 
@@ -52,13 +52,13 @@ Le paysage actuel de l’IoT est divers et varié, Les clients couvrent la fabri
 
 Time Series Insights est une offre PaaS complète, destinée à explorer les données IoT et à tirer des insights opérationnels. Time Series Insights offre un service cloud entièrement géré dédié à l’analyse de données de séries chronologiques IoT.
 
-Vous pouvez stocker des données brutes dans un magasin en mémoire sans schéma. Vous pouvez ensuite effectuer des requêtes ad-hoc interactives via un moteur et une API de requête distribuée. Tirer parti de l’expérience utilisateur riche pour visualiser des milliards d’événements en quelques secondes. En savoir plus sur les [fonctionnalités d’exploration de données](./time-series-insights-overview.md).
+Vous pouvez stocker des données brutes dans un magasin en mémoire sans schéma. Vous pouvez ensuite effectuer des requêtes ad hoc interactives via un moteur et une API de requête distribuée. Tirer parti de l’expérience utilisateur riche pour visualiser des milliards d’événements en quelques secondes. En savoir plus sur les [fonctionnalités d’exploration de données](./time-series-insights-overview.md).
 
 Time Series Insights propose également des fonctionnalités d’insights opérationnels qui sont pour l’instant disponibles dans une préversion. Grâce à l’exploration de données interactive et à l’intelligence opérationnelle, vous pouvez utiliser Time Series Insights pour mieux exploiter les données collectées auprès des ressources IoT. L’offre de préversion prend en charge :
 
 * Un magasin de données de séries chronologiques évolutif, et optimisé en termes de performances et de coûts. Cette solution IoT basée sur le cloud peut donner une tendance de données de séries chronologiques portant sur plusieurs années et en seulement quelques secondes.
 * Prise en charge du modèle sémantique permettant de décrire le domaine et les métadonnées associés aux signaux dérivés et non dérivés de ressources et d’appareils.
-* Expérience utilisateur améliorée qui combine des insights de données basés sur des ressources et des analytiques détaillées ad hoc. Cette combinaison pousse l’intelligence opérationnelle et de métier.
+* Expérience utilisateur améliorée qui combine des insights de données basés sur des ressources et des analytiques données détaillées ad hoc. Cette combinaison pousse l’intelligence opérationnelle et de métier.
 * Intégration avec des outils avancés d’apprentissage automatique et d’analyse. Ces outils incluent Azure Databricks, Apache Spark, Azure Machine Learning, les notebooks Jupyter et Power BI. Ces outils vous aident à résoudre les défis liés aux données de séries chronologies et améliorent l’efficacité.
 
 L’offre couplée des insights opérationnels et de l’exploration de données obéit à un modèle de paiement à l’utilisation simple pour le traitement, le stockage et l’interrogation de données. Ce modèle de facturation est adapté aux besoins de votre entreprise.

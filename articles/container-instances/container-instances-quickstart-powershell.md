@@ -1,6 +1,6 @@
 ---
-title: 'Démarrage rapide : Exécuter une application dans Azure Container Instances - PowerShell'
-description: Dans ce guide de démarrage rapide, vous utilisez Azure PowerShell pour déployer une application de conteneur Docker sur Azure Container Instances avec Azure PowerShell
+title: Guide de démarrage rapide – Déployer un conteneur Docker sur Azure Container Instances – PowerShell
+description: Dans ce guide de démarrage rapide, vous utilisez Azure PowerShell pour déployer rapidement une application web conteneurisée qui s’exécute dans une instance de conteneur Azure isolé.
 services: container-instances
 author: dlepow
 ms.service: container-instances
@@ -8,16 +8,18 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: b8cb84523288f45dfb719d69e4f7d227039598a9
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 00f5f8e045a2ec78751d115db3d9d75ec76189e8
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806910"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57732288"
 ---
-# <a name="quickstart-run-a-container-application-in-azure-container-instances-with-azure-powershell"></a>Démarrage rapide : Exécuter une application de conteneur dans Azure Container Instances avec Azure PowerShell
+# <a name="quickstart-deploy-a-container-instance-in-azure-using-azure-powershell"></a>Démarrage rapide : Déployer une instance de conteneur dans Azure à l’aide d’Azure PowerShell
 
-Utilisez Azure Container Instances pour exécuter, facilement et rapidement, des conteneurs Docker dans Azure. Vous n’avez pas besoin de déployer de machines virtuelles ou d’utiliser une plateforme d’orchestration de conteneur complète telle que Kubernetes. Dans ce démarrage rapide, vous utilisez le Portail Azure pour créer un conteneur Windows dans Azure et mettez à disposition son application avec un nom de domaine complet. Quelques secondes après l’exécution d’une seule commande de déploiement, vous pouvez accéder à l’application en cours d’exécution :
+Utilisez Azure Container Instances pour exécuter, facilement et rapidement, des conteneurs Docker serverless dans Azure. Déployez une application sur une instance de conteneur à la demande lorsque vous n’avez pas besoin d’une plateforme d’orchestration de conteneur complète telle qu’Azure Kubernetes Service.
+
+Dans cette procédure de démarrage rapide, vous utilisez Azure PowerShell pour déployer un conteneur Windows isolé et mettre son application à disposition avec un nom de domaine complet (FQDN). Quelques secondes après l’exécution d’une seule commande de déploiement, vous pouvez accéder à l’application en cours d’exécution dans le conteneur :
 
 ![Application déployée dans Azure Container Instances affichée dans le navigateur][qs-powershell-01]
 
@@ -45,7 +47,7 @@ Maintenant que vous avez un groupe de ressources, vous pouvez exécuter un conte
 
 Vous pouvez exposer vos conteneurs sur Internet en spécifiant un ou plusieurs ports à ouvrir, une étiquette de nom DNS ou les deux. Dans ce guide de démarrage rapide, vous déployez un conteneur avec une étiquette de nom DNS pour que IIS soit publiquement accessible.
 
-Pour démarrer une instance de conteneur, exécutez la commande suivante. La valeur `-DnsNameLabel` doit être unique au sein de la région Azure dans laquelle vous créez l’instance. Si vous recevez un message d’erreur « Étiquette de nom DNS indisponible », essayez d’utiliser une autre étiquette de nom DNS.
+Pour démarrer une instance de conteneur, exécutez une commande similaire à la suivante. Définissez une valeur `-DnsNameLabel` être unique au sein de la région Azure dans laquelle vous créez l’instance. Si vous recevez un message d’erreur « Étiquette de nom DNS indisponible », essayez d’utiliser une autre étiquette de nom DNS.
 
  ```azurepowershell-interactive
 New-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -DnsNameLabel aci-demo-win

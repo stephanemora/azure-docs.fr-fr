@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 11/5/2018
 ms.author: areddish
-ms.openlocfilehash: 691e95c666edf290dcfd79a6007e7b29d168a605
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 48bd10a19254540d970a1cb5ebd19b63a1975df0
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881191"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727023"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-python-sdk"></a>Démarrage rapide : Créer un projet de détection d’objets à l’aide du kit SDK Custom Vision Python
 
@@ -70,7 +70,7 @@ project = trainer.create_project("My Detection Project", domain_id=obj_detection
 
 ### <a name="create-tags-in-the-project"></a>Créer des balises dans un projet
 
-Pour créer des balises de classification à votre projet, ajoutez le code suivant à la fin du fichier *sample.py* :
+Pour créer des balises d’objet dans votre projet, ajoutez le code suivant à la fin du fichier *sample.py* :
 
 ```Python
 # Make two tags in the new project

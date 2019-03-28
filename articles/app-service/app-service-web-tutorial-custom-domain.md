@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0885671d777d79c6f8a9fc993aa1224312705bce
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 5d6a7d77b442383817179fadc5878f02dfe86628
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56650901"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089520"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutoriel : Mapper un nom DNS personnalisé existant à Azure App Service
 
@@ -145,7 +145,7 @@ Sélectionnez **Valider**.
 
 La page **Ajouter un nom d’hôte** s’affiche. 
 
-Assurez-vous que **Type d’enregistrement du nom d’hôte** est défini sur **Enregistrement CNAME (exemple.com ou tout sous-domaine)**.
+Assurez-vous que **Type d’enregistrement du nom d’hôte** est défini sur **CNAME (www\.exemple.com ou tout sous-domaine)**.
 
 Sélectionnez **Ajouter un nom d’hôte**.
 
@@ -282,7 +282,7 @@ Tapez un nom de domaine complet qui correspond au domaine générique (par exemp
 
 Le bouton **Ajouter un nom d’hôte** est activé. 
 
-Assurez-vous que le **Type d’enregistrement du nom d’hôte** est défini sur **Enregistrement CNAME (exemple.com ou tout sous-domaine)**.
+Assurez-vous que **Type d’enregistrement du nom d’hôte** est défini sur **Enregistrement CNAME (www\.exemple.com ou tout sous-domaine)**.
 
 Sélectionnez **Ajouter un nom d’hôte**.
 

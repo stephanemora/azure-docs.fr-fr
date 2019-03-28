@@ -1,6 +1,6 @@
 ---
 title: 'Démarrage rapide : Ingérer des objets blob Azure dans Azure Data Explorer'
-description: Dans ce guide de démarrage rapide, vous découvrez comment envoyer des données de compte de stockage à Azure Data Explorer en utilisant un abonnement Event Grid.
+description: Dans ce guide de démarrage rapide, vous allez apprendre à envoyer des données de compte de stockage à Azure Data Explorer en utilisant un abonnement Event Grid.
 services: data-explorer
 author: radennis
 ms.author: radennis
@@ -8,28 +8,31 @@ ms.reviewer: orspod
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 1/30/2019
-ms.openlocfilehash: 6dac6fb18f221ddb45e5b5b7e325868915732368
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+Customer intent: As a database administrator, I want Azure Data Explorer to track my blob storage and ingest new blobs.
+ms.openlocfilehash: 625556986c5034303e83cc23b4ba06b1638115d1
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804641"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448422"
 ---
-# <a name="quickstart-ingest-azure-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Démarrage rapide : Ingérer des objets blob Azure dans Azure Data Explorer en s’abonnant à des notifications Event Grid
+# <a name="quickstart-ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Démarrage rapide : Ingérer des objets blob dans Azure Data Explorer en s’abonnant à des notifications Event Grid
 
-L’Explorateur de données Azure est un service d’exploration de données rapide et hautement évolutive pour les données des journaux et les données de télémétrie. Azure Data Explorer offre une ingestion continue (chargement de données) à partir d’objets blob écrits dans des conteneurs d’objets blob. Pour en bénéficier, définissez un abonnement [Azure Event Grid](/azure/event-grid/overview) pour les événements de création d’objets blob et le routage de ces événements vers Kusto via un hub d’événements. Pour ce guide de démarrage rapide, vous devez avoir un compte de stockage avec un abonnement Event Grid qui envoie ses notifications à Event Hub. Vous pouvez alors créer une connexion de données Event Grid et voir les données circuler dans le système.
+Azure Data Explorer est un service d’exploration de données rapide et évolutif pour les données de journal et de télémétrie. Il assure une ingestion continue (chargement de données) à partir d’objets blob écrits dans des conteneurs d’objets blob. 
+
+Dans ce guide de démarrage rapide, vous allez apprendre à définir un abonnement [Azure Event Grid](/azure/event-grid/overview) et à acheminer les événements vers Azure Data Explorer via un Event Hub. Pour commencer, vous devez avoir un compte de stockage avec un abonnement Event Grid qui envoie des notifications à Azure Event Hubs. Ensuite, vous créez une connexion de données Event Grid et voyez les données circuler dans le système.
 
 ## <a name="prerequisites"></a>Prérequis
 
-1. Si vous n’avez pas encore d’abonnement Azure, [créez un compte Azure gratuit](https://azure.microsoft.com/free/)
-1. [Un cluster et une base de données](create-cluster-database-portal.md)
-1. [Un compte de stockage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)
-1. [Un hub d’événements](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)
+* Un abonnement Azure. Créez un [compte Azure gratuit](https://azure.microsoft.com/free/).
+* [Un cluster et une base de données](create-cluster-database-portal.md).
+* [Un compte de stockage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
+* [Un Event Hub](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
 
 ## <a name="create-an-event-grid-subscription-in-your-storage-account"></a>Créer un abonnement Event Grid dans votre compte de stockage
 
-1. Dans le portail Azure, accédez à votre compte de stockage.
-1. Cliquez sur l’onglet **Événements**, puis sur **Abonnement aux événements**
+1. Dans le portail Azure, recherchez votre compte de stockage.
+1. Sélectionnez **Événements** > **Abonnement aux événements**.
 
     ![Lien d’application de requête](media/ingest-data-event-grid/create-event-grid-subscription.png)
 
@@ -38,29 +41,29 @@ L’Explorateur de données Azure est un service d’exploration de données rap
     **Paramètre** | **Valeur suggérée** | **Description du champ**
     |---|---|---|
     | Nom | *test-grid-connection* | Nom de la grille d’événement que vous voulez créer.|
-    | Schéma d’événement | *Schéma Event Grid* | Le schéma qui doit être utilisé pour la grille d’événements. |
+    | Schéma d’événement | *Schéma Event Grid* | Schéma à utiliser pour la grille d’événement. |
     | Type de rubrique | *Compte de stockage* | Type de rubrique Event Grid. |
     | Ressource de rubrique | *gridteststorage* | nom de votre compte de stockage. |
-    | S’abonner à tous les types d’événements | *Décochez la case* | Ne pas être notifié de tous les événements. |
+    | S’abonner à tous les types d’événements | *clear* | Ne pas être notifié de tous les événements. |
     | Types d’événements définis | *Objet blob créé* | De quels événements spécifiques être notifié. |
-    | Type de point de terminaison | *Hubs d'événements* | Type de point de terminaison auquel vous envoyez les événements. |
+    | Type de point de terminaison | *Event Hubs* | Type de point de terminaison auquel vous envoyez les événements. |
     | Point de terminaison | *test-hub* | Hub d’événements que vous avez créé. |
     | | |
 
 1. Sélectionnez l’onglet **Fonctionnalités supplémentaires** si vous voulez effectuer le suivi des fichiers d’un conteneur spécifique. Définissez les filtres pour les notifications comme suit :
-    * Le champ **Le sujet commence par** est le préfixe *littéral* du conteneur d’objets blob (comme le modèle appliqué est *startswith*, il peut porter sur plusieurs conteneurs). Les caractères génériques ne sont pas autorisés.
+    * Le champ **Le sujet commence par** est le préfixe *littéral* du conteneur d’objets blob. Comme le modèle appliqué est *startswith*, il peut s’étendre sur plusieurs conteneurs. Les caractères génériques ne sont pas autorisés.
      Il *doit* être défini comme suit : *`/blobServices/default/containers/`*[préfixe de conteneur]
     * Le champ **Le sujet se termine par** est le suffixe *littéral* de l’objet blob. Les caractères génériques ne sont pas autorisés.
 
 ## <a name="create-a-target-table-in-azure-data-explorer"></a>Créer une table cible dans l’Explorateur de données Azure
 
-Créez une table dans Azure Data Explorer, à laquelle Event Hubs envoie les données. Vous créez la table dans le cluster et la base de données préparés dans **Prérequis**.
+Créez une table dans Azure Data Explorer, à laquelle Event Hubs enverra les données. Créez la table dans le cluster et la base de données préparés dans en lien avec les conditions préalables.
 
 1. Dans le portail Azure, sous votre cluster, sélectionnez **Requête**.
 
     ![Lien d’application de requête](media/ingest-data-event-grid/query-explorer-link.png)
 
-1. Copiez la commande suivante dans la fenêtre et sélectionnez **Exécuter** pour créer la table (TestTable) qui doit recevoir les données ingérées.
+1. Copiez la commande suivante dans la fenêtre, puis sélectionnez **Exécuter** pour créer la table (TestTable) qui doit recevoir les données ingérées.
 
     ```Kusto
     .create table TestTable (TimeStamp: datetime, Value: string, Source:string)
@@ -76,21 +79,21 @@ Créez une table dans Azure Data Explorer, à laquelle Event Hubs envoie les don
 
 ## <a name="create-an-event-grid-data-connection-in-azure-data-explorer"></a>Créer une connexion de données Event Grid dans Azure Data Explorer
 
-Vous vous connectez maintenant à Event Grid à partir d’Azure Data Explorer, afin que les données circulant dans le conteneur d’objets blob soient envoyées dans la table de test.
+Établissez à présent une connexion à la grille d’événement à partir d’Azure Data Explorer, afin que les données circulant dans le conteneur d’objets blob soient diffusées en continu vers la table de test.
 
 1. Sélectionnez **Notifications** dans la barre d’outils pour vérifier que le déploiement du hub d’événements a réussi.
 
-1. Sous le cluster que vous avez créé, sélectionnez **Bases de données** et **TestDatabase**.
+1. Sous le cluster que vous avez créé, sélectionnez **Bases de données** > **TestDatabase**.
 
     ![Sélectionner la base de données de test](media/ingest-data-event-grid/select-test-database.png)
 
-1. Sélectionnez **Ingestion des données**, puis **Ajouter une connexion de données**.
+1. Sélectionnez **Ingestion des données** > **Ajouter la connexion de données**.
 
     ![Ingestion de données](media/ingest-data-event-grid/data-ingestion-create.png)
 
-1. Sélectionnez un type de connexion : **Stockage d'objets blob**.
+1.  Sélectionnez le type de connexion : **Stockage d'objets blob**.
 
-1. Renseignez le formulaire avec les informations suivantes, puis cliquez sur **Créer**.
+1. Renseignez le formulaire avec les informations suivantes, puis sélectionnez **Créer**.
 
     ![Connexion du hub d’événements](media/ingest-data-event-grid/create-event-grid-data-connection.png)
 
@@ -98,12 +101,12 @@ Vous vous connectez maintenant à Event Grid à partir d’Azure Data Explorer, 
 
     **Paramètre** | **Valeur suggérée** | **Description du champ**
     |---|---|---|
-    | Nom de la connexion de données | *test-hub-connection* | Nom de la connexion que vous souhaitez créer dans l’Explorateur de données Azure.|
+    | Nom de la connexion de données | *test-hub-connection* | Nom de la connexion que vous souhaitez créer dans Azure Data Explorer.|
     | Abonnement du compte de stockage | Votre ID d’abonnement | ID d’abonnement où se trouve votre compte de stockage.|
     | Compte de stockage | *gridteststorage* | Nom du compte de stockage que vous avez créé précédemment.|
     | Event Grid | *test-grid-connection* | Nom de la grille d’événement que vous avez créée. |
-    | Nom de l’Event Hub | *test-hub* | Hub d’événements que vous avez créé. Ceci est automatiquement renseigné quand vous sélectionnez une grille d’événement. |
-    | Groupe de consommateurs | *test-group* | Groupe de consommateurs défini dans le hub d’événements que vous avez créé. |
+    | Nom de l’Event Hub | *test-hub* | Event Hub que vous avez créé. Ce champ est automatiquement renseigné quand vous sélectionnez une grille d’événement. |
+    | Groupe de consommateurs | *test-group* | Groupe de consommateurs défini dans l’Event Hub que vous avez créé. |
     | | |
 
     Table cible :
@@ -119,9 +122,9 @@ Vous vous connectez maintenant à Event Grid à partir d’Azure Data Explorer, 
 
 Maintenant qu’Azure Data Explorer et le compte de stockage sont connectés, vous pouvez créer des exemples de données et les charger dans le stockage d’objets blob.
 
-Nous allons maintenant utiliser un petit script de shell qui exécute quelques commandes Azure CLI de base pour interagir avec les ressources de Stockage Azure. Tout d’abord, le script crée un nouveau conteneur dans votre compte de stockage, puis télécharge un fichier existant (comme un objet blob) dans ce conteneur. Il liste ensuite tous les objets blob du conteneur. Vous pouvez utiliser [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) pour exécuter le script directement dans le portail.
+Nous allons maintenant utiliser un petit script de shell qui exécute quelques commandes Azure CLI de base pour interagir avec les ressources de Stockage Azure. Tout d’abord, le script crée un conteneur dans votre compte de stockage, télécharge un fichier existant (tel qu’objet blob) dans ce conteneur, puis affiche la liste des objets blob dans le conteneur. Vous pouvez utiliser [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) pour exécuter le script directement dans le portail.
 
-Enregistrez les données suivantes dans un fichier et utilisez-les avec le script ci-dessous :
+Enregistrez les données dans un fichier et chargez celui-ci avec ce script :
 
 ```Json
 {"TimeStamp": "1987-11-16 12:00","Value": "Hello World","Source": "TestSource"}
@@ -154,9 +157,9 @@ Enregistrez les données suivantes dans un fichier et utilisez-les avec le scrip
 ## <a name="review-the-data-flow"></a>Examiner le flux de données
 
 > [!NOTE]
-> ADX a une stratégie d’agrégation (traitement par lot) pour l’ingestion de données, conçue pour optimiser le processus d’ingestion.
+> Azure Data Explorer est associé à une stratégie d’agrégation (traitement par lot) conçue pour optimiser le processus d’ingestion des données.
 Par défaut, la stratégie est configurée sur 5 minutes.
-Vous pouvez modifier la stratégie ultérieurement en fonction des besoins. Dans ce guide de démarrage rapide, vous pouvez vous attendre à une latence de quelques minutes.
+Vous pouvez modifier la stratégie ultérieurement si nécessaire. Dans ce guide de démarrage rapide, vous pouvez vous attendre à une latence de quelques minutes.
 
 1. Dans le portail Azure, sous votre grille d’événement, vous voyez le pic de l’activité pendant l’exécution de l’application.
 
@@ -191,7 +194,7 @@ Si vous ne prévoyez pas de réutiliser votre grille d’événement, effacez **
 
 1. Sous **test-resource-group**, sélectionnez **Supprimer le groupe de ressources**.
 
-1. Dans la nouvelle fenêtre, tapez le nom du groupe de ressources à supprimer (*test-hub-rg*), puis sélectionnez **Supprimer**.
+1. Dans la nouvelle fenêtre, entrez le nom du groupe de ressources à supprimer (*test-hub-rg*), puis sélectionnez **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

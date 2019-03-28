@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: cc8c62113a9a7a12525f1ba7e59c68831a322cfe
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 828d0ced775d46b0e966969acb3220d2a678c57b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959185"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440044"
 ---
 # <a name="build-a-net-core-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account-sdk-version-3-preview"></a>Créer une application console .NET Core pour gérer des données dans le compte d’API SQL Azure Cosmos DB (kit SDK Version 3 - préversion)
 
@@ -78,7 +78,7 @@ Commençons par créer un compte Azure Cosmos DB. Si vous avez déjà un compte 
 1. Sous l’onglet **NuGet**, cliquez sur **Parcourir** et tapez **Microsoft.Azure.Cosmos** dans la zone de recherche.
 1. Dans les résultats, recherchez **Microsoft.Azure.Cosmos** et cliquez sur **Installer**.
    L’ID de package de la bibliothèque cliente d’API SQL Azure Cosmos DB est [Microsoft Azure Cosmos DB Client Library](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/).
-   ![Capture d’écran du menu NuGet pour la recherche du Kit de développement logiciel (SDK) client Azure Cosmos DB](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget-2.png)
+   ![Capture d’écran du menu NuGet pour la recherche du SDK client Azure Cosmos DB](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget-2.png)
 
    Si vous obtenez un message concernant la vérification des modifications apportées à la solution, cliquez sur **OK**. Si vous obtenez un message concernant l’acceptation de la licence, cliquez sur **J’accepte**.
 
@@ -131,9 +131,9 @@ Parfait ! L’installation étant terminée, nous pouvons passer à l’écritu
 
    Copiez l’URI à partir du portail et collez-le dans `<your endpoint URL>` dans le fichier `Program.cs`. Copiez la CLÉ PRIMAIRE à partir du portail, puis collez-la dans `<your primary key>`.
 
-   ![Capture d’écran de l’obtention des clés Azure Cosmos DB depuis le portail Azure](./media/sql-api-get-started/dotnet-tutorial-portal-keys.png)
+   ![Capture d’écran de l’obtention des clés Azure Cosmos DB à partir du portail Azure](./media/sql-api-get-started/dotnet-tutorial-portal-keys.png)
 
-1. Ensuite, nous allons créer une nouvelle instance de `CosmosClient` et configurer une génération de modèles automatique pour notre programme.
+1. Nous allons créer ensuite une nouvelle instance de `CosmosClient` et configurer une génération de modèles automatique pour notre programme.
 
    Sous la méthode **Main**, ajoutez une nouvelle tâche asynchrone appelée **GetStartedDemoAsync** qui va instancier notre nouveau `CosmosClient`. Nous allons utiliser **GetStartedDemoAsync** comme point d’entrée appelant les méthodes qui opèrent sur les ressources Azure Cosmos DB.
 
