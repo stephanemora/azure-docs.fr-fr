@@ -1,110 +1,91 @@
 ---
-title: Qu’est-ce que le service de reconnaissance vocale ?
+title: Que sont les services Speech Azure ?
 titleSuffix: Azure Cognitive Services
-description: 'Le service vocal, qui fait partie de Azure Cognitive Services, réunit plusieurs services vocaux qui étaient auparavant disponibles séparément : Reconnaissance vocale Bing (incluant la reconnaissance vocale et la synthèse vocale), Custom Speech et traduction vocale.'
+description: Les services Speech Azure sont l’unification de la reconnaissance vocale, de la synthèse vocale et de la traduction vocale dans un seul abonnement Azure. Il est facile d’ajouter les services Speech à vos applications, outils et appareils avec le Kit de développement logiciel (SDK) Speech, le Kit de développement logiciel (SDK) Speech Devices ou des API REST. Ajoutez des fonctionnalités vocales à un bot conversationnel, convertissez du texte en parole dans une application de traduction, ou transcrivez de grands volumes de données d’un centre d’appels.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 12/13/2018
+ms.date: 03/13/2019
 ms.author: erhopf
-ms.openlocfilehash: d60e5f881e44f397090a3ba5e467c08f20137d72
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d4587b5268635691d55b51a7bf88bbe01df2a0c4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858826"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57871639"
 ---
-# <a name="what-is-speech-services"></a>Qu’est-ce que les services Speech ?
+# <a name="what-are-the-speech-services"></a>Qu’est-ce que Speech Services ?
 
-Comme les autres services de reconnaissance vocale Azure, les services Speech sont alimentés par les technologies de reconnaissance vocale utilisées dans des produits tels que Cortana et Microsoft Office.
+Les services Speech Azure sont l’unification de la reconnaissance vocale, de la synthèse vocale et de la traduction vocale dans un seul abonnement Azure. Vous pouvez aisément activer vos applications, outils et appareils pour les services Speech avec le [Kit de développement logiciel (SDK) Speech](speech-sdk-reference.md), le [Kit de développement logiciel (SDK) Speech Devices](speech-devices-sdk-qsg.md) ou des [API REST](rest-apis.md).
 
-Les services Speech réunissent les fonctionnalités de reconnaissance vocale Azure précédemment disponibles via l’[API Reconnaissance vocale Bing](https://docs.microsoft.com/azure/cognitive-services/speech/home), [Translator Speech](https://docs.microsoft.com/azure/cognitive-services/translator-speech/), [Custom Speech](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home), et les services [Custom Voice](http://customvoice.ai/). À présent, un seul abonnement donne accès à toutes ces fonctionnalités.
+> [!IMPORTANT]
+> Les services Speech ont remplacé l’API Reconnaissance vocale Bing, Translator Speech et Custom Speech. Pour obtenir des instructions de migration, voir *Guides pratiques > Migration*.
 
-## <a name="main-speech-services-functions"></a>Fonctions principales des services Speech
+Ces fonctionnalités constituent les services Speech Azure. Pour en savoir plus sur les cas d’utilisation courants de chaque fonctionnalité, utilisez les liens figurant dans ce tableau, ou parcourez la référence de l’API.
 
-Les principales fonctions des services Speech sont la reconnaissance vocale (également appelée transcription), la synthèse vocale et la traduction vocale.
+| de diffusion en continu | Fonctionnalité | Description | Kit SDK  | REST |
+|---------|---------|-------------|-----|------|
+| [Reconnaissance vocale](speech-to-text.md) | Reconnaissance vocale | La reconnaissance vocale transcrit en temps réel des flux audio en texte que vos applications, outils ou appareils peuvent utiliser ou afficher. Utilisez la reconnaissance vocale avec [LUIS (Language Understanding Intelligent Service)](https://docs.microsoft.com/azure/cognitive-services/luis/) pour déduire les intentions de l’utilisateur à partir des transcriptions et agir sur des commandes vocales. | [Oui](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Oui](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| | [Transcription par lot](batch-transcription.md) | La transcription par lot permet de transcrire une reconnaissance vocale asynchrone de gros volumes de données. Il s’agit d’un service basé sur REST qui utilise le même point de terminaison que la personnalisation et la gestion des modèles. | Non  | [Oui](https://westus.cris.ai/swagger/ui/index) |
+| | [Personnalisation](#customize-your-speech-experience) | Si vous utilisez la reconnaissance vocale pour la reconnaissance et la transcription dans un environnement unique, vous pouvez créer et former des modèles de prononciation, de langue et acoustiques personnalisés pour prendre en compte un bruit ambiant ou le vocabulaire spécifique d’un secteur. | Non  | [Oui](https://westus.cris.ai/swagger/ui/index) |
+| [Synthèse vocale](text-to-speech.md) | Synthèse vocale | La synthèse vocale convertit le texte d’entrée en parole synthétisée quasi humaine. Faites votre choix parmi les voix standard et les voix neuronales (voir [Prise en charge linguistique](language-support.md)). | Non  | [Oui](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| | [Personnalisation](#customize-your-speech-experience) | Créez des polices de voix personnalisées propres à vos marques ou produits. | Non  | [Oui](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Traduction vocale](speech-translation.md) | Traduction vocale | La traduction vocale permet à vos applications, outils et appareils d’effectuer de la traduction multilingue en temps réel de la parole. Utilisez ce service pour la traduction de voix en voix et de voix en texte. | [Oui](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | Non  |
 
-|Fonction|Caractéristiques|
-|-|-|
-|[Reconnaissance vocale](speech-to-text.md)| <li>Retranscrit une voix en un texte de façon continue et en temps réel.<li>Peut effectuer une transcription en lot à partir d’enregistrements audio. <li>Prend en charge les résultats intermédiaires, la détection de fin de parole, la mise en forme automatique du texte et le masquage des grossièretés. <li>Peut appeler le [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) pour déduire l’intention de l’utilisateur à partir des transcriptions.\*|
-|[Synthèse vocale](text-to-speech.md)| <li>**Nouveau** : Fournit des voix de synthèse vocale basée sur des réseaux neuronaux presque impossibles à distinguer de la voix humaine (en anglais). <li>Convertit le texte en paroles naturelles. <li>Offre différents sexes et/ou dialectes pour de nombreuses langues prises en charge. <li>Prend en charge l’entrée de texte brut ou le langage de balisage de synthèse vocale (SSML). |
-|[Traduction vocale](speech-translation.md)| <li>Traduit des flux de données audio en quasi-temps réel.<li> Peut également traiter des processus enregistrés.<li>Fournit les résultats sous forme de texte ou de synthèse vocale. |
+## <a name="news-and-updates"></a>Nouveautés et mises à jour
 
+Découvrez les nouveautés introduites dans les services Speech Azure.
 
-## <a name="customize-speech-features"></a>Personnaliser les fonctionnalités de reconnaissance vocale
+* Février 2019 : publication du Kit de développement logiciel (SDK) Speech 1.3.0 avec prise en charge de [Unity (bêta)](quickstart-csharp-unity.md). Ajout de la prise en charge de la classe `AudioInput` qui vous permet de choisir la source de diffusion en continu pour l’audio. Pour la liste complète des améliorations et problèmes connus, voir les [Notes de publication](releasenotes.md).
+* Décembre 2018 : publication du Kit de développement logiciel (SDK) Speech 1.2.0 avec prise en charge de [Python](quickstart-python.md) et [Node.js](quickstart-js-node.md), ainsi que d’Ubuntu 18.04 LTS. Pour plus d’informations, voir les [Notes de publication](releasenotes.md).
+* Décembre 2018 : ajout de démarrages rapides de synthèse vocale pour [.NET Core](quickstart-dotnet-text-to-speech.md), [Python](quickstart-python-text-to-speech.md) et [Node.js](quickstart-nodejs-text-to-speech.md). Des exemples supplémentaires sont disponibles sur [GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http).
 
-Vous pouvez utiliser vos propres données pour entraîner des modèles de reconnaissance vocale pour les fonctionnalités de reconnaissance vocale et de synthèse vocale.
+## <a name="try-speech-services"></a>Essayer les services Speech
 
-|Fonctionnalité|Modèle|Objectif|
-|-|-|-|
-|Reconnaissance vocale|[Modèle acoustique](how-to-customize-acoustic-models.md)|Permet de transcrire des orateurs et des environnements particuliers, tels que des voitures ou des usines.|
-||[Modèle de langage](how-to-customize-language-model.md)|Permet de transcrire le vocabulaire et la grammaire d’un domaine spécifique, comme le domaine médical ou informatique.|
-||[Modèle de prononciation](how-to-customize-pronunciation.md)|Permet de transcrire des abréviations et des acronymes, tels que « IOU » pour « I owe you ». |
-|Synthèse vocale|[Police de la voix](how-to-customize-voice-font.md)|Offre une voix à votre application par l’apprentissage du modèle sur des échantillons de voix humaine.|
+Nous proposons des démarrages rapides pour la plupart des langages de programmation populaires, conçus pour que votre code soit opérationnel en moins de 10 minutes. Ce tableau répertorie les démarrages rapides les plus populaires pour chaque fonctionnalité. Utilisez le volet de navigation de gauche pour explorer les langages et plateformes supplémentaires.
 
-Vous pouvez utiliser vos modèles personnalisés partout où vous utilisez les modèles standards dans la fonctionnalité de reconnaissance vocale ou de synthèse vocale de votre application.
+| Reconnaissance vocale (SDK) | Traduction (SDK) | Synthèse vocale (REST) |
+|-------------------|-------------------|-----------------------|
+| [C#, .NET Core (Windows)](quickstart-csharp-dotnet-windows.md) | [Java (Windows, Linux)](quickstart-translate-speech-java-jre.md) | [Python (Windows, Linux, macOS)](quickstart-python-text-to-speech.md) |
+| [Javascript (navigateur)](quickstart-js-browser.md) | [C#, .NET Core (Windows)](quickstart-translate-speech-dotnetcore-windows.md) | [C#, .NET Core (Windows, Linux, macOS)](quickstart-dotnet-text-to-speech.md) |
+| [Python (Windows, Linux, macOS)](quickstart-python.md) | [C#, .NET Framework (Windows)](quickstart-translate-speech-dotnetframework-windows.md) | [Node.js (Windows, Linux, macOS)](quickstart-nodejs-text-to-speech.md) |
+| [Java (Windows, Linux)](quickstart-java-jre.md) | [C++ (Windows)](quickstart-translate-speech-cpp-windows.md) | |
 
-## <a name="use-the-speech-service"></a>Utiliser le service Speech
+Une fois que vous avez eu l’occasion d’utiliser les Services Speech, essayez notre didacticiel qui vous apprend à reconnaître les intentions du discours à l’aide du Kit de développement logiciel (SDK) Speech et de LUIS.
 
-Pour simplifier le développement d’applications pourvues d’une reconnaissance vocale, Microsoft fournit le [Kit de développement logiciel (SDK) Speech](speech-sdk.md) pour une utilisation avec le service de reconnaissance vocale. Le SDK Speech fournit des API de reconnaissance vocale et de traduction vocale pour C#, C++ et Java. Si vous développez avec l’un de ces langages, le SDK Speech facilite le développement en gérant les détails du réseau pour vous.
+* [Tutoriel : Effectuer une reconnaissance des intentions du discours à l’aide du Kit de développement logiciel (SDK) Speech et de LUIS, C#](how-to-recognize-intents-from-speech-csharp.md)
 
-Les services Speech disposent également d’une [API REST](rest-apis.md) qui fonctionne avec n’importe quel langage de programmation pouvant effectuer des requêtes HTTP. L’interface REST n’offre pas la fonctionnalité de streaming et de diffusion en temps réel du SDK.
+## <a name="get-sample-code"></a>Obtenir un exemple de code
 
-|<br>Méthode|Speech<br>to Text|Text to<br>Speech|Speech<br>Traduction|<br>Description|
-|-|-|-|-|-|
-|[Kit de développement logiciel (SDK) de reconnaissance vocale](speech-sdk.md)|OUI|Non |OUI|API natives pour C#, C++ et Java afin de simplifier le développement.|
-|[API REST](rest-apis.md)|OUI|OUI|Non |API simple basée sur HTTP qui permet d’ajouter facilement la reconnaissance vocale à votre application.|
+Un exemple de code est disponible sur GitHub pour chacun des services Speech Azure. Ces exemples couvrent des scénarios courants tels que la lecture du signal audio d’un fichier ou d’un flux, la reconnaissance continue et ponctuelle, et l’utilisation de modèles personnalisés. Pour voir les exemples SDK et REST, suivez ces liens :
 
-### <a name="websockets"></a>WebSockets
+* [Exemples de reconnaissance vocale et de traduction vocale (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+* [Exemples de transcription par lot (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
+* [Exemples de synthèse vocale (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
 
-Les services Speech prennent également en charge des protocoles WebSocket pour le streaming de la reconnaissance vocale et de la traduction vocale. Les kits de développement logiciel Speech utilisent ces protocoles pour communiquer avec le service de reconnaissance vocale. Utilisez le SDK Speech au lieu d’essayer d’implémenter votre propre communication WebSocket avec le service de reconnaissance vocale.
+## <a name="customize-your-speech-experience"></a>Personnaliser votre expérience de reconnaissance vocale
 
-Si vous avez déjà le code qui utilise la reconnaissance vocale Bing ou l’API de traduction de conversation Translator Speech via le protocole WebSocket, vous pouvez le mettre à jour pour utiliser les services Speech. Les protocoles WebSocket sont compatibles mais les points de terminaison sont différents.
+Les services Speech Azure fonctionnent bien avec les modèles intégrés. Cependant, vous pouvez personnaliser et optimiser l’expérience pour votre produit ou environnement. Les options de personnalisation vont de l’ajustement du modèle acoustique aux polices de voix uniques pour votre marque. Une fois que vous avez créé un modèle personnalisé, vous pouvez l’utiliser avec tous les services Speech Azure.
 
-### <a name="speech-devices-sdk"></a>Kit de développement logiciel (SDK) Speech Devices
+| Speech Service | Modèle | Description |
+|----------------|-------|-------------|
+| Reconnaissance vocale | [Modèle acoustique](how-to-customize-acoustic-models.md) | Créez un modèle acoustique personnalisé pour des applications, outils ou appareils utilisés dans des environnements particuliers, tels qu’une voiture ou un atelier, avec des conditions d’enregistrement spécifique. Par exemple, vous pouvez adapter l’enregistrement à des accent régionaux, à des bruits de fond spécifiques ou à l’utilisation d’un microphone particulier. |
+| | [Modèle de langage](how-to-customize-language-model.md) | Créez un modèle de langage personnalisé afin d’améliorer la transcription du vocabulaire ou de la grammaire spécifiques d’un secteur, par exemple, la terminologie médicale ou le jargon informatique. |
+| | [Modèle de prononciation](how-to-customize-pronunciation.md) | Avec un modèle de prononciation personnalisé, vous pouvez définir la forme phonétique et écrite d’un mot. Cela peut être utile pour traiter les termes personnalisés que sont notamment les noms et les acronymes. Pour commencer, vous n’avez besoin que d’un fichier de prononciation (un simple fichier .txt). |
+| Synthèse vocale | [Police de la voix](how-to-customize-voice-font.md) | Les polices de voix personnalisées vous permettent de créer une voix unique reconnaissable entre toutes pour votre marque. Il suffit d’une petite quantité de données pour commencer. Plus vous fournirez de données, plus naturelle et humaine sonnera votre police de voix. |
 
-Le [Kit de développement logiciel d’appareils Speech](speech-devices-sdk.md) est une plateforme matérielle et logicielle intégrée pour les développeurs d’appareils de reconnaissance vocale. Notre partenaire de matériel fournit des modèles de référence et des unités de développement. Microsoft fournit un kit de développement optimisé pour les appareils et exploite pleinement les possibilités du matériel.
+## <a name="reference-docs"></a>Documents de référence
 
-
-## <a name="speech-scenarios"></a>Scénarios de reconnaissance vocale
-
-Les cas d’usage pour les services Speech sont les suivants :
-
-> [!div class="checklist"]
-> * Créer des applications déclenchées par la voix
-> * Transcrire les enregistrements des centres d’appel
-> * Implémenter des bots vocaux
-
-### <a name="voice-user-interface"></a>Interface utilisateur vocale
-
-L’entrée vocale est un excellent moyen de rendre votre application flexible, accessible en mode mains libres et facile à utiliser. Avec une application vocale, les utilisateurs demandent simplement les informations qu’ils souhaitent.
-
-Si votre application est destinée au grand public, vous pouvez utiliser les modèles de reconnaissance vocale par défaut. Ils reconnaissent un large éventail d’orateurs dans des environnements courants.
-
-Si votre application est utilisée dans un domaine spécifique, par exemple, la médecine ou l’informatique, vous pouvez créer un [modèle de langage](how-to-customize-language-model.md). Vous pouvez utiliser ce modèle pour enseigner aux services Speech la terminologie spéciale utilisée par votre application.
-
-Si votre application est utilisée dans un environnement bruyant, comme une usine, vous pouvez créer un [modèle acoustique](how-to-customize-acoustic-models.md) personnalisé. Ce modèle aide les services Speech à distinguer les voix des bruits.
-
-### <a name="call-center-transcription"></a>Transcription de centre d’appel
-
-Souvent, les enregistrements des centres d’appel sont consultés uniquement en cas de problème lié à un appel. Le service Speech permet de transcrire facilement chaque enregistrement en texte. Vous pouvez facilement indexer le texte pour effectuer une [recherche en texte intégral](https://docs.microsoft.com/azure/search/search-what-is-azure-search) ou une [analyse de texte](https://docs.microsoft.com/azure/cognitive-services/Text-Analytics/) afin de détecter le sentiment, la langue et les expressions clés.
-
-Si vos enregistrements de centres d’appels impliquent des termes spécialisés, par exemple, des noms de produits ou un jargon informatique, vous pouvez créer un [modèle de langage](how-to-customize-language-model.md) afin d’enseigner le vocabulaire aux services Speech. Un [modèle acoustique](how-to-customize-acoustic-models.md) personnalisé permet aux services Speech de comprendre les communications téléphoniques pas très claires.
-
-Pour plus d’informations sur ce scénario, reportez-vous à la fonctionnalité de [transcription par lot](batch-transcription.md) du service Speech.
-
-### <a name="voice-bots"></a>Bots vocaux
-
-Grâce aux [bots](https://dev.botframework.com/), de nombreux utilisateurs accèdent aux informations recherchées, et de nombreux clients entrent en contact avec leurs entreprises préférées. Quand vous ajoutez une interface utilisateur de conversation à votre site web ou à votre application, la recherche et l’exécution de cette fonctionnalité s’en trouvent facilitées. Grâce au service Speech, la conversation gagne en fluidité et vous permet de répondre aux requêtes parlées en nature.
-
-Pour ajouter une personnalité unique à votre bot vocal, vous pouvez lui attribuer une voix personnalisée. La création d’une voix personnalisée est un processus en deux étapes. Tout d’abord, [effectuez des enregistrements](record-custom-voice-samples.md) de la voix à utiliser. Ensuite, [envoyez ces enregistrements](how-to-customize-voice-font.md) avec une transcription du texte au [portail de personnalisation de la voix](https://cris.ai/Home/CustomVoice) du service Speech, qui s’occupe du reste. Une fois votre voix personnalisée créée, les étapes à suivre pour l’utiliser dans votre application sont simples.
+* [Kit de développement logiciel (SDK) de reconnaissance vocale](speech-sdk-reference.md)
+* [SDK Speech Devices](speech-devices-sdk.md)
+* [API REST : Reconnaissance vocale](rest-speech-to-text.md)
+* [API REST : Synthèse vocale](rest-text-to-speech.md)
+* [API REST : Transcription et personnalisation par lot](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Obtenir une clé d’abonnement pour les services Speech.
-
 > [!div class="nextstepaction"]
-> [Essayer les services Speech gratuitement](get-started.md)
+> [Obtenir une clé d’abonnement aux services Speech gratuitement](get-started.md)
