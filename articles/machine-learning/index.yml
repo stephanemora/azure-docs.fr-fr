@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 4581173f142170248a48d99683804bdb67f1703e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 2f8e833088ffdf819e387fd28ae88508d5fe6d00
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250675"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519921"
 abstract:
   description: Découvrez comment générer des algorithmes intelligents dans des applications et des sites web avec ces produits Azure Machine Learning.  Ces tutoriels, démarrages rapides, références d’API et exemples vous montrent comment.
 documentType: LandingData
@@ -38,8 +38,8 @@ sections:
   - text: <b>Guides de démarrage rapide :</b>
     type: paragraph
   - items:
-    - html: <a href="service/quickstart-create-workspace-with-python">Utiliser Python pour bien démarrer</a>
-    - html: <a href="service/quickstart-get-started">Utiliser le portail Azure pour bien démarrer </a>
+    - html: <a href="service/quickstart-run-cloud-notebook">Exécuter une expérience dans le cloud</a> (aucune installation requise)
+    - html: <a href="service/quickstart-run-local-notebook">Exécuter une expérience en utilisant un serveur de notebook local</a> (installation locale du SDK)
     style: unordered
     type: list
   - text: <b>Tutoriel sur la classification des images avec des données MNIST :</b>

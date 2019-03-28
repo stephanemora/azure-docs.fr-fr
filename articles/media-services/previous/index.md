@@ -18,6 +18,8 @@ ms.author: carolz
 
 Apprenez à diffuser en continu des vidéos de qualité télévisuelle avec la plateforme cloud extensible Media Services. Des didacticiels, références d’API et autres documents vous montrent comment diffuser en toute sécurité du contenu vidéo ou audio à la demande et en direct pour des millions d’utilisateurs.
 
+**REMARQUE :** Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md).
+
 <ul class="panelContent cardsFTitle">
      <li>
         <a href="/azure/media-services/media-services-overview">
@@ -66,7 +68,7 @@ Apprenez à diffuser en continu des vidéos de qualité télévisuelle avec la p
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Prise en main d’Azure Media Services à l’aide du portail Azure</h3>
+                        <h3>Bien démarrer avec Azure Media Services à l’aide du portail Azure</h3>
                     </div>
                 </div>
             </div>
@@ -84,7 +86,7 @@ Apprenez à diffuser en continu des vidéos de qualité télévisuelle avec la p
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Création d’un compte Azure Media Services avec le portail Azure</h3>
+                        <h3>Création d’un compte Azure Media Services à l’aide du portail Azure</h3>
                     </div>
                 </div>
             </div>

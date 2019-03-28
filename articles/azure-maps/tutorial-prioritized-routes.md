@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 2af3981e05482a5f59b19cfaa2e400ae47295763
-ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
+ms.openlocfilehash: d78f46d2d62ca9db9400e0f436a8c0358734a54e
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57588837"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540514"
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>Rechercher des itinéraires pour différents modes de déplacement avec Azure Maps
 
@@ -42,11 +42,11 @@ Les étapes suivantes vous indiquent comment créer une page HTML statique inté
     <html>
     <head>
         <title>Map Route</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css" />
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css">
         <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script>
 
         <!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
@@ -79,21 +79,21 @@ Les étapes suivantes vous indiquent comment créer une page HTML statique inté
     </body>
     </html>
     ```
-    
+
     Notez que l’en-tête HTML inclut les fichiers de ressources CSS et JavaScript hébergés par la bibliothèque Azure Map Control. Notez l’événement `onload` sur le corps de la page, qui appelle la fonction `GetMap` lorsque le corps de la page est chargé. Cette fonction est destinée à contenir du code JavaScript inline pour accéder aux API Azure Maps.
 
 3. Ajoutez le code JavaScript suivant à la fonction `GetMap`. Remplacez la chaîne **\<Your Azure Maps Key\>** (Votre clé Azure Maps) par la clé primaire copiée de votre compte Maps.
 
     ```JavaScript
-   //Instantiate a map object
-   var map = new atlas.Map("myMap", {
-       //Add your Azure Maps subscription key to the map SDK. Get an Azure Maps key at https://azure.com/maps
-       authOptions: {
-        authType: 'subscriptionKey',
-        subscriptionKey: '<Your Azure Maps Key>'
-       }
-   });
-   ```
+    //Instantiate a map object
+    var map = new atlas.Map("myMap", {
+        //Add your Azure Maps subscription key to the map SDK. Get an Azure Maps key at https://azure.com/maps
+        authOptions: {
+            authType: 'subscriptionKey',
+            subscriptionKey: '<Your Azure Maps Key>'
+        }
+    });
+    ```
 
     **atlas.Map** fournit le contrôle d’une carte web visuelle et interactive et est un composant de l’API Azure Map Control.
 
@@ -113,8 +113,8 @@ Les étapes suivantes vous indiquent comment créer une page HTML statique inté
         });
     });
     ```
-    
-     Un événement de chargement est ajouté à la carte, qui est déclenché lorsque les ressources de la carte ont été entièrement chargées. Dans le gestionnaire d’événements de chargement de la carte, le paramètre de flux de trafic sur la carte est défini sur `relative`, c’est-à-dire la vitesse de la route par rapport au trafic fluide. Vous pouvez également le définir sur la vitesse `absolute` de la route, ou sur `relative-delay` qui affiche la vitesse relative lorsqu’elle diffère du trafic fluide.
+
+    Un événement de chargement est ajouté à la carte, qui est déclenché lorsque les ressources de la carte ont été entièrement chargées. Dans le gestionnaire d’événements de chargement de la carte, le paramètre de flux de trafic sur la carte est défini sur `relative`, c’est-à-dire la vitesse de la route par rapport au trafic fluide. Vous pouvez également le définir sur la vitesse `absolute` de la route, ou sur `relative-delay` qui affiche la vitesse relative lorsqu’elle diffère du trafic fluide.
 
 2. Enregistrez le fichier **MapTruckRoute.html** et actualisez la page dans votre navigateur. Si vous interagissez avec la carte et faites un zoom sur Los Angeles, vous devez voir les rues avec les données de trafic actuelles.
 
@@ -157,7 +157,7 @@ Dans ce didacticiel, deux itinéraires sont calculés et affichés sur la carte.
     ```
 
     Un événement de chargement est ajouté à la carte, qui est déclenché lorsque les ressources de la carte ont été entièrement chargées. Dans le gestionnaire d’événements de chargement de la carte, une source de données est créée pour stocker les lignes d’itinéraire ainsi que les points de départ et d’arrivée. Une couche de ligne est créée et jointe à la source de données pour définir le rendu de la ligne d’itinéraire. Des expressions sont utilisées pour récupérer la largeur et la couleur de ligne des propriétés de la fonctionnalité de ligne d’itinéraire. Un filtre est ajouté pour s’assurer que cette couche n’affiche que les données GeoJSON LineString. Lors de l’ajout de la couche à la carte, un deuxième paramètre avec la valeur `'labels'` est transmis et spécifie le rendu de cette couche sous les étiquettes de carte. Cela garantit que la ligne d’itinéraire ne couvre pas les étiquettes de route. Une couche de symbole est créée et jointe à la source de données. Cette couche spécifie comment les points de départ et d’arrivée sont affichés, dans ce cas des expressions ont été ajoutées pour récupérer les informations d’image d’icône et d’étiquette de texte des propriétés de chaque objet de point.
-    
+
 2. Pour ce didacticiel, définissez le point de départ sur une entreprise fictive de Seattle appelée Fabrikam, et le point d’arrivée sur un siège de Microsoft. Dans le gestionnaire d’événements de chargement de la carte, ajoutez le code suivant.
 
     ```JavaScript
@@ -166,13 +166,13 @@ Dans ce didacticiel, deux itinéraires sont calculés et affichés sur la carte.
         title: 'Fabrikam, Inc.',
         icon: 'pin-blue'
     });
-    
+
     var endPoint = new atlas.data.Feature(new atlas.data.Point([-122.201164, 47.616940]), {
         title: 'Microsoft - Lincoln Square',
         icon: 'pin-round-blue'
     });
     ```
-    
+
     Ce code crée deux [objets GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) pour représenter les points de départ et d’arrivée de l’itinéraire. Une propriété `title` et `icon` est ajoutée à chaque point.
 
 3. Ajoutez ensuite le code JavaScript suivant pour ajouter à la carte les marqueurs des points de départ et d’arrivée :
@@ -187,6 +187,7 @@ Dans ce didacticiel, deux itinéraires sont calculés et affichés sur la carte.
         padding: 100
     });
     ```
+
     Les points de départ et d’arrivée sont ajoutés à la source de données. Le rectangle englobant des points de départ et d’arrivée est calculé à l’aide de la fonction `atlas.data.BoundingBox.fromData`. Ce rectangle englobant est utilisé pour définir la vue de caméra de la carte sur l’itinéraire entier à l’aide de la fonction `map.setCamera`. Une marge intérieure est ajoutée pour compenser les dimensions en pixels des icônes de symbole.
 
 4. Enregistrez le fichier et actualisez votre navigateur afin d’afficher les repères sur votre carte. Désormais, la carte est centrée sur Seattle, et vous pouvez observer le repère rond bleu marquant le point de départ et l’autre repère bleu marquant le point d’arrivée.
@@ -201,7 +202,7 @@ Cette section montre comment utiliser l’API Route Service d’Azure Maps pour 
 
 1. Dans la fonction GetMap, ajoutez le code JavaScript suivant.
 
-    ```Javascript
+    ```JavaScript
     // Use SubscriptionKeyCredential with a subscription key
     var subscriptionKeyCredential = new atlas.service.SubscriptionKeyCredential(atlas.getSubscriptionKey());
 
@@ -211,6 +212,7 @@ Cette section montre comment utiliser l’API Route Service d’Azure Maps pour 
     // Construct the RouteURL object
     var routeURL = new atlas.service.RouteURL(pipeline);
     ```
+
    **SubscriptionKeyCredential** crée une stratégie **SubscriptionKeyCredentialPolicy** pour authentifier les requêtes HTTP auprès d’Azure Maps avec la clé d’abonnement. **atlas.service.MapsURL.newPipeline()** prend la stratégie **SubscriptionKeyCredential** et crée une instance de [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest). **routeURL** représente une URL des opérations d’[itinéraire](https://docs.microsoft.com/rest/api/maps/route) d’Azure Maps.
 
 2. Après avoir configuré les informations d’identification et l’URL, ajoutez le code JavaScript suivant pour construire un itinéraire du point de départ au point d’arrivée pour un camion transportant USHazmatClass2 classé cargo et afficher les résultats.
@@ -227,35 +229,36 @@ Cette section montre comment utiliser l’API Route Service d’Azure Maps pour 
         vehicleLength: 5,
         vehicleLoadType: 'USHazmatClass2'
     }).then((directions) => {
-          //Get data features from response
-          var data = directions.geojson.getFeatures();
-        
-          //Get the route line and add some style properties to it.  
-          var routeLine = data.features[0];
-          routeLine.properties.strokeColor = '#2272B9';
-          routeLine.properties.strokeWidth = 9;
-          
-          //Add the route line to the data source. We want this to render below the car route which will likely be added to the data source faster, so insert it at index 0.
-          datasource.add(routeLine, 0);
-        });
+        //Get data features from response
+        var data = directions.geojson.getFeatures();
+
+        //Get the route line and add some style properties to it.  
+        var routeLine = data.features[0];
+        routeLine.properties.strokeColor = '#2272B9';
+        routeLine.properties.strokeWidth = 9;
+
+        //Add the route line to the data source. We want this to render below the car route which will likely be added to the data source faster, so insert it at index 0.
+        datasource.add(routeLine, 0);
+    });
     ```
+
     L’extrait de code ci-dessus interroge le service d’itinéraire d’Azure Maps via la méthode [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-iot-typescript-latest). La ligne d’itinéraire est ensuite extraite de la collection de fonctionnalités GeoJSON à partir de la réponse extraite à l’aide de la méthode **geojson.getFeatures()**. La ligne d’itinéraire est ensuite ajoutée à la source de données. Un index de 0 est également ajouté pour s’assurer que la ligne est rendue avant toutes les autres lignes dans la source de données. Ceci est dû au fait que le calcul d’itinéraire réservé aux camions est généralement plus lent qu’un calcul d’itinéraire réservé aux voitures et que, si la ligne d’itinéraire réservé aux camions est ajoutée à la source de données après l’itinéraire réservé aux voitures, il s’affiche au-dessus de celui-ci. Deux propriétés sont ajoutées à la ligne d’itinéraire réservé aux camions : un trait de couleur bleue et une épaisseur de trait de 9 pixels.
 
 3. Ajoutez le code JavaScript suivant pour construire un itinéraire pour une voiture et afficher les résultats.
 
     ```JavaScript
-     routeURL.calculateRouteDirections(atlas.service.Aborter.timeout(10000), coordinates).then((directions) => {
-      
-      //Get data features from response
-      var data = directions.geojson.getFeatures();
+    routeURL.calculateRouteDirections(atlas.service.Aborter.timeout(10000), coordinates).then((directions) => {
 
-      //Get the route line and add some style properties to it.  
-      var routeLine = data.features[0];
-      routeLine.properties.strokeColor = '#B76DAB';
-      routeLine.properties.strokeWidth = 5;
-      
-      //Add the route line to the data source. We want this to render below the car route which will likely be added to the data source faster, so insert it at index 0.  
-      datasource.add(routeLine);
+        //Get data features from response
+        var data = directions.geojson.getFeatures();
+
+        //Get the route line and add some style properties to it.  
+        var routeLine = data.features[0];
+        routeLine.properties.strokeColor = '#B76DAB';
+        routeLine.properties.strokeWidth = 5;
+
+        //Add the route line to the data source. We want this to render below the car route which will likely be added to the data source faster, so insert it at index 0.  
+        datasource.add(routeLine);
     });
     ```
 

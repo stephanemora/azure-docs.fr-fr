@@ -1,0 +1,75 @@
+items:
+- name: Documentation de la préversion d’ASC pour IoT
+  href: index.yml
+- name: Vue d’ensemble
+  href: overview.md
+  items:
+  - name: Architecture de solution
+    href: architecture.md
+  - name: Agents de sécurité
+    href: security-agent-architecture.md
+  - name: Prérequis du service
+    href: service-prerequisites.md
+  - name: Bien démarrer avec ASC pour IoT
+    href: getting-started.md
+- name: Démarrages rapides
+  items:
+  - name: Activer ASC pour IoT dans IoT Hub
+    href: quickstart-onboard-iot-hub.md
+  - name: Configurer votre solution
+    href: quickstart-configure-your-solution.md
+  - name: Créer un ASC pour un jumeau de module IoT
+    href: quickstart-create-security-twin.md
+  - name: Créer des alertes de sécurité personnalisées
+    href: quickstart-create-custom-alerts.md
+  expanded: true
+- name: Tutoriels
+  items:
+  - name: Déployer des agents de sécurité
+    items:
+    - name: Déployer un agent de sécurité C# sur un appareil Windows
+      href: tutorial-deploy-windows-cs.md
+    - name: Déployer un agent de sécurité C# sur un appareil Linux
+      href: tutorial-deploy-linux-cs.md
+    - name: Déployer un agent de sécurité C sur un appareil Linux
+      href: tutorial-deploy-linux-c.md
+  - name: Investiguer un appareil
+    href: tutorial-investigate-device.md
+  - name: Envoyer vos propres messages de sécurité
+    href: tutorial-send-security-messages.md
+- name: Concepts
+  items:
+  - name: Quel agent déployer ?
+    href: select-deploy-agent.md
+  - name: Configurer des agents de sécurité
+    href: concept-agent-configuration.md
+  - name: Authentification des agents de sécurité
+    href: concept-security-agent-authentication-methods.md
+  - name: Module de sécurité
+    href: concept-security-module.md
+  - name: Alertes de sécurité
+    href: concept-security-alerts.md
+  - name: Recommandations de sécurité
+    href: concept-recommendations.md
+- name: Guides pratiques
+  items:
+  - name: Accéder aux données de sécurité brutes
+    href: how-to-security-data-access.md
+  - name: Modifier un jumeau de module de sécurité
+    href: how-to-modify-security-module-twin.md
+- name: Ressources
+  items:
+  - name: Questions fréquentes (FAQ)
+    href: resources-frequently-asked-questions.md
+  - name: Feuille de route Azure
+    href: https://azure.microsoft.com/roadmap/?category=security-identity
+  - name: Blog Azure sur la sécurité, la confidentialité et la conformité
+    href: http://blogs.msdn.com/b/azuresecurity/
+  - name: Disponibilité régionale
+    href: https://azure.microsoft.com/regions/services/
+ms.openlocfilehash: 6789b87deb5c502df3541a10e9a8e4eece21a351
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541316"

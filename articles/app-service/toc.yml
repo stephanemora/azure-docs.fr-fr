@@ -28,7 +28,7 @@ items:
   - name: Exécuter un conteneur Windows
     href: app-service-web-get-started-windows-container.md
   expanded: true
-- name: Didacticiels
+- name: Tutoriels
   items:
   - name: Application avec base de données
     items:
@@ -68,6 +68,8 @@ items:
     href: app-service-how-works-readme.md
   - name: Plans App Service
     href: overview-hosting-plans.md
+  - name: Prise en charge du runtime Java
+    href: app-service-jre-support.md
   - name: Fonctionnalités du système d’exploitation
     href: operating-system-functionality.md
   - name: Sécurité
@@ -87,7 +89,7 @@ items:
     href: overview-local-cache.md
   - name: Diagnostics
     href: overview-diagnostics.md
-- name: Procédures
+- name: Guides pratiques
   items:
   - name: Configurer l’application
     items:
@@ -221,7 +223,7 @@ items:
     href: app-service-best-practices.md
   - name: Exemples
     href: https://azure.microsoft.com/resources/samples/?service=app-service
-  - name: vidéos
+  - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=app-service
   - name: Livres de recettes
     items:
@@ -259,9 +261,9 @@ items:
       href: ip-address-change-outbound.md
     - name: Adresse SSL
       href: ip-address-change-ssl.md
-ms.openlocfilehash: 0f9689e8e6da8bc58bf3cc40306a92bf4c518d5b
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 205d7437b8e738211d7d85f7a85190c90ac9c56f
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232836"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522126"

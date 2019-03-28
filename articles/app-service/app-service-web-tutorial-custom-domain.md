@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5d6a7d77b442383817179fadc5878f02dfe86628
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7139906ac22f8d0dbf6cd6e2d69289c4b910b2b0
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58089520"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486085"
 ---
-# <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutoriel : Mapper un nom DNS personnalisé existant à Azure App Service
+# <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Didacticiel : Mapper un nom DNS personnalisé existant à Azure App Service
 
 [Azure App Service](overview.md) offre un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques. Ce tutoriel vous montre comment mapper un nom DNS personnalisé existant à Azure App Service.
 
@@ -351,7 +351,7 @@ Pour plus d’informations, consultez [Mapper un nom de domaine personnalisé à
 
 La commande suivante ajoute un nom DNS personnalisé configuré à une application App Service. 
 
-```PowerShell  
+```powershell  
 Set-AzWebApp `
     -Name <app_name> `
     -ResourceGroupName <resource_group_name> ` 
