@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-ms.openlocfilehash: fb4fed2aa6b80ceb37dde1205996a16f0c30bdd4
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
-ms.translationtype: HT
+ms.openlocfilehash: 4483a7f53e084be5f245840829f4c9c95648b1af
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994708"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520579"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Vérifier et corriger la configuration SAP HANA scale-out à haute disponibilité sur SLES 12 SP3 
 
@@ -964,7 +964,7 @@ Cet exemple illustre les contraintes d’emplacement causées par une migration 
 ![Contraintes de liste Hawk](media/hana-vm-scale-out-HA-troubleshooting/hawk-2.png)
 
 
-Vous pouvez également charger la sortie **hb_report** dans Hawk sous **Historique**, illustrée comme suit. Consultez [hb_report pour collecter les fichiers journaux](#hbreport-to-collect-log-files) : 
+Vous pouvez également charger la sortie **hb_report** dans Hawk sous **Historique**, illustrée comme suit. Consultez hb_report pour collecter des fichiers journaux : 
 
 ![Sortie hb_report chargée dans Hawk](media/hana-vm-scale-out-HA-troubleshooting/hawk-3.png)
 

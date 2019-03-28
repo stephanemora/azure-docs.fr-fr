@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 6709bb2beae6dd1964f475ce2ba07b569b9ad4ab
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 899068141a936aa5257501e733c6600185f22b8e
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285069"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522160"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Sauvegarder des bases de données SQL Server sur des machines virtuelles Azure
 
@@ -145,7 +145,7 @@ Configurez la sauvegarde de la façon suivante :
 
    - Sélectionner la stratégie par défaut : HourlyLogBackup.
    - Choisir une stratégie de sauvegarde existante créée précédemment pour SQL.
-   - [Définir une nouvelle stratégie](#configure-a-backup-policy) selon votre RPO et la durée de rétention.
+   - Définir une stratégie basée sur votre plage RPO et de rétention.
 
      ![Sélectionner la stratégie de sauvegarde](./media/backup-azure-sql-database/select-backup-policy.png)
 

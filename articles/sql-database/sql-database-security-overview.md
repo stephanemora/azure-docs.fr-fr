@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: 121226ad9ca1ea0c29dd192ed69797b37245da46
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: a4f1b26a20da3b22561538f7814105b356c4148a
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213923"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519134"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Une vue d’ensemble des fonctionnalités de sécurité d’Azure SQL Database
 
@@ -100,12 +100,16 @@ La détection des menaces améliore l’audit en analysant les journaux d’audi
 
 SQL Database sécurise les données client en utilisant le protocole [Transport Layer Security](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) pour chiffrer les données en mouvement.
 
+SQL Server applique le chiffrement (SSL/TLS) à tout moment pour toutes les connexions. Cela garantit que toutes les données sont chiffrées « en transit » entre le client et le serveur, quel que soit le paramètre de **Encrypt** ou **TrustServerCertificate** dans la chaîne de connexion.
+
+Comme meilleure pratique, stipulent que, dans la connexion de votre application, chaîne que vous spécifiez une connexion chiffrée et _**pas**_ approuver le certificat de serveur. Cela force le votre application afin de vérifier le certificat de serveur et empêcher ainsi à votre application d’être vulnérable pour les attaques de type intermédiaire.
+
+Par exemple, lorsque vous utilisez le pilote ADO.NET, cela s’effectue par **Encrypt = True** et **TrustServerCertificate = False**. Si vous obtenez votre chaîne de connexion à partir du portail Azure, il aura les paramètres appropriés.
+
 > [!IMPORTANT]
-> Azure SQL Database applique le chiffrement (SSL/TLS) de façon permanente pour toutes les connexions, ce qui garantit que toutes les données sont chiffrées pendant leur transit entre la base de données et le client. Et ce, quel que soit le paramétrage de **Encrypt** ou **TrustServerCertificate** dans la chaîne de connexion.
+> Notez que certains pilotes non Microsoft ne peuvent pas utiliser TLS par défaut ou s’appuient sur une version antérieure de TLS (< 2.0) pour pouvoir fonctionner. Dans ce cas SQL Server vous permet de se connecter à votre base de données. Toutefois, nous vous recommandons d’évaluer les risques de sécurité de l’autorisation de ces pilotes et l’application se connecte à la base de données SQL, en particulier si vous stockez des données sensibles. 
 >
-> Dans la chaîne de connexion de votre application, veillez à spécifier une connexion chiffrée et ne _pas_ faire confiance au certificat de serveur (pour le pilote ADO.NET, il s’agit de **Encrypt = True** et  **TrustServerCertificate = False**). Cela contribue à protéger votre application d’une attaque de l’intercepteur en forçant l’application à vérifier le serveur et appliquer le chiffrement. Si vous obtenez votre chaîne de connexion à partir du portail Azure, elle présentera les paramètres appropriés.
->
-> Pour plus d’informations sur le protocole TLS et la connectivité, consultez [Considérations relatives au protocole TLS](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
+> Pour plus d’informations sur TLS et de connectivité, consultez [considérations relatives à TLS](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
 
 ### <a name="transparent-data-encryption-encryption-at-rest"></a>Transparent Data Encryption (chiffrement des données au repos)
 

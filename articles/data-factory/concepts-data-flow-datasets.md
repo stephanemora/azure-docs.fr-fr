@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.openlocfilehash: 4e36e96947e6a8595230023065eb9f44a5a1f3d2
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: efb82c57a5620ef3eace8b39f6f27f2286202f84
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371313"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521837"
 ---
 # <a name="mapping-data-flow-datasets"></a>Jeux de données de Data Flow de mappage
 
@@ -49,9 +49,27 @@ Dans le flux de données, vous pouvez demander l’ADF pour créer une nouvelle 
 
 ![Schéma de Transformation source](media/data-flow/dataset2.png "schéma SQL")
 
-## <a name="delimited-text-dataset"></a>Jeu de données de texte délimité
+## <a name="choose-your-type-of-data-first"></a>Choisissez tout d’abord de votre type de données
 
-Dans le jeu de données de texte délimité, vous définirez le délimiteur pour gérer deux délimiteurs uniques ('\t 'for TSV,',' pour le volume partagé de cluster, ' |'...) ou utiliser plusieurs caractères de délimiteur. Définissez la bascule de ligne d’en-tête et avant d’accéder à la transformation Source pour détecter automatiquement les types de données.
+### <a name="delimited-text"></a>Texte délimité
+
+Dans le jeu de données de texte délimité, vous définirez le délimiteur pour gérer deux délimiteurs uniques ('\t 'for TSV,',' pour le volume partagé de cluster, ' |'...) ou utiliser plusieurs caractères de délimiteur. Définissez la bascule de ligne d’en-tête et avant d’accéder à la transformation Source pour détecter automatiquement les types de données. Si vous utilisez un jeu de texte délimité par des données à charger des données dans un récepteur, sélectionnez un dossier cible. Dans les paramètres de récepteur, vous pouvez définir le nom des fichiers de sortie.
+
+### <a name="parquet"></a>Parquet
+
+Utilisez Parquet en tant que le type de jeu de données intermédiaire préféré dans le flux de données ADF. Parquet stockera le schéma de métadonnées riches, ainsi que les données.
+
+### <a name="database-types"></a>Types de base de données
+
+Vous pouvez sélectionner la base de données SQL Azure ou Azure SQL DW.
+
+Pour les autres types de jeu de données ADF, utilisez l’activité de copie à utiliser pour stocker vos données. Il existe un modèle ADF dans la galerie de modèles pour vous aider à créer ce modèle.
+
+![copie intermédiaire](media/data-flow/templatedf.png "copie intermédiaire")
+
+## <a name="choose-your-connection-type"></a>Choisissez votre type de connexion
+
+Si vous utilisez Parquet ou texte délimité par des jeux de données, vous pouvez ensuite sélectionner l’emplacement de vos données : ADLS ou un objet Blob.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

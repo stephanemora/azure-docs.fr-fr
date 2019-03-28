@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 5f97c2997711c30ad52e5209ba86e0d1bfe30ea8
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 12bcf665fafca3df7fc2d21c77c2f8d2fbec84fc
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57251995"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58542303"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Stockage Azure Premium : conception sous le signe de la haute performance
 
@@ -235,7 +235,7 @@ Azure Premium Storage offre trois tailles de disque qui sont actuellement en ver
 
 | Type de disque Premium  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Taille du disque           | 32 Gio | 64 Gio | 128 Go| 256 Gio| 512 Go            | 1 024 Gio (1 Tio)    | 2 048 Gio (2 Tio)    | 4 095 Gio (4 Tio)    | 8 192 Gio (8 Tio)    | 16 384 Gio (16 Tio)    | 32 767 Gio (32 Gio)    |
+| Taille du disque           | 32 Gio | 64 Gio | 128 Go| 256 Gio| 512 Go            | 1 024 Gio (1 Tio)    | 2 048 Gio (2 Tio)    | 4 095 Gio (4 Tio)    | 8 192 Gio (8 Tio)    | 16 384 Gio (16 Tio)    | 32 767 Gio (32 Tio)    |
 | IOPS par disque       | 120   | 240   | 500   | 1100 | 2 300              | 5 000              | 7500              | 7500              | 12 500              | 15 000              | 20 000              |
 | Débit par disque | 25 Mio par seconde  | 50 Mio par seconde  | 100 Mio par seconde |125 Mio par seconde | 150 Mio par seconde | 200 Mio par seconde | 250 Mio par seconde | 250 Mio par seconde | 480 Mio par seconde | 750 Mio par seconde | 750 Mio par seconde |
 

@@ -1,6 +1,6 @@
 ---
 title: Utiliser PowerShell pour créer et configurer un espace de travail Log Analytics | Microsoft Docs
-description: Log Analytics utilise des données des serveurs dans votre infrastructure locale ou dans le cloud. Vous pouvez collecter des données de la machine à partir du stockage Azure lorsqu’elles sont générées par les diagnostics Azure.
+description: Espaces de travail log Analytique dans Azure Monitor stockent des données à partir de serveurs dans votre réseau local ou d’infrastructure cloud. Vous pouvez collecter des données de la machine à partir du stockage Azure lorsqu’elles sont générées par les diagnostics Azure.
 services: log-analytics
 author: richrundmsft
 ms.service: log-analytics
@@ -8,18 +8,18 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: richrund
-ms.openlocfilehash: 956c6c7c17812996853f35440c60251aa5a91057
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: f37c8290defa5e7c9baa3b705393aba376936fd8
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482097"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539375"
 ---
-# <a name="manage-log-analytics-using-powershell"></a>Gérer Log Analytics à l’aide de PowerShell
+# <a name="manage-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Gérer l’espace de travail Analytique de journal dans Azure Monitor à l’aide de PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Vous pouvez utiliser les [applets de commande PowerShell Log Analytics](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) pour exécuter diverses fonctions dans Log Analytics à partir d’une ligne de commande ou via un script.  Voici quelques exemples des tâches que vous pouvez effectuer avec PowerShell :
+Vous pouvez utiliser la [applets de commande PowerShell d’Analytique de journal](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) pour effectuer diverses fonctions sur un journal Analytique espace de travail dans Azure Monitor à partir d’une ligne de commande ou dans le cadre d’un script.  Voici quelques exemples des tâches que vous pouvez effectuer avec PowerShell :
 
 * Créer un espace de travail
 * Ajouter ou supprimer une solution
@@ -195,7 +195,7 @@ Dans l’exemple ci-dessus regexDelimiter a été défini comme « \\n » pour
 | `yyyy-MM-ddTHH:mm:ss` <br> Le T est la lettre T | `((\\\\d{2})\|(\\\\d{4}))-([0-1]\\\\d)-(([0-3]\\\\d)\|(\\\\d))T((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]` | | |
 
 ## <a name="configuring-log-analytics-to-send-azure-diagnostics"></a>Configuration d’Analytique de journal à envoyer des diagnostics Azure
-Pour une analyse sans agent des ressources Azure, celles-ci doivent avoir les diagnostics Azure activés et configurés pour écrire dans un espace de travail Log Analytics. Cette approche a pour effet d’envoyer des données directement à Log Analytics, et ne nécessite pas d’écriture de données dans un compte de stockage. Les ressources prises en charge sont les suivantes :
+Pour une analyse sans agent des ressources Azure, celles-ci doivent avoir les diagnostics Azure activés et configurés pour écrire dans un espace de travail Log Analytics. Cette approche envoie des données directement à l’espace de travail et ne nécessite pas de données à écrire dans un compte de stockage. Les ressources prises en charge sont les suivantes :
 
 | Type de ressource | Journaux | Mesures |
 | --- | --- | --- |
@@ -233,15 +233,15 @@ Set-AzDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId -Ena
 Vous pouvez également utiliser l’applet de commande précédente pour collecter des journaux à partir de ressources qui se trouvent dans différents abonnements. La cmdlet peut fonctionner sur différents abonnements dans la mesure où vous fournissez les ID de la ressource qui crée les journaux et de l'espace de travail auquel les journaux sont envoyés.
 
 
-## <a name="configuring-log-analytics-to-collect-azure-diagnostics-from-storage"></a>Configuration d’Analytique de journal pour collecter des diagnostics Azure à partir du stockage
-Pour collecter des données de journal à partir d’une instance en cours d’exécution d’un service cloud classique ou d’un cluster Service Fabric, vous devez commencer par écrire les données dans le Stockage Azure. Vous pouvez ensuite configurer Log Analytics pour collecter les journaux du compte de stockage. Les ressources prises en charge sont les suivantes :
+## <a name="configuring-log-analytics-workspace-to-collect-azure-diagnostics-from-storage"></a>Configuration d’espace de travail Analytique des journaux pour collecter des diagnostics Azure à partir du stockage
+Pour collecter des données de journal à partir d’une instance en cours d’exécution d’un service cloud classique ou d’un cluster Service Fabric, vous devez commencer par écrire les données dans le Stockage Azure. Un espace de travail Analytique de journal est ensuite configuré pour collecter les journaux à partir du compte de stockage. Les ressources prises en charge sont les suivantes :
 
 * Services cloud classiques (rôles de travail et web)
 * Clusters Service Fabric
 
 L’exemple suivant montre comment :
 
-1. Répertorier les emplacements et les comptes de stockage existants à partir desquels Log Analytics indexe les données
+1. Répertorier les comptes de stockage existants et les emplacements de l’espace de travail doit indexer les données à partir de
 2. Créer une configuration pour lire à partir d’un compte de stockage
 3. Mettre à jour la configuration créée pour indexer les données à partir d’emplacements supplémentaires
 4. Supprimer la configuration créée
@@ -250,7 +250,7 @@ L’exemple suivant montre comment :
 # validTables = "WADWindowsEventLogsTable", "LinuxsyslogVer2v0", "WADServiceFabric*EventTable", "WADETWEventTable"
 $workspace = (Get-AzOperationalInsightsWorkspace).Where({$_.Name -eq "your workspace name"})
 
-# Update these two lines with the storage account resource ID and the storage account key for the storage account you want to Log Analytics to index
+# Update these two lines with the storage account resource ID and the storage account key for the storage account you want the workspace to index
 $storageId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx/resourceGroups/demo/providers/Microsoft.Storage/storageAccounts/wadv2storage"
 $key = "abcd=="
 

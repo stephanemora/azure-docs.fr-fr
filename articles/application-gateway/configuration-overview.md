@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: absha
-ms.openlocfilehash: 18013050546cc5e204d9cc07a2f499388596164c
-ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.openlocfilehash: ca4f9bf00d70f327ff756558e25315762a9a77a8
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319446"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519746"
 ---
 # <a name="application-gateway-configuration-overview"></a>Vue d’ensemble de configuration Application Gateway
 
@@ -72,7 +72,7 @@ Vous pouvez configurer la passerelle d’application pour avoir une adresse IP p
 
 Une seule adresse IP publique ou une adresse IP privée est pris en charge. Vous choisissez l’adresse IP frontend lors de la création de la passerelle d’Application. 
 
-- Dans le cas d’une adresse IP publique, vous pouvez choisir créer une nouvelle adresse IP publique ou utiliser une adresse IP publique existante dans le même emplacement que la passerelle d’Application. Si vous créez une nouvelle adresse IP publique, le type d’adresse IP sélectionné (statique ou dynamique) ne peut pas être modifié ultérieurement. Pour plus d’informations, consultez [statiques et adresse IP publique dynamique](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-vs-dynamic-public-ip) 
+- Dans le cas d’une adresse IP publique, vous pouvez choisir créer une nouvelle adresse IP publique ou utiliser une adresse IP publique existante dans le même emplacement que la passerelle d’Application. Si vous créez une nouvelle adresse IP publique, le type d’adresse IP sélectionné (statique ou dynamique) ne peut pas être modifié ultérieurement. Pour plus d’informations, consultez [statiques et adresse IP publique dynamique](https://docs.microsoft.com/azure/application-gateway/application-gateway-components) 
 
 - Dans le cas d’une adresse IP privée, vous pouvez choisir de spécifier une adresse IP privée à partir du sous-réseau dans lequel la passerelle d’Application est créée. Si non spécifié explicitement, une adresse IP arbitraire sera automatiquement sélectionnée à partir du sous-réseau. Pour plus d’informations, consultez [créer une passerelle d’application avec un point de terminaison d’équilibreur de charge interne.](https://docs.microsoft.com/azure/application-gateway/application-gateway-ilb-arm)
 
@@ -110,7 +110,7 @@ Vous devez choisir entre le protocole HTTP et HTTPS.
 
 - Si vous choisissez HTTP, le trafic entre la passerelle client et application de flux non chiffrés.
 
-- Sélectionnez HTTPS si vous êtes intéressé [arrêt de la couche SSL (Secure Sockets)](https://docs.microsoft.com/azure/application-gateway/overview#secure-sockets-layer-ssl-terminationl) ou [chiffrement SSL de bout en bout](https://docs.microsoft.com/azure/application-gateway/ssl-overview). Si vous sélectionnez HTTPS, le trafic entre la passerelle client et l’application est chiffré et la connexion SSL va être interrompue au niveau de la passerelle d’application.  Si vous souhaitez que le chiffrement SSL de bout en bout, vous devez en outre choisir le protocole HTTPS lors de la configuration *paramètre principal HTTP*. Cela garantit que le trafic est rechiffrée lorsqu’elles transitent à partir de la passerelle d’Application vers le serveur principal.
+- Sélectionnez HTTPS si vous êtes intéressé [arrêt de la couche SSL (Secure Sockets)](https://docs.microsoft.com/azure/application-gateway/overview) ou [chiffrement SSL de bout en bout](https://docs.microsoft.com/azure/application-gateway/ssl-overview). Si vous sélectionnez HTTPS, le trafic entre la passerelle client et l’application est chiffré et la connexion SSL va être interrompue au niveau de la passerelle d’application.  Si vous souhaitez que le chiffrement SSL de bout en bout, vous devez en outre choisir le protocole HTTPS lors de la configuration *paramètre principal HTTP*. Cela garantit que le trafic est rechiffrée lorsqu’elles transitent à partir de la passerelle d’Application vers le serveur principal.
 
   Pour configurer l’arrêt de la couche SSL (Secure Sockets) et le chiffrement SSL de bout en bout, un certificat est nécessaire pour être ajouté à l’écouteur afin de permettre à la passerelle d’Application dériver une clé symétrique selon la spécification du protocole SSL. La clé symétrique est ensuite utilisée pour chiffrer et déchiffrer le trafic envoyé à la passerelle. Le certificat de passerelle doit être partagé au format Personal Information Exchange (PFX). Ce format de fichier permet d’exporter la clé privée requise par la passerelle d’application pour effectuer le chiffrement et le déchiffrement du trafic. 
 

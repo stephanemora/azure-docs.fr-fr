@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
-ms.openlocfilehash: 11372894e1dbcac6a49205ff56d8b30ffb6ee976
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: d3eb0fba2b7178b8b1702d4ca89ff85a441c20d6
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261262"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541075"
 ---
-# <a name="create-custom-fields-in-log-analytics"></a>Créer des champs personnalisés dans Log Analytics
+# <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor"></a>Créer des champs personnalisés dans un espace de travail Analytique de journal dans Azure Monitor
 
 > [!NOTE]
-> Cet article décrit l’analyse des données de texte dans Log Analytics au moment de leur collecte. L'analyse des données de texte dans une requête après la collecte de celles-ci présente des avantages, comme indiqué dans la section [Analyser les données de texte dans Log Analytics](../log-query/parse-text.md).
+> Cet article décrit comment analyser les données de texte dans un espace de travail Analytique de journal comme elles sont collectées. Il existe des avantages de l’analyse des données de texte dans une requête une fois collectée, comme décrit dans [analyser les données de texte dans Azure Monitor](../log-query/parse-text.md).
 
-La fonction **Champs personnalisés** de Log Analytics vous permet de compléter les enregistrements existants dans Log Analytics en leur ajoutant vos propres champs de recherche.  Les champs personnalisés sont renseignés automatiquement à partir des données extraites d’autres propriétés du même enregistrement.
+Le **champs personnalisés** fonctionnalité d’Azure Monitor vous permet d’étendre les enregistrements existants dans votre espace de travail Analytique de journal en ajoutant vos propres champs de recherche.  Les champs personnalisés sont renseignés automatiquement à partir des données extraites d’autres propriétés du même enregistrement.
 
 ![Vue d’ensemble des champs personnalisés](media/custom-fields/overview.png)
 

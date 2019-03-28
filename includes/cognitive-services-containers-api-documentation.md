@@ -3,19 +3,22 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/24/2019
-ms.openlocfilehash: db3b5edfea8d471bb763c2160c3bb77a7df989f6
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.date: 03/25/2019
+ms.openlocfilehash: 94e95864d8bac2d6dc0ff690a2a8f53bd2db5a40
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56741478"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522521"
 ---
-Le conteneur fournit un ensemble complet de documentation pour les points de terminaison ainsi qu’une fonctionnalité `Try it now`. Cette fonctionnalité vous permet d’entrer vos paramètres dans un formulaire HTML basé sur le web et d’effectuer la requête sans avoir à écrire du code. Une fois la requête retournée, un exemple de commande CURL est fourni pour illustrer le format du corps et des en-têtes HTTP requis. 
+## <a name="validate-container-is-running"></a>Valider conteneur est en cours d’exécution 
 
-> [!TIP]
-> Consultez la [spécification OpenAPI](https://swagger.io/docs/specification/about/), qui décrit les opérations d’API prises en charge par le conteneur, à partir de l’URI relatif `/swagger`. Par exemple : 
->
->  ```http
->  http://localhost:5000/swagger
->  ```
+Il existe plusieurs façons de valider le conteneur est en cours d’exécution : 
+
+|Requête|Objectif|
+|--|--|
+|`http://localhost:5000/`|Le conteneur fournit une page d’accueil.|
+|`http://localhost:5000/status`|Demandé par GET, pour valider le conteneur est en cours d’exécution sans provoquer d’une requête de point de terminaison. Cela peut être utilisé pour Kubernetes [sondes de temporisation et de préparation](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/).|
+|`http://localhost:5000/swagger`|Le conteneur fournit un ensemble complet de documentation pour les points de terminaison ainsi qu’une fonctionnalité `Try it now`. Cette fonctionnalité vous permet d’entrer vos paramètres dans un formulaire HTML basé sur le web et d’effectuer la requête sans avoir à écrire du code. Une fois la requête retournée, un exemple de commande CURL est fourni pour illustrer le format du corps et des en-têtes HTTP requis. |
+
+![Page d’accueil du conteneur](./media/cognitive-services-containers-api-documentation/container-webpage.png)

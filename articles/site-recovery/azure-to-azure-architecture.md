@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: raynew
-ms.openlocfilehash: 73def6b659676cc4fecf1d9ef499247c23888566
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 96873b5fdefc74893929f8150230118a162f195b
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310283"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540718"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Architecture pour la récupération d’urgence d’Azure vers Azure
 
@@ -144,7 +144,7 @@ Pour contrôler la connectivité sortante des machines virtuelles à l’aide d�
 
 **Règle** |  **Détails** | **Balise du service**
 --- | --- | --- 
-Autoriser le trafic HTTPS sortant : port 443 | Autorise toutes les plages qui correspondent aux comptes de stockage de la région source | Stockage.<nom-région>.
+Autoriser le trafic HTTPS sortant : port 443 | Autorise toutes les plages qui correspondent aux comptes de stockage de la région source | Stockage. \<région-name >.
 Autoriser le trafic HTTPS sortant : port 443 | Autorise les plages qui correspondent à Azure Active Directory (Azure AD).<br/><br/> Si des adresses Azure AD sont ajoutées par la suite, vous devez créer des règles de groupe de sécurité réseau (NSG).  | AzureActiveDirectory
 Autoriser le trafic HTTPS sortant : port 443 | Autorise l’accès aux [points de terminaison Site Recovery](https://aka.ms/site-recovery-public-ips) qui correspondent à l’emplacement cible. 
 
@@ -152,7 +152,7 @@ Autoriser le trafic HTTPS sortant : port 443 | Autorise l’accès aux [points 
 
 **Règle** |  **Détails** | **Balise du service**
 --- | --- | --- 
-Autoriser le trafic HTTPS sortant : port 443 | Autorise toutes les plages qui correspondent aux comptes de stockage de la région cible. | Stockage.<nom-région>.
+Autoriser le trafic HTTPS sortant : port 443 | Autorise toutes les plages qui correspondent aux comptes de stockage de la région cible. | Stockage. \<région-name >.
 Autoriser le trafic HTTPS sortant : port 443 | Autorise les plages qui correspondent à Azure AD.<br/><br/> Si des adresses Azure AD sont ajoutées par la suite, vous devez créer des règles NSG.  | AzureActiveDirectory
 Autoriser le trafic HTTPS sortant : port 443 | Autorise l’accès aux [points de terminaison Site Recovery](https://aka.ms/site-recovery-public-ips) qui correspondent à l’emplacement source. 
 

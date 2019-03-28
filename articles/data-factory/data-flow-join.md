@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.openlocfilehash: 204ee1b812949311258be968de387dc5b66c4fc0
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 18f713198ef9aa45cb72a6718c0f7b086c019258
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726870"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540038"
 ---
 # <a name="mapping-data-flow-join-transformation"></a>Mappage de Transformation de jointure de flux de données
 
@@ -67,6 +67,10 @@ Vous pouvez obtenir des conditions de jointure réflexive dans ADF Data Flow à 
 ![Jointure réflexive](media/data-flow/selfjoin.png "Jointure réflexive")
 
 Dans le diagramme ci-dessus, la transformation de sélection (Select) se trouve en haut. Cette opération se contente d’applique l’alias « OrigSourceBatting » au flux d’origine. Dans la transformation de jointure (Join) mise en évidence en dessous, vous pouvez voir que nous utilisons ce flux d’alias de sélection (Select) en tant que jointure de droite, ce qui nous permet de faire référence à la même clé du côté gauche et du côté droit de la jointure interne (Inner).
+
+## <a name="composite-and-custom-keys"></a>Clés composites et personnalisées
+
+Vous pouvez créer des clés composites et personnalisés à la volée à l’intérieur de la transformation de jointure. Ajouter des lignes pour les colonnes de jointure supplémentaire avec le signe plus (+) en regard de chaque ligne de relation. Calcul ou une nouvelle valeur de clé dans le Générateur d’expressions pour une valeur à la volée jointure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 02/27/2019
-ms.openlocfilehash: 65b8253a307693d00f5eaefe7660d500dce49be4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0278332105f2102fc82122c5a74db6326f011e81
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58078650"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541182"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Résoudre les problèmes d’installation Push du service Mobilité
 
@@ -183,7 +183,7 @@ Si vous observez la chaîne en gras ci-dessus, cela signifie que GRUB dispose du
 Le nom de chaque appareil doit être remplacé par l'UUID correspondante.<br>
 
 
-1. Recherchez l'UUID de l'appareil en exécutant la commande « blkid <device name> ». Par exemple : <br>
+1. Rechercher l’UUID de l’appareil en exécutant la commande « blkid \<nom de l’appareil > ». Par exemple : <br>
    ```
    blkid /dev/sda1
    /dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap"
@@ -191,7 +191,7 @@ Le nom de chaque appareil doit être remplacé par l'UUID correspondante.<br>
    /dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
    ```
 
-2. Maintenant, remplacez le nom de l’appareil par son UUID dans un format du type « root=UUID=<UUID> ». Par exemple, si nous remplacer les noms de périphérique avec l’UUID pour racine et reprendre le paramètre indiqué plu haut dans les fichiers « / boot/grub2/grub.cfg », « / boot/grub2/grub.cfg » ou « / etc/par défaut/grub : puis ressemblent les lignes dans les fichiers. <br>
+2. Maintenant remplacer le nom de l’appareil avec son UUID au format comme « racine = UUID =\<UUID > ». Par exemple, si nous remplacer les noms de périphérique avec l’UUID pour racine et reprendre le paramètre indiqué plu haut dans les fichiers « / boot/grub2/grub.cfg », « / boot/grub2/grub.cfg » ou « / etc/par défaut/grub : puis ressemblent les lignes dans les fichiers. <br>
    *kernel /boot/vmlinuz-3.0.101-63-default **root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b** splash=silent crashkernel=256M-:128M showopts vga=0x314*
 3. Redémarrez à nouveau la protection.
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 618414331ab22cff41c7ac02c78f4bef333d0c84
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c64db6b35aa2f1daa4484f137c8505b1415c5a0b
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433448"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521752"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Préparer le déploiement en production d’une solution IoT Edge
 
@@ -134,7 +134,7 @@ Dans les tutoriels et autres documents, nous prescrivons d’utiliser les mêmes
 
 ### <a name="use-tags-to-manage-versions"></a>Utiliser des balises pour gérer les versions
 
-Une balise est un concept Docker servant à faire la distinction entre les versions des conteneurs Docker. Ce sont des suffixes comme **1.0**, ajoutés à la fin d’un référentiel de conteneur. Exemple : **mcr.microsoft.com/azureiotedge-agent:1.0**. Les balises étant mutables et modifiables pour pointer vers un autre conteneur à tout moment, il est essentiel que votre équipe se mette d’accord sur une convention à suivre pour mettre à jour vos images de module par la suite. 
+Une balise est un concept de docker que vous pouvez utiliser pour faire la distinction entre les versions de conteneurs docker. Ce sont des suffixes comme **1.0**, ajoutés à la fin d’un référentiel de conteneur. Exemple : **mcr.microsoft.com/azureiotedge-agent:1.0**. Les balises étant mutables et modifiables pour pointer vers un autre conteneur à tout moment, il est essentiel que votre équipe se mette d’accord sur une convention à suivre pour mettre à jour vos images de module par la suite. 
 
 Les balises aident également à appliquer des mises à jour sur les appareils IoT Edge. Lorsque vous envoyez une version mise à jour d’un module à votre registre de conteneurs, incrémentez la balise. Ensuite, transmettez un nouveau déploiement sur vos appareils avec la balise incrémentée. Le moteur de conteneur la reconnaîtra comme une nouvelle version et extraira la dernière version du module sur l’appareil. 
 
@@ -172,7 +172,7 @@ Cette liste de vérification est un point de départ pour les règles de pare-fe
    | \*.azurecr.io | 443 | Registres de conteneurs personnels et tiers |
    | \*.blob.core.windows.net | 443 | Téléchargement de deltas d’image | 
    | \*.azure-devices.net | 5671, 8883, 443 | Accès IoT Hub |
-   | \*.docker.io  | 443 | Accès Docker (facultatif) |
+   | \*.docker.io  | 443 | Accès du Hub docker (facultatif) |
 
 ### <a name="configure-communication-through-a-proxy"></a>Configurer la communication via un proxy
 
@@ -186,16 +186,57 @@ Si vos appareils sont destinés à être déployés sur un réseau qui utilise u
 
 ### <a name="set-up-logs-and-diagnostics"></a>Configurer les journaux et les diagnostics
 
-Sur Linux, le démon IoT Edge utilise les journaux en tant que le pilote de journalisation par défaut. Vous pouvez vous servir de l’outil en ligne de commande `journalctl` pour interroger les journaux du démon. Sous Windows, le démon IoT Edge utilise les diagnostics PowerShell. Interrogez les journaux du démon avec `Get-WinEvent`. Les modules IoT Edge utilisent le pilote JSON (pilote par défaut de Docker) pour la journalisation.  
+Sur Linux, le démon IoT Edge utilise les journaux en tant que le pilote de journalisation par défaut. Vous pouvez vous servir de l’outil en ligne de commande `journalctl` pour interroger les journaux du démon. Sous Windows, le démon IoT Edge utilise les diagnostics PowerShell. Interrogez les journaux du démon avec `Get-WinEvent`. Modules IoT Edge utilisent le pilote JSON pour la journalisation, qui est la valeur par défaut.  
 
 Lorsque vous testez un déploiement IoT Edge, vous pouvez généralement accéder à vos appareils pour récupérer les journaux et résoudre les problèmes. Dans un scénario de déploiement, vous n’avez pas forcément cette option. Réfléchissez à la façon dont vous allez collecter des informations sur vos appareils en production. Il est possible d’utiliser un module de journalisation, par exemple, [logspout-loganalytics](https://github.com/veyalla/logspout-loganalytics), qui recueille des informations auprès des autres modules et les envoie vers le cloud. Vous pouvez également concevoir votre propre module de journalisation. 
 
-Si vous craignez que les journaux ne deviennent trop volumineux sur un appareil avec contraintes de ressources, plusieurs possibilités s’offrent à vous pour réduire l’utilisation de la mémoire. 
+### <a name="place-limits-on-log-size"></a>Placer les limites de taille de journal
 
-* Vous pouvez en particulier limiter la taille de tous les fichiers journaux Docker dans le démon Docker proprement dit. Pour Linux, configurez le démon à l’adresse `/etc/docker/daemon.json` ; pour Windows, à l’adresse `C:\ProgramData\docker\confige\daemon.json`. 
-* Si vous souhaitez ajuster la taille du fichier journal de chaque conteneur, vous pouvez utiliser les options de création de chaque module. 
-* Configurer Docker pour gérer automatiquement les journaux en définissant des journaux en tant que le pilote de journalisation par défaut pour Docker. 
-* Supprimez régulièrement les anciens journaux de votre appareil en installant un outil logrotate pour Docker. Utilisez la spécification de fichier suivante : 
+Par défaut le moteur de conteneur Moby ne définit pas de limites de taille de journal de conteneur. Au fil du temps, cela peut entraîner à l’appareil à remplir avec les journaux et l’espace disque est insuffisant. Envisagez les options suivantes pour éviter ce problème :
+
+**Option : Définir les limites globales qui s’appliquent à tous les modules de conteneur**
+
+Vous pouvez limiter la taille de tous les fichiers de journaux de conteneur dans les options de journal de moteur de conteneur. L’exemple suivant définit le pilote de journal `json-file` (recommandé) avec des limites de taille et le nombre de fichiers :
+
+    {
+        "log-driver": "json-file",
+        "log-opts": {
+            "max-size": "10m",
+            "max-file": "3"
+        }
+    }
+
+Ajouter (ou ajouter) ces informations dans un fichier nommé `daemon.json` et placez-le à l’emplacement approprié pour votre plateforme d’appareil.
+
+| Plateforme | Lieu |
+| -------- | -------- |
+| Linux | `/etc/docker/` |
+| Windows | `C:\ProgramData\iotedge-moby-data\config\` |
+
+Le moteur de conteneur doit être redémarré pour que les modifications entrent en vigueur.
+
+**Option : Ajuster les paramètres de journal pour chaque module de conteneur**
+
+Vous pouvez effectuer dans le **createOptions** de chaque module. Par exemple : 
+
+    "createOptions": {
+        "HostConfig": {
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {
+                    "max-size": "10m",
+                    "max-file": "3"
+                }
+            }
+        }
+    }
+
+
+**Options supplémentaires sur les systèmes Linux**
+
+* Configurer le moteur de conteneur pour envoyer des journaux à `systemd` [feuille](https://docs.docker.com/config/containers/logging/journald/) en définissant `journald` en tant que le pilote de journalisation par défaut. 
+
+* Supprimer régulièrement les anciens journaux à partir de votre appareil en installant un outil logrotate. Utilisez la spécification de fichier suivante : 
 
    ```
    /var/lib/docker/containers/*/*-json.log{

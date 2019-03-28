@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: alkohli
-ms.openlocfilehash: dc84d5850656a0898fba328b652d86f3d8995bef
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bb1d6c5bd51fcfe35127c2f6d8dd6a80b727c45f
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118372"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517145"
 ---
 # <a name="use-azure-data-box-to-send-data-to-appropriate-azure-storage-blob-tier"></a>Utiliser Azure Data Box pour envoyer des données au niveau Stockage Blob Azure approprié
 
@@ -27,7 +27,7 @@ Le stockage Azure propose trois différents niveaux pour stocker les données de
 
 Le niveau de stockage froid concerne les données qui sont rarement sollicitées et qui doivent être stockées pour un minimum de 30 jours. Le coût de stockage du niveau froid est inférieur à celui du niveau de stockage chaud, mais les frais d’accès aux données sont plus élevés.
 
-Le niveau archive Azure est hors connexion et offre les coûts de stockage les plus bas, mais également les coûts d’accès les plus élevés. Ce niveau est destiné aux données qui restent dans le stockage d’archivage pour un minimum de 180 jours. Pour plus d’informations de chacun de ces niveaux et sur le modèle de tarification, accédez à [Comparaison des niveaux de stockage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers#comparison-of-the-storage-tiers).
+Le niveau archive Azure est hors connexion et offre les coûts de stockage les plus bas, mais également les coûts d’accès les plus élevés. Ce niveau est destiné aux données qui restent dans le stockage d’archivage pour un minimum de 180 jours. Pour plus d’informations de chacun de ces niveaux et sur le modèle de tarification, accédez à [Comparaison des niveaux de stockage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers).
 
 Les données de Data Box sont chargées sur un niveau de stockage associé au compte de stockage. Quand vous créez un compte de stockage, vous pouvez spécifier Froid ou Chaud comme niveau d’accès. En fonction du modèle d’accès de votre charge de travail et du coût, vous pouvez déplacer ces données du niveau par défaut vers un autre niveau de stockage.
 

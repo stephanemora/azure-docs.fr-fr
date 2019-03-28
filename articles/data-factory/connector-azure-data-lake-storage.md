@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 03/25/2019
 ms.author: jingwang
-ms.openlocfilehash: f27e7eba11dd98bc30f4f1b5d796488d3973f64a
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: d589714be387bdff14d76ccd9417123295a62770
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405621"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522000"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Copier des données vers ou depuis Azure Data Lake Storage Gen2 à l’aide d’Azure Data Factory
 
@@ -104,10 +104,10 @@ Pour l’authentification de principal de service, effectuez les étapes suivant
     - **En tant que récepteur**, dans l’Explorateur de stockage, accordez au moins **écriture + exécution** autorisé à créer des éléments enfants dans le dossier. Vous pouvez également, dans le contrôle d’accès (IAM), accordez au moins **contributeur aux données stockage Blob** rôle.
 
 >[!NOTE]
->À la liste des dossiers à partir de la racine, vous devez définir l’autorisation du principal du service accordée à **au niveau racine avec l’autorisation « Execute »** ou l’autorisation sur la page IAM. Cette définition s’avère nécessaire quand vous utilisez :
+>À la liste des dossiers à partir de niveau du compte, vous devez définir l’autorisation du principal du service accordée à **compte de stockage avec l’autorisation « Execute »** ou l’autorisation sur la page IAM. Cette définition s’avère nécessaire quand vous utilisez :
 >- L’**outil Copier des données** pour créer le pipeline de copie.
 >- L’**interface utilisateur de Data Factory** pour tester la connexion et parcourir les dossiers lors de la création. 
->Si vous avez le problème sur l’octroi d’autorisations au niveau racine, vous pouvez ignorer tester la connexion et le chemin d’accès d’entrée manuellement lors de la création. Activité de copie continue de fonctionner tant que le principal du service est accordée avec l’autorisation appropriée sur les fichiers à copier.
+>Si vous avez le problème sur l’octroi d’autorisation au niveau du compte, vous pouvez ignorer tester la connexion et le chemin d’accès d’entrée manuellement lors de la création. Activité de copie continue de fonctionner tant que le principal du service est accordée avec l’autorisation appropriée sur les fichiers à copier.
 
 Ces propriétés sont prises en charge dans le service lié :
 
@@ -158,10 +158,10 @@ Pour utiliser les identités managées afin d’authentifier les ressources Azur
     - **En tant que récepteur**, dans l’Explorateur de stockage, accordez au moins **écriture + exécution** autorisé à créer des éléments enfants dans le dossier. Vous pouvez également, dans le contrôle d’accès (IAM), accordez au moins **contributeur aux données stockage Blob** rôle.
 
 >[!NOTE]
->À la liste des dossiers à partir de la racine, vous devez définir l’autorisation de l’identité gérée accordée à **au niveau racine avec l’autorisation « Execute »** ou l’autorisation sur la page IAM. Cette définition s’avère nécessaire quand vous utilisez :
+>À la liste des dossiers à partir de niveau du compte, vous devez définir l’autorisation de l’identité gérée accordée à **compte de stockage avec l’autorisation « Execute »** ou l’autorisation sur la page IAM. Cette définition s’avère nécessaire quand vous utilisez :
 >- L’**outil Copier des données** pour créer le pipeline de copie.
 >- L’**interface utilisateur de Data Factory** pour tester la connexion et parcourir les dossiers lors de la création. 
->Si vous avez le problème sur l’octroi d’autorisations au niveau racine, vous pouvez ignorer tester la connexion et le chemin d’accès d’entrée manuellement lors de la création. Activité de copie continue de fonctionner tant que l’identité gérée est accordée avec l’autorisation appropriée sur les fichiers à copier.
+>Si vous avez le problème sur l’octroi d’autorisation au niveau du compte, vous pouvez ignorer tester la connexion et le chemin d’accès d’entrée manuellement lors de la création. Activité de copie continue de fonctionner tant que l’identité gérée est accordée avec l’autorisation appropriée sur les fichiers à copier.
 
 Ces propriétés sont prises en charge dans le service lié :
 
@@ -196,7 +196,7 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type du jeu de données doit être définie sur **AzureBlobFSFile**. |Oui |
-| folderPath | Chemin vers le dossier dans Data Lake Storage Gen2. Si non spécifié, il pointe vers la racine. <br/><br/>Le filtre de caractères génériques est pris en charge, et les caractères génériques autorisés sont : `*` (correspond à zéro ou plusieurs caractères) et `?` (correspond à zéro ou un caractère) ; utilisez `^` comme caractère d'échappement si le nom réel de votre dossier contient des caractères génériques ou ce caractère d'échappement. <br/><br/>Exemples : dossier_racine/sous-dossier/ ; consultez d’autres exemples dans [Exemples de filtres de dossier et de fichier](#folder-and-file-filter-examples). |Non  |
+| folderPath | Chemin vers le dossier dans Data Lake Storage Gen2. Si non spécifié, il pointe vers la racine. <br/><br/>Le filtre de caractères génériques est pris en charge, et les caractères génériques autorisés sont : `*` (correspond à zéro ou plusieurs caractères) et `?` (correspond à zéro ou un caractère) ; utilisez `^` comme caractère d'échappement si le nom réel de votre dossier contient des caractères génériques ou ce caractère d'échappement. <br/><br/>Exemples : système de fichiers/dossiers /, voir d’autres exemples dans [exemples de filtre de dossier et le fichier](#folder-and-file-filter-examples). |Non  |
 | fileName | **Filtre de nom ou de caractère générique** pour les fichiers sous le « folderPath » spécifié. Si vous ne spécifiez pas de valeur pour cette propriété, le jeu de données pointe vers tous les fichiers du dossier. <br/><br/>Dans le filtre, les caractères génériques autorisés sont les suivants : `*` (correspond à zéro caractère ou plus) et `?` (correspond à zéro ou un caractère).<br/>- Exemple 1 : `"fileName": "*.csv"`<br/>- Exemple 2 : `"fileName": "???20180427.txt"`<br/>Utilisez `^` comme caractère d’échappement si votre nom de fichier réel contient des caractères génériques ou ce caractère d’échappement.<br/><br/>Lorsque fileName n’est pas spécifié pour un jeu de données de sortie et que **preserveHierarchy** n’est pas spécifié dans le récepteur d’activité, l’activité de copie génère automatiquement le nom de fichier suivant ce modèle : « *Data.[GUID d’exécution d’activité].[GUID si FlattenHierarchy].[format si configuré].[compression si configurée]* », par exemple, « Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz ». Si c’est le nom de la table et non la requête qui est utilisé pour la copie à partir d’une source tabulaire, le modèle de nom est le suivant : « *[nom de la table].[format].[compression si configurée]* », par exemple « MyTable.csv ». |Non  |
 | modifiedDatetimeStart | Filtre de fichiers en fonction de l’attribut : Dernière modification. Les fichiers seront sélectionnés si leur heure de dernière modification se trouve dans l’intervalle de temps situé entre `modifiedDatetimeStart` et `modifiedDatetimeEnd`. L’heure est appliquée au fuseau horaire UTC au format « 2018-12-01T05:00:00Z ». <br/><br/> Les propriétés peuvent être Null, ce qui signifie qu’aucun filtre d’attribut de fichier n’est appliqué au jeu de données.  Lorsque `modifiedDatetimeStart` a une valeur DateHeure, mais que `modifiedDatetimeEnd` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est supérieur ou égal à la valeur DateHeure sont sélectionnés.  Lorsque `modifiedDatetimeEnd` a une valeur DateHeure, mais que `modifiedDatetimeStart` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est inférieur à la valeur DateHeure sont sélectionnés.| Non  |
 | modifiedDatetimeEnd | Filtre de fichiers en fonction de l’attribut : Dernière modification. Les fichiers seront sélectionnés si leur heure de dernière modification se trouve dans l’intervalle de temps situé entre `modifiedDatetimeStart` et `modifiedDatetimeEnd`. L’heure est appliquée au fuseau horaire UTC au format « 2018-12-01T05:00:00Z ». <br/><br/> Les propriétés peuvent être Null, ce qui signifie qu’aucun filtre d’attribut de fichier n’est appliqué au jeu de données.  Lorsque `modifiedDatetimeStart` a une valeur DateHeure, mais que `modifiedDatetimeEnd` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est supérieur ou égal à la valeur DateHeure sont sélectionnés.  Lorsque `modifiedDatetimeEnd` a une valeur DateHeure, mais que `modifiedDatetimeStart` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est inférieur à la valeur DateHeure sont sélectionnés.| Non  |

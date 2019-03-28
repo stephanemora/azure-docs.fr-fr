@@ -1,6 +1,6 @@
 ---
 title: Déploiement des mises à niveau d’applications - Azure SQL Database | Microsoft Docs
-description: Découvrez comment utiliser la géoréplication Azure SQL Database pour prendre en charge les mises à niveau en ligne de votre application cloud.
+description: Découvrez comment utiliser la géo-réplication de la base de données SQL pour prendre en charge les mises à niveau en ligne de votre application cloud.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: ad971ae3157dd17ecd4af662626c986584a27fe2
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 63f301b4618df9764460d0a9a133834fb72e33bb
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329164"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540582"
 ---
 # <a name="manage-rolling-upgrades-of-cloud-applications-by-using-sql-database-active-geo-replication"></a>Gérer les mises à niveau propagées des applications cloud à l’aide de la géoréplication active Azure SQL Database
 
@@ -59,7 +59,7 @@ Si la mise à niveau se termine correctement, vous êtes maintenant prêt à fai
 
 Si la mise à niveau échoue, par exemple en raison d’une erreur dans le script de mise à niveau, considérez l’environnement de préproduction comme compromis. Pour restaurer l’application telle qu’elle se trouvait avant la mise à niveau, restaurez l’accès complet à l’application dans l’environnement de production. Le schéma suivant montre les étapes de restauration :
 
-1. Définissez la copie de base de données en mode lecture-écriture (8). Cette action restaure toutes les fonctionnalités V1 de la copie de production.
+1. Définition de la copie de base de données en mode lecture-écriture (8). Cette action restaure toutes les fonctionnalités V1 de la copie de production.
 2. Effectuez l’analyse de la cause racine et mettez l’environnement de préproduction hors service (9).
 
 À ce stade, l’application est entièrement fonctionnelle et vous pouvez répéter les étapes de mise à niveau.
@@ -88,7 +88,7 @@ Pour atteindre ces objectifs, en plus d’utiliser les environnements Web Apps, 
 * La base de données secondaire géorépliquée dans la région de sauvegarde (4)
 * Un profil de performance Traffic Manager avec un point de terminaison en ligne nommé `contoso-1.azurewebsites.net` et un point de terminaison hors connexion nommé `contoso-dr.azurewebsites.net`
 
-Pour permettre l’annulation de la mise à niveau, vous devez créer un environnement de préproduction avec une copie entièrement synchronisée de l’application. Pour avoir la garantie que l’application sera capable de récupérer rapidement en cas de défaillance irrémédiable pendant le processus de mise à niveau, l’environnement de préproduction doit également être géoredondant. Les étapes suivantes sont nécessaires pour créer un environnement de préproduction pour la mise à niveau :
+Pour permettre l’annulation de la mise à niveau, vous devez créer un environnement de préproduction avec une copie entièrement synchronisée de l’application. Pour avoir la garantie que l’application sera capable de récupérer rapidement en cas de défaillance irrémédiable pendant le processus de mise à niveau, l’environnement de préproduction doit également être géoredondant. Les étapes suivantes sont nécessaires pour créer un environnement intermédiaire pour la mise à niveau :
 
 1. Déployez un environnement de préproduction de l’application web dans la région primaire (6).
 2. Créez une base de données secondaire dans la même Azure primaire (7). Configurez l’environnement de préproduction de l’application web pour vous y connecter. 
@@ -103,7 +103,21 @@ Pour permettre l’annulation de la mise à niveau, vous devez créer un environ
 Une fois les étapes de préparation terminées, l’environnement de préproduction est prêt pour la mise à niveau. Le schéma suivant illustre ces étapes de la mise à niveau :
 
 1. Configurez la base de données primaire dans l’environnement de production en mode lecture seule (10). Ce mode garantit que la base de données de production (V1) ne changera pas pendant la mise à niveau, évitant ainsi toute divergence des données entre les instances de base de données V1 et V2.
-2. Déconnectez la base de données secondaire se trouvant dans la même région à l’aide du mode d’arrêt planifié (11). Cette action crée une copie indépendante mais entièrement synchronisée de la base de données de production. Cette base de données est alors mise à niveau.
+
+```sql
+-- Set the production database to read-only mode
+ALTER DATABASE <Prod_DB>
+SET (ALLOW_CONNECTIONS = NO)
+```
+
+2. Arrêter la géo-réplication en déconnectant la base de données secondaire (11). Cette action crée une copie indépendante mais entièrement synchronisée de la base de données de production. Cette base de données est alors mise à niveau. L’exemple suivant utilise Transact-SQL mais [PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary?view=azps-1.5.0) est également disponible. 
+
+```sql
+-- Disconnect the secondary, terminating geo-replication
+ALTER DATABSE V1
+REMOVE SECONDARY ON SERVER <Partner-Server>
+```
+
 3. Exécutez le script de mise à niveau sur `contoso-1-staging.azurewebsites.net`, `contoso-dr-staging.azurewebsites.net` et la base de données primaire de préproduction (12). Les modifications apportées à la base de données sont répliquées automatiquement sur la secondaire de préproduction.
 
 ![Configuration de la géoréplication SQL Database pour la reprise d’activité cloud.](media/sql-database-manage-application-rolling-upgrade/option2-2.png)

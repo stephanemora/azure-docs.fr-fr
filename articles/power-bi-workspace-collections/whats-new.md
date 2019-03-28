@@ -1,21 +1,19 @@
 ---
 title: Nouveautés dans les collections d’espaces de travail Power BI
 description: Obtenir les dernières informations sur les nouveautés des collections d’espaces de travail Power BI
-services: power-bi-embedded
+services: power-bi-workspace-collections
+ms.service: power-bi-workspace-collections
 author: markingmyname
-ROBOTS: NOINDEX
-ms.assetid: 2794ae98-b9a7-45df-b6e1-962a395b91fa
-ms.service: power-bi-embedded
+ms.author: maghan
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: maghan
-ms.openlocfilehash: 0fe3116934ac4ab9b1e3fd3b5efcd6627df0ed3d
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
-ms.translationtype: HT
+ms.openlocfilehash: b29996b8e2cd9a95b9c1566036b1009b65c18bfa
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046927"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518063"
 ---
 # <a name="whats-new-in-power-bi-workspace-collections"></a>Nouveautés dans les collections d’espaces de travail Power BI
 
@@ -72,5 +70,5 @@ Inclus dans cette version :
 * Exemple d’application mis à jour pour tous les appels d’API **v1.0** .
 * Prise en charge des collections d’espaces de travail Power BI pour le Kit de développement logiciel (SDK) Azure, PowerShell et l’interface de ligne de commande.
 * Les utilisateurs peuvent exporter des données de visualisation vers un **.csv**.
-* Les collections d’espaces de travail Power BI sont désormais prises en charge dans les mêmes langues/paramètres régionaux que Microsoft Azure. Pour plus d’informations, consultez [Azure - Langues](http://social.technet.microsoft.com/wiki/contents/articles/4234.windows-azure-extent-of-localization.aspx).
+* Les collections d’espaces de travail Power BI sont désormais prises en charge dans les mêmes langues/paramètres régionaux que Microsoft Azure. Pour plus d’informations, consultez [Azure - Langues](https://social.technet.microsoft.com/wiki/contents/articles/4234.windows-azure-extent-of-localization.aspx).
 

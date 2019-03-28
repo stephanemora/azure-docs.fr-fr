@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/30/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 4ff99cab168abeb0bbeeb8b29de0ea0285c255b0
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 01020a23b102c896bbeb3d8cf455afabfc164917
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57457851"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505935"
 ---
 ## <a name="prepare-for-akv-integration"></a>Préparation pour AKV Integration
 Il existe plusieurs conditions préalables pour utiliser Azure Key Vault Integration pour configurer votre machine virtuelle SQL Server : 
@@ -29,8 +29,10 @@ Il existe plusieurs conditions préalables pour utiliser Azure Key Vault Integra
 
 Les sections suivantes décrivent ces conditions préalables et les informations que vous devez collecter pour exécuter ultérieurement des applets de commande PowerShell.
 
+[!INCLUDE [updated-for-az](./updated-for-az.md)]
+
 ### <a id="install"></a> Installer Azure PowerShell
-Assurez-vous que vous avez installé la dernière version du kit de développement logiciel (SDK) Azure PowerShell. Pour plus d’informations, consultez [Installer et configurer Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Assurez-vous que vous avez installé la dernière version du kit de développement logiciel (SDK) Azure PowerShell. Pour plus d’informations, consultez [Installer et configurer Azure PowerShell](/powershell/azure/install-az-ps).
 
 ### <a id="register"></a> Inscrire une application dans votre instance Azure Active Directory
 
@@ -49,7 +51,7 @@ Inscrivez ensuite une application auprès d'ADD. Vous obtiendrez un compte Princ
 
 * L’ID d’application et le secret serviront également à créer des identifiants dans SQL Server.
 
-* Vous devez autoriser ce nouvel ID client à disposer des autorisations d’accès suivantes : **get**, **wrapKey**, **unwrapKey**. Cette opération s'effectue avec la cmdlet [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy). Pour plus d'informations, consultez [Présentation d'Azure Key Vault](../articles/key-vault/key-vault-overview.md).
+* Vous devez autoriser ce nouvel ID client à disposer des autorisations d’accès suivantes : **get**, **wrapKey**, **unwrapKey**. Cette opération s'effectue avec la cmdlet [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy). Pour plus d'informations, consultez [Présentation d'Azure Key Vault](../articles/key-vault/key-vault-overview.md).
 
 ### <a id="createkeyvault"></a> Créer un coffre de clés
 Pour utiliser Azure Key Vault pour stocker les clés que vous utiliserez pour le chiffrement dans votre machine virtuelle, vous devez accéder à un coffre de clés. Si vous n’avez pas déjà configuré votre coffre de clés, créez-en un en suivant les étapes décrites dans la rubrique [Prise en main d’Azure Key Vault](../articles/key-vault/key-vault-overview.md). Avant d'effectuer ces étapes, vous devez collecter certaines informations au cours de la configuration. Elles seront nécessaires ultérieurement lorsque vous activerez Azure Key Vault Integration sur votre machine virtuelle SQL.

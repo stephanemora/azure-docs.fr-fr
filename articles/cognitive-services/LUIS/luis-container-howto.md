@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: b007575c614134f298a16b32c3179f7f0dfd31e5
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: edd035bc95cd2e694a7cfac39e447c63fce0f7d3
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436691"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520154"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installer et exécuter des conteneurs Docker LUIS
  
@@ -309,6 +309,11 @@ L’emplacement suivant montre la structure de répertoires imbriqués pour les 
 
 Une fois le journal chargé, [passez en revue les énoncés de point de terminaison](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-review-endpoint-utterances) dans le portail LUIS.
 
+
+<!--  ## Validate container is running -->
+
+[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+
 ## <a name="stop-the-container"></a>Arrêter le conteneur
 
 Pour arrêter le conteneur, dans l’environnement de ligne de commande où le conteneur est en cours d’exécution, appuyez sur **Ctrl+C**.
@@ -316,10 +321,6 @@ Pour arrêter le conteneur, dans l’environnement de ligne de commande où le c
 ## <a name="troubleshooting"></a>Résolution de problèmes
 
 Si vous exécutez le conteneur avec un [montage](luis-container-configuration.md#mount-settings) de sortie et la journalisation activée, il génère des fichiers journaux qui sont utiles pour résoudre les problèmes qui se produisent lors du démarrage ou de l’exécution du conteneur. 
-
-## <a name="containers-api-documentation"></a>Documentation sur l’API du conteneur
-
-[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## <a name="billing"></a>Facturation
 

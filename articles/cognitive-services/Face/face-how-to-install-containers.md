@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: 3f77b7b71fa2ef4e7262656540b8562d3a2ff33c
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 3e6b220e7193c5e683fc8a6c06a6e9e3dd3e3f6e
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437592"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521616"
 ---
 # <a name="install-and-run-face-containers"></a>Installer et exécuter des conteneurs de visage
 
@@ -120,6 +120,11 @@ Le conteneur fournit des API de point de terminaison de prédiction de requête 
 
 Utilisez l’hôte, `https://localhost:5000`, pour les API de conteneur.
 
+
+<!--  ## Validate container is running -->
+
+[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+
 ## <a name="stop-the-container"></a>Arrêter le conteneur
 
 [!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
@@ -128,9 +133,6 @@ Utilisez l’hôte, `https://localhost:5000`, pour les API de conteneur.
 
 Si vous exécutez le conteneur avec un [montage](./face-resource-container-config.md#mount-settings) de sortie et la journalisation activée, il génère des fichiers journaux qui sont utiles pour résoudre les problèmes qui se produisent lors du démarrage ou de l’exécution du conteneur. 
 
-## <a name="containers-api-documentation"></a>Documentation sur l’API du conteneur
-
-[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## <a name="billing"></a>Facturation
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2017
 ms.author: apimpm
-ms.openlocfilehash: b2d8a194abb5a5fe7d9c06cb9ef10bb0af58124a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: c9d453be0aeb07bf0d78ee4c043fbb6202c225f2
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870162"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520460"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Comment sécuriser les API à l'aide d'une authentification par certificat client dans la Gestion des API
 
@@ -88,5 +88,5 @@ L’exemple suivant montre comment vérifier l’empreinte d’un certificat cli
 ## <a name="next-step"></a>Étape suivante
 
 *  [Comment sécuriser les services principaux à l'aide d'une authentification par certificat client](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
-*  [Comment télécharger des certificats](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates#a-namestep1-aupload-a-client-certificate)
+*  [Comment télécharger des certificats](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
 

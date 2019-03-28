@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a0192b88525d326840283f79ecea7027516ce8c7
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 04490abb8b7f3f4c39e4134a314429e190db5174
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483436"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540786"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Installer la haute disponibilité SAP NetWeaver sur un cluster de basculement Windows et un partage de fichiers pour des instances SAP ASCS/SCS sur Azure
 
@@ -278,7 +278,7 @@ New-SmbShare -Name saploc -Path c:\usr\sap -FullAccess "BUILTIN\Administrators",
 
 Créez le partage de volume et de fichiers suivant sur le cluster SOFS :
 
-* Structure C:\ClusterStorage\Volume1\usr\sap\\<SID>\SYS\ de fichier SAP GLOBALHOST sur le volume partagé de cluster (CSV) SOFS
+* Fichier SAP GLOBALHOST `C:\ClusterStorage\Volume1\usr\sap\<SID>\SYS\` sur le cluster SOFS volume partagé (CSV)
 
 * Partage de fichiers SAPMNT
 
@@ -347,8 +347,8 @@ Effectuez les étapes suivantes :
 ## <a name="move-the-sys-folder-to-the-sofs-cluster"></a>Déplacer le dossier \SYS\... vers le cluster SOFS
 
 Effectuez les étapes suivantes :
-1. Copiez le dossier SYS (par exemple, C:\usr\sap\\<SID>\SYS) de l’un des nœuds de cluster ASCS/SCS vers le cluster SOFS (par exemple, vers C:\ClusterStorage\Volume1\usr\sap\\<SID>\SYS).
-2. Supprimez le dossier C:\usr\sap\\<SID>\SYS des deux nœuds de cluster ASCS/SCS.
+1. Copiez le dossier SYS (par exemple, `C:\usr\sap\<SID>\SYS`) à partir d’un de l’instance ASCS/SCS nœuds de cluster vers le cluster SOFS (par exemple, pour `C:\ClusterStorage\Volume1\usr\sap\<SID>\SYS`).
+2. Supprimer le `C:\usr\sap\<SID>\SYS` dossier à partir de deux nœuds de cluster ASCS/SCS.
 
 ## <a name="update-the-cluster-security-setting-on-the-sap-ascsscs-cluster"></a>Mettre à jour le paramètre de sécurité de cluster sur le cluster SAP ASCS/SCS
 
@@ -374,7 +374,7 @@ Créez un nom réseau du cluster SAP ASCS/SCS (par exemple, **pr1-ascs [10.0.6.7
 
 ## <a name="update-the-default-and-sap-ascsscs-instance-profile"></a>Mettre à jour le profil par défaut et le profil d’instance SAP ASCS/SCS
 
-Pour utiliser le nouveau nom d’hôte virtuel SAP ASCS/SCS et le nom d’hôte global SAP, vous devez mettre à jour le profil par défaut et le profil d’instance SAP ASCS/SCS \<SID >_ASCS/SCS\<Nr>_<Host>.
+Pour utiliser le nouveau nom d’hôte virtuel SAP ASCS/SCS et le nom d’hôte global SAP, vous devez mettre à jour la valeur par défaut et le profil de l’instance SAP ASCS/SCS \<SID >_ASCS/SCS\<Nr >_\<hôte >.
 
 
 | Anciennes valeurs |  |
@@ -459,7 +459,7 @@ Le nouveau fichier saprc.dll est installé sur les deux nœuds de cluster ASCS/S
 
 Pour plus d’informations, consultez [SAP Note 1596496 - How to update SAP resource type DLLs for Cluster Resource Monitor ][1596496] (Guide pratique pour mettre à jour des DLL de type de ressource SAP pour le moniteur de ressource du cluster).
 
-## <a name="create-a-sap-sid-cluster-group-network-name-and-ip"></a>Créer une adresse IP, un nom réseau et un groupe de clusters SAP <SID>
+## <a name="create-a-sap-sid-cluster-group-network-name-and-ip"></a>Créer un SAP \<SID > groupe, nom de réseau et IP de cluster
 
 Pour créer un groupe de clusters SAP \<SID>, un nom réseau ASCS/SCS et une adresse IP correspondante, exécutez la cmdlet PowerShell suivante :
 

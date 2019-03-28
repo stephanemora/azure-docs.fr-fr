@@ -4,14 +4,14 @@ description: Découvrez comment définir un débit provisionné pour vos contene
 author: aliuy
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 03/19/2019
 ms.author: andrl
-ms.openlocfilehash: 439b48c271260e9744bb9c9ca0e2b21e61cf4687
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 8335a235de708227136400f3af8fa7b4d0a52e29
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005061"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520902"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Approvisionner le débit sur les conteneurs et les bases de données
 
@@ -75,6 +75,20 @@ Vous pouvez combiner les deux modèles. Provisionner le débit sur la base de do
 * Vous pouvez explicitement configurer des unités de requête « P » de débit provisionné sur le conteneur nommé B.
 * Le débit des unités de requête « K » est partagé entre les quatre conteneurs : A, C, D et E. La quantité exacte de débit disponible pour A, C, D ou E varie. Il n’existe pas de contrat SLA correspondant au débit de chaque conteneur individuel.
 * Le conteneur nommé B est assuré de bénéficier en permanence du débit des unités de requête « P ». Il est associé à des contrats SLA.
+
+## <a name="update-throughput-on-a-database-or-a-container"></a>Débit de mise à jour sur une base de données ou un conteneur
+
+Une fois que vous créez un conteneur Azure Cosmos ou une base de données, vous pouvez mettre à jour le débit approvisionné. Il n’existe aucune limite sur le débit approvisionné maximal que vous pouvez configurer sur la base de données ou le conteneur. Le débit approvisionné minimal dépend des facteurs suivants : 
+
+* La taille maximale des données que vous stockez jamais dans le conteneur
+* Le débit maximal que vous devez configurer jamais sur le conteneur
+* Le nombre maximal de conteneurs Azure Cosmos que vous créez jamais dans une base de données avec un débit partagé. 
+
+Vous pouvez récupérer le débit minimal d’un conteneur ou d’une base de données par programmation à l’aide de kits de développement logiciel ou affichez la valeur dans le portail Azure. Lors de l’utilisation du SDK .NET, le [DocumentClient.ReplaceOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync?view=azure-dotnet) méthode vous permet de mettre à l’échelle de la valeur de débit approvisionné. Lorsque vous utilisez le SDK Java, le [RequestOptions.setOfferThroughput](sql-api-java-samples.md#offer-examples) méthode vous permet de mettre à l’échelle de la valeur de débit approvisionné. 
+
+Lors de l’utilisation du SDK .NET, le [DocumentClient.ReadOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync?view=azure-dotnet) méthode vous permet de récupérer le débit minimal d’un conteneur ou d’une base de données. 
+
+Vous pouvez faire évoluer le débit approvisionné d’un conteneur ou d’une base de données à tout moment. Vous pouvez exécuter l’opération de mise à l’échelle vers le bas après la période d’inactivité de 4 heures. La période d’inactivité est définie comme le temps période lorsqu’il n’y avait aucune offre des opérations de remplacement (qui inclut la montée et descente en puissance) dans un conteneur ou d’une base de données. 
 
 ## <a name="comparison-of-models"></a>Comparaison des modèles
 

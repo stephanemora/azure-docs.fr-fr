@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: danlep
-ms.openlocfilehash: 044ff823e34f51257cb6186417535b9b542bc289
-ms.sourcegitcommit: f68b0e128f0478444740172f54e92b453df696be
+ms.openlocfilehash: 0a4d9f355a5cdc92bab4491c08677042c42986cb
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136982"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517927"
 ---
 # <a name="restrict-access-to-an-azure-container-registry-using-an-azure-virtual-network-or-firewall-rules"></a>Restreindre l’accès à un Registre de conteneurs Azure à l’aide d’un réseau virtuel Azure ou des règles de pare-feu
 
@@ -359,7 +359,7 @@ az acr update --name myContainerRegistry --default-action Allow
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Si vous avez créé toutes les ressources Azure dans la même ressource de groupe et ne sont plus nécessaires, vous pouvez éventuellement supprimer les ressources à l’aide d’un seul [suppression du groupe az](/cli/azure/group#az_group_delete) commande :
+Si vous avez créé toutes les ressources Azure dans la même ressource de groupe et ne sont plus nécessaires, vous pouvez éventuellement supprimer les ressources à l’aide d’un seul [suppression du groupe az](/cli/azure/group) commande :
 
 ```azurecli
 az group delete --name myResourceGroup
@@ -405,7 +405,7 @@ Plusieurs ressources et fonctionnalités de réseau virtuel ont été abordées 
 [az-acr-run]: /cli/azure/acr#az-acr-run
 [az-acr-update]: /cli/azure/acr#az-acr-update
 [az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
-[az-group-create]: /cli/azure/group#az_group_create
+[az-group-create]: /cli/azure/group
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [az-vm-create]: /cli/azure/vm#az-vm-create
 [az-network-vnet-subnet-show]: /cli/azure/network/vnet/subnet/#az-network-vnet-subnet-show

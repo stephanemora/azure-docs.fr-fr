@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: raynew
-ms.openlocfilehash: 3133f22a4d9ecd8a0ee4bff9f8b0be9c1f4eb705
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 7fc724f1aff40c6dedff59ce3919496a30b30337
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403661"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520171"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Sauvegarder des machines virtuelles Azure dans un coffre Recovery Services
 
@@ -220,7 +220,8 @@ Après avoir activé la sauvegarde :
 - Une sauvegarde initiale s’exécute conformément à votre planification de sauvegarde.
 - Il installe l’extension de sauvegarde, que la machine virtuelle soit ou non en cours d’exécution.
     - Une machine virtuelle en cours d’exécution offre le plus de chance d’obtenir un point de récupération d’application cohérent.
-    -  Toutefois, la machine virtuelle est sauvegardée même si elle est désactivée et que l’extension ne peut pas être installée. Il est connu comme une machine virtuelle en mode hors connexion. Dans ce cas, le point de récupération seront cohérents d’incident. [En savoir plus]() sauvegarde Azure ne prennent en charge l’ajustement de l’horloge automatique pour les modifications de l’enregistrement de l’heure d’été pour les sauvegardes de machines virtuelles Azure. Modifiez les stratégies de sauvegarde manuellement selon les besoins.
+    -  Toutefois, la machine virtuelle est sauvegardée même si elle est désactivée et que l’extension ne peut pas être installée. Il est connu comme une machine virtuelle en mode hors connexion. Dans ce cas, le point de récupération seront cohérents d’incident.
+    Notez que Sauvegarde Azure ne prend pas en charge l’ajustement automatique de l’horloge lors du passage à l’heure d’été pour les sauvegardes de machines virtuelles Azure. Modifiez les stratégies de sauvegarde manuellement selon les besoins.
 
 ## <a name="run-the-initial-backup"></a>Effectuer la sauvegarde initiale
 

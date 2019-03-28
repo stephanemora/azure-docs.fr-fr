@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 5902ba86b51ca1998364e393ac02bbb0d0a23a28
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 56d91d7801c576064b941ac6089a52e74b4a3b7b
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432632"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540922"
 ---
 # <a name="aks-troubleshooting"></a>Résolution des problèmes liés à AKS
 
@@ -90,3 +90,7 @@ Opérations de cluster sont limitées lors des opérations de mise à niveau act
 
 * Si le cluster est activement mise à niveau, patientez jusqu'à ce que l’opération se termine. Si elle a réussi, recommencez l’opération ayant échouée précédemment.
 * Si le cluster a échoué mise à niveau, suivez les étapes présentées ci-dessus
+
+## <a name="can-i-move-my-cluster-to-a-different-subscription-or-my-subscription-with-my-cluster-to-a-new-tenant"></a>Puis-je déplacer mon cluster vers un autre abonnement ou mon abonnement avec mon cluster à un nouveau locataire ?
+
+Si vous avez déplacé votre cluster AKS à un autre abonnement ou le propriétaire d’abonnement vers un nouveau client au cluster, le cluster perdrez la fonctionnalité en raison de perdante attributions de rôles et droits de principaux de service. **AKS ne prend pas en charge les clusters déplacement entre abonnements ou les locataires** en raison de cette contrainte.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: 400583f50e898bfc750a387bf0ee83a3147e5006
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6834ab15f3d46b8b7116a48b0e970f553eb65ba8
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57905055"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521812"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights : Forum Aux Questions (FAQ)
 
@@ -153,7 +153,7 @@ Cela est possible si votre code envoie ce type de données. Cela peut également
 
 **Tous** les octets de l’adresse web du client ont toujours la valeur 0 lors de la recherche des attributs d’emplacement géographique.
 
-## <a name="my-ikey-is-visible-in-my-web-page-source"></a>Mon iKey est visible dans la source de ma page web. 
+## <a name="my-instrumentation-key-is-visible-in-my-web-page-source"></a>Ma clé d’Instrumentation est visible dans ma source de la page web. 
 
 * Il s’agit d’une pratique courante dans les solutions de surveillance.
 * Il ne peut pas être utilisé pour dérober vos données.
@@ -162,7 +162,7 @@ Cela est possible si votre code envoie ce type de données. Cela peut également
 
 Vous pouvez :
 
-* Utilisez deux iKeys distincts (ressources Application Insights distinctes) pour les données client et serveur. Ou
+* Utilisez les deux clés d’Instrumentation distincts (ressources Application Insights distinctes), pour les données client et serveur. Ou
 * Écrire un proxy qui s’exécute sur votre serveur et que le client web utilise pour envoyer des données.
 
 ## <a name="post"></a>Comment consulter les données POST dans la fonction Recherche de diagnostic ?

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: glenga
-ms.openlocfilehash: e9e47eff3df941b0c1437083dc7440fab4091418
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 0224d9ba5a430635e4675c2fb2bf354e7c975f31
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317066"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518726"
 ---
 # <a name="monitor-azure-functions"></a>Surveiller l’exécution des fonctions Azure
 
@@ -24,7 +24,7 @@ ms.locfileid: "58317066"
 
 ![Application Insights Metrics Explorer](media/functions-monitoring/metrics-explorer.png)
 
-Azure Functions a également [assure la surveillance qui n’utilise pas Application Insights](#monitoring-without-application-insights). Nous recommandons Application Insights, qui offre plus de données et de meilleurs moyens de les analyser.
+Azure Functions offre également une surveillance intégrée qui n’utilisent pas Application Insights. Nous recommandons Application Insights, qui offre plus de données et de meilleurs moyens de les analyser.
 
 ## <a name="application-insights-pricing-and-limits"></a>Tarification et limites d’Application Insights
 
@@ -77,7 +77,7 @@ L’étape suivante consiste à [désactiver la journalisation intégrée](#disa
 
 ## <a name="disable-built-in-logging"></a>Désactiver la journalisation intégrée
 
-Lorsque vous activez Application Insights, désactivez le [journalisation intégrée qui utilise le stockage Azure](#logging-to-storage). La journalisation intégrée est utile pour tester avec des charges de travail légères, mais n’est pas prévue pour la production de charge élevée. Pour surveiller la production, nous recommandons Application Insights. Si la journalisation intégrée est utilisée en production, l’enregistrement de journal peut être incomplet en raison de la limitation sur le stockage Azure.
+Lorsque vous activez Application Insights, désactivez la journalisation intégrée qui utilise le stockage Azure. La journalisation intégrée est utile pour tester avec des charges de travail légères, mais n’est pas prévue pour la production de charge élevée. Pour surveiller la production, nous recommandons Application Insights. Si la journalisation intégrée est utilisée en production, l’enregistrement de journal peut être incomplet en raison de la limitation sur le stockage Azure.
 
 Pour désactiver la journalisation intégrée, supprimez le paramètre d’application `AzureWebJobsDashboard`. Pour plus d’informations sur la suppression de paramètres d’application dans le portail Azure, consultez la section **Paramètres de l’application** dans [Comment gérer une application de fonction dans le portail Azure](functions-how-to-use-azure-function-app-settings.md#settings). Avant de supprimer le paramètre d’application, assurez-vous qu’aucune des fonctions existantes dans la même application de fonction n’utilisent le paramètre pour des déclencheurs de stockage Azure ou des liaisons.
 
@@ -125,7 +125,7 @@ Dans [Metrics Explorer](../azure-monitor/app/metrics-explorer.md), vous pouvez c
 
 ![Metrics Explorer](media/functions-monitoring/metrics-explorer.png)
 
-Sous l’onglet [Échecs](../azure-monitor/app/asp-net-exceptions.md), vous pouvez créer des graphiques et des alertes basées sur les échecs de fonction et les exceptions de serveur. Le **Nom de l’opération** est le nom de la fonction. Échecs de dépendances ne sont pas visibles à moins que vous implémentiez [télémétrie personnalisée](#custom-telemetry-in-c-functions) pour les dépendances.
+Sous l’onglet [Échecs](../azure-monitor/app/asp-net-exceptions.md), vous pouvez créer des graphiques et des alertes basées sur les échecs de fonction et les exceptions de serveur. Le **Nom de l’opération** est le nom de la fonction. Échecs de dépendances ne sont pas visibles à moins que vous implémentiez des données de télémétrie personnalisées pour les dépendances.
 
 ![Échecs](media/functions-monitoring/failures.png)
 
@@ -423,7 +423,7 @@ Dans les fonctions de script C#, vous pouvez utiliser la méthode d’extension 
 logger.LogMetric("TestMetric", 1234);
 ```
 
-Ce code est une alternative à l’appel `TrackMetric` à l’aide de [l’API Application Insights pour .NET](#custom-telemetry-in-c-functions).
+Ce code est une alternative à l’appel `TrackMetric` à l’aide de l’API Application Insights pour .NET.
 
 ## <a name="write-logs-in-javascript-functions"></a>Écrire des journaux dans les fonctions JavaScript
 
@@ -441,7 +441,7 @@ Lorsque vous exécutez sur [version 1.x](functions-versions.md#creating-1x-apps)
 context.log.metric("TestMetric", 1234);
 ```
 
-Ce code est une alternative à l’appel `trackMetric` à l’aide de [le SDK Node.js pour Application Insights](#custom-telemetry-in-javascript-functions).
+Ce code est une alternative à l’appel `trackMetric` à l’aide du SDK Node.js pour Application Insights.
 
 ## <a name="log-custom-telemetry-in-c-functions"></a>Connecter les données de télémétrie personnalisées C# fonctions
 
@@ -632,7 +632,7 @@ Le `tagOverrides` jeux de paramètres le `operation_Id` à l’ID d’invocation
 
 ### <a name="dependencies"></a>Les dépendances
 
-Les dépendances vis-à-vis de la fonction d’autres services n’apparaissent pas automatiquement. Vous pouvez écrire du code personnalisé pour afficher les dépendances. Pour obtenir des exemples, consultez l’exemple de code dans le [ C# section de données de télémétrie personnalisées](#custom-telemetry-in-c-functions). L’exemple de code entraîne un *cartographie d’application* dans Application Insights, qui ressemble à l’image suivante :
+Les dépendances vis-à-vis de la fonction d’autres services n’apparaissent pas automatiquement. Vous pouvez écrire du code personnalisé pour afficher les dépendances. Pour obtenir des exemples, consultez l’exemple de code dans le [ C# section de données de télémétrie personnalisées](#log-custom-telemetry-in-c-functions). L’exemple de code entraîne un *cartographie d’application* dans Application Insights, qui ressemble à l’image suivante :
 
 ![Mise en correspondance d’applications](media/functions-monitoring/app-map.png)
 

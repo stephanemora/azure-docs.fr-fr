@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 5fcd7f05aeb294441b16bab0aeb18ef5d0bf5c28
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 1e1bc92c684bf6ddbb7dc4ff0f882ad61ddeb27e
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749032"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540480"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Restaurer une base de données SQL Azure ou basculer vers une base de données secondaire
 
@@ -32,6 +32,13 @@ Pour en savoir plus sur les scénarios de continuité d’activité et les fonct
 
 > [!NOTE]
 > Si vous utilisez des bases de données ou des pools Premium ou Critiques pour l’entreprise redondants interzone, sachez que le processus de récupération est automatisé et que le reste de ce document ne vous sera d’aucune utilité.
+
+> [!NOTE]
+> Les bases de données primaire et secondaire doivent offrir le même niveau de service. Il est également recommandé que la base de données secondaire est créé avec la même taille de calcul (dtu ou VCORE) en tant que le réplica principal. Pour plus d’informations, consultez [la mise à niveau ou rétrogradation en tant que base de données primaire](sql-database-active-geo-replication.md#upgrading-or-downgrading-a-primary-database).
+
+> [!NOTE]
+> Utilisez un ou plusieurs groupes de basculement pour gérer le basculement de plusieurs bases de données.
+> Si vous ajoutez une relation de géoréplication existante au groupe de basculement, vérifiez que la base de données géosecondaire est configurée avec le même niveau de service et la même taille de calcul que la base de données primaire. Pour plus d’informations, consultez [utiliser des groupes de basculement automatique pour permettre un basculement transparent et coordonné de plusieurs bases de données](sql-database-auto-failover-group.md).
 
 ## <a name="prepare-for-the-event-of-an-outage"></a>Préparation à une panne
 
@@ -73,6 +80,7 @@ Utilisez l’un des guides suivants pour effectuer le basculement vers une base 
 
 - [Basculer vers un serveur secondaire géorépliqué à l’aide du portail Azure](sql-database-geo-replication-portal.md)
 - [Basculer vers le serveur secondaire à l’aide de PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
+- [Basculer vers un serveur secondaire à l’aide de Transact-SQL (T-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#e-failover-to-a-geo-replication-secondary)
 
 ## <a name="recover-using-geo-restore"></a>Récupérer à l’aide de la géorestauration
 

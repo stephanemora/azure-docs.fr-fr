@@ -9,12 +9,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: heidist
-ms.openlocfilehash: 541feee2005428226b3f46927bc0e4bfb53cc98d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 7a91ad691089ac816b31ebe1fce202110e580f71
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781712"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520562"
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>Gérer votre service Azure Search avec PowerShell
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ Vous pouvez exécuter des scripts et des applets de commande PowerShell sur Wind
 > * [Liste de tous les services de recherche dans votre abonnement](#list-search-services)
 > * [Obtenir des informations sur un service de recherche spécifique](#get-search-service-information)
 > * [Créer ou supprimer un service](#create-or-delete-a-service)
-> * [Régénérer les clés de l’API d’administration](#regenerate-admin-api-keys)
+> * Régénérer les clés de l’API d’administration
 > * [Créer ou supprimer des clés api de requête](#create-or-delete-query-keys)
 > * [L’échelle d’un service en augmentant ou diminuant les réplicas et partitions](#scale-replicas-and-partitions)
 

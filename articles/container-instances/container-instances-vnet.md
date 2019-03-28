@@ -5,18 +5,18 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/03/2019
+ms.date: 03/26/2019
 ms.author: danlep
-ms.openlocfilehash: c6c82ee26fdbd824bdf42720ed7fc08135a872da
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: a4da7a23d6dcb50164829507130fed145abeebbd
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372402"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517315"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Déployer des instance de conteneur dans un réseau virtuel Azure
 
-Un [réseau virtuel Azure](../virtual-network/virtual-networks-overview.md) fournit un accès réseau privé et sécurisé, notamment le filtrage, le routage et le peering de vos ressources Azure et locales. En déployant des groupes de conteneurs dans un réseau virtuel Azure, vos conteneurs peuvent communiquer en toute sécurité avec d’autres ressources dans le réseau virtuel.
+[Réseau virtuel Azure](../virtual-network/virtual-networks-overview.md) fournit la mise en réseau privé et sécurisé pour votre Azure et les ressources locales. En déployant des groupes de conteneurs dans un réseau virtuel Azure, vos conteneurs peuvent communiquer en toute sécurité avec d’autres ressources dans le réseau virtuel.
 
 Les groupes de conteneurs déployés dans un réseau virtuel Azure autorisent les scénarios suivants :
 
@@ -34,7 +34,6 @@ Les groupes de conteneurs déployés dans un réseau virtuel Azure autorisent le
 Certaines limitations s’appliquent lorsque vous déployez des groupes de conteneurs dans un réseau virtuel.
 
 * Pour déployer des groupes de conteneurs dans un sous-réseau, le sous-réseau ne peut pas contenir d’autres types de ressources. Supprimez toutes les ressources d’un sous-réseau avant de déployer des groupes de conteneurs dans celui-ci, ou créez un sous-réseau.
-* Les groupes de conteneurs déployés dans un réseau virtuel ne prennent pas en charge les adresses IP publiques ou les étiquettes de nom DNS.
 * Vous ne pouvez pas utiliser une [identité managée](container-instances-managed-identity.md) dans un groupe de conteneurs déployé sur un réseau virtuel.
 * En raison des ressources réseau supplémentaires impliquées, le déploiement d’un groupe de conteneurs dans un réseau virtuel est généralement un peu plus lent que celui d’une instance de conteneur standard.
 
@@ -46,10 +45,14 @@ Bien que cette fonctionnalité est disponible en version préliminaire, les limi
 
 Les limites des ressources de conteneur peuvent différer des limites des instances de conteneur non connectées au réseau dans ces régions. Les conteneurs Linux sont actuellement les seuls pris en charge pour cette fonctionnalité. La prise en charge de Windows est prévue.
 
-### <a name="unsupported-network-resources-and-features"></a>Fonctionnalités et ressources réseau non pris en charge
+### <a name="unsupported-networking-scenarios"></a>Scénarios de mise en réseau non pris en charge 
 
-* Azure Load Balancer
-* Homologation de réseaux virtuels
+* **Azure Load Balancer** -placer un équilibreur de charge Azure devant les instances de conteneur dans un groupe de conteneurs en réseau n’est pas pris en charge.
+* **Homologation de réseaux virtuels** -vous ne pouvez pas homologuer un réseau virtuel contenant un sous-réseau délégué sur Azure Container Instances à un autre réseau virtuel
+* **Tables de routage** -itinéraires définis par l’utilisateur ne peut pas être configurés dans un sous-réseau délégué à Azure Container Instances
+* **Groupes de sécurité réseau** -règles de sécurité de trafic sortant dans des groupes de sécurité réseau appliqués à un sous-réseau délégué à Azure Container Instances ne sont pas actuellement appliqués 
+* **Étiquette DNS ou adresse IP publique** -groupes de conteneurs déployés sur un réseau virtuel ne prend actuellement en charge l’exposition conteneurs directement sur internet avec une adresse IP publique ou un nom de domaine complet
+* **Résolution de noms interne** -résolution de noms pour les ressources Azure dans le réseau virtuel via le DNS Azure interne n’est pas pris en charge.
 
 La **suppression de ressources réseau** requiert des [étapes supplémentaires](#delete-network-resources) après le déploiement de groupes de conteneurs dans le réseau virtuel.
 

@@ -4,15 +4,17 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 432d0d4c201d0d73e5695a1726129e7fa744bdde
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 2a1bf160926bc2f90e326d773bf6a3e7fdc37103
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319742"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505892"
 ---
 # <a name="common-errors-during-classic-to-azure-resource-manager-migration"></a>Erreurs courantes lors de la migration de Classic vers Azure Resource Manager
 Cet article répertorie les erreurs les plus courantes et leur atténuation lors la migration de ressources IaaS du modèle de déploiement Azure Classic vers la pile Azure Resource Manager.
+
+[!INCLUDE [updated-for-az](./updated-for-az.md)]
 
 ## <a name="list-of-errors"></a>Liste d’erreurs
 
@@ -22,7 +24,7 @@ Cet article répertorie les erreurs les plus courantes et leur atténuation lors
 | La migration n’est pas prise en charge pour le déploiement {deployment-name} dans le service hébergé {hosted-service-name} car il s’agit d’un déploiement PaaS (Web/Worker). |Cela se produit lorsque le déploiement contient un rôle web/de travail. Étant donné que la migration n’est prise en charge que pour les Machines Virtuelles, veuillez supprimer le rôle web/de travail du déploiement et effectuer une nouvelle tentative de migration. |
 | Échec du déploiement du modèle {template-name}. CorrelationId={guid} |Sur le serveur principal du service de migration, nous utilisons des modèles Azure Resource Manager pour créer des ressources dans la pile Azure Resource Manager. Les modèles étant idempotents, vous pouvez généralement réessayer en toute sécurité l’opération de migration pour passer outre cette erreur. Si elle persiste, veuillez [contactez le support Azure](../articles/azure-supportability/how-to-create-azure-support-request.md) et lui donner le CorrelationId. <br><br> **REMARQUE :** une fois l'incident pris en charge par l'équipe du support technique, ne tentez aucune mesure d'atténuation car cela pourrait avoir des conséquences inattendues sur votre environnement. |
 | Le réseau virtuel {virtual-network-name} n’existe pas. |Cela peut se produire si vous avez créé le réseau virtuel dans le nouveau Portail Azure. Le nom réel du réseau virtuel suit le modèle « Group * <VNET name>». |
-| La machine virtuelle {vm-name} du service hébergé {hosted-service-name} contient une extension {extension-name} qui n’est pas prise en charge dans Azure Resource Manager. Il est recommandé de la désinstaller de la machine virtuelle avant de poursuivre la migration. |Les extensions XML telles que BGInfo 1.* ne sont pas prises en charge dans Azure Resource Manager. Par conséquent, elles ne peuvent pas faire l’objet d’une migration. Si elles sont toujours installées sur la machine virtuelle, elles sont automatiquement désinstallées avant la fin de la migration. |
+| La machine virtuelle {vm-name} du service hébergé {hosted-service-name} contient une extension {extension-name} qui n’est pas prise en charge dans Azure Resource Manager. Il est recommandé de la désinstaller de la machine virtuelle avant de poursuivre la migration. |Extensions XML telles que BGInfo 1. \* ne sont pas pris en charge dans Azure Resource Manager. Par conséquent, elles ne peuvent pas faire l’objet d’une migration. Si elles sont toujours installées sur la machine virtuelle, elles sont automatiquement désinstallées avant la fin de la migration. |
 | La machine virtuelle {vm-name} du service hébergé {hosted-service-name} contient l’extension VMSnapshot/VMSnapshotLinux, dont la migration n’est actuellement pas prise en charge. Désinstallez-la de la machine virtuelle et rajoutez-la à l’aide d’Azure Resource Manager une fois la migration terminée. |C’est le scénario dans lequel la machine virtuelle est configurée pour la Sauvegarde Azure. Étant donné qu’il n’est pas pris en charge pour le moment, suivez la solution de contournement à la page https://aka.ms/vmbackupmigration. |
 | La machine virtuelle {vm-name} du service hébergé {hosted-service-name} contient une extension {extension-name} dont l’état n’est pas généré à partir de la machine virtuelle. Par conséquent, elle ne peut pas faire l’objet d’une migration. Assurez-vous que l’état de l’extension est généré ou désinstallez l’extension de la machine virtuelle et effectuez une nouvelle tentative de migration. <br><br> La machine virtuelle {vm-name} du service hébergé {hosted-service-name} contient une extension {extension-name} qui génère l’état de gestionnaire : {handler-status}. Par conséquent, la machine virtuelle ne peut pas être migrée. Assurez-vous que l’état du gestionnaire de l’extension généré est {handler-status} ou désinstallez-la de la machine virtuelle et effectuez une nouvelle tentative de migration. <br><br> L’agent de la machine virtuelle {vm-name} du service hébergé {hosted-service-name} génère l’état global « Pas prêt ». Par conséquent, la machine virtuelle ne peut pas faire l’objet d’une migration, si elle a une extension migrable. Assurez-vous que l’agent de la machine virtuelle génère l’état global de l’agent « Prêt ». Consultez la page https://aka.ms/classiciaasmigrationfaqs. |L’agent invité Azure et les extensions de machines virtuelles ont besoin d’un accès Internet sortant au compte de stockage de la machine virtuelle pour remplir leur état. Causes les plus courantes d’échec de l’état : <li> un groupe de sécurité réseau bloque l’accès sortant à Internet ; <li> Si le réseau virtuel a en local serveurs DNS et connectivité DNS est perdue <br><br> Si vous continuez à voir l’état « non pris en charge », vous pouvez désinstaller les extensions pour ignorer cette vérification et poursuivre la migration. |
 | La migration n’est pas prise en charge pour le déploiement {deployment-name} dans le service hébergé {hosted-service-name} car il contient plusieurs groupes à haute disponibilité. |Actuellement, seuls les services hébergés contenant au maximum un groupe à haute disponibilité peuvent faire l’objet d’une migration. Pour contourner ce problème, déplacez les groupes à haute disponibilité excédentaires et les machines virtuelles qu’ils contiennent vers un autre service hébergé. |
@@ -44,7 +46,7 @@ Cela se produit lorsque la taille logique du disque de données est désynchroni
 
 #### <a name="verifying-the-issue"></a>Vérification du problème
 
-```PowerShell
+```powershell
 # Store the VM details in the VM object
 $vm = Get-AzureVM -ServiceName $servicename -Name $vmname
 
@@ -65,7 +67,7 @@ ExtensionData       :
 
 # Now get the properties of the blob backing the data disk above
 # NOTE the size of the blob is about 15 GB which is different from LogicalDiskSizeInGB above
-$blob = Get-AzureStorageblob -Blob "coreosvm-dd1.vhd" -Container vhds 
+$blob = Get-AzStorageblob -Blob "coreosvm-dd1.vhd" -Container vhds 
 
 $blob
 
@@ -82,7 +84,7 @@ Name              : coreosvm-dd1.vhd
 
 #### <a name="mitigating-the-issue"></a>Correction du problème
 
-```PowerShell
+```powershell
 # Convert the blob size in bytes to GB into a variable which we'll use later
 $newSize = [int]($blob.Length / 1GB)
 

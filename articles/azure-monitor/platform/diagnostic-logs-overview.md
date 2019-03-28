@@ -1,19 +1,19 @@
 ---
 title: Présentation des journaux de diagnostic Azure
 description: Découvrez les journaux de diagnostic Azure et comment les utiliser pour comprendre les événements qui se produisent au sein d’une ressource Azure.
-author: johnkemnetz
+author: nkiest
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 06/07/2018
-ms.author: johnkem
+ms.date: 03/26/2019
+ms.author: nikiest
 ms.subservice: logs
-ms.openlocfilehash: 07ea18a767044f0f74249859bb46d8285d52d7ab
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 890f2224a4053ec8cad65b44b85eab0e31be3b64
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310180"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519389"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Collecter et utiliser des données de journaux à partir de vos ressources Azure
 
@@ -49,11 +49,6 @@ Vous pouvez utiliser un compte de stockage ou un espace de noms Event Hubs qui n
 > [!NOTE]
 >  Il n’est pas possible actuellement d’archiver les journaux de flux du réseau sur un compte de stockage situé derrière un réseau virtuel sécurisé.
 
-> [!WARNING]
-> À compter du 1er novembre 2018, le format des données de journal dans le compte de stockage deviendra JSON Lines. [Consultez cet article pour en savoir plus sur les conséquences liées à ce changement et pour découvrir comment mettre à jour vos outils pour qu’ils gèrent ce nouveau format.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
->
-> 
-
 ## <a name="diagnostic-settings"></a>Paramètres de diagnostic
 
 Les journaux de diagnostic des ressources sont configurés à l’aide des paramètres de diagnostic des ressources. Les journaux de diagnostic des locataires sont configurés à l’aide des paramètres de diagnostic des locataires. **Paramètres de diagnostic** pour un contrôle de service :
@@ -61,7 +56,7 @@ Les journaux de diagnostic des ressources sont configurés à l’aide des param
 * Où les journaux de diagnostic et les métriques sont envoyés (compte de stockage, Event Hubs et/ou Azure Monitor).
 * Les catégories de journal envoyées et les données de mesure également envoyées.
 * La durée pendant laquelle chaque catégorie de journal doit être conservée dans un compte de stockage
-    - Une durée de rétention de zéro jour signifie que les journaux sont conservés indéfiniment. La valeur peut également être n’importe quel nombre de jours, compris entre 1 et 2147483647.
+    - Une durée de rétention de zéro jour signifie que les journaux sont conservés indéfiniment. Sinon, la valeur peut être n’importe quel nombre de jours compris entre 1 et 365.
     - Si des stratégies de rétention sont définies, mais que le stockage des journaux dans un compte de stockage est désactivé (par exemple si seules les options Event Hubs ou Log Analytics sont sélectionnées), les stratégies de rétention n’ont aucun effet.
     - Les stratégies de rétention sont appliquées sur une base quotidienne. Donc, à la fin d’une journée (UTC), les journaux de la journée qui est désormais au-delà de la stratégie de rétention sont supprimés. Par exemple, si vous aviez une stratégie de rétention d’une journée, au début de la journée d’aujourd’hui les journaux d’avant-hier seront supprimés. Le processus de suppression commence à minuit UTC, mais notez que la suppression des journaux de votre compte de stockage peut prendre jusqu’à 24 heures.
 

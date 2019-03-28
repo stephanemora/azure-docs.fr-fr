@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/16/2018
+ms.date: 03/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: 92c09e7defe159818b22bc8275d011d05512aa66
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 978b865f6dd7e3427a0139e7e71ed4b2d937fbe5
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58446567"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517298"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Utiliser la vue Apache Ambari Hive avec Apache Hadoop dans HDInsight
 
@@ -24,22 +24,14 @@ Découvrez comment exécuter des requêtes Hive avec la vue Apache Ambari Hive. 
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-* Un cluster Apache Hadoop Linux sur HDInsight version 3.4 ou ultérieure.
-
-  > [!IMPORTANT]  
-  > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
+* Un cluster Hadoop sur HDInsight. Consultez [prise en main HDInsight sous Linux](./apache-hadoop-linux-tutorial-get-started.md).
 * Un navigateur web
 
 ## <a name="run-a-hive-query"></a>Exécution d'une tâche Hive
 
-1. Ouvrez le [portail Azure](https://portal.azure.com).
+1. À partir de la [Azure portal](https://portal.azure.com/), sélectionnez votre cluster.  Consultez [liste et affichage des clusters](../hdinsight-administer-use-portal-linux.md#showClusters) pour obtenir des instructions. Le cluster est ouvert dans un nouveau panneau du portail.
 
-2. Sélectionnez votre cluster HDInsight, puis sélectionnez **Vues Ambari** dans la section **Liens rapides**.
-
-    ![Section des liens rapides du portail](./media/apache-hadoop-use-hive-ambari-view/quicklinks.png)
-
-    Lorsque vous êtes invité à vous authentifier, utilisez le nom de compte et le mot de passe de connexion de cluster (`admin` par défaut) que vous avez fournis lors de la création du cluster.
+2. À partir de **des tableaux de bord de Cluster**, sélectionnez **Ambari views**. Lorsque vous êtes invité à vous authentifier, utilisez le nom de compte et le mot de passe de connexion de cluster (`admin` par défaut) que vous avez fournis lors de la création du cluster.
 
 3. Dans la liste des vues, sélectionnez __Affichage Hive__.
 
@@ -81,30 +73,30 @@ Découvrez comment exécuter des requêtes Hive avec la vue Apache Ambari Hive. 
 
    * `SELECT`: Sélectionne toutes les lignes où la colonne t4 contient la valeur [ERROR].
 
-     > [!IMPORTANT]  
-     > Conservez la sélection __Base de données__ par __défaut__. Les exemples de ce document utilisent la base de données par défaut incluse avec HDInsight.
+   > [!IMPORTANT]  
+   > Conservez la sélection __Base de données__ par __défaut__. Les exemples de ce document utilisent la base de données par défaut incluse avec HDInsight.
 
-5. Pour démarrer la requête, utilisez le bouton **Exécuter** situé sous la feuille de calcul. Ce bouton devient orange et le texte affiche **Stop** (Arrêter).
+5. Pour démarrer la requête, sélectionnez **Execute** ci-dessous la feuille de calcul. Ce bouton devient orange et le texte affiche **Stop** (Arrêter).
 
 6. Lorsque la requête est terminée, l’onglet **Results** (Résultats) affiche les résultats de l’opération. Le texte suivant est le résultat de la requête :
 
         loglevel       count
         [ERROR]        3
 
-    Vous pouvez utiliser l’onglet **Logs** (Journaux) pour afficher les informations de journalisation que la tâche a créées.
+    Vous pouvez utiliser la **journal** onglet pour afficher les informations de journalisation que la tâche créée.
 
    > [!TIP]  
-   > Téléchargez ou enregistrez les résultats à partir de la boîte de dialogue déroulante **Save results** (Enregistrer les résultats), dans le coin supérieur gauche de la section **Query Process Results** (Résultats du processus de requête).
+   > Télécharger ou enregistrer les résultats à partir de la **Actions** boîte de dialogue de la liste déroulante sous la **résultats** onglet.
 
 ### <a name="visual-explain"></a>Visual Explain
 
 Pour afficher une visualisation du plan de requête, sélectionnez l’onglet **Visual Explain** au-dessous de la feuille de calcul.
 
-La vue **Visual Explain** de la requête peut être utile pour comprendre le déroulement de requêtes complexes. Vous pouvez afficher un équivalent textuel de cette vue à l’aide du bouton **Explain** de l’éditeur de requête.
+La vue **Visual Explain** de la requête peut être utile pour comprendre le déroulement de requêtes complexes.
 
 ### <a name="tez-ui"></a>Interface utilisateur Tez
 
-Sélectionnez l’onglet **Tez** au-dessous de la feuille de calcul afin d’afficher l’interface utilisateur Tez pour la requête.
+Pour afficher l’UI Tez pour la requête, sélectionnez le **Tez UI** onglet situé sous la feuille de calcul.
 
 > [!IMPORTANT]  
 > Tez n’est pas utilisé pour résoudre toutes les requêtes. Vous pouvez résoudre de nombreuses requêtes sans utiliser Tez. 

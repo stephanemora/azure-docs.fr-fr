@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 06478cb3366054bd20239bf80f026562efd26232
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f0fd93af7cba3057ad4c2224aa1298a221505645
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58087395"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541035"
 ---
 # <a name="odata-expression-syntax-for-filters-and-order-by-clauses-in-azure-search"></a>Syntaxe des expressions OData pour les filtres et les clauses order by dans Recherche Azure
 
@@ -128,10 +128,10 @@ POST /indexes/hotels/docs/search?api-version=2017-11-11
 
 ## <a name="filter-examples"></a>Exemples de filtres  
 
- Rechercher tous les hôtels avec un tarif de base inférieure à 100 $ avec une note d’évaluation égale ou supérieure à 4 :  
+ Rechercher tous les hôtels avec un taux de base inférieure à 200 $ qui sont évalués au moins 4 :  
 
 ```
-$filter=baseRate lt 100.0 and rating ge 4
+$filter=baseRate lt 200.0 and rating ge 4
 ```
 
  Rechercher tous les hôtels autres que « Roach Motel » qui ont été rénovés depuis 2010 :  
@@ -140,10 +140,10 @@ $filter=baseRate lt 100.0 and rating ge 4
 $filter=hotelName ne 'Roach Motel' and lastRenovationDate ge 2010-01-01T00:00:00Z
 ```
 
- Rechercher tous les hôtels avec un tarif de base inférieur à 200 $ qui ont été rénovés depuis 2012, avec un littéral datetime incluant des informations de fuseau horaire pour l’heure du Pacifique :  
+ Rechercher tous les hôtels avec un taux de base inférieur à 200 $ qui ont été rénovés depuis 2010, avec un littéral datetime incluant des informations de fuseau horaire pour l’heure du Pacifique :  
 
 ```
-$filter=baseRate lt 200 and lastRenovationDate ge 2012-01-01T00:00:00-08:00
+$filter=baseRate lt 200 and lastRenovationDate ge 2010-01-01T00:00:00-08:00
 ```
 
  Rechercher tous les hôtels avec un parking inclus et où il est interdit de fumer :  

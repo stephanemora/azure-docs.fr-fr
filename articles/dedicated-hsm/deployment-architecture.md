@@ -10,16 +10,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 03/27/2019
 ms.author: barclayn
-ms.openlocfilehash: 36de8378a7dd22cfa6ba37da921213a18670cc67
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 1e00e1f06f2409c94174a752a799cd4c1b7b23ef
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113343"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539970"
 ---
-# <a name="azure-dedicated-hsm-deployment-architecture"></a>Architecture de déploiement d’un module HSM dédié Azure | Microsoft Docs
+# <a name="azure-dedicated-hsm-deployment-architecture"></a>Architecture de déploiement Azure HSM dédié
 
 Un HSM dédié Azure permet le stockage de clés de chiffrement dans Azure. Il satisfait à des exigences de sécurité strictes. Les clients tireront un bénéfice de l’utilisation du HSM dédié Azure s’ils :
 
@@ -37,6 +37,12 @@ Les HSM sont répartis entre les centres de données de Microsoft et peuvent êt
 * Asie Est
 * Europe Nord
 * Europe Ouest
+* Sud du Royaume-Uni
+* Ouest du Royaume-Uni
+* Centre du Canada
+* Est du Canada
+* Australie Est
+* Australie Sud-Est
 
 Chacune de ces régions a des racks HSM déployés dans deux centres de données indépendants ou dans au moins deux zones de disponibilité indépendantes. L’Asie Sud-Est a trois zones de disponibilité et USA Est 2 en a deux. Huit régions au total en Europe, en Asie et aux États-Unis proposent le service HSM dédié. Pour plus d’informations sur les régions Azure, consultez les [informations sur les régions Azure](https://azure.microsoft.com/global-infrastructure/regions/).
 L’emplacement/la latence, une haute disponibilité et la prise en charge d’autres applications distribuées font partie des facteurs de conception pour une solution HSM dédié.

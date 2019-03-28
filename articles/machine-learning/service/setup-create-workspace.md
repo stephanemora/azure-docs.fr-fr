@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 ms.author: sgilley
 author: sdgilley
 ms.date: 03/21/2019
-ms.openlocfilehash: 2c3b63e671240a239dc2037ce56e56af4a8f95e7
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: e55c898cdbb45dc7ff3466c61e968e3ae52be0cb
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369154"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521004"
 ---
 # <a name="create-an-azure-machine-learning-service-workspace"></a>Créer un espace de travail du service Azure Machine Learning
 
@@ -24,7 +24,7 @@ Pour utiliser le service Azure Machine Learning, vous devez un [ **espace de tra
 Dans cet article, vous allez apprendre à créer un espace de travail en utilisant l’une des méthodes suivantes : 
 * Le [Azure portal](#portal) interface
 * Le [Azure Machine Learning SDK pour Python](#sdk)
-* Un [modèle Azure Resource Manager](#template)
+* Un modèle Azure Resource Manager
 * Le [Azure Machine Learning CLI](#cli)
 
 L’espace de travail que vous créez à l’aide de la procédure décrite ici dans peut être utilisé comme condition préalable à d’autres didacticiels et les articles de savoir-faire. 
@@ -116,7 +116,7 @@ Les instructions fournies dans cet article va installer tous les packages que vo
     ```
 
 > [!IMPORTANT]
-> Dans certains outils de ligne de commande, vous devrez peut-être ajouter des guillemets comme suit :
+> Dans certains outils en ligne de commande, vous serez peut-être amené à ajouter des guillemets comme ceci :
 > *  'azureml-sdk[notebooks]'
 > * 'azureml-sdk[automl]'
 >

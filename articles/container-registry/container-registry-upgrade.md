@@ -5,40 +5,33 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 08/28/2018
+ms.date: 03/26/2019
 ms.author: danlep
-ms.openlocfilehash: 077ca3c876a3078e7e627dbfefdff38e09ec57b9
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: a5099feee34eb5497b68987485412e29ad5d5365
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228353"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521514"
 ---
 # <a name="upgrade-a-classic-container-registry"></a>Mettre à niveau un registre de conteneurs Classique
 
 Azure Container Registry (ACR) est disponible dans plusieurs niveaux de service, [appelés références (SKU)](container-registry-skus.md). La version initiale d’ACR proposait une référence unique Classique, à laquelle il manquait plusieurs fonctionnalités inhérentes aux références SKU Basic, Standard et Premium (collectivement appelées registres *managés*).
 
-La référence SKU Classique est dépréciée et ne sera plus disponible après mars 2019. Cet article explique comment migrer votre registre Classique non managé sur une des références SKU managées afin de pouvoir tirer parti de leur jeu de fonctionnalités avancées.
+La référence classique est déconseillée et n’est pas disponible après avril 2019. Cet article explique comment migrer votre registre Classique non managé sur une des références SKU managées afin de pouvoir tirer parti de leur jeu de fonctionnalités avancées.
 
 ## <a name="why-upgrade"></a>Pourquoi procéder à une mise à niveau ?
 
-La référence SKU du registre Classique est **dépréciée** et ne sera plus disponible à partir de **mars 2019**. Tous les registres Classique existants doivent être mis à niveau avant mars 2019.
+La référence (SKU) est en cours de Registre classique **déconseillée**et ne sera pas disponible après **avril 2019**. Tous les registres classique existants doivent être mis à niveau avant avril 2019. Fonctionnalités de gestion via le portail des registres classique seront maintenues. La création de nouveaux registres classique ne sera désactivée après avril 2019.
 
-En raison de la dépréciation planifiée et des capacités limitées des registres Classiques non managés, tous vos registres Classiques doivent passer au niveau De base, Standard ou Premium. Ces références (SKU) de niveau supérieur intègrent de manière plus étroite le registre avec les fonctionnalités Azure.
-
-Les registres managés offrent les fonctionnalités suivantes :
-
-* Intégration d’Azure Active Directory pour l’[authentification individuelle](container-registry-authentication.md#individual-login-with-azure-ad)
-* Prise en charge de la suppression d’image et de balise
-* [Géoréplication](container-registry-geo-replication.md)
-* [Webhooks](container-registry-webhook.md)
+En raison de l’obsolescence planifiée et les capacités limitées des registres classique non managés, tous vos registres classique doivent être mis à niveau pour les registres gérés (Basic, Standard ou Premium). Ces références (SKU) de niveau supérieur intègrent de manière plus étroite le registre avec les fonctionnalités Azure. Pour plus d’informations sur la tarification et les fonctionnalités des différents niveaux de service, consultez [références SKU de Registre de conteneur](container-registry-skus.md).
 
 Le registre Classique dépend du compte de stockage qu’Azure provisionne automatiquement dans votre abonnement Azure quand vous avez créé le registre. En revanche, les références SKU de base, standard et Premium profitent des [fonctionnalités de stockage avancées](container-registry-storage.md) Azure par la gestion pour vous de manière transparente du stockage de vos images. Un compte de stockage distinct n’est pas créé dans votre propre abonnement.
 
 Un stockage de registres managés offre les avantages suivants :
 
 * Les images de conteneurs sont [chiffrées au repos](container-registry-storage.md#encryption-at-rest).
-* Les images sont stockées à l’aide du [stockage géoredondant](container-registry-storage.md#geo-redundant-storage), ce qui garantit la sauvegarde de vos images avec la réplication multirégion.
+* Les images sont stockées à l’aide de [stockage géo-redondant](container-registry-storage.md#geo-redundant-storage), ce qui garantit sauvegarde de vos images avec la réplication dans plusieurs régions (référence SKU Premium uniquement).
 * Possibilité de [basculer d’une référence à une autre](container-registry-skus.md#changing-skus) librement, ce qui permet de bénéficier d’un débit plus élevé quand vous choisissez une référence de niveau supérieur. Avec chaque référence, ACR peut répondre à vos besoins en matière de débit à mesure qu’ils augmentent.
 * Le modèle de sécurité unifiée pour le registre et son stockage offrent une gestion simplifiée des droits. Vous gérez les autorisations uniquement pour le registre de conteneurs, sans avoir à gérer également les autorisations d’un compte de stockage distinct.
 
@@ -46,13 +39,13 @@ Pour plus d’informations sur le stockage des images dans l’ACR, consultez [s
 
 ## <a name="migration-considerations"></a>Considérations relatives à la migration
 
-Quand vous passez d’un registre Classique à un registre managé, Azure doit copier toutes les images de conteneurs existantes du compte de stockage créé par ACR dans votre abonnement vers un compte de stockage géré par Azure. Selon la taille du registre, ce processus peut durer quelques minutes, voire plusieurs heures.
+Lorsque vous mettez à niveau un Registre classique vers un Registre managé, Azure doit copier toutes les images de conteneur existantes à partir du compte de stockage créés par l’ACR dans votre abonnement à un compte de stockage géré par Azure. Selon la taille du registre, ce processus peut durer quelques minutes, voire plusieurs heures. À titre d’estimation, prévoyez une durée de la migration d’environ 0,5 Go par minute.
 
-Pendant le processus de conversion, toutes les `docker push`opérations sont bloquées, tandis que `docker pull` continue de fonctionner.
+Pendant le processus de conversion, `docker push` les opérations sont désactivées pendant au cours des 10 % de la migration. `docker pull` continue à fonctionner normalement.
 
 Ne supprimez , ni ne modifiez le contenu du compte de stockage en sauvegardant votre registre Classique au cours du processus de conversion du compte de stockage. Vous pourriez corrompre vos images de conteneur.
 
-Au terme de la migration, le compte de stockage de l'abonnement dans lequel le registre Classique était sauvegardé n'est plus utilisé par ACR. Après avoir vérifié la réussite de la migration, envisagez de supprimer le compte de stockage afin de réduire les coûts.
+Une fois la migration terminée, le compte de stockage dans votre abonnement que votre Registre classique était sauvegardé est n’est plus utilisé par Azure Container Registry. Après avoir vérifié la réussite de la migration, envisagez de supprimer le compte de stockage afin de réduire les coûts.
 
 >[!IMPORTANT]
 > La mise à niveau de Classique vers une des références SKU managées est un **processus unidirectionnel**. Une fois que vous avez converti un registre Classique en registre De base, Standard ou Premium, vous ne pouvez plus revenir en arrière. Vous pouvez, toutefois, librement passer d’une référence SKU à une autre disposant de la capacité suffisante pour votre registre.
@@ -69,7 +62,7 @@ Pour mettre à niveau un registre Classique dans Azure CLI, exécutez la command
 az acr update --name myclassicregistry --sku Premium
 ```
 
-Une fois la migration terminée, vous devez obtenir un résultat similaire à ce qui suit. Notez que `sku` est « Premium » et `storageAccount` est « null », indiquant qu’Azure gère désormais le stockage de l’image pour ce registre.
+Une fois la migration terminée, vous devez obtenir un résultat similaire à ce qui suit. Notez que le `sku` est « Premium » et le `storageAccount` est `null`, indiquant qu’Azure gère désormais le stockage des images pour ce Registre.
 
 ```JSON
 {
@@ -100,7 +93,7 @@ Si vous recevez une erreur similaire, réexécutez la commande [az acr update][a
 
 ## <a name="upgrade-in-azure-portal"></a>Mise à niveau dans le portail Azure
 
-Lorsque vous mettez à niveau un registre Classique à l’aide du portail Azure, Azure sélectionne automatiquement la référence SKU du niveau le plus bas pouvant s’adapter à vos images. Par exemple, si votre registre contient 12 Gio d’images, Azure sélectionne et convertit automatiquement le registre Classique en registre Standard (100 Gio maximum).
+Lorsque vous mettez à niveau un Registre classique à l’aide du portail Azure, Azure sélectionne automatiquement le Standard ou une référence (SKU) Premium, selon ce qui les référence (SKU) peut prendre en charge vos images. Par exemple, si votre Registre contient moins de 100 Go dans les images, Azure automatiquement sélectionne et convertit le Registre classique Standard (100 Gio maximum).
 
 Pour mettre à niveau votre registre Classique à l’aide du portail Azure, accédez à la **vue d’ensemble** du registre de conteneurs et sélectionnez **Upgrade to managed registry** (Mettre à niveau vers le registre managé).
 
@@ -108,19 +101,17 @@ Pour mettre à niveau votre registre Classique à l’aide du portail Azure, acc
 
 Sélectionnez **OK** pour confirmer que vous souhaitez effectuer une mise à niveau vers un registre managé.
 
-![Confirmation de la mise à niveau du registre Classique dans l’interface utilisateur du portail Azure][update-classic-02-confirm]
-
-Lors de la migration, le portail indique que l’**état Approvisionnement** du registre est *Mise à jour*. Comme mentionné précédemment, les opérations `docker push` sont désactivées lors de la migration et vous ne devez pas supprimer ou mettre à jour le compte de stockage utilisé par le registre Classique, tandis que la migration est en cours d’exécution, au risque de corrompre l’image.
+Lors de la migration, le portail indique que l’**état Approvisionnement** du registre est *Mise à jour*. Comme mentionné précédemment, `docker push` les opérations sont désactivées pendant au cours des 10 % de la migration. Pas la suppression ou la mise à jour le compte de stockage utilisé par le Registre classique, tandis que la migration est en cours d’exécution, ainsi peut entraîner une corruption d’image.
 
 ![Progression de la mise à niveau du registre Classique dans l’interface utilisateur du portail Azure][update-classic-03-updating]
 
-Une fois la migration terminée, l’**état Approvisionnement** indique *Opération réussie*. Vous pouvez alors à nouveau exécuter `docker push` dans le registre.
+Une fois la migration terminée, le **état d’approvisionnement** indique *Succeeded*, et vous pouvez reprendre les opérations normales avec votre Registre.
 
 ![État d’achèvement de la mise à niveau du registre Classique dans l’interface utilisateur du portail Azure][update-classic-04-updated]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois que vous avez mis à niveau un registre Classique vers un registre De base, Standard ou Premium, Azure n’utilise plus le compte de stockage dans lequel le registre Classique était sauvegardé. Pour réduire les coûts, envisagez de supprimer le compte de stockage ou le conteneur d’objets Blob du compte qui contient les images de l’ancien conteneur.
+Une fois que vous avez mis à niveau un Registre classique vers un Registre managé, Azure n’utilise plus le compte de stockage que le Registre classique était sauvegardé. Pour réduire les coûts, envisagez de supprimer le compte de stockage ou le conteneur d’objets Blob du compte qui contient les images de l’ancien conteneur.
 
 <!-- IMAGES -->
 [update-classic-01-upgrade]: ./media/container-registry-upgrade/update-classic-01-upgrade.png

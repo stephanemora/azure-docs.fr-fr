@@ -8,12 +8,12 @@ ms.author: mattwoj
 ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 4714ea7aa4bf55f7cbd4500977b09505788233dd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9e77dcd96ffa0fbd57aa0ed1b4f857279ca768a7
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57895802"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520800"
 ---
 # <a name="create-an-effective-anchor-experience-by-using-azure-spatial-anchors"></a>Créer une expérience efficace d’ancrage à l’aide des ancres Spatial Azure
 
@@ -86,7 +86,7 @@ Dans le scénario cible, les photos peuvent aider. Si vous affichez les utilisat
 
 Dans le scénario de la salle, les utilisateurs entrent un espace simplement savoir qu'est une ancre ici quelque part. Utilisateurs analyser l’espace avec leur appareil et de repérer rapidement le point d’ancrage.
 
-Cette expérience en général vous oblige à créer des ancres bien organisées, comme indiqué dans [différentes perspectives d’affichage](#consider-various-viewing-perspectives). Si vous avez analysé le faire à partir de nombreuses perspectives lorsque vous avez créé le point d’ancrage, les utilisateurs peuvent analyser presque n’importe où lorsqu’ils tentent de localiser.
+Cette expérience généralement vous oblige à créer des ancres bien organisées, comme indiqué dans les différentes façons d’affichage. Si vous avez analysé le faire à partir de nombreuses perspectives lorsque vous avez créé le point d’ancrage, les utilisateurs peuvent analyser presque n’importe où lorsqu’ils tentent de localiser.
 
 ![Illustration de la façon dont un utilisateur peut analyser une salle pour trouver un point d’ancrage](./media/scan-room.png)
 

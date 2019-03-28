@@ -1,5 +1,5 @@
 ---
-title: Collecter et analyser les journaux d’activités Azure dans Log Analytics | Microsoft Docs
+title: Collecter et analyser les journaux d’activité Azure dans l’espace de travail Analytique de journal | Microsoft Docs
 description: Vous pouvez utiliser la solution Journaux d’activité Azure pour analyser et rechercher le journal d’activité Azure parmi tous vos abonnements Azure.
 services: log-analytics
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
-ms.openlocfilehash: 20246cfa5904c3c89ab9a14d11f2e61883b27344
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 2fd74262d9c1b4a751df5d836f98bf89d31dbdc2
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540238"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540429"
 ---
-# <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Collecter et analyser les journaux d’activités Azure dans Log Analytics
+# <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Collecter et analyser les journaux d’activité Azure dans l’espace de travail Analytique de journal dans Azure Monitor
 
 ![Symbole des journaux d’activité Azure](./media/collect-activity-logs/activity-log-analytics.png)
 
@@ -28,7 +28,7 @@ La solution Activity Log Analytics vous aide à analyser et rechercher le [journ
 
 Avec le journal d’activité, vous pouvez déterminer *qui*, *quand* et *quoi* pour toutes les opérations d’écriture (PUT, POST, DELETE) réalisées sur des ressources dans votre abonnement. Vous pouvez également comprendre l’état des opérations et d’autres propriétés pertinentes. Le journal d’activité n’inclut pas d’opérations de lecture (GET) ni d’opérations pour les ressources qui utilisent le modèle de déploiement Classic.
 
-Lorsque vous connectez vos journaux d’activité Azure à Log Analytics, vous pouvez :
+Lorsque vous vous connectez vos journaux d’activité Azure à un espace de travail Analytique de journal, vous pouvez :
 
 - Analyser les journaux d’activité avec des affichages prédéfinis
 - Analyser et rechercher des journaux d’activité parmi plusieurs abonnements Azure
@@ -40,15 +40,15 @@ Lorsque vous connectez vos journaux d’activité Azure à Log Analytics, vous p
 - Identifier les problèmes d’intégrité de service ou de panne qui ont un impact sur vos ressources
 - Utiliser la fonction Recherche de journal pour mettre en corrélation les activités d’utilisateur, les opérations de mise à l’échelle automatique, les modifications d’autorisation et l’intégrité du service avec d’autres journaux ou métriques de votre environnement
 
-<sup>1</sup>Par défaut, Log Analytics conserve vos journaux d’activité Azure pendant 90 jours, même si vous êtes sur le niveau Gratuit. Ou si votre espace de travail est réglé sur une rétention de moins de 90 jours. Si votre espace de travail a une rétention de plus de 90 jours, les journaux d’activité sont conservés en fonction de la période de rétention de votre espace de travail.
+<sup>1</sup>par défaut, Azure Monitor conserve vos journaux d’activité Azure dans un espace de travail Analytique de journal pendant 90 jours, même si vous êtes sur le niveau gratuit. Ou si votre espace de travail est réglé sur une rétention de moins de 90 jours. Si votre espace de travail a une rétention de plus de 90 jours, les journaux d’activité sont conservés en fonction de la période de rétention de votre espace de travail.
 
-Log Analytics collecte gratuitement les journaux d’activité et les conserve gratuitement pendant 90 jours. Si vous conservez des journaux pendant plus de 90 jours, des frais de rétention vous seront facturés pour les données stockées pendant plus de 90 jours.
+L’espace de travail Analytique de journal collecte des journaux d’activité gratuitement et stocke les journaux pendant 90 jours sans frais. Si vous conservez des journaux pendant plus de 90 jours, des frais de rétention vous seront facturés pour les données stockées pendant plus de 90 jours.
 
 Si vous êtes sur le niveau de tarification Gratuit, les journaux d’activité ne s’appliquent pas à votre consommation de données quotidienne.
 
 ## <a name="connected-sources"></a>Sources connectées
 
-Contrairement à la plupart des autres solutions Log Analytics, les données ne sont pas collectées pour les journaux d’activité par des agents. Toutes les données utilisées par la solution proviennent directement d’Azure.
+Contrairement à la plupart des autres solutions Azure Monitor, les données ne sont pas collectées pour les journaux d’activité par les agents. Toutes les données utilisées par la solution proviennent directement d’Azure.
 
 | Source connectée | Pris en charge | Description |
 | --- | --- | --- |
@@ -57,7 +57,7 @@ Contrairement à la plupart des autres solutions Log Analytics, les données ne 
 | [Groupe d’administration SCOM](../../azure-monitor/platform/om-agents.md) | Non  | La solution ne collecte aucune information à partir d’agents dans un groupe d’administration SCOM connecté. |
 | [Compte Azure Storage](collect-azure-metrics-logs.md) | Non  | La solution ne collecte aucune information à partir de stockage Azure. |
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 - Pour accéder aux informations des journaux d’activité Azure, vous devez posséder un abonnement Azure.
 

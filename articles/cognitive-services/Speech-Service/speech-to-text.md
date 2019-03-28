@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: acf338afdf33408637bf7cca79d28f5e90888eba
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 6400e3d3fa7f0317ff927f2931e705365a450770
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224438"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520664"
 ---
 # <a name="what-is-speech-to-text"></a>Quelle est la parole-texte ?
 
 Parole-texte à partir des Services Azure de reconnaissance vocale, également appelé parole-texte, permet la transcription en temps réel de flux audio en texte pouvant consommer les applications, outils ou bien vos appareils, afficher et agir en tant qu’entrée de commande. Ce service est alimenté par la même technologie de reconnaissance que Microsoft utilise pour Cortana et les produits Office et fonctionne de façon transparente avec la traduction et la synthèse vocale.  Pour obtenir une liste complète des langues de reconnaissance vocale disponibles, consultez [langues prises en charge](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/language-support#speech-to-text).
 
-Par défaut, le service de reconnaissance vocale utilise le modèle de langage universelles. Ce modèle a été formé à l’aide de données appartenant à Microsoft et est déployé le cloud. Il est optimale pour conversationnel et scénarios de dictée. Si vous utilisez la parole-texte pour la reconnaissance et la transcription dans un environnement unique, vous pouvez créer et former des modèles de prononciation, la langue et acoustiques personnalisés au bruit ambiant adresse ou un vocabulaire de spécifiques du secteur. 
+Par défaut, le service de reconnaissance vocale utilise le modèle de langage universelles. Ce modèle a été formé à l’aide de données appartenant à Microsoft et est déployé le cloud. Il est optimale pour conversationnel et scénarios de dictée. Si vous utilisez la reconnaissance vocale pour la reconnaissance et la transcription dans un environnement unique, vous pouvez créer et former des modèles de prononciation, de langue et acoustiques personnalisés pour prendre en compte un bruit ambiant ou le vocabulaire spécifique d’un secteur. 
 
-Vous pouvez facilement capturer des données audio à partir d’un microphone, lire à partir d’un flux de données ou accéder à des fichiers audio à partir du stockage avec le Speech SDK et des API REST. Le Speech SDK prend en charge les WAV/PCM 16 bits, 16 kHz, monocanal audio pour la reconnaissance vocale. Formats audio supplémentaires sont pris en charge à l’aide de la [point de terminaison REST parole-texte](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#audio-formats) ou [transcription service batch](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
+Vous pouvez facilement capturer des données audio à partir d’un microphone, lire à partir d’un flux de données ou accéder à des fichiers audio à partir du stockage avec le Speech SDK et des API REST. Le Speech SDK prend en charge les WAV/PCM 16 bits, 16 kHz, monocanal audio pour la reconnaissance vocale. Formats audio supplémentaires sont pris en charge à l’aide de la [point de terminaison REST parole-texte](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) ou [transcription service batch](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
 
 ## <a name="core-features"></a>Fonctionnalités de base
 
@@ -47,7 +47,7 @@ Voici les fonctionnalités disponibles via le Speech SDK et des API REST :
 
 ## <a name="get-started-with-speech-to-text"></a>Bien démarrer avec la parole-texte
 
-Nous proposons des guides de démarrage rapide dans les langages de programmation populaires, chacun étant conçu pour que vous exécutez le code en moins de 10 minutes. Cette table comprend une liste complète des Démarrages rapides de Speech SDK organisés par langage.
+Nous proposons des démarrages rapides pour la plupart des langages de programmation populaires, conçus pour que votre code soit opérationnel en moins de 10 minutes. Cette table comprend une liste complète des Démarrages rapides de Speech SDK organisés par langage.
 
 | Démarrage rapide | Plateforme | Informations de référence sur l'API |
 |------------|----------|---------------|
@@ -67,14 +67,14 @@ Si vous préférez utiliser le service REST de reconnaissance vocale, consultez 
 
 ## <a name="tutorials-and-sample-code"></a>Didacticiels et exemples de code
 
-Une fois que vous avez eu l’occasion d’utiliser les Services de reconnaissance vocale, essayez notre didacticiel qui vous apprend à reconnaître les intentions de reconnaissance vocale à l’aide le Speech SDK et LUIS.
+Une fois que vous avez eu l’occasion d’utiliser les Services Speech, essayez notre didacticiel qui vous apprend à reconnaître les intentions du discours à l’aide du Kit de développement logiciel (SDK) Speech et de LUIS.
 
-* [Tutoriel : Reconnaître les intentions de reconnaissance vocale avec Speech SDK les LUIS,C#](how-to-recognize-intents-from-speech-csharp.md)
+* [Tutoriel : Effectuer une reconnaissance des intentions du discours à l’aide du Kit de développement logiciel (SDK) Speech et de LUIS, C#](how-to-recognize-intents-from-speech-csharp.md)
 
-Exemple de code pour le Speech SDK est disponible sur GitHub. Ces exemples couvrent des scénarios courants tels que la lecture audio à partir d’un fichier ou le flux, reconnaissance continue et de prise de vue unique et l’utilisation des modèles personnalisés.
+Exemple de code pour le Speech SDK est disponible sur GitHub. Ces exemples couvrent des scénarios courants tels que la lecture du signal audio d’un fichier ou d’un flux, la reconnaissance continue et ponctuelle, et l’utilisation de modèles personnalisés.
 
 * [Exemples (SDK) de la parole-texte](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
-* [Exemples de transcription de batch (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
+* [Exemples de transcription par lot (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
 
 ## <a name="customization"></a>Personnalisation
 
@@ -84,7 +84,7 @@ Outre le modèle universel utilisé par les Services de reconnaissance vocale, v
 |-------|-------------|
 | [Modèle acoustique](how-to-customize-acoustic-models.md) | Création d’un modèle acoustique personnalisé est utile si votre application, des outils ou les appareils sont utilisés dans un environnement spécifique, comme dans une voiture ou une fabrique avec les conditions d’enregistrement spécifique. Par exemple, vous pouvez avoir à traiter des façons de parler avec un accent, des bruits de fond spécifiques ou l’utilisation d’un microphone spécifique pour l’enregistrement. |
 | [Modèle de langage](how-to-customize-language-model.md) | Créer un modèle de langue personnalisée afin d’améliorer la transcription de vocabulaire de spécifiques du secteur et de grammaire, telles que la terminologie médicale ou jargon de l’informatique. |
-| [Modèle de prononciation](how-to-customize-pronunciation.md) | Avec un modèle de prononciation personnalisé, vous pouvez définir la forme phonétique et l’affichage d’un mot ou d’un terme. Cela peut être utile pour traiter les termes personnalisés que sont notamment les noms et les acronymes. Pour commencer, vous n’avez besoin que d’un fichier de prononciation (un simple fichier .txt). |
+| [Modèle de prononciation](how-to-customize-pronunciation.md) | Avec un modèle de prononciation personnalisé, vous pouvez définir la forme phonétique et écrite d’un mot. Cela peut être utile pour traiter les termes personnalisés que sont notamment les noms et les acronymes. Pour commencer, vous n’avez besoin que d’un fichier de prononciation (un simple fichier .txt). |
 
 > [!NOTE]
 > Options de personnalisation varient selon la langue/région (voir [langues prises en charge](supported-languages.md)).
@@ -103,11 +103,11 @@ Si vos applications, des outils ou produits sont à l’aide de l’API reconnai
 
 * [Kit de développement logiciel (SDK) de reconnaissance vocale](speech-sdk-reference.md)
 * [SDK Speech Devices](speech-devices-sdk.md)
-* [API REST : Parole-texte](rest-speech-to-text.md)
+* [API REST : Reconnaissance vocale](rest-speech-to-text.md)
 * [API REST : Synthèse vocale](rest-text-to-speech.md)
-* [API REST : Personnalisation et la transcription de lot](https://westus.cris.ai/swagger/ui/index)
+* [API REST : Transcription et personnalisation par lot](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Obtenir une clé d’abonnement Services de reconnaissance vocale gratuitement](get-started.md)
+* [Obtenir une clé d’abonnement aux services Speech gratuitement](get-started.md)
 * [Obtenir la Kit de développement logiciel de reconnaissance vocale](speech-sdk.md)

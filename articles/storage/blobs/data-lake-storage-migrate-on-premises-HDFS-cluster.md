@@ -8,12 +8,12 @@ ms.date: 03/01/2019
 ms.author: normesta
 ms.topic: article
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 1c0a04a074cfbd96423502ac92dd5821bade78e1
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 841193305556e3bc9e543abc47974c7b91b0cea1
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258528"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518032"
 ---
 # <a name="use-azure-data-box-to-migrate-data-from-an-on-premises-hdfs-store-to-azure-storage"></a>Utiliser Azure Data Box pour migrer des données à partir d’un magasin HDFS en local vers le stockage Azure
 
@@ -111,7 +111,7 @@ Pour améliorer la vitesse de copie :
 
 Suivez ces étapes pour préparer et expédier l’appareil Data Box à Microsoft.
 
-1. Une fois la copie des données est terminée, exécutez [préparer l’expédition](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#prepare-to-ship) dans votre boîte de données. Une fois la préparation de l’appareil terminée, téléchargez les fichiers de nomenclature. Vous utilisez ces BOM ou manifeste des fichiers plus tard pour vérifier les données chargées sur Azure. Arrêtez l’appareil et débranchez les câbles. 
+1. Une fois la copie des données est terminée, exécutez [préparer l’expédition](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest) dans votre boîte de données. Une fois la préparation de l’appareil terminée, téléchargez les fichiers de nomenclature. Vous utilisez ces BOM ou manifeste des fichiers plus tard pour vérifier les données chargées sur Azure. Arrêtez l’appareil et débranchez les câbles. 
 2.  Planifier l’enlèvement avec onduleur à [expédier votre zone de données vers Azure](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up). 
 3.  Une fois que Microsoft reçoit votre appareil, il est connecté au centre de données réseau et les données sont téléchargées vers le compte de stockage que vous avez spécifié (avec les espaces de noms hiérarchique désactivé) lorsque vous avez commandé la zone de données. Vérifier les fichiers de nomenclature que toutes vos données est téléchargé vers Azure. Vous pouvez maintenant déplacer ces données vers un compte de stockage Data Lake Storage Gen2.
 

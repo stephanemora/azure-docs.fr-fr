@@ -8,18 +8,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: asgang
-ms.openlocfilehash: 978566eb9e0073c60046eca024e09ba63c642180
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: b378f77874b1ebef243836c101fa71a53f4775d1
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56458226"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517740"
 ---
 # <a name="exclude-disks-from-replication-of-azure-vms-to-azure-using-azure-powershell"></a>Exclure des disques de la réplication de machines virtuelles Azure vers Azure à l’aide d’Azure PowerShell
 
 Cet article explique comment exclure des disques lors de la réplication de machines virtuelles Azure. Cette exclusion permet d’optimiser la bande passante utilisée pour la réplication ou les ressources côté serveur que ces disques utilisent. Actuellement, cette fonctionnalité est uniquement exposée par le biais d’Azure PowerShell.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Avant de commencer :
 
@@ -31,7 +31,7 @@ Avant de commencer :
 ## <a name="why-exclude-disks-from-replication"></a>Pourquoi exclure des disques de la réplication ?
 L’exclusion de disques de la réplication se révèle souvent nécessaire pour les raisons suivantes :
 
-- Votre machine virtuelle a atteint les [Limites d’Azure Site Recovery pour répliquer les données](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#azure-site-recovery-limits-to-replicate-data-change-rates).
+- Votre machine virtuelle a atteint les [Limites d’Azure Site Recovery pour répliquer les données](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix).
 
 - Les données hautement évolutives sur le disque exclu ne sont pas importantes ou n’ont pas besoin d’être répliquées.
 

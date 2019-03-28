@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: 98236133a90cfddfe2ea476486556318b2c88b10
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: e74b9b5c8347c7348c4da27b80d00daa091b826f
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418888"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521089"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement
 
@@ -104,6 +104,7 @@ La liste suivante fournit une synthèse générale des services Azure qui peuven
 * Power BI : Power BI Embedded et Collection d’espaces de travail Power BI
 * IP publique : l’IP publique de la référence SKU de base peut être déplacée. L’IP publique de la référence SKU standard ne peut pas être déplacée.
 * Coffre Recovery Services : inscrivez-vous à une [préversion](#recovery-services-limitations).
+* SAP HANA sur Azure
 * Scheduler
 * Recherche : vous ne pouvez pas déplacer simultanément plusieurs ressources de recherche dans des régions différentes. Déplacez-les plutôt dans des opérations distinctes.
 * Service Bus
@@ -146,7 +147,6 @@ La liste suivante fournit une synthèse générale des services Azure qui ne peu
 * Lab Services - laboratoires de salle de classe ne peut pas être déplacés vers un nouveau groupe de ressources ou d’un abonnement. Dev/test peut être déplacé vers un nouveau groupe de ressources dans le même abonnement, mais pas entre abonnements.
 * Applications gérées
 * Microsoft Genomics
-* SAP HANA sur Azure
 * Sécurité
 * Site Recovery
 * StorSimple Device Manager

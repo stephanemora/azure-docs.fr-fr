@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 1f6887a403e03ac11bb080a1d9855daff66ca088
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f761af3a5a3f08e4da89d8869aea5d666ecd69d0
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58096773"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517264"
 ---
 # <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>Suivre les coûts associés à un laboratoire dans Azure DevTest Labs
 Cet article fournit des informations sur la façon de suivre le coût de votre laboratoire. Il vous montre comment afficher l’estimation des coûts trent pour le mois calendaire actuel pour le laboratoire. L’article vous montre également comment afficher le coût month-to-date par ressource dans le laboratoire.
@@ -71,7 +71,7 @@ DevTest Labs vous aide à mieux gérer les coûts de votre laboratoire en défin
    - Spécifiez un **coût cible**. Par exemple, le montant prévu à dépenser pour ce laboratoire dans la période de temps que vous avez défini.
    - Sélectionnez l’option appropriée pour activer ou désactiver un seuil à rapporter (par incréments de 25 %), jusqu’à 125 % du **coût cible** spécifié.
       - **Notifier**: Quand ce seuil est atteint, vous êtes averti par une URL webhook que vous spécifiez.
-      - **Tracer sur le graphique**: Quand ce seuil est atteint, les résultats sont tracés sur le graphique de tendance de coût que vous pouvez afficher, comme décrit dans [affichage du graphique de tendance des coûts mensuels estimés](#viewing-the-monthly-estimated-cost-trend-chart).
+      - **Tracer sur le graphique**: Quand ce seuil est atteint, les résultats sont tracées sur le graphique de tendance de coût que vous pouvez afficher, comme décrit dans l’affichage du graphique de tendance des coûts mensuels estimés.
    - Si vous choisissez l’option **Notifier** pour l’envoi d’une notification quand le seuil est atteint, vous devez spécifier une URL Webhook. Dans la zone Intégrations des coûts, sélectionnez **Cliquez ici pour ajouter une intégration**. Entrez un **URL du Webhook** dans le volet Configurer la notification, puis sélectionnez **OK**.
 
        ![Volet Configurer la notification](./media/devtest-lab-configure-cost-management/configure-notification.png)

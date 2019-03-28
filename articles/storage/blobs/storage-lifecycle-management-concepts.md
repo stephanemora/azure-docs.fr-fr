@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/20/2019
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: 0d52b2f59bba2270b3d36ff2499ce1e0e492b228
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: fe5e4b6a4f6a3da851b6e27419bff265758a1ba1
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500421"
+ms.locfileid: "58522211"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gérer le cycle de vie du stockage Blob Azure
 
@@ -227,7 +227,7 @@ Cet exemple montre comment déplacer des objets blob de blocs ayant le préfixe 
 
 ### <a name="archive-data-at-ingest"></a>Archiver les données à la réception 
 
-D’autres sont inactives dans le cloud dès le départ et sont peu, voire pas sollicitées une fois stockées. Archivez ces données immédiatement une fois qu’elles ont été ingérées. La stratégie du cycle de vie suivante est configurée pour archiver des données à la réception. Cet exemple déplace immédiatement les objets blob de blocs du compte de stockage au sein du conteneur `archivecontainer` dans un niveau archive. Le déplacement immédiat est accompli en agissant sur les objets blob 0 jours après l’heure de dernière modification :
+D’autres sont inactives dans le cloud dès le départ et sont peu, voire pas sollicitées une fois stockées. La stratégie de cycle de vie suivant est configurée pour archiver les données d’ingestion. Cet exemple, le compte de stockage au sein du conteneur d’objets BLOB de blocs de transitions `archivecontainer` dans un niveau de l’archive. La transition s’effectue en agissant sur les objets BLOB 0 jours après l’heure de dernière modification :
 
 ```json
 {

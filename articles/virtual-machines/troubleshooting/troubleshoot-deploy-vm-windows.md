@@ -1,6 +1,6 @@
 ---
 title: Résolution des problèmes de déploiement de la machine virtuelle Windows dans Azure | Microsoft Docs
-description: Résolution des problèmes de déploiement de la machine virtuelle Windows dans le modèle de déploiement d’Azure Resource Manager.
+description: Problèmes de déploiement Windows machine virtuelle dans le modèle de déploiement Azure Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 9d98a060033674a53c8ac5390bc40d10b0fbe69b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 5752731f08a7dc9ae8661e698aef9655837c6220
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882499"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540701"
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Résolution des problèmes de déploiement de la machine virtuelle Windows dans Azure
 
@@ -32,11 +32,7 @@ Si vous avez besoin d’une aide supplémentaire à quelque étape que ce soit d
 [!INCLUDE [virtual-machines-windows-troubleshoot-deploy-vm-top](../../../includes/virtual-machines-windows-troubleshoot-deploy-vm-top.md)]
 
 ## <a name="the-cluster-cannot-support-the-requested-vm-size"></a>Le cluster ne peut pas prendre en charge la taille de machine virtuelle demandée
-<properties
-supportTopicIds="123456789"
-resourceTags="windows"
-productPesIds="1234, 5678"
-/>
+\<properties supportTopicIds="123456789" resourceTags="windows" productPesIds="1234, 5678" />
 - Relancez la requête en utilisant une taille inférieure pour la machine virtuelle.
 - Si la taille de la machine virtuelle requise ne peut pas être modifiée :
     - Arrêtez toutes les machines virtuelles dans le groupe à haute disponibilité. Cliquez sur **Groupes de ressources** > votre groupe de ressources > **Ressources** > votre groupe à haute disponibilité > **Machines virtuelles** > votre machine virtuelle > **Arrêter**.
@@ -45,11 +41,7 @@ productPesIds="1234, 5678"
 
 
 ## <a name="the-cluster-does-not-have-free-resources"></a>Le cluster n’a pas de ressources libres
-<properties
-supportTopicIds="123456789"
-resourceTags="windows"
-productPesIds="1234, 5678"
-/>
+\<properties supportTopicIds="123456789" resourceTags="windows" productPesIds="1234, 5678" />
 - Relancez la requête ultérieurement.
 - Si la nouvelle machine virtuelle peut faire partie d’un autre groupe à haute disponibilité
     - Créez une machine virtuelle dans un autre groupe à haute disponibilité (dans la même région).

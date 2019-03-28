@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: d70ad65f5bbc4424b4224cf601d903ad7ec10691
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: f44161586f9f4e121001b9f5e285b0e1e1dcd9d1
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405111"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518743"
 ---
 # <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>Comment indexer des objets BLOB JSON à l’aide d’indexeur d’objets Blob Azure Search
 Cet article vous montre comment configurer un objet blob Azure Search [indexeur](search-indexer-overview.md) pour extraire le contenu structuré à partir de documents JSON dans stockage Blob Azure et les rendre détectables dans Azure Search. Ce flux de travail crée un index Azure Search et la charge de texte existant extrait des objets BLOB JSON. 
@@ -211,7 +211,7 @@ Configuration de l’indexeur est dans le corps de la demande. Elle nécessite u
 
 Planification et des paramètres sont facultatifs. Si vous les omettez, l’indexeur s’exécute immédiatement, à l’aide de `json` en tant que le mode d’analyse.
 
-Cet indexeur particulier n’inclut pas [mappages de champs](#field-mappings). Dans la définition de l’indexeur, vous pouvez laisser **mappages de champs** si les propriétés du document JSON source correspondent aux champs de votre index de recherche cible. 
+Cet indexeur particulier n’inclut pas les mappages de champs. Dans la définition de l’indexeur, vous pouvez laisser **mappages de champs** si les propriétés du document JSON source correspondent aux champs de votre index de recherche cible. 
 
 
 ### <a name="rest-example"></a>Exemple REST
@@ -253,7 +253,7 @@ Tous les indexeurs nécessitent un index cible qui reçoit les données. Le corp
 
 ### <a name="indexer-request"></a>Requête de l’indexeur
 
-Cette requête montre un indexeur complètement spécifié. Il inclut [mappages de champs](#field-mappings), qui ont été omis dans les exemples précédents. Rappelez-vous que « schedule », « paramètres », et « fieldMappings » sont facultatifs tant qu’il existe une valeur par défaut disponible. L’omission de « planifier » provoque l’indexeur pour une exécution immédiate. L’omission de « parsingMode » provoque l’index à utiliser la valeur par défaut « json ».
+Cette requête montre un indexeur complètement spécifié. Il inclut des mappages de champs qui ont été omis dans les exemples précédents. Rappelez-vous que « schedule », « paramètres », et « fieldMappings » sont facultatifs tant qu’il existe une valeur par défaut disponible. L’omission de « planifier » provoque l’indexeur pour une exécution immédiate. L’omission de « parsingMode » provoque l’index à utiliser la valeur par défaut « json ».
 
 Création de l’indexeur recherche Azure déclenche l’importation des données. Il s’exécute immédiatement et ensuite selon une planification si vous avez fourni un.
 

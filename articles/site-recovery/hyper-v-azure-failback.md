@@ -8,18 +8,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 8f0eaf8918913836cfe724ffea4f93b62eb3bf6a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: 4030b1905f8d5b50ef6be3ffa61eda74d8a27951
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841640"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541043"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>Exécuter une restauration automatique pour les machines virtuelles Hyper-V
 
 Cet article explique comment restaurer automatiquement des machines virtuelles Hyper-V protégées par Site Recovery.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 1. Vérifiez que vous avez lu les détails sur les [différents types de restauration automatique](concepts-types-of-failback.md) et les avertissements correspondants.
 1. Assurez-vous que le serveur VMM ou le serveur d’hôte Hyper-V du site principal est connecté à Azure.
 2. Vous devez avoir effectué une **validation** sur la machine virtuelle.
@@ -54,7 +54,7 @@ Si vous avez déployé la fonction de protection entre un [site Hyper-V et Micro
 
 1. Si vous configurez un nouveau composant matériel, installez le logiciel Windows Server 2012 R2 et le rôle Hyper-V sur le serveur.
 2. Créez un commutateur réseau virtuel portant le même nom que celui du serveur d’origine.
-3. Sélectionnez **Éléments protégés** -> **Groupe de protection** -> <ProtectionGroupName> -> <VirtualMachineName> que vous souhaitez restaurer de manière automatique, puis sélectionnez **Basculement planifié**.
+3. Sélectionnez **éléments protégés** -> **Groupeprotection** -> \<ProtectionGroupName > -> \<VirtualMachineName > vous souhaitez restaurer, Sélectionnez **basculement planifié**.
 4. Cliquez sur **Confirmer le basculement planifié** select **Créer une machine virtuelle locale si elle n’existe pas**.
 5. Dans Nom d’hôte,** sélectionnez le nouveau serveur hôte Hyper-V sur lequel vous souhaitez placer la machine virtuelle.
 6. Dans le champ Synchronisation des données, nous vous recommandons de sélectionner l’option de synchronisation des données avant le basculement. Cela permet de réduire le temps d’arrêt des machines virtuelles, car elles sont synchronisées sans être arrêtées. Il effectue les opérations suivantes :
@@ -63,7 +63,7 @@ Si vous avez déployé la fonction de protection entre un [site Hyper-V et Micro
     - Phase 2 : la machine virtuelle est arrêtée dans Azure pour qu’aucun changement n’ait lieu. L’ensemble final des modifications est transféré au serveur local, et la machine virtuelle locale est démarrée.
     
 7. Cochez la base pour commencer le basculement (restauration automatique).
-8. Lorsque la synchronisation initiale se termine et que vous êtes prêt à arrêter la machine virtuelle dans Microsoft Azure, cliquez sur **Tâches** > <planned failover job> > **Terminer le basculement**. Cette action arrête la machine Microsoft Azure et transfère les dernières modifications apportées à la machine virtuelle locale, qui est ensuite démarrée.
+8. Une fois que la synchronisation initiale se termine et vous êtes prêt à arrêter la machine virtuelle dans Azure, cliquez sur **travaux** > \<travail de basculement planifié >> **terminer le basculement** . Cette action arrête la machine Microsoft Azure et transfère les dernières modifications apportées à la machine virtuelle locale, qui est ensuite démarrée.
 9. Vous pouvez vous connecter à la machine virtuelle locale pour vérifier que tout fonctionne comme prévu. Ensuite, cliquez sur **Valider** pour terminer le basculement. La validation supprime la machine virtuelle et ses disques, et prépare la machine virtuelle à protéger à nouveau.
 10. Cliquez sur **Réplication inverse** pour commencer à protéger la machine virtuelle locale.
 

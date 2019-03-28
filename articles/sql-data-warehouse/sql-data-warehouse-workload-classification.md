@@ -10,19 +10,19 @@ ms.subservice: workload management
 ms.date: 03/13/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: bcc09095955a28bde3ed999f23180e08485543fc
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: c27856da0a5131f2c0e8dfd4d929b577a0a68421
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57994004"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520129"
 ---
 # <a name="sql-data-warehouse-workload-classification-preview"></a>Classification de la charge de travail de SQL Data Warehouse (version préliminaire)
 
 Cet article explique le processus de classification de la charge de travail de SQL Data Warehouse d’affectation d’une classe de ressources et l’importance aux requêtes entrantes.
 
 > [!Note]
-> Classification de la charge de travail est disponible sur SQL Data Warehouse Gen2.
+> La classification de charge de travail est disponible dans SQL Data Warehouse Gen2.
 
 ## <a name="classification"></a>classification ;
 
@@ -33,6 +33,8 @@ Classification de gestion de la charge de travail permet aux stratégies de la c
 Bien qu’il existe de nombreuses façons de classifier des charges de travail d’entreposage de données, la classification la plus simple et la plus courante est la charge et la requête. Vous chargez des données avec insert, update et des instructions de suppression.  Vous interrogez les données à l’aide des instructions SELECT. Une solution d’entrepôt de données ont souvent une stratégie de charge de travail pour l’activité de charge, tels que l’attribution d’une classe de ressources supérieure avec davantage de ressources. Une stratégie de charge de travail différents pourrait s’appliquent aux requêtes, telles qu’importance inférieure par rapport aux activités de charge.
 
 Vous pouvez également subclassify vos charges de travail charge et de la requête. Sous-classification vous donne davantage de contrôle de vos charges de travail. Par exemple, les charges de travail de requête peuvent se composer d’actualisations de cube, les requêtes de tableau de bord ou les requêtes ad-hoc. Vous pouvez classer chacune de ces charges de travail de requête avec les classes de ressources différents ou des paramètres de l’importance. Charge peut également bénéficier de sous-classification. Transformations volumineuses peuvent être affectées à des classes de ressources plus grandes. Une importance plus élevée peut servir à garantir la clé données ventes chargeur avant les données météorologiques ou un flux de données sociales.
+
+Pas toutes les instructions sont classées comme qu’ils n’exigent pas nécessitent des ressources ou avez besoin d’importance pour influencer l’exécution.  Les commandes DBCC, les instructions BEGIN, COMMIT et ROLLBACK TRANSACTION ne sont pas classées.
 
 ## <a name="classification-process"></a>Processus de classification
 
@@ -82,4 +84,4 @@ sp_droprolemember ‘[Resource Class]’, membername
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur la classification de la charge de travail de SQL Data Warehouse et l’importance, consultez [créer un classifieur de charge de travail](quickstart-create-a-workload-classifier-tsql.md) et [Importance de l’entrepôt de données SQL](sql-data-warehouse-workload-importance.md). Consultez [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) pour afficher les requêtes et l’importance affectée.
+Pour plus d’informations sur la classification de la charge de travail de SQL Data Warehouse et l’importance, consultez [créer un classifieur de charge de travail](quickstart-create-a-workload-classifier-tsql.md) et [Importance de l’entrepôt de données SQL](sql-data-warehouse-workload-importance.md). Consultez [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) pour voir les requêtes et l’importance attribuée.
