@@ -9,17 +9,17 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
-ms.date: 02/18/2019
+ms.date: 03/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 9dbe641c5e22129f7db3d3f3b886fea4501300b0
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 6508e90f76a374d628fdd5032c475e4dde8ffa78
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416137"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351777"
 ---
-# <a name="tutorial-analyze-videos-with-media-services-v3-using-net"></a>Tutoriel : Analyser des vidéos avec Media Services v3 à l’aide de .NET
+# <a name="tutorial-analyze-videos-with-media-services-v3-using-net"></a>Didacticiel : Analyser des vidéos avec Media Services v3 à l’aide de .NET
 
 Ce didacticiel vous montre comment analyser des vidéos avec Azure Media Services. Il existe plusieurs scénarios dans lesquels vous pouvez souhaiter obtenir des informations détaillées sur vos vidéos enregistrées ou vos contenus audio. Par exemple, pour obtenir une satisfaction plus élevée des clients, les organisations peuvent exécuter un traitement de reconnaissance vocale pour convertir les enregistrements du support client en un catalogue pouvant faire l’objet de recherches, avec des index et des tableaux de bord. Ensuite, elles peuvent obtenir des informations sur leur entreprise, comme la liste des réclamations courantes avec leurs sources, et d’autres informations utiles.
 
@@ -66,7 +66,7 @@ L’exemple effectue les actions suivantes :
 6. Télécharger les fichiers qui résultent de l’exécution du travail. 
 
 > [!NOTE]
-> Lorsque vous utilisez des présélections pour l’analyseur vidéo ou audio, utilisez le Portail Azure pour paramétrer votre compte de sorte à ce qu’il dispose de 10 unités réservées Multimédia S3. Pour plus d’informations, consultez [Vue d’ensemble de la mise à l’échelle du traitement multimédia](../previous/media-services-scale-media-processing-overview.md).
+> Lorsque vous utilisez des présélections pour l’analyseur vidéo ou audio, utilisez le Portail Azure pour paramétrer votre compte de sorte à ce qu’il dispose de 10 unités réservées Multimédia S3. Pour plus d’informations, consultez [Vue d’ensemble de la mise à l’échelle du traitement multimédia](media-reserved-units-cli-how-to.md).
 
 ### <a name="start-using-media-services-apis-with-net-sdk"></a>Commencer à utiliser les API Media Services avec le Kit de développement logiciel (SDK) .NET
 

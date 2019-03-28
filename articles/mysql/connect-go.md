@@ -1,19 +1,19 @@
 ---
 title: Se connecter à Azure Database pour MySQL à l’aide de Go
 description: Ce guide de démarrage rapide fournit plusieurs exemples de code Go que vous pouvez utiliser pour vous connecter et interroger des données de la base de données Azure pour MySQL.
-author: jasonwhowell
-ms.author: jasonh
+author: ajlam
+ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 4abc34044d188be6b770439f06e8d4dab7f3ab93
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3cd25f935a38f5192811d7f7886d3c6654d5d221
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897654"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351794"
 ---
 # <a name="azure-database-for-mysql-use-go-language-to-connect-and-query-data"></a>Azure Database pour MySQL : Utiliser la langage Go pour se connecter et interroger des données
 Ce guide de démarrage rapide vous explique comment vous connecter à une base de données Azure Database pour MySQL à partir de plateformes Windows, Ubuntu Linux et Mac à l’aide d’un code écrit dans le langage [Go](https://golang.org/). Il détaille l’utilisation d’instructions SQL pour interroger la base de données, la mettre à jour, y insérer des données ou en supprimer. Cette rubrique part du principe que vous connaissez les bases du développement Go et que vous ne savez pas utiliser Azure Database pour MySQL.

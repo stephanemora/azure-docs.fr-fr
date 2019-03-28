@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: ceaabdd9aa15e5979d8ab163a9b64986a03c8332
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 2d816ab2f14be8574f77491807d4dbd071487f42
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023079"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483063"
 ---
-# <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Tutoriel : Créer une fabrique de données à l’aide de Visual Studio
+# <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Didacticiel : Créer une fabrique de données à l’aide de Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
 > * [Vue d’ensemble et composants requis](data-factory-build-your-first-pipeline.md)
 > * [Portail Azure](data-factory-build-your-first-pipeline-using-editor.md)
@@ -60,6 +60,9 @@ Voici les étapes à effectuer dans le cadre de cette procédure pas à pas :
 5. Après la publication, utilisez les panneaux du portail Azure et l’application de surveillance et gestion pour surveiller le pipeline. 
   
 ### <a name="prerequisites"></a>Prérequis
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 1. Lisez l’article [Vue d’ensemble du didacticiel](data-factory-build-your-first-pipeline.md) et effectuez les étapes **préalables** . Vous pouvez également sélectionner l’option **Vue d’ensemble et étapes préalables requises** de la liste déroulante figurant en haut de la page pour basculer vers l’article correspondant. Une fois les étapes préalables suivies, revenez à cet article en sélectionnant l’option **Visual Studio** dans la liste déroulante.
 2. Pour créer des instances Data Factory, vous devez avoir un rôle de [collaborateur de fabrique de données](../../role-based-access-control/built-in-roles.md#data-factory-contributor) au niveau de l’abonnement/du groupe de ressources.  
 3. Les composants suivants doivent être installés sur votre ordinateur :
@@ -128,7 +131,7 @@ Avec le service lié HDInsight à la demande, le cluster HDInsight à la demande
     > [!IMPORTANT]
     > Le cluster HDInsight crée un **conteneur par défaut** dans le Stockage Blob que vous avez spécifié dans le code JSON (linkedServiceName). HDInsight ne supprime pas ce conteneur lorsque le cluster est supprimé. Ce comportement est normal. Avec le service lié HDInsight à la demande, un cluster HDInsight est créé dès qu’une tranche est traitée, à moins qu’il n’existe un cluster actif (timeToLive). Ce cluster est supprimé, une fois le traitement terminé.
     > 
-    > Comme un nombre croissant de tranches sont traitées, vous voyez un grand nombre de conteneurs dans votre stockage d’objets blob Azure. Si vous n’en avez pas besoin pour dépanner les travaux, il se peut que vous deviez les supprimer pour réduire les frais de stockage. Les noms de ces conteneurs sont conformes au modèle suivant : `adf<yourdatafactoryname>-<linkedservicename>-datetimestamp`. Utilisez des outils tels que [Microsoft Storage Explorer](http://storageexplorer.com/) pour supprimer des conteneurs dans votre stockage d’objets blob Azure.
+    > Comme un nombre croissant de tranches sont traitées, vous voyez un grand nombre de conteneurs dans votre stockage d’objets blob Azure. Si vous n’en avez pas besoin pour dépanner les travaux, il se peut que vous deviez les supprimer pour réduire les frais de stockage. Les noms de ces conteneurs sont conformes au modèle suivant : `adf<yourdatafactoryname>-<linkedservicename>-datetimestamp`. Utilisez des outils tels que [Microsoft Storage Explorer](https://storageexplorer.com/) pour supprimer des conteneurs dans votre stockage d’objets blob Azure.
 
     Pour plus d’informations sur les propriétés JSON, consultez [Service lié à la demande Azure HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). 
 4. Enregistrez le fichier **HDInsightOnDemandLinkedService1.json** .
@@ -311,8 +314,8 @@ Dans cette étape, vous allez publier les entités Data Factory (services liés,
    5. Sélectionnez la **région** pour la fabrique de données.
    6. Cliquez sur **Suivant** pour basculer vers la page **Publier des éléments**. (Utilisez la touche **TABULATION** pour passer au champ Nom si le bouton **Suivant** est désactivé.)
 
-    > [!IMPORTANT]
-    > Si vous recevez l’erreur **Le nom de la fabrique de données « DataFactoryUsingVS » n’est pas disponible** au moment de la publication, changez le nom (par exemple en votrenomDataFactoryUsingVS). Consultez la rubrique [Data Factory - Règles d’affectation des noms](data-factory-naming-rules.md) pour savoir comment nommer les artefacts Data Factory.   
+      > [!IMPORTANT]
+      > Si vous recevez l’erreur **Le nom de la fabrique de données « DataFactoryUsingVS » n’est pas disponible** au moment de la publication, changez le nom (par exemple en votrenomDataFactoryUsingVS). Consultez la rubrique [Data Factory - Règles d’affectation des noms](data-factory-naming-rules.md) pour savoir comment nommer les artefacts Data Factory.   
 1. Dans la page **Publier des éléments**, vérifiez que toutes les entités de fabriques de données sont sélectionnées, puis cliquez sur **Suivant** pour basculer vers la page **Résumé**.
 
     ![Page Publier des éléments](media/data-factory-build-your-first-pipeline-using-vs/publish-items-page.png)     
@@ -325,13 +328,13 @@ Quelques points importants à prendre en compte :
 
 - Si vous recevez le message d’erreur : **L’abonnement n’est pas inscrit pour utiliser l’espace de noms Microsoft.DataFactory**, effectuez l’une des opérations suivantes et essayez de relancer la publication :
     - Dans Azure PowerShell, exécutez la commande suivante pour enregistrer le fournisseur Data Factory.
-        ```PowerShell   
-        Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+        ```powershell   
+        Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
         ```
         Vous pouvez exécuter la commande suivante pour confirmer que le fournisseur Data Factory est bien enregistré.
 
-        ```PowerShell
-        Get-AzureRmResourceProvider
+        ```powershell
+        Get-AzResourceProvider
         ```
     - Connectez-vous au [portail Azure](https://portal.azure.com) à l’aide de l’abonnement Azure et accédez à un panneau Data Factory (ou) créez une fabrique de données dans le portail Azure. Cette action enregistre automatiquement le fournisseur.
 - Le nom de la fabrique de données pourra être enregistré en tant que nom DNS et devenir ainsi visible publiquement.
@@ -412,7 +415,7 @@ Vous pouvez également utiliser l’application de surveillance et de gestion po
 -  La fabrique de données crée pour vous un cluster HDInsight **Linux** avec le code JSON précédent. Pour plus d’informations, voir [Service lié à la demande Azure HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) .
 - Le cluster HDInsight crée un **conteneur par défaut** dans le Stockage Blob que vous avez spécifié dans le code JSON (linkedServiceName). HDInsight ne supprime pas ce conteneur lorsque le cluster est supprimé. Ce comportement est normal. Avec le service lié HDInsight à la demande, un cluster HDInsight est créé dès qu’une tranche est traitée, à moins qu’il n’existe un cluster actif (timeToLive). Ce cluster est supprimé, une fois le traitement terminé.
     
-    Comme un nombre croissant de tranches sont traitées, vous voyez un grand nombre de conteneurs dans votre stockage d’objets blob Azure. Si vous n’en avez pas besoin pour dépanner les travaux, il se peut que vous deviez les supprimer pour réduire les frais de stockage. Les noms de ces conteneurs sont conformes au modèle suivant : `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Utilisez des outils tels que [Microsoft Storage Explorer](http://storageexplorer.com/) pour supprimer des conteneurs dans votre stockage d’objets blob Azure.
+    Comme un nombre croissant de tranches sont traitées, vous voyez un grand nombre de conteneurs dans votre stockage d’objets blob Azure. Si vous n’en avez pas besoin pour dépanner les travaux, il se peut que vous deviez les supprimer pour réduire les frais de stockage. Les noms de ces conteneurs sont conformes au modèle suivant : `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Utilisez des outils tels que [Microsoft Storage Explorer](https://storageexplorer.com/) pour supprimer des conteneurs dans votre stockage d’objets blob Azure.
 - À ce stade, c'est le jeu de données de sortie qui pilote la planification : vous devez donc créer un jeu de données de sortie même si l’activité ne génère aucune sortie. Si l’activité ne prend aucune entrée, vous pouvez ignorer la création du jeu de données d’entrée. 
 - Ce didacticiel n’explique pas comment copier des données à l’aide d’Azure Data Factory. Pour suivre un tutoriel sur la copie des données à l’aide d’Azure Data Factory, consultez [Tutoriel : Copier des données de Stockage Blob vers SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
@@ -478,7 +481,7 @@ Ajoutez un fichier de configuration pour chaque environnement en effectuant les 
     }
     ```
 
-    Cet exemple configure la propriété connectionString d’un service lié Azure Storage et d’un service lié SQL Azure. Notez que la syntaxe de spécification du nom est [JsonPath](http://goessner.net/articles/JsonPath/).   
+    Cet exemple configure la propriété connectionString d’un service lié Azure Storage et d’un service lié SQL Azure. Notez que la syntaxe de spécification du nom est [JsonPath](https://goessner.net/articles/JsonPath/).   
 
     Si JSON est doté d’une propriété ayant un tableau de valeurs comme indiqué dans le code suivant :  
 
@@ -562,6 +565,7 @@ Vous pouvez chaîner deux activités (une après l’autre) en configurant le je
 
 
 ## <a name="see-also"></a>Voir aussi
+
 | Rubrique | Description |
 |:--- |:--- |
 | [Pipelines](data-factory-create-pipelines.md) |Cet article vous aide à comprendre les pipelines et les activités dans Azure Data Factory, et à les utiliser dans l’optique de créer des workflows pilotés par les données pour votre scénario ou votre entreprise. |

@@ -8,17 +8,25 @@ tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 7/13/2018
+ms.date: 03/25/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 5ba19c5156f25c2ff4a616e1482b6dfc83cadc27
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 72d750022f9dc7005a5d20b012b47680ba69a270
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57894459"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446171"
 ---
 # <a name="enable-web-application-firewall-using-azure-powershell"></a>Activer le pare-feu d’applications web à l’aide d’Azure PowerShell
+
+> [!div class="op_single_selector"]
+>
+> - [Portail Azure](application-gateway-web-application-firewall-portal.md)
+> - [PowerShell](tutorial-restrict-web-traffic-powershell.md)
+> - [Interface de ligne de commande Azure](tutorial-restrict-web-traffic-cli.md)
+>
+> 
 
 Vous pouvez limiter le trafic sur une [passerelle d’application](overview.md) à l’aide d’un [pare-feu d’applications web](waf-overview.md) (WAF). Le WAF utilise des règles [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) pour protéger votre application. Ces règles incluent la protection contre les attaques telles que l’injection de code SQL, les attaques de script entre sites et les détournements de session. 
 

@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: masoucou
-ms.openlocfilehash: 06dd24b9909da9c3358c876a71de7d0df45a5223
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 1f86690b97fc7d65afed650664a76200ef490f33
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56585322"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517111"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>Démarrage rapide : Générer une application todo avec Xamarin à l’aide du compte d’API SQL Azure Cosmos DB
 
@@ -31,7 +31,7 @@ Azure Cosmos DB est le service de base de données multi-modèle de Microsoft di
 > [!NOTE]
 > Des exemples de code pour un exemple d’application Xamarin complète incluant plusieurs offres Azure, y compris CosmosDB, sont disponibles sur GitHub, [ici](https://github.com/xamarinhq/app-geocontacts). Cette application montre l’affichage de contacts géographiquement dispersés et indique comment autoriser ces contacts à mettre à jour leur emplacement.
 
-Ce démarrage rapide explique comment créer, à l’aide du portail Azure, un compte d’API SQL Azure Cosmos DB, une base de données de documents, ainsi qu’une collection. Vous allez ensuite générer et déployer une application web de liste de tâches qui repose sur [l’API .NET SQL](sql-api-sdk-dotnet.md) et [Xamarin](https://docs.microsoft.com/xamarin/#pivot=platforms&panel=Cross-Platform) en utilisant [Xamarin.Forms](https://docs.microsoft.com/xamarin/#pivot=platforms&panel=XamarinForms) et le [modèle d’architecture MVVM](https://docs.microsoft.com/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm).
+Ce démarrage rapide explique comment créer, à l’aide du portail Azure, un compte d’API SQL Azure Cosmos DB, une base de données de documents, ainsi qu’une collection. Vous allez ensuite générer et déployer une application web de liste de tâches qui repose sur [l’API .NET SQL](sql-api-sdk-dotnet.md) et [Xamarin](https://docs.microsoft.com/xamarin/) en utilisant [Xamarin.Forms](https://docs.microsoft.com/xamarin/) et le [modèle d’architecture MVVM](https://docs.microsoft.com/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm).
 
 ![Application de liste de tâches Xamarin s’exécutant sur iOS](./media/create-sql-api-xamarin-dotnet/ios-todo-screen.png)
 

@@ -3,7 +3,7 @@ title: 'Tutoriel : Supprimer une application s’exécutant dans Azure Service 
 description: Dans ce tutoriel, vous allez découvrir comment enlever une application en cours d’exécution dans Service Fabric Mesh et supprimer des ressources.
 services: service-fabric-mesh
 documentationcenter: .net
-author: rwike77
+author: dkkapur
 manager: jeconnoc
 editor: ''
 ms.assetid: ''
@@ -13,16 +13,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/11/2019
-ms.author: ryanwi
+ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: d3ac0f6f8f6811117a515236de81eca1dc3d0e4d
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: adc5b96f29f610c63bcfa24a3b5f761c04d41d5b
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264136"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339667"
 ---
-# <a name="tutorial-remove-an-application-and-resources"></a>Tutoriel : supprimer une application et des ressources
+# <a name="tutorial-remove-an-application-and-resources"></a>Didacticiel : supprimer une application et des ressources
 
 Ce tutoriel est la quatrième partie de la série. Vous allez apprendre à supprimer une application en cours d’exécution qui a été [déployée sur Service Fabric Mesh](service-fabric-mesh-tutorial-template-deploy-app.md). 
 

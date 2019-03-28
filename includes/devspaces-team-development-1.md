@@ -10,12 +10,12 @@ ms.author: stevenry
 ms.date: 12/17/2018
 ms.topic: include
 manager: yuvalm
-ms.openlocfilehash: 1f6e0a8fd2cc14877b98bc12b0d2c8632edbbbb9
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 40c1be20df845b975c023616e38cbb932c985735
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55664366"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439534"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Développement en équipe avec les espaces Azure Dev Spaces
 
@@ -66,13 +66,15 @@ Tout d’abord, nous allons devoir déployer une base de référence de nos serv
 > [!TIP]
 > Les étapes ci-dessus permettent de configurer manuellement une base de référence. Toutefois, il est recommandé aux équipes d’utiliser CI/CD pour maintenir leur base de référence à jour automatiquement à l’aide d’un code validé.
 >
-> Découvrez notre [guide de configuration de CI/CD avec Azure DevOps](../articles/dev-spaces/how-to/setup-cicd.md) pour créer un workflow similaire au diagramme suivant.
+> Découvrez notre [guide de configuration de CI/CD avec Azure DevOps](../articles/dev-spaces/how-to/setup-cicd.md) pour créer un workflow similaire à celui du diagramme suivant.
 >
 > ![Diagramme d’un exemple CI/CD](../articles/dev-spaces/media/common/ci-cd-complex.png)
 
-À ce stade, votre base de référence doit être en cours d’exécution. Exécutez la commande `azds list-up`. La sortie ressemble à ce qui suit :
+À ce stade, votre base de référence doit être en cours d’exécution. Exécutez la commande `azds list-up --all`. La sortie ressemble à ce qui suit :
 
 ```
+$ azds list-up --all
+
 Name                          DevSpace  Type     Updated  Status
 ----------------------------  --------  -------  -------  -------
 mywebapi                      dev       Service  3m ago   Running

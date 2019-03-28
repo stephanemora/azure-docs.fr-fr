@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Créer un pipeline avec l’activité de copie à l’aide de Visual Studio | Microsoft Docs'
+title: 'Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de Visual Studio | Microsoft Docs'
 description: Dans ce didacticiel, vous allez créer un pipeline Azure Data Factory avec une activité de copie à l’aide de Visual Studio.
 services: data-factory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8ac17c00f635c4c14c0e4752847aff941f81804a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0a9ca5f8598e737d82d6a51632e1e89394b24ac0
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58111614"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487615"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de Visual Studio
 > [!div class="op_single_selector"]
@@ -335,12 +335,12 @@ Notez les points suivants :
   
   * Dans Azure PowerShell, exécutez la commande suivante pour enregistrer le fournisseur Data Factory. 
 
-    ```PowerShell    
+    ```powershell    
     Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
     Vous pouvez exécuter la commande suivante pour confirmer que le fournisseur Data Factory est bien enregistré. 
     
-    ```PowerShell
+    ```powershell
     Get-AzResourceProvider
     ```
   * Connectez-vous au [portail Azure](https://portal.azure.com) à l’aide de l’abonnement Azure et accédez à un panneau Data Factory (ou) créez une fabrique de données dans le portail Azure. Cette action enregistre automatiquement le fournisseur.

@@ -6,18 +6,21 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 12/11/2018
 ms.author: mjbrown
-ms.openlocfilehash: b0c09c5b425beef6badff7fb6ec298f96591abc5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9f890a8468eaa22fbfce326fc16afe545fd515d6
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57990532"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339310"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Comment écrire des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur dans Azure Cosmos DB
 
 Azure Cosmos DB fournit une exécution transactionnelle avec langage intégré de JavaScript qui vous permet d’écrire des **procédures stockées**, des **déclencheurs** et des **fonctions définies par l’utilisateur**. Lorsque vous utilisez l’API SQL dans Azure Cosmos DB, vous pouvez définir les procédures stockées, les déclencheurs et les fonctions définies par l’utilisateur dans le langage JavaScript. Vous pouvez écrire votre logique dans JavaScript et l’exécuter dans le moteur de base de données. Vous pouvez créer et exécuter des déclencheurs, des procédures stockées et des fonctions définies par l’utilisateur à l’aide du [Portail Azure](https://portal.azure.com/), de [l’API de requête avec langage intégré JavaScript dans Azure Cosmos DB](javascript-query-api.md) et des [Kits de développement logiciel (SDK) clients de l’API SQL Cosmos DB](sql-api-dotnet-samples.md). 
 
 Pour appeler une procédure stockée, un déclencheur, une fonction définie par l’utilisateur, vous devez les inscrire. Pour plus d’informations, consultez [How to register and use stored procedures, triggers, and user-defined functions in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md) (Comment inscrire et utiliser des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur dans Azure Cosmos DB).
+
+> [!NOTE]
+> Pour les conteneurs partitionnés, lorsque vous exécutez une procédure stockée, vous devez fournir une valeur de clé de partition dans les options de requête. Les procédures stockées se limitent toujours à une clé de partition. Les éléments qui ont une valeur de clé de partition différente ne seront pas visibles dans la procédure stockée. Cela s’applique également aux déclencheurs.
 
 ## <a id="stored-procedures"></a>Comment écrire des procédures stockées
 

@@ -1,12 +1,12 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: b1e6ffc985c35b6711b8e602dbb877e840ab3f1b
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: dcd0461e185fa97853bcd84e53bb43aacc5799c0
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992377"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517009"
 documentType: LandingData
-title: Documentation Azure Database for MariaDB
+title: Documentation Azure Database pour MariaDB
 metadata:
   title: Documentation Azure MariaDB - Tutoriels, informations de référence sur les API
   description: Azure Database for MariaDB est un service de base de données relationnelle du cloud Microsoft qui est conçu pour les développeurs et basé sur le moteur de base de données open source MariaDB.
@@ -14,7 +14,7 @@ metadata:
   ms.author: andrela
   ms.service: mariadb
   ms.topic: landing-page
-  ms.date: 02/25/2018
+  ms.date: 03/25/2019
 abstract:
   description: Azure Database for MariaDB est un service de base de données relationnelle fondé sur le moteur de serveur open source MariaDB.  C’est un produit de base de données en tant que service complètement managé qui peut gérer des charges de travail critiques avec des performances prévisibles et une scalabilité dynamique. Développez des applications avec Azure Database for MariaDB en tirant parti des outils open source et de la plateforme de votre choix. Découvrez comment utiliser Azure Database pour MariaDB avec nos guides de démarrage rapide, nos didacticiels et nos exemples.
 sections:
@@ -38,7 +38,7 @@ sections:
   - type: paragraph
     text: 'Découvrez comment concevoir votre base de données et développer des applications :'
   - type: list
-    style: ordered
+    style: unordered
     items:
     - html: Concevoir une base de données&#58 ; <a href="/azure/mariadb/tutorial-design-database-using-portal">Portail Azure</a> | <a href="/azure/mariadb/tutorial-design-database-cli">Azure CLI</a>
 - title: Exemples

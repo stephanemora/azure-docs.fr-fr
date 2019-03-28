@@ -3,7 +3,7 @@ title: 'Didacticiel : Diffuser en continu des journaux Azure Active Directory s
 description: Découvrez comment configurer Azure Diagnostics pour envoyer des journaux Azure Active Directory vers un Hub Event (préversion)
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 045f94b3-6f12-407a-8e9c-ed13ae7b43a3
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d416f61e2752ad2e26bda1276c3c52b36d5754a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e85a3c43054aeb758eb1e0da9ce1086bfa653180
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198250"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436929"
 ---
 # <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub-preview"></a>Didacticiel : Diffuser en continu des journaux Azure Active Directory sur un hub d’événements Azure (préversion)
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Utiliser un modèle ONNX avec Windows ML - Service Custom Vision'
+title: 'Didacticiel : Utiliser un modèle ONNX avec Windows ML - Service Custom Vision'
 titlesuffix: Azure Cognitive Services
 description: Découvrez comment créer une application UWP Windows qui utilise un modèle ONNX exporté à partir d’Azure Cognitive Services.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 10/16/2018
+ms.date: 03/21/2019
 ms.author: larryfr
-ms.openlocfilehash: 7f123187ea869931b0701fd9d68372deb0b272e1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: af1b96b4ab47053a6737893832b484372ed37e99
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879069"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351862"
 ---
-# <a name="tutorial-use-an-onnx-model-from-custom-vision-with-windows-ml-preview"></a>Tutoriel : Utiliser un modèle ONNX à partir de Custom Vision avec Windows ML (préversion)
+# <a name="tutorial-use-an-onnx-model-from-custom-vision-with-windows-ml-preview"></a>Didacticiel : Utiliser un modèle ONNX à partir de Custom Vision avec Windows ML (préversion)
 
 Découvrez comment utiliser un modèle ONNX exporté à partir du service Custom Vision avec Windows ML (préversion).
 
@@ -51,7 +51,7 @@ L’exemple d’application est disponible à l’adresse [https://github.com/Az
 
 1. Utilisez la touche `F5` pour démarrer l’application à partir de Visual Studio. Il peut vous être demandé d’activer le mode Développeur. Pour plus d’informations, consultez le document [Activez votre appareil pour le développement](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development).
 
-2. Lorsque l’application démarre, utilisez le bouton pour sélectionner une image pour le scoring.
+1. Lorsque l’application démarre, utilisez le bouton pour sélectionner une image pour le scoring.
 
 ## <a name="use-your-own-model"></a>Utiliser votre propre modèle
 
@@ -65,8 +65,8 @@ Pour utiliser votre propre modèle, procédez comme suit :
 
 1. Dans l’Explorateur de solutions, cliquez sur le dossier Ressources, puis sélectionnez __Ajouter un élément existant__. Sélectionnez le fichier ONNX.
 
-1. Dans l’Explorateur de solutions, sélectionnez le fichier ONNX dans le dossier Ressources. Modifiez les propriétés suivantes du fichier : 
-    
+1. Dans l’Explorateur de solutions, sélectionnez le fichier ONNX dans le dossier Ressources. Modifiez les propriétés suivantes du fichier :
+
     * __Action de génération__ -> __Contenu__
     * __Copier dans le répertoire de sortie__ -> __Copier si plus récent__
 

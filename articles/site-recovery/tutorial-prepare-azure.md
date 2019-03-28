@@ -2,18 +2,18 @@
 title: Préparer Azure pour la récupération d’urgence des machines locales avec Azure Site Recovery | Microsoft Docs
 description: Découvrez comment préparer Azure pour la récupération d’urgence des machines locales à l’aide d’Azure Site Recovery.
 services: site-recovery
-author: mayurigupta13
+author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/03/2019
-ms.author: mayg
+ms.date: 03/18/2019
+ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 5168fc28952631f00c2415d6bc171a130dc85dfd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8bdb711d39f514375362235388943ec42451b312
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838559"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315570"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Préparer les ressources Azure pour la récupération d’urgence de machines locales
 

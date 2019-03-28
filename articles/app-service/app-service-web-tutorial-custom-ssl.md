@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0c89cdc34c23c461e5cebf3026cb0774bf91b75d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0a5b8bdbcd5a05574d824e3f57cfc23967278e27
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57998567"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487734"
 ---
-# <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-app-service"></a>Tutoriel : Lier un certificat SSL personnalisé existant à Azure App Service
+# <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-app-service"></a>Didacticiel : Lier un certificat SSL personnalisé existant à Azure App Service
 
 Azure App Service offre un service d’hébergement web capable d’auto-correction et hautement scalable. Ce tutoriel montre comment lier un certificat SSL personnalisé acheté auprès d’une autorité de certification approuvée à [Azure App Service](overview.md). Quand vous aurez terminé, vous pourrez accéder à votre application au niveau du point de terminaison HTTPS de votre domaine DNS personnalisé.
 
@@ -252,7 +252,7 @@ az webapp config set \
 
 La commande suivante charge un fichier PFX exporté et ajoute une liaison SSL basée sur SNI.
 
-```PowerShell
+```powershell
 New-AzWebAppSSLBinding `
     -WebAppName <app_name> `
     -ResourceGroupName <resource_group_name> `

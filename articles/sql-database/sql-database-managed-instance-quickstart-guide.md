@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
-ms.date: 02/18/2019
-ms.openlocfilehash: 44ea6db1c31f0ebfbe2abe2f9f6eea165a3ff4e0
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/25/2019
+ms.openlocfilehash: 08b7870000b38d782e9282eef7ec9c0d551094dd
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57306763"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444314"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>Bien démarrer avec une instance managée Azure SQL Database
 
@@ -65,9 +65,10 @@ Si vous avez déjà un réseau virtuel et un sous-réseau où vous souhaitez dé
 
  Si vous n’avez pas créé l’environnement réseau comme décrit dans l’étape précédente, le portail Azure peut le faire pour vous. Le seul inconvénient est qu’il le configure avec certains paramètres par défaut que vous ne pouvez pas changer par la suite. En guise d’alternative, vous pouvez utiliser :
 
-- [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/)
+- [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md)
 - [PowerShell avec un modèle Resource Manager](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)
 - [Azure CLI](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/create-azure-sql-managed-instance-using-azure-cli/).
+- [Modèle Resource Manager](sql-database-single-database-get-started-template.md)
 
 ## <a name="migrating-to-a-managed-instance-with-minimal-downtime"></a>Migration vers une instance managée avec un temps d’arrêt minimal
 

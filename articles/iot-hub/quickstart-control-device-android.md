@@ -8,14 +8,14 @@ services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/19/2018
+ms.date: 03/15/2019
 ms.author: wesmc
-ms.openlocfilehash: a9e5b00ad84a57f49303f2e6f9389b4791fd0f60
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b7a46fab296fa8d585f1ae70dcf278e6686cca64
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58166944"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520596"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>Démarrage rapide : contrôler un appareil connecté à un hub IoT (Android)
 
@@ -120,7 +120,7 @@ L’exemple d’application de kit SDK d’appareil peut être exécuté sur un 
    > Si la synchronisation du projet échoue, c’est peut-être pour l’une des raisons suivantes :
    >
    > * La version du plug-in Android Gradle et celle de Gradle référencées dans le projet sont obsolètes pour votre version d’Android Studio. Suivez [ces instructions](https://developer.android.com/studio/releases/gradle-plugin) pour référencer et installer les bonnes versions du plug-in et de Gradle pour votre installation.
-   > * Le contrat de licence du kit Android SDK n’a pas été signé. Suivez les instructions dans la sortie de la build pour signer le contrat de licence et télécharger le SDK.
+   > * Le contrat de licence du kit de développement logiciel Android SDK n’a pas été signé. Suivez les instructions dans la sortie de la build pour signer le contrat de licence et télécharger le SDK.
 
 
 4. Une fois la build terminée, cliquez sur **Exécuter** > **Exécuter « application »**. Configurez l’application pour l’exécuter sur un appareil Android physique ou un émulateur Android. Pour plus d’informations sur l’exécution d’une application Android sur un appareil physique ou un émulateur, consultez [Exécuter votre application](https://developer.android.com/training/basics/firstapp/running-app).
@@ -175,7 +175,7 @@ Une application de service back-end de hub IoT s’exécute généralement dans 
    > Si la synchronisation du projet échoue, c’est peut-être pour l’une des raisons suivantes :
    >
    > * La version du plug-in Android Gradle et celle de Gradle référencées dans le projet sont obsolètes pour votre version d’Android Studio. Suivez [ces instructions](https://developer.android.com/studio/releases/gradle-plugin) pour référencer et installer les bonnes versions du plug-in et de Gradle pour votre installation.
-   > * Le contrat de licence du kit Android SDK n’a pas été signé. Suivez les instructions dans la sortie de la build pour signer le contrat de licence et télécharger le SDK.
+   > * Le contrat de licence du kit de développement logiciel Android SDK n’a pas été signé. Suivez les instructions dans la sortie de la build pour signer le contrat de licence et télécharger le SDK.
 
 
 4. Une fois la build terminée, cliquez sur **Exécuter** > **Exécuter « application »**. Configurez l’application pour l’exécuter sur un appareil Android physique ou un émulateur Android distinct. Pour plus d’informations sur l’exécution d’une application Android sur un appareil physique ou un émulateur, consultez [Exécuter votre application](https://developer.android.com/training/basics/firstapp/running-app).

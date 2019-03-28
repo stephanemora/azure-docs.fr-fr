@@ -11,14 +11,14 @@ ms.date: 02/20/2019
 author: gauravmalhot
 ms.author: gamal
 manager: craigg
-ms.openlocfilehash: 1d4eb3d2978be98d81b42dd66a75b21563c23a1a
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: 2b25dff29563dcf44077465f3e563d04f04b3119
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576648"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483112"
 ---
-# <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Tutoriel : Créer une fabrique de données Azure à l’aide du modèle Azure Resource Manager
+# <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Didacticiel : Créer une fabrique de données Azure à l’aide du modèle Azure Resource Manager
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-build-your-first-pipeline-using-arm.md)
@@ -328,7 +328,7 @@ Créez un fichier JSON nommé **ADFTutorialARM-Parameters** contient les paramè
 
 Dans PowerShell, exécutez la commande suivante pour déployer des entités Data Factory à l’aide du modèle Resource Manager que vous avez créé précédemment dans ce démarrage rapide.
 
-```PowerShell
+```powershell
 New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFTutorial\ADFTutorialARM.json -TemplateParameterFile C:\ADFTutorial\ADFTutorialARM-Parameters.json
 ```
 
@@ -647,7 +647,7 @@ Dans ce didacticiel, vous avez créé un modèle pour définir des entités Data
 
 Exemple :
 
-```PowerShell
+```powershell
 New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Dev.json
 
 New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Test.json

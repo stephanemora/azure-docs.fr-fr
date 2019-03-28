@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 8bee1c3b5863cfe8b4b2e50a927b0eb15576f02f
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: f0a1184daa41a30bb0c47764a3a47af68a6a9251
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57249555"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58442802"
 ---
 # <a name="create-a-virtual-machine-using-an-existing-managed-os-disk-with-powershell"></a>Créer une machine virtuelle en utilisant un disque de système d’exploitation géré existant avec PowerShell
 
@@ -60,7 +60,7 @@ Ce script utilise les commandes suivantes pour obtenir des propriétés de disqu
 | [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) | Création d’une machine virtuelle |
 |[Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Supprime un groupe de ressources et toutes les ressources contenues. |
 
-Pour les images marketplace, utilisez [Set-AzVMPlan](https://docs.microsoft.com/powershell/module/az.compute/set-azvmplan?view=azurermps-6.7.0) afin de définir les informations de plan.
+Pour les images marketplace, utilisez [Set-AzVMPlan](https://docs.microsoft.com/powershell/module/az.compute/set-azvmplan) afin de définir les informations de plan.
 
 ```powershell
 Set-AzVMPlan -VM $VirtualMachine -Publisher $Publisher -Product $Product -Name $Bame

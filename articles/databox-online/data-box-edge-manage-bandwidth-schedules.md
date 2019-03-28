@@ -6,23 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/12/2019
+ms.date: 03/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 2c8d21a9494bace7d60b90637450cb10a5f3576e
-ms.sourcegitcommit: f596d88d776a3699f8c8cf98415eb874187e2a48
+ms.openlocfilehash: f88003e38a34eb3396b83158ff71e4739080cd9d
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2019
-ms.locfileid: "58109356"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401403"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-data-box-edge"></a>Utiliser le portail Azure pour gérer les planifications de bande passante sur votre ressource Azure Data Box Edge  
 
 Cet article explique comment gérer les utilisateurs sur votre ressource Azure Data Box Edge. Les planifications de bande passante vous permettent de configurer l’utilisation de la bande passante réseau sur plusieurs planifications selon le moment de la journée. Ces planifications sont applicables aux opérations de chargement et de téléchargement entre votre appareil et le cloud.
 
 Vous pouvez ajouter, modifier ou supprimer des planifications de bande passante pour votre ressource Data Box Edge via le portail Azure.
-
-> [!IMPORTANT]
-> Data Box Edge est en préversion. Veuillez lire les [conditions d’utilisation de la préversion Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) avant de commander et déployer cette solution.
 
 Dans cet article, vous apprendrez comment :
 

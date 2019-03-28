@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 3a22caa39dad3ce296c43015f324270b7dc55ae8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 03/25/2019
+ms.openlocfilehash: 77e7ed6b39f18f05323562865097dd0760240abf
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57862027"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446367"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>Exemples Azure PowerShell pour Azure SQL Database
 
@@ -65,7 +65,7 @@ Le tableau suivant comprend des liens vers des exemples de scripts Azure PowerS
 | |  |
 |---|---|
 |**Créer et configurer des instances managées**||
-| [Créer et gérer une instance gérée](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../quick-start-script-create-azure-sql-managed-instance-using-powershell/) | Ce script PowerShell vous montre comment créer et gérer une instance gérée à l’aide d’Azure PowerShell. |
+| [Créer et gérer une instance gérée](scripts/sql-database-create-configure-managed-instance-powershell.md) | Ce script PowerShell vous montre comment créer et gérer une instance gérée à l’aide d’Azure PowerShell. |
 | [Créer et gérer une instance managée à l’aide du modèle Azure Resource Manager](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Ce script PowerShell vous montre comment créer et gérer une instance managée à l’aide du modèle Azure PowerShell et Azure Resource Manager.|
 | **Configurer Transparent Data Encryption (TDE)**||
 | [Gérer Transparent Data Encryption dans une instance gérée à l’aide de votre propre clé Azure Key Vault](scripts/transparent-data-encryption-byok-sql-managed-instance-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Ce script PowerShell configure Transparent Data Encryption (TDE) dans le scénario Bring Your Own Key pour Azure SQL Managed Instance, à l’aide d’une clé Azure Key Vault.|

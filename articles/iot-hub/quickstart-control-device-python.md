@@ -9,13 +9,13 @@ services: iot-hub
 ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/30/2018
-ms.openlocfilehash: 801258f2f6f56fc3fd9e7c830e93bf0dbfa9c134
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 03/26/2019
+ms.openlocfilehash: ce3bf98a5f31f18c6759b202d53d8a1ced46296e
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58170358"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519661"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>Démarrage rapide : Contrôler un appareil connecté à un hub IoT (Python)
 
@@ -35,7 +35,9 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 
-Les deux exemples d’applications que vous exécutez dans ce guide de démarrage rapide sont écrits à l’aide de Python. Votre machine de développement doit disposer de Python 2.7.x ou 3.5.x.
+Les deux exemples d’applications que vous exécutez dans ce guide de démarrage rapide sont écrits à l’aide de Python. Actuellement, les SDK Microsoft Azure IoT pour Python prennent en charge uniquement les versions spécifiques de Python pour chaque plateforme. Pour plus d’informations, consultez le [fichier Lisez-moi du kit de développement logiciel Python](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues).
+
+Ce démarrage rapide repose sur l’hypothèse que vous utilisez un ordinateur de développement Windows. Pour les systèmes Windows, seul [Python 3.6.x](https://www.python.org/downloads/release/python-368/) est pris en charge. Le programme d’installation de Python que vous choisissez doit être basé sur l’architecture du système que vous utilisez. Si votre architecture de processeur est 32 bits, téléchargez le programme d’installation x86. Pour l’architecture 64 bits, téléchargez le programme d’installation x86-64. En outre, assurez-vous que le [redistribuable Microsoft Visual C++ pour Visual Studio 2017](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) est installé pour votre architecture (x64 ou x86).
 
 Vous pouvez télécharger Python pour plusieurs plateformes sur [Python.org](https://www.python.org/downloads/).
 

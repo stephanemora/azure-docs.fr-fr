@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: overview
-ms.date: 02/20/2019
+ms.date: 03/21/2019
 ms.author: pafarley
-ms.openlocfilehash: 6cbc6e351147ed5b4c31463b5cf319417f34da34
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 50935aca20af931eec63717921ef7a73267d2373
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456773"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58350468"
 ---
 # <a name="what-is-azure-custom-vision"></a>Qu’est-ce que le service Vision personnalisée d’Azure ?
 
@@ -25,17 +25,18 @@ Azure Custom Vision est un service cognitif qui vous permet de créer, de déplo
 
 Le service Custom Vision utilise un algorithme de Machine Learning pour appliquer des étiquettes à des images. Vous, en tant que développeur, devez envoyer des groupes d’images présentant les caractéristiques en question, ainsi que des groupes d’images n’en disposant pas. Vous étiquetez les images vous-même au moment de la soumission. L’algorithme s’entraîne ensuite avec ces données et calcule sa propre précision en se testant lui-même à l’aide de ces mêmes images. Une fois l’algorithme entraîné, vous pouvez le tester, le réentraîner et éventuellement l’utiliser pour classer les nouvelles images en fonction des besoins de votre application. Vous pouvez également exporter le modèle en question pour l’utiliser en mode hors connexion.
 
-## <a name="classification-and-object-detection"></a>Classification et détection d’objet
+### <a name="classification-and-object-detection"></a>Classification et détection d’objet
 
 Les fonctionnalités du service Vision personnalisée peuvent être divisées en deux fonctionnalités. La **classification d’images** applique une ou plusieurs étiquettes à une image. La **détection d’objet** est similaire, mais elle retourne également les coordonnées dans l’image où se trouvent la ou les étiquettes appliquées.
 
-## <a name="optimization"></a>Optimisation
+### <a name="optimization"></a>Optimisation
 
 Le service Custom Vision est optimisé pour reconnaître rapidement les principales différences entre les images. Vous pouvez ainsi démarrer le prototypage de votre modèle avec une petite quantité de données. Il est généralement conseillé de commencer avec 50 images par étiquette. Toutefois, cela signifie que le service n’est pas optimal pour la détection des différences subtiles dans les images (par exemple, la détection de petites fissures ou de petits trous dans des scénarios d’assurance qualité).
 
 En outre, vous pouvez choisir parmi plusieurs types d’algorithme de Custom Vision qui sont optimisés pour certains sujets (par exemple, des points de repère ou des articles vendus au détail). Pour plus d’informations, consultez le document [Créer un classifieur](getting-started-build-a-classifier.md).
 
 ## <a name="what-it-includes"></a>Contenu
+
 Le service Vision personnalisée est disponible en tant qu’ensemble de kits de développement logiciel (SDK) natifs, ainsi que via une interface web sur la [page d’accueil du service Vision personnalisée](https://customvision.ai/). Vous pouvez créer, tester et entraîner un modèle avec une interface ou les deux.
 
 ![Page d’accueil du service Vision personnalisée dans une fenêtre du navigateur Chrome](media/browser-home.png)

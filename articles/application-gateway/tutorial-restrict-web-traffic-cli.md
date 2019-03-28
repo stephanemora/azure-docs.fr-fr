@@ -10,14 +10,22 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 3ce40c2e0726094113253258d3b3f0bf6d876f6f
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 1387dc5bb2cabf9a3078474564aadc81b28fd9a7
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56452633"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58443618"
 ---
-# <a name="tutorial-enable-web-application-firewall-using-the-azure-cli"></a>Tutoriel : Activer le pare-feu d’applications web à l’aide d’Azure CLI
+# <a name="enable-web-application-firewall-using-the-azure-cli"></a>Activer le pare-feu d’applications web à l’aide d’Azure CLI
+
+> [!div class="op_single_selector"]
+>
+> - [Portail Azure](application-gateway-web-application-firewall-portal.md)
+> - [PowerShell](tutorial-restrict-web-traffic-powershell.md)
+> - [Interface de ligne de commande Azure](tutorial-restrict-web-traffic-cli.md)
+>
+> 
 
 Vous pouvez limiter le trafic sur une [passerelle d’application](overview.md) à l’aide d’un [pare-feu d’applications web](waf-overview.md) (WAF). Le WAF utilise des règles [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) pour protéger votre application. Ces règles incluent la protection contre les attaques telles que l’injection de code SQL, les attaques de script entre sites et les détournements de session. 
 

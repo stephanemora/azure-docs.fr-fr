@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 647b2ae5f23ef6f94e3a56eb777053a7eb3e0097
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8b96492c44d7a8cd8c0f1bb8fbcea8e78fc11c30
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58090438"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484302"
 ---
-# <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>Tutoriel : créer un pipeline avec l’activité de copie à l’aide de l’API .NET
+# <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>Didacticiel : créer un pipeline avec l’activité de copie à l’aide de l’API .NET
 > [!div class="op_single_selector"]
 > * [Vue d’ensemble et composants requis](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Assistant de copie](data-factory-copy-data-wizard-tutorial.md)
@@ -60,17 +60,17 @@ Créez une application Azure Active Directory, créez un principal de service po
 1. Lancez **PowerShell**.
 2. Exécutez la commande suivante, puis saisissez le nom d’utilisateur et le mot de passe que vous avez utilisés pour la connexion au portail Azure.
 
-    ```PowerShell
+    ```powershell
     Connect-AzAccount
     ```
 3. Exécutez la commande suivante pour afficher tous les abonnements de ce compte.
 
-    ```PowerShell
+    ```powershell
     Get-AzSubscription
     ```
 4. Exécutez la commande suivante pour sélectionner l’abonnement que vous souhaitez utiliser. Remplacez **&lt;NameOfAzureSubscription**&gt; par le nom de votre abonnement Azure.
 
-    ```PowerShell
+    ```powershell
     Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
     ```
 
@@ -79,7 +79,7 @@ Créez une application Azure Active Directory, créez un principal de service po
 
 5. Créez un groupe de ressources Azure nommé **ADFTutorialResourceGroup** en exécutant la commande suivante dans PowerShell.
 
-    ```PowerShell
+    ```powershell
     New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
     ```
 
@@ -88,28 +88,28 @@ Créez une application Azure Active Directory, créez un principal de service po
     Si vous utilisez un autre groupe de ressources, vous devez remplacer ADFTutorialResourceGroup par le nom de votre groupe de ressources dans ce didacticiel.
 6. Créez une application Azure Active Directory.
 
-    ```PowerShell
+    ```powershell
     $azureAdApplication = New-AzADApplication -DisplayName "ADFCopyTutotiralApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfcopytutorialapp.org/example" -Password "Pass@word1"
     ```
 
     Si vous obtenez l’erreur suivante, spécifiez une autre URL et relancez la commande.
     
-    ```PowerShell
+    ```powershell
     Another object with the same value for property identifierUris already exists.
     ```
 7. Créez le principal du service AD.
 
-    ```PowerShell
+    ```powershell
     New-AzADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
     ```
 8. Ajoutez le principal du service au rôle **Contributeurs de Data Factory** .
 
-    ```PowerShell
+    ```powershell
     New-AzRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
     ```
 9. Récupérez l’ID de l’application.
 
-    ```PowerShell
+    ```powershell
     $azureAdApplication 
     ```
     Notez l’ID d’application (applicationID) dans la sortie.

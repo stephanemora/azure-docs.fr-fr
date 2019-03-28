@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : créer un pipeline à l’aide d’un modèle Azure Resource Manager | Microsoft Docs'
+title: 'Didacticiel : créer un pipeline à l’aide d’un modèle Azure Resource Manager | Microsoft Docs'
 description: Dans ce didacticiel, vous créez un pipeline Azure Data Factory en utilisant un modèle Azure Resource Manager. Ce pipeline copie des données d’un stockage Blob Azure dans une base de données Azure SQL.
 services: data-factory
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8e104d67d5a16dde3229380a78a06f9c4a87f19c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 95a29a458fc9333515ef29aaaed9a47e93cf3a8d
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58075013"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483758"
 ---
-# <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>Tutoriel : utiliser un modèle Azure Resource Manager pour créer un pipeline Data Factory afin de copier des données 
+# <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>Didacticiel : utiliser un modèle Azure Resource Manager pour créer un pipeline Data Factory afin de copier des données 
 > [!div class="op_single_selector"]
 > * [Vue d’ensemble et composants requis](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Assistant de copie](data-factory-copy-data-wizard-tutorial.md)
@@ -321,19 +321,19 @@ Créez un fichier JSON nommé **ADFCopyTutorialARM-Parameters** contient les par
 1. Démarrez **Azure PowerShell** et exécutez la commande suivante :
    * Exécutez la commande suivante, puis saisissez le nom d’utilisateur et le mot de passe que vous avez utilisés pour la connexion au portail Azure.
    
-     ```PowerShell
-     Connect-AzAccount       
-     ```  
+    ```PowerShell
+    Connect-AzAccount       
+    ```  
    * Exécutez la commande suivante pour afficher tous les abonnements de ce compte.
    
-     ```PowerShell
-     Get-AzSubscription
-     ```   
+    ```PowerShell
+    Get-AzSubscription
+    ```   
    * Exécutez la commande suivante pour sélectionner l’abonnement que vous souhaitez utiliser.
     
-     ```PowerShell
-     Get-AzSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzContext
-     ```    
+    ```PowerShell
+    Get-AzSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzContext
+    ```    
 2. Exécutez la commande suivante pour déployer des entités Data Factory à l’aide du modèle Resource Manager que vous avez créé à l’étape 1.
 
     ```PowerShell   

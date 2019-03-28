@@ -3,7 +3,7 @@ title: Mettre à niveau un runtime Azure Service Fabric | Microsoft Docs
 description: Dans ce didacticiel, vous découvrez comment utiliser PowerShell pour mettre à niveau le runtime d’un cluster Service Fabric hébergé par Azure.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/28/2017
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 02f973af71f0ee7e1fd1bcf712a08e001ec41667
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 9a3a28a518093770ee5a0d1b9eecf394babc512e
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224955"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500438"
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Didacticiel : Mettre à niveau le runtime d’un cluster Service Fabric dans Azure
 

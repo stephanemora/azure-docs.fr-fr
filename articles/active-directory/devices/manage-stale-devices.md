@@ -3,7 +3,7 @@ title: Guide pratique pour gérer les appareils obsolètes dans Azure AD | Micr
 description: En raison de la perte, du vol, de la casse d’appareils ou de réinstallations de système d’exploitation, vous comptez généralement des appareils obsolètes dans votre environnement. Découvrez comment supprimer des appareils obsolètes de votre base de données d’appareils inscrits dans Azure Active Directory (Azure AD).
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 01/30/2019
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fcbc7f66df65cd1ea18cd3062ec61adb1e0399f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5c4aa4d3a4425c93cb495d27d0fe38d329ddea7a
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58164958"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521531"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Procédure : Gérer les appareils obsolètes dans Azure AD
 

@@ -17,12 +17,12 @@ ms.date: 11/29/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: 50470edff81194b9c8885aa94d1eab1e6c18ad88
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: be6375972747c5c962bf1a8ef9b9b0093402bb7a
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984084"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368253"
 ---
 # <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>Didacticiel : gérer les disques Azure avec Azure PowerShell
 
@@ -49,12 +49,9 @@ Lorsqu’une machine virtuelle Azure est créée, deux disques sont automatiquem
 
 **Disque temporaire** : les disques temporaires utilisent un disque SSD qui se trouve sur le même hôte Azure que la machine virtuelle. Les disques temporaires sont extrêmement performants et peuvent être utilisés pour des opérations telles que le traitement de données temporaires. Toutefois, si la machine virtuelle est déplacée vers un nouvel hôte, toutes les données stockées sur un disque temporaire sont supprimées. La taille du disque temporaire est déterminée par la [taille de la machine virtuelle](sizes.md). Les disques temporaires se voient attribuer la lettre de lecteur *D:* par défaut.
 
-
-
 ## <a name="azure-data-disks"></a>Disques de données Azure
 
-Des disques de données supplémentaires peuvent être ajoutés pour installer des applications et stocker des données. Les disques de données doivent être utilisés dans les cas où un stockage des données durable et réactif est nécessaire. Chaque disque de données possède une capacité maximale de 4 To. La taille de la machine virtuelle détermine le nombre de disques de données pouvant être attachés à cette machine virtuelle. Pour chaque processeur virtuel de la machine virtuelle, quatre disques de données peuvent être attachés. 
-
+Des disques de données supplémentaires peuvent être ajoutés pour installer des applications et stocker des données. Les disques de données doivent être utilisés dans les cas où un stockage des données durable et réactif est nécessaire. Chaque disque de données possède une capacité maximale de 4 To. La taille de la machine virtuelle détermine le nombre de disques de données pouvant être attachés à cette machine virtuelle. Pour chaque processeur virtuel de la machine virtuelle, quatre disques de données peuvent être attachés.
 
 ## <a name="vm-disk-types"></a>Type de disque de machine virtuelle
 
@@ -65,12 +62,7 @@ Azure propose deux types de disque.
 **Disques Premium** : ils reposent sur un disque SSD à faible latence et hautes performances. Ils conviennent parfaitement aux machines virtuelles exécutant une charge de travail en production. Le stockage Premium prend en charge les machines virtuelles des séries DS, DSv2, GS et FS. Les disques Premium sont de cinq types (P10, P20, P30, P40, P50). La taille du disque détermine le type de disque. Lorsque vous sélectionnez une taille de disque, la valeur est arrondie au type suivant. Par exemple, si la taille est inférieure à 128 Go, le disque est de type P10. Si elle est comprise entre 129 Go et 512 Go, le disque est de type P20.
 
 ### <a name="premium-disk-performance"></a>Performances du disque Premium
-
-|Type de disque de stockage Premium | P4 | P6 | P10 | P20 | P30 | P40 | P50 | p60 |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Taille du disque (arrondie) | 32 Gio | 64 Gio | 128 Go | 512 Go | 1 024 Gio (1 Tio) | 2 048 Gio (2 Tio) | 4 095 Gio (4 Tio) | 8 192 Gio (8 Tio)
-| Nb max. d'E/S par seconde par disque | 120 | 240 | 500 | 2 300 | 5 000 | 7 500 | 7 500 | 12 500 |
-Débit par disque | 25 Mo/s | 50 Mo/s | 100 Mo/s | 150 Mo/s | 200 Mo/s | 250 Mo/s | 250 Mo/s | 480 Mo/s |
+[!INCLUDE [disk-storage-premium-ssd-sizes](../../../includes/disk-storage-premium-ssd-sizes.md)]
 
 Bien que le tableau ci-dessus identifie le nombre max. d’E/S par seconde par disque, un niveau de performances plus élevé est possible en entrelaçant plusieurs disques de données. Par exemple, 64 disques de données peuvent être attachés à la machine virtuelle Standard_GS5. Si chacun de ces disques est de type P30, vous pouvez atteindre un nombre maximum d’E/S par seconde de 80 000. Pour plus d’informations sur le nombre maximal d’E/S par seconde par machine virtuelle, consultez [Types et tailles des machines virtuelles](./sizes.md).
 
