@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: v-doglov
-ms.openlocfilehash: a0707ad356e51a9e4d4f73c54085fe9736bb0752
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: c598c5e238458c010500579c5371622b85e71de0
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56884467"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540803"
 ---
 # <a name="troubleshoot-vcenter-discovery-failures"></a>Résoudre les problèmes d’échec de découverte vCenter
 
@@ -46,8 +46,8 @@ En règle générale, le proxy est utilisé pour communiquer avec les réseaux p
 
 Les situations suivantes se produisent lorsque vous rencontrez ce problème :
 
-- Le serveur vCenter <vCenter> n’est pas accessible en raison de l’erreur : Le serveur distant a retourné une erreur : Serveur (503) non disponible
-- Le serveur vCenter <vCenter> n’est pas accessible en raison de l’erreur : Le serveur distant a retourné une erreur : Impossible de se connecter au serveur distant.
+- Le serveur vCenter \<vCenter > n’est pas accessible en raison de l’erreur : Le serveur distant a retourné une erreur : Serveur (503) non disponible
+- Le serveur vCenter \<vCenter > n’est pas accessible en raison de l’erreur : Le serveur distant a retourné une erreur : Impossible de se connecter au serveur distant.
 - Connexion impossible au serveur vCenter/ESXi.
 
 Pour résoudre le problème :

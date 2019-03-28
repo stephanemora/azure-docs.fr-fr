@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 0eead6201f737448b4de76476802518a506375da
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
-ms.translationtype: HT
+ms.openlocfilehash: 732fdf3f9210a1484895e0b43e061b4bbc586b43
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446232"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541262"
 ---
 # <a name="application-templates-in-azure-api-management"></a>Modèles Application dans Gestion des API Azure
 Gestion des API Azure vous offre la possibilité de personnaliser le contenu des pages du portail des développeurs à l’aide d’un ensemble de modèles qui configurent leur contenu. En utilisant la syntaxe [DotLiquid](http://dotliquidmarkup.org/) et l’éditeur de votre choix, comme [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), ainsi qu’un ensemble de [ressources de chaîne](api-management-template-resources.md#strings), de [ressources de glyphe](api-management-template-resources.md#glyphs) et de [contrôles de page](api-management-page-controls.md) localisés, vous disposez d’un large choix pour configurer le contenu des pages selon vos besoins à l’aide de ces modèles.  
@@ -79,11 +79,11 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
   
 ### <a name="data-model"></a>Modèle de données  
   
-|Propriété|type|Description|  
+|Propriété|Type|Description|  
 |--------------|----------|-----------------|  
-|Pagination|Entité [Paging](api-management-template-data-model-reference.md#Paging).|Informations de pagination de la collection d’applications.|  
-|APPLICATIONS|Collection d’entités [Application](api-management-template-data-model-reference.md#Application).|Applications visibles par l’utilisateur actuel.|  
-|CategoryName|chaîne|Catégorie de l’application.|  
+|`Paging`|Entité [Paging](api-management-template-data-model-reference.md#Paging).|Informations de pagination de la collection d’applications.|  
+|`Applications`|Collection d’entités [Application](api-management-template-data-model-reference.md#Application).|Applications visibles par l’utilisateur actuel.|  
+|`CategoryName`|string|Catégorie de l’application.|  
   
 ### <a name="sample-template-data"></a>Données d’un exemple de modèle  
   

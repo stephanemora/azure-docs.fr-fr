@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: be96aaa69fc1d59bdfa8079eff99c13c1e92c736
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3b3bb206286629a68c14b6444f3f88ffa0af50dd
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57905118"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540871"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Utilisation du stockage Premium Azure avec SQL Server sur des machines virtuelles
 
@@ -682,7 +682,7 @@ $destcloudsvc = "danNewSvcAms"
 New-AzureService $destcloudsvc -Location $location
 ```
 
-#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>Étape 2 : Augmenter le niveau des échecs autorisés sur les ressources <Optional>
+#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>Étape 2 : Augmenter les niveau des échecs autorisés sur les ressources \<facultatif >
 
 Sur certaines ressources appartenant à votre groupe de disponibilité Always On, il existe des limites concernant le nombre d’erreurs qui peuvent se produire dans une période où le service de cluster tente de redémarrer le groupe de ressources. Il est recommandé d'augmenter cette valeur au cours de cette procédure car si vous n'effectuez pas manuellement les basculements en arrêtant les machines, vous risquez de vous rapprocher de cette limite.
 
@@ -692,7 +692,7 @@ Il est prudent de doubler la tolérance de défaillance ; pour cela, ouvrez le 
 
 Modifiez le nombre maximal d'échecs à 6.
 
-#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>Étape 3 : Ajouter une ressource d’adresse IP au groupe de clusters <Optional>
+#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>Étape 3 : Ressource d’adresse IP Ajout pour le groupe de clusters \<facultatif >
 
 Si vous n'avez qu'une seule adresse IP pour le groupe de clusters et qu'elle est alignée sur le sous-réseau cloud, prenez garde car si vous mettez hors ligne accidentellement tous les nœuds de cluster du cloud sur ce réseau, la ressource IP du cluster et le nom du réseau cluster ne pourront pas être mis en ligne. Dans ce cas, cela empêche les mises à jour des autres ressources de cluster.
 

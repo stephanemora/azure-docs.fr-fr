@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 99732a61ab64f8600ca368d4af5f47451014a993
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: c70e88a572bc261ad9d25f9a742b1987d0c19b44
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760748"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540837"
 ---
 # <a name="issue-templates-in-azure-api-management"></a>Modèles Problème dans Gestion des API Azure
 Gestion des API Azure vous offre la possibilité de personnaliser le contenu des pages du portail des développeurs à l’aide d’un ensemble de modèles qui configurent leur contenu. En utilisant la syntaxe [DotLiquid](http://dotliquidmarkup.org/) et l’éditeur de votre choix, comme [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), ainsi qu’un ensemble de [ressources de chaîne](api-management-template-resources.md#strings), de [ressources de glyphe](api-management-template-resources.md#glyphs) et de [contrôles de page](api-management-page-controls.md) localisés, vous disposez d’un large choix pour configurer le contenu des pages selon vos besoins à l’aide de ces modèles.  
@@ -99,11 +99,11 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
   
 |Propriété|Type|Description|  
 |--------------|----------|-----------------|  
-|Problèmes|Collection d’entités [Problème](api-management-template-data-model-reference.md#Issue).|Problèmes visibles par l’utilisateur actuel.|  
-|Pagination|Entité [Paging](api-management-template-data-model-reference.md#Paging).|Informations de pagination de la collection d’applications.|  
-|IsAuthenticated|booléenne|Indique si l’utilisateur actuel est connecté au portail des développeurs.|  
-|CanReportIssues|booléenne|Indique si l’utilisateur actuel dispose des autorisations pour poser une question.|  
-|Recherche|string|Cette propriété est déconseillée et ne doit pas être utilisée.|  
+|`Issues`|Collection d’entités [Problème](api-management-template-data-model-reference.md#Issue).|Problèmes visibles par l’utilisateur actuel.|  
+|`Paging`|Entité [Paging](api-management-template-data-model-reference.md#Paging).|Informations de pagination de la collection d’applications.|  
+|`IsAuthenticated`|booléenne|Indique si l’utilisateur actuel est connecté au portail des développeurs.|  
+|`CanReportIssues`|booléenne|Indique si l’utilisateur actuel dispose des autorisations pour poser une question.|  
+|`Search`|string|Cette propriété est déconseillée et ne doit pas être utilisée.|  
   
 ### <a name="sample-template-data"></a>Données d’un exemple de modèle  
   

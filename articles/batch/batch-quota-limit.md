@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 03/27/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 51be74d0adbd5ce75234be2a5b7c99fcd36ca91c
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: e33d014bd2dddf0c7310727229f8137c9f181325
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295264"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540973"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quotas et limites du service Batch
 
@@ -77,14 +77,12 @@ Affichez vos quotas de compte Batch dans le [portail Azure][portal].
 1. Sélectionnez **Comptes Batch** dans le portail, puis sélectionnez le compte Batch qui vous intéresse.
 1. Sélectionnez **Quotas** dans le menu du compte Batch.
 1. Afficher les quotas actuellement appliqués au compte Batch
-   
+
     ![Quotas de compte Batch][account_quotas]
-
-
 
 ## <a name="increase-a-quota"></a>Augmenter un quota
 
-Suivez ces étapes pour demander une augmentation de quota pour votre compte Batch ou votre abonnement à l’aide du [portail Azure][portal]. Le type d’augmentation de quota varie selon le mode d’allocation de pool de votre compte Batch.
+Suivez ces étapes pour demander une augmentation de quota pour votre compte Batch ou votre abonnement à l’aide du [portail Azure][portal]. Le type d’augmentation de quota varie selon le mode d’allocation de pool de votre compte Batch. Pour demander une augmentation du quota, vous devez inclure la série de machine virtuelle que vous souhaitez augmenter le quota pour. Lorsque l’augmentation du quota est appliquée, il est appliqué à toutes les séries de machines virtuelles.
 
 ### <a name="increase-a-batch-cores-quota"></a>Augmenter un quota de cœurs Batch 
 

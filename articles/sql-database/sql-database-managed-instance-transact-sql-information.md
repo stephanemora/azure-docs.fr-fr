@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: 8654899e0a6dfce8f25855eba6c5f4a88af78665
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b044a7c2b3122fcbce44ae2e45198f57f6a87260
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903128"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541279"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Différences T-SQL entre Azure SQL Database Managed Instance et SQL Server
 
@@ -217,7 +217,7 @@ Pour plus d’informations, consultez [ALTER DATABASE SET PARTNER AND SET WITNES
 
 - Les fichiers journaux multiples ne sont pas pris en charge.
 - Les objets en mémoire ne sont pas pris en charge dans le niveau de service Usage général.  
-- Il existe une limite de 280 fichiers par instance, ce qui implique un maximum de 280 fichiers par base de données. Les fichiers de données et de journaux sont comptabilisés dans cette limite.  
+- Il existe une limite de 280 fichiers par instance à usage général qui implique le maximum de 280 fichiers par base de données. Les données et des fichiers journaux en général objectif niveau sont comptabilisés dans cette limite. [Niveau critique pour l’entreprise prend en charge 32 767 fichiers par base de données](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 - La base de données ne peut pas contenir de groupes de fichiers contenant des données FILESTREAM.  La restauration échoue si le fichier.bak contient des données `FILESTREAM`.  
 - Chaque fichier est placé dans Stockage Blob Azure. L’E/S et le débit par fichier dépendent de la taille de chaque fichier.  
 
@@ -485,9 +485,9 @@ Instance gérée ne peut pas restaurer [bases de données autonomes](https://doc
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Dépassement de l’espace de stockage avec des fichiers de base de données de petite taille
 
-Chaque instance gérée a jusqu’à 35 To de stockage réservé pour l’espace disque Premium Azure et chaque fichier de bases de données est placé sur un disque physique séparé. Les tailles de disque peuvent être de 128 Go, 256 Go, 512 Go, 1 To ou 4 To. L’espace non utilisé sur le disque n’est pas facturé, mais la somme des tailles des disques Premium Azure ne peut pas dépasser 35 To. Dans certains cas, une instance gérée qui n’a pas besoin de 8 To au total peut dépasser la limite Azure de 35 To sur la taille de stockage, en raison d’une fragmentation interne.
+Chaque Instance de géré à usage général a jusqu'à 35 To de stockage réservé pour l’espace disque Premium Azure, et chaque fichier de base de données est placé sur un disque physique distinct. Les tailles de disque peuvent être de 128 Go, 256 Go, 512 Go, 1 To ou 4 To. L’espace non utilisé sur le disque n’est pas facturé, mais la somme des tailles des disques Premium Azure ne peut pas dépasser 35 To. Dans certains cas, une instance gérée qui n’a pas besoin de 8 To au total peut dépasser la limite Azure de 35 To sur la taille de stockage, en raison d’une fragmentation interne.
 
-Par exemple, une instance managée peut contenir un fichier d’une taille de 1,2 To placé sur un disque de 4 To et 248 fichiers (chacun d’une taille de 1 Go) placés sur des disques distincts de 128 Go. Dans cet exemple :
+Par exemple, une Instance gérée d’usage général peut avoir un fichier de 1,2 To par la taille qui est placé sur un disque de 4 To et 248 fichiers (chaque taille 1 Go) qui sont placés sur des disques distincts de 128 Go. Dans cet exemple :
 
 - La taille totale du stockage de disque alloué est de 1 x 4 To + 248 x 128 Go = 35 To.
 - L’espace total réservé pour les bases de données sur l’instance est de 1 x 1,2 To + 248 x 1 Go = 1,4 To.
@@ -495,6 +495,8 @@ Par exemple, une instance managée peut contenir un fichier d’une taille de 1
 Cet exemple montre que dans certaines circonstances, du fait d’une distribution spécifique des fichiers, une instance managée peut atteindre les 35 To réservés pour le disque Premium Azure attaché sans que vous vous y attendiez.
 
 Dans cet exemple, les bases de données existantes continuent de fonctionner et peuvent croître sans aucun problème du moment que de nouveaux fichiers ne sont pas ajoutés. Toutefois, la création ou la restauration de bases de données est impossible, car il n’y a pas suffisamment d’espace pour les nouveaux lecteurs de disque, même si la taille totale de toutes les bases de données n’atteint pas la limite de taille d’instance. L’erreur retournée dans ce cas n’est pas claire.
+
+Vous pouvez [identifier le nombre de fichiers restants](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) à l’aide de vues système. Si vous avez atteint cette limite essayez [vides et de supprimer certains des fichiers plus petits à l’aide d’instruction DBCC SHRINKFILE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) ou shitch à [niveau critique pour l’entreprise qui n’est associé à cette limite](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>Configuration incorrecte de la clé SAP au cours d’une restauration de la base de données
 

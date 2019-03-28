@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 615005e265f199cd6950123aa2af8b26f4fa4637
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 2fe1a1fc1ff82415a5c2f88c72ae707b12cd5283
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57457244"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541160"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Version d’évaluation d’Azure Resource Manager
 
@@ -51,7 +51,7 @@ Voici le processus de création d’une version d’évaluation de gestionnaire 
 
 La partie la plus importante sur la création d’une version d’évaluation d’Azure Resource Manager consiste à définir le(s) scénario(s) que vous souhaitez fournir à vos clients. Votre produit est un pare-feu et vous souhaitez montrer la façon dont il gère les attaques par injection de script ? Votre produit est un produit de stockage et vous souhaitez montrer la rapidité et la facilité avec laquelle il compresse les fichiers ?
 
-Veillez à prendre suffisamment de temps pour évaluer les meilleures façons de présenter votre produit. Plus précisément autour de toutes les ressources requises vous auriez besoin, car elle simplifie le modèle Resource Manager suffisamment plus facile d’emballage.
+Veillez à consacrer suffisamment de temps à évaluer quels sont les meilleurs moyens de présenter votre produit. Plus précisément autour de toutes les ressources requises vous auriez besoin, car elle simplifie le modèle Resource Manager suffisamment plus facile d’emballage.
 
 Pour continuer avec notre exemple de pare-feu, l’architecture peut être que vous avez besoin une URL d’adresse IP publique pour votre service et une autre URL d’adresse IP publique pour le site web protégé par votre pare-feu. Chaque adresse IP est déployée sur une machine virtuelle et interconnectée avec un groupe de sécurité réseau et une interface réseau.
 

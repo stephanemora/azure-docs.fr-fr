@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 04da80cd5c30d0556dc681b7bff412391aa2bcda
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ab71b8d3af573f62e69c02564c237ad433962ff9
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107727"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541228"
 ---
 # <a name="backup-and-restore"></a>Sauvegarde et restauration
 
@@ -416,10 +416,10 @@ For snapshot of the volume storing the boot LUN
 Les paramètres sont les suivants : 
 
 - Le premier paramètre définit le type de la sauvegarde de captures instantanées. Les valeurs autorisées sont **hana**, **logs** et **boot**. 
-- Le paramètre **<HANA Large Instance Type>** est nécessaire pour les sauvegardes de volume de démarrage uniquement. Il existe deux valeurs valides avec « TypeI » ou « TypeII » en fonction de l’unité de grande instance HANA. Pour identifier le type de votre unité, consultez [Vue d’ensemble et architecture de SAP HANA (grandes instances) sur Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).  
-- Le paramètre **<snapshot_prefix>** est le nom de la capture instantanée ou de la sauvegarde du type de capture instantanée. Il a deux fonctions. Tout d’abord, il lui attribue un nom pour vous aider à identifier ces captures instantanées. Ensuite, le script Azure *azure\_hana\_backup.pl* détermine le nombre de captures instantanées de stockage qui sont conservées sous cette étiquette. Si vous planifiez deux sauvegardes de captures instantanées de stockage de même type (par exemple, **hana**), avec deux étiquettes différentes, et que vous décidez de conserver 30 captures instantanées pour chacune d’elles, vous obtienez 60 captures instantanées de stockage pour les volumes concernés. Seuls les caractères alphanumériques (« A-Z, a-z, 0-9 »), le trait de soulignement (« _ ») et le tiret («- ») sont autorisés. 
-- Le paramètre **< snapshot_frequency >** est réservé pour de futurs développements l’évolution et n’a aucun impact. Réglez-le sur « 3 min » lors de l’exécution des sauvegardes de type **log** et sur « 15 min » lors de l’exécution d’autres types de sauvegarde.
-- Le paramètre **<number of snapshots retained>** définit la rétention des captures instantanées de manière indirecte en définissant le nombre de captures instantanées avec le même préfixe de capture instantanée (étiquette). Ce paramètre est important pour l’exécution planifiée à l’aide de cron. Si le nombre de captures instantanées avec le même paramètre snapshot_prefix dépasse le nombre indiqué par ce dernier, la capture instantanée la plus ancienne est supprimée avant l’exécution d’une nouvelle capture instantanée de stockage.
+- Le paramètre  **\<HANA grande Instance Type >** est nécessaire pour les sauvegardes de volume de démarrage uniquement. Il existe deux valeurs valides avec « TypeI » ou « TypeII » en fonction de l’unité de grande instance HANA. Pour identifier le type de votre unité, consultez [Vue d’ensemble et architecture de SAP HANA (grandes instances) sur Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).  
+- Le paramètre  **\<snapshot_prefix >** est une étiquette de sauvegarde pour le type de capture instantanée ou d’instantané. Il a deux fonctions. Tout d’abord, il lui attribue un nom pour vous aider à identifier ces captures instantanées. Ensuite, le script Azure *azure\_hana\_backup.pl* détermine le nombre de captures instantanées de stockage qui sont conservées sous cette étiquette. Si vous planifiez deux sauvegardes de captures instantanées de stockage de même type (par exemple, **hana**), avec deux étiquettes différentes, et que vous décidez de conserver 30 captures instantanées pour chacune d’elles, vous obtienez 60 captures instantanées de stockage pour les volumes concernés. Seuls les caractères alphanumériques (« A-Z, a-z, 0-9 »), le trait de soulignement (« _ ») et le tiret («- ») sont autorisés. 
+- Le paramètre  **\<snapshot_frequency >** est réservé pour les développements futurs et n’ont pas d’incidence. Réglez-le sur « 3 min » lors de l’exécution des sauvegardes de type **log** et sur « 15 min » lors de l’exécution d’autres types de sauvegarde.
+- Le paramètre  **\<nombre de captures instantanées conservées >** définit la rétention des captures instantanées indirectement en définissant le nombre de captures instantanées portant le même préfixe de capture instantanée (étiquette). Ce paramètre est important pour l’exécution planifiée à l’aide de cron. Si le nombre de captures instantanées avec le même paramètre snapshot_prefix dépasse le nombre indiqué par ce dernier, la capture instantanée la plus ancienne est supprimée avant l’exécution d’une nouvelle capture instantanée de stockage.
 
 Dans le cas d’une configuration Scale-out, le script effectue certaines vérifications supplémentaires pour s’assurer que tous les serveurs HANA sont accessibles. Le script vérifie également que toutes les instances HANA renvoient le statut des instances approprié, avant de procéder à la création d’une capture instantanée SAP HANA. suivie d’une capture instantanée de stockage.
 
