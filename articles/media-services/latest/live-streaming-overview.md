@@ -78,7 +78,7 @@ Pour comprendre le flux de travail de diffusion en continu en direct dans Media 
 5. Créez un objet **Asset**.
 6. Créez un objet **LiveOutput** et utilisez le nom de l’objet Asset que vous venez de créer.<br/>La **sortie en direct** archive le flux dans l’**actif multimédia**.
 7. Créez un **localisateur de streaming**  avec les types intégrés de la **stratégie de streaming**.<br/>Pour chiffrer le contenu, voir [Vue d’ensemble de la protection du contenu](content-protection-overview.md).
-8. Listez les chemins d’accès dans le **Localisateur de streaming** pour récupérer les URL à utiliser (elles sont déterministes).
+8. Listez les chemins dans le **Localisateur de streaming** pour récupérer les URL à utiliser (elles sont déterministes).
 9. Récupérez le nom d’hôte du **Point de terminaison de streaming** à partir duquel vous souhaitez effectuer le streaming.
 10. Combinez l’URL de l’étape 8 avec le nom d’hôte de l’étape 9 pour obtenir l’URL complète.
 11. Si vous ne souhaitez plus afficher votre **événement en direct**, arrêtez le streaming de l’événement et supprimez le **localisateur de streaming**.
