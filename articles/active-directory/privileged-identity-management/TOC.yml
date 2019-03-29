@@ -29,7 +29,7 @@ items:
     href: pim-getting-started.md
   - name: Activer mes rôles
     items:
-    - name: Activer mes rôles d’annuaire
+    - name: Activer mes rôles Azure AD
       href: pim-how-to-activate-role.md
     - name: Activer mes rôles de ressources Azure
       href: pim-resource-roles-activate-your-roles.md
@@ -43,7 +43,7 @@ items:
       href: pim-how-to-give-access-to-pim.md
     - name: Élever l’accès pour gérer tous les abonnements
       href: ../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
-  - name: Gérer les rôles d’annuaire
+  - name: Gérer les rôles Azure AD
     items:
     - name: Attribuer des rôles
       href: pim-how-to-add-role-to-user.md
@@ -75,9 +75,9 @@ items:
       href: pim-resource-roles-custom-role-policy.md
   - name: Revoir l’accès
     items:
-    - name: Rôles d’annuaire
+    - name: Rôles Azure AD
       items:
-      - name: Passer en revue mes rôles d’annuaire
+      - name: Réviser mes rôles Azure AD
         href: pim-how-to-perform-security-review.md
       - name: Démarrage d’une révision d’accès
         href: pim-how-to-start-security-review.md
@@ -92,9 +92,9 @@ items:
       - name: Effectuer une révision d’accès
         href: pim-resource-roles-complete-access-review.md
   expanded: true
-ms.openlocfilehash: 29eebb03aebec9dae7232df95a63e9a633ab109d
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 6ccd7b75b356fef6f7c167873e7b00429c6f28a3
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979477"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575791"

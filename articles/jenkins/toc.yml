@@ -18,6 +18,9 @@ items:
       href: install-jenkins-solution-template.md
   - name: 2. Configuration
     items:
+    - name: Mettre à l’échelle avec Azure Container Instances
+      href: /azure/container-instances/container-instances-jenkins
+      maintainContext: true
     - name: Mettre à l’échelle avec les agents de machines virtuelles Azure
       href: jenkins-azure-vm-agents.md
   - name: 3. Implémenter CI/CD
@@ -35,9 +38,6 @@ items:
         href: execute-cli-jenkins-pipeline.md
       - name: Déployer une application à partir de GitHub sur App Service
         href: tutorial-jenkins-deploy-web-app-azure-app-service.md
-    - name: Génération à l’aide d’Azure Container Instances
-      href: /azure/container-instances/container-instances-jenkins
-      maintainContext: true
     - name: Utiliser Jenkins avec Azure DevOps
       href: /azure/virtual-machines/linux/tutorial-build-deploy-jenkins
       maintainContext: true
@@ -73,9 +73,9 @@ items:
   - name: Architecture de Jenkins
     href: /azure/architecture/reference-architectures/jenkins/
     maintainContext: true
-ms.openlocfilehash: 2cfd843c0a7fc11a98d2450cc5ec499cdc1f580e
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: c83891a0037f009d539f2d1101697a554f478b1d
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438678"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621360"

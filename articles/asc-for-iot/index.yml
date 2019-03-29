@@ -1,15 +1,15 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 12ba136bb227ef5ea469d91c6da9477b718b9e92
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: fad8ecd0658b2a00f249e8b218bab1dbdaf83187
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58542231"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578218"
 documentType: LandingData
-title: Documentation de la préversion d’Azure Security Center (ASC) pour IoT
+title: Documentation de la préversion d’ASC pour IoT
 metadata:
-  title: Documentation de la préversion d’Azure Security Center pour IoT - Tutoriels, guides de démarrage rapide | Microsoft Doc
-  meta.description: Azure Security Center for IoT unifies your security management and enables advanced threat protection across your IoT solution.
+  title: Documentation de la préversion d’ASC pour IoT - Tutoriels, guides de démarrage rapide | Microsoft Doc
+  meta.description: ASC for IoT unifies your security management and enables advanced threat protection across your IoT solution.
   services: ascforiot
   author: mlottner
   manager: barbkess
@@ -20,7 +20,7 @@ metadata:
   ms.date: 03/26/19
   ms.author: barbkess
 abstract:
-  description: Utilisez la préversion d’Azure Security Center pour IoT afin d’étendre votre vue de cybersécurité existante à l’ensemble de votre solution IoT. Obtenez une vraie vue panoramique de la sécurité de toutes vos ressources Azure. Des options de déploiement rapide et une intégration complète avec les jumeaux de module IoT Hub vous offrent un large éventail d’options de personnalisation et une intégration facile avec vos outils de gestion d’appareil actuels. 
+  description: Utilisez la préversion d’ASC pour IoT afin d’étendre votre vue de cybersécurité existante à l’ensemble de votre solution IoT. Obtenez une vraie vue panoramique de la sécurité de toutes vos ressources Azure. Des options de déploiement rapide et une intégration complète avec les jumeaux de module IoT Hub vous offrent un large éventail d’options de personnalisation et une intégration facile avec vos outils de gestion d’appareil actuels. 
 sections:
 - title: Démarrages en 5 minutes
   items:
@@ -32,19 +32,19 @@ sections:
     - image:
         src: media/index/deploy.svg
       text: Activer ASC pour IoT
-      href: /azure/ascforiot/quickstart-onboard-iot-hub
+      href: /azure/asc-for-iot/quickstart-onboard-iot-hub
     - image:
         src: media/index/get-started.svg
       text: Bien démarrer avec ASC pour IoT
-      href: /azure/ascforiot/quickstart-getting-started
-- title: Didacticiels pas à pas
+      href: /azure/asc-for-iot/getting-started
+- title: Guides pratiques
   items:
   - type: paragraph
     text: Découvrez comment définir des stratégies de sécurité, protéger vos appareils contre les activités malveillantes et répondre à des incidents et des alertes de sécurité.
   - type: list
-    style: ordered
+    style: unordered
     items:
-    - html: <a href="/azure/ascforiot/tutorial-investigate-device">Détecter les menaces avec ASC pour IoT</a>
+    - html: <a href="/azure/asc-for-iot/how-to-investigate-device">Détecter les menaces avec ASC pour IoT</a>
 - title: Développer vos compétences avec Microsoft Learn
   items:
   - type: list

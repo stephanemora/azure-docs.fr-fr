@@ -8,6 +8,8 @@ items:
     href: architecture.md
   - name: Agents de sécurité
     href: security-agent-architecture.md
+  - name: Module de sécurité Edge
+    href: security-edge-architecture.md
   - name: Prérequis du service
     href: service-prerequisites.md
   - name: Bien démarrer avec ASC pour IoT
@@ -23,26 +25,8 @@ items:
   - name: Créer des alertes de sécurité personnalisées
     href: quickstart-create-custom-alerts.md
   expanded: true
-- name: Tutoriels
-  items:
-  - name: Déployer des agents de sécurité
-    items:
-    - name: Déployer un agent de sécurité C# sur un appareil Windows
-      href: tutorial-deploy-windows-cs.md
-    - name: Déployer un agent de sécurité C# sur un appareil Linux
-      href: tutorial-deploy-linux-cs.md
-    - name: Déployer un agent de sécurité C sur un appareil Linux
-      href: tutorial-deploy-linux-c.md
-  - name: Investiguer un appareil
-    href: tutorial-investigate-device.md
-  - name: Envoyer vos propres messages de sécurité
-    href: tutorial-send-security-messages.md
 - name: Concepts
   items:
-  - name: Quel agent déployer ?
-    href: select-deploy-agent.md
-  - name: Configurer des agents de sécurité
-    href: concept-agent-configuration.md
   - name: Authentification des agents de sécurité
     href: concept-security-agent-authentication-methods.md
   - name: Module de sécurité
@@ -51,12 +35,30 @@ items:
     href: concept-security-alerts.md
   - name: Recommandations de sécurité
     href: concept-recommendations.md
+  - name: Tarifs et coûts associés
+    href: concept-pricing.md
 - name: Guides pratiques
   items:
+  - name: Quel agent déployer ?
+    items:
+    - name: Sélectionner un agent à déployer
+      href: how-to-deploy-agent.md
+    - name: Déployer un agent de sécurité C# sur un appareil Windows
+      href: how-to-deploy-windows-cs.md
+    - name: Déployer un agent de sécurité C# sur un appareil Linux
+      href: how-to-deploy-linux-cs.md
+    - name: Déployer un agent de sécurité C sur un appareil Linux
+      href: how-to-deploy-linux-c.md
+  - name: Déployer un module de sécurité Edge
+    href: how-to-deploy-edge.md
+  - name: Configurer des agents de sécurité
+    href: how-to-agent-configuration.md
+  - name: Envoyer vos propres messages de sécurité
+    href: how-to-send-security-messages.md
   - name: Accéder aux données de sécurité brutes
     href: how-to-security-data-access.md
-  - name: Modifier un jumeau de module de sécurité
-    href: how-to-modify-security-module-twin.md
+  - name: Investiguer un appareil
+    href: how-to-investigate-device.md
 - name: Ressources
   items:
   - name: Questions fréquentes (FAQ)
@@ -67,9 +69,9 @@ items:
     href: http://blogs.msdn.com/b/azuresecurity/
   - name: Disponibilité régionale
     href: https://azure.microsoft.com/regions/services/
-ms.openlocfilehash: 6789b87deb5c502df3541a10e9a8e4eece21a351
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 17508e05a8de52e12487bf35fd3e063761abcbe2
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541316"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575162"
