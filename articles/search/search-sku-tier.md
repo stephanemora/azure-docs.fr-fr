@@ -7,19 +7,22 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/08/2019
+ms.date: 03/22/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: d325a5dfd57bb6b69e6cf171487adfa8d374512f
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 523c99436eb49f1658a5d4c56d64248adccc5c3a
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762923"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621267"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Choisir un niveau tarifaire pour Recherche Azure
 
-Dans Recherche Azure, une [ressource est créée](search-create-service-portal.md) à un niveau tarifaire ou une référence SKU qui est fixe pour la durée de vie du service. Les niveaux suivants existent : **Gratuit**, **De base** ou **Standard**, sachant que **Standard** est disponible dans plusieurs configurations et capacités. La plupart des clients commencent par le niveau **Gratuit** à des fins d’évaluation, puis passent au niveau **Standard** pour des déploiements de développement et de production. Au niveau **Gratuit**, vous pouvez effectuer tous les démarrages rapides et suivre tous les tutoriels, notamment ceux qui concernent la recherche cognitive nécessitant de nombreuses ressources. 
+Dans Recherche Azure, une [ressource est créée](search-create-service-portal.md) à un niveau tarifaire ou une référence SKU qui est fixe pour la durée de vie du service. Les niveaux incluent **gratuit**, **base**, **Standard**, ou **stockage optimisé**.  **Standard** et **stockage optimisé** sont disponibles dans plusieurs configurations et capacités. La plupart des clients démarrent avec le **gratuit** puis passer à un des niveaux payants plus élevées pour les déploiements de développement et de production et de niveau pour l’évaluation. Au niveau **Gratuit**, vous pouvez effectuer tous les démarrages rapides et suivre tous les tutoriels, notamment ceux qui concernent la recherche cognitive nécessitant de nombreuses ressources.
+
+> [!NOTE]
+> Les niveaux de service de stockage optimisé sont actuellement disponibles en version préliminaire au tarif réduit à des fins de test et d’expérimentation dans le but de recueillir des commentaires. Le prix final sera annoncé ultérieurement lorsque ces niveaux sont généralement disponibles. Nous vous déconseillons l’utilisation de ces niveaux pour les applications de production.
 
 Les niveaux reflètent les caractéristiques du matériel qui héberge le service (plutôt que les fonctionnalités) et se distinguent en fonction de ce qui suit :
 
@@ -42,11 +45,16 @@ Le tableau suivant répertorie les niveaux disponibles. Incluent d’autres sour
 |-----|-------------|
 |Gratuit | Partagé avec d’autres abonnés. Non évolutif, limité à 3 index et de stockage de 50 Mo. |
 |De base | Ressources informatiques dédiées aux charges de production à petite échelle. Une partition de 2 Go et jusqu'à trois réplicas. |
-|Standard 1 (S1) | À partir de S1 sur des ordinateurs dédiés avec une capacité de stockage et de traitement plus à chaque niveau. Taille de la partition est 25 Go par partition (max de 300 Go de documents par service) pour S1. |
-|Standard 2 (S2) | Semblable à S1, mais avec 100 Go/partitions (nombre maximal de documents 1,2 To par service) |
-|Standard 3 (S3) | 200 Go par partition (nombre maximal de documents 2,4 To par service). |
+|Standard 1 (S1) | À partir de S1 sur des ordinateurs dédiés avec une capacité de stockage et de traitement plus à chaque niveau. Taille de la partition est 25 Go par partition (limite de 300 Go par service) pour S1. |
+|Standard 2 (S2) | Semblable à S1, mais avec 100 Go/partitions (max 1,2 To par service) |
+|Standard 3 (S3) | 200 Go par partition (max 2,4 To par service) |
 |Standard 3 haute densité (S3-HD) | Haute densité est un *mode d’hébergement* pour S3. Le matériel sous-jacent est optimisé pour un grand nombre d’index plus petits, destinées aux scénarios de l’architecture mutualisées. S3 HD a les mêmes frais par unité comme S3, mais le matériel est optimisé pour les lectures de fichiers rapide sur un grand nombre d’index plus petits.|
+|1 (L1) optimisées pour le stockage | 1 to/partition (au maximum 12 To par service) |
+|Stockage optimisé 2 (L2) | 2 To par partition (maximum 24 To par service) |
 
+> [!NOTE] 
+> Les niveaux de stockage optimisé offrent la plus grande capacité de stockage à un prix inférieur par to que les niveaux Standard.  L’inconvénient principal est plus élevée latence de requête, vous devez valider les exigences de votre application.  Pour en savoir plus sur les performances de cette couche, consultez [considérations sur les performances et optimisation](search-performance-optimization.md).
+>
 
 ## <a name="how-billing-works"></a>Comment la facturation fonctionne
 
@@ -56,7 +64,7 @@ Dans Azure Search, il existe trois façons d’entraîner des coûts dans Azure 
 
 Pour le service lui-même, les frais minimum facturés sont la première unité de recherche (partition 1 réplica x 1), et ce montant constant pour la durée de vie du service, car le service ne peut pas s’exécuter sur quoi que ce soit inférieure à cette configuration. 
 
-Dans la capture d’écran suivante, par le prix d’unité indiqué pour gratuite, Basic et S1 (S2 et S3 ne sont pas affichées). Si vous avez créé un service de base ou d’un service standard, votre coût mensuel est moyenne de la valeur qui s’affiche pour *prix-1* et *prix-2* respectivement. Coûts unitaires go pour chaque niveau, car la capacité de calcul d’alimentation et de stockage est supérieure à chaque niveaux consécutifs.
+Dans la capture d’écran suivante, par le prix d’unité indiqué pour gratuite, Basic et S1 (S2, S3, L1 et L2 ne sont pas affichées). Si vous avez créé un **base**, **Standard**, ou **stockage optimisé** service, votre coût mensuel est moyenne de la valeur qui s’affiche pour *prix-1*et *prix-2* respectivement. Coûts unitaires go pour chaque niveau, car la capacité de calcul d’alimentation et de stockage est supérieure à chaque niveau consécutif.
 
 ![Par prix d’unité](./media/search-sku-tier/per-unit-pricing.png "par prix d’unité")
 
@@ -117,7 +125,7 @@ Dans Recherche Azure, la capacité est structurée sous forme de *réplicas* et 
 + Les partitions stockent des index et fractionnent automatiquement les données de recherche : deux partitions fractionnent votre index en deux, trois partitions en trois, et ainsi de suite. En termes de capacité, la *taille de partition* est la principale caractéristique qui différencie les niveaux.
 
 > [!NOTE]
-> Tous les niveaux **Standard** prennent en charge des [combinaisons flexibles de réplicas et de partitions](search-capacity-planning.md#chart) afin que vous puissiez [pondérer votre système pour le stockage ou la vitesse](search-performance-optimization.md) en changeant l’équilibrage. Le niveau **De base** offre jusqu’à trois réplicas pour la haute disponibilité, mais une seule partition. Les niveaux **Gratuit** ne fournissent pas de ressources dédiées : les ressources de calcul sont partagées par plusieurs services gratuits.
+> Tous les **Standard** et **stockage optimisé** niveaux de prise en charge [réplica de combinaisons flexibles et des partitions](search-capacity-planning.md#chart) afin que vous puissiez [d’épaisseur de la vitesse de votre système ou stockage](search-performance-optimization.md) en modifiant le solde. Le niveau **De base** offre jusqu’à trois réplicas pour la haute disponibilité, mais une seule partition. Les niveaux **Gratuit** ne fournissent pas de ressources dédiées : les ressources de calcul sont partagées par plusieurs services gratuits.
 
 ### <a name="more-about-service-limits"></a>En savoir plus sur les limites de service
 
@@ -125,7 +133,7 @@ Les services hébergent des ressources, telles que des index, des indexeurs, et 
 
 ## <a name="consumption-patterns"></a>Modèles de consommation
 
-La plupart des clients commencent avec le niveau **Gratuit**, qu’ils conservent indéfiniment, puis ils choisissent l’un des niveaux **Standard** pour les charges de travail de développement ou de production. 
+La plupart des clients démarrent avec le **gratuit** de service, lequel ils conservent indéfiniment, puis choisissez une de la **Standard** ou **stockage optimisé** niveaux pour le développement sérieux ou charges de travail de production. 
 
 ![Niveaux de Recherche Azure](./media/search-sku-tier/tiers.png "Niveaux tarifaires de Recherche Azure")
 
@@ -147,6 +155,15 @@ Les niveaux **S3** et **S3 HD** sont soutenus par une infrastructure haute capac
 > [!NOTE]
 > Auparavant, les limites relatives aux documents constituaient un facteur important, mais elles ne sont plus applicables aux nouveaux services. Pour plus d’informations sur les conditions dans lesquelles les limites de document s’appliquent encore, consultez [Limites de service : limites du document](search-limits-quotas-capacity.md#document-limits).
 >
+
+Niveaux de stockage optimisé, **L1 L2**, sont idéales pour les applications avec les exigences de données volumineuses, mais un nombre relativement faible d’utilisateurs finaux où réduire la latence la requête n’est pas la priorité absolue.  
+
+|  | L1 | L2 |  |  |  |  |  |
+|--|----|----|--|--|--|--|--|
+| Taille de partition|  1 To | 2 To |  |  |  |  |  |
+| Limites d’index et d’indexeur| 10 | 10 |  |  |  |  |  |
+
+*L2* offre deux fois la capacité de stockage globale pour un *L1*.  Choisir votre niveau selon la quantité maximale de données que vous pensez que votre index a besoin.  Le *L1* niveau partitionne la mise à l’échelle des incréments de 1 To à un maximum de 12 To, tandis que le *L2* augmenter en 2 To par partition jusqu'à un maximum de 24 To.
 
 ## <a name="evaluate-capacity"></a>Évaluer la capacité
 
@@ -174,16 +191,17 @@ En supposant que l’échantillon soit représentatif et constitué de dix pour 
 
 Certains clients préfèrent commencer avec des ressources dédiées capables de prendre en charge un échantillonnage et des temps de traitement plus élevés, puis développer des estimations réalistes en ce qui concerne la quantité d’index, la taille et les volumes de requêtes durant le développement. Initialement, un service est provisionné d’après la meilleure hypothèse puis, à mesure que le projet de développement évolue, les équipes savent généralement si le service existant offre trop ou pas assez de capacité pour les charges de production prévues. 
 
-1. [Passez en revue les limites de service de chaque niveau](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#index-limits) afin de déterminer si les niveaux inférieurs peuvent prendre en charge la quantité d’index dont vous avez besoin. Avec les niveaux **De base**-**S1**- **S2**, les limites d’index sont respectivement de 15-50-200.
+1. [Passez en revue les limites de service de chaque niveau](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#index-limits) afin de déterminer si les niveaux inférieurs peuvent prendre en charge la quantité d’index dont vous avez besoin. Avec les niveaux **De base**-**S1**-**S2**, les limites d’index sont respectivement de 15-50-200.  Le **stockage optimisé** couche a une limite de 10 index puisqu’il s’agit de concepteur pour prendre en charge un nombre faible de très grands index.
 
 1. [Créez un service à un niveau facturable](search-create-service-portal.md) :
 
     + Commencez à un faible niveau, **De base** ou **S1**, si vous êtes au début de votre processus d’apprentissage.
     + Commencez à un niveau élevé, **S2** ou même **S3**, s’il est évident que vous aurez besoin de charges de requêtes et d’indexation à grande échelle.
+    + Stockage optimisé, au **L1** ou **L2**, si vous indexez une grande quantité de données et la charge de requête est relativement faible, par exemple une application métier interne.
 
 1. [Générez un index initial](search-create-index-portal.md) pour déterminer comment les données sources se traduisent par un index. C’est l’unique façon d’estimer la taille de l’index.
 
-1. [Surveillez le stockage, les limites de service, le volume de requêtes et la latence](search-monitor-usage.md) dans le portail. Le portail indique le nombre de requêtes par seconde, les requêtes limitées et la latence de recherche. Toutes ces valeurs peuvent vous aider à décider si vous êtes au niveau approprié. Outre les métriques du portail, vous pouvez configurer l’analyse approfondie, telle que l’analyse à l’aide de rapports générés interactifs, en activant l’[analytique du trafic des recherches](search-traffic-analytics.md). 
+1. [Surveillez le stockage, les limites de service, le volume de requêtes et la latence](search-monitor-usage.md) dans le portail. Le portail affiche les requêtes par secondes requêtes limitées et latence de recherche ; qui peut vous aider à décider si vous avez sélectionné le bon niveau. Outre les métriques du portail, vous pouvez configurer l’analyse approfondie, telle que l’analyse à l’aide de rapports générés interactifs, en activant l’[analytique du trafic des recherches](search-traffic-analytics.md). 
 
 Le nombre et la taille des index sont tout aussi pertinents pour votre analyse, car les limites maximales sont atteintes en cas d’utilisation totale du stockage (partitions) ou quand les valeurs limites maximales sont atteintes pour les ressources (index, indexeurs et ainsi de suite), selon ce qui se produit en premier. Le portail vous aide à effectuer le suivi de ces deux facteurs en affichant l’utilisation actuelle et les limites maximales côte à côte dans la page de présentation.
 
@@ -197,8 +215,9 @@ Le nombre de requêtes par seconde est une métrique qui prend de l’importance
 
 Les niveaux standard peuvent fournir un équilibre entre le nombre de réplicas et le nombre de partitions, avec la prise en charge d’un délai d’exécution de requête plus rapide grâce à des réplicas supplémentaires pour le chargement de partitions supplémentaires et d’équilibrage en vue d’un traitement parallèle. Vous pouvez régler les performances une fois le service provisionné.
 
-Les clients qui prévoient des volumes de requêtes élevés et soutenus dès le début doivent envisager d’adopter les niveaux plus élevés, qui sont pris en charge par du matériel plus puissant. Vous pouvez ensuite mettre des partitions et des réplicas hors connexion, ou même passer à un service de niveau inférieur, si ces volumes de requêtes ne se matérialisent pas. Pour plus d’informations sur la façon de calculer le débit de requête, consultez [Performances et optimisation de Recherche Azure](search-performance-optimization.md).
+Les clients qui prévoient des volumes de requête soutenu fort dès le départ doivent envisager la plus élevées **Standard** niveaux, soutenus par un matériel plus puissant. Vous pouvez ensuite mettre des partitions et des réplicas hors connexion, ou même passer à un service de niveau inférieur, si ces volumes de requêtes ne se matérialisent pas. Pour plus d’informations sur la façon de calculer le débit de requête, consultez [Performances et optimisation de Recherche Azure](search-performance-optimization.md).
 
+Le stockage optimisé niveaux lean vers des charges de travail de données volumineuses, prenant en charge de plusieurs index stockage global disponible, où les exigences de latence de requête sont quelque peu simplifiées.  Réplicas supplémentaires doivent encore être optimisées pour le chargement d’équilibrage et d’autres partitions pour un traitement parallèle. Vous pouvez régler les performances une fois le service provisionné.
 
 **Contrats de niveau de service**
 
@@ -216,7 +235,7 @@ Le niveau **Gratuit** et les fonctionnalités de préversion ne sont pas fournis
 
 Commencez avec un niveau **Gratuit** et créez un index initial à l’aide d’un sous-ensemble de vos données afin de bien comprendre ses caractéristiques. La structure des données dans Recherche Azure est un index inversé. La taille et la complexité d’un index inversé sont déterminées par le contenu. Souvenez-vous que le contenu hautement redondant a tendance à générer un index plus petit que le contenu très irrégulier. Par conséquent, ce sont les caractéristiques du contenu plutôt que la taille du jeu de données qui déterminent les besoins de stockage d’index.
 
-Une fois que vous avez une idée initiale de la taille de l’index, [provisionnez un service facturable](search-create-service-portal.md) à l’un des niveaux présentés dans cet article, **De base** ou **Standard**. Assouplissez les contraintes artificielles sur les sous-ensembles de données et [reconstruisez votre index](search-howto-reindex.md) afin d’inclure toutes les données pour lesquelles vous souhaitez que la recherche soit réellement possible.
+Une fois que vous avez une idée initiale de la taille de l’index, [approvisionner un service facturable](search-create-service-portal.md) à un des niveaux abordés dans cet article, soit **base**, **Standard**, ou **Stockage optimisé** niveau. Assouplir toute contrainte artificielle sur le dimensionnement des données et [reconstruire votre index](search-howto-reindex.md) pour inclure toutes les données que vous souhaitez réellement être disponible pour la recherche.
 
 [Allouez des partitions et des réplicas](search-capacity-planning.md) en fonction des besoins, afin d’obtenir les performances et l’échelle requises.
 

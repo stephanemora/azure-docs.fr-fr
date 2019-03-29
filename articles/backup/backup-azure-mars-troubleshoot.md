@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: saurse
-ms.openlocfilehash: a9a445208c151a537c35fa7afafa48b19486828f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4bad788156b2068f24484d3b248f2091409752ad
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58008160"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621615"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent"></a>Résoudre les problèmes liés à l'agent MARS (Microsoft Azure Recovery Services)
 
@@ -60,7 +60,7 @@ Voici comment résoudre les erreurs qui peuvent survenir lors de la configuratio
 ## <a name="backups-dont-run-according-to-the-schedule"></a>Les sauvegardes ne s'exécutent pas comme prévu
 Si les sauvegardes planifiées ne se déclenchent pas automatiquement, alors que vous n’avez aucun problème à effectuer des sauvegardes manuelles, essayez ceci :
 
-- Vérifiez que la planification de la sauvegarde de Windows Server n’est pas en conflit avec la planification de la sauvegarde des fichiers et dossiers Azure.
+- Vérifiez la planification de sauvegarde de Windows Server n’est pas en conflit avec Azure planification de sauvegarde de fichiers et dossiers.
 - Accédez à **Panneau de configuration** > **Outils d’administration** > **Planificateur de tâches**. Développez **Microsoft** et sélectionnez **Sauvegarde en ligne**. Double-cliquez sur **Microsoft-OnlineBackup** et accédez à l’onglet **Déclencheurs**. Assurez-vous que l’état est défini sur **Activé**. Si ce n’est pas le cas, sélectionnez **Modifier**, cochez la case **Activé**, puis cliquez sur **OK**. Sous l'onglet **Général**, accédez à **Options de sécurité** et assurez-vous que le compte d’utilisateur sélectionné pour l’exécution de la tâche est **SYSTÈME** ou le **groupe Administrateurs locaux** sur le serveur.
 
 - Vérifiez que PowerShell 3.0 ou version ultérieure est installé sur le serveur. Pour vérifier la version de PowerShell, exécutez la commande suivante et vérifiez que le numéro de la version *principale* est supérieur ou égal à 3.

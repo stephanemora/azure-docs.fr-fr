@@ -1,6 +1,6 @@
 ---
-title: Conditions d’utilisation d’Azure Active Directory | Microsoft Docs
-description: Décrit comment utiliser les conditions d’utilisation d’Azure AD pour présenter des informations à des employés ou à des invités avant de leur octroyer l’accès.
+title: Conditions d’utilisation - Azure Active Directory | Microsoft Docs
+description: Décrit la prise en main à l’aide d’Azure Active Directory conditions pour présenter des informations aux employés ou des invités avant d’accéder.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -15,12 +15,12 @@ ms.subservice: compliance
 ms.date: 03/24/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f6ac8a693e09d0efbac080d7effc6ce21c6a094
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 25a3eb6fdfc6928e2e414dcbe799861c3b2eb999
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418967"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576171"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Fonctionnalité Conditions d’utilisation d’Azure Active Directory
 La fonctionnalité Conditions d’utilisation d’Azure AD offre aux organisations une méthode simple pour présenter des informations aux utilisateurs finaux. Cette présentation permet de garantir que les utilisateurs voient les clauses d’exclusion de responsabilité nécessaires au respect des conditions légales ou de conformité. Cet article vous indique comment prendre en main les conditions d’utilisation.

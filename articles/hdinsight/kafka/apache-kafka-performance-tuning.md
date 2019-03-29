@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/21/2019
-ms.openlocfilehash: 903cd8921801ffb47dd73f48e507f30aa0b6dccc
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 3f15f45e0543c582d70463fb9ddc7ac569ff57bc
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58373149"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576756"
 ---
 # <a name="performance-optimization-for-apache-kafka-hdinsight-clusters"></a>Optimisation des performances pour les clusters Apache Kafka HDInsight
 
@@ -66,7 +66,7 @@ Disques de stockage ont limité les e/s (entrée/sortie opérations par seconde)
 
 ### <a name="number-of-topics-and-partitions"></a>Nombre de rubriques et partitions
 
-Écrivent des producteurs de Kafka vers des rubriques. Les consommateurs Kafka lire à partir de rubriques. Une rubrique est associée à un journal, qui est une structure de données sur le disque. Kafka ajoute les enregistrements à partir d’un ou à la fin d’un journal de la rubrique. Un journal de la rubrique se compose de nombreuses partitions réparties sur plusieurs fichiers. Ces fichiers sont, à son tour, réparties sur plusieurs nœuds de cluster Kafka. Consommateurs lisent à partir des rubriques Kafka à leur rythme et et vous pouvez choisir de leur position (offset) dans le journal de la rubrique.
+Écrivent des producteurs de Kafka vers des rubriques. Les consommateurs Kafka lire à partir de rubriques. Une rubrique est associée à un journal, qui est une structure de données sur le disque. Kafka ajoute les enregistrements à partir d’un ou à la fin d’un journal de la rubrique. Un journal de la rubrique se compose de nombreuses partitions réparties sur plusieurs fichiers. Ces fichiers sont, à son tour, réparties sur plusieurs nœuds de cluster Kafka. Les consommateurs lire à partir des rubriques Kafka à leur rythme et peuvent choisir de leur position (offset) dans le journal de la rubrique.
 
 Chaque partition Kafka est un fichier journal sur le système, et les threads producteur peuvent écrire dans plusieurs journaux simultanément. De même, étant donné que chaque thread de consommateur lit les messages à partir d’une seule partition, consommation à partir de plusieurs partitions est gérée en parallèle ainsi.
 

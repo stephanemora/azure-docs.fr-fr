@@ -1,6 +1,6 @@
 ---
-title: Récupérer les résultats de révision d’accès pour les groupes ou des applications dans les révisions d’accès Azure AD | Microsoft Docs
-description: Découvrez comment récupérer les résultats de révision d’accès pour les membres du groupe ou l’accès aux applications dans les révisions d’accès Azure AD.
+title: Récupérer les résultats de révision d’accès pour les applications dans les révisions d’accès - Azure Active Directory ou des groupes | Microsoft Docs
+description: Découvrez comment récupérer les résultats de révision d’accès pour les membres du groupe ou l’accès aux applications dans les révisions d’accès Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2516e61b6b86c3d2cee164cfcb80a1f938922908
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eae4bafb3eefcee2785c784030d7be8dde66988e
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839642"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578700"
 ---
-# <a name="retrieve-access-review-results-for-groups-or-applications-in-azure-ad-access-reviews"></a>Récupérer les résultats de révision d’accès pour les groupes ou des applications dans les révisions d’accès Azure AD
+# <a name="retrieve-access-review-results-for-groups-or-applications-in-azure-ad-access-reviews"></a>Récupérer la révision d’accès révisions d’accès de résultats pour les groupes ou des applications dans Azure AD
 
 Les administrateurs peuvent utiliser Azure Active Directory (Azure AD) pour [créer une révision d’accès](create-access-review.md) des membres du groupe ou des utilisateurs affectés à une application.  Un utilisateur qui est dans le **administrateur général**, **utilisateur administrateur**, **administrateur de sécurité** ou **lecteur sécurité** rôle peut également lire les résultats d’une révision d’accès.  Pour affecter des utilisateurs à un de ces rôles, un administrateur de rôle privilégié peut utiliser Azure AD PIM à faire éligible pour activer le rôle d’un utilisateur ou un administrateur Global peut définitivement [affecter un utilisateur au rôle](../fundamentals/active-directory-users-assign-role-azure-portal.md).
 

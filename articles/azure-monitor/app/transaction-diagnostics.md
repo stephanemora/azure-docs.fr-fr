@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: ba72f273724bb45418b104b1245648419ababbf0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c6c44525018e2115f1df8ed2d3f15432b95490c6
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903621"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58619830"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Diagnostics de transaction entre composants unifiés
 
@@ -32,7 +32,7 @@ Les composants sont des parties pouvant être déployées de manière indépenda
 * Les composants peuvent être des clés d’instrumentation Application Insights distinctes (même si les abonnements sont différents) ou des rôles différents rapportant à une clé d’instrumentation Application Insights unique. La nouvelle expérience affiche des détails sur tous les composants, quelle que soit leur configuration.
 
 > [!NOTE]
-> * **Il vous manque les liens des éléments connexes ?** Toutes les données de télémétrie associées se trouvent dans les sections situées en [haut](#cross-component-transaction-chart) et en [bas](#all-telemetry-with-this-Operation-Id), du côté gauche. 
+> * **Il vous manque les liens des éléments connexes ?** Toutes les données de télémétrie associées se trouvent dans les sections situées en [haut](#cross-component-transaction-chart) et en [bas](#all-telemetry-with-this-operation-id), du côté gauche. 
 
 ## <a name="transaction-diagnostics-experience"></a>Expériences de diagnostics de transaction
 Cette vue compte quatre parties principales : une liste de résultats, un graphique de transaction entre composants, une liste de séquence horaire de toutes les données de télémétrie relatives à l’opération, et le volet d’informations de l’élément de télémétrie sélectionné sur la gauche.

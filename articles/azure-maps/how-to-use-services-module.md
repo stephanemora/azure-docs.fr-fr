@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.openlocfilehash: 335e114fc6a4afa83a6b82509148cf258a9e8347
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: e614758a91cb3ff02822eeeeb8ae7e80d2123e5d
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58501150"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578728"
 ---
 # <a name="using-the-azure-maps-services-module"></a>L’utilisation du module de Services de Azure Maps
 
@@ -34,7 +34,7 @@ Le Kit de développement logiciel Azure Maps Web fournit un module de services q
     
     > npm install azure-maps-rest
     
-    Puis ajoutez un script fait référence à la `<head>` élément du fichier :
+    Puis ajoutez une référence de script à la `<head>` élément du fichier :
     
     ```html
     <script src="node_modules/azure-maps-rest/dist/js/atlas-service.min.js"></script>
@@ -138,12 +138,12 @@ Le Kit de développement logiciel Azure Maps Web fournit un module de services q
       
       for(var i=0;i<response.results.length;i++){
         html.push('<tr><td>', (i+1), '.</td><td>', 
-                  response.results[i].address.freeformAddress, 
-                  '</td><td>', 
-                  response.results[i].position.lat,
-                  '</td><td>', 
-                  response.results[i].position.lon,
-                  '</td></tr>');
+                    response.results[i].address.freeformAddress, 
+                    '</td><td>', 
+                    response.results[i].position.lat,
+                    '</td><td>', 
+                    response.results[i].position.lon,
+                    '</td></tr>');
       }
       
       html.push('</table>');
@@ -154,6 +154,8 @@ Le Kit de développement logiciel Azure Maps Web fournit un module de services q
     ```
 
     Voici l’exemple de code complet en cours d’exécution :
+
+<br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="L’utilisation du Module de Services" src="//codepen.io/azuremaps/embed/zbXGMR/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consultez le stylet <a href='https://codepen.io/azuremaps/pen/zbXGMR/'>à l’aide du Module de Services</a> par Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.

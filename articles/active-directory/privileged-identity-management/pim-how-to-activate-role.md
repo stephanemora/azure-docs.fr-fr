@@ -1,6 +1,6 @@
 ---
-title: Activer les rôles d’annuaire Azure AD dans PIM | Microsoft Docs
-description: Découvrez comment activer des rôles d’annuaire Azure AD dans Azure AD Privileged Identity Management (PIM).
+title: Activer mes rôles Azure AD dans PIM - Azure Active Directory | Microsoft Docs
+description: Découvrez comment activer des rôles Azure AD dans Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,38 +14,38 @@ ms.date: 03/05/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fc0a22f4300a06b5c827973ffb2436d0b8cfb36
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ca069da1239a505b3e3686998cd29844ed80ba46
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542741"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576809"
 ---
-# <a name="activate-my-azure-ad-directory-roles-in-pim"></a>Activer des rôles d’annuaire Azure AD dans PIM
+# <a name="activate-my-azure-ad-roles-in-pim"></a>Activer mes rôles Azure AD dans PIM
 
 Le service Azure Active Directory (Azure AD) Privileged Identity Management (PIM) simplifie la gestion par les entreprises de l’accès privilégié aux ressources dans Azure AD et d’autres services en ligne Microsoft, tels qu’Office 365 ou Microsoft Intune.  
 
 Si vous êtes éligible à un rôle d’administrateur, vous pouvez activer ce rôle quand vous devez effectuer des actions privilégiées. Par exemple, si vous gérez occasionnellement des fonctionnalités d’Office 365, les administrateurs de rôle privilégié de votre organisation peuvent ne pas vous attribuer le rôle d’administrateur général permanent, étant donné que ce rôle affecte également les autres services. Au lieu de cela, ils peuvent vous attribuer des rôles Azure AD tels qu’administrateur Exchange Online. Vous pouvez faire une demande pour activer ce rôle lorsque vous avez besoin de ses privilèges. Vous aurez ainsi le contrôle d’administrateur pendant une période prédéterminée.
 
-Cet article s’adresse aux administrateurs qui ont besoin d’activer leur rôle d’annuaire Azure AD dans PIM.
+Cet article est destiné aux administrateurs qui doivent activer leur rôle d’Azure AD dans PIM.
 
 ## <a name="activate-a-role"></a>Activer un rôle
 
-Lorsque vous avez besoin d’endosser un rôle d’annuaire Azure AD, vous pouvez demander une activation à l’aide de l’option de navigation **Mes rôles** dans PIM.
+Lorsque vous avez besoin pour un rôle Azure AD, vous pouvez demander une activation à l’aide de la **mes rôles** option de navigation dans PIM.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
 1. Ouvrez **Azure AD Privileged Identity Management**. Pour plus d’informations sur l’ajout de la vignette PIM à votre tableau de bord, consultez [Commencer à utiliser PIM](pim-getting-started.md).
 
-1. Cliquez sur **Rôles d’annuaire Azure AD**.
+1. Cliquez sur **Rôles Azure AD**.
 
-1. Cliquez sur **Mes rôles** pour afficher la liste de vos rôles d’annuaire Azure AD éligibles.
+1. Cliquez sur **mes rôles** pour afficher la liste de vos éligibles rôles Azure AD.
 
-    ![Rôles d’annuaire Azure AD - Mes rôles](./media/pim-how-to-activate-role/directory-roles-my-roles.png)
+    ![Rôles d’Azure AD - mes rôles](./media/pim-how-to-activate-role/directory-roles-my-roles.png)
 
 1. Recherchez un rôle à activer.
 
-    ![Rôles d’annuaire Azure AD - Liste Mes rôles](./media/pim-how-to-activate-role/directory-roles-my-roles-activate.png)
+    ![Rôles d’Azure AD - ma liste de rôles](./media/pim-how-to-activate-role/directory-roles-my-roles-activate.png)
 
 1. Cliquez sur **Activer** pour ouvrir le volet où se trouvent les informations d’activation du rôle.
 
@@ -87,11 +87,11 @@ Vous pouvez afficher l’état de vos demandes d’activation en attente.
 
 1. Ouvrez Azure AD Privileged Identity Management.
 
-1. Cliquez sur **Rôles d’annuaire Azure AD**.
+1. Cliquez sur **Rôles Azure AD**.
 
 1. Cliquez sur **Mes demandes** pour afficher la liste de vos demandes.
 
-    ![Rôles d’annuaire Azure AD - Mes demandes](./media/pim-how-to-activate-role/directory-roles-my-requests.png)
+    ![Rôles d’Azure AD - mes demandes](./media/pim-how-to-activate-role/directory-roles-my-requests.png)
 
 ## <a name="deactivate-a-role"></a>Désactiver un rôle
 
@@ -101,7 +101,7 @@ Si vous terminez vos tâches d’administration plus tôt que prévu, vous pouve
 
 1. Ouvrez Azure AD Privileged Identity Management.
 
-1. Cliquez sur **Rôles d’annuaire Azure AD**.
+1. Cliquez sur **Rôles Azure AD**.
 
 1. Cliquez sur **Mes rôles**.
 
@@ -115,7 +115,7 @@ Si vous n’avez pas besoin de l’activation d’un rôle nécessitant une appr
 
 1. Ouvrez Azure AD Privileged Identity Management.
 
-1. Cliquez sur **Rôles d’annuaire Azure AD**.
+1. Cliquez sur **Rôles Azure AD**.
 
 1. Cliquez sur **Mes demandes**.
 

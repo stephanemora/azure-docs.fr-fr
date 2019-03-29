@@ -6,12 +6,12 @@ ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 01/29/2019
-ms.openlocfilehash: a8bc82a2717bfa6838b2331ef54ed8098422c223
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 0f79a1eed044814d6c2e27f4eadb5ba68a47303f
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770337"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620748"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Types de ressources et les contrôles d’intégrité dans Azure Resource Health
 Voici une liste complète de toutes les vérifications exécutées via Resource Health par type de ressource.
@@ -51,10 +51,15 @@ Voici une liste complète de toutes les vérifications exécutées via Resource 
 |---|
 |<ul><li>Est-ce que le serveur d’hébergement de cette machine virtuelle est en cours d’exécution ?</li><li>Le démarrage du système d’exploitation hôte est-il terminé ?</li><li>Le conteneur de machine virtuelle est-il configuré et sous tension ?</li><li>Existe-t-il une connectivité réseau entre l’hôte et le compte de stockage ?</li><li>Le démarrage du système d’exploitation invité est-il terminé ?</li><li>Y a-t-il une maintenance planifiée régulière ?</li></ul>|
 
+## <a name="microsoftdatafactoryfactories"></a>Microsoft.DataFactory/Factories
+|Vérifications exécutées|
+|---|
+|<ul><li>Y a-t-il eu que des échecs d’exécution du pipeline ?</li><li>Le cluster héberge la fabrique de données intègres ?</li></ul>|
+
 ## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.datalakeanalytics/accounts
 |Vérifications exécutées|
 |---|
-|<ul><li>Les utilisateurs ont-ils rencontré des problèmes lors de l’envoi ou du listage de leurs travaux Data Lake Analytics ?</li><li>Les travaux Data Lake Analytics sont-ils incapables de terminer en raison d’erreurs système ?</li></ul>|
+|<ul><li>Les utilisateurs ont-ils rencontré des problèmes lors de l’envoi ou du listage de leurs travaux Data Lake Analytics ?</li><li>Les travaux Data Lake Analytique sont impossible en raison d’erreurs système ?</li></ul>|
 
 
 ## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.datalakestore/accounts
@@ -62,8 +67,27 @@ Voici une liste complète de toutes les vérifications exécutées via Resource 
 |---|
 |<ul><li>Les utilisateurs ont-ils rencontré des problèmes lors du chargement de données vers le Data Lake Store ?</li><li>Les utilisateurs ont-ils rencontré des problèmes lors du téléchargement de données à partir du Data Lake Store ?</li></ul>|
 
-## <a name="microsoftdevicesiothubs"></a>Microsoft.devices/iothubs
+## <a name="microsoftdatamigrationservices"></a>Microsoft.datamigration/services
+|Vérifications exécutées|
+|---|
+|<ul><li>Le service de migration de base de données a échoué approvisionner ?</li><li>Le service de migration de base de données s’est arrêté en raison d’inactivité ou l’utilisateur demande ?</li></ul>|
 
+## <a name="microsoftdbformariadbservers"></a>Microsoft.DBforMariaDB/servers
+|Vérifications exécutées|
+|---|
+|<ul><li>Le serveur n’est pas disponible en raison d’une maintenance ?</li><li>Le serveur n’est pas disponible en raison d’une reconfiguration ?</li></ul>|
+
+## <a name="microsoftdbformysqlservers"></a>Microsoft.DBforMySQL/servers
+|Vérifications exécutées|
+|---|
+|<ul><li>Le serveur n’est pas disponible en raison d’une maintenance ?</li><li>Le serveur n’est pas disponible en raison d’une reconfiguration ?</li></ul>|
+
+## <a name="microsoftdbforpostgresqlservers"></a>Microsoft.DBforPostgreSQL/servers
+|Vérifications exécutées|
+|---|
+|<ul><li>Le serveur n’est pas disponible en raison d’une maintenance ?</li><li>Le serveur n’est pas disponible en raison d’une reconfiguration ?</li></ul>|
+
+## <a name="microsoftdevicesiothubs"></a>Microsoft.devices/iothubs
 |Vérifications exécutées|
 |---|
 |<ul><li>Le hub IoT est-il opérationnel ?</li></ul>|
@@ -73,15 +97,40 @@ Voici une liste complète de toutes les vérifications exécutées via Resource 
 |---|
 |<ul><li>Y a-t-il eu des demandes de base de données ou de collection non servies en raison d’une indisponibilité du service Azure Cosmos DB ?</li><li>Y a-t-il eu des demandes de document non servies en raison d’une indisponibilité du service Azure Cosmos DB ?</li></ul>|
 
+## <a name="microsofteventhubnamespaces"></a>Microsoft.eventhub/namespaces
+|Vérifications exécutées|
+|---|
+|<ul><li>L’espace de noms Event Hubs rencontre des erreurs générées par l’utilisateur ?</li><li>Est l’espace de noms Event Hubs actuellement mis à niveau ?</li></ul>|
+
+## <a name="microsofthdinsightclusters"></a>Microsoft.hdinsight/clusters
+|Vérifications exécutées|
+|---|
+|<ul><li>Services principaux sont disponibles sur le cluster HDInsight ?</li><li>Le cluster HDInsight peut accéder à la clé de chiffrement BYOK au repos ?</li></ul>|
+
 ## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
 |Vérifications exécutées|
 |---|
 |<ul><li>Les demandes de coffre de clés échouent-elles en raison de problèmes de plateforme Azure KeyVault ?</li><li>Les demandes de coffre de clés sont-elles limitées en raison de trop de requêtes effectuées par le client ?</li></ul>|
 
+## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.network/applicationgateways
+|Vérifications exécutées|
+|---|
+|<ul><li>Sont les performances de la passerelle d’Application détérioré ?</li><li>La passerelle d’Application est disponible ?</li></ul>|
+
 ## <a name="microsoftnetworkconnections"></a>Microsoft.network/connections
 |Vérifications exécutées|
 |---|
 |<ul><li>Le tunnel VPN est-il connecté ?</li><li>Existe-t-il des conflits de configuration dans la connexion ?</li><li>Les clés prépartagées sont-elles correctement configurées ?</li><li>L’appareil VPN local est-il accessible ?</li><li>Existe-t-il des non-correspondances dans la stratégie de sécurité IPSec/IKE ?</li><li>La connexion VPN S2S est-elle correctement configurée ou dans un état d’échec ?</li><li>La connexion de réseau virtuel à réseau virtuel est-elle correctement configurée ou dans un état d’échec ?</li></ul>|
+
+## <a name="microsoftnetworkexpressreoutecircuits"></a>Microsoft.network/expressreoutecircuits
+|Vérifications exécutées|
+|---|
+|<ul><li>Le circuit ExpressRoute est intègre ?</li></ul>|
+
+## <a name="microsoftnetworkfrontdoors"></a>Microsoft.network/frontdoors
+|Vérifications exécutées|
+|---|
+|<ul><li>Les serveurs principaux de la porte d’entrée répondent avec des erreurs aux sondes d’intégrité ?</li><li>Modifications de configuration sont retardées ?</li></ul>|
 
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.network/virtualNetworkGateways
 |Vérifications exécutées|
@@ -91,7 +140,12 @@ Voici une liste complète de toutes les vérifications exécutées via Resource 
 ## <a name="microsoftnotificationhubsnamespace"></a>Microsoft.NotificationHubs/namespace
 |Vérifications exécutées|
 |---|
-|<ul><li> Les opérations de runtime comme l’inscription, l’installation ou l’envoi peuvent-elles être effectuées sur l’espace de noms ?</li></ul>|
+|<ul><li>Les opérations de runtime comme l’inscription, l’installation ou l’envoi peuvent-elles être effectuées sur l’espace de noms ?</li></ul>|
+
+## <a name="microsoftoperationalinsightsworkspaces"></a>Microsoft.operationalinsights/workspaces
+|Vérifications exécutées|
+|---|
+|<ul><li>Y a-t-il des délais pour l’espace de travail d’indexation ?</li></ul>|
 
 ## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/Capacities
 |Vérifications exécutées|
@@ -101,7 +155,7 @@ Voici une liste complète de toutes les vérifications exécutées via Resource 
 ## <a name="microsoftpowerbiworkspacecollections"></a>Microsoft.PowerBI/workspaceCollections
 |Vérifications exécutées|
 |---|
-|<ul><li>Le système d’exploitation hôte est-il en cours d’exécution ?</li><li>WorkspaceCollection est-elle accessible depuis l’extérieur du centre de données ?</li><li>Le fournisseur de ressources PowerBI est-il disponible ?</li><li>Le service PowerBI est-il disponible dans la région appropriée ?</li></ul>|
+|<ul><li>Le système d’exploitation hôte est-il en cours d’exécution ?</li><li>WorkspaceCollection est-elle accessible depuis l’extérieur du centre de données ?</li><li>Le fournisseur de ressources Power BI est disponible ?</li><li>Est le Service Power BI disponibles dans la région appropriée ?</li></ul>|
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.search/searchServices
 |Vérifications exécutées|

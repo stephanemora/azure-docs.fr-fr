@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
-ms.openlocfilehash: 9897fbb3f5efe1f5255992e4894ea22041595263
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: ad4839a1b9e951a2bb206518254826a066330000
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268190"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620857"
 ---
 # <a name="parse-text-data-in-azure-monitor-logs"></a>Analyser des données de texte dans les journaux Azure Monitor
 Certaines données de journal collectées par Azure Monitor incluront plusieurs informations au sein d'une même propriété. L’analyse de ces données dans plusieurs propriétés simplifie leur utilisation dans des requêtes. Un exemple courant est le [journal personnalisé](../../log-analytics/log-analytics-data-sources-custom-logs.md) qui collecte une entrée de journal entière avec plusieurs valeurs dans une seule propriété. En créant des propriétés distinctes pour les différentes valeurs, vous pouvez faire des recherches et des agrégations sur chacune d’elles.
@@ -55,7 +55,7 @@ Les avantages de cette méthode sont les suivants :
  
 Les inconvénients de cette méthode sont les suivants :
 
-- Elle nécessite des requêtes plus complexes. L’utilisation de [fonctions simulant une table](#Use-function-to-simulate-a-table) permet d’atténuer cet inconvénient.
+- Elle nécessite des requêtes plus complexes. L’utilisation de [fonctions simulant une table](#use-function-to-simulate-a-table) permet d’atténuer cet inconvénient.
 - Elle nécessite de répliquer une logique d’analyse dans plusieurs requêtes. Elle peut partager une logique via des fonctions.
 - Elle peut créer une surcharge lors de l’exécution d’une logique complexe sur de très grands jeux d’enregistrement (comprenant des milliards d’enregistrements).
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 8973558e0841bfd0d6651a08d39da96b544156c9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 223eff79d809a78d531d86d315fff80282cd29bb
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842446"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620153"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Devenir un éditeur sur la Place de marché dans le cloud
 
@@ -44,6 +44,8 @@ La participation à la place de marché cloud de Microsoft nécessite l’appart
 Une fois inscrit, enregistrez l’ID Microsoft Partner Network de votre organisation. Vous en aurez besoin à l’étape 3 lorsque vous soumettrez votre formulaire d’inscription sur la place de marché.
 *   Découvrez les avantages de [Microsoft Partner Network](https://partner.microsoft.com/commercial).
 *   Si votre organisation dispose d’un abonnement existant, vous joindrez votre organisation lors de l’inscription. Si vous utilisez l’[Espace partenaires](https://partnercenter.microsoft.com/partner/home), vous pourrez voir l’ID dans votre compte d’Espace partenaires. Si vous utilisez [Partner Membership Center (PMC)](https://partners.microsoft.com/partnerprogram/PartnerMembershipCenter.aspx), vous pourrez le voir dans votre compte Partner Membership Center. 
+
+Ouvrir un ticket auprès de Microsoft [support partenaire](https://partner.microsoft.com/support) pour les problèmes avec l’inscription MPN.
 
 ---
 

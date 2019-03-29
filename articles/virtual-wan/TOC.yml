@@ -21,10 +21,14 @@ items:
     href: virtual-wan-office365-overview.md
 - name: Guides pratiques
   items:
+  - name: Acheminer le trafic depuis un hub virtuel vers une NVA
+    items:
+    - name: Portail Azure
+      href: virtual-wan-route-table-portal.md
+    - name: Azure PowerShell
+      href: virtual-wan-route-table.md
   - name: 'Partenaires Virtual WAN : automation'
     href: virtual-wan-configure-automation-providers.md
-  - name: Acheminer le trafic depuis un hub virtuel vers une NVA
-    href: virtual-wan-route-table.md
 - name: Informations de référence
   items:
   - name: Azure PowerShell
@@ -49,9 +53,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Contrat SLA
     href: https://azure.microsoft.com/support/legal/sla
-ms.openlocfilehash: dc6ffdb5f87f68424b4367ecb845852019a7380f
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 555af48950df4afab512951a7c3ae53e41663427
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57407797"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579731"

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 23bc4d0df1c8124ec225ac31239c7acb3f1ab546
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 2ace8ffd82efe70251b48e20593906986173cbb0
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541811"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577798"
 ---
 # <a name="security-agent-authentication-methods"></a>Méthodes d’authentification de l’agent de sécurité 
 
@@ -41,10 +41,12 @@ Les deux méthodes pour l’agent AzureIoTSecurity effectuer l’authentificatio
 
  - **Module** mode d’authentification<br>
    Le Module est authentifié indépendamment de la représentation d’appareil.
-   Les informations requises pour ce type d’authentification est défini dans par le fichier Authentication.config pour C# et le LocalConfiguration.json pour C.
+   Utilisez ce type d’authentification si vous souhaitez que l’agent de sécurité à utiliser une méthode d’authentification dédié via le module de sécurité (clé symétrique uniquement).
         
  - **APPAREIL** mode d’authentification<br>
-    Dans cette méthode, l’agent de sécurité authentifie tout d’abord par rapport à l’appareil. Après l’authentification initiale, l’ASC pour l’agent IoT effectue **Rest** appeler à IoT Hub à l’aide de l’API Rest avec les données d’authentification de l’appareil. L’ASC pour l’agent IoT demande ensuite la méthode d’authentification de module de sécurité et les données à partir du IoT Hub. Dans la dernière étape, l’ASC pour l’agent IoT effectue une authentification par rapport à l’ASC pour le module IoT.    
+    Dans cette méthode, l’agent de sécurité authentifie tout d’abord avec l’identité d’appareil. Après l’authentification initiale, l’ASC pour l’agent IoT effectue un **REST** appeler à IoT Hub à l’aide de l’API REST avec les données d’authentification de l’appareil. L’ASC pour l’agent IoT demande ensuite la méthode d’authentification de module de sécurité et les données à partir du IoT Hub. Dans la dernière étape, l’ASC pour l’agent IoT effectue une authentification par rapport à l’ASC pour le module IoT.
+    
+    Utilisez ce type d’authentification si vous souhaitez que l’agent de sécurité pour réutiliser une méthode d’authentification appareil existant (auto-signé certificat ou clé symétrique). 
 
 Consultez [paramètres d’installation de l’agent de sécurité](#security-agent-installation-parameters) pour apprendre à configurer.
                                 
@@ -55,7 +57,7 @@ Consultez [paramètres d’installation de l’agent de sécurité](#security-ag
 
 ## <a name="security-agent-installation-parameters"></a>Paramètres d’installation de l’agent de sécurité
 
-Lorsque [déploiement d’un agent de sécurité](select-deploy-agent.md), détails de l’authentification doivent être fournis en tant qu’arguments.
+Lorsque [déploiement d’un agent de sécurité](how-to-deploy-agent.md), détails de l’authentification doivent être fournis en tant qu’arguments.
 Ces arguments sont documentées dans le tableau suivant.
 
 
@@ -111,5 +113,5 @@ Modifier _LocalConfiguration.json_ avec les paramètres suivants :
 
 ## <a name="see-also"></a>Voir aussi
 - [Vue d’ensemble des agents de sécurité](security-agent-architecture.md)
-- [Déploiement de l’agent de sécurité](select-deploy-agent.md)
+- [Déploiement de l’agent de sécurité](how-to-deploy-agent.md)
 - [Accéder aux données de sécurité brute](how-to-security-data-access.md)

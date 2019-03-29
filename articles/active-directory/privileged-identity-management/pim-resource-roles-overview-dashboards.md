@@ -1,5 +1,5 @@
 ---
-title: Un tableau de bord de ressource permet d’effectuer une révision d’accès dans PIM - Azure | Microsoft Docs
+title: Un tableau de bord de ressource permet d’effectuer une révision d’accès dans PIM - Azure Active Directory | Microsoft Docs
 description: Explique comment utiliser un tableau de bord de ressources pour effectuer une révision d’accès dans Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -16,16 +16,16 @@ ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89abf15731bd125737e7c18ab45782820a856b38
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 37057e531ea8387fbed84c9b03bbfb9c14d160ea
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58012684"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574958"
 ---
 # <a name="use-a-resource-dashboard-to-perform-an-access-review-in-pim"></a>Un tableau de bord de ressource permet d’effectuer une révision d’accès dans PIM
 
-Il est possible d’utiliser un tableau de bord de ressources pour effectuer une révision d’accès dans Privileged Identity Management (PIM) pour les ressources Azure. Le tableau de bord Vue Administration se compose de trois éléments principaux :
+Vous pouvez utiliser un tableau de bord de ressources pour effectuer une révision d’accès dans Azure Active Directory (Azure AD) Privileged Identity Management (PIM). Le tableau de bord Vue Administration se compose de trois éléments principaux :
 
 - une représentation graphique des activations de rôle des ressources ;
 - deux graphiques montrant la distribution des attributions de rôle par type d’attribution ;

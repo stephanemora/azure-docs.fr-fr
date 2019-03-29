@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: a78eeda814b21d489eb957d44202b17c61d836d5
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 1186b362cf8f59f24020ae9afa3526e2e27b1794
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541886"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575213"
 ---
 # <a name="get-started-with-azure-security-center-asc-for-iot"></a>Bien démarrer avec Azure Security Center (ASC) pour IoT 
 
@@ -67,7 +67,7 @@ Utilisons ASC pour les fonctionnalités de sécurité IoT améliorée, comme la 
 1. Si votre IoT Hub ne dispose d’aucun appareil inscrit, [enregistrez un nouvel appareil](https://docs.microsoft.com/azure/iot-accelerators/quickstart-device-simulation-deploy).
 1. [Créer un module de sécurité azureiotsecurity](quickstart-create-security-twin.md) pour vos appareils.
 1. Pour installer l’agent sur un appareil simulé Azure au lieu d’installer sur un appareil réel, [toupie (spin) d’une nouvelle Machine virtuelle (machine virtuelle Azure)](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal) dans une zone disponible. 
-1. [Déployer un ASC pour l’agent de sécurité IoT](tutorial-deploy-linux-cs.md) sur votre appareil IoT ou une nouvelle machine virtuelle.
+1. [Déployer un ASC pour l’agent de sécurité IoT](how-to-deploy-linux-cs.md) sur votre appareil IoT ou une nouvelle machine virtuelle.
 1. Suivez les instructions pour [trigger_events](https://aka.ms/iot-security-github-trigger-events) pour exécuter une simulation d’une attaque inoffensif.
 1. Vérifiez ASC pour les alertes IoT en réponse à l’attaque simulé à l’étape précédente. 
     - Commencer la vérification cinq minutes après avoir exécuté le script.
@@ -79,4 +79,4 @@ Utilisons ASC pour les fonctionnalités de sécurité IoT améliorée, comme la 
 - Configurer votre [solution](quickstart-configure-your-solution.md)
 - [Créer des modules de sécurité](quickstart-create-security-twin.md)
 - Configurer [alertes personnalisées](quickstart-create-custom-alerts.md)
-- [Déployer un agent de sécurité](select-deploy-agent.md)
+- [Déployer un agent de sécurité](how-to-deploy-agent.md)

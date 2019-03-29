@@ -4,14 +4,14 @@ description: Répond aux questions fréquemment posées sur Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 03/28/2019
 ms.author: snehaa
-ms.openlocfilehash: 20a3b790310153ac5bda23fb72baf2ae61e1da52
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 366240c273feed559edb6e569640020046cc9471
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003720"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578643"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - Forum aux questions
 
@@ -108,9 +108,7 @@ La détection d’agent est disponible sur la détection basée sur l’applianc
 
 ### <a name="would-there-be-any-performance-impact-on-the-analyzed-esxi-host-environment"></a>Y aurait-il un impact sur les performances de l’environnement hôte ESXi analysé ?
 
-Dans le cas de l’[approche de découverte ponctuelle](https://docs.microsoft.com/azure/migrate/concepts-collector) en vue de collecter les données de performances, le niveau de statistiques doit être fixé à 3 sur le serveur vCenter. Vous collecterez ainsi une grande quantité de données de dépannage, qui seront stockées dans la base de données du serveur vCenter. Par conséquent, cela peut entraîner des problèmes de performances sur le serveur vCenter. L’impact est négligeable sur l’hôte ESXi.
-
-Nous avons introduit le profilage continu des données de performances (en préversion). Avec le profilage continu, il n’est plus nécessaire de modifier le niveau de statistiques du serveur vCenter pour effectuer une évaluation basée sur les performances. L’appliance collector va maintenant profiler les machines localement pour mesurer les données de performance des machines virtuelles. Cela n’a pratiquement aucun impact sur les performances des hôtes ESXi et du serveur vCenter.
+Avec le profilage continue des données de performances, il est inutile de modifier le niveau de statistiques de serveur pour exécuter une évaluation en fonction des performances de vCenter. L’appliance collecteur sera profiler les machines locales pour mesurer les données de performances des machines virtuelles. Cela n’a pratiquement aucun impact sur les performances des hôtes ESXi et du serveur vCenter.
 
 ### <a name="where-is-the-collected-data-stored-and-for-how-long"></a>Où sont stockées les données collectées et pendant combien de temps ?
 

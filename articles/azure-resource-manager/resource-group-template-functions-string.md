@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: c35352c47edb4f34100501ac791c84108fa9ac17
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 07221e5d93c004a2542adfc3a5374fd75ca34b31
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762838"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621403"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Fonctions de chaînes pour les modèles Azure Resource Manager
 
@@ -1809,7 +1809,7 @@ L'exemple suivant montre comment créer un nom unique pour un compte de stockage
     ...
 ```
 
-Si vous avez besoin créer un nouveau nom unique à chaque fois que vous déployez un modèle et intention de mettre à jour de la ressource n’est pas, vous pouvez utiliser la [utcNow](#utcnow) avec uniqueString (fonction). Vous pouvez utiliser cette approche dans un environnement de test. Pour obtenir un exemple, consultez [utcNow](#utcNow).
+Si vous avez besoin créer un nouveau nom unique à chaque fois que vous déployez un modèle et intention de mettre à jour de la ressource n’est pas, vous pouvez utiliser la [utcNow](#utcnow) avec uniqueString (fonction). Vous pouvez utiliser cette approche dans un environnement de test. Pour obtenir un exemple, consultez [utcNow](#utcnow).
 
 ### <a name="return-value"></a>Valeur de retour
 

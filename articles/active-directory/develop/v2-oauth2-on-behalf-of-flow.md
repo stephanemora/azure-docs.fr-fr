@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cc9b2b38ae0ba97e5a29d58d1605e5452224e4b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5d933eaf99258a3f3322a915b418b52fad6e459f
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445753"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576928"
 ---
 # <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Azure Active Directory v2.0 et flux Pour le compte de OAuth 2.0
 
@@ -72,8 +72,8 @@ Lorsque l’application utilise un secret partagé, la demande de jeton d’acc�
 | Paramètre |  | Description |
 | --- | --- | --- |
 | `grant_type` | Obligatoire | Type de la demande de jeton. Pour une demande à l’aide d’un JWT, la valeur doit être `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
-| `client_id` | Obligatoire | ID d’application (client) que le [portail d’inscription des applications](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) ou le nouveau [portail des inscriptions d’applications (préversion)](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) a attribué à votre application. |
-| `client_secret` | Obligatoire | Secret d’application que vous avez généré pour votre application dans le portail utilisé pour inscrire votre application. |
+| `client_id` | Obligatoire | ID d’application (client) que [le portail Azure - inscriptions](https://go.microsoft.com/fwlink/?linkid=2083908) page est affectée à votre application. |
+| `client_secret` | Obligatoire | Le secret de client que vous avez généré pour votre application dans le portail Azure - page d’inscriptions d’application. |
 | `assertion` | Obligatoire | Valeur du jeton utilisé dans la demande. |
 | `scope` | Obligatoire | Liste des étendues (séparées par des espaces) pour la demande de jeton. Pour plus d’informations, consultez [Étendues](v2-permissions-and-consent.md). |
 | `requested_token_use` | Obligatoire | Spécifie comment la demande doit être traitée. Dans le flux OBO, la valeur doit être définie sur `on_behalf_of`. |
@@ -104,7 +104,7 @@ Une demande de jeton d’accès de service à service avec un certificat contien
 | Paramètre |  | Description |
 | --- | --- | --- |
 | `grant_type` | Obligatoire | Type de la demande de jeton. Pour une demande à l’aide d’un JWT, la valeur doit être `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
-| `client_id` | Obligatoire | ID d’application (client) que le [portail d’inscription des applications](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) ou le nouveau [portail des inscriptions d’applications (préversion)](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) a attribué à votre application. |
+| `client_id` | Obligatoire |  ID d’application (client) que [le portail Azure - inscriptions](https://go.microsoft.com/fwlink/?linkid=2083908) page est affectée à votre application. |
 | `client_assertion_type` | Obligatoire | La valeur doit être `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
 | `client_assertion` | Obligatoire | Assertion (JSON Web Token) dont vous avez besoin pour créer et signer avec le certificat inscrit comme informations d’identification pour votre application. Pour découvrir comment inscrire votre certificat et le format de l’assertion, consultez [Informations d’identification de certificat](active-directory-certificate-credentials.md). |
 | `assertion` | Obligatoire | Valeur du jeton utilisé dans la demande. |
@@ -205,7 +205,7 @@ Pour les applications qui doivent uniquement connecter des comptes professionnel
 
 #### <a name="pre-authorized-applications"></a>Applications préalablement autorisées
 
-Les « applications préalablement autorisées » représentent une nouvelle fonctionnalité du portail d’applications en préversion. De cette façon, une ressource peut indiquer qu’une application donnée a toujours l’autorisation de recevoir certaines étendues. Cela est particulièrement utile pour rendre les connexions entre un client front-end et une ressource back-end plus fluides. Une ressource peut déclarer plusieurs applications préalablement autorisées : n’importe quelle application de ce type peut demander ces autorisations dans un flux OBO et les recevoir sans que l’utilisateur ne fournisse un consentement.
+Une fonctionnalité de l’application de portail est « applications préalablement autorisées ». De cette façon, une ressource peut indiquer qu’une application donnée a toujours l’autorisation de recevoir certaines étendues. Cela est particulièrement utile pour rendre les connexions entre un client front-end et une ressource back-end plus fluides. Une ressource peut déclarer plusieurs applications préalablement autorisées : n’importe quelle application de ce type peut demander ces autorisations dans un flux OBO et les recevoir sans que l’utilisateur ne fournisse un consentement.
 
 #### <a name="admin-consent"></a>Consentement de l’administrateur
 

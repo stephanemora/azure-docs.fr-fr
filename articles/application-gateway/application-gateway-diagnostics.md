@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 1/11/2019
+ms.date: 3/28/2019
 ms.author: amitsriva
-ms.openlocfilehash: 14b99f648bb1d7e1926aa9d5dd9926e267ba9709
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 367da8a1948b9feb42bc82d85762ae314fe165a0
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309126"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620874"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Intégrité du serveur principal, journaux de diagnostic et métriques pour la passerelle Application Gateway
 
@@ -131,7 +131,7 @@ La journalisation d’activité est automatiquement activée pour chaque ressour
 
 ### <a name="enable-logging-through-the-azure-portal"></a>Activation de la journalisation avec le portail Azure
 
-1. Dans le portail Azure, recherchez votre ressource, puis cliquez sur **Journaux de diagnostic**.
+1. Dans le portail Azure, recherchez votre ressource et sélectionnez **les paramètres de Diagnostic**.
 
    Pour Application Gateway, trois journaux d’audit sont disponibles :
 
@@ -139,21 +139,15 @@ La journalisation d’activité est automatiquement activée pour chaque ressour
    * Journal des performances
    * Journal du pare-feu
 
-2. Cliquez sur **Activer les diagnostics** pour démarrer la collecte de données.
+2. Pour démarrer la collecte de données, sélectionnez **activer les diagnostics**.
 
    ![Activation des diagnostics][1]
 
-3. Le panneau **Paramètres de diagnostic** contient les paramètres des journaux de diagnostic. Dans cet exemple, Log Analytics stocke les journaux. Cliquez sur **Configurer** sous **Log Analytics** pour configurer votre espace de travail. Vous pouvez également utiliser des concentrateurs d’événements et un compte de stockage pour enregistrer les journaux de diagnostic.
+3. La page **Paramètres de diagnostic** contient les paramètres des journaux de diagnostic. Dans cet exemple, Log Analytics stocke les journaux. Vous pouvez également utiliser des concentrateurs d’événements et un compte de stockage pour enregistrer les journaux de diagnostic.
 
    ![Démarrage du processus de configuration][2]
 
-4. Choisissez un espace de travail Log Analytics existant ou créez en un nouveau. Cet exemple utilise un espace de travail existant.
-
-   ![Options d’espaces de travail Log Analytics][3]
-
-5. Confirmez les paramètres et cliquez sur **Enregistrer**.
-
-   ![Panneau des paramètres de diagnostic avec des sélections][4]
+5. Tapez un nom pour les paramètres, confirmez les paramètres, puis sélectionnez **enregistrer**.
 
 ### <a name="activity-log"></a>Journal d’activité
 
@@ -334,7 +328,7 @@ Les mesures représentent une fonctionnalité de certaines ressources Azure, vou
 
    Vous pouvez filtrer sur une base de pool principal pour afficher les hôtes intègres/défectueux dans un pool principal spécifique.
 
-Accédez à une passerelle d’applications, sous **Analyse** cliquez sur **Métriques**. Pour afficher les valeurs disponibles, sélectionnez la liste déroulante **MÉTRIQUE**.
+Accédez à une passerelle d’application, sous **surveillance** sélectionnez **métriques**. Pour afficher les valeurs disponibles, sélectionnez la liste déroulante **MÉTRIQUE**.
 
 Dans l’image suivante, consultez un exemple avec trois métriques affichées pour les 30 dernières minutes :
 
@@ -348,11 +342,11 @@ Vous pouvez démarrer des règles d’alerte en fonction des métriques d’une 
 
 L’exemple suivant vous guide dans la création d’une règle d’alerte qui envoie un e-mail à un administrateur lorsqu’un seuil de débit est dépassé :
 
-1. Cliquez sur **Ajouter une alerte Métrique** pour ouvrir le panneau **Ajouter une règle**. Ce panneau est également accessible à partir du panneau Métriques.
+1. Sélectionnez **ajouter une alerte métrique** pour ouvrir le **ajouter une règle** page. Vous pouvez également atteindre cette page à partir de la page de mesures.
 
    ![Bouton Ajouter une alerte Métrique][6]
 
-2. Dans le panneau **Ajouter une règle**, remplissez les sections Nom, Condition et Notifier, puis cliquez sur **OK**.
+2. Sur le **ajouter une règle** page, renseignez le nom, condition et notifier sections et sélectionnez **OK**.
 
    * Dans le sélecteur **Condition**, sélectionnez une des quatre valeurs : **Supérieur à**, **Supérieur ou égal à**, **Inférieur à** ou **Inférieur ou égal à**.
 
@@ -360,7 +354,7 @@ L’exemple suivant vous guide dans la création d’une règle d’alerte qui e
 
    * Si vous sélectionnez **Envoyer des e-mails aux propriétaires, contributeurs et lecteurs** , l’e-mail peut être dynamiquement basé sur les utilisateurs qui ont accès à cette ressource. Dans le cas contraire, vous pouvez fournir une liste d’utilisateurs séparée par des virgules dans la zone **Adresse(s) de messagerie d’administrateur(s) supplémentaire(s)** .
 
-   ![Panneau Ajouter une règle][7]
+   ![Ajouter une page de la règle][7]
 
 Si le seuil est dépassé, un e-mail similaire à celui de l’image suivante vous est envoyé :
 

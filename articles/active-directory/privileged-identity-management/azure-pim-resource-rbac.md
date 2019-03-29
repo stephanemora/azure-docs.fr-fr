@@ -1,5 +1,5 @@
 ---
-title: Afficher l’activité et l’historique d’audit des rôles de ressources Azure dans PIM | Microsoft Docs
+title: Historique de vue activité et d’audit pour les rôles de ressources Azure dans PIM - Azure Active Directory | Microsoft Docs
 description: Affichez l’activité et l’historique d’audit des rôles de ressources Azure dans Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.subservice: pim
 ms.date: 01/24/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9afbbad9b956d41252ff9121c99a91669c71aaab
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: a6fb97c416d0e34635b8aa4c19fc6b94889f566c
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211731"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578133"
 ---
 # <a name="view-activity-and-audit-history-for-azure-resource-roles-in-pim"></a>Afficher l’activité et l’historique d’audit des rôles de ressources Azure dans PIM
 
@@ -113,4 +113,4 @@ Mon audit vous permet d’afficher votre activité personnelle de rôle.
 
 - [Attribuer des rôles de ressources Azure dans PIM](pim-resource-roles-assign-roles.md)
 - [Approuver ou rejeter les demandes de rôles de ressources Azure dans PIM](pim-resource-roles-approval-workflow.md)
-- [Afficher l’historique d’audit pour les rôles d’annuaire Azure AD dans PIM](pim-how-to-use-audit-log.md)
+- [Afficher l’historique d’audit pour les rôles d’Azure AD dans PIM](pim-how-to-use-audit-log.md)

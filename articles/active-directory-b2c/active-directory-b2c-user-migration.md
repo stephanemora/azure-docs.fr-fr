@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 4ebe77d26360776140db8e2a4b0209475d9d6367
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 09b219fe173be9ba2fd515facce9964b5edc67af
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484710"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621313"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C : Migration utilisateur
 Quand vous migrez votre fournisseur d’identité vers Azure Active Directory B2C (Azure AD B2C), il se peut que vous deviez également migrer les comptes d’utilisateur. Cet article explique comment migrer des comptes d’utilisateur existants de n’importe quel fournisseur d’identité vers Azure AD B2C. L’article n’a pas vocation à être normatif, mais plutôt à décrire quelques scénarios. Le développeur est responsable du choix de l’approche adaptée.
@@ -257,7 +257,7 @@ Pour suivre la modification de mot de passe, vous utilisez une table Azure. Quan
 ### <a name="41-update-your-application-setting"></a>4.1 : Mettre à jour le paramètre de votre application
 1. Pour tester la démonstration de l’API RESTful, ouvrez `AADB2C.UserMigration.sln` dans Visual Studio.
 
-1. Dans le projet `AADB2C.UserMigration.API`, ouvrez le fichier *appsettings.json*. Remplacez le paramètre par celui configuré à l’[étape 2.2](#step-22-configure-the-application-settings) :
+1. Dans le `AADB2C.UserMigration.API` projet, ouvrez le *Web.config* fichier. Remplacez le paramètre par celui configuré à l’[étape 2.2](#step-22-configure-the-application-settings) :
 
     ```json
     {

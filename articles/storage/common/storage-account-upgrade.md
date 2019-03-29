@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: tamram
-ms.openlocfilehash: a1ee95ad847d20159c79af8f080cc7878e114759
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 2d6a5c96bf99439520e26fc905668835944cee29
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444516"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578916"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Mise à niveau vers un compte de stockage à usage général v2
 
@@ -21,7 +21,7 @@ Les comptes de stockage à usage général v2 prend en charge les dernières fon
 Mise à niveau vers un compte de stockage à usage général v2 à partir de votre usage général v1 ou comptes de stockage Blob est simple. Pour ce faire, vous pouvez utiliser le Portail Azure, PowerShell ou Azure CLI.
 
 > [!IMPORTANT]
-> La mise à niveau un v1 à usage général ou un compte de stockage d’objets Blob stockage à usage général v2 est définitive et ne peut pas être annulée.
+> La mise à niveau un v1 à usage général ou un compte de stockage Blob à usage général v2 est définitive et ne peut pas être annulée.
 
 ## <a name="upgrade-using-the-azure-portal"></a>Mise à niveau à l’aide du Portail Azure
 

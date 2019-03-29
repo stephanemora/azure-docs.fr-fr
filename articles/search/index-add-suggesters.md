@@ -19,29 +19,29 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 5a46575f6e8a0b05b65dbf49c70bddb570b514b2
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: a629a022e332eae5c8a58e9ffc0f760f96bc24dd
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58497431"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577107"
 ---
 # <a name="add-suggesters-to-an-index-for-typeahead-in-azure-search"></a>Ajouter des générateurs de suggestions à un index pour prédictives dans Azure Search
 
-Un **Générateur de suggestions** est une construction dans un [index Azure Search](search-what-is-an-index.md) qui prend en charge une expérience de « recherche-sous-vous-type ». Il contient une liste de champs pour lesquels vous souhaitez activer les entrées de requête prédictives. Il existe deux variantes prédictives : *la saisie semi-automatique* se termine le terme ou l’expression que vous tapez, *suggestions* fournit une courte liste de résultats. 
+Un **Générateur de suggestions** est une construction dans un [index Azure Search](search-what-is-an-index.md) qui prend en charge une expérience de « recherche-sous-vous-type ». Il contient une liste de champs pour lesquels vous souhaitez activer les entrées de requête prédictives. Dans un index, le Générateur de suggestions même prend en charge ou pour les deux de ces deux variantes prédictives : *la saisie semi-automatique* se termine le terme ou l’expression que vous tapez, *suggestions* fournit une courte liste de résultats. 
 
-Dans cette page de recherche Xbox, les éléments de saisie semi-automatique vous dirigent vers une nouvelle page de résultats de recherche pour cette requête, tandis que les suggestions sont les résultats réels que vous accédez à une page pour ce type de jeu particulier. Vous pouvez limiter la saisie semi-automatique pour un élément dans une barre de recherche ou fournir une liste comme celle illustrée ici. Pour obtenir des suggestions, vous pouvez faire apparaître n’importe quelle partie d’un document qui décrit le mieux le résultat.
+La capture d’écran suivante illustre ces deux fonctionnalités prédictives. Dans cette page de recherche Xbox, les éléments de saisie semi-automatique vous dirigent vers une nouvelle page de résultats de recherche pour cette requête, tandis que les suggestions sont les résultats réels que vous accédez à une page pour ce type de jeu particulier. Vous pouvez limiter la saisie semi-automatique pour un élément dans une barre de recherche ou fournir une liste comme celle illustrée ici. Pour obtenir des suggestions, vous pouvez faire apparaître n’importe quelle partie d’un document qui décrit le mieux le résultat.
 
 ![Comparaison visuelle de la saisie semi-automatique et les requêtes suggérées](./media/index-add-suggesters/visual-comparison-suggest-complete.png "comparaison visuelle de la saisie semi-automatique et les requêtes suggérées")
 
 Pour implémenter ces comportements dans recherche Azure, il existe un composant de requête et d’index. 
 
-+ Dans un index, ajouter un générateur de suggestions. Vous pouvez utiliser le portail, l’API REST ou du SDK .NET pour créer un générateur de suggestions. 
++ Le composant d’index est un générateur de suggestions. Vous pouvez utiliser le portail, l’API REST ou du SDK .NET pour créer un générateur de suggestions. 
 
-+ Dans une requête, spécifiez une suggestion sutocomplete action ou. 
++ Le composant de requête est une action spécifiée sur la demande de requête (action une suggestion ou la saisie semi-automatique). 
 
 > [!Important]
-> La saisie semi-automatique est actuellement en version préliminaire, disponible en version préliminaire API REST et du SDK .NET et non pris en charge pour les applications de production. 
+> La saisie semi-automatique est actuellement en version préliminaire, disponible en version préliminaire API REST et du SDK .NET. Il n’est pas destinée à être des applications de production. 
 
 Prise en charge de la recherche en tant que-vous-type est activée sur une base par champ. Vous pouvez implémenter les deux comportements prédictives dans la même solution de recherche si vous souhaitez une expérience similaire à celui indiqué dans la capture d’écran. Les deux cibles de demandes le *documents* collection d’index spécifique et les réponses sont retournés après un utilisateur a fourni au moins une chaîne d’entrée de trois caractères.
 
@@ -77,7 +77,7 @@ Après la création d’un générateur de suggestions, ajoutez le [API Suggesti
 
 ### <a name="use-the-net-sdk"></a>Utiliser le kit de développement logiciel (SDK) .NET
 
-Dans C#, définir un [classe de générateur de suggestions](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). Générateur de suggestions est une collection, mais elle peut uniquement accepter un seul élément.
+Dans C#, définir un [classe de générateur de suggestions](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). Un générateur de suggestions est une collection qui accepte uniquement un seul élément. Veillez à ajouter `using System.Collections.Generic;` afin que vous pouvez créer une liste d’objets. 
 
 ```csharp
 private static void CreateHotelsIndex(SearchServiceClient serviceClient)
@@ -137,4 +137,4 @@ Elle utilise un bac à sable service recherche Azure et un index préchargé don
 Nous vous recommandons de l’exemple suivant pour voir comment les demandes sont formulées.
 
 > [!div class="nextstepaction"]
-> [Exemple de requête de saisie semi-automatique (version préliminaire)](search-autocomplete-tutorial.md) 
+> [Des suggestions et des exemples de la saisie semi-automatique](search-autocomplete-tutorial.md) 

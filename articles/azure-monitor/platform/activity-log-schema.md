@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 1/16/2019
 ms.author: dukek
 ms.subservice: logs
-ms.openlocfilehash: 63c649f0850c4ffc60ce2087e91f3f69917e4837
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 93e74eb6aefbaeeddf7c4f15d62f4a9ee3d617d4
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56868542"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622210"
 ---
 # <a name="azure-activity-log-event-schema"></a>Schéma d’événements du journal d’activité
 Le **Journal d’activité Azure** est un journal qui fournit un aperçu de tous les événements de niveau d’abonnement qui se sont produits dans Azure. Cet article décrit le schéma d’événements par catégorie de données. Le schéma des données varie selon que vous lisez les données dans le portail, dans PowerShell, dans l’interface CLI, ou directement dans l’API REST, au lieu de [diffuser en continu les données vers le stockage ou vers des Event Hubs à l’aide d’un profil de journal](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). Les exemples ci-dessous montrent le schéma, tel qu’il se présente dans le portail, PowerShell, l’interface CLI et l’API REST. Un mappage de ces propriétés vers le [schéma des journaux de diagnostic Azure](./diagnostic-logs-schema.md) est fourni à la fin de cet article.
@@ -358,6 +358,7 @@ Cette catégorie contient l’enregistrement de toutes les activations des alert
 | correlationId | Un GUID au format chaîne. |
 | description |Description textuelle statique de l’événement d’alerte. |
 | eventDataId |Identificateur unique de l'événement d’alerte. |
+| category | Toujours « alerte » |
 | level |Niveau de l’événement. L’une des valeurs suivantes : « Critique », « Erreur », « Avertissement » et « Informatif » |
 | nom_groupe_ressources |Nom du groupe de ressources de la ressource affectée s’il s’agit d’une alerte métrique. Pour les autres types d’alertes, il s’agit du nom du groupe de ressources qui contient l’alerte elle-même. |
 | resourceProviderName |Nom du fournisseur de ressources de la ressource affectée s’il s’agit d’une alerte métrique. Pour les autres types d’alertes, il s’agit du nom du fournisseur de ressources pour l’alerte elle-même. |
@@ -556,6 +557,7 @@ Cette catégorie contient l’enregistrement de toutes les alertes générées p
 | description |Description textuelle statique de l’événement de sécurité. |
 | eventDataId |Identificateur unique de l’événement de sécurité. |
 | eventName |Nom convivial de l’événement de sécurité. |
+| category | Toujours « sécurité » |
 | id |URI (Unique Resource Identifier) de l’événement de sécurité. |
 | level |Niveau de l’événement. L’une des valeurs suivantes : « Critique », « Erreur », « Avertissement » ou « Informatif » |
 | nom_groupe_ressources |Nom du groupe de ressources de la ressource. |

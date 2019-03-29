@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: c5be8af71fcbdf6f38f878c70180f38227070245
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: bb45062697b113b676f85381f0653c14ac8c0c67
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499323"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621228"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Journalisation des métriques et diagnostics d’Azure SQL Database
 
@@ -148,7 +148,7 @@ Vous pouvez configurer une ressource d’instance gérée de sorte qu’elle col
 
 | Ressource | Supervision des données de télémétrie |
 | :------------------- | ------------------- |
-| **instance gérée** | ResourceUsageStats contient le nombre de vCores, pourcentage d’UC moyenne, les demandes d’e/s, espace de stockage réservé, lues/écrites octets et l’espace de stockage utilisé. |
+| **Instance gérée** | [ResourceUsageStats](#resource-usage-stats-for-managed-instance) contient le nombre de vCores, le pourcentage de processeur moyen, le requêtes d’E/S, les octets lus/écrits, l’espace de stockage réservé et l’espace de stockage utilisé. |
 
 Pour configurer la diffusion en continu de données de télémétrie de diagnostic pour l’instance gérée et les bases de données instance, vous devrez configurer séparément **à la fois** des opérations suivantes :
 

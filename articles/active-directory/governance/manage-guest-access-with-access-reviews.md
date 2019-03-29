@@ -1,6 +1,6 @@
 ---
-title: Gérer l’accès invité avec les révisions d’accès Azure AD | Microsoft Docs
-description: Gérer les utilisateurs invités en tant que membres d’un groupe ou affectés à une application avec révisions d’accès Azure Active Directory
+title: Gérer l’accès invité avec révisions d’accès - Azure Active Directory | Microsoft Docs
+description: Gérer les utilisateurs invités en tant que membres d’un groupe ou affectés à une application avec les révisions d’accès Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,12 +16,12 @@ ms.date: 12/13/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bed8a5d20b50fd90922730c958cb1a36933776f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 967fbf460175dee303d26074426a1f90e4353407
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57881042"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576494"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Gérer l’accès invité avec les révisions d’accès Azure AD
 

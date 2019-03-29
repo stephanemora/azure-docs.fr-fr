@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4c3c936a3d547389de3681b4f82f329c4978742d
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: cf1d36458bab867e35fa23ae702a6f6f45d8dc60
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886619"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620578"
 ---
 # <a name="start-a-runbook-in-azure-automation"></a>Démarrer un Runbook dans Azure Automation
 
@@ -39,7 +39,7 @@ L’image suivante illustre le processus détaillé du cycle de vie d’un Runbo
 1. Dans le portail Azure, sélectionnez **Automation**, puis cliquez sur le nom d'un compte Automation.
 2. Dans le menu Hub, sélectionnez **Runbooks**.
 3. Sur la page **Runbooks**, sélectionnez un runbook, puis cliquez sur **Démarrer**.
-4. Si le Runbook possède des paramètres, vous êtes invité à fournir des valeurs, avec une zone de texte pour chaque paramètre. Pour plus d'informations sur les paramètres, consultez [Paramètres du Runbook](#Runbook-parameters) .
+4. Si le Runbook possède des paramètres, vous êtes invité à fournir des valeurs, avec une zone de texte pour chaque paramètre. Pour plus d'informations sur les paramètres, consultez [Paramètres du Runbook](#runbook-parameters) .
 5. Sur la page **Tâche**, vous pouvez afficher l’état du travail du runbook.
 
 ## <a name="start-a-runbook-with-powershell"></a>Démarrer un Runbook avec PowerShell
@@ -69,7 +69,7 @@ While ($doLoop) {
 Get-AzureRmAutomationJobOutput –AutomationAccountName $AutomationAcct -Id $job.JobId -ResourceGroupName $ResourceGroup –Stream Output
 ```
 
-Si le Runbook requiert des paramètres, vous devez fournir ceux-ci sous forme de [table de hachage](https://technet.microsoft.com/library/hh847780.aspx). La clé de la table de hachage doit correspondre au nom du paramètre, et la valeur est la valeur du paramètre. L'exemple suivant montre comment démarrer un Runbook avec deux paramètres de chaîne nommés FirstName et LastName, un entier nommé RepeatCount et un paramètre booléen nommé Show. Pour plus d'informations sur les paramètres, consultez [Paramètres du Runbook](#Runbook-parameters) .
+Si le Runbook requiert des paramètres, vous devez fournir ceux-ci sous forme de [table de hachage](https://technet.microsoft.com/library/hh847780.aspx). La clé de la table de hachage doit correspondre au nom du paramètre, et la valeur est la valeur du paramètre. L'exemple suivant montre comment démarrer un Runbook avec deux paramètres de chaîne nommés FirstName et LastName, un entier nommé RepeatCount et un paramètre booléen nommé Show. Pour plus d'informations sur les paramètres, consultez [Paramètres du Runbook](#runbook-parameters) .
 
 ```azurepowershell-interactive
 $params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}

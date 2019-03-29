@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: service-health
 ms.date: 01/29/2019
 ms.workload: Supportability
-ms.openlocfilehash: c0de42935c1e46fd51e82a58083f85f6cee83ce3
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: b4062b3f0bc389de4403ac81b56688508f5ea50e
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884536"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579561"
 ---
 # <a name="azure-resource-health-faq"></a>FAQ Azure Resource Health
 Découvrez les réponses aux questions courantes sur Azure Resource Health.
@@ -50,7 +50,7 @@ Oui, lorsqu’une ressource n’est pas disponible, Resource Health identifie l�
 Sur le portail, les actions initiées par l’utilisateur sont affichées à l’aide d’une icône de notification bleue, tandis que les événements planifiés et non planifiés sont affichés à l’aide d’une icône d’avertissement rouge. Pour plus d’informations, voir [Vue d’ensemble d’Azure Resource Health](Resource-health-overview.md).  
 
 ## <a name="can-i-integrate-resource-health-with-my-monitoring-tools"></a>Puis-je intégrer Resource Health à mes outils d’analyse ?
-Resource Health est un service conçu pour vous aider à diagnostiquer et à résoudre les problèmes de service Azure qui affectent vos ressources. Bien que vous puissiez utiliser l’API Resource Health pour obtenir par programme l’état d’intégrité, nous vous recommandons d’utiliser des mesures pour analyser vos ressources. Une fois qu’un problème est détecté, Resource Health vous permet d’en déterminer l’origine et vous guide au fil des actions pour le résoudre. Visitez [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) pour en savoir plus sur la façon dont vous pouvez utiliser les mesures pour vérifier vos ressources.
+L’intégrité des ressources a [afficher un aperçu de la prise en charge](resource-health-alert-arm-template-guide.md) pour les alertes basées sur un journal d’activité. Utilisation des alertes de journal d’activité [groupes d’actions](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/action-groups) pour avertir les utilisateurs qu’une alerte a été déclenchée. Groupes d’actions prennent en charge une variété de canaux de notification comme l’e-mail, SMS, webhook et actions ITSM.
 
 ## <a name="where-do-i-find-resource-health"></a>Où trouver Resource Health ?
 Une fois connecté au portail Azure, vous pouvez accéder à Resource Health de plusieurs manières :
@@ -67,13 +67,7 @@ Vous trouverez la liste des contrôles d’intégrité et des types de ressource
 Lors de la vérification de l’intégrité d’une ressource, cliquez sur **Rapport d’état d’intégrité incorrect** sous l’état d’intégrité. Avant d’envoyer le rapport, vous avez la possibilité de fournir des détails supplémentaires sur la raison pour laquelle vous pensez que l’état actuel est incorrect.
 
 ## <a name="is-resource-health-available-for-all-azure-regions"></a>Resource Health est-il disponible pour toutes les régions Azure ? 
-Resource Health est disponible dans toutes les zones Azure, à l’exception des régions suivantes :
-- Gouvernement américain - Virginie
-- US Gov Iowa
-- Est des États-Unis – US DoD
-- Centre des États-Unis – US DoD
-- Centre de l’Allemagne
-- Nord-Est de l’Allemagne
+Resource health est disponible dans toutes les zones géographiques Azure.
 
 ## <a name="how-is-resource-health-different-from-azure-status-or-the-service-health-dashboard"></a>En quoi Resource Health diffère-t-il de l’état d’Azure ou du tableau de bord Service Health ?
 Les informations fournies par Resource Health sont plus précises que celles de l’état d’Azure ou du tableau de bord Service Health.
@@ -86,7 +80,7 @@ Il est important de noter que pour pouvoir vous fournir une visibilité complèt
 Non, les informations d’intégrité sont disponibles pour tous les types de ressources disponibles via Resource Health. 
 
 ## <a name="do-we-need-to-enable-resource-health-for-my-organization"></a>Faut-il activer Resource Health pour mon organisation ?
- Non.  Azure Resource Health est accessible via le portail Azure sans conditions requises d’installation.
+Non.  Azure Resource Health est accessible via le portail Azure sans conditions requises d’installation.
 
 ## <a name="is-resource-health-available-free-of-charge"></a>Resource Health est-il disponible gratuitement ?
 Oui.  Azure Resource Health est gratuit.

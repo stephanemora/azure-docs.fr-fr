@@ -11,12 +11,12 @@ ms.assetid: 697eb8b0-4a66-40c7-be7b-6aa6b131c7ad
 ms.topic: article
 tags: connectors
 ms.date: 10/26/2018
-ms.openlocfilehash: 5d328164ac8ad99db15a12d850327615a9ffd809
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
+ms.openlocfilehash: 42e1ef3e311633f9631163bc9d3df212b608ef3a
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54910282"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578371"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>Superviser, créer et gérer des fichiers SFTP à l’aide d’Azure Logic Apps
 
@@ -27,12 +27,20 @@ Pour automatiser les tâches qui surveillent, créent, envoient et reçoivent de
 * Obtenir les métadonnées et le contenu des fichiers.
 * Extraire des archives dans des dossiers.
 
-Par rapport au [connecteur SFTP-SSH](../connectors/connectors-sftp-ssh.md), le connecteur SFTP peut lire ou écrire des fichiers jusqu’à 50 Mo, sauf si vous utilisez la [segmentation de messages dans les actions](../logic-apps/logic-apps-handle-large-messages.md). Vous ne pouvez pas utiliser de segmentation pour les déclencheurs. Pour les fichiers jusqu'à 1 Go, utilisez le [connecteur SFTP-SSH](../connectors/connectors-sftp-ssh.md). Pour les fichiers supérieurs à 1 Go, vous pouvez utiliser le connecteur SFTP-SSH ainsi que [la segmentation des messages](../logic-apps/logic-apps-handle-large-messages.md). 
-
 Vous pouvez utiliser des déclencheurs qui surveillent les événements sur votre serveur SFTP et mettent la sortie à la disposition d’autres actions. Vous pouvez utiliser des actions qui effectuent diverses tâches sur votre serveur SFTP. Vous pouvez également faire en sorte que d’autres actions de votre application logique utilisent la sortie d’actions SFTP. Par exemple, si vous récupérez régulièrement des fichiers de votre serveur SFTP, vous pouvez envoyer des alertes par e-mail au sujet de ces fichiers et de leur contenu en utilisant le connecteur Office 365 Outlook ou le connecteur Outlook.com.
 Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="limits"></a>limites
+
+* Actions SFTP capable de lire ou écrire des fichiers qui sont *50 Mo ou plus petit* , sauf si vous utilisez [segmentation du message dans les actions](../logic-apps/logic-apps-handle-large-messages.md), ce qui vous permettent de dépasser cette limite. Actuellement, les déclencheurs SFTP ne prennent en charge de segmentation.
+
+* Pour les fichiers *jusqu'à 1 Go*, utilisez le [connecteur SFTP-SSH](../connectors/connectors-sftp-ssh.md).
+
+* Pour les fichiers *supérieure à 1 Go*, utilisez le SFTP-SSH connecteur plus (+) [segmentation du message](../logic-apps/logic-apps-handle-large-messages.md).
+
+Pour les autres différences entre le connecteur SFTP et le connecteur SFTP-SSH, passez en revue [comparer SFTP-SSH et SFTP](../connectors/connectors-sftp-ssh.md#comparison) dans l’article SFTP-SSH.
+
+## <a name="prerequisites"></a>Conditions préalables
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>. 
 

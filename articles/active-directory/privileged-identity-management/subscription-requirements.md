@@ -1,5 +1,5 @@
 ---
-title: Licences requises pour utiliser PIM - Azure | Microsoft Docs
+title: Configuration requise pour utiliser PIM - Azure Active Directory de licence | Microsoft Docs
 description: Décrit les licences requises pour utiliser Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -17,18 +17,18 @@ ms.date: 01/16/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7b7aa010b3001045566bc55fb440a2171145881
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 40e16209a185623b6e15650f70141edd6394e337
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177246"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576146"
 ---
 # <a name="license-requirements-to-use-pim"></a>Licences requises pour utiliser PIM
 
 Pour utiliser Azure Active Directory (Azure AD) Privileged Identity Management (PIM), votre annuaire doit avoir une licence valide. De plus, les licences doivent être affectées aux administrateurs et aux utilisateurs concernés. Cet article décrit les licences requises pour utiliser PIM.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour utiliser PIM, votre annuaire doit avoir l’une des licences payantes ou d’essai gratuit suivantes :
 
@@ -45,7 +45,7 @@ Chaque administrateur ou utilisateur qui utilise ou reçoit un avantage de PIM d
 - Administrateurs ayant des rôles Azure AD gérés dans PIM
 - Administrateurs ayant des rôles de ressources Azure gérés dans PIM
 - Administrateurs affectés au rôle Administrateur de rôle privilégié
-- Utilisateurs désignés comme étant éligibles pour les rôles d’annuaire pouvant être gérés dans PIM
+- Utilisateurs désignés comme éligibles aux rôles Azure AD gérés à l’aide de PIM
 - Utilisateurs en mesure d’approuver et de refuser des requêtes dans PIM
 - Utilisateurs affectés à un rôle de ressource Azure avec des attributions juste-à-temps ou directes (à durée définie)  
 - Utilisateurs affectés à une révision d’accès

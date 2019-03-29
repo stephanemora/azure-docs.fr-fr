@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 63d21cc5027145ab87030bd2561bc5087298f16c
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: d766b17c9d49792d2e8192a952e8e6e559a8acd3
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541841"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579374"
 ---
 # <a name="security-module"></a>Module de sécurité
 
@@ -35,16 +35,18 @@ Pour les solutions de IoT créées dans Azure, les représentations d’appareil
 
 ASC pour IoT offre une intégration complète avec votre plateforme de gestion de périphérique IoT existant, ce qui vous permet de gérer l’état de sécurité de votre appareil, ainsi que la marque, utiliser des fonctionnalités de contrôle d’appareil existant. Intégration s’effectue à servant d’IoT Hub mécanisme de représentations réussies.  
 
-En savoir plus sur le concept de [appareil](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins) jumeaux d’Azure IoT Hub. 
+En savoir plus sur le concept de [jumeaux](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins) dans Azure IoT Hub. 
 
 ## <a name="security-module-twins"></a>Jumeaux de module de sécurité
 
-ASC pour IoT conserve un jumeau de module de sécurité pour chaque appareil dans le service. La représentation de module de sécurité conserve toutes les informations relatives à la sécurité des appareils pour chaque périphérique spécifique dans votre solution. Propriétés de sécurité d’appareil sont conservées dans un jumeau de module de sécurité dédié pour la communication plus sûre et l’activation des mises à jour et maintenance nécessitant moins de ressources.  
+ASC pour IoT conserve un jumeau de module de sécurité pour chaque appareil dans le service.
+La représentation de module de sécurité conserve toutes les informations relatives à la sécurité des appareils pour chaque périphérique spécifique dans votre solution.
+Propriétés de sécurité d’appareil sont conservées dans un jumeau de module de sécurité dédié pour la communication plus sûre et l’activation des mises à jour et maintenance nécessitant moins de ressources.  
 
-Consultez [jumeau de module de sécurité créer](quickstart-create-security-twin.md) et [configurer des agents de sécurité](concept-agent-configuration.md) pour savoir comment créer, personnaliser et configurer la représentation. Consultez [jumeaux de module de présentation](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins) pour en savoir plus sur le concept des jumeaux de module dans IoT Hub. 
+Consultez [jumeau de module de sécurité créer](quickstart-create-security-twin.md) et [configurer des agents de sécurité](how-to-agent-configuration.md) pour savoir comment créer, personnaliser et configurer la représentation. Consultez [jumeaux de module de présentation](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins) pour en savoir plus sur le concept des jumeaux de module dans IoT Hub. 
  
 
 ## <a name="see-also"></a>Voir aussi
 - [ASC pour IoT Preview](overview.md)
-- [Déployer des agents de sécurité](select-deploy-agent.md)
+- [Déployer des agents de sécurité](how-to-deploy-agent.md)
 - [Méthodes d’authentification de l’agent de sécurité](concept-security-agent-authentication-methods.md)

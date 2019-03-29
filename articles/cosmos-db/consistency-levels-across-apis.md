@@ -7,75 +7,51 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.reviewer: sngun
-ms.openlocfilehash: b620ca76cfea296e504afffd91852308a01575db
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 902303a8f55f4494e0cc6c21b0438e41437c0567
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001972"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620663"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Niveaux de cohérence et API Azure Cosmos DB
 
-Cinq modèles de cohérence offerts par Azure Cosmos DB sont pris en charge nativement par l'API SQL. Lorsque vous utilisez Azure Cosmos DB, l’API SQL est la valeur par défaut. 
+Azure Cosmos DB fournit la prise en charge native pour fil protocole compatible avec les API pour les bases de données les plus courants. Citons notamment MongoDB, Apache Cassandra, Gremlin et stockage Table Azure. Ces bases de données n’offrent pas précisément les modèles de cohérence définis ou les garanties de reposant sur le contrat SLA pour les niveaux de cohérence. Elles ne fournissent généralement qu’un sous-ensemble des cinq modèles de cohérence offerts par Azure Cosmos DB. 
 
-Azure Cosmos DB fournit également la prise en charge native des API compatibles avec les protocoles filaires pour les bases de données les plus courantes. Les bases de données incluent le stockage Table Azure, MongoDB, Apache Cassandra et Gremlin. Celles-ci n’offrent pas de modèle de cohérence défini avec précision, ni de garantie reposant sur un contrat SLA pour les niveaux de cohérence. Elles ne fournissent généralement qu’un sous-ensemble des cinq modèles de cohérence offerts par Azure Cosmos DB. Pour les API SQL, Gremlin et Table, le niveau de cohérence configuré par défaut sur le compte Azure Cosmos est utilisé. 
+Lorsque vous utilisez l’API SQL, les API Gremlin et les API de Table, le niveau de cohérence par défaut configuré sur le compte Azure Cosmos est utilisé. 
 
-Les sections suivantes présentent le mappage entre la cohérence de données demandée par un pilote client OSS pour Apache Cassandra et MongoDB et les niveaux de cohérence correspondants dans Azure Cosmos DB.
+Lorsque vous utilisez les API de l’API Cassandra ou Azure Cosmos DB pour MongoDB, applications obtiennent un ensemble complet de niveaux de cohérence proposés par Apache Cassandra et MongoDB, respectivement, avec encore plus forte garanties de cohérence et durabilité. Ce document présente les niveaux de cohérence Azure Cosmos DB correspondants pour Apache Cassandra et MongoDB les niveaux de cohérence.
+
 
 ## <a id="cassandra-mapping"></a>Mappage entre les niveaux de cohérence Apache Cassandra et Azure Cosmos DB
 
-Le tableau ci-dessous décrit les différentes combinaisons de cohérence possibles avec l'API Cassandra et le mappage de niveau de cohérence natif équivalent de Cosmos DB. Toutes les combinaisons de modes d'écriture et de lecture Apache Cassandra sont nativement prises en charge par Cosmos DB. Pour toutes les combinaisons de modèles de cohérence en écriture et en lecture Apache Cassandra, Cosmos DB fournit des garanties de cohérence supérieures ou égales à celles d'Apache Cassandra. En outre, Cosmos DB offre des garanties de durabilité supérieures à celles d'Apache Cassandra, même en mode d'écriture minimum.
+Contrairement à AzureCosmos DB, Apache Cassandra ne fournit pas en mode natif avec précision les garanties de cohérence définis.  Au lieu de cela, Apache Cassandra fournit un niveau de cohérence d’écriture et un niveau de cohérence de lecture, pour activer les compromis de disponibilité, la cohérence et la latence élevées. Lorsque vous utilisez l’API Cassandra Azure Cosmos DB : 
 
-Le tableau suivant présente le **Mappage de cohérence en écriture** entre Azure Cosmos DB et Cassandra :
+* Le niveau de cohérence d’écriture de Apache Cassandra est mappé vers le niveau de cohérence par défaut configuré sur votre compte Azure Cosmos. 
 
-| Cassandra | Azure Cosmos DB | Garantie |
-| - | - | - |
-|ALL|Remarque  | Linéarisabilité |
-| EACH_QUORUM   | Remarque    | Linéarisabilité | 
-| QUORUM, SERIAL |  Remarque |    Linéarisabilité |
-| LOCAL_QUORUM, THREE, TWO, ONE, LOCAL_ONE, ANY | Préfixe cohérent |Préfixe cohérent global |
-| EACH_QUORUM   | Remarque    | Linéarisabilité |
-| QUORUM, SERIAL |  Remarque |    Linéarisabilité |
-| LOCAL_QUORUM, THREE, TWO, ONE, LOCAL_ONE, ANY | Préfixe cohérent | Préfixe cohérent global |
-| QUORUM, SERIAL | Remarque   | Linéarisabilité |
-| LOCAL_QUORUM, THREE, TWO, ONE, LOCAL_ONE, ANY | Préfixe cohérent | Préfixe cohérent global |
-| LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE    | Obsolescence limitée | <ul><li>Obsolescence limitée.</li><li>Au plus des versions K ou d'un retard de temps.</li><li>Consultez la dernière valeur validée dans la région.</li></ul> |
-| ONE, LOCAL_ONE, ANY   | Préfixe cohérent | Préfixe cohérent par région |
+* Azure Cosmos DB mappera dynamiquement le niveau de cohérence de lecture spécifié par le pilote du client Cassandra à un des niveaux de cohérence Azure Cosmos DB configurés dynamiquement sur une demande de lecture. 
 
-Le tableau suivant présente le **Mappage de cohérence en lecture** entre Azure Cosmos DB et Cassandra :
+Le tableau suivant illustre comment les niveaux de cohérence Cassandra natifs sont mappés aux niveaux de cohérence de l’Azure Cosmos DB lors de l’utilisation de l’API Cassandra :  
 
-| Cassandra | Azure Cosmos DB | Garantie |
-| - | - | - |
-| ALL, QUORUM, SERIAL, LOCAL_QUORUM, LOCAL_SERIAL, THREE, TWO, ONE, LOCAL_ONE | Remarque  | Linéarisabilité|
-| ALL, QUORUM, SERIAL, LOCAL_QUORUM, LOCAL_SERIAL, THREE, TWO   |Remarque |   Linéarisabilité |
-|LOCAL_ONE, ONE | Préfixe cohérent | Préfixe cohérent global |
-| ALL, QUORUM, SERIAL   | Remarque    | Linéarisabilité |
-| LOCAL_ONE, ONE, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE |  Préfixe cohérent   | Préfixe cohérent global |
-| LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM |    Préfixe cohérent   | Préfixe cohérent global |
-| ALL, QUORUM, SERIAL, LOCAL_QUORUM, LOCAL_SERIAL, THREE, TWO   |Remarque |   Linéarisabilité |
-| LOCAL_ONE, ONE    | Préfixe cohérent | Préfixe cohérent global|
-| ALL, QUORUM, SERIAL   Forte linéarisabilité
-LOCAL_ONE, ONE, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE  |Préfixe cohérent  | Préfixe cohérent global |
-|ALL    |Remarque |Linéarisabilité |
-| LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM  |Préfixe cohérent  |Préfixe cohérent global|
-|ALL, QUORUM, SERIAL    Forte linéarisabilité
-LOCAL_ONE, ONE, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE  |Préfixe cohérent  |Préfixe cohérent global |
-|ALL    |Remarque | Linéarisabilité |
-| LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM  | Préfixe cohérent | Préfixe cohérent global |
-| QUORUM, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE |  Obsolescence limitée   | <ul><li>Obsolescence limitée.</li><li>Au plus des versions K ou d'un retard de temps. </li><li>Consultez la dernière valeur validée dans la région.</li></ul>
-| LOCAL_ONE, ONE |Préfixe cohérent | Préfixe cohérent par région |
-| LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM  | Préfixe cohérent | Préfixe cohérent par région |
+[ ![Mappage de modèle de cohérence Cassandra](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png) ](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png#lightbox)
 
+## <a id="mongo-mapping"></a>Le mappage entre les niveaux de cohérence MongoDB et Azure Cosmos DB
 
-## <a id="mongo-mapping"></a>Mappage entre les niveaux de cohérence MongoDB 3.4 et Azure Cosmos DB
+Contrairement à Azure Cosmos DB, MongoDB natif ne fournit pas de garanties de cohérence définis avec précision. Au lieu de cela, MongoDB natif permet aux utilisateurs de configurer les garanties de cohérence suivant : un problème d’écriture, un problème de lecture et la directive isMaster - pour diriger les opérations de lecture aux réplicas principaux ou secondaires pour atteindre le niveau de cohérence souhaité. 
 
-Le tableau ci-dessous montre le mappage des « problèmes de lecture » entre MongoDB 3.4 et le niveau de cohérence par défaut dans Azure Cosmos DB. Le tableau renseigne sur les déploiements dans plusieurs régions et dans une région unique.
+Lorsque vous utilisez l’API d’Azure Cosmos DB pour MongoDB, le pilote MongoDB traite votre région d’écriture en tant que le réplica principal et toutes les autres régions sont lues de réplica. Vous pouvez choisir quelle région associée à votre compte Azure Cosmos en tant qu’un réplica principal. 
 
-| **MongoDB 3.4** | **Azure Cosmos DB (multi-région)** | **Azure Cosmos DB (région unique)** |
-| - | - | - |
-| Linéarisable | Remarque | Remarque |
-| Majorité | Bounded staleness (En fonction de l'obsolescence) | Remarque |
-| Local | Préfixe cohérent | Préfixe cohérent |
+Lors de l’utilisation des API d’Azure Cosmos DB pour MongoDB :
+
+* Le problème d’écriture est mappé sur le niveau de cohérence par défaut configuré sur votre compte Azure Cosmos.
+ 
+* Azure Cosmos DB mappera dynamiquement le problème de lecture spécifié par le pilote du client MongoDB à un des niveaux de cohérence Azure Cosmos DB configuré dynamiquement sur une demande de lecture. 
+
+* Vous pouvez annoter une région spécifique associée à votre compte Azure Cosmos en tant que « Master » en rendant la région que la première région accessible en écriture. 
+
+Le tableau suivant illustre comment le MongoDB natif lecture/écriture préoccupations sont mappés aux niveaux de cohérence Azure Cosmos lors de l’utilisation des API d’Azure Cosmos DB pour MongoDB :
+
+[ ![Mappage de modèle de cohérence de MongoDB](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png) ](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png#lightbox)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -7,15 +7,15 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 03/21/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 1d1e0f100a90c28bd7469991dee559abcd88f9a2
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 5829606f3ad226507c49f18dcc8ac4831d573b17
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499464"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578830"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>Installer le runtime Azure IoT Edge sur Linux (x64)
 
@@ -33,9 +33,9 @@ Cet article répertorie les étapes pour installer le runtime Azure IoT Edge sur
 Préparez-vous à votre appareil IoT Edge installation du runtime.
 
 
-Installer la configuration du référentiel. Choisissez le **16.04** ou **18.04** extrait de code comme il convient pour votre version d’Ubuntu.
+Installer la configuration du référentiel. Choisissez le **16.04** ou **18.04** extrait de code comme il convient pour votre version d’Ubuntu :
 
-> [!IMPORTANT]
+> [!NOTE]
 > Assurez-vous que vous choisissez l’extrait de code dans la zone de code correct pour votre version d’Ubuntu.
 
 * Pour **Ubuntu 16.04**:
@@ -48,8 +48,6 @@ Installer la configuration du référentiel. Choisissez le **16.04** ou **18.04*
    curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list > ./microsoft-prod.list
    ```
    
-Installer la configuration du référentiel. Choisissez le **16.04** ou **18.04** extrait de code comme il convient pour votre version d’Ubuntu.
-
 Copiez la liste générée.
 
    ```bash

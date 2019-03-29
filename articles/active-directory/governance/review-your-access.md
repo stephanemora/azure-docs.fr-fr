@@ -1,5 +1,5 @@
 ---
-title: Vous-même réviser l’accès à des groupes ou des applications dans les révisions d’accès Azure AD | Microsoft Docs
+title: Vous-même réviser l’accès à des groupes ou des applications dans les révisions d’accès - Azure Active Directory | Microsoft Docs
 description: Découvrez comment réviser son propre accès à des groupes ou des applications dans les révisions d’accès Azure Active Directory.
 services: active-directory
 author: rolyon
@@ -15,16 +15,16 @@ ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76f90a5aa3f201fa5d1578ac63526be26377aedf
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 3fe2013ff84dd0451fed7d108539606520cb9403
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731206"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576307"
 ---
-# <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>Vous-même réviser l’accès à des groupes ou des applications dans les révisions d’accès Azure AD
+# <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>Vous-même réviser l’accès à des groupes ou les révisions d’accès des applications dans Azure AD
 
-Azure Active Directory (Azure AD) simplifie la façon dont les entreprises gérer l’accès aux groupes ou des applications dans Azure AD et d’autres Services en ligne de Microsoft avec une fonctionnalité appelée révisions d’accès Azure AD.
+Azure Active Directory (Azure AD) simplifie la façon dont les entreprises gèrent l’accès à des groupes ou des applications dans Azure AD et passe en revue des autres Services en ligne Microsoft avec une fonctionnalité appelée accès Azure AD.
 
 Cet article décrit comment réviser son propre accès à un groupe ou une application.
 
@@ -44,7 +44,7 @@ Si vous n’avez pas reçu l’e-mail, vous pouvez trouver que votre accès en a
 
     ![Portail MyApps](./media/review-your-access/myapps-access-panel.png)
 
-1. Dans le coin supérieur droit de la page, cliquez sur le symbole d’utilisateur, qui affiche votre nom et organisation par défaut. Si plusieurs organisations sont listées, sélectionnez l’organisation qui a demandé une révision d’accès.
+1. En haut à droite de la page, cliquez sur le symbole d’utilisateur, qui affiche votre nom et organisation par défaut. Si plusieurs organisations sont listées, sélectionnez l’organisation qui a demandé une révision d’accès.
 
 1. Sur le côté droit de la page, cliquez sur le **révisions d’accès** vignette pour afficher une liste des révisions d’accès en attente.
 

@@ -4,17 +4,17 @@ description: Attribuez des analyseurs aux champs de texte d’un index pouvant f
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 03/27/2019
 ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: 7306258b6a7eee66df0961b2b993d0bcc9de94b9
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 3e6f0a2b9b935df9b12cf9146ebf05f1b1c84855
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343270"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578762"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Analyseurs pour le traitement de texte dans Recherche Azure
 
@@ -60,7 +60,7 @@ L’affectation de la propriété **analyzer** ou **indexAnalyzer** à un champ 
  
  | Scénario | Impact | Étapes |
  |----------|--------|-------|
- | Ajouter un nouveau champ | minime | Si le champ n’existe pas encore dans le schéma, il n’y a aucune révision de champ à effectuer, car il n’a pas encore de présence physique dans votre index. Vous pouvez utiliser [Mettre à jour l’index](https://docs.microsoft.com/rest/api/searchservice/update-index) pour ajouter un nouveau champ à un index existant, et [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) pour la remplir.|
+ | Ajouter un nouveau champ | minimal | Si le champ n’existe pas encore dans le schéma, il n’y a aucune révision de champ à effectuer, car il n’a pas encore de présence physique dans votre index. Vous pouvez utiliser [Mettre à jour l’index](https://docs.microsoft.com/rest/api/searchservice/update-index) pour ajouter un nouveau champ à un index existant, et [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) pour la remplir.|
  | Ajoutez une propriété **analyzer** ou **indexAnalyzer** à un champ indexé existant. | [regénération](search-howto-reindex.md) | L’index inversé doit être entièrement recréé pour ce champ et le contenu de ces champs doit être réindexé. <br/> <br/>Pour un index en cours de développement, [supprimez](https://docs.microsoft.com/rest/api/searchservice/delete-index) et [créez](https://docs.microsoft.com/rest/api/searchservice/create-index) l’index pour sélectionner la nouvelle définition de champ. <br/> <br/>Pour les index en production, vous devez retarder une regénération en créant un champ pour fournir la définition modifiée et commencer à l’utiliser à la place de l’ancienne. Utilisez [Mettre à jour l’index](https://docs.microsoft.com/rest/api/searchservice/update-index) pour incorporer le nouveau champ et [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) pour le remplir. Par la suite, pendant l’opération de maintenance planifiée de l’index, vous pouvez le nettoyer de façon à supprimer les champs obsolètes. |
 
 ## <a name="when-to-add-analyzers"></a>Quand ajouter des analyseurs
@@ -97,16 +97,18 @@ Si une recherche ne renvoie pas les résultats attendus, cela est très probable
 
 La [démonstration de l’analyseur Recherche](https://alice.unearth.ai/) est une application de démonstration tierce qui présente une comparaison côte à côte de l’analyseur Lucene standard, de l’analyseur linguistique anglais de Lucene et de l’outil de traitement en langage naturel anglais de Microsoft. L’index est fixe et contient du texte issu d’un article populaire. Pour chaque recherche que vous effectuez, les résultats de chaque analyseur sont affichés dans des volets adjacents, ce qui vous donne une idée de la façon dont chaque analyseur traite la même chaîne. 
 
-## <a name="examples"></a>Exemples
+<a name="examples"></a>
+
+## <a name="rest-examples"></a>Exemples REST
 
 Les exemples ci-dessous montrent des définitions d’analyseur pour quelques scénarios clés.
 
-+ [Exemple d’analyseur personnalisé](#Example1)
-+ [Exemple d’affectation d’analyseurs à un champ](#Example2)
-+ [Combinaison d’analyseurs pour l’indexation et la recherche](#Example3)
-+ [Exemple d’analyseur linguistique](#Example4)
++ [Exemple d’analyseur personnalisé](#Custom-analyzer-example)
++ [Exemple d’affectation d’analyseurs à un champ](#Per-field-analyzer-assignment-example)
++ [Combinaison d’analyseurs pour l’indexation et la recherche](#Mixing-analyzers-for-indexing-and-search-operations)
++ [Exemple d’analyseur linguistique](#Language-analyzer-example)
 
-<a name="Example1"></a>
+<a name="Custom-analyzer-example"></a>
 
 ### <a name="custom-analyzer-example"></a>Exemple d’analyseur personnalisé
 
@@ -180,7 +182,7 @@ Si nous suivons cet exemple :
   }
 ~~~~
 
-<a name="Example2"></a>
+<a name="Per-field-analyzer-assignment-example"></a>
 
 ### <a name="per-field-analyzer-assignment-example"></a>Exemple d’affectation d’analyseur par champ
 
@@ -213,7 +215,7 @@ L’élément « analyzer » remplace l’analyseur standard champ après champ.
   }
 ~~~~
 
-<a name="Example3"></a>
+<a name="Mixing-analyzers-for-indexing-and-search-operations"></a>
 
 ### <a name="mixing-analyzers-for-indexing-and-search-operations"></a>Combinaison d’analyseurs pour les opérations d’indexation et de recherche
 
@@ -241,7 +243,7 @@ Les API comprennent des attributs d’index supplémentaires qui permettent de s
   }
 ~~~~
 
-<a name="Example4"></a>
+<a name="Language-analyzer-example"></a>
 
 ### <a name="language-analyzer-example"></a>Exemple d’analyseur linguistique
 
@@ -273,6 +275,69 @@ Les champs qui contiennent des chaînes dans différentes langues peuvent utilis
      ],
   }
 ~~~~
+
+## <a name="c-examples"></a>C#exemples
+
+Si vous utilisez les exemples de code .NET SDK, vous pouvez ajouter ces exemples pour utiliser ou configurez des analyseurs.
+
++ [Attribuer un analyseur intégré](#Assign-a-language-analyzer)
++ [Configurer un analyseur](#Define-a-custom-analyzer)
+
+<a name="Assign-a-language-analyzer"></a>
+
+### <a name="assign-a-language-analyzer"></a>Attribuer un analyseur de langage
+
+Tout analyseur qui est utilisé en tant que-est, sans aucune configuration, est spécifiée sur une définition de champ. Il n’existe aucune configuration requise pour la création d’une construction de l’analyseur. 
+
+Cet exemple affecte les analyseurs Microsoft English et Français aux champs de description. Il est un extrait de code extraite d’une définition plus grande de l’index des hôtels, création à l’aide de la classe hôtel dans le fichier hotels.cs de la [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) exemple.
+
+Appelez [analyseur](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet), en spécifiant le [AnalyzerName classe](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) qui fournit toutes les analyseurs de texte pris en charge dans Azure Search.
+
+```csharp
+    public partial class Hotel
+    {
+       . . . 
+
+        [IsSearchable]
+        [Analyzer(AnalyzerName.AsString.EnMicrosoft)]
+        [JsonProperty("description")]
+        public string Description { get; set; }
+
+        [IsSearchable]
+        [Analyzer(AnalyzerName.AsString.FrLucene)]
+        [JsonProperty("description_fr")]
+        public string DescriptionFr { get; set; }
+
+      . . .
+    }
+```
+<a name="Define-a-custom-analyzer"></a>
+
+### <a name="define-a-custom-analyzer"></a>Définir un analyseur personnalisé
+
+Lors de la personnalisation ou configuration est requise, vous devez ajouter une construction de l’analyseur à un index. Une fois que vous le définissez, vous pouvez l’ajouter la définition de champ comme illustré dans l’exemple précédent.
+
+Utilisez [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.customanalyzer?view=azure-dotnet) pour créer l’objet. Pour plus d’exemples, consultez [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/src/SDKs/Search/DataPlane/Search.Tests/Tests/CustomAnalyzerTests.cs).
+
+```csharp
+{
+   var definition = new Index()
+   {
+         Name = "hotels",
+         Fields = FieldBuilder.BuildForType<Hotel>(),
+         Analyzers = new[]
+            {
+               new CustomAnalyzer()
+               {
+                     Name = "url-analyze",
+                     Tokenizer = TokenizerName.UaxUrlEmail,
+                     TokenFilters = new[] { TokenFilterName.Lowercase }
+               }
+            },
+   };
+
+   serviceClient.Indexes.Create(definition);
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

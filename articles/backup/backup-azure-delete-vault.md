@@ -6,69 +6,60 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/05/2019
+ms.date: 03/28/2019
 ms.author: raynew
-ms.openlocfilehash: 1cc86470b9e45469d633d47121869b3c2dc1b052
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 94d66e28f8edbda6c41dcceaf427d7d7d869c90f
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439003"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620115"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Supprimer un coffre Recovery Services
 
 Cet article explique comment supprimer un [sauvegarde Azure](backup-overview.md) coffre Recovery Services. Il contient des instructions pour la suppression de dépendances et suppression d’un coffre et suppression d’un coffre en vigueur.
 
 
-
-
 ## <a name="before-you-start"></a>Avant de commencer
 
 Avant de commencer, il est important de comprendre que vous ne pouvez pas supprimer un coffre Recovery Services contenant des serveurs inscrits qu’il contient, ou qui contient des données de sauvegarde.
 
-
-- Pour supprimer un coffre de manière appropriée, annuler l’inscription des serveurs qu’il contient et supprimer les données d’archivage.
+- Pour supprimer un coffre de manière appropriée, vous désinscrivez les serveurs qu’il contient, supprimez les données du coffre, puis supprimez l’archivage.
+- Si vous essayez de supprimer un coffre qui a toujours des dépendances, un message d’erreur est émis. et vous devez supprimer manuellement les dépendances de coffre, y compris :
+    - Les éléments sauvegardés
+    - Serveurs protégés
+    - Sauvegarde des serveurs d’administration (serveur de sauvegarde Azure, DPM) ![Sélectionnez votre coffre pour ouvrir son tableau de bord](./media/backup-azure-delete-vault/backup-items-backup-infrastructure.png)
 - Si vous ne souhaitez pas conserver les données dans le coffre Recovery Services et souhaitez supprimer le coffre, vous pouvez supprimer le coffre en vigueur.
 - Si vous essayez de supprimer un coffre, sans y parvenir, le coffre est encore configuré pour recevoir des données de sauvegarde.
 
-Pour savoir comment supprimer un coffre, consultez la section [Supprimer un coffre à partir du portail Azure](#delete-a-vault-from-the-azure-portal). Si la section, [supprimer le coffre de force](backup-azure-delete-vault.md#delete-the-recovery-services-vault-by-force). Si vous ne savez pas ce qui est dans le coffre, et souhaitez vous assurer que vous pouvez le supprimer, consultez la section [Supprimer les dépendances du coffre et supprimer le coffre](backup-azure-delete-vault.md#remove-vault-dependencies-and-delete-vault).
 
 ## <a name="delete-a-vault-from-the-azure-portal"></a>Supprimer un coffre à partir du portail Azure
 
-1. Ouvrez votre liste des coffres Recovery Services dans le portail.
-2. Dans la liste, sélectionnez le coffre à supprimer. Le tableau de bord du coffre s’ouvre.
+1. Ouvrez le tableau de bord du coffre.  
+2. Dans le tableau de bord, cliquez sur **supprimer**. Vérifiez que vous souhaitez supprimer.
 
     ![sélectionnez votre coffre pour afficher son tableau de bord](./media/backup-azure-delete-vault/contoso-bkpvault-settings.png)
 
-1. Dans le tableau de bord du coffre, cliquez sur **supprimer**. Vérifiez que vous souhaitez supprimer.
+Si vous recevez une erreur, supprimez [éléments de sauvegarde](#remove-backup-items), [serveurs d’infrastructure](#remove-backup-infrastructure-servers), et [points de récupération](#remove-azure-backup-agent-recovery-points), puis supprimez le coffre.
 
-    ![sélectionnez votre coffre pour afficher son tableau de bord](./media/backup-azure-delete-vault/click-delete-button-to-delete-vault.png)
+![supprimer l’erreur de coffre](./media/backup-azure-delete-vault/error.png)
 
-2. S’il existe des dépendances de coffre, le **erreur de suppression du coffre** s’affiche : 
-
-    ![Erreur de suppression du coffre](./media/backup-azure-delete-vault/vault-delete-error.png)
-
-    - Suivez ces instructions pour supprimer les dépendances avant de supprimer le coffre, passez en revue
-    - [Suivez ces instructions](#delete-the-recovery-services-vault-by-force) à utiliser PowerShell pour supprimer le coffre en vigueur. 
 
 ## <a name="delete-the-recovery-services-vault-by-force"></a>Forcer la suppression du coffre Recovery Services
 
+Vous pouvez supprimer un coffre de force avec PowerShell. Forcer la suppression signifie que le coffre et toutes les données de sauvegarde est définitivement supprimé.
+
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Vous pouvez utiliser PowerShell pour forcer la suppression d’un coffre Recovery Services. Cela signifie que le coffre et toutes les données de sauvegarde est définitivement supprimé. 
 
-> [!Warning]
-> Lorsque vous utilisez PowerShell pour supprimer un coffre Recovery Services, vérifiez que vous souhaitez supprimer définitivement toutes les données de sauvegarde dans le coffre.
->
-
-Pour supprimer un coffre Recovery Services :
+Pour supprimer un coffre en vigueur :
 
 1. Connectez-vous à votre abonnement Azure avec la `Connect-AzAccount` et suivez l’à l’écran directions.
 
    ```powershell
     Connect-AzAccount
    ```
-2. La première fois, vous utilisez la sauvegarde Azure, vous devez inscrire le fournisseur Azure Recovery Service dans votre abonnement avec [Register-AzResourceProvider](/powershell/module/az.Resources/Register-azResourceProvider).
+2. Si vous utilisez le service Sauvegarde Azure pour la première fois, vous devez inscrire le fournisseur Azure Recovery Services dans votre abonnement avec [Register-AzResourceProvider](/powershell/module/az.Resources/Register-azResourceProvider).
 
    ```powershell
     Register-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
@@ -90,28 +81,18 @@ Pour supprimer un coffre Recovery Services :
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
    ```
-9. Si le coffre n’est pas vide, vous recevez l’erreur « Impossible de supprimer qu’il sont a des ressources existantes au sein de ce coffre ». Pour supprimer un conteneur dans un coffre, procédez comme suit :
+9. Si le coffre n’est pas vide, vous recevez l’erreur « Impossible de supprimer qu’il sont a des ressources existantes au sein de ce coffre ». Pour supprimer une relation contenant-contenu dans un coffre, procédez comme suit :
 
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
    ```
 
-10. Connectez-vous à votre abonnement dans le portail Azure et vérifiez que le coffre est supprimé.
+10. Dans le portail Azure, vérifiez que le coffre est supprimé.
 
 
-## <a name="remove-vault-dependencies-and-delete-vault"></a>Supprimer les dépendances du coffre et supprimer le coffre
+## <a name="remove-vault-items-and-delete-the-vault"></a>Supprimer des éléments du coffre, supprimez l’archivage
 
-Vous pouvez supprimer manuellement les dépendances de coffre, comme suit :
-
-- Dans le **éléments de sauvegarde** menu, les dépendances de la suppression :
-    - Sauvegardes Stockage Azure (Azure Files)
-    - SQL Server dans les sauvegardes de machines virtuelles Azure
-    - Sauvegardes de machines virtuelles Azure
-- Dans le **Infrastructure de sauvegarde** menu, les dépendances de la suppression :
-    - Sauvegardes de serveur de sauvegarde Microsoft Azure (MABS)
-    - Sauvegardes System Center DPM
-
-![sélectionnez votre coffre pour afficher son tableau de bord](./media/backup-azure-delete-vault/backup-items-backup-infrastructure.png)
+Ces procédure fournit quelques exemples de suppression des données de sauvegarde et de serveurs d’infrastructure. Une fois que tout est supprimé à partir d’un coffre, vous pouvez le supprimer.
 
 ### <a name="remove-backup-items"></a>Supprimer des éléments de sauvegarde
 
@@ -200,12 +181,13 @@ Cette procédure fournit un exemple qui montre comment supprimer les données de
 
 
 
+
+
+
 ### <a name="delete-the-vault-after-removing-dependencies"></a>Supprimer le coffre après la suppression des dépendances
 
 1. Lorsque toutes les dépendances ont été supprimés, faites défiler vers le **Essentials** volet dans le menu du coffre.
-
-    - Il ne doit pas contenir **d’Éléments de sauvegarde**, de **Serveurs de gestion des sauvegardes** ou **d’Éléments répliqués** répertoriés.
-    - Si les éléments apparaissent toujours dans le coffre, supprimez-les.
+2. Vérifiez que n’existent pas **éléments de sauvegarde**, **sauvegarde des serveurs d’administration**, ou **éléments répliqués** répertoriés. Si les éléments apparaissent toujours dans le coffre, supprimez-les.
 
 2. Lorsqu’il n’y a plus d’éléments dans le coffre, dans le tableau de bord de celui-ci, cliquez sur **Supprimer**.
 

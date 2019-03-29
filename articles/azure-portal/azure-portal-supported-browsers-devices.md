@@ -12,23 +12,22 @@ ms.workload: multiple
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/02/2018
+ms.date: 03/27/2019
 ms.author: kfollis
 ms.custom: accessibility
-ms.openlocfilehash: c9425875685236db99d78506e23f879d39d94ce5
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: 1595d744fbfda47a9db9ff27de09cd53c6f73ece
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888751"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576392"
 ---
-# <a name="supported-browsers-and-devices-for-the-azure-portal"></a>Navigateurs et périphériques pris en charge pour le portail Azure
-Le [portail Azure](https://portal.azure.com) s’exécute sur tous les ordinateurs de bureau, tablettes et navigateurs modernes.
+# <a name="supported-devices"></a>Appareils pris en charge
 
-### <a name="supported-devices"></a>Appareils pris en charge
-Le portail Azure fonctionne parfaitement sur les PC, les Mac et les tablettes modernes. Si vous devez gérer vos ressources Azure à partir d’un appareil mobile, essayez Azure mobile app disponible sur iPhone et Android. Pour plus d’informations, consultez [Azure mobile app](https://azure.microsoft.com/features/azure-portal/mobile-app/).
+Le [Azure portal](https://portal.azure.com) est une console web et s’exécute dans le navigateur de tous les ordinateurs de bureau modernes et les tablettes. Si vous avez besoin gérer les ressources Azure à partir d’un appareil mobile, essayez le [application mobile Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/). Il est disponible pour iOS et Android.
 
-### <a name="supported-browsers"></a>Navigateurs pris en charge
+## <a name="recommended-browsers"></a>Navigateurs recommandés
+
 Nous vous recommandons d’utiliser le navigateur le plus récent compatible avec votre système d’exploitation. Les opérateurs suivants sont pris en charge :
 
 * Microsoft Edge (dernière version)
@@ -36,4 +35,3 @@ Nous vous recommandons d’utiliser le navigateur le plus récent compatible ave
 * Safari (dernière version, Mac uniquement)
 * Chrome (version la plus récente)
 * Firefox (version la plus récente)
-

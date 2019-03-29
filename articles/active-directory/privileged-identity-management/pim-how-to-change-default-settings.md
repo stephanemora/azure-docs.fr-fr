@@ -1,6 +1,6 @@
 ---
-title: Configurer les paramètres des rôles d’annuaire Azure AD dans PIM | Microsoft Docs
-description: Découvrez comment configurer les paramètres des rôles d’annuaire Azure AD dans Azure AD Privileged Identity Management (PIM).
+title: Configurer les paramètres de rôle Azure AD dans PIM - Azure Active Directory | Microsoft Docs
+description: Découvrez comment configurer les paramètres de rôle Azure AD dans Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,34 +14,34 @@ ms.date: 11/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 761bb31ca51f29547f594af99f779665a255c0be
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b14cf76ec7b8b905c41792f4dc9a56e97dc0f7ba
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162541"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576860"
 ---
-# <a name="configure-azure-ad-directory-role-settings-in-pim"></a>Configurer les paramètres des rôles d’annuaire Azure AD dans PIM
+# <a name="configure-azure-ad-role-settings-in-pim"></a>Configurer les paramètres de rôle Azure AD dans PIM
 
-Un administrateur de rôle privilégié peut personnaliser Azure AD Privileged Identity Management (PIM) dans son organisation, notamment modifier l’expérience d’un utilisateur qui active une attribution de rôle éligible.
+Un administrateur de rôle privilégié peut personnaliser Azure Active Directory (Azure AD) Privileged Identity Management (PIM) dans leur organisation, notamment modifier l’expérience d’un utilisateur qui active une attribution de rôle éligible.
 
 ## <a name="open-role-settings"></a>Ouvrir les paramètres des rôles
 
-Suivez ces étapes pour ouvrir les paramètres pour un rôle d’annuaire Azure AD.
+Suivez ces étapes pour ouvrir les paramètres pour un rôle Azure AD.
 
 1. Ouvrez **Azure AD Privileged Identity Management**.
 
-1. Cliquez sur **Rôles d’annuaire Azure AD**.
+1. Cliquez sur **Rôles Azure AD**.
 
 1. Cliquez sur **Settings**.
 
-    ![Rôles d’annuaire Azure AD - Paramètres](./media/pim-how-to-change-default-settings/pim-directory-roles-settings.png)
+    ![Rôles d’Azure AD - paramètres](./media/pim-how-to-change-default-settings/pim-directory-roles-settings.png)
 
 1. Cliquez sur **Rôles**.
 
 1. Cliquez sur le rôle dont vous souhaitez configurer les paramètres.
 
-    ![Rôles d’annuaire Azure AD - Paramètres des rôles](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-role.png)
+    ![Rôles d’Azure AD - paramètres de rôles](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-role.png)
 
     Dans la page des paramètres de chaque rôle, vous pouvez configurer plusieurs paramètres. Ces paramètres affectent uniquement les utilisateurs qui sont **éligibles**, et non ceux qui sont **permanents**.
 
@@ -98,13 +98,13 @@ Si vous souhaitez exiger une approbation pour activer un rôle, procédez comme 
 
 1. Réglez le commutateur **Exiger l'approbation** sur **Activé**. Le volet affiche les options permettant de sélectionner des approbateurs.
 
-    ![Rôles d’annuaire Azure AD - Paramètres - Exiger une approbation](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
+    ![Rôles d’Azure AD - paramètres - exiger une approbation](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
 
     Si vous **ne spécifiez pas** d’approbateurs, les administrateurs de rôle privilégié deviennent les approbateurs par défaut. Les administrateurs de rôle privilégié doivent approuver **TOUTES** les demandes d’activation pour ce rôle.
 
 1. Pour spécifier des approbateurs, cliquez sur **Sélectionner des approbateurs**.
 
-    ![Rôles d’annuaire Azure AD - Paramètres - Exiger une approbation](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval-select-approvers.png)
+    ![Rôles d’Azure AD - paramètres - exiger une approbation](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval-select-approvers.png)
 
 1. Sélectionnez un ou plusieurs approbateurs, puis cliquez sur **Sélectionner**. Vous pouvez sélectionner des utilisateurs ou des groupes. Il est recommandé de sélectionner au moins deux approbateurs. L’auto-approbation n’est pas autorisée.
 
@@ -117,5 +117,5 @@ Si vous souhaitez exiger une approbation pour activer un rôle, procédez comme 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Attribuer des rôles d’annuaire Azure AD dans PIM](pim-how-to-add-role-to-user.md)
-- [Configurer des alertes de sécurité pour les rôles d’annuaire Azure AD dans PIM](pim-how-to-configure-security-alerts.md)
+- [Attribuer des rôles Azure AD dans PIM](pim-how-to-add-role-to-user.md)
+- [Configurer des alertes de sécurité pour les rôles Azure AD dans PIM](pim-how-to-configure-security-alerts.md)

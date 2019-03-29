@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 1eba32683883e60ae48f4d6fec9c434c27ce55da
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 8940d629d2f4827ee724c813a40394378dde5a4c
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541931"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575145"
 ---
 # <a name="asc-for-iot-frequently-asked-questions"></a>Questions fréquentes sur ASC pour IoT  
 
@@ -77,7 +77,7 @@ Vous trouverez des informations de déploiement détaillées installation et de 
 
 ## <a name="what-are-the-dependencies-and-prerequisites-of-the-agent"></a>Quelles sont les dépendances et les conditions préalables de l’agent ?
 
-ASC pour IoT prend en charge un large éventail de plateformes. Consultez [plateformes d’appareils pris en charge](select-deploy-agent.md) pour vérifier la prise en charge de vos appareils spécifiques. 
+ASC pour IoT prend en charge un large éventail de plateformes. Consultez [plateformes d’appareils pris en charge](how-to-deploy-agent.md) pour vérifier la prise en charge de vos appareils spécifiques. 
 
 ## <a name="which-data-is-collected-by-the-agent"></a>Les données sont collectées par l’agent ?
 
@@ -97,9 +97,9 @@ Oui. Données de l’agent transmis sont comptabilisées dans le quota de votre 
 
 ## <a name="what-next-ive-installed-an-agent-and-dont-see-any-activities-or-logs"></a>Étapes suivantes J’ai installé un agent et que vous ne voyez pas toutes les activités ou les journaux
 
-1. Vérifier la [type d’agent correspond à la plateforme du système d’exploitation désignée de votre appareil](select-deploy-agent.md)
+1. Vérifier la [type d’agent correspond à la plateforme du système d’exploitation désignée de votre appareil](how-to-deploy-agent.md)
 
-1. Confirmer la [agent est en cours d’exécution sur l’appareil](concept-agent-configuration.md).
+1. Confirmer la [agent est en cours d’exécution sur l’appareil](how-to-agent-configuration.md).
 
 2. Vérifier le [service a été activé avec succès](quickstart-onboard-iot-hub.md) à **sécurité** dans votre IoT Hub. 
 

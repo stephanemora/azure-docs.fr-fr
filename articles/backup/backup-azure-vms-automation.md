@@ -7,16 +7,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: 230c68b0b1de1ef452de51b7b0661a3c3786ea76
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 3f64be35aca985d0374e224cc9c8940502005014
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521701"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578881"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Sauvegarder et restaurer des machines virtuelles Azure avec PowerShell
 
-Cet article explique comment sauvegarder et restaurer une machine virtuelle Azure dans un [sauvegarde Azure](backup-overview.md) coffre Recovery Services à l’aide des applets de commande PowerShell. 
+Cet article explique comment sauvegarder et restaurer une machine virtuelle Azure dans un [sauvegarde Azure](backup-overview.md) coffre Recovery Services à l’aide des applets de commande PowerShell.
 
 Dans cet article, vous apprendrez comment :
 
@@ -24,10 +24,7 @@ Dans cet article, vous apprendrez comment :
 > * Créer un coffre Recovery Services et définir le contexte du coffre.
 > * Créer une stratégie de sauvegarde
 > * Appliquer la stratégie de sauvegarde pour protéger plusieurs machines virtuelles
-> * Déclencher un travail de sauvegarde à la demande pour les machines virtuelles protégées Avant de sauvegarder (ou de protéger) une machine virtuelle, vous devez remplir les [prérequis](backup-azure-arm-vms-prepare.md) pour préparer votre environnement à la protection de vos machines virtuelles. 
-
-
-
+> * Déclencher un travail de sauvegarde à la demande pour les machines virtuelles protégées Avant de sauvegarder (ou de protéger) une machine virtuelle, vous devez remplir les [prérequis](backup-azure-arm-vms-prepare.md) pour préparer votre environnement à la protection de vos machines virtuelles.
 
 ## <a name="before-you-start"></a>Avant de commencer
 
@@ -44,8 +41,6 @@ La hiérarchie d’objets est résumée dans le diagramme suivant.
 
 Examinez le **Az.RecoveryServices** [référence d’applet de commande](https://docs.microsoft.com/powershell/module/Az.RecoveryServices/?view=azps-1.4.0) référence dans la bibliothèque Azure.
 
-
-
 ## <a name="set-up-and-register"></a>Configurer et inscrire
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -58,7 +53,7 @@ Pour commencer :
 
     ```powershell
     Get-Command *azrecoveryservices*
-    ```   
+    ```
  
     Les alias et cmdlets pour Sauvegarde Azure, Azure Site Recovery et le coffre Recovery Services s’affichent. L’image suivante est un exemple de ce que vous allez voir. Il ne s’agit pas de la liste complète des cmdlets.
 
@@ -147,6 +142,18 @@ Avant d’activer la protection sur une machine virtuelle, utilisez [Set-AzRecov
 Get-AzRecoveryServicesVault -Name "testvault" | Set-AzRecoveryServicesVaultContext
 ```
 
+### <a name="modifying-storage-replication-settings"></a>Modification des paramètres de réplication de stockage
+
+Utilisez [Set-AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/Set-AzRecoveryServicesBackupProperties?view=azps-1.6.0) commande pour définir la configuration de réplication de stockage du coffre sur LRS/GRS
+
+```powershell
+$vault= Get-AzRecoveryServicesVault -name "testvault"
+Set-AzRecoveryServicesBackupProperties -Vault $vault -BackupStorageRedundancy GeoRedundant/LocallyRedundant
+```
+
+> [!NOTE]
+> Redondance de stockage peut être modifiée uniquement si aucun élément de sauvegarde protégés dans le coffre.
+
 ### <a name="create-a-protection-policy"></a>Création d’une stratégie de protection
 
 Quand vous créez un coffre Recovery Services, il est fourni avec des stratégies de protection et de conservation par défaut. La stratégie de protection par défaut déclenche une tâche de sauvegarde chaque jour à une heure spécifiée. La stratégie de conservation par défaut conserve le point de récupération quotidien pendant 30 jours. Vous pouvez utiliser la stratégie par défaut pour protéger rapidement votre machine virtuelle et modifier la stratégie ultérieurement avec différents détails.
@@ -226,7 +233,6 @@ Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGro
 > Si vous utilisez le cloud Azure Government, utilisez la valeur ff281ffe-705c-4f53-9f37-a40e6f2c68f3 pour le paramètre ServicePrincipalName dans [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) applet de commande.
 >
 
-
 ### <a name="modify-a-protection-policy"></a>Modifier une stratégie de protection
 
 Pour modifier la stratégie de protection, utilisez [Set-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy) pour modifier les objets objets SchedulePolicy ou RetentionPolicy.
@@ -239,6 +245,19 @@ $retPol.DailySchedule.DurationCountInDays = 365
 $pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
 Set-AzRecoveryServicesBackupProtectionPolicy -Policy $pol  -RetentionPolicy $RetPol
 ```
+
+#### <a name="configuring-instant-restore-snapshot-retention"></a>Configuration de la rétention des instantanés de la restauration instantanée
+
+> [!NOTE]
+> À partir de Az PS version 1.6.0 et versions ultérieures, un peut mettre à jour de la période de rétention des instantanés de la restauration instantanée dans la stratégie à l’aide de Powershell
+
+````powershell
+PS C:\> $bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
+$bkpPol.SnapshotRetentionInDays=7
+PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
+````
+
+La valeur par défaut sera 2, l’utilisateur peut définir la valeur avec 1 minimum et maximum de 5. Pour des stratégies de sauvegarde hebdomadaire, la période est définie sur 5 et ne peut pas être modifiée.
 
 ## <a name="trigger-a-backup"></a>Déclencher une sauvegarde
 
@@ -672,7 +691,7 @@ $rp[0]
 
 Le résultat ressemble à l’exemple suivant :
 
-```
+```powershell
 RecoveryPointAdditionalInfo :
 SourceVMStorageType         : NormalStorage
 Name                        : 15260861925810
@@ -719,4 +738,4 @@ Disable-AzRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous préférez utiliser PowerShell pour gérer vos ressources Azure, consultez l’article PowerShell [Déployer et gérer une sauvegarde pour Windows Server](backup-client-automation.md). Si vous gérez des sauvegardes DPM, consultez l’article [Déployer et gérer la sauvegarde pour DPM](backup-dpm-automation.md). 
+Si vous préférez utiliser PowerShell pour gérer vos ressources Azure, consultez l’article PowerShell [Déployer et gérer une sauvegarde pour Windows Server](backup-client-automation.md). Si vous gérez des sauvegardes DPM, consultez l’article [Déployer et gérer la sauvegarde pour DPM](backup-dpm-automation.md).

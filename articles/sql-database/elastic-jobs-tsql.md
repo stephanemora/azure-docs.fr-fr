@@ -12,12 +12,12 @@ author: jaredmoo
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: d2b0209f57ff5f59d59ee057db7675b2dcd071b8
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 4f4032551efbf517ab47a64afc393cc57ace6bc1
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522058"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621496"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Utiliser Transact-SQL (T-SQL) pour créer et gérer des travaux de base de données élastique
 
@@ -408,19 +408,19 @@ Les procédures stockées suivantes se trouvent dans la [base de données des tr
 
 |Procédure stockée  |Description  |
 |---------|---------|
-|sp_add_job     |     Ajoute un nouveau travail.    |
-|sp_update_job    |      Met à jour un travail existant.   |
-|sp_delete_job     |      Supprime un travail existant.   |
-|sp_add_jobstep    |    Ajoute une étape à un travail.     |
-|sp_update_jobstep     |     Met à jour une étape de travail.    |
-|sp_delete_jobstep     |     Supprime une étape de travail.    |
-|sp_start_job    |  Démarre l’exécution d’un travail.       |
-|sp_stop_job     |     Arrête l’exécution d’un travail.   |
-|sp_add_target_group    |     Ajoute un groupe cible.    |
-|sp_delete_target_group     |    Supprime un groupe cible.     |
-|sp_add_target_group_member     |    Ajoute une base de données ou un groupe de bases de données à un groupe cible.     |
-|sp_delete_target_group_member     |     Supprime un membre du groupe cible d’un groupe cible.    |
-|sp_purge_jobhistory    |    Supprime les enregistrements d’historique d’un travail.     |
+|[sp_add_job](#sp_add_job)     |     Ajoute un nouveau travail.    |
+|[sp_update_job](#sp_update_job)    |      Met à jour un travail existant.   |
+|[sp_delete_job](#sp_delete_job)     |      Supprime un travail existant.   |
+|[sp_add_jobstep](#sp_add_jobstep)    |    Ajoute une étape à un travail.     |
+|[sp_update_jobstep](#sp_update_jobstep)     |     Met à jour une étape de travail.    |
+|[sp_delete_jobstep](#sp_delete_jobstep)     |     Supprime une étape de travail.    |
+|[sp_start_job](#sp_start_job)    |  Démarre l’exécution d’un travail.       |
+|[sp_stop_job](#sp_stop_job)     |     Arrête l’exécution d’un travail.   |
+|[sp_add_target_group](#sp_add_target_group)    |     Ajoute un groupe cible.    |
+|[sp_delete_target_group](#sp_delete_target_group)     |    Supprime un groupe cible.     |
+|[sp_add_target_group_member](#sp_add_target_group_member)     |    Ajoute une base de données ou un groupe de bases de données à un groupe cible.     |
+|[sp_delete_target_group_member](#sp_delete_target_group_member)     |     Supprime un membre du groupe cible d’un groupe cible.    |
+|[sp_purge_jobhistory](#sp_purge_jobhistory)    |    Supprime les enregistrements d’historique d’un travail.     |
 
 
 
@@ -1195,13 +1195,13 @@ Les vues suivantes sont disponibles dans la [base de données des travaux](sql-d
 
 |Affichage  |Description  |
 |---------|---------|
-|jobs_executions     |  Afficher l'historique d'exécution des travaux.      |
+|[jobs_executions](#jobs_executions-view)     |  Afficher l'historique d'exécution des travaux.      |
 |[jobs](#jobs-view)     |   Afficher tous les travaux.      |
-|job_versions     |   Affiche toutes les versions du travail.      |
+|[job_versions](#job_versions-view)     |   Affiche toutes les versions du travail.      |
 |[jobsteps](#jobsteps-view)     |     Affiche toutes les étapes dans la version actuelle de chaque travail.    |
-|jobstep_versions     |     Affiche toutes les étapes dans toutes les versions de chaque travail.    |
-|target_groups     |      Affiche tous les groupes cibles.   |
-|target_group_members     |   Affiche tous les membres de tous les groupes cibles.      |
+|[jobstep_versions](#jobstep_versions-view)     |     Affiche toutes les étapes dans toutes les versions de chaque travail.    |
+|[target_groups](#target_groups-view)     |      Affiche tous les groupes cibles.   |
+|[target_group_members](#target_groups_members-view)     |   Affiche tous les membres de tous les groupes cibles.      |
 
 
 ### <a name="jobsexecutions-view"></a>affichage jobs_executions
@@ -1347,4 +1347,3 @@ Affiche tous les membres de tous les groupes cibles.
 
 - [Créer et gérer des tâches élastiques à l’aide de PowerShell](elastic-jobs-powershell.md)
 - [Autorisations SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server)
-  

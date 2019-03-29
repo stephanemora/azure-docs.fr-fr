@@ -1,6 +1,6 @@
 ---
-title: Présentation des révisions d’accès Azure AD | Microsoft Docs
-description: Avec les révisions d’accès Azure Active Directory, vous pouvez contrôler que l’appartenance à des groupes et l’accès aux applications répondent aux initiatives de gouvernance, de gestion des risques et de conformité de votre organisation.
+title: Que sont les révisions d’accès ? - Azure Active Directory | Microsoft Docs
+description: À l’aide de révisions d’accès Azure Active Directory, vous pouvez contrôler l’accès de l’appartenance et l’application de groupe pour répondre à la gouvernance, de gestion des risques et d’initiatives de conformité de votre organisation.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,16 +16,16 @@ ms.date: 01/18/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ab3570cb7e3e8b09425bf4c05f7f5725fd21d4f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1563a023f397999deb5c6abd40843d6a376b0492
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57845152"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576120"
 ---
-# <a name="what-are-azure-ad-access-reviews"></a>Présentation des révisions d’accès Azure AD
+# <a name="what-are-azure-ad-access-reviews"></a>Passe en revue ce que sont les accès Azure AD ?
 
-Les révisions d’accès Azure Active Directory (Azure AD) permettent aux organisations de gérer efficacement les appartenances à des groupes, les accès aux applications d’entreprise et les attributions de rôles. L’accès des utilisateurs peut être passé en revue régulièrement pour vérifier que seules les personnes appropriées continuent de bénéficier d’un accès.
+Révisions d’accès Azure Active Directory (Azure AD) permettent aux organisations efficacement gérer les appartenances aux groupes, l’accès aux applications d’entreprise et les attributions de rôles. L’accès des utilisateurs peut être passé en revue régulièrement pour vérifier que seules les personnes appropriées continuent de bénéficier d’un accès.
 
 Voici une vidéo qui donne une vue d’ensemble rapide des révisions d’accès :
 
@@ -42,7 +42,7 @@ Azure AD vous permet de collaborer en interne au sein de votre organisation et a
 
 ## <a name="when-to-use-access-reviews"></a>Quand utiliser les révisions d’accès ?
 
-- **Trop d’utilisateurs dans des rôles privilégiés :** Il est judicieux pour vérifier combien d’utilisateurs ont un accès administratif, combien d'entre eux sont des administrateurs généraux, et s’il y en a invité invités ou des partenaires qui n’ont pas été supprimés après leur attribution pour effectuer une tâche administrative. Vous pouvez recertifier les utilisateurs ayant fait l’objet d’une attribution de rôle dans les [rôles d’annuaire Azure AD](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json), comme les administrateurs généraux, ou [les rôles de ressources Azure](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json), comme les administrateur de l’accès utilisateur dans l’expérience [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md).
+- **Trop d’utilisateurs dans des rôles privilégiés :** Il est judicieux pour vérifier combien d’utilisateurs ont un accès administratif, combien d'entre eux sont des administrateurs généraux, et s’il y en a invité invités ou des partenaires qui n’ont pas été supprimés après leur attribution pour effectuer une tâche administrative. Vous pouvez le recertifier les utilisateurs de l’attribution de rôle dans [rôles Azure AD](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) tels que les administrateurs généraux, ou [les rôles de ressources Azure](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) telles qu’administrateur des accès utilisateur dans le [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) rencontrer.
 - **Quand l’automatisation est irréalisable :** Vous pouvez créer des règles pour l’appartenance dynamique sur les groupes de sécurité ou les groupes Office 365, mais que se passe-t-il si les données des ressources humaines ne se trouvent pas dans Azure AD, ou si des utilisateurs ont toujours besoin d’un accès après avoir quitté le groupe pour former les personnes qui les remplacent ? Vous pouvez alors créer une révision sur ce groupe pour que ceux qui ont encore besoin d’un accès puissent encore en bénéficier.
 - **Quand un groupe est utilisé pour un nouvel objectif :** Si vous avez un groupe qui va être synchronisé avec Azure AD, ou si vous prévoyez d’activer l’application Salesforce pour tout le monde dans le groupe de l’équipe commerciale, il est utile de demander au propriétaire du groupe de passer en revue l’appartenance au groupe avant d’utiliser le groupe dans un autre contenu à risques.
 - **Accès aux données critiques de l’entreprise :** pour certaines ressources, il peut être nécessaire à des fins d’audit de demander aux personnes en dehors du département informatique de se déconnecter régulièrement et de justifier la raison pour laquelle ils ont besoin d’un accès.
@@ -52,13 +52,13 @@ Azure AD vous permet de collaborer en interne au sein de votre organisation et a
 
 ## <a name="where-do-you-create-reviews"></a>Où créer des révisions ?
 
-Selon ce que vous voulez réviser, vous créez votre révision d’accès dans Révisions d’accès Azure AD, dans Applications d’entreprise Azure AD (en préversion) ou dans Azure AD PIM.
+Selon ce que vous souhaitez examiner, vous allez créer votre révision d’accès dans Azure AD accéder aux révisions, les applications d’entreprise Azure AD (en version préliminaire) ou Azure AD PIM.
 
 | Droits d’accès des utilisateurs | Les réviseurs peuvent être | Révision créée dans | Expérience des réviseurs |
 | --- | --- | --- | --- |
 | Membres des groupes de sécurité</br>Membres du groupe Office | Réviseurs spécifiés</br>Propriétaires de groupe</br>Autorévision | Révisions d’accès Azure AD</br>Groupes Azure AD | Panneau d’accès |
 | Affecté à une application connectée | Réviseurs spécifiés</br>Autorévision | Révisions d’accès Azure AD</br>Applications d’entreprise Azure AD (en préversion) | Panneau d’accès |
-| Rôle d’annuaire Azure AD | Réviseurs spécifiés</br>Autorévision | Azure AD PIM | Portail Azure |
+| Rôle Azure AD | Réviseurs spécifiés</br>Autorévision | Azure AD PIM | Portail Azure |
 | Rôle de ressource Azure | Réviseurs spécifiés</br>Autorévision | Azure AD PIM | Portail Azure |
 
 ## <a name="prerequisites"></a>Conditions préalables
@@ -88,13 +88,13 @@ Pour activer les révisions d’accès, effectuez ces étapes.
 
 1. Cliquez sur **Tous les services** et recherchez le service Révisions d’accès.
 
-1. Cliquez sur **Révisions d’accès**.
+1. Cliquez sur **révisions d’accès**.
 
-    ![Tous les services - Révisions d’accès](./media/access-reviews-overview/all-services-access-reviews.png)
+    ![Tous les services - révisions d’accès](./media/access-reviews-overview/all-services-access-reviews.png)
 
 1. Dans la liste de navigation, cliquez sur **Intégrer** pour ouvrir la page **Intégrer les révisions d’accès**.
 
-    ![Intégration des révisions d’accès](./media/access-reviews-overview/onboard-button.png)
+    ![Intégrer des révisions d’accès](./media/access-reviews-overview/onboard-button.png)
 
 1. Cliquez sur **Créer** pour activer les révisions d’accès dans l’annuaire actif.
 
@@ -102,7 +102,7 @@ Pour activer les révisions d’accès, effectuez ces étapes.
 
     La prochaine fois que vous démarrez access passe en revue, les options de révision d’accès seront activées.
 
-    ![Révisions d’accès activées](./media/access-reviews-overview/access-reviews-enabled.png)
+    ![Révisions d’accès](./media/access-reviews-overview/access-reviews-enabled.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -4,17 +4,17 @@ description: Découvrez comment intégrer une machine virtuelle Azure avec Updat
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/06/2018
+ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 70d9957ae5f0ec43269d371c96e3722e52edb26d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: bf81b862f978d4baab0907dc9002564062ec5228
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57837760"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58619720"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Intégrer les solutions Update Management, Change Tracking et Inventory à partir d’une machine virtuelle Azure
 
@@ -26,7 +26,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
 ## <a name="enable-the-solutions"></a>Activer les solutions
 
-Accédez à une machine virtuelle existante. Sous **OPÉRATIONS**, sélectionnez **Gestion des mises à jour**, **Inventaire**, ou **Suivi des modifications**. La machine virtuelle peuvent exister dans n’importe quelle région, quel que soit l’emplacement de votre compte Automation.
+Accédez à une machine virtuelle existante. Sous **OPÉRATIONS**, sélectionnez **Gestion des mises à jour**, **Inventaire**, ou **Suivi des modifications**. La machine virtuelle peuvent exister dans n’importe quelle région, quel que soit l’emplacement de votre compte Automation. Lorsque l’intégration d’une solution à partir d’une machine virtuelle vous devez disposer du `Microsoft.OperationalInsights/workspaces/read` autorisation pour déterminer si la machine virtuelle est intégrée à un espace de travail. Pour en savoir plus sur les autorisations supplémentaires qui sont nécessaires en général, consultez [autorisations nécessaires pour intégrer des machines](automation-role-based-access-control.md#onboarding).
 
 Si vous voulez activer la solution pour la machine virtuelle uniquement, assurez-vous que l’option **Activer pour cette machine virtuelle** est bien sélectionnée. Pour intégrer plusieurs machines à la solution, sélectionnez **Activer pour les machines virtuelles dans cet abonnement**, puis choisissez **Cliquer pour sélectionner les machines à activer**. Consultez la section [Intégrer les solutions Update Management, Change Tracking et Inventory](automation-onboard-solutions-from-automation-account.md) pour savoir comment intégrer plusieurs machines en même temps.
 
@@ -85,13 +85,13 @@ Après avoir supprimé ces solutions, vous pouvez effectuer les étapes suivante
 
 1. Dans le portail Azure, ouvrez votre compte Automation puis, dans la page de ce dernier, sélectionnez **Espace de travail lié** dans la section **Ressources associées** sur la gauche.
 
-1. Dans la page Dissocier l’espace de travail, cliquez sur **Dissocier l’espace de travail**.
+2. Dans la page Dissocier l’espace de travail, cliquez sur **Dissocier l’espace de travail**.
 
    ![Page Dissocier l’espace de travail](media/automation-onboard-solutions-from-vm/automation-unlink-workspace-blade.png).
 
    Vous recevez une invite de confirmation de la suppression.
 
-1. Pour suivre la progression de la suppression du lien de votre espace de travail Log Analytics dans Azure Automation, sélectionnez **Notifications** dans le menu.
+3. Pour suivre la progression de la suppression du lien de votre espace de travail Log Analytics dans Azure Automation, sélectionnez **Notifications** dans le menu.
 
 Si vous avez utilisé la solution de gestion de la mise à jour, vous pouvez (si vous le souhaitez) supprimer les éléments suivants qui ne sont plus nécessaires après la suppression de la solution.
 

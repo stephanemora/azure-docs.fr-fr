@@ -1,6 +1,6 @@
 ---
-title: Azure AD Identity Governance| Microsoft Docs
-description: Azure AD Identity Governance vous permet de bénéficier de la visibilité et des processus appropriés pour répondre aux besoins de votre organisation en termes de sécurité et de productivité des employés.
+title: Gouvernance des identités - Azure Active Directory | Microsoft Docs
+description: Gouvernance d’identité Active Directory Azure permet d’équilibrer les besoins de votre organisation pour la productivité des employés et de sécurité avec une visibilité et les processus appropriés.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,12 +16,12 @@ ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 304399905e9dfd37557a342248c829c1f940452b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7872a43d5000ddb1ba581f76358c8001902ab56b
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167576"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579714"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Qu’est-ce qu’Azure AD Identity Governance ?
 
@@ -77,7 +77,7 @@ Il n’existe pas de solution ou recommandation parfaite pour chaque client. Cep
 - [Qu’est-ce qu’une révision d’accès ?](access-reviews-overview.md)
 - [Gérer l’accès des utilisateurs avec les révisions d’accès](manage-user-access-with-access-reviews.md)
 - [Gérer l’accès des invités avec les révisions d’accès](manage-guest-access-with-access-reviews.md)
-- [Démarrer une révision d’accès des rôles d’annuaire Azure AD dans PIM](../privileged-identity-management/pim-how-to-start-security-review.md)
+- [Démarrer une révision d’accès des rôles Azure AD](../privileged-identity-management/pim-how-to-start-security-review.md)
 
 ### <a name="terms-of-use"></a>Conditions d’utilisation
 

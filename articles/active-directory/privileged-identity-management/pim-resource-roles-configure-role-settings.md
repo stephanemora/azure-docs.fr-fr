@@ -1,5 +1,5 @@
 ---
-title: Configurer les paramètres des rôles de ressources Azure dans PIM | Microsoft Docs
+title: Configurer les paramètres de rôle de ressource Azure dans PIM - Azure Active Directory | Microsoft Docs
 description: Découvrez comment configurer les paramètres des rôles de ressources Azure dans Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -15,16 +15,16 @@ ms.date: 08/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8f793ee22796497b96a1acbd998397dbe2ac40d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: f9db39e67cf3ee67b7990f227dbad7e3210cd14b
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162133"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577150"
 ---
 # <a name="configure-azure-resource-role-settings-in-pim"></a>Configurer les paramètres des rôles de ressources Azure dans PIM
 
-Quand vous configurez les paramètres des rôles de ressources Azure, vous définissez les paramètres par défaut qui sont appliqués aux attributions de rôles de ressources Azure dans Azure AD Privileged Identity Management (PIM). Utilisez les procédures suivantes pour configurer le flux de travail d’approbation et spécifier qui peut approuver ou refuser les demandes.
+Lorsque vous configurez les paramètres de rôle de ressource Azure, vous définissez les paramètres par défaut qui sont appliqués aux attributions de rôles de ressources Azure dans Azure Active Directory (Azure AD) Privileged Identity Management (PIM). Utilisez les procédures suivantes pour configurer le flux de travail d’approbation et spécifier qui peut approuver ou refuser les demandes.
 
 ## <a name="open-role-settings"></a>Ouvrir les paramètres des rôles
 

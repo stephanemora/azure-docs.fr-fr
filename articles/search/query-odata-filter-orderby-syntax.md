@@ -1,7 +1,7 @@
 ---
 title: Syntaxe des expressions OData pour les filtres et les clauses order by - Recherche Azure
 description: Syntaxe des expressions OData pour les filtres et les clauses order by dans les requêtes Recherche Azure.
-ms.date: 01/31/2019
+ms.date: 03/27/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f0fd93af7cba3057ad4c2224aa1298a221505645
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 8445ab2c8797226b08519e2f186350a31416f049
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541035"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578405"
 ---
 # <a name="odata-expression-syntax-for-filters-and-order-by-clauses-in-azure-search"></a>Syntaxe des expressions OData pour les filtres et les clauses order by dans Recherche Azure
 
@@ -207,7 +207,7 @@ $filter=geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.
 $filter=description eq null
 ```
 
-Rechercher tous les hôtels avec un nom égal à « Roach motel » ou « Budget hotel ») :  
+Rechercher tous les hôtels avec un nom égal à « Roach motel » ou « Hôtel Budget »). Expressions contiennent des espaces, qui est un délimiteur par défaut. Pour spécifier un délimiteur de remplacement, placez le nouveau délimiteur entre apostrophes dans le cadre de l’expression de filtre :  
 
 ```
 $filter=search.in(name, 'Roach motel,Budget hotel', ',')
@@ -223,6 +223,12 @@ Rechercher tous les hôtels avec l’étiquette « wifi » ou « pool » :
 
 ```
 $filter=tags/any(t: search.in(t, 'wifi, pool'))
+```
+
+Rechercher une correspondance sur plusieurs balises, « SERVIETTE chauffe racks » ou « sèche-cheveux inclus ». Pensez à spécifier un autre délimiteur lorsque le délimiteur d’espace par défaut est toujours acceptables. 
+
+```
+$filter=tags/any(t: search.in(t, 'heated towel racks,hairdryer included', ','))
 ```
 
 Rechercher tous les hôtels sans l’étiquette « motel » ni l’étiquette « cabin » :  

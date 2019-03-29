@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 3/26/2019
 ms.author: rkarlin
-ms.openlocfilehash: 7cd90b987550dc60b30d3aa0cd1016b681eec85f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ad501958a5f88c821e48a3e21f69a960160b3c8e
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57547015"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574856"
 ---
 # <a name="collect-data-from-office-365-logs"></a>Collecter des données à partir des journaux d’Office 365
 
 > [!IMPORTANT]
-> Sentinel Azure est actuellement en version préliminaire publique.
+> Azure Sentinel est actuellement disponible en préversion publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Vous pouvez diffuser des journaux d’audit à partir de [Office 365](https://docs.microsoft.com/office365/admin/admin-home?view=o365-worldwide) dans Azure Sentinel avec un seul clic. Vous pouvez diffuser des journaux d’audit à partir de plusieurs clients à un seul espace de travail dans Azure Sentinel. Le connecteur de journal d’activité Office 365 fournit des informations sur les activités de l’utilisateur en cours. Vous obtiendrez des informations sur plusieurs utilisateur, administrateur, système et les actions de stratégie et les événements à partir d’Office 365. En connectant les journaux d’Office 365 dans Azure Sentinel, vous pouvez utiliser ces données pour afficher des tableaux de bord, créer des alertes personnalisées et améliorer votre processus d’investigation.
@@ -33,7 +33,7 @@ Vous pouvez diffuser des journaux d’audit à partir de [Office 365](https://do
 ## <a name="prerequisites"></a>Conditions préalables
 
 - Vous devez être un administrateur global ou administrateur de sécurité sur votre client
-- Pour ajouter un client, ouvrez le port 4433 pour le trafic web sur l’ordinateur à partir duquel vous effectuez la connexion.
+- Sur votre ordinateur, à partir duquel vous connecté Azure Sentinel pour créer la connexion, vérifiez suretha port 4433 est ouvert pour le trafic web.
 
 ## <a name="connect-to-office-365"></a>Connexion à Office 365
 
@@ -50,7 +50,7 @@ Vous pouvez diffuser des journaux d’audit à partir de [Office 365](https://do
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce document, vous avez appris à connecter Office 365 à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, consultez les articles suivants :
+Dans ce document, vous avez appris à connecter Office 365 à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 - Découvrez comment [obtenez une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
 - Prise en main [détecter des menaces avec Azure Sentinel](tutorial-detect-threats.md).
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 8fb60f36bbc7c8886c1f465177a11224a1c90659
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 3c2384b536235554fed7c1cf1a08b7c665f513a8
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541245"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621921"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Référence du modèle de données du modèle Gestion des API Azure
 Cette rubrique décrit les représentations de type et d’entité des éléments courants utilisés dans les modèles de données pour les modèles du portail des développeurs dans la Gestion des API Azure.  
@@ -162,7 +162,7 @@ Le portail des développeurs n’est pas disponible dans le niveau de consommati
 ##  <a name="Header"></a> Header  
  Cette section décrit la représentation `parameter`.  
   
-|Propriété|Description|Type|  
+|Propriété|Type|Description|  
 |--------------|-----------------|----------|  
 |`name`|string|Nom du paramètre.|  
 |`description`|string|Description du paramètre.|  
@@ -239,7 +239,7 @@ Le portail des développeurs n’est pas disponible dans le niveau de consommati
 ##  <a name="Parameter"></a> Parameter  
  Cette section décrit la représentation `parameter`.  
   
-|Propriété|Description|Type|  
+|Propriété|Type|Description|  
 |--------------|-----------------|----------|  
 |`name`|string|Nom du paramètre.|  
 |`description`|string|Description du paramètre.|  

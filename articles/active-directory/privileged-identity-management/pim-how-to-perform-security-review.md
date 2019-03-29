@@ -1,6 +1,6 @@
 ---
-title: Effectuer une révision d’accès des rôles d’annuaire Azure AD dans PIM | Microsoft Docs
-description: Découvrez comment effectuer une révision d’accès des rôles d’annuaire Azure AD dans Azure AD Privileged Identity Management (PIM).
+title: Effectuer une révision d’accès de mes rôles Azure AD dans PIM - Azure Active Directory | Microsoft Docs
+description: Découvrez comment effectuer une révision d’accès de vos rôles Azure AD dans Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,15 +14,15 @@ ms.date: 06/21/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c7b3905d05e62bd3f11ef4de7f966e6bf9340f0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 66f16e02716ceb94d2c8b10bb246a13dc566229c
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178904"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578309"
 ---
-# <a name="perform-an-access-review-of-my-azure-ad-directory-roles-in-pim"></a>Effectuer une révision d’accès des rôles d’annuaire Azure AD dans PIM
-Le service Azure Active Directory (AD) Privileged Identity Management simplifie la gestion par les entreprises de l’accès privilégié aux ressources dans Azure AD et d’autres services en ligne Microsoft tels qu’Office 365 ou que Microsoft Intune.  
+# <a name="perform-an-access-review-of-my-azure-ad-roles-in-pim"></a>Effectuer une révision d’accès de mes rôles Azure AD dans PIM
+Azure Active Directory (AD) Privileged Identity Management (PIM) simplifie la façon dont les entreprises gèrent l’accès privilégié aux ressources dans Azure AD et d’autres services en ligne Microsoft comme Office 365 ou Microsoft Intune.  
 
 Si vous êtes affecté à un rôle d’administrateur, l’administrateur de rôle privilégié de votre organisation peut vous demander de confirmer régulièrement que vous avez toujours besoin de ce rôle pour votre travail. Vous pouvez recevoir un e-mail contenant un lien ou accéder directement au [portail Azure](https://portal.azure.com). Suivez les étapes décrites dans cet article pour effectuer un auto-examen de vos rôles attribués.
 

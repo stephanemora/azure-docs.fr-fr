@@ -1,5 +1,5 @@
 ---
-title: Attribuer des rôles de ressources Azure dans PIM | Microsoft Docs
+title: Attribuer des rôles de ressources Azure dans PIM - Azure Active Directory | Microsoft Docs
 description: Découvrez comment attribuer des rôles de ressources Azure dans Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -15,16 +15,16 @@ ms.date: 08/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee09526c2bf1ebf9821e1f84dc99bfc8635b9ee2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a912e1786e005e9a4b6ba2cc22713a172234a489
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58086188"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578660"
 ---
 # <a name="assign-azure-resource-roles-in-pim"></a>Attribuer des rôles de ressources Azure dans PIM
 
-Azure AD PIM peut gérer les rôles de ressources intégrés d’Azure, ainsi que les rôles personnalisés, notamment (liste non exhaustive) :
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) peut gérer les rôles de ressources Azure intégrées, ainsi que les rôles personnalisés, notamment (liste non exhaustive) :
 
 - Propriétaire
 - Administrateur de l'accès utilisateur
@@ -129,4 +129,4 @@ Suivez ces étapes pour mettre à jour ou supprimer une attribution de rôle exi
 
 - [Étendre ou renouveler des rôles de ressources Azure dans PIM](pim-resource-roles-renew-extend.md)
 - [Configurer les paramètres des rôles de ressources Azure dans PIM](pim-resource-roles-configure-role-settings.md)
-- [Attribuer des rôles d’annuaire Azure AD dans PIM](pim-how-to-add-role-to-user.md)
+- [Attribuer des rôles Azure AD dans PIM](pim-how-to-add-role-to-user.md)

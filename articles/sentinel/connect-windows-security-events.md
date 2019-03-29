@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 3c79747bf33e1769af5f8d3589904ba15105f216
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 90bff4cd98046a42fa31d98ff00e76d7fc9ac307
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58087599"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576086"
 ---
 # <a name="connect-windows-security-events"></a>Connecter les événements de sécurité Windows 
 
 > [!IMPORTANT]
-> Sentinel Azure est actuellement en version préliminaire publique.
+> Azure Sentinel est actuellement disponible en préversion publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Vous pouvez diffuser tous les événements de sécurité des serveurs Windows connectés à votre espace de travail Azure Sentinel. Cette connexion permet d’afficher des tableaux de bord, créer des alertes personnalisées et améliore l’examen. Cela vous donne plus d’informations sur le réseau de votre organisation et améliore vos capacités d’opération de sécurité.  Vous pouvez sélectionner les événements à diffuser en continu :
@@ -45,7 +45,7 @@ Pour intégrer complètement vos événements de sécurité Windows avec Azure S
 1. Dans le portail Azure Sentinel, sélectionnez **collecte des données** , puis cliquez sur le **les événements de sécurité Windows** vignette. 
 1. Sélectionnez les types de données que vous souhaitez diffuser.
 1. Cliquez sur **Update**.
-
+6. Pour utiliser le schéma pertinent dans Analytique de journal pour les événements de sécurité Windows, recherchez **SecurityEvent**.
 
 ## <a name="validate-connectivity"></a>Valider la connectivité
 
@@ -54,7 +54,7 @@ Il peut prendre environ 20 minutes jusqu'à ce que vos journaux commencent à ap
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce document, vous avez appris à connecter les événements de sécurité Windows à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, consultez les articles suivants :
+Dans ce document, vous avez appris à connecter les événements de sécurité Windows à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 - Découvrez comment [obtenez une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
 - Prise en main [détecter des menaces avec Azure Sentinel](tutorial-detect-threats.md).
 

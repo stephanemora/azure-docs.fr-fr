@@ -1,5 +1,5 @@
 ---
-title: Authentification multifacteur (MFA) et PIM - Azure | Microsoft Docs
+title: L’authentification multifacteur (MFA) et PIM - Azure Active Directory | Microsoft Docs
 description: Découvrez comment Azure AD Privileged Identity Management (PIM) valide l’authentification multifacteur (MFA).
 services: active-directory
 documentationcenter: ''
@@ -14,18 +14,18 @@ ms.date: 08/31/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a641f5be28e4750ba8d3d4f8b56802034aab2c5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8831a838a403d58d8673c6400e0dda06c03dc69f
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187251"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578796"
 ---
 # <a name="multi-factor-authentication-mfa-and-pim"></a>Authentification multifacteur (MFA) et PIM
 
 Nous vous recommandons d’exiger une authentification multifacteur (MFA) pour tous vos administrateurs. Cela réduit le risque d'attaque en raison d'un mot de passe compromis.
 
-Vous pouvez exiger que les utilisateurs se soumettent à une authentification MFA lors de leur connexion. Vous pouvez également exiger que les utilisateurs répondent à une demande d’authentification multifacteur (MFA) quand ils activent un rôle dans Azure AD Privileged Identity Management (PIM). De cette façon, si l'utilisateur n'a pas terminé une demande d'authentification MFA lors de sa connexion, il sera invité à le faire par PIM.
+Vous pouvez exiger que les utilisateurs se soumettent à une authentification MFA lors de leur connexion. Vous pouvez également exiger que les utilisateurs effectuent une authentification MFA lorsqu’ils activent un rôle dans Azure Active Directory (Azure AD) Privileged Identity Management (PIM). De cette façon, si l'utilisateur n'a pas terminé une demande d'authentification MFA lors de sa connexion, il sera invité à le faire par PIM.
 
 > [!IMPORTANT]
 > L’authentification multifacteur Azure ne fonctionne actuellement qu’avec des comptes professionnels ou scolaires et pas avec des comptes Microsoft (généralement un compte personnel utilisé pour se connecter à des services Microsoft tels que Skype, Xbox, Outlook.com, etc.). C’est pourquoi une personne disposant d’un compte Microsoft ne peut pas être un administrateur éligible car elle ne peut pas utiliser l’authentification multifacteur pour activer ses rôles. Si ces utilisateurs doivent continuer à gérer les charges de travail à l’aide d’un compte Microsoft, convertissez-les en administrateurs permanents pour l’instant.
@@ -40,5 +40,5 @@ Si les utilisateurs s’authentifient en local, vous pouvez également faire en 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Configurer les paramètres des rôles d’annuaire Azure AD dans PIM](pim-how-to-change-default-settings.md)
+- [Configurer les paramètres de rôle Azure AD dans PIM](pim-how-to-change-default-settings.md)
 - [Configurer les paramètres des rôles de ressources Azure dans PIM](pim-resource-roles-configure-role-settings.md)

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 7598bbc879351752580247e46bc986ee84fa0d56
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 2582b277238bbfbda29156c857e7bd91cf6fe059
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58497242"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579289"
 ---
 # <a name="add-a-shape-to-a-map"></a>Ajouter une forme à une carte
 
@@ -32,6 +32,16 @@ Le premier bloc de code ci-dessus construit un objet carte. Vous pouvez consulte
 Dans le deuxième bloc de code, un objet source de données est créé à l’aide de la classe [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest). Un objet [LineString](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.linestring?view=azure-iot-typescript-latest) est créé puis ajouté à la source de données.
 
 Un élément [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) restitue les objets ligne encapsulés dans l’élément [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest). Le dernier bloc de code crée une couche de lignes et l’ajoute à la carte. Consultez les propriétés d’une couche de lignes dans [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest). La source de données et la couche de lignes sont créées et ajoutées à la carte dans la fonction de [détecteur d’événements](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) pour garantir que la ligne s’affiche après le chargement complet de la carte.
+
+## <a name="add-symbols-along-a-line"></a>Ajoutez des symboles de long d’une ligne
+
+Cet exemple montre comment ajouter des icônes fléchées long d’une ligne sur la carte. Lors de l’utilisation une couche de symbole, l’option « emplacement » à « ligne », cela rend les symboles le long de la ligne et faire pivoter les icônes (0 degré = right).
+
+<br/>
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="Afficher la flèche située le long de la ligne" src="//codepen.io/azuremaps/embed/drBJwX/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Consultez le stylet <a href='https://codepen.io/azuremaps/pen/drBJwX/'>flèche afficher le long de la ligne</a> par Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
+</iframe>
 
 ## <a name="customize-a-line-layer"></a>Personnaliser une couche de lignes
 
@@ -84,6 +94,16 @@ Dans le deuxième bloc de code, un objet source de données est créé à l’ai
 Un élément [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) restitue les données encapsulées dans l’élément [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) sur la carte. Consultez les propriétés d’une couche de polygones dans [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest). Un élément [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) est un tableau de lignes. Consultez les propriétés d’une couche de lignes dans [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest). Le troisième bloc de code crée des couches de polygones et de lignes.
 
 Le dernier bloc de code ajoute les couches de polygones et de lignes à la carte. La source de données et les couches sont créées et ajoutées à la carte dans la fonction de [détecteur d’événements](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) pour garantir que le polygone s’affiche après le chargement complet de la carte.
+
+## <a name="fill-a-polygon-with-a-pattern"></a>Remplir un polygone avec un modèle
+
+Outre le remplissage d’un polygone avec une couleur d’un modèle d’image peut également servir. Charger un modèle d’image dans les ressources de sprite maps image, puis référencez cette image avec le `fillPattern` propriété de la couche de polygones.
+
+<br/>
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="Motif de remplissage de polygones" src="//codepen.io/azuremaps/embed/JzQpYX/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Consultez le stylet <a href='https://codepen.io/azuremaps/pen/JzQpYX/'>motif de remplissage de polygones</a> par Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
+</iframe>
 
 ## <a name="customize-a-polygon-layer"></a>Personnaliser une couche de polygones
 

@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/20/2019
+ms.date: 03/27/2019
 ms.author: juliako
-ms.openlocfilehash: 61ebebaf61d1cbbc72f3e12b5ff516924cc9b8c7
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: b951da73006731b38b265dc3a2f542e670f9fbf6
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317746"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621734"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Conseils de migration pour le passage de Media Services v2 à Media Services v3
 
@@ -79,12 +79,14 @@ Si vous avez un service vidéo développé aujourd’hui sur la base des [API h�
 Les API v3 présentent les différences de fonctionnalités suivantes par rapport aux API v2. Le gommage de ces différences est en cours.
 
 * L’[Encodeur Premium](../previous/media-services-premium-workflow-encoder-formats.md) et les [processeurs d’analytique multimédia](../previous/media-services-analytics-overview.md) hérités (indexeur Azure Media Services 2 en préversion, Face Redactor, etc.) ne sont pas accessibles via v3.<br/>Les clients qui souhaitent migrer à partir de l’indexeur multimédia 1 ou 2 en préversion peuvent utiliser immédiatement l’AudioAnalyzer prédéfini dans l’API v3.  Cet nouveau préréglage contient davantage de fonctionnalités que l’ancien indexeur multimédia 1 ou 2. 
-* La plupart des fonctionnalités avancées de Media Encoder Standard dans les API v2 ne sont actuellement pas disponibles dans v3, par exemple :
+* Un grand nombre de la [des fonctionnalités avancées du Media Encoder Standard dans v2](../previous/media-services-advanced-encoding-with-mes.md) API ne sont actuellement pas disponibles dans v3, telles que :
     * Découpage (pour les scénarios à la demande et en direct)
     * Combinaison de ressources
     * Superpositions
     * Rognage
     * Sprites de miniatures
+    * Insertion d’une piste audio en mode silencieux lorsque l’entrée n’a aucun audio
+    * Insertion d’une piste vidéo lorsque l’entrée ne comporte aucune vidéo
 * Les événements en direct avec transcodage ne gèrent actuellement pas l’insertion d’ardoise à mi-parcours ni l’insertion de marqueur publicitaire par le biais d’un appel d’API. 
 
 > [!NOTE]

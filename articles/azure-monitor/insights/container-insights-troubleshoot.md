@@ -11,18 +11,32 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/30/2018
+ms.date: 03/27/2018
 ms.author: magoedte
-ms.openlocfilehash: abf833cc054bfac0581506f75259e357f0ab1b38
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: db4b468c03d93b073067083f4fae1ec86c70dde8
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985748"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577038"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>Dépannage d’Azure Monitor for containers
 
 Lorsque vous configurez la surveillance de votre cluster Azure Kubernetes Service (AKS) avec Azure Monitor for containers, il se peut que vous rencontriez un problème empêchant la collecte de données ou la récupération de l’état. Cet article décrit en détail certains problèmes courants et indique la façon de les résoudre.
+
+## <a name="authorization-error-during-onboarding-or-update-operation"></a>Erreur d’autorisation durant une opération d’intégration ou de mise à jour
+Lors de l’activation d’Azure Monitor pour les conteneurs ou de la mise à jour d’un cluster pour prendre en charge la collecte des métriques, vous pouvez recevoir une erreur semblable à celui-ci - *le client < l’identité d’utilisateur >' avec l’objet '< Id_objet de l’utilisateur >' n’a pas autorisé à effectuer l’action « Microsoft.Authorization/roleAssignments/write » sur l’étendue*
+
+Pendant le processus d’intégration ou de mise à jour, l’octroi du **surveillance du serveur de publication métriques** tentative d’attribution de rôle sur la ressource de cluster. L’utilisateur qui démarre le processus pour activer Azure Monitor pour les conteneurs ou de la mise à jour prendre en charge de la collection de mesures doit avoir accès à la **Microsoft.Authorization/roleAssignments/write** autorisation sur le cluster AKS portée de la ressource. Seuls les membres de la **propriétaire** et **administrateur des accès utilisateur** rôles intégrés autorisés à accéder à cette autorisation. Si vos stratégies de sécurité nécessitent l’attribution d’autorisations au niveau granulaires, nous vous recommandons de vous afficher [des rôles personnalisés](../../role-based-access-control/custom-roles.md) et l’affecter aux utilisateurs qui en ont besoin. 
+
+Vous pouvez accorder également manuellement ce rôle à partir du portail Azure en effectuant les étapes suivantes :
+
+1. Connectez-vous au [Portail Azure](https://portal.azure.com). 
+2. Dans le portail Azure, cliquez sur **Tous les services** en haut à gauche. Dans la liste des ressources, tapez **Kubernetes**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Kubernetes Azure**.
+3. Dans la liste des clusters Kubernetes, sélectionnez-en un dans la liste.
+2. Dans le menu de gauche, cliquez sur **contrôle d’accès (IAM)**.
+3. Sélectionnez **+ ajouter** pour ajouter une attribution de rôle, puis sélectionnez le **surveillance du serveur de publication métriques** rôle puis, sous la **sélectionnez** zone, tapez **AKS** à filtre les résultats sur simplement les clusters de service principaux définis dans l’abonnement. Sélectionnez le certificat dans la liste qui est spécifique à ce cluster.
+4. Sélectionnez **Enregistrer** pour finaliser l’attribution du rôle. 
 
 ## <a name="azure-monitor-for-containers-is-enabled-but-not-reporting-any-information"></a>Azure Monitor for containers est activé, mais aucune information n’est renvoyée
 Si Azure Monitor pour les conteneurs est correctement configurée et activée, mais vous ne pouvez pas afficher les informations d’état ou sans résultats sont retournés à partir d’une requête de journal, vous diagnostiquez le problème en procédant comme suit : 

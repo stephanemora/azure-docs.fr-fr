@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: ec35e383a182cf783c253b9242e6abb73e39385d
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 9e910fb3bc75c285986871627d875296f1a2a746
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361096"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577320"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Voici comment Azure Machine Learning service fonctionne : Architecture et concepts
 
@@ -46,11 +46,13 @@ L’espace de travail conserve une liste de cibles de calcul que vous pouvez uti
 
 Vous inscrivez les modèles dans l’espace de travail. Vous utilisez un modèle inscrit et des scripts de scoring pour créer une image. Vous pouvez alors déployer l’image dans Azure Container Instances, Azure Kubernetes Service ou dans un tableau FPGA, comme point de terminaison HTTP basé sur REST. Vous pouvez également déployer l’image en tant que module sur un appareil Azure IoT Edge.
 
-Vous pouvez créer plusieurs espaces de travail, et chacun d’eux peut être partagé par plusieurs personnes. Lorsque vous partagez un espace de travail, vous pouvez contrôler l’accès à celui-ci en attribuant les rôles suivants aux utilisateurs :
+Vous pouvez créer plusieurs espaces de travail, et chacun d’eux peut être partagé par plusieurs personnes. Lorsque vous partagez un espace de travail, vous pouvez contrôler l’accès à ce dernier en assignant des utilisateurs aux rôles suivants :
 
 * Propriétaire
 * Contributeur
 * Lecteur
+
+Pour plus d’informations sur ces rôles, consultez le [gérer l’accès à un espace de travail Azure Machine Learning](how-to-assign-roles.md) article.
 
 Lorsque vous créez un nouvel espace de travail, celui-ci crée automatiquement plusieurs ressources Azure qui sont utilisées par l’espace de travail :
 

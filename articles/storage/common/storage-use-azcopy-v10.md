@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/24/2019
 ms.author: artemuwka
 ms.subservice: common
-ms.openlocfilehash: ffc4a0c57681e877250c7be82f5160174178892a
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: ad3e96af95d952956af02acfd87d6d317bc29ed0
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486017"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574975"
 ---
 # <a name="transfer-data-with-azcopy-v10-preview"></a>Transfert de données avec AzCopy v10 (version préliminaire)
 
@@ -175,7 +175,7 @@ La commande de synchronisation synchronise le contenu d’un répertoire source 
 
 > [!NOTE] 
 > Utilisez le `--delete-destination` indicateur avec précaution. Activer la [suppression réversible](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) fonctionnalité avant d’activer le comportement de suppression synchronisés pour empêcher les suppressions accidentelles dans votre compte. 
-
+>
 > Lorsque `--delete-destination` est défini sur true, AzCopy supprimera les fichiers qui n’existent pas dans la source à partir de destination sans invitation à l’utilisateur. Si vous souhaitez être invité à confirmer l’opération, utilisez `--delete-destination=prompt`.
 
 Pour synchroniser votre système de fichiers local vers un compte de stockage, utilisez la commande suivante :

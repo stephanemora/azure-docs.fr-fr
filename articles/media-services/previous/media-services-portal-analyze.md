@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 7a303b9d27b3708bd4f59517452fa232cc38c923
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: d3917f65d8be08d6355013393f6c6675ea6c7fc5
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259684"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58619439"
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>Analyser vos éléments multimédia à l’aide du portail Azure 
 > [!NOTE]
@@ -73,11 +73,6 @@ Nom convivial qui vous permet d’identifier le travail. [Cet](media-services-po
 
 ### <a name="output-file"></a>Fichier de sortie
 Nom convivial qui vous permet d’identifier le contenu en sortie. 
-
-## <a name="azure-media-hyperlapse"></a>Azure Media Hyperlapse
-Azure Media Hyperlapse est un processeur multimédia qui crée des vidéos exceptionnelles image par image accélérées (time-lapse) à partir d’un contenu de caméra à la première personne (first-person camera) ou d’action.  Pour plus d’informations, consultez [cette rubrique](media-services-hyperlapse-content.md) . Cette section fournit des détails sur les options que vous spécifiez pour ce processeur multimédia.
-
-![Analyser des vidéos](./media/media-services-portal-analyze/media-services-portal-analyze004.png)
 
 ### <a name="speed"></a>Vitesse
 Indique la vitesse d’accélération de la vidéo d’entrée. La sortie est un rendu stabilisé et accéléré de l'entrée vidéo.

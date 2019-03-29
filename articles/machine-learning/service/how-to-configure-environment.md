@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1d4144a2a6cf41d594ee096d8802ccc5b29009a5
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: c4bdeb4e00a59d6ba2b415801c0689d77ed9a825
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361793"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577558"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurer un environnement de développement pour Azure Machine Learning
 
@@ -315,7 +315,9 @@ Une fois que le cluster est en cours d’exécution, [créer une bibliothèque](
    1. Sous l’onglet **Bibliothèques**, sélectionnez **Redémarrer**.
       
    Tenez également compte :
-   + Certains packages, tels que `psutil`, peut provoquer des conflits de Databricks pendant l’installation. Pour éviter ces erreurs, installer des packages par version de lib gel des plans, tel que `pstuil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0`. 
+   + Dans la configuration de Automl, lorsque vous utilisez Azure Databricks ajoutez les paramètres suivants :
+    1. ```max_concurrent_iterations``` selon le nombre de nœuds de travail dans votre cluster. 
+    2. ```spark_context=sc``` contexte de spark #databricks/spark par défaut. 
    + Ou, si vous avez une ancienne version du Kit de développement logiciel, désactivez l’option de bibliothèques installées du cluster et déplacer vers la Corbeille. Installez la nouvelle version du SDK et redémarrez le cluster. En cas de problème après cette opération, détachez et rattachez votre cluster.
 
 Si l’installation a réussi, la bibliothèque importée doit ressembler à un d’eux :

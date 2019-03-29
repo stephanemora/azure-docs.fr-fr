@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
-ms.openlocfilehash: 1e4582d93d1e3380ecdabdb241f27839d4da4565
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: dc37404e45e4efd0697b0f3b19c4927813ab56fa
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541856"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576193"
 ---
 # <a name="security-recommendations"></a>Recommandations de sécurité
 
@@ -27,12 +27,13 @@ ms.locfileid: "58541856"
 > ASC pour IoT est actuellement en version préliminaire publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-En fonction de l’analyse en cours de la solution, ASC pour IoT fournit les recommandations suivantes si nécessaire pour aider à améliorer et protéger vos appareils, un état opérationnel et un environnement global de IoT Hub. 
+ASC pour IoT analyse vos ressources Azure et les appareils IoT et fournit des recommandations de sécurité pour réduire la surface d’attaque. Recommandations de sécurité sont exploitables et visent à aider les clients de se conformer aux meilleures pratiques de sécurité.
 
+Dans cet article, vous trouverez une liste de recommandations qui peut être déclenché sur votre IoT Hub et/ou des appareils IoT.
 
-## <a name="device-recommendations"></a>Recommandations de l’appareil
+## <a name="recommendations-for-iot-devices"></a>Recommandations pour les appareils IoT
 
-Recommandations de périphérique offrent des analyses et des suggestions pour améliorer la sécurité de l’appareil et de comportement. 
+Recommandations de périphérique offrent des analyses et des suggestions pour améliorer la posture de sécurité de périphérique. 
 
 | Severity | Nom                                                      | source de données | Description                                                                                                                                                                                           |
 |----------|-----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -42,9 +43,9 @@ Recommandations de périphérique offrent des analyses et des suggestions pour a
 | Moyenne   | Règle de pare-feu permissifs dans la chaîne de sortie a été trouvé    | Agent       | Une règle dans le pare-feu a été trouvée qui contient un modèle permissif pour un large éventail d’adresses IP ou des ports.                                                                                   |
 | Moyenne   | Validation de ligne de base système l’opération a échoué.           | Agent       | N’est pas conforme avec [benchmarks CIS Linux](https://www.cisecurity.org/cis-benchmarks/)                                                                                                         |
 
-### <a name="operational-recommendation"></a>Recommandation opérationnelle
+### <a name="operational-recommendations-for-iot-devices"></a>Recommandations opérationnelles concernant les appareils IoT
 
-Recommandations opérationnelles offrent des analyses et des suggestions pour améliorer la configuration de l’agent.
+Recommandations opérationnelles offrent des analyses et des suggestions pour améliorer la configuration de l’agent de sécurité.
 
 | Severity | Nom                                    | source de données | Description                                                                       |
 |----------|-----------------------------------------|-------------|-----------------------------------------------------------------------------------|
@@ -53,7 +54,7 @@ Recommandations opérationnelles offrent des analyses et des suggestions pour am
 | Faible      | Conflit de configuration de représentations de sécurité    | Agent       | Conflits ont été identifiés dans la configuration de représentations de sécurité.                           |
 
 
-## <a name="iot-hub-recommendations"></a>Recommandations de IoT Hub
+## <a name="recommendations-for-iot-hub"></a>Recommandations pour IoT Hub
 
 Les alertes de recommandation fournissent un aperçu et les suggestions d’actions à améliorer la sécurité de votre environnement.  
 

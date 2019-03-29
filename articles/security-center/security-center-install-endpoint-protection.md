@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
+ms.date: 03/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 6d9c5b080c491d3a6f35f591c69d4c39989b22a8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4ed0be3178f9d5d014e9e50c11d555b586ced765
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58099795"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579323"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Gérer les problèmes de protection du point de terminaison avec Azure Security Center
 Azure Security Center surveille l’état de protection des logiciels anti-programme malveillant et l’indique dans le panneau Endpoint protection issues (Problèmes de protection du point de terminaison). Security Center met en évidence les problèmes, tels que les menaces détectées et une protection insuffisante, qui peuvent rendre vos machines virtuelles et ordinateurs vulnérables aux menaces des logiciels anti-programme malveillant. En utilisant les informations dans **Endpoint protection issues** (Problèmes de protection du point de terminaison), vous pouvez déterminer un plan pour résoudre les problèmes identifiés.
@@ -31,12 +31,12 @@ Security Center signale les problèmes de protection du point de terminaison sui
 - Intégrité de la protection du point de terminaison :
 
   - Signature obsolète : une solution anti-programme malveillant est installée sur ces machines virtuelles et ordinateurs, mais elle ne dispose pas des dernières signatures de logiciels anti-programme malveillant.
-  - Pas de protection en temps réel : une solution anti-programme malveillant est installée sur ces machines virtuelles et ordinateurs, mais elle n’est pas configurée pour la protection en temps réel.   Le service peut être désactivé ou Security Center peut ne pas être en mesure d’obtenir l’état, car la solution n’est pas prise en charge. Consultez [Intégration des partenaires dans Azure Security Center](security-center-partner-integration.md) pour obtenir la liste de solutions prises en charge.
+  - Pas de protection en temps réel : une solution anti-programme malveillant est installée sur ces machines virtuelles et ordinateurs, mais elle n’est pas configurée pour la protection en temps réel.   Le service peut être désactivé ou Security Center peut ne pas être en mesure d’obtenir l’état, car la solution n’est pas prise en charge. Consultez [Intégration des partenaires dans Azure Security Center](security-center-os-coverage.md#supported-endpoint-protection-solutions) pour obtenir la liste de solutions prises en charge.
   - Pas de rapport : une solution anti-programme malveillant est installée, mais ne crée pas de rapport de données.
   - Inconnu : une solution anti-programme malveillant est installée, mais son état est inconnu ou signale une erreur inconnue.
 
     > [!NOTE]
-    > Consultez [Intégrer des solutions de sécurité](security-center-partner-integration.md#integrated-azure-security-solutions) pour obtenir la liste des solutions de sécurité de protection de point de terminaison intégrées à Security Center.
+    > Consultez [Intégrer des solutions de sécurité](security-center-os-coverage.md#supported-endpoint-protection-solutions) pour obtenir la liste des solutions de sécurité de protection de point de terminaison intégrées à Security Center.
     >
     >
 

@@ -7,24 +7,29 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 03/08/2019
+ms.date: 03/22/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: b97c84a7a5d7732c8c895fd3074734762e5e040c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 8a6023c87dd1d68ab76c5c2342cb825e63d2b336
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780403"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620638"
 ---
 # <a name="service-limits-in-azure-search"></a>Limites de service d’Azure Search
-Les limites maximales du stockage, des charges de travail et des quantités d’index, de documents et autres objets varient selon que vous [provisionnez le service Recherche Azure](search-create-service-portal.md) avec les niveaux tarifaires **Gratuit**, **De base** ou **Standard**.
+Limites maximales de stockage, les charges de travail et les quantités d’index, de documents et autres objets varient selon que vous [recherche Azure](search-create-service-portal.md) à **gratuit**, **base**,  **Standard**, ou **stockage optimisé** niveaux tarifaires.
 
 + **Gratuit** est un service partagé multi-locataire qui est fourni avec votre abonnement Azure.
 
 + Le niveau **De base** fournit des ressources informatiques dédiées aux charges de production à petite échelle.
 
 + Le niveau **Standard** est exécuté sur des ordinateurs dédiés, avec une capacité de stockage et de traitement beaucoup plus grande, et ce, à chaque niveau. Le niveau Standard se décompose en quatre catégories : S1, S2, S3 et S3 HD.
+
++ **Stockage optimisé** s’exécute sur des ordinateurs dédiés avec plus de stockage total, de la bande passante de stockage et de mémoire que **Standard**. Stockage optimisé est disponible en deux niveaux : L1 et L2
+
+> [!NOTE]
+> Les niveaux de service de stockage optimisé sont actuellement disponibles en version préliminaire au tarif réduit à des fins de test et d’expérimentation dans le but de recueillir des commentaires. Le prix final sera annoncé ultérieurement lorsque ces niveaux sont généralement disponibles. Nous vous déconseillons l’utilisation de ces niveaux pour les applications de production.
 
   La catégorie S3 HD (S3 High Density) est conçue pour des charges de travail spécifiques : [une architecture multilocataire](search-modeling-multitenant-saas-applications.md) et de grandes quantités de petits index (un million de documents par index, trois mille index par service). Elle ne fournit pas la [fonctionnalité d’indexeur](search-indexer-overview.md). Dans S3 HD, l’ingestion des données doit tirer parti de l’approche push en appelant des API pour envoyer (push) les données de la source vers l’index. 
 
@@ -42,13 +47,13 @@ Les limites maximales du stockage, des charges de travail et des quantités d’
 
 ## <a name="index-limits"></a>Limites d’index
 
-| Ressource | Gratuit | De base&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD |
-| -------- | ---- | ------------------- | --- | --- | --- | --- |
-| Nombre maximal d’index |3 |5 ou 15 |50 |200 |200 |1 000 par partition ou 3 000 par service |
-| Nombre maximal de champs par index |1 000 |100 |1 000 |1 000 |1 000 |1 000 |
-| Nombre maximal de [générateurs de suggestions](https://docs.microsoft.com/rest/api/searchservice/suggesters) par index |1 |1 |1 |1 |1 |1 |
-| Nombre maximal de [profils de score](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) par index |100 |100 |100 |100 |100 |100 |
-| Nombre maximal de fonctions par profil |8 |8 |8 |8 |8 |8 |
+| Ressource | Gratuit | De base&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
+| -------- | ---- | ------------------- | --- | --- | --- | --- | --- | --- |
+| Nombre maximal d’index |3 |5 ou 15 |50 |200 |200 |1 000 par partition ou 3 000 par service |10 |10 |
+| Nombre maximal de champs par index |1 000 |100 |1 000 |1 000 |1 000 |1 000 |1 000 |1 000 |
+| Nombre maximal de [générateurs de suggestions](https://docs.microsoft.com/rest/api/searchservice/suggesters) par index |1 |1 |1 |1 |1 |1 |1 |1 |
+| Nombre maximal de [profils de score](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) par index |100 |100 |100 |100 |100 |100 |100 |100 |
+| Nombre maximal de fonctions par profil |8 |8 |8 |8 |8 |8 |8 |8 |
 
 <sup>1</sup> La limite des services De base créés après fin 2017 a augmenté et atteint 15 index, sources de données et indexeurs. Celle des services créés avant est à 5. Le niveau De base est la seule référence soumise à une limite inférieure de 100 champs par index.
 
@@ -98,16 +103,16 @@ La limite des services De base créés après 2017 a augmenté pour atteindre 15
 
 Les opérations gourmandes en ressources, comme l’analyse d’image dans l’indexation des objets blob Azure ou le traitement en langage naturel dans la recherche cognitive, ont des durées maximales d’exécution plus courtes, afin de permettre la prise en charge des autres travaux d’indexation. Si un travail d’indexation ne peut pas être terminé dans le délai maximal autorisé, essayez de l’exécuter selon une planification. Le planificateur effectue le suivi de l’état de l’indexation. Si une tâche d’indexation planifiée est interrompue pour une raison quelconque, à la prochaine exécution planifiée, l’indexeur peut repartir de là où il s’était arrêté.
 
-| Ressource | Gratuit&nbsp;<sup>1</sup> | De base&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|
-| -------- | ----------------- | ----------------- | --- | --- | --- | --- |
-| Nombre maximal d’indexeurs |3 |5 ou 15|50 |200 |200 |N/A |
-| Nombre maximal de sources de données |3 |5 ou 15 |50 |200 |200 |S.O. |
-| Compétences maximales <sup>4</sup> |3 |5 ou 15 |50 |200 |200 |N/A |
-| Charge d’indexation maximale par appel |10 000 documents |Limité uniquement par le nombre maximal de documents |Limité uniquement par le nombre maximal de documents |Limité uniquement par le nombre maximal de documents |Limité uniquement par le nombre maximal de documents |S.O. |
-| Durée maximale d’exécution <sup>5</sup> | 1-3 minutes |24 heures |24 heures |24 heures |24 heures |S.O.  |
-| Valeur maximale pour l’exécution de recherches cognitives ou de l’indexation d’objets blob avec analyse d’images <sup>5</sup> | 3-10 minutes |2 heures |2 heures |2 heures |2 heures |S.O.  |
-| Indexeur d’objets blob : taille maximale des objets blob, en Mo |16 |16 |128 |256 |256 |N/A  |
-| Indexeur d’objets blob : nombre maximal de caractères du contenu extrait d’un objet blob |32 000 |64 000 |4 millions |4 millions |4 millions |N/A |
+| Ressource | Gratuit&nbsp;<sup>1</sup> | De base&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |L2 |
+| -------- | ----------------- | ----------------- | --- | --- | --- | --- | --- | --- |
+| Nombre maximal d’indexeurs |3 |5 ou 15|50 |200 |200 |S.O. |10 |10 |
+| Nombre maximal de sources de données |3 |5 ou 15 |50 |200 |200 |S.O. |10 |10 |
+| Compétences maximales <sup>4</sup> |3 |5 ou 15 |50 |200 |200 |S.O. |10 |10 |
+| Charge d’indexation maximale par appel |10 000 documents |Limité uniquement par le nombre maximal de documents |Limité uniquement par le nombre maximal de documents |Limité uniquement par le nombre maximal de documents |Limité uniquement par le nombre maximal de documents |S.O. |Aucune limite |Aucune limite |
+| Durée maximale d’exécution <sup>5</sup> | 1-3 minutes |24 heures |24 heures |24 heures |24 heures |S.O.  |24 heures |24 heures |
+| Valeur maximale pour l’exécution de recherches cognitives ou de l’indexation d’objets blob avec analyse d’images <sup>5</sup> | 3-10 minutes |2 heures |2 heures |2 heures |2 heures |S.O.  |2 heures |2 heures |
+| Indexeur d’objets blob : taille maximale des objets blob, en Mo |16 |16 |128 |256 |256 |S.O.  |256 |256 |
+| Indexeur d’objets blob : nombre maximal de caractères du contenu extrait d’un objet blob |32 000 |64 000 |4 millions |4 millions |4 millions |S.O. |4 millions |4 millions |
 
 <sup>1</sup> Les services du niveau Gratuit bénéficient d’une durée d’exécution maximale de l’indexeur de 3 minutes pour les sources d’objets blob, et de 1 minute pour toutes les autres sources de données.
 
@@ -124,6 +129,8 @@ Les opérations gourmandes en ressources, comme l’analyse d’image dans l’i
 Les estimations du nombre de requêtes par seconde doivent être développées indépendamment par chaque client. La taille et la complexité des index et des requêtes ainsi que la quantité de trafic sont les principaux facteurs qui déterminent le nombre de requêtes par seconde. Si ces facteurs sont inconnus, il est impossible d’établir des estimations significatives.
 
 Les estimations sont plus prévisibles si elles sont calculées sur des services qui s’exécutent sur des ressources dédiées (niveaux De base et Standard). Vous pouvez mieux estimer les requêtes par seconde, car vous contrôlez davantage de paramètres. Pour obtenir de l’aide sur la manière d’aborder les estimations, consultez [Performances et optimisation de Recherche Azure](search-performance-optimization.md).
+
+Pour les niveaux de stockage optimisé, attendez-vous à une plus faible débit des requêtes et une latence plus élevée que les niveaux Standard.  La méthodologie pour estimer les performances de requête que vous risquez de rencontrer est le même que les niveaux Standard.
 
 ## <a name="data-limits-cognitive-search"></a>Limites de données (recherche cognitive)
 

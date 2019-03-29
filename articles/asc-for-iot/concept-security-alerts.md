@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
-ms.openlocfilehash: f39fee9b59dfec643a640a4e17460ed9199c858f
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 23af0d9e2d7c4033a2457676b29b5e4b2f8c15ea
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58542066"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579442"
 ---
 # <a name="asc-for-iot-security-alerts"></a>ASC pour les alertes de sécurité IoT
 
@@ -27,8 +27,15 @@ ms.locfileid: "58542066"
 > ASC pour IoT est actuellement en version préliminaire publique.
 > Cette version préliminaire est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+ASC pour IoT analyse continuellement votre solution IoT à l’aide des fonctionnalités d’intelligence analytique et les menaces avancées pour vous avertir des activités malveillantes.
+En outre, vous pouvez créer des alertes personnalisées en fonction de votre connaissance du comportement attendu d’appareil.
+Une alerte agit comme un indicateur de comprise et doit-elle être examinée et mis à jour.
 
-## <a name="device-alerts"></a>Alertes de l’appareil
+Dans cet article, vous trouverez une liste d’alertes intégrées qui peut être déclenché sur votre IoT Hub et/ou des appareils IoT.
+En regard de l’alerte intégré, ASC pour IoT permet de définir des alertes personnalisées basées sur Hub attendu et/ou le comportement de l’appareil.
+Pour plus d’informations, consultez [créer des alertes personnalisées](quickstart-create-custom-alerts.md).
+
+## <a name="built-in-alerts-for-iot-devices"></a>Alertes intégrées pour les appareils IoT
 
 | Severity | Nom                                                   | source de données | Description                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 |----------|--------------------------------------------------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -72,7 +79,7 @@ ms.locfileid: "58542066"
 | Faible      | Historique de Bash désactivée                                   | Agent       | Journal d’historique des Bash est désactivée. Les pirates peuvent masquer leurs propres commandes de s’affichent dans les journaux                                                                                                                                                                                                                                                                                                                                                   |
 | Faible      | Échec de la force brute                                      | Agent       | Plusieurs tentatives de connexion infructueuses identifiés. Attaque par force une tentative et le brute ayant échoué a été effectuée sur l’appareil.                                                                                                                                                                                                                                                                                                                                                  |
 
-## <a name="iot-hub-alerts"></a>Alertes de IoT Hub
+## <a name="built-in-alerts-for-iot-hub"></a>Alertes intégrées pour IoT Hub
 
 | Severity | Nom                                                                         | Description                                                                                                                                                                                                                                                                                                                            |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -88,4 +95,4 @@ ms.locfileid: "58542066"
 
 - [Vue d'ensemble](overview.md)
 - [Accéder à vos données de sécurité](how-to-security-data-access.md)
-- [Examiner un appareil](tutorial-investigate-device.md)
+- [Examiner un appareil](how-to-investigate-device.md)

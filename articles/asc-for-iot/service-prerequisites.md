@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 213e6a95484b5f6953f8423474953125f8739015
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 0188dace0e666d4abfe31ac1c6c14d63c947c566
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541826"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574742"
 ---
 # <a name="asc-for-iot-prerequisites"></a>ASC configuration requise pour l’IoT
 
@@ -59,7 +59,7 @@ Vérifiez l’emplacement de votre IoT Hub pour vérifier la disponibilité du s
 
 ## <a name="supported-platforms-for-agents"></a>Plateformes prises en charge pour les agents 
 
-ASC pour les agents de IoT prend en charge une liste croissante de périphériques et plates-formes. Consultez le [pris en charge de la liste des plateformes](select-deploy-agent.md) pour vérifier votre bibliothèque de périphériques existant ou planifié.  
+ASC pour les agents de IoT prend en charge une liste croissante de périphériques et plates-formes. Consultez le [pris en charge de la liste des plateformes](how-to-deploy-agent.md) pour vérifier votre bibliothèque de périphériques existant ou planifié.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Vue d'ensemble](overview.md)

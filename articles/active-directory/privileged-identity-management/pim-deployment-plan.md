@@ -1,5 +1,5 @@
 ---
-title: Déployer Azure AD Privileged Identity Management (PIM) | Microsoft Docs
+title: Déployer Privileged Identity Management (PIM) - Azure Active Directory | Microsoft Docs
 description: Décrit comment planifier le déploiement d’Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.date: 02/08/2019
 ms.author: rolyon
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05bf125d629ffef01a645dc407c341a984805520
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 1755d627473b0ae47bbc4bc74a3f0d2210e5372b
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227029"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578192"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Déployer Azure AD Privileged Identity Management (PIM)
 
-Ce guide pas à pas décrit comment planifier le déploiement d’Azure AD Privileged Identity Management (PIM) dans votre organisation.
+Ce guide pas à pas décrit comment planifier le déploiement d’Azure Active Directory (Azure AD) Privileged Identity Management (PIM) dans votre organisation.
 
 > [!TIP]
 > Tout au long de ce document, vous verrez des éléments marqués comme :
@@ -79,7 +79,7 @@ Pour plus d’informations, consultez [Qu’est-ce qu’Azure AD Privileged Iden
 
 ### <a name="roles-that-can-be-managed-by-pim"></a>Rôles qui peuvent être gérés par PIM
 
-**Rôles Azure AD** : Ces rôles correspondent à tous les rôles d’annuaire dans Azure Active Directory (par exemple, Administrateur général, Administrateur Exchange et Administrateur de la sécurité). Vous trouverez plus d’informations sur les rôles et leurs fonctionnalités dans [Autorisations des rôles d’administrateur dans Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md). Afin d’obtenir de l’aide pour déterminer les rôles à affecter à vos administrateurs, consultez [Rôles moins privilégiés par tâche](../users-groups-roles/roles-delegate-by-task.md).
+**Rôles d’Azure AD** – ces rôles se trouvent toutes dans Azure Active Directory (par exemple, l’administrateur général, administrateur Exchange et administrateur de sécurité). Vous trouverez plus d’informations sur les rôles et leurs fonctionnalités dans [Autorisations des rôles d’administrateur dans Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md). Afin d’obtenir de l’aide pour déterminer les rôles à affecter à vos administrateurs, consultez [Rôles moins privilégiés par tâche](../users-groups-roles/roles-delegate-by-task.md).
 
 **Rôles de ressources Azure** : Ces rôles sont liés à une ressource Azure, un groupe de ressources, un abonnement ou un groupe d’administration. PIM fournit un accès juste-à-temps à la fois aux rôles intégrés comme Propriétaire, Administrateur de l’accès utilisateur et Contributeur, et aux [rôles personnalisés](../../role-based-access-control/custom-roles.md). Pour plus d’informations sur les rôles de ressources Azure, consultez [Contrôle d’accès en fonction du rôle (RBAC)](../../role-based-access-control/overview.md).
 
@@ -294,7 +294,7 @@ Maintenant que vous avez identifié les utilisateurs de test, utilisez cette ét
 
 #### <a name="configure-pim-for-azure-ad-roles"></a>Configurer PIM pour les rôles Azure AD
 
-1. [Configurez les paramètres de rôle d’annuaire Azure AD](pim-how-to-change-default-settings.md) selon ce que vous avez planifié.
+1. [Configurer les paramètres de rôle Azure AD](pim-how-to-change-default-settings.md) selon ce que vous prévu.
 
 1. Accédez à **Rôles Azure AD**, cliquez sur **Rôles**, puis sélectionnez le rôle que vous venez de configurer.
 

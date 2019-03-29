@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 39284805d9b9b5c10f5e211dc7d4c461d15cc6bc
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a0459eb67b5a79219e556cb03473a5ddf691b49d
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763535"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577014"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Ajout de mise en cache pour améliorer les performances dans Gestion des API Azure
 
 Les opérations dans Gestion des API Azure peuvent être configurées pour mettre en cache la réponse. La mise en cache de la réponse peut réduire de façon importante la latence de l'API, la consommation de bande passante et la charge du service web pour les données qui ne changent pas fréquemment.
- 
+
 Pour plus d’informations sur la mise en cache, consultez [Stratégies de mise en cache dans Gestion des API](api-management-caching-policies.md) et [Mise en cache personnalisée dans Gestion des API Azure](api-management-sample-cache-by-key.md).
 
 ![stratégies de cache](media/api-management-howto-cache/cache-policies.png)
@@ -59,7 +59,7 @@ Avec les stratégies de mise en cache montrées dans cet exemple, la première r
 6. Sélectionnez l’onglet **Conception** en haut de l’écran.
 7. Dans la section **Traitement entrant**, cliquez sur l’icône **</>**.
 
-    ![éditeur de code](media/api-management-howto-cache/code-editor.png) 
+    ![éditeur de code](media/api-management-howto-cache/code-editor.png)
 
 8. Dans l’élément **entrant**, ajoutez la stratégie suivante :
 
@@ -76,7 +76,7 @@ Avec les stratégies de mise en cache montrées dans cet exemple, la première r
     **Durée** spécifie l'intervalle d'expiration des réponses mises en cache. Dans cet exemple, l’intervalle est de **20** secondes.
 
 > [!TIP]
-> Si vous utilisez un cache externe, comme décrit dans [Utiliser un Cache Azure pour Redis externe dans Gestion des API Azure](api-management-howto-cache-external.md), vous souhaiterez peut-être spécifier l’attribut `cache-preference` des stratégies de mise en cache. Consultez [Stratégies de mise en cache de Gestion des API](api-management-caching-policies.md) pour plus d’informations.
+> Si vous utilisez un cache externe, comme décrit dans [Utiliser un Cache Azure pour Redis externe dans Gestion des API Azure](api-management-howto-cache-external.md), vous souhaiterez peut-être spécifier l’attribut `caching-type` des stratégies de mise en cache. Consultez [Stratégies de mise en cache de Gestion des API](api-management-caching-policies.md) pour plus d’informations.
 
 ## <a name="test-operation"></a>Appel d’une opération et test de la mise en cache
 Pour voir la mise en cache en action, appelez l'opération depuis le portail des développeurs.

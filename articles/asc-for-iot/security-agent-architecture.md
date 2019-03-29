@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 7c8f256cf91a479c45f21b933efdb6a5e0212796
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 7de4307f7eef95a637dc828ac1738bd0ed39c7c7
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541871"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578456"
 ---
 # <a name="security-agent-reference-architecture"></a>Architecture de référence de l’agent de sécurité
 
@@ -32,15 +32,15 @@ ASC pour IoT fournit une architecture de référence pour les agents de sécurit
 
 Agents de sécurité sont conçus pour fonctionner dans un environnement restreint de IoT et sont hautement personnalisables en termes de valeurs qu’ils fournissent par rapport aux ressources qu’ils utilisent.
 
-Agents de sécurité prennent en charge les fonctionnalités de solution IoT suivantes :
+Agents de sécurité prennent en charge les fonctionnalités suivantes :
 
-- Collecter les événements de sécurité brute du système d’exploitation sous-jacent (Linux, Windows). Pour en savoir plus sur les collecteurs de données de sécurité disponibles, consultez [ASC pour configurer l’agent IoT](concept-agent-configuration.md).
+- Collecter les événements de sécurité brute à partir du système d’exploitation sous-jacent (Linux, Windows). Pour en savoir plus sur les collecteurs de données de sécurité disponibles, consultez [ASC pour configurer l’agent IoT](how-to-agent-configuration.md).
 
 - Regrouper les événements de sécurité brute dans les messages envoyés via IoT hub.
 
 - S’authentifier avec l’identité d’appareil existant, ou une identité de module dédié. Consultez [méthodes d’authentification de l’agent de sécurité](concept-security-agent-authentication-methods.md) pour en savoir plus.
 
-- Configurer à distance à l’aide de la **ascforiot** jumeau de module. Pour plus d’informations, consultez [configurer un ASC pour l’agent IoT](concept-agent-configuration.md).
+- Configurer à distance à l’aide de la **azureiotsecurity** jumeau de module. Pour plus d’informations, consultez [configurer un ASC pour l’agent IoT](how-to-agent-configuration.md).
 
 ASC pour les agents de sécurité IoT sont développées en tant que projets open source et sont disponible à partir de GitHub : 
 
@@ -62,10 +62,8 @@ Dans cet article, vous avez appris à ASC pour l’architecture de l’agent de 
 
 Pour continuer la mise en route avec ASC pour un déploiement IoT, utilisez les articles suivants :
 
-
+- Comprendre [méthodes d’authentification de l’agent de sécurité](concept-security-agent-authentication-methods.md)
+- Sélectionner et de déployer un [agent de sécurité](how-to-deploy-agent.md)
 - Passez en revue l’ASC pour IoT [conditions préalables de Service](service-prerequisites.md)
 - Découvrez comment [activer l’ASC pour le service IoT dans votre IoT Hub](quickstart-onboard-iot-hub.md)
-- Utiliser le démarrage rapide pour [configurer votre solution](quickstart-configure-your-solution.md)
-- Comprendre [méthodes d’authentification de l’agent de sécurité](concept-security-agent-authentication-methods.md)
-- Sélectionner et de déployer un [agent de sécurité](select-deploy-agent.md)
 - En savoir plus sur le service à partir de la [ASC pour IoT FAQ](resources-frequently-asked-questions.md)
