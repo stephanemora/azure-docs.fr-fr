@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: f09d18759478c6c07aa0aea82f8bd1707595aa63
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: ea5a6a70372571daf82e7639fc31c125d69fa44f
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499078"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621428"
 ---
 # <a name="azure-media-services-release-notes"></a>Notes de publication d'Azure Media Services
 
@@ -42,13 +42,12 @@ Nous souhaitons connaître vos impressions afin de pouvoir nous consacrer à la 
 | Certains clients peuvent rencontrer un problème de répétition de balise dans le manifeste de diffusion en continu lisse. |Pour plus d’informations, consultez [cette section](media-services-deliver-content-overview.md#known-issues). |
 | Les objets du kit SDK Media Services .NET ne peuvent pas être sérialisés et, par conséquent, ne fonctionnent pas avec le cache Azure pour Redis. |Si vous essayez de sérialiser l’objet AssetCollection du SDK pour l’ajouter au cache Azure pour Redis, une exception est levée. |
 
-
 ## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>Historique des versions de l’API REST
 Pour obtenir des informations sur l’historique des versions de l’API REST, consultez la [Référence de l’API REST d’Azure Media Services].
 
 ## <a name="december-2018"></a>Décembre 2018
 
-La fonctionnalité de [préversion de Media Hyperlapse](media-services-hyperlapse-content.md) d’Azure Media Services a récemment été mise hors service. Depuis le 19 décembre 2018, Media Services n’apporte plus de changements ou d’améliorations à Media Hyperlapse. Le 29 mars 2019, elle sera mise hors service et ne sera plus disponible.
+La fonctionnalité Media Hyperlapse Preview d’Azure Media Services est bientôt retirée. Depuis le 19 décembre 2018, Media Services n’apporte plus de changements ou d’améliorations à Media Hyperlapse. Le 29 mars 2019, elle sera mise hors service et ne sera plus disponible.
 
 ## <a name="october-2018"></a>Octobre 2018
 
@@ -260,7 +259,6 @@ Les nouvelles fonctionnalités suivantes ont été annoncées :
 
 * [Une préversion de l’encodage en temps réel avec Media Services](media-services-manage-live-encoder-enabled-channels.md)
 * [Un manifeste dynamique](media-services-dynamic-manifest-overview.md)
-* [Une préversion du processeur multimédia Azure Media Hyperlapse](https://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db)
 
 ## <a id="april_changes_15"></a>Version d’avril 2015
 ### <a name="general-media-services-updates"></a>Mises à jour générales de Media Services

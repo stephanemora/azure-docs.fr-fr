@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/26/2019
 ms.author: tulasim
-ms.openlocfilehash: 0e9e8456bb493ad4591c0f2a22d28bdf342f09e1
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 8fcc3ea8340a8645a1983eebb4a619904f884a19
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433108"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578626"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Sources de données pour le contenu QnA Maker
 
@@ -32,7 +32,11 @@ Le tableau ci-dessous récapitule les types de contenu et formats de fichiers pr
 
 ## <a name="data-source-locations"></a>Emplacements des sources de données
 
-Seules les URL publiques sont valides pour toutes les sources de données. Ne soumettez pas de sources de données qui réclament une authentification. Vous pouvez télécharger le fichier sur le site authentifié, puis utiliser l’option de chargement de fichier pour extraire les questions et les réponses.
+La plupart des emplacements de sources de données nécessaire fournir une URL publique ou aux fichiers qui ne nécessitent pas d’authentification. 
+
+[Emplacements de source de données SharePoint](../How-to/add-sharepoint-datasources.md) sont autorisés à fournir des fichiers authentifiés. Ressources SharePoint doivent être des fichiers, pas les pages web. 
+
+Si vous avez un fichier authentifié ou URL, une autre option consiste à télécharger le fichier à partir du site authentifié sur votre ordinateur local, puis ajoutez le fichier à partir de votre ordinateur à la base de connaissances. 
 
 ## <a name="faq-urls"></a>URL de FAQ
 

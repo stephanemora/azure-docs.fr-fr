@@ -1,6 +1,6 @@
 ---
-title: Afficher l’historique d’audit des rôles d’annuaire Azure AD dans PIM | Microsoft Docs
-description: Découvrez comment afficher l’historique d’audit des rôles d’annuaire Azure AD dans Azure AD Privileged Identity Management (PIM).
+title: Afficher l’historique d’audit pour les rôles Azure AD dans PIM - Azure Active Directory | Microsoft Docs
+description: Découvrez comment afficher l’historique d’audit pour les rôles Azure AD dans Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,15 +14,15 @@ ms.date: 02/14/2017
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b91e2c15e86cdda4daab27892fa7a2b6ed0c0e0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c080173af8ddd31b077bb820ea19d82eb2b29300
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58008906"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576138"
 ---
-# <a name="view-audit-history-for-azure-ad-directory-roles-in-pim"></a>Afficher l’historique d’audit pour les rôles d’annuaire Azure AD dans PIM
-Vous pouvez utiliser l’historique d’audit PIM (Privileged Identity Management) pour voir toutes les activations et toutes les affectations d’utilisateurs qui ont été effectuées durant une période donnée pour tous les rôles privilégiés. Si vous souhaitez consulter l’historique d’audit complet de l’activité dans votre client, notamment l’activité de l’administrateur, de l’utilisateur final et de la synchronisation, vous pouvez utiliser les [rapports d’accès et d’utilisation d’Azure Active Directory.](../reports-monitoring/overview-reports.md)
+# <a name="view-audit-history-for-azure-ad-roles-in-pim"></a>Afficher l’historique d’audit pour les rôles d’Azure AD dans PIM
+Vous pouvez utiliser l’historique d’audit Azure Active Directory (Azure AD) Privileged Identity Management (PIM) pour voir toutes les activations et affectations d’utilisateur dans un laps de temps donné pour tous les rôles privilégiés. Si vous souhaitez consulter l’historique d’audit complet de l’activité dans votre client, notamment l’activité de l’administrateur, de l’utilisateur final et de la synchronisation, vous pouvez utiliser les [rapports d’accès et d’utilisation d’Azure Active Directory.](../reports-monitoring/overview-reports.md)
 
 ## <a name="navigate-to-audit-history"></a>Accéder à l’historique d’audit
 À partir du [portail Azure](https://portal.azure.com) et du tableau de bord, sélectionnez l’application **Azure AD Privileged Identity Management** . À partir de là, accédez à l’historique d’audit en cliquant sur **Gérer les rôles privilégiés** > **Historique d’audit** dans le tableau de bord PIM.

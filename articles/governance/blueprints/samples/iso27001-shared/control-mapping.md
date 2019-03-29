@@ -8,12 +8,12 @@ ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: f655db8643a16e6818f5becf25c8761fb4c9093b
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: 34cda2f09392513b0d3f76cc5f77ea0064109410
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58008014"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576103"
 ---
 # <a name="control-mapping-of-the-azure-blueprints-iso-27001-blueprint-sample"></a>Mappage de contrôle de l’exemple de plan Azure plans ISO 27001
 
@@ -122,7 +122,7 @@ Comprendre où vos ressources Azure peuvent avoir des configurations non optimal
 
 ## <a name="a1241-event-logging"></a>Journalisation des événements A.12.4.1
 
-Cette solution blueprint vous permet de vérifier les événements de système sont enregistrés en affectant des sept [Azure Policy](../../../policy/overview.md) définitions qui d’audit consigne les paramètres de ressources Azure. Stratégie attribuée vérifie également si les machines virtuelles ne sont pas envoyer des journaux à un espace de travail analytique de journal spécifié.
+Cette solution blueprint vous permet de vérifier les événements de système sont enregistrés en affectant des sept [Azure Policy](../../../policy/overview.md) définitions de paramètres d’audit log sur les ressources Azure. Stratégie attribuée vérifie également si les machines virtuelles ne sont pas envoyer des journaux à un espace de travail analytique de journal spécifié.
 
 - [Préversion] : Déploiement de l’Agent de dépendance d’audit - VM Image (système d’exploitation) non listées
 - [Préversion] : Déploiement de l’Agent de dépendance dans le VMSS - Image de machine virtuelle (OS) retirée de la liste de l’audit

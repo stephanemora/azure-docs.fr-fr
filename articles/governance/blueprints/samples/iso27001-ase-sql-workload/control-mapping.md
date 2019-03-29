@@ -8,12 +8,12 @@ ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: d487ce81babc2d1d6a35e3bdb1c13e1a24f8d1ca
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: c062759938652518ac3cafff64973050554ca19d
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58014200"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579697"
 ---
 # <a name="control-mapping-of-the-azure-blueprints-iso-27001-blueprint-sample"></a>Mappage de contrôle de l’exemple de plan Azure plans ISO 27001
 
@@ -122,7 +122,7 @@ Comprendre où vos ressources Azure peuvent avoir des configurations non optimal
 
 ## <a name="a1241-event-logging"></a>Journalisation des événements A.12.4.1
 
-Cette solution blueprint vous permet de vérifier les événements de système sont enregistrés en affectant des sept [Azure Policy](../../../policy/overview.md) définitions qui d’audit consigne les paramètres de ressources Azure. Stratégie attribuée vérifie également si les machines virtuelles ne sont pas envoyer des journaux à un espace de travail analytique de journal spécifié.
+Cette solution blueprint vous permet de vérifier les événements de système sont enregistrés en affectant des sept [Azure Policy](../../../policy/overview.md) définitions de paramètres d’audit log sur les ressources Azure. Stratégie attribuée vérifie également si les machines virtuelles ne sont pas envoyer des journaux à un espace de travail analytique de journal spécifié.
 
 - [Préversion] : Déploiement de l’Agent de dépendance d’audit - VM Image (système d’exploitation) non listées
 - [Préversion] : Déploiement de l’Agent de dépendance dans le VMSS - Image de machine virtuelle (OS) retirée de la liste de l’audit
@@ -187,10 +187,10 @@ Maintenant que vous avez passé en revue le mappage de contrôle de l’exemple 
 > [Plan de charge de travail ISO 27001 App Service environnement/SQL Database - vue d’ensemble](./index.md)
 > [charge de travail de base de données d’environnement/SQL ISO 27001 App Service plan - déployer des étapes](./deploy.md)
 
-Addition articles relatifs aux plans et comment les utiliser :
+Autres articles sur les blueprints et la manière de les utiliser :
 
-- En savoir plus sur la [blueprint de cycle de vie](../../concepts/lifecycle.md).
-- Comprendre comment utiliser [paramètres statiques et dynamiques](../../concepts/parameters.md).
-- Apprenez à personnaliser le [blueprint ordre de classement](../../concepts/sequencing-order.md).
-- Découvrez comment rendre utiliser [blueprint verrouillage de ressources](../../concepts/resource-locking.md).
-- Découvrez comment [mettre à jour des affectations existantes](../../how-to/update-existing-assignments.md).
+- Découvrir le [cycle de vie des blueprints](../../concepts/lifecycle.md).
+- Comprendre comment utiliser les [paramètres statiques et dynamiques](../../concepts/parameters.md).
+- Apprendre à personnaliser l’[ordre de séquencement des blueprints](../../concepts/sequencing-order.md).
+- Découvrir comment utiliser le [verrouillage de ressources de blueprint](../../concepts/resource-locking.md).
+- Découvrir comment [mettre à jour des affectations existantes](../../how-to/update-existing-assignments.md).

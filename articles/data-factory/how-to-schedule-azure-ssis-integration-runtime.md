@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 0b84f02d11e278950e4e44874e7b1af9da58f83f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 54d7979f9fbe23e9372aa2702b46e42ca64496d2
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58092444"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621632"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Guide pratique pour démarrer et arrêter Azure-SSIS Integration Runtime selon une planification
 Cet article explique comment planifier le démarrage et l’arrêt d’Azure-SSIS Integration Runtime avec Azure Data Factory. Azure-SSIS Integration Runtime est un ressource de calcul d’Azure Data Factory dédiée à l’exécution de packages SSIS (SQL Server Integration Services). Un coût est associé à l’exécution d’Azure-SSIS Integration Runtime. Il est donc généralement souhaitable d’exécuter votre runtime d’intégration seulement quand vous devez exécuter des packages SSIS dans Azure et de l’arrêter quand vous n’en avez plus besoin. Vous pouvez utiliser l’interface utilisateur/application Azure Data Factory ou Azure PowerShell pour [démarrer ou arrêter manuellement votre runtime d’intégration](manage-azure-ssis-integration-runtime.md)).
@@ -94,7 +94,7 @@ Si vous créez un troisième déclencheur qui est planifié pour s’exécuter t
   
     2. Pour **Méthode**, sélectionnez **POST**. 
     3. Pour **Corps**, entrez `{"message":"Start my IR"}`. 
-    4. Pour **authentification**, sélectionnez **MSI** pour utiliser l’identité gérée pour votre ADF, consultez [identiy géré de fabrique de données](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) article pour plus d’informations.
+    4. Pour **authentification**, sélectionnez **MSI** pour utiliser l’identité gérée pour votre ADF, consultez [identité gérée pour Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) article pour plus d’informations.
     5. Pour **Ressource**, entrez `https://management.azure.com/`.
     
        ![Activité web Azure Data Factory - Planifier le runtime d’intégration SSIS](./media/how-to-schedule-azure-ssis-integration-runtime/adf-web-activity-schedule-ssis-ir.png)
@@ -348,7 +348,7 @@ La section suivante indique comment créer un runbook PowerShell. Le script asso
 
 ## <a name="create-schedules-for-your-runbook-to-startstop-azure-ssis-ir"></a>Créer des planifications pour que le runbook démarre ou arrête Azure-SSIS Integration Runtime
 
-Dans la section précédente, vous avez créé un runbook Azure Automation qui peut démarrer ou arrêter Azure-SSIS Integration Runtime. Dans cette section, vous créez deux planifications pour votre runbook. Quand vous configurez la première planification, vous spécifiez **START** pour **OPERATION**. De même, quand vous configurez la seconde planification, vous spécifiez **STOP** pour **OPERATION**. Pour obtenir des instructions détaillées sur la création des planifications, consultez l’article [Créer une planification](../automation/automation-schedules.md#creating-a-schedule).
+Dans la section précédente, vous avez créé un runbook Azure Automation qui peut démarrer ou arrêter Azure-SSIS Integration Runtime. Dans cette section, vous créez deux planifications pour votre runbook. Quand vous configurez la première planification, vous spécifiez **START** pour **OPERATION**. De même, quand vous configurez la seconde planification, vous spécifiez **STOP** pour **OPERATION**. Pour obtenir des instructions détaillées sur la création des planifications, consultez l’article [Créer une planification](../automation/shared-resources/schedules.md#creating-a-schedule).
 
 1. Dans la fenêtre **Runbook**, sélectionnez **Planifications**, puis sélectionnez **+ Ajouter une planification** dans la barre d’outils. 
 

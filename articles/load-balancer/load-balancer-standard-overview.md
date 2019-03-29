@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/11/2019
+ms.date: 03/28/2019
 ms.author: kumud
-ms.openlocfilehash: d914242b6a29e05e5b97ad11a1bde6f894113e43
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
-ms.translationtype: HT
+ms.openlocfilehash: ee0dc1b9879c8a26c7f3e48cc8daf6ae3511b27a
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382558"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578524"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Présentation d'Azure Standard Load Balancer
 
@@ -73,6 +73,9 @@ En outre, quand le pool principal entier [connaît un échec de sonde](load-bala
 Pour plus d’informations, consultez [Sondes d’intégrité Load Balancer](load-balancer-custom-probe-overview.md).
 
 ### <a name="az"></a> Zones de disponibilité
+
+>[!IMPORTANT]
+>Révision [Zones de disponibilité](../availability-zones/az-overview.md) pour d’autres sujets connexes, y compris des informations spécifiques de région.
 
 Load Balancer Standard prend en charge des fonctionnalités supplémentaires dans les régions où les Zones de disponibilité sont disponibles.  Ces fonctionnalités sont incrémentielles pour tous les Load Balancer Standard fournis.  Les configurations de Zones de disponibilité sont disponibles pour Load Balancer Standard public et interne.
 
