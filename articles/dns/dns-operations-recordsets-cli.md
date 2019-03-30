@@ -14,12 +14,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 05/15/2018
 ms.author: victorh
-ms.openlocfilehash: 1f1ee4f69cc1ab656df04ed30cae6f4c3e55bfa7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 4864a46b91b4e243ce6a2ae3d9d36df28fe74d8d
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963813"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650969"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli"></a>Gérer les enregistrements DNS et les jeux d’enregistrement dans Azure DNS à l’aide d’Azure CLI
 
@@ -32,7 +32,7 @@ Cet article explique comment gérer des enregistrements DNS pour votre zone DNS 
 
 Les exemples de cet article supposent que vous avez déjà [installé l’interface de ligne de commande Azure, ouvert une session et créé une zone DNS](dns-operations-dnszones-cli.md).
 
-## <a name="introduction"></a>Introduction
+## <a name="introduction"></a>Présentation
 
 Avant de créer des enregistrements DNS dans Azure DNS, vous devez comprendre comment Azure DNS organise les enregistrements DNS en jeux d’enregistrements DNS.
 
@@ -92,7 +92,7 @@ Les paramètres utilisés pour spécifier les données de l’enregistrement var
 
 Dans chaque cas, nous montrons comment créer un seul enregistrement. L’enregistrement est ajouté au jeu d’enregistrements existant, ou à un jeu d’enregistrements créé implicitement. Pour plus d’informations sur la création de jeux d’enregistrements et la définition explicite des paramètres de jeu d’enregistrements, consultez [Création d’un jeu d’enregistrements DNS](#create-a-dns-record-set).
 
-Nous ne donnons pas d’exemple de création de jeu d’enregistrements SOA (Architecture orientée services), car les enregistrements de ce type sont créés et supprimés avec chaque zone DNS, et ne peuvent pas l’être séparément. En revanche, vous pouvez [modifier les enregistrements SOA en procédant de la manière décrite dans un exemple plus loin](#to-modify-an-SOA-record).
+Nous ne donnons pas d’exemple de création de jeu d’enregistrements SOA (Architecture orientée services), car les enregistrements de ce type sont créés et supprimés avec chaque zone DNS, et ne peuvent pas l’être séparément. En revanche, vous pouvez [modifier les enregistrements SOA en procédant de la manière décrite dans un exemple plus loin](#to-modify-an-soa-record).
 
 ### <a name="create-an-aaaa-record"></a>Créer un enregistrement AAAA
 

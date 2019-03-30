@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: b1676f53125694eeff3a39adf51dc854c197d756
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bd65b1479ace1a51087836eb8032f16fd10dc119
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110492"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648900"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Reprotéger les machines virtuelles Azure basculées vers la région principale
 
@@ -23,11 +23,7 @@ Lorsque vous [basculez](site-recovery-failover.md) des machines virtuelles Azure
 - Reprotégez les machines virtuelles dans la région secondaire, afin qu’elles commencent à se répliquer dans la région principale.
 - Après l’exécution de la reprotection et de la réplication des machines virtuelles, vous pouvez les basculer de la région secondaire vers la région principale.
 
-> [!WARNING]
-> Si vous avez [migré](migrate-overview.md#what-do-we-mean-by-migration) des machines de la région principale vers la région secondaire, déplacé la machine virtuelle vers un autre groupe de ressources ou supprimé la machine virtuelle Azure, vous ne pouvez pas reprotéger la machine virtuelle ou la rebasculer.
-
-
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 1. Le basculement de machine virtuelle de la région principale vers la région secondaire doit être validé.
 2. Le site cible principal doit être disponible et vous devez être en mesure d’accéder aux ressources ou de créer des ressources dans cette région.
 

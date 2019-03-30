@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/24/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 905ce1eca9996140da5f9d33aa7f9749a4ef7034
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cfcd154b2f44c9e8acf12a9666abc9ce95fb3c26
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894119"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648348"
 ---
 # <a name="configure-lead-management-using-an-https-endpoint"></a>Configuration de la gestion des prospects à l’aide d’un point de terminaison HTTPS
 
@@ -48,8 +48,8 @@ Vous pouvez utiliser un point de terminaison HTTPS pour gérer les prospects Pla
 
 7. Utilisez l’une des étapes suivantes pour configurer le **schéma JSON du corps de la requête** :
 
-   - Copiez le [schéma JSON](#JSON-schema) indiqué à la fin de cet article dans la zone de texte **Schéma JSON du corps de la requête**.
-   - Sélectionnez **Utiliser l’exemple de charge utile pour générer le schéma**. Dans la zone de texte **Entrer ou coller un exemple de charge utile JSON**, collez [l’exemple JSON](#JSON-example). Sélectionnez **Terminé** pour créer le schéma.
+   - Copiez le [schéma JSON](#json-schema) indiqué à la fin de cet article dans la zone de texte **Schéma JSON du corps de la requête**.
+   - Sélectionnez **Utiliser l’exemple de charge utile pour générer le schéma**. Dans la zone de texte **Entrer ou coller un exemple de charge utile JSON**, collez [l’exemple JSON](#json-example). Sélectionnez **Terminé** pour créer le schéma.
 
    >[!Note]
    >À ce stade du flux, vous pouvez vous connecter à un système CRM ou configurer une notification par e-mail.

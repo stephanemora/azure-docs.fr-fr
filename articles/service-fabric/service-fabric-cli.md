@@ -3,17 +3,17 @@ title: Prise en main de l’interface de ligne de commande Azure Service Fabric
 description: Découvrez comment utiliser l’interface de ligne de commande Azure Service Fabric. Découvrez comment se connecter à un cluster et gérer des applications.
 services: service-fabric
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 579df1c8412ae626ced6776a98e054a13e4a3e64
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
+ms.openlocfilehash: d5b6f183a59e3f47aa5867b5e09e06541a6a67db
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273083"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662650"
 ---
 # <a name="azure-service-fabric-cli"></a>Interface de ligne de commande Azure Service Fabric
 
@@ -21,7 +21,7 @@ L’interface de ligne de commande Azure Service Fabric est un utilitaire de lig
 
 [!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Avant l’installation, vérifiez que Python et pip sont installés dans votre environnement. Pour plus d’informations, consultez la [documentation de démarrage rapide de pip](https://pip.pypa.io/en/latest/quickstart/) et la [documentation d’installation officielle de Python](https://wiki.python.org/moin/BeginnersGuide/Download).
 
@@ -54,7 +54,7 @@ Pour plus d’informations sur les versions de l’interface de ligne de command
 
 Il existe différentes façons d’installer pip et Python sur votre plateforme. Voici quelques étapes permettant de configurer rapidement les principaux systèmes d’exploitation avec Python 3 et pip.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 Pour Windows 10, Windows Server 2016 et Windows Server 2012 R2, utilisez les instructions d’installation officielles standard. Par défaut, le programme d’installation de Python installe aussi pip.
 

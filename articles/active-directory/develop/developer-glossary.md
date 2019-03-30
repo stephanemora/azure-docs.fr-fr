@@ -18,12 +18,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 245683ec6c3c2d25f362e035020e162af75e1627
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: ec06b25954d25c27cd7606f2f47aa93ef6d54244
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169919"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650391"
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Glossaire du développeur Azure Active Directory
 
@@ -204,7 +204,7 @@ Les locataires Azure AD sont créés avec/associés à des abonnements Azure et 
 
 ## <a name="token-endpoint"></a>point de terminaison de jeton
 
-Un des points de terminaison implémentés par le [serveur d’autorisation](#authorization-server) pour prendre en charge les [octrois d’autorisation](#authorization-grant) OAuth2. En fonction de l’octroi, il peut être utilisé pour acquérir un [jeton d’accès](#access-token) (et les jetons « d’actualisation » liés) à un [client](#client-application) ou un [jeton d’ID](#ID-token) lorsqu’il est utilisé avec le protocole [OpenID Connect][OpenIDConnect].
+Un des points de terminaison implémentés par le [serveur d’autorisation](#authorization-server) pour prendre en charge les [octrois d’autorisation](#authorization-grant) OAuth2. En fonction de l’octroi, il peut être utilisé pour acquérir un [jeton d’accès](#access-token) (et les jetons « d’actualisation » liés) à un [client](#client-application) ou un [jeton d’ID](#id-token) lorsqu’il est utilisé avec le protocole [OpenID Connect][OpenIDConnect].
 
 ## <a name="user-agent-based-client"></a>Client basé sur un agent utilisateur
 

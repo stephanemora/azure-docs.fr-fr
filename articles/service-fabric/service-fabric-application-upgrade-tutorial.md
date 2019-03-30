@@ -4,7 +4,7 @@ description: Cet article vous présente l'expérience de déploiement d'une appl
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: a3181a7a-9ab1-4216-b07a-05b79bd826a4
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 0a94dc91308f21d9e2b440f9638829ee03a8b903
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 8fe0bf9c8827b7248195f89377176fd834845e32
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205193"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58663670"
 ---
 # <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>Didacticiel sur la mise à niveau d'une application Service Fabric à l'aide de Visual Studio
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.locfileid: "34205193"
 
 Azure Service Fabric simplifie le processus de mise à niveau des applications cloud en veillant à ce que seuls les services modifiés soient mis à niveau et que l'intégrité de l'application soit analysée tout au long de la mise à niveau. Il restaure automatiquement la version précédente de l’application en cas de problème. Les mises à niveau des applications Service Fabric s'effectuent *sans interruption de service*, étant donné que l'application peut être mise à niveau sans interruption du service. Ce didacticiel explique comment effectuer une mise à niveau propagée à partir de Visual Studio.
 
-## <a name="step-1-build-and-publish-the-visual-objects-sample"></a>Étape 1 : Créer et publier l'exemple Visual Objects
+## <a name="step-1-build-and-publish-the-visual-objects-sample"></a>Étape 1 : Générer et publier l’exemple Visual Objects
 Tout d’abord, téléchargez l’application [Visual Objects](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Actors/VisualObjects) à partir de GitHub. Ensuite, générez et publiez l’application en cliquant avec le bouton droit sur le projet d’application, **VisualObjects**, et en sélectionnant la commande **Publier** dans l’élément de menu Service Fabric.
 
 ![Menu contextuel pour une application Service Fabric][image1]
@@ -43,9 +43,9 @@ La sélection de l’option **Publier** affiche une autre fenêtre. Vous pouvez 
 
 À présent, vous pouvez cliquer sur **Publier** dans la boîte de dialogue. Vous pouvez utiliser l' [Explorateur de Service Fabric pour afficher le cluster et l'application](service-fabric-visualizing-your-cluster.md). L’application Visual Objects a un service web accessible en tapant [http://localhost:8081/visualobjects/](http://localhost:8081/visualobjects/) dans la barre d’adresse de votre navigateur.  Vous devez normalement voir 10 objets visuels flottants en rotation à l'écran.
 
-**REMARQUE :** si vous procédez au déploiement vers le profil `Cloud.xml` (Azure Service Fabric), l’application doit alors être disponible à l’adresse **http://{NomServiceFabric}.{Région}.cloudapp.azure.com:8081/visualobjects/**. Assurez-vous d’avoir configuré `8081/TCP` dans l’équilibreur Load Balancer (recherchez l’équilibreur Load Balancer dans le même groupe de ressources que l’instance Service Fabric).
+**REMARQUE :** Si le déploiement sur `Cloud.xml` profil (Azure Service Fabric), l’application doit alors être disponible à l’adresse **http://{ServiceFabricName}. {} Region}.cloudapp.Azure.com:8081/visualobjects/**. Assurez-vous d’avoir configuré `8081/TCP` dans l’équilibreur Load Balancer (recherchez l’équilibreur Load Balancer dans le même groupe de ressources que l’instance Service Fabric).
 
-## <a name="step-2-update-the-visual-objects-sample"></a>Étape 2 : Mettre à jour l'exemple Visual Objects
+## <a name="step-2-update-the-visual-objects-sample"></a>Étape 2 : Mettre à jour l'exemple Visual Objects
 Vous pouvez remarquer qu'avec la version qui a été déployée à l'étape 1, les objets visuels ne sont pas en rotation. Mettons à niveau cette application vers une application dans laquelle les objets visuels sont en rotation.
 
 Sélectionnez le projet VisualObjects.ActorService dans la solution VisualObjects et ouvrez le fichier **VisualObjectActor.cs** . Dans ce fichier, accédez à la méthode `MoveObject`, placez en commentaire `visualObject.Move(false)` et effacez le commentaire de `visualObject.Move(true)`. Cette modification du code fait pivoter les objets lorsque le service a été mis à niveau.  **Vous pouvez maintenant générer (pas régénérer) la solution**, qui génère les projets modifiés. Si vous sélectionnez *Régénérer tout*, vous devez mettre à jour les versions de tous les projets.
@@ -62,7 +62,7 @@ Les outils Visual Studio peuvent déployer automatiquement les versions si vous 
 
 Enregistrez les modifications et cochez la case **Upgrade the Application** (Mettre à niveau l'application).
 
-## <a name="step-3--upgrade-your-application"></a>Étape 3 : Mettre à niveau votre application
+## <a name="step-3--upgrade-your-application"></a>Étape 3 :  Mettre à niveau votre application
 Familiarisez-vous avec les [paramètres de mise à niveau d’application](service-fabric-application-upgrade-parameters.md) et le [processus de mise à niveau](service-fabric-application-upgrade.md) pour bien comprendre les différents paramètres de mise à niveau, les délais d’attente et les critères d’intégrité qui peuvent être appliqués. Pour cette procédure pas à pas, le critère d’évaluation de l’intégrité du service est défini sur la valeur par défaut (mode non surveillé). Vous pouvez configurer ces paramètres en sélectionnant **Configurer les paramètres de mise à niveau** et en les modifiant comme vous le souhaitez.
 
 À présent, nous sommes prêts à démarrer la mise à niveau de l’application en sélectionnant **Publier**. Cette option met à niveau votre application vers la version 2.0.0 dans laquelle les objets pivotent. Service Fabric met à niveau un domaine de mise à jour à la fois (certains objets sont mis à niveau en premier, suivis par d’autres) et le service est accessible pendant la mise à niveau. L’accès au service peut être vérifié par le biais de votre client (navigateur).  

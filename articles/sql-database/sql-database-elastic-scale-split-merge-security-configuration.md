@@ -12,12 +12,12 @@ ms.author: vanto
 ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 051aa6b6ca8571fe948fa30e1e4a4320bb564a52
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 7ca7e653cc42323f4313ef955de40416154b4ecf
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593316"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651666"
 ---
 # <a name="split-merge-security-configuration"></a>Configuration de la sécurité du fractionnement et de la fusion
 
@@ -83,17 +83,17 @@ Les certificats clients sont requis pour authentifier les demandes au service. C
 3. [Mise à jour du certificat CA dans le fichier de configuration de service](#update-ca-certificate-in-service-configuration-file)
 4. [Émission de certificats clients](#issue-client-certificates)
 5. [Création de fichiers PFX pour les certificats clients](#create-pfx-files-for-client-certificates)
-6. [Importation d’un certificat client](#Import-Client-Certificate)
+6. [Importation d’un certificat client](#import-client-certificate)
 7. [Copie des empreintes numériques des certificats clients](#copy-client-certificate-thumbprints)
 8. [Configuration des clients autorisés dans le fichier de configuration de service](#configure-allowed-clients-in-the-service-configuration-file)
 
 ### <a name="use-existing-client-certificates"></a>Utilisation de certificats clients existants
 1. [Find CA Public Key](#find-ca-public-key)
-2. [Téléchargement du certificat CA vers le service cloud](#Upload-CA-certificate-to-cloud-service)
-3. [Mise à jour du certificat CA dans le fichier de configuration de service](#Update-CA-Certificate-in-Service-Configuration-File)
-4. [Copie des empreintes numériques des certificats clients](#Copy-Client-Certificate-Thumbprints)
+2. [Téléchargement du certificat CA vers le service cloud](#upload-ca-certificate-to-cloud-service)
+3. [Mise à jour du certificat CA dans le fichier de configuration de service](#update-ca-certificate-in-service-configuration-file)
+4. [Copie des empreintes numériques des certificats clients](#copy-client-certificate-thumbprints)
 5. [Configuration des clients autorisés dans le fichier de configuration de service](#configure-allowed-clients-in-the-service-configuration-file)
-6. [Configuration de la vérification de révocation des certificats clients](#Configure-Client-Certificate-Revocation-Check)
+6. [Configuration de la vérification de révocation des certificats clients](#configure-client-certificate-revocation-check)
 
 ## <a name="allowed-ip-addresses"></a>Adresses IP autorisées
 L’accès aux points de terminaison de service peut être limité à des plages d’adresses IP spécifiques.

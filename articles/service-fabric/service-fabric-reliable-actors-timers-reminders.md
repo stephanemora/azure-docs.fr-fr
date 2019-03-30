@@ -4,7 +4,7 @@ description: Présentation des minuteries et rappels pour Service Fabric Reliabl
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: amanbha
 ms.assetid: 00c48716-569e-4a64-bd6c-25234c85ff4f
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: e43aec6630a4a688ffd6c52a5e5bd711243fa662
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 323de842645cced3c6f490e98112fcbcd184aa64
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206789"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58667427"
 ---
 # <a name="actor-timers-and-reminders"></a>Minuteries et rappels d’acteur
 Les acteurs peuvent planifier un travail régulier par eux-mêmes en inscrivant des minuteries ou des rappels. Cet article montre comment utiliser des minuteries et des rappels, puis explique les différences entre les deux.
@@ -167,7 +167,7 @@ protected CompletableFuture onActivateAsync()
 }
 ```
 
-Dans cet exemple, `"Pay cell phone bill"` est le nom du rappel. Il s’agit d’une chaîne que l’acteur utilise pour identifier de façon unique un rappel. `BitConverter.GetBytes(amountInDollars)` (C#) est le contexte associé au rappel. Il est renvoyé à l’acteur en tant qu’argument vers le rappel, soit `IRemindable.ReceiveReminderAsync` (C#) ou `Remindable.receiveReminderAsync` (Java).
+Dans cet exemple, `"Pay cell phone bill"` est le nom du rappel. Il s’agit d’une chaîne que l’acteur utilise pour identifier de façon unique un rappel. `BitConverter.GetBytes(amountInDollars)` (C#) est le contexte associé au rappel. Il sera passé à l’acteur en tant qu’argument pour le rappel, par exemple `IRemindable.ReceiveReminderAsync`(C#) ou `Remindable.receiveReminderAsync`(Java).
 
 Les acteurs qui utilisent des rappels doivent implémenter l’interface `IRemindable` , comme illustré dans l’exemple ci-dessous.
 

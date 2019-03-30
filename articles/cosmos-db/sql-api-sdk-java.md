@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 03/13/2019
 ms.author: sngun
-ms.openlocfilehash: c2b0c52ca78f2b9c4273280aa9da16a5ef1bbc00
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 298f4d8cb62ce1d71ed8922483115606f8876d79
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003248"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648554"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Kit de développement logiciel (SDK) Java Azure Cosmos DB pour API SQL : Notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -43,15 +43,15 @@ Le Kit de développement logiciel (SDK) de l’API Java SQL prend en charge les 
 
 ## <a name="release-notes"></a>Notes de publication
 
-### <a name="a-name210213"></a><a name="2.1.0"/>2.1.3
+### <a name="a-name213213"></a><a name="2.1.3"/>2.1.3
 * Correction du bogue dans PartitionKey pour V2 de hachage.
 
-### <a name="a-name210212"></a><a name="2.1.0"/>2.1.2
+### <a name="a-name212212"></a><a name="2.1.2"/>2.1.2
 * Prise en charge pour les index composites.
 * Résolution de bogue dans le Gestionnaire de point de terminaison global pour forcer l’actualisation.
 * Résolution de bogue pour les upserts avec les conditions préalables en mode direct.
 
-### <a name="a-name210211"></a><a name="2.1.0"/>2.1.1
+### <a name="a-name211211"></a><a name="2.1.1"/>2.1.1
 * Correction du bogue dans le cache d’adresses de passerelle.
 
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0

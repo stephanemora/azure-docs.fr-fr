@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 4f6d94c7090c2bbb0335d46b60be320b2fc19375
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: c6ae28e076d14faa7c2173f3a23d92daad4bd59e
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55962823"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651121"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Gérer des laboratoires de classe dans Azure Lab Services 
 Cet article décrit comment créer et supprimer un laboratoire de classe. Il montre également comment afficher tous les laboratoires de classe dans un compte de laboratoire. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Pour configurer un laboratoire de classe dans un compte de laboratoire, vous devez être membre du rôle **Créateur de laboratoire** dans le compte de laboratoire. Le compte utilisé pour créer un compte de laboratoire est ajouté automatiquement à ce rôle. Un propriétaire de laboratoire peut ajouter d’autres utilisateurs au rôle Créateur de laboratoire à l’aide des étapes fournies dans l’article suivant : [Ajouter un utilisateur au rôle Créateur de laboratoire](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
 
 ## <a name="create-a-classroom-lab"></a>Créer un laboratoire de classe
@@ -37,9 +37,9 @@ Pour configurer un laboratoire de classe dans un compte de laboratoire, vous dev
 
         ![Créer un laboratoire de classe](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. Sur la page **Select virtual machine specifications** (sélectionner les spécifications de machine virtuelle), procédez aux étapes suivantes :
-    1. Sélectionnez une **taille** pour les machines virtuelles (VM) créées dans le laboratoire. 
+    1. Sélectionnez une **taille** pour les machines virtuelles (VM) créées dans le laboratoire. Actuellement, **petit**, **support**, **grand**, et **GPU** tailles sont autorisées.
     2. Sélectionnez la **région** dans laquelle vous souhaitez créer les VM. 
-    3. Sélectionnez l'**image de machine virtuelle** à utiliser pour créer des VM dans le laboratoire. 
+    3. Sélectionnez l'**image de machine virtuelle** à utiliser pour créer des VM dans le laboratoire. Si vous sélectionnez une image Linux, vous voyez une option pour activer la connexion Bureau à distance pour celui-ci. Pour plus d’informations, consultez [activer une connexion Bureau à distance pour Linux](how-to-enable-remote-desktop-linux.md).
     4. Sélectionnez **Suivant**.
 
         ![Définir les spécifications de VM](../media/tutorial-setup-classroom-lab/select-vm-specifications.png)    
@@ -60,7 +60,7 @@ Pour configurer un laboratoire de classe dans un compte de laboratoire, vous dev
     ![Page Configurer le modèle une fois terminé](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. Les étapes suivantes sont facultatives dans ce didacticiel : 
     1. Démarrez le modèle de machine virtuelle en sélectionnant **Démarrer**.
-    2. Connectez-vous au modèle de machine virtuelle en sélectionnant **Se connecter**. 
+    2. Connectez-vous au modèle de machine virtuelle en sélectionnant **Se connecter**. Dans le cas d’un modèle de Linux machine virtuelle, vous choisissez si vous souhaitez vous connecter à l’aide de SSH ou RDP (si le protocole RDP est activé).
     3. Installez et configurez des logiciels sur votre modèle de machine virtuelle. 
     4. **Arrêtez** la machine virtuelle.  
     5. Entrez une **description** pour le modèle

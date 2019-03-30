@@ -4,15 +4,15 @@ description: Cet article récapitule les questions courantes concernant la confi
 author: asgang
 manager: rochakm
 ms.service: site-recovery
-ms.date: 03/18/2019
+ms.date: 03/29/2019
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: 2c1890570f153de68d187c37dc0a7bca156c2d47
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 66d57677b216130316c6a3ddd9a6cff993540808
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312051"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649881"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>Questions courantes : Réplication Azure vers Azure
 
@@ -34,6 +34,9 @@ Oui, bien qu'Azure Site Recovery soit gratuit pendant les 31 premiers jours d'u
 3. [Configurer la récupération d’urgence pour les machines virtuelles Azure](azure-to-azure-how-to-enable-replication.md)
 4. [Exécuter un test de basculement](azure-to-azure-tutorial-dr-drill.md)
 5. [Effectuer une restauration automatique et un basculement vers la région primaire](azure-to-azure-tutorial-failover-failback.md)
+
+### <a name="how-is-capacity-guaranteed-in-target-region-for-azure-vms"></a>La capacité est garantie dans la région cible pour les machines virtuelles Azure ?
+L’équipe Azure Site Recovery (ASR) fonctionne avec l’équipe de gestion de capacité Azure pour planifier la capacité d’infrastructure suffisante, afin de vous assurer que les machines virtuelles protégées par ASR pour reprise après sinistre récupération sera correctement déployée dans la région de récupération d’urgence d’urgence, chaque fois que les opérations de basculement ASR sont lancées.
 
 ## <a name="replication"></a>Réplication
 
@@ -79,7 +82,7 @@ Cette stratégie définit les paramètres de l’historique de conservation des 
 [Plus d’informations](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#configure-replication-settings)
 
 ### <a name="what-is-a-crash-consistent-recovery-point"></a>Qu’est-ce qu’un point de récupération cohérent en cas d’incident ?
-Un point de récupération cohérent en cas d’incident représente les données sur disque comme si la machine virtuelle était tombée en panne ou si le cordon d’alimentation avait été débranché du serveur au moment de la prise de la capture instantanée. Il n’inclut rien de ce qui était en mémoire lors de la prise de l’instantané. 
+Un point de récupération cohérent en cas d’incident représente les données sur disque comme si la machine virtuelle était tombée en panne ou si le cordon d’alimentation avait été débranché du serveur au moment de la prise de la capture instantanée. Il n’inclut rien de ce qui était en mémoire lors de la prise de l’instantané.
 
 Aujourd’hui, la plupart des applications peuvent récupérer correctement à partir de captures instantanées cohérentes en cas d’incident. Un point de récupération cohérent en cas d’incident ne suffit généralement pas pour des systèmes d’exploitation de base de données et des applications telles que des serveurs de fichiers, des serveurs DHCP et des serveurs d’impression.
 
@@ -87,9 +90,7 @@ Aujourd’hui, la plupart des applications peuvent récupérer correctement à p
 Site Recovery crée un point de récupération cohérent en cas d’incident toutes les 5 minutes.
 
 ### <a name="what-is-an-application-consistent-recovery-point"></a>Qu’est-ce qu’un point de récupération cohérent au niveau application ? 
-Les points de récupération cohérents au niveau application sont créés à partir de captures instantanées cohérentes au niveau application. Des points de récupération cohérents au niveau application capturent les mêmes données que des captures instantanées cohérentes en cas d’incident, avec l’ajout de toutes les données en mémoire et de toutes les transactions en cours. 
-
-En raison de leur contenu supplémentaire, les instantanés de cohérence d’application sont davantage impliqués et leur exécution prend plus de temps. Les points de récupération cohérent au niveau application sont recommandés pour des systèmes d’exploitation de base de données et des applications telles que SQL Server.
+Les points de récupération cohérents au niveau application sont créés à partir de captures instantanées cohérentes au niveau application. Des points de récupération cohérents au niveau application capturent les mêmes données que des captures instantanées cohérentes en cas d’incident, avec l’ajout de toutes les données en mémoire et de toutes les transactions en cours. En raison de leur contenu supplémentaire, les instantanés de cohérence d’application sont davantage impliqués et leur exécution prend plus de temps. Les points de récupération cohérent au niveau application sont recommandés pour des systèmes d’exploitation de base de données et des applications telles que SQL Server.
 
 ### <a name="what-is-the-impact-of-application-consistent-recovery-points-on-application-performance"></a>Quel est l’impact des points de récupération cohérents au niveau de l'application sur les performances de cette dernière ?
 Les points de récupération cohérents au niveau de l'application capturant toutes les données en mémoire et en cours de traitement, ils requièrent une infrastructure telle que VSS sur Windows pour suspendre l’application. Si cela se répète fréquemment, les performances peuvent être affectées en cas de charge de travail déjà très importante. Il est généralement recommandé de ne pas utiliser de faible fréquence pour les points de récupération cohérents au niveau de l'application correspondant aux charges de travail non liées à des bases de données, et même pour une charge de travail de base de données, une heure suffit. 
@@ -116,8 +117,8 @@ Le point de récupération le plus ancien que vous pouvez utiliser remonte à 72
 ### <a name="what-will-happen-if-i-have-a-replication-policy-of-24-hours-and-a-problem-prevents-site-recovery-from-generating-recovery-points-for-more-than-24-hours-will-my-previous-recovery-points-be-lost"></a>Que se passe-t-il si j’ai une stratégie de réplication de 24 heures et qu’un problème empêche la récupération Site Recovery de générer des points de récupération pendant plus de 24 heures ? Mes points de récupération antérieurs sont-ils perdus ?
 Non, Site Recovery conserve tous vos points de récupération antérieurs. En fonction de la fenêtre de conservation des points de récupération, 24 heures dans ce cas, Site Recovery ne remplace le point le plus ancien que s’il existe une génération de nouveaux points. Dans ce cas, aucun nouveau point de récupération n’étant généré en raison d’un problème, tous les anciens points restent intacts une fois la fenêtre de conservation atteinte.
 
-### <a name="after-replication-is-enabled-on-a-vm-how-do-i-change-the-replication-policy"></a>Une fois la réplication activée sur une machine virtuelle, comment modifier la stratégie de réplication ? 
-Accédez à **Coffre Site Recovery** > **Infrastructure Site Recovery** > **Stratégies de réplication**. Sélectionnez la stratégie à modifier, modifiez-la, puis enregistrez les modifications. Toute modification s’applique également à toutes les réplications existantes. 
+### <a name="after-replication-is-enabled-on-a-vm-how-do-i-change-the-replication-policy"></a>Une fois la réplication activée sur une machine virtuelle, comment modifier la stratégie de réplication ?
+Accédez à **Coffre Site Recovery** > **Infrastructure Site Recovery** > **Stratégies de réplication**. Sélectionnez la stratégie à modifier, modifiez-la, puis enregistrez les modifications. Toute modification s’applique également à toutes les réplications existantes.
 
 ### <a name="are-all-the-recovery-points-a-complete-copy-of-the-vm-or-a-differential"></a>Tous les points de récupération sont-ils une copie complète ou différentielle de la machine virtuelle ?
 Le premier point de récupération qui est généré possède la copie complète. Les points de récupération successifs ont des modifications d’ordre différentiel.
@@ -125,7 +126,7 @@ Le premier point de récupération qui est généré possède la copie complète
 ### <a name="does-increasing-the-retention-period-of-recovery-points-increase-the-storage-cost"></a>L’accroissement de la période de rétention des points de récupération augmente-t-elle le coût de stockage ?
 Oui. Si vous augmentez la période de rétention de 24 à 72 heures, Site Recovery enregistre les points de récupération pendant 48 heures supplémentaires. Cette durée supplémentaire occasionne des frais de stockage. Par exemple, si un point de récupération unique présente 10 Go de modifications d’ordre différentiel dont le coût par Go est de 0,16 USD par mois, les frais supplémentaires s’élèvent à 1,6 $ * 48 par mois.
 
-## <a name="multi-vm-consistency"></a>Cohérence multimachine virtuelle 
+## <a name="multi-vm-consistency"></a>Cohérence multimachine virtuelle
 
 ### <a name="what-is-multi-vm-consistency"></a>Définition de la cohérence multimachine virtuelle
 Cette fonctionnalité permet de s’assurer que le point de récupération est cohérent dans toutes les machines virtuelles répliquées.
@@ -134,7 +135,7 @@ Toutes les machines virtuelles ont des points de récupération cohérents aprè
 Consultez le tutoriel pour [activer la cohérence multimachine virtuelle](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication).
 
 ### <a name="can-i-failover-single-virtual-machine-within-a-multi-vm-consistency-replication-group"></a>Puis-je basculer une seule machine virtuelle au sein d’un groupe de réplication avec cohérence multimachine virtuelle ?
-En sélectionnant l’option Cohérence multimachine virtuelle, vous indiquez que l’application a une dépendance sur toutes les machines virtuelles au sein d’un groupe. Par conséquent, le basculement d’une machine virtuelle unique n’est pas autorisé. 
+En sélectionnant l’option Cohérence multimachine virtuelle, vous indiquez que l’application a une dépendance sur toutes les machines virtuelles au sein d’un groupe. Par conséquent, le basculement d’une machine virtuelle unique n’est pas autorisé.
 
 ### <a name="how-many-virtual-machines-can-i-replicate-as-a-part-of-a-multi-vm-consistency-replication-group"></a>Combien de machines virtuelles puis-je répliquer dans un groupe de réplication avec cohérence multimachine virtuelle ?
 Vous pouvez répliquer 16 machines virtuelles ensemble dans un groupe de réplication.
@@ -145,9 +146,12 @@ Comme il s’agit d’une opération gourmande en ressources, l’activation de 
 
 ## <a name="failover"></a>Basculement
 
+### <a name="how-is-capacity-guaranteed-in-target-region-for-azure-vms"></a>La capacité est garantie dans la région cible pour les machines virtuelles Azure ?
+L’équipe Azure Site Recovery (ASR) fonctionne avec l’équipe de gestion de capacité Azure pour planifier la capacité d’infrastructure suffisante, afin de vous assurer que les machines virtuelles protégées par ASR pour reprise après sinistre récupération sera correctement déployée dans la région de récupération d’urgence d’urgence, chaque fois que les opérations de basculement ASR sont lancées.
+
 ### <a name="is-failover-automatic"></a>Le basculement est-il automatique ?
 
-Le basculement n’est pas automatique. Vous lancez les basculements d’un seul clic dans le portail ou en utilisant [PowerShell](azure-to-azure-powershell.md). 
+Le basculement n’est pas automatique. Vous lancez les basculements d’un seul clic dans le portail ou en utilisant [PowerShell](azure-to-azure-powershell.md).
 
 ### <a name="can-i-retain-a-public-ip-address-after-failover"></a>Puis-je conserver l’adresse IP publique après basculement ?
 
@@ -158,7 +162,8 @@ Oui, vous pouvez conserver l’adresse IP privée. Par défaut, quand vous activ
 
 ### <a name="after-failover-the-server-doesnt-have-the-same-ip-address-as-the-source-vm-why-is-it-assigned-a-new-ip-address"></a>Après basculement, le serveur n’a plus la même adresse IP que la machine virtuelle source. Pourquoi une nouvelle adresse IP lui est-elle attribuée ?
 
-Site Recovery tente de fournir l’adresse IP au moment du basculement. Si une autre machine virtuelle prend cette adresse, Site Recovery définit l’adresse IP suivante disponible comme cible. Pour obtenir une explication complète de la façon dont Site Recovery gère l’adressage, consultez [Configurer le mappage réseau et l’adressage IP pour les réseaux virtuels](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-network-mapping#set-up-ip-addressing-for-target-vms).
+Site Recovery tente de fournir l’adresse IP au moment du basculement. Si une autre machine virtuelle prend cette adresse, Site Recovery définit l’adresse IP suivante disponible comme cible.
+Pour obtenir une explication complète de la façon dont Site Recovery gère l’adressage, consultez [Configurer le mappage réseau et l’adressage IP pour les réseaux virtuels](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-network-mapping#set-up-ip-addressing-for-target-vms).
 
 ### <a name="what-are-latest-lowest-rpo-recovery-points"></a>Que sont les points de récupération **Dernier (objectif de point de récupération le plus faible)**  ?
 L’option **Dernier (objectif de point de récupération le plus faible)** permet de traiter d’abord toutes les données qui ont été envoyées au service Site Recovery afin de créer un point de récupération pour chaque machine virtuelle avant de basculer les machines virtuelles vers celui-ci. Elle fournit l’objectif de point de récupération (RPO) le plus faible, car la machine virtuelle créée après le basculement comporte toutes les données répliquées vers Site Recovery au moment où le basculement a été déclenché.
@@ -173,7 +178,7 @@ L’option **Dernier point traité** bascule toutes les machines virtuelles du p
 Vous pouvez déclencher un basculement après la panne. Site Recovery n’a pas besoin de connectivité de la région primaire pour opérer le basculement.
 
 ### <a name="what-is-a-rto-of-a-virtual-machine-failover-"></a>Quel est le délai de récupération d’un basculement de machine virtuelle ?
-Le contrat de niveau de service de délai de récupération de Site Recovery est de [2 heures](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). Toutefois, la plupart du temps, Site Recovery peut effectuer le basculement des machines virtuelles en quelques minutes. Vous pouvez calculer le délai de récupération en accédant aux tâches de basculement, où est affichée la durée nécessaire pour faire apparaître la machine virtuelle. Pour le délai de récupération du plan de récupération, consultez la section ci-dessous. 
+Le contrat de niveau de service de délai de récupération de Site Recovery est de [2 heures](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). Toutefois, la plupart du temps, Site Recovery peut effectuer le basculement des machines virtuelles en quelques minutes. Vous pouvez calculer le délai de récupération en accédant aux tâches de basculement, où est affichée la durée nécessaire pour faire apparaître la machine virtuelle. Pour le délai de récupération du plan de récupération, consultez la section ci-dessous.
 
 ## <a name="recovery-plans"></a>Plans de récupération
 
@@ -188,7 +193,7 @@ Les plans de récupération dans Site Recovery orchestrent la récupération par
 
 ### <a name="how-is-sequencing-achieved-in-a-recovery-plan"></a>Comment le séquencement est-il effectué dans un plan de récupération ?
 
-Dans un plan de récupération, vous pouvez créer plusieurs groupes pour effectuer le séquencement. Le basculement intervient groupe après groupe. Cela signifie que les machines virtuelles d’un même groupe basculent ensemble, suivies de celles d’un autre groupe. Pour savoir comment modéliser une application à l’aide d’un plan de récupération, consultez [À propos des plans de récupération](recovery-plan-overview.md#model-apps). 
+Dans un plan de récupération, vous pouvez créer plusieurs groupes pour effectuer le séquencement. Le basculement intervient groupe après groupe. Cela signifie que les machines virtuelles d’un même groupe basculent ensemble, suivies de celles d’un autre groupe. Pour savoir comment modéliser une application à l’aide d’un plan de récupération, consultez [À propos des plans de récupération](recovery-plan-overview.md#model-apps).
 
 ### <a name="how-can-i-find-the-rto-of-a-recovery-plan"></a>Comment trouver l’objectif de délai de récupération d’un plan de récupération ?
 Pour vérifier l’objectif de délai de récupération d’un plan de récupération, testez le basculement du plan de récupération, puis accédez aux **travaux Site Recovery**.
@@ -199,7 +204,7 @@ Dans l’exemple suivant, le travail nommé SAPTestRecoveryPlan a mis 8 minutes 
 ### <a name="can-i-add-automation-runbooks-to-the-recovery-plan"></a>Puis-je ajouter des runbooks Automation au plan de récupération ?
 Oui, vous pouvez intégrer des runbooks Azure Automation dans votre plan de récupération. [Plus d’informations](site-recovery-runbook-automation.md)
 
-## <a name="reprotection-and-failback"></a>Reprotection et restauration automatique 
+## <a name="reprotection-and-failback"></a>Reprotection et restauration automatique
 
 ### <a name="after-a-failover-from-the-primary-region-to-a-disaster-recovery-region-are-vms-in-a-dr-region-protected-automatically"></a>Après basculement de la région primaire vers la région de reprise d’activité après sinistre, les machines virtuelles situées dans celle-ci sont-elles protégées automatiquement ?
 Non. Non, lorsque vous [basculez](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failover-failback) des machines virtuelles Azure d’une région vers une autre, les machines virtuelles démarrent dans la région de reprise d’activité après sinistre en état non protégé. Pour restaurer automatiquement les machines virtuelles vers la région primaire, vous devez [reprotéger](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect) les machines virtuelles dans la région secondaire.
@@ -208,7 +213,7 @@ Non. Non, lorsque vous [basculez](https://docs.microsoft.com/azure/site-recovery
 Cela dépend de la situation. Par exemple, si la machine virtuelle de la région source existe, seuls les différences entre le disque source et le disque cible sont synchronisées. Site Recovery calcule les différentiels en comparant les disques, puis transfère les données. Ce processus prend généralement plusieurs heures. Pour plus d’informations sur ce qui se passe lors de la reprotection, consultez [Reprotection de machines virtuelles Azure basculées vers la région primaire]( https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection).
 
 ### <a name="how-much-time-does-it-take-to-fail-back"></a>Combien de temps prend la restauration automatique ?
-Après la reprotection, la durée de la restauration automatique est généralement similaire à la durée du basculement de la région primaire vers une région secondaire. 
+Après la reprotection, la durée de la restauration automatique est généralement similaire à la durée du basculement de la région primaire vers une région secondaire.
 
 ## <a name="capacity"></a>Capacité
 ### <a name="does-site-recovery-work-with-reserved-instance"></a>Site Recovery fonctionne-t-il avec les instances réservées ?

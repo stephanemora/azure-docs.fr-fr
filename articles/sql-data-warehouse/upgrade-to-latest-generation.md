@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8ec6ffaba8056eacf44d8e1bd911eb1f22daad84
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 522f1f2f24e8c8c3f68a42569d4057a7694754d1
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314838"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651071"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Optimiser les performances en mettant à niveau SQL Data Warehouse
 
@@ -34,8 +34,8 @@ Cette mise à niveau s’applique aux entrepôts de données de niveau Gen1 opti
 ## <a name="before-you-begin"></a>Avant de commencer
 
 1. Vérifiez si votre [région](gen2-migration-schedule.md#automated-schedule-and-region-availability-table) est prise en charge pour la migration GEN1 vers GEN2. Prenez note des dates de migration automatique. Pour éviter tout conflit avec le processus automatisé, planifiez votre migration manuelle avant la date de début du processus automatisé.
-2. Si vous vous trouvez dans une région qui n’est pas encore prise en charge, continuez à vérifier si votre région doit être ajoutée ou [effectuer la mise à niveau en utilisant la restauration](#Upgrade-from-an-Azure-geographical-region-using-restore-through-the-Azure-portal) dans une région prise en charge.
-3. Si votre région est prise en charge, [effectuez la mise à niveau via le portail Azure](#Upgrade-in-a-supported-region-using-the-Azure-portal).
+2. Si vous vous trouvez dans une région qui n’est pas encore prise en charge, continuez à vérifier si votre région doit être ajoutée ou [effectuer la mise à niveau en utilisant la restauration](#upgrade-from-an-azure-geographical-region-using-restore-through-the-azure-portal) dans une région prise en charge.
+3. Si votre région est prise en charge, [effectuez la mise à niveau via le portail Azure](#upgrade-in-a-supported-region-using-the-azure-portal).
 4. **Sélectionnez le niveau de performances suggéré** pour l’entrepôt de données en fonction de votre niveau de performances actuel sur le niveau Gen1 optimisé pour le calcul en utilisant le mappage ci-dessous :
 
    | Niveau Gen1 optimisé pour le calcul | Niveau Gen2 optimisé pour le calcul |

@@ -1,6 +1,6 @@
 ---
-title: Diffuser en continu les journaux de diagnostic Azure vers Log Analytics
-description: Découvrez comment diffuser en continu les journaux de diagnostic Azure vers un espace de travail Log Analytics.
+title: Journaux de Diagnostic Azure Stream à l’espace de travail Analytique de journal dans Azure Monitor
+description: Découvrez comment diffuser en continu des journaux de diagnostics Azure vers un espace de travail Analytique de journal dans Azure Monitor.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,27 +8,26 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: bd760fca20a602127e7d33913547dcb2c6bc95f6
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 33d8f2e7c65a786d1ecb389574fe186efb6fb705
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351546"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630783"
 ---
-# <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Diffuser en continu les journaux de diagnostic Azure vers Log Analytics
+# <a name="stream-azure-diagnostic-logs-to-log-analytics-workspace-in-azure-monitor"></a>Journaux de Diagnostic Azure Stream à l’espace de travail Analytique de journal dans Azure Monitor
 
-**[Les journaux de diagnostic Azure](diagnostic-logs-overview.md)** peuvent être diffusés en continu quasiment en temps réel vers Azure Log Analytics à l’aide du portail, des applets de commande PowerShell ou de l’interface de ligne de commande Azure.
+**[Journaux de diagnostic Azure](diagnostic-logs-overview.md)**  peuvent être diffusés quasiment en temps réel à un espace de travail Analytique de journal dans Azure Monitor à un portail, les applets de commande PowerShell ou Azure CLI.
 
-## <a name="what-you-can-do-with-diagnostics-logs-in-log-analytics"></a>Ce que vous pouvez faire avec les journaux de diagnostic dans Log Analytics
+## <a name="what-you-can-do-with-diagnostics-logs-in-a-log-analytics-workspace"></a>Ce que vous pouvez faire avec les diagnostics consigne dans un espace de travail Analytique de journal
 
-Azure Log Analytics est un outil d’analytique et de recherche de journaux flexible qui vous offre une meilleure visibilité sur les données de journal brutes générées à partir des ressources Azure. Il inclut, entre autres, les fonctionnalités suivantes :
+Azure Monitor fournit un outil de requête et d’analytique de journal flexible qui vous permet de mieux connaître les données brutes du journal générées à partir de ressources Azure. Il inclut, entre autres, les fonctionnalités suivantes :
 
-* **Recherche dans les journaux** : écrivez des requêtes avancées pour rechercher des données de journal spécifiques, mettez en corrélation des journaux à partir de diverses sources, ou encore générez des graphiques qui peuvent être épinglés à votre tableau de bord Azure.
-* **Génération d’alertes** : soyez informé par e-mail ou appel webhook lorsqu’un ou plusieurs événements correspond(ent) à une requête particulière.
-* **Solutions** : utilisez des tableaux de bord et des vues prédéfinies pour bénéficier d’une meilleure visibilité sur vos données de journal.
+* **Requête de journal** -écriture des requêtes avancées sur vos données de journal, mettre en corrélation des journaux à partir de diverses sources et de générant des graphiques qui peuvent être épinglés à votre tableau de bord Azure.
+* **Génération d’alertes** -détecter lorsqu’un ou plusieurs événements correspondent à une requête particulière et soyez informés par un appel par e-mail ou webhook à l’aide d’alertes Azure Monitor.
 * **Analytique avancée** : appliquez des algorithmes de Machine Learning et de correspondance à des critères spéciaux pour identifier d’éventuels problèmes consignés dans vos journaux.
 
-## <a name="enable-streaming-of-diagnostic-logs-to-log-analytics"></a>Activer la diffusion en continu des journaux de diagnostic vers Log Analytics
+## <a name="enable-streaming-of-diagnostic-logs-to-log-analytics-workspace"></a>Activer la diffusion en continu des journaux de diagnostic à l’espace de travail Analytique de journal
 
 Vous pouvez activer la diffusion en continu des journaux de diagnostic par programme, via le portail ou à l’aide des [API REST Azure Monitor](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings). Dans tous les cas, vous créez un paramètre de diagnostic dans lequel vous spécifiez un espace de travail Log Analytics et les catégories de journal et les indicateurs de performance que vous voulez envoyer dans cet espace de travail. Une **catégorie de journal** de diagnostic est un type de journal qu’une ressource peut générer.
 
@@ -42,9 +41,8 @@ Il n’est pas nécessaire que l’espace de travail Log Analytics se trouve dan
 >
 
 ## <a name="stream-diagnostic-logs-using-the-portal"></a>Diffuser en continu les journaux de diagnostic à l’aide du portail
-1. Dans le portail, accédez à Azure Monitor, puis cliquez sur **Paramètres de diagnostic**
+1. Dans le portail, accédez à Azure Monitor, puis cliquez sur **les paramètres de Diagnostic** dans le **paramètres** menu.
 
-    ![Section Surveillance d’Azure Monitor](media/diagnostic-logs-stream-log-store/diagnostic-settings-blade.png)
 
 2. Vous pouvez également filtrer la liste par type ou groupe de ressources, puis cliquez sur la ressource pour laquelle vous souhaitez définir un paramètre de diagnostic.
 
@@ -97,9 +95,9 @@ Vous pouvez ajouter des catégories supplémentaires dans le journal de diagnost
 
 L’argument `--resource-group` est obligatoire seulement si `--workspace` n’est pas un ID d’objet.
 
-## <a name="how-do-i-query-the-data-in-log-analytics"></a>Comment faire pour interroger les données dans Log Analytics ?
+## <a name="how-do-i-query-the-data-from-a-log-analytics-workspace"></a>Comment interroger les données à partir d’un espace de travail Analytique de journal ?
 
-Dans le panneau Recherche dans les journaux du portail ou dans la fonctionnalité Analytique avancée accessible depuis Log Analytics, vous pouvez interroger les journaux de diagnostic dans le cadre de la solution de gestion des journaux au niveau de la table AzureDiagnostics. Il existe également [plusieurs solutions pour les ressources Azure](../../azure-monitor/insights/solutions.md) que vous pouvez installer pour avoir une visibilité immédiate sur les données de journal que vous envoyez vers Log Analytics.
+Dans le panneau des journaux dans le portail Azure Monitor, vous pouvez interroger les journaux de diagnostic dans le cadre de la solution de gestion des journaux dans la table AzureDiagnostics. Il existe également [plusieurs solutions de surveillance pour les ressources Azure](../../azure-monitor/insights/solutions.md) vous pouvez installer pour obtenir une visibilité immédiate sur les données de journal que vous envoyez dans Azure Monitor.
 
 ### <a name="known-limitation-column-limit-in-azurediagnostics"></a>Limitation connue : limite de colonne dans AzureDiagnostics
 Étant donné que de nombreuses ressources envoyer tous les types de données sont envoyés à la même table (_AzureDiagnostics_), le schéma de cette table est le jeu super des schémas de tous les types de données différents sont collectées. Par exemple, si vous avez créé des paramètres de diagnostic pour la collection de types de données suivants, tous sont envoyées à l’espace de travail :

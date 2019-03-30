@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: 0711743d46aaac08f8572917d91e452ee919134c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 7b28129a3afe9f78d0ef749fa0c7759082c5f758
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816898"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652448"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Déployer des ressources à l’aide de modèles Resource Manager et du Portail Azure
 
@@ -134,7 +134,8 @@ Le portail vous permet d’enregistrer un modèle dans votre compte Azure et de 
    ![Déployer un modèle enregistré](./media/resource-group-template-deploy-portal/deploy-saved-template.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour visualiser les journaux d’audit, voir [Opérations d’audit avec Resource Manager](./resource-group-audit.md).
-* Pour résoudre les erreurs de déploiement, consultez [Voir les opérations de déploiement](./resource-manager-deployment-operations.md).
-* Pour exporter un modèle à partir d’un déploiement ou d’un groupe de ressources, consultez [modèles exporter de Azure Resource Manager](./manage-resource-groups-portal.md#export-resource-groups-to-templates).
-* Pour déployer votre service sur plusieurs régions de façon sécurisée, consultez [Azure Deployment Manager](./deployment-manager-overview.md).
+
+- Pour visualiser les journaux d’audit, voir [Opérations d’audit avec Resource Manager](./resource-group-audit.md).
+- Pour résoudre les erreurs de déploiement, consultez [Voir les opérations de déploiement](./resource-manager-deployment-operations.md).
+- Pour exporter un modèle à partir d’un déploiement ou d’un groupe de ressources, consultez [modèles exporter de Azure Resource Manager](./manage-resource-groups-portal.md#export-resource-groups-to-templates).
+- Pour déployer votre service sur plusieurs régions de façon sécurisée, consultez [Azure Deployment Manager](./deployment-manager-overview.md).

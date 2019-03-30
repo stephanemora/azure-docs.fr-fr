@@ -4,7 +4,7 @@ description: Procédure de renforcement de vos services contre les défaillances
 services: service-fabric
 documentationcenter: .net
 author: anmolah
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 44af01f0-ed73-4c31-8ac0-d9d65b4ad2d6
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: anmola
-ms.openlocfilehash: 3c075ac9642c7d050fc45ce6164071c9c733326e
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ms.openlocfilehash: ceb6ad1a6a1182d78c473b8b0387c365eb660065
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051912"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58667206"
 ---
 # <a name="simulate-failures-during-service-workloads"></a>Simuler des défaillances au cours des charges de travail de services
 Grâce aux scénarios de testabilité dans Azure Service Fabric, les développeurs n’ont plus à s’inquiéter des erreurs individuelles. Toutefois, certains scénarios nécessitent l’entrelacement explicite de la charge de travail et des défaillances du client. Cet entrelacement interdit toute inactivité du service pendant la défaillance. Compte tenu du niveau de contrôle procuré par la testabilité, il est possible de cibler des points précis de l’exécution de la charge de travail. Cette incorporation d’erreur à différents états de l’application permet d’identifier les bogues et d’améliorer la qualité.
@@ -27,12 +27,12 @@ Grâce aux scénarios de testabilité dans Azure Service Fabric, les développeu
 ## <a name="sample-custom-scenario"></a>Exemple de scénario personnalisé
 Ce test présente un scénario où la charge de travail est entrelacée avec des [défaillances avec et sans perte de données](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). Pour optimiser les résultats, les erreurs doivent être provoquées au milieu des opérations ou du calcul du service.
 
-Penchons-nous sur un exemple de service exposant quatre charges de travail : A, B, C et D. Chacun d’entre eux correspond à un ensemble de flux de travail dédié au calcul, au stockage ou les deux. Par souci de simplicité, nous allons extraire les charges de travail dans notre exemple. Les différentes erreurs exécutées dans cet exemple sont :
+Nous allons étudier un exemple d’un service qui expose les quatre charges de travail : A, B, C et D. Chacun correspond à un ensemble de flux de travail et peut être calcul, stockage ou une combinaison. Par souci de simplicité, nous allons extraire les charges de travail dans notre exemple. Les différentes erreurs exécutées dans cet exemple sont :
 
-* RestartNode : erreur avec perte de données pour simuler un redémarrage de machine.
-* RestartDeployedCodePackage : erreur avec perte de données pour simuler des incidents du processus hôte de service.
-* RemoveReplica : erreur sans perte de données pour simuler la suppression de réplicas.
-* MovePrimary : erreur sans perte de données pour simuler des déplacements de réplicas déclenchés par l’équilibreur de charge Service Fabric.
+* RestartNode : Erreur avec perte de données pour simuler un redémarrage de l’ordinateur.
+* RestartDeployedCodePackage: Erreur avec perte de données pour simuler le processus hôte de service se bloque.
+* RemoveReplica : Erreur sans perte de données pour simuler la suppression de réplicas.
+* MovePrimary : Erreur sans perte de données pour simuler des déplacements de réplicas déclenchés par l’équilibreur de charge Service Fabric.
 
 ```csharp
 // Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.

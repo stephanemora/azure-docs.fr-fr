@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumeet.mittal
-ms.openlocfilehash: 619b9b68a5c4e897642e1f84c25c2822d8291400
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2d65d51ae8148e2e55d57d39e306ded0f75da687
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104486"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652584"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>Stratégies de point de terminaison de service de réseau virtuel (préversion)
 
@@ -145,7 +145,7 @@ Les stratégies de point de terminaison de service de réseau virtuel offrent le
 - **Réseaux virtuels appairés, connectés ou multiples** : Pour filtrer le trafic dans des réseaux virtuels appairés, les stratégies de point de terminaison doivent leur être appliquées individuellement.
 - **Filtrage du trafic Internet avec des appliances réseau ou le Pare-feu Azure** : Filtrez le trafic du service Azure avec des stratégies, sur les points de terminaison et filtrez le reste du trafic Internet ou Azure par le biais d’appliances ou du Pare-feu Azure. 
 - **Filtrage du trafic sur les services Azure déployés dans des réseaux virtuels** : Dans la préversion, les stratégies de point de terminaison de service ne sont pas prises en charge pour les services Azure managés qui sont déployés dans votre réseau virtuel. 
- Pour les services spécifiques, consultez [Limites.](#Limitations)
+ Pour les services spécifiques, consultez [Limites.](#limitations)
 - **Filtrage du trafic local vers les services Azure** : Les stratégies de point de terminaison de service s’appliquent uniquement au trafic en provenance des sous-réseaux associés aux stratégies. Pour autoriser l’accès à des ressources de service Azure spécifiques en local, le trafic doit être filtré à l’aide d’appliances de réseau virtuel ou de pare-feu.
 
 ## <a name="logging-and-troubleshooting"></a>Journalisation et résolution des problèmes

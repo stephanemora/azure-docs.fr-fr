@@ -3,8 +3,8 @@ title: Déploiement d’un exécutable existant dans Azure Service Fabric | Micr
 description: Découvrez-en plus sur l’empaquetage d’une application existante en tant que fichier exécutable invité afin de la déployer sur un cluster Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: msfussell
-manager: timlt
+author: aljo-microsoft
+manager: chackdan
 editor: ''
 ms.assetid: d799c1c6-75eb-4b8a-9f94-bf4f3dadf4c3
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/15/2018
-ms.author: mfussell
-ms.openlocfilehash: cdaf3dae12c2c9da1f6bcbebbff560b98e62bade
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.author: aljo
+ms.openlocfilehash: b7efeb1b4d83f6a6b372f73a7c0a5ca9bffdc052
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212838"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670591"
 ---
 # <a name="deploy-an-existing-executable-to-service-fabric"></a>Déployer un fichier exécutable existant sur Service Fabric
 Vous pouvez exécuter n’importe quel type de code, comme Node.js, Java ou C++ dans Azure Service Fabric en tant que service. Dans la terminologie Service Fabric, ces types de service sont appelés des exécutables invités.
@@ -33,7 +33,7 @@ L’exécution d’un exécutable invité dans un cluster Service Fabric présen
 * Analyse du fonctionnement. La fonction d’analyse du fonctionnement de Service Fabric détecte si une application est en cours d’exécution et fournit des informations de diagnostic en cas d’échec.   
 * Gestion du cycle de vie des applications. Outre les mises à niveau sans temps d’arrêt, Service Fabric assure la restauration automatique de la version précédente en cas d’événement signalant un problème d’intégrité lors d’une mise à niveau.    
 * Densité. Vous pouvez exécuter plusieurs applications dans un cluster, ce qui élimine le besoin d’exécuter chaque application sur son propre matériel.
-* Détectabilité : À l’aide de REST, vous pouvez appeler le service d’attribution de noms Service Fabric pour trouver d’autres services dans le cluster. 
+* Découverte : À l’aide de REST, vous pouvez appeler le service Service Fabric Naming pour trouver d’autres services dans le cluster. 
 
 ## <a name="samples"></a>Exemples
 * [Exemple pour empaqueter et déployer un fichier exécutable invité](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)

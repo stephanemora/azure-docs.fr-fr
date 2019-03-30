@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 4fb14b49e573770aaef13d6b5d47c265337c408c
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 5e2c92c22f98913da0e3668ceb84b212cc48396a
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57568921"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650985"
 ---
 #   <a name="image-analysis-cognitive-skill"></a>Compétence cognitive Analyse d’image
 
@@ -37,8 +37,8 @@ Les paramètres respectent la casse.
 | Nom du paramètre     | Description |
 |--------------------|-------------|
 | defaultLanguageCode   |  Chaîne indiquant la langue à retourner. Le service retourne les résultats de la reconnaissance dans une langue donnée. Si ce paramètre n’est pas spécifié, la valeur par défaut est « en ». <br/><br/>Les langues prises en charge sont les suivantes : <br/>*en* : anglais (par défaut) <br/> *zh* : chinois simplifié|
-|visualFeatures |   Tableau de chaînes qui indique les types de caractéristiques visuelles à retourner. Les types de caractéristiques visuelles valides sont les suivants :  <ul><li> *categories* : classe le contenu de l’image en fonction d’une taxonomie définie dans la [documentation](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy) Cognitive Services.</li><li> *tags* : balise l’image avec une liste détaillée de mots liés au contenu de l’image.</li><li>*Description* : décrit le contenu de l’image avec une phrase en anglais complète.</li><li>*Faces* : détecte si des visages sont présents. Si tel est le cas, génère des coordonnées, ainsi que des paramètres d’âge et de sexe.</li><li> *ImageType* -détecte si l’image est une image clipart ou un dessin au trait.</li><li>  *Color* : détermine la couleur d’accentuation, la couleur dominante, et si une image est en noir et blanc.</li><li>*Adult* : détecte si l’image est de nature pornographique (nudité ou acte sexuel). Le contenu sexuellement suggestif est également détecté.</li></ul> Les noms des caractéristiques visuelles respectent la casse.|
-| détails   | Tableau de chaînes indiquant les détails spécifiques à un domaine à retourner. Les types de caractéristiques visuelles valides sont les suivants : <ul><li>*Celebrities* : identifie les célébrités éventuellement détectées dans l’image.</li><li>*Landmarks* : identifie les paysages éventuellement détectés dans l’image.</li></ul>
+|visualFeatures |   Tableau de chaînes qui indique les types de caractéristiques visuelles à retourner. Les types de caractéristiques visuelles valides sont les suivants :  <ul><li> *categories* : classe le contenu de l’image en fonction d’une taxonomie définie dans la [documentation](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy) Cognitive Services.</li><li> *tags* : balise l’image avec une liste détaillée de mots liés au contenu de l’image.</li><li>*Description* -décrit le contenu avec une phrase en anglais complète de l’image.</li><li>*Visages* -détecte si les visages sont présents. Si tel est le cas, génère des coordonnées, ainsi que des paramètres d’âge et de sexe.</li><li> *ImageType* -détecte si l’image est une image clipart ou un dessin au trait.</li><li>  *Couleur* -détermine la couleur d’accentuation, couleur dominante, et si une image est noir et blanc.</li><li>*Réservé aux adultes* -détecte si l’image est pornographique par nature (illustre nudité ou un acte de sexe). Le contenu sexuellement suggestif est également détecté.</li></ul> Les noms des caractéristiques visuelles respectent la casse.|
+| détails   | Tableau de chaînes indiquant les détails spécifiques à un domaine à retourner. Les types de caractéristiques visuelles valides sont les suivants : <ul><li>*Célébrités* -identifie les célébrités si détecté dans l’image.</li><li>*Points de repère* -identifie les points de repère si détecté dans l’image.</li></ul>
  |
 
 ## <a name="skill-inputs"></a>Entrées de la compétence

@@ -1,5 +1,5 @@
 ---
-title: Comprendre l’utilisation de réservations Azure pour un abonnement avec paiement à l’utilisation | Microsoft Docs
+title: Comprendre l’utilisation de réservations Azure pour l’abonnement de paiement à l’utilisation | Microsoft Docs
 description: Découvrez comment analyser votre utilisation pour comprendre l’application de la réservation Azure à votre abonnement avec paiement à l’utilisation.
 services: billing
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2018
+ms.date: 03/13/2019
 ms.author: banders
-ms.openlocfilehash: a3bacdb19dfe16a63cf1f89ef6fb162d08cb4d32
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 14bd7b61038bf938f7d370eaf6e16d71b5da43ca
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57883778"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652533"
 ---
 # <a name="understand-azure-reservation-usage-for-your-pay-as-you-go-subscription"></a>Comprendre l’utilisation d’une réservation Azure pour votre abonnement avec paiement à l’utilisation
 
@@ -64,7 +64,7 @@ Filtrez les données sur **Informations supplémentaires**, puis tapez votre **I
 
 ## <a name="usage-for-sql-database--cosmos-db-reserved-capacity-reservations"></a>Utilisation pour les réservations de capacité réservée SQL Database et Cosmos DB
 
-Les sections suivantes utilisent Azure SQL Database comme exemple pour décrire le rapport d’utilisation. Vous pouvez utiliser les mêmes étapes pour obtenir l’utilisation pour Azure Cosmos DB. 
+Les sections suivantes utilisent Azure SQL Database comme exemple pour décrire le rapport d’utilisation. Vous pouvez utiliser les mêmes étapes pour obtenir l’utilisation pour Azure Cosmos DB.
 
 Supposez que vous exécutez une machine virtuelle SQL Database de 4e génération dans la région USA Est, et que vos informations de réservation ressemblent au contenu du tableau suivant :
 
@@ -93,6 +93,10 @@ Filtrez les données sur **Informations supplémentaires**, puis tapez votre **I
 2. Le **compteur de consommation** représente l’ID du compteur de la ressource SQL Database.
 3. **L’ID du compteur** est le compteur de réservation avec un coût de 0 dollar US. Le coût de ce compteur est de 0 dollar US. Cet ID de compteur est indiqué dans le fichier CSV pour toute ressource SQL Database répondant aux critères de la remise de réservation.
 
+## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
+
+Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur les réservations Azure, consultez les articles suivants :
@@ -104,9 +108,3 @@ Pour plus d’informations sur les réservations Azure, consultez les articles s
 - [Comprendre comment la remise de réservation est appliquée](billing-understand-vm-reservation-charges.md)
 - [Comprendre l’utilisation d’une réservation pour votre Accord de Mise en Œuvre Entreprise](billing-understand-reserved-instance-usage-ea.md)
 - [Coûts des logiciels Windows non inclus dans les réservations](billing-reserved-instance-windows-software-costs.md)
-
-## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
-
-Si vous avez des questions ou besoin d’aide, [créer une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).
-
-

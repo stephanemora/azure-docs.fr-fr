@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: jlian
-ms.openlocfilehash: 9057245c108e4a1b9af2549bc87f98258da50535
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 6cc5e45ab28a1c83125a37cefb289b1662096eb0
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240165"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648817"
 ---
 # <a name="detect-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Détecter et résoudre les problèmes de déconnexion avec Azure IoT Hub
 
@@ -32,7 +32,7 @@ Pour enregistrer les événements et les erreurs de connexion d’appareil, acti
 1. Sélectionnez **Paramètres de diagnostic**.
 1. Sélectionnez **Activer les diagnostics**.
 1. Activez la collecte des journaux **Connexions**.
-1. Pour faciliter l’analyse, activez l’option **Envoyer à Log Analytics** ([voir les tarifs](https://azure.microsoft.com/pricing/details/log-analytics/)). Consultez l’exemple sous [Résoudre les erreurs de connectivité](#Resolve-connectivity-errors).
+1. Pour faciliter l’analyse, activez l’option **Envoyer à Log Analytics** ([voir les tarifs](https://azure.microsoft.com/pricing/details/log-analytics/)). Consultez l’exemple sous [Résoudre les erreurs de connectivité](#resolve-connectivity-errors).
 
    ![Paramètres recommandés][2]
 
@@ -40,15 +40,14 @@ Pour plus d’informations, consultez l’article [Surveiller l’intégrité d�
 
 ### <a name="set-up-alerts-for-the-connected-devices-count-metric"></a>Configurer des alertes pour la métrique du nombre d’_appareils connectés_
 
-Pour obtenir des alertes quand des appareils se déconnectent, configurez les alertes sur la métrique **Appareils connectés**.
+Pour obtenir des alertes lorsque les appareils se déconnectent, configurer des alertes sur le **appareils (version préliminaire) connectés** métrique.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 1. Accédez à votre hub IoT.
-1. Sélectionnez **Alertes (classiques)**.
-1. Sélectionnez **Ajouter une alerte métrique (classique)**.
-1. Renseignez le formulaire, puis sélectionnez **OK**.
-
-   ![Alerte de métrique recommandée][3]
+1. Sélectionnez **Alertes**.
+1. Sélectionnez **nouvelle règle d’alerte**.
+1. Sélectionnez **ajouter une condition**, puis sélectionnez « Connecté les appareils (version préliminaire) ».
+1. Terminer la configuration de votre seuils désirés et options d’alerte par les invites suivantes.
 
 Pour plus d’informations, consultez l’article [Que sont les alertes classiques dans Microsoft Azure ?](../azure-monitor/platform/alerts-overview.md).
 

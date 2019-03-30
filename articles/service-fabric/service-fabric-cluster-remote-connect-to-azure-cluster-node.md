@@ -4,7 +4,7 @@ description: Découvrez comment vous connecter à distance à une instance de gr
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/23/2018
 ms.author: aljo
-ms.openlocfilehash: 28424f9a7a0f77882ee3360c5599549303075c18
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 4cc2d6355a0147c33048f1c2c27a3648b9223db4
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642571"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58663772"
 ---
 # <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Connexion distante à une instance de groupe de machines virtuelles identiques ou à un nœud de cluster
 Dans un cluster Service Fabric s’exécutant dans Azure, chaque type de nœud de cluster que vous définissez [définit une échelle mise à l’échelle séparée des machines virtuelles](service-fabric-cluster-nodetypes.md).  Vous pouvez vous connecter à distance à des instances de groupes identiques (nœuds de cluster) spécifiques.  Contrairement aux machines virtuelles à une seule instance, les instances de groupe identique ne possèdent pas leurs propres adresses IP virtuelles. Cela peut poser des problèmes quand il s’agit de rechercher une adresse IP et un port permettant de se connecter à distance à une instance spécifique.
@@ -28,7 +28,7 @@ Pour rechercher une adresse IP et un port permettant de se connecter à distance
 
 1. Obtenez les règles NAT de trafic entrant pour le protocole RDP (Remote Desktop Protocol).
 
-    En général, chaque type de nœud défini dans votre cluster a sa propre adresse IP virtuelle et un équilibreur de charge dédié. Par défaut, l’équilibreur de charge pour un type de nœud est nommé avec le format suivant : *LB-{nom-de-cluster}-{type-de-nœud}* ; par exemple, *LB-mycluster-FrontEnd*. 
+    En général, chaque type de nœud défini dans votre cluster a sa propre adresse IP virtuelle et un équilibreur de charge dédié. Par défaut, l’équilibrage de charge pour un type de nœud est nommé avec le format suivant : *LB-{nom de cluster}-{type de nœud}*; par exemple, *mycluster-LB-FrontEnd*. 
     
     Dans la page de votre équilibreur de charge dans le portail Azure, sélectionnez **Paramètres** > **Règles NAT de trafic entrant** : 
 

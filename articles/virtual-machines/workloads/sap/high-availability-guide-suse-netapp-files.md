@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/015/2019
 ms.author: radeltch
-ms.openlocfilehash: 0d2edee8f4df6a2328ec99cc4d570687c4342c8a
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 02a97852a8dc659071c3484126b921d6f7106562
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540990"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662368"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Haute disponibilité pour SAP NetWeaver sur machines virtuelles Azure sur SUSE Linux Enterprise Server avec Azure Files de NetApp pour les applications SAP
 
@@ -58,7 +58,7 @@ ms.locfileid: "58540990"
 [sap-hana-ha]:sap-hana-high-availability.md
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
-Cet article décrit comment déployer les ordinateurs virtuels, configurez les machines virtuelles, installer l’infrastructure de cluster et installer un système SAP NetWeaver 7.50 à haute disponibilité, à l’aide de [Azure NetApp Files](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-introduction/).
+Cet article décrit comment déployer les ordinateurs virtuels, configurez les machines virtuelles, installer l’infrastructure de cluster et installer un système SAP NetWeaver 7.50 à haute disponibilité, à l’aide de [Azure NetApp Files (en préversion publique)](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-introduction/).
 Dans les exemples de configuration, etc. les commandes d’installation, l’instance ASCS est numéros 00, le numéro d’instance ERS 01, l’instance d’Application principal (PAS) est 02 et l’instance d’Application (AAS) est 03. Assurance qualité de SAP System ID est utilisée. 
 
 Cet article explique comment atteindre une haute disponibilité pour l’application SAP NetWeaver avec Azure Files de NetApp. La couche de base de données n’est pas couvert en détail dans cet article.

@@ -4,7 +4,7 @@ description: Apprenez à configurer les limiteurs fournis par Service Fabric Clu
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 4a44678b-a5aa-4d30-958f-dc4332ebfb63
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: b1824fc5f93bafb26650d28277054869a3659099
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 4abc3e4a28b8b98070affe19b7b7ca38f904c45b
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731750"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58669824"
 ---
 # <a name="throttling-the-service-fabric-cluster-resource-manager"></a>Limitations de Service Fabric Cluster Resource Manager
 Même si vous avez configuré le Cluster Resource Manager , le cluster peut être interrompu. Par exemple, il peut y avoir des défaillances de nœud et de domaine d’erreur simultanées. Que se passe-t-il alors si cela se produit pendant une mise à niveau ? Le Gestionnaire de ressources de cluster essaie de résoudre tous les problèmes en utilisant des ressources du cluster pour tenter de réparer et réorganiser le cluster. Les limitations servent de filet de sécurité afin que le cluster puisse utiliser des ressources pour se stabiliser. Les nœuds reviennent, les partitions réseau sont réparées et les bits corrigés sont déployés.

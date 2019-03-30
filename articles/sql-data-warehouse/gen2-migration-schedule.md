@@ -10,19 +10,19 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 02/09/2019
-ms.openlocfilehash: 8f24bab531143cad1974663eb71b173a20b6f51a
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 575b6384d910abac1c0a1184aef4aa72f686538c
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287177"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648571"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Mettre à niveau votre entrepôt de données vers Gen2
 
 Microsoft aide à réduire le coût d’entrée de gamme de l’exécution d’un entrepôt de données.  Calcul niveaux capables de gérer exigeant des requêtes sont désormais disponibles pour Azure SQL Data Warehouse. Lire l’intégralité de l’annonce [prise en charge de la couche de 2e génération de calcul inférieur](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/). La nouvelle offre est disponible dans les régions indiquées dans le tableau ci-dessous. Pour les régions prises en charge, les entrepôts de données Gen1 existants peuvent être mis à niveau vers Gen2 à l’aide de l’une des méthodes suivantes :
 
 - **Processus de mise à niveau automatique :** Mises à niveau automatiques ne démarrent pas dès que le service est disponible dans une région.  Quand les mises à niveau automatiques commenceront dans une région spécifique, les mises à niveau individuelles de DW s’effectueront pendant la planification de maintenance que vous avez sélectionnée.
-- [**Mise à niveau automatique vers Gen2 :**](#Self-upgrade-to-Gen2) Vous pouvez contrôler quand mettre à niveau en procédant comme à une mise à niveau automatique vers Gen2. Si votre région n’est pas encore pris en charge, vous pouvez restaurer à partir d’un point de restauration directement à une instance de la génération 2 dans une région prise en charge.
+- [**Mise à niveau automatique vers Gen2 :**](#self-upgrade-to-gen2) Vous pouvez contrôler quand mettre à niveau en procédant comme à une mise à niveau automatique vers Gen2. Si votre région n’est pas encore pris en charge, vous pouvez restaurer à partir d’un point de restauration directement à une instance de la génération 2 dans une région prise en charge.
 
 ## <a name="automated-schedule-and-region-availability-table"></a>Tableau des planifications automatisées et de la disponibilité dans les régions
 

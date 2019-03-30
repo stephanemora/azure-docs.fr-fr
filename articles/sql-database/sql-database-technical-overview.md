@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: 711e51a075ce25ef3aa3c9c7e8784c914c8d0581
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.date: 03/29/2019
+ms.openlocfilehash: e71039c84c79c27a372a378144b21f6f724d08d8
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982265"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670833"
 ---
 # <a name="what-is-azure-sql-database-service"></a>Qu’est-ce que le service Azure SQL Database ?
 
@@ -95,13 +95,21 @@ Vous utilisez les outils intégrés de [surveillance](sql-database-performance.m
 
 - **Stockage Azure** : pour archiver à petit prix de gros volumes de données de télémétrie.
 - **Azure Event Hub** : pour intégrer des données de télémétrie SQL Database à votre solution de surveillance personnalisée ou à vos pipelines chauds.
-- **Azure Log Analytics** : pour une solution de surveillance intégrée offrant des fonctionnalités de génération de rapports, d'alerte et d'atténuation.
+- **Journaux Azure Monitor** : pour une solution de surveillance intégrée offrant des fonctionnalités de génération de rapports, d'alerte et d'atténuation.
 
     ![architecture](./media/sql-database-metrics-diag-logging/architecture.png)
 
 ## <a name="availability-capabilities"></a>Fonctionnalités de disponibilité
 
-Avec un temps de disponibilité de 99,99 %, l’excellent contrat de niveau de service [(SLA)](https://azure.microsoft.com/support/legal/sla/)d’Azure, soutenu par un réseau mondial de centres de données gérés par Microsoft, permet d’exécuter votre application 24 heures sur 24, 7 jours sur 7. La plateforme Azure gère entièrement chaque base de données et garantit un pourcentage élevé de disponibilité des données, sans aucune perte. Azure gère automatiquement les tâches suivantes : mises à jour correctives, sauvegardes, réplication, détection des éventuelles défaillances matérielles, logicielles ou réseau sous-jacentes, déploiement de correctifs de bogues, basculements, mises à niveau de base de données et autres tâches de maintenance. Pour obtenir la disponibilité Standard, les couches de calcul et de stockage sont séparées. Pour obtenir la disponibilité Premium, les opérations de calcul et de stockage sont intégrées à un nœud unique afin d’améliorer les performances, puis une technologie similaire aux groupes de disponibilité Always On est implémentée en arrière-plan. Pour accéder à une description complète des fonctionnalités haute disponibilité d’Azure SQL Database, consultez [Disponibilité de SQL Database](sql-database-high-availability.md). En outre, SQL Database fournit des fonctionnalités intégrées de [continuité d’activité et d’évolutivité globale](sql-database-business-continuity.md), notamment :
+Dans un environnement traditionnel de SQL Server, vous devez généralement (au moins) 2 machines localement configurer avec une copie exacte (gérée de façon synchrone) des données (à l’aide de fonctionnalités telles que les groupes de disponibilité AlwaysOn ou des Instances de Cluster de basculement) pour vous protéger contre une Échec d’un ordinateur/composant unique.  Cela offre une haute disponibilité, mais ne protège pas contre une catastrophe naturelle détruire votre centre de données.
+ 
+Récupération d’urgence suppose qu’un événement catastrophique sera géographiquement localisé suffisant à avoir une autre machine/de machines avec une copie de vos données éloigné.  Dans SQL Server, vous pouvez utiliser des groupes de disponibilité AlwaysOn en cours d’exécution en mode asynchrone pour obtenir cette fonctionnalité.  La vitesse des problèmes claires signifie généralement que personnes ne souhaitez pas attendre la réplication se produise que loin avant de valider une transaction, donc constitue un risque potentiel de perte de données lorsque vous effectuez des basculements non planifiés.
+
+Niveaux de bases de données dans le service premium et d’entreprise critiques déjà [faire quelque chose de semblable](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) à la synchronisation d’un groupe de disponibilité. Bases de données dans les niveaux de service inférieurs fournissent une redondance via le stockage à l’aide un [mécanisme différente mais équivalente](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability). Il est logique qui protège contre une défaillance d’ordinateur.  La fonctionnalité de géo-réplication active vous donne la possibilité de protéger contre les sinistres où une région entière est détruite.
+
+Zones de disponibilité Azure est une lecture sur le problème de haute disponibilité.  Il essaie de protéger contre la panne d’un centre de données unique création au sein d’une seule région.  Par conséquent, qu’il souhaite protéger contre la perte de puissance ou de réseau pour un bâtiment. Dans SQL Azure, cela fonctionne en plaçant les réplicas différents dans différentes zones de disponibilité (différents bâtiments, efficacement) et sinon fonctionne comme avant. 
+
+En fait, 99,99 % disponibilité d’Azure contrat de niveau de service [(SLA)](https://azure.microsoft.com/support/legal/sla/), alimenté par un réseau mondial de centres de données gérés par Microsoft, permet d’exécuter votre application 24/7 en cours d’exécution. La plateforme Azure gère entièrement chaque base de données et garantit un pourcentage élevé de disponibilité des données, sans aucune perte. Azure gère automatiquement les tâches suivantes : mises à jour correctives, sauvegardes, réplication, détection des éventuelles défaillances matérielles, logicielles ou réseau sous-jacentes, déploiement de correctifs de bogues, basculements, mises à niveau de base de données et autres tâches de maintenance. Pour obtenir la disponibilité Standard, les couches de calcul et de stockage sont séparées. Pour obtenir la disponibilité Premium, les opérations de calcul et de stockage sont intégrées à un nœud unique afin d’améliorer les performances, puis une technologie similaire aux groupes de disponibilité Always On est implémentée en arrière-plan. Pour accéder à une description complète des fonctionnalités haute disponibilité d’Azure SQL Database, consultez [Disponibilité de SQL Database](sql-database-high-availability.md). En outre, SQL Database fournit des fonctionnalités intégrées de [continuité d’activité et d’évolutivité globale](sql-database-business-continuity.md), notamment :
 
 - **[Sauvegardes automatiques](sql-database-automated-backups.md)** :
 
@@ -141,11 +149,14 @@ Deux aspects de réglage automatique sont [disponibles dans SQL Database](sql-d
 
 ### <a name="adaptive-query-processing"></a>Traitement adaptatif des requêtes
 
-Nous ajoutons également à SQL Database la famille des fonctionnalités de [traitement adaptatif des requêtes](/sql/relational-databases/performance/adaptive-query-processing), y compris l’exécution entrelacée pour les fonctions TVF à instructions multiples, les commentaires d’allocation de mémoire en mode traitement par lots et les jointures adaptatives en mode de traitement par lots. Chacune de ces fonctionnalités de traitement adaptatif des requêtes applique des techniques similaires d’apprentissage et d’adaptation, ce qui contribue à résoudre les problèmes de performances liés aux soucis d’optimisation de requête historiquement intraitables.
+Nous ajoutons également à SQL Database la famille des fonctionnalités de [traitement adaptatif des requêtes](/sql/relational-databases/performance/intelligent-query-processing), y compris l’exécution entrelacée pour les fonctions TVF à instructions multiples, les commentaires d’allocation de mémoire en mode traitement par lots et les jointures adaptatives en mode de traitement par lots. Chacune de ces fonctionnalités de traitement adaptatif des requêtes applique des techniques similaires d’apprentissage et d’adaptation, ce qui contribue à résoudre les problèmes de performances liés aux soucis d’optimisation de requête historiquement intraitables.
 
 ## <a name="advanced-security-and-compliance"></a>Sécurité et conformité avancées
 
 SQL Database fournit toute une gamme de [fonctionnalités intégrées de sécurité et conformité](sql-database-security-overview.md) pour que votre application réponde aux différentes exigences de conformité et de sécurité.
+
+> [!IMPORTANT]
+> Base de données SQL Azure (toutes les options de déploiement), a été certifié par rapport à un nombre de normes de conformité. Pour en savoir plus, accédez au [Centre de confidentialité Microsoft Azure](https://azure.microsoft.com/support/trust-center/), qui inclut la liste la plus à jour des [certifications de conformité de la base de données SQL](https://www.microsoft.com/trustcenter/compliance/complianceofferings).
 
 ### <a name="advance-threat-protection"></a>Protection avancée contre les menaces
 
@@ -234,7 +245,7 @@ Les clients SQL Database auront les droits associés à Azure Hybrid Benefit pou
 ## <a name="engage-with-the-sql-server-engineering-team"></a>Collaborer avec l’équipe d’ingénierie de SQL Server
 
 - [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server) : posez vos questions sur l'administration des bases de données.
-- [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-server) : posez vos questions sur le développement.
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/sql-server) : posez vos questions sur le développement.
 - [Forums MSDN](https://social.msdn.microsoft.com/Forums/home?category=sqlserver) : posez vos questions techniques.
 - [Feedback](https://aka.ms/sqlfeedback) : signalez les bogues et demandez des fonctionnalités.
 - [Reddit](https://www.reddit.com/r/SQLServer/) : échangez au sujet de SQL Server.

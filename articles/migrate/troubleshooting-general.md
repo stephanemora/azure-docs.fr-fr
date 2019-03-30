@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: raynew
-ms.openlocfilehash: 67c07169b3ff66d99ee52a0e078e0e463a42702e
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: dff3c96cf3ac8eea7c1160ee1834cc70390c0333
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482910"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652635"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Résoudre les problèmes d’Azure Migrate
 
@@ -102,7 +102,7 @@ Vous pouvez accéder à la section **Bases** de la page **Vue d’ensemble** du 
    - Cliquez sur Fichier > Déployer un modèle OVF > Parcourir. Recherchez le fichier OVA et terminez le déploiement.
 4. Si le déploiement échoue toujours, contactez le support Azure Migrate.
 
-### <a name="unable-to-select-the-azure-cloud-in-the-appliance"></a>Impossible de sélectionner le Azure cloud dans l’appliance
+### <a name="unable-to-select-the-azure-cloud-in-the-appliance-fails-with-error-azure-cloud-selection-failed"></a>Impossible de sélectionner le Azure cloud dans l’appliance, échoue avec l’erreur « Échec de la sélection en nuage Azure »
 
 Il s’agit d’un problème connu et un correctif est disponible pour le problème. Téléchargez le [dernière mise à niveau des bits](https://docs.microsoft.com/azure/migrate/concepts-collector-upgrade#continuous-discovery-upgrade-versions) pour l’appliance et la mise à jour de l’appliance à appliquer le correctif.
 

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 6f416f1de6baca7fe79ea2a5dddfb8f8eb5f5120
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 8ae86d8bc7914a7a9c41eee93bb16b2f774993b9
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56824784"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651782"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-powershell"></a>Gérer des groupes de ressources Azure Resource Manager à l’aide d’Azure PowerShell
 
@@ -85,6 +85,10 @@ Pour valider un déploiement de groupe de ressources, consultez [Test-AzResource
 ## <a name="deploy-a-resource-group-and-resources"></a>Déployer un groupe de ressources et les ressources
 
 Vous pouvez créer un groupe de ressources et déployer des ressources dans le groupe à l’aide d’un modèle Resource Manager. Pour plus d'informations, consultez [Créer un groupe de ressources et déployer des ressources](./deploy-to-subscription.md#create-resource-group-and-deploy-resources).
+
+## <a name="redeploy-when-deployment-fails"></a>Redéploiement en cas d’échec du déploiement
+
+Cette fonctionnalité est également appelé *restauration en cas d’erreur*. Pour plus d’informations, consultez [redéployer en cas d’échec du déploiement](./resource-group-template-deploy.md#redeploy-when-deployment-fails).
 
 ## <a name="move-to-another-resource-group-or-subscription"></a>Déplacer vers un autre groupe de ressources ou abonnement
 

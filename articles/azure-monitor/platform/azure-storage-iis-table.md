@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 35befe7122f493998d0d91c2721e6013e057fed3
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: a4e0432260cfb9ee11ed318305fb967d160de835
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540599"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652550"
 ---
 # <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-azure-monitor"></a>Utilisation du stockage blob Azure pour IIS et table le stockage Azure pour les événements avec Azure Monitor
 
@@ -54,9 +54,11 @@ Pour Azure Monitor collecter ces journaux de Diagnostics Azure, les journaux doi
 Pour les machines virtuelles, vous pouvez installer [l’agent Log Analytics](../../azure-monitor/learn/quick-collect-azurevm.md) sur votre machine virtuelle pour activer des informations supplémentaires. Cela vous permet d’analyser les journaux IIS et les journaux des événements, mais également d'effectuer des analyses supplémentaires, notamment le suivi des modifications de configuration, l’évaluation SQL et l’évaluation de la mise à jour.
 
 ## <a name="enable-azure-diagnostics-in-a-virtual-machine-for-event-log-and-iis-log-collection"></a>Activation des diagnostics Azure dans une machine virtuelle pour la collecte des journaux IIS et des journaux des événements
+
 Utilisez la procédure suivante pour activer les diagnostics Azure dans une machine virtuelle pour la collecte de journaux IIS et de journaux des événements à l’aide du portail Microsoft Azure.
 
 ### <a name="to-enable-azure-diagnostics-in-a-virtual-machine-with-the-azure-portal"></a>Activation des diagnostics Azure dans une machine virtuelle à l’aide du portail Azure
+
 1. Installez l’agent de machine virtuelle lorsque vous créez une machine virtuelle. Si la machine virtuelle existe déjà, vérifiez que l’agent de machine virtuelle est déjà installé.
 
    * Dans le portail Azure, accédez à la machine virtuelle, sélectionnez **Configuration facultative**, puis **Diagnostics**, et définissez **État** sur **Activé**.
@@ -72,6 +74,7 @@ Utilisez la procédure suivante pour activer les diagnostics Azure dans une mach
    6. Cliquez sur **OK**.
 
 ## <a name="enable-azure-diagnostics-in-a-web-role-for-iis-log-and-event-collection"></a>Activation des diagnostics Azure dans un rôle Web pour la collecte de journaux IIS et des événements
+
 Reportez-vous à [Procédure : activer les diagnostics dans un service cloud](../../cloud-services/cloud-services-dotnet-diagnostics.md) pour connaître les étapes générales d’activation des diagnostics Windows Azure. Les instructions ci-dessous utilisent ces informations et les personnalisent pour une utilisation avec Log Analytics.
 
 Avec les diagnostics Azure activés :
@@ -80,11 +83,12 @@ Avec les diagnostics Azure activés :
 * Les journaux des événements Windows ne sont pas transférés par défaut.
 
 ### <a name="to-enable-diagnostics"></a>Activation des diagnostics
+
 Pour activer les journaux des événements Windows, ou pour modifier l’intervalle scheduledTransferPeriod, configurez Azure Diagnostics à l’aide du fichier de configuration XML (diagnostics.wadcfg), comme indiqué dans [Étape 4 : création de votre fichier de configuration Diagnostics et installation de l’extension](../../cloud-services/cloud-services-dotnet-diagnostics.md)
 
 L’exemple de fichier de configuration suivant collecte des journaux IIS et tous les événements des journaux de l’application et du système :
 
-```
+```xml
     <?xml version="1.0" encoding="utf-8" ?>
     <DiagnosticMonitorConfiguration xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"
           configurationChangePollInterval="PT1M"
@@ -108,7 +112,7 @@ L’exemple de fichier de configuration suivant collecte des journaux IIS et tou
 
 Assurez-vous que votre paramètres ConfigurationSettings spécifient un compte de stockage, comme dans l’exemple suivant :
 
-```
+```xml
     <ConfigurationSettings>
        <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<AccountName>;AccountKey=<AccountKey>"/>
     </ConfigurationSettings>
@@ -119,6 +123,7 @@ Les valeurs **AccountName** et **AccountKey** figurent dans le portail Azure, su
 Une fois la configuration de diagnostique mis à jour est appliquée à votre service cloud et écrit des diagnostics dans le stockage Azure, vous êtes prêt à configurer l’espace de travail Analytique de journal.
 
 ## <a name="use-the-azure-portal-to-collect-logs-from-azure-storage"></a>Utiliser le portail Azure pour collecter les journaux à partir de Stockage Azure
+
 Vous pouvez utiliser le portail Azure pour configurer un espace de travail Analytique de journal dans Azure Monitor pour collecter les journaux pour les services Azure suivants :
 
 * Clusters Service Fabric
@@ -161,7 +166,7 @@ Le script utilise des applets de commande pour les machines virtuelles classique
 
 Examinez l’exemple de script suivant, copiez-le et modifiez-le si nécessaire, enregistrez l’exemple dans un fichier de script PowerShell, puis exécutez le script.
 
-```
+```powershell
     #Connect to Azure
     Add-AzureAccount
 
@@ -194,6 +199,7 @@ Examinez l’exemple de script suivant, copiez-le et modifiez-le si nécessaire,
 
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 * [Collecter les journaux et les indicateurs de performance des services Azure](collect-azure-metrics-logs.md) pour les services pris en charge par Azure.
 * [Activer les solutions](../../azure-monitor/insights/solutions.md) pour fournir des informations sur les données.
 * [Utiliser les requêtes de recherche](../../azure-monitor/log-query/log-query-overview.md) pour analyser les données.

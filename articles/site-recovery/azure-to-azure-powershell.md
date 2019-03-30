@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: 9c4576633f98d38da7086711c24def88591ab71f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 64b14f66e05c42581fcce6eb9879fa72d7f0d6f8
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869409"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652074"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Configurer la récupération d’urgence pour des machines virtuelles Azure à l’aide d’Azure PowerShell
 
@@ -163,7 +163,7 @@ Remove-Item -Path $Vaultsettingsfile.FilePath
 
 L’objet de structure dans le coffre représente une région Azure. L’objet de structure principal est créé pour représenter la région Azure à laquelle appartiennent les machines virtuelles protégées. Dans l’exemple de cet article, la machine virtuelle protégée se trouve dans la région USA Est.
 
-- Un seul objet de structure peut être créé par région. 
+- Un seul objet de structure peut être créé par région.
 - Si vous avez activé la réplication Site Recovery pour une machine virtuelle dans le portail Azure, Site Recovery crée automatiquement un objet de structure. S’il existe un objet de structure pour une région, vous ne pouvez en pas créer.
 
 
@@ -588,7 +588,22 @@ Tasks            : {Prerequisite check, Commit}
 Errors           : {}
 ```
 
+## <a name="reprotect-and-failback-to-source-region"></a>La reprotection et la restauration automatique vers la région source
+
 Après un basculement, lorsque vous êtes prêt à revenir à la région d’origine, démarrez la réplication inverse pour l’élément protégé de la réplication à l’aide de la cmdlet Update-AzureRmRecoveryServicesAsrProtectionDirection.
+
+```azurepowershell
+#Create Cache storage account for replication logs in the primary region
+$WestUSCacheStorageAccount = New-AzureRmStorageAccount -Name "a2acachestoragewestus" -ResourceGroupName "A2AdemoRG" -Location 'West US' -SkuName Standard_LRS -Kind Storage
+```
+
+```azurepowershell
+#Use the recovery protection container, new cache storage accountin West US and the source region VM resource group
+Update-AzureRmRecoveryServicesAsrProtectionDirection -ReplicationProtectedItem $ReplicationProtectedItem -AzureToAzure
+-ProtectionContainerMapping $RecoveryProtContainer -LogStorageAccountId $WestUSCacheStorageAccount.Id -RecoveryResourceGroupID $sourceVMResourcegroup.Id
+```
+
+Une fois la reprotection terminée, vous pouvez lancer le basculement dans le sens inverse (ouest des États-Unis est des États-Unis) et la restauration automatique vers la région source.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Afficher le [référence Azure Site Recovery PowerShell](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery) pour savoir comment vous pouvez effectuer d’autres tâches telles que la création de Plans de récupération et de test de basculement des plans de récupération via PowerShell.

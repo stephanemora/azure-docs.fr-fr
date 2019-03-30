@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.author: hrasheed
-ms.openlocfilehash: 05df154db27dcf1b07506c6bf9c2a681408de61e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 123c05470f8f162095b92c0894716c7b5d2a92b2
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58091815"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648769"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Utiliser Azure Toolkit for Eclipse afin de créer des applications Apache Spark pour un cluster HDInsight
 
@@ -47,7 +47,7 @@ Quand vous ouvrez Eclipse, HDInsight Tools détecte automatiquement si vous avez
 
 ![Installation automatique du plug-in Scala](./media/apache-spark-eclipse-tool-plugin/auto-install-scala.png)
 
-Pour commencer, l’utilisateur peut soit [se connecter à un abonnement Azure](#Sign-in-to-your-Azure-subscription), soit [lier un cluster HDInsight](#Link-a-cluster) avec un identifiant joint à un domaine ou nom d’utilisateur/mot de passe Ambari. 
+Pour commencer, l’utilisateur peut soit [se connecter à un abonnement Azure](#sign-in-to-your-azure-subscription), soit [lier un cluster HDInsight](#link-a-cluster) avec un identifiant joint à un domaine ou nom d’utilisateur/mot de passe Ambari. 
 
 ## <a name="sign-in-to-your-azure-subscription"></a>Connectez-vous à votre abonnement Azure :
 1. Démarrez l’IDE Eclipse et ouvrez l’Explorateur Azure. Dans le menu **Window** (Fenêtre), sélectionnez **Show View** (Afficher la vue), puis **Other** (Autre). Dans la boîte de dialogue qui s’ouvre, développez **Azure**, sélectionnez **Explorateur Azure**, puis **OK**.

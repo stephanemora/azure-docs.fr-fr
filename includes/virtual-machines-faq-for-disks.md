@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 01/30/2018
+ms.date: 03/28/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 233834bd040362e27ffadc3d0003a87827012352
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 61f65340c3b683674be195f1d30788494b6855a7
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407862"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58671762"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Forum aux questions sur les disques de machines virtuelles et les disques Premium gérés et non gérés Azure IaaS
 
@@ -219,7 +219,7 @@ Oui, vous pouvez choisir de basculer vers une machine virtuelle avec Managed Dis
 
 **La migration impacte-t-elle les machines virtuelles Azure protégées par Azure Site Recovery par le biais de la réplication Azure vers Azure ?**
 
-Oui. La protection Azure Site Recovery vers Azure pour machines virtuelles avec des disques managés n’est disponible qu’en tant que service de préversion public.
+Oui. Actuellement, Azure Site Recovery Azure pour la protection Azure pour les machines virtuelles avec Managed Disks est disponible en tant qu’un service de disponibilité générale.
 
 **Puis-je convertir des machines virtuelles avec des disques non managés résidant sur des comptes de stockage qui sont ou ont été chiffrés sur des disques managés ?**
 
@@ -339,7 +339,7 @@ Oui.
 
 **Quelles sont les plus grandes tailles de disque pris en charge par le service sauvegarde Azure et Azure Site Recovery ?**
 
-La plus grande taille de disque prise en charge par Sauvegarde Azure et Azure Site Recovery est de 4 Tio.
+La plus grande taille de disque prise en charge par Sauvegarde Azure et Azure Site Recovery est de 4 Tio. Prise en charge pour les disques plus volumineux jusqu'à 32 To est bientôt ajouté.
 
 **Quels sont la machine virtuelle recommandée tailles pour les tailles de disque plus volumineux (> 4 TIO) pour disque SSD Standard et des disques HDD Standard d’atteindre optimisée disque IOPS et bande passante ?**
 

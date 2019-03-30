@@ -4,7 +4,7 @@ description: Présentation du modèle de programmation Service Fabric Reliable A
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 7fdad07f-f2d6-4c74-804d-e0d56131f060
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 363cba145ed4d5bcf138cf3f7130763891c51e8b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 5a237e23dffed76e6122e17b59c85d20ca7e1baf
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258059"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58668668"
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Présentation des Acteurs fiables Service Fabric
 Reliable Actors est une infrastructure d’application Service Fabric reposant sur le modèle [Virtual Actor](https://research.microsoft.com/en-us/projects/orleans/). L’API Reliable Actors fournit un modèle de programmation monothread qui tire parti des garanties de fiabilité et d’évolutivité fournies par Service Fabric.
@@ -37,7 +37,7 @@ Bien que le modèle de conception d’acteurs puisse être adapté à divers pro
 * Vos instances d’acteurs ne bloquent pas les appelants avec des retards inattendus en exécutant des opérations d’E/S.
 
 ## <a name="actors-in-service-fabric"></a>Le rôle des acteurs dans Service Fabric
-Dans Service Fabric, les acteurs sont implémentés dans l’infrastructure Reliable Actors, une infrastructure d’application basée sur un modèle d’acteurs et s’appuyant sur [Service Fabric Reliable Services](service-fabric-reliable-services-introduction.md). Chaque service Reliable Actor que vous écrivez correspond en fait à une instance Reliable Service partitionnée avec état.
+Dans Service Fabric, les acteurs sont implémentés dans l’infrastructure Reliable Actors : Une infrastructure d’application de modèle-basé sur acteur créée par-dessus [Reliable Services Service Fabric](service-fabric-reliable-services-introduction.md). Chaque service Reliable Actor que vous écrivez correspond en fait à une instance Reliable Service partitionnée avec état.
 
 Chaque acteur se définit comme une instance d’un type d’acteur, de la même façon qu’un objet .NET est une instance d’un type .NET. Par exemple, un type d'acteur peut implémenter les fonctionnalités d'une calculatrice, et plusieurs acteurs de ce type peuvent être distribués sur différents nœuds d'un cluster. Chaque acteur de ce type est identifié de façon unique par un ID d'acteur.
 

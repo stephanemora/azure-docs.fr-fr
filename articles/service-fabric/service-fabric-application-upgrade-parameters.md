@@ -4,7 +4,7 @@ description: Décrit les paramètres relatifs à la mise à niveau d'une applica
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: a4170ac6-192e-44a8-b93d-7e39c92a347e
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2018
 ms.author: subramar
-ms.openlocfilehash: 73b48525566f9bf0107ba3b029c516ca294ca141
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 9a93c0993ee45e72b11b023982dfbbe8c6528272
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099190"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670615"
 ---
 # <a name="application-upgrade-parameters"></a>Paramètres de mise à niveau d'application
 Cet article décrit les différents paramètres qui s’appliquent pendant la mise à niveau d’une application Azure Service Fabric. Les paramètres de mise à niveau d’application permettent de contrôler les délais d’attente et les vérifications d’intégrité appliqués au cours de la mise à niveau et de spécifier les stratégies à appliquer quand une mise à niveau échoue. Les paramètres de l’application s’appliquent aux mises à niveau à l’aide de :
@@ -94,11 +94,12 @@ Les mises à niveau de l’application Service Fabric à l’aide de l’interfa
 
 | Paramètre | Description |
 | --- | --- |
-| application-id  |ID de l’application en cours de mise à niveau. <br> Il s’agit généralement du nom complet de l’application, sans « fabric ». Schéma d’URI. Depuis la version 6.0, les noms hiérarchiques sont séparés par le caractère « ~ ». Par exemple, si une application est nommée « fabric://mon_app/app1 », son identité est « mon_app~app1 » dans les versions 6.0 et supérieures, et « mon_app/app1 » dans les versions précédentes.|
+| application-id  |ID de l’application en cours de mise à niveau. <br> Il s’agit généralement du nom complet de l’application, sans « fabric ». Schéma d’URI. À compter de la version 6.0, les noms hiérarchiques sont délimités par le caractère « \~ ». Par exemple, si le nom de l’application est « fabric : / myapp/app1 », l’identité de l’application serait ' myapp\~app1 » dans 6.0 et supérieures et « mon_app/app1 » dans les versions précédentes.|
 application-version |Version du type d'application ciblée par la mise à niveau.|
 parameters  |Liste JSON des remplacements de paramètres d’application à appliquer lors de la création de l’application.|
 
 ### <a name="optional-parameters"></a>Paramètres facultatifs
+
 | Paramètre | Description |
 | --- | --- |
 default-service-health-policy | Spécification [JSON](https://docs.microsoft.com/rest/api/servicefabric/sfclient-model-servicetypehealthpolicy) de la stratégie de contrôle d’intégrité utilisée par défaut pour évaluer l’intégrité d’un type de service. Par défaut, le mappage est vide. |

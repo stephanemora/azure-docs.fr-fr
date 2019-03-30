@@ -4,7 +4,7 @@ description: Cet article décrit le service d’analyse des erreurs dans Service
 services: service-fabric
 documentationcenter: .net
 author: anmolah
-manager: timlt
+manager: chackdan
 editor: vturecek
 ms.assetid: 1f064276-293a-4989-a513-e0d0b9fdf703
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: anmola
-ms.openlocfilehash: a4ddfc17a81a6816bc797bab4c3b5a8b2fc4334e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: HT
+ms.openlocfilehash: 3581550779b2387515b4f300d211b4e0a894edc7
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425236"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662351"
 ---
 # <a name="introduction-to-the-fault-analysis-service"></a>Introduction au service d’analyse des erreurs
 Le service d’analyse des erreurs est conçu pour tester les services qui s’appuient sur Microsoft Azure Service Fabric. Avec le service d’analyse des erreurs, vous pouvez provoquer des erreurs significatives et exécuter des scénarios de test complets sur vos applications. Ces erreurs et scénarios exercent et valident les nombreux états et transitions qu’un service connaît tout au long de sa durée de vie, le tout de manière contrôlée, sécurisée et cohérente.
@@ -46,9 +46,9 @@ Quand une action d’erreur ou un scénario de test est déclenché, une command
 ## <a name="testing-distributed-systems"></a>Test des systèmes distribués
 Service Fabric simplifie considérablement les tâches d’écriture et de gestion des applications évolutives distribuées. De même, le service d’analyse des erreurs facilite le test d’une application distribuée. Trois problématiques liées au test doivent être résolues :
 
-1. Simulation/Génération de défaillances réalistes : Service Fabric permet notamment aux applications distribuées de récupérer de diverses défaillances. Toutefois, pour évaluer la capacité de l’application à récupérer de la sorte, nous devons recourir à un mécanisme de simulation/de génération de ces défaillances réalistes au sein d’un environnement de test contrôlé.
-1. La capacité à générer des défaillances liées : les défaillances de base du système, comme les défaillances réseau et les défaillances de machines, sont faciles à générer de manière isolée. Les interactions entre les défaillances isolées peuvent entraîner un nombre incalculable de scénarios de dysfonctionnement. La génération de ces contextes revêt une importance toute particulière.
-1. Expérience unifiée au sein de divers niveaux de développement et de déploiement : de nombreux systèmes d’injection d’erreurs peuvent générer différents types de défaillances. Toutefois, cette expérience unifiée est pauvre en transposant les scénarios de test de développement au sein des grands environnements de test, puis en production.
+1. Échecs de simulation/génération pouvant se produire dans les scénarios réels : Un des aspects importants de Service Fabric est qu’elle permet aux applications distribuées de récupérer de diverses défaillances. Toutefois, pour évaluer la capacité de l’application à récupérer de la sorte, nous devons recourir à un mécanisme de simulation/de génération de ces défaillances réalistes au sein d’un environnement de test contrôlé.
+1. La capacité à générer des défaillances liées : Échecs de base dans le système, telles que des défaillances du réseau et d’ordinateur, sont faciles à générer de manière isolée. Les interactions entre les défaillances isolées peuvent entraîner un nombre incalculable de scénarios de dysfonctionnement. La génération de ces contextes revêt une importance toute particulière.
+1. Expérience unifiée entre les différents niveaux de développement et de déploiement : Il existe de nombreux systèmes de l’injection de code d’erreur qui peuvent générer différents types d’échecs. Toutefois, cette expérience unifiée est pauvre en transposant les scénarios de test de développement au sein des grands environnements de test, puis en production.
 
 Il existe de nombreux mécanismes permettant de résoudre ces problèmes, mais il manque un élément : un système qui joue le même rôle avec les garanties requises, de l’environnement de test des développeurs aux clusters de production. Le service d’analyse des erreurs permet aux développeurs d’applications de se concentrer sur le test de leur logique métier. Le service d’analyse des erreurs fournit toutes les capacités requises pour tester l’interaction du service avec le système distribué sous-jacent.
 

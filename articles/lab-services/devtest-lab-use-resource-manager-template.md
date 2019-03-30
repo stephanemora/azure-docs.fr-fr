@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: spelluru
-ms.openlocfilehash: eaa285318a868d0ccee07d830e1cc1be18f457a2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 533770d98b146dea01e91e1249115c4b5c074b3c
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181552"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648433"
 ---
 # <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Créer des machines virtuelles à l’aide d’un modèle Azure Resource Manager 
 
@@ -30,7 +30,7 @@ Cet article décrit les modèles Resource Manager utilisant une ou plusieurs mac
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="multi-vm-vs-single-vm-resource-manager-templates"></a>Modèles Resource Manager à plusieurs machines virtuelles ou à machine virtuelle unique
-Il existe deux façons de créer des machines virtuelles dans DevTest Labs à l’aide d’un modèle Resource Manager : configurer la ressource Microsoft.DevTestLab/labs/virtualmachines ou configurer la ressource Microsoft.Commpute/virtualmachines. Chaque méthode est utilisée dans des scénarios différents et nécessite des autorisations différentes.
+Il existe deux façons de créer des machines virtuelles dans DevTest Labs à l’aide d’un modèle Resource Manager : configurer la ressource Microsoft.DevTestLab/labs/virtualmachines ou configurer la ressource Microsoft.Compute/virtualmachines. Chaque méthode est utilisée dans des scénarios différents et nécessite des autorisations différentes.
 
 - Les modèles Resource Manager qui utilisent un type de ressource Microsoft.DevTestLab/labs/virtualmachines (tel que déclaré dans la propriété « ressource » du modèle) peuvent configurer des machines virtuelles lab individuelles. Chaque machine virtuelle apparaît alors sous la forme d’un seul élément dans la liste de machines virtuelles DevTest Labs :
 

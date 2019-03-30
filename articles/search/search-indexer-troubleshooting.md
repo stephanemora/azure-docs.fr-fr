@@ -10,20 +10,20 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: magottei
 ms.custom: seodec2018
-ms.openlocfilehash: 5ce27f16268c7a640b15fb0e95aed019b186e389
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: b527b759eb9c76ab6289e909001c5f7820f34ef4
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57307902"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652414"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-search"></a>Résoudre les problèmes courants des indexeurs dans la Recherche Azure
 
 Les indexeurs peuvent rencontrer un certain nombre de problèmes lors de l’indexation des données dans la Recherche Azure. Voici les principales catégories de défaillances :
 
-* [Connexion à une source de données](#Data-Source-Connection-Errors)
-* [Traitement de documents](#Document-Processing-Errors)
-* [Ingestion des documents dans un index](#Index-Errors)
+* [Connexion à une source de données](#data-source-connection-errors)
+* [Traitement de documents](#document-processing-errors)
+* [Ingestion des documents dans un index](#index-errors)
 
 ## <a name="data-source-connection-errors"></a>Erreurs de connexion à la source de données
 

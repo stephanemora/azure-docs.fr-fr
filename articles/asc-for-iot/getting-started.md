@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 1186b362cf8f59f24020ae9afa3526e2e27b1794
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 37815c1f1afe3e4c99e2fe171b21857a2018f709
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58575213"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648314"
 ---
 # <a name="get-started-with-azure-security-center-asc-for-iot"></a>Bien démarrer avec Azure Security Center (ASC) pour IoT 
 
@@ -53,7 +53,7 @@ Pour activer la surveillance de votre appareil gestion des identités, l’appar
 
 1. [Activer ASC pour le service IoT sur votre IoT Hub](quickstart-onboard-iot-hub.md)
 1. Si votre IoT Hub ne dispose d’aucun appareil inscrit, [enregistrez un nouvel appareil](https://docs.microsoft.com/azure/iot-accelerators/quickstart-device-simulation-deploy).
-1. [Créer un module de sécurité ascforiot](quickstart-create-security-twin.md) pour vos appareils. 
+1. [Créer un module de sécurité azureiotsecurity pour vos appareils](quickstart-create-security-twin.md) pour vos appareils. 
 1. Définir le comportement normal de l’appareil et système via [alertes personnalisées](quickstart-create-custom-alerts.md). 
 1. Effectuer un test pour vérifier l’état de service et le périphérique du système. 
 1. Explorer [alertes](concept-security-alerts.md), [recommandations](concept-recommendations.md), et [présentation approfondie à l’aide d’Analytique de journal](how-to-security-data-access.md) à l’aide de IoT Hub. 
@@ -69,8 +69,7 @@ Utilisons ASC pour les fonctionnalités de sécurité IoT améliorée, comme la 
 1. Pour installer l’agent sur un appareil simulé Azure au lieu d’installer sur un appareil réel, [toupie (spin) d’une nouvelle Machine virtuelle (machine virtuelle Azure)](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal) dans une zone disponible. 
 1. [Déployer un ASC pour l’agent de sécurité IoT](how-to-deploy-linux-cs.md) sur votre appareil IoT ou une nouvelle machine virtuelle.
 1. Suivez les instructions pour [trigger_events](https://aka.ms/iot-security-github-trigger-events) pour exécuter une simulation d’une attaque inoffensif.
-1. Vérifiez ASC pour les alertes IoT en réponse à l’attaque simulé à l’étape précédente. 
-    - Commencer la vérification cinq minutes après avoir exécuté le script.
+1. Vérifiez ASC pour les alertes IoT en réponse à l’attaque simulé à l’étape précédente. Commencer la vérification cinq minutes après avoir exécuté le script.
 1. Explorer [alertes](concept-security-alerts.md), [recommandations](concept-recommendations.md), et [présentation approfondie à l’aide d’Analytique de journal](how-to-security-data-access.md) à l’aide de IoT Hub. 
 
 ## <a name="next-steps"></a>Étapes suivantes

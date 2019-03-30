@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: pbutlerm
-ms.openlocfilehash: e97e79ef3077431d8fc627cd634a67b0a01b6f8e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b12ba53f847b46479b3100c088c29372b58c1b8e
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993110"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649031"
 ---
 # <a name="saas-application-test-drive-tab"></a>Onglet Version d’évaluation de l’application SaaS
 
@@ -53,7 +53,7 @@ Quatre types de versions d’évaluation sont disponibles en fonction du type de
 |     Azure Resource Manager               |    Une version d’évaluation Azure ARM est un modèle de déploiement contenant toutes les ressources Azure qui constituent une solution générée par l’éditeur. Les produits adaptés à ce type de version d’évaluation sont ceux qui utilisent uniquement des ressources Azure.               |       [Version d’évaluation d’Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)            |
 |       Hébergée             |       Une version d’évaluation hébergée simplifie la configuration par l’hébergement Microsoft et assure la maintenance du service qui effectue l’approvisionnement et le déprovisionnement de l’utilisateur de la version d’évaluation.             |         [Version d’évaluation hébergée](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/hosted-test-drive)          |
 |      Application logique              |       Une version d’évaluation d’application logique est un modèle de déploiement conçu pour englober toutes les architectures de solutions complexes. Les applications Dynamics et les produits personnalisés doivent tous utiliser ce type de version d'évaluation.            |      [Version d’évaluation d’une application logique](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)             |
-|       Power BI             |         Une version d’évaluation Power BI est composée d’un lien incorporé vers un tableau de bord personnalisé. Tous les produits dotés d'un visuel Power BI interactif doivent utiliser ce type de version d’évaluation. Il vous suffit de charger votre URL Power BI incorporée.          |        [Version d’évaluation de Power BI](#Power-BI-test-drive)           |
+|       Power BI             |         Une version d’évaluation Power BI est composée d’un lien incorporé vers un tableau de bord personnalisé. Tous les produits dotés d'un visuel Power BI interactif doivent utiliser ce type de version d’évaluation. Il vous suffit de charger votre URL Power BI incorporée.          |        [Version d’évaluation de Power BI](#power-bi-test-drive)           |
 
 ### <a name="power-bi-test-drive"></a>Version d’évaluation de Power BI
 

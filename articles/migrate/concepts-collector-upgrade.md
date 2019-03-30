@@ -4,17 +4,21 @@ description: Fournit des informations sur les mises à niveau de l’appliance A
 author: musa-57
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 03/29/2019
 ms.author: hamusa
 services: azure-migrate
-ms.openlocfilehash: f9f2ef25a2054d92cdcc3ab33ea9234883e352d6
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 7cd44318716200d665ece9ffecc45225bdfb85eb
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484506"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648671"
 ---
 # <a name="collector-appliance-updates"></a>Mises à jour du collecteur
+
+Cet article résume les informations de mise à niveau pour l’appliance Collector dans [Azure Migrate](migrate-overview.md).
+
+Azure Migrate Collector est une appliance légère qui permet de découvrir un environnement vCenter local dans le cadre d’une évaluation avant la migration vers Azure. [Plus d’informations](concepts-collector.md)
 
 ## <a name="how-to-upgrade-the-appliance"></a>Comment mettre à niveau de l’appliance
 
@@ -33,11 +37,19 @@ Vous pouvez mettre à niveau le collecteur vers la version la plus récente sans
 
 ## <a name="collector-update-release-history"></a>Historique des versions de mise à jour de Collector
 
-Cet article résume les informations de mise à niveau pour l’appliance Collector dans [Azure Migrate](migrate-overview.md).
-
-Azure Migrate Collector est une appliance légère qui permet de découvrir un environnement vCenter local dans le cadre d’une évaluation avant la migration vers Azure. [Plus d’informations](concepts-collector.md)
-
 ### <a name="continuous-discovery-upgrade-versions"></a>Découverte continue : versions de mise à niveau
+
+#### <a name="version-101014-released-on-03292019"></a>Version 1.0.10.14 (publié le 29/03/2019)
+
+Contient plusieurs améliorations de l’interface utilisateur.
+
+Valeurs pour la mise à niveau de hachage [1.0.10.14 du package](https://aka.ms/migrate/col/upgrade_10_14)
+
+**Algorithme** | **Valeur de hachage**
+--- | ---
+MD5 | 846b1eb29ef2806bcf388d10519d78e6
+SHA1 | 6243239fa49c6b3f5305f77e9fd4426a392d33a0
+SHA256 | fb058205c945a83cc4a31842b9377428ff79b08247f3fb8bb4ff30c125aa47ad
 
 #### <a name="version-101012-released-on-03132019"></a>Version 1.0.10.12 (publié le 13/03/2019)
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: annahar
-ms.openlocfilehash: 0f36ab9ab7703dd9677b6c2989eddb91593af79f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b1873b770a6b4280b7098c68ecb75cc1411fe453
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58105105"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650562"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal"></a>Affecter plusieurs adresses IP à une machine virtuelle à l’aide du portail Azure
 
@@ -36,7 +36,7 @@ Si vous souhaitez créer une machine virtuelle avec plusieurs adresses IP ou un
 
 ## <a name="add"></a>Ajouter des adresses IP à une machine virtuelle
 
-Vous pouvez ajouter des adresses IP privées et publiques à une interface réseau Azure en suivant les étapes décrites ci-après. Les exemples fournis dans les sections suivantes supposent que vous disposez déjà d’une machine virtuelle avec les trois configurations IP décrites dans le [scénario](#Scenario), mais ce n’est pas une condition obligatoire.
+Vous pouvez ajouter des adresses IP privées et publiques à une interface réseau Azure en suivant les étapes décrites ci-après. Les exemples fournis dans les sections suivantes supposent que vous disposez déjà d’une machine virtuelle avec les trois configurations IP décrites dans le [scénario](#scenario), mais ce n’est pas une condition obligatoire.
 
 ### <a name="coreadd"></a>Étapes de base
 

@@ -1,6 +1,6 @@
 ---
-title: Comprendre la remise des réservations Azure | Microsoft Docs
-description: Découvrez comment une remise de réservation est appliquée aux bases de données SQL en cours d’exécution.
+title: Comprendre la remise de réservations pour les bases de données SQL Azure | Microsoft Docs
+description: Découvrez comment une remise de réservation est appliquée à l’exécution de bases de données SQL Azure.
 services: billing
 documentationcenter: ''
 author: yashesvi
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: banders
-ms.openlocfilehash: ff31b9be0e927cca7d272e5deaa5ecf48a52580d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: aa4fc43efab8c168fd5351ec60def7a3d0eefada
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57845453"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649439"
 ---
-# <a name="understand-how-an-azure-reservation-discount-is-applied-to-sql-databases"></a>Comprendre comment une remise de réservation Azure est appliquée aux bases de données SQL
+# <a name="understand-how-a-reservation-discount-is-applied-to-azure-sql-databases"></a>Comprendre comment une remise de réservation est appliquée aux bases de données SQL Azure
 
 Quand vous achetez une capacité réservée Azure SQL Database, la remise de réservation est automatiquement appliquée aux bases de données SQL qui correspondent aux attributs et à la quantité de la réservation. Une réservation couvre les coûts de calcul de votre base de données SQL. Les frais de logiciel, de stockage et de réseau vous sont facturés aux tarifs normaux. Vous pouvez couvrir les coûts de licence pour les bases de données SQL avec [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
@@ -54,6 +54,6 @@ Pour plus d’informations sur les réservations Azure, consultez les articles s
 - [Comprendre l’utilisation d’une réservation pour votre Accord de Mise en Œuvre Entreprise](billing-understand-reserved-instance-usage-ea.md)
 - [Comprendre l’utilisation d’une réservations pour les abonnements CSP](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
+## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Nous contacter
 
 Si vous avez des questions ou besoin d’aide, [créer une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).

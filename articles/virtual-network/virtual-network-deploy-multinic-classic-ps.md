@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 087de711fdbc70a4562045f8d774f2c6ae5a0db5
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: 087b52bd603e8aed6078ab340e84c1f6bd0e8082
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417036"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652193"
 ---
 # <a name="create-a-vm-classic-with-multiple-nics-using-powershell"></a>Créer une machine virtuelle (classique) avec plusieurs cartes réseau à l’aide de PowerShell
 
@@ -30,13 +30,13 @@ ms.locfileid: "50417036"
 Vous pouvez créer des machines virtuelles (VM) dans Azure et joindre plusieurs cartes d’interface réseau (NIC) à chacune d’elles. Plusieurs cartes réseau permettent la séparation des types de trafic entre les cartes réseau. Par exemple, une carte réseau peut communiquer avec Internet, tandis qu’une autre communique uniquement avec des ressources internes non connectées à Internet. La possibilité de séparer le trafic réseau entre plusieurs cartes réseau est requise pour de nombreuses appliances virtuelles réseau, telles que Application Delivery Network et les solutions d’optimisation WAN.
 
 > [!IMPORTANT]
-> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Découvrez comment effectuer ces étapes à l’aide du [modèle de déploiement Resource Manager](../virtual-machines/windows/multiple-nics.md).
+> Azure a deux modèles de déploiement différents pour créer et utiliser des ressources :  [Resource Manager et classique](../resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Découvrez comment effectuer ces étapes à l’aide du [modèle de déploiement Resource Manager](../virtual-machines/windows/multiple-nics.md).
 
 [!INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
 Les étapes suivantes utilisent un groupe de ressources nommé *IaaSStory* pour les serveurs web et un groupe de ressources nommé *IaaSStory-BackEnd* pour les serveurs de base de données.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Avant de créer les serveurs de base de données, vous devez créer le groupe de ressources *IaaSStory* avec toutes les ressources nécessaires pour ce scénario. Pour créer ces ressources, exécutez les étapes suivantes. Pour créer un réseau virtuel, suivez les étapes de l’article [Créer un réseau virtuel](virtual-networks-create-vnet-classic-netcfg-ps.md).
 
@@ -52,7 +52,7 @@ Les machines virtuelles principales dépendent de la création des ressources su
 ### <a name="step-1---start-your-script"></a>Étape 1 : démarrer votre script
 Vous pouvez télécharger le script PowerShell complet utilisé [ici](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-ps.ps1). Suivez les étapes ci-dessous pour modifier le script afin qu’il fonctionne dans votre environnement.
 
-1. Modifiez les valeurs des variables suivantes selon votre groupe de ressources existant déployé ci-dessus dans les [Conditions préalables](#Prerequisites).
+1. Modifiez les valeurs des variables suivantes selon votre groupe de ressources existant déployé ci-dessus dans les [Conditions préalables](#prerequisites).
 
     ```powershell
     $location              = "West US"

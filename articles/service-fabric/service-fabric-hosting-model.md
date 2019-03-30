@@ -4,7 +4,7 @@ description: Décrit la relation entre les réplicas (ou instances) d’un servi
 services: service-fabric
 documentationcenter: .net
 author: harahma
-manager: timlt
+manager: chackdan
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/15/2017
 ms.author: harahma
-ms.openlocfilehash: 80d9d447a86b58c8d6db5a62d3b0df997e42f673
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: d2d958a89bff40483e1cd473538f7d1a6971d266
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172372"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58663279"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Modèle d’hébergement Azure Service Fabric
 Cet article fournit une vue d’ensemble des modèles d’hébergement d’applications fournis par Azure Service Fabric et décrit les différences entre les modèles à **processus partagé** et à **processus exclusif**. Il décrit le fonctionnement d’une application déployée sur un nœud Service Fabric, et présente la relation entre les réplicas (ou instances) du service et le processus hôte du service.

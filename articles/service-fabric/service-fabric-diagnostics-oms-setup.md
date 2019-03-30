@@ -4,7 +4,7 @@ description: Découvrez comment configurer les journaux d’Azure Monitor pour v
 services: service-fabric
 documentationcenter: .net
 author: srrengar
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/20/2019
 ms.author: srrengar
-ms.openlocfilehash: ca5dd4a7c12a68a549f081ad62db1736c9c68837
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 3523a2df413740f644151c548e403c39c9be1f03
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483163"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670504"
 ---
 # <a name="set-up-azure-monitor-logs-for-a-cluster"></a>Configurer les journaux Azure Monitor pour un cluster
 
-Journaux d’Azure Monitor est notre recommandation pour surveiller les événements de niveau de cluster. Vous pouvez configurer un espace de travail Log Analytics à partir d’Azure Resource Manager, de PowerShell ou de la Place de marché Azure. Si vous gérez un modèle Resource Manager mis à jour de votre déploiement pour une utilisation ultérieure, utilisez le même modèle pour configurer votre environnement de journaux Azure Monitor. Le déploiement via la Place de marché est plus facile si vous avez déjà déployé un cluster et activé les diagnostics. Si vous ne disposez pas d’un accès de niveau abonnement pour le compte sur lequel vous effectuez le déploiement, déployez avec PowerShell ou le modèle Resource Manager.
+Nous vous recommandons d’utiliser les journaux Azure Monitor pour superviser les événements au niveau du cluster. Vous pouvez configurer un espace de travail Log Analytics à partir d’Azure Resource Manager, de PowerShell ou de la Place de marché Azure. Si vous gérez un modèle Resource Manager mis à jour de votre déploiement pour une utilisation ultérieure, utilisez le même modèle pour configurer votre environnement de journaux Azure Monitor. Le déploiement via la Place de marché est plus facile si vous avez déjà déployé un cluster et activé les diagnostics. Si vous ne disposez pas d’un accès de niveau abonnement pour le compte sur lequel vous effectuez le déploiement, déployez avec PowerShell ou le modèle Resource Manager.
 
 > [!NOTE]
-> Pour configurer les journaux Azure Monitor pour surveiller votre cluster, vous devez les diagnostics sont activés pour afficher les événements au niveau du cluster ou au niveau de la plateforme. Reportez-vous à [Agrégation et collecte d’événements à l’aide des diagnostics Windows Azure](service-fabric-diagnostics-event-aggregation-wad.md) et [Agrégation et collection d’événements à l’aide de Linux Azure Diagnostics](service-fabric-diagnostics-event-aggregation-lad.md) pour en savoir plus
+> Pour configurer les journaux Azure Monitor pour surveiller votre cluster, vous devez les diagnostics sont activés pour afficher les événements au niveau du cluster ou au niveau de la plateforme. Reportez-vous à [Agrégation et collecte d’événements à l’aide des diagnostics Windows Azure](service-fabric-diagnostics-event-aggregation-wad.md) et [Agrégation et collection d’événements à l’aide de Linux Azure Diagnostics](service-fabric-diagnostics-oms-syslog.md) pour en savoir plus
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -49,7 +49,7 @@ Si vous voulez ajouter un espace de travail Log Analytics après avoir déployé
 Si vous utilisez Windows, poursuivez les étapes suivantes pour connecter des journaux Azure Monitor pour le compte de stockage où sont stockés vos événements de cluster. 
 
 >[!NOTE]
->Cette expérience pour les clusters Linux n’est pas encore disponible. 
+>La solution Service Fabric Analytique est uniquement pris en charge pour les clusters Windows. Pour les clusters Linux, consultez notre article sur [comment configurer les journaux Azure Monitor pour les clusters Linux](service-fabric-diagnostics-oms-syslog.md).  
 
 ### <a name="connect-the-log-analytics-workspace-to-your-cluster"></a>Connecter l’espace de travail Log Analytics à votre cluster 
 

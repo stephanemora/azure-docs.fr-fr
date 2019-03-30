@@ -4,7 +4,7 @@ description: Service Fabric est une plateforme de systèmes distribués qui perm
 services: service-fabric
 documentationcenter: .net
 author: rishirsinha
-manager: timlt
+manager: chackdan
 editor: rishirsinha
 ms.assetid: 6b554243-70cb-4c22-9b28-1a8b4703f45e
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/12/2017
 ms.author: rsinha
-ms.openlocfilehash: 5e69d4b09261c90fd3c33e60645fe484b816e369
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: a1e68e2e39ea6f1c8cf8669e2e02d8dacaf0f284
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209968"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58664588"
 ---
 # <a name="service-fabric-architecture"></a>Architecture de Service Fabric
 Service Fabric est constitué de sous-systèmes en couches. Ces sous-systèmes permettent d’écrire des applications qui présentent les caractéristiques suivantes :
@@ -51,9 +51,9 @@ Le sous-système de fiabilité fournit le mécanisme permettant de rendre l’é
 ## <a name="management-subsystem"></a>Sous-système de gestion
 Le sous-système de gestion fournit une gestion de bout en bout du cycle de vie des applications et des services. Les applets de commande PowerShell et les API d’administration vous permettent d’approvisionner, de déployer, de corriger et de mettre à niveau des applications, ainsi que de supprimer leurs privilèges d’accès, sans aucune perte de disponibilité. Le sous-système de gestion effectue cela via les services répertoriés ci-dessous.
 
-* **Gestionnaire de cluster**: il s’agit du service principal qui interagit avec le composant de fiabilité Failover Manager pour placer les applications sur les différents nœuds selon les contraintes de placement de service. Resource Manager dans le sous-système de basculement garantit que les contraintes ne sont jamais interrompues. Le gestionnaire de cluster gère le cycle de vie des applications de leur approvisionnement à la suppression de leurs privilèges d’accès. Il s’intègre au gestionnaire d’intégrité pour garantir que la disponibilité des applications n’est pas perdue du point de vue de l’intégrité sémantique pendant les mises à niveau.
-* **Gestionnaire d’intégrité**: ce service permet la surveillance de l’intégrité des applications, des services et des entités du cluster. Les entités du cluster (telles que les nœuds, les partitions de service et les réplicas) peuvent signaler des informations d’intégrité, lesquelles sont alors regroupées dans le magasin d’intégrité centralisé. Ces informations d’intégrité fournissent un instantané de l’intégrité globale à un instant précis des services et des nœuds distribués entre plusieurs nœuds du cluster, ce qui vous permet de prendre les mesures correctives nécessaires. Les API de requête d’intégrité vous permettent d’exécuter des requêtes sur les événements d’intégrité signalés au sous-système de contrôle d’intégrité. Les API de requête d’intégrité retournent les données brutes d’intégrité stockées dans le magasin d’intégrité ou les données d’intégrité interprétées et agrégées pour une entité spécifique du cluster.
-* **Magasin d’images**: ce service fournit le stockage et la distribution des fichiers binaires d’application. Ce service fournit un magasin de fichiers distribués simple dans lequel et à partir duquel les applications sont téléchargées.
+* **Le Gestionnaire du cluster**: Il s’agit du service principal qui interagit avec le Gestionnaire de basculement à partir de la fiabilité pour placer les applications sur les nœuds selon les contraintes de placement de service. Resource Manager dans le sous-système de basculement garantit que les contraintes ne sont jamais interrompues. Le gestionnaire de cluster gère le cycle de vie des applications de leur approvisionnement à la suppression de leurs privilèges d’accès. Il s’intègre au gestionnaire d’intégrité pour garantir que la disponibilité des applications n’est pas perdue du point de vue de l’intégrité sémantique pendant les mises à niveau.
+* **Gestionnaire d’intégrité**: Ce service permet l’analyse du fonctionnement des applications, des services et des entités de cluster. Les entités du cluster (telles que les nœuds, les partitions de service et les réplicas) peuvent signaler des informations d’intégrité, lesquelles sont alors regroupées dans le magasin d’intégrité centralisé. Ces informations d’intégrité fournissent un instantané de l’intégrité globale à un instant précis des services et des nœuds distribués entre plusieurs nœuds du cluster, ce qui vous permet de prendre les mesures correctives nécessaires. Les API de requête d’intégrité vous permettent d’exécuter des requêtes sur les événements d’intégrité signalés au sous-système de contrôle d’intégrité. Les API de requête d’intégrité retournent les données brutes d’intégrité stockées dans le magasin d’intégrité ou les données d’intégrité interprétées et agrégées pour une entité spécifique du cluster.
+* **Image Store**: Ce service fournit le stockage et la distribution des fichiers binaires applicatifs. Ce service fournit un magasin de fichiers distribués simple dans lequel et à partir duquel les applications sont téléchargées.
 
 ## <a name="hosting-subsystem"></a>Sous-système d'hébergement
 Le gestionnaire de cluster indique au sous-système d'hébergement (en cours d'exécution sur chaque nœud) quels services il doit gérer pour un nœud particulier. Le sous-système d’hébergement gère ensuite le cycle de vie de l’application sur ce nœud. Il interagit avec les composants de fiabilité et d'intégrité pour garantir que les réplicas sont placés correctement et fonctionnent correctement.

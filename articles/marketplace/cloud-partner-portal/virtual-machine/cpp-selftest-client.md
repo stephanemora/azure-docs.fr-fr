@@ -14,17 +14,16 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 8dc0a003a12eb0aca28c6a3238e2119dc449d661
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 6cfe9b61d9bbb088e827386b2195bba21333937e
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309416"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649084"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Créer un client d’auto-test pour prévalider une image de machine virtuelle Azure
 
 Utilisez cet article comme guide pour la création d’un service client qui consomme l’API d’auto-test. Vous pouvez utiliser l’API d’auto-test pour prévalider une machine virtuelle afin de vérifier qu’elle répond aux dernières exigences de publication sur la Place de marché Azure. Ce service client vous permet de tester une machine virtuelle avant de soumettre votre offre à la certification Microsoft.
-
 
 ## <a name="development-and-testing-overview"></a>Vue d’ensemble du développement et du test
 
@@ -41,13 +40,11 @@ Les étapes principales de la création d’un client d’auto-test sont les sui
 
 Après avoir créé le client, vous pouvez le tester sur votre machine virtuelle.
 
-
 ### <a name="self-test-client-authorization"></a>Autorisation du client d’auto-test
 
 Le diagramme suivant illustre le fonctionnement de l’autorisation pour les appels de service à service à l’aide des informations d’identification du client (secret partagé ou certificat).
 
 ![Processus d’autorisation du client](./media/stclient-dev-process.png)
-
 
 ## <a name="the-self-test-client-api"></a>API du client d’auto-test
 
@@ -67,7 +64,6 @@ Request body:    The Request body parameters should use the following JSON forma
                    "PortNo":"22",
                    "CompanyName":"ABCD",
                  }
-
 ```
 
 Le tableau suivant décrit les champs de l’API.
@@ -83,11 +79,9 @@ Le tableau suivant décrit les champs de l’API.
 |  PortNo            |  Numéro du port ouvert pour la connexion à la machine virtuelle. Le numéro de port est généralement `22` pour Linux et `5986` pour Windows.          |
 |  |  |
 
-
 ## <a name="consuming-the-api"></a>Consommation de l’API
 
 Vous pouvez consommer l’API d’auto-test à l’aide de PowerShell ou de cURL.
-
 
 ### <a name="use-powershell-to-consume-the-api-on-the-linux-os"></a>Utiliser PowerShell pour consommer l’API sur le système d’exploitation Linux
 
@@ -112,7 +106,7 @@ $Body = @{
     "CompanyName" = "ABCD"
 
 } | ConvertTo-Json
-$res = Invoke-WebRequest -Method "Post" -Uri $uri -Body $Body -ContentType "application/json" –Headers $headers; 
+$res = Invoke-WebRequest -Method "Post" -Uri $uri -Body $Body -ContentType "application/json" –Headers $headers;
 $Content = $res | ConvertFrom-Json
 ```
 La capture d’écran suivante montre un exemple d’appel de l’API dans PowerShell.
@@ -128,7 +122,7 @@ $testresult = ConvertFrom-Json –InputObject (ConvertFrom-Json –InputObject $
   Write-Host "OSVersion: $($testresult.OSVersion)"
   Write-Host "Overall Test Result: $($testresult.TestResult)"
 
-For ($i=0; $i -lt $testresult.Tests.Length; $i++) 
+For ($i=0; $i -lt $testresult.Tests.Length; $i++)
 {
     Write-Host "TestID: $($testresult.Tests[$i].TestID)"
     Write-Host "TestCaseName: $($testresult.Tests[$i].TestCaseName)"
@@ -186,7 +180,7 @@ $testresult = ConvertFrom-Json –InputObject (ConvertFrom-Json –InputObject $
   Write-Host "OSVersion: $($testresult.OSVersion)"
   Write-Host "Overall Test Result: $($testresult.TestResult)"
 
-For ($i=0; $i -lt $testresult.Tests.Length; $i++) 
+For ($i=0; $i -lt $testresult.Tests.Length; $i++)
 {
     Write-Host "TestID: $($testresult.Tests[$i].TestID)"
     Write-Host "TestCaseName: $($testresult.Tests[$i].TestCaseName)"
@@ -213,12 +207,12 @@ Pour appeler l’API avec cURL, effectuez les étapes suivantes :
 2. La méthode est POST et le type de contenu est JSON, comme illustré dans l’extrait de code suivant.
 
 ```
-CURL POST -H "Content-Type:application/json" 
+CURL POST -H "Content-Type:application/json"
 -H "Authorization: Bearer XXXXXX-Token-XXXXXXXX”
-https://isvapp.azurewebsites.net/selftest-vm 
+https://isvapp.azurewebsites.net/selftest-vm
 -d '{ "DNSName":"XXXX.westus.cloudapp.azure.com", "User":"XXX", "Password":"XXXX@123456", "OS":"Linux", "PortNo":"22", "CompanyName":"ABCD"}'
-
 ```
+
 L’écran suivant montre un exemple d’utilisation de curl pour appeler l’API.
 
 ![Appeler l’API à l’aide de la commande curl](./media/stclient-consume-api-curl.png)
@@ -242,7 +236,7 @@ Utilisez les étapes suivantes pour choisir le locataire Azure AD où vous voul
    Dans les étapes suivantes, vous aurez peut-être besoin du nom du locataire (ou nom d’annuaire) ou de l’ID du locataire (ou ID d’annuaire).
 
    **Pour obtenir des informations sur le locataire :**
-  
+
    Dans **Vue d’ensemble d’Azure Active Directory**, recherchez « Propriétés », puis sélectionnez **Propriétés**. Utilisez la capture d’écran suivante comme exemple :
 
    - **Nom** : nom du locataire ou nom de l’annuaire
@@ -284,7 +278,7 @@ Utilisez les étapes suivantes pour inscrire l’application cliente.
 14. Cliquez sur **Sélectionner**.
 15. Sélectionnez **Terminé**.
 16. Sous **Paramètres**, sélectionnez **Propriétés**.
-17. Sous **Propriétés**, faites défiler l’écran jusqu’à **Locataires multiples**. Sélectionnez **Oui**.  
+17. Sous **Propriétés**, faites défiler l’écran jusqu’à **Locataires multiples**. Sélectionnez **Oui**.
 
     ![Configurer un multilocataire pour une application](./media/stclient-yes-multitenant.png)
 
@@ -319,6 +313,7 @@ Vous pouvez utiliser l’un des programmes suivants pour créer et obtenir un je
 Method Type : POST
 Base Url: https://login.microsoftonline.com/common/oauth2/token
 ```
+
 Transmettez les paramètres suivants dans le corps de la requête :
 
 ```
@@ -364,7 +359,7 @@ La capture d’écran suivante présente un exemple d’utilisation de la comman
 
 Pour demander des jetons à Auth0 pour toutes vos applications autorisées, effectuez une opération POST sur le point de terminaison [https://soamtenant.auth0.com/oauth/token](https://soamtenant.auth0.com/oauth/token) avec une charge utile au format suivant :
 
-```
+```csharp
 string clientId = "Your Application Id";
 string clientSecret = "Your Application Secret";
 string audience = "https://management.core.windows.net";
@@ -387,7 +382,7 @@ var token = JObject.Parse(content)["access_token"];
 
 Pour demander des jetons à Auth0 pour toutes vos applications autorisées, effectuez une opération POST sur le point de terminaison [https://soamtenant.auth0.com/oauth/token](https://soamtenant.auth0.com/oauth/token) avec une charge utile au format suivant :
 
-```
+```powershell
 $clientId = "Application Id of AD Client APP";
 $clientSecret = "Secret Key of AD Client APP “
 $audience = "https://management.core.windows.net";
@@ -402,14 +397,13 @@ resp = Invoke-WebRequest -Method Post -Uri $authority -Headers $headers -Content
 
 $token = $resp.Content | ConvertFrom-Json
 $token.AccessToken
-
 ```
 
 ## <a name="pass-the-client-app-token-to-the-api"></a>Transmettez le jeton de l’application cliente à l’API
 
 Transmettez le jeton à l’API d’auto-test en utilisant le code suivant dans l’en-tête d’autorisation :
 
-```
+```powershell
 $redirectUri = ‘https://isvapp.azurewebsites.net/selftest-vm’
 $accesstoken = ‘place your token here’
 
@@ -426,9 +420,8 @@ $Body =
 
 $result=Invoke-WebRequest -Method Post -Uri $redirectUri -Headers $headers -ContentType 'application/json' -Body $Body
 $result
-echo 'Test Results:'
+Write-Output 'Test Results:'
 $result.Content
-
 ```
 
 ## <a name="test-your-self-test-client"></a>Tester votre client d’auto-test
@@ -445,7 +438,7 @@ Les extraits de code suivants montrent des résultats de tests au format JSON.
 
 **Résultats de tests pour une machine virtuelle Windows :**
 
-```
+```json
 {
   "SchemaVersion": 1,
   "AppCertificationCategory": "Microsoft Single VM Certification",
@@ -484,7 +477,7 @@ Les extraits de code suivants montrent des résultats de tests au format JSON.
 
 **Résultats de tests pour une machine virtuelle Linux :**
 
-```
+```json
 {
   "SchemaVersion": 1,
   "AppCertificationCategory": "Microsoft Single VM Certification",

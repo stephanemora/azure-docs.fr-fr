@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 5842c5edd0402d61f564ab15e34e8f69c0e718d7
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
-ms.translationtype: HT
+ms.openlocfilehash: daddb859c6bfc6309ef833c6c6c3ea43c70f1889
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213448"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652278"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>Impossible d’établir une connexion RDP à des machines virtuelles Azure car le service client DHCP est désactivé
 
@@ -27,7 +27,6 @@ Cet article décrit un problème qui vous empêche de vous connecter à distance
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="symptoms"></a>Symptômes
-
 Vous ne pouvez pas établir une connexion RDP à une machine virtuelle dans Azure, car le service client DHCP est désactivé sur la machine virtuelle. Lorsque vous vérifiez la capture d’écran dans les [diagnostics de démarrage](../troubleshooting/boot-diagnostics.md) du portail Azure, vous voyez la machine virtuelle démarrer normalement et attendre les identifiants dans l’écran de connexion. Vous consultez à distance les journaux des événements dans la machine virtuelle avec l’observateur d’événements. Vous voyez que le service client DHCP n’est pas démarré ou ne parvient pas à démarrer. Voici un exemple de journal :
 
 **Nom du journal** : System </br>
@@ -37,7 +36,7 @@ Vous ne pouvez pas établir une connexion RDP à une machine virtuelle dans Azur
 **Catégorie de tâche** : Aucun </br>
 **Niveau** : Error </br>
 **Mots clés** : Classique</br>
-**Utilisateur** : N/A </br>
+**Utilisateur** : S.O. </br>
 **Ordinateur** : myvm.cosotos.com</br>
 **Description** : Le service client DHCP se bloque au démarrage.</br>
 
@@ -98,7 +97,7 @@ Sinon, une erreur d’incompatibilité du microprogramme s’affiche : la réini
 1. Connectez-vous à la [console série](serial-console-windows.md) et ouvrez une instance PowerShell.
 2. Téléchargez l’outil Process Monitor en exécutant le script suivant :
 
-   ```
+   ```powershell
    remove-module psreadline
    $source = "https://download.sysinternals.com/files/ProcessMonitor.zip"
    $destination = "c:\temp\ProcessMonitor.zip"
@@ -167,6 +166,7 @@ Sinon, une erreur d’incompatibilité du microprogramme s’affiche : la réini
 3. Essayez de vous connecter à la machine virtuelle à l’aide de Bureau à distance.
 
 #### <a name="dhcp-client-service-crashes-or-hangs"></a>Le service client DHCP plante ou se bloque
+
 1. Si l’état du service est bloqué sur **Démarrage** ou sur **Arrêt**, essayez d’arrêter le service :
 
         sc stop DHCP
@@ -205,5 +205,3 @@ Sinon, une erreur d’incompatibilité du microprogramme s’affiche : la réini
 ## <a name="next-steps"></a>Étapes suivantes
 
 Si vous avez encore besoin d’aide, [contactez le support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour résoudre votre problème.
-
-

@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: f0a45c964b449df0db6b14ee289cd21860cd1c36
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: c4339aa8548ef66c862200ad61b6aaca90332ad0
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56751852"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58632361"
 ---
-Une fois votre Observateur est créé, l’événement AnchorLocated se déclenche pour chaque point d’ancrage demandé. Cet événement se déclenche lorsqu’une ancre est située, ou si le point d’ancrage ne peut pas être localisé. Si cette situation se produit, la raison est indiquée dans l’état. Après le traitement de tous les points d’ancrage pour un observateur, ou introuvable, puis l’événement LocateAnchorsCompleted se déclenche.
+Une fois votre Observateur est créé, le `AnchorLocated` événement est déclenché pour chaque point d’ancrage demandé. Cet événement se déclenche lorsqu’une ancre est située, ou si le point d’ancrage ne peut pas être localisé. Si cette situation se produit, la raison est indiquée dans l’état. Après le traitement de tous les points d’ancrage pour un observateur, ou introuvable, la `LocateAnchorsCompleted` événement se déclenche.

@@ -4,7 +4,7 @@ description: Découvrez comment visualiser et analyser des événements à l’a
 services: service-fabric
 documentationcenter: .net
 author: srrengar
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/21/2019
 ms.author: srrengar
-ms.openlocfilehash: 2f3106b33ab0cbea95efe2ac42c05a8543719190
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: ba4923edbc59f0e6650fda1a71e1c4f79b884cf2
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57246914"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662157"
 ---
 # <a name="event-analysis-and-visualization-with-azure-monitor-logs"></a>Analyse des événements et visualisation avec les journaux d’Azure Monitor
- Journaux d’Azure Monitor collecte et analyse les données de télémétrie à partir des applications et services hébergés dans le cloud et fournit des outils d’analyse pour vous aider à optimiser leur disponibilité et les performances. Cet article décrit comment exécuter des requêtes dans les journaux d’Azure Monitor pour obtenir des informations détaillées et résoudre les problèmes de ce qui se passe dans votre cluster. Les questions courantes suivantes sont traitées :
+ Les journaux Azure Monitor collectent et analysent les données de télémétrie des applications et services hébergés dans le cloud, et fournissent des outils d’analyse pour vous aider à maximiser leur disponibilité et leurs performances. Cet article décrit comment exécuter des requêtes dans les journaux d’Azure Monitor pour obtenir des informations détaillées et résoudre les problèmes de ce qui se passe dans votre cluster. Les questions courantes suivantes sont traitées :
 
 * Comment résoudre les problèmes d’intégrité ?
 * Comment savoir quand un nœud tombe en panne ?
@@ -49,7 +49,7 @@ Dans `Summary`, des vignettes de type graphe s’affichent pour chacune des solu
 
 ![Solution Service Fabric](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_summary.PNG)
 
-L’illustration suivante montre la page d’accueil de la solution Service Fabric Analytique. Cette page d’accueil fournit une capture instantanée de ce qui se passe dans votre cluster.
+L’image ci-dessus montre la page d’accueil de la solution Service Fabric Analytics. Cette page d’accueil fournit une capture instantanée de ce qui se passe dans votre cluster.
 
 ![Solution Service Fabric](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_solution.PNG)
 
@@ -62,13 +62,13 @@ L’illustration suivante montre la page d’accueil de la solution Service Fabr
 >[!NOTE]
 >En dehors des événements Service Fabric prêts à l’emploi, il est possible de collecter des événements système plus détaillés en [mettant à jour la configuration de l’extension de diagnostics](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations).
 
-## <a name="view-service-fabric-events-including-actions-on-nodes"></a>Vue événements de Service Fabric, y compris les actions sur les nœuds
+## <a name="view-service-fabric-events-including-actions-on-nodes"></a>Afficher les événements Service Fabric, notamment les actions sur les nœuds
 
 Sur la page Service Fabric Analytics, cliquez sur le graphique de **Service Fabric Events**.
 
 ![Canal opérationnel de la solution Service Fabric](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events_selection.png)
 
-Cliquez sur **Liste** pour afficher les événements dans une liste. Vous verrez alors tous les événements système qui ont été collectés. Pour référence, il s’agit de la **table WADServiceFabricSystemEventsTable** dans le stockage Azure compte, de la même manière les événements de services et des acteurs fiables que vous voyez ensuite proviennent de ces tables respectives.
+Cliquez sur **Liste** pour afficher les événements dans une liste. Vous verrez alors tous les événements système qui ont été collectés. Pour référence, il s’agit de la table **WADServiceFabricSystemEventsTable** dans le compte Stockage Azure. De même, les services fiables et les événements acteurs que vous voyez ensuite proviennent de ces tables respectives.
     
 ![Canal opérationnel de requêtes](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events.png)
 
@@ -114,5 +114,5 @@ Le langage de requête Kusto est puissant. Une autre requête précieuse que vou
 * Pour activer la surveillance de l’infrastructure, par exemple, les compteurs de performances, rendez-vous sur [Ajout de l’agent Log Analytics](service-fabric-diagnostics-oms-agent.md). L’agent collecte des compteurs de performances et les ajoute à votre espace de travail existant.
 * Pour les clusters en local, les journaux Azure Monitor propose une passerelle (Proxy de transfert HTTP) qui peut être utilisée pour envoyer des données dans les journaux d’Azure Monitor. En savoir plus à ce sujet dans [connexion des ordinateurs sans accès à Internet pour les journaux Azure Monitor à l’aide de la passerelle d’Analytique de journal](../azure-monitor/platform/gateway.md).
 * Configurez l’[alerte automatisée](../log-analytics/log-analytics-alerts.md) afin de faciliter la détection et les diagnostics.
-* Familiarisez-vous avec les [journal des requêtes et recherches](../log-analytics/log-analytics-log-searches.md) fonctionnalités offertes dans le cadre des journaux d’Azure Monitor.
+* Familiarisez-vous avec les fonctionnalités de [requêtes et recherches dans les journaux](../log-analytics/log-analytics-log-searches.md) proposées par les journaux Azure Monitor.
 * Obtenir une présentation plus détaillée des journaux Azure Monitor et ce qu’il propose, lisez [What ' s journaux Azure Monitor ?](../operations-management-suite/operations-management-suite-overview.md).

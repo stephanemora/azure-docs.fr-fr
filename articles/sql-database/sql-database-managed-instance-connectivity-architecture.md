@@ -4,7 +4,7 @@ description: En savoir plus sur Azure SQL Database managed instance communicatio
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
-ms.custom: ''
+ms.custom: fasttrack-edit
 ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 02/26/2019
-ms.openlocfilehash: c7587b6cb2b4b30e265657b9d3792c9d4acd4428
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: f08b22f24dfde41646f56dc1ecd9777f267620ee
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621547"
+ms.locfileid: "58651310"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Architecture de connectivité pour une instance gérée dans la base de données SQL Azure 
 
@@ -110,7 +110,8 @@ Déployer une instance gérée dans un sous-réseau dédié à l’intérieur du
 |gestion  |80, 443, 12000|TCP     |Quelconque              |AzureCloud  |AUTORISER |
 |mi_subnet   |Quelconque           |Quelconque     |Quelconque              |SOUS-RÉSEAU MI *  |AUTORISER |
 
-> Assurez-vous qu’une seule règle de trafic entrant pour les ports 9000, 9003, 1438, 1440, 1452 et une règle de trafic sortant pour les ports 80, 443, 12000. L’approvisionnement Instance gérés via les déploiements ARM peut échouer si les règles de trafic entrants et de sortie sont configurés séparément pour chaque ports. 
+> [!IMPORTANT]
+> Vérifiez qu’il n'existe qu’une seule règle de trafic entrant pour les ports 9000, 9003, 1438, 1440, 1452 et une règle de trafic sortant pour les ports 80, 443, 12000. L’approvisionnement Instance gérés via les déploiements ARM échoue si les règles de trafic entrants et de sortie sont configurés séparément pour chaque port. Si ces ports sont dans des règles distinctes, le déploiement échoue avec le code d’erreur `VnetSubnetConflictWithIntendedPolicy`
 
 \* MI sous-réseau fait référence à la plage d’adresses IP pour le sous-réseau dans le formulaire 10.x.x.x/y. Vous pouvez trouver ces informations dans le portail Azure, dans les propriétés du sous-réseau.
 

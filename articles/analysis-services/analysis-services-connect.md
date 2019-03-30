@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 03/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e2c60d48595f2c3687bd178e0f4eed010f14b568
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 9a8863189ee9cb63d86b157c0bbebb6fd16116b0
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191528"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58669620"
 ---
 # <a name="connecting-to-servers"></a>Connexion aux serveurs
 
@@ -40,6 +40,8 @@ Dans **Portail Azure** > Serveur > **Présentation** > **Nom du serveur**, copie
 
 ![Obtenir le nom du serveur dans Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
 
+> [!NOTE]
+> Le protocole pour la région est des États-Unis 2 est **aspaaseastus2**.
 
 ## <a name="connection-string"></a>Chaîne de connexion
 

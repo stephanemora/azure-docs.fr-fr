@@ -4,7 +4,7 @@ description: Découvrez comment supprimer manuellement des Service Fabric Reliab
 services: service-fabric
 documentationcenter: .net
 author: amanbha
-manager: timlt
+manager: chackdan
 editor: vturecek
 ms.assetid: b91384cc-804c-49d6-a6cb-f3f3d7d65a8e
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/19/2018
 ms.author: amanbha
-ms.openlocfilehash: ab6f8740ec1955078c6acbd9cb362a25a89e4bda
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e297a6f42774f29e2eca4a410b695d5bbb636300
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57887389"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58666968"
 ---
 # <a name="delete-reliable-actors-and-their-state"></a>Supprimer des Reliable Actors et leur état
 Le Garbage Collection des acteurs désactivés nettoie uniquement l’objet acteur, mais il ne supprime pas les données stockées dans le Gestionnaire d’état d’un acteur. Lorsqu’un acteur est réactivé, ses données sont de nouveau rendues disponibles par le biais du Gestionnaire d’état. Dans les cas où les acteurs stockent des données dans le Gestionnaire d’état et sont désactivés mais jamais réactivés, il peut être nécessaire de nettoyer leurs données.

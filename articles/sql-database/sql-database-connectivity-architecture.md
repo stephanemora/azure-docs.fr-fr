@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 801e3b20908c3e92693e5e800428773bf5c90539
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: c5fadf5c445310534ab3001371e1b73b1f502f15
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521463"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58661784"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Architecture de la connectivité Azure SQL
 
@@ -39,7 +39,7 @@ Cet article décrit l'architecture de la connectivité Azure SQL Database et SQL
 >
 > Si les connexions des points de terminaison de service n'ont pas pu être établies avec Azure SQL Server et que vous pensez être affecté par ce changement, vérifiez que le type de connexion est explicitement défini sur `Redirect`. Si tel est le cas, vous devez ouvrir les règles de pare-feu VM et les groupes de sécurité réseau (NSG) à toutes les adresses IP Azure de la région qui appartiennent à la [balise de service​​](../virtual-network/security-overview.md#service-tags) SQL pour les ports 11000-12000. Si cette option ne vous convient pas, basculez explicitement le serveur vers `Proxy`.
 > [!NOTE]
-> Cette rubrique s’applique aux serveurs Azure SQL Database qui hébergent des bases de données uniques et des pools élastiques, ainsi que des bases de données SQL Data Warehouse. Par souci de simplicité, la base de données SQL est utilisée pour faire référence à SQL Database et SQL Data Warehouse.
+> Cette rubrique s’applique aux serveurs de base de données SQL Azure qui héberge les bases de données uniques et les pools élastiques, SQL Data Warehouse bases de données, Azure Database pour MySQL, Azure Database pour MariaDB et Azure Database pour PostgreSQL. Par souci de simplicité, la base de données SQL est utilisé lorsque vous faites référence à la base de données SQL, SQL Data Warehouse, base de données Azure pour MySQL, Azure Database pour MariaDB et Azure Database pour PostgreSQL.
 
 ## <a name="connectivity-architecture"></a>Architecture de connectivité
 

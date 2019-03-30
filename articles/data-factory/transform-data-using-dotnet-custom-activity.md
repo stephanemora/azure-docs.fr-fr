@@ -11,14 +11,15 @@ ms.date: 11/26/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 849f944235cf1ab4408aeab336310028d6e754f4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1c02a30800e86c7b32524fb9cdba7dacf3bba9c7
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855867"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652091"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilisation des activités personnalisées dans un pipeline Azure Data Factory
+
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-use-custom-activities.md)
 > * [Version actuelle](transform-data-using-dotnet-custom-activity.md)
@@ -39,6 +40,7 @@ Consultez les articles suivants si vous ne connaissez pas le service Azure Batch
 * [Nouvelle AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) applet de commande pour créer un pool Azure Batch.
 
 ## <a name="azure-batch-linked-service"></a>Service lié Azure Batch
+
 L’extrait de code JSON suivant définit un exemple de service lié Azure Batch. Pour plus de détails, consultez [Environnements de calcul pris en charge par Azure Data Factory](compute-linked-services.md).
 
 ```json
@@ -114,7 +116,7 @@ Le tableau suivant indique les noms et les descriptions des propriétés qui son
 &#42; Les propriétés `resourceLinkedService` et `folderPath` doivent être toutes deux spécifiées ou omises.
 
 > [!NOTE]
-> Si vous transmettez les services liés en tant que referenceObjects dans une activité personnalisée, il est une bonne pratique de sécurité pour passer d’un coffre de clés Azure activé fetch et service lié (dans la mesure où il ne contient pas toutes les chaînes sécurisées), les informations d’identification à l’aide du nom du secret directement à partir de la clé Coffre à partir du code. Vous trouverez un exemple [ici](https://github.com/nabhishek/customactivity_sample/tree/linkedservice) que références AKV activé un service lié, récupère les informations d’identification de coffre de clés et accède ensuite au stockage dans le code.  
+> Si vous transmettez les services liés en tant que referenceObjects dans une activité personnalisée, il est une bonne pratique de sécurité pour passer d’un coffre de clés Azure activé fetch et service lié (dans la mesure où il ne contient pas toutes les chaînes sécurisées), les informations d’identification à l’aide du nom du secret directement à partir de la clé Coffre à partir du code. Vous trouverez un exemple [ici](https://github.com/nabhishek/customactivity_sample/tree/linkedservice) que références AKV activé un service lié, récupère les informations d’identification de coffre de clés et accède ensuite au stockage dans le code.
 
 ## <a name="custom-activity-permissions"></a>Autorisations d’activité personnalisée
 
@@ -147,7 +149,6 @@ Vous pouvez exécuter directement une commande à l’aide d’une activité per
 ## <a name="passing-objects-and-properties"></a>Passage des objets et des propriétés
 
 Cet exemple montre comment vous pouvez utiliser les referenceObjects et les extendedProperties pour passer des objets Data Factory et des propriétés définies par l’utilisateur sur votre application personnalisée.
-
 
 ```json
 {
@@ -191,15 +192,15 @@ Cet exemple montre comment vous pouvez utiliser les referenceObjects et les exte
 
 Lorsque l’activité est exécutée, les éléments referenceObjects et extendedProperties sont stockés dans les fichiers suivants qui sont déployés vers le même dossier d’exécution de l’application SampleApp.exe :
 
-- activity.json
+- `activity.json`
 
   Stocke extendedProperties et les propriétés de l’activité personnalisée.
 
-- linkedServices.json
+- `linkedServices.json`
 
   Stocke un tableau des services liés définis dans la propriété referenceObjects.
 
-- datasets.json
+- `datasets.json`
 
   Stocke un tableau de jeux de données défini dans la propriété referenceObjects.
 
@@ -232,12 +233,13 @@ namespace SampleApp
 
 Vous pouvez démarrer une exécution de pipeline à l’aide de la commande PowerShell suivante :
 
-```.powershell
+```powershell
 $runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName $pipelineName
 ```
+
 Quand le pipeline s’exécute, vous pouvez vérifier la sortie de l’exécution à l’aide des commandes suivantes :
 
-```.powershell
+```powershell
 while ($True) {
     $result = Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
 
@@ -265,7 +267,7 @@ $result.Error -join "`r`n"
 
 Les éléments **stdout** et **stderr** de votre application personnalisée sont enregistrés dans le conteneur **adfjobs** du service lié Stockage Azure que vous avez défini lors de la création du service lié Azure Batch à l’aide d’un GUID de la tâche. Vous pouvez obtenir le chemin détaillé à partir de la sortie de l’exécution de l’activité, comme indiqué dans l’extrait de code suivant :
 
-```shell
+```
 Pipeline ' MyCustomActivity' run finished. Result:
 
 ResourceGroupName : resourcegroupname
@@ -295,11 +297,12 @@ Activity Error section:
 "failureType": ""
 "target": "MyCustomActivity"
 ```
+
 Si vous souhaitez consommer le contenu de stdout.txt dans des activités en aval, vous pouvez obtenir le chemin du fichier stdout.txt dans l’expression « \@activity(’MyCustomActivity’).output.outputs[0] ».
 
-  > [!IMPORTANT]
-  > - Les fichiers activity.json, linkedServices.json et datasets.json sont stockés dans le dossier d’exécution de la tâche de traitement par lots. Pour cet exemple, les fichiers activity.json, linkedServices.json et datasets.json sont stockés dans le chemin d’accès « https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/ ». Si nécessaire, vous devez les nettoyer séparément.
-  > - Pour les services liés qui utilisent le runtime d’intégration auto-hébergé, les informations sensibles comme les clés ou les mots de passe sont chiffrées par le runtime d’intégration auto-hébergé pour faire en sorte que les informations d’identification restent dans l’environnement de réseau privé défini par le client. Certains champs sensibles peuvent manquer lorsqu’ils sont référencés par votre code d’application personnalisé de cette façon. Au besoin, utilisez SecureString dans extendedProperties au lieu d’utiliser une référence de service lié.
+> [!IMPORTANT]
+> - Les fichiers activity.json, linkedServices.json et datasets.json sont stockés dans le dossier d’exécution de la tâche de traitement par lots. Pour cet exemple, les fichiers activity.json, linkedServices.json et datasets.json sont stockés dans le chemin d’accès « https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/ ». Si nécessaire, vous devez les nettoyer séparément.
+> - Pour les services liés qui utilisent le runtime d’intégration auto-hébergé, les informations sensibles comme les clés ou les mots de passe sont chiffrées par le runtime d’intégration auto-hébergé pour faire en sorte que les informations d’identification restent dans l’environnement de réseau privé défini par le client. Certains champs sensibles peuvent manquer lorsqu’ils sont référencés par votre code d’application personnalisé de cette façon. Au besoin, utilisez SecureString dans extendedProperties au lieu d’utiliser une référence de service lié.
 
 ## <a name="pass-outputs-to-another-activity"></a>Passer les sorties à une autre activité
 
@@ -311,10 +314,10 @@ Les valeurs de propriété sensibles désignées en tant que type *SecureString*
 
 ```json
 "extendedProperties": {
-    "connectionString": {
-        "type": "SecureString",
-        "value": "aSampleSecureString"
-    }
+  "connectionString": {
+    "type": "SecureString",
+    "value": "aSampleSecureString"
+  }
 }
 ```
 
@@ -334,7 +337,6 @@ Grâce aux modifications introduites dans l’activité personnalisée de la ver
 
 Le tableau suivant décrit les différences qui existent entre l’activité personnalisée de la version 2 de Data Factory et l’activité DotNet (personnalisée) de la version 1 de Data Factory :
 
-
 |Différences      | Activité personnalisée      | Activité DotNet (personnalisée) de la version 1      |
 | ---- | ---- | ---- |
 |Mode de définition de la logique personnalisée      |En fournissant un exécutable      |En implémentant une DLL .NET      |
@@ -344,7 +346,6 @@ Le tableau suivant décrit les différences qui existent entre l’activité per
 |Passer des informations entre l’activité et la logique personnalisée      |Via ReferenceObjects (LinkedServices et Datasets) et ExtendedProperties (propriétés personnalisées)      |et via ExtendedProperties (propriétés personnalisées), Input et Output Datasets      |
 |Récupération des informations dans la logique personnalisée      |Analyse activity.json, linkedServices.json et datasets.json, stockés dans le même dossier que l’exécutable      |Via le kit SDK de .NET (.NET Framework 4.5.2)      |
 |Journalisation      |Écrit directement dans STDOUT      |Implémentation d’enregistreur d’événements dans les DLL .NET      |
-
 
 Si vous avez du code .NET écrit pour une version d’une activité DotNet (personnalisée) 1, vous devez modifier votre code pour qu’il fonctionne avec la version actuelle de l’activité personnalisée. Pour mettre à jour votre code, suivez ces instructions générales :
 
@@ -358,6 +359,7 @@ Si vous avez du code .NET écrit pour une version d’une activité DotNet (pers
 Vous trouverez un exemple complet de réécriture de l’exemple de DLL et de pipeline de bout en bout décrit dans l’article sur la version 1 de Data Factory, [Utiliser des activités personnalisées dans un pipeline Azure Data Factory](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities), en tant qu’activité personnalisée Data Factory dans la page [Exemple d’activité personnalisée Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample).
 
 ## <a name="auto-scaling-of-azure-batch"></a>Mise à l’échelle automatique d’Azure Batch
+
 Vous pouvez aussi créer un pool Azure Batch avec la fonctionnalité **autoscale** . Par exemple, vous pouvez créer un pool Azure Batch avec 0 machine virtuelle dédiée et une formule de mise à l’échelle automatique en fonction du nombre de tâches en attente.
 
 L’exemple de formule fourni ici entraîne le comportement suivant : Lors de sa création, le pool ne contient qu’une seule machine virtuelle. La métrique $PendingTasks définit le nombre de tâches dans l’état En cours d’exécution + Actif (en file d’attente). Cette formule recherche le nombre moyen de tâches en attente au cours des 180 dernières secondes et définit TargetDedicated en conséquence. Elle garantit que TargetDedicated ne va jamais au-delà de 25 machines virtuelles. Par conséquent, à mesure que de nouvelles tâches sont envoyées, le pool s’accroît automatiquement et, au fil de la réalisation des tâches, les machines virtuelles se libèrent une à une et la mise à l’échelle automatique réduit ces machines virtuelles. Vous pouvez ajuster startingNumberOfVMs et maxNumberofVMs selon vos besoins.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 20404cea2aca984ef35472fa94d37c04eb8080e4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 520d3f6a45b44ba2023dee34642f796689f48221
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57872638"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648844"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Afficher et télécharger votre utilisation d’Azure et les frais
 
@@ -28,7 +28,7 @@ Si vous êtes client EA ou que vous avez un [contrat de client Microsoft](#check
 
 Certains rôles uniquement ont l’autorisation pour obtenir des informations d’utilisation d’Azure, tels que le compte administrateur ou administrateur d’entreprise. Pour en savoir plus sur l’accès aux informations de facturation, consultez [Manage access to Azure billing using roles](billing-manage-access.md) (Utiliser des rôles pour gérer l’accès à la facturation Azure).
 
-Si vous avez un [contrat de client Microsoft](#Check-your-access-to-a-Microsoft-Customer-Agreement), vous devez être un profil de facturation propriétaire, collaborateur ou lecteur, ou manager pour afficher votre utilisation d’Azure et les frais de facture. Pour en savoir plus sur les rôles de facturation pour les contrats de client de Microsoft, consultez [tâches et rôles de profil de facturation](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
+Si vous avez un [contrat de client Microsoft](#check-your-access-to-a-microsoft-customer-agreement), vous devez être un profil de facturation propriétaire, collaborateur ou lecteur, ou manager pour afficher votre utilisation d’Azure et les frais de facture. Pour en savoir plus sur les rôles de facturation pour les contrats de client de Microsoft, consultez [tâches et rôles de profil de facturation](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
 
 ## <a name="download-usage-from-the-account-center-csv"></a>Télécharger l’utilisation à partir du centre de compte (.csv)
 

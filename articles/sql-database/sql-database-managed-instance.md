@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, vanto
 manager: craigg
-ms.date: 02/20/2019
-ms.openlocfilehash: d19dabb4e74e7a108ae769f55cd65ef108019fdc
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.date: 03/29/2019
+ms.openlocfilehash: b5417787472b332e38db002067920153d554fdb0
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454739"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58668490"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Utiliser Advanced Data Security pour SQL Database avec des réseaux virtuels et une compatibilité de presque 100 %
 
@@ -49,20 +49,23 @@ L’instance managée combine les meilleures fonctionnalités d’Azure SQL Data
 |**Sécurité et conformité** | **Gestion**|
 |Environnement isolé ([intégration de réseau virtuel](sql-database-managed-instance-connectivity-architecture.md), service de locataire unique, calcul et stockage dédiés) <br>[Chiffrement transparent des données (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>Prise en charge de l’[authentification unique Azure AD](sql-database-aad-authentication.md) <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Principaux (connexions) de serveur Azure AD</a> (**préversion publique**) <br>Conformité aux mêmes normes qu’une base de données Azure SQL <br>[Audit SQL](sql-database-managed-instance-auditing.md) <br>[détection des menaces](sql-database-managed-instance-threat-detection.md) |API Azure Resource Manager pour automatiser le provisionnement et la mise à l’échelle des services <br>Fonctionnalités du portail Azure pour le provisionnement et la mise à l’échelle manuels des services <br>Service de migration des données
 
+> [!IMPORTANT]
+> Base de données SQL Azure (toutes les options de déploiement), a été certifié par rapport à un nombre de normes de conformité. Pour en savoir plus, accédez au [Centre de confidentialité Microsoft Azure](https://azure.microsoft.com/support/trust-center/), qui inclut la liste la plus à jour des [certifications de conformité de la base de données SQL](https://www.microsoft.com/trustcenter/compliance/complianceofferings).
+
 Les fonctionnalités clés des instances managées figurent dans le tableau suivant :
 
 |Fonctionnalité | Description|
 |---|---|
 | Version/Build de SQL Server | Moteur de base de données SQL Server (dernière version stable) |
-| Sauvegardes automatisées gérées | OUI |
-| Analyse et métriques des instances et bases de données intégrées | OUI |
-| Mise à jour corrective automatique des logiciels | OUI |
-| Les dernières fonctionnalités du moteur de base de données | OUI |
+| Sauvegardes automatisées gérées | Oui |
+| Analyse et métriques des instances et bases de données intégrées | Oui |
+| Mise à jour corrective automatique des logiciels | Oui |
+| Les dernières fonctionnalités du moteur de base de données | Oui |
 | Nombre de fichiers de données (ROWS) par base de données | Multiple |
 | Nombre de fichiers journaux (LOG) par base de données | 1 |
-| Réseau virtuel - Déploiement Azure Resource Manager | OUI |
+| Réseau virtuel - Déploiement Azure Resource Manager | Oui |
 | Réseau virtuel - Modèle de déploiement classique | Non  |
-| Prise en charge du portail | OUI|
+| Prise en charge du portail | Oui|
 | Integration Services (SSIS) intégré | Non : SSIS fait partie de la [plateforme PaaS Azure Data Factory](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
 | Analysis Services (SSAS) intégré | Non : SSAS est une [plateforme PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) distincte |
 | Reporting Services (SSRS) intégré | Non : utilisez Power BI ou l’infrastructure IaaS SSRS |

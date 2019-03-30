@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: a629a022e332eae5c8a58e9ffc0f760f96bc24dd
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: a8bc86c2d3511fa04e595b8b2988d9a98bf084b2
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577107"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650459"
 ---
 # <a name="add-suggesters-to-an-index-for-typeahead-in-azure-search"></a>Ajouter des générateurs de suggestions à un index pour prédictives dans Azure Search
 
@@ -77,7 +77,7 @@ Après la création d’un générateur de suggestions, ajoutez le [API Suggesti
 
 ### <a name="use-the-net-sdk"></a>Utiliser le kit de développement logiciel (SDK) .NET
 
-Dans C#, définir un [classe de générateur de suggestions](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). Un générateur de suggestions est une collection qui accepte uniquement un seul élément. Veillez à ajouter `using System.Collections.Generic;` afin que vous pouvez créer une liste d’objets. 
+Dans C#, définir un [objet de générateur de suggestions](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). `Suggesters` est une collection, mais elle peut uniquement accepter un seul élément. 
 
 ```csharp
 private static void CreateHotelsIndex(SearchServiceClient serviceClient)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 3ce6744a3a7d71f358dccb3dc29c470f3a376240
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 8bb9f0bc57e03ae0897e77acaa30ec85a3541646
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580702"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649371"
 ---
 # <a name="tutorial-configure-security-agents"></a>Didacticiel : Configurer des agents de sécurité
 
@@ -42,7 +42,7 @@ ASC pour objet de configuration des représentations de IoT sécurité agent est
 
 Ces configurations vous aider à personnaliser l’agent pour chaque scénario requis. Par exemple, automatiquement à l’exclusion de certains événements, ou de conserver la consommation d’énergie à un niveau minimal sont possibles en configurant ces propriétés.  
 
-Utiliser l’ASC pour la configuration de l’agent de sécurité IoT [schéma](https://github.com/azure/asc-for-iot-schemas/security/module/twin) pour apporter des modifications.  
+Utiliser l’ASC pour la configuration de l’agent de sécurité IoT [schéma](https://aka.ms/iot-security-github-module-schema) pour apporter des modifications.  
 
 ## <a name="configuration-objects"></a>Objets de configuration 
 
@@ -64,7 +64,7 @@ L’agent ne lancera pas si l’objet de configuration ne correspond pas au sch�
 
 ## <a name="configuration-schema-and-validation"></a>Validation et le schéma de configuration 
 
-Veillez à valider votre configuration de l’agent par rapport à ce [schéma](https://github.com/Azure/asc-for-iot/schema/security_module_twin). Un agent ne lancera pas si l’objet de configuration ne correspond pas au schéma.
+Veillez à valider votre configuration de l’agent par rapport à ce [schéma](https://aka.ms/iot-security-github-module-schema). Un agent ne lancera pas si l’objet de configuration ne correspond pas au schéma.
 
  
 Si, alors que l’agent est en cours d’exécution, l’objet de configuration est modifié pour une configuration non valide (la configuration ne correspond pas au schéma), l’agent ignore la configuration non valide et continuera à l’aide de la configuration actuelle. 

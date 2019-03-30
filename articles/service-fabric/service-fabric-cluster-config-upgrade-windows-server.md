@@ -4,7 +4,7 @@ description: Découvrez comment mettre à niveau la configuration qui exécute u
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 66296cc6-9524-4c6a-b0a6-57c253bdf67e
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2018
 ms.author: dekapur
-ms.openlocfilehash: 88846845f1f8ffc71fb193e134a18ec38f619141
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
-ms.translationtype: HT
+ms.openlocfilehash: f99c1ebb64bf881bcd42f15e13bb81b96ccfa064
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51857874"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58665600"
 ---
 # <a name="upgrade-the-configuration-of-a-standalone-cluster"></a>Mettre à niveau la configuration d’un cluster autonome 
 
@@ -73,13 +73,13 @@ Un certificat de cluster est utilisé pour l’authentification entre les nœuds
 
 Quatre options sont prises en charge :  
 
-* Mise à niveau de certificat unique : le chemin de la mise à niveau est « Certificat A (principal) -> Certificat B (principal) -> Certificat C (principal) ->....
+* Mise à niveau du seul certificat : Le chemin d’accès de mise à niveau est le certificat A (principal) -> certificat B (principal) -> certificat C (principal) ->...
 
-* Double mise à niveau de certificat : le chemin de la mise à niveau est « Certificat A -> (principal) -> Certificat A (principal) et B (secondaire) -> Certificat B (principal) -> Certificat B (principal) et C (secondaire) -> Certificat C (principal) ->....
+* Mise à niveau de certificat double : Le chemin d’accès de mise à niveau est le certificat A (principal) -> certificat A (principal) et B (secondaire) -> certificat B (principal) -> certificat B (principal) et C (secondaire) -> certificat C (principal) ->...
 
-* Mise à niveau du type de certificat : configuration de certificats basée sur Thumbprint <> configuration de certificats basée sur CommonName. Par exemple, certificat Thumbprint A (Principal) et Thumbprint B (Secondaire) -> certificat CommonName C.
+* Mise à niveau du type de certificat : Configuration de certificat basée sur CommonName configuration <> – basée sur l’empreinte de certificat. Par exemple, certificat Thumbprint A (Principal) et Thumbprint B (Secondaire) -> certificat CommonName C.
 
-* Mise à niveau de l’empreinte numérique de l’émetteur de certificats : le chemin de mise à niveau est Certificate CN=A,IssuerThumbprint=IT1 (Primary) -> Certificate CN=A,IssuerThumbprint=IT1,IT2 (Primary) -> Certificate CN=A,IssuerThumbprint=IT2 (Primary).
+* Mise à niveau de l’émetteur empreinte numérique du certificat : Le chemin d’accès de mise à niveau est Certificate CN = A, IssuerThumbprint = IT1 (principal) -> Certificate CN = A, IssuerThumbprint = IT1, IT2 (Primary) -> Certificate CN = A, IssuerThumbprint = IT2 (principal).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

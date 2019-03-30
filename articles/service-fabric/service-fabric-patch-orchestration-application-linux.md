@@ -4,7 +4,7 @@ description: Application permettant d’automatiser la mise à jour corrective d
 services: service-fabric
 documentationcenter: .net
 author: novino
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 27650605601a24e11d63e56343535c35c8b72f5d
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
-ms.translationtype: HT
+ms.openlocfilehash: 5efcc92bc2054dfb66b5fe03ae083c49f924d2ce
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285150"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58668192"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Corriger le système d’exploitation Linux dans votre cluster Service Fabric
 
@@ -41,13 +41,13 @@ L’application d’orchestration des correctifs offre les fonctionnalités suiv
 
 L’application d’orchestration des correctifs comprend les sous-composants suivants :
 
-- **Service Coordinateur** : ce service avec état est responsable des aspects suivants :
+- **Service coordinateur** : Ce service avec état est responsable des aspects suivants :
     - Coordination de la tâche de mise à jour du système d’exploitation sur le cluster tout entier.
     - Stockage du résultat des opérations de mise à jour du système d’exploitation accomplies.
-- **Service Agent du nœud** : ce service sans état s’exécute sur tous les nœuds de cluster Service Fabric. Les responsabilités du service sont les suivantes :
+- **Service Agent du nœud** : Ce service sans état s’exécute sur tous les nœuds de cluster Service Fabric. Les responsabilités du service sont les suivantes :
     - Amorçage du démon Agent du nœud sur Linux.
     - Surveillance du service du démon.
-- **Démon Agent du nœud** : Ce service de démon Linux s’exécute à un niveau de privilège supérieur (racine). À l’opposé, les services Agent du nœud et Coordinateur s’exécutent à des niveaux de privilège inférieurs. Le service est chargé d’exécuter sur tous les nœuds de cluster les tâches de mise à jour suivantes :
+- **Démon Agent du nœud**: Ce service de démon Linux s’exécute à un niveau de privilège supérieur (racine). À l’opposé, les services Agent du nœud et Coordinateur s’exécutent à des niveaux de privilège inférieurs. Le service est chargé d’exécuter sur tous les nœuds de cluster les tâches de mise à jour suivantes :
     - Désactivation de la mise à jour automatique du système d’exploitation sur le nœud.
     - Téléchargement et installation de la mise à jour du système d’exploitation en fonction de la stratégie définie par l’utilisateur.
     - Redémarrage de l’ordinateur après l’installation de la mise à jour du système d’exploitation, si besoin.
@@ -134,7 +134,7 @@ Vous pouvez configurer le comportement de l’application d’orchestration des 
 | UpdateOperationTimeOutInMinutes | Int <br>(Par défaut : 180)                   | Spécifie le délai d’expiration de toute opération de mise à jour (télécharger ou installer). Si l’opération n’est pas terminée dans le délai imparti, elle est abandonnée.       |
 | RescheduleCount      | Int <br> (Par défaut : 5)                  | Nombre maximal de fois que le service replanifie une mise à jour du système d’exploitation en cas d’échec persistant d’une opération.          |
 | RescheduleTimeInMinutes  | Int <br>(Par défaut : 30) | Intervalle auquel le service replanifie une mise à jour du système d’exploitation en cas d’échec persistant. |
-| UpdateFrequency           | Chaîne de valeurs séparées par des virgules (par défaut : « Hebdomadaire, Mercredi, 7:00:00 »).     | Fréquence d’installation des mises à jour du système d’exploitation sur le cluster. Le format et les valeurs possibles sont les suivants : <br>-   Mensuelle, JJ, HH:MM:SS, par exemple, Mensuelle, 5, 12:22:32. <br> -   Hebdomadaire, JOUR, HH:MM:SS, par exemple, Hebdomadaire, mardi, 12:22:32.  <br> -   Quotidienne, HH:MM:SS, par exemple, Quotidienne, 12:22:32.  <br> -  Aucune : indique que la mise à jour ne doit pas être effectuée.  <br><br> Toutes les heures sont exprimées en UTC.|
+| UpdateFrequency           | Chaîne de valeurs séparées par une virgule (par défaut : « Toutes les semaines, Mercredi, 7:00:00 »)     | Fréquence d’installation des mises à jour du système d’exploitation sur le cluster. Le format et les valeurs possibles sont les suivants : <br>-   Mensuelle, JJ, HH:MM:SS, par exemple, Mensuelle, 5, 12:22:32. <br> -   Hebdomadaire, JOUR, HH:MM:SS, par exemple, Hebdomadaire, mardi, 12:22:32.  <br> -   Quotidienne, HH:MM:SS, par exemple, Quotidienne, 12:22:32.  <br> -  Aucune : indique que la mise à jour ne doit pas être effectuée.  <br><br> Toutes les heures sont exprimées en UTC.|
 | UpdateClassification | Chaîne de valeurs séparées par des virgules (par défaut : « securityupdates »). | Type de mises à jour à installer sur les nœuds de cluster. Les valeurs acceptables sont securityupdates et all. <br> -  securityupdates (installation des mises à jour de sécurité uniquement) <br> -  all (installation de toutes les mises à jour disponibles depuis apt)|
 | ApprovedPatches | Chaîne de valeurs séparées par des virgules (par défaut : "") | Voici la liste des mises à jour approuvées à installer sur les nœuds de cluster. Cette liste de valeurs séparées par des virgules contient les packages approuvés et éventuellement la version cible souhaitée.<br> Exemple : « apt-utils = 1.2.10ubuntu1, python3-jwt, apt-transport-https < 1.2.194, libsystemd0 >= 229-4ubuntu16 » <br> La liste ci-dessus permet d’installer : <br> - apt-utils avec la version 1.2.10ubuntu1 si elle est disponible dans apt-cache. Si cette version particulière n’est pas disponible, il n’y a pas d’opération. <br> - Les mises à niveau de python3-jwt vers la version disponible la plus récente. Si le package n’est pas présent, il n’y a pas d’opération. <br> - Les mises à niveau d’apt-transport-https vers la version la plus élevée inférieure à 1.2.194. En l’absence de cette version, il n’y a pas d’opération. <br> - Les mises à niveau de libsystemd0 vers la version la plus élevée supérieure ou égale à 229-4ubuntu16. Si une telle version n’existe pas, il n’y a pas d’opération.|
 | RejectedPatches | Chaîne de valeurs séparées par des virgules (par défaut : "") | Voici la liste des mises à jour à ne pas installer sur les nœuds de cluster. <br> Exemple : « bash, sudo » <br> La liste précédente exclut bash, sudo de la réception des mises à jour. |
@@ -305,7 +305,7 @@ R. Le temps dont l’application d’orchestration des correctifs a besoin dépe
 
 Q. **Comment l’application d’orchestration des correctifs identifie-t-elle les mises à jour de sécurité ?**
 
-R. L’application d’orchestration des correctifs utilise une logique propre à la distribution pour déterminer quelles mises à jour sont des mises à jour de sécurité parmi toutes celles disponibles. Par exemple : Dans Ubuntu, l’application recherche les mises à jour à partir des archives $RELEASE-security, $RELEASE-updates ($RELEASE = xenial ou la version de base standard Linux). 
+R. L’application d’orchestration des correctifs utilise une logique propre à la distribution pour déterminer quelles mises à jour sont des mises à jour de sécurité parmi toutes celles disponibles. Par exemple :  Dans ubuntu, l’application recherche les mises à jour à partir des archives $RELEASE-sécurité, $RELEASE-mises à jour ($RELEASE = xenial ou la version de la version de base standard linux). 
 
  
 Q. **Comment puis-je verrouiller une version spécifique du package ?**

@@ -8,13 +8,13 @@ ms.author: zarhoads
 ms.date: 09/11/2018
 ms.topic: conceptual
 description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
-keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, maille de services, service maillage du routage, kubectl, k8s '
-ms.openlocfilehash: eff7f88ec6cbf8064df42fa3b22d61bb44baa451
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s '
+ms.openlocfilehash: 5dd77d85e06a821d8dd359174bb5de6bca8b4d61
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339582"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58669774"
 ---
 # <a name="troubleshooting-guide"></a>Guide de résolution des problèmes
 
@@ -316,3 +316,12 @@ configurations:
     build:
       dockerfile: Dockerfile.develop
 ```
+
+## <a name="error-internal-watch-failed-watch-enospc-when-attaching-debugging-to-a-nodejs-application"></a>Erreur « watch interne a échoué : regardez ENOSPC » lors de l’attachement du débogage pour une application Node.js
+
+### <a name="reason"></a>Motif
+
+Le nœud qui exécute le pod avec l’application Node.js que vous tentez d’attacher à un débogueur a dépassé le *fs.inotify.max_user_watches* valeur. Dans certains cas, [la valeur par défaut *fs.inotify.max_user_watches* est peut-être trop petite pour gérer l’attachement d’un débogueur directement à un pod](https://github.com/Azure/AKS/issues/772).
+
+### <a name="try"></a>Essai
+Une solution de contournement temporaire pour ce problème consiste à augmenter la valeur de *fs.inotify.max_user_watches* sur chaque nœud du cluster et redémarrer ce nœud pour que les modifications entrent en vigueur.

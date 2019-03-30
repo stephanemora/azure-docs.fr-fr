@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2424dbf595743eacef16b7d11f208edc9cd09a41
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 592f2ef95935ce1d1f83db6c3327cab9c20015d3
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185449"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652562"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>Activation Fournir des revendications facultatives à votre application Azure AD (Préversion publique)
 
@@ -50,7 +50,7 @@ L’un des objectifs du point de terminaison [v2.0 Azure AD](active-directory-ap
 
 ## <a name="standard-optional-claims-set"></a>Ensemble de revendications facultatives standard
 
-L’ensemble de revendications facultatives disponible par défaut pour les applications est répertorié ci-dessous. Pour ajouter des revendications personnalisées facultatives pour votre application, consultez [Extensions d’annuaire](active-directory-optional-claims.md#Configuring-custom-claims-via-directory-extensions) ci-dessous. Notez qu’au moment d’ajouter des revendications au **jeton d’accès**, cela s’appliquera aux jetons d’accès demandés *pour* l’application (une API web), et non à ceux demandés *par* l’application. Cela garantit que, quelque soit le client qui accède à votre API, les données correctes seront sur le jeton d’accès qu’il utilise pour s’authentifier auprès de votre API.
+L’ensemble de revendications facultatives disponible par défaut pour les applications est répertorié ci-dessous. Pour ajouter des revendications personnalisées facultatives pour votre application, consultez [Extensions d’annuaire](active-directory-optional-claims.md#configuring-custom-claims-via-directory-extensions) ci-dessous. Notez qu’au moment d’ajouter des revendications au **jeton d’accès**, cela s’appliquera aux jetons d’accès demandés *pour* l’application (une API web), et non à ceux demandés *par* l’application. Cela garantit que, quelque soit le client qui accède à votre API, les données correctes seront sur le jeton d’accès qu’il utilise pour s’authentifier auprès de votre API.
 
 > [!NOTE]
 > La plupart de ces revendications peuvent figurer dans les jetons JWT pour les jetons v1.0 et v2.0, mais pas dans les jetons SAML, sauf indication contraire dans la colonne Type de jeton. En outre, bien que les revendications facultatives soient actuellement prises en charge uniquement pour les utilisateurs AAD, la prise en charge du compte de service administré (MSA) sera bientôt ajoutée. Quand le compte MSA prendra en charge les revendications facultatives sur le point de terminaison v2.0, la colonne Type d’utilisateur indiquera si une revendication est disponible pour un utilisateur AAD ou MSA. 

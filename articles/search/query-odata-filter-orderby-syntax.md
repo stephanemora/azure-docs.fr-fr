@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 8445ab2c8797226b08519e2f186350a31416f049
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: ab98c3be75fb59603be66ee84e0d288de56cdc91
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578405"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648501"
 ---
 # <a name="odata-expression-syntax-for-filters-and-order-by-clauses-in-azure-search"></a>Syntaxe des expressions OData pour les filtres et les clauses order by dans Recherche Azure
 
@@ -84,9 +84,11 @@ POST /indexes/hotels/docs/search?api-version=2017-11-11
 
 - La fonction `search.in` teste si un champ de type chaîne donné est égal à une des valeurs d’une liste donnée. Elle peut également être utilisée dans any ou dans all pour comparer une seule valeur d’un champ de collection de chaînes avec une liste de valeurs donnée. L’égalité entre le champ et chaque valeur de la liste est déterminée de manière en respectant la casse, de la même façon que pour l’opérateur `eq`. Ainsi, une expression comme `search.in(myfield, 'a, b, c')` équivaut à `myfield eq 'a' or myfield eq 'b' or myfield eq 'c'`, sauf que `search.in` aboutira à de bien meilleures performances. 
 
-  Le premier paramètre de la fonction `search.in` est la référence du champ de type chaîne (ou une variable de portée sur un champ de collection de chaînes dans le cas où `search.in` est utilisé à l’intérieur d’une expression `any` ou `all`). Le deuxième paramètre est une chaîne contenant la liste de valeurs, séparées par des espaces et/ou des virgules. Si vous devez utiliser des séparateurs autres que des espaces et des virgules dans le cas où vos valeurs incluent ces caractères, vous pouvez spécifier un troisième paramètre facultatif pour `search.in`. 
-
-  Ce troisième paramètre est une chaîne où chaque caractère de la chaîne ou un sous-ensemble de cette chaîne est traité comme séparateur lors de l’analyse de la liste des valeurs du deuxième paramètre.
+   Le premier paramètre de la fonction `search.in` est la référence du champ de type chaîne (ou une variable de portée sur un champ de collection de chaînes dans le cas où `search.in` est utilisé à l’intérieur d’une expression `any` ou `all`). 
+  
+   Le deuxième paramètre est une chaîne contenant la liste de valeurs, séparées par des espaces et/ou des virgules. 
+  
+   Le troisième paramètre est une chaîne où chaque caractère de la chaîne ou le sous-ensemble de cette chaîne est traitée comme un séparateur lors de l’analyse de la liste des valeurs dans le second paramètre. Si vous devez utiliser des séparateurs autres que des espaces et des virgules dans le cas où vos valeurs incluent ces caractères, vous pouvez spécifier un troisième paramètre facultatif pour `search.in`. 
 
   > [!NOTE]   
   > Certains scénarios nécessitent la comparaison d’un champ à un grand nombre de valeurs de constante. Par exemple, l’implémentation de restrictions de sécurité avec des filtres peut nécessiter de comparer le champ d’ID de document à une liste d’ID pour lesquels l’utilisateur demandeur a un accès en lecture. Dans ce type de scénarios, nous recommandons l’utilisation de la fonction `search.in` au lieu d’une disjonction plus complexe d’expressions d’égalité. Par exemple, utilisez `search.in(Id, '123, 456, ...')` au lieu de `Id eq 123 or Id eq 456 or ....`. 
@@ -207,7 +209,7 @@ $filter=geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.
 $filter=description eq null
 ```
 
-Rechercher tous les hôtels avec un nom égal à « Roach motel » ou « Hôtel Budget »). Expressions contiennent des espaces, qui est un délimiteur par défaut. Pour spécifier un délimiteur de remplacement, placez le nouveau délimiteur entre apostrophes dans le cadre de l’expression de filtre :  
+Rechercher tous les hôtels avec un nom égal à « Roach motel » ou « Hôtel Budget »). Expressions contiennent des espaces, qui est un délimiteur par défaut. Vous pouvez specicfy un autre délimiteur de guillemets simples comme troisième paramètre de chaîne :  
 
 ```
 $filter=search.in(name, 'Roach motel,Budget hotel', ',')
@@ -225,7 +227,7 @@ Rechercher tous les hôtels avec l’étiquette « wifi » ou « pool » :
 $filter=tags/any(t: search.in(t, 'wifi, pool'))
 ```
 
-Rechercher une correspondance sur plusieurs balises, « SERVIETTE chauffe racks » ou « sèche-cheveux inclus ». Pensez à spécifier un autre délimiteur lorsque le délimiteur d’espace par défaut est toujours acceptables. 
+Rechercher une correspondance sur des expressions au sein d’une collection, tels que « SERVIETTE chauffe racks » ou « sèche-cheveux inclus » dans les balises. 
 
 ```
 $filter=tags/any(t: search.in(t, 'heated towel racks,hairdryer included', ','))

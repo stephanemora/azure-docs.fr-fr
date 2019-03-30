@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
 ms.date: 02/05/2019
-ms.openlocfilehash: 6baeb27855381ca03862f2632d31c628a088af39
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 31b18e2dfbad1f572b5c9b0ae59f5e076db7cde2
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620612"
+ms.locfileid: "58649286"
 ---
 # <a name="secure-access-in-azure-logic-apps"></a>Accès sécurisé dans Azure Logic Apps
 
@@ -156,8 +156,9 @@ Pour ajouter des protocoles d’autorisation supplémentaires à votre applicati
 
 Pour limiter l’exécution de votre application logique à des utilisateurs ou des groupes spécifiques, vous pouvez restreindre l’accès à des tâches telles que la gestion, l’édition et l’affichage. Logic Apps prend en charge la fonctionnalité Azure, [Contrôle d'accès en fonction du rôle](../role-based-access-control/role-assignments-portal.md), que vous pouvez personnaliser ou utiliser pour attribuer des rôles intégrés aux membres dans votre abonnement, par exemple :
 
-* **Contributeur d’application logique** : Les utilisateurs peuvent afficher, modifier et mettre à jour votre application logique. Ce rôle ne peut pas supprimer l’application logique ou exécuter des opérations de l’administrateur.
-* **Opérateur d’application logique** : Les utilisateurs peuvent afficher votre application logique et l’historique des exécutions, et activer ou désactiver votre application logique. Ce rôle ne peut pas modifier ou mettre à jour de votre application logique.
+* [Contributeur d’application logique](../role-based-access-control/built-in-roles.md#logic-app-contributor) : Les utilisateurs peuvent afficher, modifier et mettre à jour votre application logique. 
+
+* [Opérateur d’application logique](../role-based-access-control/built-in-roles.md#logic-app-operator) : Les utilisateurs peuvent afficher votre application logique et l’historique des exécutions, et activer ou désactiver votre application logique. Ce rôle ne peut pas modifier ou mettre à jour de votre application logique.
 
 Pour empêcher la modification ou la suppression de votre application logique, vous pouvez utiliser le [Verrouillage de la ressource Azure](../azure-resource-manager/resource-group-lock-resources.md). Grâce à cette fonctionnalité, vous pouvez empêcher d’autres utilisateurs de modifier ou de supprimer des ressources de production.
 

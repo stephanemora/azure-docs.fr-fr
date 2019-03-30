@@ -1,11 +1,11 @@
 ---
-ms.openlocfilehash: 0efc4a1e5be0c3dc5206be9ef0345a3537c8f27f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9e50caeac5c52b9f2309448e2bb0b760f533fb6c
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57907732"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58632443"
 ---
 ## <a name="delete-anchors"></a>Supprimer les points d’ancrage
 
-Pour supprimer un point d’ancrage spatial cloud, vous utilisez la méthode DeleteAnchor.
+Pour supprimer un point d’ancrage spatial cloud, vous utilisez le `DeleteAnchor()` (méthode). Suppression des ancres de n’est plus utilisée est une bonne pratique à inclure très tôt dans votre processus de développement et pratiques. Cela laisse les ressources nettoyées. En outre, le même si vous pouvez utiliser les ancres spatiale d’Azure gratuitement, tarification peut changer à l’avenir. Vous trouverez des informations sur les tarifs en phase de préversion sur notre [page des tarifs](https://azure.microsoft.com/pricing/details/spatial-anchors/).

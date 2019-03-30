@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: 54b440ee76fe36a83284b8ce769bb31012781a35
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 562ce675acc43002ce468d60f8a8c412410be86c
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295757"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630803"
 ---
 # <a name="transform-data-by-using-databricks-in-azure-data-factory"></a>Transformer des données à l’aide de Databricks dans Azure Data Factory
 
@@ -39,7 +39,7 @@ Pour plus de simplicité, ce modèle ne crée aucun déclencheur planifié. Vous
 
 2.  Vérifiez que vous disposez d’un **espace de travail Azure Databricks** ou créez-en un.
 
-1.  **Importez le notebook pour ETL**. Importez le notebook Transform ci-dessous dans l’espace de travail Databricks. (Il ne doit pas nécessairement se trouver au même endroit que dans l’exemple ci-dessous, mais souvenez-vous du chemin choisi pour la suite.) Importez le notebook à partir de l’URL suivante. Pour cela, entrez cette URL dans le champ URL : `https://DataFactorylabstaging1.blob.core.windows.net/share/Transformations.html`. Sélectionnez **Importer**.
+1.  **Importez le notebook pour ETL**. Importez le notebook Transform ci-dessous dans l’espace de travail Databricks. (Il ne doit pas nécessairement se trouver au même endroit que dans l’exemple ci-dessous, mais souvenez-vous du chemin choisi pour la suite.) Importez le notebook à partir de l’URL suivante. Pour cela, entrez cette URL dans le champ URL : `https://adflabstaging1.blob.core.windows.net/share/Transformations.html`. Sélectionnez **Importer**.
 
     ![2](media/solution-template-Databricks-notebook/Databricks-tutorial-image02.png)
 

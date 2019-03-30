@@ -6,15 +6,15 @@ author: rimman
 manager: kfile
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 03/13/2019
 ms.author: banders
 ms.reviewer: sngun
-ms.openlocfilehash: f6549710f90c8d59ed443ab9ae1a302a2d8278d5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8386d1c43761cfb27746b003d136419f72d7d4ae
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57899517"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648535"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>Comprendre comment la remise de réservation est appliquée à Azure Cosmos DB
 
@@ -24,7 +24,7 @@ Quand vous achetez une capacité réservée Azure Cosmos DB, la remise de réser
 
 Une remise de réservation est appliquée au [débit provisionné](../cosmos-db/request-units.md) sous la forme d’unités de requête par seconde (RU/s) et calculée sur une base horaire. Dans le cas des ressources Azure Cosmos DB qui ne s’exécutent pas pendant une heure entière, la remise de réservation est automatiquement appliquée aux ressources Azure Cosmos DB qui correspondent aux attributs de la réservation. La remise peut être appliquée à des ressources Azure Cosmos DB qui s’exécutent simultanément. Si aucune ressource Cosmos DB ne s’exécute pendant une heure entière et ne correspond aux attributs de la réservation, vous ne bénéficiez pas pleinement de la remise de réservation pour cette heure.
 
-Les remises sont hiérarchisées. Plus le nombre d’unités de requête est élevé pour une réservation, plus celle-ci bénéficie d’une remise importante. 
+Les remises sont hiérarchisées. Plus le nombre d’unités de requête est élevé pour une réservation, plus celle-ci bénéficie d’une remise importante.
 
 L’achat de réservation applique des remises à toutes les régions selon le taux correspondant aux tarifs à la demande pour chaque région. Pour connaître les taux de remise de réservation dans chaque région, consultez la section [Remise de réservation par région](#reservation-discount-per-region) de cet article.
 
@@ -71,15 +71,15 @@ La remise de réservation est appliquée aux coûts de débit d’Azure Cosmos D
 Imaginons les exigences suivantes pour une réservation :
 
 * Débit nécessaire : 50 000 RU/s  
-* Régions utilisées : 2 
+* Régions utilisées : 2
 
-Dans ce cas, votre total de frais à la demande correspond à une quantité de 500, par compteur de 100 RU/s dans ces deux régions. La consommation de RU/s totale est de 100 000 par heure. 
+Dans ce cas, votre total de frais à la demande correspond à une quantité de 500, par compteur de 100 RU/s dans ces deux régions. La consommation de RU/s totale est de 100 000 par heure.
 
 **Scénario 1**
 
 Par exemple, supposons que vous avez besoin de déployer Azure Cosmos DB dans les régions USA Centre Nord et USA Ouest. Chaque région dispose d’une consommation de débit de 50 000 RU/s. un achat de réservation de 100 000 RU/s couvrirait complètement vos frais à la demande.
 
-La remise qu’une réservation couvre est calculée comme suit : consommation de débit * taux de la remise de réservation pour la région concernée. Pour les régions USA Centre Nord et USA Ouest, le taux de la remise de réservation est 1. Ainsi, la remise totale de RU/s est de 100 000. Cette valeur est calculée comme suit . 50 000 * 1 + 50 000 * 1 = 100 000 RU/s. Vous ne payez aucun frais supplémentaire au tarif habituel du paiement à l’utilisation. 
+La remise qu’une réservation couvre est calculée comme suit : consommation de débit * taux de la remise de réservation pour la région concernée. Pour les régions USA Centre Nord et USA Ouest, le taux de la remise de réservation est 1. Ainsi, la remise totale de RU/s est de 100 000. Cette valeur est calculée comme suit . 50 000 * 1 + 50 000 * 1 = 100 000 RU/s. Vous ne payez aucun frais supplémentaire au tarif habituel du paiement à l’utilisation.
 
 |Description du compteur | Région |Consommation de débit (RU/s) |Remise de réservation appliquée aux RU/s |
 |---------|---------|---------|---------|
@@ -97,11 +97,15 @@ Par exemple, supposons que vous avez besoin de déployer Azure Cosmos DB dans le
 
 Une utilisation de 50 000 unités dans la région Australie Centre 2 correspond à 75 000 RU/s d’utilisation facturable (ou utilisation normalisée). Cette valeur est calculée comme suit : consommation de débit * taux de la remise de réservation pour la région concernée. Le total est de 75 000 RU/s d’utilisation facturable ou normalisée. Cette valeur est calculée comme suit . 50 000 * 1.5 = 75 000 RU/s.
 
-L’achat d’une réservation de 100 000 RU/s absorbe les 75 000 RU/s dans la région Australie Centre 2. Il reste 25 000 RU/s pour la région France Sud. Sur les 25 000 RU/s restantes, une remise de réservation de 15 384 RU/s est appliquée à la région France Sud. Cette valeur de remise est calculée comme suit : 25 000 / 1,625 = 15 384 RU/s. Les 34 616 RU/s restantes dans la région France Sud sont facturées au tarif habituel du paiement à l’utilisation. 
+L’achat d’une réservation de 100 000 RU/s absorbe les 75 000 RU/s dans la région Australie Centre 2. Il reste 25 000 RU/s pour la région France Sud. Sur les 25 000 RU/s restantes, une remise de réservation de 15 384 RU/s est appliquée à la région France Sud. Cette valeur de remise est calculée comme suit : 25 000 / 1,625 = 15 384 RU/s. Les 34 616 RU/s restantes dans la région France Sud sont facturées au tarif habituel du paiement à l’utilisation.
 
 Le système de facturation Azure fait bénéficier de l’avantage lié à la facturation de la réservation, la première instance qui est traitée et qui satisfait à la configuration de la réservation. En l’occurrence, dans notre exemple, Australie Centre 2.
 
 Pour comprendre et voir l’application de vos réservations Azure dans les rapports de facturation de l’utilisation, consultez [Comprendre l’utilisation des réservations Azure](../billing/billing-understand-reserved-instance-usage-ea.md).
+
+## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
+
+Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -110,12 +114,7 @@ Pour plus d’informations sur les réservations Azure, consultez les articles s
 * [Qu’est-ce qu’une réservation Azure ?](../billing/billing-save-compute-costs-reservations.md)  
 * [Prépayer des ressources Azure Cosmos DB avec une capacité réservée Azure Cosmos DB](../cosmos-db/cosmos-db-reserved-capacity.md)  
 * [Prépayer des ressources de calcul SQL Database avec une capacité réservée Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)  
-* [Gérer les réservations Azure](../billing/billing-manage-reserved-vm-instance.md)  
+* [Gérer les réservations pour Azure](../billing/billing-manage-reserved-vm-instance.md)  
 * [Comprendre l’utilisation d’une réservation pour votre abonnement avec paiement à l’utilisation](../billing/billing-understand-reserved-instance-usage.md)  
-* [Comprendre l’utilisation d’une réservation pour votre Accord de Mise en Œuvre Entreprise](../billing/billing-understand-reserved-instance-usage-ea.md)  
+* [Comprendre l’utilisation d’une réservation pour votre Accord de Mise en Œuvre Entreprise](../billing/billing-understand-reserved-instance-usage-ea.md)
 * [Comprendre l’utilisation d’une réservations pour les abonnements CSP](https://docs.microsoft.com/partner-center/azure-reservations)
-
-## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
-
-Si vous avez des questions ou besoin d’aide, [créer une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).
-

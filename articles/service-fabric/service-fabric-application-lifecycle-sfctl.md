@@ -3,29 +3,29 @@ title: Gérer les applications Azure Service Fabric à l’aide d’Azure Servic
 description: Découvrez comment déployer et supprimer des applications à partir d’un cluster Azure Service Fabric à l’aide d’Azure Service Fabric CLI
 services: service-fabric
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: 2e71996e22fee34b29139fdf19764c47616beb1d
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
-ms.translationtype: HT
+ms.openlocfilehash: 9b0f785a6a43f984708645084a8a8036326d3d24
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492747"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662990"
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli-sfctl"></a>Gérer une application Azure Service Fabric à l’aide d’Azure Service Fabric CLI (sfctl)
 
 Découvrez comment créer et supprimer des applications qui s’exécutent dans un cluster Azure Service Fabric.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Installez Service Fabric CLI. Sélectionnez ensuite votre cluster Service Fabric. Pour plus d’informations, consultez [Prise en main de Service Fabric CLI](service-fabric-cli.md).
 
 * Vous devez également avoir un package d’application Service Fabric prêt à être déployé. Pour plus d’informations sur la création et l’empaquetage d’une application, consultez la documentation dédiée au [modèle d’application Service Fabric](service-fabric-application-model.md).
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Pour déployer une nouvelle application, suivez les étapes ci-dessous :
 
