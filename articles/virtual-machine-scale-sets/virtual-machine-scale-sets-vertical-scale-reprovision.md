@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: manayar
-ms.openlocfilehash: c27d92a330d82cb8638a970602f2a8d0ce2e79c2
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: d3821f6a2bad56b46bccbcca8830be09ad1e44c7
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579748"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648263"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Mise à l’échelle verticale avec des groupes de machines virtuelles identiques
 
@@ -98,6 +98,7 @@ La première chose à faire est de créer un compte Azure Automation qui héberg
 * [Authentifier des Runbooks avec un compte d’identification Azure](../automation/automation-sec-configure-azure-runas-account.md)
 
 ## <a name="import-azure-automation-vertical-scale-runbooks-into-your-subscription"></a>Importer les runbooks de mise à l’échelle verticale Azure Automation dans votre abonnement
+
 Les runbooks nécessaires à la mise à l’échelle verticale de vos groupes de machines virtuelles identiques sont déjà publiés dans la galerie de runbooks Azure Automation. Pour les importer dans votre abonnement, suivez les étapes décrites dans cet article :
 
 * [Galeries de runbooks et de modules pour Azure Automation](../automation/automation-runbook-gallery.md)
@@ -111,6 +112,7 @@ Les runbooks à importer sont affichés dans l’image ci-dessous. Sélectionnez
 ![Galerie de runbooks][gallery]
 
 ## <a name="add-a-webhook-to-your-runbook"></a>Ajouter un webhook à votre runbook
+
 Une fois que vous avez importé les runbooks, ajoutez un webhook au runbook afin qu’il puisse être déclenché par une alerte émanant d’un groupe de machines virtuelles identiques. La procédure de création d’un webhook pour votre runbook est décrite dans cet article :
 
 * [Webhooks Azure Automation](../automation/automation-webhooks.md)
@@ -121,9 +123,10 @@ Une fois que vous avez importé les runbooks, ajoutez un webhook au runbook afin
 > 
 
 ## <a name="add-an-alert-to-your-virtual-machine-scale-set"></a>Ajouter une alerte à votre groupe de machines virtuelles identiques
+
 Voici un script PowerShell qui décrit comment ajouter une alerte dans un groupe de machines virtuelles identiques. Pour obtenir le nom de la métrique déclenchant l’alerte, voir l’article [Métriques courantes de la mise à l’échelle automatique Azure Monitor](../azure-monitor/platform/autoscale-common-metrics.md).
 
-```
+```powershell
 $actionEmail = New-AzAlertRuleEmail -CustomEmail user@contoso.com
 $actionWebhook = New-AzAlertRuleWebhook -ServiceUri <uri-of-the-webhook>
 $threshold = <value-of-the-threshold>
@@ -160,6 +163,7 @@ Pour plus d’informations sur la création d’alertes, consultez les articles 
 * [Exemples de démarrage rapide de l’interface de ligne de commande multiplateforme Azure Monitor](../azure-monitor/platform/cli-samples.md)
 
 ## <a name="summary"></a>Résumé
+
 Cet article vous a montré des exemples simples de mise à l’échelle verticale. Grâce à ces éléments (compte Automation, runbooks, webhooks et alertes), vous pouvez connecter des événements très différents à un jeu d’actions personnalisé.
 
 [runbooks]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks.png

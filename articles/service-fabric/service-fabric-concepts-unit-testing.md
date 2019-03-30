@@ -3,8 +3,8 @@ title: Tests unitaires des services avec état dans Azure Service Fabric | Micro
 description: Découvrez les concepts et pratiques de test unitaire des services avec état dans Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: charleszipp
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: vturecek
 ms.assetid: ''
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/04/2018
-ms.author: ryanwi
-ms.openlocfilehash: c2d98316b81b3d908ebbe6147fe40f231e94c142
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
-ms.translationtype: HT
+ms.author: atsenthi
+ms.openlocfilehash: ca473b9947a9b0df610a9c3dac66914b06cc9217
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43703376"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662565"
 ---
 # <a name="unit-testing-stateful-services-in-service-fabric"></a>Test unitaire des services avec état dans Service Fabric
 
@@ -94,7 +94,7 @@ Les tests unitaires doivent changer les rôles des instances de service de la m�
 
 [Rôle du réplica](service-fabric-concepts-replica-lifecycle.md#replica-role)
 
-La simulation des changements de rôle est l’un des aspects les plus critiques des tests, et elle peut révéler des problèmes comme l’incohérence entre les états des réplicas. Cette incohérence peut être due au stockage de l’état en mémoire dans des variables statiques ou d’instances de niveau classe (par exemple jetons d’annulation, énumérations et valeurs/objets de configuration). Cette simulation garantit également que le service respecte les jetons d’annulation fournis pendant RunAsync, afin que le changement de rôle puisse avoir lieu. Elle peut également déceler des problèmes qui peuvent survenir si le code n’est pas écrit pour autoriser un appel à plusieurs reprises de RunAsync.
+La simulation des changements de rôle est l’un des aspects les plus critiques des tests, et elle peut révéler des problèmes comme l’incohérence entre les états des réplicas. Cette incohérence peut être due au stockage de l’état en mémoire dans des variables statiques ou d’instances de niveau classe (par exemple jetons d’annulation, énumérations et valeurs/objets de configuration). Cette simulation garantit également que le service respecte les jetons d’annulation fournis pendant RunAsync, afin que le changement de rôle puisse avoir lieu. Elle peut également déceler des problèmes qui peuvent survenir si le code n’est pas écrit pour autoriser un appel de RunAsync à plusieurs reprises.
 
 #### <a name="cancel-cancellation-tokens"></a>Annuler les jetons d’annulation
 Il doit exister des tests unitaires dans lesquels le jeton d’annulation fourni à RunAsync est annulé. Le test pourra ainsi vérifier que le service s’arrête de façon correcte. Durant cet arrêt, toutes les opérations asynchrones de longue durée doivent être arrêtées. Un service à l’écoute des messages sur une file d’attente fiable constitue un exemple de processus de longue durée sur un service. Il peut exister directement dans RunAsync ou un thread d’arrière-plan. L’implémentation doit inclure une logique permettant de quitter l’opération si ce jeton d’annulation est annulé.

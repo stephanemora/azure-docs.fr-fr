@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/13/2018
 ms.author: nobun
 ms.custom: mvc
-ms.openlocfilehash: e42b0e7bd1bce40b7c58d75cb07f5a3f8afa5836
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
-ms.translationtype: HT
+ms.openlocfilehash: 910c96988ec0a8b8aa7b6ac8ce287c4fdc59e177
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385039"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649966"
 ---
 # <a name="migrating-from-azure-container-service-acs-to-azure-kubernetes-service-aks"></a>Migration d’Azure Container Service (ACS) vers Azure Kubernetes Service (AKS)
 
@@ -35,7 +35,7 @@ ACS et AKS comportent des différences à certains niveaux clés, ce qui impacte
 
 ### <a name="differences-between-kubernetes-versions"></a>Différences entre les versions de Kubernetes
 
-Si vous effectuez une migration vers une version plus récente de Kubernetes (par ex., de 1.7.x vers 1.9.x), vous devez prendre en compte certains changements concernant l’API k8s.
+Si vous migrez vers une version plus récente de Kubernetes (ex : 1.7.x à 1.9.x), il existe quelques modifications à l’API k8s qui nécessitent votre attention.
 
 * [Migrate a ThirdPartyResource to CustomResourceDefinition](https://kubernetes.io/docs/tasks/access-kubernetes-api/migrate-third-party-resource/)
 * [Workloads API changes in versions 1.8 and 1.9](https://kubernetes.io/docs/reference/workloads-18-19/).
@@ -48,7 +48,7 @@ Même si AKS gère le plan de contrôle Kubernetes, vous devez définir la taill
 
 Exemple :
 
-| NOM | Count | Taille de la machine virtuelle | Système d’exploitation |
+| Nom | Nombre | Taille de la machine virtuelle | Système d’exploitation |
 | --- | --- | --- | --- |
 | agentpool0 | 3 | Standard_D8_v2 | Linux |
 | agentpool1 | 1 | Standard_D2_v2 | Windows |
@@ -91,7 +91,7 @@ Plusieurs facteurs sont à prendre en compte lorsque vous migrez des volumes per
 7. Valider
 8. Diriger le trafic vers le cluster AKS
 
-> **Important** : Si vous ne souhaitez pas suspendre l’écriture, vous devez répliquer les données sur le nouveau déploiement, puisqu’il vous manquera les données qui ont été écrites depuis la capture instantanée des disques.
+> **Important !** Si vous ne souhaitez pas les écritures de mise en veille, vous devez répliquer les données vers le nouveau déploiement, comme vous n’aurez pas les données qui a été écrit depuis l’instantané de disque
 
 Il existe des outils open source permettant de créer des disques managés et d’effectuer la migration de volumes d’un cluster Kubernetes à l’autre.
 
@@ -144,7 +144,7 @@ Apportez les modifications nécessaires à vos définitions YAML. Par ex. : en r
 
 ### <a name="3-optional-migrate-volumes"></a>3. (Facultatif) Effectuer la migration de volumes
 
-Effectuez la migration de volumes de votre cluster ACS vers votre cluster AKS. Pour plus d’informations, consultez la section [Migration des volumes persistants](#Migrating-Persistent-Volumes).
+Effectuez la migration de volumes de votre cluster ACS vers votre cluster AKS. Pour plus d’informations, consultez la section [Migration des volumes persistants](#migrating-persistent-volumes).
 
 ### <a name="4-deploy-applications"></a>4. Déployer des applications
 

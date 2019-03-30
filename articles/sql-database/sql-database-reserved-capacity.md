@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 8066285e90903870937f28a62ef9fe8b2f6be55c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 04a99be40f1a89d834c560bddf3f49c2a73f34b8
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005486"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650255"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Prépayer des ressources de calcul SQL Database avec une capacité réservée Azure SQL Database
 
@@ -70,6 +70,8 @@ Si vous êtes amené à annuler votre réservation de capacité de réserve SQL 
 
 Si vous êtes amené à modifier votre réservation de capacité de réserve SQL Database pour une autre région, un autre type de déploiement ou un autre terme, vous pouvez l’échanger contre une autre réservation de valeur égale ou supérieure. La date de début du terme de la nouvelle réservation ne couvre pas la réservation échangée. Le terme de 1 ou 3 ans commence lorsque vous créez la nouvelle réservation. Pour demander un échange, accédez à la réservation dans le Portail Azure et sélectionnez **Échange** pour créer une demande de support.
 
+Pour plus d’informations sur comment exchange ou un remboursement des réservations, consultez [échanges de réservation et les remboursements](../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
+
 ## <a name="vcore-size-flexibility"></a>Flexibilité de la taille vCore
 
 La flexibilité de la taille vCore vous permet de vous mettre à l’échelle au sein d’un niveau de performances et d’une région, sans perdre le bénéfice de la capacité réservée. Grâce à la capacité réservée SQL Database, vous avez également la possibilité de déplacer temporairement vos bases de données à chaud entre des pools et des bases de données uniques dans le cadre de vos opérations normales (au sein du même niveau de performances et de la même région), sans perdre le bénéfice de la capacité réservée. En conservant une mémoire tampon non appliquée dans votre réservation, vous pouvez gérer efficacement les pics de performances sans dépasser votre budget.
@@ -92,4 +94,3 @@ Pour plus d’informations sur les réservations Azure, consultez les articles s
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Nous contacter
 
 Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
-

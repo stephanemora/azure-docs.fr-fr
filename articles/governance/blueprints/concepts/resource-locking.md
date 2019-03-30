@@ -4,17 +4,17 @@ description: Découvrez les options de verrouillage permettant de protéger les 
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 03/28/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 799e496fd9dd8a405e5fc356e13cf6c05883e1ae
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 16ec3428138361726d69eb9b45943b20129e32ed
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855402"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630718"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Comprendre le verrouillage de ressources dans les blueprints Azure
 
@@ -56,11 +56,56 @@ Une action de refus de type [Refuser les attributions](../../../role-based-acces
 > [!IMPORTANT]
 > Azure Resource Manager met en cache les détails des affectations de rôles pendant 30 minutes au maximum. Par conséquent, une action de refus de type Refuser les attributions sur des ressources de blueprint risque de ne pas être immédiatement effective. Pendant cette période de temps, il peut être possible de supprimer une ressource destinée à être protégée par des verrous de blueprint.
 
+## <a name="exclude-a-principal-from-a-deny-assignment"></a>Exclure une entité de sécurité d’une affectation de refus
+
+Dans certains scénarios de conception ou de sécurité, il peut être nécessaire exclure un principal à partir de la [refuser affectation](../../../role-based-access-control/deny-assignments.md) crée l’affectation de plan. Cela dans l’API REST en ajoutant jusqu'à cinq valeurs pour le **excludedPrincipals** de tableau dans le **verrous** propriété lorsque [créez l’attribution de](/rest/api/blueprints/assignments/createorupdate).
+Il s’agit d’un exemple d’un corps de demande qui inclut **excludedPrincipals**:
+
+```json
+{
+  "identity": {
+    "type": "SystemAssigned"
+  },
+  "location": "eastus",
+  "properties": {
+    "description": "enforce pre-defined simpleBlueprint to this XXXXXXXX subscription.",
+    "blueprintId": "/providers/Microsoft.Management/managementGroups/{mgId}/providers/Microsoft.Blueprint/blueprints/simpleBlueprint",
+    "locks": {
+        "mode": "AllResourcesDoNotDelete",
+        "excludedPrincipals": [
+            "7be2f100-3af5-4c15-bcb7-27ee43784a1f",
+            "38833b56-194d-420b-90ce-cff578296714"
+        ]
+    },
+    "parameters": {
+      "storageAccountType": {
+        "value": "Standard_LRS"
+      },
+      "costCenter": {
+        "value": "Contoso/Online/Shopping/Production"
+      },
+      "owners": {
+        "value": [
+          "johnDoe@contoso.com",
+          "johnsteam@contoso.com"
+        ]
+      }
+    },
+    "resourceGroups": {
+      "storageRG": {
+        "name": "defaultRG",
+        "location": "eastus"
+      }
+    }
+  }
+}
+```
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Suivez le [protéger les nouvelles ressources](../tutorials/protect-new-resources.md) didacticiel.
-- En savoir plus sur la [blueprint de cycle de vie](lifecycle.md).
-- Comprendre comment utiliser [paramètres statiques et dynamiques](parameters.md).
-- Apprenez à personnaliser le [blueprint ordre de classement](sequencing-order.md).
-- Découvrez comment [mettre à jour des affectations existantes](../how-to/update-existing-assignments.md).
-- Résoudre les problèmes de l’attribution d’un plan avec [dépannage général](../troubleshoot/general.md).
+- Découvrir le [cycle de vie des blueprints](lifecycle.md).
+- Comprendre comment utiliser les [paramètres statiques et dynamiques](parameters.md).
+- Apprendre à personnaliser l’[ordre de séquencement des blueprints](sequencing-order.md).
+- Découvrir comment [mettre à jour des affectations existantes](../how-to/update-existing-assignments.md).
+- Résoudre les problèmes durant l’affectation d’un blueprint en suivant les étapes de [dépannage général](../troubleshoot/general.md).

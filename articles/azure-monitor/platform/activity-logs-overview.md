@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: fb3ed970b7f92e1cc06a9d1023e01f5888915e94
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 94465e95dbf5f2eb381c124349bf8fda6622a6c2
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58088670"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650289"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Surveiller l’activité d’abonnement avec le journal d’activité Azure
 
@@ -35,7 +35,6 @@ Vous pouvez extraire des événements de votre journal d’activité à l’aide
 > [!NOTE]
 > Les [alertes les plus récentes](../../azure-monitor/platform/alerts-overview.md) offrent actuellement une expérience améliorée de création et de gestion des règles d’alerte du journal d’activité.  [Plus d’informations](../../azure-monitor/platform/alerts-activity-log.md)
 
-
 ## <a name="categories-in-the-activity-log"></a>Catégories dans le journal d’activité
 Le journal d’activité contient plusieurs catégories de données. Pour plus d’informations sur les schémas de ces catégories, [consultez cet article](../../azure-monitor/platform/activity-log-schema.md). Il s’agit des actions suivantes :
 * **Administrative** : cette catégorie contient l’enregistrement de toutes les opérations de création, mise à jour, suppression et action effectuées par le biais du gestionnaire de ressources. Les exemples de types d’événements que vous pouvez voir dans cette catégorie incluent « créer une machine virtuelle » et « supprimer un groupe de sécurité réseau ». Toute mesure prise par un utilisateur ou une application utilisant le gestionnaire de ressources est modélisée comme une opération sur un type de ressources en particulier. Si le type d’opération est Écrire, Supprimer ou Action, les enregistrements de début et de réussite ou d’échec de cette opération sont enregistrés dans la catégorie Administrative. La catégorie Administrative inclut également toute modification apportée à un contrôle d’accès basé sur un rôle dans un abonnement.
@@ -48,9 +47,11 @@ Le journal d’activité contient plusieurs catégories de données. Pour plus d
 * **Policy** : cette catégorie contient les enregistrements de toutes les opérations d’action à effet effectuées par Azure Policy. Cette catégorie pourrait par exemple contenir les types d’événements Audit et Deny (Refus). Chaque action effectuée par Policy est modélisée en tant qu’opération sur une ressource.
 
 ## <a name="event-schema-per-category"></a>Schéma d’événements par catégorie
+
 [Consultez cet article pour comprendre le schéma d’événements de journal d’activité par catégorie.](../../azure-monitor/platform/activity-log-schema.md)
 
 ## <a name="what-you-can-do-with-the-activity-log"></a>Ce que vous pouvez faire avec le journal d’activité
+
 Voici ce que vous pouvez faire avec le journal d’activité :
 
 ![Journal d’activité Azure](./media/activity-logs-overview/Activity_Log_Overview_v3.png)
@@ -58,12 +59,13 @@ Voici ce que vous pouvez faire avec le journal d’activité :
 
 * Interrogez-le et affichez-le dans le **portail Azure**.
 * [Créer une alerte basée sur un événement du journal d’activité](../../azure-monitor/platform/activity-log-alerts.md)
-* [Diffusez-le en continu vers un **Event Hub**](../../azure-monitor/platform/activity-logs-stream-event-hubs.md) pour qu’un service tiers ou une solution d’analyse personnalisée (p. ex. PowerBI) l’ingère.
-* Analysez-le dans PowerBI à l’aide du [**pack de contenu PowerBI**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
+* [Stream pour un **Event Hub** ](../../azure-monitor/platform/activity-logs-stream-event-hubs.md) pour l’ingestion par un service tiers ou d’une solution d’analytique personnalisées, telles que Power BI.
+* Analysez-le dans Powerbi à l’aide de la [ **pack de contenu Power BI**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
 * [Enregistrez-le dans un **compte de stockage** pour l’archivage ou l’inspection manuelle](../../azure-monitor/platform/archive-activity-log.md). Vous pouvez spécifier la durée de rétention (en jours) à l’aide du **Profil de journal**.
 * Interrogez-le via l’applet de commande PowerShell, l’interface de ligne de commande ou l’API REST.
 
 ## <a name="query-the-activity-log-in-the-azure-portal"></a>Interroger le journal d’activité dans le portail Azure
+
 À l’intérieur du portail Azure, vous pouvez afficher votre journal d’activité à plusieurs endroits :
 * Le **Journal d’activité** auquel vous avez accès en recherchant le Journal d’activité sous **Tous les services** dans le volet de navigation de gauche.
 * **Monitor** s’affiche par défaut dans le volet de navigation de gauche. Le journal d’activité est une section d’Azure Monitor.
@@ -86,6 +88,7 @@ Après avoir défini un ensemble de filtres, vous pouvez épingler une requête 
 Pour encore plus de puissance, vous pouvez cliquer sur l’icône **Journaux** pour afficher les données du journal d’activité dans la [solution Collecter et analyser les journaux d’activités](../../azure-monitor/platform/collect-activity-logs.md). Le panneau Journal d’activité offre des fonctionnalités de base pour filtrer et parcourir les journaux, tandis que la fonctionnalité des journaux Azure Monitor vous permet d’interroger et de visualiser vos données, ainsi que d’ajouter un tableau croisé dynamique.
 
 ## <a name="export-the-activity-log-with-a-log-profile"></a>Exporter le journal d’activité avec un profil de journal
+
 Un **profil de journal** contrôle comment votre journal d’activité est exporté. À l’aide d’un profil de journal, vous pouvez configurer :
 
 * L’emplacement où le journal d’activité doit être envoyé (compte de stockage ou Event Hubs).
@@ -102,13 +105,14 @@ Vous pouvez utiliser un compte de stockage ou un espace de noms Event Hub qui n�
 >  Vous ne pouvez pas archiver les données dans un stockage situé derrière un réseau virtuel sécurisé.
 
 > [!WARNING]
-> Depuis le 1er novembre 2018, le format des données de journal dans le compte de stockage est devenu JSON Lines. [Consultez cet article pour en savoir plus sur les conséquences liées à ce changement et pour découvrir comment mettre à jour vos outils pour qu’ils gèrent ce nouveau format.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
+> Depuis le 1er novembre 2018, le format des données de journal dans le compte de stockage est devenu JSON Lines. [Consultez cet article pour en savoir plus sur les conséquences liées à ce changement et pour découvrir comment mettre à jour vos outils pour qu’ils gèrent ce nouveau format.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md)
 >
-> 
+>
 
 Ces paramètres peuvent être configurés via l’option « Exporter » dans le panneau Journal d’activité dans le portail. Ils peuvent également être configurés par programme [à l’aide de l’API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn931927.aspx), d’applets de commande PowerShell ou de l’interface de ligne de commande. Un abonnement ne peut avoir qu’un seul profil de journal.
 
 ### <a name="configure-log-profiles-using-the-azure-portal"></a>Configuration des profils de journal à l’aide du portail Azure
+
 Vous pouvez diffuser en continu le journal d’activité vers un Event Hub ou le stocker dans un compte de stockage à l’aide de l’option « Export vers Event Hub » dans le portail Azure.
 
 1. Accédez au **Journal d’activité** à l’aide du menu sur le côté gauche du portail.
@@ -117,7 +121,7 @@ Vous pouvez diffuser en continu le journal d’activité vers un Event Hub ou le
 2. Cliquez sur le bouton **Exporter vers Event Hub** en haut du panneau.
 
     ![Bouton Exporter dans le portail](./media/activity-logs-overview/activity-logs-portal-export-v2.png)
-3. Dans le panneau qui s’affiche, vous pouvez sélectionner :  
+3. Dans le panneau qui s’affiche, vous pouvez sélectionner :
    * les régions pour lesquelles vous souhaitez exporter des événements
    * le compte de stockage pour lequel vous souhaitez enregistrer les événements
    * le nombre de jours pendant lesquels vous souhaitez conserver ces événements dans le stockage. Un paramètre de 0 jour conserve les journaux indéfiniment.
@@ -132,13 +136,13 @@ Vous pouvez diffuser en continu le journal d’activité vers un Event Hub ou le
 
 #### <a name="get-existing-log-profile"></a>Obtention du profil de journal existant
 
-```
+```powershell
 Get-AzLogProfile
 ```
 
 #### <a name="add-a-log-profile"></a>Ajout d’un profil de journal
 
-```
+```powershell
 Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
 ```
 
@@ -152,7 +156,8 @@ Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resour
 | Catégorie |Non  |Liste séparée par des virgules des catégories d’événements qui doivent être collectées. Les valeurs possibles sont Write, Delete et Action. |
 
 #### <a name="remove-a-log-profile"></a>Supprimer un profil de journal
-```
+
+```powershell
 Remove-AzLogProfile -name my_log_profile
 ```
 
@@ -185,6 +190,6 @@ az monitor log-profiles delete --name <profile name>
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 * [En savoir plus sur le journal d’activité (autrefois appelé journal d’audit)](../../azure-resource-manager/resource-group-audit.md)
 * [Stream the Azure Activity Log to Event Hubs (Diffuser en continu le journal d’activités Azure vers Event Hubs)](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
-

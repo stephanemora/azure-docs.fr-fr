@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/03/2018
 ms.author: banders
-ms.openlocfilehash: a66547ed4bf089bb618dc8b98da7f260b6b5536a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bf18d845b7128c8d6f740555f1a0f791767240ae
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57904301"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650221"
 ---
-# <a name="view-reservations-for-azure-in-the-azure-portal"></a>Afficher les réservations pour Azure dans le portail Azure
+# <a name="view-azure-reservations-in-the-azure-portal"></a>Afficher les réservations Azure dans le portail Azure
 
-Selon votre type d’abonnement et vos autorisations, il existe deux manières d’afficher les réservations pour les ressources Azure.
+Selon votre type d’abonnement et les autorisations, il existe deux manières d’afficher les réservations pour Azure.
 
 ## <a name="view-reservations-as-owner-or-reader"></a>Afficher les réservations en tant que propriétaire ou lecteur
 
@@ -62,15 +62,26 @@ Pour obtenir les données à l’aide d’une API, consultez la rubrique [Get Re
 
 Pour plus d’informations sur les réservations Azure, consultez les articles suivants :
 
-- [Qu’est-ce qu’une réservation Azure ?](billing-save-compute-costs-reservations.md)
+- [Quelles sont les réservations pour Azure ?](billing-save-compute-costs-reservations.md)
+- [Gérer les réservations pour Azure](billing-manage-reserved-vm-instance.md)
+
+Acheter un plan de service :
+
 - [Prépayer une capacité réservée Cosmos DB](../cosmos-db/cosmos-db-reserved-capacity.md)
 - [Prépayer des ressources de calcul SQL Database avec une capacité réservée Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)
 - [Prépayer des machines virtuelles avec des instances de machines virtuelles réservées Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Gérer les réservations Azure](billing-manage-reserved-vm-instance.md)
+
+Acheter un plan de logiciels :
+
+- [Prépayer les abonnements de logiciels de Red Hat à partir des réservations d’Azure](../virtual-machines/linux/prepay-rhel-software-charges.md)
+- [Prépayer des logiciels SUSE avec des réservations Azure](../virtual-machines/linux/prepay-suse-software-charges.md)
+
+Comprendre l’utilisation de :
+
 - [Comprendre l’utilisation d’une réservation pour votre abonnement avec paiement à l’utilisation](billing-understand-reserved-instance-usage.md)
 - [Comprendre l’utilisation d’une réservation pour votre Accord de Mise en Œuvre Entreprise](billing-understand-reserved-instance-usage-ea.md)
 - [Comprendre l’utilisation d’une réservations pour les abonnements CSP](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
+## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Nous contacter
 
 Si vous avez des questions ou besoin d’aide, [créer une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).

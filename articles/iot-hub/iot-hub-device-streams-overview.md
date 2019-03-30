@@ -8,12 +8,12 @@ ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: 024bb29f9d7276021888e949073f6d45aed0a249
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 672b06dda41edb18cbf31352188b0fdd2a155782
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076273"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649633"
 ---
 # <a name="iot-hub-device-streams-preview"></a>Flux d'appareils IoT Hub (préversion)
 
@@ -101,7 +101,7 @@ La sortie est un objet JSON de tous les points de terminaison auxquels l’appar
 
 ## <a name="whitelist-device-streaming-endpoints"></a>Mettre sur liste verte les points de terminaison de streaming des appareils
 
-Comme indiqué [précédemment](#Overview), votre appareil crée une connexion sortante vers le point de terminaison IoT Hub lors du processus d'initiation des flux d'appareils. Les pare-feu de l’appareil ou de son réseau doivent autoriser les connexions sortantes vers la passerelle de streaming sur le port 443 (notez que cette communication s’effectue via une connexion WebSocket chiffrée à l’aide de TLS).
+Comme indiqué [précédemment](#overview), votre appareil crée une connexion sortante vers le point de terminaison IoT Hub lors du processus d'initiation des flux d'appareils. Les pare-feu de l’appareil ou de son réseau doivent autoriser les connexions sortantes vers la passerelle de streaming sur le port 443 (notez que cette communication s’effectue via une connexion WebSocket chiffrée à l’aide de TLS).
 
 Le nom d'hôte du point de terminaison de streaming de l'appareil se trouve sous l'onglet Vue d'ensemble du portail Azure IoT Hub. ![Texte de remplacement](./media/iot-hub-device-streams-overview/device-stream-portal.PNG "Points de terminaison des flux d'appareils")
 

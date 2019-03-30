@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 63d4f8e2f1b88084b2bac5f1a29514b5e289cbd4
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 675ce2de91dd4e53f4945ceef3b174c33be001f6
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286514"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649644"
 ---
 # <a name="appendix-for-azure-disk-encryption"></a>Annexe pour Azure Disk Encryption 
 
@@ -685,7 +685,7 @@ Avant de télécharger la clé secrète dans le coffre de clés, vous pouvez év
     $secretUrl = $response.id
 ```
 
-Utilisez `$KeyEncryptionKey` et `$secretUrl` à l’étape suivante pour [attacher le lecteur du système d’exploitation à l’aide de la clé de chiffrement à clé](#BKMK_URLKEK).
+Utilisez `$KeyEncryptionKey` et `$secretUrl` à l’étape suivante pour [attacher le lecteur du système d’exploitation à l’aide de la clé de chiffrement à clé](#bkmk_URLKEK).
 
 ##  <a name="bkmk_SecretURL"></a> Spécifier une URL de secret quand vous attachez un disque de système d’exploitation
 

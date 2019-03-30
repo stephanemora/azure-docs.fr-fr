@@ -4,7 +4,7 @@ description: Utilisez le proxy inverse de Service Fabric pour assurer les commun
 services: service-fabric
 documentationcenter: .net
 author: BharatNarasimman
-manager: timlt
+manager: chackdan
 editor: vturecek
 ms.assetid: 47f5c1c1-8fc8-4b80-a081-bc308f3655d3
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 4b6ef4823fc78c15dda31e96d8bd6c4f798c0e99
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 6ce6f1f6559b43a64fb7edd0773a20f8ee0cf8a3
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55097746"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58661919"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Proxy inverse dans Azure Service Fabric
 Le proxy inverse intégré à Azure Service Fabric permet aux microservices exécutés dans un cluster Service Fabric de découvrir d’autres services détenant des points de terminaison http et de communiquer avec ces services.
@@ -57,7 +57,7 @@ Au lieu de configurer le port d’un service donné dans l’équilibreur de cha
 ![Communications externes][0]
 
 > [!WARNING]
-> Lorsque vous configurez le port du proxy inverse dans l’équilibreur de charge, les systèmes se trouvant à l’extérieur du cluster peuvent atteindre tous les microservices du cluster exposant un point de terminaison HTTP. Cela signifie que des microservices destinés à être internes pourraient se révéler détectables par un utilisateur malveillant déterminé. C’est une source potentielle de vulnérabilités qui risquent notamment d’être exploitées dans les cas de figure suivants :
+> Lorsque vous configurez le port du proxy inverse dans l’équilibreur de charge, les systèmes se trouvant à l’extérieur du cluster peuvent atteindre tous les microservices du cluster exposant un point de terminaison HTTP. Cela signifie que des microservices destinés à être internes pourraient se révéler détectables par un utilisateur malveillant déterminé. Il peut en résulter de graves vulnérabilités qui peuvent être exploitées, notamment dans les cas de figure suivants :
 >
 > * Un utilisateur malveillant lance une attaque par déni de service en appelant à de nombreuses reprises un service interne qui ne dispose pas d’une surface d’attaque suffisamment renforcée.
 > * Un utilisateur malveillant remet des paquets incorrects à un service interne, ce qui entraîne un comportement inattendu.

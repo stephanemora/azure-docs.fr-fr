@@ -14,17 +14,17 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/19/2018
 ms.author: ellacroi
-ms.openlocfilehash: f88c7b9350d104241524284950865e1f2ca6f559
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: ebe344d9f596f862fe5ffbfef083725e6527d0d3
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729404"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650204"
 ---
 # <a name="requirements-by-listing-type"></a>Exigences par type de liste  
 Les exigences techniques et de contenu marketing varient en fonction de la vitrine, du type d’offre et du type de liste. Consultez les spécifications suivantes pour vous assurer que vous respectez les critères.  
 1. Configuration requise pour la vitrine :  
-    *   [AppSource](#storefront-requirements-appSource)  
+    *   [AppSource](#storefront-requirements-appsource)  
     *   [Azure Marketplace](#storefront-requirements-azure-marketplace)  
 2. Exigences par type de liste et type d’offre :  
     *   Pour plus d’informations sur les types de liste et les types d’offre, consultez la page Déterminer le type de référencement adapté à votre offre à l’adresse [docs.microsoft.com/azure/marketplace/determine-your-listing-type](./determine-your-listing-type.md).  

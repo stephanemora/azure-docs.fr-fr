@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: quickstarts
 ms.date: 2/20/2019
 ms.author: b-juche
-ms.openlocfilehash: 363589116cc7b936358ce0b16cbaba9a42c66234
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e2b9b3cdcb712fcf6c415f574dc687e80ae9ee3b
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58078072"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58660508"
 ---
 # <a name="set-up-azure-netapp-files-and-create-a-volume"></a>Configurer Azure NetApp Files et créer un volume 
 
@@ -105,9 +105,9 @@ Vous devez faire partie du programme Préversion publique et figurer dans la lis
    4. Utilisez la valeur par défaut pour le quota. 
    5. Sous réseau virtuel, cliquez sur **créer** pour créer un réseau virtuel Azure (Vnet) nouvelle.  Renseignez ensuite les informations suivantes :
        * Entrez **myvnet1** en tant que le nom du réseau virtuel.
-       * Spécifiez un espace d’adressage, par exemple, 10.7.0.0/16.
+       * Spécifiez un espace d’adressage pour votre paramètre, par exemple, 10.7.0.0/16
        * Entrez **myANFsubnet** en tant que le nom du sous-réseau.
-       * Spécifiez la plage d’adresses de sous-réseau, par exemple, 10.7.0.0/24.
+       * Spécifiez la plage d’adresses de sous-réseau, par exemple, 10.7.0.0/24. Notez que vous ne pouvez pas partager le sous-réseau dédié avec d’autres ressources.
        * Sélectionnez **Microsoft.NetApp/volumes** pour la délégation de sous-réseau.
        * Cliquez sur **OK** pour créer le réseau virtuel.
    6. Dans le sous-réseau, sélectionnez le réseau virtuel qui vient d’être créé (**myvnet1**) en tant que le sous-réseau de délégué.

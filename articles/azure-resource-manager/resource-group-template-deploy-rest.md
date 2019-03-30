@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/22/2019
+ms.date: 03/28/2019
 ms.author: tomfitz
-ms.openlocfilehash: 3468f5b625911cd637b22e2c1d35a47fb7d7b0e4
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 15e4a7058dc1e74c726644e86c58381003eee937
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402828"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649751"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>Déployer des ressources à l’aide de modèles Resource Manager et de l’API REST Resource Manager
 
@@ -36,6 +36,7 @@ Pour déployer sur un **abonnement**, utilisez [déploiements - créer une éten
 Les exemples de cet article utilisent des déploiements de groupes de ressources. Pour plus d’informations sur les déploiements d’abonnement, consultez [créer des groupes de ressources et des ressources au niveau de l’abonnement](deploy-to-subscription.md).
 
 ## <a name="deploy-with-the-rest-api"></a>Déployer avec l’API REST
+
 1. Définissez [des en-têtes et des paramètres communs](/rest/api/azure/), y compris des jetons d’authentification.
 
 1. Si vous n’avez pas de groupe de ressources, créez-en un. Fournissez votre ID abonnement, le nom du groupe de ressources et l’emplacement dont vous avez besoin pour votre solution. Pour plus d’informations, consultez [Créer un groupe de ressources](/rest/api/resources/resourcegroups/createorupdate).
@@ -45,6 +46,7 @@ Les exemples de cet article utilisent des déploiements de groupes de ressources
    ```
 
    Avec un corps de requête comme suit :
+
    ```json
    {
     "location": "West US",
@@ -166,7 +168,7 @@ Les exemples de cet article utilisent des déploiements de groupes de ressources
    }
    ```
 
-5. Obtenez l’état du déploiement du modèle. Pour plus d’informations, consultez [Obtenir des informations sur le déploiement d’un modèle](/rest/api/resources/deployments/get).
+1. Obtenez l’état du déploiement du modèle. Pour plus d’informations, consultez [Obtenir des informations sur le déploiement d’un modèle](/rest/api/resources/deployments/get).
 
    ```HTTP
    GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2018-05-01
@@ -174,7 +176,12 @@ Les exemples de cet article utilisent des déploiements de groupes de ressources
 
 ## <a name="redeploy-when-deployment-fails"></a>Redéploiement en cas d’échec du déploiement
 
-En cas d’échec de déploiement, vous pouvez automatiquement redéployer un déploiement ayant réussi précédemment à partir de votre historique de déploiement. Pour spécifier le redéploiement, utilisez la propriété `onErrorDeployment` dans le corps de la requête.
+Cette fonctionnalité est également appelé *restauration en cas d’erreur*. En cas d'échec du déploiement, vous pouvez automatiquement relancer un déploiement antérieur réussi à partir de votre historique de déploiement. Pour spécifier le redéploiement, utilisez la propriété `onErrorDeployment` dans le corps de la requête. Cette fonctionnalité est utile si vous avez donc un état correct connu pour votre déploiement de l’infrastructure et il doit être restauré vers. Il existe un certain nombre de restrictions mises en garde :
+
+- Le redéploiement est exécuté exactement tel qu’il a été exécuté précédemment avec les mêmes paramètres. Vous ne pouvez pas modifier les paramètres.
+- Le déploiement précédent est exécuté à l’aide de la [mode complet](./deployment-modes.md#complete-mode). Toutes les ressources non inclus dans le déploiement précédent sont supprimés, et les configurations de ressources sont définies sur leur état précédent. Assurez-vous que vous comprenez le [modes de déploiement](./deployment-modes.md).
+- Le redéploiement affecte uniquement les ressources, les modifications de données ne sont pas affectées.
+- Cette fonctionnalité est uniquement pris en charge sur les déploiements de groupe de ressources, pas les déploiements de niveau abonnement. Pour plus d’informations sur le déploiement au niveau d’abonnement, consultez [créer des groupes de ressources et des ressources au niveau de l’abonnement](./deploy-to-subscription.md).
 
 Pour utiliser cette option, vos déploiements doivent avoir des noms uniques afin de pouvoir être identifiés dans l’historique. Si les noms ne sont pas uniques, le déploiement actuellement en échec peut remplacer le déploiement réussi précédemment dans l’historique. Vous pouvez uniquement utiliser cette option avec les déploiements de niveau racine. Les déploiements à partir d’un modèle imbriqué ne sont pas disponibles pour le redéploiement.
 
@@ -245,9 +252,9 @@ Si vous utilisez un fichier de paramètres pour transmettre des valeurs lors du 
             "reference": {
                "keyVault": {
                   "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
-               }, 
-               "secretName": "sqlAdminPassword" 
-            }   
+               },
+               "secretName": "sqlAdminPassword"
+            }
         }
    }
 }
@@ -258,9 +265,9 @@ La taille du fichier de paramètres ne peut pas être supérieure à 64 Ko.
 Pour fournir une valeur sensible pour un paramètre (par exemple, un mot de passe), ajoutez cette valeur à un coffre de clés. Récupérez le coffre de clés pendant le déploiement comme indiqué dans l’exemple précédent. Pour plus d’informations, consultez [Passage de valeurs sécurisés pendant le déploiement](resource-manager-keyvault-parameter.md). 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour spécifier comment gérer les ressources présentes dans le groupe de ressources, mais non définies dans le modèle, consultez [Modes de déploiement Azure Resource Manager](deployment-modes.md).
-* Pour plus d’informations sur la gestion des opérations REST asynchrones, consultez [Track asynchronous Azure operations (Suivi des opérations asynchrones Azure)](resource-manager-async-operations.md).
-* Pour découvrir un exemple de déploiement de ressources par le biais de la bibliothèque cliente .NET, consultez [Déployer des ressources à l’aide de bibliothèques .NET et d’un modèle](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Pour définir des paramètres dans le modèle, consultez [Création de modèles](resource-group-authoring-templates.md#parameters).
-* Pour obtenir des conseils sur l’utilisation de Resource Manager par les entreprises pour gérer efficacement les abonnements, voir [Structure d’Azure Enterprise - Gouvernance normative de l’abonnement](/azure/architecture/cloud-adoption-guide/subscription-governance).
 
+- Pour spécifier comment gérer les ressources présentes dans le groupe de ressources, mais non définies dans le modèle, consultez [Modes de déploiement Azure Resource Manager](deployment-modes.md).
+- Pour plus d’informations sur la gestion des opérations REST asynchrones, consultez [Track asynchronous Azure operations (Suivi des opérations asynchrones Azure)](resource-manager-async-operations.md).
+- Pour découvrir un exemple de déploiement de ressources par le biais de la bibliothèque cliente .NET, consultez [Déployer des ressources à l’aide de bibliothèques .NET et d’un modèle](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Pour définir des paramètres dans le modèle, consultez [Création de modèles](resource-group-authoring-templates.md#parameters).
+- Pour obtenir des conseils sur l’utilisation de Resource Manager par les entreprises pour gérer efficacement les abonnements, voir [Structure d’Azure Enterprise - Gouvernance normative de l’abonnement](/azure/architecture/cloud-adoption-guide/subscription-governance).

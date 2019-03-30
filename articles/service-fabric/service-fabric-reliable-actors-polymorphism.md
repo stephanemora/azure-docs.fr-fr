@@ -4,7 +4,7 @@ description: Concevez des hiérarchies d’interfaces et de types .NET dans l’
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: vturecek
 ms.assetid: ef0eeff6-32b7-410d-ac69-87cba8b8fd46
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: f03330bbbf2c1c7f92310211058f7ef8858f1941
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: c14b3006184f7bd6dcd1eb67be11bd0214957d72
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209336"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662956"
 ---
 # <a name="polymorphism-in-the-reliable-actors-framework"></a>Polymorphisme dans l’infrastructure Reliable Actors
 L’infrastructure Reliable Actors vous permet de générer des acteurs en utilisant bon nombre des mêmes techniques que celles employées dans la conception orientée objet. L’une de ces techniques est le polymorphisme, qui permet à des types et à des interfaces d’hériter de parents plus généralisés. L’héritage dans l’infrastructure Reliable Actors suit généralement le modèle .NET avec quelques contraintes supplémentaires. Dans le cas de Java/Linux, il suit le modèle Java.

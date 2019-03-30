@@ -8,15 +8,16 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 4552249e7d7dd79edbe885b3d615f5071aa694ee
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: c7a185e1c7f271cdca0c688ce7838f6390594da5
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116097"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650408"
 ---
-# <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>Tutoriel : Chiffrement et déchiffrement d'objets blob dans le service Stockage Microsoft Azure à l'aide d'Azure Key Vault
-## <a name="introduction"></a>Introduction
+# <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>Didacticiel : Chiffrement et déchiffrement d'objets blob dans le service Stockage Microsoft Azure à l'aide d'Azure Key Vault
+
+## <a name="introduction"></a>Présentation
 Ce didacticiel décrit comment utiliser le chiffrement de stockage côté client avec Azure Key Vault. Il vous explique comment chiffrer et déchiffrer un objet blob dans une application console à l'aide de ces technologies.
 
 **Durée estimée :** 20 minutes
@@ -25,7 +26,8 @@ Pour plus d’informations générales sur Azure Key Vault, consultez la page [P
 
 Pour plus d’informations générales sur le chiffrement côté client du Stockage Azure, consultez [Chiffrement côté client et Azure Key Vault pour Microsoft Azure Storage](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
+
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un compte Azure Storage
@@ -33,6 +35,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 * Azure PowerShell
 
 ## <a name="overview-of-client-side-encryption"></a>Vue d’ensemble du chiffrement côté client
+
 Pour une vue d’ensemble du chiffrement côté client du Stockage Azure, consultez [Chiffrement côté client et Azure Key Vault pour Microsoft Azure Storage](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 Voici une brève description du fonctionnement du chiffrement côté client :
@@ -43,6 +46,7 @@ Voici une brève description du fonctionnement du chiffrement côté client :
 4. Les données chiffrées sont ensuite téléchargées sur le service Azure Storage.
 
 ## <a name="set-up-your-azure-key-vault"></a>Configurer votre coffre de clés Azure
+
 Pour continuer avec ce didacticiel, vous devez effectuer les étapes suivantes qui sont décrites dans le didacticiel [Présentation d’Azure Key Vault](../../key-vault/key-vault-overview.md) :
 
 * Création d’un coffre de clés
@@ -55,11 +59,12 @@ Notez les valeurs ClientID et ClientSecret qui ont été générées lors de l'i
 Créez les deux clés dans le coffre de clés. Pour la suite du didacticiel, nous partons du principe que vous avez utilisé les noms suivants : ContosoKeyVault et TestRSAKey1.
 
 ## <a name="create-a-console-application-with-packages-and-appsettings"></a>Création d’une application console avec les packages et AppSettings
+
 Dans Visual Studio, créez une application console.
 
 Ajoutez les packages nuget nécessaires dans la Console du gestionnaire de package.
 
-```
+```powershell
 Install-Package WindowsAzure.Storage
 Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 
@@ -93,6 +98,7 @@ using System.IO;
 ```
 
 ## <a name="add-a-method-to-get-a-token-to-your-console-application"></a>Ajouter une méthode pour obtenir un jeton pour votre application console
+
 La méthode suivante est utilisée par les classes Key Vault qui doivent s’authentifier pour accéder à votre coffre de clés.
 
 ```csharp
@@ -112,6 +118,7 @@ private async static Task<string> GetToken(string authority, string resource, st
 ```
 
 ## <a name="access-storage-and-key-vault-in-your-program"></a>Accéder à Storage et à Key Vault dans votre programme
+
 Dans la fonction Main, ajoutez le code suivant.
 
 ```csharp
@@ -141,6 +148,7 @@ KeyVaultKeyResolver cloudResolver = new KeyVaultKeyResolver(GetToken);
 > 
 
 ## <a name="encrypt-blob-and-upload"></a>Chiffrement et téléchargement d’objets blob 
+
 Ajoutez le code suivant pour chiffrer un objet blob et le télécharger sur votre compte de stockage Azure. La méthode **ResolveKeyAsync** utilisée renvoie un IKey.
 
 ```csharp
@@ -167,6 +175,7 @@ using (var stream = System.IO.File.OpenRead(@"C:\data\MyFile.txt"))
 > 
 
 ## <a name="decrypt-blob-and-download"></a>Déchiffrement et téléchargement d’objets blob
+
 Le déchiffrement s’effectue réellement quand les classes du programme de résolution sont pertinentes. L’ID de la clé utilisée pour le chiffrement est associé à l’objet blob dans ses métadonnées. Il est donc inutile de récupérer la clé et de mémoriser l’association entre la clé et les objets blob. Il vous suffit de vous assurer que la clé reste bien dans Key Vault.   
 
 La clé privée d’une clé RSA reste dans Key Vault. Ainsi, la clé chiffrée des métadonnées d’objets blob qui contient la clé de chiffrement de contenu (CEK) est envoyée à Key Vault pour que le déchiffrement puisse avoir lieu.
@@ -189,6 +198,7 @@ using (var np = File.Open(@"C:\data\MyFileDecrypted.txt", FileMode.Create))
 > 
 
 ## <a name="use-key-vault-secrets"></a>Utiliser les secrets Key Vault
+
 L’utilisation d’un secret avec le chiffrement côté client s’effectue via la classe SymmetricKey, car un secret est essentiellement une clé symétrique. Mais, comme indiqué ci-dessus, un secret dans Key Vault ne correspond pas exactement à une valeur SymmetricKey. Plusieurs choses sont à savoir ici :
 
 * La clé d'une valeur SymmetricKey doit avoir une longueur fixe : 128, 192, 256, 384 ou 512 bits.
@@ -221,6 +231,7 @@ SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
 Vous avez terminé. Vous n’avez plus qu’à l’utiliser !
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Pour plus d’informations sur l’utilisation du Stockage Microsoft Azure avec C#, consultez [Bibliothèque cliente Stockage Microsoft Azure pour .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
 Pour plus d’informations sur l’API REST Blob, consultez [API REST du service BLOB](https://msdn.microsoft.com/library/azure/dd135733.aspx).

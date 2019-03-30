@@ -9,17 +9,14 @@ ms.service: media-services
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: c0eedc32ee96c94b8b3621afc0ee211ed2ff19f5
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 05de1640fbee7799da0a14bba262ef9724686878
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314873"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650074"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Examiner la sortie de Video Indexer générée par l’API v2
-
-> [!Note]
-> L’API Video Indexer v1 est déconseillée depuis le 1er août 2018. Vous devez désormais utiliser l’API Video Indexer v2. <br/>Pour développer des contenus avec les API Video Indexer v2, consultez les instructions fournies [ici](https://api-portal.videoindexer.ai/). 
 
 Si vous appelez l’API **Get Video Index** (Obtenir un index vidéo) et si l’état de la réponse est OK, vous obtenez une sortie JSON détaillée en tant que contenu de la réponse. Le contenu JSON détaille les insights des vidéos spécifiées. Ces insights incluent des dimensions telles que des transcriptions, des ROC, des visages, des rubriques, des blocs, etc. Les dimensions comptent des instances d’intervalles de temps qui indiquent le moment auquel chaque dimension apparaît dans la vidéo.  
 
@@ -163,7 +160,7 @@ Un visage peut être doté d’un ID, d’un nom, d’une miniature, d’autres 
 |étiquettes|Dimension [labels](#labels).|
 |captures|Dimension [shots](#shots).|
 |brands|Dimension [brands](#brands).|
-|audioEffects|Dimension [audioEffects](#audioEffects).|
+|audioEffects|Dimension [audioEffects](#audioeffects).|
 |sentiments|Dimension [sentiments](#sentiments).|
 |visualContentModeration|Dimension [visualContentModeration](#visualcontentmoderation).|
 |textualContentModeration|Dimension [textualContentModeration](#textualcontentmoderation).|
@@ -550,7 +547,7 @@ Noms des entreprises et des marques de produits détectés dans la reconnaissanc
 |SpeakerLongestMonolog|Monologue le plus long de l’intervenant. Si le monologue de l’intervenant comporte des silences, ils sont inclus. Les silences du début et de la fin du monologue sont supprimés.| 
 |SpeakerTalkToListenRatio|Le calcul est basé sur le temps passé sur le monologue de l’intervenant (sans les silences intermédiaires) divisé par la durée totale de la vidéo. L’heure est arrondie à la troisième décimale.|
 
-#### <a name="audioeffects"></a>audioEffects
+#### <a name="a-idaudioeffectsaudioeffects"></a><a id="audioEffects"/>audioEffects
 
 |Nom|Description|
 |---|---|

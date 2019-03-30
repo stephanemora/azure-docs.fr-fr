@@ -3,8 +3,8 @@ title: Étapes suivantes de la création de projet Service Fabric | Microsoft 
 description: Découvrez-en plus sur le projet d’application que vous venez de créer dans Visual Studio.  Apprenez à créer des services à l’aide de didacticiels et approfondissez vos connaissances sur le développement de services pour Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: ''
 ms.assetid: 299d1f97-1ca9-440d-9f81-d1d0dd2bf4df
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
-ms.author: rwike77
-ms.openlocfilehash: a87dd6f4afa152aebafdde24defcabe841ae2e9c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.author: atsenthi
+ms.openlocfilehash: e5371cd3ea9de1993f0f824325f6cbf1e25343d4
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206463"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58667925"
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>Votre application Service Fabric et étapes suivantes
 Votre application Azure Service Fabric a été créée. Cet article détaille quelques-uns des didacticiels à essayer, la composition de votre projet, certaines informations supplémentaires pouvant vous intéresser ainsi que les prochaines étapes possibles.
@@ -35,7 +35,7 @@ Vous pouvez aussi essayer l’une des procédures pas à pas suivantes pour cré
 - [Service exécutable invité sur Windows](quickstart-guest-app.md) 
 - [Application de conteneur Windows](service-fabric-get-started-containers.md) 
 
-Sinon, nos [exemples d’applications](http://aka.ms/servicefabricsamples) peuvent également vous être utiles.
+Sinon, nos [exemples d’applications](https://aka.ms/servicefabricsamples) peuvent également vous être utiles.
 
 ## <a name="have-questions-or-feedback--need-to-report-an-issue"></a>Avez-vous des questions ou des commentaires ?  Vous souhaitez signaler un problème ?
 Consultez les [questions courantes](service-fabric-common-questions.md) et trouvez des réponses se rapportant aux possibilités de Service Fabric et à son utilisation.

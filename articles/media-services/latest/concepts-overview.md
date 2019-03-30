@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: d8790eac93b288d5d5254f188fe5c901b5d5df14
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 8f21374ae5da76c9954acc5227f593ab4be19ce9
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351488"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630549"
 ---
 # <a name="media-services-concepts"></a>Concepts Media Services
 
@@ -30,7 +30,7 @@ Cette rubrique fournit une brève présentation des concepts Azure Media Service
 
 Pour démarrer la gestion, le chiffrement, codage, l’analyse et diffusion en continu de contenu multimédia dans Azure, vous devez créer un compte Media Services et charger vos fichiers numériques dans **ressources**.
 
-- [Stockage et chargement de cloud](storage-account-concept.md)
+- [Chargement et stockage cloud](storage-account-concept.md)
 - [Concept de ressources](assets-concept.md)
 
 ## <a name="encoding"></a>Encodage
@@ -102,6 +102,11 @@ Pour afficher la progression du travail, vous devez utiliser **Event Grid**. Med
 
 - [Gestion des événements Event Grid](reacting-to-media-services-events.md)
 - [Schémas](media-services-event-schemas.md)
+
+### <a name="azure-monitor"></a>Azure Monitor
+
+Mesures de surveillance et les journaux de diagnostic qui vous aident à comprennent le fonctionnement de vos applications avec Azure Monitor.
+
 - [Métriques et journaux de diagnostic](media-services-metrics-diagnostic-logs.md)
 - [Schémas de journaux de diagnostic](media-services-diagnostic-logs-schema.md)
 
@@ -109,8 +114,13 @@ Pour afficher la progression du travail, vous devez utiliser **Event Grid**. Med
 
 Vous pouvez utiliser Azure Media Player pour lire du contenu multimédia diffusé en continu par Media Services sur un large éventail de navigateurs et appareils. Azure Media Player exploite des normes du secteur, telles que HTML5, Media Source Extensions (MSE) et Encrypted Media Extensions (EME), pour offrir une expérience enrichie de diffusion en continu adaptative. 
 
-- [Vue d’ensemble de Azure Media Player](use-azure-media-player.md)
+- [Présentation du Lecteur multimédia Azure](use-azure-media-player.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Charger, encoder et diffuser en continu à l’aide de Media Services](stream-files-tutorial-with-api.md)
+* [Encoder le fichier distant et le flux vidéo – REST](stream-files-tutorial-with-rest.md)
+* [Encoder le fichier téléchargé et flux vidéo - .NET](stream-files-tutorial-with-api.md)
+* [Stream en direct - .NET](stream-live-tutorial-with-api.md)
+* [Analyser votre vidéo - .NET](analyze-videos-tutorial-with-api.md)
+* [Chiffrement dynamique AES-128 - .NET](protect-with-aes128.md)
+* [Chiffrer dynamiquement avec multi-DRM - .NET](protect-with-drm.md) 

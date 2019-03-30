@@ -4,7 +4,7 @@ description: Documentation conceptuelle relative aux notifications Reliable Serv
 services: service-fabric
 documentationcenter: .net
 author: mcoskun
-manager: timlt
+manager: chackdan
 editor: masnider,vturecek
 ms.assetid: cdc918dd-5e81-49c8-a03d-7ddcd12a9a76
 ms.service: service-fabric
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/29/2017
 ms.author: mcoskun
-ms.openlocfilehash: a13e5d74390b82888f51cfd225c54e29550354e9
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
-ms.translationtype: HT
+ms.openlocfilehash: a3df5f28475b03f1799dc1e245c3a7e904b49cb3
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433512"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662667"
 ---
 # <a name="reliable-services-notifications"></a>Notifications Reliable Services
-Les notifications permettent aux clients de suivre les modifications apportées à un objet qui les intéresse. Deux types d’objets prennent en charge les notifications : *Gestionnaire d’état fiable* et *Dictionnaire fiable*.
+Les notifications permettent aux clients de suivre les modifications apportées à un objet qui les intéresse. Deux types d’objets prennent en charge les notifications : *Gestionnaire d’état fiable* et *dictionnaire fiable*.
 
 Raisons courantes d’utiliser les notifications :
 
@@ -46,9 +46,9 @@ Le Gestionnaire d’état fiable effectue le suivi à la volée des transactions
 Le Gestionnaire d’état fiable tient à jour une collection d’états fiables comme Dictionnaire fiable et File d’attente fiable. Le Gestionnaire d’état fiable déclenche des notifications quand cette collection est modifiée : un état fiable est ajouté, supprimé, ou la collection entière est reconstruite.
 La collection du Gestionnaire d’état fiable est reconstruite dans trois cas :
 
-* Récupération : quand un réplica démarre, il récupère son état précédent à partir du disque. À la fin de la récupération, il utilise **NotifyStateManagerChangedEventArgs** pour déclencher un événement qui contient l’ensemble des états fiables récupérés.
-* Copie complète : avant qu’un réplica puisse rejoindre le jeu de configuration, il doit être créé. Dans certains cas, il est nécessaire d’appliquer une copie complète de l’état du Gestionnaire d’état fiable du réplica principal au réplica secondaire inactif. Le Gestionnaire d’état fiable sur le réplica secondaire utilise **NotifyStateManagerChangedEventArgs** pour déclencher un événement qui contient l’ensemble des états fiables qu’il a acquis à partir du réplica principal.
-* Restauration : dans les scénarios de récupération d’urgence, vous pouvez restaurer l’état du réplica à partir d’une sauvegarde par le biais de **RestoreAsync**. Dans ces cas-là, le Gestionnaire d’état fiable sur le réplica secondaire utilise **NotifyStateManagerChangedEventArgs** pour déclencher un événement qui contient l’ensemble des états fiables qu’il a restauré à partir de la sauvegarde.
+* Récupération : Quand un réplica démarre, il récupère son état précédent à partir du disque. À la fin de la récupération, il utilise **NotifyStateManagerChangedEventArgs** pour déclencher un événement qui contient l’ensemble des états fiables récupérés.
+* Copie complète : Qu’un réplica puisse rejoindre le jeu de configuration, il doit être généré. Dans certains cas, il est nécessaire d’appliquer une copie complète de l’état du Gestionnaire d’état fiable du réplica principal au réplica secondaire inactif. Le Gestionnaire d’état fiable sur le réplica secondaire utilise **NotifyStateManagerChangedEventArgs** pour déclencher un événement qui contient l’ensemble des états fiables qu’il a acquis à partir du réplica principal.
+* Restauration : Dans les scénarios de récupération d’urgence, l’état du réplica peut être restaurée à partir d’une sauvegarde par le biais de **RestoreAsync**. Dans ces cas-là, le Gestionnaire d’état fiable sur le réplica secondaire utilise **NotifyStateManagerChangedEventArgs** pour déclencher un événement qui contient l’ensemble des états fiables qu’il a restauré à partir de la sauvegarde.
 
 Pour vous inscrire aux notifications de transactions et/ou notifications du Gestionnaire d’état, vous devez vous inscrire auprès de l’événement **TransactionChanged** ou **StateManagerChanged** sur le Gestionnaire d’état fiable. Le constructeur de votre élément StatefulService est un endroit courant où s’inscrire auprès de ces gestionnaires d’événements. Si vous êtes inscrit dans le constructeur, vous ne manquerez aucune notification due à une modification pendant la durée de vie de **IReliableStateManager**.
 
@@ -84,11 +84,11 @@ private void OnTransactionChangedHandler(object sender, NotifyTransactionChanged
 ```
 
 Le gestionnaire d’événements **StateManagerChanged** utilise **NotifyStateManagerChangedEventArgs** pour fournir des détails sur l’événement.
-**NotifyStateManagerChangedEventArgs** comporte deux sous-classes : **NotifyStateManagerRebuildEventArgs** et **NotifyStateManagerSingleEntityChangedEventArgs**.
+**NotifyStateManagerChangedEventArgs** a deux sous-classes : **NotifyStateManagerRebuildEventArgs** et **NotifyStateManagerSingleEntityChangedEventArgs**.
 Vous utilisez la propriété d’action dans **NotifyStateManagerChangedEventArgs** pour convertir **NotifyStateManagerChangedEventArgs** en la sous-classe correcte :
 
-* **NotifyStateManagerChangedAction.Rebuild** : **NotifyStateManagerRebuildEventArgs**
-* **NotifyStateManagerChangedAction.Add** et **NotifyStateManagerChangedAction.Remove** : **NotifyStateManagerSingleEntityChangedEventArgs**
+* **NotifyStateManagerChangedAction.Rebuild**: **NotifyStateManagerRebuildEventArgs**
+* **NotifyStateManagerChangedAction.Add** et **NotifyStateManagerChangedAction.Remove**: **NotifyStateManagerSingleEntityChangedEventArgs**
 
 Voici un exemple de gestionnaire de notification **StateManagerChanged** .
 
@@ -109,11 +109,11 @@ public void OnStateManagerChangedHandler(object sender, NotifyStateManagerChange
 ## <a name="reliable-dictionary-notifications"></a>Notifications Dictionnaire fiable
 Dictionnaire fiable fournit des notifications pour les événements suivants :
 
-* Reconstruction : appelée quand **ReliableDictionary** a récupéré son état à partir d’une sauvegarde ou d’un état local récupéré ou copié.
-* Effacement : appelée quand l’état de **ReliableDictionary** a été effacé par le biais de la méthode **ClearAsync**.
-* Ajout : appelée quand un élément a été ajouté à **ReliableDictionary**.
-* Mise à jour : appelée quand un élément de **IReliableDictionary** a été mis à jour.
-* Suppression : appelée quand un élément de **IReliableDictionary** a été supprimé.
+* Rebuild : Appelé lorsque **ReliableDictionary** a récupéré son état à partir d’une sauvegarde ou l’état local récupéré ou copié.
+* Effacer : Appelée lorsque l’état de **ReliableDictionary** a été effacé par la **ClearAsync** (méthode).
+* Ajoutez : Appelé lorsqu’un élément a été ajouté à **ReliableDictionary**.
+* Mettre à jour : Appelé lorsqu’un élément **IReliableDictionary** a été mis à jour.
+* Supprimer : Appelé lorsqu’un élément **IReliableDictionary** a été supprimé.
 
 Pour obtenir des notifications Dictionnaire fiable, vous devez vous inscrire auprès du gestionnaire d’événements **DictionaryChanged** sur **IReliableDictionary**. La notification d’ajout **ReliableStateManager.StateManagerChanged** est une situation courante au cours de laquelle l’utilisateur s’inscrit auprès de ces gestionnaires d’événements.
 L’inscription quand **IReliableDictionary** est ajouté à **IReliableStateManager** permet de s’assurer que vous ne manquerez aucune notification.
@@ -165,11 +165,11 @@ public async Task OnDictionaryRebuildNotificationHandlerAsync(
 Le gestionnaire d’événements **DictionaryChanged** utilise **NotifyDictionaryChangedEventArgs** pour fournir des détails sur l’événement.
 **NotifyDictionaryChangedEventArgs** a cinq sous-classes. Utilisez la propriété d’action dans **NotifyDictionaryChangedEventArgs** pour convertir **NotifyDictionaryChangedEventArgs** en la sous-classe correcte :
 
-* **NotifyDictionaryChangedAction.Rebuild** : **NotifyDictionaryRebuildEventArgs**
-* **NotifyDictionaryChangedAction.Clear** : **NotifyDictionaryClearEventArgs**
-* **NotifyDictionaryChangedAction.Add** et **NotifyDictionaryChangedAction.Remove** : **NotifyDictionaryItemAddedEventArgs**
-* **NotifyDictionaryChangedAction.Update** : **NotifyDictionaryItemUpdatedEventArgs**
-* **NotifyDictionaryChangedAction.Remove** : **NotifyDictionaryItemRemovedEventArgs**
+* **NotifyDictionaryChangedAction.Rebuild**: **NotifyDictionaryRebuildEventArgs**
+* **NotifyDictionaryChangedAction.Clear**: **NotifyDictionaryClearEventArgs**
+* **NotifyDictionaryChangedAction.Add** et **NotifyDictionaryChangedAction.Remove**: **NotifyDictionaryItemAddedEventArgs**
+* **NotifyDictionaryChangedAction.Update**: **NotifyDictionaryItemUpdatedEventArgs**
+* **NotifyDictionaryChangedAction.Remove**: **NotifyDictionaryItemRemovedEventArgs**
 
 ```csharp
 public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEventArgs<TKey, TValue> e)

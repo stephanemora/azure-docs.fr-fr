@@ -4,7 +4,7 @@ description: Décrit les commandes sfctl mesh secretvalue de l'interface de lign
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 064aeaea47dd59a1dd75cf19ea4060d8f9c2c4bf
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: 3f8e46f063d3e725e2174fd907169f3e0167586a
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53559057"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58666543"
 ---
 # <a name="sfctl-mesh-secretvalue"></a>sfctl mesh secretvalue
 Récupère et supprime les ressources « mesh secretvalue ».

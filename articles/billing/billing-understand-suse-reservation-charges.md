@@ -1,5 +1,5 @@
 ---
-title: Comprendre la remise et l’utilisation d’un abonnement SUSE - Réservations Azure | Microsoft Docs
+title: Comprendre la remise de plan de réservation de SUSE et d’utilisation - Azure | Microsoft Docs
 description: Découvrez comment les remises des abonnements SUSE sont appliquées aux logiciels SUSE sur des machines virtuelles.
 services: billing
 documentationcenter: ''
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/28/2018
 ms.author: banders
-ms.openlocfilehash: a9f784d7e7ed21a5a10a2f5e16125d60e7b9667f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 04b456cbaeeb4ba285fd874f7b21abffcc714653
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57863472"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649254"
 ---
-# <a name="understand-how-the-suse-linux-enterprise-software-plan-discount-is-applied"></a>Comprendre comment la remise des abonnements logiciels SUSE Linux Enterprise est appliquée
+# <a name="understand-how-the-suse-linux-enterprise-software-reservation-plan-discount-is-applied-for-azure"></a>Comprendre comment la remise de plan de réservation de logiciel SUSE Linux Enterprise est appliquée pour Azure
 
 Quand vous achetez un abonnement SUSE Linux, la remise est automatiquement appliquée aux machines virtuelles SUSE qui correspondent à la réservation. Un abonnement SUSE Linux couvre le coût de l’exécution du logiciel SUSE sur une machine virtuelle Azure.
 
 Pour acheter l’abonnement SUSE Linux approprié, vous devez connaître les machines virtuelles SUSE que vous exécutez et le nombre de processeurs virtuels qu’elles contiennent. Utilisez les sections suivantes pour vous aider à identifier l’abonnement à acheter à partir de votre fichier CSV d’utilisation.
 
-## <a name="discount-applies-to-different-vm-sizes-with-instance-size-flexibility"></a>La remise s’applique aux différentes tailles de machine virtuelle avec une flexibilité de taille d’instance
+## <a name="discount-applies-to-different-vm-sizes"></a>Remise s’applique aux différentes tailles de machine virtuelle
 
 Tout comme les instances réservées de machine virtuelle, l’achat d’un abonnement SUSE offre une flexibilité de taille d’instance. Cela signifie que votre remise s’applique même quand vous déployez une machine virtuelle avec un nombre différent de processeurs virtuels. La remise s’applique aux différentes tailles de machine virtuelle au sein de l’abonnement logiciel.
 
@@ -40,7 +40,7 @@ Par exemple, si vous achetez un abonnement SUSE Linux Enterprise Server for HPC 
 
 Le ratio pour au moins 5 processeurs virtuels est 2,6. Par conséquent, une réservation de SUSE avec une machine virtuelle contenant au moins 5 processeurs virtuels couvre seulement une partie du coût du logiciel, en l’occurrence environ 77 %.
 
-## <a name="understand-your-suse-vm-usage-before-buying-a-suse-linux-plan"></a>Comprendre votre utilisation de machine virtuelle SUSE avant d’acheter un abonnement SUSE Linux
+## <a name="understand-suse-vm-usage-before-you-buy"></a>Comprendre l’utilisation de SUSE VM avant de l’acheter
 
 Les tableaux suivants indiquent les abonnements logiciels pour lesquels vous pouvez acheter une réservation, les compteurs d’utilisation associés et les ratios de chacun.
 
@@ -133,6 +133,6 @@ Pour plus d’informations sur les réservations, consultez les articles suivant
 - [Comprendre l’utilisation d’une réservation pour votre abonnement avec paiement à l’utilisation](billing-understand-reserved-instance-usage.md)
 - [Comprendre l’utilisation d’une réservation pour votre Accord de Mise en Œuvre Entreprise](billing-understand-reserved-instance-usage-ea.md)
 
-## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
+## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Nous contacter
 
 Si vous avez des questions ou besoin d’aide, [créer une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).

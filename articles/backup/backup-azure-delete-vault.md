@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: raynew
-ms.openlocfilehash: 94d66e28f8edbda6c41dcceaf427d7d7d869c90f
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 23e98fd7ea3decc478fc359cec457c70b8fc99dc
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620115"
+ms.locfileid: "58652213"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Supprimer un coffre Recovery Services
 
@@ -108,7 +108,7 @@ Cette procédure fournit un exemple qui montre comment supprimer les données de
 
 
 3. Dans **arrêter la sauvegarde** > **choisissez une option**, sélectionnez **supprimer les données de sauvegarde**.
-4. Tapez le nom de l’élément, puis cliquez sur **arrêter la sauvegarde**. 
+4. Tapez le nom de l’élément, puis cliquez sur **arrêter la sauvegarde**.
    - Cela permet de vérifier que vous souhaitez supprimer l’élément.
    - Le **arrêter la sauvegarde** bouton est activé après avoir vérifié.
    - Si vous conservez et que vous ne supprimez pas les données, vous ne pourrez pas supprimer le coffre.
@@ -126,7 +126,7 @@ Cette procédure fournit un exemple qui montre comment supprimer les données de
 ### <a name="remove-backup-infrastructure-servers"></a>Supprimer des serveurs d’infrastructure de sauvegarde
 
 1. Dans le menu du tableau de bord du coffre, cliquez sur **Infrastructure de sauvegarde**.
-2. Cliquez sur **serveurs d’administration de sauvegarde** pour afficher les serveurs. 
+2. Cliquez sur **serveurs d’administration de sauvegarde** pour afficher les serveurs.
 
     ![sélectionnez votre coffre pour afficher son tableau de bord](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 
@@ -135,7 +135,7 @@ Cette procédure fournit un exemple qui montre comment supprimer les données de
     ![sélectionner le type de sauvegarde](./media/backup-azure-delete-vault/azure-storage-selected-list.png)
 
 3. . Dans **arrêter la sauvegarde** > **choisissez une option**, sélectionnez **supprimer les données de sauvegarde**.
-4. Tapez le nom de l’élément, puis cliquez sur **arrêter la sauvegarde**. 
+4. Tapez le nom de l’élément, puis cliquez sur **arrêter la sauvegarde**.
    - Cela permet de vérifier que vous souhaitez supprimer l’élément.
    - Le **arrêter la sauvegarde** bouton est activé après avoir vérifié.
    - Si vous conservez et que vous ne supprimez pas les données, vous ne pourrez pas supprimer le coffre.

@@ -4,7 +4,7 @@ description: Cet article aborde certains problèmes courants relatifs à la mise
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 19ad152e-ec50-4327-9f19-065c875c003c
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: c6ba61354bf7466819e34a0d619a5a1820dd7b90
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 9e4989f61741d317e78a613c8c8fac312d1568c2
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212736"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58666951"
 ---
 # <a name="troubleshoot-application-upgrades"></a>Résoudre les problèmes de mise à niveau d'application
 Cet article aborde certains des problèmes courants relatifs à la mise à niveau d’une application Azure Service Fabric et la manière de les résoudre.

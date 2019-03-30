@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: jimdial
-ms.openlocfilehash: 5606fb2f01a79a517279809d6da21ec865ee8b0d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b693500e785d41b2ad3339e26dd9fd3505891bc0
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58110135"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648331"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>Attribuer plusieurs adresses IP à des machines virtuelles à l’aide d’Azure CLI
 
@@ -165,7 +165,7 @@ Ajoutez les adresses IP privées pour le système d’exploitation de la machine
 
 ## <a name="add"></a>Ajouter des adresses IP à une machine virtuelle
 
-Vous pouvez ajouter des adresses IP privées et publiques à une interface réseau Azure en suivant les étapes décrites ci-après. Les exemples reposent sur le [scénario](#Scenario) décrit dans cet article.
+Vous pouvez ajouter des adresses IP privées et publiques à une interface réseau Azure en suivant les étapes décrites ci-après. Les exemples reposent sur le [scénario](#scenario) décrit dans cet article.
 
 1. Ouvrez un interpréteur de commandes Azure et effectuez les étapes restantes de cette section en une seule session. Si l’interface Azure CLI n’est pas encore installée et configurée, suivez les étapes décrites dans l’article consacré à[l’installation d’Azure CLI](/cli/azure/install-az-cli2?toc=%2fazure%2fvirtual-network%2ftoc.json) et connectez-vous à votre compte Azure avec la commande `az-login`.
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 50cd5969ce02ee5eea0637c950069d684d67b5d3
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 7ef3cfe1df792721db3fe3657c08f58ca82e3c91
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361453"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652312"
 ---
 # <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Métriques de journal pendant la formation s’exécute dans Azure Machine Learning
 
@@ -351,7 +351,7 @@ Pour en savoir plus :
 Pour chaque modèle de classification que vous créez à l’aide des fonctionnalités de Machine Learning automatisé d’Azure Machine Learning, vous pouvez voir les graphiques suivants : 
 + [Matrice de confusion](#confusion-matrix)
 + [Graphique de rappel de précision](#precision-recall-chart)
-+ [ROC (Receiver operating characteristic)](#ROC)
++ [ROC (Receiver operating characteristic)](#roc)
 + [Courbe d’élévation](#lift-curve)
 + [Courbe de gains](#gains-curve)
 + [Tracé d’étalonnage](#calibration-plot)

@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9323db9faff162488f5f56c03ac976aa47bb6f97
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 14e9bd7b87f2941fcc075a6265f2e6c96fe646ea
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339489"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649906"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>FAQ Azure Disk Encryption pour machines virtuelles IaaS
 
@@ -125,7 +125,7 @@ Vous ne pouvez pas appliquer Azure Disk Encryption sur votre image Linux personn
 
 ## <a name="can-i-apply-updates-to-a-linux-red-hat-vm-that-uses-the-yum-update"></a>Puis-je appliquer des mises à jour sur une machine virtuelle Red Hat Linux à partir d’une mise à jour Yum ?
 
-Oui, vous pouvez effectuer une mise à jour ou un correctif d’une machine virtuelle Red Hat Linux. Pour plus d’informations, consultez [Application de mises à jour à une machine virtuelle IaaS Red Hat Azure chiffrée à l’aide de la mise à jour Yum](https://blogs.msdn.microsoft.com/azuresecurity/2017/07/13/applying-updates-to-a-encrypted-azure-iaas-red-hat-vm-using-yum-update/).
+Oui, vous pouvez effectuer une mise à jour yum sur une machine virtuelle Red Hat Linux.  Pour plus d’informations, consultez [gestion des packages Linux derrière un pare-feu](azure-security-disk-encryption-tsg.md#linux-package-management-behind-a-firewall).
 
 ## <a name="what-is-the-recommended-azure-disk-encryption-workflow-for-linux"></a>Quel est le workflow de chiffrement de disque Azure recommandé pour Linux ?
 

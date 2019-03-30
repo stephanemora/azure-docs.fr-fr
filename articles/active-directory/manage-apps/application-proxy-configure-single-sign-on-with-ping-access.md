@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4df8f329a135683ea68896605a0a1c6f3ee45984
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 319791c2436395c00dafc744fb6fcb1ff18b0750
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58084079"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652329"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Authentification basée sur l’en-tête pour une authentification unique avec le proxy d’application et PingAccess
 
@@ -43,7 +43,7 @@ Pour plus d’informations, consultez la page [Éditions d’Azure Active Direct
 
 ## <a name="publish-your-application-in-azure"></a>Publier votre application dans Azure
 
-Cet article s’adresse aux personnes qui publient une application pour la première fois dans ce cas de figure. Il explique comment mettre en œuvre Application Proxy et PingAccess, en plus de la procédure de publication. Si vous avez déjà configuré les deux services mais souhaitez bénéficier d’un rappel sur la procédure de publication, vous pouvez ignorer l’installation du connecteur et passer à [Ajouter votre application dans Azure AD avec Application Proxy](#add-your-app-to-Azure-AD-with-Application-Proxy).
+Cet article s’adresse aux personnes qui publient une application pour la première fois dans ce cas de figure. Il explique comment mettre en œuvre Application Proxy et PingAccess, en plus de la procédure de publication. Si vous avez déjà configuré les deux services mais souhaitez bénéficier d’un rappel sur la procédure de publication, vous pouvez ignorer l’installation du connecteur et passer à [Ajouter votre application dans Azure AD avec Application Proxy](#add-your-app-to-azure-ad-with-application-proxy).
 
 >[!NOTE]
 >Comme ce cas de figure repose sur un partenariat entre Azure AD et PingAccess, certaines de ces instructions figurent sur le site Ping Identity.

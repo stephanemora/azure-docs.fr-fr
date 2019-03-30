@@ -4,7 +4,7 @@ description: Présentation de Service Fabric Cluster Resource Manager.
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: cfab735b-923d-4246-a2a8-220d4f4e0c64
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 75aa960ff060d74d0a579b475e4334402992b3c3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e9b1cc8b66be36a0a77118f4de672c9411433ba5
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903355"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58660883"
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>Présentation de Service Fabric Cluster Resource Manager
 Jusqu’ici, pour gérer des systèmes informatiques ou des services en ligne, il fallait dédier des machines physiques ou virtuelles spécifiques à ces services ou systèmes spécifiques. Les services étaient conçus sous forme de niveaux : un niveau « web » et un niveau « données » ou « stockage ». Les applications comportaient un niveau de messagerie où les demandes étaient transmises ou reçues, ainsi qu’un ensemble de machines dédiées à la mise en cache. Chaque niveau ou type de charge de travail recevait des machines spécifiques dédiées : quelques machines pour la base de données, quelques-unes pour les serveurs web. Si un type particulier de charge de travail entraînait la surchauffe des machines sur lesquelles il était exécuté, alors vous ajoutiez davantage de machines avec cette même configuration à ce niveau. Toutefois, il n’était pas possible d’augmenter facilement toutes les charges de travail. Avec le niveau de données en particulier, vous deviez généralement remplacer les machines par des machines plus grandes. Facile. Si une machine venait à tomber en panne, cette partie de l’application globale s’exécutait alors à une capacité inférieure jusqu’à la restauration de la machine. Toujours aussi facile (mais pas forcément très amusant).

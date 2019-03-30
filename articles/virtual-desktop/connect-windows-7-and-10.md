@@ -1,24 +1,27 @@
 ---
 title: Se connecter à la préversion de bureau virtuel Windows avec Windows 7 et Windows 10 - Azure
-description: Comment se connecter à la préversion de bureau virtuel Windows du client avec Windows 7 ou Windows 10.
+description: Comment se connecter au service Windows Virtual Desktop Preview avec Windows 7 ou Windows 10.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/21/2019
+ms.date: 03/27/2019
 ms.author: helohr
-ms.openlocfilehash: 644a1d650384f151d9c43b9efa5f47532c58ce14
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 8b5a649d767dae9ae9c0fb077f550451a7f83601
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58399745"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630377"
 ---
-# <a name="connect-with-windows-7-and-windows-10"></a>Se connecter avec Windows 7 et Windows 10
+# <a name="connect-with-windows-7-and-windows-10"></a>Se connecter avec Windows 7 et Windows 10
 
 > S’applique à Windows 7 et Windows 10.
 
 Un client téléchargeable est disponible qui fournit l’accès aux ressources de la version préliminaire de bureau virtuel Windows à partir d’appareils exécutant Windows 7 et Windows 10.
+
+> [!IMPORTANT]
+> N’utilisez pas **aux programmes RemoteApp et bureau connexions (RADC)** ou **connexion Bureau à distance (MSTSC)** pour accéder aux ressources de bureau virtuel Windows car bureau virtuel Windows ne prend pas en charge soit client.
 
 ## <a name="install-the-client"></a>Installation du client
 
@@ -30,21 +33,17 @@ Obtenir la liste des ressources disponibles pour vous à partir de votre ordinat
 
 Pour vous abonner à un flux :
 
-1. Démarrez le client à partir de la liste de toutes les applications, recherchez le Bureau à distance.
-2. Sélectionnez un compte professionnel ou scolaire sur la page principale. Cela vous inscrire avec la valeur par défaut URL du flux.
-   - Vous pouvez également fournir une URL différente si nécessaire avec le **utiliser une URL à la place** option.
-3. Connectez-vous à votre compte d’utilisateur.
-
-> [!NOTE]
-> Si votre administrateur a configuré de la découverte de l’e-mail, le client recherche automatiquement votre flux URL lorsque vous entrez votre adresse de messagerie.
+1. Démarrez le client à partir de la liste de toutes les applications, recherchez pour **Bureau à distance**.
+1. Sélectionnez **s’abonner** sur la page principale pour vous connecter au service et récupérer vos ressources.
+1. **Connectez-vous** avec votre compte d’utilisateur lorsque vous y êtes invité.
 
 Après avoir authentifié, vous devez maintenant voir une liste de ressources disponibles pour vous.
 
 Vous pouvez lancer des ressources par une des deux méthodes.
 
-- Accédez à la page principale du client et sélectionnez une ressource.
+- À partir de la page principale du client, double-cliquez sur une ressource pour le lancer.
 - Lancez une ressource comme vous le feriez normalement autres applications à partir du Menu Démarrer.
-  -  Vous pouvez également rechercher les applications dans la barre de recherche.
+  - Vous pouvez également rechercher les applications dans la barre de recherche.
 
 ## <a name="update-the-client"></a>Mettre à jour le client
 

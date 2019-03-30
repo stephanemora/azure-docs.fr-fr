@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 7e1229ceaa2ae7113c95cfb202a84c56a3e53d61
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: d8eefff5a5ea03237eea60a63b63d70f605f10b3
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620132"
+ms.locfileid: "58650153"
 ---
 # <a name="send-security-messages-sdk"></a>Envoyer des messages de sécurité SDK
 
@@ -92,7 +92,7 @@ Envoyer des messages de sécurité sans utiliser l’ASC pour l’agent IoT, à 
 
 Pour envoyer les données de l’appareil à partir de vos appareils pour le traitement par ASC pour IoT, utilisez une des API suivantes pour marquer les messages pour le routage correct à ASC pour le pipeline de traitement de l’IoT. Les messages envoyés de cette manière seront traitées et affichés en tant que les informations de sécurité dans ASC pour IoT dans les deux IoT Hub ou dans Azure Security Center. 
 
-Toutes les données qui sont envoyées, même si marquée avec l’en-tête approprié, doivent également respecter les [ASC pour schéma de message IoT](https://github.com/Azure/ASC-for-IoT-Schemas). 
+Toutes les données qui sont envoyées, même si marquée avec l’en-tête approprié, doivent également respecter les [ASC pour schéma de message IoT](https://aka.ms/iot-security-schemas). 
 
 ### <a name="send-security-message-api"></a>API de message de sécurité d’envoi
 
