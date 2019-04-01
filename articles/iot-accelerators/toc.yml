@@ -128,29 +128,64 @@ items:
       href: https://github.com/Azure/azure-iot-pcs-remote-monitoring-java
     - name: FAQ sur la surveillance à distance
       href: iot-accelerators-faq-rm-v2.md
-- name: Fabrique connectée
+- name: IoT industriel
   items:
   - name: Vue d’ensemble
-    href: iot-accelerators-connected-factory-features.md
     items:
-    - name: Architecture
-      href: iot-accelerators-connected-factory-sample-walkthrough.md
+    - name: Définition de l’IoT industriel
+      href: overview-iot-industrial.md
+    - name: OPC Twin
+      items:
+      - name: Définition d’OPC Twin
+        href: overview-opc-twin.md
+      - name: Architecture d’OPC Twin
+        href: overview-opc-twin-architecture.md
+    - name: OPC Vault
+      items:
+      - name: Définition d’OPC Vault
+        href: overview-opc-vault.md
+    - name: Fabrique connectée
+      items:
+      - name: Vue d’ensemble de Connected Factory
+        href: iot-accelerators-connected-factory-features.md
+      - name: Architecture de Connected Factory
+        href: iot-accelerators-connected-factory-sample-walkthrough.md
   - name: Démarrages rapides
     items:
     - name: Essayer une solution de fabrique connectée
       href: quickstart-connected-factory-deploy.md
   - name: Guides pratiques
     items:
-    - name: Utiliser le tableau de bord
-      href: iot-accelerators-connected-factory-dashboard.md
-    - name: Déployer une passerelle
-      href: iot-accelerators-connected-factory-gateway-deployment.md
-    - name: Utiliser l’éditeur d’OPC
-      href: https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md
-    - name: Configurer l’accélérateur de solution
-      href: iot-accelerators-connected-factory-configure.md
-    - name: Personnaliser l’accélérateur de solution
-      href: iot-accelerators-connected-factory-customize.md
+    - name: Fabrique connectée
+      items:
+      - name: Utiliser le tableau de bord
+        href: iot-accelerators-connected-factory-dashboard.md
+      - name: Déployer une passerelle
+        href: iot-accelerators-connected-factory-gateway-deployment.md
+      - name: Utiliser l’éditeur d’OPC
+        href: https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md
+      - name: Configurer l’accélérateur de solution
+        href: iot-accelerators-connected-factory-configure.md
+      - name: Personnaliser l’accélérateur de solution
+        href: iot-accelerators-connected-factory-customize.md
+    - name: OPC Twin
+      items:
+      - name: Déployer des services OPC Twin
+        href: howto-opc-twin-deploy-existing.md
+      - name: Déployer le module OPC Twin sur IoT Edge
+        href: howto-opc-twin-deploy-modules.md
+      - name: Déployer uniquement les dépendances OPC Twin
+        href: howto-opc-twin-deploy-dependencies.md
+    - name: OPC Vault
+      items:
+      - name: Déployer OPC Vault sur un projet existant
+        items:
+        - name: Sécuriser les communications d’OPC Client et OPC PLC
+          href: howto-opc-vault-deploy-existing-client-plc-communication.md
+        - name: Sécuriser OPC UA Client et OPC UA Server Application
+          href: howto-opc-vault-deploy-existing-client-server-communication.md
+      - name: Déployer OPC Vault à partir de zéro
+        href: howto-opc-vault-deploy-scratch.md
   - name: Ressources
     items:
     - name: Dépôt GitHub
@@ -257,9 +292,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-iot-suite
   - name: Supervision à distance V1
     href: https://docs.microsoft.com/previous-versions/azure/iot-suite/
-ms.openlocfilehash: 5b2067facd27e94735aba63bb1c54c15e1511c64
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 02c728f7acef1bcc1436d87dd0c0d9509db8ec97
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342035"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757197"
