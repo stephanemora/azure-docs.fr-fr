@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
 ms.subservice: queues
-ms.openlocfilehash: 7e422825c6aa66b14f07f1e52bdd828971ad5eb8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7c2fbc168c663cc4dc5981071d40540cfc4797ca
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012360"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648484"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>Utilisation du stockage de files d'attente à partir de Java
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -23,7 +23,7 @@ ms.locfileid: "58012360"
 [!INCLUDE [storage-check-out-samples-java](../../../includes/storage-check-out-samples-java.md)]
 
 ## <a name="overview"></a>Présentation
-Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du service de stockage des files d'attente Azure. Les exemples sont écrits en Java et utilisent le [Kit de développement logiciel (SDK) Stockage Azure pour Java][Azure Storage SDK for Java]. Les scénarios traités incluent **l’insertion**, la **lecture furtive**, la **récupération** et la **suppression** des messages de file d’attente, ainsi que la **création** et **suppression** des files d’attente. Pour plus d’informations sur les files d’attente, consultez la section [Étapes suivantes](#Next-Steps).
+Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du service de stockage des files d'attente Azure. Les exemples sont écrits en Java et utilisent le [Kit de développement logiciel (SDK) Stockage Azure pour Java][Azure Storage SDK for Java]. Les scénarios traités incluent **l’insertion**, la **lecture furtive**, la **récupération** et la **suppression** des messages de file d’attente, ainsi que la **création** et **suppression** des files d’attente. Pour plus d’informations sur les files d’attente, consultez la section [Étapes suivantes](#next-steps).
 
 Remarque : un Kit de développement logiciel (SDK) est disponible pour les développeurs qui utilisent Azure Storage sur des appareils Android. Pour plus d’informations, consultez la page [Kit de développement logiciel (SDK) Stockage Azure pour Android][Azure Storage SDK for Android].
 

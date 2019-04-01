@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 14f1a92f701eaedd98b825316ebf213f7c144920
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: d7084a42f64234cff4e5e2742ed3d27a3fd00e1e
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959457"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652295"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Superviser la consommation des ressources et l’activité des requêtes dans la Recherche Azure
 
@@ -98,7 +98,7 @@ La journalisation est activée une fois que vous enregistrez le profil. Les cont
 
 Une heure est nécessaire pour que les conteneurs s’affichent dans le Stockage Blob. Il y a un seul objet blob par heure et par conteneur. 
 
-Vous pouvez utiliser [Visual Studio Code](#Download-and-open-in-Visual-Studio-Code) ou un autre éditeur JSON pour afficher les fichiers. 
+Vous pouvez utiliser [Visual Studio Code](#download-and-open-in-visual-studio-code) ou un autre éditeur JSON pour afficher les fichiers. 
 
 ### <a name="example-path"></a>Exemple de chemin
 

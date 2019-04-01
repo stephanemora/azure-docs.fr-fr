@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1a40399ab0e27be5ba9dd01f2647bd5b8ccf10e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b33e993dbddc9c1567a1a6f7d3dca28af240a000
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56202503"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650663"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Synchronisation d’Azure AD Connect : Référence des fonctions
 Dans Azure AD Connect, les fonctions servent à manipuler une valeur d’attribut pendant la synchronisation.  
@@ -51,8 +51,9 @@ Les types s’expriment avec la syntaxe suivante :
 Les fonctions ayant pour type **mvbin**, **mvstr** et **mvref** ne peuvent fonctionner que sur les attributs à valeurs multiples. Les fonctions avec **bin**, **str** et **ref** fonctionnent sur des attributs à valeur unique et à valeurs multiples.
 
 ## <a name="functions-reference"></a>Référence des fonctions
+
 | Liste des fonctions |  |  |  |  |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | **Certificate** | | | | |
 | [CertExtensionOids](#certextensionoids) |[CertFormat](#certformat) |[CertFriendlyName](#certfriendlyname) |[CertHashString](#certhashstring) | |
 | [CertIssuer](#certissuer) |[CertIssuerDN](#certissuerdn) |[CertIssuerOid](#certissueroid) |[CertKeyAlgorithm](#certkeyalgorithm) | |
@@ -63,7 +64,7 @@ Les fonctions ayant pour type **mvbin**, **mvstr** et **mvref** ne peuvent fonct
 | **Conversion** | | | | |
 | [CBool](#cbool) |[CDate](#cdate) |[CGuid](#cguid) |[ConvertFromBase64](#convertfrombase64) | |
 | [ConvertToBase64](#converttobase64) |[ConvertFromUTF8Hex](#convertfromutf8hex) |[ConvertToUTF8Hex](#converttoutf8hex) |[CNum](#cnum) | |
-| [CRef](#cref) |[CStr](#cstr) |[StringFromGuid](#StringFromGuid) |[StringFromSid](#stringfromsid) | |
+| [CRef](#cref) |[CStr](#cstr) |[StringFromGuid](#stringfromguid) |[StringFromSid](#stringfromsid) | |
 | **Date / Heure** | | | | |
 | [DateAdd](#dateadd) |[DateFromNum](#datefromnum) |[FormatDateTime](#formatdatetime) |[Now](#now) | |
 | [NumFromDate](#numfromdate) | | | | |

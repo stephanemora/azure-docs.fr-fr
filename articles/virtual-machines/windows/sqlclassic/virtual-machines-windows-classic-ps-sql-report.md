@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
-ms.openlocfilehash: c8b32e1d52768ea8450a2256d92d8cdb09f9fe8b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 6339b49d0bc9c635457f305dad7b1a075327a1dd
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445634"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650272"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Utiliser PowerShell pour créer une machine virtuelle Azure avec un serveur de rapports en mode natif
 > [!IMPORTANT] 
@@ -130,7 +130,7 @@ Un certificat auto-signé a été créé sur la machine virtuelle lors de son ap
    4. Sélectionnez l’**Ordinateur local** à gérer, puis cliquez sur **Terminer**.
    5. Cliquez sur **OK**, développez les nœuds **Certificats - Personnel**, puis cliquez sur **Certificats**. Le certificat est nommé d’après le nom DNS de la machine virtuelle et se termine par **cloudapp.net**. Cliquez avec le bouton droit sur le nom du certificat, puis cliquez sur **Copier**.
    6. Développez le nœud **Autorités de certification racines de confiance**, puis cliquez avec le bouton droit sur **Certificats** et cliquez sur **Coller**.
-   7. Pour valider, double-cliquez sur le nom du certificat sous **Autorités de certification racines de confiance** et vérifiez qu’il n’y a aucune erreur et que votre certificat est présent. Si vous souhaitez utiliser le script HTTPS fourni dans cette rubrique pour configurer le serveur de rapports, la valeur **Empreinte numérique** des certificats est requise comme paramètre du script. **Pour obtenir la valeur d’empreinte numérique**, procédez comme suit. La section [Utiliser un script pour configurer le serveur de rapports et HTTPS](#use-script-to-configure-the-report-server-and-HTTPS)comprend un exemple PowerShell permettant de récupérer l’empreinte numérique.
+   7. Pour valider, double-cliquez sur le nom du certificat sous **Autorités de certification racines de confiance** et vérifiez qu’il n’y a aucune erreur et que votre certificat est présent. Si vous souhaitez utiliser le script HTTPS fourni dans cette rubrique pour configurer le serveur de rapports, la valeur **Empreinte numérique** des certificats est requise comme paramètre du script. **Pour obtenir la valeur d’empreinte numérique**, procédez comme suit. La section [Utiliser un script pour configurer le serveur de rapports et HTTPS](#use-script-to-configure-the-report-server-and-https)comprend un exemple PowerShell permettant de récupérer l’empreinte numérique.
       
       1. Double-cliquez sur le nom du certificat, par exemple ssrsnativecloud.cloudapp.net.
       2. Cliquez sur l’onglet **Détails** .

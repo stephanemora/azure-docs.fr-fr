@@ -299,6 +299,8 @@ items:
             href: app/snapshot-debugger-appservice.md
           - name: Activer le débogueur de capture instantanée pour d’autres environnements
             href: app/snapshot-debugger-vm.md
+          - name: Mettre à niveau le Débogueur de capture instantanée
+            href: app/snapshot-debugger-upgrade.md
           - name: Résolution des problèmes du débogueur de capture instantanée
             href: app/snapshot-debugger-troubleshoot.md
         - name: Diagnostics
@@ -826,6 +828,14 @@ items:
           href: platform/alerts-managing-alert-states.md
         - name: Gérer les alertes émanant d’autres services de supervision
           href: platform/alerts-managing-nagios-zabbix-scom.md
+      - name: Migrer les alertes classiques
+        items:
+        - name: Utiliser l’outil de migration
+          href: platform/alerts-using-migration-tool.md
+        - name: Préparer la migration
+          href: platform/alerts-prepare-migration.md
+        - name: Comprendre l’outil de migration
+          href: platform/alerts-understand-migration.md
     - name: Autoscale
       items:
       - name: Procédure pas à pas de mise à l’échelle
@@ -1047,9 +1057,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Exemples de code
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: c0ef35bb91ec796e818f7b263ffe171789d986ba
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 48ea888b5c21bc2c689d93684b4dbae7eaee1ed8
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577037"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629433"

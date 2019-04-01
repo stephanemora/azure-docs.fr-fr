@@ -4,7 +4,7 @@ description: Aperçu conceptuel pour apprendre à migrer des applications à par
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 0b87b1d3-88ad-4658-a465-9f05a3376dee
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 35ab4a9bdd66bf3571e7f189191550f88e17cee2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 4682e47e664384a6869e1a74e3de6d9083db082b
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206480"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58669449"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Découvrez les différences entre les services cloud et Service Fabric avant de migrer les applications.
 Microsoft Azure Service Fabric est la plateforme d’applications cloud nouvelle génération pour les applications distribuées hautement évolutives et fiables. Elle introduit de nombreuses nouvelles fonctionnalités d’empaquetage, de déploiement, de mise à niveau et de gestion des applications cloud distribuées. 
@@ -29,7 +29,7 @@ Ceci est un guide pour apprendre à migrer des applications à partir des servic
 ## <a name="applications-and-infrastructure"></a>Applications et infrastructure
 L’une des principales différences entre les services cloud et Service Fabric est la relation entre les machines virtuelles, les charges de travail et les applications. Une charge de travail correspond au code que vous écrivez pour effectuer une tâche spécifique ou fournir un service.
 
-* **Les services cloud visent à déployer des applications en tant que machines virtuelles.** Le code que vous écrivez est étroitement lié à une instance de machine virtuelle, par exemple un rôle web ou de travail. Déployer une charge de travail dans les services cloud revient à déployer une ou plusieurs instances de machines virtuelles qui exécutent la charge de travail. Il n’existe pas de séparation entre les applications et les machines virtuelles, et par conséquent, les applications ne sont pas associées à une définition formelle. Une application peut être considérée comme un ensemble d’instances de rôle web ou de travail au sein d’un déploiement de services cloud ou comme un déploiement complet de services cloud. Dans cet exemple, une application est représentée comme un ensemble d’instances de rôle.
+* **Les services cloud visent à déployer des applications en tant que machines virtuelles.**  Le code que vous écrivez est étroitement lié à une instance de machine virtuelle, par exemple un rôle web ou de travail. Déployer une charge de travail dans les services cloud revient à déployer une ou plusieurs instances de machines virtuelles qui exécutent la charge de travail. Il n’existe pas de séparation entre les applications et les machines virtuelles, et par conséquent, les applications ne sont pas associées à une définition formelle. Une application peut être considérée comme un ensemble d’instances de rôle web ou de travail au sein d’un déploiement de services cloud ou comme un déploiement complet de services cloud. Dans cet exemple, une application est représentée comme un ensemble d’instances de rôle.
 
 ![Topologie et applications de service cloud][1]
 
@@ -73,7 +73,7 @@ Avec la communication directe, les niveaux peuvent communiquer directement par l
 
  La communication directe est un modèle de communication courant dans Service Fabric. La principale différence entre Service Fabric et les services cloud est que dans les services cloud, vous vous connectez à une machine virtuelle, tandis que dans Service Fabric, vous vous connectez à un service. Cette distinction est importante pour plusieurs raisons :
 
-* Les services dans Service Fabric ne sont pas liés aux machines virtuelles qui les hébergent ; les services peuvent se déplacer au sein du cluster et en réalité, ils doivent même se déplacer pour différentes raisons : équilibrage des ressources, basculement, mises à niveau de l’application et de l’infrastructure, contraintes de positionnement ou de charge. Cela signifie que l’adresse d’une instance de service peut changer à tout moment. 
+* Services dans Service Fabric ne sont pas liés aux machines virtuelles qui les hébergent ; services peuvent se déplacer le cluster et en réalité, ils doivent se déplacer pour différentes raisons : Équilibrage des ressources, le basculement, mises à niveau de l’application et l’infrastructure et les contraintes de positionnement ou de charge. Cela signifie que l’adresse d’une instance de service peut changer à tout moment. 
 * Une machine virtuelle dans Service Fabric peut héberger plusieurs services, chacun avec des points de terminaison uniques.
 
 Service Fabric fournit un mécanisme de découverte de service, appelé service d’affectation de noms, qui peut être utilisé pour résoudre les adresses de point de terminaison des services. 

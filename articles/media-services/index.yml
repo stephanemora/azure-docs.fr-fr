@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 903c1153db57f7cb632fc752bb696598902f5aaa
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: abfcece2d71e456a39284ddb4cfa106bce31fb53
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519712"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670215"
 documentType: LandingData
 title: Documentation Azure Media Services
 metadata:
@@ -30,22 +30,27 @@ sections:
     columns: 2
     items:
     - href: /azure/media-services/latest/
-      html: <p>Découvrez comment encode, diffuser en continu à la demande, diffuser en direct et analyser vos vidéos avec Media Services v3.</p>
+      html: <p>Encodez, empaquetez, protégez votre contenu, diffusez des vidéos en streaming à la demande, diffusez en direct et analysez avec Media Services v3.</p>
       image:
         src: media/index/AMSIcons-media_servicesV3.svg
       title: Azure Media Services v3
     - href: /azure/media-services/video-indexer/
-      html: <p>Découvrez comment extraire les informations à partir de vos fichiers vidéos et audio à l’aide de Video Indexer.</p>
+      html: <p>Obtenez des insights de vos fichiers audio et vidéo à l’aide de Video Indexer.</p>
       image:
         src: media/index/AMSIcons-media_analytics.svg
       title: Video Indexer
     - href: /azure/media-services/previous/
-      html: <p>Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. Découvrez la dernière version, Media Services v3.</p>
+      html: <p>Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. </p>
       image:
-        src: media/index/AMSIcons-media_servicesV2.svg
+        src: 
       title: Azure Media Services v2 (hérité)
     - href: /azure/cdn/
-      html: <p>Découvrez comment utiliser CDN pour mettre en cache des objets statiques et accélérer le contenu dynamique, qui ne peut pas être mis en cache.</p>
+      html: <p>Utilisez CDN pour mettre en cache des objets statiques et accélérer le contenu dynamique, qui ne peut pas être mis en cache.</p>
       image:
         src: /azure/cdn/media/index/cdn.svg
       title: CDN
+    - href: http://amp.azure.net/libs/amp/latest/docs/index.html
+      html: <p>Lisez du contenu multimédia à partir de Microsoft Azure Media Services sur une grande variété de navigateurs et d’appareils.</p>
+      image:
+        src: 
+      title: Azure Media Player
