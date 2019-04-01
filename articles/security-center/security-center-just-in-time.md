@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/18/2019
+ms.date: 3/28/2019
 ms.author: monhaber
-ms.openlocfilehash: c7cc5784caf8a83a50536a8edc69ea76ea8589d8
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 66a7171aff7b9bab5f320df1d71e9cab4ce0477d
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199832"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758301"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Gérer l’accès juste-à-temps à la machine virtuelle
 
@@ -162,9 +162,13 @@ Dans le portail Azure, lorsque vous essayez de vous connecter à une machine vir
 
   ![invite jit](./media/security-center-just-in-time/jit-prompt.png)
 
-- Si vous ne disposez pas d’une stratégie JIT configurée sur la machine virtuelle, vous pouvez cliquer sur **Demander l’accès** pour vous permettre d’avoir accès conformément à la stratégie JIT définie pour la machine virtuelle.
+- Si vous ne disposez pas d’une stratégie JIT configurée sur la machine virtuelle, vous pouvez cliquer sur **Demander l’accès** pour vous permettre d’avoir accès conformément à la stratégie JIT définie pour la machine virtuelle. L’accès est demandé avec les paramètres par défaut suivants :
+    - **adresse IP source**: 'Any' (*) (ne peut pas être modifié)
+    - **intervalle de temps**: 3 heures (ne peut pas être modifié)
+    - **le numéro de port** RDP le port 3389 pour Windows / port 22 pour Linux (vous pouvez modifier le numéro de port dans le **se connecter à la machine virtuelle** boîte de dialogue.)
 
-  ![Demander l’accès jit](./media/security-center-just-in-time/jit-request-access.png)
+
+  >![Demander l’accès jit](./media/security-center-just-in-time/jit-request-access.png)
 
 ## <a name="auditing-jit-access-activity"></a>Audit de l’activité d’accès JIT
 

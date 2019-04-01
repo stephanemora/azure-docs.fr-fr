@@ -1,6 +1,6 @@
 ---
-title: L’accès aux données à l’aide de ASC pour IoT Preview | Microsoft Docs
-description: Découvrez comment accéder à vos données d’alerte et des recommandations de sécurité lorsque vous utilisez ASC pour IoT.
+title: L’accès aux données à l’aide d’Azure Security Center pour la version préliminaire IoT | Microsoft Docs
+description: Découvrez comment accéder à vos données d’alerte et des recommandations de sécurité lors de l’utilisation d’Azure Security Center pour IoT.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: d81a8973772879f4f4b143701a1f4be3ecad95d9
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 510ee9bdefe87c1fab40e58bb715f2a8cce936b7
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576637"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758520"
 ---
 # <a name="access-your-security-data"></a>Accéder à vos données de sécurité 
 
 > [!IMPORTANT]
-> ASC pour IoT est actuellement en version préliminaire publique.
+> Azure Security Center pour IoT est actuellement en version préliminaire publique.
 > Cette version préliminaire est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-ASC pour IoT stocke les données de sécurité brute, les recommandations et les alertes de sécurité (si vous choisissez d’enregistrer) dans votre espace de travail Analytique de journal.
+Azure Security Center (ASC) pour IoT stocke les données de sécurité brute, les recommandations et les alertes de sécurité (si vous choisissez d’enregistrer) dans votre espace de travail Analytique de journal.
 
 ## <a name="log-analytics"></a>Log Analytics
 
