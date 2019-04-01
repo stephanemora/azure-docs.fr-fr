@@ -9,12 +9,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 8ca6c73d6ccdab3acb4ebb18af9b4aa82683e026
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 5a1007f2408b48c96f5eeaf585b94c8caa7ceb45
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864296"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757758"
 ---
 # <a name="learn-text-moderation-concepts"></a>Familiarisez-vous avec les concepts de modération de texte
 
@@ -26,7 +26,7 @@ La réponse du service inclut les informations suivantes :
 
 - Vulgarité : correspondance basée sur des termes avec une liste prédéfinie de termes injurieux dans différentes langues
 - Classification : classification en trois catégories assistée par ordinateur
-- Informations d’identification personnelle (PII)
+- Données personnelles
 - Texte corrigé automatiquement
 - Texte d’origine
 - Langage
@@ -75,7 +75,7 @@ L’extrait suivant de l’extrait de code JSON présente un exemple de sortie :
 - `Score` est compris entre 0 et 1. Plus le score est élevé, plus le modèle prédit que la catégorie peut être applicable. Cette fonctionnalité s’appuie sur un modèle statistique plutôt que sur des résultats codés manuellement. Nous vous recommandons d’effectuer le test avec votre propre contenu afin de déterminer comment chaque catégorie correspond à vos besoins.
 - La valeur de `ReviewRecommended` est true ou false, selon les seuils de score internes. Les clients doivent évaluer l’opportunité d’utiliser cette valeur ou choisir des seuils personnalisés en fonction de leurs stratégies de contenu.
 
-## <a name="personally-identifiable-information-pii"></a>Informations d’identification personnelle (PII)
+## <a name="personal-data"></a>Données personnelles
 
 La fonctionnalité PII détecte la présence potentielle des informations suivantes :
 

@@ -1,6 +1,6 @@
 ---
-title: Déployer un ASC pour le module IoT Edge | Microsoft Docs
-description: Découvrez comment déployer ASC pour l’agent de sécurité IoT sur IoT Edge.
+title: Déployer Azure Security Center pour le module IoT Edge | Microsoft Docs
+description: Découvrez comment déployer Azure Security Center pour l’agent de sécurité IoT sur IoT Edge.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 87094b265a0c30c0349d64e4b956224525c04f74
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 2a201fe649d52ad9604c7ac6675b26d60e7f2dd1
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580492"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754766"
 ---
 # <a name="deploy-security-module-on-your-iot-edge-device"></a>Déployer le module de sécurité sur votre appareil IoT Edge
 
 > [!IMPORTANT]
-> ASC pour IoT est actuellement en version préliminaire publique.
+> Azure Security Center pour IoT est actuellement en version préliminaire publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-ASC pour IoT **azureiotsecurity** module fournit une solution de sécurité complète pour votre appareil IoT Edge.
+Azure Security Center (ASC) pour IoT **azureiotsecurity** module fournit une solution de sécurité complète pour votre appareil IoT Edge.
 Module de sécurité collecte, agrège et analyse les données de sécurité brute à partir de votre système d’exploitation et le conteneur système dans les alertes et les recommandations de sécurité actionnables.
 Pour plus d’informations, consultez [module de sécurité pour IoT Edge](security-edge-architecture.md).
 

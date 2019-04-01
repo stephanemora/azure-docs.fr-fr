@@ -2,18 +2,18 @@
 title: Vérifier l’intégrité d’un cluster de l’Explorateur de données Azure
 description: Cet article décrit la procédure permettant de déterminer si votre cluster de l’Explorateur de données Azure est sain.
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 0746247d2c912ba66e81b95f45b168e32b522130
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 8930c2a7538ca33622de68c9a888349b3301cd98
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46988425"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755855"
 ---
 # <a name="check-the-health-of-an-azure-data-explorer-cluster"></a>Vérifier l’intégrité d’un cluster de l’Explorateur de données Azure
 
@@ -35,6 +35,8 @@ Plusieurs facteurs affectent l’intégrité d’un cluster de l’Explorateur d
 
     ![Métriques Keep Alive de cluster](media/check-cluster-health/portal-metrics.png)
 
-1. Ajoutez d’autres métriques comme le processeur et la mise en cache mémoire pour évaluer l’utilisation des ressources pour le cluster.
+1. Il est possible d’ajouter d’autres mesures au graphe. Sélectionnez le graphe, puis **Ajouter une métrique**. Sélectionnez une autre métrique (**CPU** dans cet exemple).
 
-1. Si vous avez besoin d’aide pour diagnostiquer les problèmes d’intégrité d’un cluster, ouvrez une demande de support dans le [portail Azure](https://portal.azure.com).
+    ![Ajouter une métrique](media/check-cluster-health/add-metric.png)
+
+1. Si vous avez besoin d’aide pour diagnostiquer les problèmes d’intégrité d’un cluster, ouvrez une demande de support dans le [portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).

@@ -3,17 +3,17 @@ title: Mise à l’échelle de l’Explorateur de données Azure pour prendre en
 description: Cet article décrit les étapes pour monter et Descendre un cluster de l’Explorateur de données Azure en fonction des modifications à la demande.
 author: radennis
 ms.author: radennis
-ms.reviewer: v-orspod
+ms.reviewer: orspodek
 ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: a74c529fc3543d5cbdcf009a5b7736309e15569e
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 71f1d197b4a3fb437607f876ea524e582e62c0fd
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961701"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756325"
 ---
 # <a name="manage-cluster-scale-up-to-accommodate-changing-demand"></a>Gérer la monter en puissance du cluster pour prendre en compte les fluctuations de la demande
 

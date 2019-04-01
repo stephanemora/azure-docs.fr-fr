@@ -10,18 +10,18 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: cfaf0bf20449262fcebb6cefc1b0a499c6190ae8
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: d1c65b590fd68f68fdaeb110c0fd00e0c5a6649a
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861168"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756466"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>Démarrage rapide : Essayer Content Moderator sur le web
 
 Dans ce guide de démarrage rapide, vous allez utiliser l’outil de révision Content Moderator pour tester les fonctionnalités de base de Content Moderator sans avoir à écrire du code. Si vous souhaitez intégrer ce service dans votre application plus rapidement, consultez les autres démarrages rapides dans la section [Étapes suivantes](#next-steps).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 - Un navigateur web
 
@@ -69,5 +69,5 @@ Vous pouvez également passer aux étapes suivantes pour apprendre à utiliser l
 
 Découvrez comment utiliser les API de modération dans votre application.
 - Implémentez la modération d’images. Utilisez la [console d’API](try-image-api.md) ou le [démarrage rapide C#](image-moderation-quickstart-dotnet.md) pour rechercher dans des images d’éventuels contenus pour adultes ou choquants à l’aide de balises, d’indices de confiance et d’autres informations extraites.
-- Implémentez la modération de texte. Utilisez la [console d’API](try-text-api.md) ou le [démarrage rapide C#](text-moderation-quickstart-dotnet.md) pour rechercher dans un texte des termes vulgaires, la classification de texte indésirable assistée par ordinateur (préversion) et des informations d’identification personnelles. 
+- Implémentez la modération de texte. Utiliser le [console d’API](try-text-api.md) ou utiliser le [ C# quickstart](text-moderation-quickstart-dotnet.md) d’analyse du contenu de texte pour les injures potentielles, la classification assistée par ordinateur de texte indésirable (version préliminaire) et les données personnelles.
 - Implémentez la modération de vidéo. Suivez le [guide de modération vidéo pour C# ](video-moderation-api.md) afin d'analyser des vidéos et détecter tout contenu potentiellement pour adultes et choquant. 

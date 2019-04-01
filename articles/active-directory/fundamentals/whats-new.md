@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b56ad57255f07c93c1bf5f981db07ad4ba57806d
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 5077f09cba3548b03045011a7b8f16844156de55
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665659"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757636"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Nouveautés d’Azure Active Directory
 
@@ -147,7 +147,7 @@ Pour plus d’informations sur la nouvelle **journaux d’Audit** page, consulte
 **Catégorie de service :** Accès conditionnel  
 **Fonctionnalité de produit :** Protection et sécurité des identités
 
-Pour aider à empêcher les administrateurs d’accidentellement procéder eux-mêmes au verrouillage en dehors de leurs propres clients par le biais des stratégies d’accès conditionnel mal configurés, nous avons créé de nouveaux avertissements et des conseils mis à jour dans le portail Azure. Pour plus d’informations sur les nouvelles instructions, consultez [quelles sont les dépendances de service dans l’accès conditionnel Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/service-dependencies).
+Pour aider à empêcher les administrateurs d’accidentellement procéder eux-mêmes au verrouillage en dehors de leurs propres clients par le biais des stratégies d’accès conditionnel mal configurés, nous avons créé de nouveaux avertissements et des conseils mis à jour dans le portail Azure. Pour plus d’informations sur les nouvelles instructions, consultez [quelles sont les dépendances de service dans l’accès conditionnel Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/service-dependencies).
 
 ---
 

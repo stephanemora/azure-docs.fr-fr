@@ -1,6 +1,6 @@
 ---
-title: Présentation des ASC pour IoT Edge pour le module de sécurité IoT | Microsoft Docs
-description: Comprendre l’architecture et les fonctionnalités de ASC pour le module de sécurité IoT pour IoT Edge.
+title: Présentation d’Azure Security Center pour le module de sécurité IoT pour IoT Edge | Microsoft Docs
+description: Comprendre l’architecture et les fonctionnalités d’Azure Security Center pour le module de sécurité IoT pour IoT Edge.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 68117370e21c7b667bde5447cef510a4e7c77df0
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 11eadc70f6da20fdc9b837dfad45705278dd2d27
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580762"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756712"
 ---
 # <a name="azure-iot-edge-security-module"></a>Module de sécurité Azure IoT Edge
 
 > [!IMPORTANT]
-> ASC pour IoT est actuellement en version préliminaire publique.
+> Azure Security Center pour IoT est actuellement en version préliminaire publique.
 > Cette version préliminaire est fournie sans contrat de niveau de service et n’est pas recommandée pour la production worklo§1ads. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [Azure IoT Edge](https://docs.microsoft.com/en-us/azure/iot-edge/) fournit de puissantes fonctionnalités pour gérer et effectuer des flux de travail à la périphérie.
 La partie clé IoT Edge joue dans les environnements IoT rendre particulièrement attractif pour les personnes malveillantes.
 
-ASC pour le module de sécurité IoT fournit une solution de sécurité complète pour votre IoT Edge appareils.
+Azure Security Center (ASC) pour le module de sécurité IoT fournit une solution de sécurité complète pour votre IoT Edge appareils.
 ASC pour le module IoT collecte, agrège et analyse les données de sécurité brute à partir de votre système d’exploitation et le système de conteneur dans les alertes et les recommandations de sécurité actionnables.
 
 Similaire à ASC pour les agents de sécurité IoT pour les appareils IoT, l’ASC pour le module IoT Edge est hautement personnalisable via son jumeau de module.

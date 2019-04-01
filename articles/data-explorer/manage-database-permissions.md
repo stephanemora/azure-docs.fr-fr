@@ -2,24 +2,24 @@
 title: Gérer les autorisations de base de données de l’Explorateur de données Azure
 description: Cet article décrit les contrôles d’accès en fonction du rôle pour les bases de données et les tables dans l’Explorateur de données Azure.
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: b0fb2cd79c0ee685ad2000c5444a84d53e462f24
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
-ms.translationtype: HT
+ms.openlocfilehash: 3f5f174f5f5e8aa122ab9c280cc812dd64b0b425
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868273"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756491"
 ---
 # <a name="manage-azure-data-explorer-database-permissions"></a>Gérer les autorisations de base de données de l’Explorateur de données Azure
 
 L’Explorateur de données Azure vous permet de contrôler l’accès aux bases de données et aux tables à l’aide d’un modèle de *contrôle d’accès en fonction du rôle*. Avec ce modèle, les *principaux* (utilisateurs, groupes et applications) sont mappés aux *rôles*. Les principaux peuvent accéder aux ressources selon les rôles auxquels ils sont affectés.
 
-Cet article décrit les rôles disponibles et comment affecter des principaux à ces rôles.
+Cet article décrit les rôles disponibles et comment affecter des principaux à ces rôles à l’aide du portail Azure, ainsi que les commandes de gestion de l’Explorateur de données Azure.
 
 ## <a name="roles-and-permissions"></a>Rôles et autorisations
 

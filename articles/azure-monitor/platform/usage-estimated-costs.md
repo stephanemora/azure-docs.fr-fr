@@ -9,18 +9,18 @@ ms.date: 08/11/2018
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
-ms.openlocfilehash: 7911bd398b6760fb4f83382868f040382b86cd1f
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 2e59699b667215d4b09e4d87c1776431631348e8
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58480538"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754247"
 ---
-# <a name="monitoring-usage-and-estimated-costs"></a>Surveillance de l’utilisation et de l’estimation des coûts
+# <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>Surveiller l’utilisation et l’estimation des coûts dans Azure Monitor
 
 > [!NOTE]
 > Cet article explique comment visualiser l’utilisation et les coûts estimés avec plusieurs fonctions de surveillance Azure en fonction des différents modèles de tarification.  Pour plus d’informations, consultez les articles suivants.
-> - L’article [Gérer les coûts en contrôlant le volume et la conservation des données dans Log Analytics](../../azure-monitor/platform/manage-cost-storage.md) explique comment contrôler ses coûts en modifiant la durée de conservation des données.
+> - L’article [Gérer les coûts en contrôlant le volume et la conservation des données dans Log Analytics](manage-cost-storage.md) explique comment contrôler ses coûts en modifiant la durée de conservation des données.
 > - L’article [Analyser l’utilisation des données dans Log Analytics](../../azure-monitor/platform/data-usage.md) décrit comment analyser votre utilisation des données et donner des informations à ce sujet.
 > - L’article [Gérer la tarification et le volume de données dans Application Insights](../../azure-monitor/app/pricing.md) décrit comment analyser l’utilisation des données dans Application Insights.
 
@@ -184,7 +184,7 @@ Si vous exécutez à nouveau le script précédent comportant ``-Action listmigr
 Si vous avez plusieurs abonnements à migrer hébergés sous le même locataire, vous pouvez créer votre propre variante en utilisant des parties des scripts suivants :
 
 ```powershell
-#Query tenant and create an array comprised of all of your tenants subscription ids
+#Query tenant and create an array comprised of all of your tenants subscription IDs
 $TenantId = <Your-tenant-id>
 $Tenant =Get-AzSubscription -TenantId $TenantId
 $Subscriptions = $Tenant.Id
@@ -204,7 +204,7 @@ Invoke-AzResourceAction `
 }
 ```
 
-Vous pouvez davantage affiner le script en créant un script qui génère trois tableaux. Le premier tableau se compose de tous les ID d’abonnement dont la valeur ```isGrandFatherableSubscription``` est définie sur True et la valeur optedInDate est vide pour le moment. Le deuxième tableau contient les abonnements actuellement basés sur le nouveau modèle de tarification. Et le troisième tableau est renseigné uniquement avec les ID d’abonnement du locataire qui n’ont pas le droit d’être basés sur le nouveau modèle de tarification :
+Vous pouvez davantage affiner le script en créant un script qui génère trois tableaux. Un tableau se compose de tous les ID d’abonnements qui ont ```isGrandFatherableSubscription``` définie sur True et optedInDate n’a pas actuellement une valeur. Le deuxième tableau contient les abonnements actuellement basés sur le nouveau modèle de tarification. Et un troisième tableau rempli uniquement avec l’ID d’abonnement dans votre client qui ne sont pas éligibles pour le nouveau modèle de tarification :
 
 ```powershell
 [System.Collections.ArrayList]$Eligible= @{}

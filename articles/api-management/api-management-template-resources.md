@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: c52565403c7fbc80eacbf65428863db07d634030
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 673dcbeb630899eebc328cd4fae16f7fe8f47a55
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57897280"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757594"
 ---
 # <a name="azure-api-management-template-resources"></a>Ressources du modèle Gestion des API Azure
 La Gestion des API Azure fournit les types de ressources suivants, utilisables dans les modèles du portail des développeurs.  
@@ -45,6 +45,29 @@ La Gestion des API Azure fournit les types de ressources suivants, utilisables d
   
 ```  
   
+Les options de localisation suivantes sont prises en charge :
+
+| Paramètres régionaux    | Langage               |
+|-----------|------------------------|
+| « en »      | « Anglais »              |
+| « cs »      | "Čeština"              |
+| « de »      | « Allemand »              |
+| « es »      | « Espagnol »              |
+| « fr »      | "Français"             |
+| « hu »      | « Magyar »               |
+| « it »      | « Italiano »             |
+| « ja-JP »   | "日本語"                |
+| « ko »      | "한국어"                |
+| « nl »      | « Nederlands »           |
+| « pl »      | « Polski »               |
+| « pt-br »   | "Português (Brasil)"   |
+| "pt-pt"   | "Português (Portugal)" |
+| « ru »      | "Русский"              |
+| "sv"      | "Svenska"              |
+| « tr »      | "Türkçe"               |
+| « zh-hans » | "中文(简体)"           |
+| « zh-hant » | "中文(繁體)"           |
+
  Reportez-vous aux tableaux suivants pour connaître les ressources de chaînes utilisables dans vos modèles sur le portail des développeurs. Utilisez le nom de la table comme préfixe des ressources de chaînes dans ce tableau.  
   
 -   [ApisStrings](#ApisStrings)  

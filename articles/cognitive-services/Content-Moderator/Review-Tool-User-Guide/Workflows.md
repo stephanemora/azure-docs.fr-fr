@@ -1,90 +1,86 @@
 ---
-title: Définir et utiliser des flux de travail de modération du contenu - Content Moderator
+title: Définir et utiliser des flux de travail contenu via l’outil de vérification - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: Vous pouvez utiliser les API et le concepteur de flux de travail Azure Content Moderator pour définir des flux de travail personnalisés et des seuils en fonction de vos stratégies de contenu.
+description: Vous pouvez utiliser le Concepteur de flux de travail Azure Content Moderator pour définir le flux de travail personnalisés et les seuils en fonction de vos stratégies de contenu.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: article
-ms.date: 01/10/2019
+ms.date: 03/14/2019
 ms.author: sajagtap
-ms.openlocfilehash: 8fe380e3015e5b6929aebcb898eef44d6f6bceda
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 76990fb3b6ed1815ada724f28f8276bac1cf28d4
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213274"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757410"
 ---
-# <a name="define-test-and-use-workflows"></a>Définir, tester et utiliser des flux de travail
+# <a name="define-and-use-moderation-workflows"></a>Définir et utiliser des flux de travail de modération
 
-Vous pouvez utiliser les API et le concepteur de flux de travail Azure Content Moderator pour définir des flux de travail personnalisés et des seuils en fonction de vos stratégies de contenu.
+Dans ce guide, vous allez apprendre à configurer et utiliser [workflows](../review-api.md#workflows) sur le [outil de révision](https://contentmoderator.cognitive.microsoft.com) site Web. Flux de travail est des filtres personnalisés basés sur le cloud qui vous permettent de gérer plus efficacement le contenu. Flux de travail peut se connecter à une variété de services pour filtrer le contenu de différentes façons et puis exécutez l’action appropriée. Ce guide vous montre comment utiliser le connecteur de Content Moderator (qui est inclus par défaut) pour filtrer le contenu et configurer des révisions humaines dans un scénario classique de modération.
 
-Les flux de travail « se connectent » à l’API Content Moderator à l’aide de connecteurs. Vous pouvez utiliser d’autres API si un connecteur pour cette API est disponible. L’exemple présenté ici utilise le connecteur Content Moderator qui est inclus par défaut.
+## <a name="create-a-new-workflow"></a>Créer un nouveau flux de travail
 
-## <a name="browse-to-the-workflows-section"></a>Accéder à la section Flux de travail
+Accédez à la [outil de révision du contenu modérateur](https://contentmoderator.cognitive.microsoft.com/) et s’y connecter. Dans l’onglet **Paramètres**, sélectionnez **Flux de travail**.
 
-Dans l’onglet **Paramètres**, sélectionnez **Flux de travail**.
+![Paramètres des flux de travail](images/2-workflows-0.png)
 
-  ![Paramètres des flux de travail](images/2-workflows-0.png)
+Dans l’écran suivant, sélectionnez **ajouter un flux de travail**.
 
-## <a name="start-a-new-workflow"></a>Démarrage d’un nouveau flux de travail
+![Modifier un flux de travail](images/2-workflows-1.png)
 
-Sélectionnez **Ajouter un flux de travail**.
+### <a name="assign-a-name-and-description"></a>Assigner un nom et une description
 
-  ![Modifier un flux de travail](images/2-workflows-1.png)
+Nommez votre flux de travail, entrez une description et choisir si le flux de travail gère les images ou du texte.
 
-## <a name="assign-a-name-and-description"></a>Assigner un nom et une description
+![Nom et description du flux de travail](images/image-workflow-create.PNG)
 
-Nommez votre flux de travail, entrez une description et choisissez si le flux de travail va gérer les images ou du texte.
+### <a name="define-evaluation-criteria"></a>Définir les critères d’évaluation
 
-  ![Nom et description du flux de travail](images/ocr-workflow-step-1.PNG)
+Sur l’écran suivant, accédez à la **si** section. Dans le menu déroulant supérieur, choisissez **Condition**. Cela vous permettra de configurer la condition sur laquelle le flux de travail effectuera une action. Si vous souhaitez utiliser plusieurs conditions, choisissez **combinaison** à la place. 
 
-## <a name="define-the-evaluation-criteria-condition"></a>Définir les critères d’évaluation (« condition »)
+Ensuite, sélectionnez un connecteur. Cet exemple utilise **Content Moderator**. Selon le connecteur que vous choisissez, vous obtiendrez des options différentes pour la sortie de données. Consultez le [connecteurs](./configure.md#connectors) section du guide de paramètres d’outil de révision pour apprendre à configurer d’autres connecteurs.
 
-Dans la capture d’écran suivante, vous pouvez voir les champs et les sélections if-then-else que vous devez définir dans vos flux de travail. Choisir un connecteur. Cet exemple utilise **Content Moderator**. Selon le connecteur que vous choisissez, les options disponibles pour la sortie changent.
+![Sélectionnez le connecteur de flux de travail](images/image-workflow-connect-to.PNG)
 
-  ![Définir la condition du flux de travail](images/ocr-workflow-step-2-condition.PNG)
+Choisissez le résultat souhaité à utiliser et définir les conditions à vérifier par rapport à.
 
-Une fois que vous avez sélectionné le connecteur et la sortie de votre choix, sélectionnez un opérateur et la valeur de la condition.
+![Définir la condition du flux de travail](images/image-workflow-condition.PNG)
 
-## <a name="define-the-action-to-take"></a>Définir l’action à entreprendre
+### <a name="define-the-action"></a>Définir l’action
 
-Sélectionnez l’action à entreprendre et la condition à respecter. L’exemple suivant crée une révision de l’image, attribue une balise `a`,et la met en évidence pour la condition indiquée. Vous pouvez également combiner plusieurs conditions pour obtenir les résultats souhaités. Vous pouvez éventuellement ajouter un autre chemin d’accès alternatif (Else).
+Accédez à la **puis** section, où vous sélectionnez une action. L’exemple suivant crée une révision d’image et affecte une balise. Si vous le souhaitez, vous pouvez ajouter un autre chemin d’accès (Else) et définir une action pour ce faire, ainsi.
 
-  ![Définir l’action du flux de travail](images/ocr-workflow-step-3-action.PNG)
+![Définir l’action du flux de travail](images/image-workflow-action.PNG)
 
-## <a name="save-your-workflow"></a>Enregistrer votre flux de travail
+### <a name="save-the-workflow"></a>Enregistrer le flux de travail
 
-Enfin, enregistrez le flux de travail et notez le nom du flux de travail. Vous avez besoin du nom pour démarrer un travail de modération à l’aide de l’API Review.
+Notez le nom de flux de travail ; vous avez besoin du nom pour démarrer un travail de modération avec l’API de flux de travail (voir ci-dessous). Enfin, enregistrez le flux de travail à l’aide de la **enregistrer** bouton en haut de la page.
 
 ## <a name="test-the-workflow"></a>Tester le flux de travail
 
-Maintenant que vous avez défini un flux de travail personnalisé, testez-le avec un exemple de contenu.
+Maintenant que vous avez défini un flux de travail personnalisé, testez-le avec exemple de contenu. Accédez à **Workflows** et sélectionnez le correspondantes **exécuter le flux de travail** bouton.
 
-Sélectionnez le bouton **Exécuter le flux de travail** correspondant.
+![Test du flux de travail](images/image-workflow-execute.PNG)
 
-  ![Test du flux de travail](images/ocr-workflow-step-6-list.PNG)
+Enregistrer ce [exemple d’image](https://moderatorsampleimages.blob.core.windows.net/samples/sample3.png) sur votre disque local. Puis sélectionnez **ou choisissez les fichiers** et charger l’image dans le flux de travail.
 
-### <a name="upload-a-file"></a>Charger un fichier
+![une femme dans une couleur de bain](images/sample-racy.PNG)
 
-Enregistrez l’[exemple d’image](https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png) sur votre disque local. Pour tester le flux de travail, sélectionnez **Choisir le(s) fichier(s)** et chargez l’image.
+### <a name="track-progress"></a>Suivre la progression
 
-  ![Charger le fichier image](images/ocr-workflow-step-7-upload.PNG)
+Vous pouvez afficher la progression du flux de travail dans la fenêtre contextuelle suivante.
 
-### <a name="track-the-workflow"></a>Suivre le flux de travail
+![Suivre l’exécution du flux de travail](images/image-workflow-job.PNG)
 
-Suivez le flux de travail lors de son exécution.
+### <a name="verify-workflow-action"></a>Vérifier l’action de flux de travail
 
-  ![Suivre l’exécution du flux de travail](images/ocr-workflow-step-4-test.PNG)
+Accédez à la **Image** onglet sous **Examinez** et vérifiez qu’il existe une révision de l’image qui vient d’être créée.
 
-### <a name="review-any-images-flagged-for-human-moderation"></a>Réviser toutes les images marquées d’un indicateur pour la modération humaine
+![Réviser les images](images/image-workflow-review.PNG)
 
-Pour afficher la révision d’images, accédez à l’onglet **Image** sous **Révision**.
+## <a name="next-steps"></a>Étapes suivantes
 
-  ![Réviser les images](images/ocr-sample-image-workflow1.PNG)
-
-## <a name="next-steps"></a>Étapes suivantes 
-
-Pour appeler le flux de travail à partir du code, utilisez les flux de travail personnalisés avec le [`Job`démarrage rapide de la console d’API](../try-review-api-job.md) et le [démarrage rapide du Kit de développement logiciel (SDK) .NET](../moderation-jobs-quickstart-dotnet.md).
+Dans ce guide, vous avez appris à configurer et utiliser des flux de travail modération de contenu modérateur [outil de vérification](https://contentmoderator.cognitive.microsoft.com). Ensuite, consultez le [guide de l’API REST](../try-review-api-workflow.md) pour apprendre à créer des flux de travail par programmation.

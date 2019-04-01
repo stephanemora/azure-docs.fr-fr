@@ -7,21 +7,18 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/30/2019
 ms.author: juliako
-ms.openlocfilehash: fd680b00feb8a75dfec952d7211554100fca00d8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7cb02a0793a4c96c98b4932b6046839f004461bc
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58075064"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758115"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Incorporer des widgets Video Indexer dans vos applications
 
 Cet article vous explique comment incorporer des widgets Video Indexer dans vos applications. Video Indexer prend en charge l'incorporation de deux types de widgets dans votre application : **Insights cognitifs** et **Lecteur**. 
-
-> [!NOTE]
-> Depuis le 1er février 2018, la version 1 du widget **Insights cognitifs** est déconseillée. La version d’URL incorporée par défaut sera `version=2`.
 
 À partir de la version 2, l'URL de base du widget inclut la région du compte. Par exemple, un compte situé dans la région USA Ouest génère : `https://wus2.videoindexer.ai/embed/insights/...`.
 
@@ -34,7 +31,6 @@ Un widget **Insight cognitifs** inclut tous les insights visuels extraits à par
 |Nom|Définition|Description|
 |---|---|---|
 |widgets|Chaînes séparées par des virgules|Vous permet de contrôler les insights dont vous voulez faire le rendu. <br/>Exemple : `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` affichera uniquement les insights d’IU des marques (brands) et des personnes (people)<br/>Options disponibles : personnes (people), mots clés (keywords), annotations, marques (brands), sentiments, transcription (transcript), recherche (search).<br/>non pris en charge via l’URL dans la version=2<br/><br/>**Remarque :** le paramètre d’URL des **widgets** n’est pas pris en charge si la **version=2** est utilisée. |
-|version|Versions du widget **Insight cognitifs**|Pour obtenir les dernières mises à jour du widget Insight, ajoutez le paramètre de requête `?version=2` à l’URL incorporée. Par exemple, `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?version=2` <br/> Pour obtenir la version antérieure, supprimez simplement le `version=2` de l’URL.
 
 ### <a name="player-widget"></a>Widget Lecteur
 

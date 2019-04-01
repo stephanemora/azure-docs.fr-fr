@@ -1,6 +1,6 @@
 ---
-title: Présentation de ASC pour l’architecture de solution IoT Preview | Microsoft Docs
-description: En savoir plus sur le flux d’informations dans l’ASC pour le service IoT.
+title: Présentation d’Azure Security Center pour l’architecture de solution IoT Preview | Microsoft Docs
+description: En savoir plus sur le flux d’informations dans le centre de sécurité Azure pour le service IoT.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
-ms.openlocfilehash: ee81d9543525ba1187fc6c078391559929b9bf96
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: d70be919fa829401b4a415db626a3cee0713753b
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541901"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754985"
 ---
-# <a name="asc-for-iot-architecture"></a>ASC pour l’architecture IoT
+# <a name="azure-security-center-for-iot-architecture"></a>Azure Security Center pour l’architecture IoT
 
-Cet article explique l’architecture du système fonctionnelles de l’Azure Security Center pour la solution IoT. 
+Cet article explique l’architecture système fonctionnel d’Azure Security Center (ASC) pour la solution IoT. 
 
 > [!IMPORTANT]
-> ASC pour IoT est actuellement en version préliminaire publique.
+> Azure Security Center pour IoT est actuellement en version préliminaire publique.
 > Cette version préliminaire est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="asc-for-iot-components"></a>ASC pour les composants de l’IoT

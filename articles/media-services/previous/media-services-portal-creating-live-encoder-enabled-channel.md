@@ -1,5 +1,5 @@
 ---
-title: Comment effectuer une diffusion de vidéo en flux continu à l’aide d’Azure Media Services pour créer des flux multidébit avec le portail Azure | Microsoft Docs
+title: Diffuser en continu à l’aide d’Azure Media Services pour créer des flux multidébit avec le portail Azure | Microsoft Docs
 description: Ce didacticiel vous guide tout au long des étapes de création d’un canal qui reçoit un flux en temps réel à vitesse de transmission unique et qui l’encode en flux à vitesses de transmission multiples à l’aide du portail Azure.
 services: media-services
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 03/30/2019
 ms.author: juliako
-ms.openlocfilehash: 1482569e415971fba98de8a586cc2868cc574198
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: c230787b739b964998202180efaba20ad8233611
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258086"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757793"
 ---
-# <a name="how-to-perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>Comment effectuer une diffusion en continu en direct à l’aide de Media Services pour créer des flux multidébit avec le portail Azure  
+# <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Diffuser en continu à l’aide de Media Services pour créer des flux multidébit avec le portail Azure  
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
@@ -42,34 +42,26 @@ Ci-après figurent les étapes générales impliquées dans la création d’app
 > [!NOTE]
 > Actuellement, la durée maximale recommandée d’un événement en direct est de 8 heures. Veuillez envoyer un message à l’adresse amslived@microsoft.com si vous avez besoin d’exécuter un canal sur de plus longues périodes.
 
-1. Connectez une caméra vidéo à un ordinateur. Lancez et configurez un encodeur live local qui peut générer un flux à débit unique dans l’un des protocoles suivants : RTMP ou Smooth Streaming. Pour plus d’informations, voir [Prise en charge RTMP et encodeurs dynamiques dans Azure Media Services](https://go.microsoft.com/fwlink/?LinkId=532824).
+1. Connectez une caméra vidéo à un ordinateur. <br/>Pour obtenir des idées de configuration, consultez [Simple and portable event video gear setup]( https://link.medium.com/KNTtiN6IeT).
+1. Lancez et configurez un encodeur live local qui peut générer un flux à débit unique dans l’un des protocoles suivants : RTMP ou Smooth Streaming. Pour plus d’informations, voir [Prise en charge RTMP et encodeurs dynamiques dans Azure Media Services](https://go.microsoft.com/fwlink/?LinkId=532824). <br/>Consultez également ce billet de blog : [Live streaming production with OBS](https://link.medium.com/ttuwHpaJeT).
 
     Cette étape peut également être effectuée après la création du canal.
-2. Créez et démarrez un canal. 
-3. Récupérez l’URL de réception du canal. 
+1. Créez et démarrez un canal. 
+1. Récupérez l’URL de réception du canal. 
 
     L’URL de réception est utilisée par l’encodeur dynamique pour envoyer le flux au canal.
-4. Récupérez l’URL d’aperçu du canal. 
+1. Récupérez l’URL d’aperçu du canal. 
 
     Utilisez cette URL pour vérifier que votre canal reçoit correctement le flux dynamique.
-5. Créez un événement/programme (ce qui crée également un élément multimédia). 
-6. Publiez l’événement (ce qui crée un localisateur OnDemand pour l’élément multimédia associé).    
-7. Démarrez l’événement dès que vous êtes prêt à lancer la diffusion en continu et l’archivage.
-8. Un signal peut éventuellement être envoyé à l’encodeur dynamique pour qu’il démarre une publicité. La publicité est insérée dans le flux de sortie.
-9. Arrêtez l’événement chaque fois que vous voulez arrêter la diffusion et archiver l’événement.
-10. Supprimez l’événement (et éventuellement l’élément multimédia).   
-
-## <a name="in-this-tutorial"></a>Dans ce didacticiel
-Dans ce didacticiel, le portail Azure est utilisé pour effectuer les tâches suivantes : 
-
-1. Créez un canal qui est activé pour effectuer un encodage en temps réel.
-2. Obtenez l’URL de réception afin de la fournir à l’encodeur dynamique. L’encodeur dynamique utilise cette URL pour recevoir le flux dans le canal.
-3. Créer un événement/programme (et un élément multimédia).
-4. Publier l’élément multimédia et obtenir les URL de diffusion en continu.  
-5. Lire votre contenu.
-6. Nettoyage.
+1. Créez un événement/programme (ce qui crée également un élément multimédia). 
+1. Publiez l’événement (ce qui crée un localisateur OnDemand pour l’élément multimédia associé).    
+1. Démarrez l’événement dès que vous êtes prêt à lancer la diffusion en continu et l’archivage.
+1. Un signal peut éventuellement être envoyé à l’encodeur dynamique pour qu’il démarre une publicité. La publicité est insérée dans le flux de sortie.
+1. Arrêtez l’événement chaque fois que vous voulez arrêter la diffusion et archiver l’événement.
+1. Supprimez l’événement (et éventuellement l’élément multimédia).   
 
 ## <a name="prerequisites"></a>Conditions préalables
+
 Les éléments suivants sont requis pour suivre le didacticiel.
 
 * Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. 
@@ -78,6 +70,7 @@ Les éléments suivants sont requis pour suivre le didacticiel.
 * Une webcam et un encodeur capable d’envoyer un flux dynamique à débit binaire unique.
 
 ## <a name="create-a-channel"></a>Créer un canal
+
 1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez Media Services, puis cliquez sur le nom de votre compte Media Services.
 2. Sélectionnez **Vidéo en flux continu**.
 3. Sélectionnez **Création personnalisée**. Cette option vous permet de créer un canal activé pour l’encodage live.
@@ -120,9 +113,10 @@ Pour plus d’informations, consultez l’article [Comment effectuer une diffusi
 ## <a name="get-ingest-urls"></a>Obtenir les URL de réception
 Lorsque le canal est créé, vous pouvez obtenir des URL de réception que vous devez fournir à l’encodeur dynamique. L’encodeur utilise ces URL pour entrer un flux dynamique.
 
-![ingesturls](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
+![URL de réception](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
 
 ## <a name="create-and-manage-events"></a>Créer et gérer des événements
+
 ### <a name="overview"></a>Présentation
 Un canal est associé à des événements/programmes vous permettant de contrôler la publication et le stockage des segments dans un flux dynamique. Les canaux gèrent des événements/programmes. La relation entre canal et programme est très similaire au contenu multimédia traditionnel où un canal a un flux de contenu constant et un programme est limité à un événement minuté sur ce canal.
 
@@ -154,7 +148,7 @@ Il existe deux façons de démarrer un événement :
 
     Spécifiez le nom de l’événement, le nom de l’élément multimédia, la fenêtre d’archivage et l’option de chiffrement.
 
-    ![createprogram](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
+    ![Créer un programme](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
 
     Si vous avez laissé la case **Publier cet événement en direct maintenant** cochée, l’événement de publication des URL est créé.
 

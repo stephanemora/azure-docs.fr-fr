@@ -1,6 +1,6 @@
 ---
-title: Configurer un ASC pour l’agent IoT préversion | Microsoft Docs
-description: Découvrez comment configurer des agents pour une utilisation avec ASC pour IoT.
+title: Configurer Azure Security Center pour l’agent IoT préversion | Microsoft Docs
+description: Découvrez comment configurer des agents pour une utilisation avec Azure Security Center pour IoT.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 8bb9f0bc57e03ae0897e77acaa30ec85a3541646
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 27b548459bd1fee3c6596cce624b00d052e608fe
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649371"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757383"
 ---
 # <a name="tutorial-configure-security-agents"></a>Didacticiel : Configurer des agents de sécurité
 
 > [!IMPORTANT]
-> ASC pour IoT est actuellement en version préliminaire publique.
+> Azure Security Center pour IoT est actuellement en version préliminaire publique.
 > Cette version préliminaire est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Cet article explique ASC pour l’agent de sécurité IoT, comment modifier les configurer ASC pour les agents de sécurité IoT.
+Cet article explique l’Azure Security Center (ASC) pour l’agent de sécurité IoT, comment modifier les configurer ASC pour les agents de sécurité IoT.
 
 > [!div class="checklist"]
 > * Configurer des agents de sécurité

@@ -1,6 +1,6 @@
 ---
-title: Envoyer vos messages de sécurité à ASC pour IoT Preview | Microsoft Docs
-description: Apprenez à envoyer vos messages de sécurité à l’aide de ASC pour IoT.
+title: Envoyer vos messages de sécurité à Azure Security Center pour la version préliminaire IoT | Microsoft Docs
+description: Apprenez à envoyer vos messages de sécurité à l’aide d’Azure Security Center pour IoT.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: d8eefff5a5ea03237eea60a63b63d70f605f10b3
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 2e8fc3e2cf85fb06d37347870e3b2b9c82f1aa96
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650153"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754791"
 ---
 # <a name="send-security-messages-sdk"></a>Envoyer des messages de sécurité SDK
 
 > [!IMPORTANT]
-> ASC pour IoT est actuellement en version préliminaire publique.
+> Azure Security Center pour IoT est actuellement en version préliminaire publique.
 > Cette version préliminaire est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Ce guide explique ASC pour les fonctionnalités du service IoT lorsque vous choisissez collecter et envoyer des messages de sécurité de votre appareil sans utiliser un ASC pour l’agent IoT et explique comment faire.  
+Ce guide explique Azure Security Center (ASC) pour les fonctionnalités du service IoT lorsque vous choisissez collecter et envoyer des messages de sécurité de votre appareil sans utiliser un ASC pour l’agent IoT et explique comment faire.  
 
 Dans ce guide, vous apprendrez comment : 
 > [!div class="checklist"]

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 735835d16eb14c3847f36ecb6f46c08c0a8928ef
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 10fe5d90e7a7a59a1b543209a37b998376fdda1e
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339514"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757656"
 ---
 # <a name="language-and-region-support-for-luis"></a>Prise en charge de la région et de la langue pour LUIS
 
@@ -105,10 +105,10 @@ Les cultures suivantes ont des versions du Générateur de jetons personnalisé�
 |Allemand<br>`de-de`|1.0.1|Crée des jetons en les fractionnant sur les espaces de mots.<br> Si un utilisateur entre `Ich fahre einen krankenwagen` comme énoncé, il reste un jeton unique. Par conséquent `krankenwagen` est marquée comme une seule entité. |
 
 ### <a name="migrating-between-tokenizer-versions"></a>Migration entre les versions du Générateur de jetons
+<!--
+Your first choice is to change the tokenizer version in the app file, then import the version. This action changes how the utterances are tokenized but allows you to keep the same app ID. 
 
-Votre premier choix consiste à modifier la version du Générateur de jetons dans le fichier d’application, puis importer la version. Cette action modifie comment énoncés sont sous forme de jetons, mais vous pouvez ainsi conserver le même ID d’application. 
-
-Générateur de jetons JSON pour 1.0.0. Notez la valeur de propriété pour `tokenizerVersion`. 
+Tokenizer JSON for 1.0.0. Notice the property value for  `tokenizerVersion`. 
 
 ```JSON
 {
@@ -157,7 +157,7 @@ Générateur de jetons JSON pour 1.0.0. Notez la valeur de propriété pour `tok
 }
 ```
 
-Générateur de jetons JSON pour la version 1.0.1. Notez la valeur de propriété pour `tokenizerVersion`. 
+Tokenizer JSON for version 1.0.1. Notice the property value for  `tokenizerVersion`. 
 
 ```JSON
 {
@@ -205,5 +205,8 @@ Générateur de jetons JSON pour la version 1.0.1. Notez la valeur de propriét�
     "settings": []
 }
 ```
+-->
 
-Le second choix consiste à [importer le fichier comme nouvelle application](luis-how-to-start-new-app.md#import-an-app-from-file), au lieu d’une version. Cette action signifie la nouvelle application a un ID d’application différents, mais utilise la version du Générateur de jetons spécifiée dans le fichier. 
+Création de jetons se produit au niveau de l’application. Il n’existe aucune prise en charge pour la création de jetons de niveau de version. 
+
+[Importez le fichier comme nouvelle application](luis-how-to-start-new-app.md#import-an-app-from-file), au lieu d’une version. Cette action signifie la nouvelle application a un ID d’application différents, mais utilise la version du Générateur de jetons spécifiée dans le fichier. 

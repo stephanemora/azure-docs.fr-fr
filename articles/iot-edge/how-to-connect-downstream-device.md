@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 32b9a00aa943813bec3c518c3c9dbf0e37a9bc63
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5a05b8f0f9484ea49fbfb0bbe8818aa9cd0d66ee
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445923"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757132"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Connecter un appareil en aval à une passerelle Azure IoT Edge
 
@@ -43,7 +43,7 @@ Avant de suivre les étapes décrites dans cet article, vous devez avoir deux ap
     Actuellement, seuls les appareils en aval avec authentification par clé symétrique peuvent se connecter via des passerelles IoT Edge. Les autorités de certification X.509 et les certificats auto-signés X.509 ne sont pas pris en charge actuellement.
     
 > [!NOTE]
-> Le « nom de passerelle » permet de créer les certificats dans cette instruction, doit être le même nom que celles utilisées en tant que nom d’hôte dans votre fichier de config.yaml IoT Edge et GatewayHostName dans la chaîne de connexion de l’appareil en aval. Le « nom de passerelle » doit être résolu en une adresse IP, à l’aide de DNS ou une entrée de fichier hôte. Communication basée sur le protocole utilisé (MQTTS:8883 / AMQPS:5671 / HTTPS:433) doit être possible entre l’appareil en aval et le soit transparent IoT Edge. Si un pare-feu est entre les deux, le port correspondant doit être ouvert.
+> Le « nom de passerelle » utilisé dans cet article doit être le même nom tel qu’il est utilisé comme nom d’hôte dans votre fichier de config.yaml IoT Edge. Le nom de la passerelle doit pouvoir être résolu en une adresse IP, à l’aide de DNS ou une entrée de fichier hôte. Communication basée sur le protocole utilisé (MQTTS:8883 / AMQPS:5671 / HTTPS:433) doit être possible entre l’appareil en aval et le soit transparent IoT Edge. Si un pare-feu est entre les deux, le port correspondant doit être ouvert.
 
 ## <a name="prepare-a-downstream-device"></a>Préparer un appareil en aval
 
@@ -197,6 +197,14 @@ Voici un exemple de commande qui vérifie que tout a été configuré correcteme
 ```cmd/sh
 openssl s_client -connect mygateway.contoso.com:8883 -CAfile <CERTDIR>/certs/azure-iot-test-only.root.ca.cert.pem -showcerts
 ```
+
+## <a name="troubleshoot-the-gateway-connection"></a>Résoudre les problèmes de la connexion de passerelle
+
+Si votre appareil de nœud terminal a une connexion intermittente à son appareil de passerelle, essayez les étapes suivantes pour la résolution. 
+
+1. Est le nom de la passerelle ajouté à la connexion de chaîne le même que le nom d’hôte dans le fichier de config.yaml IoT Edge sur l’appareil de passerelle ?
+2. Est le nom de la passerelle peut être résolue à une adresse IP ? Vous pouvez résoudre les connexions intenmittent à l’aide de DNS ou en ajoutant une entrée de fichier hôte sur l’appareil de la feuille.
+3. Les ports de communication sont ouverts dans votre pare-feu ? Communication basée sur le protocole utilisé (MQTTS:8883 / AMQPS:5671 / HTTPS:433) doit être possible entre l’appareil en aval et le soit transparent IoT Edge.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

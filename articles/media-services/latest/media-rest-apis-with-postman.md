@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2018
 ms.author: juliako
-ms.openlocfilehash: 24ee0083ec79265f0ac4dfc0a2e235bc72522831
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: cecfd0fafd17e9c463e0c0a74f1e30290a53d82f
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813889"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758201"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Configurer Postman pour les appels d’API REST Media Services
 
 Ce tutoriel vous montre comment configurer **Postman** afin de l’utiliser pour appeler l’API REST Azure Media Services (AMS). Le tutoriel montre comment importer des fichiers d’environnement et de collection dans **Postman**. La collection contient des définitions groupées de requêtes HTTP qui appellent les API REST de Azure Media Services (AMS). Le fichier d’environnement contient des variables qui sont utilisées par la collection.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 - [Créer un compte Media Services](create-account-cli-how-to.md). Veillez à mémoriser le nom du groupe de ressources et le nom du compte Media Services. 
 - Obtenir les informations nécessaires pour [accéder aux API](access-api-cli-how-to.md)
@@ -89,6 +89,13 @@ Avant de commencer à manipuler des ressources AMS v3, vous devez obtenir et dé
 
     ![Obtenir le jeton AAD](./media/develop-with-postman/postman-get-aad-auth-token.png)
 
+## <a name="see-also"></a>Voir aussi
+
+- [Charger des fichiers dans un compte Media Services - REST](upload-files-rest-how-to.md)
+- [Créer des filtres avec Media Services - REST](filters-dynamic-manifest-rest-howto.md)
+- [API Azure Resource Manager basé sur l’API REST](https://github.com/Azure-Samples/media-services-v3-arm-templates)
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Diffuser des fichiers en continu avec REST](stream-files-tutorial-with-rest.md).  
+- [Diffuser des fichiers en continu avec REST](stream-files-tutorial-with-rest.md).  
+- [Tutoriel : Encoder un fichier distant basé sur une URL et diffuser la vidéo en continu - REST](stream-files-tutorial-with-rest.md)

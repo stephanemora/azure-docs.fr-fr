@@ -3,23 +3,23 @@ title: Rédiger des requêtes pour l’Explorateur de données Azure
 description: Dans cette procédure, vous allez apprendre à effectuer des requêtes de base et plus avancées pour l’Explorateur de données Azure.
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 0a2b56164662a13d8254d8956712077e5f8a83a9
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: 8afb829f806ab55a069ded9cb7198f66368e8720
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961518"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758690"
 ---
 # <a name="write-queries-for-azure-data-explorer"></a>Rédiger des requêtes pour l’Explorateur de données Azure
 
 Dans cet article, vous allez apprendre à utiliser le langage de requête dans l’Explorateur de données Azure pour effectuer des requêtes de base avec les opérateurs les plus courants. Certaines des fonctionnalités les plus avancées du langage vous sont également présentées.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Vous pouvez exécuter les requêtes dans cet article de deux manières :
 

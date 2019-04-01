@@ -1,6 +1,6 @@
 ---
-title: ASC pour guide d’investigation appareil IoT Preview | Microsoft Docs
-description: Cette procédure traitant explique comment ASC pour IoT permet d’analyser un appareil IoT suspect à l’aide d’Analytique de journal.
+title: Azure Security Center pour le guide d’investigation appareil IoT Preview | Microsoft Docs
+description: Cette procédure traitant explique comment utiliser Azure Security Center pour IoT pour examiner un appareil IoT suspect à l’aide d’Analytique de journal.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 032315d1b618b9716e23c8433c6ec1bf64b7e77d
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 6097954e09d5fd62c45f59b009d974d277bafc57
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580537"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755242"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>Examiner un appareil IoT suspect
 
 > [!IMPORTANT]
-> ASC pour IoT est actuellement en version préliminaire publique.
+> Azure Security Center pour IoT est actuellement en version préliminaire publique.
 > Cette version préliminaire est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-ASC pour les alertes de service de IoT et les preuves fournissent des indications clair lorsque les appareils IoT sont suspectés d’implication dans les activités suspectes ou lorsque les indications existent qu’un appareil est compromis. 
+Azure Security Center (ASC) pour les preuves, ainsi que les alertes de service IoT fournissent des indications clair lorsque les appareils IoT sont suspectés d’implication dans les activités suspectes ou lorsque les indications existent qu’un appareil est compromis. 
 
 Dans ce guide, utilisez les suggestions d’investigation fournies pour aider à déterminer les risques potentiels pour votre organisation, choisissez comment corriger et découvrir des meilleurs moyens d’éviter des attaques similaires à l’avenir.  
 

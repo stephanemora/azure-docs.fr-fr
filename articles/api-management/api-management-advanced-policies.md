@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 9d3bc50e1578704de029d53c0b1eaa21e74182cf
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 43cbeea554f43e4db7d5440af83a9b414741d2f6
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401917"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756615"
 ---
 # <a name="api-management-advanced-policies"></a>Stratégies avancées de la Gestion des API
 
@@ -253,7 +253,7 @@ Cette stratégie au niveau de l’opération ne transmet pas de demandes au serv
 
 | Attribut                               | Description                                                                                                      | Obligatoire | Default     |
 | --------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| timeout="integer"                       | Délai d’expiration en secondes avant l’échec de l’appel au service principal. Valeur minimale est 0 seconde. Valeurs maximales est 240 secondes.| Non        | 240 secondes |
+| timeout="integer"                       | La quantité de temps en secondes à attendre pour les en-têtes de réponse HTTP à retourner par le service principal avant une erreur de délai d’expiration est levée. Valeur minimale est 0 seconde. Valeurs supérieures à 240 secondes ne peut pas être honorés en tant que l’infrastructure réseau sous-jacente peuvent supprimer des connexions inactives après cette date. | Non        | Aucun |
 | follow-redirects="true &#124; false"    | Indique si les redirections à partir du service principal sont suivies par la passerelle ou renvoyées à l’appelant.      | Non        | false       |
 | buffer-request-body="true &#124; false" | Lorsque la valeur « true » demande est mis en mémoire tampon et sera réutilisée sur [de nouvelle tentative](api-management-advanced-policies.md#Retry). | Non        | false       |
 

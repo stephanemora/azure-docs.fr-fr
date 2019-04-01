@@ -1,6 +1,6 @@
 ---
-title: Comprendre ASC pour IoT coûts Preview | Microsoft Docs
-description: En savoir plus sur les coûts associés à ASC pour IoT et comment vous pouvez les contrôler.
+title: Comprendre Azure Security Center pour IoT coûte Preview | Microsoft Docs
+description: En savoir plus sur les coûts associés à Azure Security Center pour IoT et comment vous pouvez les contrôler.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: e694bb1a121b172fe67fbde0bd956700a75dfe12
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: e2822b0f2f665220f215b85800081fa2fa7943f9
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580657"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758056"
 ---
-# <a name="pricing-and-associated-costs"></a>Coûts de tarification et associés
+# <a name="pricing-and-associated-costs"></a>Tarifs et coûts associés
 
 > [!IMPORTANT]
-> ASC pour IoT est actuellement en version préliminaire publique.
+> Azure Security Center pour IoT est actuellement en version préliminaire publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Cet article explique ASC pour IoT, modèle de tarification, récapitule tous les coûts associés et explique comment les gérer.
+Cet article explique Azure Security Center (ASC) pour le modèle de tarification IoT, récapitule tous les coûts associés et explique comment les gérer.
 
 ## <a name="pricing"></a>Tarifs
 

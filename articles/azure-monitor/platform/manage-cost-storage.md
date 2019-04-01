@@ -11,24 +11,24 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/20/2018
+ms.date: 03/29/2018
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 5a8bd836322ae005b426707e0994bfdc19701fd8
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 599b1d3f522a0f287736808cce88163f1ef7f28f
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295672"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755813"
 ---
-# <a name="manage-usage-and-costs-for-log-analytics"></a>Gérer l’utilisation et les coûts de Log Analytics
+# <a name="manage-usage-and-costs-for-log-analytics-in-azure-monitor"></a>Gérer l’utilisation et des coûts pour l’Analytique de journal dans Azure Monitor
 
 > [!NOTE]
 > Cet article décrit comment contrôler vos coûts dans Log Analytics en définissant la période de rétention des données.  Pour plus d’informations, consultez les articles suivants.
 > - [Analyser l’utilisation des données dans Log Analytics](manage-cost-storage.md) décrit comment analyser votre utilisation des données et donner des informations à ce sujet.
 > - [Surveillance de l’utilisation et de l’estimation des coûts](usage-estimated-costs.md) explique comment visualiser l’utilisation et l’estimation des coûts avec plusieurs fonctions de surveillance Azure en fonction des différents modèles de prix. Il explique également comment modifier votre modèle de tarification.
 
-Log Analytics est conçu pour la mise à l’échelle et la prise en charge de la collecte, de l’indexation et du stockage de quantités importantes de données quotidiennes provenant de toute source de votre entreprise ou déployées dans Azure.  Si ce peut être un élément moteur pour votre organisation, la rentabilité est au final ce qui importe le plus. À cette fin, il est important de comprendre que le coût d’un espace de travail Log Analytics n’est pas simplement fonction du volume des données collectées, mais qu’il dépend aussi du plan sélectionné et de la durée de stockage des données générées à partir de vos sources connectées.  
+Analytique de journal dans Azure Monitor est conçu pour la mise à l’échelle et la collecte de prise en charge, d’indexation et stocker d’énormes quantités de données par jour à partir de n’importe quelle source de votre entreprise ou déployée dans Azure.  Si ce peut être un élément moteur pour votre organisation, la rentabilité est au final ce qui importe le plus. À cette fin, il est important de comprendre que le coût d’un espace de travail Log Analytics n’est pas simplement fonction du volume des données collectées, mais qu’il dépend aussi du plan sélectionné et de la durée de stockage des données générées à partir de vos sources connectées.  
 
 Dans cet article, nous allons passer en revue les méthodes permettant de surveiller de façon proactive la croissance du stockage et du volume de données, et définir des limites pour contrôler les coûts associés. 
 
@@ -114,8 +114,6 @@ Si votre espace de travail Log Analytics a accès aux niveaux tarifaires hérit�
 
 Si vous souhaitez déplacer votre espace de travail vers le niveau tarifaire actuel, vous devez [modifier le modèle de tarifaire de supervision de votre abonnement dans Azure Monitor](usage-estimated-costs.md#moving-to-the-new-pricing-model), ce qui modifiera le niveau tarifaire de tous les espaces de travail de cet abonnement.
 
-> [!NOTE]
-> Si votre espace de travail est lié à un compte Automation, avant de pouvoir sélectionner le niveau tarifaire *Autonome (par Go)*, vous devez supprimer les solutions **Automation and Control** et annuler la liaison avec le compte Automation. Dans le panneau Espace de travail sous **Général**, cliquez sur **Solutions** pour afficher et supprimer des solutions. Pour annuler la liaison avec le compte Automation, cliquez sur le nom du compte Automation dans le panneau **Niveau tarifaire**.
 
 > [!NOTE]
 > Vous pouvez en savoir plus sur [défini le niveau de tarification via ARM](template-workspace-configuration.md#create-a-log-analytics-workspace) et comment s’assurer que votre déploiement ARM réussira indépendamment de si l’abonnement est dans le hérité ou le nouveau modèle de tarification. 

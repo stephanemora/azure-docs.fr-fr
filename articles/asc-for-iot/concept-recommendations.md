@@ -1,6 +1,6 @@
 ---
-title: Comprendre ASC pour l’aperçu des recommandations de sécurité IoT | Microsoft Docs
-description: En savoir plus sur le concept des recommandations de sécurité et comment elles sont utilisées dans ASC pour IoT.
+title: Comprendre Azure Security Center pour la version préliminaire des recommandations de sécurité IoT | Microsoft Docs
+description: En savoir plus sur le concept des recommandations de sécurité et comment elles sont utilisées dans Azure Security Center pour IoT.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
-ms.openlocfilehash: dc37404e45e4efd0697b0f3b19c4927813ab56fa
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 9204bf864ca915baaf6d107ef3586bcd02ed9fef
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576193"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754817"
 ---
 # <a name="security-recommendations"></a>Recommandations de sécurité
 
 > [!IMPORTANT]
-> ASC pour IoT est actuellement en version préliminaire publique.
+> Azure Security Center pour IoT est actuellement en version préliminaire publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-ASC pour IoT analyse vos ressources Azure et les appareils IoT et fournit des recommandations de sécurité pour réduire la surface d’attaque. Recommandations de sécurité sont exploitables et visent à aider les clients de se conformer aux meilleures pratiques de sécurité.
+Azure Security Center (ASC) pour IoT analyse vos ressources Azure et les appareils IoT et fournit des recommandations de sécurité pour réduire la surface d’attaque. Recommandations de sécurité sont exploitables et visent à aider les clients de se conformer aux meilleures pratiques de sécurité.
 
 Dans cet article, vous trouverez une liste de recommandations qui peut être déclenché sur votre IoT Hub et/ou des appareils IoT.
 

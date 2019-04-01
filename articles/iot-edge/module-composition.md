@@ -4,17 +4,17 @@ description: Découvrez comment un manifeste de déploiement déclare les module
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/28/2018
+ms.date: 03/28/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 0b221274923a6270e980d027aadc58154c7054b9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: f4a562cab445398986c1b8f379f6cb90ca843342
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099968"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758082"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>Découvrez comment déployer des modules et établir des itinéraires dans IoT Edge.
 
@@ -58,14 +58,14 @@ Les manifestes de déploiement suivent la structure suivante :
                 // includes the routing information between modules, and to IoT Hub
             }
         },
-        "{module1}": {  // optional
+        "module1": {  // optional
             "properties.desired": {
-                // desired properties of {module1}
+                // desired properties of module1
             }
         },
-        "{module2}": {  // optional
+        "module2": {  // optional
             "properties.desired": {
-                // desired properties of {module2}
+                // desired properties of module2
             }
         },
         ...
@@ -75,9 +75,9 @@ Les manifestes de déploiement suivent la structure suivante :
 
 ## <a name="configure-modules"></a>Configurer des modules
 
-Définir comment le runtime IoT Edge installe les modules dans votre déploiement. L’agent IoT Edge est le composant de runtime qui gère l’installation, les mises à jour et les rapports d’état d’un appareil IoT Edge. Pour cette raison, le jumeau du module $edgeAgent a besoin des informations de configuration et de gestion de tous les modules. Ces informations incluent les paramètres de configuration pour l’agent Edge proprement dit. 
+Définir comment le runtime IoT Edge installe les modules dans votre déploiement. L’agent IoT Edge est le composant de runtime qui gère l’installation, les mises à jour et les rapports d’état d’un appareil IoT Edge. Pour cette raison, le jumeau du module $edgeAgent a besoin des informations de configuration et de gestion de tous les modules. Ces informations incluent les paramètres de configuration pour l’agent IoT Edge proprement dit. 
 
-Pour obtenir une liste complète des propriétés qui peuvent ou doivent être incluses, consultez [Propriétés de l’agent Edge et du concentrateur Edge](module-edgeagent-edgehub.md).
+Pour obtenir une liste complète des propriétés qui peuvent ou doivent être incluses, consultez [propriétés de l’agent IoT Edge et hub IoT Edge](module-edgeagent-edgehub.md).
 
 Les propriétés $edgeAgent suivent cette structure :
 
@@ -101,10 +101,10 @@ Les propriétés $edgeAgent suivent cette structure :
             }
         },
         "modules": {
-            "{module1}": { // optional
+            "module1": { // optional
                 // configuration and management details
             },
-            "{module2}": { // optional
+            "module2": { // optional
                 // configuration and management details
             }
         }
@@ -122,8 +122,8 @@ Les itinéraires sont déclarés dans les propriétés souhaitées **$edgeHub** 
 "$edgeHub": {
     "properties.desired": {
         "routes": {
-            "{route1}": "FROM <source> WHERE <condition> INTO <sink>",
-            "{route2}": "FROM <source> WHERE <condition> INTO <sink>"
+            "route1": "FROM <source> WHERE <condition> INTO <sink>",
+            "route2": "FROM <source> WHERE <condition> INTO <sink>"
         },
     }
 }
@@ -144,9 +144,9 @@ La propriété source peut être l’une des valeurs suivantes :
 | `/twinChangeNotifications` | Tout changement de jumeau (propriétés signalées) en provenance de n’importe quel module ou appareil de nœud terminal |
 | `/messages/*` | Tout message appareil-à-cloud envoyé par un module ou par une appareil de nœud terminal, via une sortie ou non |
 | `/messages/modules/*` | Tout message appareil-à-cloud envoyé par un module via une sortie ou aucune |
-| `/messages/modules/{moduleId}/*` | Tout message appareil-à-cloud envoyé par un module spécifique, via une sortie ou non |
-| `/messages/modules/{moduleId}/outputs/*` | Tout message appareil-à-cloud envoyé par un module spécifique, via une sortie |
-| `/messages/modules/{moduleId}/outputs/{output}` | Tout message appareil-à-cloud envoyé par un module spécifique via une sortie spécifique |
+| `/messages/modules/<moduleId>/*` | Tout message appareil-à-cloud envoyé par un module spécifique, via une sortie ou non |
+| `/messages/modules/<moduleId>/outputs/*` | Tout message appareil-à-cloud envoyé par un module spécifique, via une sortie |
+| `/messages/modules/<moduleId>/outputs/<output>` | Tout message appareil-à-cloud envoyé par un module spécifique via une sortie spécifique |
 
 ### <a name="condition"></a>Condition
 La condition est facultative dans une déclaration d’itinéraire. Si vous souhaitez transmettre tous les messages du récepteur à la source, il suffit d’omettre la clause **WHERE** entièrement. Vous pouvez également utiliser le [langage de requête IoT Hub](../iot-hub/iot-hub-devguide-routing-query-syntax.md) pour filtrer certains messages ou types de messages qui répondent à la condition. Les itinéraires IoT Edge ne prennent pas en charge les messages de filtrage basés sur les propriétés ou balises de jumeaux. 
@@ -175,11 +175,11 @@ La propriété de récepteur peut être l’une des valeurs suivantes :
 | Récepteur | Description |
 | ---- | ----------- |
 | `$upstream` | Envoyer le message à IoT Hub |
-| `BrokeredEndpoint("/modules/{moduleId}/inputs/{input}")` | Envoyer le message à une entrée spécifique d’un module spécifique |
+| `BrokeredEndpoint("/modules/<moduleId>/inputs/<input>")` | Envoyer le message à une entrée spécifique d’un module spécifique |
 
-IoT Edge offre la garantie « Au moins une remise ». Le hub Edge stocke les messages localement dans le cas où un itinéraire ne peut pas remettre le message à son récepteur. C’est le cas, par exemple, si le hub Edge ne peut pas se connecter à IoT Hub ou que le module cible n’est pas connecté.
+IoT Edge offre la garantie « Au moins une remise ». Le hub IoT Edge stocke les messages localement au cas où un itinéraire ne pourrait pas remettre le message à son récepteur. Par exemple, si le hub IoT Edge ne peut pas se connecter à IoT Hub ou le module cible n’est pas connecté.
 
-Le concentrateur Edge stocke les messages jusqu’à l’heure spécifiée dans la propriété `storeAndForwardConfiguration.timeToLiveSecs` des [propriétés souhaitées du concentrateur Edge](module-edgeagent-edgehub.md).
+Hub IoT Edge stocke les messages jusqu'à l’heure spécifiée dans le `storeAndForwardConfiguration.timeToLiveSecs` propriété de la [propriétés souhaitées de hub IoT Edge](module-edgeagent-edgehub.md).
 
 ## <a name="define-or-update-desired-properties"></a>Définir ou mettre à jour les propriétés souhaitées 
 
@@ -207,7 +207,7 @@ L’exemple suivant montre à quoi peut ressembler un document de manifeste de d
             "registryCredentials": {
               "ContosoRegistry": {
                 "username": "myacr",
-                "password": "{password}",
+                "password": "<password>",
                 "address": "myacr.azurecr.io"
               }
             }
@@ -273,6 +273,6 @@ L’exemple suivant montre à quoi peut ressembler un document de manifeste de d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour obtenir une liste complète des propriétés qui peuvent ou doivent être incluses dans $edgeAgent et $edgeHub, consultez [Propriétés de l’agent Edge et du concentrateur Edge](module-edgeagent-edgehub.md).
+* Pour obtenir une liste complète des propriétés qui peuvent ou doivent être incluses dans $edgeAgent et $edgeHub, consultez [propriétés de l’agent IoT Edge et hub IoT Edge](module-edgeagent-edgehub.md).
 
 * Maintenant que vous savez comment les modules IoT Edge sont utilisés, vous pouvez lire [Comprendre les exigences et les outils de développement de modules IoT Edge](module-development.md).

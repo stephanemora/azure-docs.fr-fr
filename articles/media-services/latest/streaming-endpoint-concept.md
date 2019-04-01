@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 03/30/2019
 ms.author: juliako
-ms.openlocfilehash: eb7f368100269c4e47076bb6b78bafc23e7a6089
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8cd6a68f6593a5b746a19e42e4835deb05e112b6
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57845601"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757188"
 ---
 # <a name="streaming-endpoints"></a>Points de terminaison de diffusion en continu
 
@@ -33,14 +33,34 @@ Pour les points de terminaison supplémentaires : `{EndpointName}-{AccountName}
 
 ## <a name="types"></a>Types  
 
-Il existe deux **le point de terminaison de diffusion en continu** types : **Standard** et **Premium**. Le type est défini par le nombre d’unités d’échelle (`scaleUnits`) que vous allouez pour le point de terminaison de streaming. 
+Il existe deux types de **points de terminaison de streaming** : **Standard** et **Premium**. Le type est défini par le nombre d’unités d’échelle (`scaleUnits`) que vous allouez pour le point de terminaison de streaming. 
 
 Le tableau décrit les types :  
 
 |Type|Unités d’échelle|Description|
 |--------|--------|--------|  
-|**Point de terminaison de streaming Standard** (recommandé)|0|Le type **Standard** est l’option recommandée pour pratiquement tous les scénarios de streaming et toutes les tailles d’audience. Le type **Standard** met automatiquement à l’échelle la bande passante sortante. <br/>Pour les clients avec extrêmement exigeantes en matière de Media Services propose des **Premium** diffusion en continu des points de terminaison qui peuvent être utilisés pour monter en charge de la capacité pour le plus grand public internet. Si vous pensez que le grand public et des utilisateurs simultanés, contactez-nous à amsstreaming\@microsoft.com pour obtenir des conseils sur la nécessité de déplacer vers le **Premium** type. |
+|**Point de terminaison de streaming Standard** (recommandé)|0|La valeur par défaut est le point de terminaison de diffusion en continu un **Standard** type, mais peut être remplacé par le type Premium.<br/> Le type Standard est l’option recommandée pour pratiquement tous les scénarios de diffusion en continu et la taille du public. Le type **Standard** met automatiquement à l’échelle la bande passante sortante. Le débit à partir de ce type de point de terminaison de diffusion en continu est jusqu'à 600 Mbits/s. Les fragments vidéo mis en cache dans le CDN, n’utilisez pas la bande passante de point de terminaison de diffusion en continu.<br/>Pour les clients avec des exigences extrêmement hautes, Media Services offre des points de terminaison de streaming **Premium**, qui peuvent être utilisés à des fins de scale out de la capacité pour les audiences Internet les plus étendues. Si vous pensez que le grand public et des utilisateurs simultanés, contactez-nous à amsstreaming\@microsoft.com pour obtenir des conseils sur la nécessité de déplacer vers le **Premium** type. |
 |**Point de terminaison de streaming Premium**|>0|Les points de terminaison de streaming **Premium** sont conçus pour les charges de travail avancées et fournissent une capacité de bande passante dédiée et scalable. Vous passez à un type **Premium** en ajustant les `scaleUnits`. Les `scaleUnits` vous offrent une capacité de sortie dédiée qui peut être achetée par incréments de 200 Mbits/s. Quand vous utilisez le type **Premium**, chaque unité activée fournit une capacité de bande passante supplémentaire à l’application. |
+ 
+## <a name="comparing-streaming-types"></a>Comparaison des types de streaming
+
+### <a name="features"></a>Caractéristiques
+
+Fonctionnalité|standard|Premium
+---|---|---
+Gratuit les 15 premiers jours| Oui |Non 
+Débit |Jusqu'à 600 Mbits/s lorsqu’Azure CDN n’est pas utilisé. Mis à l’échelle avec CDN.|200 Mbits/s par unité de streaming (SU). Mis à l’échelle avec CDN.
+Contrat SLA | 99.9|99,9 (200 Mbits/s par SU).
+CDN|Azure CDN, CDN tiers ou sans CDN.|Azure CDN, CDN tiers ou sans CDN.
+La facturation est calculée sur la base d'un taux| Quotidien|Quotidien
+Chiffrement dynamique|Oui|Oui
+l’empaquetage dynamique|Oui|Oui
+Scale|Mise à l’échelle automatique vers le débit cible.|Unités de diffusion en continu supplémentaires
+Hôte de filtrage/G20/personnalisé IP <sup>1</sup>|Oui|Oui
+Téléchargement progressif|Oui|Oui
+Utilisation recommandée |Recommandé pour la plupart des scénarios de streaming.|Utilisation professionnelle.<br/>Si vous pensez que vos besoins dépassent ce qu’offre l’abonnement Standard. Contactez-nous (amsstreaming@microsoft.com) si vous prévoyez une taille d’audience simultanée supérieure à 50 000 utilisateurs.
+
+<sup>1</sup> uniquement utilisés directement sur le point de terminaison de diffusion en continu lorsque le CDN n’est pas activé sur le point de terminaison.
 
 ## <a name="working-with-cdn"></a>Utilisation avec un CDN
 
@@ -70,7 +90,7 @@ Cette section fournit des détails sur certaines des propriétés de la diffusio
     Si vous recevez cette erreur, cela signifie que le centre de données ne la prend pas en charge. Vous devez essayer un autre centre de données.
 - `cdnProfile` -Lorsque `cdnEnabled` est définie sur true, vous pouvez également passer `cdnProfile` valeurs. `cdnProfile` est le nom du profil CDN où le point du point de terminaison CDN doit être créé. Vous pouvez fournir un cdnProfile existant ou en utiliser un nouveau. Si la valeur est NULL et que `cdnEnabled` est true, la valeur par défaut « AzureMediaStreamingPlatformCdnProfile » est utilisée. Si le `cdnProfile` fourni existe déjà, un point de terminaison est créé sous celui-ci. Si le profil n’existe pas, un nouveau profil est automatiquement créé.
 - `cdnProvider` -Lorsque le CDN est activé, vous pouvez également transmettre `cdnProvider` valeurs. `cdnProvider` contrôle les fournisseurs à utiliser. Actuellement, trois valeurs sont prises en charge : « StandardVerizon », « PremiumVerizon » et « StandardAkamai ». Si aucune valeur n’est fournie et `cdnEnabled` a la valeur true, « StandardVerizon » est utilisé (ce qui est la valeur par défaut).
-- `crossSiteAccessPolicies` -Permet de spécifier des stratégies d’accès entre sites pour différents clients. Pour plus d’informations, consultez [Cross-domain policy file specification](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) et [Rendre un service disponible entre des limites de domaine](https://msdn.microsoft.com/library/cc197955\(v=vs.95\).aspx).
+- `crossSiteAccessPolicies` -Permet de spécifier des stratégies d’accès entre sites pour différents clients. Pour plus d’informations, consultez [Cross-domain policy file specification](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) et [Rendre un service disponible entre des limites de domaine](https://msdn.microsoft.com/library/cc197955\(v=vs.95\).aspx).<br/>Les paramètres s’appliquent uniquement au format Smooth Streaming.
 - `customHostNames` -Permet de configurer un point de terminaison de diffusion en continu pour accepter le trafic dirigé vers un nom d’hôte personnalisé.  Cette propriété est valide pour Standard et les points de terminaison de Streaming Premium et peut être définie lorsque `cdnEnabled`: false.
     
     La propriété du nom de domaine doit être vérifiée par Media Services. Media Services vérifie la propriété de nom de domaine en demandant un `CName` enregistrement qui contient l’ID de compte Media Services en tant que composant à ajouter au domaine en cours d’utilisation. Par exemple, pour utiliser « sports.contoso.com » comme nom d’hôte personnalisé pour le point de terminaison de streaming, un enregistrement pour `<accountId>.contoso.com` doit être configuré de façon à pointer vers un des noms d’hôte de vérification de Media Services. Le nom d’hôte de vérification est composé de verifydns.\<mediaservices-dns-zone>. 

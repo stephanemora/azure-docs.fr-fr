@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: cca234340526b732067adac3c6725f8aa5acc47c
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 294695cceaed39a66a57dcd3a165ca276b6801c6
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983375"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757961"
 ---
-#  <a name="agent-health-solution-in-azure"></a>Solution Agent Health dans Azure
-La solution Agent Health dans Azure vous permet de comprendre, pour tous les agents directement à l’espace de travail Analytique de journal ou un groupe d’administration System Center Operations Manager connecté à Azure Monitor, qui ne répondent pas et la soumission opérationnelle données.  Vous pouvez aussi suivre le nombre d’agents déployés et leur localisation géographique, et réaliser diverses requêtes pour être au fait de la distribution d’agents déployés au sein d’Azure, d’environnements de cloud ou localement.    
+#  <a name="agent-health-solution-in-azure-monitor"></a>Solution agent Health Azure Monitor
+La solution Agent Health dans Azure vous permet de comprendre, pour tous les agents de rapports directement à l’espace de travail Analytique de journal dans Azure Monitor ou un groupe d’administration System Center Operations Manager connecté à Azure Monitor, qui sont ne répond pas et envoi de données opérationnelles.  Vous pouvez aussi suivre le nombre d’agents déployés et leur localisation géographique, et réaliser diverses requêtes pour être au fait de la distribution d’agents déployés au sein d’Azure, d’environnements de cloud ou localement.    
 
 ## <a name="prerequisites"></a>Conditions préalables
 Avant de déployer cette solution, veuillez confirmer que vous avez bien pris en charge des [agents Windows](../../log-analytics/log-analytics-windows-agent.md) au service de l’espace de travail Log Analytics ou d’un [groupe d’administration Operations Manager](../../azure-monitor/platform/om-agents.md) inclut dans votre espace de travail.
@@ -62,7 +62,7 @@ Cliquez sur la vignette **Agent Health** pour ouvrir le tableau de bord **Agent 
 | Distribution selon le système d’exploitation | Partition du nombre d’agents Windows et Linux dont vous disposez dans votre environnement.|
 | Distribution selon la version de l’agent | Partition des versions des agents installées dans votre environnement, et leur nombre.|
 | Distribution selon la catégorie de l’agent | Partition des différentes catégories d’agents émettant des événements de pulsation : agents directs, agents Operations Manager ou serveur d’administration Operations Manager.|
-| Distribution selon le groupe d’administration | Partition des différents groupes d’administration SCOM de votre environnement.|
+| Distribution selon le groupe d’administration | Une partition des différents groupes d’administration Operations Manager dans votre environnement.|
 | Géolocalisation des agents | Partition des différents pays dans lesquels vous disposez d’agents et nombre total d’agents installés par pays.|
 | Nombre de passerelles installées | Nombre et liste des serveurs disposant de la passerelle Log Analytics.|
 
@@ -117,4 +117,4 @@ Le tableau suivant fournit des exemples de recherches de journaux pour les enreg
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur [alertes dans Azure Monitor](../platform/alerts-overview.md) pour plus d’informations sur la génération d’alertes à partir de l’Analytique de journal. 
+* En savoir plus sur [alertes dans Azure Monitor](../platform/alerts-overview.md) pour plus d’informations sur la génération d’alertes à partir de requêtes de journal. 

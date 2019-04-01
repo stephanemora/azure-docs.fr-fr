@@ -3,18 +3,18 @@ title: 'Tutoriel : Effectuer un déploiement sur Azure Kubernetes Service (AKS)
 description: Configurer Jenkins pour l’intégration continue (CI) dans GitHub et le déploiement continu (CD) sur Azure Kubernetes Service (AKS)
 services: container-service
 ms.service: container-service
-author: iainfoulds
-ms.author: iainfou
+author: zr-msft
+ms.author: zarhoads
 ms.topic: article
 ms.date: 01/09/2019
-ms.openlocfilehash: 470ba6df76741dd5c9e9eed055cd7848d341082f
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 703aa081c8acf41f9206e2b0ccff45571367d2e8
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188451"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756073"
 ---
-# <a name="tutorial-deploy-from-github-to-azure-kubernetes-service-aks-with-jenkins-continuous-integration-and-deployment"></a>Tutoriel : Effectuer un déploiement sur Azure Kubernetes Service (AKS) à partir de GitHub avec l’intégration continue et le déploiement continu Jenkins
+# <a name="tutorial-deploy-from-github-to-azure-kubernetes-service-aks-with-jenkins-continuous-integration-and-deployment"></a>Didacticiel : Effectuer un déploiement sur Azure Kubernetes Service (AKS) à partir de GitHub avec l’intégration continue et le déploiement continu Jenkins
 
 Ce tutoriel explique comment déployer un exemple d’application de GitHub sur un cluster [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) en configurant l’intégration continue (CI) et le déploiement continu (CD) dans Jenkins. De cette façon, quand vous mettez à jour l’application en envoyant (push) des validations à GitHub, Jenkins exécute automatiquement un nouveau build de conteneur, envoie (push) les images conteneurs à Azure Container Registry (ACR), puis exécute votre application dans AKS. 
 
@@ -27,7 +27,7 @@ Dans ce tutoriel, vous allez effectuer les tâches suivantes :
 > * Créer un travail de build Jenkins et un webhook GitHub pour les builds automatisées
 > * Tester le pipeline CI/CD pour mettre à jour une application dans AKS en fonction des validations de code GitHub
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour les besoins de ce tutoriel, vous devez disposer des éléments suivants :
 
@@ -227,15 +227,15 @@ Cliquez sur **OK** et retournez sur le portail Jenkins.
 Dans la page d’accueil de votre portail Jenkins, sélectionnez **Nouvel élément** à gauche :
 
 1. Entrez *azure-vote* comme nom du travail. Choisissez **Projet libre**, puis sélectionnez **OK**
-1. Dans la section **Général**, sélectionnez le projet **GitHub**, puis entrez l’URL de votre référentiel dupliqué (par exemple, *https://github.com/\<your-github-account\>/azure-voting-app-redis*).
-1. Dans la section **Gestion du code source**, sélectionnez **Git** et entrez l’URL de votre référentiel dupliqué *.git* (par exemple, *https://github.com/\<your-github-account\>/azure-voting-app-redis.git*).
+1. Sous le **général** section, sélectionnez **projet GitHub** et entrez l’URL de votre référentiel BIFURQUÉ, tel que *https :\//github.com/\<your-github-account\>/azure-voting-app-redis*
+1. Sous le **gestion du code Source** section, sélectionnez **Git**, entrez votre référentiel BIFURQUÉ *.git* URL, tel que *https :\//github.com/\<votre compte-github\>/azure-voting-app-redis.git*
 
 1. Dans la section **Déclencheurs de génération**, sélectionnez **Déclencher un hook GitHub pour l’interrogation GITScm**
 1. Sous **Environnement de build**, sélectionnez **Utiliser des textes ou fichiers secrets**
 1. Sous **Liaisons**, sélectionnez **Ajouter** > **Nom d’utilisateur et mot de passe (distincts)**
-    - Entrez `ACR_ID` comme **Variable de nom d’utilisateur**, et `ACR_PASSWORD` comme **Variable de mot de passe**
+   - Entrez `ACR_ID` comme **Variable de nom d’utilisateur**, et `ACR_PASSWORD` comme **Variable de mot de passe**
 
-    ![Liaisons Jenkins](media/aks-jenkins/bindings.png)
+     ![Liaisons Jenkins](media/aks-jenkins/bindings.png)
 
 1. Choisissez d’ajouter une **Étape de génération** de type **Exécuter un script shell** et utilisez le texte suivant. Ce script génère une image conteneur et l’envoie dans votre registre ACR.
 

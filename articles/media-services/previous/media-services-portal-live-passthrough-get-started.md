@@ -1,5 +1,5 @@
 ---
-title: Streaming en direct avec des encodeurs en local à l’aide du portail Azure | Microsoft Docs
+title: Diffusion en continu avec des encodeurs locaux à l’aide du portail Azure | Microsoft Docs
 description: Ce didacticiel vous guide tout au long des étapes de création d’un canal configuré pour une livraison directe.
 services: media-services
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: d86151b436ec3cc5ea3d4b687f5c8692b2ca4efa
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 48906a12cd113ef613151bb802e757f218bce425
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258698"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758502"
 ---
-# <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-the-azure-portal"></a>Streaming en direct avec des encodeurs en local à l’aide du portail Azure
+# <a name="perform-live-streaming-with-on-premises-encoders-using-azure-portal"></a>Diffusion en continu avec des encodeurs en local à l’aide du portail Azure
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
@@ -45,29 +45,31 @@ Il est vivement recommandé de consulter les articles suivants :
 * [Streaming en direct avec des encodeurs en local qui créent des flux multidébits](media-services-live-streaming-with-onprem-encoders.md)
 
 ## <a id="scenario"></a>Scénario courant de streaming en direct
+
 Les étapes suivantes décrivent les tâches impliquées dans la création d’applications courantes de diffusion en continu qui utilisent des canaux configurés pour une livraison directe. Ce didacticiel explique comment créer et gérer un canal direct et des événements en direct.
 
->[!NOTE]
->Assurez-vous que le point de terminaison à partir duquel vous souhaitez diffuser du contenu se trouve dans l’état **En cours d’exécution**. 
+> [!NOTE]
+> Assurez-vous que le point de terminaison à partir duquel vous souhaitez diffuser du contenu se trouve dans l’état **En cours d’exécution**. 
     
-1. Connectez une caméra vidéo à un ordinateur. Lancez et configurez un encodeur dynamique local qui produit un flux à débit binaire multiple au format MP4 fragmenté ou RTMP. Pour plus d’informations, voir [Prise en charge RTMP et encodeurs dynamiques dans Azure Media Services](https://go.microsoft.com/fwlink/?LinkId=532824).
+1. Connectez une caméra vidéo à un ordinateur. <br/>Pour obtenir des idées de configuration, consultez [Simple and portable event video gear setup]( https://link.medium.com/KNTtiN6IeT).
+1. Lancez et configurez un encodeur dynamique local qui produit un flux à débit binaire multiple au format MP4 fragmenté ou RTMP. Pour plus d’informations, voir [Prise en charge RTMP et encodeurs dynamiques dans Azure Media Services](https://go.microsoft.com/fwlink/?LinkId=532824).<br/>Consultez également ce billet de blog : [Live streaming production with OBS](https://link.medium.com/ttuwHpaJeT).
    
     Cette étape peut également être effectuée après la création du canal.
-2. Créez et démarrez un canal direct.
-3. Récupérez l’URL de réception du canal. 
+1. Créez et démarrez un canal direct.
+1. Récupérez l’URL de réception du canal. 
    
     L’URL de réception est utilisée par l’encodeur dynamique pour envoyer le flux au canal.
-4. Récupérez l’URL d’aperçu du canal. 
+1. Récupérez l’URL d’aperçu du canal. 
    
     Utilisez cette URL pour vérifier que votre canal reçoit correctement le flux dynamique.
-5. Créez un événement/programme en direct. 
+1. Créez un événement/programme en direct. 
    
     Lors de l’utilisation du portail Azure, la création d’un événement en direct a également pour effet de créer un élément multimédia. 
 
-6. Démarrez l’événement ou le programme dès que vous êtes prêt à lancer la diffusion en continu et l’archivage.
-7. Un signal peut éventuellement être envoyé à l’encodeur dynamique pour qu’il démarre une publicité. La publicité est insérée dans le flux de sortie.
-8. Arrêtez l’événement ou le programme chaque fois que vous voulez arrêter la diffusion et archiver l’événement.
-9. Supprimez l’événement ou le programme (et éventuellement la ressource).     
+1. Démarrez l’événement ou le programme dès que vous êtes prêt à lancer la diffusion en continu et l’archivage.
+1. Un signal peut éventuellement être envoyé à l’encodeur dynamique pour qu’il démarre une publicité. La publicité est insérée dans le flux de sortie.
+1. Arrêtez l’événement ou le programme chaque fois que vous voulez arrêter la diffusion et archiver l’événement.
+1. Supprimez l’événement ou le programme (et éventuellement la ressource).     
 
 > [!IMPORTANT]
 > Pour en savoir plus sur les considérations et concepts liés au streaming en direct avec des encodeurs en local et des canaux directs, consultez [Streaming en direct avec des encodeurs locaux qui créent des flux multidébits](media-services-live-streaming-with-onprem-encoders.md).

@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 591b30d0147e427e8a0dbc2d25276bdcd3b54be6
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: bac57b18ec5474cfe3c27ad1079c5af7e1d2c451
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445481"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756806"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Familiarisation avec les rôles, les autorisations et la sécurité dans Azure Monitor
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-De nombreuses équipes ont besoin de réglementer strictement l’accès aux données et aux paramètres d’analyse. Par exemple, si des membres de votre équipe travaillent exclusivement sur l’analyse (ingénieurs du support technique, ingénieurs devops) ou si vous utilisez un fournisseur de services gérés, vous souhaiterez leur accorder l’accès à l’analyse des données tout en limitant leur capacité à créer, modifier ou supprimer des ressources. Cet article montre comment appliquer un rôle RBAC d’analyse intégré à un utilisateur dans Azure ou créer vos propres rôles personnalisés pour un utilisateur qui a rapidement besoin d’autorisations limitées pour l’analyse. Il évoque ensuite les considérations de sécurité pour vos ressources liées à Azure Monitor et comment vous pouvez restreindre l’accès aux données contenues.
+De nombreuses équipes ont besoin de réglementer strictement l’accès aux données et aux paramètres d’analyse. Par exemple, si vous avez des membres de l’équipe qui travaillent exclusivement sur l’analyse (ingénieurs du support technique, ingénieurs DevOps) ou si vous utilisez un fournisseur de services managés, vous souhaiterez leur accorder l’accès à l’analyse des données tout en limitant leur capacité à créer, modifier, ou supprimer des ressources. Cet article montre comment appliquer un rôle RBAC d’analyse intégré à un utilisateur dans Azure ou créer vos propres rôles personnalisés pour un utilisateur qui a rapidement besoin d’autorisations limitées pour l’analyse. Il évoque ensuite les considérations de sécurité pour vos ressources liées à Azure Monitor et comment vous pouvez restreindre l’accès aux données contenues.
 
 ## <a name="built-in-monitoring-roles"></a>Rôles de surveillance intégrés
 Les rôles intégrés d’Azure Monitor sont conçus pour vous aider à limiter l’accès aux ressources dans un abonnement tout en permettant au responsable de l’infrastructure d’analyse d’obtenir et de configurer les données nécessaires. Azure Monitor propose deux rôles prêts à l’emploi : un lecteur d’analyse et un contributeur d’analyse.
@@ -38,10 +38,10 @@ Les personnes affectées au rôle de lecteur d’analyse peuvent afficher toutes
 * Accéder aux données Application Insights et affichez les données dans AI Analytics.
 * Rechercher des données d’espace de travail Log Analytics, notamment les données d’utilisation de l’espace de travail.
 * Afficher les groupes de gestion Log Analytics.
-* Récupérer le schéma de recherche Log Analytics.
-* Répertorier les Intelligence Packs Log Analytics.
-* Récupérer et exécuter les recherches enregistrées Log Analytics.
-* Récupérer la configuration du stockage Log Analytics.
+* Récupérer le schéma de recherche dans l’espace de travail Analytique de journal.
+* Liste des packs d’analyse dans l’espace de travail Analytique de journal.
+* Récupérer et exécuter des recherches enregistrées dans l’espace de travail Analytique de journal.
+* Récupérer la configuration de stockage d’espace de travail Analytique de journal.
 
 > [!NOTE]
 > Ce rôle ne donne pas l’accès en lecture aux données de journal diffusées vers un hub d’événements ou stockées dans un compte de stockage. [Consultez ce qui suit](#security-considerations-for-monitoring-data) pour plus d’informations sur la configuration de l’accès à ces ressources.
@@ -57,9 +57,9 @@ Les personnes affectées au rôle de contributeur d’analyse peuvent afficher t
 * Définir l’activité et les paramètres de règles d’alerte via [Alertes Azure](../../azure-monitor/platform/alerts-overview.md).
 * Créer des tests web et composants Application Insights.
 * Répertorier les clés partagées d’espace de travail Log Analytics.
-* Activer ou désactiver les Intelligence Packs Log Analytics.
-* Créer ou supprimer des recherches enregistrées Log Analytics.
-* Créer ou supprimer la configuration du stockage Log Analytics.
+* Activer ou désactiver les packs d’analyse dans l’espace de travail Analytique de journal.
+* Créer et supprimer et exécuter des recherches enregistrées dans l’espace de travail Analytique de journal.
+* Créer et supprimer la configuration de stockage d’espace de travail Analytique de journal.
 
 \*autorisation ListKeys sur la ressource cible (stockage compte ou event hub espace de noms) pour définir un profil de journal ou un paramètre de diagnostic doit aussi séparément être accordée à l’utilisateur.
 

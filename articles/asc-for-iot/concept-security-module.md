@@ -1,6 +1,6 @@
 ---
-title: Comprendre ASC pour jumeaux de module de sécurité IoT Preview | Microsoft Docs
-description: En savoir plus sur le concept des jumeaux de module de sécurité et comment elles sont utilisées dans ASC pour IoT.
+title: Comprendre Azure Security Center pour le module de sécurité IoT représentations d’aperçu | Microsoft Docs
+description: En savoir plus sur le concept des jumeaux de module de sécurité et comment elles sont utilisées dans Azure Security Center pour IoT.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: d766b17c9d49792d2e8192a952e8e6e559a8acd3
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 56bc93973bd2c080b13b97f1344cc165f742e757
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579374"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758401"
 ---
 # <a name="security-module"></a>Module de sécurité
 
 > [!IMPORTANT]
-> ASC pour IoT est actuellement en version préliminaire publique.
+> Azure Security Center pour IoT est actuellement en version préliminaire publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Cet article explique comment ASC pour IoT utilise les modules et les représentations d’appareil. 
+Cet article explique comment Azure Security Center (ASC) pour IoT utilise les modules et les représentations d’appareil. 
 
 ## <a name="device-twins"></a>Jumeaux d’appareil
 
