@@ -1,6 +1,6 @@
 ---
-title: Filtrage, classement et pagination des d’entités Azure Media Services – Azure | Microsoft Docs
-description: Cet article décrit le filtrage, le classement et la pagination d’entités Azure Media Services.
+title: Développement avec des API v3 - Azure | Microsoft Docs
+description: Cet article décrit les règles qui s’appliquent aux entités et API lors du développement avec Media Services v3.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,16 +12,38 @@ ms.topic: article
 ms.date: 01/24/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 4c6e3281bd2b37b60c8d165c6c3152e970a5ce32
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 9a02030cb2b785b027bb78bad5ef636dff9dd8f3
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745094"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758547"
 ---
-# <a name="filtering-ordering-paging-of-media-services-entities"></a>Filtrage, classement et pagination d’entités Media Services
+# <a name="developing-with-media-services-v3-apis"></a>Développement avec Media Services v3 API
 
-## <a name="overview"></a>Vue d’ensemble
+Cet article décrit les règles qui s’appliquent aux entités et API lors du développement avec Media Services v3.
+
+## <a name="naming-conventions"></a>Conventions d’affectation de noms
+
+Les noms de ressources Azure Media Services v3 (par exemple Assets, Jobs, Transforms) sont sujets à des restrictions d’appellation par Azure Resource Manager. Conformément à Azure Resource Manager, les noms des ressources sont toujours uniques. Ainsi, vous pouvez utiliser n’importe quelle chaîne d’identificateur unique (par exemple des GUID) pour les noms de vos ressources. 
+
+Les noms de ressources Media Services ne peuvent pas contenir : '<', '>', '%', '&', ':', '&#92;', '?', '/', '*', '+', '.', le caractère de citation unique ou tout caractère de commande. Tous les autres caractères sont autorisés. La longueur maximale d’un nom de ressources est de 260 caractères. 
+
+Pour plus d'informations sur l'affectation de noms dans Azure Resource Manager, consultez : [Exigences en matière d'affectation de noms](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) et [Conventions d'affectation de noms](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
+
+## <a name="v3-api-design-principles"></a>Principes de conception de l’API v3
+
+L’un des principes de conception clés de l’API v3 est de renforcer la sécurité de l’API. Les API v3 ne retournent pas de secrets ou d’informations d’identification lors d’opérations **Get** ou **List**. Les clés sont toujours null, vides ou purgées de la réponse. Vous devez appeler une méthode d’action distincte pour obtenir des informations d’identification ou des secrets. Les actions distinctes vous permettent de définir différentes autorisations de sécurité RBAC dans le cas où certaines API récupèrent ou affichent des secrets tandis que d’autres non. Pour plus d’informations sur la gestion de l’accès à l’aide de RBAC, consultez [Utiliser RBAC pour gérer l’accès](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest).
+
+Voici quelques exemples :
+
+* Ne retourne ne pas les valeurs de ContentKey dans l’opération d’obtention de la StreamingLocator.
+* Ne retourne ne pas les clés de restriction dans l’opération d’obtention de la ContentKeyPolicy.
+* Ne pas retourner la partie de chaîne de requête de l’URL (pour supprimer la signature) URL Jobs' HTTP d’entrée.
+
+Consultez l’exemple [Obtenir une stratégie de clé de contenu - .NET](get-content-key-policy-dotnet-howto.md).
+
+## <a name="filtering-ordering-paging-of-media-services-entities"></a>Filtrage, classement et pagination d’entités Media Services
 
 Media Services prend en charge les options de requête OData suivantes pour les entités Media Services v3 : 
 
@@ -41,7 +63,7 @@ Description des opérateurs :
 
 Les propriétés d’entités de type DateHeure sont toujours au format UTC.
 
-## <a name="page-results"></a>Résultats de la page
+### <a name="page-results"></a>Résultats de la page
 
 Si une réponse de requête contient un grand nombre d’éléments, le service retourne une propriété « \@odata.nextLink » pour obtenir la page de résultats suivante. Celle-ci peut être utilisés pour parcourir le jeu de résultats entier. Vous ne pouvez pas configurer la taille de page. La taille de page varie selon le type d’entité. Pour plus d’informations, veuillez lire les sections suivantes.
 
@@ -50,9 +72,9 @@ Si des entités sont créées ou supprimées pendant la pagination de la collect
 > [!TIP]
 > Vous devez toujours utiliser le lien suivant pour énumérer la collection et ne pas dépendre d’une taille de page particulière.
 
-## <a name="assets"></a>Éléments multimédias
+### <a name="assets"></a>Éléments multimédias
 
-### <a name="filteringordering"></a>Filtrage/ordonnancement
+#### <a name="filteringordering"></a>Filtrage/ordonnancement
 
 Le tableau suivant montre comment les options de filtrage et de classement peuvent être appliquées aux propriétés de [Ressource](https://docs.microsoft.com/rest/api/media/assets) : 
 
@@ -77,11 +99,11 @@ var odataQuery = new ODataQuery<Asset>("properties/created lt 2018-05-11T17:39:0
 var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName, odataQuery);
 ```
 
-### <a name="pagination"></a>Pagination 
+#### <a name="pagination"></a>Pagination 
 
 La pagination est prise en charge pour chacun des quatre ordres de tri activés. Actuellement, la taille de page est de 1 000.
 
-#### <a name="c-example"></a>Exemple en code C#
+##### <a name="c-example"></a>Exemple en code C#
 
 L’exemple C# suivant montre comment énumérer tous les actifs multimédias dans le compte.
 
@@ -95,7 +117,7 @@ while (currentPage.NextPageLink != null)
 }
 ```
 
-#### <a name="rest-example"></a>Exemple REST
+##### <a name="rest-example"></a>Exemple REST
 
 Prenons l’exemple suivant où $skiptoken est utilisé. Veillez à remplacer *amstestaccount* par le nom de votre compte et à définir la valeur *api-version* avec la version la plus récente.
 
@@ -137,9 +159,9 @@ https://management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/
 
 Pour obtenir des exemples REST, consultez [Actifs multimédias - Liste](https://docs.microsoft.com/rest/api/media/assets/list).
 
-## <a name="content-key-policies"></a>Stratégies de clé de contenu
+### <a name="content-key-policies"></a>Stratégies de clé de contenu
 
-### <a name="filteringordering"></a>Filtrage/ordonnancement
+#### <a name="filteringordering"></a>Filtrage/ordonnancement
 
 Le tableau suivant montre comment ces options peuvent être appliquées aux propriétés de [Stratégies de clé de contenu](https://docs.microsoft.com/rest/api/media/contentkeypolicies) : 
 
@@ -154,7 +176,7 @@ Le tableau suivant montre comment ces options peuvent être appliquées aux prop
 |properties.policyId|eq, ne||
 |Type|||
 
-### <a name="pagination"></a>Pagination
+#### <a name="pagination"></a>Pagination
 
 La pagination est prise en charge pour chacun des quatre ordres de tri activés. Actuellement, la taille de page est de 10.
 
@@ -172,9 +194,9 @@ while (currentPage.NextPageLink != null)
 
 Pour obtenir des exemples REST, consultez [Stratégies de clé de contenu - Liste](https://docs.microsoft.com/rest/api/media/contentkeypolicies/list)
 
-## <a name="jobs"></a>Tâches
+### <a name="jobs"></a>Tâches
 
-### <a name="filteringordering"></a>Filtrage/ordonnancement
+#### <a name="filteringordering"></a>Filtrage/ordonnancement
 
 Le tableau suivant montre comment ces options peuvent être appliquées aux propriétés de [Travaux](https://docs.microsoft.com/rest/api/media/jobs) : 
 
@@ -186,7 +208,7 @@ Le tableau suivant montre comment ces options peuvent être appliquées aux prop
 | properties.lastModified | gt, ge, lt, le | croissant et décroissant| 
 
 
-### <a name="pagination"></a>Pagination
+#### <a name="pagination"></a>Pagination
 
 La pagination des travaux est prise en charge dans Media Services v3.
 
@@ -220,9 +242,9 @@ while (!exit);
 
 Pour obtenir des exemples REST, consultez [Travaux - Liste](https://docs.microsoft.com/rest/api/media/jobs/list)
 
-## <a name="streaming-locators"></a>Localisateurs de diffusion en continu
+### <a name="streaming-locators"></a>Localisateurs de diffusion en continu
 
-### <a name="filteringordering"></a>Filtrage/ordonnancement
+#### <a name="filteringordering"></a>Filtrage/ordonnancement
 
 Le tableau suivant montre comment ces options peuvent être appliquées aux propriétés du localisateur de diffusion en continu : 
 
@@ -241,7 +263,7 @@ Le tableau suivant montre comment ces options peuvent être appliquées aux prop
 |properties.streamingPolicyName |||
 |Type   |||
 
-### <a name="pagination"></a>Pagination
+#### <a name="pagination"></a>Pagination
 
 La pagination est prise en charge pour chacun des quatre ordres de tri activés. Actuellement, la taille de page est de 10.
 
@@ -259,9 +281,9 @@ while (currentPage.NextPageLink != null)
 
 Pour obtenir des exemples REST, consultez [Streaming Locators - List](https://docs.microsoft.com/rest/api/media/streaminglocators/list) (Localisateurs de diffusion en continu : lister)
 
-## <a name="streaming-policies"></a>Stratégies de diffusion en continu
+### <a name="streaming-policies"></a>Stratégies de diffusion en continu
 
-### <a name="filteringordering"></a>Filtrage/ordonnancement
+#### <a name="filteringordering"></a>Filtrage/ordonnancement
 
 Le tableau suivant montre comment ces options peuvent être appliquées aux propriétés de StreamingPolicy : 
 
@@ -277,7 +299,7 @@ Le tableau suivant montre comment ces options peuvent être appliquées aux prop
 |properties.noEncryption|||
 |Type|||
 
-### <a name="pagination"></a>Pagination
+#### <a name="pagination"></a>Pagination
 
 La pagination est prise en charge pour chacun des quatre ordres de tri activés. Actuellement, la taille de page est de 10.
 
@@ -296,9 +318,9 @@ while (currentPage.NextPageLink != null)
 Pour obtenir des exemples REST, consultez [Stratégies de streaming - Liste](https://docs.microsoft.com/rest/api/media/streamingpolicies/list)
 
 
-## <a name="transform"></a>Transformer
+### <a name="transform"></a>Transformer
 
-### <a name="filteringordering"></a>Filtrage/ordonnancement
+#### <a name="filteringordering"></a>Filtrage/ordonnancement
 
 Le tableau suivant montre comment ces options peuvent être appliquées aux propriétés de [Transformations](https://docs.microsoft.com/rest/api/media/transforms) : 
 
