@@ -13,16 +13,16 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/04/2019
+ms.date: 03/22/2019
 ms.author: jowargo
-ms.openlocfilehash: 8e583ac1c8ac4b6f32c2fa9f8b7ed07c2e7033e8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9cfe5f490ef4063e02d9407f23130c1a216961ed
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57889996"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402454"
 ---
-# <a name="tutorial-push-notifications-to-specific-windows-devices-running-universal-windows-platform-applications"></a>Tutoriel : Notifications Push vers des appareils Windows spécifiques exécutant des applications de plateforme Windows universelle
+# <a name="tutorial-push-notifications-to-specific-windows-devices-running-universal-windows-platform-applications"></a>Didacticiel : Notifications Push vers des appareils Windows spécifiques exécutant des applications de plateforme Windows universelle
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
@@ -222,30 +222,28 @@ Dans cette section, vous allez vous inscrire auprès du hub de notification au d
 
 L’application est maintenant terminée. Elle peut stocker un ensemble de catégories dans le stockage local de l’appareil utilisé pour s’inscrire auprès du hub de notification quand les utilisateurs modifient la sélection de catégories. Dans la section suivante, vous allez définir un backend capable d’envoyer des notifications de catégorie à cette application.
 
-## <a name="send-tagged-notifications"></a>Envoyer des notifications avec balises
-
-[!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
-
-## <a name="run-the-app-and-generate-notifications"></a>Exécution de l’application et génération de notifications
-
+## <a name="run-the-uwp-app"></a>Exécuter l’application UWP 
 1. Dans Visual Studio, sélectionnez **F5** pour compiler et démarrer l’application. L’interface utilisateur de l’application fournit un ensemble de bascules qui vous permet de choisir les catégories auxquelles vous abonner.
 
-    ![Application de diffusion des dernières nouvelles][1]
+    ![Application de diffusion des dernières nouvelles](./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-breakingnews-win1.png)
 
 2. Activez une ou plusieurs bascules de catégories, puis cliquez sur **S’abonner**.
 
     L'application convertit les catégories sélectionnées en balises et demande une nouvelle inscription de l'appareil pour les balises sélectionnées depuis le Notification Hub. Les catégories inscrites sont retournées et affichées dans une boîte de dialogue.
 
-    ![Bascules de catégories et bouton S’abonner][19]
+    ![Bascules de catégories et bouton S’abonner](./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-toast-2.png)
 
-3. Envoyez une nouvelle notification à partir du backend de l’une des façons suivantes :
+## <a name="create-a-console-app-to-send-tagged-notifications"></a>Créer une application console pour envoyer des notifications étiquetées
 
-   * **Application console** : démarrage de l’application console.
-   * **Java/PHP** : exécution de votre application ou script.
+[!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
-     Les notifications pour les catégories sélectionnées apparaissent comme notifications toast.
+## <a name="run-the-console-app-to-send-tagged-notifications"></a>Exécuter l’application console pour envoyer des notifications étiquetées
 
-     ![Notifications toast][14]
+1. Exécutez l’application créée dans la section précédente.
+2. Les notifications pour les catégories sélectionnées apparaissent comme notifications toast. Si vous sélectionnez la notification, vous voyez la première fenêtre de l’application UWP. 
+
+     ![Notifications toast](./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-reg-2.png)
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -260,11 +258,6 @@ Dans cet article, vous avez appris à diffuser les dernières nouvelles par cat�
 [Send notifications from your back-end]: #send
 [Run the app and generate notifications]: #test-app
 [Next Steps]: #next-steps
-
-<!-- Images. -->
-[1]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-breakingnews-win1.png
-[14]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-toast-2.png
-[19]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-reg-2.png
 
 <!-- URLs.-->
 [get-started]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md

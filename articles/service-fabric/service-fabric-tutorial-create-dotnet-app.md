@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 01/14/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 7432cbf8fae098c0753641f2002b72eaab3ddbb4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ff6475637b07f50aaea93caac85e65356bc9b96b
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57851361"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317202"
 ---
-# <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Tutoriel : Créer et déployer une application avec un service frontal API Web ASP.NET Core et un service principal avec état
+# <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Didacticiel : Créer et déployer une application avec un service frontal API Web ASP.NET Core et un service principal avec état
 
 Ce didacticiel est la première partie d’une série d’étapes.  Vous allez découvrir comment créer une application Azure Service Fabric avec un service frontal API Web ASP.NET Core et un service principal avec état pour stocker vos données. Lorsque vous avez terminé, vous disposez d’une application de vote avec un composant web frontal ASP.NET Core qui enregistre les résultats de vote dans un service principal avec état dans le cluster. Si vous ne souhaitez pas créer l’application de vote manuellement, vous pouvez [télécharger le code source](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) pour obtenir l’application terminée et passer directement au [Guide de l’exemple d’application de vote](#walkthrough_anchor).  Si vous préférez, vous pouvez également regarder une [vidéo de procédure pas-à-pas](https://channel9.msdn.com/Events/Connect/2017/E100) de ce tutoriel.
 
@@ -466,7 +466,7 @@ Dans ce tutoriel, utilisez l’[API web ASP.NET Core](service-fabric-reliable-se
         ],
 ```
 Pour rechercher le port de proxy inverse utilisé dans votre cluster de développement local, examinez l’élément **HttpApplicationGatewayEndpoint** dans le manifeste de cluster Service Fabric local :
-1. Ouvrez une fenêtre de navigateur et accédez à http://localhost:19080 pour ouvrir l’outil Service Fabric Explorer.
+1. Ouvrez une fenêtre de navigateur et accédez à http:\//localhost:19080 pour ouvrir l’outil Service Fabric Explorer.
 2. Sélectionnez **Cluster -> Manifeste**.
 3. Notez l’élément de port HttpApplicationGatewayEndpoint. Il doit s’agir par défaut de 19081. Si tel n’est pas le cas, vous devez modifier le port dans la méthode GetProxyAddress du code VotesController.cs suivant.
 

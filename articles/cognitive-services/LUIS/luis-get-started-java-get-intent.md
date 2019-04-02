@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 02e03868f5a48088b78d5d9b0221387212f248cf
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 5e5a186be19c0ecc9730bc79bddff41fb6bbb571
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958709"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401656"
 ---
 # <a name="quickstart-get-intent-using-java"></a>Démarrage rapide : Reconnaître l'intention à l'aide de Java
 
@@ -29,9 +29,8 @@ Dans ce démarrage rapide, vous allez transmettre des énoncés à un point de t
 ## <a name="prerequisites"></a>Prérequis
 
 * [JDK SE](https://aka.ms/azure-jdks) (Kit de développement Java, Édition Standard)
-* [Visual Studio Code](https://code.visualstudio.com/)
+* [Visual Studio Code](https://code.visualstudio.com/) ou l’IDE de votre choix.
 * ID d’application publique : df67dcdb-c37d-46af-88e1-8b97951ca1c2
-
 
 [!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
 
@@ -43,9 +42,9 @@ Dans ce démarrage rapide, vous allez transmettre des énoncés à un point de t
 
 [!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
 
-## <a name="get-intent-programmatically"></a>Reconnaître une intention par programmation 
+## <a name="get-intent-programmatically"></a>Reconnaître une intention par programmation
 
-Vous pouvez utiliser Java pour accéder aux résultats que vous avez vus dans la fenêtre du navigateur à l’étape précédente. 
+Vous pouvez utiliser Java pour accéder aux résultats que vous avez vus dans la fenêtre du navigateur à l’étape précédente. Veillez à ajouter les bibliothèques Apache à votre projet.
 
 1. Copiez le code suivant pour créer une classe dans un fichier nommé `LuisGetRequest.java` :
 
@@ -53,9 +52,9 @@ Vous pouvez utiliser Java pour accéder aux résultats que vous avez vus dans la
 
 2. Remplacez la valeur de la variable `YOUR-KEY` par votre clé LUIS.
 
-3. Compilez le programme java avec `javac -cp ":lib/*" LuisGetRequest.java`. 
+3. Remplacez le chemin par le chemin du fichier, puis compilez le programme Java à partir de la ligne de commande : `javac -cp .;<FILE_PATH>\* LuisGetRequest.java`.
 
-4. Exécutez l’application avec `java -cp ":lib/*" LuisGetRequest.java`. Des valeurs identiques à celles que vous avez vues plus tôt dans la fenêtre du navigateur s’affichent.
+4. Remplacez le chemin par le chemin du fichier, puis exécutez l’application à partir d’une ligne de commande : `java -cp .;<FILE_PATH>\* LuisGetRequest.java`. Des valeurs identiques à celles que vous avez vues plus tôt dans la fenêtre du navigateur s’affichent.
 
     ![Fenêtre de console affichant le résultat JSON de l’application LUIS](./media/luis-get-started-java-get-intent/console-turn-on.png)
     
@@ -65,7 +64,7 @@ Vous pouvez utiliser Java pour accéder aux résultats que vous avez vus dans la
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Supprimez le fichier Java. 
+Supprimez le fichier Java ou le dossier du projet.
 
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"]

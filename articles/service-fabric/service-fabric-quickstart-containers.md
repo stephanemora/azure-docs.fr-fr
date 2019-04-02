@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/31/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 05f8c1898e565e145aedbfdc13e0a88ad09486dc
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 0d4689e35cd308478ae0c0154761534dd834f146
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804644"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482332"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Démarrage rapide : déployer des conteneurs Windows sur Service Fabric
 
@@ -105,7 +105,7 @@ Quand vous avez terminé d’affecter vos valeurs aux variables, appuyez sur **F
 
 Une fois le script exécuté et le cluster créé, recherchez le `ClusterEndpoint` dans la sortie. Par exemple : 
 
-```PowerShell
+```powershell
 ...
 ClusterEndpoint : https://southcentralus.servicefabric.azure.com/runtime/clusters/b76e757d-0b97-4037-a184-9046a7c818c0
 ```
@@ -149,7 +149,7 @@ Cliquez sur **Publier**.
 
 Chaque application du cluster doit avoir un nom unique. S’il existe un conflit de noms, renommez le projet Visual Studio et recommencez le déploiement.
 
-Ouvrez un navigateur et accédez à l’adresse que vous avez indiquée dans le champ **Point de terminaison de connexion** à l’étape précédente. Vous pouvez éventuellement ajouter l’identificateur de schéma, `http://`, et le port, `:80`, à l’URL. Par exemple : http://mysfcluster.SouthCentralUS.cloudapp.azure.com:80.
+Ouvrez un navigateur et accédez à l’adresse que vous avez indiquée dans le champ **Point de terminaison de connexion** à l’étape précédente. Vous pouvez éventuellement ajouter l’identificateur de schéma, `http://`, et le port, `:80`, à l’URL. Par exemple, http:\//mysfcluster.SouthCentralUS.cloudapp.azure.com:80.
 
  La page web d’IIS par défaut doit s’afficher : ![Page web d’IIS par défaut][iis-default]
 

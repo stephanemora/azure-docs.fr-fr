@@ -3,7 +3,7 @@ title: Didacticiel sur la création de l’infrastructure d’un cluster Service
 description: Dans ce didacticiel, vous apprenez à configurer l’infrastructure AWS pour exécuter un cluster Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: david-stanford
+author: dkkapur
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,22 +13,22 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/11/2018
-ms.author: dastanfo
+ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 6b7d2223d33abb429ab5f59b14c80d43c70598dc
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9a0c56ecb20857b8fe2f5e55851e5d0d98ed3038
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209648"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369108"
 ---
 # <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>Didacticiel : Créer l’infrastructure AWS pour héberger un cluster Service Fabric
 
-Les clusters autonomes Service Fabric vous permettent de choisir votre propre environnement et de créer un cluster dans le cadre de l’approche « n’importe quel SE, n’importe quel cloud » suivie par Service Fabric. Dans cette série de didacticiels, vous créez un cluster autonome hébergé sur AWS et vous installez une application dans celui-ci.
+Les clusters autonomes Service Fabric vous permettent de choisir votre propre environnement et de créer un cluster dans le cadre de l’approche « n’importe quel SE, n’importe quel cloud » suivie par Service Fabric. Dans le cadre de cette série de tutoriels, vous créez un cluster autonome hébergé sur AWS et vous installez une application dans celui-ci.
 
-Ce didacticiel est la première partie d’une série d’étapes. Dans cet article, vous générez les ressources AWS nécessaires pour héberger votre cluster autonome de Service Fabric. Pour les prochains articles, vous devez installer la suite autonome Service Fabric, installer un exemple d’application dans votre cluster et supprimer votre cluster.
+Ce tutoriel est la première partie d’une série d’étapes. Dans cet article, vous générez les ressources AWS nécessaires pour héberger votre cluster autonome de Service Fabric. Pour les prochains articles, vous devez installer la suite autonome Service Fabric, installer un exemple d’application dans votre cluster et supprimer votre cluster.
 
-Dans ce premier volet, vous apprenez à :
+Dans ce premier volet, vous apprenez à :
 
 > [!div class="checklist"]
 > * Créer un ensemble d’instances EC2
@@ -37,7 +37,6 @@ Dans ce premier volet, vous apprenez à :
 > * Préparer l’instance pour Service Fabric
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Pour suivre ce didacticiel, vous avez besoin d’un compte AWS.  Si vous n’en avez pas, accédez à la [console AWS](https://aws.amazon.com/) pour en créer un.
 
@@ -51,7 +50,7 @@ Sélectionnez **Launch Instance** (Démarrer une instance), puis dans l’écran
 
 ![Sélection de l’instance EC2][aws-ec2instance]
 
-Sélectionnez **t2.medium**, puis **Next: Configure Instance Details** (Suivant : configurer les détails de l’instance). Sur l’écran suivant, modifiez le nombre d’instances sur `3`, puis sélectionnez **Détails avancés** pour développer cette section.
+Sélectionnez **t2.medium**, puis **Next: Configure Instance Details** (Suivant : configurer les détails de l’instance). Sur l’écran suivant, changez le nombre d’instances sur `3`, puis sélectionnez **Advanced Details** (Détails avancés) pour développer cette section.
 
 Pour connecter vos machines virtuelles ensemble dans Service Fabric, celles qui hébergent votre infrastructure doivent avoir les mêmes informations d’identification.  Deux méthodes courantes vous permettent d’obtenir des informations d’identification homogènes : joindre toutes les machines virtuelles au même domaine ou définir le même mot de passe administrateur sur chacune des machines virtuelles.  Pour ce didacticiel, vous utilisez un script de données utilisateur pour définir les instances EC2 afin qu’elles aient toutes le même mot de passe.  Dans un environnement de production, il est plus sûr de joindre les hôtes à un domaine Windows.
 
@@ -111,7 +110,7 @@ Une fois que vous avez toutes les adresses IP, sélectionnez l’une des instanc
 
 Une fois que vous êtes connecté à votre instance, vérifiez que vous pouvez les connecter entre elles et que vous pouvez partager des fichiers.  Vous avez collecté les adresses IP de toutes les instances, sélectionnez celle à laquelle vous n’êtes pas connecté actuellement. Accédez à **Démarrer**, entrez `cmd` et sélectionnez **Invite de commandes**.
 
-Dans ces exemples, la connexion RDP a été établie vers l’adresse IP suivante : 172.31.21.141. L’ensemble des tests de connectivité se produisent ensuite sur l’autre adresse IP : 172.31.20.163.
+Dans ces exemples, la connexion RDP a été établie vers l’adresse IP suivante : 172.31.21.141. L’ensemble des tests de connectivité se produisent ensuite sur l’autre adresse IP : 172.31.20.163.
 
 Pour valider que cette connectivité de base fonctionne, utilisez la commande ping.
 

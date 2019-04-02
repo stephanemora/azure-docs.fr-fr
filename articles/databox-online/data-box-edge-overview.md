@@ -6,27 +6,22 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 11/13/2018
+ms.date: 03/27/2019
 ms.author: alkohli
-ms.openlocfilehash: 60186ee6aa614c83691c9ce4ab9d8124fd5925fd
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 8e07678604797e7e2090f5fefcdb3f3adff40161
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685954"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521769"
 ---
-# <a name="what-is-azure-data-box-edge-preview"></a>Qu’est-ce qu’Azure Data Box Edge (préversion) ? 
+# <a name="what-is-azure-data-box-edge"></a>Qu’est-ce qu’Azure Data Box Edge ? 
 
 Azure Data Box Edge est une solution de stockage qui vous permet de traiter les données et de les envoyer vers Azure via le réseau. Cet article vous fournit une vue d’ensemble de la solution Data Box Edge, ses avantages, ses principales fonctionnalités et les scénarios dans lesquels vous pouvez déployer cet appareil. 
 
 Data Box Edge utilise un appareil physique fourni par Microsoft pour accélérer le transfert sécurisé des données. L’appareil physique réside dans votre environnement local et vous écrivez des données à l’aide des protocoles NFS et SMB. 
 
 Data Box Edge possède toutes les fonctionnalités de passerelle de Data Box Gateway. Par ailleurs, Data Box intègre des fonctionnalités informatiques avec intelligence artificielle, qui facilitent l’analyse, le traitement ou le filtrage des données en les déplaçant vers un objet blob de blocs Azure, un objet blob de pages ou Azure Files.  
-
-> [!IMPORTANT]
-> - Data Box Edge est en préversion. [Inscrivez-vous](#sign-up) à ce service !
-> - Veuillez lire les [conditions d’utilisation de la préversion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) avant de déployer cette solution.
-
 
 ## <a name="use-cases"></a>Cas d'utilisation
 
@@ -70,22 +65,6 @@ Data Box Edge intègre les fonctionnalités suivantes :
 |Résilience     | Résilience réseau intégrée.        |
 
 
-## <a name="features-and-specifications"></a>Fonctionnalités et spécifications
-
-L’appareil physique Data Box Edge affiche les caractéristiques suivantes :
-
-| Fonctionnalités/spécifications                                          | Description              |
-|---------------------------------------------------------|--------------------------|
-| Dimensions   | Largeur : 17,25” Profondeur : 27,25” Hauteur : 1,75”<br>(sans les kits de montage et les poignées de l’unité d’alimentation PSU)  |            
-| Espace en rack|1U lorsque l’appareil est placé dans le rack|
-| Câbles| 2 câbles d’alimentation<br>2 câbles RJ45 1 Gbit/s<br>2 câbles en cuivre SFP+ 10 Gbit/s|
-| Composants|2 unités d’alimentation (PSU) intégrées|
-| UC|2 processeurs Intel Xeon avec 10 cœurs chacun  |
-| Mémoire| 64 Go de RAM|
-| Disques| 8 disques SSD NVMe, d’une capacité de 1,6 To chacun <br> Le système échoue si un disque SSD NVMe est défaillant. |
-| Capacité de stockage local| Capacité totale de 12,8 To|
-| Interfaces réseau| 2 interfaces 1 GbE : une pour la gestion, non configurable par l’utilisateur, utilisée pour l’installation initiale. L’autre interface peut être configurée par l’utilisateur, utilisée pour le transfert de données et est définie en mode DHCP par défaut. <br>2 interfaces 25 GbE : peuvent également fonctionner comme interfaces 10 GbE. Ces interfaces de données peuvent être configurées par l’utilisateur en mode statique ou DHCP (par défaut). <br> 2 interfaces 25 GbE : ces interfaces de données peuvent être configurées par l’utilisateur en mode statique ou DHCP (par défaut).|
-
 ## <a name="components"></a>Composants
 
 La solution Data Box Edge se compose d’une ressource Data Box Edge, d’un appareil physique Data Box Edge et d’une interface utilisateur web locale.
@@ -110,36 +89,22 @@ La solution Data Box Edge se compose d’une ressource Data Box Edge, d’un app
 L’appareil physique Data Box, la ressource Azure et le compte de stockage cible vers lequel vous transférez des données n’ont pas besoin de se trouver dans la même région.
 
 - **Disponibilité des ressources** : pour cette version, la ressource Data Box Edge est disponible dans les régions suivantes :
-    - **United States** : Ouest des États-Unis 2 et Est des États-Unis
+    - **États-Unis** : USA Est
     - **Union européenne** : Europe de l’Ouest
     - **Asie-Pacifique** : Sud-est de l’Asie
-
+    
+    Le déploiement de Data Box Gateway est également possible dans Azure Government Cloud. Pour plus d’informations, voir [Présentation d’Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
+    
 - **Comptes de stockage de destination** : les comptes de stockage qui stockent les données sont disponibles dans toutes les régions Azure. 
 
     Régions où les comptes de stockage qui stockent les données Data Box doivent se trouver à proximité de l’appareil pour garantir des performances optimales. Un compte de stockage situé dans un emplacement éloigné entraîne des temps de latence longs et une baisse des performances. 
 
 
-## <a name="sign-up"></a>Inscription
-
-Data Box Edge est en préversion et vous devez vous inscrire. Procédez comme suit pour vous inscrire à Data Box Gateway :
-
-1. Connectez-vous au portail Azure à l’adresse : [https://aka.ms/databox-edge](https://aka.ms/databox-edge).
-
-2. Sélectionnez l’abonnement que vous souhaitez utiliser pour la préversion de Data Box Edge. Sélectionnez la région dans laquelle vous souhaitez déployer la ressource Data Box Edge. Dans l’option Data Box Edge, cliquez sur **S’inscrire**.
-
-    ![Inscription à Data Box Edge 3](media/data-box-edge-overview/data-box-edge-sign-up3.png)
-
-3.  Répondez aux questions concernant le pays de résidence des données, le laps de temps, le service Azure cible pour le transfert des données, la bande passante réseau et la fréquence de transfert des données. Consultez le texte **Confidentialité et conditions d'utilisation** et sélectionnez la case à cocher autorisant **Microsoft à utiliser votre adresse de messagerie pour vous contacter**.
-
-    ![Inscription à Data Box Edge 4](media/data-box-edge-overview/data-box-edge-sign-up4.png)
-
-4. Une fois que vous êtes inscrit et autorisé à utiliser la préversion, vous pouvez commander un Data Box Edge.
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Relire les [Conditions requises pour le système Data Box Edge](https://aka.ms/dbe-docs).
-- Comprendre les [limites de Data Box Edge](https://aka.ms/dbe-docs).
-- Déployer [Azure Data Box Edge](https://aka.ms/dbe-docs) sur le portail Azure.
+- Relire les [Conditions requises pour le système Data Box Edge](data-box-edge-system-requirements.md).
+- Comprendre les [limites de Data Box Edge](data-box-edge-limits.md).
+- Déployer [Azure Data Box Edge](data-box-edge-deploy-prep.md) sur le portail Azure.
 
 
 

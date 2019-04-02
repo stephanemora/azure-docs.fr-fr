@@ -2,17 +2,16 @@
 title: Présentation d’Azure DNS
 description: Vue d’ensemble des services d’hébergement DNS sur Microsoft Azure. Héberger votre domaine sur Microsoft Azure
 author: vhorne
-manager: jeconnoc
 ms.service: dns
 ms.topic: overview
-ms.date: 9/24/2018
+ms.date: 3/21/2019
 ms.author: victorh
-ms.openlocfilehash: 62043128b6415a064e35adca6be4d60ccfcae308
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: cea19ad2ba03d3e71df32912a1d7ee9e6171689a
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294312"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339452"
 ---
 # <a name="what-is-azure-dns"></a>Présentation d’Azure DNS
 
@@ -39,6 +38,7 @@ Les domaines DNS dans Azure DNS sont hébergés sur un réseau global de serveur
 Pour plus d’informations, consultez [Comment protéger les enregistrements et zones DNS](dns-protect-zones-recordsets.md). 
 
 ## <a name="dnssec"></a>DNSSEC
+
 Azure DNS ne prend actuellement pas en charge DNSSEC. Dans la plupart des cas, vous pouvez limiter le recours à DNSSEC en utilisant systématiquement HTTPS/TLS dans vos applications. Si DNSSEC est une exigence incontournable pour vos zones DNS, vous pouvez héberger ces zones avec des fournisseurs d’hébergement DNS tiers.
 
 ## <a name="ease-of-use"></a>Simplicité d'utilisation
@@ -57,12 +57,11 @@ Pour plus d’informations, consultez [Utilisation d’Azure DNS pour les domain
 
 ## <a name="alias-records"></a>Enregistrements d’alias
 
-Azure DNS prend en charge les jeux d’enregistrements d’alias. Vous pouvez utiliser un jeu d’enregistrements d’alias pour faire référence à une ressource Azure, comme une adresse IP publique Azure ou un profil Azure Traffic Manager. Si l’adresse IP de la ressource sous-jacente change, le jeu d’enregistrements d’alias se met à jour de façon fluide pendant la résolution DNS. Le jeu d’enregistrements d’alias pointe vers l’instance du service, laquelle est associée à une adresse IP. 
+Azure DNS prend en charge les jeux d’enregistrements d’alias. Vous pouvez utiliser un jeu d’enregistrements d’alias pour référencer une ressource Azure, comme une adresse IP publique Azure, un profil Azure Traffic Manager ou point de terminaison Azure Content Delivery Network. Si l’adresse IP de la ressource sous-jacente change, le jeu d’enregistrements d’alias se met à jour de façon fluide pendant la résolution DNS. Le jeu d’enregistrements d’alias pointe vers l’instance du service, laquelle est associée à une adresse IP.
 
-Par ailleurs, vous pouvez maintenant pointer votre apex ou votre domaine nu vers un profil Traffic Manager avec un enregistrement d’alias. contoso.com en est un exemple.
+Par ailleurs, vous pouvez maintenant pointer votre apex ou votre domaine nu vers un profil Traffic Manager ou un point de terminaison CDN avec un enregistrement d’alias. contoso.com en est un exemple.
 
 Pour plus d’informations, consultez [Vue d’ensemble des enregistrements d’alias Azure DNS](dns-alias.md).
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

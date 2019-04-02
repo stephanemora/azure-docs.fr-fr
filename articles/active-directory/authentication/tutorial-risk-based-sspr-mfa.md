@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e71247c9a6527bc7372af1a902028aae72bf4a73
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 35039dc05103ac6528f668fd76e1372ed7cc0708
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162694"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370549"
 ---
 # <a name="tutorial-use-risk-events-to-trigger-multi-factor-authentication-and-password-changes"></a>Didacticiel : Utiliser des événements à risque pour déclencher l’authentification multifacteur et le changement du mot de passe
 
@@ -61,7 +61,7 @@ Azure AD Identity Protection inclut une stratégie par défaut qui peut vous ai
    1. Cette stratégie nécessite que tous vos utilisateurs inscrivent les méthodes que devra utiliser l’authentification multifacteur.
 1. Cliquez sur **Enregistrer**.
 
-   ![Demander aux utilisateurs de s’inscrire à MFA lors de la connexion à l’aide d’Azure AD Identity Protection](./media/tutorial-risk-based-sspr-mfa/risk-based-require-mfa-registration.png)
+   ![Demander aux utilisateurs de s’inscrire à MFA à la connexion](./media/tutorial-risk-based-sspr-mfa/risk-based-require-mfa-registration.png)
 
 ### <a name="enable-risk-based-password-changes"></a>Activer les modifications de mot de passe en fonction des risques
 

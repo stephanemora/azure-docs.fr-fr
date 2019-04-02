@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: tutorial
-ms.date: 03/14/2019
+ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: c65ae71350383896c81fd7057d425822069fc5aa
-ms.sourcegitcommit: f68b0e128f0478444740172f54e92b453df696be
+ms.openlocfilehash: 57bde67ac2259b3847f59f95eaefba9c6fddf13e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136912"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316199"
 ---
 # <a name="project-acoustics-unrealwwise-design-tutorial"></a>Tutoriel de conception Project Acoustics Unreal/Wwise
 Ce tutoriel décrit la configuration et le workflow de la conception pour Project Acoustics dans Unreal et Wwise.
@@ -35,44 +35,44 @@ Quand Project Acoustics est actif, il répond aux courbes de volume d’occlusio
 
 Avec cette valeur, si la simulation Project Acoustics calcule une occlusion de -18 dB, il entrera sur la courbe ci-dessous à X=18, et la valeur correspondante de Y sera l’atténuation appliquée. Pour faire une occlusion à la moitié, définissez le point de terminaison à -50 dB au lieu de -100 dB, ou à -200 dB pour exagérer l’occlusion. Vous pouvez adapter et affiner les courbes qui conviennent le mieux à votre jeu.
  
-![Courbe d’occlusion du projet](media/wwise-occlusion-curve.png)
+![Capture d’écran de l’éditeur de courbes d’occlusion Wwise](media/wwise-occlusion-curve.png)
 
 ### <a name="disable-wwise-obstruction-curves"></a>Désactiver les courbes d’obstruction Wwise
 Les courbes d’obstruction Wwise affectent le niveau de sécheresse dans l’isolation, mais Project Acoustics utilise des contrôles de conception et la simulation pour appliquer des ratios humide/sec. Nous vous recommandons de désactiver de la courbe de volume d’obstruction. Pour concevoir l’humidité, utilisez le contrôle Wetness Adjust décrit plus loin.
  
 Si vous utilisez des courbes LPF/HPF d’obstruction à d’autres fins, vérifiez que vous les avez définies sur Y=0 à X=0 (autrement dit, il n’existe pas de filtre LPF ou HPF quand il n’y a pas d’obstruction).
 
-![Courbe d’obstruction du projet](media/wwise-obstruction-curve.png)
+![Capture d’écran de l’éditeur de courbes d’obstruction Wwise](media/wwise-obstruction-curve.png)
 
 ### <a name="design-project-acoustics-mixer-parameters"></a>Concevoir les paramètres du mixer Project Acoustics
 Vous pouvez contrôler les propriétés de réverbération globale en consultant l’onglet du plug-in Mixer du bus Project Acoustics. Double-cliquez sur « Project Acoustics Mixer (Custom) » pour ouvrir le panneau des paramètres du plug-in Mixer.
 
 Vous pouvez également voir que le plug-in Mixer a une option « Perform Spatialization ». Si vous préférez utiliser la spatialisation intégrée de Project Acoustics, cochez la case « Perform Spatialization » et choisissez HRTF ou Panning. Veillez à désactiver les bus auxiliaires secs que vous avez configurés, sinon vous entendrez deux fois le chemin direct. Utilisez « Wetness Adjust » et « Reverb Time Scale Factor » pour exercer un contrôle global sur le mix de réverbération. Notez que vous devez redémarrer Unreal, puis regénérer les banques de sons avant d’atteindre Play pour choisir des modifications de la configuration du plug-in Mixer, comme « Perform Spatialization ».
 
-![Options du plug-in Mixer de Project Acoustics](media/mixer-plugin-global-settings.png)
+![Capture d’écran des options du plug-in Mixer Wwise Project Acoustics](media/mixer-plugin-global-settings.png)
 
 ## <a name="set-project-acoustics-design-controls-in-the-wwise-actor-mixer-hierarchy"></a>Définir des contrôles de conception Project Acoustics dans la hiérarchie acteur-mixeur de Wwise
 Pour contrôler les paramètres acteur-mixeur individuel, double-cliquez sur l’acteur-mixeur, puis cliquez sur son onglet Mixer Plug-in. Vous pouvez changer ici n’importe quel paramètre au niveau d’un son individuel. Ces valeurs sont combinées avec celles définies du côté de Unreal (décrits ci-dessous). Par exemple, si le plug-in Project Acoustics Unreal définit Outdoorness Adjustment sur un objet à 0,5, et que Wwise le définit à -0,25, le Outdoorness Adjustment résultant appliqué à ce son est de 0,25.
 
-![Paramètres de Mixer par son](media/per-sound-mixer-settings.png)
+![Capture d’écran des paramètres de Mixer par son dans la hiérarchie des acteurs de Mixer Wwise](media/per-sound-mixer-settings.png)
 
 ### <a name="ensure-the-aux-bus-has-dry-send-and-output-bus-has-wet-send"></a>Vérifiez que le bus auxiliaire a un envoi sec (dry) et que le bus de sortie a un envoi humide (wet).
 N’oubliez pas que la configuration requise acteur-mixeur interchange le routage sec et humide habituel dans Wwise. Il produit un signal de réverbération sur le bus de sortie de l’acteur-mixeur (défini sur Project Acoustics Bus) et un signal sec sur le bus auxiliaire défini par l’utilisateur. Ce routage est nécessaire en raison des fonctionnalités de l’API du plug-in Wwise Mixer utilisées par le plug-in Project Acoustics Wwise.
 
-![Directives pour la conception des voix](media/voice-design-guidelines.png)
+![Capture d’écran de l’éditeur Wwise montrant des instructions de conception des voix pour Project Acoustics](media/voice-design-guidelines.png)
  
 ### <a name="set-up-distance-attenuation-curves"></a>Configurer les courbes d’atténuation de distance
 Vérifiez que les courbes d’atténuation utilisées par les acteurs-mixeurs avec Project Acoustics ont un envoi auxiliaire défini par l’utilisateur défini sur « output bus volume ». Wwise le fait par défaut pour les courbes d’atténuation nouvellement créées. Si vous migrez un projet existant, vérifiez les paramètres de vos courbes. 
 
 Par défaut, la simulation Project Acoustics a un rayon de 45 mètres autour de l’emplacement du joueur. Nous recommandons généralement de définir votre courbe d’atténuation à -200 dB autour de cette distance. Cette distance n’est pas une contrainte figée. Pour certains sons, comme des armes, vous pouvez souhaiter un rayon plus grand. Dans ce cas, l’inconvénient est que seule la géométrie située dans les 45 m de l’emplacement du joueur est prise en compte. Si le joueur est dans une pièce et que la source d’un son est en dehors de la salle à une distance de 100 m, il sera bloqué correctement. Si la source est dans une pièce et que le joueur est dehors à une distance de 100m, il ne sera pas bloqué correctement.
 
-![Courbes d’atténuation](media/atten-curve.png)
+![Capture d’écran des courbes d’atténuation Wwise](media/atten-curve.png)
 
 ## <a name="set-up-scene-wide-project-acoustics-properties"></a>Définir les propriétés de Project Acoustics à l’échelle de la scène
 
 L’acteur Acoustics Space expose de nombreux contrôles qui modifient le comportement du système et qui sont pratiques lors du débogage.
 
-![Contrôles Acoustics Space](media/acoustics-space-controls.png)
+![Capture d’écran de contrôles Unreal Acoustics Space](media/acoustics-space-controls.png)
 
 * **Acoustics Data :** Une ressource acoustique avec baking du répertoire Content/Acoustics doit être affectée à ce champ. Le plug-in Project Acoustics ajoute automatiquement le répertoire Content/Acoustics aux répertoires packagés de votre projet.
 * **Tile size :** Les étendues de la région autour de l’auditeur dont les données acoustiques doivent être chargées dans la RAM. Dès lors que les sondes d’auditeur immédiatement autour de l’acteur sont chargées, les résultats sont les mêmes que dans le cas du chargement des données acoustiques pour toutes les sondes. Des vignettes plus grandes utilisent davantage de RAM, mais réduisent les E-S disque
@@ -88,7 +88,7 @@ L’acteur Acoustics Space expose de nombreux contrôles qui modifient le compor
 ## <a name="actor-specific-acoustics-design-controls"></a>Contrôles de conception acoustique spécifiques à l’acteur
 Ces contrôles de conception sont limités à un composant audio individuel dans Unreal.
 
-![Contrôles de composant audio](media/audio-component-controls.png)
+![Capture d’écran des contrôles de composant audio Unreal](media/audio-component-controls.png)
 
 * **Occlusion Multiplier :** Contrôle l’effet d’occlusion. Les valeurs > 1 amplifient l’occlusion. Les valeurs < 1 la réduisent.
 * **Wetness Adjustment :** dB de réverbération supplémentaires
@@ -104,7 +104,7 @@ L’acteur Acoustics Space est accessible via un blueprint, fournissant des fonc
 ### <a name="add-finer-grained-control-over-streaming-load"></a>Ajouter un contrôle plus fin sur le chargement en streaming
 Pour gérer les données acoustiques de streaming vous-même au lieu du streaming automatique en fonction de la position du joueur, vous pouvez utiliser la fonction de blueprint Force Load Tile :
 
-![Streaming B P](media/blueprint-streaming.png)
+![Capture d’écran des options Blueprint Streaming dans Unreal](media/blueprint-streaming.png)
 
 * **Target :** Acteur AcousticsSpace
 * **Center Position :** Centre de la région dont les données doivent être chargées
@@ -113,12 +113,12 @@ Pour gérer les données acoustiques de streaming vous-même au lieu du streamin
 
 La taille de la vignette doit être déjà définie avant d’appeler Force Load Tile. Par exemple, vous pouvez faire ceci pour charger un fichier ACE, définir la taille de la vignette et effectuer le streaming dans une région :
 
-![Configuration du streaming](media/streaming-setup.png)
+![Capture d’écran des options Streaming Setup dans Unreal](media/streaming-setup.png)
 
 ### <a name="optionally-query-for-surface-proximity"></a>Interroger (facultatif) la proximité de la surface
 Si vous voulez voir à quelle distance les surfaces se trouvent dans une direction particulière autour de l’auditeur, vous pouvez utiliser la fonction Query Distance. Cette fonction peut être utile pour piloter des réflexions directionnelles retardées, ou pour toute autre logique de jeu pilotée par la proximité des surfaces. La requête consomme moins de ressources que le raycasting, car les résultats sont extraits de la table de recherche acoustique.
 
-![Distance Query](media/distance-query.png)
+![Capture d’écran de l’exemple de requête de distance Blueprint](media/distance-query.png)
 
 * **Target :** Acteur AcousticsSpace
 * **Look Direction :** La direction dans laquelle interroger, centrée sur l’auditeur

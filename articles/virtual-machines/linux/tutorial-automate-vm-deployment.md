@@ -1,6 +1,6 @@
 ---
 title: 'Didacticiel : personnaliser une machine virtuelle Linux avec cloud-init dans Azure | Microsoft Docs'
-description: Avec ce didacticiel, vous allez apprendre à utiliser cloud-init et Key Vault pour personnaliser les machines virtuelles Linux lors de leur premier démarrage dans Azure
+description: Avec ce tutoriel, vous allez apprendre à utiliser cloud-init et Key Vault pour personnaliser les machines virtuelles Linux lors de leur premier démarrage dans Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b71c48a86be13df51222069f6948642455bc77fc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2543ffb20c4e7da840201cfd3be04505515458a6
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58121262"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539358"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>Didacticiel : comment utiliser cloud-init pour personnaliser une machine virtuelle Linux dans Azure au premier démarrage
 
@@ -131,7 +131,7 @@ az vm open-port --port 80 --resource-group myResourceGroupAutomate --name myVM
 ```
 
 ## <a name="test-web-app"></a>Tester l’application web
-Vous pouvez maintenant ouvrir un navigateur web et entrer *http://<publicIpAddress>* dans la barre d’adresse. Indiquez votre propre adresse IP publique à partir du processus de création de la machine virtuelle. Votre application Node.js apparaît telle que dans l’exemple suivant :
+Vous pouvez maintenant ouvrir un navigateur web et entrer *http:\/\/\<adresse_IP_publique>* dans la barre d’adresse. Indiquez votre propre adresse IP publique à partir du processus de création de la machine virtuelle. Votre application Node.js apparaît telle que dans l’exemple suivant :
 
 ![Afficher le site NGINX en cours d’exécution](./media/tutorial-automate-vm-deployment/nginx.png)
 
@@ -262,7 +262,7 @@ az vm open-port \
 ```
 
 ### <a name="test-secure-web-app"></a>Tester l’application web sécurisée
-Vous pouvez maintenant ouvrir un navigateur web et entrer *https://<publicIpAddress>* dans la barre d’adresse. Fournissez votre propre adresse IP publique comme indiqué dans la sortie du processus précédent de création de machine virtuelle. Acceptez l’avertissement de sécurité si vous avez utilisé un certificat auto-signé :
+Vous pouvez maintenant ouvrir un navigateur web et entrer *https:\/\/\<adresse_IP_publique>* dans la barre d’adresse. Fournissez votre propre adresse IP publique comme indiqué dans la sortie du processus précédent de création de machine virtuelle. Acceptez l’avertissement de sécurité si vous avez utilisé un certificat auto-signé :
 
 ![Accepter l’avertissement de sécurité du navigateur web](./media/tutorial-automate-vm-deployment/browser-warning.png)
 

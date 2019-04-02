@@ -6,22 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: overview
-ms.date: 10/09/2018
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: fd58bf9582663e64e1aefd8193d48d92f51dcd0e
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 105996cf72e2a96a06a4478518e68765d3d158f5
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165659"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58516890"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-gateway"></a>Utiliser le Portail Azure pour gérer les partages de votre service Azure Data Box Gateway 
 
 Cet article décrit comment gérer les partages de votre service Azure Data Box Gateway. Vous pouvez gérer le service Azure Data Box Gateway via le Portail Azure ou via l’interface utilisateur web locale. Utilisez le Portail Azure pour ajouter, supprimer, actualiser les partages ou synchroniser la clé de stockage du compte de stockage associé aux partages.
-
-> [!IMPORTANT]
-> - Data Box Gateway est disponible en préversion. Veuillez lire les [conditions d’utilisation de la préversion Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) avant de commander et déployer cette solution.
-
 
 ## <a name="about-shares"></a>À propos des partages
 
@@ -88,6 +84,9 @@ La liste des partages est actualisée afin de tenir compte de la suppression.
 
 La fonctionnalité d’actualisation vous permet d’actualiser le contenu d’un partage local. Lorsque vous actualisez un partage, une recherche est lancée pour rechercher tous les objets Azure, y compris les objets blob et les fichiers qui ont été ajoutés dans le cloud depuis la dernière actualisation. Ces fichiers supplémentaires sont ensuite utilisés pour actualiser le contenu du partage local sur l’appareil. 
 
+> [!NOTE]
+> Les autorisations et les listes de contrôle d’accès (ACL) ne sont pas conservées lors d’une opération d’actualisation. 
+
 Pour actualiser un partage, procédez comme suit dans le Portail Azure.
 
 1.  Accédez à **Partages** dans le Portail Azure. Sélectionnez et cliquez sur le partage que vous souhaitez actualiser.
@@ -111,7 +110,7 @@ Pour actualiser un partage, procédez comme suit dans le Portail Azure.
 En cas d’échec, une alerte est déclenchée. L’alerte décrit en détail la cause du problème et la recommandation à suivre pour le résoudre. L’alerte contient également un lien vers un fichier présentant le résumé des échecs, notamment les fichiers qui n’ont pas pu être mis à jour ou supprimés.
 
 >[!IMPORTANT]
-> Dans cette préversion, n’actualisez pas plusieurs partages à la fois.
+> Dans cette version, n’actualisez pas plusieurs partages à la fois.
 
 ## <a name="sync-storage-keys"></a>Synchroniser des clés de stockage
 

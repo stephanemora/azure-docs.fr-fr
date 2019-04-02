@@ -13,16 +13,16 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/04/2019
+ms.date: 03/22/2019
 ms.author: jowargo
-ms.openlocfilehash: 9fde3befb147aeeab9419e08602552a970368cfe
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 32714b3e5a5ed859716faef2ca660f8b2c90b089
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57844982"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402506"
 ---
-# <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>Tutoriel : Envoyer des notifications à des utilisateurs spécifiques avec Azure Notification Hubs
+# <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>Didacticiel : Envoyer des notifications à des utilisateurs spécifiques avec Azure Notification Hubs
 
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
@@ -53,13 +53,13 @@ Ce tutoriel fait intervenir le hub de notification et le projet Visual Studio qu
 
 [!INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
-## <a name="update-the-code-for-the-client-project"></a>Mise à jour du code pour le projet client
+## <a name="update-the-code-for-the-uwp-client"></a>Mettre à jour le code pour le client UWP
 
 Dans cette section, vous mettez à jour le code du projet que vous avez terminé pour le [Tutoriel : Envoyer des notifications vers des applications de plateforme Windows universelle avec Azure Notification Hubs](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md). Le projet doit déjà être associé au Windows store. Il doit également être configuré pour utiliser votre hub de notification. Dans cette section, vous allez ajouter du code pour appeler le nouveau serveur principal WebAPI et l’utiliser pour l’enregistrement et l’envoi de notifications.
 
 1. Dans Visual Studio, ouvrez la solution que vous avez créée pour le [Tutoriel : Envoyer des notifications vers des applications de plateforme Windows universelle avec Azure Notification Hubs](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
-2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **WindowsApp**, puis cliquez sur **Gérer les packages NuGet**.
-3. Dans la partie gauche, cliquez sur **En ligne**.
+2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet Plateforme Windows universelle, puis cliquez sur **Gérer les packages NuGet**.
+3. Sur le côté gauche, sélectionnez **Parcourir**.
 4. Dans la zone **Rechercher**, entrez **Client Http**.
 5. Dans la liste des résultats, cliquez sur **System.Net.Http**, puis cliquez sur **Installer**. Terminez l'installation.
 6. De retour dans la zone **Recherche** NuGet, tapez **Json.net**. Installez le package **Newtonsoft.json** , puis fermez la fenêtre du Gestionnaire de package NuGet.

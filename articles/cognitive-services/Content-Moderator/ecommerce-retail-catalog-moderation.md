@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Modérer les images de produits e-commerce - Content Moderator'
+title: 'Didacticiel : Modérer les images de produits e-commerce - Content Moderator'
 titlesuffix: Azure Cognitive Services
 description: Configurez une application pour analyser et classer des images de produits avec des étiquettes spécifiées (à l’aide de l’API Azure Vision par ordinateur et du service Azure Vision personnalisée), et marquez les images répréhensibles à des fins de vérification (à l’aide d’Azure Content Moderator).
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 5c4d2320ffd54054eb8a5bb26ef14c8e99dabb33
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 900ad8b7f676eb67f9ac0fc808600779f832a102
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855952"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539494"
 ---
 # <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>Didacticiel : Modérer les images de produits e-commerce avec Azure Content Moderator
 
@@ -61,7 +61,7 @@ Ce tutoriel met en lumière le code qui est essentiel pour le projet, mais ne co
 
 ## <a name="define-api-keys-and-endpoints"></a>Définir les clés et points de terminaison API
 
-Comme mentionné plus haut, ce tutoriel utilise trois services cognitifs ; ainsi, il requiert trois clés et points de terminaison API correspondants. Observez les champs suivants dans la classe **Program** : 
+Comme mentionné plus haut, ce tutoriel utilise trois services cognitifs ; ainsi, il requiert trois clés et points de terminaison API correspondants. Observez les champs suivants dans la classe **Program** :
 
 [!code-csharp[define API keys and endpoint URIs](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=21-29)]
 
@@ -79,19 +79,19 @@ Observez la méthode **EvaluateAdultRacy** dans la classe **Program**. Cette mé
 
 [!code-csharp[define EvaluateAdultRacy method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=73-113)]
 
-## <a name="evaluatecustomvisiontags-method"></a>Méthode EvaluateCustomVisionTags
+## <a name="evaluatecomputervisiontags-method"></a>Méthode EvaluateComputerVisionTags
 
-La méthode suivante prend une URL d’image et vos informations d’abonnement Vision par ordinateur et recherche la présence de célébrités dans l’image. Si une ou plusieurs célébrités sont trouvées, elle définit la valeur correspondante dans le tableau **ReviewTags** sur **True**. 
+La méthode suivante prend une URL d’image et vos informations d’abonnement Vision par ordinateur et recherche la présence de célébrités dans l’image. Si une ou plusieurs célébrités sont trouvées, elle définit la valeur correspondante dans le tableau **ReviewTags** sur **True**.
 
 [!code-csharp[define EvaluateCustomVisionTags method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=115-146)]
 
 ## <a name="evaluatecustomvisiontags-method"></a>Méthode EvaluateCustomVisionTags
 
-Ensuite, observez la méthode **EvaluateCustomVisionTags**, qui classifie les produits proprement dits&mdash;en l’occurrence, les drapeaux, jouets et stylos. Suivez les instructions du guide [Comment créer un classifieur](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) pour créer votre propre classifieur d’image personnalisé afin de détecter la présence de drapeaux, jouets et stylos (ou de ce que vous avez choisi comme étiquettes personnalisées) dans les images.
+Ensuite, observez la méthode **EvaluateCustomVisionTags**, qui classifie les produits proprement dits&mdash;en l’occurrence, les drapeaux, jouets et stylos. Suivez les instructions du guide [Comment créer un classifieur](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) pour créer votre propre classifieur d’image personnalisé afin de détecter la présence de drapeaux, jouets et stylos (ou de ce que vous avez choisi comme étiquettes personnalisées) dans les images. Vous pouvez utiliser les images du dossier **sample-images** sur le [dépôt GitHub](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) pour entraîner rapidement certaines catégories de cet exemple.
 
 ![Page web Vision personnalisée avec images d’entraînement de stylos, jouets et drapeaux](images/tutorial-ecommerce-custom-vision.PNG)
 
-Après avoir entraîné votre classifieur, obtenez la clé de prédiction et l’URL de point de terminaison de prédiction (consultez [Obtenir l’URL et la clé de prédiction](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api#get-the-url-and-prediction-key) si vous avez besoin d’aide pour les récupérer) et affectez ces valeurs à vos champs `CustomVisionKey` et `CustomVisionUri`, respectivement. La méthode utilise ces valeurs pour interroger le classifieur. Si le classifieur détecte une ou plusieurs étiquettes personnalisées dans l’image, cette méthode définit la ou les valeurs correspondantes dans le tableau **ReviewTags** sur **True**. 
+Après avoir entraîné votre classifieur, obtenez la clé de prédiction et l’URL de point de terminaison de prédiction (consultez [Obtenir l’URL et la clé de prédiction](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api#get-the-url-and-prediction-key) si vous avez besoin d’aide pour les récupérer) et affectez ces valeurs à vos champs `CustomVisionKey` et `CustomVisionUri`, respectivement. La méthode utilise ces valeurs pour interroger le classifieur. Si le classifieur détecte une ou plusieurs étiquettes personnalisées dans l’image, cette méthode définit la ou les valeurs correspondantes dans le tableau **ReviewTags** sur **True**.
 
 [!code-csharp[define EvaluateCustomVisionTags method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=148-171)]
 

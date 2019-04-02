@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 02/27/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: ea1b40b033a862bc4ed5db67a68e4fa7e97f3cad
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 485a386210458d57b87aaa0537b1c58a6adab2c7
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58124561"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58342643"
 ---
 1. Vous pouvez trouver des réseaux étendus virtuels en accédant à **Tous les services** et en recherchant Réseaux étendus virtuels. Ou bien, vous pouvez chercher des réseaux étendus virtuels dans la zone de recherche située en haut du Portail Azure. Cliquez sur **WAN virtuels** pour ouvrir la page.
 2. Cliquez sur **+Ajouter** pour ouvrir la page **Créer un WAN**.
-3. Sur la page Créer un WAN, renseignez les champs suivants.
+3. Dans la page **Créer un WAN**, renseignez les champs suivants :
 
    * **Nom** : sélectionnez le nom que vous souhaitez donner à votre réseau étendu.
    * **Abonnement** : sélectionnez l’abonnement que vous voulez utiliser.

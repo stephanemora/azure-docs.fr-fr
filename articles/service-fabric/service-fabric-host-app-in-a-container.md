@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: aljo
-ms.openlocfilehash: bd92ac2a36fdb15741799571d3ceff7fbbb36eef
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 270fa85f7f51c2f29e8dd67dd68c6dc605929c6e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807522"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313343"
 ---
-# <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Tutoriel : Déployer une application .NET dans un conteneur Windows vers Azure Service Fabric
+# <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Didacticiel : Déployer une application .NET dans un conteneur Windows vers Azure Service Fabric
 
 Ce didacticiel explique comment mettre une application ASP.NET existante en conteneur et l’empaqueter en tant qu’application Service Fabric.  Exécutez les conteneurs en local sur le cluster de développement Service Fabric puis déployez l’application vers Azure.  L’application conserve les données dans [Azure SQL Database](/azure/sql-database/sql-database-technical-overview). 
 
@@ -232,7 +232,7 @@ $vnetRuleObject1 = New-AzureRmSqlServerVirtualNetworkRule `
 
 ![Publication de l’application][publish-app]
 
-Vous pouvez suivre la procession du déploiement dans la fenêtre de sortie.  Lorsque l’application est déployée, ouvrez un navigateur et saisissez l’adresse du cluster et le port de l’application. Par exemple : http://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/.
+Vous pouvez suivre la procession du déploiement dans la fenêtre de sortie.  Lorsque l’application est déployée, ouvrez un navigateur et saisissez l’adresse du cluster et le port de l’application. Par exemple, http:\//fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/.
 
 ![Exemple Fabrikam Web][fabrikam-web-page-deployed]
 

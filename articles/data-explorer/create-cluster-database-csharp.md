@@ -7,13 +7,13 @@ ms.author: oflipman
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 03/17/2019
-ms.openlocfilehash: d861eba6ce905ccaf0d08a08cdd9998a199889da
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.date: 03/25/2019
+ms.openlocfilehash: c2a11422398b3cdb99c9f71accddfcd78237c64c
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287356"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417902"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-c"></a>Créer un cluster et une base de données Azure Data Explorer en utilisant C#
 
@@ -25,20 +25,19 @@ ms.locfileid: "58287356"
 > * [Python](create-cluster-database-python.md)
 >  
 
-
-Ce démarrage rapide explique comment créer un cluster et une base de données Azure Data Explorer en utilisant C#.
+Azure Data Explorer est un service d’analytique données rapide et complètement managé pour l’analyse en temps réel de gros volumes de données diffusées en continu par des applications, des sites web, des appareils IoT, etc. Pour utiliser Azure Data Explorer, créez tout d’abord un cluster et une ou plusieurs bases de données dans ce cluster. Ensuite, ingérez (chargez) des données dans une base de données pour pouvoir exécuter des requêtes dessus. Dans ce guide de démarrage rapide, vous créez un cluster et une base de données en utilisant C#.
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Si vous n’avez pas encore installé Visual Studio 2017, vous pouvez télécharger et utiliser la version **gratuite** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Veillez à activer **le développement Azure** lors de l’installation de Visual Studio.
+* Si vous n’avez pas encore installé Visual Studio 2017, vous pouvez télécharger et utiliser la version **gratuite** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Veillez à activer **le développement Azure** lors de l’installation de Visual Studio.
 
-- Pour suivre ce guide de démarrage rapide, vous devez avoir un abonnement Azure. Si vous n’en avez pas, [créez un compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
+* Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="install-c-nuget"></a>Installer le package nuget C#
 
-- Vous aurez besoin du package nuget pour Azure Data Explorer (Kusto) ; vous trouverez Nuget à cette adresse : https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/
-- Vous aurez aussi besoin du package nuget Microsoft.IdentityModel.Clients.ActiveDirectory pour l’authentification https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/
+1. Installez le [package NuGet Azure Data Explorer (Kusto)](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
 
+1. Installez le [package NuGet Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) pour l’authentification.
 
 ## <a name="create-the-azure-data-explorer-cluster"></a>Créer le cluster Azure Data Explorer
 
@@ -72,10 +71,10 @@ Ce démarrage rapide explique comment créer un cluster et une base de données 
    | nom_groupe_ressources | *testrg* | Nom du groupe de ressources dans lequel sera créé le cluster. |
 
     Vous pouvez définir d’autres paramètres facultatifs, comme la capacité du cluster.
-    
-    Pour « credentials », indiquez vos informations d’identification (pour plus d’informations, consultez https://docs.microsoft.com/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet)
 
-2. Exécutez la commande suivante pour vérifier si votre cluster a bien été créé :
+1. Définir [vos informations d’identification](https://docs.microsoft.com/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet)
+
+1. Exécutez la commande suivante pour vérifier si votre cluster a bien été créé :
 
     ```C#-interactive
     KustoManagementClient.Clusters.Get(resourceGroupName, clusterName);

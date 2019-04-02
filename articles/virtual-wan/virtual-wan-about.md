@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 03/20/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 6f2f002c5ff08e21741927d07a0facfd09ec0914
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 6dae42dcc8b74b682c7226916482228058db6154
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295689"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336250"
 ---
 # <a name="what-is-azure-virtual-wan"></a>Qu’est-ce que le WAN virtuel Azure ?
 
@@ -21,7 +21,7 @@ Azure Virtual WAN est un service réseau qui offre une connectivité de branche 
 
 Azure Virtual WAN regroupe plusieurs services de connectivité cloud Azure comme le VPN site à site (mis en disposition générale), ExpressRoute (préversion), VPN utilisateur point à site (préversion) dans une seule interface opérationnelle. La connectivité aux réseaux virtuels Azure est établie à l’aide de connexions de réseau virtuel.
 
-![Diagramme WAN virtuel](./media/virtual-wan-about/vwangraphic.png)
+![Diagramme WAN virtuel](./media/virtual-wan-about/virtualwan1.png)
 
 Cet article fournit un aperçu rapide de la connectivité réseau dans Azure Virtual WAN. Le WAN virtuel offre les avantages suivants :
 
@@ -49,7 +49,7 @@ Pour configurer un WAN virtuel de bout en bout, vous devez créer les ressources
 
 ## <a name="connectivity"></a>Connectivité
 
-Virtual WAN permet trois types de connectivité : site à site, point à site (préversion) et ExpressRoute (préversion).
+Virtual WAN autorise trois types de connectivité : site à site, point à site (préversion) et ExpressRoute (préversion).
 
 ### <a name="s2s"></a>Connexion VPN site à site
 
@@ -71,7 +71,7 @@ Pour obtenir la liste des partenaires et des emplacements disponibles, consultez
 
 ### <a name="p2s"></a>Connexions VPN point à site (préversion)
 
-Une connexion point à site (P2S) vous permet de créer une connexion sécurisée à votre hub virtuel à partir d’un ordinateur de client individuel. Une connexion P2S est établie en étant démarrée à partir de l’ordinateur client. Cette solution est utile pour les télétravailleurs souhaitant se connecter à partir d’un emplacement distant, comme depuis leur domicile ou pendant une conférence. De même, l’utilisation d’un VPN P2S est une solution utile qui constitue une alternative au VPN site à site (S2S) lorsqu’un nombre restreint de clients doit se connecter.
+Une connexion point à site (P2S) vous permet de créer une connexion sécurisée à votre hub virtuel à partir d’un ordinateur client individuel. Une connexion P2S est établie en étant démarrée à partir de l’ordinateur client. Cette solution est utile pour les télétravailleurs souhaitant se connecter à partir d’un emplacement distant, comme depuis leur domicile ou pendant une conférence. De même, l’utilisation d’un VPN P2S est une solution utile qui constitue une alternative au VPN site à site (S2S) lorsqu’un nombre restreint de clients doit se connecter.
 
 Pour créer la connexion, consultez [Créer une connexion point à site à l’aide de Virtual WAN](virtual-wan-point-to-site-portal.md).
 

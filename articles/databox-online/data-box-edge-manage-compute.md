@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/13/2019
+ms.date: 03/26/2019
 ms.author: alkohli
-ms.openlocfilehash: 8128afa7078c396156d2cbffb47effeb7de68a0b
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: f2416bd3393ae05a74665fe7e11bd1c8c04c91d7
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58002078"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499028"
 ---
 # <a name="manage-compute-on-your-azure-data-box-edge"></a>Gérer le calcul sur votre Azure Data Box Edge
 
@@ -32,10 +32,10 @@ Dans cet article, vous apprendrez comment :
 
 ## <a name="manage-triggers"></a>Gérer les déclencheurs
 
-Les événements sont des faits qui se produisent au sein de votre environnement cloud ou sur votre appareil, sur lesquels vous pouvez agir. Par exemple, quand un fichier est créé dans un partage, il s’agit d’un événement. Les déclencheurs sont des réponses à ces événements. Des déclencheurs peuvent vous aider à exécuter une fonction chaque fois qu’un événement est déclenché. Dans votre Data Box Edge, des déclencheurs peuvent répondre à des événements de fichier ou intervenir en vertu d’une planification.
+Les événements sont des faits qui se produisent au sein de votre environnement cloud ou sur votre appareil, sur lesquels vous pouvez agir. Par exemple, quand un fichier est créé dans un partage, il s’agit d’un événement. Les déclencheurs activent les événements. Dans votre Data Box Edge, des déclencheurs peuvent répondre à des événements de fichier ou intervenir en vertu d’une planification.
 
 - **Fichier** : Ces déclencheurs répondent à des événements tels que la création ou la modification d’un fichier.
-- **Planifié** : Ces déclencheurs résultent d’une planification que vous pouvez définir avec une date de début, une heure de début et un intervalle de répétition.
+- **Scheduled** : Ces déclencheurs résultent d’une planification que vous pouvez définir avec une date de début, une heure de début et un intervalle de répétition.
 
 
 ### <a name="add-a-trigger"></a>Ajouter un déclencheur
@@ -132,6 +132,23 @@ Pour synchroniser les clés d’accès pour votre appareil, procédez comme suit
      ![Sélectionner Oui à l’invite](media/data-box-edge-manage-compute/refresh-configuration-2.png)
 
 3. Fermez la boîte de dialogue une fois la synchronisation terminée.
+
+## <a name="enable-a-network-interface-for-compute"></a>Activer une interface réseau pour le computing
+
+Vous serez peut-être amené à accéder à un module s’exécutant sur votre appareil Data Box Edge. Pour accéder au module en externe, vous devez affecter une adresse IP à une interface réseau sur votre appareil. Vous pouvez gérer ces paramètres de computing à partir de votre interface utilisateur web locale.
+
+Effectuez les étapes suivantes sur votre interface utilisateur web locale pour configurer les paramètres de computing.
+
+1. Dans l’interface utilisateur web locale, accédez à **Configuration > Compute settings** (Paramètres de computing).  
+
+2. **Activez** l’interface réseau que vous souhaitez utiliser pour la connexion aux modules de computing sur l’appareil. 
+
+    - Si vous utilisez des adresses IP statiques, entrez une adresse IP pour l’interface réseau.
+    - Si vous utilisez DHCP, les adresses IP sont attribuées automatiquement.
+
+3. Sélectionnez **Apply** pour appliquer les paramètres.
+
+    ![Activer les paramètres de computing](media/data-box-edge-manage-compute/compute-settings-1.png)
 
 
 ## <a name="next-steps"></a>Étapes suivantes

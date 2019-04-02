@@ -8,12 +8,12 @@ ms.date: 06/14/2018
 ms.author: anshan
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 9d18b1382bdb421afcc8aee92fd99b7ef0d09e32
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: a9baf36221c99ece0703e2caa3f3e6c3b9364480
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540144"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312204"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>Didacticiel : Créer une application web monopage Azure Time Series Insights
 
@@ -54,7 +54,7 @@ Avant de générer l’application, vous devez l’inscrire auprès d’Azure AD
    ---|---
    **Nom** | Fournissez un nom d’inscription explicite.  
    **Type d’application** | Étant donné que vous créez une application web SPA, conservez « application web/API ».
-   **URL d’authentification** | Saisissez l’URL de la page d’accueil/de connexion de l’application. Étant donné que l’application sera hébergée dans Azure App Service (ultérieurement), vous devez utiliser une URL dans le domaine « https://azurewebsites.net ». Dans cet exemple, le nom est basé sur le nom de l’inscription.
+   **URL d’authentification** | Saisissez l’URL de la page d’accueil/de connexion de l’application. L’application étant destinée à être hébergée dans Azure App Service, vous devez utiliser une URL dans le domaine « https:\//azurewebsites.net ». Dans cet exemple, le nom est basé sur le nom de l’inscription.
 
    Lorsque vous avez terminé, cliquez sur **Créer** pour créer la nouvelle inscription de l’application.
 

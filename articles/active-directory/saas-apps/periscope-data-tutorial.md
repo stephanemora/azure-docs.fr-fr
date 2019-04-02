@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Periscope Data | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Periscope Data | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Periscope Data.
 services: active-directory
 documentationCenter: na
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 94686d62e8019bfc5dba1ccd4a00142512930c0e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0d8fd6a0422ee26610f58f872cba4487d4e01e6b
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57862214"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403627"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>Didacticiel : Intégration d’Azure Active Directory à Periscope Data
 
@@ -138,7 +138,7 @@ Pour configurer l’authentification unique Azure AD auprès de Periscope Data,
 
     e. Copiez la valeur de **Identifier** (Identificateur) pour votre instance et collez-la dans la zone de texte  **Identificateur (ID d’entité)** de la section **Configuration SAML de base** du portail Azure.
 
-    f. Dans la première balise du fichier XML, copiez la valeur de **entityID** (ID d’entité) et collez-la dans la zone de texte **Issuer** (Émetteur).
+    f. Recherchez la première balise du fichier XML, copiez la valeur de **entityID** et collez-la dans la zone de texte **Issuer** (Émetteur).
 
     g. Recherchez la balise **IDPSSODescriptor** avec le protocole SAML. Dans cette section, recherchez la balise **KeyDescriptor** avec **use=signing**. Copiez la valeur de **X509Certificate** (CertificatX509) et collez-la dans la zone de texte **Certificate** (Certificat).
 
@@ -166,7 +166,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

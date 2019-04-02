@@ -5,15 +5,15 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 10/02/2018
+ms.date: 03/21/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 41313a8b140886247b830db7ca9b34a22257de96
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: f4d232d4d6043ede3979db67e5cd35130d931bef
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729148"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369443"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>Démarrage rapide : Déployer un instance de conteneur dans Azure à l’aide du portail Azure
 
@@ -38,12 +38,12 @@ Sélectionnez **Créer une ressource** > **Conteneurs** > **Container Instances*
 Entrez les valeurs suivantes dans les zones de texte **Nom du conteneur**, **Image de conteneur** et **Groupe de ressources**. Conservez les autres valeurs par défaut, puis cliquez sur **OK**.
 
 * Nom du conteneur : `mycontainer`
-* Image du conteneur : `microsoft/aci-helloworld`
+* Image du conteneur : `mcr.microsoft.com/azuredocs/aci-helloworld`
 * Groupe de ressources : **Créer** > `myResourceGroup`
 
 ![Configuration des paramètres de base pour une nouvelle instance de conteneur dans le portail Azure][aci-portal-03]
 
-Pour ce guide de démarrage rapide, conservez le paramètre par défaut de **Public** afin de déployer l’image publique `microsoft/aci-helloworld`. Cette image contient une petite application web écrite en Node.js qui sert une page HTML statique.
+Pour ce guide de démarrage rapide, conservez le paramètre par défaut de **Public** afin de déployer l’image Microsoft publique `aci-helloworld`. Cette image contient une petite application web écrite en Node.js qui sert une page HTML statique.
 
 Sous **Configuration**, spécifiez une **Étiquette du nom DNS** pour votre conteneur. Le nom doit être unique au sein de la région Azure dans laquelle vous créez l’instance de conteneur. Votre conteneur sera publiquement accessible avec `<dns-name-label>.<region>.azurecontainer.io`. Si vous recevez un message d’erreur « Étiquette de nom DNS indisponible », essayez d’utiliser une autre étiquette de nom DNS.
 
@@ -89,7 +89,7 @@ Cliquez sur **Oui** quand la boîte de dialogue de confirmation apparaît.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez créé une instance de conteneur Azure à partir d’une image dans le registre du Hub Docker public. Si vous voulez créer une image conteneur et la déployer à partir d’un registre de conteneurs Azure privé, passez au didacticiel Azure Container Instances.
+Dans ce guide de démarrage rapide, vous avez créé une instance de conteneur Azure à partir d’une image Microsoft publique. Si vous voulez créer une image conteneur et la déployer à partir d’un registre de conteneurs Azure privé, passez au didacticiel Azure Container Instances.
 
 > [!div class="nextstepaction"]
 > [Didacticiel Azure Container Instances](./container-instances-tutorial-prepare-app.md)

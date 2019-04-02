@@ -1,28 +1,25 @@
 ---
-title: Gestion des planifications de bande passante sur Azure Data Box Gateway | Microsoft Docs
+title: Gérer les planifications de bande passante sur Azure Data Box Gateway | Microsoft Docs
 description: Décrit comment utiliser le Portail Azure pour gérer les planifications de bande passante sur votre ressource Azure Data Box Gateway.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: overview
-ms.date: 10/09/2018
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: aefbe4265cb97a003b908c5631e1f9ed4e0192cc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 15d560698ca47c0be39e0533f264bfef211a33d0
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58102108"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500404"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-data-box-gateway"></a>Utiliser le Portail Azure pour gérer les planifications de bande passante sur votre ressource Azure Data Box Gateway  
 
 Cet article explique comment gérer les planifications de bande passante sur votre ressource Azure Data Box Gateway. Les planifications de bande passante vous permettent de configurer l’utilisation de la bande passante réseau sur plusieurs planifications selon le moment de la journée. Ces planifications sont applicables aux opérations de chargement et de téléchargement entre votre appareil et le cloud. 
 
 Vous pouvez ajouter, modifier ou supprimer des planifications de bande passante pour votre ressource Data Box Gateway par le biais du Portail Azure.
-
-> [!IMPORTANT]
-> - Data Box Gateway est disponible en préversion. Veuillez lire les [conditions d’utilisation de la préversion Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) avant de commander et déployer cette solution.
 
 Dans cet article, vous apprendrez comment :
 

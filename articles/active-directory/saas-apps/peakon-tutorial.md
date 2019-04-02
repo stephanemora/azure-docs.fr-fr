@@ -4,58 +4,48 @@ description: Découvrez comment configurer l’authentification unique entre Azu
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: a944c397-ed3f-4d45-b9b2-6d4bcb6b0a09
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/13/2018
+ms.topic: tutorial
+ms.date: 03/19/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b841cbe838156cd00876a9a13c7a9cbe1790ea80
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: bf291f22f523756c868128cbe5595fa56cf7d109
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842191"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361674"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-peakon"></a>Tutoriel : Intégration d’Azure Active Directory à Peakon
+# <a name="tutorial-azure-active-directory-integration-with-peakon"></a>Didacticiel : Intégration d’Azure Active Directory à Peakon
 
 Dans ce tutoriel, vous allez apprendre à intégrer Peakon à Azure Active Directory (Azure AD).
-
 L’intégration de Peakon à Azure AD offre les avantages suivants :
 
-- Dans Azure AD, vous pouvez contrôler qui a accès à Peakon.
-- Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Peakon (par authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
+* Dans Azure AD, vous pouvez contrôler qui a accès à Peakon.
+* Vous pouvez permettre aux utilisateurs de se connecter automatiquement à Peakon (par le biais de l’authentification unique) avec leur compte Azure AD.
+* Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique auprès d’Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD à Peakon, vous avez besoin des éléments suivants :
 
-- Un abonnement Azure AD
-- Un abonnement Peakon pour lequel l’authentification unique est activée
-
-> [!NOTE]
-> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
-
-Vous devez en outre suivre les recommandations ci-dessous :
-
-- N’utilisez pas un environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
+* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+* Abonnement Peakon pour lequel l’authentification unique est activée
 
 ## <a name="scenario-description"></a>Description du scénario
 
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
-1. Ajout de Peakon à partir de la galerie
-2. Configuration et test de l’authentification unique Azure AD
+* Peakon prend en charge l’authentification unique lancée par le **fournisseur de services** et le **fournisseur d’identité**
 
 ## <a name="adding-peakon-from-the-gallery"></a>Ajout de Peakon à partir de la galerie
 
@@ -63,76 +53,78 @@ Pour configurer l’intégration de Peakon à Azure AD, vous devez ajouter Peak
 
 **Pour ajouter Peakon à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
-    ![Bouton Azure Active Directory][1]
+    ![Bouton Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+2. Accédez à **Applications d’entreprise**, puis sélectionnez l’option **Toutes les applications**.
 
-    ![Panneau Applications d’entreprise][2]
+    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
 3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-    ![Bouton Nouvelle application][3]
+    ![Bouton Nouvelle application](common/add-new-app.png)
 
 4. Dans la zone de recherche, tapez **Peakon**, sélectionnez **Peakon** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
-    ![Peakon dans la liste des résultats](./media/peakon-tutorial/tutorial_peakon_addfromgallery.png)
+     ![Peakon dans la liste des résultats](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Peakon à l’aide d’un utilisateur de test appelé « Britta Simon ».
-
-Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Peakon équivalent dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et l’utilisateur Peakon associé doit être établie.
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Peakon à l’aide d’un utilisateur de test appelé **Britta Simon**.
+Pour que l’authentification unique fonctionne, une relation entre un utilisateur Azure AD et l’utilisateur Peakon associé doit être établie.
 
 Pour configurer et tester l’authentification unique Azure AD avec Peakon, vous devez effectuer les modules suivants :
 
-1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Création d’un utilisateur de test Peakon](#creating-a-peakon-test-user)** pour avoir un équivalent de Britta Simon dans Peakon lié à la représentation Azure AD de l’utilisateur.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+2. **[Configurer l’authentification unique Peakon](#configure-peakon-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
+3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Créer un utilisateur de test Peakon](#create-peakon-test-user)** pour avoir un équivalent de Britta Simon dans Peakon lié à la représentation Azure AD de l’utilisateur.
+6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
-Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure et configurer l’authentification unique dans votre application Peakon.
+Dans cette section, vous activez l’authentification unique Azure AD dans le portail Azure.
 
-**Pour configurer l’authentification unique Azure AD avec Peakon, effectuez les étapes suivantes :**
+Pour configurer l’authentification unique Azure AD avec Peakon, effectuez les étapes suivantes :
 
-1. Dans le portail Azure, dans la page d’intégration de l’application **Peakon**, cliquez sur **Authentification unique**.
+1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **Peakon**, sélectionnez **Authentification unique**.
 
-    ![Lien Configurer l’authentification unique][4]
+    ![Lien Configurer l’authentification unique](common/select-sso.png)
 
-2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, cliquez sur **Sélectionner** pour le mode **SAML** afin d’activer l’authentification unique.
+2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
 
-    ![Configurer l'authentification unique](common/tutorial_general_301.png)
+    ![Mode de sélection de l’authentification unique](common/select-saml-option.png)
 
 3. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
 
-    ![Configurer l'authentification unique](common/editconfigure.png)
+    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-4. Dans la section **Configuration SAML de base**, suivez les étapes ci-dessous, si vous souhaitez configurer l’application en mode démarré par **IDP** :
+4. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, effectuez les étapes suivantes :
 
-    ![Informations d’authentification unique dans Domaine et URL de Peakon](./media/peakon-tutorial/tutorial_peakon_url.png)
+    ![Informations d’authentification unique dans Domaine et URL de Peakon](common/idp-intiated.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://app.peakon.com/saml/<companyid>/metadata`
 
-    b. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://app.peakon.com/saml/<companyid>/assert`
+    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://app.peakon.com/saml/<companyid>/assert`
 
 5. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-    ![Informations d’authentification unique dans Domaine et URL de Peakon](./media/peakon-tutorial/tutorial_peakon_url1.png)
+    ![Informations d’authentification unique dans Domaine et URL de Peakon](common/metadata-upload-additional-signon.png)
 
-    Dans la zone de texte **URL d’authentification**, tapez l’URL `https://app.peakon.com/login`
+    Dans la zone de texte **URL de connexion**, tapez une URL : `https://app.peakon.com/login`
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de réponse réels. La procédure est expliquée plus loin dans le tutoriel.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de réponse réels, procédure expliquée plus loin dans le tutoriel. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-6. Dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (brut)**, puis enregistrez le fichier du certificat sur votre ordinateur.
+6. Dans la page **Configurer l’authentification unique avec SAML**, à la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Raw)** en fonction des options définies, puis enregistrez-le sur votre ordinateur.
 
-    ![Lien Téléchargement de certificat](./media/peakon-tutorial/tutorial_peakon_certificate.png) 
+    ![Lien Téléchargement de certificat](common/certificateraw.png)
 
-7. Dans la section **Configurer Peakon**, copiez l’URL appropriée en fonction de vos besoins.
+7. Dans la section **Configurer Peakon**, copiez l’URL ou les URL appropriées en fonction de vos besoins.
+
+    ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
     a. URL de connexion
 
@@ -140,23 +132,23 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
     c. URL de déconnexion
 
-    ![Configuration de Peakon](common/configuresection.png)
+### <a name="configure-peakon-single-sign-on"></a>Configurer l’authentification unique Peakon
 
-8. Dans une autre fenêtre de navigateur web, connectez-vous à Peakon en tant qu’administrateur.
+1. Dans une autre fenêtre de navigateur web, connectez-vous à Peakon en tant qu’administrateur.
 
-9. Dans la barre de menus située à gauche de la page, cliquez sur **Configuration**, puis accédez à **Integrations** (Intégrations).
+2. Dans la barre de menus située à gauche de la page, cliquez sur**Configuration**, puis accédez à **Integrations**.
 
     ![Configuration](./media/peakon-tutorial/tutorial_peakon_config.png)
 
-10. Dans la page **Integrations** (Intégrations), cliquez sur **Single Sign-On** (Authentification unique).
+3. Dans la page **Integrations** (Intégrations), cliquez sur **Single Sign-On** (Authentification unique).
 
     ![Authentification unique](./media/peakon-tutorial/tutorial_peakon_single.png)
 
-11. Sous la section **Single Sign-On** (Authentification unique), cliquez sur **Enable** (Activer).
+4. Sous la section **Single Sign-On** (Authentification unique), cliquez sur **Enable** (Activer).
 
     ![Activation](./media/peakon-tutorial/tutorial_peakon_enable.png)
 
-12. Dans la section **Single sign-on for employees using SAML** (Authentification unique pour les employés avec SAML), effectuez les étapes suivantes :
+5. Dans la section **Single sign-on for employees using SAML** (Authentification unique pour les employés avec SAML), effectuez les étapes suivantes :
 
     ![SAML](./media/peakon-tutorial/tutorial_peakon_saml.png)
 
@@ -166,38 +158,64 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
     c. Cliquez sur **Choose a File** (Choisir un fichier) pour charger le certificat que vous avez téléchargé à partir du portail Azure dans la zone Certificate (Certificat).
 
-    d. Cliquez sur **l’icône** pour copier **Entity ID** (ID d’entité) et le coller dans la zone de texte **Identificateur** de la section **Configuration SAML de base** du portail Azure.
+    d. Cliquez sur l’**icône** pour copier l’**ID d’entité** et collez-le dans la zone de texte **Identificateur** de la section **Configuration SAML de base** du portail Azure.
 
-    e. Cliquez sur **l’icône** pour copier **Reply URL (ACS)** (URL de réponse [ACS]) et la coller dans la zone de texte **URL de réponse** de la section **Configuration SAML de base** du portail Azure.
+    e. Cliquez sur l’**icône** pour copier l’**URL de réponse (ACS)** et collez-la dans la zone de texte **URL de réponse** de la section **Configuration SAML de base** du portail Azure.
 
     f. Cliquez sur **Enregistrer**.
 
-### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
 
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
 1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
 
-    ![Créer un utilisateur Azure AD][100]
+    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](common/users.png)
 
 2. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
 
-    ![Création d’un utilisateur de test Azure AD](common/create_aaduser_01.png) 
+    ![Bouton Nouvel utilisateur](common/new-user.png)
 
 3. Dans les propriétés de l’utilisateur, effectuez les étapes suivantes.
 
-    ![Création d’un utilisateur de test Azure AD](common/create_aaduser_02.png)
+    ![Boîte de dialogue Utilisateur](common/user-properties.png)
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le **nom d’utilisateur** , tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
     Par exemple, BrittaSimon@contoso.com
 
-    c. Sélectionnez **Propriétés**, cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
+    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
-    d. Sélectionnez **Créer**.
+    d. Cliquez sur **Créer**.
 
-### <a name="creating-a-peakon-test-user"></a>Création d’un utilisateur de test Peakon
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
+
+Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Peakon.
+
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis **Peakon**.
+
+    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
+
+2. Dans la liste des applications, sélectionnez **Peakon**.
+
+    ![Lien Peakon dans la liste des applications](common/all-applications.png)
+
+3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes**.
+
+    ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
+
+4. Cliquez sur le bouton **Ajouter un utilisateur**, puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
+
+    ![Volet Ajouter une attribution](common/add-assign-user.png)
+
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+
+6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+
+7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
+
+### <a name="create-peakon-test-user"></a>Créer un utilisateur de test Peakon
 
 Pour se connecter à Peakon, les utilisateurs Azure AD doivent être provisionnés dans Peakon.  
 Dans le cas de Peakon, le provisionnement est une tâche manuelle.
@@ -206,11 +224,11 @@ Dans le cas de Peakon, le provisionnement est une tâche manuelle.
 
 1. Connectez-vous à votre site d’entreprise Peakon en tant qu’administrateur.
 
-2. Dans la barre de menus située à gauche de la page, cliquez sur **Configuration**, puis accédez à  **Employees** (Employés).
+2. Dans la barre de menus située à gauche de la page, cliquez sur**Configuration**, puis accédez à **Employees** (Employés).
 
     ![Employé](./media/peakon-tutorial/tutorial_peakon_employee.png)
 
-3. En haut à droite de la page, cliquez sur  **Add employee** (Ajouter un employé).
+3. En haut à droite de la page, cliquez sur **Add employee** (Ajouter un employé).
 
       ![Ajouter un employé](./media/peakon-tutorial/tutorial_peakon_addemployee.png)
 
@@ -220,55 +238,21 @@ Dans le cas de Peakon, le provisionnement est une tâche manuelle.
 
     a. Dans la zone de texte **Name** (Nom), entrez **Britta** comme prénom et **simon** comme nom.
 
-    b. Dans le **E-mail** zone de texte, tapez l’adresse de messagerie comme **Brittasimon\@contoso.com**.
+    b. Dans la zone de texte **Email** (Adresse e-mail), tapez l’adresse e-mail, par exemple **Brittasimon\@contoso.com**.
 
     c. Cliquez sur **Créer un employé**.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
-
-Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Peakon.
-
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
-
-    ![Affecter des utilisateurs][201]
-
-2. Dans la liste des applications, sélectionnez **Peakon**.
-
-    ![Configurer l'authentification unique](./media/peakon-tutorial/tutorial_peakon_app.png) 
-
-3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
-
-    ![Affecter des utilisateurs][202]
-
-4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
-
-    ![Affecter des utilisateurs][203]
-
-5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
-
-6. Dans la boîte de dialogue **Ajouter une attribution**, sélectionnez le bouton **Attribuer**.
-
-### <a name="testing-single-sign-on"></a>Test de l’authentification unique
+### <a name="test-single-sign-on"></a>Tester l’authentification unique 
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Quand vous cliquez sur la vignette Peakon dans le volet d’accès, vous devez être connecté automatiquement à votre application Peakon.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
+Quand vous cliquez sur la vignette Peakon dans le volet d’accès, vous devez être connecté automatiquement à l’application Peakon pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
+- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: common/tutorial_general_01.png
-[2]: common/tutorial_general_02.png
-[3]: common/tutorial_general_03.png
-[4]: common/tutorial_general_04.png
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-[100]: common/tutorial_general_100.png
-
-[201]: common/tutorial_general_201.png
-[202]: common/tutorial_general_202.png
-[203]: common/tutorial_general_203.png

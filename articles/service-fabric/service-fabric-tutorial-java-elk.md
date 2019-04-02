@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 938d8efeaa88cc5bebbf33e525132a030f1b3c7c
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 689207339db0250d42fc64c33f43c42c18317d41
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112501"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313003"
 ---
-# <a name="tutorial-monitor-your-service-fabric-applications-using-elk"></a>Tutoriel : Surveiller vos applications dans Azure Service Fabric avec ELK
+# <a name="tutorial-monitor-your-service-fabric-applications-using-elk"></a>Didacticiel : Superviser vos applications dans Azure Service Fabric avec ELK
 
 Ce tutoriel est la quatrième partie de la série. Il montre comment utiliser ELK (Elasticsearch, Logstash et Kibana) pour surveiller les applications Service Fabric s’exécutant dans Azure.
 
@@ -109,7 +109,7 @@ Vous pouvez utiliser un environnement ELK préconfiguré pour ce didacticiel. Si
     logstash-plugin install logstash-input-azureeventhub
     ```
 
-4. Créez ou modifiez votre fichier config Logstash existant avec le contenu suivant : si vous créez le fichier, il doit être créé à l’emplacement ```/opt/bitnami/logstash/conf/access-log.conf``` si vous utilisez l’image ELK Bitnami dans Azure.
+4. Créez ou modifiez votre fichier de configuration Logstash existant avec le contenu suivant : Si vous créez le fichier, il doit être créé à l’emplacement ```/opt/bitnami/logstash/conf/access-log.conf``` si vous utilisez l’image ELK Bitnami dans Azure.
 
     ```json
     input
@@ -149,7 +149,7 @@ Vous pouvez utiliser un environnement ELK préconfiguré pour ce didacticiel. Si
     curl 'localhost:9200/_cat/indices?v'
     ```
 
-8. Accédez à votre tableau de bord Kibana à l’adresse **http://SERVER-IP** et entrez le nom d’utilisateur et un mot de passe pour Kibana. Si vous avez utilisé l’image ELK dans Azure, le nom d’utilisateur par défaut est « user » et le mot de passe est celui obtenu dans **Diagnostics de démarrage**.
+8. Accédez à votre tableau de bord Kibana à l’adresse **http:\//SERVER-IP** et entrez le nom d’utilisateur et un mot de passe pour Kibana. Si vous avez utilisé l’image ELK dans Azure, le nom d’utilisateur par défaut est « user » et le mot de passe est celui obtenu dans **Diagnostics de démarrage**.
 
     ![Kibana](./media/service-fabric-tutorial-java-elk/kibana.png)
 

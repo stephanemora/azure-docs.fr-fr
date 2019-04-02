@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 09/01/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 5ad3d7c27b003fb3963333471bceb3226655a5eb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 559c02e74e97093a15b1d768eb5a3b32502db64e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57874879"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314584"
 ---
-# <a name="tutorial-create-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service-on-service-fabric"></a>Tutoriel : Créer une application avec un service front-end d’API web Java et un service back-end avec état sur Service Fabric
+# <a name="tutorial-create-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service-on-service-fabric"></a>Didacticiel : Créer une application avec un service front-end d’API web Java et un service back-end avec état sur Service Fabric
 
 Ce tutoriel est la première partie d’une série d’étapes. Lorsque vous avez terminé, vous disposez d’une application Voting avec un service frontal Java qui enregistre les résultats de vote dans un service principal avec état dans le cluster. Cette série de didacticiels nécessite une machine de développeur Mac OSX ou Linux. Si vous ne souhaitez pas créer l’application de vote manuellement, vous pouvez [télécharger le code source pour obtenir l’application terminée](https://github.com/Azure-Samples/service-fabric-java-quickstart) et passer directement au [Guide de l’exemple d’application de vote](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application). Envisagez également de suivre [Démarrage rapide : Reliable Services en Java](service-fabric-quickstart-java-reliable-services.md).
 
@@ -912,7 +912,7 @@ Dans cette section, les scripts Gradle du projet sont configurés.
 
 4. Dans l’Explorateur de package, cliquez avec le bouton droit sur le projet **Voting** et sélectionnez **Service Fabric -> Publish Application...** (Publier une application...) 
 5. Dans la fenêtre **Publish Application** (Publier une application), sélectionnez **Local.json** dans la liste déroulante, puis cliquez sur **Publier**.
-6. À partir de votre navigateur web, accédez à `http://localhost:8080` pour afficher votre application en cours d’exécution sur le cluster Service Fabric local. 
+6. À partir de votre navigateur web, accédez à http:\//localhost:8080 pour voir l’application en cours d’exécution sur le cluster Service Fabric local. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

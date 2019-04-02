@@ -1,6 +1,6 @@
 ---
-title: Créer un index dans le code à l’aide de l’API .NET - Azure Search
-description: Découvrez comment créer un index de recherche de texte intégral à l’aide du kit SDK .NET Azure Search et de l’exemple de code en C#.
+title: Créer un index en C# - Recherche Azure
+description: Découvrez comment créer un index de recherche en texte intégral en C# à l’aide du kit SDK .NET Recherche Azure.
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -9,13 +9,13 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 03/20/2019
-ms.openlocfilehash: dbaac1478fdbf1b42fc6b597c3a5c541e007e413
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.date: 03/22/2019
+ms.openlocfilehash: a5861faaf26962d34d1c356e29dce1be40f8716b
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287143"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370582"
 ---
 # <a name="quickstart-1---create-an-azure-search-index-in-c"></a>Démarrage rapide : 1 - Créer un index Recherche Azure en C#
 
@@ -32,7 +32,7 @@ Cet article vous explique comment créer [un index Recherche Azure](search-what-
 
 [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), n’importe quelle édition. L’exemple de code et les instructions ont été testés dans l’édition Communauté gratuite.
 
-Un point de terminaison d’URL et une clé API d’administration de votre service de recherche. Un service de recherche est créé avec les deux. Ainsi, si vous avez ajouté votre abonnement à la fonction Recherche Azure, procédez comme suit pour obtenir les informations nécessaires :
+Obtenez le point de terminaison d’URL et la clé API d’administration de votre service de recherche. Un service de recherche est créé avec les deux. Ainsi, si vous avez ajouté votre abonnement à la fonction Recherche Azure, procédez comme suit pour obtenir les informations nécessaires :
 
   1. Dans le portail Azure, dans la page **Vue d’ensemble** de votre service de recherche, obtenez l’URL. Voici un exemple de point de terminaison : `https://mydemo.search.windows.net`.
 
@@ -200,7 +200,9 @@ serviceClient.Indexes.Delete("hotels");
 > 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce guide de démarrage rapide, vous avez créé un index Recherche Azure vide basé sur un schéma qui définit les comportements et les types de données des champs. Le prochain guide de démarrage rapide de cette série explique comment charger l’index avec du contenu à rechercher.
+Dans ce guide de démarrage rapide, vous avez créé un index Recherche Azure vide basé sur un schéma qui définit les comportements et les types de données des champs. L’index est un index « nu » comprenant un nom et une collection de champs avec attributs. Un index plus réaliste inclurait d’autres éléments, tels que des [profils de scoring](index-add-scoring-profiles.md), des [générateurs de suggestions](index-add-suggesters.md) pour la prise en charge de TypeAhead, des [synonymes](search-synonyms.md) et éventuellement des [analyseurs personnalisés](index-add-custom-analyzers.md). Nous vous recommandons de revoir ces fonctionnalités une fois que vous aurez compris le flux de travail de base.
+
+Le prochain guide de démarrage rapide de cette série explique comment charger l’index avec du contenu à rechercher.
 
 > [!div class="nextstepaction"]
 > [Charger des données dans un index Recherche Azure à l’aide de C#](search-import-data-dotnet.md)

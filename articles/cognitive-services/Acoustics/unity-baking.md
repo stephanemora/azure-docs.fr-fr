@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: tutorial
-ms.date: 08/17/2018
+ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: cb5ad8e4ff3d5a28fa38c7e8972e7e3e69d2762d
-ms.sourcegitcommit: f68b0e128f0478444740172f54e92b453df696be
+ms.openlocfilehash: f44b6f9ed42770fe830346de08058e33ed68a249
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136908"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309638"
 ---
 # <a name="project-acoustics-unity-bake-tutorial"></a>Tutoriel de baking Project Acoustics Unity
 Ce tutoriel décrit le baking acoustique avec Project Acoustics dans Unity.
@@ -28,7 +28,7 @@ Configuration logicielle requise :
 ## <a name="open-the-project-acoustics-bake-window"></a>Ouvrir la fenêtre de baking de Project Acoustics
 Choisissez **Window > Acoustics** dans le menu Unity :
 
-![Fenêtre d’ouverture d’Acoustics](media/window-acoustics.png)
+![Capture d’écran de l’éditeur Unity avec l’option de menu Acoustics mise en surbrillance](media/window-acoustics.png)
 
 ## <a name="create-a-navigation-mesh"></a>Créer un maillage de navigation
 Project Acoustics utilise un maillage de navigation pour placer des points de sonde d’auditeur pour la simulation. Vous pouvez utiliser le [workflow de maillage de navigation](https://docs.unity3d.com/Manual/nav-BuildingNavMesh.html) d’Unity ou utiliser un autre package de modélisation 3D pour concevoir votre propre maillage. 
@@ -68,15 +68,15 @@ Les éléments de l’onglet sont les suivants :
 
 Si vous n’avez rien sélectionné dans votre scène, l’onglet Objects se présente comme dans l’image suivante :
 
-![Onglet Objects - aucune sélection](media/objects-tab-no-selection-detail.png)
+![Capture d’écran de l’onglet Acoustics Objects sans sélection](media/objects-tab-no-selection-detail.png)
 
 Si vous avez sélectionné quelque chose dans votre scène ou hiérarchie, vous aurez les paramètres suivants :
 
-![Onglet Objects - aucune sélection](media/objects-tab-selection-detail.png)
+![Capture d’écran de l’onglet Acoustics Objects avec une sélection](media/objects-tab-selection-detail.png)
 
 Si certains objets sont marqués et d’autres non, la case à cocher correspondante affiche une valeur « mixte » :
 
-![Case à cocher à valeur mixte](media/mixed-object-selection-detail.png)
+![Capture d’écran de l’onglet Acoustics Objects avec l’icône de sélection mixte mise en surbrillance](media/mixed-object-selection-detail.png)
 
 Un clic sur la case à cocher force le marquage de tous les objets ; un autre clic annule le marquage de tous les objets.
 
@@ -89,10 +89,10 @@ Les matériaux acoustiques contrôlent la quantité d’énergie sonore reflét�
 
 La durée de réverbération d’une matière donnée dans une pièce est inversement proportionnelle à son coefficient d’absorption, la plupart des matières ayant des valeurs d’absorption comprises entre 0,01 et 0,20. Les matières avec des coefficients d’absorption en dehors de cette plage sont très absorbantes.
 
-![Graphe de durée de réverbération](media/reverb-time-graph.png)
+![Graphe montrant une corrélation négative de temps de réverbération avec un coefficient d’absorption](media/reverb-time-graph.png)
 
 ### <a name="for-reference-parts-of-the-materials-tab"></a>Pour référence : Éléments de l’onglet Materials
-![Détail de l’onglet Materials](media/materials-tab-detail.png)
+![Capture d’écran de l’onglet Acoustics Materials dans Unity](media/materials-tab-detail.png)
 
 1. Le bouton d’onglet **Materials**, qui sert à afficher cette page.
 2. Une brève description de ce que vous devez faire à l’aide de cette page.
@@ -117,23 +117,23 @@ En fonction de la taille de votre scène et de la rapidité de votre ordinateur,
 ### <a name="review-voxel-and-probe-placement"></a>Passer en revue le placement des voxels et des sondes
 Affichez un aperçu des données des voxels et les emplacements des points de sonde pour vérifiez que vous êtes prêt à effectuer le bake de votre scène. Un maillage de navigation incomplet, ou une géométrie acoustique manquante ou en trop, est en général visible rapidement dans l’aperçu. L’emplacement des voxels et des sondes peut être activé ou désactivé à l’aide du menu Gizmos :
 
-![Menu Gizmos](media/gizmos-menu.png)
+![Capture d’écran du menu Gizmos dans Unity](media/gizmos-menu.png)
 
 Les voxels contenant une géométrie acoustique sont affichés sous forme de cubes vert. Explorez votre scène et vérifiez que tous les éléments de la géométrie ont des voxels. La caméra de la scène doit se trouver à moins de cinq mètres de l’objet pour que les voxels soient affichés.
 
 Si vous comparez les voxels créés avec une résolution fine et grossière, vous constaterez que les voxels grossiers sont deux fois plus volumineux.
 
-![Aperçu des voxels](media/voxel-cubes-preview.png)
+![Capture d’écran de l’aperçu des voxels grossiers dans l’éditeur Unity](media/voxel-cubes-preview.png)
 
 Les résultats de la simulation sont interpolés entre les emplacements des points de sonde d’auditeur lors de l’exécution. Vérifiez qu’il existe des points de sonde près de tous les endroits où le joueur est censé se déplacer dans la scène.
 
-![Aperçu des sondes](media/probes-preview.png)
+![Capture d’écran de l’aperçu des sondes dans l’éditeur Unity](media/probes-preview.png)
 
 ### <a name="take-care-with-scene-renames"></a>Soyez prudent dans le renommage des scènes
 Le nom de la scène sert à connecter la scène aux fichiers stockant les positions des points de sonde et la voxelisation. Si vous renommez la scène après le calcul des points de sonde, les données de position et d’affectation des matières sont perdues et doivent être recalculées.
 
 ### <a name="for-reference-parts-of-the-probes-tab"></a>Pour référence : Éléments de l’onglet Probes
-![Détail de l’onglet Probes](media/probes-tab-detail.png)
+![Capture d’écran de l’onglet Acoustics Probes dans Unity](media/probes-tab-detail.png)
 
 1. Le bouton d’onglet **Probes**, qui sert à afficher cette page.
 2. Une brève description de ce que vous devez faire à l’aide de cette page.
@@ -157,15 +157,15 @@ Bien que cela puisse sembler simple, cela a plusieurs implications sur la simula
 * Les sources sonores ne peuvent pas se trouver à l’intérieur de voxels « remplis », à savoir des voxels qui contiennent de la géométrie. Dans ce cas de figure, aucun son n’est généré. Il est plus difficile de placer les sources sonores afin qu’elles ne se trouvent pas à l’intérieur des voxels plus grands obtenus avec une résolution grossière que dans le cas où le paramètre de résolution fine est utilisé.
 * Les plus grands voxels empiéteront plus sur les ouvertures, comme indiqué ci-dessous. La première image a été créée avec une résolution grossière, tandis que la deuxième est la même ouverture avec la résolution fine. Comme indiqué par les marquages rouges, il y a beaucoup moins d’intrusion dans l’ouverture avec une valeur fine. La ligne bleue est la porte telle que définie par la géométrie, tandis que la ligne rouge est l’ouverture acoustique effective définie par la taille de voxel. L’impact de cet empiètement dans une situation donnée dépend entièrement de l’alignement des voxels avec la géométrie de l’ouverture, qui est déterminé par la taille et les emplacements de vos objets dans la scène.
 
-![Porte avec paramètre Coarse](media/coarse-voxel-doorway.png)
+![Capture d’écran des voxels grossiers dans l’embrasure de la porte](media/coarse-voxel-doorway.png)
 
-![Porte avec paramètre Fine](media/fine-voxel-doorway.png)
+![Capture d’écran des voxels fins dans l’embrasure de la porte](media/fine-voxel-doorway.png)
 
 ## <a name="bake-your-scene-using-azure-batch"></a>Effectuer un bake de votre scène avec Azure Batch
 Vous pouvez effectuer un bake de votre scène avec un cluster de calcul dans le cloud en utilisant le service Azure Batch. Le plug-in Project Acoustics Unity se connecte directement à Azure Batch pour instancier, gérer et supprimer un cluster Azure Batch pour chaque bake. Sous l’onglet **Bake**, entrez vos informations d’identification Azure, sélectionnez un type de machine et une taille de cluster, puis cliquez sur **Bake**.
 
 ### <a name="for-reference-parts-of-the-bake-tab"></a>Pour référence : Éléments de l’onglet Bake
-![Détail de l’onglet Bake](media/bake-tab-details.png)
+![Capture d’écran de l’onglet Acoustics Bake dans Unity](media/bake-tab-details.png)
 
 1. Le bouton d’onglet Bake, qui sert à afficher cette page.
 2. Une brève description des actions à effectuer dans cette page.
@@ -209,8 +209,8 @@ Vous pouvez effectuer le bake de votre scène sur votre propre PC. Ceci peut êt
 ### <a name="setup-docker"></a>Configuration de Docker
 Installez et configurez Docker sur le PC qui traitera la simulation-
 1. Installez l'[ensemble d’outils Docker](https://www.docker.com/products/docker-desktop).
-2. Lancez les paramètres Docker, accédez aux options avancées et configurez les ressources pour disposer d’au moins 8 Go de RAM. Plus vous allouerez d'UC à Docker, plus le baking sera rapide. ![Exemples de paramètres Docker](media/docker-settings.png)
-3. Accédez à « Lecteurs partagés » et activez le partage sur le lecteur utilisé pour le traitement.![DockerDriveSharing](media/docker-shared-drives.png)
+2. Lancez les paramètres Docker, accédez aux options avancées et configurez les ressources pour disposer d’au moins 8 Go de RAM. Plus vous allouerez d'UC à Docker, plus le baking sera rapide. ![Capture d’écran de l’exemple de paramètres Docker](media/docker-settings.png)
+3. Accédez à « Lecteurs partagés » et activez le partage sur le lecteur utilisé pour le traitement.![Capture d’écran des options de lecteur partagé Docker](media/docker-shared-drives.png)
 
 ### <a name="run-local-bake"></a>Exécuter un baking local
 1. Cliquez sur le bouton « Prepare Local Bake » de l’onglet **Bake**, et sélectionnez un dossier où les fichiers d’entrée et les scripts d’exécution doivent être enregistrés. Vous pouvez ensuite exécuter le baking sur n’importe quel ordinateur, à condition qu'il respecte la configuration matérielle minimale requise et que Docker y soit installé en y copiant le dossier.
@@ -234,11 +234,11 @@ Fichiers de données de l’éditeur :
 ## <a name="set-up-the-acoustics-lookup-table"></a>Configurer la table de recherche acoustique
 Faites glisser et déposez la préfabrication **Project Acoustics** depuis le panneau du projet vers votre scène :
 
-![Préfabrication Acoustics](media/acoustics-prefab.png)
+![Capture d’écran de l’onglet Acoustics Prefab dans Unity](media/acoustics-prefab.png)
 
 Cliquez sur le Game Object **ProjectAcoustics** et accédez à son panneau Inspecteur. Spécifiez l’emplacement de votre résultat de baking (le fichier .ACE, dans **Assets/AcousticsData**) en le faisant glisser-déposer dans le script Acoustics Manager, ou en cliquant sur le bouton de cercle en regard de la zone de texte.
 
-![Acoustics Manager](media/acoustics-manager.png)  
+![Capture d’écran de l’onglet Acoustics Manager dans Unity](media/acoustics-manager.png)  
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Explorer les [contrôles de conception pour Unity](unity-workflow.md)

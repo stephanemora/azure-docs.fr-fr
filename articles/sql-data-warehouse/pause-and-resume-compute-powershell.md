@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: manage
-ms.date: 04/18/2018
+ms.date: 03/20/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 1aebe3086704c3823bcde470640f547de2beaaee
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ce1fd1af404f5fc44bc202be08cd2c2f1b4ef909
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57884192"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58443845"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-powershell"></a>Démarrage rapide : Suspendre et reprendre le calcul dans Azure SQL Data Warehouse avec PowerShell
 
@@ -61,8 +61,7 @@ Suivez ces étapes pour rechercher des informations sur l’emplacement de votre
 
     ![Nom du serveur et groupe de ressources](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
-4. Notez le nom de l’entrepôt de données, utilisé comme nom de base de données. Notez également le nom du serveur et le groupe de ressources. Vous
-5.  les utiliserez dans les commandes de suspension et de reprise.
+4. Notez le nom de l’entrepôt de données, utilisé comme nom de base de données. Notez également le nom du serveur et le groupe de ressources.
 6. Si votre serveur est foo.database.windows.net, utilisez uniquement la première partie comme nom du serveur dans les applets de commande PowerShell. Dans l’image précédente, le nom complet est newserver-20171113.database.windows.net. Supprimez le suffixe et utilisez **newserver-20171113** comme nom de serveur dans l’applet de commande PowerShell.
 
 ## <a name="pause-compute"></a>Suspension du calcul
@@ -103,6 +102,14 @@ $database = Get-AzSqlDatabase –ResourceGroupName "ResourceGroup1" `
 –ServerName "Server01" –DatabaseName "Database02"
 $resultDatabase = $database | Resume-AzSqlDatabase
 $resultDatabase
+```
+
+## <a name="check-status-of-your-data-warehouse-operation"></a>Vérifiez l’état de votre opération d’entrepôt de données
+
+Pour vérifier l’état de votre entrepôt de données, utilisez l’applet de commande [Get-AzureRmSqlDatabaseActivity](https://docs.microsoft.com/powershell/module/azurerm.sql/Get-AzureRmSqlDatabaseActivity#description).
+
+```
+Get-AzureRmSqlDatabaseActivity -ResourceGroupName "ResourceGroup01" -ServerName "Server01" -DatabaseName "Database02"
 ```
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources

@@ -6,23 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: overview
-ms.date: 02/26/2019
+ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: c07293971c4cadd8b7bccc608f69faa3baa19ba7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 86cd4190647586ec47519ca481f78267f8999cef
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58100851"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402199"
 ---
 # <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Résoudre les problèmes d’Azure Data Box Gateway 
 
-Cet article explique comment résoudre les problèmes de votre solution Azure Data Box Gateway. 
-
-> [!IMPORTANT]
-> - Data Box Gateway est disponible en préversion. Veuillez lire les [conditions d’utilisation de la préversion Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) avant de commander et déployer cette solution.
-
-Dans cet article, vous apprendrez comment :
+Cet article explique comment résoudre les problèmes de votre solution Azure Data Box Gateway. Dans cet article, vous apprendrez comment :
 
 > [!div class="checklist"]
 > * Exécuter les diagnostics
@@ -53,9 +48,9 @@ Pour collecter un package de support, procédez comme suit.
 
     ![Résolution des problèmes](media/data-box-gateway-troubleshoot/collect-logs-1.png)
  
-2. Une fois le package de support créé, cliquez sur **Télécharger le package de support**. Un package compressé est téléchargé dans le chemin d’accès que vous avez choisi. Vous pouvez décompresser le package et visualiser les fichiers journaux système.
+2. Une fois le package de support créé, cliquez sur **Télécharger le package de support**. Un package compressé est téléchargé dans le chemin d’accès que vous avez choisi. Vous pouvez décompresser le package.
 
-    ![Résolution des problèmes](media/data-box-gateway-troubleshoot/collect-logs-2.png)
+    ![Ajout d’une planification](media/data-box-gateway-troubleshoot/collect-logs-2.png)
 
 ## <a name="use-logs-to-troubleshoot"></a>Utiliser les journaux pour résoudre les problèmes
 

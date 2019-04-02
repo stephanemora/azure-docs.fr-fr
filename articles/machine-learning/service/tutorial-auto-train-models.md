@@ -11,14 +11,14 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 02/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: e30e65ba2efaf60a0e2d0a6df409c96db4d6285e
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 8fa77409f1f5c32bc1e8f8644111c38f6115a92d
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295808"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58362048"
 ---
-# <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Tutoriel : Utiliser le Machine Learning automatisé pour générer votre modèle de régression
+# <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Didacticiel : Utiliser le Machine Learning automatisé pour générer votre modèle de régression
 
 Ce tutoriel est le **deuxième d’une série de deux**. Dans le tutoriel précédent, vous [avez préparé des données concernant les taxis new-yorkais en vue d’une modélisation de régression](tutorial-data-prep.md).
 
@@ -67,22 +67,11 @@ Après avoir terminé les étapes ci-dessous, exécutez le notebook **tutorials/
 
 ### <a name="server"></a>Utiliser votre propre serveur de notebooks Jupyter
 
-Utilisez ces étapes pour créer une instance locale de serveur de notebooks Jupyter sur votre ordinateur.  Après avoir terminé les étapes, exécutez le notebook **tutorials/regression-part2-automated-ml.ipynb**.
+Utilisez ces étapes pour créer une instance locale de serveur de notebooks Jupyter sur votre ordinateur.  Veillez à installer `matplotlib` et les suppléments `automl` et `notebooks` dans votre environnement.
 
-1. Suivez le [Guide de démarrage rapide Python d’Azure Machine Learning](quickstart-create-workspace-with-python.md) pour créer un environnement Miniconda et un espace de travail.
-1. Installez les suppléments `automl` et `notebooks` dans votre environnement à l’aide de `pip install azureml-sdk[automl,notebooks]`.
-1. Installez `maplotlib` à l’aide de `pip install maplotlib`.
-1. Clonez le [référentiel GitHub](https://aka.ms/aml-notebooks).
+[!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
 
-    ```
-    git clone https://github.com/Azure/MachineLearningNotebooks.git
-    ```
-
-1. Démarrez le serveur de blocs-notes de votre répertoire cloné.
-
-    ```shell
-    jupyter notebook
-    ```
+Après avoir terminé les étapes, exécutez le notebook **tutorials/regression-part2-automated-ml.ipynb**.
 
 ## <a name="start"></a>Configurer votre environnement de développement
 

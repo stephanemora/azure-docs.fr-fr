@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: dc2fb3faddc8af30edd66b926259c05580d9872a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cdd852e56cf966371cda62f89cee62956551f5c0
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58104520"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313105"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Découvrir et évaluer des machines virtuelles VMware locales pour la migration vers Azure.
 
@@ -185,7 +185,7 @@ Importez le fichier téléchargé sur le serveur vCenter.
    - Si la machine virtuelle accède à internet via un proxy, cliquez sur **Proxy settings** (Paramètres du proxy) et spécifiez l’adresse du proxy et le port d’écoute. Spécifiez les informations d’identification si le proxy nécessite une authentification. [Apprenez-en davantage](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites) sur les conditions de connectivité Internet et la [liste des URL](https://docs.microsoft.com/azure/migrate/concepts-collector) auxquelles le collecteur accède.
 
      > [!NOTE]
-     > L’adresse proxy doit être saisie dans le formulaire <http://ProxyIPAddress> ou <http://ProxyFQDN>. Seuls les proxys HTTP sont pris en charge. Si vous disposez d’un proxy d’interception, il est possible que la connexion Internet échoue à l’origine si vous n’avez pas importé le certificat de proxy ; [apprenez-en davantage](https://docs.microsoft.com/azure/migrate/concepts-collector) sur la manière dont vous pouvez résoudre ce problème en important le certificat de proxy en tant que certificat approuvé sur la machine virtuelle du collecteur.
+     > L’adresse proxy doit être entrée au format http:\//ProxyAdresseIP ou http:\//ProxyFQDN. Seuls les proxys HTTP sont pris en charge. Si vous disposez d’un proxy d’interception, il est possible que la connexion Internet échoue à l’origine si vous n’avez pas importé le certificat de proxy ; [apprenez-en davantage](https://docs.microsoft.com/azure/migrate/concepts-collector) sur la manière dont vous pouvez résoudre ce problème en important le certificat de proxy en tant que certificat approuvé sur la machine virtuelle du collecteur.
 
    - Le collecteur vérifie que le service Collector est en cours d’exécution. Le service est installé par défaut sur la machine virtuelle collector.
    - Téléchargez et installez VMware PowerCLI.

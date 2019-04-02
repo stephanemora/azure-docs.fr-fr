@@ -6,22 +6,28 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 3/3/2019
+ms.date: 3/18/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ccd62c0b0832622bbc74542674c1d09f59ea301b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 06d18ccd6f14f0a2b31f579b0ed7250b2c4f0c92
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57848828"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310589"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurer la récupération d’urgence vers Azure pour des machines virtuelles VMware locales
 
 [Azure Site Recovery](site-recovery-overview.md) contribue à votre stratégie de récupération d’urgence et de continuité d’activité en garantissant le bon fonctionnement et la disponibilité de vos applications métier pendant les interruptions planifiées et non planifiées. Site Recovery gère et orchestre la récupération d’urgence des machines locales et des machines virtuelles Azure, notamment la réplication, le basculement et la récupération.
 
 
-Dans ce didacticiel, nous allons vous montrer comment configurer et activer la réplication d’une machine virtuelle VMware vers Azure, à l’aide d’Azure Site Recovery. Les didacticiels sont conçus pour vous montrer comment déployer Site Recovery avec des paramètres de base. Ils utilisent le chemin d’accès le plus simple, et n’affichent pas toutes les options. Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Ce tutoriel vous montre comment déployer Site Recovery avec des paramètres de base, sans personnalisation. Pour découvrir des options plus complexes, consultez les guides pratiques.
+
+    - Configurez la [source de réplication](vmware-azure-set-up-source.md) et le [serveur de configuration](vmware-azure-deploy-configuration-server.md).
+    - Configurez la [cible de réplication](vmware-azure-set-up-target.md).
+    - Configurez une [stratégie de réplication](vmware-azure-set-up-replication.md) et [activez la réplication](vmware-azure-enable-replication.md).
+
+Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Entrer la source et la cible de la réplication.
@@ -37,10 +43,6 @@ Avant de commencer :
 - Si vous voulez en apprendre plus sur la configuration de la récupération d’urgence pour les machines virtuelles VMware, examinez et utilisez les ressources suivantes :
     - [Lisez les questions fréquentes](vmware-azure-common-questions.md) sur la récupération d’urgence pour VMware.
     - [Découvrez](vmware-physical-azure-support-matrix.md) ce qui est pris en charge et requis pour VMware.
--  Lisez nos **guides d’utilisation** pour des instructions détaillées qui décrivent toutes les options de déploiement pour VMware :
-    - Configurez la [source de réplication](vmware-azure-set-up-source.md) et le [serveur de configuration](vmware-azure-deploy-configuration-server.md).
-    - Configurez la [cible de réplication](vmware-azure-set-up-target.md).
-    - Configurez une [stratégie de réplication](vmware-azure-set-up-replication.md) et [activez la réplication](vmware-azure-enable-replication.md).
 - Ce didacticiel explique comment répliquer une machine virtuelle unique. Si vous déployez plusieurs machines virtuelles, vous devez utiliser l’[outil Planificateur de déploiement](https://aka.ms/asr-deployment-planner) pour faciliter la planification de votre déploiement. [En savoir plus](site-recovery-deployment-planner.md) sur cet outil.
 
 Et passez en revue les conseils suivants :

@@ -6,17 +6,17 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 11/01/2018
+ms.date: 03/20/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: ddcaca46a2b8f9501337b3591d6ed666876e1de9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a1357e92b868f85556fc4d665eb475abd095fece
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58093767"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58399994"
 ---
-# <a name="tutorial-install-azure-data-box-edge-preview"></a>Tutoriel : Installer Azure Data Box Edge (préversion)
+# <a name="tutorial-install-azure-data-box-edge"></a>Didacticiel : Installer Azure Data Box Edge
 
 Ce tutoriel explique comment installer un appareil physique Data Box Edge. La procédure d’installation comprend le déballage, le montage en rack et le câblage de l’appareil. 
 
@@ -29,9 +29,6 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Monter l’appareil en rack
 > * Câblage de l’appareil
 
-> [!IMPORTANT]
-> La solution Data Box Edge est en préversion. Avant de commander et de déployer cette solution, lisez les [conditions d’utilisation de la préversion Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## <a name="prerequisites"></a>Prérequis
 
 Voici les prérequis pour l’installation d’un appareil physique :
@@ -40,7 +37,7 @@ Voici les prérequis pour l’installation d’un appareil physique :
 
 Avant de commencer, assurez-vous que :
 
-* Vous avez effectué les étapes décrites dans [Préparer le portail pour Data Box Edge (préversion)](data-box-edge-deploy-prep.md).
+* Vous avez effectué les étapes décrites dans [Préparer le portail pour Data Box Edge](data-box-edge-deploy-prep.md).
     * Vous avez créé une ressource Data Box Edge pour déployer votre appareil.
     * Vous avez créé la clé d’activation pour activer votre appareil avec la ressource Data Box Edge.
 
@@ -75,38 +72,90 @@ Cet appareil est livré dans un seul carton. Procédez comme suit pour déballer
 3. Déballez le carton. Une fois le carton déballé, vous devez disposer des éléments suivants :
     - 1 appareil Edge dans son boîtier
     - 2 câbles d’alimentation
-    - 1 kit de montage en rack coulissant sans outil (deux rails latéraux et le matériel de montage sont inclus)
+    - 1 assemblage du kit de rails
+    - 1 livret relatif à la sécurité, l’environnement et les réglementations
 
 Si vous n’avez pas reçu tous les éléments énumérés ici, contactez le support technique Data Box Edge. L’étape suivante consiste à monter votre appareil en rack.
 
 
 ## <a name="rack-the-device"></a>Montage de l’appareil en rack
 
-L’appareil doit être installé sur un rack standard de 19 pouces. Effectuez les étapes suivantes pour monter votre appareil sur un rack standard de 19 pouces équipé de montants avant et arrière.
+L’appareil doit être installé sur un rack standard de 19 pouces. Effectuez les étapes suivantes pour monter votre appareil sur un rack standard de 19 pouces.
 
 > [!IMPORTANT]
 > Les appareils Data Box Edge doivent être montés en rack pour fonctionner correctement.
 
 
-1. Tirez sur le système de déverrouillage frontal pour détacher le rail intérieur de l’ensemble coulissant. Déverrouillez le verrou à cran et enfoncez le rail central vers l’intérieur pour retirer le rail.  
-    Les rails intérieur et extérieur doivent désormais être séparés.
+### <a name="prerequisites"></a>Prérequis
 
-    ![Installation des rails de montage en rack](./media/data-box-edge-deploy-install/rack-mount-rail-1.png)
+- Avant de commencer, lisez les instructions du livret relatif à la sécurité, l’environnement et les réglementations. Ce livret a été fourni avec l’appareil.
+- Commencez par installer les rails dans l’espace alloué le plus proche de la partie inférieure du châssis.
+- Pour l’installation avec outils, vous devez fournir huit vis : n°10-32, n°12-24, n°M5 ou n°M6. Le diamètre des têtes de vis doit être inférieur à 10 mm (0,4 po).
 
-2. Installez les rails extérieurs sur les montants verticaux de l’armoire à rack. Afin de faciliter l’orientation, la mention **Avant** figure sur les glissières de rail pour indiquer que cette extrémité se positionne à l’avant du boîtier.    
-   1. Recherchez les ergots à l’avant et à l’arrière du rail. Allongez le rail pour qu’il s’insère entre les montants du rack. Fixez d’abord le rail extérieur à l’arrière du rack. Ajustez le support de montage arrière de façon à le positionner à l’intérieur des trous de montage du rack arrière.   
+### <a name="identify-the-rail-kit-contents"></a>Identifier le contenu du kit de rails
 
-   2. Maintenez le déclencheur du support arrière enfoncé afin de dégager les crochets métalliques. Alignez et insérez le support arrière dans les trous de montage, puis relâchez le déclencheur.
+Identifiez les éléments d’installation de l’assemblage du kit de rails :
+1. Deux assemblages de rails coulissants A7 Dell ReadyRails II
+2. Deux sangles à boucle et crochet
 
-   3. Alignez le support avant avec le trou de montage.
+![Identifier le contenu du kit de rails](./media/data-box-edge-deploy-install/identify-rail-kit-contents.png)
 
-   4. Le support avant doit désormais être fixé sur le rack. Si nécessaire, vous pouvez utiliser des vis M5 X 10L pour fixer les rails sur les montants. 
+### <a name="install-and-remove-tool-less-rails-square-hole-or-round-hole-racks"></a>Installer et retirer les rails sans outil (racks à trous ronds ou carrés)
 
-      ![Installation des rails de montage en rack](./media/data-box-edge-deploy-install/rack-mount-rail-2.png)
+1. Placez les extrémités des rails gauche et droit portant la mention **FRONT** vers l’intérieur et orientez chaque extrémité pour qu’elle vienne s’encastrer dans les trous de la partie avant des brides verticales du rack.
+2. Alignez chaque extrémité pour qu’elle s’encastre dans les trous inférieurs et supérieurs des unités souhaitées.
+3. Engagez l’arrière du rail jusqu’à son enclenchement complet dans la collerette verticale du rack et jusqu’à l’enclenchement du loquet. Répétez ces étapes pour positionner et enclencher l’extrémité avant sur la bride verticale du rack.
+4. Pour retirer les rails, tirez sur le bouton de dégagement du loquet situé au milieu de l’extrémité et dégagez chaque rail.
 
-3. Pour fixer le rail intérieur sur le châssis, assurez-vous que les trous de fixation du rail intérieur sont alignés avec les goupilles de positionnement situées sur le côté du châssis. Veillez à ce que les têtes des goupilles de positionnement du châssis dépassent à travers les trous de fixation du rail intérieur. Tirez le rail vers l’avant du châssis jusqu’à ce qu’il se mette en place avec un clic audible. Répétez l’opération avec l’autre rail intérieur. Poussez le châssis avec le rail intérieur dans la glissière pour terminer le montage du rack.
+![Installer et retirer les rails sans outil](./media/data-box-edge-deploy-install/installing-removing-tool-less-rails.png)
 
-    ![Installation des rails de montage en rack](./media/data-box-edge-deploy-install/rack-mount-rail-3.png)
+### <a name="install-and-remove-tooled-rails-threaded-hole-racks"></a>Installer et retirer les rails avec outils (racks à trous filetés)
+
+1. Retirez les broches des supports de fixation avant et arrière à l’aide d’un tournevis plat.
+2. Tirez et faites pivoter les sous-ensembles de loquets des rails afin de les retirer des supports de fixation.
+3. Fixez les rails droit et gauche aux brides verticales avant du rail à l’aide de deux paires de vis.
+4. Faites glisser les montants arrière gauche et droit vers l’avant jusqu’à ce qu’ils soient placés contre les brides verticales arrière du rail et fixez-les avec deux paires de vis.
+
+![Installer et retirer les rails avec outils](./media/data-box-edge-deploy-install/installing-removing-tooled-rails.png)
+
+### <a name="install-the-system-in-a-rack"></a>Installer le système dans un rack
+
+1. Dégagez les rails coulissants internes en les faisant glisser jusqu’à ce qu’ils s’enclenchent.
+2. Repérez les picots du rail arrière de chaque côté du système et abaissez-les pour les emboîter dans les fentes en J des rails coulissants. Faites pivoter le système vers le bas jusqu’à ce que tous les picots du rail se trouvent dans les fentes en J.
+3. Repoussez le système vers l’intérieur jusqu’à ce que les leviers de verrouillage s’enclenchent.
+4. Appuyez sur les deux boutons de dégagement des deux rails et poussez le système dans le rack.
+
+![Installer le système dans un rack](./media/data-box-edge-deploy-install/installing-system-rack.png)
+
+### <a name="remove-the-system-from-the-rack"></a>Retirer le système installé dans le rack
+
+1. Localisez les leviers de verrouillage situés sur les côtés des rails internes.
+2. Déverrouillez chaque levier en le faisant pivoter jusqu’à ce qu’il soit en position de dégagement.
+3. Tenez le système par ses côtés et tirez-le vers l’avant jusqu’à aligner les picots du rail avec les fentes en J. Soulevez le système, dégagez-le et posez-le sur une surface plane.
+
+![Retirer le système installé dans le rack](./media/data-box-edge-deploy-install/removing-system-rack.png)
+
+### <a name="engage-and-release-the-slam-latch"></a>Ouvrir et fermer les rabats
+
+REMARQUE :  Pour les systèmes non équipés de rabats, sécurisez le système à l’aide de vis, comme décrit à l’étape 3 de cette procédure.
+
+1. À partir de l’avant, identifiez le rabat de chaque côté du système.
+2. Les rabats s’enclenchent automatiquement quand vous poussez le système dans le rack et s’ouvrent automatiquement quand vous tirez dessus.
+3. Si vous devez fixer le système pour l’expédier ou si celui-ci repose sur une surface instable, repérez les vis fixes situées sous chaque rabat et vissez-les à l’aide d’un tournevis cruciforme n° 2.
+
+![Ouvrir et fermer les rabats](./media/data-box-edge-deploy-install/engaging-releasing-slam-latch.png)
+
+### <a name="route-the-cables"></a>Passer les câbles
+
+> [!NOTE]
+>  Si vous n’avez pas commandé de passe-câbles, utilisez les deux sangles à boucle et crochet fournies dans le kit de rails pour passer les câbles à l’arrière du système.
+
+1. Localisez les supports externes du passe-câbles à l’intérieur des deux collerettes du rack.
+2. Regroupez les câbles avec précaution en veillant à les dégager des connecteurs système situés de chaque côté.
+3. Faites passer les sangles à boucle et crochet à travers les fentes situées sur les supports externes du passe-câbles de chaque côté du système afin de sécuriser les groupes de câbles.
+
+
+![Passer les câbles](./media/data-box-edge-deploy-install/routing-cables.png)
 
 ## <a name="cable-the-device"></a>Câblage de l’appareil
 
@@ -121,13 +170,26 @@ Avant de commencer à câbler votre appareil, vous avez besoin des éléments su
 - Accès à deux unités de distribution d’énergie (recommandé).
 
 > [!NOTE]
-> - Si vous ne connectez qu’une seule interface de réseau, nous vous recommandons d’utiliser une interface réseau 25 GbE telle que PORT 3, PORT 4, PORT 5 ou PORT 6 pour envoyer des données à Azure. 
+> - Si vous ne connectez qu’une seule interface de réseau, nous vous recommandons d’utiliser une interface réseau 25/10-GbE telle que PORT 3, PORT 4, PORT 5 ou PORT 6 pour envoyer des données à Azure. 
 > - Pour de meilleures performances et pour gérer d’importants volumes de données, pensez à connecter tous les ports de données.
-> - L’appareil Edge doit être connecté au réseau du centre de données pour pouvoir recevoir les informations provenant des serveurs des sources de données. 
+> - L’appareil Edge doit être connecté au réseau du centre de données pour pouvoir recevoir les informations provenant des serveurs des sources de données.
 
-Votre appareil Edge est équipé de 8 disques SSD NVMe. Le panneau avant comporte également des LED d’état et des boutons d’alimentation. L’appareil comprend des unités d’alimentation (PSU) redondantes à l’arrière. Votre appareil comporte six interfaces réseau : deux interfaces 1 Gbit/s et quatre interfaces 25 Gbit/s. Votre appareil est équipé d’un contrôleur de gestion de la carte de base (BMC). Identifiez les différents ports sur le fond de panier de votre appareil.
+Votre appareil Edge est équipé de 8 disques SSD NVMe. Le panneau avant comporte également des LED d’état et des boutons d’alimentation. L’appareil comprend des unités d’alimentation (PSU) redondantes à l’arrière. Votre appareil a six interfaces réseau :
+
+- Deux interfaces de 1 Gbit/s
+- Quatre interfaces de 25 Gbits/s qui peuvent également faire office d’interfaces de 10 Gbits/s.
+- Un contrôleur de gestion de la carte de base (BMC). 
+
+Identifiez les différents ports sur le fond de panier de votre appareil.
  
   ![Fond de panier d’un appareil câblé](./media/data-box-edge-deploy-install/backplane-cabled.png)
+
+L’appareil a deux cartes réseau correspondant aux 6 ports : 
+
+ - QLogic FastLinQ 41264
+ - QLogic FastLinQ 41262
+
+Pour obtenir la liste complète des câbles, commutateurs et transmetteurs pris en charge pour ces cartes réseau, consultez le document [Cavium FastlinQ 41000 Series Interoperability Matrix](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
  
 Effectuez les étapes suivantes pour brancher l’alimentation et le réseau de votre appareil.
 
@@ -137,8 +199,7 @@ Effectuez les étapes suivantes pour brancher l’alimentation et le réseau de 
 
 3. Connectez l’interface réseau 1-GbE PORT 1 à l’ordinateur utilisé pour configurer l’appareil physique. Le PORT 1 constitue l’interface de la gestion dédiée.
 
-4. Connectez un ou plusieurs interfaces PORT 2, PORT 3, PORT 4, PORT 5 ou PORT 6 au réseau du centre de données/à Internet. Si vous connectez le PORT 2, utilisez le câble réseau RJ-45. Pour les interfaces de réseau 25-GbE, utilisez les câbles en cuivre SFP+.  
-
+4. Connectez un ou plusieurs interfaces PORT 2, PORT 3, PORT 4, PORT 5 ou PORT 6 au réseau du centre de données/à Internet. Si vous connectez le PORT 2, utilisez le câble réseau RJ-45. Pour les interfaces de réseau 10/25-GbE, utilisez les câbles en cuivre SFP+.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 

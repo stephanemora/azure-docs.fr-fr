@@ -5,23 +5,20 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.topic: overview
-ms.date: 01/18/2019
+ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 9670d67fa1eb79e9e5e8c81726c10cc78767fb74
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: e7a65a6b49544783ed3f40194e2338540819536b
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54435462"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400957"
 ---
-# <a name="what-is-azure-data-box-gateway-preview"></a>Qu’est-ce qu’Azure Data Box Gateway (préversion) ? 
+# <a name="what-is-azure-data-box-gateway"></a>Présentation d’Azure Data Box Gateway
 
-Azure Data Box Gateway est une solution de stockage qui vous permet d’envoyer en toute transparence des données vers Azure. Cet article vous fournit une vue d’ensemble de la solution Azure Data Box Gateway, ses avantages, ses principales fonctionnalités et les scénarios dans lesquels vous pouvez déployer cet appareil. 
+Azure Data Box Gateway est une solution de stockage qui vous permet d’envoyer en toute transparence des données vers Azure. Cet article vous fournit une vue d’ensemble de la solution Azure Data Box Gateway, ses avantages, ses principales fonctionnalités et les scénarios dans lesquels vous pouvez déployer cet appareil.
 
-Data Box Gateway est un appareil virtuel basé sur une machine virtuelle provisionnée dans votre hyperviseur ou environnement virtualisé. L’appareil virtuel réside dans votre environnement local et vous écrivez des données à l’aide des protocoles NFS et SMB. L’appareil transfère ensuite vos données vers l’objet blob de blocs Azure, l’objet blob de pages ou Azure Files. 
-
-> [!IMPORTANT]
-> Data Box Gateway est disponible en préversion. Veuillez lire les [conditions d’utilisation de la préversion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) avant de déployer cette solution.
+Data Box Gateway est un appareil virtuel basé sur une machine virtuelle provisionnée dans votre hyperviseur ou environnement virtualisé. L’appareil virtuel réside dans votre environnement local et vous écrivez des données à l’aide des protocoles NFS et SMB. L’appareil transfère ensuite vos données vers l’objet blob de blocs Azure, l’objet blob de pages ou Azure Files.
 
 ## <a name="use-cases"></a>Cas d'utilisation
 
@@ -29,19 +26,19 @@ Data Box Gateway peut servir à transférer des données vers le cloud, par exem
 
 - **Archivage dans le cloud** : copiez des centaines de téraoctets de données vers Stockage Azure à l’aide Data Box Gateway, de manière sécurisée et efficace. Les données peuvent être ingérées une seule fois ou de manière continue pour les scénarios d’archivage.
 
-- **Agrégation des données** : agrégez des données provenant de plusieurs sources dans un emplacement unique de Stockage Azure pour le traitement et l’analyse des données.  
+- **Ingestion continue des données** : ingérez continuellement des données dans l’appareil à copier dans le cloud, quelle que soit la taille des données. À mesure que les données sont écrites sur le dispositif de passerelle, celui-ci charge les données vers Stockage Azure.  
 
-- **Intégration à des charges de travail locales** : intégrez vos données à des charges de travail locales telles que la sauvegarde et restauration, qui utilisent le stockage cloud et nécessitent un accès local aux fichiers couramment utilisés. 
+- **Transfert en bloc initial suivi de transfert incrémentiel** : utilisez Data Box pour le transfert en bloc dans un mode hors connexion (amorçage initial), et Data Box Gateway pour les transferts incrémentiels (flux en cours) par le biais du réseau.
 
 ## <a name="benefits"></a>Avantages
 
 Data Box Gateway offre les avantages suivants :
 
 - **Transfert de données facile** : transférez des données vers/depuis Stockage Azure aussi facilement qu’avec un partage réseau local.  
-- **Hautes performances** : facilite le transport des données réseau grâce à des transferts hautes performances vers et depuis Azure. 
+- **Hautes performances** : facilite le transport des données réseau grâce à des transferts hautes performances vers et depuis Azure.
 - **Accès rapide et taux d’ingestion de données élevés pendant les heures de bureau** : Data Box Gateway est doté d’un cache local que vous définissez en tant que taille de capacité locale lors du provisionnement de l’appareil virtuel. La taille spécifiée du disque de données doit être conforme aux [exigences de configuration minimale des appareils virtuels](data-box-gateway-system-requirements.md#specifications-for-the-virtual-device). Le cache local offre les avantages suivants :
     - Le cache local permet une ingestion des données à un débit élevé. Quand de grandes quantités de données sont ingérées pendant les heures de pointe, le cache peut contenir les données et les charger dans le cloud.
-    - Le cache local permet un accès en lecture rapide jusqu’à un certain seuil. Tant que l’appareil n’est pas plein à plus de 50 à 60 %, toutes les lectures à partir de l’appareil sont accessibles à partir du cache, ce qui les rend plus rapides. Une fois que l’espace utilisé sur un appareil dépasse ce seuil, l’appareil commence à supprimer des fichiers locaux. 
+    - Le cache local permet un accès en lecture rapide jusqu’à un certain seuil. Tant que l’appareil n’est pas plein à plus de 50 à 60 %, toutes les lectures à partir de l’appareil sont accessibles à partir du cache, ce qui les rend plus rapides. Une fois que l’espace utilisé sur l’appareil dépasse ce seuil, l’appareil commence à supprimer des fichiers locaux.
  
 - **Utilisation de la bande passante limitée** : les données peuvent être écrites dans Azure même lorsque le réseau est restreint afin de limiter l’utilisation pendant les heures de pointe.  
 
@@ -53,7 +50,7 @@ Data Box Gateway intègre les fonctionnalités suivantes :
 |---------|---------|
 |Vitesse     | Transfert de données et bande passante entièrement automatisés et hautement optimisés.|
 |Protocoles pris en charge     | Prise en charge des protocoles SMB et NFS standard pour l’ingestion des données. <br> Pour plus d’informations sur les versions prises en charge, consultez [Conditions requises pour Data Box Gateway](data-box-gateway-system-requirements.md).|
-|Accès aux données     | Accès direct aux données à partir d’objets blob Stockage Azure et Azure Files à l’aide des API cloud pour le traitement d’autres données dans le cloud.|
+|Accès aux données     | Une fois que les données envoyées par l’appareil sont dans le cloud, elle peuvent être modifiées en accédant directement aux API cloud.|
 |Accès rapide     | Cache local sur l’appareil pour un accès rapide aux derniers fichiers utilisés.|
 |Chargement hors connexion     | Un mode déconnecté prend en charge les scénarios de chargement hors connexion.|
 |Actualisation des données     | Possibilité d’actualiser les fichiers locaux avec la dernière version issue du cloud.|
@@ -67,47 +64,39 @@ L’appareil virtuel Data Box Gateway présente les spécifications suivantes :
 
 | Spécifications                                          | Description              |
 |---------------------------------------------------------|--------------------------|
-| Processeurs virtuels (cœurs)   | 4 minimum |            
-| Mémoire  | 8 Go minimum|
+| Processeurs virtuels (cœurs)   | 4 minimum |
+| Mémoire  |8 Go minimum|
 | Disponibilité|Nœud unique|
-| Disques| Disque de système d’exploitation : 250 Go <br> Disque de données : 2 To minimum, allocation dynamique et sauvegarde sur SSD|
-| Interfaces réseau|1 ou plusieurs interfaces réseau virtuelles|
+| Disques|Disque de système d’exploitation : 250 Go <br> Disque de données : 2 To minimum, allocation dynamique et sauvegarde sur SSD|
+| Interfaces réseau |1 ou plusieurs interfaces réseau virtuelles|
 | Protocoles de partage de fichiers natifs|SMB et NFS  |
-| Sécurité| Authentification pour déverrouiller l’accès à l’appareil et aux données <br> Chiffrement des données en transit à l’aide du chiffrement AES 256 bits|
-| gestion| Interface utilisateur web locale : configuration initiale, diagnostics et gestion de l’alimentation de l’appareil <br> Portail Azure : gestion quotidienne des appareils Data Box Gateway       |
-
+| Sécurité|Authentification pour déverrouiller l’accès à l’appareil et aux données <br> Chiffrement des données en transit à l’aide du chiffrement AES 256 bits|
+| gestion|Interface utilisateur web locale : configuration initiale, diagnostics et gestion de l’alimentation de l’appareil <br> Portail Azure : gestion quotidienne des appareils Data Box Gateway       |
 
 ## <a name="components"></a>Composants
 
 La solution Data Box Gateway se compose d’une ressource Data Box Gateway, d’un appareil virtuel Data Box Gateway et d’une interface utilisateur web locale.
 
-* **Appareil virtuel Data Box Gateway** : un appareil basé sur une machine virtuelle provisionnée dans votre hyperviseur ou environnement virtualisé, qui vous permet d’envoyer des données à Azure. 
+- **Appareil virtuel Data Box Gateway** : un appareil basé sur une machine virtuelle provisionnée dans votre hyperviseur ou environnement virtualisé, qui vous permet d’envoyer des données à Azure.
     
-* **Ressource Data Box Gateway** : ressource du portail Azure, qui vous permet de gérer un appareil Data Box Gateway à partir d’une interface web accessible depuis divers emplacements géographiques. Utilisez la ressource Data Box Gateway pour créer et gérer des ressources, afficher et gérer les appareils et les alertes, et gérer les partages.  
+- **Ressource Data Box Gateway** : ressource du portail Azure, qui vous permet de gérer un appareil Data Box Gateway à partir d’une interface web accessible depuis divers emplacements géographiques. Utilisez la ressource Data Box Gateway pour voir et gérer un appareil, des partages, des utilisateurs et des alertes. Pour plus d’informations, découvrez comment [Gérer à l’aide du portail Azure](data-box-gateway-manage-shares.md).
 
-    <!--![The Data Box Gateway service in Azure portal](media/data-box-overview/data-box-Gateway-service1.png)-->
-
-    <!--For more information, go to [Use the Data Box Gateway service to administer your Data Box Gateway device](data-box-gateway-portal-ui-admin.md).-->
-
-* **Interface utilisateur web locale Data Box** : utilisez l’interface utilisateur web locale pour exécuter des diagnostics, arrêter et redémarrer l’appareil Data Box Gateway, afficher les journaux de copie, et contactez le support Microsoft pour créer une demande de service.
-
-    <!--![The Data Box Gateway local web UI](media/data-box-gateway-overview/data-box-gateway-local-web-ui.png)-->
-
-    <!-- For information about using the web-based UI, go to [Use the web-based UI to administer your Data Box](data-box-gateway-portal-ui-admin.md).-->
-
+- **Interface utilisateur web locale Data Box** : utilisez l’interface utilisateur web locale pour exécuter des diagnostics, arrêter et redémarrer l’appareil, générer un package de support ou contacter le support Microsoft pour créer une demande de service. Pour plus d’informations, découvrez comment [Gérer à l’aide de l’interface utilisateur web locale](data-box-gateway-manage-access-power-connectivity-mode.md).
 
 ## <a name="region-availability"></a>Disponibilité des régions
 
-L’appareil physique Data Box, la ressource Azure et le compte de stockage cible vers lequel vous transférez des données n’ont pas besoin de se trouver dans la même région.
+Il n’est pas nécessaire que l’appareil physique Data Box Gateway, la ressource Azure et le compte de stockage cible vers lequel vous transférez les données se trouvent dans la même région.
 
-- **Disponibilité des ressources** : pour cette version, la ressource Data Box Edge est disponible dans les régions suivantes :
-    - **United States** : Ouest des États-Unis 2 et Est des États-Unis
-    - **Union européenne** : Europe de l’Ouest
-    - **Asie-Pacifique** : Sud-est de l’Asie
+- **Disponibilité des ressources** : pour cette version, la ressource Data Box Gateway est disponible dans les régions suivantes qui prennent en charge le cloud public :
+    - **États-Unis** : USA Est
+    - **Union européenne** - Europe de l’Ouest
+    - **Asie-Pacifique** : Asie Sud-Est
 
-- **Comptes de stockage de destination** : les comptes de stockage qui stockent les données sont disponibles dans toutes les régions Azure. 
+    Le déploiement de Data Box Gateway est également possible dans Azure Government Cloud. Pour plus d’informations, consultez [Présentation d’Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
 
-    Régions où les comptes de stockage qui stockent les données Data Box doivent se trouver à proximité de l’appareil pour garantir des performances optimales. Un compte de stockage situé dans un emplacement éloigné entraîne des temps de latence longs et une baisse des performances. 
+- **Comptes de stockage de destination** : les comptes de stockage qui stockent les données sont disponibles dans toutes les régions Azure.
+
+    Régions où les comptes de stockage qui stockent les données Data Box doivent se trouver à proximité de l’appareil pour garantir des performances optimales. Un compte de stockage situé dans un emplacement éloigné entraîne des temps de latence longs et une baisse des performances.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -115,7 +104,4 @@ L’appareil physique Data Box, la ressource Azure et le compte de stockage cibl
 - Passer en revue les [Conditions requises pour le système Data Box Gateway](data-box-gateway-system-requirements.md).
 - Comprendre les [limites de Data Box Gateway](data-box-gateway-limits.md).
 - Déployer [Azure Data Box Gateway](data-box-gateway-deploy-prep.md) sur le portail Azure.
-
-
-
 

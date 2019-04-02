@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 04/06/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: ae84b5fd5647ef6c54006c0411e334b14173392e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a7d0a899b4a2ef86153e82a4e3f04e7ec430a1bc
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33836526"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58488040"
 ---
 1. Accédez à la [Console Google Cloud](https://console.developers.google.com/cloud-resource-manager)et connectez-vous avec les informations d’identification de votre compte Google. 
 2. Sélectionnez **Create Project** dans la barre d’outils. 
    
     ![Création d’un projet](./media/mobile-services-enable-google-cloud-messaging/mobile-services-google-new-project.png)   
 3. Pour **Nom de projet**, saisissez un nom pour votre projet, et cliquez sur **Créer**.
-4. Sélectionnez le bouton **Alertes** sur la barre d’outils, puis votre projet dans la liste. Le tableau de bord s’affiche pour votre projet. Vous pouvez aussi naviguer directement au tableau de bord à l’aide de l’URL : https://console.developers.google.com/home/dashboard?project=<YOUR PROJECT NAME>
+4. Sélectionnez le bouton **Alertes** sur la barre d’outils, puis votre projet dans la liste. Le tableau de bord s’affiche pour votre projet. Vous pouvez aussi accéder directement au tableau de bord à l’aide de l’URL suivante : `https://console.developers.google.com/home/dashboard?project=<YOUR PROJECT NAME>`
 
     ![Sélectionner votre projet dans Alertes](./media/mobile-services-enable-google-cloud-messaging/alert-new-project.png)
 5. Notez le **Numéro de projet** situé dans la vignette **Informations du projet** sur le tableau de bord. 
@@ -51,5 +51,5 @@ ms.locfileid: "33836526"
 
     ![Copier la clé API](./media/mobile-services-enable-google-cloud-messaging/copy-api-key.png)
    
-    Cette valeur de clé API vous servira à activer Azure pour l’authentification avec GCM et l’envoi des notifications Push au nom de votre application. Pour accéder de nouveau au tableau de bord du projet, suivez le lien : https://console.developers.google.com/home/dashboard?project=<YOUR PROJECT NAME>
+    Cette valeur de clé API vous servira à activer Azure pour l’authentification avec GCM et l’envoi des notifications Push au nom de votre application. Pour accéder de nouveau au tableau de bord du projet, accédez à l’URL suivante : `https://console.developers.google.com/home/dashboard?project=<YOUR PROJECT NAME>`
 

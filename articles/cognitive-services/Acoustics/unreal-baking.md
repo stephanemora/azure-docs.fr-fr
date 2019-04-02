@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: tutorial
-ms.date: 03/13/2019
+ms.date: 03/20/2019
 ms.author: michem
-ms.openlocfilehash: afe4421bea27ff029bd4a1a7808241a54027a6ac
-ms.sourcegitcommit: f68b0e128f0478444740172f54e92b453df696be
+ms.openlocfilehash: 544de5a3ac48c12d75f05a1c9adb56f48bb540f4
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136559"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311552"
 ---
 # <a name="project-acoustics-unreal-bake-tutorial"></a>Tutoriel de baking Project Acoustics Unreal
 Ce document décrit le processus de soumission d’un baking acoustique à l’aide de l’extension de l’éditeur Unreal.
@@ -32,7 +32,7 @@ Un baking nécessite cinq étapes :
 
 Importez le package de plug-in Project Acoustics dans votre projet. Pour plus d’informations sur cette opération, consultez la rubrique [Intégration d’Unreal](unreal-integration.md). Une fois que le plug-in est intégré, ouvrez l’interface utilisateur Acoustics en cliquant sur la nouvelle icône Mode acoustique.
 
-![Ouvrir le mode Acoustics](media/acoustics-mode.png)
+![Capture d’écran de l’option Mode Unreal Editor Acoustics](media/acoustics-mode.png)
 
 ## <a name="tag-actors-for-acoustics"></a>Étiqueter des acteurs pour l’acoustique
 
@@ -42,7 +42,7 @@ Sélectionnez un ou plusieurs objets dans le World Outliner, ou utilisez la sect
 
 ### <a name="for-reference-the-objects-tab-parts"></a>Pour référence : Les composants de l’onglet Objects
 
-![Détails de l’onglet Objects de Unreal](media/unreal-objects-tab-details.png)
+![Capture d’écran de l’onglet Acoustics Objects dans Unreal](media/unreal-objects-tab-details.png)
 
 1. Les boutons de sélection d’onglet (onglet **Objects** sélectionné). Utilisez ces boutons pour parcourir les différentes étapes du baking acoustique, de haut en bas.
 2. Une brève description de ce que vous devez faire à l’aide de cette page.
@@ -75,11 +75,11 @@ Les matériaux acoustiques contrôlent la quantité d’énergie sonore reflét�
 
 La durée de réverbération d’une matière donnée dans une pièce est inversement proportionnelle à son coefficient d’absorption, la plupart des matières ayant des valeurs d’absorption comprises entre 0,01 et 0,20. Les matériaux avec des coefficients d’absorption au-delà de cette plage sont très absorbants. Par exemple, si le son d’une pièce a trop de réverbération, changez la matière acoustique des murs, du sol ou du plafond en leur affectant une matière à l’absorption plus élevée. L’affectation d’un matériau acoustique s’applique à tous les acteurs qui utilisent ce matériau de la scène.
 
-![Graphe de durée de réverbération](media/reverb-time-graph.png)
+![Graphe montrant une corrélation négative de temps de réverbération avec un coefficient d’absorption](media/reverb-time-graph.png)
 
 ### <a name="for-reference-parts-of-the-materials-tab"></a>Pour référence : Éléments de l’onglet Materials
 
-![Détails de l’onglet Objects de Unreal](media/unreal-materials-tab-details.png)
+![Capture d’écran de l’onglet Acoustics Objects dans Unreal](media/unreal-materials-tab-details.png)
 
 1. Le bouton d’onglet **Materials**, qui sert à afficher cette page.
 2. Une brève description de ce que vous devez faire à l’aide de cette page.
@@ -94,7 +94,7 @@ Après avoir affecté les matières, basculez vers l’onglet **Probes**.
 
 ### <a name="for-reference-parts-of-the-probes-tab"></a>Pour référence : Éléments de l’onglet Probes
 
-![Détail de l’onglet Probes](media/unreal-probes-tab-details.png)
+![Capture d’écran de l’onglet Acoustics Probes dans Unreal](media/unreal-probes-tab-details.png)
 
 1. Le bouton d’onglet **Probes**, qui sert à afficher cette page.
 2. Une brève description de ce que vous devez faire à l’aide de cette page.
@@ -124,11 +124,11 @@ Une fois ces calculs terminées, vous pouvez prévisualiser les données de voxe
 
 Une fois le calcul des sondes terminé, un nouvel acteur apparaît dans World Outliner, appelé **AcousticsDebugRenderer**. Le fait de cocher les cases **Render Probes** et **Render Voxels** active l’affichage du débogage à l’intérieur de la fenêtre d’affichage de l’éditeur.
 
-![Afficheur de débogage acoustique](media/acoustics-debug-renderer.png)
+![Capture d’écran montrant l’acteur Acoustics Debug Renderer dans l’éditeur Unreal](media/acoustics-debug-renderer.png)
 
 Si vous ne voyez pas de voxels ni de sondes superposés sur votre niveau, vérifiez que le rendu en temps réel est activé dans la fenêtre d’affichage.
 
-![Activer le rendu en temps réel](media/unreal-real-time-rendering.png)
+![Capture d’écran de l’option de rendu en temps réel dans Unreal](media/unreal-real-time-rendering.png)
 
 ### <a name="voxels"></a>Voxels
 
@@ -137,7 +137,7 @@ Déplacez-vous dans votre scène et vérifiez que la géométrie d’occlusion a
 
 Si vous comparez les voxels créés avec une résolution fine et grossière, vous constaterez que les voxels grossiers sont deux fois plus volumineux.
 
-![Aperçu des voxels](media/unreal-voxel-preview.png)
+![Capture d’écran de l’aperçu des voxels Acoustics dans l’éditeur Unreal](media/unreal-voxel-preview.png)
 
 ### <a name="probe-points"></a>Points de sonde
 
@@ -145,7 +145,7 @@ Les points de sonde sont synonymes d’emplacements possibles du joueur (auditeu
 
 Il est important de vérifier que des points de sonde existent partout où le joueur est censé se déplacer dans la scène. Les points de sonde sont placés sur le maillage de navigation par le moteur Project Acoustics et ils ne peuvent pas être déplacés ni modifiés : vérifiez donc que le maillage de navigation couvre tous les emplacements possibles du joueur en examinant les points de sonde.
 
-![Aperçu des sondes](media/unreal-probes-preview.png)
+![Capture d’écran de l’aperçu des sondes Acoustics dans l’éditeur Unreal](media/unreal-probes-preview.png)
 
 ### <a name="Coarse-vs-Fine-Resolution"></a>Résolution grossière ou fine
 
@@ -159,9 +159,9 @@ Bien que cela puisse sembler simple, cela a plusieurs implications sur la simula
 * Les sources sonores ne peuvent pas se trouver à l’intérieur de voxels « remplis », à savoir des voxels qui contiennent de la géométrie. Dans ce cas de figure, aucun son n’est généré. Il est plus difficile de placer les sources sonores afin qu’elles ne se trouvent pas à l’intérieur des voxels plus grands obtenus avec une résolution grossière que dans le cas où un paramètre de résolution fine est utilisé.
 * Les plus grands voxels empiéteront plus sur les ouvertures, comme indiqué ci-dessous. La première image a été créée avec une résolution grossière, tandis que la deuxième est la même ouverture avec la résolution fine. Comme indiqué par les marquages rouges, il y a beaucoup moins d’intrusion dans l’ouverture avec une valeur fine. La ligne bleue est la porte telle que définie par la géométrie, tandis que la ligne rouge est l’ouverture acoustique effective définie par la taille de voxel. L’impact de cet empiètement dans une situation donnée dépend entièrement de l’alignement des voxels avec la géométrie de l’ouverture, qui est déterminé par la taille et les emplacements de vos objets dans la scène.
 
-![Porte avec paramètre Coarse](media/unreal-coarse-bake.png)
+![Capture d’écran de voxels grossiers remplissant l’embrasure d’une porte dans Unreal](media/unreal-coarse-bake.png)
 
-![Porte avec paramètre Fine](media/unreal-fine-bake.png)
+![Capture d’écran de voxels fins remplissant l’embrasure d’une porte dans Unreal](media/unreal-fine-bake.png)
 
 ## <a name="bake-your-level-using-azure-batch"></a>Effectuer un bake de votre niveau avec Azure Batch
 
@@ -169,7 +169,7 @@ Vous pouvez effectuer un bake de votre scène avec un cluster de calcul dans le 
 
 ### <a name="for-reference-parts-of-the-bake-tab"></a>Pour référence : Éléments de l’onglet Bake
 
-![Détail de l’onglet Bake](media/unreal-bake-tab-details.png)
+![Capture d’écran de l’onglet Acoustics Bake dans Unreal](media/unreal-bake-tab-details.png)
 
 1. Le bouton d’onglet Bake, qui sert à afficher cette page.
 2. Une brève description des actions à effectuer dans cette page.

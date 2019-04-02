@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Exécuter le modèle TensorFlow en Python - Service Vision personnalisée'
+title: 'Didacticiel : Exécuter le modèle TensorFlow en Python - Service Vision personnalisée'
 titlesuffix: Azure Cognitive Services
 description: Exécutez un modèle TensorFlow dans Python.
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 05/17/2018
+ms.date: 03/21/2019
 ms.author: areddish
-ms.openlocfilehash: 55704ed6236872c4f225775559e54370757a26a3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1e4c08c1e1f9c32c7c397cf187ad2ef91a25c59d
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58007141"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58350451"
 ---
 # <a name="tutorial-run-tensorflow-model-in-python"></a>Didacticiel : Exécuter le modèle TensorFlow dans Python
 
@@ -24,16 +24,14 @@ Une fois que vous avez [exporté votre modèle TensorFlow](https://docs.microsof
 > [!NOTE]
 > Ce tutoriel s’applique seulement aux modèles exportés depuis des projets de classification d’images.
 
-## <a name="install-required-components"></a>Installation des composants requis
-
-### <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel, vous devez procéder comme suit :
 
 - Installer Python 2.7+ ou Python 3.5+.
 - Installer pip.
 
-Vous devez aussi installer les packages suivants :
+Ensuite, vous devez installer les packages suivants :
 
 ```
 pip install tensorflow
@@ -113,7 +111,6 @@ max_square_image = crop_center(image, min_dim, min_dim)
 # Resize that square down to 256x256
 augmented_image = resize_to_256_square(max_square_image)
 ```
-
 
 ### <a name="crop-the-center-for-the-specific-input-size-for-the-model"></a>Rogner le centre pour l’adapter à la taille d’entrée spécifique du modèle
 
@@ -209,10 +206,10 @@ Les résultats de l’exécution du tenseur d’image dans le modèle doivent en
         print (labels[label_index], truncated_probablity)
         label_index += 1
 ```
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous pouvez également encapsuler le modèle dans une application mobile :
+Ensuite, découvrez comment wrapper votre modèle dans une application mobile :
 * [Utiliser le modèle Tensorflow exporté dans une application Android](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample)
 * [Utiliser le modèle CoreML exporté dans une application Swift iOS](https://go.microsoft.com/fwlink/?linkid=857726)
 * [Utiliser le modèle CoreML exporté dans une application iOS avec Xamarin](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel)
-

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Modérer des vidéos et des transcriptions dans .NET - Content Moderator'
+title: 'Didacticiel : Modérer des vidéos et des transcriptions dans .NET - Content Moderator'
 titlesuffix: Azure Cognitive Services
 description: Ce tutoriel explique comment concevoir une solution de modération de vidéos et de transcriptions complète à l’aide de la modération assistée par ordinateur et de la création de révisions pour une intervention humaine.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: pafarley
-ms.openlocfilehash: 504f79186eb69fb6e6c23c1a0cd9dfd7584bb128
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fc49081c765834a0ed0e5199923606ced7daa081
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57904335"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522075"
 ---
-# <a name="tutorial-video-and-transcript-moderation"></a>Tutoriel : Modération de vidéos et de transcriptions
+# <a name="tutorial-video-and-transcript-moderation"></a>Didacticiel : Modération de vidéos et de transcriptions
 
 Ce didacticiel explique comment créer une solution de modération de vidéos et de transcriptions complète à l’aide de la modération assistée par ordinateur et de la création de révisions pour une intervention humaine.
 
@@ -234,7 +234,7 @@ Le processus de modération retourne une liste de trames clés à partir de la v
 `CreateVideoReviewInContentModerator()` appelle plusieurs autres méthodes pour effectuer les tâches suivantes :
 
 > [!NOTE]
-> L’application console utilise la bibliothèque [FFmpeg](https://ffmpeg.org/) pour générer des miniatures. Ces miniatures (images) correspondent aux horodatages de trame dans la [sortie de la modération des vidéos](#sample-video-moderation-response).
+> L’application console utilise la bibliothèque [FFmpeg](https://ffmpeg.org/) pour générer des miniatures. Ces miniatures (images) correspondent aux horodatages de trame dans la sortie de la modération des vidéos.
 
 |Tâche|Méthodes|Fichier|
 |-|-|-|

@@ -6,23 +6,23 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 02/21/2019
+ms.date: 03/08/2019
 ms.author: alkohli
-ms.openlocfilehash: f36e13ccf91c983c54897dcff7e1c02689fb055c
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: d930b1db48e3a5c4bda96f0b7d80a9c9f24d53d9
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56592653"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400639"
 ---
-# <a name="tutorial-transfer-data-with-azure-data-box-gateway-preview"></a>Tutoriel : Transférer des données avec Azure Data Box Gateway (préversion)
+# <a name="tutorial-transfer-data-with-azure-data-box-gateway"></a>Didacticiel : Transférer des données avec Azure Data Box Gateway
 
 
 ## <a name="introduction"></a>Introduction
 
-Cet article explique comment ajouter et se connecter à des partages sur un appareil Data Box Gateway. Une fois les partages ajoutés, l’appareil Data Box Gateway peut transférer les données vers Azure.
+Cet article explique comment ajouter et se connecter à des partages sur votre appareil Data Box Gateway. Une fois que vous avez ajouté les partages, l’appareil Data Box Gateway peut transférer les données vers Azure.
 
-Cette procédure peut prendre environ dix minutes. 
+Cette procédure peut prendre environ dix minutes.
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -30,62 +30,63 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Ajouter un partage
 > * Vous connecter à un partage
 
-> [!IMPORTANT]
-> - Data Box Gateway est disponible en préversion. Veuillez lire les [conditions d’utilisation de la préversion Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) avant de commander et déployer cette solution. 
- 
+
 ## <a name="prerequisites"></a>Prérequis
 
 Avant d’ajouter des partages à votre appareil Data Box Gateway, assurez-vous que :
 
-* Vous avez approvisionné un appareil virtuel et vous y êtes connecté comme indiqué dans [Approvisionnement d’Azure Data Box Gateway dans Hyper-V](data-box-gateway-deploy-provision-hyperv.md) ou [Approvisionnement d’Azure Data Box Gateway dans VMware](data-box-gateway-deploy-provision-vmware.md). 
+- Vous avez provisionné un appareil virtuel et vous y êtes connecté comme indiqué dans [Provisionner Azure Data Box Gateway dans Hyper-V](data-box-gateway-deploy-provision-hyperv.md) ou [Provisionner Azure Data Box Gateway dans VMware](data-box-gateway-deploy-provision-vmware.md).
 
-    L’appareil virtuel est activé comme détaillé dans [Connecter et activer votre appareil Azure Data Box Gateway](data-box-gateway-deploy-connect-setup-activate.md). Il est prêt à créer des partages et à transférer des données.
+- Vous avez activé l’appareil virtuel comme décrit dans [Connecter et activer votre appareil Azure Data Box Gateway](data-box-gateway-deploy-connect-setup-activate.md).
 
+- L’appareil est prêt pour que vous puissiez créer des partages et transférer des données.
 
 ## <a name="add-a-share"></a>Ajouter un partage
 
-Pour créer un partage, procédez comme suit dans le [Portail Azure](https://portal.azure.com/).
+Pour créer un partage, procédez comme suit :
 
-1. Revenez au Portail Azure. Accédez à **Toutes les ressources**, puis recherchez votre ressource Data Box Gateway.
-    
-2. Dans la liste filtrée des ressources, sélectionnez votre ressource Data Box Gateway, puis accédez à **Vue d’ensemble**. Cliquez sur **+ Ajouter un partage** dans la barre de commandes de l’appareil.
+1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez votre ressource Data Box Gateway, puis accédez à **Vue d’ensemble**. Votre appareil doit être en ligne. Sélectionnez **+ Ajouter un partage** dans la barre de commandes de l’appareil.
    
    ![Ajouter un partage](./media/data-box-gateway-deploy-add-shares/click-add-share.png)
 
-4. Dans **Ajouter un partage**, spécifiez les paramètres du partage. Indiquez un nom unique pour votre partage. 
+4. Dans **Ajouter un partage**, procédez comme suit :
 
-   Les noms de partage peuvent uniquement contenir des chiffres, des lettres minuscules et des traits d’union. Le nom de partage doit contenir entre 3 et 63 caractères et commencer par une lettre ou un chiffre. Chaque trait d’union doit être précédé et suivi d’un caractère autre qu’un tiret.
+    1. Indiquez un nom unique pour votre partage. Les noms de partage peuvent uniquement contenir des lettres minuscules, des traits d’union et des chiffres. Le nom de partage doit contenir entre 3 et 63 caractères et commencer par une lettre ou un chiffre. Chaque trait d’union doit être précédé et suivi d’un caractère autre qu’un tiret.
     
-5. Sélectionnez un **type** de partage. Le type peut être SMB ou NFS, SMB étant la valeur par défaut. SMB est la norme pour les clients Windows, tandis que NFS est utilisé pour les clients Linux. Selon que vous choisissez un partage SMB ou NFS, les options proposées diffèrent légèrement. 
+    2. Sélectionnez un **type** de partage. Le type peut être SMB ou NFS, SMB étant la valeur par défaut. SMB est la norme pour les clients Windows, tandis que NFS est utilisé pour les clients Linux. Selon que vous choisissez un partage SMB ou NFS, les options proposées diffèrent légèrement.
 
-6. Vous devez fournir un compte de stockage dans lequel résidera le partage. Si le conteneur n’existe pas déjà, un conteneur est créé dans le compte de stockage avec le nom du partage. Si le conteneur existe déjà, le conteneur existant est utilisé. 
+    3. Fournissez un compte de stockage dans lequel résidera le partage. S’il n’existe pas de conteneur, un conteneur est créé dans le compte de stockage avec le nom du nouveau partage. Si le conteneur existe déjà, ce conteneur est utilisé.
     
-7. Choisissez le **service de stockage** d’objet blob de blocs, d’objet blob de pages ou de fichier. Le type de service choisi varie selon le format dans lequel vous souhaitez que les données résident dans Azure. Par exemple, dans cette instance, nous voulons que les données résident en tant qu’objets blob de blocs dans Azure. C’est pourquoi nous sélectionnons Objet blob de blocs. Si vous choisissez un objet blob de pages, vous devez vous assurer que vos données sont de 512 octets alignés. Notez que VHDX est toujours de 512 octets alignés.
+    4. Choisissez le **service de stockage** d’objet blob de blocs, d’objet blob de pages ou de fichier. Le type de service choisi varie selon le format dans lequel vous souhaitez que les données résident dans Azure. Par exemple, dans cette instance, nous voulons que les données résident en tant qu’objets blob de blocs dans Azure. C’est pourquoi nous sélectionnons Objet blob de blocs. Si vous choisissez un objet blob de pages, vous devez vous assurer que vos données sont de 512 octets alignés. Par exemple, un VHDX est toujours de 512 octets alignés.
    
-8. Cette étape varie selon que vous créez un partage SMB ou NFS. 
+    5. Cette étape varie selon que vous créez un partage SMB ou NFS.
      
-    - **Si vous créez un partage SMB** : dans le champ de l’utilisateur local avec tous les privilèges, choisissez **Créer** ou **Utiliser l’existant**. Si vous créez un nouvel utilisateur local, indiquez un **nom d’utilisateur**, un **mot de passe**, puis **confirmez le mot de passe**. Cela affecte les autorisations à l’utilisateur local. Après avoir attribué les autorisations à cet emplacement, vous pouvez utiliser l’Explorateur de fichiers par la suite pour modifier ces autorisations.
+    - **Partage SMB** : sous **Utilisateur local avec tous les privilèges**, sélectionnez **Créer** ou **Utiliser l’existant**. Si vous créez un utilisateur local, entrez un **nom d’utilisateur** et un **mot de passe**, puis **confirmez le mot de passe**. Cette action affecte les autorisations à l’utilisateur local. Après avoir attribué les autorisations à cet emplacement, vous pouvez utiliser l’Explorateur de fichiers pour les modifier.
     
         ![Ajouter un partage SMB](./media/data-box-gateway-deploy-add-shares/add-share-smb-1.png)
         
-        Si vous cochez l’option permettant d’**autoriser uniquement les opérations de lecture** pour ces données de partage, vous aurez la possibilité d’indiquer des utilisateurs en lecture seule.
+        Si vous cochez la case **Autoriser uniquement les opérations de lecture** pour ces données de partage, vous pouvez indiquer des utilisateurs en lecture seule.
         
-    - **Si vous créez un partage NFS** : vous devez fournir les adresses IP des clients autorisés qui peuvent accéder au partage.
+    - **Partage NFS** : indiquez les adresses IP des clients autorisés pouvant accéder au partage.
 
         ![Ajouter un partage NFS](./media/data-box-gateway-deploy-add-shares/add-share-nfs-1.png)
    
-9. Cliquez sur **Créer** pour créer le partage. 
+9. Sélectionnez **Créer** pour créer le partage.
     
-    Vous êtes averti que le partage est en cours de création. Une fois le partage créé avec les paramètres spécifiés, le panneau **Partages** s’actualise pour refléter le nouveau partage. 
+    Vous êtes averti que le partage est en cours de création. Une fois le partage créé avec les paramètres spécifiés, la vignette **Partages** s’actualise pour refléter le nouveau partage.
     
-    ![Liste des partages mise à jour](./media/data-box-gateway-deploy-add-shares/updated-list-of-shares.png) 
+    ![Vignette Partages mise à jour](./media/data-box-gateway-deploy-add-shares/updated-list-of-shares.png) 
 
 ## <a name="connect-to-the-share"></a>Se connecter au partage
 
-Effectuez ces étapes sur votre client Windows Server connecté à votre appareil Data Box Gateway pour vous connecter aux partages.
+Vous pouvez maintenant vous connecter à un ou plusieurs partages que vous avez créés à l’étape précédente. Selon que vous disposez d’un partage SMB ou NFS, les étapes peuvent varier.
+
+### <a name="connect-to-an-smb-share"></a>Se connecter à un partage SMB
+
+Sur votre client Windows Server connecté à votre appareil Data Box Gateway, connectez-vous à un partage SMB en entrant les commandes :
 
 
-1. Ouvrez une fenêtre de commandes.  À l’invite de commandes, tapez :
+1. Dans la fenêtre de commande, tapez :
 
     `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
 
@@ -93,17 +94,18 @@ Effectuez ces étapes sur votre client Windows Server connecté à votre apparei
 
     ```powershell
     Microsoft Windows [Version 18.8.16299.192) 
-    (c) 2817 microsoft Corporation. All rights reserved . 
+    (c) 2017 microsoft Corporation. All rights reserved . 
     
     C: \Users\GatewayUser>net use \\10.10.10.60\newtestuser /u:Tota11yNewUser 
-    Enter the password for 'TotallyNewUser' to connect to '10.10.10.60' • 
+    Enter the password for 'TotallyNewUser' to connect to '10.10.10.60'  
     The command completed successfully. 
     
     C: \Users\GatewayUser>
     ```   
 
 
-2. Appuyez sur Windows + R. Dans la fenêtre **Exécuter**, spécifiez `\\<device IP address>`. Cliquez sur **OK**. L’Explorateur de fichiers s’affiche. Vous devriez maintenant voir les partages que vous avez créés sous forme de dossiers. Sélectionnez et double-cliquez sur un partage (dossier) pour afficher son contenu.
+2. Sur votre clavier, sélectionnez Windows + R. 
+3. Dans la fenêtre **Exécuter**, spécifiez l’adresse `\\<device IP address>`, puis sélectionnez **OK**. L’Explorateur de fichiers s’ouvre. Vous devriez maintenant voir les partages que vous avez créés sous forme de dossiers. Dans l’Explorateur de fichiers, double-cliquez sur un partage (dossier) pour afficher son contenu.
  
     ![Se connecter à un partage SMB](./media/data-box-gateway-deploy-add-shares/connect-to-share2.png)-->
 
@@ -111,7 +113,7 @@ Effectuez ces étapes sur votre client Windows Server connecté à votre apparei
 
 ### <a name="connect-to-an-nfs-share"></a>Se connecter à un partage NFS
 
-Effectuez ces étapes sur votre client Linux connecté à votre Data Box Edge.
+Sur votre client Linux connecté à votre appareil Data Box Edge, procédez comme suit :
 
 1. Vérifiez que le client NFSv4 est installé sur le client. Pour installer le client NFS, utilisez la commande suivante :
 
@@ -130,8 +132,8 @@ Effectuez ces étapes sur votre client Linux connecté à votre Data Box Edge.
     `sudo mount -t nfs -o sec=sys,resvport 10.10.10.60:/mylinuxshare2 /home/databoxubuntuhost/gateway`
 
 > [!NOTE] 
-> Les mises en garde suivantes s’appliquent à la préversion :
-> - Une fois un fichier créé dans les partages, vous ne pouvez plus en modifier le nom. 
+> Les mises en garde suivantes s’appliquent à cette version :
+> - Une fois un fichier créé dans les partages, vous ne pouvez plus en modifier le nom.
 > - La suppression d’un fichier à partir d’un partage ne supprime pas l’entrée du compte de stockage.
 > - Si vous utilisez `rsync` pour copier des données, l’option `rsync -a` n’est pas prise en charge.
 

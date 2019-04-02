@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 3501284be2430941863bbae90f044df8ba5e7a2a
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 7f2fe6fc3ba3ae515d372fb5a794e46897bad115
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454802"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517944"
 ---
 # <a name="monitor-published-apis"></a>Surveiller les API publiées
 
@@ -184,7 +184,7 @@ Le service Gestion des API fournit actuellement des journaux de diagnostic (par 
 | correlationId | chaîne | Identificateur de requête http unique assigné par le service Gestion des API |
 | location | chaîne | Nom de la région Azure dans laquelle se trouvait la passerelle qui a traité la requête |
 | httpStatusCodeCategory | chaîne | Catégorie du code d’état de réponse http : réussite (inférieur ou égal à 301 ou 304 ou 307), non autorisé (401, 403, 429), erroné (400, entre 500 et 600), autre |
-| ResourceId | chaîne | ID de la ressource du service Gestion des API /SUBSCRIPTIONS/<subscription>/RESOURCEGROUPS/<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/<name> |
+| ResourceId | chaîne | ID de la ressource du service Gestion des API /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name> |
 | properties | objet | Propriétés de la requête actuelle |
 | method | chaîne | Méthode HTTP de la requête entrante |
 | url | chaîne | URL de la requête entrante |

@@ -11,14 +11,14 @@ ms.author: MayMSFT
 ms.reviewer: trbye
 ms.date: 02/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: ca49cb65331373832b00b8489d731d51e8a8e004
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0ee49299dbbe8095ef98be51dc8619c28891abc5
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182912"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361385"
 ---
-# <a name="tutorial-prepare-data-for-regression-modeling"></a>Tutoriel : Préparer les données pour la modélisation de régression
+# <a name="tutorial-prepare-data-for-regression-modeling"></a>Didacticiel : Préparer les données pour la modélisation de régression
 
 Dans ce tutoriel, vous apprenez à préparer des données pour la modélisation de régression à l’aide du [SDK de préparation des données Azure Machine Learning pour Python](https://aka.ms/data-prep-sdk). Vous exécutez diverses transformations pour filtrer et combiner deux jeux de données NYC Taxi différents.
 
@@ -58,7 +58,7 @@ Après avoir terminé les étapes ci-dessous, exécutez le notebook **tutorials/
 
 Utilisez ces étapes pour créer une instance locale de serveur de notebooks Jupyter sur votre ordinateur.  Après avoir terminé les étapes, exécutez le notebook **tutorials/regression-part1-data-prep.ipynb**.
 
-1. Suivez le [Guide de démarrage rapide Python d’Azure Machine Learning](quickstart-create-workspace-with-python.md) pour créer un environnement Miniconda.  Vous pouvez ignorer la section **Créer un espace de travail** si vous le souhaitez, mais vous en aurez besoin pour faire la [partie 2](tutorial-auto-train-models.md) de cette série de tutoriels.
+1. Suivez les étapes d’installation dans le [[Guide de démarrage rapide Python d’Azure Machine Learning](quickstart-run-local-notebook.md) ](setup-create-workspace.md#python) pour créer un environnement Miniconda.  Vous pouvez ignorer la section **Créer un espace de travail** si vous le souhaitez, mais vous en aurez besoin pour faire la [partie 2](tutorial-auto-train-models.md) de cette série de tutoriels.
 1. Installez le SDK de préparation des données dans votre environnement à l’aide de `pip install azureml-dataprep`.
 1. Clonez le [référentiel GitHub](https://aka.ms/aml-notebooks).
 
@@ -70,17 +70,18 @@ Utilisez ces étapes pour créer une instance locale de serveur de notebooks Jup
 
     ```shell
     jupyter notebook
+    ```
 
-## <a name="start"></a>Set up your development environment
+## <a name="start"></a>Configurer votre environnement de développement
 
-All the setup for your development work can be accomplished in a Python notebook. Setup includes the following actions:
+Toute la configuration pour votre travail de développement peut être effectuée dans un bloc-notes Python. La configuration comprend les actions suivantes :
 
-* Install the SDK
-* Import Python packages
+* Installer le Kit de développement logiciel (SDK)
+* Importer des packages Python
 
-### Install and import packages
+### <a name="install-and-import-packages"></a>Installer et importer des packages
 
-Use the following to install necessary packages if you don't already have them.
+Exécutez la commande suivante pour installer les packages nécessaires si vous ne les avez pas déjà.
 
 ```shell
 pip install azureml-dataprep
