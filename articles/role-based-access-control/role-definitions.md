@@ -15,12 +15,12 @@ ms.date: 02/09/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: b7f4ce9508928ccc6ab766e7164c674511bcaa37
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 7855c2bd45ba35ecb0ede5c60268e6446f37ed5a
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342777"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804528"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Comprendre les définitions de rôle relatives aux ressources Azure
 
@@ -97,11 +97,11 @@ Pour prendre en charge les opérations sur les données, de nouvelles propriét�
 - Écrire un objet blob de stockage dans un conteneur
 - Supprimer un message dans une file d’attente
 
-Voici la définition de rôle [Lecteur des données blob du stockage (préversion)](built-in-roles.md#storage-blob-data-reader-preview), qui inclut des opérations à la fois dans les propriétés `Actions` et `DataActions`. Ce rôle vous permet de lire le conteneur d’objets blob ainsi que les données d’objets blob sous-jacentes.
+Voici le [lecteur de données de stockage Blob](built-in-roles.md#storage-blob-data-reader) définition de rôle, qui inclut des opérations à la fois dans le `Actions` et `DataActions` propriétés. Ce rôle vous permet de lire le conteneur d’objets blob ainsi que les données d’objets blob sous-jacentes.
 
 ```json
 {
-  "Name": "Storage Blob Data Reader (Preview)",
+  "Name": "Storage Blob Data Reader",
   "Id": "2a2b9908-6ea1-4ae2-8e65-a410df84e7d1",
   "IsCustom": false,
   "Description": "Allows for read access to Azure Storage blob containers and data",
@@ -125,18 +125,18 @@ L’autorisation pour tous les appels d’API des opérations de gestion est gé
 
 ### <a name="data-operations-example"></a>Exemple d’opérations sur les données
 
-Pour mieux comprendre comment fonctionnent les opérations de gestion et les opérations sur les données, prenons un exemple spécifique. Alice a reçu le rôle [Propriétaire](built-in-roles.md#owner) au niveau de l’étendue de l’abonnement. Bob a reçu le rôle [Contributeur aux données blob du stockage (préversion)](built-in-roles.md#storage-blob-data-contributor-preview) dans une étendue de compte de stockage. Le diagramme qui suit présente cet exemple.
+Pour mieux comprendre comment fonctionnent les opérations de gestion et les opérations sur les données, prenons un exemple spécifique. Alice a reçu le rôle [Propriétaire](built-in-roles.md#owner) au niveau de l’étendue de l’abonnement. Bob a été attribué le [contributeur aux données stockage Blob](built-in-roles.md#storage-blob-data-contributor) rôle dans une étendue de compte de stockage. Le diagramme qui suit présente cet exemple.
 
 ![Le contrôle d’accès en fonction du rôle a été étendu pour prendre en charge les opérations de gestion et les opérations sur les données](./media/role-definitions/rbac-management-data.png)
 
-Le rôle [Propriétaire](built-in-roles.md#owner) pour Alice et le rôle [Contributeur aux données blob du stockage (préversion)](built-in-roles.md#storage-blob-data-contributor-preview) pour Bob effectuent les actions suivantes :
+Le [propriétaire](built-in-roles.md#owner) rôle pour Alice et [contributeur aux données stockage Blob](built-in-roles.md#storage-blob-data-contributor) rôle pour Bob a les actions suivantes :
 
 Propriétaire
 
 &nbsp;&nbsp;&nbsp;&nbsp;Actions<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`*`
 
-Contributeur aux données Blob du stockage (préversion)
+Contributeur aux données Blob du stockage
 
 &nbsp;&nbsp;&nbsp;&nbsp;Actions<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/delete`<br>
@@ -149,7 +149,7 @@ Contributeur aux données Blob du stockage (préversion)
 
 Comme Alice dispose d’une action avec caractère générique (`*`) à une étendue de l’abonnement, elle hérite d’autorisations lui permettant d’effectuer toutes les actions de gestion. Alice peut lire, écrire et supprimer des conteneurs. En revanche, elle ne peut pas effectuer d’opérations sur des données sans passer par des étapes supplémentaires. Par exemple, par défaut, Alice ne peut pas lire les objets blob à l’intérieur d’un conteneur. Pour cela, elle doit récupérer les clés d’accès de stockage et les utiliser pour accéder aux objets blob.
 
-Les autorisations de Bob se limitent aux actions `Actions` et `DataActions` spécifiées dans le rôle [Contributeur aux données blob du stockage (préversion)](built-in-roles.md#storage-blob-data-contributor-preview). En fonction du rôle, Bob peut effectuer à la fois des opérations de gestion et des opérations sur les données. Par exemple, Bob peut lire, écrire et supprimer des conteneurs du compte de stockage spécifié, mais aussi lire, écrire et supprimer les objets blob.
+Les autorisations de Bob sont limitées à simplement le `Actions` et `DataActions` spécifié dans le [contributeur aux données stockage Blob](built-in-roles.md#storage-blob-data-contributor) rôle. En fonction du rôle, Bob peut effectuer à la fois des opérations de gestion et des opérations sur les données. Par exemple, Bob peut lire, écrire et supprimer des conteneurs du compte de stockage spécifié, mais aussi lire, écrire et supprimer les objets blob.
 
 Pour plus d’informations sur la gestion et la sécurité du plan de données pour le stockage, consultez le [guide de sécurité Stockage Microsoft Azure](../storage/common/storage-security-guide.md).
 

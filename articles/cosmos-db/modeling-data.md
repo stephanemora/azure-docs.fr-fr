@@ -8,40 +8,37 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: andrl
 ms.custom: seodec18
-ms.openlocfilehash: f122d60a4f4df011a0adbe7806e70ae173222641
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 5f117d51378f895755b4f5a27fe892d85e12074a
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295094"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762580"
 ---
-# <a name="modeling-document-data-for-nosql-databases"></a>Modélisation de données de document pour des bases de données NoSQL
+# <a name="data-modeling-in-azure-cosmos-db"></a>Modélisation des données dans Azure Cosmos DB
 
-Bien que les bases de données exemptes de schéma, comme Azure Cosmos DB, rendent très facile l’adoption des modifications apportées à votre modèle de données, vous devez quand même prendre le temps de réfléchir à vos données.
+Bien que les bases de données sans schéma, comme Azure Cosmos DB, rendent très facile stocker et interroger des données non structurées et semi-structurées, vous devez prendre le temps de réfléchir sur votre modèle de données pour tirer le meilleur parti du service en termes de performances et l’évolutivité et la plus basse coût.
 
-Comment les données seront-elles stockées ? Comment votre application va-t-elle récupérer et interroger des données ? Votre application exige-t-elle de nombreuses lectures (read heavy) ou de nombreuses écritures (write heavy) ?
+Comment les données seront-elles stockées ? Comment votre application va-t-elle récupérer et interroger des données ? Votre application est-elle des lectures ou écritures ?
 
 Après avoir lu cet article, vous serez en mesure de répondre aux questions suivantes :
 
-* Comment dois-je considérer un document dans une base de données de documents ?
 * Qu'est-ce que la modélisation de données et pourquoi dois-je m'en soucier ?
-* En quoi la modélisation des données dans une base de données de documents et dans une base de données relationnelle diffère-t-elle ?
+* Comment la modélisation des données dans Azure Cosmos DB est différent pour une base de données relationnelle ?
 * Comment exprimer les relations entre les données dans une base de données non relationnelle ?
 * Quand dois-je incorporer les données et quand dois-je créer un lien vers les données ?
 
 ## <a name="embedding-data"></a>Incorporation de données
 
-Lorsque vous entamez la modélisation des données dans une banque de documents telle qu’Azure Cosmos DB, essayez de traiter vos entités en tant que **documents autonomes** représentés dans JSON.
+Lorsque vous démarrez la modélisation des données dans Azure Cosmos DB essayez de traiter vos entités en tant que **éléments autonomes** représenté en tant que documents JSON.
 
-Avant d’aller plus loin, revenons quelques étapes en arrière et examinons comment nous pouvons modéliser un élément dans une base de données relationnelle. Beaucoup d'entre nous connaissent déjà le sujet. L'exemple suivant montre comment une personne peut être stockée dans une base de données relationnelle.
+Pour la comparaison, nous allons tout d’abord voir comment nous pouvons modéliser les données dans une base de données relationnelle. L'exemple suivant montre comment une personne peut être stockée dans une base de données relationnelle.
 
 ![Modèle de base de données relationnelle](./media/sql-api-modeling-data/relational-data-model.png)
 
-Lorsqu'il s'agit de travailler avec des bases de données relationnelles, on nous a appris pendant des années qu'il fallait normaliser, normaliser, normaliser.
+Lorsque vous travaillez avec des bases de données relationnelles, la stratégie consiste à normaliser toutes vos données. La normalisation de vos données généralement consiste à prendre une entité, une personne, par exemple et la décomposer en composants distincts. Dans l’exemple ci-dessus, une personne peut avoir plusieurs enregistrements de détail de contact, ainsi que plusieurs enregistrements d’adresse. Les détails du contact peuvent être subdivisés en extrayant courantes champs tels qu’un type. Vaut pour l’adresse, chaque enregistrement peut être de type *accueil* ou *Business*.
 
-En général, la normalisation de vos données consiste à prendre une entité, une personne par exemple, et à la décomposer en éléments de données discrets. Dans l'exemple ci-dessus, une personne peut avoir plusieurs enregistrements de coordonnées, ainsi que plusieurs enregistrements d'adresse. Nous allons même plus loin et décomposons les coordonnées en extrayant des champs communs tels qu'un type. De même que pour l’adresse, chaque enregistrement ici a un type tel que *accueil* ou *Business*.
-
-Le principe directeur lors de la normalisation des données consiste à **éviter de stocker des données redondantes** dans chaque enregistrement et à faire plutôt référence aux données. Dans cet exemple, pour lire une personne, avec ses coordonnées et ses adresses, vous devez utiliser des jointures pour agréger efficacement vos données au moment de l'exécution.
+Le principe directeur lors de la normalisation des données consiste à **éviter de stocker des données redondantes** dans chaque enregistrement et à faire plutôt référence aux données. Dans cet exemple, pour lire une personne, avec toutes ses coordonnées et adresses, vous devez utiliser des jointures efficacement composer précédent (ou dénormaliser) vos données en cours d’exécution.
 
     SELECT p.FirstName, p.LastName, a.City, cd.Detail
     FROM Person p
@@ -51,7 +48,7 @@ Le principe directeur lors de la normalisation des données consiste à **évite
 
 La mise à jour d'une personne avec ses coordonnées et adresses nécessite des opérations d'écriture sur plusieurs tables individuelles.
 
-Examinons à présent comment nous pourrions modéliser les mêmes données comme une entité autonome dans une base de données de documents.
+Maintenant examinons à présent comment nous pourrions modéliser les mêmes données comme une entité autonome dans Azure Cosmos DB.
 
     {
         "id": "1",
@@ -72,10 +69,10 @@ Examinons à présent comment nous pourrions modéliser les mêmes données comm
         ]
     }
 
-Avec l’approche ci-dessus, nous avons maintenant **dénormalisé** l’enregistrement de la personne, où nous avons **incorporé** toutes les informations relatives à cette personne, telles que ses coordonnées et adresses, dans un seul document JSON.
+À l’aide de l’approche ci-dessus nous **dénormalisées** enregistrer de la personne, par **incorporation** toutes les informations relatives à cette personne, telles que ses coordonnées et les adresses, dans un *unique JSON* document.
 En outre, étant donné que nous ne sommes pas limités à un schéma fixe, nous avons la possibilité d'avoir des coordonnées de formes entièrement différentes.
 
-La récupération d'un enregistrement complet de personne dans la base de données correspond désormais à une seule opération de lecture sur une collection unique et pour un document unique. La mise à jour d'un enregistrement de personne, avec ses coordonnées et adresses, correspond également à une seule opération d'écriture sur un document unique.
+Récupération d’un enregistrement complet de personne à partir de la base de données est désormais un **opération de lecture seule** par rapport à un seul conteneur et pour un seul élément. La mise à jour d’un enregistrement de personne, avec ses coordonnées et les adresses, est également un **unique l’opération d’écriture** par rapport à un seul élément.
 
 Avec la dénormalisation des données, votre application aura peut-être besoin d'émettre moins de requêtes et de mises à jour pour effectuer les opérations courantes.
 
@@ -86,15 +83,15 @@ En général, utilisez des modèles de données incorporés dans les cas suivant
 * Il existe **contenus** relations entre entités.
 * Il existe des relations de type **un-à-plusieurs** entre des entités.
 * Des données incorporées **changent rarement**.
-* Des données incorporées ne croîtront pas **sans limite**.
-* Des données incorporées sont une partie **intégrante** des données d’un document.
+* Il existe des données incorporées ne dépassera **sans limite**.
+* Il existe des données incorporées sont **fréquemment interrogés**.
 
 > [!NOTE]
 > Normalement, les modèles de données dénormalisés offrent de meilleures performances en **lecture** .
 
 ### <a name="when-not-to-embed"></a>Quand éviter l'incorporation
 
-Bien que la règle générale dans une base de données de documents soit de tout dénormaliser et d'incorporer toutes les données dans un seul document, cela peut déboucher sur des situations qui devraient être évitées.
+Alors que la règle de base dans Azure Cosmos DB est de tout dénormaliser et d’incorporer toutes les données dans un seul élément, cela peut entraîner des situations qui doivent être évitées.
 
 Prenons cet extrait de code JSON.
 
@@ -114,13 +111,13 @@ Prenons cet extrait de code JSON.
         ]
     }
 
-Une entité post avec commentaires incorporés pourrait avoir cet aspect si nous étions en train de modéliser un système de blog, ou CMS, classique. Dans cet exemple, le problème est que le tableau de commentaires est **illimité**, c’est-à-dire qu’il n’existe aucune limite (pratique) au nombre de commentaires possibles pour une publication. Cela posera un problème car la taille du document risque d'augmenter considérablement.
+Une entité post avec commentaires incorporés pourrait avoir cet aspect si nous étions en train de modéliser un système de blog, ou CMS, classique. Dans cet exemple, le problème est que le tableau de commentaires est **illimité**, c’est-à-dire qu’il n’existe aucune limite (pratique) au nombre de commentaires possibles pour une publication. Cela peut devenir un problème car la taille de l’élément Impossible d’augmenter à l’infini.
 
-L'augmentation de la taille du document a une incidence sur les possibilités de transmission des données par câble, ainsi que sur les possibilités de lecture et de mise à jour du document, à l'échelle.
+Comme la taille de l’élément devient la possibilité de transmettre les données sur le câble, ainsi que la lecture et la mise à jour de l’élément, à l’échelle, sera affectée.
 
-Dans ce cas, il serait préférable de considérer le modèle suivant.
+Dans ce cas, il serait préférable de considérer le modèle de données suivantes.
 
-    Post document:
+    Post item:
     {
         "id": "1",
         "name": "What's new in the coolest Cloud",
@@ -132,7 +129,7 @@ Dans ce cas, il serait préférable de considérer le modèle suivant.
         ]
     }
 
-    Comment documents:
+    Comment items:
     {
         "postId": "1"
         "comments": [
@@ -151,9 +148,9 @@ Dans ce cas, il serait préférable de considérer le modèle suivant.
         ]
     }
 
-Ce modèle présente les trois derniers commentaires incorporés dans la publication proprement dite, qui est un tableau avec une limite fixe cette fois-ci. Les autres commentaires sont regroupés par lots de 100 commentaires et stockés dans des documents distincts. 100 a été choisi comme taille de lot parce que notre application fictive permet à l'utilisateur de charger 100 commentaires à la fois.  
+Ce modèle présente les trois commentaires les plus récents incorporés dans le conteneur de post, ce qui est un tableau avec un ensemble fixe d’attributs. Les autres commentaires sont regroupés par lots de 100 commentaires et stockés en tant qu’éléments distincts. 100 a été choisi comme taille de lot parce que notre application fictive permet à l'utilisateur de charger 100 commentaires à la fois.  
 
-Autre cas de figure où l'incorporation de données est déconseillée : lorsque les données incorporées sont souvent utilisées dans les documents et changent fréquemment.
+Un autre cas où l’incorporation de données ne sont pas une bonne idée est lorsque les données incorporées sont souvent utilisées entre les éléments et changent fréquemment.
 
 Prenons cet extrait de code JSON.
 

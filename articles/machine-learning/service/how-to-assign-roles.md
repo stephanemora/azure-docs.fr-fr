@@ -11,12 +11,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 2/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: b40edf705ba61713f4b695dd55a6a20028936c82
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 56813d9a075e1c327fb5612c50ea72f067ec505d
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993813"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805599"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gérer l’accès à un espace de travail Azure Machine Learning
 
@@ -26,14 +26,14 @@ Dans cet article, vous allez apprendre à gérer l’accès à un espace de trav
 
 Un espace de travail Azure Machine Learning est une ressource Azure. Comme les autres ressources Azure, lorsqu’un nouvel espace de travail Azure Machine Learning est créé, il est fourni avec trois rôles par défaut. Vous pouvez ajouter des utilisateurs à l’espace de travail et les affecter à un de ces rôles prédéfinis.
 
-| Rôle | Niveau d'accès |
+| Rôle | Niveau d’accès |
 | --- | --- |
 | **Lecteur** | Actions en lecture seule dans l’espace de travail. Lecteurs peuvent répertorier et afficher les ressources dans un espace de travail, mais ne peut pas créer ou mettre à jour de ces ressources. |
 | **Contributeur** | Afficher, créer, modifier ou supprimer (le cas échéant) des ressources dans un espace de travail. Par exemple, contributeurs peuvent créer une expérience, créer ou joindre un cluster de calcul, envoyer une exécution et déployer un service web. |
 | **Propriétaire** | Accès complet à l’espace de travail, y compris la possibilité d’afficher, créer, modifier ou supprimer (le cas échéant) des ressources dans un espace de travail. En outre, vous pouvez modifier les attributions de rôles. |
 
 > [!IMPORTANT]
-> Accès de rôle peut être limité à plusieurs niveaux dans Azure. Par exemple, une personne disposant d’un accès propriétaire à un groupe de travail peut-être pas accès propriétaire à un groupe de ressources qui contient le groupe de travail. Pour plus d’informations, consultez [RBAC comment fonctionne](/azure/role-based-access-control/overview#how-rbac-works).
+> Accès de rôle peut être limité à plusieurs niveaux dans Azure. Par exemple, une personne disposant d’un accès propriétaire à un espace de travail peut-être pas accès propriétaire à un groupe de ressources qui contient l’espace de travail. Pour plus d’informations, consultez [RBAC comment fonctionne](/azure/role-based-access-control/overview#how-rbac-works).
 
 Pour plus d’informations sur les rôles intégrés spécifiques, consultez [rôles intégrés pour Azure](/azure/role-based-access-control/built-in-roles).
 

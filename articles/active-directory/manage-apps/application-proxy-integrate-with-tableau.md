@@ -13,18 +13,18 @@ ms.author: celested
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e154a53dc32aea0b3fbe093526546b080b02ceff
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c5d80381815524658d91067ee880eba47c394058
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188458"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793575"
 ---
 # <a name="azure-active-directory-application-proxy-and-tableau"></a>Proxy d’application Azure Active Directory et Tableau 
 
 Proxy d’application Azure Active Directory et Tableau se sont associés afin de vous permettre d’utiliser facilement Proxy d’application pour fournir un accès à distance à votre déploiement Tableau. Cet article explique comment configurer ce scénario.  
 
-## <a name="prerequisites"></a>Prérequis 
+## <a name="prerequisites"></a>Conditions préalables 
 
 Le scénario décrit dans cet article suppose ce qui suit :
 
@@ -50,7 +50,7 @@ Pour :
 **Pour publier votre application** : 
 
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur. 
+1. Se connecter à la [portail](https://portal.azure.com) en tant qu’application administrateur. 
 
 2. Sélectionnez **Azure Active Directory > Applications d’entreprise**. 
 

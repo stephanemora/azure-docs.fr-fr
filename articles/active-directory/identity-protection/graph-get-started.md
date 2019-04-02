@@ -18,12 +18,12 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f748e10ffa8b1c8a7f4ee3dc3d151f7413179ab
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 3357cfd5e845346534f263c768b5cf6b6a38ea4e
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517451"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793983"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Prise en main d’Azure Active Directory Identity Protection et de Microsoft Graph
 
@@ -153,6 +153,7 @@ Avant de commencer, vous aurez besoin des éléments suivants :
    > 
 
 ## <a name="authenticate-to-microsoft-graph-and-query-the-identity-risk-events-api"></a>Authentifiez-vous auprès de Microsoft Graph et interrogez l’API d’événements à risque concernant l’identité
+
 À ce stade, vous devez avoir :
 
 - le nom de domaine de votre client ;
@@ -239,6 +240,7 @@ GET https://graph.microsoft.com/beta/riskyUsers?$filter=riskDetail eq 'userPasse
 ### <a name="get-all-the-risky-sign-ins-for-a-specific-user-signin-api"></a>Obtenir toutes les connexions à risque d’un utilisateur en particulier (API signIn)
 
 Lorsque vous pensez qu’un utilisateur a peut-être été compromis, vous pouvez mieux comprendre l’état du risque qu’il encourt en récupérant toutes ses connexions risquées. 
+
 ```
 https://graph.microsoft.com/beta/identityRiskEvents?`$filter=userID eq '<userID>' and riskState eq 'atRisk'
 ```

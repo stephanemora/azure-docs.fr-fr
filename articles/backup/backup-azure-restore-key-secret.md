@@ -8,14 +8,15 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: geetha
-ms.openlocfilehash: d138d8a8395fc3e9523c62dfd1636fcdcb10c8c4
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 4ecf8b0808b1eea3af8997caecfdd942f1ff7418
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258851"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793655"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Restaurer la clé et le secret du Key Vault pour les machines virtuelles chiffrées à l’aide d’Azure Backup
+
 Cet article décrit l’utilisation de Sauvegarde de VM Azure pour restaurer des machines virtuelles Azure chiffrées si vos clé et secret n’existent pas dans le Key Vault. Vous pouvez également suivre cette procédure si vous souhaitez conserver une copie distincte de la clé (clé de chiffrement à clé) et du secret (clé de chiffrement BitLocker) pour la machine Virtuelle restaurée.
 
 ## <a name="prerequisites"></a>Conditions préalables
@@ -37,29 +38,30 @@ Cet article décrit l’utilisation de Sauvegarde de VM Azure pour restaurer des
 
 Interrogez les propriétés des disques restaurés pour obtenir les détails du travail.
 
-```
-PS C:\> $properties = $details.properties
-PS C:\> $storageAccountName = $properties["Target Storage Account Name"]
-PS C:\> $containerName = $properties["Config Blob Container Name"]
-PS C:\> $encryptedBlobName = $properties["Encryption Info Blob Name"]
+```powershell
+$properties = $details.properties
+$storageAccountName = $properties["Target Storage Account Name"]
+$containerName = $properties["Config Blob Container Name"]
+$encryptedBlobName = $properties["Encryption Info Blob Name"]
 ```
 
 Définissez le contexte de stockage Azure et restaurez le fichier de configuration JSON contenant les détails de la clé et du secret pour la machine virtuelle chiffrée.
 
-```
-PS C:\> Set-AzCurrentStorageAccount -Name $storageaccountname -ResourceGroupName '<rg-name>'
-PS C:\> $destination_path = 'C:\vmencryption_config.json'
-PS C:\> Get-AzStorageBlobContent -Blob $encryptedBlobName -Container $containerName -Destination $destination_path
-PS C:\> $encryptionObject = Get-Content -Path $destination_path  | ConvertFrom-Json
+```powershell
+Set-AzCurrentStorageAccount -Name $storageaccountname -ResourceGroupName '<rg-name>'
+$destination_path = 'C:\vmencryption_config.json'
+Get-AzStorageBlobContent -Blob $encryptedBlobName -Container $containerName -Destination $destination_path
+$encryptionObject = Get-Content -Path $destination_path  | ConvertFrom-Json
 ```
 
 ## <a name="restore-key"></a>Restaurer la clé
+
 Une fois le fichier JSON généré dans le chemin d’accès de destination mentionné ci-dessus, générez un fichier blob clé à partir de JSON et alimentez-le pour restaurer l’applet de commande clé pour replacer la clé (KEK) dans le coffre de clés.
 
-```
-PS C:\> $keyDestination = 'C:\keyDetails.blob'
-PS C:\> [io.file]::WriteAllBytes($keyDestination, [System.Convert]::FromBase64String($encryptionObject.OsDiskKeyAndSecretDetails.KeyBackupData))
-PS C:\> Restore-AzureKeyVaultKey -VaultName '<target_key_vault_name>' -InputFile $keyDestination
+```powershell
+$keyDestination = 'C:\keyDetails.blob'
+[io.file]::WriteAllBytes($keyDestination, [System.Convert]::FromBase64String($encryptionObject.OsDiskKeyAndSecretDetails.KeyBackupData))
+Restore-AzureKeyVaultKey -VaultName '<target_key_vault_name>' -InputFile $keyDestination
 ```
 
 ## <a name="restore-secret"></a>Restaurer le secret
@@ -68,30 +70,30 @@ Utilisez le fichier JSON généré ci-dessus pour obtenir le nom et la valeur se
 
 Utilisez ces cmdlets si votre **machine virtuelle Windows est chiffrée à l’aide de BEK et KEK**.
 
-```
-PS C:\> $secretdata = $encryptionObject.OsDiskKeyAndSecretDetails.SecretData
-PS C:\> $Secret = ConvertTo-SecureString -String $secretdata -AsPlainText -Force
-PS C:\> $secretname = 'B3284AAA-DAAA-4AAA-B393-60CAA848AAAA'
-PS C:\> $Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncryptionKeyFileName' = 'B3284AAA-DAAA-4AAA-B393-60CAA848AAAA.BEK';'DiskEncryptionKeyEncryptionKeyURL' = $encryptionObject.OsDiskKeyAndSecretDetails.KeyUrl;'MachineName' = 'vm-name'}
-PS C:\> Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -SecretValue $Secret -ContentType  'Wrapped BEK' -Tags $Tags
+```powershell
+$secretdata = $encryptionObject.OsDiskKeyAndSecretDetails.SecretData
+$Secret = ConvertTo-SecureString -String $secretdata -AsPlainText -Force
+$secretname = 'B3284AAA-DAAA-4AAA-B393-60CAA848AAAA'
+$Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncryptionKeyFileName' = 'B3284AAA-DAAA-4AAA-B393-60CAA848AAAA.BEK';'DiskEncryptionKeyEncryptionKeyURL' = $encryptionObject.OsDiskKeyAndSecretDetails.KeyUrl;'MachineName' = 'vm-name'}
+Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -SecretValue $Secret -ContentType  'Wrapped BEK' -Tags $Tags
 ```
 
 Utilisez ces cmdlets si votre **machine virtuelle Linux est chiffrée à l’aide de BEK et KEK**.
 
-```
-PS C:\> $secretdata = $encryptionObject.OsDiskKeyAndSecretDetails.SecretData
-PS C:\> $Secret = ConvertTo-SecureString -String $secretdata -AsPlainText -Force
-PS C:\> $secretname = 'B3284AAA-DAAA-4AAA-B393-60CAA848AAAA'
-PS C:\> $Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncryptionKeyFileName' = 'LinuxPassPhraseFileName';'DiskEncryptionKeyEncryptionKeyURL' = $encryptionObject.OsDiskKeyAndSecretDetails.KeyUrl;'MachineName' = 'vm-name'}
-PS C:\> Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -SecretValue $Secret -ContentType  'Wrapped BEK' -Tags $Tags
+```powershell
+$secretdata = $encryptionObject.OsDiskKeyAndSecretDetails.SecretData
+$Secret = ConvertTo-SecureString -String $secretdata -AsPlainText -Force
+$secretname = 'B3284AAA-DAAA-4AAA-B393-60CAA848AAAA'
+$Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncryptionKeyFileName' = 'LinuxPassPhraseFileName';'DiskEncryptionKeyEncryptionKeyURL' = $encryptionObject.OsDiskKeyAndSecretDetails.KeyUrl;'MachineName' = 'vm-name'}
+Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -SecretValue $Secret -ContentType  'Wrapped BEK' -Tags $Tags
 ```
 
 Utilisez le fichier JSON généré ci-dessus pour obtenir le nom et la valeur secrets et alimentez-le pour définir l’applet de commande secrète pour replacer le secret (BEK) dans le coffre de clés. Utilisez ces cmdlets si votre **machine virtuelle est chiffrée à l’aide de BEK** uniquement.
 
-```
-PS C:\> $secretDestination = 'C:\secret.blob'
-PS C:\> [io.file]::WriteAllBytes($secretDestination, [System.Convert]::FromBase64String($encryptionObject.OsDiskKeyAndSecretDetails.KeyVaultSecretBackupData))
-PS C:\> Restore-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -InputFile $secretDestination -Verbose
+```powershell
+$secretDestination = 'C:\secret.blob'
+[io.file]::WriteAllBytes($secretDestination, [System.Convert]::FromBase64String($encryptionObject.OsDiskKeyAndSecretDetails.KeyVaultSecretBackupData))
+Restore-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -InputFile $secretDestination -Verbose
   ```
 
 > [!NOTE]
@@ -101,28 +103,32 @@ PS C:\> Restore-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -InputF
 >
 
 ## <a name="create-virtual-machine-from-restored-disk"></a>Créer une machine virtuelle à partir du disque restauré
+
 Si vous avez sauvegardé une machine virtuelle chiffrée à l’aide de la Sauvegarde de VM Azure, les applets de commande PowerShell mentionnées plus haut peuvent vous aider à restaurer la clé et le secret dans le coffre de clés. Après leur restauration, consultez l’article [Gérer la sauvegarde et la restauration de machines virtuelles Azure à l’aide de PowerShell](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) pour créer des machines virtuelles chiffrées à partir du disque, de la clé et du secret restaurés.
 
 ## <a name="legacy-approach"></a>Approche héritée
+
 La méthode ci-dessus fonctionne pour tous les points de récupération. Toutefois, l’ancienne méthode d’obtention des informations relatives à la clé et au secret à partir du point de récupération est toujours valide pour les points de récupération antérieurs au 11 juillet 2017, sur les machines virtuelles chiffrées à l’aide de BEK et KEK. Une fois le travail de restauration du disque terminé pour la machine virtuelle chiffrée à l’aide des [étapes PowerShell](backup-azure-vms-automation.md#restore-an-azure-vm), assurez-vous que $rp est alimenté avec une valeur valide.
 
 ### <a name="restore-key"></a>Restaurer la clé
+
 Utilisez les applets de commande suivantes pour obtenir des informations de clés (KEK) à partir du point de récupération et alimentez-les pour restaurer l’applet de commande clé pour la replacer dans le coffre de clés.
 
-```
-PS C:\> $rp1 = Get-AzRecoveryServicesBackupRecoveryPoint -RecoveryPointId $rp[0].RecoveryPointId -Item $backupItem -KeyFileDownloadLocation 'C:\Users\downloads'
-PS C:\> Restore-AzureKeyVaultKey -VaultName '<target_key_vault_name>' -InputFile 'C:\Users\downloads'
+```powershell
+$rp1 = Get-AzRecoveryServicesBackupRecoveryPoint -RecoveryPointId $rp[0].RecoveryPointId -Item $backupItem -KeyFileDownloadLocation 'C:\Users\downloads'
+Restore-AzureKeyVaultKey -VaultName '<target_key_vault_name>' -InputFile 'C:\Users\downloads'
 ```
 
 ### <a name="restore-secret"></a>Restaurer le secret
+
 Utilisez les applets de commande suivantes pour obtenir des informations de secrets (KEK) à partir du point de récupération et alimentez-les pour restaurer l’applet de commande secrète pour la replacer dans le coffre de clés.
 
-```
-PS C:\> $secretname = 'B3284AAA-DAAA-4AAA-B393-60CAA848AAAA'
-PS C:\> $secretdata = $rp1.KeyAndSecretDetails.SecretData
-PS C:\> $Secret = ConvertTo-SecureString -String $secretdata -AsPlainText -Force
-PS C:\> $Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncryptionKeyFileName' = 'B3284AAA-DAAA-4AAA-B393-60CAA848AAAA.BEK';'DiskEncryptionKeyEncryptionKeyURL' = 'https://mykeyvault.vault.azure.net:443/keys/KeyName/84daaac999949999030bf99aaa5a9f9';'MachineName' = 'vm-name'}
-PS C:\> Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -SecretValue $secret -Tags $Tags -SecretValue $Secret -ContentType  'Wrapped BEK'
+```powershell
+$secretname = 'B3284AAA-DAAA-4AAA-B393-60CAA848AAAA'
+$secretdata = $rp1.KeyAndSecretDetails.SecretData
+$Secret = ConvertTo-SecureString -String $secretdata -AsPlainText -Force
+$Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncryptionKeyFileName' = 'B3284AAA-DAAA-4AAA-B393-60CAA848AAAA.BEK';'DiskEncryptionKeyEncryptionKeyURL' = 'https://mykeyvault.vault.azure.net:443/keys/KeyName/84daaac999949999030bf99aaa5a9f9';'MachineName' = 'vm-name'}
+Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -SecretValue $secret -Tags $Tags -SecretValue $Secret -ContentType  'Wrapped BEK'
 ```
 
 > [!NOTE]
@@ -133,4 +139,5 @@ PS C:\> Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secr
 >
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Après la restauration de la clé et du secret dans le coffre de clés, consultez l’article [Gérer la sauvegarde et la restauration de machines virtuelles Azure à l’aide de PowerShell](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) pour créer des machines virtuelles chiffrées à partir du disque, de la clé et du secret restaurés.

@@ -5,24 +5,24 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 03/31/2019
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 6664c3d5fde487b7add7c38dc602915d19adb767
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: f04fa5f43844080638c70c44410d233fbe6ad325
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361980"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805463"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>Référence sur le langage SQL pour Azure Cosmos DB 
 
-Azure Cosmos DB prend en charge l’interrogation de documents suivant une grammaire familière de type SQL (Structured Query Language) sur des documents JSON hiérarchiques sans nécessiter de schéma explicite ou de création d’index secondaires. Cet article constitue la documentation relative à la syntaxe du langage de requête SQL, qui est compatible avec les comptes d’API SQL. Pour obtenir une description des exemples de requêtes SQL, consultez [Requêtes SQL dans Cosmos DB](how-to-sql-query.md).  
+Azure Cosmos DB prend en charge l’interrogation de documents suivant une grammaire familière de type SQL (Structured Query Language) sur des documents JSON hiérarchiques sans nécessiter de schéma explicite ou de création d’index secondaires. Cet article fournit une documentation pour la syntaxe de langage de requête SQL utilisée dans les comptes d’API SQL. Pour obtenir une description des exemples de requêtes SQL, consultez [exemples de requête SQL dans Cosmos DB](how-to-sql-query.md).  
   
-Visitez le [Playground de test de requêtes](https://www.documentdb.com/sql/demo), qui vous permet d’essayer Cosmos DB et d’exécuter des requêtes SQL sur notre jeu de données.  
+Visitez le [Query Playground](https://www.documentdb.com/sql/demo), où vous pouvez essayer Cosmos DB et exécuter des requêtes SQL sur un exemple de dataset.  
   
 ## <a name="select-query"></a>Requête SELECT  
-Chaque requête se compose d'une clause SELECT et de clauses FROM et WHERE facultatives conformes aux normes ANSI-SQL. Généralement, pour chaque requête, la source de la clause FROM est énumérée. Puis le filtre de la clause WHERE est appliqué sur la source pour extraire un sous-ensemble de documents JSON. Finalement, la clause SELECT est utilisée pour projeter les valeurs JSON demandées dans la liste sélectionnée. Les conventions utilisées pour décrire les instructions SELECT sont présentées sous forme de tableau dans la section Conventions de syntaxe. Pour découvrir des exemples, consultez les [exemples de requêtes SELECT](how-to-sql-query.md#SelectClause).
+Chaque requête se compose d'une clause SELECT et de clauses FROM et WHERE facultatives conformes aux normes ANSI-SQL. En règle générale, pour chaque requête, la source dans la clause FROM est énumérée, puis le filtre dans la clause WHERE est appliqué sur la source pour récupérer un sous-ensemble de documents JSON. Finalement, la clause SELECT est utilisée pour projeter les valeurs JSON demandées dans la liste sélectionnée. Pour découvrir des exemples, consultez les [exemples de requêtes SELECT](how-to-sql-query.md#SelectClause).
   
 **Syntaxe**  
   
@@ -2342,7 +2342,7 @@ StringToArray(<expr>)
   
 - `expr`  
   
-   Peut être toute expression de tableau JSON valide. Notez que les valeurs de chaîne doivent être écrites avec des guillemets doubles pour être valide. Pour plus d’informations sur le format JSON, consultez [json.org](https://json.org/)
+   Est toute expression scalaire valide soit évaluée comme une expression de tableau JSON. Notez que les valeurs de chaîne imbriquée doivent être écrit avec des guillemets doubles pour être valide. Pour plus d’informations sur le format JSON, consultez [json.org](https://json.org/)
   
   **Types de retour**  
   
@@ -2352,26 +2352,57 @@ StringToArray(<expr>)
   
   L’exemple suivant montre comment StringToArray se comporte dans différents types. 
   
-```  
+ Voici quelques exemples avec une entrée valide.
+
+```
 SELECT 
-StringToArray('[]'), 
-StringToArray("[1,2,3]"),
-StringToArray("[\"str\",2,3]"),
-IS_ARRAY(StringToArray("[['5','6','7'],['8'],['9']]")), 
-IS_ARRAY(StringToArray('[["5","6","7"],["8"],["9"]]')),
-StringToArray('[1,2,3, "[4,5,6]",[7,8]]'),
-StringToArray("[1,2,3, '[4,5,6]',[7,8]]"),
-StringToArray(false), 
-StringToArray(undefined),
-StringToArray(NaN), 
-StringToArray("[")
-```  
-  
- Voici le jeu de résultats obtenu.  
-  
-```  
-[{"$1": [], "$2": [1,2,3], "$3": ["str",2,3], "$4": false, "$5": true, "$6": [1,2,3,"[4,5,6]",[7,8]]}]
-```  
+    StringToArray('[]') AS a1, 
+    StringToArray("[1,2,3]") AS a2,
+    StringToArray("[\"str\",2,3]") AS a3,
+    StringToArray('[["5","6","7"],["8"],["9"]]') AS a4,
+    StringToArray('[1,2,3, "[4,5,6]",[7,8]]') AS a5
+```
+
+ Voici le jeu de résultats obtenu.
+
+```
+[{"a1": [], "a2": [1,2,3], "a3": ["str",2,3], "a4": [["5","6","7"],["8"],["9"]], "a5": [1,2,3,"[4,5,6]",[7,8]]}]
+```
+
+ Voici un exemple d’entrée non valide. 
+   
+ Les guillemets simples dans le tableau ne sont pas un JSON valide.
+Même si elles sont valides dans une requête, ils n’analyse pas aux tableaux valides. Chaînes dans la chaîne de tableau doivent soit être échappés » [\"\"] » ou le devis environnant doit être unique ' [ » «] ».
+
+```
+SELECT
+    StringToArray("['5','6','7']")
+```
+
+ Voici le jeu de résultats obtenu.
+
+```
+[{}]
+```
+
+ Voici quelques exemples d’entrée non valide.
+   
+ L’expression passée sera analysée sous forme de tableau JSON ; les éléments suivants ne sont pas évaluent pour le type de tableau et retournent donc pas défini.
+   
+```
+SELECT
+    StringToArray("["),
+    StringToArray("1"),
+    StringToArray(NaN),
+    StringToArray(false),
+    StringToArray(undefined)
+```
+
+ Voici le jeu de résultats obtenu.
+
+```
+[{}]
+```
 
 ####  <a name="bk_stringtoboolean"></a> StringToBoolean  
  Renvoie une expression convertie en une valeur booléenne. Si l’expression ne peut pas être traduite, retourne la valeur undefined.  
@@ -2386,7 +2417,7 @@ StringToBoolean(<expr>)
   
 - `expr`  
   
-   Peut être toute expression valide.  
+   Est toute expression scalaire valide soit évaluée comme une expression booléenne.  
   
   **Types de retour**  
   
@@ -2395,25 +2426,55 @@ StringToBoolean(<expr>)
   **Exemples**  
   
   L’exemple suivant montre comment StringToBoolean se comporte dans différents types. 
-  
+ 
+ Voici quelques exemples avec une entrée valide.
+
+ Espace blanc est autorisé uniquement avant ou après « true » / « false ».
+
 ```  
 SELECT 
-StringToBoolean("true"), 
-StringToBoolean("    false"),
-IS_BOOL(StringToBoolean("false")), 
-StringToBoolean("null"),
-StringToBoolean(undefined),
-StringToBoolean(NaN), 
-StringToBoolean(false), 
-StringToBoolean(true), 
-StringToBoolean("TRUE"),
-StringToBoolean("False")
+    StringToBoolean("true") AS b1, 
+    StringToBoolean("    false") AS b2,
+    StringToBoolean("false    ") AS b3
 ```  
   
  Voici le jeu de résultats obtenu.  
   
 ```  
-[{"$1": true, "$2": false, "$3": true}]
+[{"b1": true, "b2": false, "b3": false}]
+```  
+
+ Voici quelques exemples avec entrée non valide.
+ 
+ Valeurs booléennes respectent la casse et doivent être écrites avec tous les caractères en minuscules par exemple, « trues » et « false ».
+
+```  
+SELECT 
+    StringToBoolean("TRUE"),
+    StringToBoolean("False")
+```  
+
+ Voici le jeu de résultats obtenu.  
+  
+```  
+[{}]
+``` 
+
+ L’expression passée sera analysée comme une expression booléenne ; Ces entrées ne sont pas évaluent pour le type booléen et donc renvoyer non défini.
+
+ ```  
+SELECT 
+    StringToBoolean("null"),
+    StringToBoolean(undefined),
+    StringToBoolean(NaN), 
+    StringToBoolean(false), 
+    StringToBoolean(true)
+```  
+
+ Voici le jeu de résultats obtenu.  
+  
+```  
+[{}]
 ```  
 
 ####  <a name="bk_stringtonull"></a> StringToNull  
@@ -2429,7 +2490,7 @@ StringToNull(<expr>)
   
 - `expr`  
   
-   Peut être toute expression valide.  
+   Est toute expression scalaire valide soit évaluée comme une expression de valeur null.
   
   **Types de retour**  
   
@@ -2438,24 +2499,54 @@ StringToNull(<expr>)
   **Exemples**  
   
   L’exemple suivant montre comment StringToNull se comporte dans différents types. 
-  
+
+ Voici quelques exemples avec une entrée valide.
+ 
+ Espace blanc est autorisé uniquement avant ou après « null ».
+
 ```  
 SELECT 
-StringToNull("null"), 
-StringToNull("  null "),
-IS_NULL(StringToNull("null")), 
-StringToNull("true"), 
-StringToNull(false), 
-StringToNull(undefined),
-StringToNull(NaN), 
-StringToNull("NULL"),
-StringToNull("Null")
+    StringToNull("null") AS n1, 
+    StringToNull("  null ") AS n2,
+    IS_NULL(StringToNull("null   ")) AS n3
 ```  
   
  Voici le jeu de résultats obtenu.  
   
 ```  
-[{"$1": null, "$2": null, "$3": true}]
+[{"n1": null, "n2": null, "n3": true}]
+```  
+
+ Voici quelques exemples avec entrée non valide.
+
+ NULL respecte la casse et doit être écrites avec tous les caractères minuscules par exemple, « nulles ».
+
+```  
+SELECT    
+    StringToNull("NULL"),
+    StringToNull("Null")
+```  
+  
+ Voici le jeu de résultats obtenu.  
+  
+```  
+[{}]
+```  
+
+ L’expression passée sera analysée comme une expression null ; Ces entrées ne sont pas évaluent pour type de valeur null et donc renvoyer non défini.
+
+```  
+SELECT    
+    StringToNull("true"), 
+    StringToNull(false), 
+    StringToNull(undefined),
+    StringToNull(NaN) 
+```  
+  
+ Voici le jeu de résultats obtenu.  
+  
+```  
+[{}]
 ```  
 
 ####  <a name="bk_stringtonumber"></a> StringToNumber  
@@ -2471,7 +2562,7 @@ StringToNumber(<expr>)
   
 - `expr`  
   
-   Peut être toute expression de numéro de JSON valide. Nombres dans JSON doit être un entier ou virgule flottante. Pour plus d’informations sur le format JSON, consultez [json.org](https://json.org/)  
+   Est toute expression scalaire valide soit évaluée comme une expression de numéro de JSON. Nombres dans JSON doit être un entier ou virgule flottante. Pour plus d’informations sur le format JSON, consultez [json.org](https://json.org/)  
   
   **Types de retour**  
   
@@ -2480,27 +2571,52 @@ StringToNumber(<expr>)
   **Exemples**  
   
   L’exemple suivant montre comment StringToNumber se comporte dans différents types. 
-  
+
+ Espace blanc est autorisé uniquement avant ou après le nombre.
+ 
 ```  
 SELECT 
-StringToNumber("1.000000"), 
-StringToNumber("3.14"),
-IS_NUMBER(StringToNumber("   60   ")), 
-StringToNumber("0xF"),
-StringToNumber("-1.79769e+308"),
-IS_STRING(StringToNumber("2")),
-StringToNumber(undefined),
-StringToNumber("99     54"), 
-StringToNumber("false"), 
-StringToNumber(false),
-StringToNumber(" "),
-StringToNumber(NaN)
+    StringToNumber("1.000000") AS num1, 
+    StringToNumber("3.14") AS num2,
+    StringToNumber("   60   ") AS num3, 
+    StringToNumber("-1.79769e+308") AS num4
 ```  
   
  Voici le jeu de résultats obtenu.  
   
 ```  
-{{"$1": 1, "$2": 3.14, "$3": true, "$5": -1.79769e+308, "$6": false}}
+{{"num1": 1, "num2": 3.14, "num3": 60, "num4": -1.79769e+308}}
+```  
+
+ Dans JSON, un nombre valide doit être soit être un entier ou flottante nombre à virgule.
+ 
+```  
+SELECT   
+    StringToNumber("0xF")
+```  
+  
+ Voici le jeu de résultats obtenu.  
+  
+```  
+{{}}
+```  
+
+ L’expression passée sera analysée comme une expression numérique ; Ces entrées ne sont pas évaluent pour type nombre et donc renvoyer non défini. 
+
+```  
+SELECT 
+    StringToNumber("99     54"),   
+    StringToNumber(undefined),
+    StringToNumber("false"),
+    StringToNumber(false),
+    StringToNumber(" "),
+    StringToNumber(NaN)
+```  
+  
+ Voici le jeu de résultats obtenu.  
+  
+```  
+{{}}
 ```  
 
 ####  <a name="bk_stringtoobject"></a> StringToObject  
@@ -2516,7 +2632,7 @@ StringToObject(<expr>)
   
 - `expr`  
   
-   Est toute expression d’objet JSON valide. Notez que les valeurs de chaîne doivent être écrites avec des guillemets doubles pour être valide. Pour plus d’informations sur le format JSON, consultez [json.org](https://json.org/)  
+   Est toute expression scalaire valide soit évaluée comme une expression d’objet JSON. Notez que les valeurs de chaîne imbriquée doivent être écrit avec des guillemets doubles pour être valide. Pour plus d’informations sur le format JSON, consultez [json.org](https://json.org/)  
   
   **Types de retour**  
   
@@ -2526,26 +2642,73 @@ StringToObject(<expr>)
   
   L’exemple suivant montre comment StringToObject se comporte dans différents types. 
   
-```  
+ Voici quelques exemples avec une entrée valide.
+ 
+``` 
 SELECT 
-StringToObject("{}"), 
-StringToObject('{"a":[1,2,3]}'),
-StringToObject("{'a':[1,2,3]}"),
-StringToObject("{a:[1,2,3]}"),
-IS_OBJECT(StringToObject('{"obj":[{"b":[5,6,7]},{"c":8},{"d":9}]}')), 
-IS_OBJECT(StringToObject("{\"obj\":[{\"b\":[5,6,7]},{\"c\":8},{\"d\":9}]}")), 
-IS_OBJECT(StringToObject("{'obj':[{'b':[5,6,7]},{'c':8},{'d':9}]}")), 
-StringToObject(false), 
-StringToObject(undefined),
-StringToObject(NaN), 
-StringToObject("{")
+    StringToObject("{}") AS obj1, 
+    StringToObject('{"A":[1,2,3]}') AS obj2,
+    StringToObject('{"B":[{"b1":[5,6,7]},{"b2":8},{"b3":9}]}') AS obj3, 
+    StringToObject("{\"C\":[{\"c1\":[5,6,7]},{\"c2\":8},{\"c3\":9}]}") AS obj4
+``` 
+
+ Voici le jeu de résultats obtenu.
+
+```
+[{"obj1": {}, 
+  "obj2": {"A": [1,2,3]}, 
+  "obj3": {"B":[{"b1":[5,6,7]},{"b2":8},{"b3":9}]},
+  "obj4": {"C":[{"c1":[5,6,7]},{"c2":8},{"c3":9}]}}]
+```
+ 
+ Voici quelques exemples avec entrée non valide.
+Même si elles sont valides dans une requête, ils n’analyse pas aux objets valides. Chaînes dans la chaîne de l’objet doivent soit être échappés » {\"un\":\"str\"} » ou le devis environnant doit être unique ' {« a » : « str »} ».
+
+ Les guillemets simples autour des noms de propriété ne sont pas un JSON valide.
+
+``` 
+SELECT 
+    StringToObject("{'a':[1,2,3]}")
+```
+
+ Voici le jeu de résultats obtenu.
+
 ```  
-  
- Voici le jeu de résultats obtenu.  
-  
+[{}]
 ```  
-[{"$1": {}, "$2": {"a": [1,2,3]}, "$5": true, "$6": true, "$7": false}]
+
+ Sans les guillemets encadrant les noms de propriété ne sont pas un JSON valide.
+
+``` 
+SELECT 
+    StringToObject("{a:[1,2,3]}")
+```
+
+ Voici le jeu de résultats obtenu.
+
 ```  
+[{}]
+``` 
+
+ Voici quelques exemples avec entrée non valide.
+ 
+ L’expression passée sera analysée en tant qu’objet JSON ; Ces entrées n’évaluent pas pour objet de type et donc renvoyer non défini.
+ 
+``` 
+SELECT 
+    StringToObject("}"),
+    StringToObject("{"),
+    StringToObject("1"),
+    StringToObject(NaN), 
+    StringToObject(false), 
+    StringToObject(undefined)
+``` 
+ 
+ Voici le jeu de résultats obtenu.
+
+```
+[{}]
+```
 
 ####  <a name="bk_substring"></a> SUBSTRING  
  Renvoie une partie d’une expression de chaîne commençant à la position de caractère spécifiée (avec base zéro) et se poursuit jusqu'à la longueur spécifiée ou à la fin de la chaîne.  

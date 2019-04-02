@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 42a70f7ea21a58f40f7786d6c6f1a51093923f83
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 538015f3cd26d451285f1fd66853366f814f3b0a
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838015"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805570"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Création de blueprints dynamiques au moyen de paramètres
 
@@ -67,11 +67,11 @@ Une valeur de paramètre définie dans la définition d’un blueprint est appel
 
 1. Les artefacts ajoutés au blueprint ayant des options de paramètre comportent la mention **X paramètres renseignés sur Y** dans la colonne **Paramètres**. Cliquez sur la ligne de l’artefact pour modifier ses paramètres.
 
-   ![Paramètres de blueprint](../media/parameters/parameter-column.png)
+   ![Paramètres de plan sur une définition de plan](../media/parameters/parameter-column.png)
 
 1. La page **Modifier un artefact** affiche des options de valeur appropriées à l’artefact sur lequel vous avez cliqué. Chaque paramètre sur l’artefact a un titre, une zone de valeur et une case à cocher. Décochez la case pour rendre le **paramètre statique**. Dans l’exemple ci-dessous, seul _Emplacement_ est un **paramètre statique**, car la case est décochée, tandis que la case _Nom du groupe de ressources_ est cochée.
 
-   ![Paramètres statiques de blueprint](../media/parameters/static-parameter.png)
+   ![Plan des paramètres statiques sur un artefact de plan](../media/parameters/static-parameter.png)
 
 #### <a name="setting-static-parameters-from-rest-api"></a>Définition des paramètres statiques à partir de l’API REST
 
@@ -182,7 +182,7 @@ Un **paramètre dynamique** est l’inverse d’un paramètre statique. Ce param
 
 1. Sur le **Assign blueprint** page, recherchez le **paramètres d’artefact** section. Chaque artefact contenant au moins un **paramètre dynamique** présente l’artefact et les options de configuration. Indiquez les valeurs requises pour les paramètres avant d’affecter le blueprint. Dans l’exemple ci-dessous, _Name_ est un **paramètre dynamique** qui doit être défini pour terminer l’affectation du blueprint.
 
-   ![Paramètre dynamique de blueprint](../media/parameters/dynamic-parameter.png)
+   ![Paramètre de plan dynamique pendant l’affectation de plan](../media/parameters/dynamic-parameter.png)
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>Définition des paramètres dynamiques à partir de l’API REST
 

@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 838850d38c9df51fabcf620831371bed401e9492
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
-ms.translationtype: HT
+ms.openlocfilehash: 922ab731ccd76e6a1336d61abe4b0251e358beb7
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29376029"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793541"
 ---
 # <a name="custom-caching-in-azure-api-management"></a>Mise en cache personnalisée dans Azure API Management
-Le service Azure API Management prend en charge la [mise en cache de réponses HTTP](api-management-howto-cache.md) en utilisant l’URL de la ressource comme clé. La clé peut être modifiée par les en-têtes de requête à l’aide des propriétés `vary-by` . Si cette approche permet de mettre en cache l’ensemble des réponses HTTP (également appelées représentations), elle peut être aussi parfois utile pour la mise en cache d’une simple partie d’une représentation. Les nouvelles stratégies [cache-lookup-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey) et [cache-store-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey) permettent de stocker et de récupérer des éléments de données arbitraires à partir des définitions de stratégie. Cette fonctionnalité apporte une valeur supplémentaire à la stratégie [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) présentée précédemment, puisqu’elle vous permet de mettre en cache les réponses à partir de services externes.
+Le service Azure API Management prend en charge la [mise en cache de réponses HTTP](api-management-howto-cache.md) en utilisant l’URL de la ressource comme clé. La clé peut être modifiée par les en-têtes de requête à l’aide des propriétés `vary-by` . Si cette approche permet de mettre en cache l’ensemble des réponses HTTP (également appelées représentations), elle peut être aussi parfois utile pour la mise en cache d’une simple partie d’une représentation. Les nouvelles stratégies [cache-lookup-value](/azure/api-management/api-management-caching-policies#GetFromCacheByKey) et [cache-store-value](/azure/api-management/api-management-caching-policies#StoreToCacheByKey) permettent de stocker et de récupérer des éléments de données arbitraires à partir des définitions de stratégie. Cette fonctionnalité apporte une valeur supplémentaire à la stratégie [send-request](/azure/api-management/api-management-advanced-policies#SendRequest) présentée précédemment, puisqu’elle vous permet de mettre en cache les réponses à partir de services externes.
 
 ## <a name="architecture"></a>Architecture
 Le service Gestion des API utilise un cache de données par locataire partagé, pour vous permettre de continuer à accéder aux mêmes données mises en cache lorsque vous déployez plusieurs unités. Lorsque vous gérez un déploiement dans plusieurs régions, chacune des régions comporte cependant des caches indépendants. Il est important de ne pas se servir du cache comme d’un magasin de données, où il constitue l’unique source de certains éléments d’informations. Si vous procédez ainsi, et que vous décidez ensuite de tirer parti du déploiement dans plusieurs régions, les clients ayant des utilisateurs nomades risquent de perdre l’accès à ces données mises en cache.

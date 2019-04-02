@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 68a5bdef17077d1815b6d85e121d9bb26c2280bf
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 6d794fb14b7f581c9e9b92dc581de97e0a236630
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484252"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793745"
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Prise en main de Tâches de bases de données élastiques
 
@@ -116,8 +116,10 @@ Dans ce cas précis, nous créons généralement une cible de carte de partition
     $ErrorActionPreference = "Continue"
    }
    ```
+
 ## <a name="create-a-t-sql-script-for-execution-across-databases"></a>Créez un script T-SQL pour l’exécuter sur des bases de données
-   ```
+
+   ```powershell
     $scriptName = "NewTable"
     $scriptCommandText = "
     IF NOT EXISTS (SELECT name FROM sys.tables WHERE name = 'Test')
@@ -137,7 +139,7 @@ Dans ce cas précis, nous créons généralement une cible de carte de partition
 
 ## <a name="create-the-job-to-execute-a-script-across-the-custom-group-of-databases"></a>Créez la tâche pour exécuter un script sur le groupe de bases de données personnalisé
 
-   ```
+   ```powershell
     $jobName = "create on server dbs"
     $scriptName = "NewTable"
     $customCollectionName = "dbs_in_server"
@@ -148,50 +150,53 @@ Dans ce cas précis, nous créons généralement une cible de carte de partition
    ```
 
 ## <a name="execute-the-job"></a>Exécutez la tâche
+
 Le script PowerShell suivant peut être utilisé pour exécuter une tâche existante :
 
 Mettez à jour la variable suivante pour refléter le nom de la tâche souhaitée à exécuter :
 
-   ```
+   ```powershell
     $jobName = "create on server dbs"
     $jobExecution = Start-AzureSqlJobExecution -JobName $jobName
     Write-Output $jobExecution
    ```
 
 ## <a name="retrieve-the-state-of-a-single-job-execution"></a>Récupérez l'état de l'exécution d'une tâche unique
+
 Utilisez la même applet de commande **Get-AzureSqlJobExecution** avec le paramètre **IncludeChildren** pour afficher l’état de l’exécution des tâches enfants, à savoir l’état spécifique à chaque exécution de tâche sur chaque base de données ciblée par la tâche.
 
-   ```
+   ```powershell
     $jobExecutionId = "{Job Execution Id}"
     $jobExecutions = Get-AzureSqlJobExecution -JobExecutionId $jobExecutionId -IncludeChildren
     Write-Output $jobExecutions
    ```
 
 ## <a name="view-the-state-across-multiple-job-executions"></a>Afficher l’état sur plusieurs exécutions de tâches
+
 L’applet de commande **Get-AzureSqlJobExecution** dispose de plusieurs paramètres facultatifs qui peuvent être utilisés pour afficher plusieurs exécutions de tâches, filtrées selon les paramètres fournis. L'exemple suivant présente certaines façons d'utiliser Get-AzureSqlJobExecution :
 
 Récupérez toutes les exécutions de tâches de niveau supérieur actives :
 
-   ```
+   ```powershell
     Get-AzureSqlJobExecution
    ```
 
 Récupérez toutes les exécutions de tâches de niveau supérieur, y compris les exécutions de tâches inactives :
 
-   ```
+   ```powershell
     Get-AzureSqlJobExecution -IncludeInactive
    ```
 
 Récupérez toutes les exécutions de tâches enfants d'un ID d'exécution de tâches fourni, y compris les exécutions de tâches inactives :
 
-   ```
+   ```powershell
     $parentJobExecutionId = "{Job Execution Id}"
     Get-AzureSqlJobExecution -AzureSqlJobExecution -JobExecutionId $parentJobExecutionId -IncludeInactive -IncludeChildren
    ```
 
 Récupérez toutes les exécutions de tâches créées à l'aide d'une planification/combinaison de tâches, y compris les tâches inactives :
 
-   ```
+   ```powershell
     $jobName = "{Job Name}"
     $scheduleName = "{Schedule Name}"
     Get-AzureSqlJobExecution -JobName $jobName -ScheduleName $scheduleName -IncludeInactive
@@ -199,7 +204,7 @@ Récupérez toutes les exécutions de tâches créées à l'aide d'une planifica
 
 Récupérez toutes les tâches ciblant une carte de partitions spécifiée, y compris les tâches inactives :
 
-   ```
+   ```powershell
     $shardMapServerName = "{Shard Map Server Name}"
     $shardMapDatabaseName = "{Shard Map Database Name}"
     $shardMapName = "{Shard Map Name}"
@@ -209,7 +214,7 @@ Récupérez toutes les tâches ciblant une carte de partitions spécifiée, y co
 
 Récupérez toutes les tâches ciblant une collecte personnalisée spécifiée, y compris les tâches inactives :
 
-   ```
+   ```powershell
     $customCollectionName = "{Custom Collection Name}"
     $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
     Get-AzureSqlJobExecution -TargetId $target.TargetId -IncludeInactive
@@ -217,7 +222,7 @@ Récupérez toutes les tâches ciblant une collecte personnalisée spécifiée, 
 
 Récupérez la liste des exécutions de tâches de travail dans l'exécution d'une tâche spécifique :
 
-   ```
+   ```powershell
     $jobExecutionId = "{Job Execution Id}"
     $jobTaskExecutions = Get-AzureSqlJobTaskExecution -JobExecutionId $jobExecutionId
     Write-Output $jobTaskExecutions
@@ -226,16 +231,18 @@ Récupérez la liste des exécutions de tâches de travail dans l'exécution d'u
 Récupérez les détails d’exécution de tâches de travail :
 
 Le script PowerShell suivant peut être utilisé pour afficher les détails d'une exécution de tâches de travail, qui est particulièrement utile lors du débogage des échecs d'exécution.
-   ```
+
+   ```powershell
     $jobTaskExecutionId = "{Job Task Execution Id}"
     $jobTaskExecution = Get-AzureSqlJobTaskExecution -JobTaskExecutionId $jobTaskExecutionId
     Write-Output $jobTaskExecution
    ```
 
 ## <a name="retrieve-failures-within-job-task-executions"></a>Récupérez des échecs dans les exécutions de tâches de travail
+
 L'objet JobTaskExecution inclut une propriété pour le cycle de vie de la tâche, ainsi qu’une propriété Message. Si une exécution de tâches de travail a échoué, la propriété du cycle de vie est définie sur *Échec* et la propriété de message est définie sur le message d’exception résultant et sa pile. Si une tâche a échoué, il est important d’afficher les détails des tâches de travail qui n'ont pas abouti pour une tâche donnée.
 
-   ```
+   ```powershell
     $jobExecutionId = "{Job Execution Id}"
     $jobTaskExecutions = Get-AzureSqlJobTaskExecution -JobExecutionId $jobExecutionId
     Foreach($jobTaskExecution in $jobTaskExecutions)
@@ -248,14 +255,16 @@ L'objet JobTaskExecution inclut une propriété pour le cycle de vie de la tâch
    ```
 
 ## <a name="waiting-for-a-job-execution-to-complete"></a>En attente d’une exécution de tâche à effectuer
+
 Le script PowerShell suivant peut être utilisé pour attendre l’exécution d’une tâche :
 
-   ```
+   ```powershell
     $jobExecutionId = "{Job Execution Id}"
     Wait-AzureSqlJobExecution -JobExecutionId $jobExecutionId
    ```
 
 ## <a name="create-a-custom-execution-policy"></a>Créez une stratégie d'exécution personnalisée
+
 Tâches de bases de données prend en charge la création de stratégies d'exécution personnalisées qui peuvent être appliquées lors du démarrage des tâches.
 
 Les stratégies d'exécution permettent de définir :
@@ -278,7 +287,7 @@ La stratégie d'exécution par défaut utilise les valeurs suivantes :
 
 Créez la stratégie d'exécution souhaitée :
 
-   ```
+   ```powershell
     $executionPolicyName = "{Execution Policy Name}"
     $initialRetryInterval = New-TimeSpan -Seconds 10
     $jobTimeout = New-TimeSpan -Minutes 30
@@ -290,9 +299,10 @@ Créez la stratégie d'exécution souhaitée :
    ```
 
 ### <a name="update-a-custom-execution-policy"></a>Mettez à jour une stratégie d'exécution personnalisée
+
 Mettez à jour la stratégie d'exécution souhaitée :
 
-   ```
+   ```powershell
     $executionPolicyName = "{Execution Policy Name}"
     $initialRetryInterval = New-TimeSpan -Seconds 15
     $jobTimeout = New-TimeSpan -Minutes 30
@@ -329,38 +339,41 @@ Au lieu de cela, Stop-AzureSqlJobExecution doit être appelé pour annuler les e
 
 Pour déclencher la suppression de tâches, utilisez l’applet de commande **Remove-AzureSqlJob** et définissez le paramètre **JobName**.
 
-   ```
+   ```powershell
     $jobName = "{Job Name}"
     Remove-AzureSqlJob -JobName $jobName
    ```
 
 ## <a name="create-a-custom-database-target"></a>Création d’une cible de base de données personnalisée
+
 Les cibles de base de données personnalisées peuvent être définies dans Tâches de bases de données élastiques, qui peut être utilisé directement pour l'exécution ou l’inclusion dans un groupe de base de données personnalisé. Dans la mesure où les **pools élastiques** ne sont pas encore pris en charge directement via les API PowerShell, vous créez simplement une cible de base de données personnalisée et une cible de collecte de base de données personnalisée qui englobe toutes les bases de données dans le pool.
 
 Définissez les variables suivantes pour refléter les informations de base de données souhaitées :
 
-   ```
+   ```powershell
     $databaseName = "{Database Name}"
     $databaseServerName = "{Server Name}"
     New-AzureSqlJobDatabaseTarget -DatabaseName $databaseName -ServerName $databaseServerName
    ```
 
 ## <a name="create-a-custom-database-collection-target"></a>Créez une cible de collecte de base de données personnalisée
+
 Une cible de collecte de base de données personnalisée peut être définie pour permettre l'exécution sur plusieurs cibles de base de données définies. Une fois le groupe de base de données créé, les bases de données peuvent être associées à la cible de collecte personnalisée.
 
 Définissez les variables suivantes pour refléter la configuration de la cible de collecte personnalisée souhaitée :
 
-   ```
+   ```powershell
     $customCollectionName = "{Custom Database Collection Name}"
     New-AzureSqlJobTarget -CustomCollectionName $customCollectionName
    ```
 
 ### <a name="add-databases-to-a-custom-database-collection-target"></a>Ajoutez des bases de données pour une cible de collecte de base de données personnalisée
+
 Les cibles de base de données peuvent être associées à des cibles de collecte de base de données personnalisées pour créer un groupe de bases de données. Chaque fois qu’une tâche, visant une cible de collecte de base de données personnalisée, est créée, elle est développée afin de cibler les bases de données associées au groupe durant l’exécution.
 
 Ajoutez la base de données souhaitée pour une collecte personnalisée :
 
-   ```
+   ```powershell
     $serverName = "{Database Server Name}"
     $databaseName = "{Database Name}"
     $customCollectionName = "{Custom Database Collection Name}"
@@ -368,9 +381,10 @@ Ajoutez la base de données souhaitée pour une collecte personnalisée :
    ```
 
 #### <a name="review-the-databases-within-a-custom-database-collection-target"></a>Examinez les bases de données dans une cible de collecte de base de données personnalisée
+
 Utilisez l’applet de commande **Get-AzureSqlJobTarget** pour récupérer les bases de données enfants dans une cible de collecte de base de données personnalisée.
 
-   ```
+   ```powershell
     $customCollectionName = "{Custom Database Collection Name}"
     $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
     $childTargets = Get-AzureSqlJobTarget -ParentTargetId $target.TargetId
@@ -378,9 +392,10 @@ Utilisez l’applet de commande **Get-AzureSqlJobTarget** pour récupérer les b
    ```
 
 ### <a name="create-a-job-to-execute-a-script-across-a-custom-database-collection-target"></a>Créez une tâche pour exécuter un script sur une cible de collecte de base de données personnalisée
+
 Utilisez l’applet de commande **New-AzureSqlJob** pour créer une tâche sur un groupe de bases de données défini par une cible de collecte de base de données. La fonctionnalité Tâches de base de données élastique développe la tâche en plusieurs tâches enfants correspondant chacune à une base de données associée à la cible de la collecte de base de données personnalisée et s’assure que le script est exécuté sur chaque base de données. Encore une fois, il est important que les scripts soient idempotents pour résister à de nouvelles tentatives.
 
-   ```
+   ```powershell
     $jobName = "{Job Name}"
     $scriptName = "{Script Name}"
     $customCollectionName = "{Custom Collection Name}"
@@ -391,6 +406,7 @@ Utilisez l’applet de commande **New-AzureSqlJob** pour créer une tâche sur u
    ```
 
 ## <a name="data-collection-across-databases"></a>Collecte de données sur les bases de données
+
 **Tâches de bases de données élastiques** prend en charge l'exécution d'une requête sur un groupe de bases de données et envoie les résultats de la table d’une base de données spécifiée. Le tableau peut être interrogé une fois les résultats de la requête affichés à partir de chaque base de données. Ceci fournit un mécanisme asynchrone, permettant d’exécuter une requête sur plusieurs bases de données. Les cas d'échec, notamment l’indisponibilité temporaire d’une des bases de données, sont gérés automatiquement par le biais de tentatives.
 
 La table de destination spécifiée est automatiquement créée s’il n’existe pas encore de table correspondant au schéma du jeu de résultats retourné. Si l’exécution d’un script retourne plusieurs jeux de résultats, la fonctionnalité Tâches de base de données élastique envoie uniquement le premier à la table de destination fournie.
@@ -399,7 +415,7 @@ Le script PowerShell suivant peut être utilisé pour exécuter un script qui co
 
 Définissez les valeurs suivantes pour refléter le script, les informations d'identification et les cibles d'exécution souhaités :
 
-   ```
+   ```powershell
     $jobName = "{Job Name}"
     $scriptName = "{Script Name}"
     $executionCredentialName = "{Execution Credential Name}"
@@ -413,7 +429,8 @@ Définissez les valeurs suivantes pour refléter le script, les informations d'i
    ```
 
 ### <a name="create-and-start-a-job-for-data-collection-scenarios"></a>Créez et démarrez une tâche pour les scénarios de collecte de données
-   ```
+
+   ```powershell
     $job = New-AzureSqlJob -JobName $jobName -CredentialName $executionCredentialName -ContentName $scriptName -ResultSetDestinationServerName $destinationServerName -ResultSetDestinationDatabaseName $destinationDatabaseName -ResultSetDestinationSchemaName $destinationSchemaName -ResultSetDestinationTableName $destinationTableName -ResultSetDestinationCredentialName $destinationCredentialName -TargetId $target.TargetId
     Write-Output $job
     $jobExecution = Start-AzureSqlJobExecution -JobName $jobName
@@ -421,10 +438,12 @@ Définissez les valeurs suivantes pour refléter le script, les informations d'i
    ```
 
 ## <a name="create-a-schedule-for-job-execution-using-a-job-trigger"></a>Créez une planification pour l'exécution de tâches à l'aide d'un déclencheur de tâches
+
 Le script PowerShell suivant peut être utilisé pour créer une planification récurrente. Ce script utilise un intervalle d’une minute, mais New-AzureSqlJobSchedule prend également en charge les paramètres -DayInterval, - HourInterval, - MonthInterval et - WeekInterval. Les planifications qui ne s'exécutent qu'une seule fois peuvent être créées en transmettant  - OneTime.
 
 Créez une nouvelle planification :
-   ```
+
+   ```powershell
     $scheduleName = "Every one minute"
     $minuteInterval = 1
     $startTime = (Get-Date).ToUniversalTime()
@@ -433,11 +452,12 @@ Créez une nouvelle planification :
    ```
 
 ### <a name="create-a-job-trigger-to-have-a-job-executed-on-a-time-schedule"></a>Créez un déclencheur de tâches pour une tâche exécutée selon un calendrier
+
 Un déclencheur de tâches peut être défini pour un travail exécuté selon un calendrier. Le script PowerShell suivant peut être utilisé pour créer un déclencheur de tâches.
 
 Définissez les variables suivantes pour qu’elles correspondent à la tâche et à la planification souhaitées :
 
-   ```
+   ```powershell
     $jobName = "{Job Name}"
     $scheduleName = "{Schedule Name}"
     $jobTrigger = New-AzureSqlJobTrigger -ScheduleName $scheduleName -JobName $jobName
@@ -445,16 +465,18 @@ Définissez les variables suivantes pour qu’elles correspondent à la tâche e
    ```
 
 ### <a name="remove-a-scheduled-association-to-stop-job-from-executing-on-schedule"></a>Supprimez une association planifiée pour arrêter une tâche depuis l'exécution de la planification
+
 Pour interrompre l'exécution d’une tâche récurrente via un déclencheur de tâches, le déclencheur de tâches peut être supprimé.
 Supprimez un déclencheur de tâches pour arrêter une tâche qui s'exécute selon une planification à l'aide de l’applet de commande **Remove-AzureSqlJobTrigger** .
 
-   ```
+   ```powershell
     $jobName = "{Job Name}"
     $scheduleName = "{Schedule Name}"
     Remove-AzureSqlJobTrigger -ScheduleName $scheduleName -JobName $jobName
    ```
 
 ## <a name="import-elastic-database-query-results-to-excel"></a>Importez les résultats de la requête de base de données élastique dans Excel
+
  Vous pouvez importer les résultats d’une requête vers un fichier Excel.
 
 1. Lancez Excel 2013.
@@ -471,9 +493,11 @@ Supprimez un déclencheur de tâches pour arrêter une tâche qui s'exécute sel
 Toutes les lignes de la table **Clients** , stockées dans des partitions différentes, remplissent la feuille Excel.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Vous pouvez maintenant utiliser les fonctions de données Excel. Utilisez la chaîne de connexion avec votre nom de serveur, votre nom de base de données et les informations d’identification pour connecter vos outils d’intégration BI et de données à la base de données de requête élastique. Assurez-vous que SQL Server est pris en charge comme source de données pour votre outil. Traitez la base de données de requête élastique et les tables externes comme n’importe quelles bases de données SQL Server et tables SQL Server auxquelles vous vous connectez avec votre outil.
 
 ### <a name="cost"></a>Coût
+
 La fonction de requête de base de données élastique n’entraîne pas de frais supplémentaires. Toutefois, pour l’instant, cette fonctionnalité n’est disponible que sur les bases de données Premium et critiques pour l’entreprise et les pools élastiques comme point de terminaison, mais les partitions peuvent provenir de n’importe quel niveau de service.
 
 Pour plus d’informations sur la tarification, consultez la page [Tarification - SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).

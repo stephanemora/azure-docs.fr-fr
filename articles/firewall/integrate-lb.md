@@ -5,18 +5,20 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 1/14/2019
+ms.date: 4/1/2019
 ms.author: victorh
-ms.openlocfilehash: 079790952263ae2ef68abc8e426b0330fef1c53f
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+ms.openlocfilehash: 7ee92a7508918635849caafab4632bbba81ee628
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321770"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805242"
 ---
 # <a name="integrate-azure-firewall-with-azure-standard-load-balancer"></a>Intégrer un pare-feu Azure avec Azure Standard Load Balancer
 
-Vous pouvez intégrer un pare-feu Azure à un réseau virtuel avec Azure Standard Load Balancer (public ou interne). Toutefois, vous devez être conscient d’un problème de routage asymétrique qui peut interrompre la fonctionnalité avec le scénario d’équilibreur de charge public.
+Vous pouvez intégrer un pare-feu Azure à un réseau virtuel avec Azure Standard Load Balancer (public ou interne). 
+
+La conception préconisée consiste à intégrer un équilibreur de charge interne à votre pare-feu Azure, car il s’agit d’une conception beaucoup plus simple. Vous pouvez utiliser un équilibreur de charge public si vous avez pas encore déployé et que vous souhaitez conserver dans la place. Toutefois, vous devez être conscient d’un problème de routage asymétrique qui peut interrompre la fonctionnalité avec le scénario d’équilibreur de charge public.
 
 Pour plus d’informations sur Azure Load Balancer, consultez [Qu’est-ce qu’Azure Load Balancer ?](../load-balancer/load-balancer-overview.md).
 
@@ -34,6 +36,8 @@ Quand vous déployez un pare-feu Azure sur un sous-réseau, l’une des étapes 
 
 Quand vous introduisez le pare-feu dans votre scénario d’équilibreur de charge, vous souhaitez que votre trafic Internet entre par le biais de l’adresse IP de votre pare-feu. À partir de là, le pare-feu applique ses règles et dirige les paquets (grâce à la traduction d’adresses réseau) vers l’adresse IP publique de votre équilibreur de charge. C’est là que le problème se produit. Les paquets arrivent sur l’adresse IP publique du pare-feu, mais retournent vers le pare-feu par le biais de l’adresse IP privée (à l’aide de la route par défaut).
 Pour éviter ce problème, créez une route hôte supplémentaire pour l’adresse IP publique du pare-feu. Les paquets accédant à l’adresse IP publique du pare-feu sont routés via Internet. Cela évite de suivre la route par défaut jusqu’à l’adresse IP privée du pare-feu.
+
+![Routage asymétrique](media/integrate-lb/Firewall-LB-asymmetric.png)
 
 Par exemple, les routes suivantes concernent un pare-feu à l’adresse IP publique 13.86.122.41 et l’adresse IP privée 10.3.1.4.
 

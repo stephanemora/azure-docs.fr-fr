@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: b06bc6b41081f05a7067f82f46affc37d21f50b1
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 8ea17e5615c0256c084b0745a392fb49f8873f99
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213294"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805361"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Créer une machine virtuelle Linux avec mise en réseau accélérée
 
@@ -42,13 +42,16 @@ Les avantages d’une mise en réseau accélérée s’appliquent uniquement à 
 
 ## <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
 Les distributions suivantes sont prises en charge sans configuration supplémentaire à partir de la galerie Azure : 
-* **Ubuntu 16.04+** 
-* **SLES 12 SP3** 
-* **RHEL 7.4**
-* **CentOS 7.4**
+* **Ubuntu 14.04 avec le noyau linux-azure**
+* **Ubuntu 16.04 ou version ultérieure** 
+* **Sous SLES12 SP3 ou version ultérieure** 
+* **RHEL 7.4 ou version ultérieure**
+* **CentOS 7.4 ou version ultérieures**
 * **CoreOS Linux**
 * **Debian « Stretch » with backports kernel**
-* **Oracle Linux 7.4**
+* **Oracle Linux 7.4 et versions ultérieur avec Red Hat compatibles du noyau (RHCK)**
+* **Oracle Linux 7.5 et versions ultérieur avec UEK version 5**
+* **FreeBSD 10.4, 11.1 & 12.0**
 
 ## <a name="limitations-and-constraints"></a>Limitations et restrictions
 

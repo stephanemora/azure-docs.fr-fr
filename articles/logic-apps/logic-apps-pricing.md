@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
 ms.date: 03/25/2019
-ms.openlocfilehash: 4e5b63642b5090b50d29d6d3adc49ea683b90faa
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 7e1868dd5ce62c28c9a8aac724862c58a5e0e1da
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437711"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805174"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Modèle de tarif pour Azure Logic Apps
 
@@ -38,12 +38,12 @@ Azure Logic Apps mesure toutes les actions qui s’exécutent dans votre applica
 
 ## <a name="fixed-pricing-model"></a>Modèle de tarif fixe
 
-Pour les nouvelles applications logiques qui s’exécutent à l’intérieur d’un [ *environnement de service d’intégration* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), vous payez un tarif mensuel fixe pour les actions intégrées et des connecteurs standard. Un ISE vous permet de créer et d’exécuter des applications logiques isolées pouvant accéder aux ressources dans un réseau virtuel Azure.
+Un [ *environnement de service d’intégration* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) offre un moyen privé, isolé et dédié pour pouvoir créer et exécuter des applications logiques qui peuvent accéder aux ressources dans un réseau virtuel Azure. Pour les nouvelles applications logique qui s’exécutent dans une fenêtre ISE, vous payez un tarif mensuel fixe pour les actions intégrées et des connecteurs Standard. Votre ISE inclut également un connecteur gratuit Enterprise, qui inclut toutes les connexions que vous le souhaitez. Utilisation de connecteurs d’entreprise supplémentaires est facturée selon le tarif de la consommation d’entreprise. 
+
+Votre unité de base ISE a résolu la capacité, donc si vous avez besoin de davantage de débit, vous pouvez [ajouter des unités d’échelle](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), soit lors de la création ou ultérieurement.
 
 > [!NOTE]
 > L’environnement ISE est dans [ *version préliminaire publique*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Pour plus d’informations concernant la tarification, consultez [tarification de Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps).
-
-Votre unité de base ISE a résolu la capacité, donc si vous avez besoin de davantage de débit, vous pouvez [ajouter des unités d’échelle](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), soit lors de la création ou ultérieurement. Votre ISE inclut un connecteur entreprise gratuit, qui comprend autant de connexions que vous le souhaitez. Utilisation de connecteurs d’entreprise supplémentaires est facturée selon le tarif de la consommation d’entreprise.
 
 <a name="connectors"></a>
 

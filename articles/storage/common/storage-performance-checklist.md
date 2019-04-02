@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: d39c2414aa8299282b3896a9ceb57897fdb25ff1
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: b8451a1195ab64d3cd7afda074d786a3209ce785
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445993"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793966"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Liste de contrôle des performances et de l’extensibilité de Microsoft Azure Storage
 ## <a name="overview"></a>Présentation
@@ -269,7 +269,7 @@ Pour télécharger rapidement un seul objet blob de grande taille, votre applica
 * C++ : utilisez la méthode blob_request_options::set_parallelism_factor.
 
 #### <a name="subheading22"></a>Téléchargement rapide de nombreux objets blob
-Pour télécharger rapidement de nombreux objets blob, effectuez cette opération en parallèle. Cela s’avère plus rapide que de télécharger des objets blob individuels avec des téléchargements de blocs parallèles, dans la mesure où le transfert est réparti entre plusieurs partitions du service de stockage. Dans le cas d’un objet blob unique, le débit pris en charge est seulement de 60 Mo/seconde (environ 480 Mbits/s). Au moment de la rédaction du présent document, un compte LRS basé aux États-Unis prenait en charge un débit de 20 Gbits/s en entrée, soit bien plus que le débit pris en charge par un objet blob individuel.  [AzCopy](#subheading18) effectue des téléchargements en parallèle et son utilisation est recommandée pour ce scénario.  
+Pour télécharger rapidement de nombreux objets blob, effectuez cette opération en parallèle. Cela s’avère plus rapide que de télécharger des objets blob individuels avec des téléchargements de blocs parallèles, dans la mesure où le transfert est réparti entre plusieurs partitions du service de stockage. Dans le cas d’un objet blob unique, le débit pris en charge est seulement de 60 Mo/seconde (environ 480 Mbits/s). Au moment de la rédaction, un compte LRS basé aux États-Unis prend en charge jusqu'à 20 Gbits/s entrée, qui est beaucoup plus que le débit pris en charge par un objet blob individuel.  [AzCopy](#subheading18) effectue des téléchargements en parallèle et son utilisation est recommandée pour ce scénario.  
 
 ### <a name="subheading23"></a>Choix du type d’objet blob approprié
 Azure Storage prend en charge deux types d’objet blob : *de pages* et *de blocs*. Pour un scénario d’utilisation donné, le type d’objet blob choisi affecte les performances et l’extensibilité de la solution. Les objets blob de blocs sont utiles si vous souhaitez télécharger efficacement de grandes quantités de données : par exemple, une application cliente a besoin de télécharger des photos ou vidéos sur le stockage d’objets blob. Les objets blob de pages sont appropriées si l’application doit effectuer des écritures aléatoires sur les données : par exemple, les disques durs virtuels d’Azure sont stockés en tant qu’objets blob de pages.  
@@ -297,9 +297,7 @@ Depuis la version 2013-08-15 du service de stockage, le service de Table prend e
 Pour plus d’informations, consultez le billet [Microsoft Azure Tables: Introducing JSON](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) (Tables Microsoft Azure : Présentation du format JSON) et l’article [Payload Format for Table Service Operations](https://msdn.microsoft.com/library/azure/dn535600.aspx) (Format de charge utile pour les opérations du service de Table).
 
 #### <a name="subheading26"></a>Désactivation de Nagle
-L’algorithme de Nagle est utilisé à grande échelle sur les réseaux TCP/IP en vue d’améliorer les performances du réseau. Cependant, il n’est pas idéal dans toutes les situations (c’est le cas, par exemple, dans les environnements très interactifs). Pour le stockage Azure, l’algorithme de Nagle a un impact négatif sur les performances des demandes adressées aux services de table et de file d’attente. Vous devez donc le désactiver si cela s’avère possible.  
-
-Pour plus d’informations, voir le billet de blog [Algorithme Nagle et petites demandes : des rapports peu amicaux](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx) qui explique les problèmes d’interaction entre l’algorithme de Nagle et les demandes de table et de file d’attente. Vous y apprendrez également comment le désactiver dans votre application cliente.  
+L’algorithme de Nagle est utilisé à grande échelle sur les réseaux TCP/IP en vue d’améliorer les performances du réseau. Cependant, il n’est pas idéal dans toutes les situations (c’est le cas, par exemple, dans les environnements très interactifs). Pour le stockage Azure, l’algorithme de Nagle a un impact négatif sur les performances des demandes adressées aux services de table et de file d’attente. Vous devez donc le désactiver si cela s’avère possible.
 
 ### <a name="schema"></a>Schéma
 Le mode de représentation et d’interrogation de vos données constitue le principal facteur ayant une incidence sur les performances du service de Table. Bien que chaque application soit différente, cette section énumère quelques pratiques générales concernant les points suivants :  
@@ -373,7 +371,7 @@ Lorsque cela s'avère possible, il est conseillé d'utiliser des opérations de 
 ##### <a name="subheading37"></a>Stockage de séries de données dans une seule entité
 Parfois, une application stocke une série de données fréquemment nécessaires pour tout récupérer à la fois : par exemple, une application peut suivre l’utilisation du processeur au fil du temps pour tracer un graphique propagée des données à partir des dernières 24 heures. Une méthode consiste à disposer d’une entité de table par heure, chaque entité représentant alors une heure donnée et stockant l’utilisation du processeur au cours de cette période. Pour représenter ces données sur un graphique, l’application doit récupérer les entités qui contiennent les données des 24 dernières heures.  
 
-Sinon, votre application peut stocker l'utilisation du processeur pour chaque heure sous la forme d'une propriété distincte d'une entité unique : pour mettre à jour chaque heure, votre application peut utiliser un seul appel **InsertOrMerge Upsert** pour mettre à jour la valeur de la dernière heure. Pour représenter les données sur un graphique, l’application doit récupérer une seule entité au lieu de 24, générant ainsi une requête efficace (voir la section traitant de l’[étendue de requête](#subheading30) ci-dessus).
+Sinon, votre application peut stocker l'utilisation du processeur pour chaque heure sous la forme d'une propriété distincte d'une entité unique : pour mettre à jour chaque heure, votre application peut utiliser un seul appel **InsertOrMerge Upsert** pour mettre à jour la valeur de la dernière heure. Pour tracer les données, l’application doit récupérer une entité unique au lieu de 24, générant ainsi une requête efficace (voir ci-dessus la discussion sur [étendue de requête](#subheading30)).
 
 ##### <a name="subheading38"></a>Stockage de données structurées dans des objets blob
 Les données structurées donnent parfois l’impression qu’elles devraient être placées dans les tables. Cependant, les plages d’entités sont toujours récupérées ensemble et peuvent être insérées par lots.  À cet égard, un fichier journal constitue un parfait exemple.  Dans ce cas, vous pouvez regrouper plusieurs minutes de journalisation et les insérer. Vous récupérez alors plusieurs minutes de journalisation à la fois.  Dans une optique de performances, il est préférable d’utiliser des objets blob plutôt que des tables, dans la mesure où vous pouvez réduire de manière significative le nombre d’objets écrits/renvoyés, ainsi que, généralement, le nombre de demandes qui doivent être effectuées.  
@@ -390,7 +388,7 @@ consultez les objectifs d’extensibilité actuels dans [Objectifs de performanc
 Voir la section relative à la configuration de table qui traite de l’algorithme Nagle ; en règle générale, cet algorithme dégrade les performances des demandes de file d’attente et, de ce fait, vous devez le désactiver.  
 
 ### <a name="subheading41"></a>Taille des messages
-Les performances et l’extensibilité des files d’attente diminuent quand la taille de message augmente. Dans un message, placez uniquement les informations dont le destinataire a besoin.  
+Évolutivité et les performances de la file d’attente diminuer en tant que la taille des messages augmente. Dans un message, placez uniquement les informations dont le destinataire a besoin.  
 
 ### <a name="subheading42"></a>Récupération par lots
 Vous pouvez récupérer jusqu’à 32 messages d’une file d’attente en une seule opération. Cela contribue à réduire le nombre d’allers-retours avec l’application cliente, ce qui s’avère particulièrement utile pour les environnements où les temps de latence sont élevés, tels que les appareils mobiles.  
@@ -401,7 +399,7 @@ La plupart des applications interrogent une file d’attente pour les messages, 
 Pour plus d’informations relatives au coût, consultez [Tarification Azure Storage](https://azure.microsoft.com/pricing/details/storage/).  
 
 ### <a name="subheading44"></a>UpdateMessage
-Vous pouvez utiliser l'opération **UpdateMessage** pour augmenter le délai d'expiration de l'invisibilité ou pour mettre à jour les informations d'état d'un message. Bien que l'opération **UpdateMessage** soit particulièrement puissante, n'oubliez pas que chacune d'elles est comptabilisée dans le cadre de l'objectif d'évolutivité. Cependant, cela peut constituer une méthode beaucoup plus efficace qu’un flux de travail qui transmet une tâche d’une file d’attente à la suivante, une fois chaque étape terminée. L’utilisation de l’opération **UpdateMessage** permet à votre application d’enregistrer l’état de la tâche dans le message, puis de poursuivre le traitement, au lieu de replacer à chaque fois le message en file d’attente pour l’étape suivante.  
+Vous pouvez utiliser l'opération **UpdateMessage** pour augmenter le délai d'expiration de l'invisibilité ou pour mettre à jour les informations d'état d'un message. Bien que l'opération **UpdateMessage** soit particulièrement puissante, n'oubliez pas que chacune d'elles est comptabilisée dans le cadre de l'objectif d'évolutivité. Cependant, cela peut constituer une méthode beaucoup plus efficace qu’un flux de travail qui transmet une tâche d’une file d’attente à la suivante, une fois chaque étape terminée. À l’aide de la **UpdateMessage** opération permet à votre application enregistrer l’état du travail dans le message et puis continuer à travailler, au lieu de requeuing le message pour l’étape suivante de la tâche chaque fois qu’une étape se termine.  
 
 Pour plus d’informations, consultez l’article [ Modification du contenu d’un message en file d’attente](../queues/storage-dotnet-how-to-use-queues.md#change-the-contents-of-a-queued-message).  
 

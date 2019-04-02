@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/28/2018
+ms.date: 04/01/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ab71b8d3af573f62e69c02564c237ad433962ff9
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 69417551c1c8d410f75e74a8164c8b8a223ab835
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541228"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805327"
 ---
 # <a name="backup-and-restore"></a>Sauvegarde et restauration
 
@@ -58,7 +58,7 @@ L’infrastructure de stockage qui sous-tend SAP HANA sur Azure (grandes instanc
 - Lorsqu’une capture instantanée est déclenchée sur les volumes /hana/data et /hana/shared (/usr/sap compris), la capture instantanée de stockage lance une capture instantanée SAP HANA avant d’exécuter la capture instantanée de stockage. Cette capture instantanée SAP HANA est le point d’installation d’éventuelles restaurations de journaux après récupération de la capture instantanée de stockage. Pour que la capture instantanée HANA réussisse, vous avez besoin d’une instance HANA active.  Dans le scénario HSR, la capture instantanée de stockage n’est pas prise en charge sur le nœud secondaire actif où la capture instantanée HANA n’est pas possible.
 - Une fois la capture instantanée de stockage terminée, la capture instantanée SAP HANA est supprimée.
 - Les sauvegardes de fichier journal sont effectuées fréquemment et stockées dans le volume /hana/logbackups ou dans Azure. Vous pouvez déclencher une capture instantanée séparément pour le volume /hana/logbackups contenant les sauvegardes de fichier journal. Dans ce cas, vous n’avez pas besoin d’effectuer une capture instantanée HANA.
-- Si vous devez restaurer une base de données à un point dans le temps, contactez le support technique de Microsoft Azure (pour une interruption de production) ou l’équipe de gestion des services SAP HANA sur Azure pour solliciter une restauration à partir d’une capture instantanée de stockage donnée (par exemple, une restauration planifiée d’un système bac à sable à son état d’origine).
+- Si vous devez restaurer une base de données à un certain point dans le temps, demander cette prise en charge de Microsoft Azure (pour une interruption de production) ou d’un SAP HANA sur Azure de restauration pour certaines captures instantanées de stockage. (par exemple, une restauration planifiée d’un système bac à sable à son état d’origine).
 - La capture instantanée SAP HANA incluse dans la capture instantanée de stockage constitue un point de décalage pour l’application des sauvegardes de fichier journal qui ont été exécutées et stockées après la création de la capture instantanée de stockage.
 - Ces sauvegardes de fichier journal sont effectuées pour restaurer la base de données à un point spécifique dans le temps.
 
@@ -167,15 +167,16 @@ MACs hmac-sha1
 
 Pour activer l’accès aux interfaces de capture instantanée de stockage de votre locataire de grandes instances HANA, vous devez vous connecter à l’aide d’une clé publique. Sur le premier serveur SAP HANA sur Azure (grandes instances) de votre locataire, créez une clé publique que vous allez utiliser pour accéder à l’infrastructure de stockage. Cette clé publique garantit qu’aucun mot de passe n’est requis pour la connexion aux interfaces de capture instantanée de stockage et qu’il n’est pas nécessaire de conserver les informations d’identification par mot de passe. Sur le système d’exploitation Linux du serveur de grandes instances SAP HANA, exécutez la commande ci-après pour générer la clé publique :
 ```
-  ssh-keygen –t dsa –b 1024
+  ssh-keygen -t rsa –b 5120 -C ""
 ```
-Le nouvel emplacement est **_/root/.ssh/id\_dsa.pub**. N’entrez pas un mot de passe réel, sans quoi vous devriez l’entrer chaque fois que vous vous connectez. À la place, appuyez deux fois sur **Entrée** pour supprimer l’exigence de saisie d’un mot de passe au moment de la connexion.
+
+Le nouvel emplacement est **_/root/.ssh/id\_rsa.pub**. N’entrez pas un mot de passe réel, sans quoi vous devriez l’entrer chaque fois que vous vous connectez. À la place, appuyez deux fois sur **Entrée** pour supprimer l’exigence de saisie d’un mot de passe au moment de la connexion.
 
 Assurez-vous que la clé publique a été corrigée comme prévu en remplaçant les dossiers par **/root/.ssh/**, puis en exécutant la commande `ls`. Si la clé est présente, vous pouvez la copier en exécutant la commande suivante :
 
 ![L’exécution de cette commande copie la clé publique.](./media/hana-overview-high-availability-disaster-recovery/image2-public-key.png)
 
-À ce stade, contactez l’équipe de gestion des services SAP HANA sur Azure et fournissez-lui la clé publique. Le représentant du service utilisera la clé publique pour l’inscrire dans l’infrastructure de stockage sous-jacente qui est définie pour votre locataire de grandes instances HANA.
+À ce stade, contactez SAP HANA sur Azure et fournissez-lui la clé publique. Le représentant du service utilisera la clé publique pour l’inscrire dans l’infrastructure de stockage sous-jacente qui est définie pour votre locataire de grandes instances HANA.
 
 ### <a name="step-4-create-an-sap-hana-user-account"></a>Étape 4 : Créer un compte d'utilisateur SAP HANA
 
@@ -262,7 +263,7 @@ L’objectif des différents scripts et fichiers est le suivant :
 - **removeTestStorageSnapshot.pl** : ce script supprime la capture instantanée de test créée avec le script **testStorageSnapshotConnection.pl**.
 - **azure\_hana\_dr\_failover.pl** : ce script déclenche un basculement de récupération d'urgence dans une autre région. Il doit être exécuté soit sur l’unité de grande instance HANA dans la région de récupération d’urgence, soit sur l’unité cible du basculement. Ce script arrête la réplication du stockage depuis le côté principal vers le côté secondaire, restaure la dernière capture instantanée sur les volumes de récupération d’urgence et fournit les points de montage des volumes de récupération d’urgence.
 - **azure\_hana\_test\_dr\_failover.pl** : ce script exécute un basculement de test vers le site de récupération d'urgence. Contrairement au script azure_hana_dr_failover.pl, cette exécution n’interrompt pas la réplication de stockage du côté principal vers le côté secondaire. À la place, les clones des volumes de stockage répliqués sont créés du côté de la récupération d’urgence, et les points de montage des volumes clonés sont fournis. 
-- **HANABackupCustomerDetails.txt** : il s'agit d'un fichier de configuration modifiable que vous devez modifier en fonction de votre configuration SAP HANA. Le fichier *HANABackupCustomerDetails.txt* est le fichier de contrôle et de configuration du script qui exécute les captures instantanées de stockage. Modifiez le fichier en fonction de vos besoins et de votre configuration. L’équipe de gestion des services SAP HANA sur Azure vous envoie les informations **Storage Backup Name (Nom de sauvegarde du stockage)** et **Storage IP Address (Adresse IP de stockage)**, au moment où vos instances sont déployées. Vous ne pouvez pas modifier la séquence, l’ordre ou l’espacement des variables dans ce fichier. Dans le cas contraire, les scripts ne s’exécutent pas correctement. En outre, vous recevez l’adresse IP du nœud Scale-out ou du nœud principal (s’il est configuré pour le Scale-out) de l’équipe de gestion des services SAP HANA sur Azure. Vous connaissez également le numéro d’instance HANA que vous obtenez lors de l’installation de SAP HANA. Vous devez à présent ajouter un nom de sauvegarde au fichier de configuration.
+- **HANABackupCustomerDetails.txt** : il s'agit d'un fichier de configuration modifiable que vous devez modifier en fonction de votre configuration SAP HANA. Le fichier *HANABackupCustomerDetails.txt* est le fichier de contrôle et de configuration du script qui exécute les captures instantanées de stockage. Modifiez le fichier en fonction de vos besoins et de votre configuration. Vous recevez le **nom du stockage de sauvegarde** et **Storage IP Address** à partir de SAP HANA sur Azure lors de vos instances sont déployées. Vous ne pouvez pas modifier la séquence, l’ordre ou l’espacement des variables dans ce fichier. Dans le cas contraire, les scripts ne s’exécutent pas correctement. En outre, vous recevez l’adresse IP de la montée en charge ou le nœud principal (si la montée en puissance) de SAP HANA sur Azure. Vous connaissez également le numéro d’instance HANA que vous obtenez lors de l’installation de SAP HANA. Vous devez à présent ajouter un nom de sauvegarde au fichier de configuration.
 
 Pour un déploiement Scale-up ou Scale-out, le fichier de configuration ressemble à l’exemple ci-dessous, lorsque vous avez renseigné le nom du serveur de l’unité de grande instance HANA et l’adresse IP du serveur. Renseignez tous les champs nécessaires pour chaque SID SAP HANA que vous souhaitez sauvegarder ou restaurer.
 
@@ -628,9 +629,9 @@ Vous pouvez accéder aux captures instantanées **hana** et **logs** directement
 
 En cas d’interruption de la production, vous pouvez lancer le processus de récupération à partir d’une capture instantanée de stockage en signalent un incident client auprès du support technique de Microsoft Azure. Le problème est de nature urgente si des données sont supprimées d’un système de production et si le seul moyen de les récupérer est de restaurer la base de données de production.
 
-Dans un cas différent, une récupération jusqu’à une date et heure peut ne pas avoir de caractère d’urgence et être planifiée plusieurs jours à l’avance. Vous pouvez planifier cette récupération avec l’équipe de gestion des services SAP HANA sur Azure au lieu de signaler un problème prioritaire. Par exemple, vous pourriez planifier la mise à niveau du logiciel SAP en appliquant un nouveau package d’améliorations, et vouloir ensuite revenir à une capture instantanée correspondant à l’état du système avant sa mise à niveau avec le package d’améliorations.
+Dans un cas différent, une récupération jusqu’à une date et heure peut ne pas avoir de caractère d’urgence et être planifiée plusieurs jours à l’avance. Vous pouvez planifier cette récupération avec SAP HANA sur Azure au lieu de déclencher un indicateur de priorité élevée. Par exemple, vous pourriez planifier la mise à niveau du logiciel SAP en appliquant un nouveau package d’améliorations, et vouloir ensuite revenir à une capture instantanée correspondant à l’état du système avant sa mise à niveau avec le package d’améliorations.
 
-Avant de soumettre la demande, vous devez effectuer certaines tâches de préparation. L’équipe de gestion des services SAP HANA sur Azure peut alors traiter la demande et fournir les volumes restaurés. Vous pourrez ensuite restaurer la base de données HANA à l’aide des captures instantanées. 
+Avant de soumettre la demande, vous devez effectuer certaines tâches de préparation. L’équipe SAP HANA sur Azure peut ensuite traiter la demande et fournir les volumes restaurés. Vous pourrez ensuite restaurer la base de données HANA à l’aide des captures instantanées. 
 
 La commande suivante vous montre comment préparer la demande :
 
@@ -648,9 +649,9 @@ La commande suivante vous montre comment préparer la demande :
 
 1. Ouvrez une demande de support Azure et incluez des instructions sur la restauration d’une capture instantanée spécifique.
 
-   - Pendant la restauration : l'équipe de gestion des services SAP HANA sur Azure peut vous demander de participer à une téléconférence de coordination, de vérification et de confirmation afin de vous assurer que la capture instantanée de stockage qui convient est restaurée. 
+   - Pendant la restauration : SAP HANA sur Azure peut vous demander de participer à une téléconférence pour assurer la coordination, vérification et confirmation que la capture instantanée de stockage correcte est restaurée. 
 
-   - Après la restauration : l'équipe de gestion des services SAP HANA sur Azure vous informe lorsque la capture instantanée de stockage a été restaurée.
+   - Après la restauration : SAP HANA sur Azure Service vous informe lorsque la capture instantanée de stockage a été restaurée.
 
 1. Une fois le processus de restauration terminé, remontez tous les volumes de données.
 
@@ -752,5 +753,5 @@ HANA snapshot deletion successfully.
 Dans cet exemple, vous pouvez voir la façon dont le script enregistre la création de la capture instantanée HANA. Dans le cas d’une montée en puissance parallèle, ce processus est initialisé sur le nœud principal. Le nœud principal lance la création synchrone des captures instantanées SAP HANA sur chacun des nœuds de travail. La capture instantanée de stockage est effectuée. Une fois que l’exécution des captures instantanées de stockage a réussi, la capture instantanée HANA est supprimée. La suppression de la capture instantanée HANA est lancée à partir du nœud principal.
 
 
-**Étapes suivantes**
-- Consultez [Disaster Recovery principles and preparation](hana-concept-preparation.md) (Principes de récupération d’urgence et préparation).
+## <a name="next-steps"></a>Étapes suivantes
+- Consultez [principes de récupération d’urgence et la préparation](hana-concept-preparation.md).

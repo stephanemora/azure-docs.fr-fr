@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 3/22/2019
 ms.author: dugill
-ms.openlocfilehash: 5144a35dd695ce30f4a7ff940f0bca7e6ba9d23c
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 7e6ce8c4e5e6ff79a8e77708bd76cef6c24cadd3
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372543"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805514"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Utiliser l’API d’authentification de Resource Manager pour accéder aux abonnements
 
@@ -255,7 +255,7 @@ Voici un exemple de réponse à une demande de jeton d’octroi d’informations
     {"token_type":"Bearer","expires_in":"3599","expires_on":"1432039862","not_before":"1432035962","resource":"https://graph.windows.net/","access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiJodHRwczovL2dyYXBoLndpbmRv****G5gUTV-kKorR-pg"}
 
 ### <a name="get-objectid-of-application-service-principal-in-user-azure-ad"></a>Obtenir le principal de service d’application ObjectId dans l’instance Azure AD de l’utilisateur
-Maintenant, utilisez le jeton d’accès d’application uniquement pour interroger l’API des [principaux du service Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity) et déterminer l’ID d’objet du principal du service de l’application dans l’annuaire.
+Maintenant, utilisez le jeton d’accès d’application uniquement pour interroger l’API des [principaux du service Azure AD Graph](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity) et déterminer l’ID d’objet du principal du service de l’application dans l’annuaire.
 
 La méthode [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs#) de l’exemple d’application MVC ASP.NET implémente cet appel.
 

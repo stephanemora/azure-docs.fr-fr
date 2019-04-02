@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
-ms.openlocfilehash: 54fbba197f6609731ffaf3ff15143a28e70a955f
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
-ms.translationtype: HT
+ms.openlocfilehash: 99f756b5415811b3d4c2ee0167f98b31c905df1a
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29712866"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793651"
 ---
 # <a name="policies-in-azure-api-management"></a>Stratégies dans Gestion des API Azure
 
@@ -59,7 +59,7 @@ La configuration est composée des sections `inbound`, `backend`, `outbound` et 
 </policies> 
 ```
 
-S'il existe une erreur lors du traitement d'une demande, les autres étapes des sections `inbound`, `backend` ou `outbound` sont ignorées et l'exécution passe aux instructions de la section `on-error`. En plaçant des instructions de stratégie dans la section `on-error`, vous pouvez consulter l'erreur à l'aide de la propriété `context.LastError`, inspecter et personnaliser la réponse à l'erreur à l'aide de la stratégie `set-body`, puis configurer ce qui se passe si une erreur se produit. Il existe des codes d'erreur pour les étapes intégrées et pour les erreurs qui peuvent se produire pendant le traitement d'instructions de stratégie. Pour plus d'informations, consultez [Gestion des erreurs dans les stratégies de gestion des API](https://msdn.microsoft.com/library/azure/mt629506.aspx).
+S'il existe une erreur lors du traitement d'une demande, les autres étapes des sections `inbound`, `backend` ou `outbound` sont ignorées et l'exécution passe aux instructions de la section `on-error`. En plaçant des instructions de stratégie dans la section `on-error`, vous pouvez consulter l'erreur à l'aide de la propriété `context.LastError`, inspecter et personnaliser la réponse à l'erreur à l'aide de la stratégie `set-body`, puis configurer ce qui se passe si une erreur se produit. Il existe des codes d'erreur pour les étapes intégrées et pour les erreurs qui peuvent se produire pendant le traitement d'instructions de stratégie. Pour plus d'informations, consultez [Gestion des erreurs dans les stratégies de gestion des API](/azure/api-management/api-management-error-handling-policies).
 
 ## <a name="scopes"></a>Configuration des stratégies
 
@@ -114,7 +114,7 @@ Pour limiter les demandes entrantes et n'accepter que celles venant de l'adresse
 </ip-filter>
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur l’utilisation de stratégies, consultez les pages :
 

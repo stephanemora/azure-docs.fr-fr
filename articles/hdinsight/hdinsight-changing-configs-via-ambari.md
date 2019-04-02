@@ -1,19 +1,19 @@
 ---
 title: Optimiser les configurations de cluster avec Apache Ambari - Azure HDInsight
 description: Utilisez l’interface utilisateur web d’Apache Ambari pour configurer et optimiser les clusters HDInsight.
-author: ashishthaps
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 07/09/2018
-ms.author: ashish
-ms.openlocfilehash: 14b634e610fb0da71c5f0d742a250b18cea70dc7
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.date: 03/26/2019
+ms.author: hrasheed
+ms.openlocfilehash: f0db36fa380d0d1bb7f2b581c4bf8fa1abfaadaf
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722921"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805378"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Utiliser Apache Ambari pour optimiser les configurations de cluster HDInsight
 
@@ -51,7 +51,7 @@ Pour modifier la taille du tas Java NameNode :
 
     ![Modifier la taille du tas Java NameNode](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit.png)
 
-1. La taille du tas Java NameNode passe de 1 Go à 2 Go.
+1. La taille du tas NameNode Java passe à 1 Go de 2 Go.
 
     ![Taille du tas Java NodeName modifiée](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edited.png)
 
@@ -125,7 +125,7 @@ Une requête Hive s’exécute en une ou plusieurs étapes. Si des étapes indé
 
 1.  Pour activer l’exécution de requête en parallèle, accédez à l’onglet **Configs (Configuration)** de Hive et recherchez la propriété `hive.exec.parallel`. La valeur par défaut est false. Remplacez-la par true, puis appuyez sur **Entrée** pour enregistrer la valeur.
  
-1.  Pour limiter le nombre de travaux à exécuter en parallèle, modifiez la propriété `hive.exec.parallel.thread.number`. La valeur par défaut est 8.
+1.  Pour limiter le nombre de travaux à exécuter en parallèle, modifiez le `hive.exec.parallel.thread.number` propriété. La valeur par défaut est 8.
 
     ![Exécution en parallèle dans Hive](./media/hdinsight-changing-configs-via-ambari/hive-exec-parallel.png)
 
@@ -181,7 +181,7 @@ Les types de compression disponibles sont :
 | Gzip | Gzip | DEFLATE | .gz | Non  |
 | Bzip2 | Bzip2 | Bzip2 |.bz2 | Oui |
 | LZO | Lzop | LZO | .lzo | Oui, si indexé |
-| Snappy | N/A | Snappy | Snappy | Non  |
+| Snappy | S.O. | Snappy | Snappy | Non  |
 
 En règle générale, il est important d’avoir une méthode de compression fractionnable. Sinon, le nombre de mappeurs créés est très faible. Si les données d’entrée sont textuelles, `bzip2` est la meilleure option. Pour le format ORC, l’option de compression la plus rapide est Snappy.
 
@@ -282,7 +282,7 @@ Recommandations supplémentaires pour optimiser le moteur d’exécution Hive :
 | Paramètre | Recommandé | Valeur par défaut dans HDInsight |
 | -- | -- | -- |
 | `hive.mapjoin.hybridgrace.hashtable` | True = plus sûr, plus lent ; false = plus rapide | false |
-| `tez.am.resource.memory.mb` | Limite supérieure de 4 Go pour la plupart du temps | Réglée automatiquement |
+| `tez.am.resource.memory.mb` | Limite supérieure de 4 Go pour la plupart des | Réglée automatiquement |
 | `tez.session.am.dag.submit.timeout.secs` | 300+ | 300 |
 | `tez.am.container.idle.release-timeout-min.millis` | 20000+ | 10000 |
 | `tez.am.container.idle.release-timeout-max.millis` | 40000+ | 20000 |
@@ -295,7 +295,7 @@ Vous pouvez modifier les propriétés [d’Apache Pig](https://pig.apache.org/) 
 
 1. Recherchez la propriété concernée, supprimez sa mise en commentaire et modifiez sa valeur.
 
-1. Sélectionnez **Save (Enregistrer)** en haut à droite de la fenêtre pour enregistrer la nouvelle valeur. Certaines propriétés peuvent nécessiter un redémarrage du service.
+1. Sélectionnez **enregistrer** sur le côté droit de la fenêtre pour enregistrer la nouvelle valeur. Certaines propriétés peuvent nécessiter un redémarrage du service.
 
     ![Propriétés avancées de Pig](./media/hdinsight-changing-configs-via-ambari/advanced-pig-properties.png)
  

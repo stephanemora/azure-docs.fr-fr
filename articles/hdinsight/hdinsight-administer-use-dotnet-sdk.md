@@ -9,14 +9,15 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: d46b1cb5bb8a0b65a9e1b38d5331977132f7eb40
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 2e57726c3519fbb2660d7dfb4794a885871acc0d
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226451"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793916"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Gérer les clusters Apache Hadoop dans HDInsight avec le SDK .NET
+
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
 Apprenez à gérer des clusters HDInsight à l’aide du [Kit de développement logiciel (SDK) HDInsight.NET](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
@@ -31,7 +32,7 @@ Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 Les packages NuGet suivants doivent être installés :
 
-```
+```powershell
 Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
 Install-Package Microsoft.Azure.Management.ResourceManager -Pre
 Install-Package Microsoft.Azure.Management.HDInsight
@@ -109,9 +110,11 @@ namespace HDInsightManagement
 Vous devriez voir une invite de commandes lorsque vous exécutez ce programme.  Si vous ne voulez pas que l’invite s’affiche, consultez [Créer des applications .NET HDInsight d’authentification non interactive](hdinsight-create-non-interactive-authentication-dotnet-applications.md).
 
 ## <a name="create-clusters"></a>Créer des clusters
+
 Consultez [Créer des clusters basés sur Linux dans HDInsight à l’aide du Kit de développement logiciel (SDK) .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
 
 ## <a name="list-clusters"></a>Énumérer les clusters
+
 L’extrait de code suivant répertorie les clusters et certaines propriétés :
 
 ```csharp
@@ -125,6 +128,7 @@ foreach (var name in results.Clusters) {
 ```
 
 ## <a name="delete-clusters"></a>Suppression des clusters
+
 Pour supprimer un cluster de façon synchrone ou asynchrone, utilisez l’extrait de code suivant : 
 
 ```csharp
@@ -133,6 +137,7 @@ _hdiManagementClient.Clusters.DeleteAsync("<Resource Group Name>", "<Cluster Nam
 ```
 
 ## <a name="scale-clusters"></a>Mise à l’échelle des clusters
+
 La fonctionnalité de mise à l’échelle d’un cluster vous permet de modifier le nombre de nœuds de travail utilisés par un cluster exécuté dans Azure HDInsight sans avoir à recréer ce cluster.
 
 > [!NOTE]  
@@ -149,11 +154,13 @@ Impact de la modification du nombre de nœuds de données pour chaque type de cl
   
     Vous pouvez ajouter ou supprimer des nœuds en continu dans votre cluster HBase lorsque celui-ci s’exécute. Les serveurs régionaux sont équilibrés automatiquement quelques minutes après la fin de l’opération de mise à l’échelle. Cependant, vous pouvez équilibrer manuellement des serveurs régionaux en vous connectant au nœud principal du cluster et en exécutant les commandes suivantes à partir d’une fenêtre d’invite de commandes :
   
+
     ```bash
     >pushd %HBASE_HOME%\bin
     >hbase shell
     >balancer
     ```
+
 * Apache Storm
   
     Vous pouvez ajouter ou supprimer des nœuds de données en continu dans votre cluster Storm lorsque celui-ci s'exécute. Mais une fois l’opération de mise à l’échelle terminée avec succès, vous devrez rééquilibrer la topologie.
@@ -171,6 +178,7 @@ Impact de la modification du nombre de nœuds de données pour chaque type de cl
     
     Voici un exemple relatif à l'utilisation de la commande de l'interface en ligne de commande pour rééquilibrer la topologie Storm :
     
+
     ```cli
     ## Reconfigure the topology "mytopology" to use 5 worker processes,
     ## the spout "blue-spout" to use 3 executors, and
@@ -186,6 +194,7 @@ _hdiManagementClient.Clusters.ResizeAsync("<Resource Group Name>", "<Cluster Nam
 ```
 
 ## <a name="grantrevoke-access"></a>Octroyer/Révoquer l’accès
+
 Les clusters HDInsight disposent des services web HTTP suivants (tous ces services ont des points de terminaison RESTful) :
 
 * ODBC
@@ -224,9 +233,11 @@ _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Clu
 Vous pouvez également le faire via le portail Azure. Consultez [gestion Apache des clusters Hadoop dans HDInsight à l’aide du portail Azure](hdinsight-administer-use-portal-linux.md).
 
 ## <a name="update-http-user-credentials"></a>Mettre à jour les informations d’identification de l’utilisateur HTTP
+
 Il s'agit de la même procédure que pour l'octroi et la révocation de l'accès HTTP.  Si l’accès HTTP a été octroyé au cluster, vous devez d’abord le révoquer.  Octroyez ensuite l’accès avec les informations d’identification de l’utilisateur HTTP.
 
 ## <a name="find-the-default-storage-account"></a>Trouvez le compte de stockage par défaut
+
 L’extrait de code suivant montre comment obtenir le nom de compte de stockage par défaut et la clé de compte de stockage par défaut pour un cluster.
 
 ```csharp
@@ -238,6 +249,7 @@ foreach (var key in results.Configuration.Keys)
 ```
 
 ## <a name="submit-jobs"></a>Soumettre les travaux
+
 **Pour envoyer des tâches MapReduce**
 
 Consultez [Exécuter des exemples MapReduce dans HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
@@ -259,9 +271,11 @@ Consultez [Utiliser Apache Sqoop avec HDInsight](hadoop/apache-hadoop-use-sqoop-
 Consultez [Utilisation d’Apache Oozie avec Hadoop pour définir et exécuter un workflow Azure HDInsight basé sur Linux](hdinsight-use-oozie-linux-mac.md).
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Téléchargement de données vers le stockage d'objets blob Azure
+
 Consultez la rubrique [Téléchargement de données vers HDInsight][hdinsight-upload-data].
 
 ## <a name="see-also"></a>Voir aussi
+
 * [Documentation de référence sur le Kit de développement logiciel (SDK) .NET HDInsight](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
 * [Gérer des clusters Apache Hadoop dans HDInsight avec le portail Azure](hdinsight-administer-use-portal-linux.md)
 * [Administration de HDInsight à l’aide de l’interface de ligne de commande][hdinsight-admin-cli]
@@ -283,5 +297,3 @@ Consultez la rubrique [Téléchargement de données vers HDInsight][hdinsight-up
 [hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
 [hdinsight-use-mapreduce]:hadoop/hdinsight-use-mapreduce.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-
-

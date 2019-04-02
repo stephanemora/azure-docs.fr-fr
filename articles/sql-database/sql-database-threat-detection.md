@@ -12,18 +12,18 @@ ms.author: ronmat
 ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 4e853b9edbd000d8b61b5e05f3ae65c07258d73f
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 60839fa06d8436d3d2202d1d97735c42c5768e9e
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002154"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793757"
 ---
 # <a name="azure-sql-database-threat-detection-for-single-or-pooled-databases"></a>Détection des menaces Azure SQL Database pour bases de données uniques ou regroupées
 
-La [Détection des menaces](sql-database-threat-detection-overview.md) pour bases de données uniques et regroupées détecte les activités anormales indiquant des tentatives inhabituelles et potentiellement dangereuses d'accès aux bases de données ou d'attaque de celles-ci. La Détection des menaces peut identifier une **injection SQL potentielle**, un **accès à partir d'un emplacement ou d'un centre de données inhabituel**, un **accès à partir d'un principal inconnu ou d'une application potentiellement dangereuse** et des **informations d'identification SQL par force brute**. Pour plus d'informations, consultez [Alertes de détection des menaces](sql-database-threat-detection-overview.md#threat-detection-alerts).
+La [Détection des menaces](sql-database-threat-detection-overview.md) pour bases de données uniques et regroupées détecte les activités anormales indiquant des tentatives inhabituelles et potentiellement dangereuses d'accès aux bases de données ou d'attaque de celles-ci. La Détection des menaces peut identifier une **injection SQL potentielle**, un **accès à partir d'un emplacement ou d'un centre de données inhabituel**, un **accès à partir d'un principal inconnu ou d'une application potentiellement dangereuse** et des **informations d'identification SQL par force brute**. Pour plus d'informations, consultez [Alertes de détection des menaces](sql-database-threat-detection-overview.md#advanced-threat-protection-alerts).
 
-Vous pouvez recevoir des notifications à propos des menaces détectées par l’intermédiaire de [notifications par e-mail](sql-database-threat-detection-overview.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event) ou du [portail Azure](sql-database-threat-detection-overview.md#explore-threat-detection-alerts-for-your-database-in-the-azure-portal).
+Vous pouvez recevoir des notifications à propos des menaces détectées par l’intermédiaire de [notifications par e-mail](sql-database-threat-detection-overview.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event) ou du [portail Azure](sql-database-threat-detection-overview.md#explore-advanced-threat-protection-alerts-for-your-database-in-the-azure-portal).
 
 La [Détection des menaces](sql-database-threat-detection-overview.md) fait partie de l'offre [Advanced Data Security](sql-database-advanced-data-security.md) (ADS), qui est un package unifié de fonctionnalités de sécurité SQL avancées. La Détection des menaces est accessible et gérable via le portail SQL ADS central. Le package Advanced Data Security est facturé 15 USD par mois et par serveur logique, les 30 premiers jours étant gratuits.
 

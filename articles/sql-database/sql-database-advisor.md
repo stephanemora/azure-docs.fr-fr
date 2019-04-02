@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik
 manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: 6dd404ec0ab9e88c9e5bc4af4b939b3aa1f2e675
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 348183e1a164dd0a0f5f9672346423b95c27eba4
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55560870"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793677"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>Recommandations relatives aux performances pour SQL Database
 
@@ -85,6 +85,10 @@ La recommandation « Résoudre les problèmes de schéma » s’affiche lorsque 
 | 213 |Le nom de la colonne ou le nombre de valeurs fournies ne correspond pas à la définition de la table. |
 | 2812 |Impossible de trouver la procédure stockée '*'. |
 | 8144 |La procédure ou la fonction * a trop d’arguments spécifiés. |
+
+## <a name="custom-applications"></a>Applications personnalisées
+
+Les développeurs peuvent envisager de développer des applications personnalisées à l’aide des recommandations relatives aux performances de base de données SQL Azure. Toutes les recommandations répertoriées dans le portail pour une base de données est accessible via [Get-AzureRmSqlDatabaseRecommendedAction](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Sql/Get-AzureRmSqlDatabaseRecommendedAction) API.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Surveillez vos recommandations et continuez à les appliquer pour affiner les performances. Les charges de travail d’une base de données sont dynamiques et évoluent en permanence. SQL Database Advisor analyse en continu le niveau de performance de votre base de données et fournit des recommandations susceptibles d’améliorer ce niveau. 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: storage
 ms.subservice: blobs
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: a6505232066d7a2e63c3e9508cb16cb9a31f8e35
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 6922d49affdde86728b41ef1d3d0c6a2da5c323e
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776663"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805089"
 ---
 # <a name="data-transfer-for-large-datasets-with-low-or-no-network-bandwidth"></a>Transférer des jeux de données volumineux avec une bande passante réseau faible ou aucune bande passante réseau
  
@@ -45,7 +45,7 @@ Les options disponibles dans ce scénario sont les appareils destinés au transf
 
 Le tableau suivant résume les différences entre les principales fonctionnalités.
 
-|                                     |    Data Box Disk (préversion)    |    Data Box                                      |    Data Box Heavy (préversion)              |    Importation/Exportation                       |
+|                                     |    Data Box Disk      |    Data Box                                      |    Data Box Heavy              |    Importation/Exportation                       |
 |-------------------------------------|---------------------------------|--------------------------------------------------|------------------------------------------|----------------------------------------|
 |    Taille des données                        |    Jusqu’à 35 To                 |    Jusqu’à 80 To par appareil                       |    Jusqu’à 800 To par appareil               |    Variable                            |
 |    Type de données                        |    Objets blob Azure                  |    Objets blob Azure<br>Azure Files                    |    Objets blob Azure<br>Azure Files            |    Objets blob Azure<br>Azure Files          |

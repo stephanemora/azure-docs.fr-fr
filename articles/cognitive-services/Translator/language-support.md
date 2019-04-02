@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: aed3d08f96265736889deccf51d427a6631e1ea9
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 4f5c7696e711db7c128317f7ed17dc051e8fd18a
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241568"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803117"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Langues et régions prises en charge par l’API de traduction de texte Translator Text
 
@@ -290,6 +290,7 @@ Les langues suivantes sont disponibles pour la personnalisation vers ou à parti
 | Hébreu      | `he`          |
 | Hindi      | `hi`          |
 | Hongrois      | `hu`          |
+| Islandais | `is` |
 | Italien      | `it`          |
 | Japonais      | `ja`          |
 | Coréen      | `ko`          |
@@ -309,6 +310,7 @@ Les langues suivantes sont disponibles pour la personnalisation vers ou à parti
 | Turc      | `tr`          |
 | Ukrainien      | `uk`          |
 | Vietnamien      | `vi`          |
+| Gallois | `cy` |
 
 ## <a name="access-the-list-on-the-microsoft-translator-website"></a>Accéder à la liste sur le site web de Microsoft Translator
 

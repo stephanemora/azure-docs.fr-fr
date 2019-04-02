@@ -1,6 +1,6 @@
 ---
-title: Exemple - ISO 27001 plan - mappage de contrôle
-description: Mappage de contrôle de l’exemple de solution blueprint ISO 27001.
+title: Exemple de mappage de contrôle - plan de charge de travail ISO 27001 ASE/SQL-
+description: Mappage de contrôle de l’exemple de plan de charge de travail ISO 27001 App Service environnement/SQL Database à Azure Policy et RBAC.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -8,14 +8,14 @@ ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: c062759938652518ac3cafff64973050554ca19d
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: fb251d71ca9aa20ed06d0a917394097b36322b3c
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579697"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802709"
 ---
-# <a name="control-mapping-of-the-azure-blueprints-iso-27001-blueprint-sample"></a>Mappage de contrôle de l’exemple de plan Azure plans ISO 27001
+# <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>Mappage de contrôle de l’exemple de plan de charge de travail ISO 27001 ASE/SQL
 
 L’article suivant décrit en détail comment l’exemple de plan de charge de travail de ASE/SQL Azure plans ISO 27001 mappe vers les contrôles ISO 27001. Pour plus d’informations sur les contrôles, consultez [ISO 27001](https://www.iso.org/isoiec-27001-information-security.html).
 

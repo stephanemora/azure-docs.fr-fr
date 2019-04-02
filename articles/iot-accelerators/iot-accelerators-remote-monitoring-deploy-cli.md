@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: a1e65466bb409007a2f112422f393eee786d7b3c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ea96b2b996ea79efacdcda50c6370f25e26e0aa2
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182130"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793759"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Déployer l’accélérateur de solution de surveillance à distance à l’aide de l’interface CLI
 
@@ -62,6 +62,8 @@ Cette section récapitule les principales différences entre les déploiements d
 
 ### <a name="basic"></a>De base
 
+Vous pouvez effectuer un déploiement de base à partir de [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators) ou à l’aide de l’interface CLI.
+
 Le déploiement de base est destiné à présenter la solution. Pour réduire les coûts, tous les microservices sont déployés dans une seule machine virtuelle. Ce déploiement n’utilise pas d’architecture prête pour la production.
 
 Un déploiement de base crée les services suivants dans votre abonnement Azure :
@@ -80,6 +82,8 @@ Un déploiement de base crée les services suivants dans votre abonnement Azure�
 | 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1 : 1 unité              | Stockage des données de messages et activation de l’analyse approfondie des données de télémétrie |
 
 ### <a name="standard"></a>standard
+
+Vous pouvez effectuer un déploiement standard uniquement à l’aide de l’interface CLI.
 
 Un déploiement standard est un déploiement prêt pour la production, qu’un développeur peut personnaliser et étendre. Utilisez l’option de déploiement standard quand vous êtes prêt à personnaliser une architecture prête pour la production, créée pour la mise à l’échelle et l’extensibilité. Les microservices d’application sont générés en tant que conteneurs Docker et déployés à l’aide d’Azure Kubernetes Service. L’orchestrateur Kubernetes déploie, met à l’échelle et gère les microservices.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: c500725508d2bf9f09279e665871ab286d9e495a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: be0c1611856a1fa68d20696c32b5fadcd8572004
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652067"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793609"
 ---
 # <a name="role-based-access-control-for-storsimple"></a>Contrôle d’accès en fonction du rôle pour StorSimple
 
@@ -50,7 +50,7 @@ Dans l’exemple suivant, nous commençons avec le rôle intégré **Lecteur**, 
 
 3. Exportez le rôle Lecteur sous la forme d’un modèle JSON sur votre ordinateur.
 
-    ```
+    ```powershell
     Get-AzureRMRoleDefinition -Name "Reader"
 
     Get-AzureRMRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
@@ -72,7 +72,7 @@ Dans l’exemple suivant, nous commençons avec le rôle intégré **Lecteur**, 
 
     Prenez en compte ces considérations quand vous modifiez le fichier.
 
-    ```
+    ```json
     {
         "Name":  "StorSimple Infrastructure Admin",
         "Id":  "<guid>",
@@ -113,18 +113,24 @@ Pour plus d’informations, accédez à [Rôles personnalisés](../role-based-ac
 
 ### <a name="sample-output-for-custom-role-creation-via-the-powershell"></a>Exemple de sortie pour la création d’un rôle personnalisé via PowerShell
 
+```powershell
+Connect-AzureRmAccount
 ```
-PS C:\WINDOWS\system32> Connect-AzureRmAccount
 
+```Output
 Environment           : AzureCloud
 Account               : john.doe@contoso.com
 TenantId              : <tenant_ID>
 SubscriptionId        : <subscription_ID>
 SubscriptionName      : Internal Consumption
 CurrentStorageAccount :
+```
 
-PS C:\WINDOWS\system32> Get-AzureRMRoleDefinition -Name "Reader"
+```powershell
+Get-AzureRMRoleDefinition -Name "Reader"
+```
 
+```Output
 Name             : Reader
 Id               : <guid>
 IsCustom         : False
@@ -132,11 +138,14 @@ Description      : Lets you view everything, but not make any changes.
 Actions          : {*/read}
 NotActions       : {}
 AssignableScopes : {/}
+```
 
-PS C:\WINDOWS\system32> Get-AzureRMRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
+```powershell
+Get-AzureRMRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
+New-AzureRMRoleDefinition -InputFile "C:\ssrbaccustom.json"
+```
 
-PS C:\WINDOWS\system32> New-AzureRMRoleDefinition -InputFile "C:\ssrbaccustom.json"
-
+```Output
 Name             : StorSimple Infrastructure Admin
 Id               : <tenant_ID>
 IsCustom         : True
@@ -148,8 +157,6 @@ Actions          : {Microsoft.StorSimple/managers/alerts/read,
                    Microsoft.StorSimple/managers/devices/alertSettings/read...}
 NotActions       : {}
 AssignableScopes : {/subscriptions/<subscription_ID>/}
-
-PS C:\WINDOWS\system32>
 ```
 
 ## <a name="add-users-to-the-custom-role"></a>Ajouter des utilisateurs au rôle personnalisé
@@ -188,4 +195,3 @@ Une fois ce rôle créé, vous pouvez afficher les autorisations associées à c
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment [attribuer des rôles personnalisés à des utilisateurs internes et externes](../role-based-access-control/role-assignments-external-users.md).
-

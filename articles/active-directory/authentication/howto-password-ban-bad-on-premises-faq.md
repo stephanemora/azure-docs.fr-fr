@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30ed127d6be6966baba7d6f862624ef7bca16f40
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 50ab4d3c9134e94b60c4dd3eeb5603f450b036c3
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309553"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58794034"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Protection par mot de passe Azure AD en local - Questions fréquentes (FAQ)
 
@@ -109,6 +109,10 @@ En résumé, le déploiement du service d’agent contrôleur de domaine de la p
 **Q : Existe-il un pack d’administration System Center Operations Manager disponible pour la protection par mot de passe Azure AD ?**
 
 Non.
+
+**Q : Pourquoi Azure toujours rejette les mots de passe faibles même si j’ai configuré la stratégie pour être en mode Audit ?**
+
+Mode d’audit est uniquement pris en charge dans l’environnement Active Directory local. Azure est implicitement toujours en mode « appliquer » lorsqu’il évalue les mots de passe.
 
 ## <a name="additional-content"></a>Contenu supplémentaire
 
