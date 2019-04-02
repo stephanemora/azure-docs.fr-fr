@@ -1,38 +1,38 @@
 ---
 title: Provisionner le débit sur les conteneurs et les bases de données Azure Cosmos
 description: Découvrez comment définir un débit provisionné pour vos conteneurs et bases de données Azure Cosmos.
-author: aliuy
+author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/19/2019
-ms.author: andrl
-ms.openlocfilehash: 8335a235de708227136400f3af8fa7b4d0a52e29
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.date: 03/31/2019
+ms.author: rimman
+ms.openlocfilehash: 1f8bec6fbf0bce9a3ac272231058a96a5d9e84cc
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520902"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762495"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Approvisionner le débit sur les conteneurs et les bases de données
 
 Une base de données Azure Cosmos est une unité de gestion pour un ensemble de conteneurs. Une base de données se compose d’un ensemble de conteneurs sans schéma. Un conteneur Azure Cosmos est l’unité d’extensibilité pour le stockage et le débit. Un conteneur est partitionné horizontalement sur un ensemble de machines au sein d’une région Azure et réparti entre toutes les régions Azure associées à votre compte Azure Cosmos.
 
-Avec Azure Cosmos DB, vous pouvez configurer le débit selon deux niveaux de granularité :
+Avec Azure Cosmos DB, vous pouvez configurer le débit à deux niveaux de granularité :
  
 - Conteneurs Cosmos Azure
 - Bases de données Azure Cosmos
 
 ## <a name="set-throughput-on-a-container"></a>Définir le débit sur un conteneur  
 
-Le débit provisionné sur un conteneur Azure Cosmos est exclusivement réservé au conteneur. Le conteneur reçoit en permanence le débit provisionné. Le débit provisionné sur un conteneur est directement associé à des contrats SLA. Pour configurer le débit sur un conteneur, consultez [Provisionnement du débit sur un conteneur Azure Cosmos](how-to-provision-container-throughput.md).
+Le débit approvisionné sur un conteneur Azure Cosmos est exclusivement réservé à ce conteneur. Le conteneur reçoit en permanence le débit provisionné. Le débit provisionné sur un conteneur est directement associé à des contrats SLA. Pour savoir comment configurer le débit sur un conteneur, consultez [approvisionner le débit sur un conteneur Azure Cosmos](how-to-provision-container-throughput.md).
 
-Définir le débit provisionné sur un conteneur correspond à l’option la plus utilisée. Vous pouvez mettre à l’échelle le débit pour un conteneur de manière élastique en provisionnant une quantité quelconque de débit à l’aide d’unités de requête (RU). Mais vous ne pouvez pas spécifier de manière sélective le débit pour les partitions logiques. 
+La définition du débit approvisionné sur un conteneur est l’option la plus fréquemment utilisée. Vous pouvez adapter leurs capacités débit pour un conteneur en approvisionnant une quantité quelconque de débit à l’aide de [unités de requête (RU)](request-units.md). 
 
-Si la charge de travail d'une partition logique consomme plus que le débit alloué à cette partition spécifique, vos opérations sont limitées en termes de débit. En cas de limitation, vous pouvez augmenter le débit pour l’intégralité du conteneur ou retenter les opérations. Pour plus d’informations sur le partitionnement, consultez [Partitions logiques](partition-data.md).
+Le débit provisionné sur un conteneur Azure Cosmos est uniformément réparti entre toutes les partitions logiques du conteneur. Vous ne pouvez pas spécifier sélectivement le débit pour les partitions logiques. Dans la mesure où une ou plusieurs partitions logiques d’un conteneur sont hébergées par une partition physique, les partitions physiques appartiennent exclusivement au conteneur et prennent en charge le débit provisionné sur ce conteneur. 
+
+Si la charge de travail en cours d’exécution sur une partition logique consomme plus de débit qui a été alloué à cette partition logique, vos opérations obtient limitée. Cas de limitation du débit, vous pouvez augmenter le débit approvisionné pour l’intégralité du conteneur ou réessayez les opérations. Pour plus d’informations sur le partitionnement, consultez [Partitions logiques](partition-data.md).
 
 Il vous est recommandé de configurer le débit au niveau de la granularité du conteneur pour garantir les performances de ce conteneur.
-
-Le débit provisionné sur un conteneur Azure Cosmos est uniformément réparti entre toutes les partitions logiques du conteneur. Dans la mesure où une ou plusieurs partitions logiques d’un conteneur sont hébergées par une partition physique, les partitions physiques appartiennent exclusivement au conteneur et prennent en charge le débit provisionné sur ce conteneur. 
 
 L’illustration suivante montre comment une partition physique héberge une ou plusieurs partitions logiques d’un conteneur :
 
@@ -40,9 +40,9 @@ L’illustration suivante montre comment une partition physique héberge une ou 
 
 ## <a name="set-throughput-on-a-database"></a>Définir le débit sur une base de données
 
-Quand vous provisionnez le débit sur une base de données Azure Cosmos, il est partagé entre tous les conteneurs de la base de données. Sauf si vous avez spécifié un débit provisionné sur des conteneurs spécifiques. Le partage de débit de la base de données entre ses conteneurs est analogue à l’hébergement d’une base de données sur un cluster de machines. Tous les conteneurs d’une base de données partageant les ressources disponibles sur une machine, vous ne pouvez pas prévoir les performances d'un conteneur spécifique. Pour configurer le débit sur une base de données, consultez [Configurer le débit provisionné sur une base de données Azure Cosmos](how-to-provision-database-throughput.md).
+Quand vous provisionnez le débit sur une base de données Azure Cosmos, il est partagé entre tous les conteneurs de la base de données. Une exception est si vous avez spécifié un débit approvisionné sur des conteneurs spécifiques dans la base de données. Partage le débit approvisionné au niveau de la base de données entre ses conteneurs est analogue à l’hébergement d’une base de données sur un cluster de machines. Tous les conteneurs d’une base de données partageant les ressources disponibles sur une machine, vous ne pouvez pas prévoir les performances d'un conteneur spécifique. Pour savoir comment configurer le débit approvisionné sur une base de données, consultez [configurer le débit approvisionné sur une base de données Azure Cosmos](how-to-provision-database-throughput.md).
 
-Définir le débit sur une base de données Azure Cosmos vous permet de veiller à ce que vous receviez en permanence le débit provisionné. Tous les conteneurs d’une base de données partageant le débit provisionné, Azure Cosmos DB n’offre pas de garantie de débit prévisible pour un conteneur donné de cette base de données. La portion de débit qu'un conteneur spécifique peut recevoir dépend de ce qui suit :
+La définition du débit sur une base de données Azure Cosmos garantit que vous recevez le débit approvisionné pour cette base de données tout le temps. Tous les conteneurs d’une base de données partageant le débit provisionné, Azure Cosmos DB n’offre pas de garantie de débit prévisible pour un conteneur donné de cette base de données. La portion de débit qu'un conteneur spécifique peut recevoir dépend de ce qui suit :
 
 * Nombre de conteneurs.
 * Choix des clés de partition pour différents conteneurs.
@@ -56,11 +56,11 @@ Les exemples suivants démontrent des situations où il est préférable de prov
 
 * Partager le débit provisionné d’une base de données sur un ensemble de conteneurs est utile quand vous migrez une base de données NoSQL (par exemple, MongoDB ou Cassandra) hébergée sur un cluster de machines virtuelles ou de serveurs physiques locaux vers Azure Cosmos DB. Vous pouvez considérer le débit provisionné configuré sur votre base de données Azure Cosmos en tant qu’équivalent logique (mais plus rentable et élastique) de la capacité de calcul de votre cluster MongoDB ou Cassandra.  
 
-Tous les conteneurs créés à l’intérieur d’une base de données avec un débit provisionné doivent être créés avec une clé de partition. À un moment donné, le débit alloué à un conteneur au sein d’une base de données est réparti entre toutes les partitions logiques de ce conteneur. En présence de conteneurs partageant un débit provisionné sur une base de données, vous ne pouvez pas appliquer de manière sélective le débit à un conteneur ou une partition logique spécifique. 
+Tous les conteneurs créés à l’intérieur d’une base de données avec un débit approvisionné doivent être créées avec un [clé de partition](partition-data.md). À un moment donné, le débit alloué à un conteneur au sein d’une base de données est réparti entre toutes les partitions logiques de ce conteneur. Lorsque vous avez des conteneurs qui partagent un débit approvisionné configuré sur une base de données, vous ne pouvez pas appliquer de manière sélective le débit pour un conteneur spécifique ou une partition logique. 
 
-Si la charge de travail d'une partition logique consomme plus que le débit alloué à une partition logique spécifique, vos opérations sont limitées en termes de débit. En cas de limitation, vous pouvez augmenter le débit pour l’intégralité du conteneur ou retenter les opérations. Pour plus d’informations sur le partitionnement, consultez [Partitions logiques](partition-data.md).
+Si la charge de travail d'une partition logique consomme plus que le débit alloué à une partition logique spécifique, vos opérations sont limitées en termes de débit. Cas de limitation du débit, vous pouvez augmenter le débit pour la base de données entière ou les opérations de nouvelle tentative. Pour plus d’informations sur le partitionnement, consultez [Partitions logiques](partition-data.md).
 
-Plusieurs partitions logiques partageant le débit provisionné sur une base de données peuvent être hébergées sur une partition physique unique. Si une seule partition logique appartenant à un conteneur est toujours limitée dans une partition physique, les partitions logiques « L » des conteneurs « C » partageant le débit provisionné d’une base de données peuvent être mappées et hébergées sur les partitions physiques « R ». 
+Plusieurs partitions logiques qui appartiennent à des conteneurs différents qui partagent le débit provisionné pour une base de données peuvent être hébergées sur une seule partition physique. Pendant une partition logique unique d’un conteneur de portée est toujours limitée au sein d’une partition physique, *« L »* partitions logiques sur *« C »* conteneurs qui partagent le débit approvisionné une base de données peuvent être mappé et hébergé sur *« R »* partitions physiques. 
 
 L’illustration suivante montre comment une partition physique peut héberger une ou plusieurs partitions logiques, appartenant à différents conteneurs, au sein d’une base de données :
 
@@ -70,11 +70,11 @@ L’illustration suivante montre comment une partition physique peut héberger u
 
 Vous pouvez combiner les deux modèles. Provisionner le débit sur la base de données et le conteneur est autorisé. L’exemple suivant montre comment provisionner le débit sur une base de données et un conteneur Azure Cosmos :
 
-* Vous pouvez créer une base de données Azure Cosmos nommée « Z » avec le débit provisionné des unités de requête « K ». 
-* Créez ensuite cinq conteneurs nommés A, B, C, D et E dans la base de données.
-* Vous pouvez explicitement configurer des unités de requête « P » de débit provisionné sur le conteneur nommé B.
-* Le débit des unités de requête « K » est partagé entre les quatre conteneurs : A, C, D et E. La quantité exacte de débit disponible pour A, C, D ou E varie. Il n’existe pas de contrat SLA correspondant au débit de chaque conteneur individuel.
-* Le conteneur nommé B est assuré de bénéficier en permanence du débit des unités de requête « P ». Il est associé à des contrats SLA.
+* Vous pouvez créer une base de données Azure Cosmos nommée *Z* avec un débit approvisionné de *« K »* unités de requête. 
+* Ensuite, créez cinq conteneurs nommés *A*, *B*, *C*, *D*, et *E* au sein de la base de données.
+* Vous pouvez configurer explicitement *« P »* RU de débit approvisionné sur le conteneur nommé *B*.
+* Le *« K »* RUs débit est partagé entre les quatre conteneurs *A*, *C*, *D*, et *E*. La quantité exacte de débit disponible pour *A*, *C*, *D*, ou *E* varie. Il n’existe pas de contrat SLA correspondant au débit de chaque conteneur individuel.
+* Le conteneur nommé *B* est assurée de bénéficier de la *« P »* RUs débit tout le temps. Il est associé à des contrats SLA.
 
 ## <a name="update-throughput-on-a-database-or-a-container"></a>Débit de mise à jour sur une base de données ou un conteneur
 
@@ -92,7 +92,7 @@ Vous pouvez faire évoluer le débit approvisionné d’un conteneur ou d’une 
 
 ## <a name="comparison-of-models"></a>Comparaison des modèles
 
-|**Quota**  |**Débit provisionné sur une base de données**  |**Débit provisionné sur un conteneur**|
+|**Paramètre**  |**Débit provisionné sur une base de données**  |**Débit provisionné sur un conteneur**|
 |---------|---------|---------|
 |Unités de requête minimales |400 (Après les quatre premiers conteneurs, chaque conteneur supplémentaire requiert un minimum de 100 RU par seconde.) |400|
 |Unités de requête minimales par conteneur|100|400|

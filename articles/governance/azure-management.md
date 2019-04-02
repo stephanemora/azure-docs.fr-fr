@@ -7,14 +7,14 @@ ms.service: governance
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: dacoulte
-ms.openlocfilehash: c38d19b8528399ae09d92e48ed7dfc17c18938b7
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: f94cec7919edc6cf6ebb6618d38b8591feb1278b
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338068"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804137"
 ---
-# <a name="management-in-azure"></a>Gestion dans Azure
+# <a name="overview-of-management-services-in-azure"></a>Vue d’ensemble des services de gestion dans Azure
 
 La gouvernance dans Azure est un aspect de la gestion Azure. Cet article décrit les différents domaines de gestion pour déployer et maintenir vos ressources dans Azure.
 
@@ -22,7 +22,7 @@ La gestion fait référence aux tâches et processus nécessaires pour maintenir
 
 Le schéma ci-dessous illustre les différents domaines de gestion requis pour maintenir toute application ou ressource. Ces différents domaines peuvent être considérés comme un cycle de vie. Chaque domaine est obligatoire successivement sur la durée de vie d’une ressource. Le cycle de vie d’une ressource commence par son déploiement initial, puis son exploitation dans la durée, et se termine par sa mise hors service.
 
-![Disciplines de gestion](../monitoring/media/management-overview/management-capabilities.png)
+![Disciplines de gestion dans Azure](../monitoring/media/management-overview/management-capabilities.png)
 
 Aucun service Azure ne répond complètement aux exigences d’un domaine de gestion en particulier. Au lieu de cela, chacune est réalisée par plusieurs services fonctionnant ensemble. Certains services, comme Application Insights, fournissent une fonctionnalité de supervision ciblée pour les applications web. D'autres, comme les journaux Azure Monitor, stockent les données de gestion pour d'autres services. Cette fonctionnalité vous permet d’analyser des données de différents types collectées par différents services.
 

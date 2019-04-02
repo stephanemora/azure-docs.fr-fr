@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 81ce9cb2667ce9f21d7c18a92e417e47768d7efb
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: b53e07d6086f2a02fd1bbd158ffc09dc95b0c377
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57407933"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801281"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>Gérer des packages Python 2 dans Azure Automation
 
@@ -42,7 +42,7 @@ Azure automation ne résout pas les dépendances de packages python pendant le p
 
 Sur Windows 64 bits de l’ordinateur avec [Python 2.7](https://www.python.org/downloads/release/latest/python2) et [pip](https://pip.pypa.io/en/stable/) installé, exécutez la commande suivante pour télécharger un package et toutes ses dépendances :
 
-```
+```cmd
 C:\Python27\Scripts\pip2.7.exe download -d <output dir> <package name>
 ```
 

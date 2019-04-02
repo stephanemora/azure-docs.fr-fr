@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: a102216a6a2a7dec471678e14f7050cb4ef41d77
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 4ba8977180e33256bfdc6652811495a02a9ef19c
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370106"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802951"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Contrôle d’accès dans Azure Data Lake Storage Gen2
 
@@ -27,9 +27,9 @@ Même si l’affectation de rôle RBAC est un mécanisme puissant pour contrôle
 
 Le Stockage Azure propose trois rôles RBAC intégrés pour le stockage Blob : 
 
-- [Propriétaire des données Blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner-preview)
-- [Contributeur aux données Blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview)
-- [Lecteur des données blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader-preview)
+- [Propriétaire des données Blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
+- [Contributeur aux données Blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
+- [Lecteur des données blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader)
 
 Quand un utilisateur ou un principal de service reçoit des autorisations RBAC d’accès aux données via l’un de ces rôles prédéfinis, ou via un rôle personnalisé, ces autorisations sont évaluées en premier lors de l’autorisation d’une demande. Si l’opération demandée est autorisée par les attributions RBAC de l’appelant, l’autorisation est immédiatement résolue et aucune vérification supplémentaire n’est réalisée au niveau des ACL. Si l’appelant n’a pas de rôle RBAC attribué ou si l’exécution de la demande ne correspond pas à l’autorisation accordée, des vérifications ACL sont effectuées pour déterminer si l’appelant est autorisé à exécuter l’opération demandée.
 

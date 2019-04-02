@@ -4,22 +4,20 @@ description: Explique comment utiliser des scripts pour migrer un grand nombre d
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 02/07/2019
+ms.date: 04/01/2019
 ms.author: snehaa
-ms.openlocfilehash: 74dabc49dd3d0e38f43dc758204c35ea1c0efd99
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f90140e9464ee72e9ceae8ca140bd060c51aade8
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438480"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762648"
 ---
 # <a name="scale-migration-of-vms-using-azure-site-recovery"></a>Mettre à l’échelle la migration de machines virtuelles à l’aide d’Azure Site Recovery
 
-Cet article vous aide à comprendre le processus d’utilisation de scripts pour migrer un grand nombre de machines virtuelles à l’aide d’Azure Site Recovery. Ces scripts sont disponibles pour votre téléchargement dans le dépôt [Exemples Azure PowerShell](https://github.com/Azure/azure-docs-powershell-samples) sur GitHub. Il est possible d’utiliser les scripts pour migrer des machines virtuelles VMware, AWS, GCP et des serveurs physiques vers Azure. Vous pouvez également utiliser ces scripts pour migrer des machines virtuelles Hyper-V si vous migrez les machines virtuelles en tant que serveurs physiques. Les scripts tirent parti d’Azure Site Recovery PowerShell qui est documenté [ici](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell).
+Cet article vous aide à comprendre le processus d’utilisation de scripts pour migrer un grand nombre de machines virtuelles à l’aide d’Azure Site Recovery. Ces scripts sont disponibles pour votre téléchargement dans le dépôt [Exemples Azure PowerShell](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-with-site-recovery) sur GitHub. Les scripts peuvent être utilisés pour migrer de VMware, AWS, Google cloud Platform des machines virtuelles et des serveurs physiques vers Azure et prise en charge la migration vers des disques gérés. Vous pouvez également utiliser ces scripts pour migrer des machines virtuelles Hyper-V si vous migrez les machines virtuelles en tant que serveurs physiques. Les scripts tirent parti d’Azure Site Recovery PowerShell qui est documenté [ici](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell).
 
 ## <a name="current-limitations"></a>Limitations actuelles :
-- Les scripts prennent actuellement en charge la migration vers des disques non managés
-- Prendre en charge la migration uniquement vers des disques standard
 - Prendre en charge la spécification de l’adresse IP statique uniquement pour la carte réseau principale de la machine virtuelle cible
 - Les scripts ne prennent pas les entrées associées à Azure Hybrid Benefit. Vous devez mettre à jour manuellement les propriétés de la machine virtuelle répliquée dans le portail
 
@@ -33,7 +31,8 @@ Avant de commencer, vous devez effectuer les étapes suivantes :
 - Vérifiez que vous avez ajouté le compte d’administrateur de machine virtuelle sur le serveur de configuration (qui sera utilisé pour répliquer l’ordinateur local des machines virtuelles)
 - Assurez-vous que les artefacts de la cible dans Azure sont créés.
     - Groupe de ressources cible
-    - Compte de stockage cible (et son groupe de ressources)
+    - Compte de stockage cible (et son groupe de ressources) - créer un compte de stockage premium si vous projetez de migrer vers des disques gérés premium
+    - Compte de stockage de cache (et son groupe de ressources) - créer un compte de stockage standard dans la même région que le coffre
     - Réseau virtuel cible pour le basculement (et son groupe de ressources)
     - Sous-réseau cible
     - Réseau virtuel cible pour le test de basculement (et son groupe de ressources)
@@ -43,10 +42,10 @@ Avant de commencer, vous devez effectuer les étapes suivantes :
     - Nom de la machine virtuelle cible
     - Taille de la machine virtuelle cible dans Azure (peut être définie à l’aide d’une évaluation Azure Migrate)
     - Adresse IP privée de la carte réseau principale dans la machine virtuelle
-- Téléchargez les scripts à partir du dépôt [Exemples Azure PowerShell](https://github.com/Azure/azure-docs-powershell-samples) sur GitHub
+- Téléchargez les scripts à partir du dépôt [Exemples Azure PowerShell](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-with-site-recovery) sur GitHub
 
 ### <a name="csv-input-file"></a>Fichier d’entrée CSV
-Une fois tous les prérequis satisfaits, vous devez créer un fichier CSV qui comporte des données pour chaque machine source que vous voulez migrer. L’entrée CSV doit avoir une ligne d’en-tête contenant les détails de l’entrée et une ligne contenant les détails de chaque machine devant être migrée. Tous les scripts sont conçus pour fonctionner sur le même fichier CSV. À titre de référence, un exemple de modèle CSV est disponible dans le dossier des scripts.
+Une fois que vous avez toutes les conditions préalables terminées, vous devez créer un fichier CSV, qui comporte des données pour chaque ordinateur source que vous souhaitez migrer. L’entrée CSV doit avoir une ligne d’en-tête contenant les détails de l’entrée et une ligne contenant les détails de chaque machine devant être migrée. Tous les scripts sont conçus pour fonctionner sur le même fichier CSV. À titre de référence, un exemple de modèle CSV est disponible dans le dossier des scripts.
 
 ### <a name="script-execution"></a>Exécution des scripts
 Une fois que le fichier CSV prêt, vous pouvez exécuter les étapes suivantes pour effectuer la migration des machines virtuelles locales :
@@ -59,9 +58,12 @@ Une fois que le fichier CSV prêt, vous pouvez exécuter les étapes suivantes p
 4 | asr_propertiescheck.ps1 | Vérifier si les propriétés sont correctement mises à jour
 5. | asr_testmigration.ps1 |  Démarrer le test de basculement des machines virtuelles listées dans le fichier csv. Le script crée une sortie CSV avec les détails du travail pour chaque machine virtuelle
 6. | asr_cleanuptestmigration.ps1 | Après avoir validé manuellement les machines virtuelles dont le test de basculement a échoué, vous pouvez utiliser ce script pour nettoyer les machines virtuelles du test de basculement
-7 | asr_migration.ps1 | Effectuer un basculement non planifié pour les machines virtuelles listées dans le fichier csv. Le script crée une sortie CSV avec les détails du travail pour chaque machine virtuelle. Le script ne s’arrête pas l’ordinateur local des machines virtuelles avant de déclencher le basculement, pour la cohérence des applications, il est recommandé que vous arrêtez manuellement les machines virtuelles avant l’exécution du script.
-8 | asr_completemigration.ps1 | Effectuer l’opération de validation sur les machines virtuelles et supprimer les entités ASR
+7 | asr_migration.ps1 | Effectuer un basculement non planifié pour les machines virtuelles listées dans le fichier csv. Le script crée une sortie CSV avec les détails du travail pour chaque machine virtuelle. Le script n’arrête pas l’ordinateur local des machines virtuelles avant de déclencher le basculement, pour la cohérence des applications, il est recommandé que vous arrêtez manuellement les machines virtuelles avant l’exécution du script.
+8 | asr_completemigration.ps1 | Effectuer l’opération de validation sur les machines virtuelles et supprimer les entités Azure Site Recovery
 9 | asr_postmigration.ps1 | Si vous envisagez d’attribuer des groupes de sécurité réseau aux cartes réseau après le basculement, vous pouvez, pour cela, utiliser ce script. Cela attribue un groupe de sécurité réseau à n’importe quelle carte réseau de la machine virtuelle cible.
+
+## <a name="how-to-migrate-to-managed-disks"></a>Comment migrer vers managed disks ?
+Le script, par défaut, migre les machines virtuelles vers des disques gérés dans Azure. Si le compte de stockage cible fourni est un compte de stockage premium, disques gérés premium sont créés après migration. Le compte de stockage de cache peut être toujours un compte standard. Si le compte de stockage cible est un compte de stockage standard, les disques standards sont créés après la migration. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

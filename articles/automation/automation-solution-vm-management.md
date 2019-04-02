@@ -6,19 +6,22 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/26/2019
+ms.date: 03/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6b5ef0f165433e2dd0685aa0e4f64bd04bf5c823
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6d7b99da3e8e81973c51bbd68a15517828c9736d
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57902244"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762937"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Solution de démarrage/arrêt des machines virtuelles durant les heures creuses dans Azure Automation
 
 Le Start/Stop VMs during off-solution démarre et arrête vos machines virtuelles Azure selon une planification définie par l’utilisateur fournit des informations via les journaux Azure Monitor et envoyer des e-mails à l’aide de [groupes d’actions](../azure-monitor/platform/action-groups.md). Elle prend en charge Azure Resource Manager et les machines virtuelles classiques pour la plupart des scénarios.
+
+> [!NOTE]
+> Le Start/Stop VMs during off-solution a été testée avec les modules Azure qui sont importés dans votre compte Automation lorsque vous déployez la solution. La solution ne fonctionne actuellement pas avec des versions plus récentes du module Azure. Cela affecte uniquement le compte Automation que vous utilisez pour exécuter le Start/Stop VMs au cours de la solution d’heures creuses. Vous pouvez toujours utiliser des versions plus récentes du module Azure dans vos autres comptes Automation, comme décrit dans [comment mettre à jour les modules Azure PowerShell dans Azure Automation](automation-update-azure-modules.md)
 
 Cette solution offre une option décentralisée pour les utilisateurs souhaitant réduire les coûts de leurs machines virtuelles. Cette option permet d’effectuer les tâches suivantes :
 

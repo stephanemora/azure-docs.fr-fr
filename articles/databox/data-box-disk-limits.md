@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 9cad48eeadc06c84e326cbc5f19f1c97e151a795
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 32445e3f6859a6161eb2fae20233c598234f18a0
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880447"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58791641"
 ---
 # <a name="azure-data-box-disk-limits"></a>Limites d’Azure Data Box Disk
 
@@ -50,11 +50,11 @@ Pour les informations les plus récentes sur les limites du service de stockage 
 - Chaque fichier écrit dans les partages *ObjetBlobDeBlocs* et *ObjetBlobDePages* est chargé respectivement en tant qu’objet blob de blocs et objet blob de pages.
 - Une hiérarchie de répertoires vides (sans fichiers) créée sous les dossiers *ObjetBlobDeBlocs* et *ObjetBlobDePages* n’est pas chargée.
 - S’il se produit des erreurs lors du chargement des données sur Azure, un journal des erreurs est créé dans le compte de stockage cible. Le chemin menant à ce journal des erreurs est disponible dans le portail à l’issue du chargement ; vous pouvez consulter ce journal afin de procéder aux corrections. Ne supprimez pas les données de la source sans avoir préalablement vérifié les données chargées.
-- Si vous avez spécifié des disques gérés dans l’ordre, passez en revue les considérations supplémentaires suivantes :
+- Si vous avez spécifié des disques managés dans la commande, passez en revue les considérations supplémentaires suivantes :
 
-    - Vous ne pouvez avoir un disque géré avec un nom donné dans un groupe de ressources entre tous les dossiers précréés et entre tous les disques Data Box. Cela implique que les disques durs virtuels téléchargés vers les dossiers précréés doivent avoir des noms uniques. Assurez-vous que le nom donné ne correspond pas à un disque géré déjà existant dans un groupe de ressources. Si les disques durs virtuels ont les mêmes noms, qu’un seul disque dur virtuel est converti en disque géré avec ce nom. Les disques durs virtuels sont téléchargés en tant qu’objets BLOB de pages dans le compte de stockage intermédiaire.
-    - Toujours copier les disques durs virtuels à un des dossiers précréés. Si vous copiez les disques durs virtuels en dehors de ces dossiers ou dans un dossier que vous avez créé, les disques durs virtuels sont chargés sur le compte de stockage Azure en tant qu’objets BLOB de pages et disques non gérés.
-    - Seuls les disques durs virtuels fixes peuvent être téléchargés pour créer des disques gérés. Disques durs virtuels dynamiques, disques durs virtuels différenciation ou VHDX fichiers ne sont pas pris en charge.
+    - Vous pouvez avoir un seul disque managé du même nom dans un groupe de ressources sur l’ensemble des dossiers précréés et de Data Box Disk. Les disques durs virtuels chargés vers les dossiers précréés doivent donc avoir des noms uniques. Assurez-vous que le nom donné n’a pas déjà été utilisé pour un autre disque managé existant dans un groupe de ressources. Si plusieurs disques durs virtuels ont le même nom, un seul de ces disques est converti en disque managé avec ce nom. Les autres disques durs virtuels sont chargés comme objets blob de pages dans le compte de stockage de préproduction.
+    - Vous devez toujours copier les disques durs virtuels dans un des dossiers précréés. Si vous copiez les disques durs virtuels ailleurs que dans ces dossiers ou dans un dossier que vous avez créé vous-même, les disques durs virtuels sont chargés dans le compte de stockage Azure comme objets blob de pages au lieu de disques non managés.
+    - Seuls les disques durs virtuels fixes peuvent être chargés pour créer des disques managés. Les disques durs virtuels dynamiques, les disques durs virtuels de différenciation ou les fichiers VHDX ne sont pas pris en charge.
 
 ## <a name="azure-storage-account-size-limits"></a>Limites de la taille du compte de stockage Azure
 
@@ -93,4 +93,4 @@ Voici les tailles des objets Azure qui peuvent être écrits. Assurez-vous que t
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Relire les [Conditions requises pour le système Data Box](data-box-system-requirements.md)
+- Révision [requise disque Data Box](data-box-disk-system-requirements.md)

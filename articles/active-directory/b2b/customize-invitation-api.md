@@ -11,18 +11,19 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 610d81912ac0244f25bc39c41690ab7e7ea8897c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 17b472b647dd27306ca95345e49dfeb3aee60665
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58111308"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793377"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>API et personnalisation d’Azure Active Directory B2B Collaboration
 
 De nombreux clients nous ont indiqué qu’ils souhaitent personnaliser le processus d’invitation d’une manière qui convient mieux à leurs organisations. Avec notre API, cela est possible. [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
 
 ## <a name="capabilities-of-the-invitation-api"></a>Fonctionnalités de l’API d’invitation
+
 L’API offre les fonctionnalités suivantes :
 
 1. Invitez un utilisateur externe avec *n’importe quelle* adresse e-mail.
@@ -68,21 +69,25 @@ L’API offre les fonctionnalités suivantes :
 
 
 ## <a name="authorization-model"></a>Modèle d’autorisation
+
 L’API peut être exécutée dans les modes d’autorisation suivants :
 
 ### <a name="app--user-mode"></a>Mode Application + Utilisateur
+
 Dans ce mode, toute personne utilisant l’API doit disposer des autorisations permettant de créer des invitations B2B.
 
 ### <a name="app-only-mode"></a>Mode Application uniquement
+
 Dans le contexte Application uniquement, l’application a besoin de l’étendue User.Invite.All pour que l’invitation réussisse.
 
 Pour plus d'informations, consultez : https://developer.microsoft.com/graph/docs/authorization/permission_scopes
 
 
 ## <a name="powershell"></a>PowerShell
+
 Vous pouvez utiliser PowerShell pour ajouter et inviter facilement des utilisateurs externes au sein d’une organisation. Créez une invitation à l’aide de l’applet de commande suivante :
 
-```
+```powershell
 New-AzureADMSInvitation
 ```
 
@@ -102,7 +107,8 @@ Une fois que vous avez envoyé une invitation à un utilisateur externe, vous po
 
 Vous pouvez utiliser l’option **Filter** pour filtrer les résultats en fonction de la propriété **UserState**. L’exemple ci-dessous montre comment filtrer les résultats pour afficher uniquement les utilisateurs qui ont une invitation en attente. L’exemple illustre également l’option **Format-List**, qui vous permet de spécifier les propriétés à afficher. 
  
-```
+
+```powershell
 Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Property DisplayName,UserPrincipalName,UserState,UserStateChangedOn
 ```
 
@@ -119,4 +125,3 @@ Consultez les informations de référence sur les API d’invitation dans [https
 - [Éléments de l’e-mail d’invitation de B2B Collaboration](invitation-email-elements.md)
 - [Utilisation d’une invitation B2B Collaboration](redemption-experience.md)
 - [Ajouter des utilisateurs B2B Collaboration sans invitation](add-user-without-invite.md)
-

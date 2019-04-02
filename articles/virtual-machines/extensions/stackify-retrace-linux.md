@@ -14,16 +14,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/12/2018
 ms.author: roiyz
-ms.openlocfilehash: e80134729c33741aa3007deb2d93a2de3e3fe697
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: b9c035c1c9088957f59550bf6564cc02bc7972f4
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979715"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792415"
 ---
 # <a name="stackify-retrace-linux-agent-extension"></a>Extension de l’agent Linux pour Stackify Retrace
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
+
 Stackify fournit des produits qui assurent le suivi d’informations se rapportant à votre application, afin de pouvoir rapidement identifier et résoudre les problèmes. Entièrement intégrée et présente dans de nombreux environnements, Retrace est une superpuissance en matière de performances d’application pour les équipes de développeurs. Elle associe différents outils indispensables à toutes les équipes de développement.
 
 Retrace est le SEUL outil capable de fournir l’ensemble des fonctionnalités suivantes, dans tous les environnements et sur une seule plateforme.
@@ -37,9 +38,10 @@ Retrace est le SEUL outil capable de fournir l’ensemble des fonctionnalités s
 
 Cette extension fournit un chemin d’installation à l’agent Linux pour Retrace. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 ### <a name="operating-system"></a>Système d’exploitation 
+
 Vous pouvez exécuter l’agent Retrace par rapport à ces distributions de Linux
 
 | Distribution | Version |
@@ -50,12 +52,14 @@ Vous pouvez exécuter l’agent Retrace par rapport à ces distributions de Linu
 | CentOS | 6.3+, 7.0+ |
 
 ### <a name="internet-connectivity"></a>Connectivité Internet
+
 La machine virtuelle cible doit être connectée à Internet afin de pouvoir utiliser l’extension de l’agent Stackify pour Linux. 
 
 Vous devrez peut-être ajuster la configuration de votre réseau pour autoriser les connexions à Stackify, consultez https://support.stackify.com/hc/en-us/articles/207891903-Adding-Exceptions-to-a-Firewall. 
 
 
 ## <a name="extension-schema"></a>Schéma d’extensions
+
 ---
 
 L’extrait JSON suivant illustre le schéma de l’extension de l’agent Stackify Retrace. L’extension nécessite `environment` et `activationKey`.
@@ -151,7 +155,7 @@ Vous pouvez utiliser la commande `Set-AzVMExtension` pour déployer l’extensio
 
 L’extension nécessite `environment` et `activationKey`.
 
-```
+```powershell
 $PublicSettings = @{"environment" = "myEnvironment"}
 $ProtectedSettings = @{"activationKey" = "myActivationKey"}
 

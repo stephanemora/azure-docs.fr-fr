@@ -16,12 +16,12 @@ ms.date: 03/27/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ae5b58fb87aaa94e081f9cb60d063c70e5d0359
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 26f3fe9c2483dda3b9350c110b2e8adf60dcd21e
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540956"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803151"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect : Historique de publication des versions
 L’équipe Azure Active Directory (Azure AD) met régulièrement à jour Azure AD Connect avec de nouvelles fonctions et fonctionnalités. Tous les ajouts ne sont pas applicables à toutes les configurations.
@@ -39,17 +39,17 @@ Autorisations requises | Pour plus d’informations sur les autorisations requis
 Télécharger| [Télécharger Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
 
 >[!NOTE]
->La mise à niveau automatique ne concernera pas toutes les versions d’Azure AD Connect. L’état de la version indique si une version est disponible en mise à niveau automatique ou en téléchargement uniquement. Si la mise à niveau automatique a été activée sur votre serveur Azure AD Connect, celui-ci sera automatiquement mis à niveau vers la dernière version d’Azure AD Connect qui est disponible en mise à niveau automatique. Certaines configurations Azure AD Connect seulement sont éligibles à la mise à niveau automatique. Veuillez suivre ce lien pour en savoir plus sur la [mise à niveau automatique](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
+>Publie une nouvelle version d’Azure AD Connect est un processus qui nécessite plusieurs étape de contrôle qualité pour garantir que la fonctionnalité de l’opération du service, et pendant que nous examinerons ce processus le numéro de version d’une nouvelle version, ainsi que l’état de mise en production sera mise à jour pour refléter l’état le plus récent.
+Bien que nous examinerons ce processus, le numéro de version de la version s’affichera avec un « X » dans la position de numéro de version mineure, comme dans « 1.3.X.0 » - Cela indique que les notes de publication dans ce document sont valides pour toutes les versions commençant par « 1.3. ». Dès que nous avons de finalisation du processus de publication le numéro de version est actualisé à la version la plus récente et l’état de mise en production sera mise à jour de la « Lancé pour le téléchargement et mise à niveau automatique ».
+La mise à niveau automatique ne concernera pas toutes les versions d’Azure AD Connect. L’état de la version indique si une version est disponible en mise à niveau automatique ou en téléchargement uniquement. Si la mise à niveau automatique a été activée sur votre serveur Azure AD Connect, celui-ci sera automatiquement mis à niveau vers la dernière version d’Azure AD Connect qui est disponible en mise à niveau automatique. Certaines configurations Azure AD Connect seulement sont éligibles à la mise à niveau automatique. Veuillez suivre ce lien pour en savoir plus sur la [mise à niveau automatique](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
 
-## <a name="13100"></a>1.3.10.0 
+## <a name="13x0"></a>1.3.X.0 
 
 ### <a name="release-status"></a>État de la version 
 
-3/25/2019: Pas encore été publié 
+3/25/2019: Pending
  
 ### <a name="new-features-and-improvements"></a>Améliorations et nouvelles fonctionnalités 
-
-
 
 - Ajouter la prise en charge pour l’actualisation de domaine 
 - Fonctionnalité de dossiers publics de messagerie Exchange va GA 

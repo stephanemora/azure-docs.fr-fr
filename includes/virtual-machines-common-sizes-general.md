@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/08/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 8297e324f03d263acaa30dfa2147f7ee713bd265
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
-ms.translationtype: HT
+ms.openlocfilehash: ae07c29e9fcc7e498e1e39b3d4dc1d93de64e883
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48904653"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58763294"
 ---
 Les tailles de machine virtuelle à usage général assurent un ratio processeur/mémoire équilibré. Idéal pour le test et le développement, les bases de données petites à moyennes et les serveurs web au trafic faible à moyen. Cet article donne des informations sur le nombre de processeurs virtuels, de disques de données et de cartes réseau ainsi que sur le débit de stockage pour chacune des tailles de ce regroupement. 
 
@@ -32,37 +32,39 @@ Les tailles de machine virtuelle à usage général assurent un ratio processeur
 
 ## <a name="b-series"></a>Série B
 
-Stockage Premium : pris en charge
+Premium Storage :  Pris en charge
 
-Mise en cache du Stockage Premium : non pris en charge
+Mise en cache du Stockage Premium :  Non pris en charge
 
 Les machines virtuelles extensibles de la série B sont idéales pour les charges de travail ne nécessitant pas en permanence les performances complètes du processeur, comme les serveurs web, les petites bases de données et les environnements de test et de développement. Ces charges de travail ont généralement des exigences modulables en termes de performances. La série B permet à ces clients d’acheter une taille de machine virtuelle aux performances de base sensibles au prix qui permet à l’instance de machine virtuelle de générer des crédits quand la machine virtuelle n’utilise pas la totalité de ses performances de base. Dès que la machine virtuelle a cumulé des crédits, celle-ci peut étendre ses performances en utilisant jusqu’à 100 % du processeur virtuel lorsque l’application requiert des performances de processeur plus élevées.
 
 Voici des exemples de cas d’usage : serveurs de développement et de test, serveurs web à faible trafic, bases de données de petite taille, microservices, serveurs de preuve de concept et serveurs de build.
 
 
-| Taille             | Processeurs virtuels  | Mémoire : Gio | SSD local = Gio | Perf. de base d’un cœur | Crédits cumulés/heure | Crédits cumulés max. | Disques de données max. | Perf. du disque local max : IOPS/Mbits/s | Perf. du disque non mis en cache max : IOPS/Mbits/s | Nombre max de cartes réseau |          
-|---------------|-------------|----------------|----------------------------|-----------------------|--------------------|----------------|----------------------------------------|-------------------------------------------|-------------------------------------------|----------|
-| Standard_B1s  | 1           | 1              | 4                          | 10%                   | 6.                  | 144            | 2                                      | 400 / 10                                  | 320 / 10                                  | 2  |
-| Standard_B1ms | 1           | 2              | 4                          | 20%                   | 12                 | 288            | 2                                      | 800 / 10                                  | 640 / 10                                  | 2  |
-| Standard_B2s  | 2           | 4              | 8                          | 40%                   | 24                 | 576            | 4                                      | 1600 / 15                                 | 1280 / 15                                 | 3  |
-| Standard_B2ms | 2           | 8              | 16                         | 60 %                   | 36                 | 864            | 4                                      | 2400 / 22.5                               | 1920 / 22.5                               | 3  |
-| Standard_B4ms | 4           | 16             | 32                         | 90%                   | 54                 | 1296           | 8                                      | 3600 / 35                                 | 2880 / 35                                 | 4  |
-| Standard_B8ms | 8           | 32             | 64                         | 135%                  | 81                 | 1944           | 16                                     | 4320 / 50                                 | 4320 / 50                                 | 4  |
+| Taille             | Processeurs virtuels  | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Perf. du processeur de base de machine virtuelle | Perf. du processeur max. de machine virtuelle | Crédits cumulés/heure | Crédits cumulés max. | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS / Mbits/s | Débit du disque non mis en cache max. : IOPS / Mbits/s | Nombre max de cartes réseau |          
+|---------------|-------------|----------------|----------------------------|-----------------------|--------------------|--------------------|----------------|----------------------------------------|-------------------------------------------|-------------------------------------------|----------|
+| Standard_B1ls<sup>1</sup>  | 1           | 0.5              | 4                          | 5%                   | 100 %                   | 3                  | 72            | 2                                      | 200 / 10                                  | 160 / 10                                  | 2  |
+| Standard_B1s  | 1           | 1              | 4                          | 10%                   | 100 %                   | 6.                  | 144            | 2                                      | 400 / 10                                  | 320 / 10                                  | 2  |
+| Standard_B1ms | 1           | 2              | 4                          | 20%                   | 100 %                   | 12                 | 288            | 2                                      | 800 / 10                                  | 640 / 10                                  | 2  |
+| Standard_B2s  | 2           | 4              | 8                          | 40%                   | 200%                   | 24                 | 576            | 4                                      | 1600 / 15                                 | 1280 / 15                                 | 3  |
+| Standard_B2ms | 2           | 8              | 16                         | 60 %                   | 200%                   | 36                 | 864            | 4                                      | 2400 / 22.5                               | 1920 / 22.5                               | 3  |
+| Standard_B4ms | 4           | 16             | 32                         | 90%                   | 400%                   | 54                 | 1296           | 8                                      | 3600 / 35                                 | 2880 / 35                                 | 4  |
+| Standard_B8ms | 8           | 32             | 64                         | 135%                  | 800%                   | 81                 | 1944           | 16                                     | 4320 / 50                                 | 4320 / 50                                 | 4  |
 
+<sup>1</sup> B1ls est pris en charge uniquement sur Linux
 
 ## <a name="dsv3-series-sup1sup"></a>Série Dsv3 <sup>1</sup>
 
-ACU : 160-190
+ACU : 160-190
 
-Stockage Premium : pris en charge
+Premium Storage :  Pris en charge
 
-Mise en cache du Stockage Premium : pris en charge
+Mise en cache du Stockage Premium :  Pris en charge
 
 Les tailles des machines virtuelles de la série Dsv3 sont basées sur le processeur Intel Xeon® E5-2673 v3 (Haswell) de 2,4 GHz ou sur le dernier processeur Intel XEON® E5-2673 v4 (Broadwell) de 2,3 GHz qui peuvent aller jusqu’à 3,5 GHz avec Intel Turbo Boost Technology 2.0 et utilisent un stockage premium. Les tailles des machines virtuelles de la série Dsv3 offrent une combinaison de processeur virtuel, mémoire et stockage temporaire pour la plupart des charges de travail de production.
 
 
-| Taille             | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et en cache max : E/S par seconde / Mbits/s (taille du cache en Gio) | Débit de disque maximal sans mise en cache : E/S / MBps | Nombre max de cartes réseau / Bande passante réseau attendue (MBps) |
+| Taille             | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS / Mbits/s (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS / Mbits/s | Nombre max de cartes réseau / Bande passante réseau attendue (MBps) |
 |------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------------------------|
 | Standard_D2s_v3  | 2      | 8           | 16             | 4              | 4 000 / 32 (50)                                                       | 3 200 / 48                                | 2 / 1 000                                   |
 | Standard_D4s_v3  | 4      | 16          | 32             | 8              | 8 000 / 64 (100)                                                      | 6 400 / 96                                | 2 / 2 000                                   |
@@ -75,18 +77,18 @@ Les tailles des machines virtuelles de la série Dsv3 sont basées sur le proce
 
 ## <a name="dv3-series-sup1sup"></a>Série Dv3 <sup>1</sup>
 
-ACU : 160-190
+ACU : 160-190
 
-Stockage Premium : non pris en charge
+Premium Storage :  Non pris en charge
 
-Mise en cache du Stockage Premium : non pris en charge
+Mise en cache du Stockage Premium :  Non pris en charge
 
 Les tailles des machines virtuelles de la série Dv3 sont basées sur le processeur Intel Xeon® E5-2673 v3 (Haswell) de 2,4 GHz ou sur le processeur Intel XEON® E5-2673 v4 (Broadwell) de 2,3 GHz qui peuvent aller jusqu’à 3,5 GHz avec Intel Turbo Boost Technology 2.0. Les tailles des machines virtuelles de la série Dv3 offrent une combinaison de processeur virtuel, mémoire et stockage temporaire pour la plupart des charges de travail de production.
 
 Le stockage sur disque de données est facturé séparément des machines virtuelles. Pour utiliser les disques de stockage Premium, utilisez des machines virtuelles au format Dsv3. Les tarifs et compteurs de facturation pour les tailles Dsv3 sont identiques à celles de la série Dv3. 
 
 
-| Taille            | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire local max : E/S par seconde / Mbits/s de lecture / Mbits/s d’écriture | Cartes réseau (max)/Bande passante réseau |
+| Taille            | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire max. : IOPS / Mbits/s en lecture / Mbits/s en écriture | Cartes réseau (max)/Bande passante réseau |
 |-----------------|-----------|-------------|----------------|----------------|----------------------------------------------------------|------------------------------|
 | Standard_D2_v3  | 2         | 8           | 50             | 4              | 3000/46/23                                               | 2 / 1 000                    |
 | Standard_D4_v3  | 4         | 16          | 100            | 8              | 6000/93/46                                               | 2 / 2 000                    |
@@ -100,13 +102,13 @@ Le stockage sur disque de données est facturé séparément des machines virtue
 
 ## <a name="dsv2-series"></a>Séries DSv2
 
-ACU : 210-250
+ACU : 210-250
 
-Stockage Premium : pris en charge
+Premium Storage :  Pris en charge
 
-Mise en cache du Stockage Premium : pris en charge
+Mise en cache du Stockage Premium :  Pris en charge
 
-| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et en cache max : E/S par seconde / Mbits/s (taille du cache en Gio) | Débit de disque maximal sans mise en cache : E/S / MBps | Nombre max de cartes réseau / Bande passante réseau attendue (MBps) |
+| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS / Mbits/s (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS / Mbits/s | Nombre max de cartes réseau / Bande passante réseau attendue (MBps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS1_v2 |1 |3,5 |7 |4 |4 000 / 32 (43) |3 200 / 48 |2 / 750 |
 | Standard_DS2_v2 |2 |7 |14 |8 |8 000 / 64 (86) |6 400 / 96 |2 / 1 500 |
@@ -118,13 +120,13 @@ Mise en cache du Stockage Premium : pris en charge
 
 ## <a name="dv2-series"></a>Série Dv2
 
-ACU : 210-250
+ACU : 210-250
 
-Stockage Premium : non pris en charge
+Premium Storage :  Non pris en charge
 
-Mise en cache du Stockage Premium : non pris en charge
+Mise en cache du Stockage Premium :  Non pris en charge
 
-| Taille           | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Débit de stockage temporaire local max : E/S par seconde MBps de lecture / MBps d’écriture | Disques de données max. | Débit : E/S par seconde | Nombre max de cartes réseau / Bande passante réseau attendue (MBps) |
+| Taille           | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Débit de stockage temporaire max. : IOPS / Mbits/s en lecture / Mbits/s en écriture | Disques de données max. | Débit : E/S par seconde | Nombre max de cartes réseau / Bande passante réseau attendue (MBps) |
 |----------------|------|-------------|------------------------|------------------------------------------------------------|----------------|------------------|----------------------------------------------|
 | Standard_D1_v2 | 1    | 3,5         | 50                     | 3000 / 46 / 23                                             | 4              | 4 x 500            | 2 / 750                                      |
 | Standard_D2_v2 | 2    | 7           | 100                    | 6000 / 93 / 46                                             | 8              | 8 x 500            | 2 / 1 500                                     |
@@ -135,16 +137,16 @@ Mise en cache du Stockage Premium : non pris en charge
 
 ## <a name="av2-series"></a>Série Av2
 
-ACU : 100
+ACU : 100
 
-Stockage Premium : non pris en charge
+Premium Storage :  Non pris en charge
 
-Mise en cache du Stockage Premium : non pris en charge
+Mise en cache du Stockage Premium :  Non pris en charge
 
 
-| Taille            | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Débit de stockage temporaire local max : E/S par seconde MBps de lecture / MBps d’écriture | Disques de données max / débit : E/S par seconde | Nombre max de cartes réseau / Bande passante réseau attendue (MBps) | 
+| Taille            | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Débit de stockage temporaire max. : IOPS / Mbits/s en lecture / Mbits/s en écriture | Disques de données max. / débit : E/S par seconde | Nombre max de cartes réseau / Bande passante réseau attendue (MBps) | 
 |-----------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_A1_v2  | 1         | 2           | 10             | 1000 / 20 / 10                                           | 2 / 2 x 500               | 2 / 250                 |
+| Standard_A1_v2  | 1         | 2           | 10             | 1000 / 20 / 10                                           | 2 / 2 x 500               | 2 / 250                 |
 | Standard_A2_v2  | 2         | 4           | 20             | 2000 / 40 / 20                                           | 4 / 4 x 500               | 2 / 500                 |
 | Standard_A4_v2  | 4         | 8           | 40             | 4000 / 80 / 40                                           | 8 / 8 x 500               | 4 / 1 000                     |
 | Standard_A8_v2  | 8         | 16          | 80             | 8000 / 160 / 80                                          | 16 / 16 x 500             | 8 / 2 000                     |
@@ -157,13 +159,13 @@ Mise en cache du Stockage Premium : non pris en charge
 
 ## <a name="dc-series"></a>Série DC
 
-Stockage Premium : pris en charge
+Premium Storage : Pris en charge
 
-Mise en cache du Stockage Premium : pris en charge
+Mise en cache du Stockage Premium : Pris en charge
 
 
 
-| Taille          | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et en cache max : E/S par seconde / Mbits/s (taille du cache en Gio) | Débit de disque maximal sans mise en cache : E/S / MBps | Nombre max de cartes réseau / Bande passante réseau attendue (MBps) |
+| Taille          | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS / Mbits/s (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS / Mbits/s | Nombre max de cartes réseau / Bande passante réseau attendue (MBps) |
 |---------------|------|-------------|------------------------|----------------|-------------------------------------------------------------------------|-------------------------------------------|----------------------------------------------|
 | Standard_DC2s | 2    | 8           | 100                    | 2              | 4000 / 32 (43)                                                          | 3200 /48                                  | 2 / 1 500                                     |
 | Standard_DC4s | 4    | 16          | 200                    | 4              | 8000 / 64 (86)                                                          | 6400 /96                                  | 2 / 3 000                                     |

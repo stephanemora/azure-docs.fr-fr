@@ -7,21 +7,21 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 04/17/2018
+ms.date: 04/01/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: c989e53113557219e13dd730ac43621d3824baac
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 23a62e28700ad5fd733040c43ea0eec225fd286f
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57434757"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793099"
 ---
 # <a name="temporary-tables-in-sql-data-warehouse"></a>Tables temporaires dans SQL Data Warehouse
 Cet article contient des conseils de base pour l’utilisation des tables temporaires et met en évidence les principes des tables temporaires au niveau de la session. L’utilisation des informations de cet article peut vous aider à modulariser votre code, et à améliorer sa réutilisabilité et sa facilité de maintenance.
 
 ## <a name="what-are-temporary-tables"></a>Qu’est-ce que les tables temporaires ?
-Les tables temporaires sont utiles lors du traitement des données, notamment lors d’une transformation, lorsque les résultats intermédiaires sont temporaires. Les tables temporaires se trouvent au niveau de la session dans SQL Data Warehouse.  Elles sont uniquement visibles dans la session dans laquelle elles ont été créées et sont automatiquement supprimées lorsque cette session se déconnecte.  Les tables temporaires offrent un gain de performances, car leurs résultats sont écrits en local et non dans un stockage distant.  Dans Azure SQL Data Warehouse, les tables temporaires diffèrent légèrement par rapport à la base de données SQL Azure, car elles sont accessibles à partir de tout point à l’intérieur de la session, notamment à l’intérieur et à l’extérieur d’une procédure stockée.
+Les tables temporaires sont utiles lors du traitement des données, notamment lors d’une transformation, lorsque les résultats intermédiaires sont temporaires. Les tables temporaires se trouvent au niveau de la session dans SQL Data Warehouse.  Elles sont uniquement visibles dans la session dans laquelle elles ont été créées et sont automatiquement supprimées lorsque cette session se déconnecte.  Les tables temporaires offrent un gain de performances, car leurs résultats sont écrits en local et non dans un stockage distant.
 
 ## <a name="create-a-temporary-table"></a>Créer une table temporaire
 Les tables temporaires sont créées en faisant simplement précéder le nom de votre table de `#`.  Par exemple : 
@@ -215,7 +215,7 @@ DROP TABLE #stats_ddl;
 ```
 
 ## <a name="temporary-table-limitations"></a>Limitations relatives aux tables temporaires
-SQL Data Warehouse impose quelques restrictions lors de l’implémentation de tables temporaires.  Actuellement, seules les tables temporaires de la session sont prises en charge.  Les tables temporaires globales ne sont pas prises en charge.  En outre, vous ne pouvez pas créer de vues sur des tables temporaires.
+SQL Data Warehouse impose quelques restrictions lors de l’implémentation de tables temporaires.  Actuellement, seules les tables temporaires de la session sont prises en charge.  Les tables temporaires globales ne sont pas prises en charge.  En outre, vous ne pouvez pas créer de vues sur des tables temporaires.  Tables temporaires peuvent être créés uniquement avec la distribution de hachage ou le tourniquet (Round Robin).  Distribution de table temporaire répliquée n’est pas pris en charge. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur le développement des tables, consultez la [Vue d’ensemble de la Table](sql-data-warehouse-tables-overview.md).

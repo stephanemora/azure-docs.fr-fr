@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 99b54a5fe5c28eb66a61fad61d23b94f0955f126
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 9c0c8adca9d99c00e32127e02a3d68ff668a235e
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728566"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793303"
 ---
 # <a name="azure-api-management-faqs"></a>FAQ sur la gestion des API Azure
 Découvrez les réponses aux questions les plus fréquentes, les modèles et les meilleures pratiques pour la gestion des API Azure.
@@ -72,13 +72,13 @@ Il existe plusieurs manières de sécuriser la connexion entre la passerelle de 
 Il existe plusieurs manières de copier une instance de gestion des API vers une nouvelle instance. Vous pouvez :
 
 * Utiliser la fonction de sauvegarde et de restauration du service Gestion des API. Pour plus d’informations, consultez [Comment implémenter une récupération d’urgence à l’aide de la fonctionnalité de sauvegarde et de restauration des services dans Gestion des API Azure](api-management-howto-disaster-recovery-backup-restore.md).
-* Créer votre propre fonctionnalité de sauvegarde et de restauration à l’aide de [l’API REST Gestion des API](https://msdn.microsoft.com/library/azure/dn776326.aspx). Utilisez l’API REST pour enregistrer et restaurer les entités à partir de l’instance de service souhaitée.
+* Créer votre propre fonctionnalité de sauvegarde et de restauration à l’aide de [l’API REST Gestion des API](/rest/api/apimanagement/). Utilisez l’API REST pour enregistrer et restaurer les entités à partir de l’instance de service souhaitée.
 * Télécharger la configuration du service à l’aide de Git et l’envoyer vers une nouvelle instance. Pour plus d’informations, consultez [Comment enregistrer et configurer votre configuration du service Gestion des API à l’aide de Git](api-management-configuration-repository-git.md).
 
 ### <a name="can-i-manage-my-api-management-instance-programmatically"></a>Puis-je gérer mon instance de gestion des API par programme ?
 Oui, vous pouvez gérer le service Gestion des API par programme en utilisant :
 
-* [L’API REST Gestion des API](https://msdn.microsoft.com/library/azure/dn776326.aspx).
+* [L’API REST Gestion des API](/rest/api/apimanagement/).
 * Le [Kit de développement logiciel (SDK) de la bibliothèque de gestion du service Gestion des API Microsoft Azure](https://aka.ms/apimsdk).
 * Les applets de commande PowerShell de [déploiement du service](https://docs.microsoft.com/powershell/module/wds) et de [gestion du service](https://docs.microsoft.com/powershell/azure/servicemanagement/overview).
 
@@ -97,7 +97,7 @@ Le collaborateur nouvellement ajouté peut désormais utiliser les [applets de c
 4. Utilisez l’URL pour accéder au portail d’administration.
 
 ### <a name="why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor"></a>Pourquoi la stratégie que je souhaite ajouter n’est-elle pas disponible dans l’éditeur de stratégie ?
-Si la stratégie que vous souhaitez ajouter apparaît grisée dans l’éditeur de stratégie, vérifiez que vous êtes dans l’étendue correcte pour cette stratégie. Chaque instruction de stratégie est conçue pour être utilisée dans certaines étendues et sections de la stratégie. Pour consulter les sections de la stratégie et les étendues pour une stratégie, consultez la section Utilisation de cette stratégie dans [Stratégies Gestion des API](https://msdn.microsoft.com/library/azure/dn894080.aspx).
+Si la stratégie que vous souhaitez ajouter apparaît grisée dans l’éditeur de stratégie, vérifiez que vous êtes dans l’étendue correcte pour cette stratégie. Chaque instruction de stratégie est conçue pour être utilisée dans certaines étendues et sections de la stratégie. Pour consulter les sections de la stratégie et les étendues pour une stratégie, consultez la section Utilisation de cette stratégie dans [Stratégies Gestion des API](/azure/api-management/api-management-policies).
 
 ### <a name="how-do-i-set-up-multiple-environments-in-a-single-api"></a>Comment configurer plusieurs environnements dans une seule API ?
 Il existe deux manières de configurer plusieurs environnements, par exemple un environnement de test et un environnement de production, dans une seule API. Vous pouvez :
@@ -142,7 +142,7 @@ New-AzApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -
 ```
 
 #### <a name="direct-api-update-method"></a>Méthode de mise à jour directe de l’API ####
-1. Créez une entité [Backend](https://msdn.microsoft.com/library/azure/dn935030.aspx) à l’aide du service Gestion des API.       
+1. Créez une entité [Backend](/rest/api/apimanagement/) à l’aide du service Gestion des API.     
 2. Définissez la propriété **skipCertificateChainValidation** sur **true**.     
 3. Si vous ne souhaitez plus autoriser les certificats auto-signés, supprimez l’entité Backend ou définissez la propriété **skipCertificateChainValidation** sur **false**.
 

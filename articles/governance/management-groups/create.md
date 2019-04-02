@@ -10,12 +10,12 @@ ms.workload: na
 ms.date: 11/20/2018
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 8e887409c35619261544b92395301ce06a033e8b
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: a89df98224634c08c84cb059eb58e64e3c7febf7
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992734"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801264"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Créer des groupes d’administration pour la gestion et l’organisation des ressources
 
@@ -37,14 +37,14 @@ Vous pouvez créer un groupe d’administration en utilisant le portail, PowerSh
 
 1. Dans la page principale, sélectionnez **Nouveau groupe d’administration**.
 
-   ![Groupe principal](./media/main.png)
+   ![Page pour l’utilisation des groupes d’administration](./media/main.png)
 
 1. Renseignez le champ ID du groupe d’administration.
 
    - L’**ID du groupe d’administration** est l’identificateur unique de l’annuaire utilisé pour envoyer des commandes sur ce groupe d’administration. Cet identificateur n’est pas modifiable après sa création car il est utilisé dans tout le système Azure pour identifier ce groupe.
    - Le champ du nom d’affichage correspond au nom qui s’affiche dans le portail Azure. Un nom d’affichage distinct est un champ facultatif lors de la création du groupe d’administration. Il peut être modifié à tout moment.  
 
-   ![Créer](./media/create_context_menu.png)  
+   ![Volet d’options pour la création d’un nouveau groupe d’administration](./media/create_context_menu.png)  
 
 1. Sélectionnez **Enregistrer**.
 

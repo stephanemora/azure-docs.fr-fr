@@ -11,26 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 03/30/2019
 ms.author: juliako
-ms.openlocfilehash: c446a71a363a9a81eeb7d0dddcdbd90ccee08b7d
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 1d28701dd35b9d80fd52a1f102c53f2d59d63b09
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189357"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762352"
 ---
 # <a name="live-events-and-live-outputs"></a>Événements en direct et Sorties en direct
 
-Azure Media Services vous permet de transmettre des événements en direct auprès de vos clients dans le cloud Azure. Pour configurer vos événements de streaming en direct dans Media Services v3, vous devez comprendre les concepts abordés dans cet article :
-
-* [Événements en direct](#live-events)
-* Types d’événements en direct
-* Comparaison des types d’événements en direct
-* [Options de création d’événements en direct](#live-event-creation-options)
-* [URL de réception des événements en direct](#live-event-ingest-urls)
-* [URL de l’aperçu des événements en direct](#live-event-preview-url)
-* [Sorties en direct](#live-outputs).
+Azure Media Services vous permet de transmettre des événements en direct auprès de vos clients dans le cloud Azure. Pour configurer vos événements de diffusion en continu en direct dans Media Services v3, vous devez comprendre les concepts abordés dans cet article. <br/>La liste des sections est répertoriée sur la droite de la page.
 
 ## <a name="live-events"></a>Événements en direct
 
@@ -62,10 +54,10 @@ Quand vous utilisez Live Encoding avec Media Services, vous configurez votre enc
 
 Vous pouvez envoyer le flux de contribution à une résolution jusqu’à 1080p et à une fréquence de 30 images/seconde, avec un codec vidéo H.264/AVC et un codec audio AAC (AAC-LC, HE-AACv1 ou HE-AACv2). Pour plus d’informations, consultez l’article [Comparaison des types d’événements en direct](live-event-types-comparison.md).
 
-Lorsque vous utilisez l’encodage en temps réel (Live un événement défini sur **Standard**), la présélection d’encodage définit comment le flux entrant est codé en plusieurs débits binaires ou couches. Pour plus d’informations, consultez [Présélections de système](live-event-types-comparison.md#system-presets).
+Quand vous utilisez l’encodage en temps réel (événement en direct défini sur **Standard**), la valeur d’encodage prédéfinie définit comment le flux entrant est encodé en plusieurs débits binaires ou couches. Pour plus d’informations, consultez [Présélections système](live-event-types-comparison.md#system-presets).
 
 > [!NOTE]
-> Actuellement, la seule présélection valeur autorisée pour le type d’événement en direct Standard est *Default720p*. Si vous devez utiliser une présélection d’encodage personnalisée en direct, veuillez contacter amshelp@microsoft.com. Vous devez spécifier la table souhaitée de résolution et des débits binaires. Vérifiez qu’il n'existe qu’une seule couche à 720p et au maximum 6 couches.
+> Actuellement, la seule valeur prédéfinie autorisée pour le type d’événement en direct Standard est *Default720p*. Si vous devez utiliser une valeur d’encodage prédéfinie en direct personnalisée, veuillez contacter amshelp@microsoft.com. Vous devez spécifier la table de résolution et de débits binaires souhaitée. Vérifiez qu’il n’existe qu’une seule couche à 720p, et au maximum six couches.
 
 ## <a name="live-event-creation-options"></a>Options de création d’événements en direct
 
@@ -132,6 +124,10 @@ Une fois que l’**événement en direct** commence à recevoir le flux de contr
 
 > [!IMPORTANT]
 > Veillez à ce que la vidéo transite par l’URL d’aperçu avant de poursuivre !
+
+## <a name="live-event-long-running-operations"></a>Opérations à long terme événement en direct
+
+Pour plus d’informations, consultez [opérations à long terme](entities-overview.md#long-running-operations)
 
 ## <a name="live-outputs"></a>Sorties en direct
 

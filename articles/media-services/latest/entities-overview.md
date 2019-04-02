@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 03/30/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 9a02030cb2b785b027bb78bad5ef636dff9dd8f3
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 6bf0efd6994315d56e7b1b2447ffed9154cf5ee5
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758547"
+ms.locfileid: "58804868"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Développement avec Media Services v3 API
 
@@ -42,6 +42,30 @@ Voici quelques exemples :
 * Ne pas retourner la partie de chaîne de requête de l’URL (pour supprimer la signature) URL Jobs' HTTP d’entrée.
 
 Consultez l’exemple [Obtenir une stratégie de clé de contenu - .NET](get-content-key-policy-dotnet-howto.md).
+
+## <a name="long-running-operations"></a>Opérations à long terme
+
+Les opérations marquées avec `x-ms-long-running-operation` dans les Services de média Azure [swagger fichiers](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json) sont longues opérations en cours d’exécution. 
+
+Pour plus d’informations sur le suivi des opérations asynchrones Azure, consultez [opérations asynchrones](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations#monitor-status-of-operation)
+
+Media Services a les opérations de longue suivantes :
+
+* Créer l’événement en direct
+* Événement en direct de la mise à jour
+* Supprimer l’événement en direct
+* Démarrer l’événement en direct
+* Arrêter l’événement en direct
+* Réinitialisation d’événement en direct
+* Créer LiveOutput
+* Supprimer LiveOutput
+* Créer StreamingEndpoint
+* Mise à jour StreamingEndpoint
+* Supprimer StreamingEndpoint
+* Démarrer StreamingEndpoint
+* Arrêter StreamingEndpoint
+* Mise à l’échelle StreamingEndpoint
+
 
 ## <a name="filtering-ordering-paging-of-media-services-entities"></a>Filtrage, classement et pagination d’entités Media Services
 

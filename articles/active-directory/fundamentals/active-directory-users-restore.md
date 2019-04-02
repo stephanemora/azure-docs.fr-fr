@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 12/17/2018
+ms.date: 04/01/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b98cc0141954a079b848bd9639b081499819b8ce
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d69bd931f2f8c72fd1e6fc79c16662ea367617d6
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57877001"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802012"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Restaurer ou supprimer un utilisateur supprimé à l’aide d’Azure Active Directory
 Lorsque vous supprimez un utilisateur, son compte reste à l’état suspendu pendant 30 jours. Pendant ces 30 jours, le compte de l’utilisateur peut être restauré, avec l’ensemble de ses propriétés. À l’issue de ce délai de 30 jours, l’utilisateur est automatiquement et définitivement supprimé.
@@ -43,7 +43,7 @@ Vous devez disposer d’un des rôles suivants pour restaurer et supprimer défi
 Vous pouvez afficher tous les utilisateurs qui ont été supprimés il y a moins de 30 jours. Ces utilisateurs peuvent être restaurés.
 
 ### <a name="to-view-your-restorable-users"></a>Pour afficher les utilisateurs pouvant être restaurés
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/) à l’aide d’un compte d’administrateur général pour le répertoire.
+1. Se connecter à la [Azure portal](https://portal.azure.com/) à l’aide d’un compte d’administrateur général pour l’organisation.
 
 2. Sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Utilisateurs supprimés**.
 
@@ -52,7 +52,11 @@ Vous pouvez afficher tous les utilisateurs qui ont été supprimés il y a moins
     ![Page Utilisateurs - Utilisateurs supprimés, avec les utilisateurs pouvant encore être restaurés](media/active-directory-users-restore/users-deleted-users-view-restorable.png)
 
 ## <a name="restore-a-recently-deleted-user"></a>Restaurer un utilisateur supprimé récemment
-Lorsque le compte d’un utilisateur est suspendu, toutes les informations de répertoire associées sont conservées. Lorsque vous restaurez un utilisateur, ces informations de répertoire sont également restaurées.
+
+Lorsqu’un compte d’utilisateur est supprimé de l’organisation, le compte est dans un état suspendu et toutes les informations d’organisation associée sont conservées. Lorsque vous restaurez un utilisateur, ces informations d’organisation sont également restaurées.
+
+> [!Note]
+> Une fois qu’un utilisateur est restauré, les licences qui ont été affectées à l’utilisateur au moment de la suppression sont également restaurées même si aucun sièges ne sont disponibles pour ces licences. Si vous consommez puis bien plus encore plus que vous avez acheté des licences, votre organisation peut être temporairement non conformes pour l’utilisation des licences.
 
 ### <a name="to-restore-a-user"></a>Pour restaurer un utilisateur
 1. Sur la page **Utilisateurs - Utilisateurs supprimés**, recherchez et sélectionnez l’un des utilisateurs disponibles. Par exemple, _Mary Parker_.
@@ -62,7 +66,7 @@ Lorsque le compte d’un utilisateur est suspendu, toutes les informations de r�
     ![Page Utilisateurs - Utilisateurs supprimés, avec l’option Restaurer utilisateur mise en surbrillance](media/active-directory-users-restore/users-deleted-users-restore-user.png)
 
 ## <a name="permanently-delete-a-user"></a>Supprimer définitivement un utilisateur.
-Vous pouvez supprimer définitivement un utilisateur de votre répertoire sans attendre la fin du délai de 30 jours avant la suppression automatique. Un utilisateur supprimé définitivement ne peut pas être restauré, ni par vous, ni par un autre administrateur, ni par le support technique de Microsoft.
+Vous pouvez supprimer définitivement un utilisateur à partir de votre organisation sans attendre les 30 jours pour la suppression automatique. Un utilisateur supprimé définitivement ne peut pas être restauré, ni par vous, ni par un autre administrateur, ni par le support technique de Microsoft.
 
 >[!Note]
 >Si vous supprimez définitivement un utilisateur par erreur, vous devrez créer un nouvel utilisateur et saisir manuellement toutes les informations associées. Pour plus d’informations sur la création d’un utilisateur, consultez [Ajouter ou supprimer des utilisateurs](add-users-azure-active-directory.md).
@@ -84,6 +88,6 @@ Une fois que vous avez restauré ou supprimé vos utilisateurs, vous pouvez exé
 
 - [Ajouter ou modifier les informations de profil](active-directory-users-profile-azure-portal.md)
 
-- [Ajouter des utilisateurs invités à partir d’un autre répertoire](../b2b/what-is-b2b.md) 
+- [Ajouter des utilisateurs invités à partir d’une autre organisation](../b2b/what-is-b2b.md)
 
-Pour en savoir plus sur les autres tâches de gestion des utilisateurs disponibles, consultez la [documentation Gestion des utilisateurs Azure Active Directory](../users-groups-roles/index.yml).
+Pour plus d’informations sur les autres tâches de gestion utilisateur disponibles, [documentation Gestion de l’utilisateur Azure AD](../users-groups-roles/index.yml).

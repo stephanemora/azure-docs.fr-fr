@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 6f064bb875786fc50073ab4216bc1c52ace294bf
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0688235d928584df223a3a6a6ca2821282e4cb92
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58113263"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762682"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Forum aux questions (FAQ) relatives à l’exécution de SQL Server sur les machines virtuelles Windows dans Azure
 
@@ -139,12 +139,7 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 
 1. **Puis-je utiliser une instance nommée de SQL Server avec l’extension IaaS**?
    
-   Oui, si l’instance nommée est la seule instance sur le serveur SQL Server, et si l’instance par défaut d’origine a été correctement désinstallé. Pour utiliser une instance nommée, procédez comme suit :
-    1. Déployer une machine virtuelle SQL Server à partir de la place de marché. 
-    1. Désinstaller l’extension IaaS.
-    1. Désinstallez complètement SQL Server.
-    1. Installer SQL Server avec une instance nommée. 
-    1. Installez l’extension IaaS. 
+   Oui, si l’instance nommée est la seule instance sur le serveur SQL Server, et si l’instance par défaut d’origine a été [désinstallé correctement](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md#installation). S’il n’existe aucune instance par défaut et il existe plusieurs instances nommées sur une seule machine virtuelle de SQL Server, l’extension IaaS échoue à installer. 
 
 1. **Puis-je supprimer complètement SQL Server d’une machine virtuelle SQL ?**
 
@@ -176,6 +171,10 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 1. **Comment installer les outils SQL Data sur ma machine virtuelle Azure ?**
 
     Téléchargez et installez les outils SQL Data à partir de [Microsoft SQL Server Data Tools - Business Intelligence pour Visual Studio 2013 ](https://www.microsoft.com/en-us/download/details.aspx?id=42313).
+
+1. **Sont des transactions distribuées avec MSDTC pris en charge sur les machines virtuelles SQL Server ?**
+   
+    Oui. DTC local est pris en charge pour SQL Server 2016 SP2 et supérieure. Toutefois, les applications doivent être testées lors de l’utilisation des groupes de disponibilité Always On, en tant que transactions en cours lors d’un basculement échoue et doit être retentée. DTC en cluster est disponible à partir de Windows Server 2019. 
 
 ## <a name="resources"></a>Ressources
 

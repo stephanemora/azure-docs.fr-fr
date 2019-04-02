@@ -8,12 +8,12 @@ ms.date: 02/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: dba8d9413229a0fa236b082e2e11dbd1a9fe5a5f
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 1121bdb379265ef592a26a8a31a90d402e529cc8
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314124"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802743"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Déterminer les causes de non-conformité
 
@@ -46,7 +46,7 @@ Pour afficher les détails de conformité, procédez comme suit :
 
 1. Le **détails de conformité** volet affiche des informations à partir de la dernière version d’évaluation de la ressource à l’affectation de stratégie actuel. Dans cet exemple, le champ **Microsoft.Sql/servers/version** n’est pas _12.0_ alors que la définition de stratégie attendue _14.0_. Si la ressource est non conforme pour plusieurs raisons, chacun est répertorié dans ce volet.
 
-   ![Volet d’informations de conformité](../media/determine-non-compliance/compliance-details-pane.png)
+   ![Volet d’informations de conformité et les raisons de non-conformité](../media/determine-non-compliance/compliance-details-pane.png)
 
    Pour un **auditIfNotExists** ou **deployIfNotExists** définition de stratégie, les détails incluent le **details.type** propriété et les propriétés facultatives. Pour obtenir la liste, consultez [auditIfNotExists propriétés](../concepts/effects.md#auditifnotexists-properties) et [deployIfNotExists propriétés](../concepts/effects.md#deployifnotexists-properties). **Dernière évaluation ressource** est une ressource connexe à partir de la **détails** section de la définition.
 
@@ -118,11 +118,11 @@ Dans le cadre d’un nouveau **version préliminaire publique**, au cours des 14
 
 1. Sélectionnez l'onglet **Historique des modifications (préversion)** de la page **Conformité des ressources**. La liste des modifications détectées, le cas échéant, s'affiche.
 
-   ![Historique des modifications de la stratégie - Onglet](../media/determine-non-compliance/change-history-tab.png)
+   ![Onglet Historique des modifications de stratégie sur la page de conformité des ressources](../media/determine-non-compliance/change-history-tab.png)
 
 1. Sélectionnez une des modifications détectées. Le _diff visual_ pour la ressource est présentée sur la **l’historique des modifications** page.
 
-   ![Historique des modifications de la stratégie - Différentiel visuel](../media/determine-non-compliance/change-history-visual-diff.png)
+   ![Stratégie modification historique Visual Diff sur la page de l’historique de modification](../media/determine-non-compliance/change-history-visual-diff.png)
 
 Le _différentiel visuel_ aide à identifier les modifications apportées à une ressource. Les modifications détectées ne peuvent pas être liées à l’état de conformité actuel de la ressource.
 

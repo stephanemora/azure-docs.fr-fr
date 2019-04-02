@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: fd518ad8c5ea13c4eeaa017417332744cecd328e
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: d7542909df336555e17aea9b0e680879b25dc17f
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661222"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58791743"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Problèmes connus et dépannage du service Azure Machine Learning
 
@@ -104,8 +104,7 @@ Si vous accédez directement à votre espace de travail à partir d’un lien de
 
 ## <a name="diagnostic-logs"></a>Journaux de diagnostic
 
-Parfois, fournir des informations de diagnostic quand vous demandez de l’aide peut se révéler utile.
-Les fichiers journaux se trouvent aux emplacements suivants :
+Parfois, fournir des informations de diagnostic quand vous demandez de l’aide peut se révéler utile. Pour afficher certains journaux, visitez [Azure portal](https://portal.azure.com) et accédez à votre espace de travail, puis sélectionnez **espace de travail > expérience > Exécuter > journaux**.
 
 ## <a name="resource-quotas"></a>Quotas de ressources
 

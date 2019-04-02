@@ -4,16 +4,16 @@ description: Découvrez comment résoudre les erreurs d’intégration des solut
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/25/2019
+ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: ac11b1a2b625d1fc7b62130580d1f188ead21051
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: eaafee304f606ae4d511a6cea1824c26db838635
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342726"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802029"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>Résolution des erreurs d’intégration des solutions
 
@@ -25,19 +25,23 @@ Vous pouvez rencontrer des erreurs lors de l’intégration d’une solution tel
 
 #### <a name="issue"></a>Problème
 
-Le message suivant s'affiche lorsque vous essayez d'intégrer une machine virtuelle à une solution :
+Vous recevez un des messages suivants lorsque vous essayez d’intégrer une machine virtuelle à une solution :
 
-```
+```error
 The solution cannot be enabled due to missing permissions for the virtual machine or deployments
+```
+
+```error
+The solution cannot be enabled on this VM because the permission to read the workspace is missing
 ```
 
 #### <a name="cause"></a>Cause :
 
-Cette erreur est due à des autorisations incorrectes ou manquantes sur la machine virtuelle ou pour l'utilisateur.
+Cette erreur est due à des autorisations incorrectes ou manquantes sur la machine virtuelle, l’espace de travail, ou pour l’utilisateur.
 
 #### <a name="resolution"></a>Résolution :
 
-Vérifiez que vous disposez des autorisations appropriées pour intégrer la machine virtuelle. Passez en revue les [autorisations nécessaires pour intégrer des machines](../automation-role-based-access-control.md#onboarding), puis essayez à nouveau d'intégrer la solution.
+Vérifiez que vous disposez des autorisations appropriées pour intégrer la machine virtuelle. Passez en revue les [autorisations nécessaires pour intégrer des machines](../automation-role-based-access-control.md#onboarding), puis essayez à nouveau d'intégrer la solution. Si vous recevez l’erreur `The solution cannot be enabled on this VM because the permission to read the workspace is missing`, assurez-vous d’avoir le `Microsoft.OperationalInsights/workspaces/read` autorisé à être en mesure de trouver si la machine virtuelle est intégrée à un espace de travail.
 
 ### <a name="computer-group-query-format-error"></a>Scénario : ComputerGroupQueryFormatError
 
@@ -73,17 +77,17 @@ Pour déployer correctement la solution, vous devez envisager de modifier la str
   * En reciblant la stratégie vers une ressource spécifique (par exemple, vers un compte Automation)
   * en révisant l’ensemble de ressources que cette stratégie a été configurée pour refuser.
 
-Consultez les notifications dans le coin supérieur droit du portail Azure ou accédez au groupe de ressources comportant votre compte Automation, puis sélectionnez **Déploiements** sous **Paramètres** pour afficher le déploiement mis en échec. Pour en apprendre davantage sur Azure Policy, consultez : [Présentation d’Azure Policy](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json).
+Consultez les notifications dans l’angle supérieur droit du portail Azure ou accédez au groupe de ressources qui contient votre compte automation, puis sélectionnez **déploiements** sous **paramètres** pour afficher l’ayant échoué déploiement. Pour en apprendre davantage sur Azure Policy, consultez : [Présentation d’Azure Policy](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json).
 
 ## <a name="mma-extension-failures"></a>Échecs d’extension MMA
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)] 
 
-Lorsque vous déployez une solution, de nombreuses ressources connexes sont déployées en même temps. L’une de ces ressources est l’extension Microsoft Monitoring Agent, ou l’Agent Log Analytics pour Linux. Il s’agit d’extensions de machine virtuelle installées par l’agent invité de la machine virtuelle, qui est chargé de communiquer avec l’espace de travail Log Analytics configuré, en vue d’une coordination ultérieure du téléchargement des fichiers binaires et des autres fichiers sur lesquels dépend la solution que vous intégrez, une fois son exécution lancée.
+Lorsque vous déployez une solution, de nombreuses ressources connexes sont déployées en même temps. L’une de ces ressources est l’extension Microsoft Monitoring Agent, ou l’Agent Log Analytics pour Linux. Il s’agit d’Extensions de Machine virtuelle installé par l’Agent invité de la machine virtuelle qui est chargé de communiquer avec l’espace de travail Analytique de journal configuré, à des fins de coordination ultérieure du téléchargement de fichiers binaires et autres fichiers dont le solution que vous êtes dépendent de l’intégration une fois qu’il commence l’exécution.
 En général, vous découvrez les erreurs d’installation de MMA ou de l’Agent Log Analytics pour Linux par l’affichage d’une notification dans le hub Notifications. En cliquant sur cette notification, vous obtenez davantage d’informations sur l’échec. L’accès à la ressource Groupes de ressources, puis à l’élément Déploiements qu’elle contient, permet également d’obtenir des informations détaillées sur les échecs de déploiement.
 L’installation de l’extension MMA ou de l’Agent Log Analytics pour Linux peut échouer pour diverses raisons, et les étapes à suivre pour résoudre ces échecs varient en fonction du problème. Les étapes de résolution spécifiques sont décrites ci-dessous.
 
-La section suivante décrit différents problèmes que vous pouvez rencontrer lors de l’intégration et qui provoquent l’échec du déploiement de l’extension MMA.
+La section suivante décrit différents problèmes que vous pouvez rencontrer lors de l’intégration qui provoquent une défaillance dans le déploiement de l’extension MMA.
 
 ### <a name="webclient-exception"></a>Scénario : Une exception s’est produite lors d’une requête WebClient
 
@@ -105,7 +109,7 @@ Please verify the VM has a running VM agent, and can establish outbound connecti
 
 Voici les causes possibles de cette erreur :
 
-* Un proxy configuré dans la machine virtuelle autorise uniquement certains ports.
+* Un proxy est configuré dans la machine virtuelle, ce qui autorise uniquement des ports spécifiques.
 
 * Un paramètre du pare-feu a bloqué l’accès aux adresses et aux ports nécessaires.
 
@@ -113,9 +117,9 @@ Voici les causes possibles de cette erreur :
 
 Vérifiez que les bons ports et adresses sont ouverts à la communication. Pour obtenir la liste des ports et adresses, consultez [Planification de votre réseau](../automation-hybrid-runbook-worker.md#network-planning).
 
-### <a name="transient-environment-issue"></a>Scénario : L’installation a échoué en raison de problèmes temporaires liés à l’environnement
+### <a name="transient-environment-issue"></a>Scénario : Échec de l’installation en raison d’un problème d’environnement temporaires
 
-L’installation de l’extension Microsoft Monitoring Agent a échoué pendant le déploiement, car une autre installation ou action bloque l’installation.
+L’installation de l’extension Microsoft Monitoring Agent a échoué au cours du déploiement en raison d’une autre installation ou action bloquent l’installation
 
 #### <a name="issue"></a>Problème
 
@@ -138,7 +142,7 @@ The Microsoft Monitoring Agent failed to install on this machine. Please try to 
 Voici les causes possibles de cette erreur :
 
 * Une autre installation est en cours d’exécution.
-* Le redémarrage du système a été déclenché pendant le déploiement du modèle.
+* Le système est déclenché pour redémarrer au cours du déploiement de modèle
 
 #### <a name="resolution"></a>Résolution :
 
@@ -146,11 +150,11 @@ Cette erreur est de nature temporaire. Recommencez le déploiement pour installe
 
 ### <a name="installation-timeout"></a>Scénario : Expiration du délai d’installation
 
-L’installation de l’extension MMA n’a pas pu se terminer, car le délai d’attente a expiré.
+L’installation de l’extension MMA n’a pas terminé en raison d’un délai d’expiration.
 
 #### <a name="issue"></a>Problème
 
-Voici un exemple de message d’erreur pouvant s’afficher :
+L’exemple suivant est d’un message d’erreur qui peut-être être retourné :
 
 ```error
 Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent, version 1.0.11081.4) with exception Command C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\1.0.11081.4\MMAExtensionInstall.exe of Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent has exited with Exit code: 15614
@@ -158,7 +162,7 @@ Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftM
 
 #### <a name="cause"></a>Cause :
 
-Cette erreur est due au fait que la machine virtuelle était surchargée pendant l’installation.
+Cette erreur se produit parce que la machine virtuelle en cours sous une charge importante lors de l’installation.
 
 ### <a name="resolution"></a>Résolution :
 
@@ -166,7 +170,7 @@ Essayez d’installer l’extension MMA lorsque la machine virtuelle sera moins 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si votre problème ne figure pas dans cet article ou si vous ne parvenez pas à le résoudre, utilisez un des canaux suivants pour obtenir de l’aide :
+Si votre problème ne figure pas dans cet article ou si vous ne parvenez pas à le résoudre, utilisez un des canaux suivants pour obtenir de l’aide :
 
 * Obtenez des réponses de la part d’experts Azure via les [Forums Windows](https://azure.microsoft.com/support/forums/)
 * Connectez-vous avec [@AzureSupport](https://twitter.com/azuresupport), qui est le compte Microsoft Azure officiel pour améliorer l’expérience client en connectant la communauté Azure aux ressources appropriées : réponses, support technique et experts.

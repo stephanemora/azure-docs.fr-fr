@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: 67603e326583400e8fc250ea6120297e7a94d101
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: e89fe10768331f5b4099ce9a9e2204dd72aa0bff
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520919"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793462"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Réécrire des en-têtes HTTP dans Azure Application Gateway (préversion publique)
 
@@ -96,7 +96,7 @@ Cette fonctionnalité prend en charge la réécriture d’en-têtes dans les var
 | -------------------------- | :----------------------------------------------------------- |
 | ciphers_supported          | retourne la liste de chiffrements pris en charge par le client          |
 | ciphers_used               | retourne la chaîne de chiffrements utilisés pour une connexion SSL établie |
-| client_ip                  | Adresse IP du client à partir de laquelle la passerelle d’application a reçu la demande. S’il est un proxy inverse avant de la passerelle d’application et le client d’origine, puis *client_ip* retournera l’adresse IP du proxy inverse. variable de tjsi est particulièrement utile dans les scénarios où les clients envisagez de réécrire l’en-tête X-Forwarded-For définie par la passerelle d’Application, afin que l’en-tête contient uniquement l’adresse IP sans les informations de port. |
+| client_ip                  | Adresse IP du client à partir de laquelle la passerelle d’application a reçu la demande. S’il est un proxy inverse avant de la passerelle d’application et le client d’origine, puis *client_ip* retournera l’adresse IP du proxy inverse. Cette variable est particulièrement utile dans les scénarios où les clients envisagez de réécrire l’en-tête X-Forwarded-For définie par la passerelle d’Application, afin que l’en-tête contient uniquement l’adresse IP sans les informations de port. |
 | client_port                | port client                                                  |
 | client_tcp_rtt             | informations sur la connexion TCP client ; disponibles sur les systèmes qui prennent en charge l’option de socket TCP_INFO |
 | client_user                | lorsque vous utilisez une authentification HTTP, nom d’utilisateur fourni pour l’authentification |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: 477b31e9a821cfa43700eac5f1f61a3d45510cab
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: bce4946b62e3678f7fa8d5f7f6431441cc00b252
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665812"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762835"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Corriger le système d’exploitation Windows dans votre cluster Service Fabric
 
@@ -28,6 +28,12 @@ ms.locfileid: "58665812"
 > * [Linux](service-fabric-patch-orchestration-application-linux.md)
 >
 >
+
+
+> 
+> [!IMPORTANT]
+> Version 1.2 de l’application. * va la prise en charge sur 30 avril 2019. Mettez à niveau vers la dernière version.
+
 
 [Les mises à niveau automatiques de l’image du système d’exploitation du groupe de machines virtuelles identiques Azure ](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) correspondent aux meilleures pratiques pour conserver vos systèmes d’exploitation corrigés dans Azure, et l’Application d’Orchestration des correctifs (POA) est un wrapper autour du service Service Fabrics RepairManager Systems qui permet la planification des correctifs de système d’exploitation en fonction de la configuration pour les clusters hébergés ailleurs que sur Azure. POA n’est pas obligatoire pour les clusters hébergés ailleurs que sur Azure, mais la planification de l’installation de correctifs par les Domaines de mise à niveau est nécessaire pour corriger les hôtes de clusters Service Fabric sans temps d’arrêt.
 
