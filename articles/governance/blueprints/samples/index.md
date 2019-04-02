@@ -1,6 +1,6 @@
 ---
 title: Index des exemples de blueprints
-description: Index des exemples pour Azure Blueprints
+description: Index des exemples d’environnement standard et de conformité pour le déploiement avec Azure Blueprints.
 services: blueprints
 author: DCtheGeek
 manager: carmonm
@@ -8,6 +8,12 @@ ms.service: blueprints
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: dacoulte
+ms.openlocfilehash: da38f4ef25a9e832b858027d3c6ad150d9eafd2a
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803814"
 ---
 # <a name="azure-blueprints-samples"></a>Exemples Azure Blueprints
 

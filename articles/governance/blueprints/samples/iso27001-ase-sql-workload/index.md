@@ -1,6 +1,6 @@
 ---
-title: "Exemple - Blueprint Charge de travail App Service Environment/SQL Database ISO\_27001 - Vue d’ensemble"
-description: "Vue d’ensemble et architecture de l’exemple de blueprint Charge de travail App Service Environment/SQL Database ISO\_27001."
+title: Exemple - Blueprint Charge de travail ASE/SQL ISO 27001 - Vue d’ensemble
+description: Vue d’ensemble et architecture de l’exemple de blueprint Charge de travail App Service Environment/SQL Database ISO 27001.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -8,8 +8,14 @@ ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
+ms.openlocfilehash: b4bd8d3ed18a5b30871fc5e61636104f3eb5a770
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802726"
 ---
-# <a name="overview-of-the-azure-blueprints-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Vue d’ensemble de l’exemple de blueprint Charge de travail App Service Environment/SQL Database ISO 27001 pour Azure Blueprints
+# <a name="overview-of-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Vue d’ensemble de l’exemple de blueprint Charge de travail App Service Environment/SQL Database ISO 27001
 
 L’exemple de blueprint Charge de travail App Service Environment/SQL Database ISO 27001 fournit une infrastructure supplémentaire à l’exemple de blueprint [Services partagés ISO 27001](../iso27001-shared/index.md).
 Ce blueprint aide les clients à déployer des architectures cloud qui offrent des solutions aux scénarios qui impliquent des obligations d’accréditation ou de conformité.
@@ -23,7 +29,7 @@ Il existe deux exemples de blueprints ISO 27001, le présent exemple et [Servic
 
 L’exemple de blueprint Charge de travail App Service Environment/SQL Database ISO 27001 déploie une plateforme en tant qu’environnement web basé sur des services. L’environnement peut servir à héberger plusieurs applications web, API web et instances SQL Database qui suivent les normes ISO 27001. Cet exemple de blueprint dépend de l’exemple de blueprint [Services partagés ISO 27001](../iso27001-shared/index.md).
 
-![Conception de l’exemple de blueprint Charge de travail App Service Environment/SQL Database ISO 27001](../../media/sample-iso27001-ase-sql-workload/iso27001-ase-sql-workload-blueprint-sample-design.png)
+![Conception de l’exemple de blueprint Charge de travail ASE/SQL ISO 27001](../../media/sample-iso27001-ase-sql-workload/iso27001-ase-sql-workload-blueprint-sample-design.png)
 
 Cet environnement se compose de plusieurs services Azure utilisés pour fournir une infrastructure de charge de travail sécurisée, entièrement supervisée et prête pour les entreprises, basée sur les normes ISO 27001. Cet environnement comporte les éléments suivants :
 

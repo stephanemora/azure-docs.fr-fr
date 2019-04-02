@@ -1,6 +1,6 @@
 ---
-title: "Exemples - Blueprint Services partagés ISO\_27001 - Vue d’ensemble"
-description: "Vue d’ensemble et architecture de l’exemple de blueprint Services partagés ISO\_27001."
+title: Exemples - Blueprint Services partagés ISO 27001 - Vue d’ensemble
+description: Vue d’ensemble et architecture de l’exemple de blueprint Services partagés ISO 27001.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -8,8 +8,14 @@ ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
+ms.openlocfilehash: 11ada79400c9489e3f6e4c8c90a32fd5bd259144
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801060"
 ---
-# <a name="overview-of-the-azure-blueprints-iso-27001-shared-services-blueprint-sample"></a>Vue d’ensemble de l’exemple de blueprint Services partagés ISO 27001 pour Azure Blueprints
+# <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>Vue d’ensemble de l’exemple de blueprint Services partagés ISO 27001
 
 L’exemple de blueprint Services partagés ISO 27001 fournit un ensemble de modèles d’infrastructure conformes et de garde-fou stratégiques qui facilitent l’attestation ISO 27001. Ce blueprint aide les clients à déployer des architectures cloud qui offrent des solutions aux scénarios qui impliquent des obligations d’accréditation ou de conformité.
 

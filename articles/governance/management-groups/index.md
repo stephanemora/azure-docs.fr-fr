@@ -1,12 +1,18 @@
 ---
 title: Organiser vos ressources avec des groupes d’administration Azure - Azure Governance
-description: 'Découvrez les groupes d’administration, le fonctionnement des autorisations et leur utilisation.'
+description: Découvrez les groupes d’administration, le fonctionnement des autorisations et leur utilisation.
 author: rthorn17
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: azure-resource-manager
 ms.date: 02/20/2019
 ms.author: rithorn
 ms.topic: overview
+ms.openlocfilehash: bd874ffe9293d01fced7ff6df5d329a829b7d8b4
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804832"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organiser vos ressources avec des groupes d’administration Azure
 
@@ -18,7 +24,7 @@ Par exemple, vous pouvez appliquer des stratégies à un groupe d’administrati
 
 Vous pouvez créer une structure flexible de groupes d’administration et d’abonnements pour organiser vos ressources dans une hiérarchie à des fins de stratégie unifiée et de gestion de l’accès. Le diagramme suivant montre un exemple de création d’une hiérarchie pour la gouvernance à l’aide des groupes d’administration.
 
-![arborescence](./media/tree.png)
+![Exemple d’une arborescence hiérarchique de groupes de gestion](./media/tree.png)
 
 Créez une hiérarchie afin de pouvoir appliquer une stratégie, par exemple limiter les emplacements de machine virtuelle à la région USA Ouest sur le groupe « Production ». Cette stratégie héritera sur les deux abonnements EA dans ce groupe d’administration et s’applique à toutes les machines virtuelles dans ces abonnements. Cette stratégie de sécurité ne peut pas être modifiée par le propriétaire de ressources ou d’abonnement permettant une gouvernance améliorée.
 

@@ -69,6 +69,8 @@ items:
       href: hana-monitor-troubleshoot.md
   - name: Procédures
     items:
+    - name: Contrôle des grandes instances Azure HANA à l’aide du portail Azure
+      href: hana-li-portal.md
     - name: Configuration de la haute disponibilité avec STONITH
       href: ha-setup-with-stonith.md
     - name: Sauvegarde du système d’exploitation pour les références (SKU) de type II
@@ -87,7 +89,7 @@ items:
     href: hana-vm-operations.md
   - name: Disponibilité de SAP HANA sur les machines virtuelles Azure
     items:
-    - name: Présentation de la disponibilité de SAP HANA sur Azure
+    - name: Vue d’ensemble de la disponibilité de SAP HANA sur Azure
       href: sap-hana-availability-overview.md
     - name: Disponibilité de SAP HANA sur Azure au sein d’une région Azure
       href: sap-hana-availability-one-region.md
@@ -227,9 +229,9 @@ items:
   items:
   - name: Feuille de route Azure
     href: https://azure.microsoft.com/roadmap/
-ms.openlocfilehash: 6b72c8e10d54035e69e802db14c1a2fb97a89408
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: e366d205b3d903ad79b26798a82ee05752ac5622
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58341456"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762954"
