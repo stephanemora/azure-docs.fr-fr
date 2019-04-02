@@ -14,18 +14,19 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: 0f700b9e24399768977a1fa221322fa4c1c6708d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 18cd5a86cc2f52567c5f320719d1a9f21b377ed4
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58095141"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58791709"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Résoudre des problèmes liés à l’activation de machines virtuelles Windows Azure
 
 Si vous rencontrez des problèmes lors de l’activation de machines virtuelles Windows Azure créées à partir d’une image personnalisée, vous pouvez utiliser les informations disponibles de ce document pour résoudre le problème. 
 
 ## <a name="understanding-azure-kms-endpoints-for-windows-product-activation-of-azure-virtual-machines"></a>Présentation des points de terminaison Azure KMS pour l’activation des produits Windows des machines virtuelles Azure
+
 Azure utilise différents points de terminaison différents pour l’activation de KMS en fonction de la région cloud dans laquelle se trouve la machine virtuelle. Lorsque vous utilisez ce guide de dépannage, utilisez le point de terminaison KMS approprié qui s’applique à votre région.
 
 * Régions de cloud public Azure : kms.core.windows.net:1688
@@ -40,6 +41,7 @@ Lorsque vous essayez d’activer une machine virtuelle Windows Azure, vous recev
 **Erreur : 0xC004F074 : le logiciel LicensingService a signalé que l’ordinateur n’a pas pu être activé. Aucun service de gestion des clés (KMS) n’a pu être contacté. Pour obtenir plus d’informations, veuillez consulter le Journal des événements de l’application.**
 
 ## <a name="cause"></a>Cause :
+
 En règle générale, les problèmes d’activation de machines virtuelles Azure se produisent si la machine virtuelle Windows n’est pas configurée à l’aide de la bonne clé d’installation client KMS. Ces problèmes peuvent également survenir si la machine virtuelle Windows rencontre un problème de connectivité au service Azure KMS (kms.core.windows.net, port 1688). 
 
 ## <a name="solution"></a>Solution
@@ -57,6 +59,7 @@ Cette étape ne s’applique pas pour Windows 2012 ou Windows 2008 R2. Elle u
 
 1. Exécutez **slmgr.vbs /dlv** dans une invite de commandes avec élévation de privilèges. Dans la sortie, vérifiez la valeur Description. Ensuite, déterminez si cette valeur a été créée à partir de la vente au détail (Canal de vente au détail) ou d’un support de licence en volume (VOLUME_KMSCLIENT) :
   
+
     ```
     cscript c:\windows\system32\slmgr.vbs /dlv
     ```
@@ -83,16 +86,20 @@ Cette étape ne s’applique pas pour Windows 2012 ou Windows 2008 R2. Elle u
 
 3. Assurez-vous que la machine virtuelle est configurée pour utiliser le bon serveur Azure KMS. Pour ce faire, exécutez la commande suivante :
   
+
+    ```powershell
+    Invoke-Expression "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms kms.core.windows.net:1688"
     ```
-    iex "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms kms.core.windows.net:1688"
-    ```
+
     La commande doit renvoyer : Le nom de machine de KMS a été configuré sur kms.core.windows.net:1688 avec succès.
 
 4. Vérifiez à l’aide de Psping que vous avez une connexion au serveur KMS. Basculez vers le dossier où vous avez extrait le téléchargement Pstools.zip, puis exécutez la commande suivante :
   
+
     ```
     \psping.exe kms.core.windows.net:1688
     ```
+
   
    Dans l’avant-dernière ligne de la sortie, assurez-vous que les informations suivantes s’affichent : Envoyé = 4, Reçu = 4, Perdu = 0 (0 % de perte).
 
@@ -104,8 +111,8 @@ Vérifiez également que le pare-feu invité n’a pas été configuré de mani�
 
 1. Après avoir vérifié que la connectivité à kms.core.windows.net fonctionne, exécutez la commande suivante dans l’invite Windows PowerShell avec élévation de privilèges. Cette commande tente plusieurs fois l’activation.
 
-    ```
-    1..12 | % { iex “$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /ato” ; start-sleep 5 }
+    ```powershell
+    1..12 | ForEach-Object { Invoke-Expression “$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /ato” ; start-sleep 5 }
     ```
 
 Une activation réussie renvoie des informations qui ressemblent à ceci :
@@ -115,16 +122,21 @@ Une activation réussie renvoie des informations qui ressemblent à ceci :
 ## <a name="faq"></a>Forum Aux Questions 
 
 ### <a name="i-created-the-windows-server-2016-from-azure-marketplace-do-i-need-to-configure-kms-key-for-activating-the-windows-server-2016"></a>J’ai créé l’image Windows Server 2016 à partir de la Place de marché Microsoft Azure. Ai-je besoin de configurer la clé KMS pour l’activation de Windows Server 2016 ? 
+
  
 Non. Dans la Place de marché Microsoft Azure, l’image contient la bonne clé d’installation client KMS déjà configurée. 
 
 ### <a name="does-windows-activation-work-the-same-way-regardless-if-the-vm-is-using-azure-hybrid-use-benefit-hub-or-not"></a>L’activation de Windows fonctionne-t-elle de la même façon, peu importe si la machine virtuelle utilise ou non Azure Hybrid Use Benefit (HUB) ? 
+
  
 Oui. 
  
+
 ### <a name="what-happens-if-windows-activation-period-expires"></a>Que se passe-t-il en cas d’expiration de la période d’activation de Windows ? 
+
  
 Lorsque la période de grâce a expiré et si Windows n’est pas encore activé, Windows Server 2008 R2 et versions ultérieures de Windows affichera des notifications supplémentaires sur l’activation. Le fond d’écran du Bureau reste noir, et Windows Update installera uniquement les mises à jour essentielles et de sécurité. Les mises à jour facultatives ne seront pas installées par Windows Update. Consultez la section Notifications au bas de la page [Licensing Conditions](https://technet.microsoft.com/library/ff793403.aspx) (Conditions d’obtention de licence).   
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
+
 Si vous avez besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.

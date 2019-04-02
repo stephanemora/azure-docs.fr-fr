@@ -8,12 +8,12 @@ ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 166ffea9cbeb3f343d70737de9049ee721fa9a98
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: b92ce1d5fb0e0b2b043b1bbfcb78dbaf3dde2e23
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448671"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804460"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Résolution des problèmes rencontrés avec Update Management
 
@@ -29,7 +29,7 @@ Il existe un utilitaire de résolution des problèmes qui permet à l’agent Wo
 
 Le message suivant continue de s’afficher sur une machine virtuelle 15 minutes après l’intégration :
 
-```
+```error
 The components for the 'Update Management' solution have been enabled, and now this virtual machine is being configured. Please be patient, as this can sometimes take up to 15 minutes.
 ```
 
@@ -47,7 +47,7 @@ Cette erreur peut être due aux raisons suivantes :
    1. Dans votre espace de travail Analytique de journal, supprimez la machine virtuelle à partir de la recherche enregistrée pour la Configuration d’étendue `MicrosoftDefaultScopeConfig-Updates` si elle est affichée. Les recherches enregistrées se trouvent sous la section **Général** de votre espace de travail.
    2. Exécutez `Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force`
    3. Exécutez `Restart-Service HealthService` pour redémarrer `HealthService`. Cela recréera la clé et générera un nouvel UUID.
-   4. Si cela ne fonctionne pas, commencez par exécuter sysprep sur l’image et installez l’agent MMA ensuite.
+   4. Si cela ne fonctionne pas, l’image de sysprep premier et installer l’agent MMA après coup.
 
 ### <a name="multi-tenant"></a>Scénario : Vous recevez une erreur d’abonnement lié lors de la création d’un déploiement de mise à jour pour les machines d’un autre client Azure.
 
@@ -55,7 +55,7 @@ Cette erreur peut être due aux raisons suivantes :
 
 Vous recevez l’erreur suivante lorsque vous tentez de créer un déploiement de mise à jour pour les machines d’un autre client Azure :
 
-```
+```error
 The client has permission to perform action 'Microsoft.Compute/virtualMachines/write' on scope '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroupName/providers/Microsoft.Automation/automationAccounts/automationAccountName/softwareUpdateConfigurations/updateDeploymentName', however the current tenant '00000000-0000-0000-0000-000000000000' is not authorized to access linked subscription '00000000-0000-0000-0000-000000000000'.
 ```
 
@@ -104,7 +104,7 @@ La section suivante met en évidence des messages d’erreur spécifiques et une
 
 Vous recevez le message d’erreur suivant :
 
-```
+```error
 Unable to Register Machine for Patch Management, Registration Failed with Exception System.InvalidOperationException: {"Message":"Machine is already registered to a different account."}
 ```
 
@@ -122,15 +122,15 @@ La machine est déjà intégrée à un autre espace de travail pour Update Manag
 
 Vous recevez un des messages d’erreur suivants :
 
-```
+```error
 Unable to Register Machine for Patch Management, Registration Failed with Exception System.Net.Http.HttpRequestException: An error occurred while sending the request. ---> System.Net.WebException: The underlying connection was closed: An unexpected error occurred on a receive. ---> System.ComponentModel.Win32Exception: The client and server can't communicate, because they do not possess a common algorithm
 ```
 
-```
+```error
 Unable to Register Machine for Patch Management, Registration Failed with Exception Newtonsoft.Json.JsonReaderException: Error parsing positive infinity value.
 ```
 
-```
+```error
 The certificate presented by the service <wsid>.oms.opinsights.azure.com was not issued by a certificate authority used for Microsoft services. Contact your network administrator to see if they are running a proxy that intercepts TLS/SSL communication.
 ```
 
@@ -148,7 +148,7 @@ Passez en revue votre réseau, et vérifiez que les ports et les adresses approp
 
 Vous recevez un des messages d’erreur suivants :
 
-```
+```error
 Unable to Register Machine for Patch Management, Registration Failed with Exception AgentService.HybridRegistration. PowerShell.Certificates.CertificateCreationException: Failed to create a self-signed certificate. ---> System.UnauthorizedAccessException: Access is denied.
 ```
 
@@ -203,7 +203,7 @@ Le Worker hybride Linux est défectueux.
 
 Faites une copie du fichier journal suivant et conservez-le pour résoudre les problèmes :
 
-```
+```bash
 /var/opt/microsoft/omsagent/run/automationworker/worker.log
 ```
 
@@ -229,7 +229,7 @@ Dans certains cas, les mises à jour de package peuvent interférer avec Update 
 
 Si vous ne pouvez pas résoudre un problème de mise à jour corrective, pour pouvoir résoudre le problème, faites une copie du fichier journal suivant et enregistrez-le **avant** le démarrage du déploiement de mise à jour suivant :
 
-```
+```bash
 /var/opt/microsoft/omsagent/run/automationworker/omsupdatemgmt.log
 ```
 

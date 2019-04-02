@@ -1,17 +1,17 @@
 ---
-title: Guide pratique pour modifier, supprimer ou gérer vos groupes d’administration dans Azure - Gouvernance Azure
+title: Comment modifier, supprimer ou gérer vos groupes d’administration - gouvernance Azure
 description: Découvrez comment afficher, tenir, mettre à jour et supprimer votre hiérarchie de groupes d’administration.
 author: rthorn17
 ms.service: azure-resource-manager
 ms.date: 02/20/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 801a37496b36be1f98408c46807f5b10db2b0282
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: f9e9bf51d50863f2e37a2f579c2db0edcfeca634
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622057"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801764"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gérer vos ressources avec des groupes d’administration
 
@@ -37,11 +37,11 @@ Vous pouvez modifier le nom du groupe d’administration en utilisant le portail
 
 1. Sélectionnez l’option **Renommer le groupe** en haut de la page.
 
-   ![Renommer l'option Groupe](./media/detail_action_small.png)
+   ![Option de renommer le groupe dans la page de groupe d’administration](./media/detail_action_small.png)
 
 1. Lorsque le menu s’ouvre, entrez le nouveau nom à afficher.
 
-   ![Renommer le volet Groupe](./media/rename_context.png)
+   ![Volet renommer le groupe pour renommer le groupe d’administration](./media/rename_context.png)
 
 1. Sélectionnez **Enregistrer**.
 
@@ -223,7 +223,7 @@ Pour afficher les autorisations dont vous disposez dans le portail Azure, sélec
 
 1. Sélectionnez l’abonnement dans la liste portant le bon ID.
 
-   ![Enfants](./media/add_context_sub.png)
+   ![Abonnements disponibles à ajouter à un groupe d’administration](./media/add_context_sub.png)
 
 1. Sélectionnez « Enregistrer ».
 
@@ -237,13 +237,13 @@ Pour afficher les autorisations dont vous disposez dans le portail Azure, sélec
 
 1. Dans la liste, sélectionnez les points de suspension situés en fin de la ligne de l’abonnement à déplacer.
 
-   ![Option Déplacer](./media/move_small.png)
+   ![Option de déplacement sur un groupe d’administration](./media/move_small.png)
 
 1. Sélectionnez **Déplacer**.
 
 1. Dans le menu qui s’ouvre, sélectionnez le **groupe d’administration parent**.
 
-   ![Volet Déplacer](./media/move_small_context.png)
+   ![Déplacer le volet pour modifier le groupe parent](./media/move_small_context.png)
 
 1. Sélectionnez **Enregistrer**.
 
@@ -294,7 +294,7 @@ Lorsque vous déplacez un groupe d’administration parent, la hiérarchie sous 
    - Si vous sélectionnez Nouveau, vous créez un groupe d’administration.
    - Si vous sélectionnez un groupe existant, une liste déroulante répertoriant tous les groupes d’administration s’affiche. Vous pouvez les déplacer vers ce groupe d’administration.  
 
-   ![déplacer](./media/add_context_MG.png)
+   ![Déplacer un groupe d’administration à un groupe nouveau ou existant](./media/add_context_MG.png)
 
 1. Sélectionnez **Enregistrer**.
 

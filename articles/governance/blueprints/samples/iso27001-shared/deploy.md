@@ -8,21 +8,21 @@ ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 7fea9b0d00d92c63bb4c8bbdadada9e8eb6a05fe
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: f49951d0a2ec738df9946edc7f44820c2cde975f
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202501"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804330"
 ---
-# <a name="deploy-the-azure-blueprints-iso-27001-shared-services-blueprint-sample"></a>Déployer l’exemple de plan Azure plans ISO 27001 Shared Services
+# <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>Déployer l’exemple de solution blueprint ISO 27001 Shared Services
 
 Pour déployer l’exemple de plan Azure plans ISO 27001 Shared Services, les étapes suivantes doivent être prises :
 
 > [!div class="checklist"]
 > - Créer un nouveau plan à partir de l’exemple
-> - Marquer votre copie de l’exemple en tant que **publié**
-> - Affectez votre copie du plan à un abonnement existant
+> - Marquez la copie de l’exemple en tant que **Publié**
+> - Affecter votre copie du blueprint à un abonnement existant
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free) avant de commencer.
 
@@ -32,48 +32,48 @@ Tout d’abord, implémentez l’exemple de plan en créant un nouveau plan dans
 
 1. Sélectionnez **tous les services** et recherchez et sélectionnez **stratégie** dans le volet gauche. Sur le **stratégie** page, sélectionnez **plans**.
 
-1. À partir de la **mise en route** page sur la gauche, sélectionnez le **créer** bouton sous _créer un plan_.
+1. Dans la page **Démarrage**à gauche, sélectionnez le bouton **Créer** sous _Créer un blueprint_.
 
 1. Rechercher le **ISO 27001 : Services partagés** exemple de plan sous _autres exemples_ et sélectionnez **utiliser cet exemple**.
 
-1. Entrez le _notions de base_ de l’exemple de plan :
+1. Entrez les _Fonctions de base_ de l’exemple de blueprint :
 
-   - **Nom du plan**: Fournissez un nom pour votre copie de l’exemple de solution blueprint ISO 27001 Shared Services.
-   - **Emplacement de définition**: Utiliser les points de suspension, puis sélectionnez le groupe d’administration pour enregistrer votre copie de l’échantillon.
+   - **Nom du blueprint** : Fournissez un nom pour votre copie de l’exemple de solution blueprint ISO 27001 Shared Services.
+   - **Emplacement de la définition** : Utiliser les points de suspension, puis sélectionnez le groupe d’administration pour enregistrer votre copie de l’échantillon.
 
-1. Sélectionnez le _artefacts_ onglet en haut de la page ou **suivant : Artefacts** en bas de la page.
+1. Sélectionnez l’onglet _Artefacts_ dans le haut de la page ou **Suivant : Artefacts** dans le bas de la page.
 
-1. Passez en revue la liste des artefacts qui composent l’exemple de plan. La plupart des artefacts ont des paramètres que nous allons définir ultérieurement. Sélectionnez **enregistrer le brouillon** lorsque vous avez terminé d’examiner l’exemple de plan.
+1. Passez en revue la liste des artefacts qui composent l’exemple de blueprint. La plupart des artefacts ont des paramètres que nous allons définir ultérieurement. Sélectionnez **Enregistrer comme brouillon** lorsque vous avez terminé de passer en revue l’exemple de blueprint.
 
-## <a name="publish-the-sample-copy"></a>Publier l’exemple de copie
+## <a name="publish-the-sample-copy"></a>Publier la copie de l’exemple
 
-Votre copie de l’exemple de plan a maintenant été créée dans votre environnement. Il est créé dans **Draft** mode et doit être **publié** avant qu’il peut être affectée et déployée. La copie de l’exemple de solution blueprint peut être personnalisée à votre environnement et les besoins, mais cette modification peut le déplacer en dehors de la norme ISO 27001.
-
-1. Sélectionnez **tous les services** et recherchez et sélectionnez **stratégie** dans le volet gauche. Sur le **stratégie** page, sélectionnez **plans**.
-
-1. Sélectionnez le **Blueprint définitions** page sur la gauche. Utilisez les filtres pour rechercher votre copie de l’exemple de plan, puis sélectionnez-le.
-
-1. Sélectionnez **publier blueprint** en haut de la page. Dans la nouvelle page sur la droite, fournissez un **Version** pour votre copie de l’exemple de plan. Cette propriété est utile pour, si vous apportez une modification ultérieurement. Fournir **modifier les remarques** telles que « première version publiés à partir de l’exemple de solution blueprint 27001 ISO ». Puis sélectionnez **publier** en bas de la page.
-
-## <a name="assign-the-sample-copy"></a>Affecter l’exemple de copie
-
-Une fois que la copie de l’exemple de plan a été correctement **publié**, il peut être affecté à un abonnement dans le groupe d’administration qu’il a été enregistré dans. Cette étape est où les paramètres sont fournis pour rendre chaque déploiement de la copie de l’exemple de plan unique.
+Votre copie de l’exemple de blueprint est à présent créée dans votre environnement. Elle est créée en mode **Brouillon** et doit être **publiée** avant de pouvoir être attribuée et déployée. La copie de l’exemple de solution blueprint peut être personnalisée à votre environnement et les besoins, mais cette modification peut le déplacer en dehors de la norme ISO 27001.
 
 1. Sélectionnez **tous les services** et recherchez et sélectionnez **stratégie** dans le volet gauche. Sur le **stratégie** page, sélectionnez **plans**.
 
-1. Sélectionnez le **Blueprint définitions** page sur la gauche. Utilisez les filtres pour rechercher votre copie de l’exemple de plan, puis sélectionnez-le.
+1. Sélectionnez la page **Définitions de blueprint** à gauche. Utilisez les filtres pour rechercher votre copie de l’exemple de plan, puis sélectionnez-le.
 
-1. Sélectionnez **Assign blueprint** en haut de la page de définition de plan.
+1. Sélectionnez **Publier le blueprint** dans le haut de la page. Dans la nouvelle page sur la droite, fournissez un **Version** pour votre copie de l’exemple de plan. Cette propriété est utile si vous prévoyez d’effectuer une modification ultérieurement. Fournir **modifier les remarques** telles que « première version publiés à partir de l’exemple de solution blueprint 27001 ISO ». Sélectionnez ensuite **Publier** en bas de la page.
 
-1. Indiquez les valeurs de paramètre pour l’affectation de plan :
+## <a name="assign-the-sample-copy"></a>Affecter la copie de l’exemple
+
+Une fois que la copie de l’exemple de blueprint a été **publiée**, elle peut être affectée à un abonnement dans le groupe d’administration où elle a été enregistrée. C’est à cette étape que les paramètres sont fournis pour que chaque déploiement de la copie de l’exemple de blueprint soit unique.
+
+1. Sélectionnez **tous les services** et recherchez et sélectionnez **stratégie** dans le volet gauche. Sur le **stratégie** page, sélectionnez **plans**.
+
+1. Sélectionnez la page **Définitions de blueprint** à gauche. Utilisez les filtres pour rechercher votre copie de l’exemple de plan, puis sélectionnez-le.
+
+1. Sélectionnez **Affecter le blueprint** dans le haut de la page.
+
+1. Indiquez les valeurs des paramètres pour l’affectation du blueprint :
 
    - Concepts de base
 
-     - **Abonnements** : Sélectionnez un ou plusieurs des abonnements qui se trouvent dans le groupe d’administration vous enregistrement votre copie de l’exemple de plan à. Si vous sélectionnez plusieurs abonnements, une affectation est créée pour chaque en utilisant les paramètres d’entrée.
-     - **Nom de l’affectation**: Le nom est prérempli pour vous en fonction du nom de la solution blueprint.
+     - **Abonnements** : Sélectionnez un ou plusieurs des abonnements qui font partie du groupe d’administration où vous avez enregistré votre copie de l’exemple de blueprint. Si vous sélectionnez plusieurs abonnements, une affectation est créée pour chacun d’eux à l’aide des paramètres saisis.
+     - **Nom de l’affectation** : Le nom est prérempli pour vous en fonction du nom de la solution blueprint.
        Modifier en fonction des besoins, ou laissez la valeur actuelle.
-     - **Emplacement** : Sélectionnez une région pour l’identité gérée à créer dans. Azure Blueprint utilise cette identité managée pour déployer tous les artefacts dans le blueprint affecté. Pour en savoir plus, consultez [Identités managées pour les ressources Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
-     - **Version de définition de plan**: Choisir un **publié** version de votre copie de l’exemple de plan.
+     - **Emplacement** : Sélectionnez une région dans laquelle créer l’identité managée. Azure Blueprint utilise cette identité managée pour déployer tous les artefacts dans le blueprint affecté. Pour en savoir plus, consultez [Identités managées pour les ressources Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
+     - **Version de définition du blueprint** : Choisir un **publié** version de votre copie de l’exemple de plan.
 
    - Verrouiller l'affectation
 
@@ -95,9 +95,9 @@ Une fois que la copie de l’exemple de plan a été correctement **publié**, i
 
    - Paramètres d'artefact
 
-     Les paramètres définis dans cette section s’appliquent à l’artefact sous lequel elle est définie. Ces paramètres sont [paramètres dynamiques](../../concepts/parameters.md#dynamic-parameters) dans la mesure où elles sont définies lors de l’affectation de la solution blueprint. Pour obtenir la liste complète ou paramètres d’artefact et leurs descriptions, consultez [table de paramètres d’artefact](#artifact-parameters-table).
+     Les paramètres définis dans cette section s’appliquent à l’artefact sous lequel elle est définie. Ces paramètres sont des [paramètres dynamiques](../../concepts/parameters.md#dynamic-parameters) puisqu’ils sont définis lors de l’affectation du blueprint. Pour obtenir la liste complète ou paramètres d’artefact et leurs descriptions, consultez [table de paramètres d’artefact](#artifact-parameters-table).
 
-1. Une fois que tous les paramètres ont été entrées, sélectionnez **affecter** en bas de la page. L’affectation de plan est créée et le début du déploiement de l’artefact. Le déploiement prend environ une heure. Pour vérifier l’état du déploiement, ouvrez l’affectation de plan.
+1. Une fois tous les paramètres entrés, sélectionnez **Affecter** au bas de la page. L’affectation de plan est créée et le début du déploiement de l’artefact. Le déploiement prend environ une heure. Pour vérifier l’état du déploiement, ouvrez l’affectation de plan.
 
 > [!WARNING]
 > Le service de plans d’Azure et les exemples de plan intégrés sont **gratuitement**. Ressources Azure sont [facturé par produit](https://azure.microsoft.com/en-us/pricing/). Utilisez le [calculatrice de prix](https://azure.microsoft.com/pricing/calculator/) pour estimer le coût d’exécution des ressources déployées par cet exemple de plan.
@@ -106,7 +106,7 @@ Une fois que la copie de l’exemple de plan a été correctement **publié**, i
 
 Le tableau suivant fournit une liste du plan en paramètres d’artefact :
 
-|Nom de l'artefact|Type d'artefact|Nom du paramètre|Description|
+|Nom de l’artefact|Type d’artefact|Nom du paramètre|Description|
 |-|-|-|-|
 |[Préversion] : Déployer l’Agent d’Analytique de journal pour Linux VM Scale Sets (VMSS)|Affectation de rôle|Facultatif : Liste des images de machine virtuelle pris en charge du système d’exploitation Linux pour ajouter à la portée|(Facultatif) Valeur par défaut est _[« none »]_.|
 |[Préversion] : Déployer Log Analytics Agent pour les machines virtuelles Linux|Affectation de rôle|Facultatif : Liste des images de machine virtuelle pris en charge du système d’exploitation Linux pour ajouter à la portée|(Facultatif) Valeur par défaut est _[« none »]_.|

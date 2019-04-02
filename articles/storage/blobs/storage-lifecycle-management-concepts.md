@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/20/2019
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: df38fd30c1bfba4993e9992783a130262a703370
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: e6f4f1feb5c1c78e78ff5d71b08a0e8a40537d13
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579510"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803256"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gérer le cycle de vie du stockage Blob Azure
 
@@ -42,7 +42,7 @@ La fonctionnalité de gestion du cycle de vie est disponible dans toutes les ré
 
 ## <a name="add-or-remove-a-policy"></a>Ajouter ou supprimer une stratégie 
 
-Vous pouvez ajouter, modifier ou supprimer une stratégie à l’aide du portail Azure, [Azure PowerShell](https://github.com/Azure/azure-powershell/releases), l’interface CLI, API REST ou un outil client. Cet article explique comment gérer la stratégie en utilisant le portail et les méthodes de PowerShell.  
+Vous pouvez ajouter, modifier ou supprimer une stratégie à l’aide du portail Azure, [Azure PowerShell](https://github.com/Azure/azure-powershell/releases), l’interface CLI, [API REST](https://docs.microsoft.com/en-us/rest/api/storagerp/managementpolicies), ou un outil client. Cet article explique comment gérer la stratégie en utilisant le portail et les méthodes de PowerShell.  
 
 > [!NOTE]
 > Si vous activez les règles de pare-feu de votre compte de stockage, les requêtes de gestion du cycle de vie peuvent être bloquées. Vous pouvez débloquer ces requêtes en fournissant des exceptions. Pour plus d’informations, consultez la section Exceptions dans [Configurer des pare-feu et des réseaux virtuels](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).

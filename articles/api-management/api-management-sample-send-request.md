@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: bfb08cb3bb81917414e4d34afe47964b738980e7
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: adb7329249570750002f04fb72465698f869afdc
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970176"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792482"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Utilisation de services externes à partir du service de gestion des API Azure
 Les stratégies disponibles dans le service Gestion des API Azure permettent d’exécuter un large éventail de tâches utiles reposant strictement sur la requête entrante, la réponse sortante et les informations de configuration de base. En revanche, la possibilité d’interagir avec des services externes à partir des stratégies de gestion des API ouvre bien davantage d’opportunités.
@@ -27,7 +27,7 @@ Les stratégies disponibles dans le service Gestion des API Azure permettent d�
 Précédemment, nous avons vu comment interagir avec le [service de hub d’événements Azure pour la journalisation, la surveillance et l’analyse](api-management-log-to-eventhub-sample.md). Cet article décrit les stratégies qui vous permettent d’interagir avec n’importe quel service HTTP externe. Vous pouvez utiliser ces stratégies pour déclencher des événements à distance ou pour récupérer des informations servant à manipuler la requête d’origine et la réponse d’une certaine façon.
 
 ## <a name="send-one-way-request"></a>Send-One-Way-Request (Envoyer une requête à sens unique)
-L’interaction externe la plus simple est peut-être le style « fire and forget » d’une demande qui permet à un service externe d’être notifié d’un type d’événement important. La stratégie de flux de contrôle `choose` vous permet de détecter tout type de condition qui vous intéresse.  Si la condition est remplie, vous pouvez exécuter une requête HTTP externe en utilisant la stratégie [send-one-way-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest). Il peut s’agir d’une requête destinée à un système de messagerie comme Hipchat ou Slack, ou encore à une API de messagerie telle que SendGrid ou MailChimp, ou à quelque chose comme PagerDuty pour les incidents de support critiques. Tous ces systèmes de messagerie comportent des API HTTP simples qui peuvent être facilement appelées.
+L’interaction externe la plus simple est peut-être le style « fire and forget » d’une demande qui permet à un service externe d’être notifié d’un type d’événement important. La stratégie de flux de contrôle `choose` vous permet de détecter tout type de condition qui vous intéresse.  Si la condition est remplie, vous pouvez exécuter une requête HTTP externe en utilisant la stratégie [send-one-way-request](/azure/api-management/api-management-advanced-policies#SendOneWayRequest). Il peut s’agir d’une requête destinée à un système de messagerie comme Hipchat ou Slack, ou encore à une API de messagerie telle que SendGrid ou MailChimp, ou à quelque chose comme PagerDuty pour les incidents de support critiques. Tous ces systèmes de messagerie comportent des API HTTP simples qui peuvent être facilement appelées.
 
 ### <a name="alerting-with-slack"></a>Alerte avec Slack
 L’exemple suivant montre comment envoyer un message à une salle de conversation Slack si le code d’état de la réponse HTTP est supérieur ou égal à 500. Une erreur incluse dans la plage 500 indique un problème avec l’API principale que le client de l’API ne peut pas résoudre lui-même. Elle nécessite généralement une intervention de la part du service Gestion des API.  
@@ -62,7 +62,7 @@ Slack inclut la notion de Webhook entrant. Quand vous configurez un Webhook entr
 ![Webhook Slack](./media/api-management-sample-send-request/api-management-slack-webhook.png)
 
 ### <a name="is-fire-and-forget-good-enough"></a>Le style « fire and forget » est-il suffisant ?
-L’utilisation d’un style « fire and forget » de requête implique certains compromis. Si, pour une raison quelconque, la requête échoue, cet échec n’est pas signalé. Dans ce cas particulier, la complexité d’avoir un système de signalement des échecs secondaire et le coût des performances supplémentaires liées à l’attente de la réponse ne sont pas justifiés. Pour les scénarios où il est indispensable de vérifier la réponse, la stratégie [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) constitue une meilleure option.
+L’utilisation d’un style « fire and forget » de requête implique certains compromis. Si, pour une raison quelconque, la requête échoue, cet échec n’est pas signalé. Dans ce cas particulier, la complexité d’avoir un système de signalement des échecs secondaire et le coût des performances supplémentaires liées à l’attente de la réponse ne sont pas justifiés. Pour les scénarios où il est indispensable de vérifier la réponse, la stratégie [send-request](/azure/api-management/api-management-advanced-policies#SendRequest) constitue une meilleure option.
 
 ## <a name="send-request"></a>send-request
 La stratégie `send-request` permet d’utiliser un service externe pour exécuter des fonctions de traitement complexes et retourner des données au service Gestion des API qui peuvent être utilisées pour d’autres traitements de stratégie.
@@ -209,7 +209,7 @@ Une fois que vous disposez de ces informations, vous pouvez adresser des requêt
 Ces requêtes s’exécutent en séquence, ce qui n’est pas idéal. 
 
 ### <a name="responding"></a>Réponse
-Pour construire la réponse composite, vous pouvez utiliser la stratégie [return-response](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse). L’élément `set-body` peut utiliser une expression pour construire un nouveau `JObject` avec toutes les représentations de composant incorporées en tant que propriétés.
+Pour construire la réponse composite, vous pouvez utiliser la stratégie [return-response](/azure/api-management/api-management-advanced-policies#ReturnResponse). L’élément `set-body` peut utiliser une expression pour construire un nouveau `JObject` avec toutes les représentations de composant incorporées en tant que propriétés.
 
 ```xml
 <return-response response-variable-name="existing response variable">

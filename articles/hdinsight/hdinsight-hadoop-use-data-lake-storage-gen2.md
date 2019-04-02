@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: 45b34d12fbcecbf5f6bf1225c5bb82c5385224ed
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 186a9bafe70ab9644666868f11d5ddd865a66b8d
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338392"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802539"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Utiliser Azure Data Lake Storage Gen2 avec des clusters Azure HDInsight
 
@@ -44,7 +44,7 @@ Créez un compte de stockage Azure Data Lake Storage Gen2. Assurez-vous que le *
 
 ### <a name="setup-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account"></a>Configurer des autorisations pour l’identité gérée sur le compte Data Lake Storage Gen2
 
-Affectez l’identité managée au rôle **Propriétaire des données Blob du stockage (préversion)** sur le compte de stockage. Pour plus d’informations, consultez l’article [Gérer les droits d’accès aux données d’objet blob et de file d’attente Azure avec RBAC (préversion)](../storage/common/storage-auth-aad-rbac.md).
+Affecter l’identité gérée pour le **propriétaire des données de stockage Blob** rôle sur le compte de stockage. Pour plus d’informations, consultez l’article [Gérer les droits d’accès aux données d’objet blob et de file d’attente Azure avec RBAC (préversion)](../storage/common/storage-auth-aad-rbac.md).
 
 1. Dans le [portail Azure](https://portal.azure.com), accédez à votre compte de stockage.
 1. Sélectionnez votre compte de stockage, puis sélectionnez **contrôle d’accès (IAM)** pour afficher les paramètres de contrôle d’accès pour le compte. Sélectionnez l’onglet **Attributions de rôles** pour afficher la liste des attributions de rôles.
@@ -52,7 +52,7 @@ Affectez l’identité managée au rôle **Propriétaire des données Blob du st
     ![Capture d’écran montrant les paramètres de contrôle d’accès du stockage](./media/hdinsight-hadoop-data-lake-storage-gen2/portal-access-control.png)
     
 1. Sélectionnez le **+ ajouter une attribution de rôle** pour ajouter un nouveau rôle.
-1. Dans la fenêtre **Ajouter une attribution de rôle**, sélectionnez le rôle **Propriétaire des données Blob du stockage (préversion)**. Ensuite, sélectionnez l’abonnement qui contient le compte de stockage et l’identité managée. Ensuite, recherchez l’identité managée affectée par l’utilisateur que vous avez créée. Enfin, sélectionnez l’identité gérée, et il sera répertorié sous **membres sélectionnés**.
+1. Dans le **ajouter une attribution de rôle** fenêtre, sélectionnez le **propriétaire des données de stockage Blob** rôle. Ensuite, sélectionnez l’abonnement qui contient le compte de stockage et l’identité managée. Ensuite, recherchez l’identité managée affectée par l’utilisateur que vous avez créée. Enfin, sélectionnez l’identité gérée, et il sera répertorié sous **membres sélectionnés**.
     
     ![Capture d’écran montrant comment attribuer un rôle RBAC](./media/hdinsight-hadoop-data-lake-storage-gen2/add-rbac-role3.png)
     
@@ -102,7 +102,7 @@ az storage account create --name hdinsightadlsgen2 \
     --kind StorageV2 --hierarchical-namespace true
 ```
 
-Ensuite, connectez-vous au portail. Ajouter la nouvelle identité managée affectée à l’utilisateur pour le **contributeur aux données Blob de stockage (version préliminaire)** rôle sur le compte de stockage, comme décrit à l’étape 3 sous [à l’aide du portail Azure](hdinsight-hadoop-use-data-lake-storage-gen2.md).
+Ensuite, connectez-vous au portail. Ajouter la nouvelle identité managée affectée à l’utilisateur pour le **contributeur aux données stockage Blob** rôle sur le compte de stockage, comme décrit à l’étape 3 sous [à l’aide du portail Azure](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 Une fois que vous avez affecté le rôle pour l’identité gérée affectée à l’utilisateur, déployez le modèle à l’aide de l’extrait de code suivant.
 

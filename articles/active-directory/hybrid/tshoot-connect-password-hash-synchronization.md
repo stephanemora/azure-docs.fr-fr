@@ -16,14 +16,15 @@ ms.date: 03/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56fda1110218910f8fbd8aa9597195f37444e01c
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 6feed11fcfc597658f3ec148b5dd18bb7e3f8f83
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193318"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793320"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Résoudre les problèmes de synchronisation du hachage de mot de passe avec Azure AD Connect Sync
+
 Cette rubrique explique comment résoudre les problèmes de synchronisation du hachage de mot de passe. Si les mots de passe ne se synchronisent pas comme prévu, il peut s’agir d’un sous-ensemble d’utilisateurs ou de tous les utilisateurs.
 
 Pour un déploiement d’Azure Active Directory (Azure AD) Connect version 1.1.614.0 ou ultérieure, utilisez la tâche de dépannage de l’Assistant pour résoudre les problèmes de synchronisation du hachage de mot de passe :
@@ -47,12 +48,14 @@ Pour les versions antérieures de déploiement Azure AD Connect :
 
 
 ## <a name="no-passwords-are-synchronized-troubleshoot-by-using-the-troubleshooting-task"></a>Aucun mot de passe n’est synchronisé : résoudre les problèmes à l’aide de la tâche de résolution des problèmes
+
 Vous pouvez utiliser la tâche de résolution des problèmes pour déterminer la raison pour laquelle aucun mot de passe n’est synchronisé.
 
 > [!NOTE]
 > La tâche de résolution des problèmes est uniquement disponible pour Azure AD Connect version 1.1.614.0 ou ultérieure.
 
 ### <a name="run-the-troubleshooting-task"></a>Exécuter la tâche de résolution des problèmes
+
 Pour résoudre les problèmes bloquant la synchronisation de tous les mots de passe
 
 1. Ouvrez une nouvelle session Windows PowerShell sur votre serveur Azure AD Connect avec l’option **Exécuter en tant qu’administrateur**.
@@ -70,6 +73,7 @@ Pour résoudre les problèmes bloquant la synchronisation de tous les mots de pa
 7. Dans le sous-menu, sélectionnez **La synchronisation du hachage de mot de passe ne fonctionne pas du tout**.
 
 ### <a name="understand-the-results-of-the-troubleshooting-task"></a>Comprendre les résultats de la tâche de résolution des problèmes
+
 La tâche de résolution des problèmes effectue les vérifications suivantes :
 
 * Elle vérifie que la fonctionnalité de synchronisation du hachage de mot de passe est activée pour votre client Azure AD.
@@ -95,26 +99,31 @@ L’image suivante illustre les résultats de l’applet de commande pour une to
 Le reste de cette section décrit les résultats qui sont retournés par la tâche et les problèmes correspondants.
 
 #### <a name="password-hash-synchronization-feature-isnt-enabled"></a>La fonctionnalité de synchronisation du hachage de mot de passe n’est pas activée
+
 Si vous n’avez pas encore activé la synchronisation du hachage de mot de passe avec l’Assistant Azure AD Connect, l’erreur suivante est retournée :
 
 ![La synchronisation du hachage de mot de passe n’est pas activée](./media/tshoot-connect-password-hash-synchronization/phsglobaldisabled.png)
 
 #### <a name="azure-ad-connect-server-is-in-staging-mode"></a>Le serveur Azure AD Connect est en mode intermédiaire
+
 Si le serveur Azure AD Connect est en mode intermédiaire, la synchronisation du hachage de mot de passe est temporairement désactivée et l’erreur suivante est retournée :
 
 ![Le serveur Azure AD Connect est en mode intermédiaire](./media/tshoot-connect-password-hash-synchronization/phsglobalstaging.png)
 
 #### <a name="no-password-hash-synchronization-heartbeat-events"></a>Aucun événement de pulsation de synchronisation du hachage de mot de passe
+
 Chaque connecteur Active Directory local a son propre canal de synchronisation du hachage de mot de passe. Quand le canal de synchronisation du hachage de mot de passe est établi et qu’il n’y a aucun changement de mot de passe à synchroniser, un événement de pulsation (EventId 654) est généré toutes les 30 minutes dans le Journal des événements de l’application Windows. Pour chaque connecteur Active Directory local, l’applet de commande recherche les événements de pulsation d’inventaire correspondants au cours des trois dernières heures. Si aucun événement de pulsation n’est trouvé, l’erreur suivante est retournée :
 
 ![Aucun événement de pulsation de synchronisation du hachage de mot de passe](./media/tshoot-connect-password-hash-synchronization/phsglobalnoheartbeat.png)
 
 #### <a name="ad-ds-account-does-not-have-correct-permissions"></a>Le compte AD DS n’a pas les autorisations appropriées
+
 Si le compte AD DS utilisé par le connecteur Active Directory local pour synchroniser les hachages de mot de passe n’a pas les autorisations appropriées, l’erreur suivante est retournée :
 
 ![Informations d’identification incorrectes](./media/tshoot-connect-password-hash-synchronization/phsglobalaccountincorrectpermission.png)
 
 #### <a name="incorrect-ad-ds-account-username-or-password"></a>Nom d’utilisateur ou mot de passe du compte AD DS incorrect
+
 Si le compte AD DS utilisé par le connecteur Active Directory local pour synchroniser les hachages de mot de passe a un nom d’utilisateur ou un mot de passe incorrect, l’erreur suivante est retournée :
 
 ![Informations d’identification incorrectes](./media/tshoot-connect-password-hash-synchronization/phsglobalaccountincorrectcredential.png)
@@ -129,6 +138,7 @@ Vous pouvez utiliser la tâche de résolution des problèmes pour déterminer la
 > La tâche de résolution des problèmes est uniquement disponible pour Azure AD Connect version 1.1.614.0 ou ultérieure.
 
 ### <a name="run-the-diagnostics-cmdlet"></a>Exécuter l’applet de commande de diagnostic
+
 Pour résoudre les problèmes liés à un objet utilisateur :
 
 1. Ouvrez une nouvelle session Windows PowerShell sur votre serveur Azure AD Connect avec l’option **Exécuter en tant qu’administrateur**.
@@ -146,6 +156,7 @@ Pour résoudre les problèmes liés à un objet utilisateur :
 7. Dans le sous-menu, sélectionnez **Password is not synchronized for a specific user account** (Le mot de passe n’est pas synchronisé pour un compte utilisateur).
 
 ### <a name="understand-the-results-of-the-troubleshooting-task"></a>Comprendre les résultats de la tâche de résolution des problèmes
+
 La tâche de résolution des problèmes effectue les vérifications suivantes :
 
 * Elle examine l’état de l’objet Active Directory dans l’espace de connecteur Active Directory, dans le métaverse et dans l’espace de connecteur Azure AD.
@@ -161,16 +172,19 @@ Le diagramme suivant illustre les résultats de la cmdlet lors de la résolution
 Le reste de cette section décrit les résultats spécifiques qui sont retournés par l’applet de commande et les problèmes correspondants.
 
 #### <a name="the-active-directory-object-isnt-exported-to-azure-ad"></a>L’objet Active Directory n’est pas exporté vers Azure AD
+
 La synchronisation du hachage de mot de passe de ce compte Active Directory local échoue, car il n’existe aucun objet correspondant dans le client Azure AD. L’erreur suivante est retournée :
 
 ![Objet Azure Active Directory manquant](./media/tshoot-connect-password-hash-synchronization/phssingleobjectnotexported.png)
 
 #### <a name="user-has-a-temporary-password"></a>L’utilisateur a un mot de passe temporaire
+
 Actuellement, Azure AD Connect ne prend pas en charge la synchronisation des mots de passe temporaires avec Azure AD. Un mot de passe est considéré comme temporaire si l’option **L’utilisateur doit changer le mot de passe à la prochaine ouverture de session** est définie pour l’utilisateur Active Directory local. L’erreur suivante est retournée :
 
 ![Le mot de passe temporaire n’est pas exporté](./media/tshoot-connect-password-hash-synchronization/phssingleobjecttemporarypassword.png)
 
 #### <a name="results-of-last-attempt-to-synchronize-password-arent-available"></a>Les résultats de la dernière tentative de synchronisation de mot de passe ne sont pas disponibles
+
 Par défaut, Azure AD Connect stocke les résultats des tentatives de synchronisation du hachage de mot de passe pendant sept jours. Si aucun résultat n’est disponible pour l’objet Active Directory sélectionné, l’avertissement suivant est retourné :
 
 ![Sortie de diagnostic pour un seul objet - aucun historique de synchronisation de mot de passe](./media/tshoot-connect-password-hash-synchronization/phssingleobjectnohistory.png)
@@ -178,12 +192,14 @@ Par défaut, Azure AD Connect stocke les résultats des tentatives de synchronis
 
 
 ## <a name="no-passwords-are-synchronized-troubleshoot-by-using-the-diagnostic-cmdlet"></a>Aucun mot de passe n’est synchronisé : résoudre les problèmes à l’aide de l’applet de commande de diagnostic
+
 Vous pouvez utiliser l’applet de commande `Invoke-ADSyncDiagnostics` pour déterminer la raison pour laquelle aucun mot de passe n’est synchronisé.
 
 > [!NOTE]
 > L’applet de commande `Invoke-ADSyncDiagnostics` est disponible uniquement pour Azure AD Connect version 1.1.524.0 ou ultérieure.
 
 ### <a name="run-the-diagnostics-cmdlet"></a>Exécuter l’applet de commande de diagnostic
+
 Pour résoudre les problèmes bloquant la synchronisation de tous les mots de passe
 
 1. Ouvrez une nouvelle session Windows PowerShell sur votre serveur Azure AD Connect avec l’option **Exécuter en tant qu’administrateur**.
@@ -197,12 +213,14 @@ Pour résoudre les problèmes bloquant la synchronisation de tous les mots de pa
 
 
 ## <a name="one-object-is-not-synchronizing-passwords-troubleshoot-by-using-the-diagnostic-cmdlet"></a>Un objet ne synchronise pas les mots de passe : résoudre les problèmes à l’aide de l’applet de commande de diagnostic
+
 Vous pouvez utiliser l’applet de commande `Invoke-ADSyncDiagnostics` pour déterminer pourquoi un objet ne synchronise pas les mots de passe.
 
 > [!NOTE]
 > L’applet de commande `Invoke-ADSyncDiagnostics` est disponible uniquement pour Azure AD Connect version 1.1.524.0 ou ultérieure.
 
 ### <a name="run-the-diagnostics-cmdlet"></a>Exécuter l’applet de commande de diagnostic
+
 Pour résoudre les problèmes liés à l’absence de synchronisation des mots de passe pour un utilisateur :
 
 1. Ouvrez une nouvelle session Windows PowerShell sur votre serveur Azure AD Connect avec l’option **Exécuter en tant qu’administrateur**.
@@ -212,17 +230,21 @@ Pour résoudre les problèmes liés à l’absence de synchronisation des mots d
 3. Exécutez `Import-Module ADSyncDiagnostics`.
 
 4. Exécutez l’applet de commande suivante :
+
    ```
    Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName <Name-of-AD-Connector> -DistinguishedName <DistinguishedName-of-AD-object>
    ```
+
    Par exemple : 
-   ```
+
+   ```powershell
    Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName "contoso.com" -DistinguishedName "CN=TestUserCN=Users,DC=contoso,DC=com"
    ```
 
 
 
 ## <a name="no-passwords-are-synchronized-manual-troubleshooting-steps"></a>Aucun mot de passe n’est synchronisé : étapes de dépannage manuel
+
 Effectuez les étapes suivantes pour déterminer la raison pour laquelle aucun mot de passe n’est synchronisé :
 
 1. Le serveur Connect est-il en [mode intermédiaire](how-to-connect-sync-staging-server.md) ? Un serveur en mode intermédiaire ne synchronise pas les mots de passe.
@@ -276,6 +298,7 @@ Si vous avez utilisé une installation personnalisée, définissez les autorisat
 10. Si le script indique qu’il n’y a aucune pulsation, exécutez le script [Déclencher une synchronisation complète de tous les mots de passe](#trigger-a-full-sync-of-all-passwords).
 
 ## <a name="one-object-is-not-synchronizing-passwords-manual-troubleshooting-steps"></a>Un objet ne synchronise pas les mots de passe : étapes de dépannage manuel
+
 Vous pouvez résoudre facilement les problèmes de synchronisation du hachage de mot de passe en consultant l’état d’un objet.
 
 1. Dans **Utilisateurs et ordinateurs Active Directory**, recherchez l’utilisateur, puis vérifiez que la case **L’utilisateur doit changer le mot de passe à la prochaine ouverture de session** est décochée.  
@@ -325,6 +348,7 @@ Vous pouvez résoudre facilement les problèmes de synchronisation du hachage de
     ![Boîte de dialogue Propriétés de l’objet espace connecteur](./media/tshoot-connect-password-hash-synchronization/cspasswordsync2.png)  
 
 ### <a name="password-sync-log"></a>Journal de synchronisation de mot de passe
+
 La colonne Statut peut avoir les valeurs suivantes :
 
 | Statut | Description |
@@ -343,7 +367,8 @@ La colonne Statut peut avoir les valeurs suivantes :
 ## <a name="scripts-to-help-troubleshooting"></a>Scripts pour faciliter le dépannage
 
 ### <a name="get-the-status-of-password-sync-settings"></a>Obtenir l’état des paramètres de synchronisation de mot de passe
-```
+
+```powershell
 Import-Module ADSync
 $connectors = Get-ADSyncConnector
 $aadConnectors = $connectors | Where-Object {$_.SubType -eq "Windows Azure Active Directory (Microsoft)"}
@@ -397,12 +422,13 @@ Write-Host
 ```
 
 #### <a name="trigger-a-full-sync-of-all-passwords"></a>Déclencher une synchronisation complète de tous les mots de passe
+
 > [!NOTE]
 > Exécutez ce script une seule fois. Si vous devez l’exécuter plusieurs fois, le problème est ailleurs. Pour résoudre le problème, contactez le support technique Microsoft.
 
 Vous pouvez déclencher une synchronisation complète de tous les mots de passe à l’aide du script suivant :
 
-```
+```powershell
 $adConnector = "<CASE SENSITIVE AD CONNECTOR NAME>"
 $aadConnector = "<CASE SENSITIVE AAD CONNECTOR NAME>"
 Import-Module adsync
@@ -417,6 +443,7 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 * [Implémenter la synchronisation du hachage de mot de passe avec Azure AD Connect Sync](how-to-connect-password-hash-synchronization.md)
 * [Synchronisation Azure AD Connect : personnaliser les options de synchronisation](how-to-connect-sync-whatis.md)
 * [Intégration des identités locales dans Azure Active Directory](whatis-hybrid-identity.md)

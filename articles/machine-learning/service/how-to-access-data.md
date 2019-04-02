@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 02/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 25da234e4210c98ce17bdeb502493c5c649dab28
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 85910e2f422ea45b2468f20b4ff9425f64ca3cbe
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481635"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793409"
 ---
 # <a name="access-data-from-your-datastores"></a>Accéder aux données à partir de vos banques de données
 
@@ -123,13 +123,14 @@ Pour charger un répertoire dans une banque de données `ds` :
 
 ```Python
 import azureml.data
-from azureml.data import AzureFileDatastore, AzureBlobDatastore
+from azureml.data.azure_storage_datastore import AzureFileDatastore, AzureBlobDatastore
 
 ds.upload(src_dir='your source directory',
           target_path='your target path',
           overwrite=True,
           show_progress=True)
 ```
+
 `target_path` spécifie l’emplacement dans le partage de fichiers (ou le conteneur d’objets blob) à charger. La valeur par défaut est `None`, auquel cas les données sont chargées à la racine. `overwrite=True` remplace toutes les données existantes à `target_path`.
 
 Ou chargez une liste de fichiers individuels dans la banque de données par le biais de la méthode `upload_files()` de la banque de données.
@@ -142,6 +143,7 @@ ds.download(target_path='your target path',
             prefix='your prefix',
             show_progress=True)
 ```
+
 `target_path` est l’emplacement du répertoire local dans lequel télécharger les données. Pour spécifier un chemin au dossier dans le partage de fichiers (ou le conteneur d’objets blob) où effectuer le téléchargement, fournissez ce chemin à `prefix`. Si `prefix` est `None`, tout le contenu de votre partage de fichiers (ou conteneur d’objets blob) est téléchargé.
 
 <a name="train"></a>
@@ -159,7 +161,7 @@ Télécharger|[`as_upload()`](https://docs.microsoft.com/python/api/azureml-core
 
  ```Python
 import azureml.data
-from azureml.data import DataReference
+from azureml.data.data_reference import DataReference
 
 ds.as_mount()
 ds.as_download(path_on_compute='your path on compute')

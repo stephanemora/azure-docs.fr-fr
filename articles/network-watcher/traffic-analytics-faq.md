@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: fee22561bb0c341ed5c6e4dc49a8d7f8aa8efaf2
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 64a1693907dbf144aa34f5c35ae925af74d2cb34
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445200"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803209"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Forum aux questions pour Traffic Analytics
 
@@ -72,6 +72,7 @@ Vous pouvez utiliser l’analytique du trafic pour les régions prises en charge
 - USA Centre
 - USA Ouest
 - USA Ouest 2
+- France Centre
 - Europe Ouest
 - Europe Nord
 - Brésil Sud
@@ -79,20 +80,26 @@ Vous pouvez utiliser l’analytique du trafic pour les régions prises en charge
 - Sud du Royaume-Uni
 - Australie Est
 - Australie Sud-Est 
+- Asie Est
 - Asie Sud-Est
+- Centre de la Corée
 - Inde Centre
 - Inde Sud
 - Japon Est
+- Japon Ouest
 - Gouvernement américain - Virginie
 
 L’espace de travail Log Analytics doit exister dans les régions suivantes :
 - Centre du Canada
 - USA Centre-Ouest
+- USA Ouest 2
 - USA Est
+- France Centre
 - Europe Ouest
 - Sud du Royaume-Uni
 - Australie Sud-Est
 - Asie Sud-Est 
+- Centre de la Corée
 - Inde Centre
 - Japon Est
 - Gouvernement américain - Virginie

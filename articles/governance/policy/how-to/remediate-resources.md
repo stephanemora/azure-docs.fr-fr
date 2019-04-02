@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: f0c05ddbc53d08334aded48ccb3a3ece547b4143
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: e86553e789fc9879ea4a6326b08d893fe24c8ac8
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816557"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802556"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Corriger les ressources non conformes avec Azure Policy
 
@@ -139,11 +139,11 @@ Pour créer une **tâche de correction**, effectuez les étapes suivantes :
 
 1. Lancez le service Azure Policy dans le portail Azure en cliquant sur **Tous les services**, puis en recherchant et en cliquant sur **Stratégie**.
 
-   ![Rechercher une stratégie](../media/remediate-resources/search-policy.png)
+   ![Rechercher une stratégie dans tous les Services](../media/remediate-resources/search-policy.png)
 
 1. Sélectionnez **Correction** sur le côté gauche de la page Azure Policy.
 
-   ![Sélectionner Correction](../media/remediate-resources/select-remediation.png)
+   ![Sélectionnez la mise à jour sur la page de stratégie](../media/remediate-resources/select-remediation.png)
 
 1. Toutes les affectations de stratégie **deployIfNotExists** ayant des ressources non conformes sont incluses sous l’onglet **Stratégies à corriger** et dans la table de données. Cliquez sur une stratégie ayant des ressources non conformes. La page **Nouvelle tâche de correction** s’ouvre.
 
@@ -152,11 +152,11 @@ Pour créer une **tâche de correction**, effectuez les étapes suivantes :
 
 1. Dans la page **Nouvelle tâche de correction**, filtrez les ressources à corriger à l’aide des points de suspension de la section **Étendue** pour sélectionner les ressources enfants à partir de l’endroit où la stratégie est affectée (y compris jusqu’aux objets de ressource individuels). En outre, utilisez la liste déroulante **Emplacements** pour filtrer davantage les ressources. Seules les ressources répertoriées dans la table sont corrigées.
 
-   ![Corriger : sélectionner les ressources](../media/remediate-resources/select-resources.png)
+   ![Corriger - sélectionner les ressources à corriger](../media/remediate-resources/select-resources.png)
 
 1. Lancez la tâche de correction une fois les ressources filtrées en cliquant sur **Corriger**. La page de conformité à la stratégie s’ouvre sur l’onglet **Tâches de correction**, qui affiche l’état de la progression des tâches.
 
-   ![Corriger : progression des tâches](../media/remediate-resources/task-progress.png)
+   ![Corriger - progression des tâches de mise à jour](../media/remediate-resources/task-progress.png)
 
 1. Cliquez sur la **tâche de correction** dans la page de conformité à la stratégie pour obtenir plus d’informations sur la progression. Le filtrage utilisé pour la tâche est affiché, ainsi qu’une liste des ressources en cours de correction.
 

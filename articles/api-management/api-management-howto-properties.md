@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: apimpm
-ms.openlocfilehash: f7c52b7ab8aaad917eb03455800df6d8ba4cbc88
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 478b80b021b4df36e2eccc37ac9c74f75e43a5bb
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58082702"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58791624"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Guide pratique pour utiliser des valeurs nommées dans les stratégies Gestion des API Azure
 Les stratégies Gestion des API sont une fonctionnalité puissante du système qui permet au portail Azure de modifier le comportement de l’API grâce à la configuration. Les stratégies sont un ensemble d'instructions qui sont exécutées dans l'ordre sur demande ou sur réponse d'une API. Les instructions de la stratégie peuvent être construites à l’aide de valeurs de texte littéral, d’expressions de stratégie et de valeurs nommées. 
@@ -34,7 +34,7 @@ Chaque instance du service Gestion des API possède une collection de propriét�
 
 ![Valeurs nommées](./media/api-management-howto-properties/named-values.png)
 
-Les valeurs de propriété peuvent contenir des chaînes littérales et des [expressions de stratégie](https://msdn.microsoft.com/library/azure/dn910913.aspx). Par exemple, la valeur de `ExpressionProperty` est une expression de stratégie qui retourne une chaîne contenant la date et l’heure actuelles. La propriété `ContosoHeaderValue` est marquée en tant que secret. Sa valeur ne s’affiche donc pas.
+Les valeurs de propriété peuvent contenir des chaînes littérales et des [expressions de stratégie](/azure/api-management/api-management-policy-expressions). Par exemple, la valeur de `ExpressionProperty` est une expression de stratégie qui retourne une chaîne contenant la date et l’heure actuelles. La propriété `ContosoHeaderValue` est marquée en tant que secret. Sa valeur ne s’affiche donc pas.
 
 | Nom | Valeur | Secret | Balises |
 | --- | --- | --- | --- |
@@ -55,7 +55,7 @@ Les valeurs de propriété peuvent contenir des chaînes littérales et des [exp
 
 Une fois que la propriété est créée, vous pouvez le modifier en cliquant sur la propriété. Si vous modifiez le nom de propriété, toutes les stratégies qui font référence à cette propriété sont automatiquement mises à jour pour utiliser le nouveau nom.
 
-Pour plus d’informations sur la modification d’une propriété à l’aide de l’API REST, consultez [Modifier une propriété à l’aide de l’API REST](https://msdn.microsoft.com/library/azure/mt651775.aspx#Patch).
+Pour plus d’informations sur la modification d’une propriété à l’aide de l’API REST, consultez [Modifier une propriété à l’aide de l’API REST](/rest/api/apimanagement/property?Patch).
 
 ## <a name="to-delete-a-property"></a>Pour supprimer une propriété
 
@@ -66,7 +66,7 @@ Pour supprimer une propriété, cliquez sur **Supprimer** en regard de la propri
 > 
 > 
 
-Pour plus d’informations sur la suppression d’une propriété à l’aide de l’API REST, consultez [Supprimer une propriété à l’aide de l’API REST](https://msdn.microsoft.com/library/azure/mt651775.aspx#Delete).
+Pour plus d’informations sur la suppression d’une propriété à l’aide de l’API REST, consultez [Supprimer une propriété à l’aide de l’API REST](/rest/api/apimanagement/property?Delete).
 
 ## <a name="to-search-and-filter-named-values"></a>Pour rechercher et filtrer des valeurs nommées
 
@@ -111,8 +111,8 @@ Alors que les valeurs de propriété peuvent contenir des expressions de straté
 ## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur l’utilisation des stratégies
   * [Stratégies dans Gestion des API](api-management-howto-policies.md)
-  * [Référence de stratégie](https://msdn.microsoft.com/library/azure/dn894081.aspx)
-  * [Expressions de stratégie](https://msdn.microsoft.com/library/azure/dn910913.aspx)
+  * [Référence de stratégie](/azure/api-management/api-management-policies)
+  * [Expressions de stratégie](/azure/api-management/api-management-policy-expressions)
 
 [api-management-send-results]: ./media/api-management-howto-properties/api-management-send-results.png
 [api-management-properties-filter]: ./media/api-management-howto-properties/api-management-properties-filter.png

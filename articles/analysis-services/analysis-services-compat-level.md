@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9f2eae4160dbef164ec70e8fa4d7b3a83706ae96
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 67a6c99253c549f0b8d3b55809b35b81756843eb
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880124"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803491"
 ---
 # <a name="compatibility-level-for-analysis-services-tabular-models"></a>Niveau de compatibilité pour les modèles tabulaires Analysis Services
 
@@ -27,7 +27,11 @@ Azure Analysis Services prend en charge les modèles tabulaires aux niveaux de c
 *  Sécurité au niveau objet pour les noms de table et de colonne, en plus des données qui s’y trouvent.
 *  Prise en charge améliorée des hiérarchies déséquilibrées.
 *  Amélioration des performances et de la surveillance.
- 
+
+> [!NOTE]
+> Azure Analysis Services prend en charge les fichiers Power BI Desktop importés au niveau de compatibilité 1465. Toutefois, l’importation à partir de la fonctionnalité de Power BI Desktop, qui avait toujours été une fonctionnalité en version préliminaire, a été arrêtée et supprimée à partir du service en mars 2019. Les modèles existants au niveau de compatibilité 1465 restent pris en charge.  
+
+
 ## <a name="set-compatibility-level"></a>Définir le niveau de compatibilité
 
  Lorsque vous créez un projet de modèle tabulaire dans SSDT, vous pouvez spécifier le niveau de compatibilité dans la boîte de dialogue **Concepteur de modèle tabulaire**. 
@@ -47,6 +51,9 @@ Azure Analysis Services prend en charge les modèles tabulaires aux niveaux de c
  Dans SSMS, cliquez avec le bouton droit sur le nom du serveur > **Propriétés** > **Niveau de compatibilité pris en charge**.  
   
  Cette propriété spécifie le niveau de compatibilité le plus élevé d’une base de données, qui s’exécutera sur le serveur (à l’exception de la préversion). Le niveau de compatibilité pris en charge ne peut pas être modifié.  
+
+> [!NOTE]
+> Dans SSMS, lors de la connexion à un serveur Azure Analysis Services, le **pris en charge un niveau de compatibilité** propriété affichera **1200**. Il s’agit d’un problème connu et sera résolu dans une prochaine SSMS mise à jour. Une fois résolu, cette propriété apparaît le plus haut niveau de compatibilité pris en charge.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

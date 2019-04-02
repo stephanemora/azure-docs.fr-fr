@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: tomfitz
-ms.openlocfilehash: e7bcfce4e9d23839c623be3b54e97d931e6454cb
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 8348099d778a9ec65e907bb3d21ae995041b9fb6
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268292"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802285"
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>Afficher les journaux d’activité pour auditer les actions sur les ressources
 
@@ -167,7 +167,7 @@ Vous pouvez récupérer des informations dans les journaux d’activité par le 
 
 ## <a name="rest-api"></a>API REST
 
-Les opérations REST à utiliser avec le journal d’activité font partie de l’ [API REST Insights](https://msdn.microsoft.com/library/azure/dn931943.aspx). Pour récupérer les événements du journal d’activité, consultez [Liste des événements de gestion dans un abonnement](https://msdn.microsoft.com/library/azure/dn931934.aspx).
+Les opérations REST à utiliser avec le journal d’activité font partie de l’ [API REST Insights](/rest/api/monitor/). Pour récupérer les événements du journal d’activité, consultez [Liste des événements de gestion dans un abonnement](/rest/api/monitor/activitylogs).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: storage
 ms.subservice: blobs
 ms.topic: article
-ms.date: 12/05/2018
+ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: ba6d5e20f0d6a004fd85d7e9dc57584547d52ba3
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 8f106674c1b1ec90477c7c030dc55085fcf10656
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772855"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801979"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Solutions de transfert périodique de données
  
@@ -52,7 +52,7 @@ Le tableau suivant résume les différences entre les principales fonctionnalit�
 
 ### <a name="continuous-data-ingestion-over-network"></a>Ingestion continue des données sur le réseau
 
-| Fonctionnalité                                       | Data Box Gateway (préversion) | Data Box Edge (préversion)  | Azure Data Factory        |
+| Fonctionnalité                                       | Data Box Gateway | Data Box Edge   | Azure Data Factory        |
 |----------------------------------|-----------------------------------------|--------------------------|---------------------------|
 | Facteur de forme                                   | Appareil virtuel             | Appareil physique          | Service dans le Portail Azure, agent local                                                            |
 | Matériel                                      | Votre hyperviseur            | Fourni par Microsoft    | N/D                                                            |

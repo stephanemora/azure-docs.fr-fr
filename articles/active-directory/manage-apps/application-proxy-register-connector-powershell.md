@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: celested
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ee35fbfff676e8618a4e5ae02086193c503f482
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: bb193119186c2cf9e758f8c74f99f18c5fb389b8
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170820"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792516"
 ---
 # <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Créer un script d’installation sans assistance pour le connecteur de proxy d’application Azure AD
 
@@ -34,7 +34,7 @@ Cette fonctionnalité est utile lorsque vous souhaitez :
 * Intégrer l’installation et l’inscription du connecteur dans le cadre d’une autre procédure.
 * Créer une image de serveur standard qui contient les exécutables du connecteur, mais qui n’est pas inscrite.
 
-Pour que le [connecteur de proxy d’application](application-proxy-connectors.md) puisse fonctionner, il doit être inscrit auprès de votre annuaire Azure AD à l’aide d’un identifiant d’administrateur global et d’un mot de passe. En général, ces informations sont saisies lors de l’installation du connecteur dans une boîte de dialogue contextuelle, mais vous pouvez utiliser PowerShell pour automatiser ce processus.
+Pour le [connecteur Proxy d’Application](application-proxy-connectors.md) pour travailler, il doit être inscrit avec votre annuaire Azure AD à l’aide d’un administrateur d’application et le mot de passe. En général, ces informations sont saisies lors de l’installation du connecteur dans une boîte de dialogue contextuelle, mais vous pouvez utiliser PowerShell pour automatiser ce processus.
 
 Une installation sans assistance comporte deux étapes. Tout d’abord, vous devez installer le connecteur. Ensuite, vous devez inscrire le connecteur auprès d’Azure Active Directory. 
 

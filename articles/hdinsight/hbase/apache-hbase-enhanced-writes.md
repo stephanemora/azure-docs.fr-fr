@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 3/27/2019
-ms.openlocfilehash: 37e6f316a5202429396ddd2a31cb14fe61341e89
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: b0c71d0f101ea262b6ce56c845ef9f375a7de85e
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759411"
+ms.locfileid: "58804205"
 ---
 # <a name="azure-hdinsight-enhanced-writes-for-apache-hbase-preview"></a>Azure HDInsight améliorée écrit pour Apache HBase (version préliminaire)
 
@@ -56,4 +56,5 @@ disable 'mytable'
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Documentation officielle de Apache HBase sur le [fonctionnalité d’écrire les journaux à l’avance](https://hbase.apache.org/book.html#wal).
+* Documentation officielle de Apache HBase sur le [fonctionnalité d’écrire les journaux à l’avance](https://hbase.apache.org/book.html#wal)
+* Pour mettre à niveau votre cluster HDInsight Apache HBase pour utiliser améliorée écrit, consultez [migrer un cluster Apache HBase vers une nouvelle version](apache-hbase-migrate-new-version.md).

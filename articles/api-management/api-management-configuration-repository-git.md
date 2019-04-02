@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: 36b60b3784739a884b887a29f3dd53c61c44cd6f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: adf4d8d5cfcef2dde8193ce1b7f2805a44e2d93d
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57851344"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793269"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Comment enregistrer et configurer votre configuration du service Gestion des API à l’aide de Git
 
@@ -57,7 +57,7 @@ Pour afficher et configurer vos paramètres de configuration Git, cliquez sur le
 >
 >
 
-Pour plus d’informations sur l’activation ou la désactivation de l’accès à Git en utilisant l’API REST, consultez [Activer ou désactiver l’accès à Git à l’aide de l’API REST](https://msdn.microsoft.com/library/dn781420.aspx#EnableGit).
+Pour plus d’informations sur l’activation ou la désactivation de l’accès à Git en utilisant l’API REST, consultez [Activer ou désactiver l’accès à Git à l’aide de l’API REST](/rest/api/apimanagement/tenantaccess?EnableGit).
 
 ## <a name="to-save-the-service-configuration-to-the-git-repository"></a>Pour enregistrer la configuration du service dans le dépôt Git
 
@@ -69,7 +69,7 @@ Après quelques instants, la configuration est enregistrée, et l’état de con
 
 Une fois la configuration enregistrée dans le dépôt, elle peut être clonée.
 
-Pour plus d’informations sur l’exécution de cette opération avec l’API REST, consultez [Valider l’instantané de configuration à l’aide de l’API REST](https://msdn.microsoft.com/library/dn781420.aspx#CommitSnapshot).
+Pour plus d’informations sur l’exécution de cette opération avec l’API REST, consultez [Valider l’instantané de configuration à l’aide de l’API REST](/rest/api/apimanagement/tenantaccess?CommitSnapshot).
 
 ## <a name="to-clone-the-repository-to-your-local-machine"></a>Pour cloner le dépôt sur votre ordinateur local
 
@@ -266,7 +266,7 @@ Pour plus d’informations sur d’autres méthodes pour gérer votre instance d
   * [Référence sur les applets de commande PowerShell de déploiement des services](https://docs.microsoft.com/powershell/module/wds)
   * [Référence sur les applets de commande PowerShell de gestion des services](https://docs.microsoft.com/powershell/azure/servicemanagement/overview)
 * Gérer votre instance de service à l’aide de l’API REST
-  * [Référence de l’API REST Gestion des API](https://msdn.microsoft.com/library/azure/dn776326.aspx)
+  * [Référence de l’API REST Gestion des API](/rest/api/apimanagement/)
 
 
 [api-management-enable-git]: ./media/api-management-configuration-repository-git/api-management-enable-git.png

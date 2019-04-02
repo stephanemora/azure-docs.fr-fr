@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 04/01/2019
 ms.author: celested
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 225065e35e40c06d324bee89fa65a765a2727233
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f6ccc2a355b22c2235253b78a1efa3912234027a
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58123757"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793456"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Autorisations et consentement dans le point de terminaison Azure Active Directory v2.0
 
@@ -260,7 +260,7 @@ Pour en savoir plus sur le protocole OAuth 2.0 et sur le mode d’obtention des
 
 Vous pouvez utiliser l’étendue `/.default` pour faciliter la migration de vos applications à partir du point de terminaison v1.0 vers le point de terminaison v2.0. Il s’agit d’une étendue intégrée pour chaque application qui fait référence à la liste statique des autorisations configurées sur l’inscription d’application. Une valeur `scope` `https://graph.microsoft.com/.default` est fonctionnellement identique aux points de terminaison v1.0 `resource=https://graph.microsoft.com`, autrement dit elle demande un jeton avec les étendues sur Microsoft Graph auxquelles l’application s’est inscrite dans le portail Azure.
 
-L’étendue /.default peut être utilisée dans n’importe quel flux OAuth 2.0, mais elle est particulièrement nécessaire dans le [flux On-Behalf-Of](v2-oauth2-on-behalf-of-flow.md) et le [flux des informations d’identification du client](v2-oauth2-client-creds-grant-flow.md).  
+L’étendue de /.default peut être utilisé dans n’importe quel flux OAuth 2.0, mais il est particulièrement nécessaire dans le [flux On-Behalf-Of](v2-oauth2-on-behalf-of-flow.md) et [flux des informations d’identification client](v2-oauth2-client-creds-grant-flow.md).  
 
 > [!NOTE]
 > Les clients ne peuvent pas combiner un consentement statique (`/.default`) et dynamique dans une seule demande. Par conséquent, `scope=https://graph.microsoft.com/.default+mail.read` entraîne une erreur en raison de la combinaison des types d’étendues.

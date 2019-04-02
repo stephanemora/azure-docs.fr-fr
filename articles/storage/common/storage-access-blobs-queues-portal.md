@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 5a4426b665c58dd2c0bf7f5b5b41ebfca158e782
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 3a0d10f373b045058c6df242c4d98f78d04c4490
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444720"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801131"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Utiliser le portail Azure pour accéder aux données blob ou file d’attente
 
@@ -47,11 +47,11 @@ Le **lecteur** attribution de rôle ou une autre attribution de rôle Azure Reso
 
 Les rôles intégrés qui prennent en charge les accès à vos données d’objet blob ou file d’attente sont les suivantes :
 
-- [Propriétaire des données de stockage Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner-preview): Pour POSIX contrôle d’accès pour le stockage Azure Data Lake Gen2 (version préliminaire).
-- [Contributeur aux données stockage Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview): Autorisations en lecture/écriture/suppression pour les objets BLOB.
-- [Lecteur de données de stockage Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader-preview): Autorisations en lecture seule pour les objets BLOB.
-- [Contributeur de données de file d’attente de stockage](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor-preview): Autorisations en lecture/écriture/suppression des files d’attente.
-- [Lecteur de données de file d’attente de stockage](../../role-based-access-control/built-in-roles.md#storage-queue-data-reader-preview): Autorisations en lecture seule pour les files d’attente.
+- [Propriétaire des données de stockage Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): Pour POSIX contrôle d’accès pour le stockage Azure Data Lake Gen2 (version préliminaire).
+- [Contributeur aux données stockage Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor): Autorisations en lecture/écriture/suppression pour les objets BLOB.
+- [Lecteur de données de stockage Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader): Autorisations en lecture seule pour les objets BLOB.
+- [Contributeur de données de file d’attente de stockage](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor): Autorisations en lecture/écriture/suppression des files d’attente.
+- [Lecteur de données de file d’attente de stockage](../../role-based-access-control/built-in-roles.md#storage-queue-data-reader): Autorisations en lecture seule pour les files d’attente.
     
 Rôles personnalisés peuvent prendre en charge différentes combinaisons des mêmes autorisations fournies par les rôles intégrés. Pour plus d’informations sur la création des rôles RBAC personnalisés, consultez [rôles personnalisés pour les ressources Azure](../../role-based-access-control/custom-roles.md) et [comprendre les définitions de rôles pour les ressources Azure](../../role-based-access-control/role-definitions.md).
 

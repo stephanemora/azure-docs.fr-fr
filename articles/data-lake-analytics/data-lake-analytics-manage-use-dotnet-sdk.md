@@ -9,14 +9,15 @@ ms.assetid: 811d172d-9873-4ce9-a6d5-c1a26b374c79
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/18/2017
-ms.openlocfilehash: 3827c9e0b3e51a7a179a7db7fac0152d799a63f0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0a10af73d754596e9b5bb34b2974d7f1647d06f8
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57835813"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793286"
 ---
 # <a name="manage-azure-data-lake-analytics-a-net-app"></a>Gérer une application .NET Azure Data Lake Analytics
+
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
 Cet article explique comment gérer des comptes, des sources de données, des utilisateurs et des travaux Azure Data Lake Analytics à l’aide d’une application écrite avec le SDK Azure pour .NET. 
@@ -39,7 +40,7 @@ Cet article explique comment gérer des comptes, des sources de données, des ut
 
 Vous pouvez installer ces packages via la ligne de commande NuGet avec les commandes suivantes :
 
-```
+```powershell
 Install-Package -Id Microsoft.Rest.ClientRuntime.Azure.Authentication  -Version 2.3.1
 Install-Package -Id Microsoft.Azure.Management.DataLake.Analytics  -Version 3.0.0
 Install-Package -Id Microsoft.Azure.Management.DataLake.Store  -Version 2.2.0
@@ -49,7 +50,7 @@ Install-Package -Id Microsoft.Azure.Graph.RBAC -Version 3.4.0-preview
 
 ## <a name="common-variables"></a>Variables communes
 
-``` csharp
+```csharp
 string subid = "<Subscription ID>"; // Subscription ID (a GUID)
 string tenantid = "<Tenant ID>"; // AAD tenant ID or domain. For example, "contoso.onmicrosoft.com"
 string rg == "<value>"; // Resource  group name
@@ -130,6 +131,7 @@ Si ce n’est déjà fait, vous devez créer un groupe de ressources Azure pour 
 var resourceGroup = new ResourceGroup { Location = location };
 resourceManagementClient.ResourceGroups.CreateOrUpdate(groupName, rg);
 ```
+
 Pour plus d'informations, consultez Groupes de ressources Azure et Data Lake Analytics.
 
 ### <a name="create-a-data-lake-store-account"></a>Créer un compte Data Lake Store
@@ -260,6 +262,7 @@ if (adls_accounts != null)
 ```
 
 ### <a name="upload-and-download-folders-and-files"></a>Charger et télécharger des dossiers et des fichiers
+
 Vous pouvez utiliser l’objet de gestion de client du système de fichiers Data Lake Store pour charger et télécharger des fichiers ou des dossiers à partir d’Azure sur votre ordinateur local. Pour cela, utilisez les méthodes suivantes :
 
 - UploadFolder
@@ -293,6 +296,7 @@ using (var memstream = new MemoryStream())
 ```
 
 ### <a name="verify-azure-storage-account-paths"></a>Vérifier les chemins des comptes de stockage Azure
+
 Le code suivant vérifie si un compte de stockage Azure (storageAccntName) existe dans un compte Data Lake Analytics (analyticsAccountName) et si un conteneur (containerName) existe dans le compte de stockage Azure.
 
 ``` csharp
@@ -303,9 +307,11 @@ bool containerExists = adlaClient.Account.StorageContainerExists(rg, adla, stora
 ```
 
 ## <a name="manage-catalog-and-jobs"></a>Gérer le catalogue et les travaux
+
 L’objet DataLakeAnalyticsCatalogManagementClient fournit des méthodes pour gérer la base de données SQL fournie pour chaque compte Azure Data Lake Analytics. L’objet DataLakeAnalyticsJobManagementClient fournit des méthodes pour envoyer et gérer les tâches exécutées sur la base de données avec des scripts U-SQL.
 
 ### <a name="list-databases-and-schemas"></a>Afficher la liste des bases de données et des schémas
+
 Parmi les éléments dont vous pouvez afficher la liste, les plus courants sont les bases de données et leur schéma. Le code suivant obtient une collection de bases de données, puis indique le schéma pour chaque base de données.
 
 ``` csharp
@@ -323,9 +329,10 @@ foreach (var db in databases)
 ```
 
 ### <a name="list-table-columns"></a>Afficher la liste des colonnes d’une table
+
 Le code suivant montre comment accéder à la base de données avec un objet DataLakeAnalyticsCatalogManagementClient pour répertorier les colonnes de la table spécifiée.
 
-``` csharp
+```csharp
 var tbl = adlaCatalogClient.Catalog.GetTable(adla, "master", "dbo", "MyTableName");
 IEnumerable<USqlTableColumn> columns = tbl.ColumnList;
 
@@ -336,7 +343,9 @@ foreach (USqlTableColumn utc in columns)
 ```
 
 ### <a name="submit-a-u-sql-job"></a>Envoyer un travail U-SQL
+
 Le code suivant montre comment utiliser un client de gestion des travaux Data Lake Analytics pour soumettre un travail.
+
 ``` csharp
 string scriptPath = "/Samples/Scripts/SearchResults_Wikipedia_Script.txt";
 Stream scriptStrm = adlsFileSystemClient.FileSystem.Open(_adlsAccountName, scriptPath);
@@ -355,9 +364,10 @@ Console.WriteLine($"Job {jobName} submitted.");
 ```
 
 ### <a name="list-failed-jobs"></a>Afficher la liste des travaux ayant échoué
+
 Le code suivant répertorie les informations sur les travaux qui ont échoué.
 
-``` csharp
+```csharp
 var odq = new ODataQuery<JobInformation> { Filter = "result eq 'Failed'" };
 var jobs = adlaJobClient.Job.List(adla, odq);
 foreach (var j in jobs)
@@ -367,6 +377,7 @@ foreach (var j in jobs)
 ```
 
 ### <a name="list-pipelines"></a>Lister les pipelines
+
 Le code suivant liste des informations sur chaque pipeline de travaux envoyés au compte.
 
 ``` csharp
@@ -378,6 +389,7 @@ foreach (var p in pipelines)
 ```
 
 ### <a name="list-recurrences"></a>Lister les récurrences
+
 Le code suivant liste des informations sur chaque récurrence de travaux envoyés au compte.
 
 ``` csharp
@@ -404,9 +416,11 @@ Console.WriteLine( userinfo.ObjectId )
 ```
 
 ## <a name="manage-compute-policies"></a>Gérer les stratégies de calcul
+
 L’objet DataLakeAnalyticsAccountManagementClient fournit des méthodes de gestion des stratégies de calcul pour un compte Data Lake Analytics.
 
 ### <a name="list-compute-policies"></a>Lister les stratégies de calcul
+
 Le code suivant récupère une liste de stratégies de calcul pour un compte Data Lake Analytics.
 
 ``` csharp
@@ -418,6 +432,7 @@ foreach (var p in policies)
 ```
 
 ### <a name="create-a-new-compute-policy"></a>Créer une nouvelle stratégie de calcul
+
 Le code suivant crée une nouvelle stratégie de calcul pour un compte Data Lake Analytics, en définissant les unités Analytics maximales disponibles pour l’utilisateur spécifié sur 50 et la priorité minimale du travail sur 250.
 
 ``` csharp
@@ -427,6 +442,7 @@ adlaAccountClient.ComputePolicies.CreateOrUpdate(rg, adla, "GaryMcDaniel", newPo
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 * [Vue d'ensemble de Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Gestion d’Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-manage-use-portal.md)
 * [Surveiller et résoudre les problèmes des tâches Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)

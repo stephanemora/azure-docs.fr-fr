@@ -16,14 +16,15 @@ ms.date: 06/25/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7b3da5b2340b6bd4dd49dd6f8278f2fced477bc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 82b2b75d5505ddda91232bf1055bd70a68d333d0
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190719"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792397"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Fonctionnalités de service de synchronisation d’Azure AD Connect
+
 La fonctionnalité de synchronisation d’Azure AD Connect comprend deux composants :
 
 * Le composant local nommé **Azure AD Connect sync**, également appelé **moteur de synchronisation**.
@@ -65,26 +66,29 @@ Les paramètres suivants sont configurés par Azure AD Connect et ne peuvent pas
 | UserWriteback |Non pris en charge pour le moment. |
 
 ## <a name="duplicate-attribute-resiliency"></a>Résilience d’attribut en double
+
 Au lieu de rencontrer des problèmes lors de l’approvisionnement des UPN/proxyAddresses en double, l’attribut en double est « mis en quarantaine » et une valeur temporaire lui est attribuée. Lorsque le conflit est résolu, l’UPN temporaire est automatiquement converti dans la valeur correcte. Pour plus d’informations, voir [Synchronisation des identités et résilience d’attribut en double](how-to-connect-syncservice-duplicate-attribute-resiliency.md).
 
 ## <a name="userprincipalname-soft-match"></a>Correspondance souple UserPrincipalName
+
 Lorsque cette fonctionnalité est activée, la correspondance souple est activée pour l’UPN ainsi que pour l’ [adresse SMTP principale](https://support.microsoft.com/kb/2641663), qui est toujours activée. La correspondance souple est utilisée pour faire correspondre les utilisateurs existants du cloud dans Azure AD avec les utilisateurs locaux.
 
 Cette fonctionnalité est utile lorsque vous mettez en correspondance des comptes AD locaux avec des comptes existants créés dans le cloud, et que vous n’utilisez pas Exchange Online. Dans ce scénario, vous n’avez généralement pas de raison pour définir l’attribut SMTP dans le cloud.
 
 Cette fonctionnalité est activée par défaut pour les répertoires Azure AD nouvellement créés. Vous pouvez voir si cette fonctionnalité est activée en exécutant :  
 
-```
+```powershell
 Get-MsolDirSyncFeatures -Feature EnableSoftMatchOnUpn
 ```
 
 Si cette fonctionnalité n’est pas activée pour votre répertoire Azure AD, vous pouvez l’activer en exécutant :  
 
-```
+```powershell
 Set-MsolDirSyncFeature -Feature EnableSoftMatchOnUpn -Enable $true
 ```
 
 ## <a name="synchronize-userprincipalname-updates"></a>Synchroniser les mises à jour userPrincipalName
+
 Historiquement, les mises à jour de l’attribut UserPrincipalName à l’aide du service de synchronisation du site ont été bloquées, sauf si les deux conditions suivantes sont remplies :
 
 * L’utilisateur est géré (non fédéré).
@@ -96,19 +100,19 @@ L’activation de cette fonctionnalité permet au moteur de synchronisation de m
 
 Cette fonctionnalité est activée par défaut pour les répertoires Azure AD nouvellement créés. Vous pouvez voir si cette fonctionnalité est activée en exécutant :  
 
-```
+```powershell
 Get-MsolDirSyncFeatures -Feature SynchronizeUpnForManagedUsers
 ```
 
 Si cette fonctionnalité n’est pas activée pour votre répertoire Azure AD, vous pouvez l’activer en exécutant :  
 
-```
+```powershell
 Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $true
 ```
 
 Après avoir activé cette fonctionnalité, les valeurs existantes userPrincipalName demeurent telles quelles. Lors de la prochaine modification de l’attribut userPrincipalName en local, la synchronisation delta normale sur les utilisateurs met à jour l’UPN.  
 
 ## <a name="see-also"></a>Voir aussi
+
 * [Synchronisation d’Azure AD Connect](how-to-connect-sync-whatis.md)
 * [Intégration de vos identités locales avec Azure Active Directory](whatis-hybrid-identity.md).
-

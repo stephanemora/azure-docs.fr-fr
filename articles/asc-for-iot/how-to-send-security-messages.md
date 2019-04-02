@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 2e8fc3e2cf85fb06d37347870e3b2b9c82f1aa96
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: be17c5bb4d09e0868af0c6fd9b31f7653b614735
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/01/2019
-ms.locfileid: "58754791"
+ms.locfileid: "58762767"
 ---
 # <a name="send-security-messages-sdk"></a>Envoyer des messages de sécurité SDK
 
@@ -88,7 +88,7 @@ Une fois définie comme un message de sécurité et envoyé, ce message sera tra
 
 ## <a name="send-security-messages"></a>Envoyer des messages de sécurité 
 
-Envoyer des messages de sécurité sans utiliser l’ASC pour l’agent IoT, à l’aide de la [Azure IoT C# device SDK](https://github.com/Azure/azure-iot-sdk-csharp) ou [appareil Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c).
+Envoyer des messages de sécurité sans utiliser l’ASC pour l’agent IoT, à l’aide de la [Azure IoT C# device SDK](https://github.com/Azure/azure-iot-sdk-csharp/tree/preview) ou [appareil Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview).
 
 Pour envoyer les données de l’appareil à partir de vos appareils pour le traitement par ASC pour IoT, utilisez une des API suivantes pour marquer les messages pour le routage correct à ASC pour le pipeline de traitement de l’IoT. Les messages envoyés de cette manière seront traitées et affichés en tant que les informations de sécurité dans ASC pour IoT dans les deux IoT Hub ou dans Azure Security Center. 
 

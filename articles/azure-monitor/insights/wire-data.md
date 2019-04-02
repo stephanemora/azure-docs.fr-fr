@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: magoedte
-ms.openlocfilehash: 5a4ba784402774750d4d7770652589b598ee00d8
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: ad5869a2a79d41245b731409e9e4fe4c5a460b19
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485575"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793218"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Solution de communication Data 2.0 (version préliminaire) dans Azure Monitor
 
@@ -291,7 +291,7 @@ sh InstallDependencyAgent-Linux64.bin -s
 
 Pour déployer l’agent de dépendances avec Desired State Configuration, vous pouvez utiliser le module xPSDesiredStateConfiguration et un peu de code comme ceci :
 
-```
+```powershell
 Import-DscResource -ModuleName xPSDesiredStateConfiguration
 
 $DAPackageLocalPath = "C:\InstallDependencyAgent-Windows.exe"
@@ -341,6 +341,7 @@ Node $NodeName
 }
 
 ```
+
 ### <a name="uninstall-the-dependency-agent"></a>Désinstaller l’agent de dépendances
 
 Utilisez les sections suivantes comme guide pour supprimer l’agent de dépendances.

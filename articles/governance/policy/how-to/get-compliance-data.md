@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: df5b6268a2ecd7062969aac9d663ee751eeab130
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: da027e492633ba3e4da912c2c45b2432fd217576
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535204"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802950"
 ---
-# <a name="getting-compliance-data"></a>Obtention de données de conformité
+# <a name="get-compliance-data-of-azure-resources"></a>Obtenir des données de conformité des ressources Azure
 
 Azure Policy offre, entre autres avantages, un insight et des contrôles sur les ressources d’un abonnement ou un [groupe d’administration](../../management-groups/overview.md) d’abonnements. Ce contrôle peut être effectué de différentes façons, notamment en empêchant la création de ressources au mauvais emplacement, en appliquant une utilisation commune et cohérente des balises ou en auditant les ressources existantes pour vérifier l’adéquation des configurations et paramètres. Dans tous les cas, les données générées par Azure Policy vous permettent de comprendre l’état de conformité de votre environnement.
 
@@ -120,27 +120,27 @@ La stratégie utilise les champs **type** et **nom** de la définition pour dét
 Le pourcentage de conformité est déterminé en divisant le nombre de ressources **conformes** par le _nombre total de ressources_.
 Le _nombre total de ressources_ est défini comme étant la somme des ressources **conformes**, **non conformes** et **en conflit**. La conformité globale est la somme des ressources distinctes **conformes** divisée par la somme de toutes les ressources distinctes. Dans l’image ci-dessous, il y a 20 ressources distinctes applicables et une seule **non conforme**. La conformité globale des ressources est égale à 95 % (soit 19 sur 20).
 
-![Exemple simple de conformité](../media/getting-compliance-data/simple-compliance.png)
+![Exemple de conformité à la stratégie à partir de la page de conformité](../media/getting-compliance-data/simple-compliance.png)
 
 ## <a name="portal"></a>Portail
 
 Le portail Azure permet de visualiser et comprendre l’état de conformité de votre environnement selon une représentation graphique. Sur la page **Stratégie**, l’option **Vue d’ensemble** fournit des détails sur les étendues disponibles pour la conformité des stratégies et des initiatives. En complément de l’état de conformité et du nombre par affectation, elle contient un graphique retraçant la conformité au cours des sept derniers jours.
 La page **Conformité** regroupe essentiellement les mêmes informations (à l’exception du graphique), mais avec également des options de tri et de filtrage supplémentaires.
 
-![Page Conformité de la stratégie](../media/getting-compliance-data/compliance-page.png)
+![Exemple de page de conformité à la stratégie](../media/getting-compliance-data/compliance-page.png)
 
 Comme une stratégie ou une initiative peut être affectée à différentes étendues, le tableau comprend l’étendue pour chaque affectation et le type de définition qui a été affecté. Le nombre de ressources et de stratégies non conformes est aussi indiqué pour chaque affectation. En cliquant sur une stratégie ou une initiative dans le tableau, vous obtenez davantage de détails sur la conformité de l’affectation concernée.
 
-![Détails de conformité de la stratégie](../media/getting-compliance-data/compliance-details.png)
+![Exemple de page de détails de conformité de stratégie](../media/getting-compliance-data/compliance-details.png)
 
 La liste des ressources dans l’onglet **Resource compliance (Conformité des ressources)** affiche l’état de l’évaluation des ressources existantes pour l’affectation actuelle. Par défaut, l’onglet est défini sur **Non conforme**, mais un filtre peut être appliqué.
 Les événements (ajouter, effectuer un audit, refuser, déployer) déclenchés par la requête pour créer une ressource sont affichés dans l’onglet **Événements**.
 
-![Événements de conformité de la stratégie](../media/getting-compliance-data/compliance-events.png)
+![Exemple d’événements de la conformité à la stratégie](../media/getting-compliance-data/compliance-events.png)
 
 Cliquez avec le bouton droit sur la ligne de l’événement pour lequel vous souhaitez obtenir plus de détails et sélectionnez **Afficher les journaux d’activité**. La page Journal d’activité s’ouvre et les critères de recherche sont préfiltrés pour montrer les détails de l’affectation et des événements. Le journal d’activité fournit davantage de contexte ainsi que des informations supplémentaires sur ces événements.
 
-![Journal d’activité de la stratégie de conformité](../media/getting-compliance-data/compliance-activitylog.png)
+![Exemple de journal d’activité de conformité de stratégie](../media/getting-compliance-data/compliance-activitylog.png)
 
 ### <a name="understand-non-compliance"></a>Comprendre la non-conformité
 

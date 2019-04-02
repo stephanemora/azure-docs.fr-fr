@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: 13ea4acb5a3b5b3e7ac6d53013193fddbfcbf9b7
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 6d92273298c0448d7377acab6f3b8ea1cc1ed908
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759405"
+ms.locfileid: "58762920"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Architecture de réseau virtuel Azure HDInsight
 
@@ -31,8 +31,6 @@ Les clusters Azure HDInsight ont différents types de machines virtuelles ou des
 | Nœud de la région | Pour le type de cluster HBase, le nœud de la région (également appelé un nœud de données) s’exécute le serveur de région. Serveurs de région servent et gérer une partie des données gérées par HBase. Nœuds de la région peuvent être ajoutés ou supprimés du cluster à l’échelle des capacités de calcul et de gérer les coûts.|
 | Nœud Nimbus | Pour le type de cluster Storm, le nœud Nimbus offre des fonctionnalités similaires pour le nœud principal. Le nœud Nimbus affecte des tâches à d’autres nœuds dans un cluster via Zookeeper, qui coordonne l’exécution de topologies Storm. |
 | Nœud de superviseur | Pour le type de cluster Storm, le nœud de superviseur exécute les instructions fournies par le nœud Nimbus pour effectuer le traitement de votre choix. |
-
-* = Apache Hadoop, Apache Hive, Apache Kafka, Apache Spark, Apache HBase et les types de cluster R Server
 
 ## <a name="basic-virtual-network-resources"></a>Ressources de réseau virtuel de base
 

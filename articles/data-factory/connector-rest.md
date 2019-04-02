@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: jingwang
-ms.openlocfilehash: 01d00b33a4575f17cffb7ba878372367046271a1
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: ee47f464c59bd9deed98671f19cfcc6d2c3c1b39
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578422"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762478"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Copier des données d’un point de terminaison REST à l’aide d’Azure Data Factory
 
@@ -55,7 +55,7 @@ Les propriétés prises en charge pour le service lié REST sont les suivantes 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété **type** doit être définie sur **HttpServer**. | Oui |
+| Type | Le **type** propriété doit être définie sur **RestService**. | Oui |
 | url | URL de base du service REST. | Oui |
 | enableServerCertificateValidation | Indique s’il faut ou non valider le certificat SSL côté serveur lors de la connexion au point de terminaison. | Non <br /> (la valeur par défaut est **true**) |
 | authenticationType | Type d’authentification utilisé pour se connecter au service REST. Les valeurs autorisées sont **Anonyme**, **De base**, **AadServicePrincipal** et **ManagedServiceIdentity**. Pour d’autres propriétés et exemples, voir les sections correspondantes ci-dessous. | Oui |
