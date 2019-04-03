@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: 8f0470b10589ecbbc9e2c98e8d3445435e7f8ed4
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 2f00636da2b29e7815569a683fdf51c6a4e3b0e0
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668821"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880291"
 ---
 # <a name="debug-your-java-service-fabric-application-using-eclipse"></a>Débogage de votre application Java Service Fabric avec Eclipse
 > [!div class="op_single_selector"]
@@ -29,12 +29,12 @@ ms.locfileid: "58668821"
 
 1. Démarrez un cluster de développement local en suivant les étapes de la section [Configuration de votre environnement de développement Service Fabric](service-fabric-get-started-linux.md).
 
-2. Mettez à jour entryPoint.sh du service que vous souhaitez déboguer, afin qu’il démarre le processus java avec les paramètres de débogage à distance. Ce fichier se trouve à l’emplacement suivant : ``ApplicationName\ServiceNamePkg\Code\entrypoint.sh``. Le port 8001 est défini pour le débogage dans cet exemple.
+2. Mettez à jour entryPoint.sh du service que vous souhaitez déboguer, afin qu’il démarre le processus java avec les paramètres de débogage à distance. Ce fichier se trouve à l’emplacement suivant : `ApplicationName\ServiceNamePkg\Code\entrypoint.sh`. Le port 8001 est défini pour le débogage dans cet exemple.
 
     ```sh
     java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -jar myapp.jar
     ```
-3. Mettez à jour le manifeste de l’application en définissant le nombre d’instances ou le nombre de réplicas pour le service en cours de débogage sur 1. Ce paramètre évite les conflits pour le port utilisé pour le débogage. Par exemple, pour les services sans état, définissez ``InstanceCount="1"`` et pour les services avec état, définissez les tailles cible et de jeu de réplicas minimales sur 1 comme suit : `` TargetReplicaSetSize="1" MinReplicaSetSize="1"``.
+3. Mettez à jour le manifeste de l’application en définissant le nombre d’instances ou le nombre de réplicas pour le service en cours de débogage sur 1. Ce paramètre évite les conflits pour le port utilisé pour le débogage. Par exemple, pour les services sans état, définissez `InstanceCount="1"` et pour les services avec état, définissez les tailles cible et de jeu de réplicas minimales sur 1 comme suit : `TargetReplicaSetSize="1" MinReplicaSetSize="1"`.
 
 4. Déployez l’application.
 
@@ -46,7 +46,7 @@ ms.locfileid: "58668821"
    ```
 6.  Définissez des points d’arrêt sur les points de votre choix et déboguez l’application.
 
-Si l’application se bloque, vous pouvez également activer le vidage de la mémoire de travail. Exécutez ``ulimit -c`` dans un interpréteur de commandes et si elle renvoie la valeur 0, les vidages de la mémoire de travail ne sont pas activés. Pour activer un nombre illimité de vidages de la mémoire de travail, exécutez la commande suivante : ``ulimit -c unlimited``. Vous pouvez également vérifier l’état à l’aide de la commande ``ulimit -a``.  Si vous souhaitez mettre à jour le chemin d’accès de la génération des vidages de la mémoire de travail, exécutez ``echo '/tmp/core_%e.%p' | sudo tee /proc/sys/kernel/core_pattern``. 
+Si l’application se bloque, vous pouvez également activer le vidage de la mémoire de travail. Exécutez `ulimit -c` dans un interpréteur de commandes et si elle renvoie la valeur 0, les vidages de la mémoire de travail ne sont pas activés. Pour activer un nombre illimité de vidages de la mémoire de travail, exécutez la commande suivante : `ulimit -c unlimited`. Vous pouvez également vérifier l’état à l’aide de la commande `ulimit -a`.  Si vous souhaitez mettre à jour le chemin d’accès de la génération des vidages de la mémoire de travail, exécutez `echo '/tmp/core_%e.%p' | sudo tee /proc/sys/kernel/core_pattern`. 
 
 ### <a name="next-steps"></a>Étapes suivantes
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: e4d4d15ebb8200f16be8953e955b2e793be03c3a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 63adb354d51caa8f01df8bf05c85257c75b5fe41
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452181"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877824"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optimiser le coût du débit approvisionné dans Azure Cosmos DB
 
@@ -33,19 +33,19 @@ Voici quelques indications pour choisir une stratégie de débit approvisionné�
 
 1. Vous avez quelques dizaines de conteneurs Azure Cosmos et souhaitez partager le débit sur tout ou partie de ces conteneurs. 
 
-2. Vous effectuez une migration à partir d’une base de données à locataire unique conçue pour s’exécuter sur des machines virtuelles hébergées sur IaaS ou localement, par exemple des bases de données NoSQL ou relationnelles, vers Azure Cosmos DB. Vous avez un grand nombre de collections/tables/graphiques et ne souhaitez pas modifier votre modèle de données. Notez que vous devrez accepter certains compromis concernant les avantages offerts par Azure Cosmos DB si vous ne mettez pas à jour votre modèle de données lors de la migration à partir d’une base de données sur site. Il est recommandé d’accéder régulièrement à votre modèle de données pour optimiser les performances et les coûts. 
+2. Vous effectuez une migration à partir d’une base de données à locataire unique conçue pour s’exécuter sur des machines virtuelles hébergées sur IaaS ou localement, par exemple des bases de données NoSQL ou relationnelles, vers Azure Cosmos DB. Vous avez un grand nombre de collections/tables/graphiques et ne souhaitez pas modifier votre modèle de données. Notez que vous deviez compromettre certains des avantages offerts par Azure Cosmos DB si vous ne mettez pas à jour votre modèle de données lors de la migration à partir d’une base de données locale. Il est recommandé d’accéder régulièrement à votre modèle de données pour optimiser les performances et les coûts. 
 
 3. Vous souhaitez absorber les pics imprévus dans les charges de travail en regroupant le débit au niveau de la base de données qui subit un pic inattendu dans la charge de travail. 
 
 4. Au lieu de définir un débit spécifique dans des conteneurs individuels, vous préférez répartir le débit d’agrégat sur un ensemble de conteneurs au sein de la base de données.
 
-**Approvisionnez le débit sur un conteneur individuel si :**
+**Pensez à approvisionner le débit sur un conteneur spécifique si :**
 
 1. Vous avez quelques conteneurs Cosmos Azure. Comme Azure Cosmos DB ne dépend pas d’un schéma spécifique, un conteneur peut contenir des éléments avec des schémas hétérogènes, sans forcer les clients à créer plusieurs types de conteneurs (un pour chaque entité). Choisissez cette option si vous estimez que le regroupement de 10 à 20 conteneurs dans un seul conteneur peut être bénéfique. Avec un minimum de 400 unités de requête pour les conteneurs, le regroupement de 10 à 20 conteneurs dans un seul conteneur peut être plus économique. 
 
 2. Vous souhaitez contrôler le débit sur un conteneur spécifique et obtenir le débit garanti sur un conteneur donné avec une garantie par contrat de niveau de service.
 
-**Optez pour une solution hybride combinant les deux stratégies ci-dessus :**
+**Prenez en compte un hybride des deux stratégies ci-dessus :**
 
 1. Comme mentionné précédemment, Azure Cosmos DB vous permet de combiner les deux stratégies ci-dessus : vous pouvez désormais avoir certains conteneurs au sein de la base de données Azure Cosmos, pouvant se partager le débit approvisionné sur la base de données, et d’autres conteneurs au sein de la même base de données, chacun avec un débit approvisionné dédié. 
 

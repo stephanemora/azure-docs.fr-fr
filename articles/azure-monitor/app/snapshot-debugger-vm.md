@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 03/07/2019
 ms.author: brahmnes
-ms.openlocfilehash: 4041bee71a41cee06243d53de128bcceecda5618
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: ac937ddb1bcaed6813a0de4d631f820eff01e26f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58001832"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877735"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-service-fabric-cloud-service-and-virtual-machines"></a>Activer le débogueur de capture instantanée pour les applications .NET dans Azure Service Fabric, Service Cloud et Machines virtuelles
 
-Si votre ASP.NET ou un ASP.NET core application est exécuté dans Azure App Service, les instructions ci-dessous peuvent également être utilisées. À moins que votre application nécessite une configuration personnalisée de débogueur de capture instantanée, il est vivement recommandé à [autorisez le débogueur de capture instantanée dans la page du portail Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json). Si votre application s’exécute dans Azure Service Fabric, Service Cloud, des Machines virtuelles ou des ordinateurs sur site, vous devraient utiliser les instructions suivantes. 
+Si votre ASP.NET ou un ASP.NET core application est exécuté dans Azure App Service, les instructions ci-dessous peuvent également être utilisées. À moins que votre application nécessite une configuration personnalisée de débogueur de capture instantanée, il est vivement recommandé à [autorisez le débogueur de capture instantanée dans la page du portail Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json). Si votre application s’exécute dans Azure Service Fabric, Service Cloud, Machines virtuelles, ou sur des machines locales, vous devraient utiliser les instructions suivantes. 
     
 ## <a name="configure-snapshot-collection-for-aspnet-applications"></a>Configurer la collecte de captures instantanées pour les applications ASP.NET
 
@@ -77,7 +77,7 @@ Si votre ASP.NET ou un ASP.NET core application est exécuté dans Azure App Ser
 
 3. Modifiez la classe `Startup` de votre application pour ajouter et configurer le processeur de télémétrie du collecteur de captures instantanées.
 
-    Ajoutez les paramètres suivants à l’aide des instructions pour `Startup.cs`
+    Ajoutez le code suivant à l’aide des instructions pour `Startup.cs`
 
    ```csharp
    using Microsoft.ApplicationInsights.SnapshotCollector;

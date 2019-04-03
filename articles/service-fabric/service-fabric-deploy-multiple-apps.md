@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: 7fb4c68d10478a7c8af62262b3fa4633eaac9d2b
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 69df9eff85d96c9cc6ca7fa1d3aabd2c54fae416
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58660406"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884718"
 ---
 # <a name="deploy-multiple-guest-executables"></a>Déploiement de plusieurs exécutables invités
 Cet article montre comment empaqueter et déployer plusieurs exécutables sur Azure Service Fabric. Pour créer et déployer un package Service Fabric, lisez l’article [Déploiement d’un exécutable invité dans Service Fabric](service-fabric-deploy-existing-app.md).
@@ -29,11 +29,11 @@ Bien que cette procédure montre pas à pas comment déployer une application av
 Vous pouvez utiliser Visual Studio pour générer le package d’application qui contient plusieurs fichiers exécutables invités. Voir [Utilisation de Visual Studio pour empaqueter une application existante](service-fabric-deploy-existing-app.md). Après avoir ajouté le premier exécutable invité, cliquez avec le bouton droit sur le projet d’application, puis sélectionnez **Ajouter -> nouveau service Service Fabric** pour ajouter le second projet exécutable invité à la solution. Remarque : Si vous choisissez d’établir un lien vers la source dans le projet Visual Studio, lors de la création de la solution Visual Studio, assurez-vous que votre package d’application est à jour avec les modifications dans la source. 
 
 ## <a name="samples"></a>Exemples
-* [Exemple pour empaqueter et déployer un fichier exécutable invité](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Exemple de deux exécutables invités (C# et nodejs) communiquant via le service d’attribution de noms à l’aide de REST](https://github.com/Azure-Samples/service-fabric-containers)
+* [Exemple pour empaqueter et déployer un exécutable invité](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Exemple de deux exécutables invités (C# et nodejs) communiquant via le service d’affectation de noms à l’aide de REST](https://github.com/Azure-Samples/service-fabric-containers)
 
 ## <a name="manually-package-the-multiple-guest-executable-application"></a>Empaqueter manuellement l’application exécutable invitée multiple
-Vous pouvez également empaqueter manuellement l’exécutable invité. Pour l’empaquetage manuel, cet article utilise l’outil d’empaquetage Service Fabric, disponible à l’adresse [http://aka.ms/servicefabricpacktool](https://aka.ms/servicefabricpacktool).
+Vous pouvez également empaqueter manuellement l’exécutable invité. Pour l’empaquetage manuel, cet article utilise l’outil d’empaquetage Service Fabric, disponible à l’adresse [https://aka.ms/servicefabricpacktool](https://aka.ms/servicefabricpacktool).
 
 ### <a name="packaging-the-nodejs-application"></a>Empaquetage de l'application Node.js
 Cet article part du principe que Node.js n’est pas installé sur les nœuds du cluster Service Fabric. Par conséquent, vous devez ajouter Node.exe dans le répertoire racine de votre application de nœud avant l’empaquetage. La structure de répertoires de l’application Node.js (avec la structure web Express et le moteur de création de modèles Jade) doit ressembler à ce qui suit :
@@ -73,7 +73,7 @@ Voici une description des paramètres utilisés :
 * **/target** : définit le répertoire dans lequel le package doit être créé. Ce répertoire doit être différent du répertoire source.
 * **/appname** : définit le nom d’application de l’application existante. Il est important de comprendre que ce nom devient le nom du service dans le manifeste, et non celui de l’application Service Fabric.
 * **/exe** : définit l’exécutable que Service Fabric doit démarrer, dans ce cas `node.exe`.
-* **/ma** : définit l’argument utilisé pour démarrer l’exécutable. Node.js n’étant pas installé, Service Fabric doit démarrer le serveur web Node.js en exécutant `node.exe bin/www`.  `/ma:'bin/www'` indique l’outil d’empaquetage pour utiliser `bin/www` comme argument pour node.exe.
+* **/ma** : définit l’argument utilisé pour démarrer l’exécutable. Node.js n’étant pas installé, Service Fabric doit démarrer le serveur web Node.js en exécutant `node.exe bin/www`.  `/ma:'bin/www'` Indique à l’outil d’empaquetage pour utiliser `bin/www` comme argument pour node.exe.
 * **/AppType** : définit le nom du type de l’application Service Fabric.
 
 Si vous accédez au répertoire spécifié dans le paramètre /target, vous constatez que l’outil a créé un package Service Fabric entièrement fonctionnel, comme illustré ci-dessous :
@@ -217,5 +217,5 @@ Pour ajouter un autre service à une application déjà créée à l’aide de `
 
 ## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur le déploiement de conteneurs avec [Service Fabric et vue d’ensemble des conteneurs](service-fabric-containers-overview.md)
-* [Exemple pour empaqueter et déployer un fichier exécutable invité](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Exemple de deux exécutables invités (C# et nodejs) communiquant via le service d’attribution de noms à l’aide de REST](https://github.com/Azure-Samples/service-fabric-containers)
+* [Exemple pour empaqueter et déployer un exécutable invité](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Exemple de deux exécutables invités (C# et nodejs) communiquant via le service d’affectation de noms à l’aide de REST](https://github.com/Azure-Samples/service-fabric-containers)

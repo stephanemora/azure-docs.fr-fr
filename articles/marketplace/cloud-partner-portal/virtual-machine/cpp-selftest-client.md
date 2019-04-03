@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 6cfe9b61d9bbb088e827386b2195bba21333937e
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: ae01b0fb088035240e670c16d4d457d8abda1bfa
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649084"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58848934"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Créer un client d’auto-test pour prévalider une image de machine virtuelle Azure
 
@@ -51,7 +51,7 @@ Le diagramme suivant illustre le fonctionnement de l’autorisation pour les app
 L’API d’auto-test contient un point de terminaison unique qui prend en charge uniquement la méthode POST.  Sa structure est la suivante.
 
 ```
-Uri:             https:\//isvapp.azurewebsites.net/selftest-vm
+Uri:             https://isvapp.azurewebsites.net/selftest-vm
 Method:          Post
 Request Header:  Content-Type: “application/json”
 Authorization:   “Bearer xxxx-xxxx-xxxx-xxxxx”
@@ -357,7 +357,7 @@ La capture d’écran suivante présente un exemple d’utilisation de la comman
 
 ### <a name="to-create-and-get-a-token-using-c35"></a>Pour créer et obtenir un jeton à l’aide de C&#35;
 
-Pour demander des jetons à Auth0 pour toutes vos applications autorisées, effectuez une opération POST sur le point de terminaison [https://soamtenant.auth0.com/oauth/token](https://soamtenant.auth0.com/oauth/token) avec une charge utile au format suivant :
+Pour demander des jetons pour toutes vos applications autorisées Auth0, effectuer une opération POST au point de terminaison https :\//soamtenant.auth0.com/oauth/token le point de terminaison avec une charge utile au format suivant :
 
 ```csharp
 string clientId = "Your Application Id";
@@ -380,7 +380,7 @@ var token = JObject.Parse(content)["access_token"];
 
 ### <a name="to-create-and-get-a-token-using-powershell"></a>Pour créer et obtenir un jeton à l’aide de PowerShell
 
-Pour demander des jetons à Auth0 pour toutes vos applications autorisées, effectuez une opération POST sur le point de terminaison [https://soamtenant.auth0.com/oauth/token](https://soamtenant.auth0.com/oauth/token) avec une charge utile au format suivant :
+Pour demander des jetons pour toutes vos applications autorisées Auth0, effectuer une opération POST au point de terminaison https :\//soamtenant.auth0.com/oauth/token le point de terminaison avec une charge utile au format suivant :
 
 ```powershell
 $clientId = "Application Id of AD Client APP";

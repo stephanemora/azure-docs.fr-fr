@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: bce4946b62e3678f7fa8d5f7f6431441cc00b252
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.openlocfilehash: 6c0aa42cc22d22431d7d0270aca52e089046cb01
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58762835"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847743"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Corriger le système d’exploitation Windows dans votre cluster Service Fabric
 
@@ -325,7 +325,7 @@ Si votre cluster peut tolérer l’exécution sur le nombre N-1 de domaines de m
 
 Q. **Combien de temps prend la correction d’un nœud ?**
 
-R. La mise à jour corrective d’un nœud peut prendre plusieurs minutes (par exemple : [Mises à jour des définitions de Windows Defender](https://www.microsoft.com/wdsi/definitions)) à plusieurs heures (par exemple : [Mises à jour cumulatives de Windows](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). Le temps nécessaire pour appliquer un correctif à un nœud dépend principalement des éléments suivants : 
+R. La mise à jour corrective d’un nœud peut prendre plusieurs minutes (par exemple : [Mises à jour des définitions de Windows Defender](https://www.microsoft.com/en-us/wdsi/definitions)) à plusieurs heures (par exemple : [Mises à jour cumulatives de Windows](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). Le temps nécessaire pour appliquer un correctif à un nœud dépend principalement des éléments suivants : 
  - Taille des mises à jour
  - Nombre de mises à jour qui doivent être appliquées dans une fenêtre de mise à jour corrective.
  - Temps nécessaire pour installer les mises à jour, redémarrer le nœud (si nécessaire), puis achever les étapes d’installation après redémarrage.

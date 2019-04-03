@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/29/2018
 ms.author: robb
-ms.openlocfilehash: 3b6ddd99d7b198cdc5274b2944a723e68864bd4f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0d91e12de075ee6efebe39fd5ab582d4998046f9
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993036"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847866"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Que sont les alertes classiques dans Microsoft Azure ?
 
@@ -88,14 +88,14 @@ Les webhooks autorisent l’automatisation et la correction avec, par exemple :
 ## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez obtenir des informations sur les règles d’alerte et leur configuration avec :
 
-* En savoir plus sur les [métriques](../../azure-monitor/platform/data-collection.md)
+* En savoir plus sur les [métriques](data-platform.md)
 * Configurer les [alertes métriques classiques via le Portail Azure](alerts-classic-portal.md)
 * Configurer les [alertes métriques classiques PowerShell](alerts-classic-portal.md)
 * Configurer [l’interface de ligne de commande (CLI) des alertes métriques classiques](alerts-classic-portal.md)
 * Configurer les [l’API REST Azure Monitor des alertes métriques](https://msdn.microsoft.com/library/azure/dn931945.aspx)
-* En savoir plus sur les [journaux d’activité](../../azure-monitor/platform/activity-logs-overview.md)
-* Configurer les [alertes de journal d’activité par le biais du portail Azure](../../azure-monitor/platform/activity-log-alerts.md)
+* En savoir plus sur les [journaux d’activité](activity-logs-overview.md)
+* Configurer les [alertes de journal d’activité par le biais du portail Azure](activity-log-alerts.md)
 * Configurer les [alertes de journal d’activité au moyen de Resource Manager](alerts-activity-log.md)
-* Consulter le [schéma de webhook d’alerte de journal d’activité](../../azure-monitor/platform/activity-log-alerts-webhook.md)
-* En savoir plus sur les [groupes d’actions](../../azure-monitor/platform/action-groups.md)
-* Configurer des [alertes plus récentes](../../azure-monitor/platform/alerts-metric.md)
+* Consulter le [schéma de webhook d’alerte de journal d’activité](activity-log-alerts-webhook.md)
+* En savoir plus sur les [groupes d’actions](action-groups.md)
+* Configurer des [alertes plus récentes](alerts-metric.md)

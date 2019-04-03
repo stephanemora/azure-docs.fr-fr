@@ -13,12 +13,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: vashan, rajraj, changov
-ms.openlocfilehash: 401bd3badc555ee001fbc355c7bdb77786c2d053
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: fa65b108f3aea79d4417e65d706d42f0bd819f54
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977811"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880710"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>Résolution des erreurs de limitation d’API 
 
@@ -35,7 +35,7 @@ Quand un client API Azure reçoit une erreur de limitation, l’état HTTP est 4
 | En-tête                            | Format de valeur                           | Exemples                               | Description                                                                                                                                                                                               |
 |-----------------------------------|----------------------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | x-ms-ratelimit-remaining-resource |```<source RP>/<policy or bucket>;<count>```| Microsoft.Compute/HighCostGet3Min;159 | Nombre d’appels d’API restants pour la stratégie de limitation portant sur le groupe d’opérations ou de compartiments de ressources avec la cible de cette requête                                                                   |
-| x-ms-request-charge               | ```<count>   ```                             | 1                                     | Nombre d’appels « facturés » pour cette requête HTTP dans le calcul de la limite de la stratégie applicable. Il s’agit généralement de 1. Les requêtes de lots, par exemple pour la mise à l’échelle d’un groupe de machines virtuelles identiques, peuvent facturer plusieurs comptes. |
+| x-ms-request-charge               | ```<count>```                             | 1                                     | Nombre d’appels « facturés » pour cette requête HTTP dans le calcul de la limite de la stratégie applicable. Il s’agit généralement de 1. Les requêtes de lots, par exemple pour la mise à l’échelle d’un groupe de machines virtuelles identiques, peuvent facturer plusieurs comptes. |
 
 
 Notez qu’une requête d’API peut être soumise à plusieurs stratégies de limitation. Il y aura un en-tête `x-ms-ratelimit-remaining-resource` distinct pour chaque stratégie. 

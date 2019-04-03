@@ -10,12 +10,12 @@ ms.reviewer: plarsen, LADocs
 ms.topic: article
 ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: c46fd1791751ebf912670875f9c8e18e8b0c5c40
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 7785d1788e8d5e9b432a8189345f293ebf05ef7c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311303"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878398"
 ---
 # <a name="manage-ibm-db2-resources-with-azure-logic-apps"></a>Gérer les ressources IBM DB2 avec Azure Logic Apps
 
@@ -109,7 +109,7 @@ Avant de créer votre connexion, vous devez disposer de votre passerelle de donn
 | **Nom de connexion** | Oui | Le nom de votre connexion, par exemple, « MyLogicApp-DB2-connection » | 
 | **Serveur** | Oui | L’adresse ou alias (suivi d’un caractère deux-points et du numéro de port) de votre serveur DB2, par exemple, « myDB2server:50000 » <p><p>**Remarque**: Cette valeur est une chaîne qui représente une adresse TCP/IP ou alias, soit au format IPv4 ou IPv6, suivi par un signe deux-points et un numéro de port TCP/IP. |
 | **Base de données** | Oui | Nom de votre base de données <p><p>**Remarque**: Cette valeur est une chaîne qui représente un nom de base de données relationnelle (RDBNAM) de DRDA : <p>- DB2 pour z/OS accepte une chaîne de 16 octets où la propriété de base de données correspond à un emplacement « IBM DB2 pour z/OS ». <br>- DB2 pour i accepte une chaîne de 18 octets où la propriété de base de données correspond à une base de données relationnelle « IBM DB2 pour i ». <br>- DB2 pour LUW accepte une chaîne de 8 octets. |
-| **Authentification** | Oui | Type d’authentification pour votre connexion, par exemple, « De base » <p><p>**Remarque**: Sélectionnez cette valeur dans la liste, y compris Basic ou Windows (Kerberos). |
+| **Authentication** | Oui | Type d’authentification pour votre connexion, par exemple, « De base » <p><p>**Remarque**: Sélectionnez cette valeur dans la liste, y compris Basic ou Windows (Kerberos). |
 | **Nom d’utilisateur** | Oui | Votre nom d’utilisateur pour la base de données <p><p>**Remarque**: Cette valeur est une chaîne dont la longueur est basée sur la base de données spécifique : <p><p>- DB2 pour z/OS accepte une chaîne de 8 octets. <br>- DB2 pour i accepte une chaîne de 10 octets. <br>- DB2 pour Linux ou UNIX accepte une chaîne de 8 octets. <br>- DB2 pour Windows accepte une chaîne de 30 octets. |
 | **Mot de passe** | Oui | Votre mot de passe pour la base de données |
 | **Passerelle** | Oui | Nom de votre passerelle de données locale installée <p><p>**Remarque**: Sélectionnez cette valeur dans la liste, ce qui inclut toutes les passerelles de données installés dans votre abonnement Azure et le groupe de ressources. |

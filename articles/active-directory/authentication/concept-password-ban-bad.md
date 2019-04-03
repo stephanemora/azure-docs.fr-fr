@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 795abcadb1cee7599665f7bc3b8e0d3e08a3da05
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: cc2c125df2e3455b0e90919dbca92fe497a4b1b7
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369069"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884344"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Éliminer les mots de passe incorrects de votre organisation
 
@@ -100,14 +100,17 @@ Après la normalisation, ce mot de passe devient « contosoblankf9 ! ». Le p
 [contoso] + [blank] + [f] + [9] + [!] = 5 points. Dans la mesure où ce mot de passe a obtenu au moins 5 points, il est accepté.
 
    > [!IMPORTANT]
-   > Veuillez noter que la liste globale et l'algorithme des mots de passe interdits peuvent à tout moment changer dans Azure, en fonction des analyses et des recherches en cours sur la sécurité. Pour le service d'agent DC local, les algorithmes mis à jour ne prendront effet qu'après la réinstallation du logiciel de l'agent DC.
+   > Veuillez noter que la liste globale et l'algorithme des mots de passe interdits peuvent à tout moment changer dans Azure, en fonction des analyses et des recherches en cours sur la sécurité. Pour le service agent du contrôleur de domaine local, les algorithmes de mise à jour seront prendront effet qu’une fois que le logiciel de l’agent du contrôleur de domaine est installé.
 
 ## <a name="license-requirements"></a>Conditions de licence :
 
 |   | Protection de mot de passe Azure AD avec liste globale de mots de passe interdits | Protection de mot de passe Azure AD avec liste personnalisée de mots de passe interdits|
 | --- | --- | --- |
-| Utilisateurs du cloud uniquement | Azure AD Gratuit | Azure AD Standard |
+| Utilisateurs du cloud uniquement | Azure AD Gratuit | Azure AD Premium P1 ou P2 |
 | Utilisateurs synchronisés à partir de Windows Server Active Directory en local | Azure AD Premium P1 ou P2 | Azure AD Premium P1 ou P2 |
+
+> [!NOTE]
+> Utilisateurs de Windows Server Active Directory locaux pas synchronisent avec Azure Active Directory bénéficier également les avantages de la protection de mot de passe Azure AD basée sur les licences existantes pour les utilisateurs synchronisés.
 
 Vous trouverez des informations de licence supplémentaires, notamment les prix, sur le [site de tarification Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -119,5 +122,5 @@ Malheureusement, votre mot de passe contient un mot, une expression ou un modèl
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Configurer la liste de mots de passe interdits personnalisée](howto-password-ban-bad.md)
-* [Activer les agents locaux de protection de mot de passe Azure AD](howto-password-ban-bad-on-premises-deploy.md)
+* [Configurer la liste des mots de passe interdits personnalisée](howto-password-ban-bad.md)
+* [Activer Azure AD mot de passe protection agents locaux](howto-password-ban-bad-on-premises-deploy.md)

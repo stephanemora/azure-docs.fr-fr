@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/20/2019
 ms.author: juliako
-ms.openlocfilehash: 225bc4368d2a87fa5fef3f74624fd10f42dc7c97
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 394370738bc7996a221300540e68404986d91310
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57556361"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58850632"
 ---
 # <a name="diagnostic-logs-schemas"></a>Schémas des journaux de diagnostic
 
 [Azure Monitor](../../azure-monitor/overview.md) permet aux mesures de surveillance et de journaux de diagnostic qui vous aident à comprendre le fonctionnement de vos applications. Vous pouvez surveiller les journaux de diagnostic de Media Services et créer des alertes et notifications pour les métriques collectées et les journaux. Vous pouvez envoyer des journaux au [stockage Azure](https://azure.microsoft.com/services/storage/), les transmettre à [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)et les exporter vers [Analytique de journal](https://azure.microsoft.com/services/log-analytics/), ou utiliser les services tiers 3e.
 
-Pour plus d’informations, consultez [mesures Azure Monitor](../../azure-monitor/platform/data-collection.md) et [journaux de Diagnostic du moniteur Azure](../../azure-monitor/platform/diagnostic-logs-overview.md).
+Pour plus d’informations, consultez [mesures Azure Monitor](../../azure-monitor/platform/data-platform.md) et [journaux de Diagnostic du moniteur Azure](../../azure-monitor/platform/diagnostic-logs-overview.md).
 
 Cet article décrit les schémas des journaux de diagnostic de Media Services.
 

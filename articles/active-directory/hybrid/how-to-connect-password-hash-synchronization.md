@@ -9,16 +9,16 @@ ms.assetid: 05f16c3e-9d23-45dc-afca-3d0fa9dbf501
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 04/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74a7316ea00f5c38d6a2b1a98d81affeeffcd5e9
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 0506cc086cbc0c9ea30e199fd0bf18da3b8af545
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517995"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863081"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implémenter la synchronisation de hachage de mot de passe avec la synchronisation Azure AD Connect
 Cet article vous fournit les informations nécessaires pour synchroniser vos mots de passe utilisateur à partir d’une instance Active Directory (AD) locale vers une instance Azure Active Directory (Azure AD) dans le cloud.
@@ -46,7 +46,7 @@ Un utilisateur doit entrer ses informations d’identification d’entreprise un
 ### <a name="detailed-description-of-how-password-hash-synchronization-works"></a>Description détaillée du fonctionnement de la synchronisation de hachage de mot de passe
 La section suivante explique en détail comment fonctionne la synchronisation du hachage de mot de passe entre Active Directory et Azure AD.
 
-![Flux de travail détaillé des mots de passe](./media/how-to-connect-password-hash-synchronization/arch3a.png)
+![Flux de travail détaillé des mots de passe](./media/how-to-connect-password-hash-synchronization/arch3b.png)
 
 
 1. Toutes les deux minutes, l’agent de synchronisation du hachage de mot de passe qui se trouve sur le serveur AD Connect demande des hachages de mots de passe stockés (l’attribut unicodePwd) à un contrôleur de domaine.  Cette demande utilise le protocole de réplication [MS-DRSR](https://msdn.microsoft.com/library/cc228086.aspx) permettant de synchroniser les données entre les contrôleurs de domaine. Le compte de service doit disposer des autorisations Répliquer les changements d’annuaires et Répliquer les changements d’annuaire Tout d’Active Directory (accordées par défaut lors de l’installation) pour obtenir les hachages de mot de passe.
@@ -117,12 +117,12 @@ Si vous utilisez des paramètres personnalisés lors de l’installation d’Azu
 ### <a name="password-hash-synchronization-and-fips"></a>Synchronisation de hachage de mot de passe et FIPS
 Si votre serveur a été verrouillé selon la norme Federal Information Processing Standard (FIPS), MD5 est désactivé.
 
-**Pour activer MD5 pour la synchronisation de hachage de mot de passe, procédez comme suit :**
+**Pour activer MD5 pour la synchronisation de hachage de mot de passe, procédez comme suit :**
 
 1. Accédez à %programfiles%\Azure AD Sync\Bin.
 2. Ouvrez miiserver.exe.config.
 3. Accédez au nœud configuration/runtime (à la fin du fichier).
-4. Ajoutez le nœud suivant : `<enforceFIPSPolicy enabled="false"/>`
+4. Ajoutez le nœud suivant : `<enforceFIPSPolicy enabled="false"/>`
 5. Enregistrez vos modifications.
 
 Pour référence, cet extrait de code indique ce que vous devez obtenir :
@@ -141,6 +141,6 @@ Pour plus d’informations sur la sécurité et FIPS, voir [Synchronisation, chi
 Si vous rencontrez des problèmes avec la synchronisation de hachage de mot de passe, consultez [Troubleshoot password hash synchronization](tshoot-connect-password-hash-synchronization.md) (Résoudre les problèmes de synchronisation de hachage de mot de passe).
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Synchronisation Azure AD Connect : personnaliser les options de synchronisation](how-to-connect-sync-whatis.md)
-* [Intégration des identités locales dans Azure Active Directory](whatis-hybrid-identity.md)
-* [Obtenir un plan de déploiement étape par étape pour la migration à partir des services AD FS vers la synchronisation de hachage de mot de passe](https://aka.ms/authenticationDeploymentPlan)
+* [Synchronisation d’Azure AD Connect : Personnalisation des options de synchronisation](how-to-connect-sync-whatis.md)
+* [Intégration de vos identités locales avec Azure Active Directory](whatis-hybrid-identity.md)
+* [Obtenir un plan de déploiement pas à pas pour la migration d’AD FS pour la synchronisation de hachage de mot de passe](https://aka.ms/authenticationDeploymentPlan)

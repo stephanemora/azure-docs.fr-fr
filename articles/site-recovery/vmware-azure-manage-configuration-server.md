@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: ramamill
-ms.openlocfilehash: d8b0d78d33c0780b05ac6f4bd8a21c6423d801f4
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 93e05390d28b9e9998d84935417121696d2963cc
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445061"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877225"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>Gérer le serveur de configuration pour la récupération d’urgence de machines virtuelles VMware
 
@@ -252,7 +252,7 @@ Vous pouvez également supprimer le serveur de configuration à l’aide de Powe
     `$fabric = Get-AzureRmSiteRecoveryFabric -FriendlyName <name of your configuration server>`
 6. Supprimez le serveur de configuration.
 
-    `Remove-AzureRmSiteRecoveryFabric -Fabric $fabric [-Force] `
+    `Remove-AzureRmSiteRecoveryFabric -Fabric $fabric [-Force]`
 
 > [!NOTE]
 > Vous pouvez utiliser l’option **-Force** dans Remove-AzureRmSiteRecoveryFabric pour forcer la suppression du serveur de configuration.

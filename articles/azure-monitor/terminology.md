@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/18/2019
 ms.author: bwren
-ms.openlocfilehash: 3557aa4236904a3654d40337e391fbcaa5486894
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 8f645f7d569546a8362d0149806a2b4636567fd0
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430913"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847992"
 ---
 # <a name="azure-monitor-naming-and-terminology-changes"></a>Modification des noms et de la terminologie d’Azure Monitor
 Des modifications significatives ont récemment été apportées à Azure Monitor, différents services étant en cours de consolidation afin de simplifier la surveillance pour les clients Azure. Cet article décrit les dernières évolutions des noms et de la terminologie de la documentation d’Azure Monitor.
@@ -26,7 +26,7 @@ Des modifications significatives ont récemment été apportées à Azure Monito
 Après la consolidation de différents services sous Azure Monitor, nous passons à la vitesse supérieure en modifiant la terminologie dans notre documentation de façon à mieux décrire le service Azure Monitor et ses différents composants. 
 
 ### <a name="log-analytics"></a>Log Analytics
-Les données de journal Azure Monitor sont toujours stockées dans un espace de travail Log Analytics et collectées et analysées par le même service Log Analytics, mais nous sommes en train de remplacer le terme _Log Analytics_ par _journaux Azure Monitor_ en de nombreux endroits. Ce terme reflète mieux son rôle dans Azure Monitor et renforce la cohérence des [métriques dans Azure Monitor](platform/data-collection.md).
+Les données de journal Azure Monitor sont toujours stockées dans un espace de travail Log Analytics et collectées et analysées par le même service Log Analytics, mais nous sommes en train de remplacer le terme _Log Analytics_ par _journaux Azure Monitor_ en de nombreux endroits. Ce terme reflète mieux son rôle dans Azure Monitor et renforce la cohérence des [métriques dans Azure Monitor](platform/data-platform-metrics.md).
 
 Le terme _Log Analytics_ s’applique maintenant principalement à la page du Portail Azure servant à écrire et exécuter des requêtes et à analyser les données de journal. C’est l’équivalent fonctionnel de [Metrics Explorer](platform/metrics-charts.md), la page du Portail Azure utilisée pour analyser les données des métriques.
 

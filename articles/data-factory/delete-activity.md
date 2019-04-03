@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/25/2019
-ms.openlocfilehash: 64829cad24d7f436b8539659dc1f0c6ef6ed4da4
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 00658b650cdc0b1752bb9f2f205420018c1d6edd
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404768"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881781"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Activité Delete dans Azure Data Factory
 
-L’activité Delete dans Azure Data Factory vous permet de supprimer des fichiers ou dossiers de magasins de stockage au niveau local ou dans le cloud. Utilisez cette activité pour nettoyer ou archiver les fichiers qui ne sont plus nécessaires.
+Vous pouvez utiliser l’activité Supprimer dans Azure Data Factory pour supprimer des fichiers ou dossiers à partir du stockage local stocke ou magasins de stockage en nuage. Utilisez cette activité pour nettoyer ou archiver les fichiers qui ne sont plus nécessaires.
 
 > [!WARNING]
 > Les fichiers ou dossiers supprimés ne peuvent pas être restaurés. Soyez donc prudent quand vous supprimez des fichiers ou dossiers à l’aide de l’activité Delete.
@@ -37,11 +37,11 @@ Voici quelques recommandations relatives à l’utilisation de l’activité Del
 
 -   Veillez à ne pas supprimer de fichiers en cours d’écriture. 
 
--   Si vous souhaitez supprimer des fichiers ou un dossier à partir d’un système de site, assurez-vous que vous utilisez un runtime d’intégration auto-hébergé avec une version supérieure à 3.14.
+-   Si vous souhaitez supprimer des fichiers ou un dossier à partir d’un système local, assurez-vous que vous utilisez un runtime d’intégration auto-hébergé avec une version supérieure à 3.14.
 
 ## <a name="supported-data-stores"></a>Magasins de données pris en charge
 
--   [stockage d’objets blob Azure](connector-azure-blob-storage.md)
+-   [Stockage d'objets blob Azure](connector-azure-blob-storage.md)
 -   [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)
 -   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
 
@@ -82,8 +82,8 @@ Voici quelques recommandations relatives à l’utilisation de l’activité Del
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | dataset | Fournit la référence au jeu de données pour déterminer les fichiers ou le dossier à supprimer. | Oui |
-| recursive | Indique si les fichiers sont supprimés de manière récursive des sous-dossiers ou uniquement du dossier spécifié.  |  Non. Par défaut, il s’agit de `false`. |
-| maxConcurrentConnections | Nombre de connexions simultanées au magasin de stockage pour supprimer un dossier ou des fichiers.   |   Non. Par défaut, il s’agit de `1`. |
+| recursive | Indique si les fichiers sont supprimés de manière récursive des sous-dossiers ou uniquement du dossier spécifié.  | Non. Par défaut, il s’agit de `false`. |
+| maxConcurrentConnections | Nombre de connexions simultanées au magasin de stockage pour supprimer un dossier ou des fichiers.   |  Non. Par défaut, il s’agit de `1`. |
 | enablelogging | Indique si vous devez enregistrer les noms des dossiers ou fichiers qui ont été supprimés. Si la valeur est true, vous devez fournir un compte de stockage pour enregistrer le fichier journal dans lequel vous pouvez suivre les comportements de l’activité Delete. | Non  |
 | logStorageSettings | S’applique seulement quand enablelogging = true.<br/><br/>Groupe de propriétés de stockage vous permettant de spécifier où enregistrer le fichier journal contenant les noms des dossiers ou fichiers supprimés par l’activité Delete. | Non  |
 | linkedServiceName | S’applique seulement quand enablelogging = true.<br/><br/>Service lié de [stockage Azure](connector-azure-blob-storage.md#linked-service-properties), [Gen1 de stockage Azure Data Lake](connector-azure-data-lake-store.md#linked-service-properties), ou [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) pour stocker le fichier journal qui contient le dossier ou noms de fichier a été supprimée par l’activité de suppression. | Non  |

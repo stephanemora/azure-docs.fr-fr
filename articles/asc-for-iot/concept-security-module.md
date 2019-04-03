@@ -1,25 +1,25 @@
 ---
 title: Comprendre Azure Security Center pour le module de sécurité IoT représentations d’aperçu | Microsoft Docs
 description: En savoir plus sur le concept des jumeaux de module de sécurité et comment elles sont utilisées dans Azure Security Center pour IoT.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: a5c25cba-59a4-488b-abbe-c37ff9b151f9
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 56bc93973bd2c080b13b97f1344cc165f742e757
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: c5814b188c73ea03094d7dae565e40ca09e705c2
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758401"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862435"
 ---
 # <a name="security-module"></a>Module de sécurité
 
@@ -31,9 +31,9 @@ Cet article explique comment Azure Security Center (ASC) pour IoT utilise les mo
 
 ## <a name="device-twins"></a>Jumeaux d’appareil
 
-Pour les solutions de IoT créées dans Azure, les représentations d’appareil jouent un rôle clé dans la gestion des appareils et d’automatisation des processus.  
+Pour les solutions IoT intégrées à Azure, les jumeaux d’appareil jouent un rôle essentiel dans la gestion d’appareils et l’automatisation des processus.  
 
-ASC pour IoT offre une intégration complète avec votre plateforme de gestion de périphérique IoT existant, ce qui vous permet de gérer l’état de sécurité de votre appareil, ainsi que la marque, utiliser des fonctionnalités de contrôle d’appareil existant. Intégration s’effectue à servant d’IoT Hub mécanisme de représentations réussies.  
+ASC pour IoT offre une intégration complète à votre plateforme de gestion d’appareils IoT existants, ce qui vous permet de gérer l’état de sécurité de vos appareils et de tirer parti des fonctionnalités de contrôle d’appareils existants. Intégration s’effectue à servant d’IoT Hub mécanisme de représentations réussies.  
 
 En savoir plus sur le concept de [jumeaux](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins) dans Azure IoT Hub. 
 

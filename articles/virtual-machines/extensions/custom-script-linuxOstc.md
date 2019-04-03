@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
-ms.openlocfilehash: 8638b788762a56813c622c0abffe2a8eae3c70c2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: fe3803b7dc75ab13831a5e42d4b1a96f5aa894e5
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437103"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882427"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Utiliser l’extension de script personnalisé Azure Version 1 avec des machines virtuelles Linux
 
@@ -133,11 +133,11 @@ Ces éléments doivent être traités comme des données sensibles et spécifié
 
 ### <a name="property-value-details"></a>Détails des valeurs de propriété
 
-* `fileUris` : (facultatif, tableau de chaînes) liste d’uri des scripts
-* `enableInternalDNSCheck` : (facultatif, booléen) par défaut est True, définir sur False pour désactiver la vérification DNS
-* `commandToExecute` : (facultatif, chaîne) script de point d’entrée à exécuter
-* `storageAccountName` : (facultatif, chaîne) nom du compte de stockage
-* `storageAccountKey` : (facultatif, chaîne) clé d’accès du compte de stockage
+* `fileUris`: (facultatif, tableau de chaînes) la liste d’uri des scripts
+* `enableInternalDNSCheck`: (facultatif, booléen) par défaut est True, la valeur False pour désactiver la vérification DNS.
+* `commandToExecute`: (facultatif, chaîne) le script de point d’entrée à exécuter
+* `storageAccountName`: (facultatif, chaîne) le nom du compte de stockage
+* `storageAccountKey`: (facultatif, chaîne) la clé d’accès du compte de stockage
 
 Les valeurs suivantes peuvent être définies dans les paramètres publics ou protégés, mais elles ne doivent pas être définies dans les deux à la fois.
 
@@ -296,8 +296,7 @@ Points à noter :
 
 1. La commande Enable correspond au début de l’exécution de la commande.
 1. La commande Download se rapporte au téléchargement du package d’extension CustomScript à partir d’Azure, et non aux fichiers de script spécifiés dans fileUris.
-1. Vous pouvez également voir le fichier journal sur lequel il écrit,`/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log
-`
+1. Vous pouvez également voir le fichier journal qui il écrit à `/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log`
 
 L’étape suivante consiste à rechercher le fichier journal, selon le format suivant :
 

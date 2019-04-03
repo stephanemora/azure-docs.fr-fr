@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: sogup
-ms.openlocfilehash: ef46c37fec3e5438aeb4f9309201d45365a96fdc
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 9f233af316bd6022b93a7208bf3fae37e913e6af
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402063"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885262"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Forum aux questions : sauvegarder des machines virtuelles Azure
 
@@ -68,7 +68,7 @@ Oui. Les sauvegardes s’exécutent quand une machine est arrêtée. Le point de
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>Puis-je annuler un travail de sauvegarde en cours ?
 Oui. Vous pouvez annuler un travail de sauvegarde dont la **prise de l’instantané est en cours**. Vous ne pouvez pas annuler un travail si un transfert de données à partir de l’instantané est en cours.
 
-### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie--azurebackuprggeonumber-will-my-backups-continue-to-work"></a>J’ai activé le verrou sur le groupe de ressources créé par le Service de sauvegarde Azure (ex.) ` AzureBackupRG_<geo>_<number>`), mes sauvegardes continueront de fonctionner ?
+### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie-azurebackuprggeonumber-will-my-backups-continue-to-work"></a>J’ai activé le verrou sur le groupe de ressources créé par le Service de sauvegarde Azure (ex.) `AzureBackupRG_<geo>_<number>`), mes sauvegardes continueront de fonctionner ?
 Si vous verrouillez le groupe de ressources créé par le Service de sauvegarde Azure, les sauvegardes commenceront à échouer car il existe une limite maximale de 18 points de restauration.
 
 L’utilisateur doit supprimer le verrou et effacer la collection de points de restauration à partir de ce groupe de ressources afin de rendre les futures sauvegardes réussie, [suivez ces étapes](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) à supprimer de la collection de points de restauration.
@@ -88,7 +88,7 @@ Il n’est pas possible de prendre des instantanés sur un disque avec Accélér
 ### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>J’ai une machine virtuelle dotée de disques avec Accélérateur d’écriture et sur laquelle SAP HANA est installé. Comment faire pour effectuer une sauvegarde ?
 Sauvegarde Azure ne peut pas sauvegarder le disque avec Accélérateur d’écriture, mais peut l’exclure de la sauvegarde. Toutefois, la sauvegarde ne garantit pas la cohérence de la base de données car les informations situées sur le disque avec Accélérateur d’écriture ne sont pas sauvegardées. Vous pouvez sauvegarder des disques dans une telle configuration si vous souhaitez que la sauvegarde porte sur les disques du système d’exploitation et les disques sans Accélérateur d’écriture.
 
-Nous exécutons une préversion privée pour une sauvegarde SAP HANA avec un RPO de 15 minutes. Cette version est générée de manière similaire à la sauvegarde de base de données SQL et utilise l’interface backInt pour des solutions tierces certifiées par SAP HANA. Si vous êtes intéressé, envoyez-nous un e-mail à ` AskAzureBackupTeam@microsoft.com ` avec l’objet **s’inscrire à la préversion privée pour la sauvegarde de SAP HANA sur des machines virtuelles Azure**.
+Nous exécutons une préversion privée pour une sauvegarde SAP HANA avec un RPO de 15 minutes. Cette version est générée de manière similaire à la sauvegarde de base de données SQL et utilise l’interface backInt pour des solutions tierces certifiées par SAP HANA. Si vous êtes intéressé, envoyez-nous un e-mail à `AskAzureBackupTeam@microsoft.com` avec l’objet **s’inscrire à la préversion privée pour la sauvegarde de SAP HANA sur des machines virtuelles Azure**.
 
 
 ## <a name="restore"></a>Restore

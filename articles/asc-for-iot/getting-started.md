@@ -1,25 +1,25 @@
 ---
 title: Prise en main Azure Security Center (ASC) pour la version préliminaire IoT | Microsoft Docs
 description: Commencez à comprendre le workflow de base d’Azure Security Center pour les fonctionnalités de IoT et de service.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: 55c8d3b6-3126-4246-8d07-ef88fe5ea84f
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 23b15b92c844af85f2e1279e531c38ac7d517423
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: aac15d766439a725f593ca421cbdc6da496f29f4
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755131"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862690"
 ---
 # <a name="get-started-with-azure-security-center-for-iot"></a>Prise en main Azure Security Center pour IoT 
 

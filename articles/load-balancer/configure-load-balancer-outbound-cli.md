@@ -11,20 +11,20 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 04/01/2019
 ms.author: kumud
-ms.openlocfilehash: bd40278015bf4580759c1b7b9522400b3dae31d6
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 0b46cbdec6d0ffe2a614a976f70b833726fb0e8a
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54475660"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849944"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-using-azure-cli"></a>Configurer des règles d’équilibrage de charge et des règles de trafic sortant dans Standard Load Balancer à l’aide d’Azure CLI
 
 Ce guide de démarrage rapide vous montre comment configurer des règles de trafic sortant dans Standard Load Balancer à l’aide d’Azure CLI.  
 
-Lorsque vous avez terminé, la ressource Load Balancer contient deux frontends et les règles associées : une règle pour le trafic entrant et une règle pour le trafic sortant.  Chaque frontend référence une adresse IP publique. Ce scénario utilise une adresse IP publique différente pour le trafic entrant et le trafic sortant.   La règle d’équilibrage de charge gère uniquement l’équilibrage de charge du trafic entrant. La règle de trafic sortant contrôle la NAT de trafic sortant sur la machine virtuelle.
+Lorsque vous avez terminé, la ressource Load Balancer contient deux frontends et les règles associées : une règle pour le trafic entrant et une règle pour le trafic sortant.  Chaque frontend référence une adresse IP publique. Ce scénario utilise une adresse IP publique différente pour le trafic entrant et le trafic sortant.   La règle d’équilibrage de charge gère uniquement l’équilibrage de charge du trafic entrant. La règle de trafic sortant contrôle la NAT de trafic sortant sur la machine virtuelle.  Ce guide de démarrage rapide utilise deux distinct pools principaux, une pour trafic entrant et l’autre pour sortant, pour illustrer la fonctionnalité et pour permettre une grande flexibilité pour ce scénario.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
@@ -69,30 +69,41 @@ Pour accéder à votre application web sur Internet, vous avez besoin d’une ad
   az network public-ip create --resource-group myresourcegroupoutbound --name mypublicipoutbound --sku standard
 ```
 
-
 ## <a name="create-azure-load-balancer"></a>Créer un équilibreur de charge Azure
 
 Cette section explique en détail comment vous pouvez créer et configurer les composants suivants de l’équilibreur de charge :
   - Une IP frontend qui reçoit le trafic réseau entrant sur l’équilibreur de charge.
-  - Un pool backend où l’IP frontend envoie le trafic réseau à charge équilibrée.
+  - Un pool principal où l’adresse IP de serveur frontal envoie la charge équilibrée du trafic réseau.
+  - Un pool principal pour la connectivité sortante. 
   - Une sonde d’intégrité qui détermine l’intégrité des instances de machine virtuelle backend.
   - Une règle de trafic entrant utilisée par l’équilibreur de charge pour distribuer le trafic à destination des machines virtuelles.
   - Une règle de trafic sortant utilisée par l’équilibreur de charge pour distribuer le trafic en provenance des machines virtuelles.
 
 ### <a name="create-load-balancer"></a>Créer un équilibreur de charge
 
-À l’aide de la commande [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest), créez un équilibreur de charge *lb* avec l’adresse IP entrante, qui inclut une configuration d’adresse IP frontend entrante et un pool backend qui est associé à l’adresse IP publique *mypublicipinbound* créée à l’étape précédente.
+Créer un équilibreur de charge avec l’adresse IP entrante en utilisant [créer az network lb](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) nommé *lb* qui inclut une configuration IP de frontend entrant et un pool principal *bepoolinbound*qui est associé à l’adresse IP publique *mypublicipinbound* que vous avez créé à l’étape précédente.
 
 ```azurecli-interactive
   az network lb create \
     --resource-group myresourcegroupoutbound \
     --name lb \
     --sku standard \
-    --backend-pool-name bepool \
+    --backend-pool-name bepoolinbound \
     --frontend-ip-name myfrontendinbound \
     --location eastus2 \
     --public-ip-address mypublicipinbound   
   ```
+
+### <a name="create-outbound-pool"></a>Créer le pool sortant
+
+Créer un pool d’adresses principaux supplémentaires pour définir la connectivité sortante pour un pool de machines virtuelles avec [créer az network lb-pool d’adresses](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) portant le nom *bepooloutbound*.  Création d’un pool distinct sortant fournit une flexibilité maximale, mais vous pouvez omettre cette étape et utiliser uniquement le trafic entrant *bepoolinbound* également.
+
+```azurecli-interactive
+  az network lb address-pool \
+    --resource-group myresourcegroupoutbound \
+    --lb-name lb \
+    --name bepooloutbound
+```
 
 ### <a name="create-outbound-frontend-ip"></a>Créer une IP frontend sortante
 Avec la commande [az network lb frontend-ip create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest), créez la configuration IP frontend sortante pour l’équilibreur de charge, qui inclut une configuration IP frontend sortante nommée *myfrontendoutbound* qui est associée à l’adresse IP publique *mypublicipoutbound*
@@ -136,7 +147,7 @@ az network lb rule create \
 --backend-port 80 \
 --probe http \
 --frontend-ip-name myfrontendinbound \
---backend-pool-name bepool \
+--backend-pool-name bepoolinbound \
 --disable-outbound-snat
 ```
 
@@ -153,10 +164,12 @@ az network lb outbound-rule create \
  --protocol All \
  --idle-timeout 15 \
  --outbound-ports 10000 \
- --address-pool bepool
+ --address-pool bepooloutbound
 ```
 
-Maintenant, vous pouvez ajouter votre machine virtuelle au pool backend *bepool* en mettant à jour la configuration IP des ressources de carte réseau respectives.
+Si vous ne souhaitez pas utiliser un pool distinct sortant, vous pouvez modifier l’argument de pool d’adresse dans la commande précédente pour spécifier *bepoolinbound* à la place.  Nous vous recommandons d’utiliser des pools distincts pour la flexibilité et la lisibilité de la configuration résultante.
+
+À ce stade, vous pouvez passer à l’ajout de votre machine virtuelle au pool principal *bepoolinbound* __et__ *bepooloutbound* en mettant à jour la configuration IP de la carte réseau correspondante ressources à l’aide [az network nic ip-config-pool d’adresses ajouter](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest).
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
@@ -171,4 +184,3 @@ Dans cet article, vous avez créé un équilibreur de charge standard, configur�
 
 > [!div class="nextstepaction"]
 > [Didacticiels Azure Load Balancer](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
-

@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: juliako
-ms.openlocfilehash: 4252b0f26ef3c02216a41dde5d2e1cb5ea0efd6a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 23c87ae92a0f22b4a1a31c054df730af2efc07d1
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57556391"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58848044"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs"></a>Surveiller les métriques de Media Services et des journaux de diagnostic
 
 [Azure Monitor](../../azure-monitor/overview.md) permet aux mesures de surveillance et de journaux de diagnostic qui vous aident à comprendre le fonctionnement de vos applications. Toutes les données collectées par Azure Monitor s’adapte à un des deux types fondamentaux, journaux et métriques. Vous pouvez surveiller les journaux de diagnostic de Media Services et créer des alertes et notifications pour les métriques collectées et les journaux. Vous pouvez visualiser et analyser les données de mesures à l’aide [Metrics explorer](../../azure-monitor/platform/metrics-getting-started.md). Vous pouvez envoyer des journaux au [stockage Azure](https://azure.microsoft.com/services/storage/), les transmettre à [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)et les exporter vers [Analytique de journal](https://azure.microsoft.com/services/log-analytics/), ou utiliser les services tiers 3e.
 
-Pour une présentation détaillée, consultez [mesures Azure Monitor](../../azure-monitor/platform/data-collection.md) et [journaux de Diagnostic du moniteur Azure](../../azure-monitor/platform/diagnostic-logs-overview.md).
+Pour une présentation détaillée, consultez [mesures Azure Monitor](../../azure-monitor/platform/data-platform.md) et [journaux de Diagnostic du moniteur Azure](../../azure-monitor/platform/diagnostic-logs-overview.md).
 
 Cette rubrique traite actuellement disponibles [Media Services métriques](#media-services-metrics) et [journaux de Diagnostic de Media Services](#media-services-diagnostic-logs).
 

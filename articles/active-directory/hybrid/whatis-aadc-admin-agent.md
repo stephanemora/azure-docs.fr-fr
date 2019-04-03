@@ -7,18 +7,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 04/03/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17b99b7b03898ad72b4d9c7cc2ba9154855475ef
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 49234472481e30cf74efa3e72ac0e4f31466fada
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58488283"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884888"
 ---
-# <a name="what-is-the-azure-ad-connect-admin-agent"></a>Qu’est l’Agent Azure AD Connect administrateur ? 
+# <a name="what-is-the-azure-ad-connect-admin-agent"></a>Présentation de l’agent d’administration Azure AD Connect 
 L’Agent Azure AD Connect Administration est un nouveau composant d’Azure Active Directory Connect qui est installé sur un serveur d’Azure Active Directory Connect. Il est utilisé pour collecter des données spécifiques à partir de votre environnement Active Directory qui permet de prendre en charge d’ingénieur pour résoudre les problèmes lorsque vous ouvrez une demande de support Microsoft.
 
 Lors de l’installation, l’Agent Azure AD Connect Administration attend des demandes spécifiques pour les données à partir d’Azure Active Directory, obtient les données demandées à partir de l’environnement de synchronisation et l’envoie à Azure Active Directory, où il est présenté à la Microsoft prennent en charge ingénieur.
@@ -39,7 +39,7 @@ L’ingénieur du Support Microsoft ne peut pas modifier des données dans votre
 
 ## <a name="what-if-i-dont-want-the-microsoft-support-engineer-to-access-my-data"></a>Que se passe-t-il si je ne veux pas l’ingénieur du support Microsoft pour accéder à mes données ? 
  
-Si vous ne souhaitez pas que l’ingénieur du service Microsoft pour accéder à vos données pour un appel de prise en charge que vous pouvez indiquer cela lorsque vous ouvrez une prise en charge appeler dans le portail : 
+Si vous ne souhaitez pas que l’ingénieur du service pour accéder à vos données d’appel au support Microsoft vous pouvez désactiver ce en modifiant le fichier de configuration de service, comme décrit ci-dessous : 
 
   1.    Ouvrez **C:\Program Files\Microsoft Azure AD se connecter Administration Agent\AzureADConnectAdministrationAgentService.exe.config** dans le bloc-notes.
   2.    Désactiver **UserDataEnabled** définition comme indiqué ci-dessous. Si **UserDataEnabled** paramètre existe et est défini sur true, puis affectez-lui la valeur false. Si le paramètre n’existe pas, puis ajoutez le paramètre comme indiqué ci-dessous.    

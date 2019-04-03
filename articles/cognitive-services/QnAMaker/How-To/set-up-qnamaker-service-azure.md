@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 04/02/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 94e4d945593c2387b61011b0e7d4056f4af33e01
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 90e7abf229e0ee1ca396150fee0c1f0970d257aa
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437354"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876399"
 ---
 # <a name="create-a-qna-maker-service"></a>Créer un service QnA Maker
 
@@ -62,6 +62,10 @@ Cette procédure permet de déployer certaines ressources Azure. Ensemble, ces r
 1. Une fois le déploiement terminé, vous verrez les ressources suivantes créées dans votre abonnement.
 
     ![Service QnA Maker créé par une ressource](../media/qnamaker-how-to-setup-service/resources-created.png)
+
+## <a name="region-of-management-service"></a>Région du service de gestion
+
+Le service de gestion de QnA Maker, utilisé uniquement pour le portail & pour le traitement de données initial, est disponible uniquement dans l’ouest des États-Unis. Les données client sont stockées dans ce service de l’ouest des États-Unis.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

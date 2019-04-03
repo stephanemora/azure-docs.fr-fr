@@ -3,27 +3,27 @@ title: Langues prises en charge dans Azure Maps | Microsoft Docs
 description: En savoir plus sur les langues prises en charge pour les services dans Azure Maps
 author: juliekohler
 ms.author: julieko
-ms.date: 03/30/2018
+ms.date: 04/01/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 380bf5cb89a165534d0084758d532613eeff480a
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
-ms.translationtype: HT
+ms.openlocfilehash: d22ecfbea524ffb2ab48ac9a95e03d7595c4cbfb
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320490"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849638"
 ---
 # <a name="azure-maps-supported-languages"></a>Langues prises en charge dans Azure Maps
-Les services Azure Maps ont été localisés en différentes langues.  Le tableau suivant indique les codes des langues prises en charge pour chaque service.  
+Les services Azure Maps ont été localisés en différentes langues.  Le tableau suivant indique les codes des langues prises en charge pour chaque service.  
   
 
-| ID         | NOM                   |  Cartes | Recherche | Routage | Incidents de trafic | Commandes de la carte JS | Fuseau horaire |
+| ID         | Nom                   |  Cartes | Recherche | Routage | Incidents de trafic | Commandes de la carte JS | Fuseau horaire |
 |------------|------------------------|:-----:|:------:|:-------:|:-----------------:|:--------------:|:---------:|
 | af-ZA      | Afrikaans              |       |    ✓   |    ✓    |                   |                |     ✓     |
 | ar-SA      | Arabe                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| eu-ES      | Basque                 |       |        |         |                   |                |     ✓     |
+| eu-ES      | Basque                 |       |    ✓   |         |                   |                |     ✓     |
 | bg-BG      | Bulgare              |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
 | ca-ES      | Catalan                |       |    ✓   |         |                   |                |     ✓     |
 | zh-hans    | Chinois (simplifié)   |       |  zh-CN |         |                   |                |     ✓     |
@@ -33,21 +33,21 @@ Les services Azure Maps ont été localisés en différentes langues.  Le tablea
 | da-DK      | Danois                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | nl-NL      | Néerlandais                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | nl-BE      | Néerlandais (Belgique)        |       |    ✓   |         |                   |                |     ✓     |
-| en         | Français                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| en         | Anglais                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | Et-EE      | Estonien               |       |    ✓   |         |         ✓         |                |     ✓     |
 | fi-FI      | Finnois                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| fr-FR      | Français                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| fr-FR      | Anglais                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | fr-CA      | Français (Canada)      |       |    ✓   |         |                   |                |     ✓     |
-| gl-ES      | Galicien               |       |        |         |                   |                |     ✓     |
+| gl-ES      | Galicien               |       |    ✓   |         |                   |                |     ✓     |
 | de-DE      | Allemand                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | el-GR      | Grec                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| he-IL      | Hébreu                 |       |        |         |         ✓         |                |     ✓     |
+| he-IL      | Hébreu                 |       |    ✓   |         |         ✓         |                |     ✓     |
 | hi-IN      | Hindi                  |       |        |         |                   |                |     ✓     |
 | hu-HU      | Hongrois              |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| id-ID      | Indonésien             |   ✓   |        |    ✓    |         ✓         |        ✓       |     ✓     |
+| id-ID      | Indonésien             |   ✓   |    ✓    |    ✓    |         ✓         |        ✓       |     ✓     |
 | it-IT      | Italien                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | ja-JP      | Japonais               |       |        |         |                   |                |     ✓     |
-| kk-KZ      | Kazakh                 |       |        |         |                   |                |     ✓     |
+| kk-KZ      | Kazakh                 |       |    ✓   |         |                   |                |     ✓     |
 | ko-KR      | Coréen                 |   ✓   |        |    ✓    |                   |        ✓       |     ✓     |
 | es-419     | Espagnol (Amérique latine) |       |    ✓   |         |                   |                |     ✓     |
 | lv-LV      | Letton                |       |    ✓   |         |         ✓         |                |     ✓     |
@@ -59,16 +59,16 @@ Les services Azure Maps ont été localisés en différentes langues.  Le tablea
 | pl-PL      | Polonais                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | pt-br      | Portugais (Brésil)    |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
 | pt-PT      | Portugais (Portugal)  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| ro-RO      | Roumain               |       |        |         |         ✓         |                |     ✓     |
+| ro-RO      | Roumain               |       |    ✓    |         |         ✓         |                |     ✓     |
 | ru-RU      | Russe                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| sr-Cyrl-RS | Serbe (cyrillique)     |       |        |         |                   |                |     ✓     |
+| sr-Cyrl-RS | Serbe (cyrillique)     |       |    Serbe (cyrillique) (sr-RS)   |         |                   |                |     ✓     |
 | sr-Latn-RS | Serbe (latin)        |       |        |         |                   |                |     ✓     |
 | sk-SK      | Slovaque              |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | sl-SL      | Slovène              |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
 | es-ES      | Espagnol                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | es-MX      | Espagnol (Mexique)       |   ✓   |        |    ✓    |                   |        ✓       |     ✓     |
 | sv -SE     | Suédois                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| th-TH      | Thaï                   |   ✓   |        |    ✓    |         ✓         |        ✓       |     ✓     |
+| th-TH      | Thaï                   |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | tr-TR      | Turc                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| uk-UA      | Ukrainien               |       |        |         |                   |                |     ✓     |
-| vi-VN      | Vietnamien             |       |        |         |                   |                |     ✓     |
+| uk-UA      | Ukrainien               |       |    ✓   |         |                   |                |     ✓     |
+| vi-VN      | Vietnamien             |       |    ✓   |         |                   |                |     ✓     |

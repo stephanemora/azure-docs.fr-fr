@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 03/30/2019
 ms.author: juliako
-ms.openlocfilehash: 7cb02a0793a4c96c98b4932b6046839f004461bc
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: d775fff16380ebe08159123aa9e6084055a5be8d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758115"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877565"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Incorporer des widgets Video Indexer dans vos applications
 
@@ -92,7 +92,7 @@ Si vous choisissez d’implémenter votre propre code de lecteur et d’effectue
 
 Cette section montre comment faire interagir deux widgets Video Indexer, de sorte que le lecteur aille directement au moment approprié lorsqu’un utilisateur clique sur le contrôle d’insight de votre application.
 
-`<script src="https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js"></script> `
+`<script src="https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js"></script>`
 
 1. Copiez le code incorporé du widget **Lecteur**.
 2. Copiez le code incorporé **Insight cognitifs**.

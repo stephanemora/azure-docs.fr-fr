@@ -1,25 +1,25 @@
 ---
 title: Pour installer et déployer Linux C# agent d’Azure Security Center pour la version préliminaire IoT | Microsoft Docs
 description: Découvrez comment installer le centre de sécurité Azure pour l’agent IoT sur Linux 32 bits et 64 bits.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: b0982203-c3c8-4a0b-8717-5b5ac4038d8c
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: be4c663d3a1e99ef67cbbbc2f39b315f1080125c
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 4a53bcf77696d3aa53a4a404bfacd6f6d468885b
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758335"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862097"
 ---
 # <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Déployer Azure Security Center pour IoT C#-en fonction de l’agent de sécurité pour Linux
 
@@ -40,62 +40,62 @@ Dans ce guide, vous apprendrez comment :
 
 Pour d’autres plateformes et les versions de l’agent, consultez [choisir l’agent de sécurité adéquat](how-to-deploy-agent.md).
 
-1. Pour déployer l’agent de sécurité, les droits d’administrateur local sont requis sur l’ordinateur que vous souhaitez installer sur. 
+1. Pour déployer l’agent de sécurité, les droits d’administrateur local sont requis sur l’ordinateur sur lequel vous souhaitez effectuer l’installation. 
 
-1. [Créer un module de sécurité](quickstart-create-security-twin.md) pour l’appareil.
+1. [Créez un module de sécurité](quickstart-create-security-twin.md) pour l’appareil.
 
 ## <a name="installation"></a>Installation 
 
 Pour déployer l’agent de sécurité, procédez comme suit :
 
-1. Téléchargez la version la plus récente sur votre ordinateur à partir de [Github](https://aka.ms/iot-security-github-cs).
+1. Téléchargez la version la plus récente sur votre machine depuis [GitHub](https://aka.ms/iot-security-github-cs).
 
-1. Extrayez le contenu du package et accédez à la _/installer_ dossier.
+1. Extrayez le contenu du package et accédez au dossier _/Install_.
 
 1. Ajoutez des autorisations en cours d’exécution sur le **InstallSecurityAgent script** en exécutant `chmod +x InstallSecurityAgent.sh` 
 
-1. Ensuite, exécutez : 
+1. Ensuite, exécutez la commande suivante : 
 
    ```
    ./InstallSecurityAgent.sh -i -aui <authentication identity>  -aum <authentication method> -f <file path> -hn <host name>  -di <device id> -cl <certificate location kind>
    ```
    
-   Consultez [comment configurer l’authentification](concept-security-agent-authentication-methods.md) pour plus d’informations sur les paramètres d’authentification.
+   Pour plus d’informations sur les paramètres d’authentification, consultez [Guide pratique pour configurer l’authentification](concept-security-agent-authentication-methods.md).
 
 Ce script effectue les opérations suivantes :
 
 - Installation des composants requis.
 
-- Ajoute un utilisateur de service (avec une connexion interactive désactivée).
+- Ajout d’un utilisateur de service (avec connexion interactive désactivée).
 
-- Installe l’agent en tant qu’un **démon** -cela suppose que l’appareil utilise **systemd** pour la gestion de service.
+- Installation de l’agent en tant que **démon**, ce qui suppose que l’appareil utilise **systemd** pour la gestion des services.
 
-- Configure **sudoers** pour permettre à l’agent effectuer certaines tâches en tant que racine.
+- Configuration de **sudoers** pour permettre à l’agent d’effectuer certaines tâches en tant que root.
 
-- Configure l’agent avec les paramètres d’authentification fourni.
+- Configuration de l’agent avec les paramètres d’authentification fournis.
 
 
-Pour obtenir une aide supplémentaire, exécutez le script avec le paramètre de l’aide : `./InstallSecurityAgent.sh --help`
+Pour obtenir de l’aide, exécutez le script avec le paramètre –help : `./InstallSecurityAgent.sh --help`
 
 ### <a name="uninstall-the-agent"></a>Désinstaller l’agent
 
-Pour désinstaller l’agent, exécutez le script avec le paramètre – u : `./InstallSecurityAgent.sh -u`. 
+Pour désinstaller l’agent, exécutez le script avec le paramètre –u : `./InstallSecurityAgent.sh -u`. 
 
 > [!NOTE]
-> Désinstallation ne supprime pas les composants requis manquants qui ont été installés lors de l’installation.
+> La désinstallation ne supprime pas les prérequis manquants qui ont été installés pendant l’installation.
 
 ## <a name="troubleshooting"></a>Résolution de problèmes  
 
-1. Vérifier l’état du déploiement en exécutant :
+1. Vérifiez l’état du déploiement en exécutant la commande suivante :
 
     `systemctl status ASCIoTAgent.service`
 
-2. Activer la journalisation.  
-   Si l’agent ne parvient pas à démarrer, activer la journalisation pour obtenir plus d’informations.
+2. Activez la journalisation.  
+   Si l’agent ne parvient pas à démarrer, activez la journalisation pour obtenir plus d’informations.
 
-   Activer la journalisation par :
+   Pour activer la journalisation, effectuez les étapes suivantes :
 
-   1. Ouvrez le fichier de configuration pour le modifier dans n’importe quel éditeur de Linux :
+   1. Ouvrez le fichier de configuration dans l’éditeur Linux de votre choix :
 
         `vi /var/ASCIoTAgent/General.config`
 
@@ -107,25 +107,25 @@ Pour désinstaller l’agent, exécutez le script avec le paramètre – u : `.
       <add key="diagnosticVerbosityLevel" value="Some" /> 
       <add key="logFilePath" value="IotAgentLog.log"/>
       ```
-       Le **logFilePath** la valeur est configurable. 
+       La valeur **logFilePath** est configurable. 
 
        > [!NOTE]
-       > Nous recommandons l’activation de la journalisation **hors** après la résolution des problèmes sont terminée. En laissant journalisation **sur** augmente connecter à l’utilisation des données et la taille de fichier.
+       > Nous vous recommandons de **désactiver** la journalisation une fois les problèmes résolus. Le fait de laisser la journalisation **active** augmente la taille du fichier journal et l’utilisation des données.
 
-   1. Redémarrez l’agent en exécutant :
+   1. Redémarrez l’agent en exécutant la commande suivante :
 
        `systemctl restart ASCIoTAgent.service`
 
-   1. Afficher le fichier journal pour plus d’informations sur l’échec.  
+   1. Pour plus d’informations sur l’échec, affichez le fichier journal.  
 
        Emplacement du fichier journal est : `/var/ASCIoTAgent/IotAgentLog.log`
 
-       Modifier le chemin en fonction du nom que vous avez choisi pour le **logFilePath** à l’étape 2. 
+       Changez le chemin du fichier en fonction du nom que vous avez choisi pour le paramètre **logFilePath** à l’étape 2. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Lire l’ASC pour le service IoT [vue d’ensemble](overview.md)
-- En savoir plus sur ASC pour IoT [Architecture](architecture.md)
-- Activer la [service](quickstart-onboard-iot-hub.md)
-- Lire le [Forum aux questions](resources-frequently-asked-questions.md)
-- Comprendre [alertes](concept-security-alerts.md)
+- Lire la [vue d’ensemble](overview.md) du service ASC pour IoT
+- Découvrir plus en détail l’[architecture](architecture.md) ASC pour IoT
+- Activer le [service](quickstart-onboard-iot-hub.md)
+- Consulter les [Questions fréquentes (FAQ)](resources-frequently-asked-questions.md)
+- Comprendre les [alertes](concept-security-alerts.md)

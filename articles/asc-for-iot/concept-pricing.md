@@ -1,25 +1,25 @@
 ---
 title: Comprendre Azure Security Center pour IoT coûte Preview | Microsoft Docs
 description: En savoir plus sur les coûts associés à Azure Security Center pour IoT et comment vous pouvez les contrôler.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: ef839708-4574-4a40-bc45-07005f8e9daf
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: e2822b0f2f665220f215b85800081fa2fa7943f9
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 41b2d012ef2f6dd1ca5f57e04da43eb1a06dafde
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758056"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862707"
 ---
 # <a name="pricing-and-associated-costs"></a>Tarifs et coûts associés
 
@@ -85,6 +85,6 @@ Le tableau suivant fournit un récapitulatif des coûts associés et les implica
 ## <a name="see-also"></a>Voir aussi
 
 - Accès votre [les données de sécurité brute](how-to-security-data-access.md)
-- [Examiner un appareil](how-to-investigate-device.md)
+- [Investiguer un appareil](how-to-investigate-device.md)
 - Comprendre et Explorer [recommandations de sécurité](concept-recommendations.md)
 - Comprendre et Explorer [alertes de sécurité](concept-security-alerts.md)

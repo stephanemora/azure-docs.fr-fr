@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: pafarley
-ms.openlocfilehash: 13c0346324ae8e3cf3485985a9014f9999230630
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 35f83832b0ceb7507b39095e9cc974d82a480c69
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351437"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883071"
 ---
 # <a name="how-to-improve-your-classifier"></a>Comment améliorer votre classifieur
 
@@ -72,6 +72,15 @@ Pour corriger ce problème, incluez des images très diverses pour garantir une 
 * __Style :__ Fournissez des images de styles différents de la même classe (par exemple, des variétés différentes du même fruit). En revanche, si vous avez des objets de styles radicalement différents (par exemple, Mickey Mouse et une vraie souris), nous vous recommandons de les étiqueter comme des classes distinctes afin de mieux représenter leurs caractéristiques distinctes.
 
     ![Exemples d’images (style)](./media/getting-started-improving-your-classifier/style.png)
+
+## <a name="negative-images"></a>Images négatif
+
+À un moment donné dans votre projet, il peut être nécessaire d’ajouter des _exemples négatifs_ pour rendre votre classifieur plus précis. Les exemples négatifs sont ceux qui ne correspondent à aucune des autres balises. Quand vous chargez ces images, appliquez l’étiquette spéciale **Negative** (Négatif) à celles-ci.
+
+> [!NOTE]
+> Le service Vision personnalisée prend en charge un traitement automatique des images négatives. Par exemple, si vous générez un classifieur raisins/bananes et que vous soumettez une image de chaussure à la prédiction, il devra lui donner un score proche de 0 % aussi bien pour les raisins que pour les bananes.
+> 
+> À l’inverse, dans les cas où les images négatives représentent simplement une variante des images utilisées pour l’apprentissage, il est probable que le modèle les catégorise comme une classe étiquetée en raison des grandes similitudes qu’elles présentent. Par exemple, si vous avez un classifieur oranges/pamplemousses et que vous fournissez une image de clémentine, il est possible qu’il l’évalue comme étant une orange car la clémentine présente des caractéristiques similaires à l'orange. Si vos images négatives sont de cette nature, nous vous conseillons de créer une ou plusieurs balises supplémentaires (comme **Autre**) et d’étiqueter ainsi les images négatives pendant l’apprentissage pour permettre au modèle de mieux faire la distinction entre ces classes.
 
 ## <a name="use-prediction-images-for-further-training"></a>Utiliser des images de prédiction à des fins de réentraînement
 

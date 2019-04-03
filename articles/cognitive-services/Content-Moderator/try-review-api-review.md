@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: sajagtap
-ms.openlocfilehash: beadbfc09526f738ba90252787b5b0910a2f7163
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 254269ccedc92b9dfc164cc4665a8a8513682773
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755362"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882008"
 ---
 # <a name="create-human-reviews-rest"></a>Créer des révisions humain (REST)
 
@@ -149,7 +149,7 @@ Entrez les paramètres d’appel REST, comme dans la section ci-dessus. Pour cet
 
 ![Obtention des résultats dans la console Review - Create (Révision - Créer)](images/test-drive-review-3.PNG)
   
-Sélectionnez **Envoyer**. Si l’opération réussit, le **état de la réponse** est `200 OK`et le **contenu de la réponse** zone affiche la les détails de révision au format JSON, comme suit :
+Sélectionnez **Envoyer**. Si l’opération réussit, le **état de la réponse** est `200 OK`et le **contenu de la réponse** zone affiche les détails de révision au format JSON, comme suit :
 
 ```json
 {  
@@ -186,7 +186,7 @@ Sélectionnez **Envoyer**. Si l’opération réussit, le **état de la réponse
 
 Prenez note des champs suivants dans la réponse :
 
-- **statut**
+- **status**
 - **reviewerResultTags**: Cela s’affiche si toutes les balises ont été ajoutés manuellement par l’équipe de révision manuelle (illustré le **createdBy** champ).
 - **metadata** : Cela montre les balises ont été initialement ajoutés lors de la révision, avant le changement de l’équipe de révision manuelle.
 

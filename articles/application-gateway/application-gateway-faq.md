@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/20/2019
 ms.author: victorh
-ms.openlocfilehash: f549f9c612797c1c956d6921fe4898a5f8bee9e6
-ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.openlocfilehash: c40f372d3574f940e475a6626f998adae37a6d61
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319412"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58851152"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Forum aux questions pour Azure Application Gateway
 
@@ -149,7 +149,7 @@ Non, mais vous pouvez déployer d’autres passerelles d’application dans le s
 
 ### <a name="are-network-security-groups-supported-on-the-application-gateway-subnet"></a>Les groupes de sécurité réseau sont-ils pris en charge dans le sous-réseau de la passerelle d’application ?
 
-Consultez [des restrictions de groupes de sécurité réseau sur le sous-réseau de passerelle d’Application](https://docs.microsoft.com/azure/application-gateway/configuration-overview#network-security-groups-supported-on-the-application-gateway-subnet) en savoir plus sur les groupes de sécurité réseau pris en charge sur le sous-réseau de passerelle d’application.
+Consultez [des restrictions de groupes de sécurité réseau sur le sous-réseau de passerelle d’Application](https://docs.microsoft.com/azure/application-gateway/configuration-overview#network-security-groups-on-the-application-gateway-subnet) en savoir plus sur les groupes de sécurité réseau pris en charge sur le sous-réseau de passerelle d’application.
 
 ### <a name="are-user-defined-routes-supported-on-the-application-gateway-subnet"></a>Les routes définies par l’utilisateur sont-elles prises en charge sur le sous-réseau d’Application Gateway ?
 

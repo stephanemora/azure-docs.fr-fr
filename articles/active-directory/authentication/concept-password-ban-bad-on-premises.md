@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e6623e18fa319066f121dced551dcada133ebd5
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 9cd9f6112cbca78b323e0a14818b06f891a3f673
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58479527"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862885"
 ---
 # <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Appliquer la protection de mot de passe Azure AD pour Windows Server Active Directory
 
@@ -83,16 +83,6 @@ Protection de mot de passe Azure AD n’est pas un moteur d’application de str
 Déploiement de la protection de mot de passe Azure AD dans une forêt Active Directory nécessite l’inscription de cette forêt avec Azure AD. Chaque service de proxy qui est déployée doit également être inscrit auprès d’Azure AD. Ces inscriptions de forêt et de proxy sont associées à spécifique à un locataire Azure AD, qui est implicitement identifié par les informations d’identification qui sont utilisées pendant l’inscription.
 
 La forêt Active Directory et tous les services de proxy déployé au sein d’une forêt doivent être inscrits avec le même client. Il n’est pas pris en charge pour une forêt Active Directory ou les services de proxy dans cette forêt en cours d’inscription à Azure AD différents locataires. Symptômes d’un tel déploiement mal configuré l’impossibilité de télécharger des stratégies de mot de passe.
-
-## <a name="license-requirements"></a>Conditions de licence :
-
-Les avantages de la liste de mots de passe interdits global s’appliquent à tous les utilisateurs d’Azure AD.
-
-La liste de mot de passe interdits personnalisée requiert des licences Azure AD Basic.
-
-La protection de mot de passe Azure AD pour Windows Server Active Directory requiert des licences Azure AD Premium.
-
-Pour obtenir des informations de licence supplémentaires, consultez [tarification Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="download"></a>Téléchargement
 

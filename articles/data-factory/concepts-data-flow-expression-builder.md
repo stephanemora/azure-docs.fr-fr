@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 9267360394568f0f9259a3c818b21f4e585fd958
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7e80455a2b83c034bea2fbdf774e5a175aed51a4
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543727"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885738"
 ---
 # <a name="mapping-data-flow-expression-builder"></a>Générateur d’expressions de la fonctionnalité de mappage de Data Flow
 
@@ -51,7 +51,7 @@ Ajoutez des commentaires à vos expressions en utilisant une seule ligne et un s
 
 ## <a name="regular-expressions"></a>Expressions régulières
 
-Le langage d’expressions de flux de données d’Azure Data Factory ([documentation de référence complète ici](https://aka.ms/dataflowexpressions)) active des fonctions qui incluent une syntaxe d’expression régulière. Lorsque vous utilisez des fonctions d’expression régulière, le Générateur d’expressions tente d’interpréter une barre oblique inverse (\) comme une séquence de caractères d’échappement. Lorsque vous utilisez des barres obliques inverses dans une expression régulière, placez l’expression régulière entière entre des écarts ` ` ou utilisez une barre oblique inverse double.
+Le langage d’expressions de flux de données d’Azure Data Factory ([documentation de référence complète ici](https://aka.ms/dataflowexpressions)) active des fonctions qui incluent une syntaxe d’expression régulière. Lorsque vous utilisez des fonctions d’expressions régulières, le Générateur d’expressions va tenter d’interpréter une barre oblique inverse (\\) comme une séquence de caractères d’échappement. Lorsque vous utilisez des barres obliques inverses dans votre expression régulière, soit placer l’expression régulière entière en cycles (\`) ou utilisez une double barre oblique inverse.
 
 Exemple d’utilisation d’écarts
 

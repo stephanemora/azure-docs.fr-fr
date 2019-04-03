@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 01/28/2019
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 604f135cc3dffdb9ac6533826eff6926ad5467df
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 85992224edd10c0a0f233de9f6274cc77e109b22
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117746"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517775"
 ---
-# <a name="tutorial-provision-azure-data-box-gateway-in-vmware-preview"></a>Tutoriel : Provisionner Azure Data Box Gateway dans VMware (préversion)
+# <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>Didacticiel : Provisionner Azure Data Box Gateway dans VMware
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -32,8 +32,6 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-> [!IMPORTANT]
-> - Data Box Gateway est disponible en préversion. Veuillez lire les [conditions d’utilisation de la préversion Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) avant de commander et déployer cette solution.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -75,7 +73,7 @@ Pour créer un appareil virtuel, vous avez besoin des éléments suivants :
 
 * Un accès à un système hôte exécutant VMware ESXi Server 6.0, 6.5 ou 6.7. Le système hôte est en mesure de dédier les ressources suivantes pour votre appareil virtuel :
  
-  * Un minimum de 4 cœurs.
+  * Au moins 4 processeurs virtuels.
   * Au moins 8 Go de RAM. 
   * Une interface réseau connectée au réseau et capable d’acheminer le trafic vers Internet.
   * Un disque de système d’exploitation de 250 Go.
@@ -91,7 +89,7 @@ Procédez comme suit pour configurer un appareil virtuel dans votre hyperviseur.
 
 2. Connectez-vous au serveur ESXi via un navigateur à l’URL suivante : `https://<IP address of the ESXi server>`. Vous devez disposer de privilèges d’administrateur pour créer une machine virtuelle.
 
-   ![](./media/data-box-gateway-deploy-provision-vmware/image1.png)
+   ![Page de connexion](./media/data-box-gateway-deploy-provision-vmware/image1.png)
   
 3. Téléchargez le VMDK sur le serveur ESXi. Dans le volet de navigation, sélectionnez **Stockage**.
 
@@ -104,67 +102,67 @@ Procédez comme suit pour configurer un appareil virtuel dans votre hyperviseur.
    
 5. Cliquez avec le bouton droit et sélectionnez **Parcourir les magasins de données**.
 
-   ![](./media/data-box-gateway-deploy-provision-vmware/image3.png)
+   ![Parcourir les magasins de données](./media/data-box-gateway-deploy-provision-vmware/image3.png)
 
 6. Une fenêtre **Navigateur du magasin de données** s’ouvre.
 
-   ![](./media/data-box-gateway-deploy-provision-vmware/image4.png)
+   ![Navigateur du magasin de données](./media/data-box-gateway-deploy-provision-vmware/image4.png)
 
 7. Dans la barre d’outils, cliquez sur l’icône **Créer un répertoire** pour créer un dossier. Spécifiez et notez le nom du dossier. Vous utiliserez ce nom de dossier plus tard lors de la création d'une machine virtuelle (recommandée). Cliquez sur **Créer un répertoire**.
 
-   ![](./media/data-box-gateway-deploy-provision-vmware/image5.png)
+   ![Créer un répertoire](./media/data-box-gateway-deploy-provision-vmware/image5.png)
 
 8. Le nouveau dossier s’affiche dans le panneau gauche du **Navigateur de magasins de données**. Cliquez sur l’icône de **chargement** et sélectionnez **Charger un fichier**.
 
-    ![](./media/data-box-gateway-deploy-provision-vmware/image6.png)
+    ![Charger le fichier](./media/data-box-gateway-deploy-provision-vmware/image6.png)
 
 9. Recherchez et sélectionnez les fichiers VMDK que vous avez téléchargés. Il existe deux fichiers. Sélectionnez un fichier à télécharger.
 
-    ![](./media/data-box-gateway-deploy-provision-vmware/image7.png)
+    ![Sélectionner un fichier à charger](./media/data-box-gateway-deploy-provision-vmware/image7.png)
 
 10. Cliquez sur **Ouvrir**. Ceci démarrera le téléchargement du fichier VMDK vers le magasin de données spécifié. Le téléchargement du fichier peut prendre plusieurs minutes.
 11. Une fois le téléchargement terminé, le fichier apparaît dans le magasin de données, dans le dossier que vous avez créé. Vous devez maintenant télécharger le deuxième fichier VMDK dans le même magasin de données. Une fois les deux fichiers chargés, ils sont fusionnés en un seul fichier. Vous voyez ensuite un seul fichier dans le répertoire.
 
-    ![](./media/data-box-gateway-deploy-provision-vmware/image8.png)
+    ![Deux fichiers VMDK sont fusionnés en un seul fichier](./media/data-box-gateway-deploy-provision-vmware/image8.png)
 
 12. Revenez à la fenêtre du client vSphere. Dans le volet de navigation, sélectionnez **Machines virtuelles**. Dans le volet droit, cliquez sur **Créer/Inscrire une machine virtuelle**.
 
-    ![](./media/data-box-gateway-deploy-provision-vmware/image9.png)
+    ![Créer ou inscrire une machine virtuelle](./media/data-box-gateway-deploy-provision-vmware/image9.png)
 
 13. Une **nouvelle machine virtuelle** apparaît. Sous Sélectionner un type de création, choisissez **Créer une machine virtuelle** et cliquez sur **Suivant**.
-    ![](./media/data-box-gateway-deploy-provision-vmware/image10.png)
+    ![Page Sélectionner un type de création](./media/data-box-gateway-deploy-provision-vmware/image10.png)
 
 14. Sur la page **Sélectionner un nom, un nom de système d’exploitation et un emplacement**, spécifiez le **nom** de votre machine virtuelle. Ce nom doit correspondre au nom du dossier (meilleure pratique recommandée) spécifié à l'étape 7. Choisissez Windows comme **Famille de système d’exploitation invité** et Microsoft Windows Server 2016 (64 bits) comme **Version du système d’exploitation invité**. Cliquez sur **Suivant**.
 
-    ![](./media/data-box-gateway-deploy-provision-vmware/image11.png)
+    ![Page de sélection d’un nom, d’un nom de système d’exploitation et d’un emplacement](./media/data-box-gateway-deploy-provision-vmware/image11.png)
 
 15. Sur la page **Sélectionner un stockage**, sélectionnez le magasin de données que vous souhaitez utiliser pour configurer votre machine virtuelle. Cliquez sur **Suivant**.
 
-    ![](./media/data-box-gateway-deploy-provision-vmware/image12.png)
-16. Sur la page **Personnaliser les paramètres**, définissez le **processeur** sur 4, **Mémoire** sur 8192 Mo (ou plus), **Disque dur 1** sur 2 To (ou plus). Choisissez le **disque dur SCSI** à ajouter. Dans ce cas, il s’agit de LSI Logic SAS. **Les disques durs IDE statiques ne sont pas pris en charge.** Le **disque dur 1** est le disque de données virtuel. Notez que vous ne pouvez pas réduire le disque une fois mis en service.
+    ![Page Sélectionner un stockage](./media/data-box-gateway-deploy-provision-vmware/image12.png)
+16. Sur la page **Personnaliser les paramètres**, définissez le **processeur** sur 4, **Mémoire** sur 8192 Mo (ou plus), **Disque dur 1** sur 2 To (ou plus). Choisissez le **disque dur SCSI** à ajouter. Dans ce cas, il s’agit de LSI Logic SAS. **Les disques durs IDE statiques ne sont pas pris en charge.** Le **disque dur 1** est le disque de données virtuel. Notez que vous ne pouvez pas réduire le disque une fois configuré. Toute tentative de réduction du disque entraîne la perte de toutes les données locales sur l’appareil. 
 
-    ![](./media/data-box-gateway-deploy-provision-vmware/image13.png)
+    ![Page Personnaliser les paramètres](./media/data-box-gateway-deploy-provision-vmware/image13.png)
 
     Dans la même page, cliquez sur **Ajouter le disque dur**, puis sélectionnez **Disque dur existant**. Sélectionnez le fichier VMDK dans le magasin de données. Cette opération ajoute un disque de système d’exploitation. 
 
-     ![](./media/data-box-gateway-deploy-provision-vmware/image14.png)
+     !Page Personnaliser les paramètres[](./media/data-box-gateway-deploy-provision-vmware/image14.png)
 
     Défilez vers le bas jusqu'à voir le **Nouveau disque dur** et développez-le pour afficher les paramètres. Définissez le **Nœud d’appareil virtuel** sur **contrôleur IDE 0**.
 
-     ![](./media/data-box-gateway-deploy-provision-vmware/image15.png)
+     ![Page Personnaliser les paramètres](./media/data-box-gateway-deploy-provision-vmware/image15.png)
 
 17. (Facultatif) *Effectuez cette étape uniquement si vous exécutez VMware ESXi Server 6.7*. Dans la page **Customize settings** (Personnaliser les paramètres), cliquez sur **VM options** (Options de machine virtuelle). Accédez à **Boot options > Firmware**  (Options de démarrage > Microprogramme), puis remplacez la valeur existante par **BIOS**. Par défaut, la valeur est EFI. Cliquez sur **Suivant**.
 
-    ![](./media/data-box-gateway-deploy-provision-vmware/image15a.png)
+    ![Page Personnaliser des paramètres si exécution de VMware ESXi Server 6.7](./media/data-box-gateway-deploy-provision-vmware/image15a.png)
 
 18. Sur la page **Prêt à finaliser** , passez en revue tous les paramètres associés à la nouvelle machine virtuelle. Vérifiez que le processeur est configuré sur 4, la mémoire sur 8192 Mo, l’interface réseau sur 1 et que le disque dur 2 possède un contrôleur IDE 0. Cliquez sur **Terminer**.
    
-    ![](./media/data-box-gateway-deploy-provision-vmware/image16.png)
-    ![](./media/data-box-gateway-deploy-provision-vmware/image17.png)
+    ![Page Prêt à finaliser](./media/data-box-gateway-deploy-provision-vmware/image16.png)
+    ![Page Prêt à finaliser](./media/data-box-gateway-deploy-provision-vmware/image17.png)
 
 Votre machine virtuelle est désormais configurée. Vous voyez une notification et la machine virtuelle est ajoutée à la liste des machines virtuelles.
 
-![](./media/data-box-gateway-deploy-provision-vmware/image17.png)
+![Nouvelle machine virtuelle ajoutée à la liste des machines virtuelles](./media/data-box-gateway-deploy-provision-vmware/image17.png)
 
 L’étape suivante consiste à mettre cette machine virtuelle sous tension et à obtenir l’adresse IP.
 
@@ -178,23 +176,23 @@ Procédez comme suit pour démarrer votre appareil virtuel et vous y connecter.
 #### <a name="to-start-the-virtual-device"></a>Pour démarrer l’appareil virtuel
 1. Démarrez l’appareil virtuel. Dans le volet droit, sélectionnez votre appareil dans la liste des machines virtuelles et faites un clic droit pour afficher le menu contextuel. Sélectionnez **Alimentation** puis **Mise sous tension**. Cette opération met votre machine virtuelle sous tension. Vous pouvez afficher l'état de l’opération dans le volet inférieur du client web.
 
-    ![](./media/data-box-gateway-deploy-provision-vmware/image19.png)
+    ![Mettre sous tension de l’appareil virtuel](./media/data-box-gateway-deploy-provision-vmware/image19.png)
 
 2. Sélectionnez de nouveau votre machine virtuelle. Faites un clic droit et sélectionnez **Console**, puis **Ouvrir dans une nouvelle fenêtre**.
 
-    ![](./media/data-box-gateway-deploy-provision-vmware/image20.png)
+    ![Ouvrir la console de l’appareil virtuel](./media/data-box-gateway-deploy-provision-vmware/image20.png)
 
 3. La console de machine virtuelle s’ouvre dans une nouvelle fenêtre. 
 
-    ![](./media/data-box-gateway-deploy-provision-vmware/image21.png)
+    ![Console de l’appareil virtuel](./media/data-box-gateway-deploy-provision-vmware/image21.png)
 
 4. Une fois que l’appareil est en marche, cliquez sur l’onglet dans la partie centrale supérieure de la fenêtre de console. Sélectionnez **Système d’exploitation invité > Envoyer des clés > Ctrl + Alt + Suppr**. La machine virtuelle est alors déverrouillée.
 
-   ![](./media/data-box-gateway-deploy-provision-vmware/image22.png)
+   ![Déverrouiller l’appareil virtuel](./media/data-box-gateway-deploy-provision-vmware/image22.png)
 
-5. Fournissez le mot de passe pour se connecter à la machine. Le mot de passe par défaut est Password1.
+5. Fournissez le mot de passe pour se connecter à la machine. Le mot de passe par défaut est *Password1*.
 
-   ![](./media/data-box-gateway-deploy-provision-vmware/image23.png)
+   ![Entrer le mot de passe de l’appareil virtuel](./media/data-box-gateway-deploy-provision-vmware/image23.png)
 
 6. Les étapes 5 à 7 s’appliquent uniquement lors de l’amorçage dans un environnement non DHCP. Si vous êtes dans un environnement DHCP, ignorez ces étapes et passez à l'étape 8. Si vous avez démarré votre appareil dans un environnement non DHCP, un message s’affiche : **Utilisez l’applet de commande Set-HcsIPAddress pour configurer le réseau**. 
    
@@ -206,14 +204,14 @@ Procédez comme suit pour démarrer votre appareil virtuel et vous y connecter.
 
 9. Une fois l'installation initiale terminée et l’appareil démarré, vous verrez le texte de la bannière de l’appareil. Notez l'adresse IP et l'URL affichées dans le texte de la bannière pour gérer l'appareil. Vous utiliserez cette adresse IP pour vous connecter à l'interface utilisateur web de votre appareil virtuel et pour finaliser la configuration et l’activation locales.
 
-   ![](./media/data-box-gateway-deploy-provision-vmware/image24.png)
+   ![Texte de la bannière et URL de connexion pour l’appareil virtuel](./media/data-box-gateway-deploy-provision-vmware/image24.png)
 
 Si votre périphérique ne répond pas à la configuration minimale requise, une erreur apparaît dans le texte de bannière (voir ci-dessous). Vous devez modifier la configuration de l'appareil afin qu'il dispose des ressources nécessaires à la configuration minimale. Vous pouvez ensuite redémarrer et vous connecter à l'appareil. Reportez-vous à la configuration minimale requise dans [Vérifier le système hôte](#check-the-host-system).
 
-<!---If you face any other error during the initial configuration using the local web UI, refer to the following workflows:
+SI vous rencontrez une autre erreur durant la configuration initiale effectuée avec l’interface utilisateur web locale, reportez-vous aux workflows suivants :
 
-* Run diagnostic tests to [troubleshoot web UI setup](storsimple-ova-web-ui-admin.md#troubleshoot-web-ui-setup-errors).
-* [Generate log package and view log files](storsimple-ova-web-ui-admin.md#generate-a-log-package).-->
+- [Exécutez les tests de diagnostic pour dépanner la configuration de l’interface utilisateur web](data-box-gateway-troubleshoot.md#run-diagnostics).
+- [Générez un package de journaux et affichez les fichiers journaux](data-box-gateway-troubleshoot.md#collect-support-package).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

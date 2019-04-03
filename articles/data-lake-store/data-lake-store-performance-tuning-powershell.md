@@ -4,19 +4,19 @@ description: Conseils en matière d’amélioration des performances lors de l�
 services: data-lake-store
 documentationcenter: ''
 author: stewu
-manager: jhubbard
+manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: stewu
-ms.openlocfilehash: 318f2b550e19f4b7f56a7b8cc592d34644dca644
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 1c554b0eee844a632e6412b6f8a285c7a2573326
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235600"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885313"
 ---
 # <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-storage-gen1"></a>Recommandations en matière d’optimisation des performances pour l’utilisation de PowerShell avec Azure Data Lake Storage Gen1
 
@@ -31,7 +31,7 @@ Cet article répertorie les propriétés que vous pouvez ajuster pour optimiser 
 | PerFileThreadCount  | 10      | Ce paramètre vous permet de choisir le nombre de threads parallèles pour charger ou télécharger chaque fichier. Cette valeur représente le nombre maximal de threads pouvant être alloués par fichier, mais il est possible que vous obteniez un nombre de threads inférieur en fonction du scénario (par exemple, si vous chargez un fichier de 1 Ko, vous n’obtenez qu’un seul thread, même si vous en demandez 20).  |
 | ConcurrentFileCount | 10      | Ce paramètre est spécifique au chargement ou au téléchargement des dossiers. Il détermine le nombre de fichiers simultanés pouvant être chargés ou téléchargés. Cette valeur représente le nombre maximal de fichiers simultanés pouvant être chargés ou téléchargés en une seule opération, mais il se peut que vous en obteniez moins en fonction du scénario (par exemple, si vous chargez deux fichiers, vous obtenez deux chargements de fichiers simultanés, même si vous en demandez 15). |
 
-**Exemple**
+**Exemples**
 
 Cette commande télécharge les fichiers à partir de Data Lake Storage Gen1 sur le disque local de l’utilisateur à l’aide de 20 threads par fichier et 100 fichiers simultanés.
 
@@ -45,7 +45,7 @@ La question suivante que vous pouvez vous poser porte sur la procédure permetta
 
         Total thread count = total physical cores * 6
 
-    **Exemple**
+    **Exemples**
 
     Supposons que vous exécutez les commandes PowerShell à partir d’une machine virtuelle D14 avec 16 noyaux
 
@@ -56,7 +56,7 @@ La question suivante que vous pouvez vous poser porte sur la procédure permetta
 
         PerFileThreadCount = 10 threads for the first 2.5 GB + 1 thread for each additional 256 MB increase in file size
 
-    **Exemple**
+    **Exemples**
 
     Supposons que vous disposiez de 100 fichiers de 1 à 10 Go. Pour l’équation, nous utilisons la taille de fichier la plus grande, 10 Go, qui se lit comme suit.
 
@@ -66,7 +66,7 @@ La question suivante que vous pouvez vous poser porte sur la procédure permetta
 
         Total thread count = PerFileThreadCount * ConcurrentFileCount
 
-    **Exemple**
+    **Exemples**
 
     Basé sur les exemples de valeurs utilisés
 
@@ -95,8 +95,8 @@ Vous pouvez continuer à ajuster ces paramètres en augmentant et en diminuant l
 * **Erreurs de limitation** : Il se peut que vous rencontriez des erreurs de limitation si le nombre d’accès concurrentiels est trop élevé. En cas d’erreurs de limitation, vous devez réduire le nombre d’accès simultanés ou nous contacter.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Utiliser Azure Data Lake Storage Gen1 pour le Big Data](data-lake-store-data-scenarios.md) 
+* [Utiliser Azure Data Lake Storage Gen1 pour données volumineuses](data-lake-store-data-scenarios.md) 
 * [Sécuriser les données dans Data Lake Storage Gen1](data-lake-store-secure-data.md)
-* [Utiliser Azure Data Lake Analytics avec Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Utiliser Azure Data Lake Analytique avec Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Utiliser Azure HDInsight avec Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
 

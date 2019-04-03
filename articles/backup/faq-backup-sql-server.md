@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 48a0400a471e06f65c1d548b7c1c419a1cb198bd
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 8d6323c73e5313a29b7b0df09ebdd24a190879f5
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58284576"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876426"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Forum aux questions sur les bases de données SQL Server qui sont exécutent sur une sauvegarde de machine virtuelle Azure
 
@@ -42,7 +42,7 @@ Correction automatique car une fonctionnalité est activée pour tous les utilis
 Oui. Vous pouvez limiter la fréquence à laquelle la stratégie de sauvegarde s’exécute pour minimiser l’impact sur une instance SQL Server. Pour modifier ce paramètre :
 1. Sur l’instance de SQL Server, dans le *Backup\bin de charge de travail C:\Program Files\Azure* dossier, créez le *ExtensionSettingsOverrides.json* fichier.
 2. Dans le *ExtensionSettingsOverrides.json* , modifiez le **DefaultBackupTasksThreshold** définissant une valeur inférieure (par exemple, 5). <br>
-  ` {"DefaultBackupTasksThreshold": 5}`
+  `{"DefaultBackupTasksThreshold": 5}`
 
 3. Enregistrez vos modifications et fermez le fichier.
 4. Sur l’instance SQL Server, ouvrez le **Gestionnaire des tâches**. Redémarrez le service **AzureWLBackupCoordinatorSvc**.
@@ -57,7 +57,7 @@ Conformément à des limitations de SQL, vous pouvez exécuter la copie uniqueme
 Non. Azure Backup protège les bases de données SQL Server s’exécutant dans Azure. Si un groupe de disponibilité (AG) est réparti entre les machines Azure et sur site, le groupe de disponibilité peut être protégé uniquement si le réplica principal est en cours d’exécution dans Azure. En outre, Azure Backup protège uniquement les nœuds qui s’exécutent dans la même région Azure que le coffre Recovery Services.
 
 ## <a name="can-i-protect-availability-groups-across-regions"></a>Puis-je protéger des groupes de disponibilité entre les régions ?
-Le coffre Azure Backup Recovery Services peut détecter et protéger tous les nœuds qui se trouvent dans la même région que le coffre. Si votre groupe de disponibilité SQL Server Always On s’étend sur plusieurs régions Azure, configurer la sauvegarde de la région qui possède le nœud principal. Sauvegarde Azure peut détecter et protéger toutes les bases de données dans le groupe de disponibilité en fonction de vos préférences de sauvegarde. Lorsque votre préférence de sauvegarde n’est pas remplie, les sauvegardes échouent et vous obtenez l’alerte d’échec.
+Le coffre Azure Backup Recovery Services peut détecter et protéger tous les nœuds qui se trouvent dans la même région que le coffre. Si votre groupe de disponibilité SQL Server Always On s’étend sur plusieurs régions Azure, configurer la sauvegarde de la région qui possède le nœud principal. La Sauvegarde Azure peut découvrir et protéger toutes les bases de données du groupe de disponibilité en fonction de votre préférence de sauvegarde. Lorsque votre préférence de sauvegarde n’est pas remplie, les sauvegardes échouent et vous obtenez l’alerte d’échec.
 
 ## <a name="do-successful-backup-jobs-create-alerts"></a>La réussite des travaux de sauvegarde génère-t-elle des alertes ?
 Non. Les travaux de sauvegarde réussis ne génèrent pas d’alertes. Les alertes ne sont envoyées qu’en cas d’échec de la sauvegarde. Comportement détaillé pour les alertes de portail est documenté [ici](backup-azure-monitoring-built-in-monitor.md). Toutefois, au cas où vous vous intéressez ont alertes même pour les travaux réussis, vous pouvez utiliser [analyse à l’aide d’Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).

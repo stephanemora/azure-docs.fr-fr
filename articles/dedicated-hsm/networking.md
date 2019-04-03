@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: barclayn
-ms.openlocfilehash: aed0eb6ba4cdaa57d282ac4484e0c27c0697afb5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d6672827a87fbb949237d51310f1a9febc192ff2
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58083128"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886339"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Mise en réseau du module Azure HSM dédié
 
@@ -60,7 +60,7 @@ Un réseau privé virtuel point à site est la forme la plus simple d’une conn
 
 ### <a name="site-to-site-vpn"></a>VPN de site à site
 
-Un réseau privé virtuel de site à site garantit une communication sécurisée entre des modules HSM dédiés basés sur Azure et votre environnement informatique local. Avec cette configuration, vous disposez d’une solution de sauvegarde pour le module HSM sur site et d’une connexion entre ces deux éléments afin de lancer la sauvegarde.
+Un réseau privé virtuel de site à site garantit une communication sécurisée entre des modules HSM dédiés basés sur Azure et votre environnement informatique local. Une raison à cela pose une fonctionnalité de sauvegarde pour le module de sécurité matériel en local et avoir besoin d’une connexion entre les deux pour la sauvegarde en cours d’exécution.
 
 ## <a name="connecting-virtual-networks"></a>Connexion de réseaux virtuels
 
@@ -87,7 +87,7 @@ Pour les applications distribuées globalement ou les scénarios de basculement 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Forum Aux Questions](faq.md)
+- [Questions fréquentes (FAQ)](faq.md)
 - [Prise en charge](supportability.md)
 - [Haute disponibilité](high-availability.md)
 - [Sécurité physique](physical-security.md)

@@ -1,23 +1,23 @@
 ---
-title: 'SDK .NET : opérations de gestion des comptes sur Azure Data Lake Storage Gen1 | Microsoft Docs'
+title: 'Kit de développement logiciel (SDK) .NET : Compte des opérations de gestion sur Azure Data Lake Storage Gen1 | Microsoft Docs'
 description: Utiliser le Kit de développement logiciel (SDK) NET Azure Data Lake Storage Gen1 pour effectuer des opérations de gestion des comptes dans Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: ea57d5a9-2929-4473-9d30-08227912aba7
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 2ed9f534c0eb27601243428f8e4b9d95db5d16b0
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
-ms.translationtype: HT
+ms.author: twooley
+ms.openlocfilehash: 8ab051d49e7ed67e642ef656dfb382ed07763ed2
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123910"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879707"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Opérations de gestion des comptes sur Azure Data Lake Storage Gen1 à l’aide du SDK .NET
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ Dans cet article, vous allez découvrir comment réaliser des opérations de ges
 
 Pour obtenir des instructions sur l’exécution des opérations de gestion des données sur Data Lake Storage Gen1 à l’aide du kit de développement logiciel (SDK) .NET, consultez la section relative aux [opérations du système de fichiers sur Data Lake Storage Gen1 à l’aide du kit de développement logiciel (SDK) .NET](data-lake-store-data-operations-net-sdk.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 * **Visual Studio 2013, 2015 ou 2017**. Les instructions ci-dessous reposent sur Visual Studio 2017.
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -45,7 +45,7 @@ Pour obtenir des instructions sur l’exécution des opérations de gestion des 
    | --- | --- |
    | Catégorie |Modèles/Visual C#/Windows |
    | Modèle |Application console |
-   | NOM |CreateADLApplication |
+   | Nom |CreateADLApplication |
 4. Cliquez sur **OK** pour créer le projet.
 5. Ajoutez les packages NuGet à votre projet.
 
@@ -53,8 +53,8 @@ Pour obtenir des instructions sur l’exécution des opérations de gestion des 
    2. Dans l’onglet **Gestionnaire de package NuGet**, vérifiez que **Source du package** a la valeur **nuget.org** et que la case **Inclure la version préliminaire** est cochée.
    3. Recherchez et installez les packages NuGet suivants :
 
-      * `Microsoft.Azure.Management.DataLake.Store` - Ce didacticiel utilise v2.1.3-preview.
-      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - Ce didacticiel utilise v2.2.12.
+      * `Microsoft.Azure.Management.DataLake.Store` -Ce didacticiel utilise v2.1.3-preview.
+      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` -Ce didacticiel utilise v2.2.12.
 
         ![Ajouter une source NuGet](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Créer un compte Azure Data Lake")
    4. Fermez le **Gestionnaire de package NuGet**.
@@ -99,7 +99,7 @@ Pour obtenir des instructions sur l’exécution des opérations de gestion des 
 
 Dans les sections suivantes de cet article, vous pouvez découvrir comment utiliser les méthodes .NET pour effectuer des opérations telles que l’authentification des utilisateurs et le chargement de fichiers.
 
-## <a name="authentication"></a>Authentification
+## <a name="authentication"></a>Authentication
 
 * Pour en savoir plus sur l’authentification des utilisateurs accédant à votre application, consultez la section relative à [l’authentification de l’utilisateur avec Data Lake Storage Gen1 à l’aide du Kit de développement logiciel (SDK) .NET](data-lake-store-end-user-authenticate-net-sdk.md).
 * Pour en savoir plus sur l’authentification entre les services dans le cadre de votre application, consultez la section relative à [l’authentification entre les services avec Data Lake Storage Gen1 à l’aide du Kit de développement logiciel (SDK) .NET](data-lake-store-service-to-service-authenticate-net-sdk.md).
@@ -142,8 +142,8 @@ L’extrait de code suivant supprime le compte Data Lake Storage Gen1 que vous a
     _adlsClient.Account.Delete(_resourceGroupName, _adlsAccountName);
 
 ## <a name="see-also"></a>Voir aussi
-* [Opérations de système de fichiers dans Data Lake Storage Gen1 à l’aide du Kit de développement logiciel (SDK) .NET](data-lake-store-data-operations-net-sdk.md)
-* [Référence SDK .NET Data Lake Storage Gen1](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
+* [Opérations de système de fichiers sur Data Lake Storage Gen1 à l’aide du Kit de développement logiciel .NET](data-lake-store-data-operations-net-sdk.md)
+* [Référence de kit de développement logiciel .NET Data Lake Storage Gen1](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Sécuriser les données dans Data Lake Storage Gen1](data-lake-store-secure-data.md)

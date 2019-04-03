@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 203d81f3d4872b249103429dde3fcac365fa5753
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: cf163b2b01b4205a4a3d2123263988998130c42a
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483384"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58848380"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utiliser les groupes de basculement automatique pour permettre le basculement transparent et coordonné de plusieurs bases de données
 
@@ -343,11 +343,11 @@ Comme indiqué plus haut, les groupes de basculement automatique et la géo-rép
 
 | API | Description |
 | --- | --- |
-| New-AzSqlDatabaseInstanceFailoverGroup |Cette commande crée un groupe de basculement et l’enregistre dans les serveurs primaire et secondaire|
-| Set-AzSqlDatabaseInstanceFailoverGroup |Modifie la configuration du groupe de basculement.|
-| Get-AzSqlDatabaseInstanceFailoverGroup |Récupère la configuration du groupe de basculement.|
-| Switch-AzSqlDatabaseInstanceFailoverGroup |Déclenche le basculement du groupe de basculement vers le serveur secondaire.|
-| Remove-AzSqlDatabaseInstanceFailoverGroup | Supprime un groupe de basculement|
+| New-AzureRmSqlDatabaseInstanceFailoverGroup |Cette commande crée un groupe de basculement et l’enregistre dans les serveurs primaire et secondaire|
+| Set-AzureRmSqlDatabaseInstanceFailoverGroup |Modifie la configuration du groupe de basculement.|
+| Get-AzureRmSqlDatabaseInstanceFailoverGroup |Récupère la configuration du groupe de basculement.|
+| Switch-AzureRmSqlDatabaseInstanceFailoverGroup |Déclenche le basculement du groupe de basculement vers le serveur secondaire.|
+| Remove-AzureRmSqlDatabaseInstanceFailoverGroup | Supprime un groupe de basculement|
 
 ### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>API REST : Gérer les groupes de basculement de base de données SQL avec des bases de données uniques et mises en pool
 

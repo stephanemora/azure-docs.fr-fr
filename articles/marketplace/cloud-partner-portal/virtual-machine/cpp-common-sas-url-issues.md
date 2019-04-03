@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: pbutlerm
-ms.openlocfilehash: cdee17185b7051220f66ede3b9da50a333409e6d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: abb29cd0d31288ba7bfab7024cf7657ab6b9a3d3
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58119263"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879214"
 ---
 # <a name="common-sas-url-issues-and-fixes"></a>Problèmes courants et correctifs relatifs aux URL de signature d’accès partagé (SAP)
 
@@ -33,7 +33,7 @@ Le tableau ci-après répertorie certains des problèmes courants rencontrés da
 | « sp=rl » n’est pas présent dans l’URL SAP | `Failure: Copying Images. Not able to download blob using provided SAS Uri` | Mettez à jour l’URL SAP en définissant les autorisations sur `Read` et `List`. | 
 | L’URL SAP comporte des espaces blancs dans le nom de VHD | `Failure: Copying Images. Not able to download blob using provided SAS Uri.` | Mettez à jour l’URL SAP en supprimant les espaces blancs. |
 | Erreur d’autorisation d’URL SAP | `Failure: Copying Images. Not able to download blob due to authorization error` | Examinez et corrigez le format d’URI SAP. Régénérez-le si nécessaire. |
-| Les paramètres « st » et « se » de l’URL SAP ne présentent pas une spécification de date-heure complète | `Failure: Copying Images. Not able to download blob due to incorrect SAS URL` | Les paramètres **Date de début** et **Date de fin** (sous-chaînes `st` et ` se`) de l’URL SAP doivent présenter un format DateHeure complet, tel que `11-02-2017T00:00:00Z`. Les versions raccourcies ne sont pas valides. (Certaines commandes de l’interface de ligne de commande Azure peuvent générer des valeurs raccourcies par défaut.) | 
+| Les paramètres « st » et « se » de l’URL SAP ne présentent pas une spécification de date-heure complète | `Failure: Copying Images. Not able to download blob due to incorrect SAS URL` | URL SAS **Start Date** et **Date de fin** paramètres (`st` et `se` sous-chaînes) doivent avoir le format de date/heure complet, tel que `11-02-2017T00:00:00Z`. Les versions raccourcies ne sont pas valides. (Certaines commandes de l’interface de ligne de commande Azure peuvent générer des valeurs raccourcies par défaut.) | 
 |  |  |  |
 
 Pour plus d’informations, consultez la page [Utiliser des signatures d’accès partagé (SAP)](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/).

@@ -14,40 +14,41 @@ ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: zhiweiw
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16794dfdcdc6ed9c2effe412237d2681fca4f394
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 3ffd783ec41b1b0c4a11ee426648c1e36fbbbf75
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803289"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883698"
 ---
 # <a name="health-service-data-is-not-up-to-date-alert"></a>Les données du Service de contrôle d’intégrité ne sont pas mises à jour
 
 ## <a name="overview"></a>Présentation
-Les agents des machines locales surveillées par Azure AD Connect Health transfèrent régulièrement des données vers le service Azure AD Connect Health. Si le service ne reçoit pas de données émanant d’un agent, les informations présentées dans le portail sont obsolètes. Pour mettre en évidence le problème, le service déclenche une alerte **Les données du service de contrôle d’intégrité ne sont pas à jour**. Il est généré lorsque le service n’a pas reçu les données terminées dans les deux dernières heures.  
 
-* Le **avertissement** alerte d’état se déclenche si le Service de contrôle d’intégrité a reçu uniquement **partielle** les types de données envoyées à partir du serveur dans les deux dernières heures. Alerte d’état avertissement ne déclenche pas de notifications par courrier électronique aux destinataires configurés. 
-* Le **erreur** alerte d’état se déclenche si le Service de contrôle d’intégrité n’a pas reçu des types de données à partir du serveur dans les deux dernières heures. Notifications par courrier électronique aux destinataires configurés de déclencheurs d’alerte état erreur.
+Les agents sur les ordinateurs en local qu’Azure AD Connect Health surveille régulièrement téléchargement des données vers le Service Azure AD Connect Health. Si le service ne reçoit pas de données à partir d’un agent, les informations sur que le portail présente sera obsolètes. Pour mettre en évidence le problème, le service déclenche le **données de service de contrôle d’intégrité ne sont pas à jour** alerte. Cette alerte est générée lorsque le service n’a pas reçu complète des données au cours des deux dernières heures.  
 
-Le Service Obtient les données à partir des Agents qui sont exécutent sur les ordinateurs sur site. Selon le Type de Service, le tableau suivant répertorie les agents qui s’exécutent sur l’ordinateur, ce qu’ils font, ainsi que les Types de données qui sont générés par le service. Dans certains cas, il existe plusieurs services impliqués dans le processus, par conséquent, un d’eux peut être la cause du problème. 
+- Le **avertissement** alerte d’état se déclenche si le Service de contrôle d’intégrité a reçu uniquement **partielle** les types de données envoyées à partir du serveur au cours des deux dernières heures. L’alerte d’état avertissement ne déclenche pas de notifications par courrier électronique aux destinataires configurés. 
+- Le **erreur** alerte d’état se déclenche si le Service de contrôle d’intégrité n’a pas reçu des types de données à partir du serveur au cours des deux dernières heures. L’erreur état alerte se déclenche les notifications par courrier électronique aux destinataires configurés.
+
+Le service obtient les données à partir des agents qui sont exécutent sur les ordinateurs locaux, selon le type de service. Le tableau suivant répertorie les agents qui s’exécutent sur l’ordinateur, ce qu’ils font et les types de données qui génère le service. Dans certains cas, il existe plusieurs services impliqués dans le processus, un d’eux peut donc être la cause du problème. 
 
 ## <a name="understanding-the-alert"></a>Présentation de l’alerte
-Le panneau de détails de l’alerte indique le moment où l’alerte est déclenchée et dernière détection. L’alerte est générée/ré-evaluated par un processus en arrière-plan qui s’exécute toutes les deux heures. Dans l’exemple ci-dessous, l’alerte initiale a été déclenché au 03/10 à 9 h 59. Il a continué d’exister même au 12/03 10 h 00 lorsque l’alerte a été évaluée à nouveau.
-Le panneau détaille également le temps quand un Type particulier de données lors de sa réception par le Service de contrôle d’intégrité. 
+
+Le **détails d’une alerte** panneau affiche quand l’alerte s’est produite et dernière détection. Un processus en arrière-plan qui s’exécute toutes les deux heures génère et évalue de nouveau l’alerte. Dans l’exemple suivant, l’alerte initiale s’est produite sur le 03/10 à 9 h 59. L’alerte se trouvait toujours sur le 03/12 à 10 h 00 lorsque l’alerte a été évaluée à nouveau. Le panneau détaille également le temps que le Service d’intégrité reçus dernière un type de données particulier. 
  
  ![Détails d’alerte Azure AD Connect Health](./media/how-to-connect-health-data-freshness/data-freshness-details.png)
  
-Voici le mappage de types de service et type de données requises correspondant.
+Le tableau suivant mappe les types de service pour les types de données requises correspondants :
 
 | Type de service | Agent (nom du Service de Windows) | Objectif | Type de données généré  |
 | --- | --- | --- | --- |  
-| Azure AD Connect (synchronisation) | Azure AD Connect Health Sync Insights Service | Collecter des informations spécifiques AAD Connect (connecteurs, la synchronisation des règles, etc..) | - AadSyncService-SynchronizationRules <br />  AadSyncService-connecteurs <br /> - AadSyncService-GlobalConfigurations  <br />  - AadSyncService-RunProfileResults <br /> - AadSyncService-ServiceConfigurations <br /> - AadSyncService-ServiceStatus   |
-|  | Azure AD Connect Health Sync Monitoring Service | Collecter les compteurs de performances (AAD Connect spécifique), les Traces ETW, fichiers | Compteur de performances |
-| AD DS | Azure AD Connect Health AD DS Insights Service | Effectuer des Tests synthétiques, collecter des informations sur la topologie, les métadonnées de réplication |  -Ajoute-TopologyInfo-Json <br /> -Common-TestData-Json (crée les résultats des tests)   | 
-|  | Azure AD Connect Health AD DS Monitoring Service | Collecter des fichiers de compteurs, les Traces ETW, de performances (spécifiques à AD DS) | -Compteur de performances  <br /> -Common-TestData-Json (charge les résultats des tests)  |
+| Azure AD Connect (synchronisation) | Azure AD Connect Health Sync Insights Service | Collecter des informations spécifiques à AAD Connect (connecteurs, les règles de synchronisation, etc.). | - AadSyncService-SynchronizationRules <br />  AadSyncService-connecteurs <br /> - AadSyncService-GlobalConfigurations  <br />  - AadSyncService-RunProfileResults <br /> - AadSyncService-ServiceConfigurations <br /> - AadSyncService-ServiceStatus   |
+|  | Azure AD Connect Health Sync Monitoring Service | Collecter les compteurs de performances spécifiques AAD Connect, les traces ETW, les fichiers | Compteur de performances |
+| AD DS | Azure AD Connect Health AD DS Insights Service | Effectuer des tests synthétiques, collecter des informations sur la topologie, les métadonnées de réplication |  -Ajoute-TopologyInfo-Json <br /> -Common-TestData-Json (crée les résultats des tests)   | 
+|  | Azure AD Connect Health AD DS Monitoring Service | Collecter les compteurs de performances spécifiques à AD DS, les traces ETW, les fichiers | -Compteur de performances  <br /> -Common-TestData-Json (charge les résultats des tests)  |
 | AD FS | Azure AD Connect Health AD FS Diagnostics Service | Effectuer des tests synthétiques | TestResult (crée les résultats des tests) | 
 | | Azure AD Connect Health AD FS Insights Service  | Collecter les métriques d’utilisation AD FS | Adfs-UsageMetrics |
-| | Azure AD Connect Health AD FS Monitoring Service | Collecter des fichiers de compteurs, les Traces ETW, de performances (spécifiques à AD FS) | TestResult (charge les résultats des tests) |
+| | Azure AD Connect Health AD FS Monitoring Service | Collecter les compteurs de performances spécifiques à AD FS, les traces ETW, les fichiers | TestResult (charge les résultats des tests) |
 
 ## <a name="troubleshooting-steps"></a>Étapes de dépannage 
 

@@ -1,19 +1,19 @@
 ---
-title: Commandes personnalisées pour gérer les données stockées dans les API d’Azure Cosmos DB pour MongoDB
-description: Cet article décrit comment utiliser des commandes personnalisées pour gérer les données stockées dans les API d’Azure Cosmos DB pour MongoDB.
+title: Commandes d’extension MongoDB pour gérer les données stockées dans les API d’Azure Cosmos DB pour MongoDB
+description: Cet article décrit comment utiliser les commandes d’extension MongoDB pour gérer les données stockées dans les API d’Azure Cosmos DB pour MongoDB.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: sngun
-ms.openlocfilehash: 238ba2722fef52d4607a7832113c03c097ef90b3
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: aef77f121f20d867c8ec5e764d8c9639c961713d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58806891"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876886"
 ---
-# <a name="use-custom-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Utiliser des commandes personnalisées pour gérer les données stockées dans les API d’Azure Cosmos DB pour MongoDB 
+# <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Utiliser des commandes d’extension MongoDB pour gérer les données stockées dans les API d’Azure Cosmos DB pour MongoDB 
 
 Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Vous pouvez communiquer avec API d’Azure Cosmos DB pour MongoDB à l’aide de l’open source [pilotes du client MongoDB](https://docs.mongodb.org/ecosystem/drivers). L’API de Azure Cosmos DB pour MongoDB permet d’utiliser les pilotes clients existants en adhérant à la [protocole filaire MongoDB](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
@@ -21,10 +21,10 @@ En utilisant les API de l’Azure Cosmos DB pour MongoDB, vous pouvez profiter d
 
 ## <a name="mongodb-protocol-support"></a>Prise en charge du protocole MongoDB
 
-Par défaut, des API de l’Azure Cosmos DB pour MongoDB est compatible avec MongoDB server version 3.2, pour plus d’informations, consultez [pris en charge de la syntaxe et les fonctionnalités](mongodb-feature-support.md). Les fonctionnalités ou les opérateurs de requête ajoutés dans MongoDB version 3.4 sont actuellement disponibles en version préliminaire dans l’API de Azure Cosmos DB pour MongoDB. Les commandes personnalisées suivantes prennent en charge les fonctionnalités spécifiques d’Azure Cosmos DB lors de l’exécution des opérations CRUD sur les données stockées dans les API d’Azure Cosmos DB pour MongoDB :
+Par défaut, des API de l’Azure Cosmos DB pour MongoDB est compatible avec MongoDB server version 3.2, pour plus d’informations, consultez [pris en charge de la syntaxe et les fonctionnalités](mongodb-feature-support.md). Les fonctionnalités ou les opérateurs de requête ajoutés dans MongoDB version 3.4 sont actuellement disponibles en version préliminaire dans l’API de Azure Cosmos DB pour MongoDB. Les commandes d’extension suivantes prennent en charge les fonctionnalités spécifiques d’Azure Cosmos DB lors de l’exécution des opérations CRUD sur les données stockées dans les API d’Azure Cosmos DB pour MongoDB :
 
-* [Créer la base de données](#create-database)
-* [Mettre à jour de la base de données](#update-database)
+* [Création d’une base de données](#create-database)
+* [Mettre à jour la base de données](#update-database)
 * [Obtenir la base de données](#get-database)
 * [Créer la collection](#create-collection)
 * [Mettre à jour de la collection](#update-collection)
@@ -32,7 +32,7 @@ Par défaut, des API de l’Azure Cosmos DB pour MongoDB est compatible avec Mon
 
 ## <a id="create-database"></a> Créer la base de données
 
-La commande personnalisée de base de données de création crée une nouvelle base de données MongoDB. Le nom de la base de données est utilisé à partir du contexte de bases de données par rapport à laquelle la commande est exécutée. Le format de la commande CreateDatabase est comme suit :
+La commande d’extension de base de données create crée une nouvelle base de données MongoDB. Le nom de la base de données est utilisé à partir du contexte de bases de données par rapport à laquelle la commande est exécutée. Le format de la commande CreateDatabase est comme suit :
 
 ```
 {
@@ -74,7 +74,7 @@ db.runCommand({customAction: "CreateDatabase", offerThroughput: 1000 });
 
 ## <a id="update-database"></a> Mettre à jour de la base de données
 
-La commande personnalisée de base de données de mise à jour met à jour les propriétés associées à la base de données spécifié. Actuellement, vous pouvez mettre à jour uniquement la propriété « offerThroughput ».
+La commande d’extension de base de données mise à jour met à jour les propriétés associées à la base de données spécifié. Actuellement, vous pouvez mettre à jour uniquement la propriété « offerThroughput ».
 
 ```
 {
@@ -107,7 +107,7 @@ db.runCommand({customAction: "UpdateDatabase", offerThroughput: 1200 });
 
 ## <a id="get-database"></a> Obtenir la base de données
 
-La commande personnalisée de base de données de get retourne l’objet de base de données. Le nom de la base de données est utilisé à partir du contexte de base de données par rapport à laquelle la commande est exécutée.
+La commande d’extension de base de données get retourne l’objet de base de données. Le nom de la base de données est utilisé à partir du contexte de base de données par rapport à laquelle la commande est exécutée.
 
 ```
 {
@@ -147,7 +147,7 @@ db.runCommand({customAction: "GetDatabase"});
 
 ## <a id="create-collection"></a> Créer la collection
 
-La commande personnalisée de collection create crée une nouvelle collection MongoDB. Le nom de la base de données est utilisé à partir du contexte de bases de données par rapport à laquelle la commande est exécutée. Le format de la commande CreateCollection est comme suit :
+La commande d’extension de collection create crée une nouvelle collection MongoDB. Le nom de la base de données est utilisé à partir du contexte de bases de données par rapport à laquelle la commande est exécutée. Le format de la commande CreateCollection est comme suit :
 
 ```
 {
@@ -193,7 +193,7 @@ db.runCommand({customAction: "CreateCollection", collection: "testCollection", o
 
 ## <a id="update-collection"></a> Mettre à jour de la collection
 
-La commande personnalisée de collection de mise à jour met à jour les propriétés associées à la collection spécifiée.
+La commande d’extension de collection update met à jour les propriétés associées à la collection spécifiée.
 
 ```
 {
@@ -286,4 +286,4 @@ Si non spécifié, une réponse personnalisée contient un document avec les cha
 Vous pouvez ensuite passer pour découvrir les concepts Azure Cosmos DB suivants : 
 
 * [Indexation dans Azure Cosmos DB](../cosmos-db/index-policy.md)
-* [Faire expirer automatiquement des données avec la durée de vie dans Azure Cosmos DB](../cosmos-db/time-to-live.md)
+* [Faire expirer les données dans Azure Cosmos DB automatiquement avec la durée de vie](../cosmos-db/time-to-live.md)

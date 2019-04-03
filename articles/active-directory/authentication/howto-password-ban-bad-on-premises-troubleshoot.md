@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12cbd9bebf001eb902147175c89b5d7ce49e8449
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 108ead982529d2ac6549cceffd9d2177ab6456bf
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487225"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863172"
 ---
 # <a name="azure-ad-password-protection-troubleshooting"></a>Résolution de problèmes de protection par mot de passe Azure AD
 
@@ -44,7 +44,13 @@ Le symptôme principal de ce problème est 30018 événements dans le journal de
 
 ## <a name="the-proxy-service-can-receive-calls-from-dc-agents-in-the-domain-but-is-unable-to-communicate-with-azure"></a>Le service de Proxy peut recevoir des appels provenant des agents de contrôleur de domaine dans le domaine, mais ne peut pas communiquer avec Azure
 
-Vérifiez l’ordinateur proxy dispose d’une connectivité aux points de terminaison répertoriés dans le [exigences relatives au déploiement](howto-password-ban-bad-on-premises-deploy.md).
+1. Vérifiez l’ordinateur proxy dispose d’une connectivité aux points de terminaison répertoriés dans le [exigences relatives au déploiement](howto-password-ban-bad-on-premises-deploy.md).
+
+1. Vérifiez que la forêt et le proxy tous les serveurs sont enregistrés dans le même locataire Azure.
+
+   Vous pouvez le vérifier en exécutant la `Get-AzureADPasswordProtectionProxy` et `Get-AzureADPasswordProtectionDCAgent` applets de commande PowerShell, puis comparer les `AzureTenant` propriété de chaque élément retourné. Pour fonctionner correctement ces doivent être identique au sein d’une forêt, dans tous les agents du contrôleur de domaine et serveurs proxy.
+
+   Si une condition d’incompatibilité d’inscription client Azure n’existe pas, cela peut être réparée en exécutant la `Register-AzureADPasswordProtectionProxy` et/ou `Register-AzureADPasswordProtectionForest` applets de commande PowerShell selon les besoins, en veillant à utiliser les informations d’identification à partir du même client Azure pour toutes les inscriptions.
 
 ## <a name="the-dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files-and-other-state"></a>L’agent du contrôleur de domaine ne peut pas chiffrer ou déchiffrer des fichiers de stratégie de mot de passe et l’autre état
 
@@ -146,6 +152,6 @@ S’il est décidé de désinstaller le logiciel de protection de mot de passe A
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Forum au questions sur la protection par mot de passe Azure AD](howto-password-ban-bad-on-premises-faq.md)
+[Forum aux questions pour la Protection de mot de passe Azure AD](howto-password-ban-bad-on-premises-faq.md)
 
 Pour plus d’informations sur les listes de mots de passe interdits globales et personnalisées, consultez l’article [Éliminer les mots de passe interdits](concept-password-ban-bad.md).

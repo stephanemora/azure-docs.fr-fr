@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 549ec74514ff03e06ff25893d3fa865f179470e9
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: ab439eb77113c53ab046256dd8d448a18b63f887
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870684"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58850069"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Diffuser des données de surveillance Azure vers un hub d’événements pour les utiliser dans un outil externe
 
@@ -70,10 +70,10 @@ Pour envoyer les données du journal d’activité Azure vers un espace de noms 
 ## <a name="azure-resource-metrics-and-diagnostics-logs"></a>Métriques des ressources et journaux de diagnostic Azure
 
 Les ressources Azure émettent deux types de données de surveillance :
-1. [Journaux de diagnostic des ressources](./../../azure-monitor/platform/diagnostic-logs-overview.md)
-2. [Métriques](../../azure-monitor/platform/data-collection.md)
+1. [Journaux de diagnostic des ressources](diagnostic-logs-overview.md)
+2. [Métriques](data-platform.md)
 
-Ces deux types de données sont envoyés à un hub d’événements à l’aide d’un paramètre de diagnostic des ressources. [Suivez ce guide](./../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) pour définir un paramètre de diagnostic dans une ressource particulière. Définissez un paramètre de diagnostic des ressources pour chacune des ressources dont vous voulez collecter les journaux.
+Ces deux types de données sont envoyés à un hub d’événements à l’aide d’un paramètre de diagnostic des ressources. [Suivez ce guide](diagnostic-logs-stream-event-hubs.md) pour définir un paramètre de diagnostic dans une ressource particulière. Définissez un paramètre de diagnostic des ressources pour chacune des ressources dont vous voulez collecter les journaux.
 
 > [!TIP]
 > Vous pouvez utiliser Azure Policy pour faire en sorte que toutes les ressources de l’étendue spécifiée soient toujours configurées avec un paramètre de diagnostic [à l’aide de l’effet DeployIfNotExists de la règle de stratégie](../../governance/policy/concepts/definition-structure.md#policy-rule).

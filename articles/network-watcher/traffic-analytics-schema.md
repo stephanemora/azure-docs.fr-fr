@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
-ms.openlocfilehash: 922e01c26a2cfe24c8b8a32bb8037d9b3b3384c6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 246c5256f56fd0b891d4e7d642c421b1e340fc6d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109118"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879333"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>Agrégation de schéma et les données dans le trafic Analytique
 
@@ -120,7 +120,7 @@ Vous trouverez ci-dessous les champs dans le schéma et qu’elles signifient
 1. ExternalPublic - une des adresses IP appartient à un réseau virtuel Azure alors que l’autre adresse IP est une adresse IP publique qui n’est pas dans Azure, n’est pas signalée comme étant malveillante dans les flux ASC qui consomme d’Analytique du trafic pour l’intervalle de traitement entre » FlowIntervalStartTime_t » et « FlowIntervalEndTime_t ». 
 1. MaliciousFlow - une des adresses IP appartiennent à un réseau virtuel azure alors que l’autre adresse IP est une adresse IP publique qui n’est pas dans Azure et est signalée comme étant malveillante dans les flux ASC qui consomme d’Analytique du trafic pour l’intervalle de traitement entre » FlowIntervalStartTime_t » et « FlowIntervalEndTime_t ». 
 1. UnknownPrivate - une des adresses IP appartiennent au réseau virtuel Azure pendant que l’autre adresse IP appartient à la plage d’adresses IP privée, tel que défini dans RFC 1918 et pas pu être mappé par Analytique du trafic à un client appartenant à site ou réseau virtuel Azure.
-1. Inconnu : Impossible de mapper l’une des adresses IP dans les flux avec la topologie de client dans Azure ainsi que sur site (site).
+1. Inconnu : Impossible de mapper l’une de l’adresse IP adresses dans les flux avec la topologie de client dans Azure ainsi que sur site (site).
 
 ### <a name="next-steps"></a>Étapes suivantes
 Pour obtenir des réponses aux questions fréquemment posées, consultez [analytique Forum aux questions du trafic](traffic-analytics-faq.md) pour obtenir plus d’informations sur les fonctionnalités, consultez [documentation d’analytique du trafic](traffic-analytics.md)

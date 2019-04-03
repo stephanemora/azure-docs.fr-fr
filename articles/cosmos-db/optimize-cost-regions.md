@@ -6,26 +6,26 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 1bf65883ecf23f726aefd2cd889a2bcb08e9b6a6
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 012eacb172acfdeb0b82343c484c664a3f75310e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457647"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876700"
 ---
 # <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Optimiser le coût multirégion dans Azure Cosmos DB
 
 Vous pouvez ajouter et supprimer des régions dans votre compte Azure Cosmos à tout moment. Le débit que vous configurez pour différentes bases de données et conteneurs Azure Cosmos est réservé dans chaque région associée à votre compte. Si le débit approvisionné par heure, qui est la somme des RU/s configurées dans l’ensemble des bases de données et des conteneurs de votre compte Azure Cosmos, est égal à `T` et si le nombre de régions Azure associées à votre compte de base de données est de `N`, alors le débit total approvisionné pour votre compte Cosmos pour une heure donnée est égal à :
 
-1. ` T x N RU/s` si votre compte Azure Cosmos est configuré avec une seule région d’écriture. 
+1. `T x N RU/s` Si votre compte Azure Cosmos est configuré avec une région d’écriture unique. 
 
-1. `T x (N+1) RU/s` si votre compte Azure Cosmos est configuré de telle sorte que toutes les régions peuvent traiter les écritures. 
+1. `T x (N+1) RU/s` Si votre compte Azure Cosmos est configurée avec toutes les régions capables de traiter les écritures. 
 
 Le débit approvisionné avec une seule région d’écriture coûte 0,008 $/heure pour 100 RU/seconde et le débit approvisionné avec plusieurs régions accessibles en écriture coûte 0,016 $/heure pour 100 RU/seconde. Pour en savoir plus, voir la [page de tarification](https://azure.microsoft.com/pricing/details/cosmos-db/) d’Azure Cosmos DB.
 
 ## <a name="costs-for-multiple-write-regions"></a>Coûts pour plusieurs régions d’écriture
 
-Dans un système multimaître, les unités de requête nettes disponibles pour les opérations d’écriture sont multipliées par `N`, où `N` est le nombre de régions d’écriture. Contrairement aux régions d’écriture uniques, toutes les régions sont désormais accessibles en écriture et doivent prendre en charge la résolution des conflits. La quantité de charges de travail en écriture a augmenté. Du point de vue du coût de planification, pour effectuer ` M` RU/seconde d’écritures dans le monde, vous devez approvisionner M `RUs` au niveau de la base de données ou du conteneur. Vous pouvez ensuite ajouter autant de régions que vous le souhaitez et les utiliser pour les écritures pour effectuer `M` RU d’écritures dans le monde entier. 
+Dans un système multimaître, les unités de requête nettes disponibles pour les opérations d’écriture sont multipliées par `N`, où `N` est le nombre de régions d’écriture. Contrairement aux régions d’écriture uniques, toutes les régions sont désormais accessibles en écriture et doivent prendre en charge la résolution des conflits. La quantité de charges de travail en écriture a augmenté. À partir du coût de planification de point de vue, pour effectuer `M` valeur de RU/s des écritures dans le monde entier, vous devez approvisionner M `RUs` à un niveau de base de données ou le conteneur. Vous pouvez ensuite ajouter autant de régions que vous le souhaitez et les utiliser pour les écritures pour effectuer `M` RU d’écritures dans le monde entier. 
 
 ### <a name="example"></a>Exemples
 
@@ -37,7 +37,7 @@ Supposons que vous disposez d’un conteneur dans la région USA Ouest qui est p
 |Facture de débit pour 3 régions supplémentaires : USA Est, Europe Nord et Asie Est (plusieurs régions d’écriture) |(3 + 1) x 10 000 RU/s x 24 x 31 |0,016 $ pour 100 RU/s par heure |$4 761,60 |
 |Facture de stockage pour le conteneur de la région USA Ouest |100 Go |0,25 $/Go |25 $ |
 |Facture de stockage pour 3 régions supplémentaires (USA Est, Europe Nord et Asie Est) |3 x 1 To |0,25 $/Go |75 $ |
-|**Total**|||**6 052 $** |
+|**Total**|||**$6,052** |
 
 ## <a name="improve-throughput-utilization-on-a-per-region-basis"></a>Améliorer l’utilisation du débit par région
 

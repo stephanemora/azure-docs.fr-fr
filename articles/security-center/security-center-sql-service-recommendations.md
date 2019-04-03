@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 86d50092ccffd5ab958df5d54ea49cd56d815e2e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 479e6d222c9fc7d007252bab12e807ec337ea9e6
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58082158"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880778"
 ---
 # <a name="protecting-azure-sql-service-and-data-in-azure-security-center"></a>Protection des données et du service SQL Azure dans Azure Security Center
 Le Centre de sécurité Azure analyse l’état de sécurité de vos ressources Azure. Lorsque Security Center identifie des failles de sécurité potentielles, il crée des recommandations qui vous guident tout au long du processus de configuration des contrôles nécessaires.  Ces recommandations s’appliquent aux types de ressources Azure : machines virtuelles, mise en réseau, SQL et données et applications.
@@ -64,10 +64,8 @@ Pour activer l’audit, sélectionnez **ACTIVÉ** sous **Audit**.
 |Data Lake Store|5.|Activer les journaux de diagnostic dans Azure Data Lake Store|Activer les journaux et les conserver un an maximum. Permet de recréer les pistes d’activité à des fins d’investigation en cas d’incident de sécurité ou de compromission du réseau. |
 |SQL|30|Corriger les vulnérabilités sur vos bases de données SQL|L'évaluation de la vulnérabilité SQL analyse les vulnérabilités de la sécurité dans votre base de données et expose tout manquement aux meilleures pratiques, comme les erreurs de configuration, les autorisations excessives et les données sensibles non protégées. La résolution des vulnérabilités détectées peut améliorer considérablement le niveau de sécurité de votre base de données.|
 |SQL|20|Provisionner un administrateur Azure AD pour SQL Server|Approvisionner un administrateur Azure AD pour votre serveur SQL afin d’activer l’authentification Azure AD. L’authentification Azure AD permet une gestion simplifiée des autorisations et une gestion centralisée des utilisateurs de bases de données et d’autres services Microsoft.|
-|Compte de stockage|15|Désactiver l'accès réseau non restreint au compte de stockage|Auditer l’accès illimité au réseau dans les paramètres de pare-feu de votre compte de stockage. Au lieu de cela, configurer les règles du réseau de telle manière que seules les applications des réseaux autorisés puissent accéder au compte de stockage. Pour autoriser les connexions de clients Internet ou locaux spécifiques, l’accès au trafic peut être autorisé à partir de réseaux virtuels Azure spécifiques ou vers des plages d’adresses IP Internet publiques.|
-|Compte de stockage|1|Migrer les comptes de stockage vers de nouvelles ressources AzureRM|Utiliser le nouveau v2 d’Azure Resource Manager, pour vos comptes de stockage fournir les améliorations de sécurité telles que : contrôle d’accès plus fort (RBAC), amélioration des audits, déploiement basé sur Resource Manager et de gouvernance, l’accès à des identités gérées, accès au coffre de clés pour secrets, Azure AD et l’authentification prise en charge des balises et des groupes de ressources pour une gestion simplifiée de sécurité.|
-
-
+|Compte de stockage|15|Désactiver l'accès réseau non restreint au compte de stockage|Auditer l’accès illimité au réseau dans les paramètres de pare-feu de votre compte de stockage. Au lieu de cela, configurer les règles du réseau de telle manière que seules les applications des réseaux autorisés puissent accéder au compte de stockage. Pour autoriser les connexions à partir d’Internet spécifique ou les clients locaux, vous pouvez accorder l’accès pour le trafic à partir de réseaux virtuels Azure spécifiques ou pour des plages d’adresses IP Internet publiques.|
+|Compte de stockage|1|Migrer des comptes de stockage vers des ressources de modèle Azure Resource Manager|Utiliser le nouveau v2 d’Azure Resource Manager pour vos comptes de stockage pour fournir les améliorations de sécurité telles que : contrôle d’accès plus fort (RBAC), amélioration des audits, déploiement basé sur Resource Manager et de gouvernance, l’accès à des identités gérées, accès au coffre de clés pour secrets et l’authentification basée sur Active Directory Azure et prise en charge des balises et des groupes de ressources pour une gestion simplifiée de sécurité.|
 
 ## <a name="see-also"></a>Voir aussi
 Pour en savoir plus sur les recommandations qui s’appliquent à d’autres types de ressources Azure, consultez les rubriques suivantes :

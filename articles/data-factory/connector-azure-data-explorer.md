@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: orspod
-ms.openlocfilehash: 4e2448b3043c194bda884963975d85536c329baf
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 6138fadd060051c1b4264cd844ca2a4b8c28116a
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531638"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880030"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory"></a>Copier des données depuis/vers Azure Data Explorer à l’aide d’Azure Data Factory
 
@@ -66,13 +66,13 @@ Les propriétés suivantes sont prises en charge pour le service lié Azure Data
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété **type** doit être définie sur **AzureDataExplorer**. | Oui |
-| endpoint | URL de point de terminaison du cluster Azure Data Explorer, avec le format `https://<clusterName>.<regionName>.kusto.windows.net `. | Oui |
+| endpoint | URL de point de terminaison du cluster Azure Data Explorer, avec le format `https://<clusterName>.<regionName>.kusto.windows.net`. | Oui |
 | database | Nom de base de données. | Oui |
 | locataire | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. C’est ce que vous savez normalement en tant que «**ID d’autorité**» dans [chaîne de connexion Kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Récupérez-les en pointant la souris dans l’angle supérieur droit du portail Azure. | Oui |
 | servicePrincipalId | Spécifiez l’ID client de l’application. C’est ce que vous savez normalement en tant que «**ID de client d’application AAD**» dans [chaîne de connexion Kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). | Oui |
 | servicePrincipalKey | Spécifiez la clé de l’application. C’est ce que vous savez normalement en tant que «**clé d’application AAD**» dans [chaîne de connexion Kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Marquez ce champ en tant que **SecureString** afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 
-**Exemple de Propriétés du service lié :**
+**Exemple de propriétés de Service lié :**
 
 ```json
 {
@@ -106,7 +106,7 @@ Les propriétés prises en charge sont les suivantes :
 | Type | La propriété **type** doit être définie sur **AzureDataExplorerTable**. | Oui |
 | table | Nom de la table dans la base à laquelle le service lié fait référence. | Oui pour le récepteur, Non pour la source |
 
-**Exemple de propriétés du jeu de données**
+**Exemple de propriétés de jeu de données**
 
 ```json
 {
@@ -141,7 +141,7 @@ Pour copier des données à partir d’Azure Data Explorer, définissez la propr
 >[!NOTE]
 >Source de l’Explorateur de données Azure par défaut a une taille limite de 500 000 enregistrements ou 64 Mo. Pour récupérer tous les enregistrements sans troncation, vous pouvez spécifier `set notruncation;` au début de votre requête. Reportez-vous à [limites de requête](https://docs.microsoft.com/azure/kusto/concepts/querylimits) sur plus de détails.
 
-**Exemple :**
+**Exemple :**
 
 ```json
 "activities":[
@@ -183,7 +183,7 @@ Pour copier des données vers Azure Data Explorer, définissez la propriété ty
 | Type | La propriété **type** du récepteur d’activité de copie doit être définie sur : **AzureDataExplorerSink** | Oui |
 | ingestionMappingName | Nom d’un créé au préalable **[mappage](/azure/kusto/management/mappings#csv-mapping)** sur une table Kusto. Pour mapper les colonnes de la source à l’Explorateur de données Azure - qui s’applique aux **[tous pris en charge magasins/formats de source de](copy-activity-overview.md#supported-data-stores-and-formats)** notamment CSV/JSON/Avro met en forme etc., vous pouvez utiliser l’activité de copie [colonne mappage](copy-activity-schema-and-type-mapping.md) (implicitement par nom ou explicitement configurés) et/ou les mappages de l’Explorateur de données Azure. | Non  |
 
-**Exemple :**
+**Exemple :**
 
 ```json
 "activities":[

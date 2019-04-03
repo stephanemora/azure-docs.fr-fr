@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/22/2019
+ms.date: 04/02/2019
 ms.author: alkohli
-ms.openlocfilehash: 125ad28f049662ae6d91c61bb5ee79c1c1428af5
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 720f4433c1e7b0d271e5729236f439c92a84687e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401754"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884650"
 ---
 # <a name="azure-data-box-edge-system-requirements"></a>Configuration requise Edge de zone de données Azure
 
@@ -86,10 +86,14 @@ Dans la plupart des cas, nous vous recommandons de définir librement les règle
 | https://\*.azurecr.io                     | Registres de conteneurs personnels et tiers (facultatif) |   |
 | https://\*.azure-devices.net              | Accès IoT Hub (obligatoire)                             |   |
 
+### <a name="url-patterns-for-azure-government"></a>Modèles d’URL pour Azure Government
+
+[!INCLUDE [Azure Government URL patterns for firewall](../../includes/data-box-edge-gateway-gov-url-patterns-firewall.md)]
+
 ## <a name="internet-bandwidth"></a>Bande passante Internet
 
 [!INCLUDE [Internet bandwidth](../../includes/data-box-edge-gateway-internet-bandwidth.md)]
 
 ## <a name="next-step"></a>Étape suivante
 
-- [Déployer votre solution Azure Data Box Edge](data-box-Edge-deploy-prep.md)
+- [Déployer votre Edge de zone de données Azure](data-box-edge-deploy-prep.md)

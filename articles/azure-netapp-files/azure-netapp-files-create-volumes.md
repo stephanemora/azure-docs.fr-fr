@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to-article
 ms.date: 3/17/2019
 ms.author: b-juche
-ms.openlocfilehash: b45879adca58f60e5c16829a7fd2fffab33eee46
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: c2dd8b636223e0484e36eed9fcc616dc6f19cf3a
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400866"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877973"
 ---
 # <a name="create-a-volume-for-azure-netapp-files"></a>Créer un volume pour Azure NetApp Files
 
@@ -41,12 +41,12 @@ Un sous-réseau doit être délégué à Azure NetApp Files.
     Créer qu'une fenêtre de Volume s’affiche.
 
 3.  Dans la création d’une fenêtre de Volume, cliquez sur **créer** et fournissent des informations pour les champs suivants :   
-    * **Nom de volume**      
+    * **Nom du volume**      
         Spécifiez le nom du volume que vous créez.   
 
         Le nom doit être unique au sein d’un groupe de ressources. Il doit comprendre au moins trois caractères.  Vous pouvez utiliser des caractères alphanumériques.
 
-    * **Pool de capacité**  
+    * **Pool de capacités**  
         Spécifier le pool de capacité où vous souhaitez que le volume doit être créé.
 
     * **Quota**  
@@ -96,7 +96,7 @@ Les fichiers NetApp Azure prend en charge les volumes de smbv3 fournis par. Vous
 
 2. Dans la fenêtre de joindre un Active Directory, fournissez les informations suivantes :
 
-    * **Le serveur DNS principal**   
+    * **DNS primaire**   
         Il s’agit de l’adresse IP de contrôleur de domaine pour le favori Active Directory Domain Services pour une utilisation avec Azure Files de NetApp. 
     * **DNS secondaire**  
         Il s’agit de l’adresse IP de contrôleur de domaine pour le secondaire Active Directory Domain Services pour une utilisation avec Azure Files de NetApp. 
@@ -131,7 +131,7 @@ Les fichiers NetApp Azure prend en charge les volumes de smbv3 fournis par. Vous
     Créer qu'une fenêtre de Volume s’affiche.
 
 3. Dans la création d’une fenêtre de Volume, cliquez sur **créer** et fournissent des informations pour les champs suivants :   
-    * **Nom de volume**      
+    * **Nom du volume**      
         Spécifiez le nom du volume que vous créez.   
 
         Le nom doit être unique au sein d’un groupe de ressources. Il doit comprendre au moins trois caractères.  Vous pouvez utiliser des caractères alphanumériques.
@@ -141,7 +141,7 @@ Les fichiers NetApp Azure prend en charge les volumes de smbv3 fournis par. Vous
      
         Le nom du chemin du fichier peut contenir seulement des lettres, des chiffres et des traits d’union (« - »). Il doit comprendre entre 16 et 40 caractères.  
 
-    * **Pool de capacité**  
+    * **Pool de capacités**  
         Spécifier le pool de capacité où vous souhaitez que le volume doit être créé.
 
     * **Quota**  
@@ -179,6 +179,6 @@ Les fichiers NetApp Azure prend en charge les volumes de smbv3 fournis par. Vous
 
 ## <a name="next-steps"></a>Étapes suivantes  
 
-* [Monter ou démonter un volume pour les machines virtuelles Windows ou Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
-* [Configurer la stratégie d’exportation pour un volume NFS](azure-netapp-files-configure-export-policy.md)
-* [En savoir plus sur l’intégration d’un réseau virtuel pour les services Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)
+* [Monter ou démonter un volume pour des machines virtuelles Windows ou Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
+* [Configurer une stratégie d’exportation pour un volume NFS](azure-netapp-files-configure-export-policy.md)
+* [En savoir plus sur l’intégration de réseau virtuel pour les services Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)

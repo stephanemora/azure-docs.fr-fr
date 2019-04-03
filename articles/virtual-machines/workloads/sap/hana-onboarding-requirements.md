@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 01/31/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8cfcf9c2f008abb571347e32f2be190dc51901e3
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 252c84bce2b70f6931593fe9410abe6cc146b5bb
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563828"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880693"
 ---
 # <a name="onboarding-requirements"></a>Conditions d’intégration
 
@@ -33,7 +33,7 @@ Cette liste indique la configuration requise pour l’exécution de SAP HANA sur
 
 **Connectivité réseau**
 
-- ExpressRoute entre le système local et Azure : pour connecter votre centre de données local à Azure, assurez-vous de commander au moins une connexion de 1 Gbit/s auprès de votre ISP. La connectivité entre les unités de grande instance HANA et Azure utilise également la technologie ExpressRoute. Cette connexion ExpressRoute entre les unités de grande instance HANA et Azure est incluse dans le prix des unités de grande instance HANA ; ce prix comprend également tous les frais d'entrée et de sortie de données de ce circuit ExpressRoute spécifique. En tant que client, aucuns frais supplémentaires ne vous sont donc facturés au-delà de votre lien ExpressRoute entre votre système local et Azure.
+- ExpressRoute entre le système local et Azure : pour connecter votre centre de données local à Azure, assurez-vous de commander au moins une connexion de 1 Gbit/s auprès de votre ISP. La connectivité entre les unités de grande instance HANA et Azure utilise également la technologie ExpressRoute. Cette connexion ExpressRoute entre les unités de grande instance HANA et Azure est incluse dans le prix des unités de grande instance HANA ; ce prix comprend également tous les frais d'entrée et de sortie de données de ce circuit ExpressRoute spécifique. Par conséquent, en tant que client, vous ne rencontrez pas de frais supplémentaires au-delà de votre lien ExpressRoute entre en local et Azure.
 
 **Système d’exploitation**
 
@@ -66,7 +66,7 @@ Pour la matrice de compatibilité des versions de système d’exploitation et d
 
 - Licences et composants d’installation logiciels pour SAP HANA (édition Enterprise ou Platform).
 
-**Applications**
+**APPLICATIONS**
 
 - Licences et composants d’installation logiciels pour toutes les applications SAP se connectant à SAP HANA et associées aux contrats de support SAP.
 - Licences et composants d’installation logiciels pour toutes les applications autres que SAP utilisées avec SAP HANA sur Azure (grandes instances) et associées aux contrats de support.

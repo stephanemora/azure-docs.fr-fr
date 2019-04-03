@@ -1,21 +1,21 @@
 ---
-title: Protection avancée contre les menaces pour le stockage Azure
+title: Advanced Threat Protection pour le stockage Azure
 description: Configurez la protection avancée contre les menaces dans le stockage Azure pour détecter les anomalies dans l’activité de votre compte et vous alerter sur les tentatives d’accès à votre compte potentiellement dangereuses.
 services: storage
 author: rmatchoro
 ms.service: storage
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 04/02/2019
 ms.author: monhaber
 ms.manager: shaik
-ms.openlocfilehash: b2e51b11e2d79d7f35d6b24df4ba5492ecf9a5c4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 48fdf277f47b1e4abc8e3d7f7222d5b99a248b55
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58133227"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58850718"
 ---
-# <a name="advanced-threat-protection-for-azure-storage"></a>Protection avancée contre les menaces pour le stockage Azure
+# <a name="advanced-threat-protection-for-azure-storage"></a>Advanced Threat Protection pour le stockage Azure
 
 Protection avancée contre les menaces pour le stockage Azure fournit une couche supplémentaire de sécurité qui détecte les tentatives inhabituelles ou potentiellement dangereuses visant à accéder ou à exploiter des comptes de stockage. Cette couche de protection vous permet de traiter efficacement les menaces sans pour autant être un expert en sécurité ni avoir besoin de gérer des systèmes de supervision de la sécurité. 
 
@@ -51,6 +51,24 @@ Lorsque vous vous abonnez au niveau Standard dans Azure Security Center, Advance
 
 Utilisez un modèle Azure Resource Manager pour déployer un compte de stockage Azure-Protection avancée contre les menaces est activé.
 Pour plus d’informations, consultez [compte de stockage avec Advanced Threat Protection](https://azure.microsoft.com/resources/templates/201-storage-advanced-threat-protection-create/).
+
+### <a name="using-azure-policy"></a>À l’aide de la stratégie Azure
+
+Utiliser une stratégie de Azure pour activer-Protection avancée contre les menaces sur les comptes de stockage sous un groupe de ressources ou abonnement spécifique.
+
+1. Déjeuner Azure **Policy - définitions** page.
+
+1. Recherchez le **déployer Advanced Threat Protection sur les comptes de stockage** stratégie.
+
+     ![Stratégie de recherche](./media/storage-advanced-threat-protection/storage-atp-policy-definitions.png)
+  
+1. Sélectionnez un groupe de ressources ou abonnement Azure.
+
+    ![Sélectionnez l’abonnement ou groupe](./media/storage-advanced-threat-protection/storage-atp-policy2.png)
+
+1. Affectez la stratégie.
+
+    ![Page de définitions de stratégie](./media/storage-advanced-threat-protection/storage-atp-policy1.png)
 
 ### <a name="using-rest-api"></a>Utilisation de l'API REST
 Utilisez les commandes de l’API Rest pour créer, mettre à jour ou obtenir le paramètre-Protection avancée contre les menaces pour un compte de stockage spécifique.

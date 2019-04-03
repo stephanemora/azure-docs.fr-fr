@@ -3,25 +3,25 @@ title: 'Kit de développement logiciel (SDK) .NET : opérations de gestion du sy
 description: Utilisez le Kit de développement logiciel (SDK) .NET Azure Data Lake Storage Gen1 pour effectuer des opérations de gestion du système de fichiers sur Data Lake Storage Gen1, comme la création de dossiers, etc.
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 0a6cfc5ca9a0b788075f4472649a6e1bcdf87637
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: twooley
+ms.openlocfilehash: 02091f1b650e3e9932f9924bf36a5841861d3b1e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58119494"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876953"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Opérations de gestion du système de fichiers sur Azure Data Lake Storage Gen1 à l’aide de .NET
 > [!div class="op_single_selector"]
 > * [Kit de développement logiciel (SDK) .NET](data-lake-store-data-operations-net-sdk.md)
-> * [Kit SDK Java](data-lake-store-get-started-java-sdk.md)
+> * [Kit de développement logiciel (SDK) Java](data-lake-store-get-started-java-sdk.md)
 > * [API REST](data-lake-store-data-operations-rest-api.md)
 > * [Python](data-lake-store-data-operations-python.md)
 >
@@ -59,8 +59,8 @@ L’exemple de code disponible [sur GitHub](https://github.com/Azure-Samples/dat
    2. Dans l’onglet **Gestionnaire de package NuGet**, vérifiez que **Source du package** a la valeur **nuget.org** et que la case **Inclure la version préliminaire** est cochée.
    3. Recherchez et installez les packages NuGet suivants :
 
-      * `Microsoft.Azure.DataLake.Store` : ce didacticiel utilise v1.0.0.
-      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` : ce didacticiel utilise v2.3.1.
+      * `Microsoft.Azure.DataLake.Store` -Ce didacticiel utilise v1.0.0.
+      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` -Ce didacticiel utilise v2.3.1.
     
       Fermez le **Gestionnaire de package NuGet**.
 
@@ -178,8 +178,8 @@ Voici quelques exemples sur la façon d’utiliser le Kit de développement logi
 * [Exemple avancé sur GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-samples)
 
 ## <a name="see-also"></a>Voir aussi
-* [Opérations de gestion du compte sur Data Lake Storage Gen1 à l’aide du SDK .NET](data-lake-store-get-started-net-sdk.md)
-* [Référence SDK .NET Data Lake Storage Gen1](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
+* [Opérations de gestion du compte sur Data Lake Storage Gen1 à l’aide du Kit de développement logiciel .NET](data-lake-store-get-started-net-sdk.md)
+* [Référence de kit de développement logiciel .NET Data Lake Storage Gen1](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Sécuriser les données dans Data Lake Storage Gen1](data-lake-store-secure-data.md)

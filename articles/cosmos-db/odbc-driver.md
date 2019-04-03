@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 95811459ff51b71153fb5ceef804a64c8b6a9be6
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: a4cf3a9c19497057d7799be3bec78ad0de97e71a
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816626"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58851055"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Se connecter à Azure Cosmos DB à l’aide d’outils d’analyse décisionnelle avec le pilote ODBC
 
@@ -97,7 +97,7 @@ Il existe deux types de méthodes d’échantillonnage que vous pouvez utiliser�
 
 1. Une fois que vous avez terminé la définition du schéma, cliquez sur **Fichier** | **Enregistrer**, accédez au répertoire d’enregistrement du schéma, puis cliquez sur **Enregistrer**.
 
-    Si vous souhaitez, par la suite, utiliser ce schéma avec un DSN, ouvrez la fenêtre de configuration du DSN du pilote ODBC Azure Cosmos DB (par le biais de l’Administrateur de sources de données ODBC), cliquez sur Options avancées, puis, dans la boîte de dialogue Fichier de schéma, accédez au schéma enregistré. L’enregistrement d’un fichier de schéma dans une source de données existante modifie la connexion de DSN afin de définir l’étendue des données et de la structure définie par le schéma.
+1. Pour utiliser ce schéma avec un DSN, ouvrez le **fenêtre de configuration du DSN du pilote ODBC Azure Cosmos DB** (via l’administrateur données ODBC Source), cliquez sur **Options avancées**, puis, dans le **le fichier de schéma** , accédez au schéma enregistré. L’enregistrement d’un fichier de schéma dans une source de données existante modifie la connexion de DSN afin de définir l’étendue des données et de la structure définie par le schéma.
 
 ## <a id="table-mapping"></a>Étape 4 : Créer une définition de schéma à l’aide de la méthode de mappage des délimiteurs de table
 

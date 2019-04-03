@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 420c81f6206c777efc303924d81763f5984aba4c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0981f4d5d9d5fcb243fc7ead6f4b529c096935d0
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57993410"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885874"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Sauvegarde Azure - Forum Aux Questions
 Cet article répond aux questions courantes sur le service Sauvegarde Azure.
@@ -40,7 +40,7 @@ Non. Dans un coffre Recovery Services, vous pouvez uniquement changer les option
 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>Puis-je effectuer une restauration de niveau élément (ILR) pour les machines virtuelles sauvegardées dans un coffre Recovery Services ?
 - La restauration de niveau élément est prise en charge pour les machines virtuelles Azure sauvegardées par la sauvegarde de machine virtuelle Azure. Pour plus d’informations, consultez cet [article](backup-azure-restore-files-from-vm.md)
-- La restauration de niveau élément n’est pas prise en charge pour les points de récupération en ligne des machines virtuelles sur site sauvegardées par le serveur de sauvegarde Azure ou System Center DPM.
+- Récupération au niveau élément n’est pas prise en charge de points de récupération en ligne des machines virtuelles locales sauvegardées par le serveur de sauvegarde Azure ou de System Center DPM.
 
 
 ## <a name="azure-backup-agent"></a>Agent Azure Backup
@@ -93,7 +93,7 @@ Oui.
 ### <a name="what-operating-systems-are-supported-for-backup"></a>Quels sont les systèmes d’exploitation pris en charge par la sauvegarde ?
 Sauvegarde Azure prend en charge les systèmes d’exploitation suivants pour la sauvegarde des dossiers et des fichiers, ainsi que des applications protégées par Azure Backup Server et DPM.
 
-**SE** | **Référence (SKU)** | **Détails**
+**SE** | **SKU** | **Détails**
 --- | --- | ---
 Station de travail | |
 Windows 10 64 bits | Entreprise, Professionnel, Familiale | Les machines virtuelles doivent utiliser les derniers service packs et les dernières mises à jour.

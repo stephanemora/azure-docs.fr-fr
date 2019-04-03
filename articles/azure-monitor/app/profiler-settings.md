@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 8c9fba14bd3f7d3b55a245f8e647f0eae1f8ef83
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9603c45443c6339a127f977600eeff2ba57a283f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58118423"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884157"
 ---
 # <a name="configure-application-insights-profiler"></a>Configurer Application Insights Profiler
 
@@ -39,6 +39,9 @@ Le volet **Configurer Application Insights Profiler** contient quatre fonctionna
 En fonction de la configuration de votre environnement Azure App Service, l’appel permettant de vérifier l’état de l’agent peut être bloqué. Le volet peut afficher un message indiquant que l’agent n’est pas exécuté même s’il est en cours d’exécution. Pour vérifier qu’il est exécuté, consultez la tâche web sur votre application. Si toutes les valeurs de paramètres d’application sont correctes et que l’extension de site Application Insights est installée sur votre application, Profiler est en cours d’exécution. Si votre application ne reçoit pas suffisamment de trafic, les sessions de profilage récentes doivent s’afficher dans une liste.
 
 ## <a id="profileondemand"></a> Déclencher manuellement Profiler
+
+### <a name="minimum-requirements"></a>Configuration minimale requise 
+Pour un utilisateur déclencher manuellement une session de profileur, ils nécessitent au minimum « accès en écriture » de leur rôle pour le composant Application Insights. Dans la plupart des cas vous obtenez automatiquement cet accès et aucun travail supplémentaire est nécessaire. Si vous rencontrez des problèmes, le rôle de portée d’abonnement pour ajouter serait le rôle « Contributeur de composant Application Insights ». [En savoir plus sur le contrôle d’accès de rôle avec Azure Monitoring](https://docs.microsoft.com/en-us/azure/azure-monitor/app/resources-roles-access-control).
 
 Vous pouvez déclencher manuellement Profiler en un clic. Supposons que vous exécutez un test de performances web. Vous avez besoin des traces pour comprendre comment votre application web fonctionne avec une certaine charge. Pour savoir quand le test de charge est exécuté, vous avez besoin de contrôler le moment de capture des traces. Toutefois, l’intervalle d’échantillonnage aléatoire ne permet pas de le faire.
 
@@ -122,7 +125,7 @@ Si une des valeurs précédentes n’est pas définie, installez la dernière ex
     ![Rechercher une mise à jour de l’extension][check-for-extension-update]
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Activer Profiler et voir les traces](profiler-overview.md?toc=/azure/azure-monitor/toc.json)
+[Activer Profiler et afficher les traces](profiler-overview.md?toc=/azure/azure-monitor/toc.json)
 
 [profiler-on-demand]: ./media/profiler-settings/Profiler-on-demand.png
 [configure-profiler-entry]: ./media/profiler-settings/configure-profiler-entry.png

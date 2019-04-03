@@ -1,31 +1,31 @@
 ---
 title: Guide d’alerte de sécurité pour Azure Security Center pour la version préliminaire IoT | Microsoft Docs
 description: En savoir plus sur les alertes de sécurité et de correction recommandée à l’aide d’Azure Security Center pour les fonctionnalités de service et IoT.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: a5c25cba-59a4-488b-abbe-c37ff9b151f9
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
-ms.openlocfilehash: 987bfa0da190bd2bd29634b46b5f06ff4dc1cc19
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: f3ae69cb6c8e2a60488b4f1ff3df1bb8ab0c04ea
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755099"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58861976"
 ---
 # <a name="azure-security-center-for-iot-security-alerts"></a>Azure Security Center pour les alertes de sécurité IoT
 
 > [!IMPORTANT]
 > Azure Security Center pour IoT est actuellement en version préliminaire publique.
-> Cette version préliminaire est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Azure Security Center (ASC) pour IoT analyse continuellement votre solution IoT à l’aide des fonctionnalités d’intelligence analytique et les menaces avancées pour vous avertir des activités malveillantes.
 En outre, vous pouvez créer des alertes personnalisées en fonction de votre connaissance du comportement attendu d’appareil.
@@ -93,6 +93,6 @@ Pour plus d’informations, consultez [créer des alertes personnalisées](quick
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Vue d'ensemble](overview.md)
+- [Présentation](overview.md)
 - [Accéder à vos données de sécurité](how-to-security-data-access.md)
-- [Examiner un appareil](how-to-investigate-device.md)
+- [Investiguer un appareil](how-to-investigate-device.md)

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/11/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: e826c7a3fc12e819fd6f145d42b7381087d5970c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c7e78f89883e5cfc3fc8b9088c3ac0b3166682c7
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58000242"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878177"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Utiliser le service Azure Import/Export pour transférer des données dans le Stockage Blob Azure
 
@@ -30,7 +30,7 @@ Avant de créer une tâche d’importation pour transférer des données dans le
 - Avoir un nombre suffisant de disques de [Types pris en charge](storage-import-export-requirements.md#supported-disks). 
 - Avoir un système Windows exécutant une [Version de système d’exploitation prise en charge](storage-import-export-requirements.md#supported-operating-systems). 
 - Activez BitLocker sur le système Windows. Consultez [Comment activer BitLocker](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
-- [Téléchargez la version 1 de WAImportExport](https://aka.ms/waiev1) sur le système Windows. Décompressez le package dans le dossier par défaut : `waimportexportv1`. Par exemple : `C:\WaImportExportV1`.
+- [Téléchargez la version 1 de WAImportExport](https://aka.ms/waiev1) sur le système Windows. Décompressez le package dans le dossier par défaut : `waimportexportv1`. Par exemple : `C:\WaImportExportV1`.
 - Dotez-vous d’un compte FedEx/DHL.  
     - Le compte doit être valide, doit avoir un solde et doit offrir des fonctionnalités de réexpédition.
     - Générez un numéro de suivi pour le travail d’exportation.
@@ -54,8 +54,8 @@ Effectuez les étapes suivantes pour préparer les lecteurs.
     `cd C:\WaImportExportV1`
 5.  Pour obtenir la clé BitLocker du lecteur, exécutez la commande suivante :
     
-    ` manage-bde -protectors -get <DriveLetter>: `
-6.  Pour préparer le disque, exécutez la commande suivante. **Selon la taille des données, l’opération peut durer plusieurs heures, voire plusieurs jours.** 
+    `manage-bde -protectors -get <DriveLetter>:`
+6.  Pour préparer le disque, exécutez la commande suivante. **Selon la taille des données, cette opération peut prendre plusieurs heures et jours.** 
 
     ```
     ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /sk:<Storage account key> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /skipwrite 
@@ -70,7 +70,7 @@ Effectuez les étapes suivantes pour préparer les lecteurs.
     |/id:     |ID de la session. Utilisez un numéro de session unique pour chaque instance de la commande.      |
     |/sk:     |Clé de compte de stockage Azure.         |
     |/t:     |Lettre de lecteur du disque à expédier. Exemple : lecteur `D`.         |
-    |/bk:     |Clé BitLocker du lecteur. Son mot de passe numérique à partir de la sortie de ` manage-bde -protectors -get D: `      |
+    |/bk:     |Clé BitLocker du lecteur. Son mot de passe numérique à partir de la sortie de `manage-bde -protectors -get D:`      |
     |/srcdir:     |Lettre de lecteur du disque à expédier suivie de `:\`. Par exemple : `D:\`.         |
     |/dstdir:     |Nom du conteneur de destination dans le Stockage Azure.         |
     |/skipwrite:     |Option qui spécifie qu’aucune nouvelle donnée ne doit être copiée et que les données existantes sur le disque doivent être préparées.          |
@@ -144,7 +144,7 @@ Surveillez le travail jusqu’à son achèvement. Une fois le travail terminé, 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Voir l’état de la tâche et des disques](storage-import-export-view-drive-status.md)
-* [Passer en revue les exigences d’importation/exportation](storage-import-export-requirements.md)
+* [Afficher l’état du travail et de lecteur](storage-import-export-view-drive-status.md)
+* [Passez en revue les exigences d’Import/Export](storage-import-export-requirements.md)
 
 

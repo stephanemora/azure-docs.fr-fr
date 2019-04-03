@@ -1,38 +1,38 @@
 ---
 title: Envoyer vos messages de sécurité à Azure Security Center pour la version préliminaire IoT | Microsoft Docs
 description: Apprenez à envoyer vos messages de sécurité à l’aide d’Azure Security Center pour IoT.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: c611bb5c-b503-487f-bef4-25d8a243803d
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: be17c5bb4d09e0868af0c6fd9b31f7653b614735
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.openlocfilehash: a9974fd15ae9c8c420992c3ae1084feebae0f57d
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58762767"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862401"
 ---
-# <a name="send-security-messages-sdk"></a>Envoyer des messages de sécurité SDK
+# <a name="send-security-messages-sdk"></a>Envoyer des messages de sécurité à l’aide du SDK
 
 > [!IMPORTANT]
 > Azure Security Center pour IoT est actuellement en version préliminaire publique.
-> Cette version préliminaire est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Ce guide explique Azure Security Center (ASC) pour les fonctionnalités du service IoT lorsque vous choisissez collecter et envoyer des messages de sécurité de votre appareil sans utiliser un ASC pour l’agent IoT et explique comment faire.  
 
 Dans ce guide, vous apprendrez comment : 
 > [!div class="checklist"]
-> * Utiliser le message de sécurité envoi API pourC#
-> * Utiliser l’envoi de messages de sécurité API pour C
+> * Utiliser l’API d’envoi de message de sécurité pour C#
+> * Utiliser l’API d’envoi de message de sécurité pour C
 
 ## <a name="asc-for-iot-capabilities"></a>ASC pour les fonctionnalités de IoT
 
@@ -49,7 +49,7 @@ Chaque message de sécurité inclut les métadonnées de l’expéditeur comme `
 Le schéma définit les propriétés valides et requises du message de sécurité, y compris les types d’événements.
 
 [!NOTE]
-> Les messages envoyés qui ne sont pas conformes au schéma sont ignorés. Veillez à vérifier le schéma avant de lancer l’envoi de données comme les messages ignorés ne sont pas actuellement stockés. 
+> Les messages envoyés non conformes au schéma sont ignorés. Veillez à vérifier le schéma avant de lancer l’envoi de données, car les messages ignorés ne sont pas stockés. 
 > Les messages envoyés qui n’ont pas été définies comme un message de sécurité à l’aide de l’Azure IoT C /C# SDK n’est pas routé vers le ASC pour IoT pipeline
 
 ## <a name="valid-message-example"></a>Exemple de message valide
@@ -90,13 +90,13 @@ Une fois définie comme un message de sécurité et envoyé, ce message sera tra
 
 Envoyer des messages de sécurité sans utiliser l’ASC pour l’agent IoT, à l’aide de la [Azure IoT C# device SDK](https://github.com/Azure/azure-iot-sdk-csharp/tree/preview) ou [appareil Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview).
 
-Pour envoyer les données de l’appareil à partir de vos appareils pour le traitement par ASC pour IoT, utilisez une des API suivantes pour marquer les messages pour le routage correct à ASC pour le pipeline de traitement de l’IoT. Les messages envoyés de cette manière seront traitées et affichés en tant que les informations de sécurité dans ASC pour IoT dans les deux IoT Hub ou dans Azure Security Center. 
+Pour envoyer les données à partir de vos appareils en vue de leur traitement par ASC pour IoT, utilisez une des API suivantes pour marquer les messages avec le bon routage vers le pipeline de traitement ASC pour IoT. Les messages envoyés de cette manière sont traités et affichés en tant qu’insights de sécurité dans ASC pour IoT au sein d’IoT Hub ou d’Azure Security Center. 
 
-Toutes les données qui sont envoyées, même si marquée avec l’en-tête approprié, doivent également respecter les [ASC pour schéma de message IoT](https://aka.ms/iot-security-schemas). 
+Toutes les données envoyées, même si elles sont marquées avec l’en-tête approprié, doivent également respecter le [schéma de message d’ASC pour IoT](https://aka.ms/iot-security-schemas). 
 
-### <a name="send-security-message-api"></a>API de message de sécurité d’envoi
+### <a name="send-security-message-api"></a>API d’envoi de message de sécurité
 
-Le **envoyer des messages de sécurité** API est actuellement disponible en C et C#.  
+L’API d’**envoi de messages de sécurité** est disponible en C et C#.  
 
 #### <a name="c-api"></a>C# API
 
@@ -157,10 +157,10 @@ static void SendConfirmCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void* 
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Lire l’ASC pour le service IoT [vue d’ensemble](overview.md)
-- En savoir plus sur ASC pour IoT [Architecture](architecture.md)
-- Activer la [service](quickstart-onboard-iot-hub.md)
-- Lire le [Forum aux questions](resources-frequently-asked-questions.md)
-- Découvrez comment accéder aux [les données de sécurité brute](how-to-security-data-access.md)
-- Comprendre [recommandations](concept-recommendations.md)
-- Comprendre [alertes](concept-security-alerts.md)
+- Lire la [vue d’ensemble](overview.md) du service ASC pour IoT
+- Découvrir plus en détail l’[architecture](architecture.md) ASC pour IoT
+- Activer le [service](quickstart-onboard-iot-hub.md)
+- Consulter les [Questions fréquentes (FAQ)](resources-frequently-asked-questions.md)
+- Découvrir comment accéder aux [données de sécurité brutes](how-to-security-data-access.md)
+- Comprendre les [recommandations](concept-recommendations.md)
+- Comprendre les [alertes](concept-security-alerts.md)

@@ -9,14 +9,14 @@ ms.topic: include
 ms.date: 09/03/2018
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: c32d1bbe5c2f735333a312638c553d7a2c434c0b
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
-ms.translationtype: HT
+ms.openlocfilehash: afeae4af9b41bf434b26833a3bd927118a4697ae
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702661"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58887013"
 ---
-**Configuration requise des serveurs de configuration/traitement pour la réplication de serveurs physiques**
+**Configuration requise du serveur de configuration/processus de réplication de serveurs physiques**
 
 **Composant** | **Prérequis** 
 --- | ---
@@ -27,7 +27,7 @@ Nombre de disques | 3, y compris le disque du système d’exploitation, le disq
 Espace disque disponible (cache du serveur de traitement) | 600 Go
 Espace disque disponible (disque de rétention) | 600 Go
  | 
-**PARAMÈTRES LOGICIELS** | 
+**PARAMÈTRES DU LOGICIEL** | 
 Système d’exploitation | Windows Server 2012 R2 <br> Windows Server 2016
 Paramètres régionaux du système d’exploitation | Anglais (en-us)
 Rôles Windows Server | N’activez pas ces rôles : <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V 
@@ -37,14 +37,14 @@ Type d’adresse IP | statique
 | 
 **PARAMÈTRES D’ACCÈS** | 
 MYSQL | MySQL doit être installé sur le serveur de configuration. Vous pouvez l’installer manuellement ou laisser Site Recovery le faire au moment du déploiement. Pour permettre l’installation de Site Recovery, vérifiez que la machine a accès à http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi.
-URLs | Le serveur de configuration doit également accéder à ces URL (directement ou par le biais d’un proxy) :<br/><br/> Azure AD : ``login.microsoftonline.com`` ; ``login.microsoftonline.us`` ; ``*.accesscontrol.windows.net``<br/><br/> Transfert des données de réplication : ``*.backup.windowsazure.com`` ; ``*.backup.windowsazure.us``<br/><br/> Gestion de la réplication : ``*.hypervrecoverymanager.windowsazure.com`` ; ``*.hypervrecoverymanager.windowsazure.us`` ; ``https://management.azure.com`` ; ``*.services.visualstudio.com``<br/><br/> Accès au stockage : ``*.blob.core.windows.net`` ; ``*.blob.core.usgovcloudapi.net``<br/><br/> Synchronisation date/heure : ``time.nist.gov`` ; ``time.windows.com<br/><br/> Telemetry (optional): ``dc.services.visualstudio.com''
-Pare-feu | Les règles de pare-feu basées sur une adresse IP doivent autoriser les communications vers les URL Azure. Pour simplifier et limiter les plages d’adresses IP, nous vous recommandons d’utiliser le filtrage des URL.<br/><br/>**Pour les adresses IP commerciales :**<br/><br/>- Autorisez les [plages d’adresses IP de centres de données Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) et le port HTTPS (443).<br/><br/> - Autorisez les plages d’adresses IP de la région USA Ouest (utilisées pour la gestion du contrôle d’accès et des identités).<br/><br/> - Autorisez les plages d’adresses IP de la région Azure de votre abonnement afin de garantir la prise en charge des URL requises pour Azure Active Directory, la sauvegarde, la réplication et le stockage.<br/><br/> **Pour les adresses IP du secteur public :**<br/><br/> - Autorisez les plages d’adresses IP de centres de données Azure Government, ainsi que le port HTTPS (443).<br/><br/> - Autorisez les plages d’adresses IP de toutes les régions Gov US (Virginie, Texas, Arizona et Iowa) afin de garantir la prise en charge des URL requises pour Azure Active Directory, la sauvegarde, la réplication et le stockage.
+URLs | Le serveur de configuration doit également accéder à ces URL (directement ou par le biais d’un proxy) :<br/><br/> Azure AD : `login.microsoftonline.com`; `login.microsoftonline.us`; `*.accesscontrol.windows.net`<br/><br/> Transfert de données de réplication : `*.backup.windowsazure.com`; `*.backup.windowsazure.us`<br/><br/> Gestion de la réplication : `*.hypervrecoverymanager.windowsazure.com`; `*.hypervrecoverymanager.windowsazure.us`; `https://management.azure.com`; `*.services.visualstudio.com`<br/><br/> Accès au stockage : `*.blob.core.windows.net`; `*.blob.core.usgovcloudapi.net`<br/><br/> Synchronisation date/heure : `time.nist.gov`; `time.windows.com`<br/><br/> Données de télémétrie (facultative) : `dc.services.visualstudio.com`
+Pare-feu | Les règles de pare-feu basées sur une adresse IP doivent autoriser les communications vers les URL Azure. Pour simplifier et limiter les plages d’adresses IP, nous vous recommandons d’utiliser le filtrage des URL.<br/><br/>**Pour les adresses IP commerciale :**<br/><br/>- Autorisez les [plages d’adresses IP de centres de données Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) et le port HTTPS (443).<br/><br/> - Autorisez les plages d’adresses IP de la région USA Ouest (utilisées pour la gestion du contrôle d’accès et des identités).<br/><br/> - Autorisez les plages d’adresses IP de la région Azure de votre abonnement afin de garantir la prise en charge des URL requises pour Azure Active Directory, la sauvegarde, la réplication et le stockage.<br/><br/> **Pour le secteur public des adresses IP :**<br/><br/> - Autorisez les plages d’adresses IP de centres de données Azure Government, ainsi que le port HTTPS (443).<br/><br/> - Autorisez les plages d’adresses IP de toutes les régions Gov US (Virginie, Texas, Arizona et Iowa) afin de garantir la prise en charge des URL requises pour Azure Active Directory, la sauvegarde, la réplication et le stockage.
 Ports | Autorisez le port 443 (orchestration du canal de contrôle)<br/><br/> Autorisez le port 9443 (transport de données) 
 
 
-**Exigences de dimensionnement des serveurs de configuration/de traitement**
+**Serveur de configuration/processus exigences de dimensionnement**
 
-**UC** | **Mémoire** | **Disque cache** | **Taux de modification des données** | **Machines répliquées**
+**UC** | **Mémoire** | **Disque de cache** | **Taux de modification des données** | **Machines répliquées**
 --- | --- | --- | --- | ---
 8 processeurs virtuels<br/><br/> 2 sockets * 4 cœurs \@ 2,5 GHz | 16 Go | 300 Go | 500 Go ou moins | < 100 machines
 12 processeurs virtuels<br/><br/> 2 sockets * 6 cœurs \@ 2,5 GHz | 18 Go | 600 Go | 500 Go à 1 To | 100 à 150 machines

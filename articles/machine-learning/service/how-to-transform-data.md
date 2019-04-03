@@ -6,22 +6,22 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: cforbe
-author: cforbe
+ms.author: sihhu
+author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 12a914b2cdef0a40493dac1a539cf0c2a7703093
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d2bd271557ae0deefeb12a2dc7343c46fbd35363
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999811"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847607"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Transformer des données avec le SDK de préparation des données Azure Machine Learning
 
-Dans cet article, vous découvrez les différentes méthodes de chargement des données à l’aide du SDK Azure Machine Learning Data Prep. Le Kit de développement logiciel offre des fonctions qui le rendent simple ajouter des colonnes, filtrer les lignes ou colonnes et imputer les valeurs manquantes. Pour voir la documentation de référence pour le SDK, consultez le [vue d’ensemble](https://aka.ms/data-prep-sdk).
+Dans cet article, vous découvrez les différentes méthodes de la transformation des données à l’aide du SDK Azure Machine Learning Data Prep. Le Kit de développement logiciel offre des fonctions qui le rendent simple ajouter des colonnes, filtrer les lignes ou colonnes et imputer les valeurs manquantes. Pour voir la documentation de référence pour le SDK, consultez le [vue d’ensemble](https://aka.ms/data-prep-sdk).
 
 Cette procédure montre des exemples pour les tâches suivantes :
 

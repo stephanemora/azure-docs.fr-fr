@@ -9,20 +9,20 @@ ms.reviewer: jasonwhowell
 ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
 ms.topic: conceptual
 ms.date: 06/20/2017
-ms.openlocfilehash: 5d10d4d603312b3c75760a5d7c17a9028ddecea8
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
-ms.translationtype: HT
+ms.openlocfilehash: 59a52b2aeb83732a608f1fcf5bc4de907d25dfd1
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54401213"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885024"
 ---
 # <a name="extend-u-sql-scripts-with-r-code-in-azure-data-lake-analytics"></a>Étendre des scripts U-SQL à l’aide de code R dans Azure Data Lake Analytics
 
 L’exemple suivant illustre les étapes de base pour déployer un code R :
 * Utilisation de l’instruction `REFERENCE ASSEMBLY` pour activer les extensions R pour le script U-SQL.
-* Utilisation de l’opération ` REDUCE` pour partitionner les données d’entrée sur une clé.
+* Utilisez le `REDUCE` opération pour partitionner les données d’entrée sur une clé.
 * Les extensions R pour U-SQL comprennent un réducteur intégré (`Extension.R.Reducer`) qui exécute le code R sur chaque vertex affecté au réducteur. 
-* Utilisation de tableaux de données nommés dédiés, respectivement intitulés `inputFromUSQL` et `outputToUSQL `, pour transférer des données entre USQL et R. Les noms des identificateurs des tableaux de données d’entrée et de sortie sont fixes. Autrement dit, les utilisateurs ne peuvent pas modifier les noms prédéfinis des identificateurs des tableaux de données d’entrée et de sortie.
+* Utilisation de dédié nommé trames de données appelés `inputFromUSQL` et `outputToUSQL` respectivement pour passer des données entre U-SQL et R. entrée et sortie de trame de données fixe des noms d’identificateur (autrement dit, les utilisateurs ne peuvent pas modifier les noms prédéfinis d’entrée et de sortie trame de données identificateurs).
 
 ## <a name="embedding-r-code-in-the-u-sql-script"></a>Incorporation de code R dans le script U-SQL
 
@@ -93,7 +93,7 @@ Utilisez un script U-SQL pour déployer ce script R avec l’instruction DEPLOY 
 ### <a name="datatypes"></a>Types de données
 * Les colonnes de chaîne et numériques de U-SQL sont converties en l’état entre un tableau de données R et U-SQL [types pris en charge : `double`, `string`, `bool`, `integer`, `byte`].
 * Le type de données `Factor` n’est pas pris en charge dans U-SQL.
-* `byte[]` doit être sérialisé sous forme de `string` codé en base64.
+* `byte[]` doit être sérialisé sous une codé en base64 `string`.
 * Les chaînes U-SQL peuvent être converties en facteurs dans le code R quand U-SQL crée un tableau de données d’entrée R ou en définissant le paramètre du réducteur sur `stringsAsFactors: true`.
 
 ### <a name="schemas"></a>Schémas
@@ -208,5 +208,5 @@ Tout d’abord, créez un module R personnalisé, incluez-le dans un fichier zip
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Vue d'ensemble de Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
-* [Développer des scripts U-SQL avec les outils Data Lake pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+* [Développer des scripts U-SQL à l’aide de Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Utilisation des fonctions U-SQL dans les travaux Analytique Data Lake Azure](data-lake-analytics-use-window-functions.md)

@@ -8,18 +8,18 @@ ms.service: backup
 ms.topic: article
 ms.date: 03/13/2019
 ms.author: anuragm
-ms.openlocfilehash: e5565e257e511203043c84e499712cc6a0a78c3f
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: d8cbae679552cce8df29410ad8a477801abd4ff1
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286010"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847449"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Résoudre les problèmes de sauvegarde SQL Server sur Azure
 
 Cet article fournit des informations de dépannage pour la protection des machines virtuelles SQL Server sur Azure (préversion).
 
-## <a name="feature-consideration-and-limitations"></a>Fonctionnalité considérations et limitations
+## <a name="feature-consideration-and-limitations"></a>Considérations et limitations relatives aux fonctionnalités
 
 Pour afficher la considération de fonctionnalité, consultez l’article [sauvegarde sur SQL Server dans Azure Virtual Machines](backup-azure-sql-database.md#feature-consideration-and-limitations).
 
@@ -98,12 +98,18 @@ Les codes d’erreur suivants sont affichés en cas d’échec des travaux de re
 |---|---|---|
 | Restore failed as the database could not be brought offline. (Échec de la restauration car la base de données n’a pas pu être mise hors connexion.) | La base de données cible doit être mise hors connexion au cours de la restauration. Sauvegarde Azure n’est pas en mesure de mettre ces données hors connexion. | Utilisez les informations supplémentaires dans le menu d’erreur du Portail Azure pour mieux déterminer les causes racines. Pour plus d’informations, consultez la [documentation SQL](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms). |
 
-
 ###  <a name="usererrorcannotfindservercertificatewiththumbprint"></a>UserErrorCannotFindServerCertificateWithThumbprint
 
 | Message d’erreur | Causes possibles | Action recommandée |
 |---|---|---|
 | Cannot find the server certificate with thumbprint on the target. (Impossible de trouver le certificat de serveur avec l’empreinte sur la cible.) | La base de données MASTER sur l’instance de destination n’a pas une empreinte de chiffrement valide. | Importez l’empreinte de certificat valide utilisée sur l’instance source vers l’instance cible. |
+
+### <a name="usererrorrestorenotpossiblebecauselogbackupcontainsbulkloggedchanges"></a>UserErrorRestoreNotPossibleBecauseLogBackupContainsBulkLoggedChanges
+
+| Message d’erreur | Causes possibles | Action recommandée |
+|---|---|---|
+| La sauvegarde du journal utilisée pour la récupération contient des modifications journalisées en bloc. Il ne peut pas être utilisé pour arrêter à un point arbitraire dans le temps conformément aux instructions SQL. | Lorsqu’une base de données est en mode de récupération journalisé en bloc, les données entre un transactions journalisées en bloc et de la transaction de journal suivante ne peut pas être récupérées. | Veuillez choisir un autre Point de récupération. [En savoir plus](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105))
+
 
 ## <a name="registration-failures"></a>Échecs d’enregistrement
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: a5ebd50b3a5fe3b611bae28db98979eee40f9490
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4be52fbc6d9fb01ac3cd3c0954042c35b45bbf23
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57899024"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884361"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Mesures de stockage Azure dans Azure Monitor
 
@@ -284,9 +284,9 @@ L’exemple suivant montre comment lire les données de mesures sur la métrique
 
 L’ID de ressource est l’identificateur unique d’une ressource dans Azure. Lorsque vous utilisez l’API REST Azure Monitor pour lire des définitions ou valeurs de mesures, vous devez utiliser l’ID de ressource de la ressource sur laquelle vous envisagez de travailler. Le format du modèle d’ID de ressource est le suivant :
 
-`
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-`
+```
 
 Storage fournit des mesures au niveau du compte de stockage et au niveau du service avec Azure Monitor. Par exemple, vous pouvez récupérer des mesures pour le stockage d’objets blob uniquement. Chaque niveau possède un ID de ressource propre, qui est utilisé pour récupérer les mesures pour ce niveau uniquement.
 
@@ -294,34 +294,38 @@ Storage fournit des mesures au niveau du compte de stockage et au niveau du serv
 
 Le format pour spécifier l’ID de ressource d’un compte de stockage est le suivant.
 
-`
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}
-`
+```
 
 ### <a name="resource-id-for-the-storage-services"></a>ID de ressource pour les services de stockage
 
 Le format pour spécifier l’ID de ressource de chacun des services de stockage est le suivant.
 
-* ID de ressource de service BLOB `
+* ID de ressource de service BLOB
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/blobServices/default
-`
-* ID de ressource de service de Table `
+```
+* ID de ressource de service de table
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/tableServices/default
-`
-* ID de ressource de service de File d’attente `
+```
+* ID de ressource de service de file d’attente
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/queueServices/default
-`
-* ID de ressource de service de fichier `
+```
+* ID de ressource de service de fichier
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/fileServices/default
-`
+```
 
 ### <a name="resource-id-in-azure-monitor-rest-api"></a>ID de ressource dans l’API REST Azure Monitor
 
 Le modèle utilisé lors de l’appel de l’API REST Azure Monitor est le suivant.
 
-`
+```
 GET {resourceId}/providers/microsoft.insights/metrics?{parameters}
-`
+```
 
 ## <a name="capacity-metrics"></a>Métriques de capacité
 Les valeurs de mesures de capacité sont envoyées à Azure Monitor toutes les heures. Les valeurs sont actualisées tous les jours. Le fragment de temps définit l’intervalle de temps pour lequel des valeurs de mesures sont présentées. Le fragment de temps pris en charge pour toutes les mesures de capacité est d’une heure (PT1H).
@@ -402,15 +406,15 @@ Les anciennes mesures sont disponibles en parallèle avec les mesures gérées d
 
 ## <a name="faq"></a>Forum Aux Questions
 
-**Les nouvelles métriques prennent-elles en charge le compte de stockage classique ?**
+**Nouvelles mesures prend-elle en charge le compte de stockage classique ?**
 
 Non, les nouvelles métriques d’Azure Monitor ne prennent en charge que les comptes de stockage Azure Resource Manager. Si vous souhaitez utiliser des métriques sur les comptes de stockage, vous devez migrer vers le compte de stockage Azure Resource Manager. Voir [Migrer vers Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview).
 
-**Le stockage Azure prend-il en charge les métriques de disques managés ou de disques non managés ?**
+**Stockage Azure prend en charge les métriques pour Managed Disks ou de disques non gérés ?**
 
 Non, le Calcul Azure prend en charge les métriques sur les disques. Consultez l’[article](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/) pour plus de détails.
 
-**Comment mapper et migrer des métriques classiques avec de nouvelles métriques ?**
+**Comment mapper et migrer des métriques classiques avec de nouvelles mesures ?**
 
 Vous pouvez trouver le mappage détaillé entre les métriques classiques et de nouvelles métriques dans [Migration des métriques de Stockage Azure](./storage-metrics-migration.md).
 

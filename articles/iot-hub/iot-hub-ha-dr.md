@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: rkmanda
-ms.openlocfilehash: ac47ad10f394eaf31a9f7c12d7a2a03ea23283f6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 192966eef20ac59ac3a6eb14d7d450357989b851
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58092648"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879690"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Haute disponibilité et récupération d’urgence IoT Hub :
 
@@ -32,7 +32,7 @@ Selon les objectifs de temps d’activité que vous définissez pour vos solutio
 
 ## <a name="intra-region-ha"></a>Haute disponibilité intra-région
 
-Le service IoT Hub fournit une haute disponibilité intra-région en implémentant les redondances à presque tous les niveaux du service. Le [SLA publié par le service IoT Hub](https://azure.microsoft.com/support/legal/sla/iot-hub) est atteint grâce à l’utilisation de ces redondances. Les développeurs d’une solution IoT peuvent tirer parti de ces fonctionnalités de haute disponibilité sans le moindre effort supplémentaire. Bien qu’IoT Hub offre une garantie de disponibilité raisonnablement élevée, des défaillances temporaires peuvent toujours se produire comme avec n’importe quelle plateforme informatique distribuée. Si vous maîtrisez encore mal la migration de vos solutions locales vers le cloud, vous devez vous concentrer davantage sur l’optimisation du « temps moyen de récupération » que sur le « délai moyen entre défaillances ». En d’autres termes, les défaillances temporaires sont considérées comme normales lorsque le cloud est dans la balance. Des [stratégies de nouvelle tentative](iot-hub-reliability-features-in-sdks.md) appropriées doivent être intégrées dans les composants qui interagissent avec une application cloud de manière à gérer les défaillances temporaires.
+Le service IoT Hub fournit une haute disponibilité intra-région en implémentant les redondances à presque tous les niveaux du service. Le [SLA publié par le service IoT Hub](https://azure.microsoft.com/support/legal/sla/iot-hub) est atteint grâce à l’utilisation de ces redondances. Les développeurs d’une solution IoT peuvent tirer parti de ces fonctionnalités de haute disponibilité sans le moindre effort supplémentaire. Bien qu’IoT Hub offre une garantie de disponibilité raisonnablement élevée, des défaillances temporaires peuvent toujours se produire comme avec n’importe quelle plateforme informatique distribuée. Si vous n’êtes pas familiarisé avec la migration de vos solutions à partir d’une solution sur site vers le cloud, votre objectif doit de décalage de l’optimisation du « délai moyen entre défaillances » « temps moyen de récupération ». En d’autres termes, les défaillances temporaires sont considérées comme normales lorsque le cloud est dans la balance. Des [stratégies de nouvelle tentative](iot-hub-reliability-features-in-sdks.md) appropriées doivent être intégrées dans les composants qui interagissent avec une application cloud de manière à gérer les défaillances temporaires.
 
 > [!NOTE]
 > Certains services Azure fournissent également des couches supplémentaires de disponibilité au sein d’une région grâce à l’intégration des [Zones de disponibilité (AZ)](../availability-zones/az-overview.md). Ces zones de disponibilité ne sont actuellement pas prises en charge par le service IoT Hub.
@@ -64,7 +64,7 @@ Une fois l’opération de basculement terminée pour l’IoT Hub, toutes les op
 >
 > - Après le basculement, les événements émis via Event Grid peuvent être utilisés via les mêmes abonnements configurés précédemment tant que ces abonnements Event Grid restent disponibles.
 >
-> - Lors du routage pour le stockage d’objets blob, nous vous recommandons de l’inscription d’objets BLOB, puis l’itération sur ces derniers, pour vous assurer de tous les conteneurs sont lus sans faire d’hypothèses de partition. La plage de partition pourrait changer pendant un basculement initié de Microsoft ou d’un basculement manuel. Pour savoir comment énumérer la liste des objets BLOB, consultez [routage vers le stockage blob](iot-hub-devguide-messages-d2c.md#azure-blob-storage).
+> - Pour effectuer un routage vers le stockage Blob, nous vous recommandons d’inscrire les objets Blob, puis d’exécuter une itération sur ces derniers, afin de garantir que tous les conteneurs seront lus, sans avoir à faire de suppositions concernant la partition. La plage de partition pourrait changer pendant un basculement initié de Microsoft ou d’un basculement manuel. Pour savoir comment énumérer la liste des objets BLOB, consultez [routage vers le stockage blob](iot-hub-devguide-messages-d2c.md#azure-blob-storage).
 
 ### <a name="microsoft-initiated-failover"></a>Basculement initié par Microsoft
 
@@ -137,5 +137,5 @@ Voici un résumé des options de haute disponibilité/récupération d’urgence
 
 Suivez ces liens pour en savoir plus sur Azure IoT Hub :
 
-* [Bien démarrer avec les hubs IoT (démarrage rapide)](quickstart-send-telemetry-dotnet.md)
+* [Bien démarrer avec IoT Hubs (démarrage rapide)](quickstart-send-telemetry-dotnet.md)
 * [Qu’est-ce qu’Azure IoT Hub ?](about-iot-hub.md)

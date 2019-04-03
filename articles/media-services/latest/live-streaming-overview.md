@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: b8725dfcb2a337750c6e2a78ba7571114b8e3cd3
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: ab8d4fb9b46573d58fd93fc5121a4fc1918cc69d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407181"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879384"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming en direct avec Azure Media Services v3
 
@@ -31,7 +31,7 @@ Azure Media Services vous permet de transmettre des événements en direct aupr�
 Cet article donne une vue d’ensemble et les conseils de diffusion en continu avec Media Services et des liens vers d’autres articles pertinents.
 
 > [!NOTE]
-> Actuellement, vous ne pouvez pas utiliser le portail Azure pour gérer des ressources v3. Utilisez le [API REST](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), ou l’un des prises en charge [kits de développement logiciel](developers-guide.md).
+> Actuellement, vous ne pouvez pas utiliser le portail Azure pour gérer des ressources v3. Utilisez l’[API REST](https://aka.ms/ams-v3-rest-ref), l’interface [CLI](https://aka.ms/ams-v3-cli-ref) ou l’un des kits [SDK](developers-guide.md) pris en charge.
 
 ## <a name="dynamic-packaging"></a>Empaquetage dynamique
 
@@ -65,15 +65,15 @@ Quand vous utilisez Live Encoding avec Media Services, vous configurez votre enc
 
 Pour comprendre le flux de travail de diffusion en continu en direct dans Media Services v3, vous avez au premier examen et comprenez les concepts suivants : 
 
-- [Points de terminaison de streaming](streaming-endpoint-concept.md)
-- [Événements en direct et sorties en direct](live-events-outputs-concept.md)
+- [Points de terminaison de diffusion en continu](streaming-endpoint-concept.md)
+- [Événements en direct et Sorties en direct](live-events-outputs-concept.md)
 - [Localisateurs de diffusion en continu](streaming-locators-concept.md)
 
 ### <a name="general-steps"></a>Étapes générales
 
 1. Accédez à votre compte Media Services et vérifiez que le **point de terminaison de streaming** est en cours d'exécution. 
 2. Créez un [événement en temps réel](live-events-outputs-concept.md). <br/>Lors de la création de l’événement, vous pouvez spécifier qu’il démarre automatiquement. Sinon, lancez-le dès que vous souhaitez commencer le streaming.<br/> Lorsque le démarrage automatique est défini sur true, l’événement en direct démarre juste après sa création. La facturation commence donc dès que son exécution démarre. Vous devez appeler explicitement la commande Stop sur la ressource de l’événement en direct pour arrêter toute facturation supplémentaire. Pour plus d’informations, consultez [États et facturation des événements en direct](live-event-states-billing.md).
-3. Récupérez la ou les URL de réception et configurez votre encodeur sur site de façon à ce qu’il utilise cette URL pour envoyer le flux de contribution.<br/>Voir [Encodeurs live recommandés](recommended-on-premises-live-encoders.md).
+3. Obtenir les URL de réception et configurez votre encodeur local pour utiliser l’URL pour envoyer la flux de contribution.<br/>Voir [Encodeurs live recommandés](recommended-on-premises-live-encoders.md).
 4. Récupérez l’URL d’aperçu et utilisez-la pour vérifier que l’entrée de l’encodeur est bien reçue.
 5. Créez un objet **Asset**.
 6. Créez un objet **LiveOutput** et utilisez le nom de l’objet Asset que vous venez de créer.<br/>La **sortie en direct** archive le flux dans l’**actif multimédia**.
@@ -87,11 +87,11 @@ Pour comprendre le flux de travail de diffusion en continu en direct dans Media 
 
 - [Encodeurs live recommandés](recommended-on-premises-live-encoders.md)
 - [Utiliser un magnétoscope numérique cloud](live-event-cloud-dvr.md)
-- [Comparaison des fonctionnalités des types d'événements en direct](live-event-types-comparison.md)
+- [Comparaison des fonctionnalités des types d’événements en direct](live-event-types-comparison.md)
 - [États et facturation](live-event-states-billing.md)
 - [Latence](live-event-latency.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Didacticiel sur le streaming en direct](stream-live-tutorial-with-api.md)
+* [Didacticiel de diffusion en continu en direct](stream-live-tutorial-with-api.md)
 * [Conseils de migration pour le passage de Media Services v2 à Media Services v3](migrate-from-v2-to-v3.md)

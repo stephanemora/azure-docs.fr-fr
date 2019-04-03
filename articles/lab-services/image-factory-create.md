@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: c7923282396481dcfd6aa19b75d110fa03e50931
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: e51c56f54a4e30b5e9094388ed92aa0a62ba0840
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439903"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879146"
 ---
 # <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Créez une fabrique d’image personnalisée dans Azure DevTest Labs
 Cet article vous montre comment configurer une fabrique d’images personnalisées à l’aide d’exemples de scripts disponibles dans le [référentiel Git](https://github.com/Azure/azure-devtestlab/tree/master/Scripts/ImageFactory).
@@ -27,7 +27,7 @@ Une fabrique d’images est une solution en tant que code de configuration qui c
 
 L’accélérateur significatif pour obtenir un bureau de développeur à un état prêt dans DevTest Labs est à l’aide des images personnalisées. L’inconvénient d’images personnalisées est qu’il existe un élément supplémentaire à conserver dans le laboratoire. Par exemple, expirent des versions d’évaluation de produits au fil du temps (ou) mises à jour de sécurité qui vient d’être publiées ne sont pas appliquées, ce qui nous obliger à actualiser régulièrement de l’image personnalisée. Avec une fabrique d’images, vous avez une définition de l’image archivé dans le contrôle de code source et disposer d’un processus automatisé pour produire des images personnalisées en fonction de la définition.
 
-La solution permet à la vitesse de création des machines virtuelles à partir d’images personnalisées tout en éliminant les frais de maintenance supplémentaires. Avec cette solution, vous pouvez automatiquement créer des images personnalisées, les distribuer à d’autres dev/test et mettre hors service les anciennes images. Dans la vidéo suivante, vous en savoir plus sur la fabrique d’images, et comment il est implémenté avec DevTest Labs.  Tous les scripts Azure Powershell sont librement disponible et situé ici : [ http://aka.ms/dtlimagefactory ](http://aka.ms/dtlimagefactory).
+La solution permet à la vitesse de création des machines virtuelles à partir d’images personnalisées tout en éliminant les frais de maintenance supplémentaires. Avec cette solution, vous pouvez automatiquement créer des images personnalisées, les distribuer à d’autres dev/test et mettre hors service les anciennes images. Dans la vidéo suivante, vous en savoir plus sur la fabrique d’images, et comment il est implémenté avec DevTest Labs.  Tous les scripts Azure Powershell sont librement disponible et situé ici : [ https://aka.ms/dtlimagefactory ](https://aka.ms/dtlimagefactory).
 
 <br/>
 

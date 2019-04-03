@@ -1,31 +1,31 @@
 ---
 title: Configurer Azure Security Center pour l’agent IoT préversion | Microsoft Docs
 description: Découvrez comment configurer des agents pour une utilisation avec Azure Security Center pour IoT.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: f95c445a-4f0d-4198-9c6c-d01446473bd0
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 27b548459bd1fee3c6596cce624b00d052e608fe
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 1e212e752309fd8347836d462a3394da2fca4a15
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757383"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862775"
 ---
 # <a name="tutorial-configure-security-agents"></a>Didacticiel : Configurer des agents de sécurité
 
 > [!IMPORTANT]
 > Azure Security Center pour IoT est actuellement en version préliminaire publique.
-> Cette version préliminaire est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Cet article explique l’Azure Security Center (ASC) pour l’agent de sécurité IoT, comment modifier les configurer ASC pour les agents de sécurité IoT.
 
@@ -140,4 +140,4 @@ Valeurs par défaut sont disponibles dans le schéma approprié dans [Github](ht
 
 - [Comprendre ASC pour obtenir des recommandations IoT](concept-recommendations.md)
 - [Explorez ASC pour les alertes de l’IoT](concept-security-alerts.md)
-- [Accéder aux données de sécurité brute](how-to-security-data-access.md)
+- [Accéder aux données de sécurité brutes](how-to-security-data-access.md)

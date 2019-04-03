@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: 77cbc73c6c6aef40c482b0cfe456dcbd4b7e85d0
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: c9254c8dd629230a549dd95aba9afbd932746007
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58435310"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886452"
 ---
 # <a name="dynamic-packaging"></a>Empaquetage dynamique
 
@@ -26,7 +26,7 @@ Vous pouvez utiliser Microsoft Azure Media Services pour distribuer de nombreux 
 
 [Points de terminaison de diffusion en continu](streaming-endpoint-concept.md) est le service d’empaquetage dynamique dans Media Services est utilisé pour distribuer du contenu multimédia aux joueurs de client. L’empaquetage dynamique est une fonctionnalité fournie en standard sur tous les **les points de terminaison de diffusion en continu** (Standard ou Premium). 
 
-Pour tirer parti des **empaquetage dynamique**, vous devez avoir un **Asset** avec un ensemble de fichiers MP4 à débit adaptatif et de diffusion en continu des fichiers de configuration requis par l’empaquetage dynamique de Media Services. Pour obtenir les fichiers consiste à encoder votre fichier mezzanine (source) avec Media Services. Pour rendre vidéos dans l’élément multimédia encodé aux clients pour la lecture, vous devez créer un **localisateur de diffusion en continu** et générer l’URL de diffusion. Ensuite, en fonction du format spécifié dans le manifeste du client streaming (HLS, DASH ou Smooth Streaming), vous recevez le flux du protocole que vous avez choisi.
+Pour tirer parti des **empaquetage dynamique**, vous devez avoir un **Asset** avec un ensemble de fichiers MP4 à débit adaptatif et de diffusion en continu des fichiers de configuration requis par l’empaquetage dynamique de Media Services. L’une des manières d’obtenir les fichiers consiste à encoder votre fichier mezzanine (source) avec Media Services. Pour rendre vidéos dans l’élément multimédia encodé aux clients pour la lecture, vous devez créer un **localisateur de diffusion en continu** et générer l’URL de diffusion. Ensuite, en fonction du format spécifié dans le manifeste du client streaming (HLS, DASH ou Smooth Streaming), vous recevez le flux du protocole que vous avez choisi.
 
 Par conséquent, il vous suffit de stocker et de payer les fichiers dans un seul format de stockage. Le service Media Services se charge de créer et de fournir la réponse appropriée en fonction des demandes des clients. 
 
@@ -60,7 +60,7 @@ Pour obtenir la liste des codecs et formats Media Encoder Standard, consultez [f
 Voici les étapes d’un workflow de streaming en direct :
 
 1. Créez un [événement en temps réel](live-events-outputs-concept.md).
-1. Récupérez la ou les URL de réception et configurez votre encodeur sur site de façon à ce qu’il utilise cette URL pour envoyer le flux de contribution.
+1. Obtenir les URL de réception et configurez votre encodeur local pour utiliser l’URL pour envoyer la flux de contribution.
 1. Récupérez l’URL d’aperçu et utilisez-la pour vérifier que l’entrée de l’encodeur est bien reçue.
 1. Créer un nouveau **Asset**.
 1. Créez un objet **LiveOutput** et utilisez le nom de l’objet Asset que vous venez de créer.<br/>La **sortie en direct** archive le flux dans l’**actif multimédia**.
@@ -196,9 +196,9 @@ Voici un exemple de manifeste Smooth Streaming :
 Le filtrage dynamique est utilisé pour contrôler le nombre de pistes, des formats, des débits binaires et des fenêtres de temps de présentation qui sont envoyés aux joueurs. Pour plus d’informations, consultez [filtres et manifestes dynamiques](filters-dynamic-manifest-overview.md).
 
 > [!NOTE]
-> Actuellement, vous ne pouvez pas utiliser le portail Azure pour gérer des ressources v3. Utilisez le [API REST](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), ou l’un des prises en charge [kits de développement logiciel](developers-guide.md).
+> Actuellement, vous ne pouvez pas utiliser le portail Azure pour gérer des ressources v3. Utilisez l’[API REST](https://aka.ms/ams-v3-rest-ref), l’interface [CLI](https://aka.ms/ams-v3-cli-ref) ou l’un des kits [SDK](developers-guide.md) pris en charge.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Charger, encoder et diffuser des vidéos en continu](stream-files-tutorial-with-api.md)
+[Chargez, codez, vidéos stream](stream-files-tutorial-with-api.md)
 

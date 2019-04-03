@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.date: 02/20/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: f9e9bf51d50863f2e37a2f579c2db0edcfeca634
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: f75686d19a468983a6b0ce68eb4a456e00c90eeb
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58801764"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881039"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gérer vos ressources avec des groupes d’administration
 
@@ -330,7 +330,7 @@ Lorsque vous référencez des groupes d’administration à partir d’actions d
 
 Un exemple d’utilisation de ce chemin d’accès est lorsque vous attribuez une nouvelle attribution de rôle à un groupe d’administration dans PowerShell
 
-```powershell-interactive
+```azurepowershell-interactive
 New-AzRoleAssignment -Scope "/providers/Microsoft.Management/managementGroups/Contoso"
 ```
 
@@ -345,7 +345,7 @@ GET https://management.azure.com/providers/Microsoft.Management/managementgroups
 Pour en savoir plus sur les groupes d’administration, consultez :
 
 - [Créer des groupes d’administration pour organiser les ressources Azure](create.md)
-- [Guide pratique pour modifier, supprimer ou gérer vos groupes d’administration](manage.md)
-- [Consulter les groupes d’administration dans le module Azure PowerShell Resources](/powershell/module/az.resources#resources)
-- [Consulter les groupes d’administration dans l’API REST](/rest/api/resources/managementgroups)
-- [Consulter les groupes d’administration dans Azure CLI](/cli/azure/account/management-group)
+- [Comment modifier, supprimer ou gérer vos groupes d’administration](manage.md)
+- [Passez en revue les groupes d’administration dans le Module de ressources Azure PowerShell](/powershell/module/az.resources#resources)
+- [Passez en revue les groupes d’administration dans l’API REST](/rest/api/resources/managementgroups)
+- [Passez en revue les groupes d’administration dans Azure CLI](/cli/azure/account/management-group)

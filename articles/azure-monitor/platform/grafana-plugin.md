@@ -9,12 +9,12 @@ ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: ''
-ms.openlocfilehash: 64a7a52d39fcac87bdc49b9d36e80d453557bc5b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6ea8f4e591399e23b103871da115dbb937227ca9
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58002276"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58850674"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Surveiller vos services Azure dans Grafana
 Maintenant, vous pouvez superviser les services et applications Azure à partir de [Grafana](https://grafana.com/) en utilisant le [plug-in Azure Monitor de source de données](https://grafana.com/plugins/grafana-azure-monitor-datasource). Le plug-in rassemble des données de performance d’application collectées par Azure Monitor, y compris divers journaux et métriques. Vous pouvez ensuite afficher ces données dans votre tableau de bord Grafana.
@@ -47,13 +47,13 @@ Pour configurer un serveur Grafana local, [téléchargez et installez Grafana da
 
 7. Récupérez l’adresse IP publique de votre serveur Grafana, puis revenez à la liste des ressources et sélectionnez **Adresse IP publique**.
 
-## <a name="log-in-to-grafana"></a>Se connecter à Grafana
+## <a name="sign-in-to-grafana"></a>Se connecter à Grafana
 
 1. À l’aide de l’adresse IP de votre serveur, ouvrez la page de connexion sur *http://\<adresse IP\>: 3000* ou le *\<NomDNS>\:3000* dans votre navigateur. 3000 étant le port par défaut, notez que vous avez peut-être sélectionné un port différent pendant la configuration. Une page de connexion doit s’afficher pour le serveur Grafana que vous avez créé.
 
     ![Écran de connexion Grafana](./media/grafana-plugin/grafana-login-screen.png)
 
-2. Connectez-vous avec le nom d’utilisateur *administrateur* et le mot de passe d’administrateur du serveur Grafana que vous avez créé précédemment. Si vous utilisez une configuration locale, le mot de passe par défaut doit être *administrateur* ; il vous est demandé de le changer lors de votre première connexion.
+2. Connectez-vous avec le nom d’utilisateur *administrateur* et le mot de passe administrateur de serveur Grafana que vous avez créée. Si vous utilisez une configuration locale, le mot de passe par défaut doit être *administrateur* ; il vous est demandé de le changer lors de votre première connexion.
 
 ## <a name="configure-data-source-plugin"></a>Configurer le plug-in de source de données
 
@@ -167,5 +167,5 @@ Si vous avez configuré un environnement Grafana sur Azure, vous êtes facturé 
 2. Dans la page de votre groupe de ressources, cliquez sur **Supprimer**, tapez **Grafana** dans la zone de texte, puis cliquez sur **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Vue d’ensemble des métriques d’Azure Monitor](../../azure-monitor/platform/data-collection.md)
+* [Vue d’ensemble des métriques d’Azure Monitor](data-platform.md)
 

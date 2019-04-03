@@ -5,46 +5,46 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/19/2019
-ms.openlocfilehash: 24a37775298d6c6b40ec49f34158fcb77f26a379
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/01/2019
+ms.openlocfilehash: bf1fb1c1343173949ecb6348284cb537282b277b
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58113212"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58846955"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-portal"></a>Créer et gérer des réplicas en lecture à partir du portail Azure
 
 Dans cet article, vous allez apprendre à créer et gérer des réplicas en lecture dans Azure Database pour PostgreSQL à partir du portail Azure. Pour en savoir plus sur les réplicas en lecture, consultez [vue d’ensemble](concepts-read-replicas.md).
 
-> [!IMPORTANT]
-> La fonctionnalité de réplica en lecture est en préversion publique.
 
 ## <a name="prerequisites"></a>Conditions préalables
 Un [serveur Azure Database pour PostgreSQL](quickstart-create-server-database-portal.md) qui représente le serveur maître.
 
 ## <a name="prepare-the-master-server"></a>Préparer le serveur maître
-Ces étapes permettent de préparer un serveur maître pour les niveaux à usage général ou à mémoire optimisée.
-
-Le paramètre `azure.replication_support` doit avoir la valeur **REPLICA** sur le serveur maître. Quand vous changez ce paramètre, un redémarrage du serveur est nécessaire pour que la modification soit prise en compte.
+Ces étapes permettent de préparer un serveur maître pour les niveaux à usage général ou à mémoire optimisée. Le serveur maître est préparé pour la réplication en définissant le paramètre azure.replication_support. Lorsque le paramètre de réplication est modifié, un redémarrage du serveur est requis pour que la modification prenne effet. Dans le portail Azure, ces deux étapes sont encapsulées par un seul bouton **activer la prise en charge la réplication**.
 
 1. Dans le portail Azure, sélectionnez le serveur Azure Database pour PostgreSQL existant à utiliser en tant que serveur maître.
 
-2. Dans le menu de gauche, sélectionnez **Paramètres du serveur**.
+2. Dans la barre latérale de serveur, sous **paramètres**, sélectionnez **réplication**.
 
-3. Recherchez le paramètre `azure.replication_support`.
+3. Sélectionnez **activer la prise en charge de la réplication**. 
 
-   ![Recherchez le paramètre azure.replication_support](./media/howto-read-replicas-portal/azure-replication-parameter.png)
+   ![Activer la prise en charge de la réplication](./media/howto-read-replicas-portal/enable-replication-support.png)
 
-4. Affectez au paramètre `azure.replication_support` la valeur **REPLICA**. Sélectionnez **Enregistrer** pour conserver vos changements.
+4. Confirmez que vous souhaitez activer la prise en charge de la réplication. Cette opération redémarre le serveur maître. 
 
-   ![Affectez la valeur REPLICA au paramètre, puis enregistrez vos changements](./media/howto-read-replicas-portal/save-parameter-replica.png)
+   ![Confirmer la prise en charge de la réplication enable](./media/howto-read-replicas-portal/confirm-enable-replication.png)
+   
+5. Vous recevrez deux notifications du portail Azure une fois que l’opération est terminée. Il existe une notification pour la mise à jour le paramètre du serveur. Il existe une autre notification pour le redémarrage du serveur qui suit immédiatement.
 
-5. Après avoir enregistré vos changements, vous recevez une notification :
+   ![Activer des notifications de réussite :](./media/howto-read-replicas-portal/success-notifications-enable.png)
 
-   ![Enregistrer la notification](./media/howto-read-replicas-portal/parameter-save-notification.png)
+6. Actualisez la page du portail Azure pour mettre à jour de la barre d’outils de réplication. Vous pouvez désormais créer des réplicas en lecture pour ce serveur.
 
-6. Redémarrez le serveur pour appliquer les changements apportés. Pour apprendre à redémarrer un serveur, consultez [Redémarrer un serveur Azure Database pour PostgreSQL](howto-restart-server-portal.md).
+   ![Barre d’outils de mise à jour](./media/howto-read-replicas-portal/updated-toolbar.png)
+   
+Prise en charge de la réplication est une opération à usage unique par le serveur maître. Un **désactiver la prise en charge la réplication** bouton est fourni par commodité. Nous ne recommandons pas la désactivation de prise en charge de la réplication, sauf si vous êtes certain que vous ne créez jamais d’un réplica sur ce serveur maître. Vous ne pouvez pas désactiver la prise en charge de la réplication pendant que votre serveur principal a des réplicas existants.
 
 
 ## <a name="create-a-read-replica"></a>Créer un réplica en lecture
@@ -52,9 +52,7 @@ Pour créer un réplica en lecture, effectuez les étapes suivantes :
 
 1. Sélectionnez le serveur Azure Database pour PostgreSQL à utiliser en tant que serveur maître. 
 
-2. Dans le menu du serveur, sous **PARAMÈTRES**, sélectionnez **Réplication**.
-
-   Si vous n’avez pas affecté au paramètre `azure.replication_support` la valeur **REPLICA** sur un serveur maître à usage général ou à mémoire optimisée, et si vous n’avez pas redémarré le serveur, vous recevez une notification. Effectuez ces étapes avant de créer le réplica.
+2. Dans la barre latérale de serveur, sous **paramètres**, sélectionnez **réplication**.
 
 3. Sélectionnez **Ajouter un réplica**.
 

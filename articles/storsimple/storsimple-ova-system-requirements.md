@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/11/2019
 ms.author: alkohli
-ms.openlocfilehash: becf48320b346feea82944ed2f7e752125795d40
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a6bea2b5447435930cb0e1f80073a11007e80415
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999510"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876834"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Configuration système requise pour StorSimple Virtual Array
 ## <a name="overview"></a>Présentation
@@ -39,7 +39,7 @@ Les informations de configuration système requise StorSimple publiées dans cet
 La configuration logicielle requise inclut les informations sur les navigateurs web pris en charge, les versions SMB, les plateformes de virtualisation et la configuration minimale requise pour l'appareil virtuel.
 
 ### <a name="supported-virtualization-platforms"></a>Plateformes de virtualisation prises en charge
-| **Hyperviseur** | **Version** |
+| **hyperviseur** | **Version** |
 | --- | --- |
 | Hyper-V |Windows Server 2008 R2 SP1 et versions ultérieures |
 | VMware ESXi |5.0, 5.5, 6.0 et 6.5. |
@@ -92,7 +92,7 @@ Seul le stockage d’objets blob de blocs Azure est pris en charge. Les objets b
 ## <a name="networking-requirements"></a>Configuration requise du réseau
 Le tableau ci-dessous répertorie les ports qui doivent être ouverts dans votre pare-feu pour autoriser le trafic iSCSI, SMB, cloud ou de gestion. Dans ce tableau, *entrée* ou *entrant* représente la direction à partir de laquelle les demandes client entrantes accèdent à votre appareil. *Sortant* ou *Sortie* représente la direction vers laquelle votre appareil StorSimple envoie des données de façon externe, au-delà du déploiement : par exemple, sortant vers Internet.
 
-| **Numéro de port<sup>1</sup>** | **Entrant ou sortant** | **Étendue de ports** | **Obligatoire** | **Remarques** |
+| **Numéro de port<sup>1</sup>** | **Entrant ou sortant** | **Étendue de ports** | **Obligatoire** | **Notes** |
 | --- | --- | --- | --- | --- |
 | TCP 80 (HTTP) |Sortie |WAN |Non  |Le port de sortie est utilisé pour accéder à Internet afin de récupérer les mises à jour. <br></br>Le proxy web sortant est configurable par l’utilisateur. |
 | TCP 443 (HTTPS) |Sortie |WAN |Oui |Le port de sortie est utilisé pour accéder aux données dans le cloud. <br></br>Le proxy web sortant est configurable par l’utilisateur. |
@@ -130,7 +130,7 @@ Dans la plupart des cas, nous vous recommandons de définir librement les règle
 | `https://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`https://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`https://download.microsoft.com`<br>`http://wustat.windows.com`<br>`https://ntservicepack.microsoft.com` |Serveurs Microsoft Update<br> |
 | `http://*.deploy.akamaitechnologies.com` |CDN Akamai |
 | `https://*.partners.extranet.microsoft.com/*` |Package de prise en charge |
-| `https://*.data.microsoft.com ` |Service de télémétrie dans Windows, consultez l’article [Mise à jour de l’expérience client et du diagnostic de la télémétrie](https://support.microsoft.com/en-us/kb/3068708) |
+| `https://*.data.microsoft.com` |Service de télémétrie dans Windows, consultez l’article [Mise à jour de l’expérience client et du diagnostic de la télémétrie](https://support.microsoft.com/en-us/kb/3068708) |
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Préparation du portail pour déployer StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md)
+* [Préparation du portail pour déployer votre StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md)

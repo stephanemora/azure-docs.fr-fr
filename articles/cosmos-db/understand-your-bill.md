@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 9411cc42f2fbc12348b4d841174edbe75c584247
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d3bfe1b54409fd57f7535bac2362dc7040975061
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57890557"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877627"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Compréhension de vos factures Azure Cosmos DB
 
-Azure Cosmos DB est un service de base de données cloud natif entièrement géré qui simplifie la facturation en facturant uniquement le débit approvisionné et le stockage consommé. Il ne comporte aucuns frais de licence supplémentaires, ni coûts matériels, frais de fonctionnement ou frais d’équipement, contrairement aux autres solutions IaaS ou hébergées en local. Grâce aux fonctionnalités multi-région d’Azure Cosmos DB, le service de base de données réduit considérablement les coûts par rapport aux solutions IaaS ou locales existantes.
+Azure Cosmos DB est un service de base de données cloud natif entièrement géré qui simplifie la facturation en facturant uniquement le débit approvisionné et le stockage consommé. Il n’existe aucun frais de licence supplémentaires, matériel, les coûts de fonctionnement ou les coûts d’infrastructure par rapport à en local ou alternatives IaaS hébergé. Lorsque vous envisagez la plusieurs fonctionnalités de région d’Azure Cosmos DB, le service de base de données fournit une réduction substantielle des coûts par rapport aux existant en local ou des solutions IaaS.
 
 Avec Azure Cosmos DB, vous êtes facturé à l’heure en fonction du débit fourni et du stockage consommé. Le débit fourni est facturé sur une base de 100 RU/s par heure, à un tarif de 0,008 $ de l’heure, en supposant une tarification publique standard. Voir la [page de tarification](https://azure.microsoft.com/pricing/details/cosmos-db/). Pour le stockage utilisé, vous êtes facturé à raison de 0,25 $ pour 1 Go de stockage par mois. Voir la [page de tarification](https://azure.microsoft.com/pricing/details/cosmos-db/). 
 
@@ -100,9 +100,9 @@ Supposons que vous disposez d’un conteneur Azure Cosmos dans la région USA Ou
 |Facture de débit pour 3 régions supplémentaires (USA Est, Europe Nord et Asie Est)       | 3 x 10 000 RU/s x 24 x 30    |0,008 $ pour 100 RU/s par heure  |1 728 $|
 |Facture de stockage pour le conteneur de la région USA Ouest      | 250 Go    |0,25 $/Go  |62,50 $|
 |Facture de stockage pour 3 régions supplémentaires (USA Est, Europe Nord et Asie Est)      | 3 x 250 Go    |0,25 $/Go  |187,50 $|
-|**Total**     |     |  |**2 554** |
+|**Total**     |     |  |**$2,554**|
 
-*Supposons également que vous faites sortir 100 Go de données chaque mois du conteneur dans la région USA Ouest, afin de répliquer les données dans les régions USA Est, Europe Nord et Asie Est. Vous êtes facturé pour les sorties en fonction du tarif des transferts de données.*
+*Supposons également que vous faites sortir 100 Go de données chaque mois à partir du conteneur dans l’ouest des États-Unis pour répliquer les données dans la région est des États-Unis, Europe du Nord et Asie de l’est. Vous êtes facturé pour les sorties en fonction des taux de transfert de données.*
 
 ### <a name="billing-example-multi-region-azure-cosmos-account-multi-region-writes"></a>Exemple de facturation : compte Azure Cosmos avec plusieurs régions et plusieurs régions d’écriture
 
@@ -114,9 +114,9 @@ Supposons que vous créez un conteneur Azure Cosmos dans la région USA Ouest. L
 |Facture de débit pour 3 régions supplémentaires : USA Est, Europe Nord et Asie Est (écriture dans toutes les régions)        | (3 + 1) x 10 000 RU/sec x 24 x 30    |0,016 $ pour 100 RU/s par heure   |4 608 $ |
 |Facture de stockage pour le conteneur de la région USA Ouest      | 250 Go    |0,25 $/Go  |62,50 $|
 |Facture de stockage pour 3 régions supplémentaires (USA Est, Europe Nord et Asie Est)      | 3 x 250 Go    |0,25 $/Go  |187,50 $|
-|**Total**     |     |  |**6 010 $**|
+|**Total**     |     |  |**$6,010**|
 
-*Supposons également que vous faites sortir 100 Go de données chaque mois du conteneur dans la région USA Ouest, afin de répliquer les données dans les régions USA Est, Europe Nord et Asie Est. Vous êtes facturé pour les sorties en fonction du tarif des transferts de données.*
+*Supposons également que vous faites sortir 100 Go de données chaque mois à partir du conteneur dans l’ouest des États-Unis pour répliquer les données dans la région est des États-Unis, Europe du Nord et Asie de l’est. Vous êtes facturé pour les sorties en fonction des taux de transfert de données.*
 
 ### <a name="billing-example-azure-cosmos-account-with-multi-master-database-level-throughput-including-dedicated-throughput-mode-for-some-containers"></a>Exemple de facturation : Compte Azure Cosmos avec un débit multimaître au niveau de la base de données et mode de débit dédié pour certains conteneurs
 
@@ -194,7 +194,7 @@ La facture totale mensuelle sera (en supposant une durée de 30 jours/720 heures
 | | |Facture de débit pour 2 régions supplémentaires : USA Est, Europe Nord (toutes les régions sont accessibles en écriture)  |`(1 + 1) * (120 K RU/sec /100 * $0.016) * 200 hours = $1,280`  |7 680 $  |
 |[701-720] |D1 : 20 000 <br/>D2 : 50 000 <br/>C1 : -- |Facture de débit pour le conteneur de la région USA Ouest (écriture dans toutes les régions)  |`D1: 20 K RU/sec/100 *$0.016 * 20 hours = $64` <br/>`D2: 50 K RU/sec/100 *$0.016 * 20 hours = $160` |224 $  |
 | | |Facture de débit pour 2 régions supplémentaires : USA Est, Europe Nord (toutes les régions sont accessibles en écriture)  |`(1 + 1) * (70 K RU/sec /100 * $0.016) * 20 hours = $448`  |224 $  |
-|| |**Coût mensuel total**  | |**38 688 $**   |
+|| |**Coût mensuel total**  | |**$38,688**   |
 
 ## <a name="proactively-estimating-your-monthly-bill"></a>Estimation proactive de votre facture mensuelle  
 
@@ -222,7 +222,7 @@ RU total/s : 500 + 400 = 900 ; coût horaire : 900/100 x 0,008 $ = coût mensuel
 
 Coût mensuel total = coût mensuel de stockage + coût mensuel du débit pour un coût mensuel total du débit = 25,00 $ + 53,57 $ = 78,57 $
 
-*La tarification peut varier selon la région. Pour connaître les tarifs applicables, consultez la [Page de tarification](https://azure.microsoft.com/pricing/details/cosmos-db/).*
+*Tarification peut varier par région. Pour connaître la tarification à jour, consultez le [page de tarification](https://azure.microsoft.com/pricing/details/cosmos-db/).*
 
 ## <a name="billing-with-azure-cosmos-db-reserved-capacity"></a>Facturation avec une capacité réservée Azure Cosmos DB
 
@@ -234,7 +234,7 @@ La capacité réservée Azure Cosmos DB vous permet d’acheter à l’avance du
 
 Votre facture totale (sans capacité réservée) serait (en supposant une durée de 30 jours ou 720 heures) : 
 
-|**Région**| **Tarif horaire pour 100 RU/s**|**Unités (RU/s)**|**Montant facturé (horaire)**| **Montant facturé (mensuel)**|
+|**Région**| **Tarif horaire de 100 RU/s**|**Unités (RU/s)**|**Montant facturé (horaire)**| **Montant facturé (mensuel)**|
 |----|----|----|----|----|
 |USA Est|0,008 $ |50 000|4 $|2 880 $ |
 |Japon Est|0,009 $ |50 000| 4,50 $ |3 240 $ |
@@ -248,7 +248,7 @@ Imaginons que vous avez acheté une capacité réservée à la place. Vous pouve
 
 Vous avez réalité acheté un crédit de 8 $ par heure, pour 100 000 RU/s, au prix de 6,40 $ par heure selon le prix catalogue pour la région USA Est. Vous pouvez ensuite prélever de cette réservation de débit prépayée, sur une base horaire pour la capacité de débit disponible dans n’importe quelle région Azure mondiale aux prix de liste régionaux respectifs fixés pour votre abonnement. Dans cet exemple, où vous prévoyez 50 000 RU/s chacun dans la région USA Est et dans la région Japon Est, vous pourrez tirer 8,00 $ de débit approvisionné par heure, et vous serez sur-facturé de 0,50 $ par heure (ou 360 $ par mois). 
 
-|**Région**| **Tarif horaire pour 100 RU/s**|**Unités (RU/s)**| **Montant facturé (horaire)**| **Montant facturé (mensuel)**|
+|**Région**| **Tarif horaire de 100 RU/s**|**Unités (RU/s)**| **Montant facturé (horaire)**| **Montant facturé (mensuel)**|
 |----|----|----|----|----|
 |USA Est|0,008 $ |50 000|4 $|2 880 $ |
 |Japon Est|0,009 $ |50 000| 4,50 $ |3 240 $ |

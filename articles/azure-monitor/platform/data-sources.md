@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: bwren
-ms.openlocfilehash: 4ae8ae43d8c245270b64611bed0ac4930aa0ecc3
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 6d03c219025c8cd39214bd8ab6807125709f9742
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763418"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849673"
 ---
 # <a name="sources-of-data-in-azure-monitor"></a>Sources de données dans Azure Monitor
-Cet article décrit les sources de données collectées par Azure Monitor pour surveiller l’intégrité et les performances de vos ressources et des applications s’exécutant sur celles-ci. Ces ressources peuvent être dans Azure, dans un autre cloud ou disponibles en local.  Consultez [Monitoring data collected by Azure Monitor](data-collection.md) (Données de supervision collectées par Azure Monitor) pour plus d’informations sur le stockage et l’affichage des données.
+Cet article décrit les sources de données collectées par Azure Monitor pour surveiller l’intégrité et les performances de vos ressources et des applications s’exécutant sur celles-ci. Ces ressources peuvent être dans Azure, dans un autre cloud ou disponibles en local.  Consultez [Monitoring data collected by Azure Monitor](data-platform.md) (Données de supervision collectées par Azure Monitor) pour plus d’informations sur le stockage et l’affichage des données.
 
 Les données de supervision dans Azure proviennent de diverses sources qui peuvent être organisées en niveaux, les niveaux les plus élevés étant votre application et les systèmes d’exploitation, et les niveaux les plus bas étant les composants de la plateforme Azure. Cela est illustré dans le diagramme suivant, et décrit en détail dans les sections suivantes.
 
@@ -59,7 +59,7 @@ Les journaux de diagnostic au niveau métriques et ressources fournissent des in
 
 
 ### <a name="metrics"></a>Mesures
-La plupart des services Azure génèrent des [métriques de plateforme](data-collection.md#metrics) reflétant leurs performances et leur fonctionnement. Les [métriques spécifiques varient pour chaque type de ressource](metrics-supported.md).  Elles sont accessibles à partir des analyses de métriques et peuvent être copiées dans des journaux à des fins d'observation de tendances et d'autres analyses via Log Analytics.
+La plupart des services Azure génèrent des [métriques de plateforme](data-platform-metrics.md) reflétant leurs performances et leur fonctionnement. Les [métriques spécifiques varient pour chaque type de ressource](metrics-supported.md).  Elles sont accessibles à partir des analyses de métriques et peuvent être copiées dans des journaux à des fins d'observation de tendances et d'autres analyses via Log Analytics.
 
 
 ### <a name="resource-diagnostic-logs"></a>Journaux de diagnostic des ressources
@@ -116,4 +116,4 @@ Azure Monitor peut collecter des données de journal à partir de n’importe qu
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Apprenez-en davantage sur les [types de données de supervision collectés par Azure Monitor](data-collection.md) et sur l’affichage et l’analyse de ces données.
+- Apprenez-en davantage sur les [types de données de supervision collectés par Azure Monitor](data-platform.md) et sur l’affichage et l’analyse de ces données.
