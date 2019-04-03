@@ -9,20 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/08/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: ee08f5e15180a618d1a9c48b7d59b9e1f8bc90ae
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: e93a81f2c081daa58a37b1e2823d7bf0cc5a6361
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329113"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883107"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Configurer les conteneurs Docker Language Understanding 
 
 L'environnement d'exécution de conteneur **Language Understanding** (LUIS) est configuré à l'aide des arguments de la commande `docker run`. LUIS a plusieurs paramètres obligatoires et quelques paramètres facultatifs. Plusieurs [exemples](#example-docker-run-commands) de commande sont disponibles. Les paramètres propres aux conteneurs sont les [paramètres de montage](#mount-settings) d’entrée et les paramètres de facturation. 
-
-Les paramètres de conteneur sont [hiérarchiques](#hierarchical-settings) et peuvent être définis avec des [variables d’environnement](#environment-variable-settings) ou des [arguments de ligne de commande](#command-line-argument-settings) docker.
 
 ## <a name="configuration-settings"></a>Paramètres de configuration
 
@@ -30,14 +28,14 @@ Ce conteneur a les paramètres de configuration suivants :
 
 |Obligatoire|Paramètre|Objectif|
 |--|--|--|
-|OUI|[ApiKey](#apikey-setting)|Utilisé pour le suivi des informations de facturation.|
+|Oui|[ApiKey](#apikey-setting)|Utilisé pour le suivi des informations de facturation.|
 |Non |[ApplicationInsights](#applicationinsights-setting)|Vous permet d’ajouter la prise en charge de la télémétrie [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) à votre conteneur.|
-|OUI|[Billing](#billing-setting)|Spécifie l’URI de point de terminaison de la ressource de service sur Azure.|
-|OUI|[Eula](#eula-setting)| Indique que vous avez accepté la licence pour le conteneur.|
+|Oui|[Facturation](#billing-setting)|Spécifie l’URI de point de terminaison de la ressource de service sur Azure.|
+|Oui|[Eula](#eula-setting)| Indique que vous avez accepté la licence pour le conteneur.|
 |Non |[Fluentd](#fluentd-settings)|Écrire les données des journaux et, éventuellement, des métriques, sur un serveur Fluentd.|
 |Non |[Proxy HTTP](#http-proxy-credentials-settings)|Configurer un proxy HTTP pour effectuer des requêtes sortantes.|
-|Non |[Logging](#logging-settings)|Fournit la prise en charge de la journalisation ASP.NET Core pour votre conteneur. |
-|OUI|[Mounts](#mount-settings)|Lire et écrire des données de l’ordinateur hôte sur le conteneur, et du conteneur sur l’ordinateur hôte.|
+|Non |[Journalisation](#logging-settings)|Fournit la prise en charge de la journalisation ASP.NET Core pour votre conteneur. |
+|Oui|[Monte](#mount-settings)|Lire et écrire des données de l’ordinateur hôte sur le conteneur, et du conteneur sur l’ordinateur hôte.|
 
 > [!IMPORTANT]
 > Les paramètres [`ApiKey`](#apikey-setting), [`Billing`](#billing-setting) et [`Eula`](#eula-setting) sont utilisés conjointement, et vous devez fournir des valeurs valides pour les trois ; à défaut, votre conteneur ne démarrera pas. Pour plus d’informations sur l’instanciation d’un conteneur à l’aide de ces paramètres de configuration, consultez [Facturation](luis-container-howto.md#billing).
@@ -63,12 +61,12 @@ Le paramètre `Billing` spécifie l’URI du point de terminaison de la ressourc
 
 Vous trouverez ce paramètre aux emplacements suivants :
 
-* Portail Azure : Vue d’ensemble de **Language Understanding**, étiquetée `Endpoint`
+* Portail Azure : **De compréhension du langage** vue d’ensemble, étiqueté `Endpoint`
 * Portail LUIS : Page **Keys and Endpoint settings** (Paramètres des clés et du point de terminaison), dans le cadre de l’URI de point de terminaison.
 
 |Obligatoire| Nom | Type de données | Description |
 |--|------|-----------|-------------|
-|OUI| `Billing` | Chaîne | URI du point de terminaison de facturation<br><br>Exemple :<br>`Billing=https://westus.api.cognitive.microsoft.com/luis/v2.0` |
+|Oui| `Billing` | Chaîne | URI du point de terminaison de facturation<br><br>Exemple :<br>`Billing=https://westus.api.cognitive.microsoft.com/luis/v2.0` |
 
 ## <a name="eula-setting"></a>Paramètre Eula
 
@@ -100,13 +98,8 @@ Le tableau suivant décrit les paramètres pris en charge.
 
 |Obligatoire| Nom | Type de données | Description |
 |-------|------|-----------|-------------|
-|OUI| `Input` | Chaîne | Cible du montage d’entrée. La valeur par défaut est `/input`. Il s’agit de l’emplacement des fichiers de package LUIS. <br><br>Exemple :<br>`--mount type=bind,src=c:\input,target=/input`|
+|Oui| `Input` | Chaîne | Cible du montage d’entrée. La valeur par défaut est `/input`. Il s’agit de l’emplacement des fichiers de package LUIS. <br><br>Exemple :<br>`--mount type=bind,src=c:\input,target=/input`|
 |Non | `Output` | Chaîne | Cible du montage de sortie. La valeur par défaut est `/output`. Il s’agit de l’emplacement des journaux. Cela comprend les journaux de requêtes LUIS et les journaux de conteneur. <br><br>Exemple :<br>`--mount type=bind,src=c:\output,target=/output`|
-
-## <a name="hierarchical-settings"></a>Paramètres hiérarchiques
-
-[!INCLUDE [Container shared configuration hierarchical settings](../../../includes/cognitive-services-containers-configuration-shared-hierarchical-settings.md)]
-
 
 ## <a name="example-docker-run-commands"></a>Exemples de commandes docker run
 
@@ -160,7 +153,7 @@ ApiKey={ENDPOINT_KEY}
 InstrumentationKey={INSTRUMENTATION_KEY}
 ```
 
-### <a name="logging-example-with-command-line-arguments"></a>Exemple de journalisation avec arguments de ligne de commande
+### <a name="logging-example"></a>Exemple de journalisation 
 
 La commande suivante définit le niveau de journalisation, `Logging:Console:LogLevel`, pour configurer le niveau de journalisation sur [`Information`](https://msdn.microsoft.com). 
 
@@ -172,22 +165,7 @@ mcr.microsoft.com/azure-cognitive-services/luis:latest \
 Eula=accept \
 Billing={BILLING_ENDPOINT} \
 ApiKey={ENDPOINT_KEY} \
-Logging:Console:LogLevel=Information
-```
-
-### <a name="logging-example-with-environment-variable"></a>Exemple de journalisation avec variable d’environnement
-
-Les commandes suivantes utilisent une variable d’environnement nommée `Logging:Console:LogLevel` pour configurer le niveau de journalisation sur [`Information`](https://msdn.microsoft.com). 
-
-```bash
-SET Logging:Console:LogLevel=Information
-docker run --rm -it -p 5000:5000 --memory 6g --cpus 2 \
---mount type=bind,src=c:\input,target=/input \
---mount type=bind,src=c:\output,target=/output \
-mcr.microsoft.com/azure-cognitive-services/luis:latest \
-Eula=accept \
-Billing={BILLING_ENDPOINT} \
-ApiKey={APPLICATION_ID} \
+Logging:Console:LogLevel:Default=Information
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
