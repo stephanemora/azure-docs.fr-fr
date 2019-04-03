@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c7a61d8c1b9ec15327836f7d31e9e299c57cb21
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 6e1fa72f8c7edf76ec46663fd62ee40a3a16e8cd
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316335"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886078"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Créer une stratégie de gestion du contrôle d'accès résiliente avec Azure Active Directory
 
@@ -75,7 +75,7 @@ Intégrez les contrôles d'accès suivants aux stratégies d'accès conditionnel
 L'exemple suivant décrit les stratégies que vous devez créer pour fournir un contrôle d'accès résilient permettant à l'utilisateur d'accéder à ses applications et ressources. Dans cet exemple, vous aurez besoin d'un groupe de sécurité **AppUsers** pour les utilisateurs cibles auxquels vous souhaitez octroyer l'accès, d'un groupe **CoreAdmins** pour les administrateurs principaux et d'un groupe **EmergencyAccess** pour les comptes d'accès d'urgence.
 Cet exemple de jeu de stratégies permettra aux utilisateurs sélectionnés du groupe **AppUsers** d'accéder aux applications sélectionnées s'ils se connectent à partir d'un appareil approuvé OU fournira une authentification forte, telle que l'authentification multifacteur. Il exclut les comptes d'urgence et les administrateurs principaux.
 
-**Jeu de stratégies d'atténuation de l'accès conditionnel :**
+**Définir les stratégies d’atténuation autorité de certification :**
 
 * Stratégie 1 : bloquer l'accès aux personnes extérieures aux groupes cibles
   * Utilisateurs et groupes : inclure tous les utilisateurs. exclure AppUsers, CoreAdmins et EmergencyAccess
@@ -131,13 +131,13 @@ Une stratégie d'accès conditionnel d'urgence est une **stratégie désactivée
   
 Ce standard de nommage pour les stratégies d’urgence doit se présenter de cette façon : 
 
-`
+```
 EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions]
-`
+```
 
 L’exemple suivant permet : **Exemple A - Stratégie d'accès conditionnel d'urgence pour restaurer l'accès aux applications de collaboration stratégiques** constitue une urgence d'entreprise typique. Dans ce scénario, l'organisation exige généralement l'authentification multifacteur pour tous les accès Exchange Online et SharePoint Online, et dans ce cas, l'interruption est due à une panne du fournisseur d'authentification multifacteur du client (il peut s'agir de l'authentification multifacteur Azure, d'un fournisseur d'authentification multifacteur local ou d'une authentification multifacteur tierce). Cette stratégie atténue cette panne en permettant aux utilisateurs ciblés d'accéder à ces applications à partir d'appareils Windows approuvés et de leur réseau d'entreprise approuvé. Elle exclut également les comptes d'urgence et les administrateurs principaux de ces restrictions. Les utilisateurs ciblés accéderont alors à Exchange Online et SharePoint Online, tandis que les autres utilisateurs n’auront toujours pas accès aux applications en raison de la panne. Cet exemple nécessite un emplacement réseau **CorpNetwork** et un groupe de sécurité **ContingencyAccess** pour les utilisateurs cibles, un groupe **CoreAdmins** pour les administrateurs principaux et un groupe **EmergencyAccess** pour les comptes d'accès d'urgence. Le plan d'urgence requiert quatre stratégies pour fournir l'accès souhaité. 
 
-**Exemple A - Stratégies d'accès conditionnel d'urgence pour restaurer l'accès aux applications de collaboration stratégiques :** 
+**Exemple A - stratégies de contingence autorité de certification pour restaurer l’accès aux applications de Collaboration critique :**
 
 * Stratégie 1 : exiger des appareils joints au domaine pour Exchange et SharePoint
   * Nom : EM001 - ACTIVER EN CAS D’URGENCE : Interruption MFA [1/4] - Exchange SharePoint - Exiger la jonction Azure AD Hybride
@@ -179,7 +179,7 @@ Ordre d'activation :
 
 Dans l'exemple suivant, **Exemple B - Stratégies d'accès conditionnel d'urgence pour autoriser l'accès mobile à Salesforce**, l'accès d'une application métier est restauré. Dans ce scénario, le client a généralement besoin que ses commerciaux accèdent à Salesforce (configuré pour l'authentification unique auprès d'Azure AD) à partir d'appareils mobiles conformes uniquement. Dans ce cas, l'interruption est liée à un problème d'évaluation de la conformité des appareils et au fait que la panne survient à un moment délicat où l'équipe commerciale doit avoir accès à Salesforce pour conclure des contrats. Ces stratégies d'urgence accorderont aux utilisateurs critiques l'accès à Salesforce à partir d'un appareil mobile afin qu'ils puissent continuer à conclure des contrats et ne pas perturber l'activité. Dans cet exemple, **SalesforceContingency** contient tous les commerciaux qui doivent conserver leur accès tandis que **SalesAdmins** contient les administrateurs nécessaires à Salesforce.
 
-**Exemple B - Stratégies d'accès conditionnel d'urgence :**
+**Exemple B - stratégies de contingence autorité de certification :**
 
 * Stratégie 1 : bloquer tous les utilisateurs extérieurs à l'équipe SalesContingency
   * Nom : EM001 - ACTIVER EN CAS D’URGENCE : Interruption pour conformité d’appareil [1/2] - Salesforce - Bloquer tous les utilisateurs à l’exception de SalesforceContingency
@@ -261,12 +261,12 @@ Si votre organisation utilise des stratégies d'authentification multifacteur h�
 
 ## <a name="learn-more"></a>En savoir plus
 
-* [Documentation Azure AD Authentication](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-iis)
+* [Documentation sur l’authentification Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-iis)
 * [Gérer les comptes d’administration de l’accès d’urgence dans Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
 * [Configurer des emplacements nommés dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
   * [Set-MsolDomainFederationSettings](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
 * [Comment configurer des appareils hybrides joints à Azure Active Directory](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
-* [Guide de déploiement de Windows Hello Entreprise](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
-  * [Aide sur les mots de passe - Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
-* [Que sont les conditions dans l'accès conditionnel Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
-* [Que sont les contrôles d'accès dans l'accès conditionnel Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)
+* [Guide de déploiement d’entreprise Windows Hello](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
+  * [Aide du mot de passe - Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
+* [Que sont les conditions dans l’accès conditionnel Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
+* [Que sont les contrôles d’accès dans l’accès conditionnel Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)

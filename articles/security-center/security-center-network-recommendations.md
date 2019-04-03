@@ -3,7 +3,7 @@ title: Protection de vos ressources réseau dans Azure Security Center | Microso
 description: Ce document traite des suggestions dans Azure Security Center qui peuvent vous aider à protéger vos ressources réseau Azure et à rester en conformité avec les stratégies de sécurité.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: 96c55a02-afd6-478b-9c1f-039528f3dea0
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
-ms.author: rkarlin
-ms.openlocfilehash: 55318f40918833688e0c516924642c781141438c
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.date: 04/02/2019
+ms.author: monhaber
+ms.openlocfilehash: cca1962e5146300cc376fab4bcb1bf0876acec6c
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118001"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863149"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Protection de vos ressources réseau dans Azure Security Center
 Azure Security Center analyse continuellement l’état de sécurité de vos ressources Azure pour les meilleures pratiques de sécurité réseau. Lorsque Security Center identifie des failles de sécurité potentielles, il crée des suggestions qui vous guident tout au long du processus de configuration des contrôles nécessaires afin de renforcer et protéger vos ressources.
@@ -30,10 +30,9 @@ Cet article traite des suggestions relatives à la sécurité réseau qui s’ap
 > La page **Mise en réseau** vous permet d’en apprendre davantage sur l’intégrité de vos ressources Azure relative au réseau. Le mappage réseau et les contrôles réseau adaptatifs sont disponibles pour le niveau standard d’Azure Security Center uniquement. [Si vous utilisez le niveau gratuit, vous pouvez cliquer sur le bouton pour **Afficher la mise en réseau héritée** et recevoir des suggestions de ressources de mise en réseau](#legacy-networking).
 >
 
-La page **Mise en réseau** page fournit une vue d’ensemble des sections que vous pouvez approfondir. Pour obtenir plus d’informations sur l’intégrité de vos ressources réseau :
+Le **mise en réseau** panneau fournit une vue d’ensemble des sections, vous pouvez vous plonger dans, pour obtenir plus d’informations sur l’intégrité de vos ressources réseau :
 
 - Mappage réseau (niveau standard d’Azure Security Center uniquement)
-- Renforcement du NSG (Bientôt disponible. Inscrivez-vous à la préversion)
 - Suggestions en matière de sécurité réseau.
 - Panneau **Mise en réseau** héritée (panneau de mise en réseau précédent) 
  
@@ -49,7 +48,8 @@ Pour ouvrir le mappage réseau :
  
 La valeur par défaut du mappage de la topologie affiche :
 - Les abonnements que vous avez sélectionné dans Azure. Le mappage prend en charge plusieurs abonnements.
-- Les machines virtuelles, les sous-réseaux et les réseaux virtuels du type de ressource Resource Manager (les ressources d’Azure Classic ne sont pas prises en charge)
+- Machines virtuelles, sous-réseaux et réseaux virtuels du type de ressource Resource Manager (ressources ne sont pas prises en charge d’Azure Classic)
+- Réseaux virtuels homologués
 - Uniquement les ressources disposant de [suggestions de réseau](security-center-recommendations.md) avec un niveau de gravité élevé ou moyen  
 - Ressources accessibles sur Internet
 - Le mappage est optimisé pour les abonnements que vous avez sélectionnés dans Azure. Si vous modifiez votre sélection, le mappage est recalculé et ré-optimisé en fonction de vos nouveaux paramètres.  
@@ -98,9 +98,9 @@ Par exemple, vous pouvez détecter deux machines pour lesquelles vous ignoriez q
 
 Pour explorer une ressource au niveau du détail :
 1. Lorsque vous sélectionnez une ressource spécifique sur le mappage, le volet droit s’ouvre et vous donne des informations générales sur la ressource, les solutions de sécurité connectées, s’il y en a, et les suggestions relatives à la ressource. Vous aurez le même type de comportement pour chaque type de ressource que vous sélectionnez. 
-2. Cliquez sur **Trafic** pour afficher la liste des trafics entrant et sortant possibles sur la ressource. Il s’agit d’une liste complète de ceux qui peuvent communiquer avec la ressource, et inversement, ainsi que des protocoles et ports utilisés pour communiquer.
+2. Cliquez sur **Trafic** pour afficher la liste des trafics entrant et sortant possibles sur la ressource. Il s’agit d’une liste complète de ceux qui peuvent communiquer avec la ressource, et inversement, ainsi que des protocoles et ports utilisés pour communiquer. Par exemple, apparaissent lorsque vous sélectionnez une machine virtuelle, toutes les machines virtuelles que celui-ci puisse communiquer avec, et lorsque vous sélectionnez un sous-réseau, tous les sous-réseaux dont il peut communiquer avec sont affichés.
 
-**Ces données sont basées sur les analyses de groupes de sécurité réseau, ainsi que sur des algorithmes de Machine Learning avancés qui analysent plusieurs règles pour en comprendre les croisements et les interactions.** 
+**Ces données sont basées sur l’analyse des groupes de sécurité réseau, ainsi que les algorithmes qui analysent plusieurs règles pour comprendre leurs interactions et les repères de croisement avancée en matière d’apprentissage.** 
 
 ![Mappage de trafic réseau](./media/security-center-network-recommendations/network-map-traffic.png)
 

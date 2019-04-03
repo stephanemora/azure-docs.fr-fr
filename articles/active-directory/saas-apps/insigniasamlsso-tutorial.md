@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/28/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ee74c5caed04d2626fea27d3419d0b0d685d675
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: dc492142200c7fd028360d01c2602904531550dc
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57840339"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884480"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insignia-saml-sso"></a>Tutoriel : Intégration d’Azure Active Directory à Insignia SAML SSO
 
@@ -59,7 +59,7 @@ Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un e
 ## <a name="adding-insignia-saml-sso-from-the-gallery"></a>Ajout d’Insignia SAML SSO à partir de la galerie
 Pour configurer l’intégration d’Insignia SAML SSO à Azure AD, vous devez ajouter Insignia SAML SSO à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter Insignia SAML SSO à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter Insignia SAML SSO à partir de la galerie, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
 
@@ -97,7 +97,7 @@ Pour configurer et tester l’authentification unique Azure AD auprès d’Insi
 
 Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure et configurer l’authentification unique dans votre application Insignia SAML SSO.
 
-**Pour configurer l’authentification unique Azure AD auprès d’Insignia SAML SSO, effectuez les étapes suivantes :**
+**Pour configurer Azure AD-authentification auprès d’Insignia SAML SSO, procédez comme suit :**
 
 1. Dans le portail Azure, dans la page d’intégration de l’application **Insignia SAML SSO**, cliquez sur **Authentification unique**.
 
@@ -117,9 +117,9 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     |--|
     | `https://<customername>.insigniails.com/ils` |
     | `https://<customername>.insigniails.com/` |
-    | `https://<customername>.insigniailsusa.com/ ` |
+    | `https://<customername>.insigniailsusa.com/` |
 
-    b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<customername>.insigniailsusa.com/<uniqueid>`
+    b. Dans la zone de texte **Identificateur**, entrez une URL au format suivant : `https://<customername>.insigniailsusa.com/<uniqueid>`
 
     > [!NOTE] 
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support Insignia SAML SSO](https://www.insigniasoftware.com/insignia/Techsupport.aspx). 
@@ -185,7 +185,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 ![Attribuer le rôle utilisateur][200] 
 
-**Pour affecter Britta Simon à Insignia SAML SSO, effectuez les étapes suivantes :**
+**Pour affecter Britta Simon à Insignia SAML SSO, procédez comme suit :**
 
 1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
 

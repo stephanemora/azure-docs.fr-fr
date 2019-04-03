@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 04/02/2019
 ms.author: tulasim
-ms.openlocfilehash: b948835b1a15eee391c6902d18229ec4926b66ca
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 218103f2c75ec1016a997c259767ccd011191fab
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58095209"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879606"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v3"></a>Tutoriel : Créer un bot QnA avec Azure Bot Service v3
 
@@ -25,7 +25,7 @@ Ce tutoriel vous guide tout au long de la création d’un bot QnA avec Azure Bo
 > [!Note] 
 > Cette rubrique s’applique à la version 3 du Kit de développement logiciel (SDK) Bot. Vous trouverez la version 4 [ici](https://docs.microsoft.com/azure/bot-service/bot-builder-howto-qna?view=azure-bot-service-4.0&tabs=cs). 
 
-**Dans ce tutoriel, vous allez découvrir comment :**
+**Ce tutoriel vous montre comment effectuer les opérations suivantes :**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -105,6 +105,12 @@ Dans le portail Azure, sélectionnez **Test dans le chat web** pour tester le bo
 
 Votre bot QnA répond à partir de votre base de connaissances.
 
+## <a name="related-to-qna-maker-bots"></a>Liés à des robots de QnA Maker
+
+* Le robot d’aide QnA Maker, utilisé dans le portail QnA Maker, est disponible en tant qu’un [exemple de robot](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-support-bot).
+    ![Icône de bot d’aide QnA Maker est rouge robot](../media/qnamaker-tutorials-create-bot/answer-bot-icon.PNG)
+* [Soins de santé robots](https://docs.microsoft.com/HealthBot/qna_model_howto) utiliser QnA Maker comme l’une de leurs [modèles linguistiques](https://docs.microsoft.com/HealthBot/qna_model_howto).
+
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Lorsque vous avez terminé avec le bot de ce tutoriel, supprimez le bot dans le portail Azure. Les services de bot incluent :
@@ -123,4 +129,4 @@ Lorsque vous avez terminé avec le bot de ce tutoriel, supprimez le bot dans le 
 ## <a name="see-also"></a>Voir aussi
 
 - [Gérer votre base de connaissances](https://qnamaker.ai)
-- [Activer votre bot dans différents canaux](https://docs.microsoft.com/azure/bot-service/bot-service-manage-channels)
+- [Activer votre robot dans différents canaux](https://docs.microsoft.com/azure/bot-service/bot-service-manage-channels)

@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/10/2019
+ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 65ea01047743c5894ac2ae8b38a197b57cb6971c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 16fe2d23fdd07f8f150cc010b0a1d232c761c77f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531317"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884922"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gérer les mises à jour pour plusieurs ordinateurs
 
@@ -29,7 +29,6 @@ Vous pouvez utiliser la solution de gestion des mises à jour pour gérer les mi
 
 Pour utiliser la gestion des mises à jour, vous devez avoir :
 
-- Un compte d’identification Azure Automation. Pour apprendre à en créer un, consultez [Prise en main d'Azure Automation](automation-offering-get-started.md).
 - Une machine virtuelle ou un ordinateur virtuel avec l’un des systèmes d’exploitation pris en charge.
 
 ## <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge

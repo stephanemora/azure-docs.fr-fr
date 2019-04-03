@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 84f74392b93212558851f89dab924ae3db5620ed
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a13d3b24cd7845de144183d9f2ea825e0e24219f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57995125"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883715"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Bien démarrer avec Azure Stream Analytics : Détection des fraudes en temps réel
 
@@ -292,7 +292,7 @@ Pour cette transformation, vous souhaitez une séquence de fenêtres temporelles
 
     La projection inclut `System.Timestamp`, qui retourne un horodatage pour la fin de chaque fenêtre. 
 
-    Pour préciser que vous souhaitez utiliser une fenêtre bascule, utilisez la fonction [TUMBLINGWINDOW](https://msdn.microsoft.com/library/dn835055.aspx) dans la clause `GROUP BY `. Dans la fonction, indiquez une unité de temps (d’une microseconde à un jour) et une taille de fenêtre (nombre d’unités). Dans cet exemple, comme la fenêtre bascule se compose d’intervalles de 5 secondes vous obtenez un nombre (par pays) d’appels d’une valeur de 5 secondes.
+    Pour spécifier que vous souhaitez utiliser une fenêtre bascule, vous utilisez le [TUMBLINGWINDOW](https://msdn.microsoft.com/library/dn835055.aspx) fonctionner dans le `GROUP BY` clause. Dans la fonction, indiquez une unité de temps (d’une microseconde à un jour) et une taille de fenêtre (nombre d’unités). Dans cet exemple, comme la fenêtre bascule se compose d’intervalles de 5 secondes vous obtenez un nombre (par pays) d’appels d’une valeur de 5 secondes.
 
 2. Cliquez de nouveau sur **Test**. Dans les résultats, notez que les horodatages indiqués sous **WindowEnd** sont exprimés par incréments de 5 secondes.
 
@@ -415,7 +415,7 @@ Vous pouvez poursuivre ce didacticiel en lisant l’article suivant :
 
 Pour plus d’informations sur Stream Analytics en général, consultez les articles suivants :
 
-* [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
-* [Mise à l’échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
-* [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Présentation d'Azure Stream Analytics](stream-analytics-introduction.md)
+* [L’échelle des travaux d’Azure Stream Analytique](stream-analytics-scale-jobs.md)
+* [Référence du langage requête Azure Stream Analytique](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Référence API REST de gestion d’Analytique Azure Stream](https://msdn.microsoft.com/library/azure/dn835031.aspx)

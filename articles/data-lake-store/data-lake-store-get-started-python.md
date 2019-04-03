@@ -3,21 +3,21 @@ title: 'Python : Compte des opérations de gestion sur Azure Data Lake Storage 
 description: Découvrez comment traiter les opérations de gestion des comptes Azure Data Lake Storage Gen1 avec le Kit de développement logiciel (SDK) Python.
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: 75f6de6f-6fd8-48f4-8707-cb27d22d27a6
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: cc384e9f392aa88342c5b8bd97963bed6d7ee814
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: twooley
+ms.openlocfilehash: b6ef5a5c12bb766fb7106d5c7a8189c4b92980d2
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533322"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880200"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-python"></a>Opérations de gestion des comptes sur Azure Data Lake Storage Gen1 à l’aide de Python
 > [!div class="op_single_selector"]
@@ -135,5 +135,5 @@ L’extrait de code suivant crée dans un premier temps le client du compte Data
 
 ## <a name="see-also"></a>Voir aussi
 
-* [Documents de référence sur la gestion de système de fichiers avec Azure Data Lake Store et Python](https://azure-datalake-store.readthedocs.io/en/latest)
-* [Ouvrir des applications Big Data open source compatibles avec Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md)
+* [référence Python Azure-datalake-store (système de fichiers)](https://azure-datalake-store.readthedocs.io/en/latest)
+* [Ouvrir des applications de Big Data Source compatibles avec Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md)

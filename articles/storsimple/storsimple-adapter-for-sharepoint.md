@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: v-sharos
-ms.openlocfilehash: 2e1b231a5cf13d2655ff66c7e48752729c580f48
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: a2f8e75578e396085e7d80f43c1180e158967061
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38232865"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885585"
 ---
 # <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>Installation et configuration de StorSimple Adapter for SharePoint
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Présentation
 StorSimple Adapter for SharePoint est un composant qui vous permet de fournir un stockage Microsoft Azure StorSimple flexible et une protection des données aux batteries de serveurs SharePoint. Vous pouvez utiliser l’adaptateur pour déplacer le contenu d’un objet Binary Large Object (BLOB) des bases de données de contenu SQL Server vers le dispositif de stockage cloud hybride Microsoft Azure StorSimple.
 
 StorSimple Adapter for SharePoint fonctionne comme un fournisseur Remote BLOB Storage (RBS) et utilise la fonctionnalité SQL Server Remote BLOB Storage pour stocker le contenu SharePoint non structuré (sous la forme d’objets blob) sur un serveur de fichiers appuyé par un appareil StorSimple.
@@ -59,7 +59,7 @@ Avant de configurer RBS, passez en revue les éléments suivants :
 
 * Assurez-vous que la taille totale du contenu (la taille d'une base de données de contenu plus celle de tous les objets blob externalisés associés) ne dépasse pas la limite de taille RBS prise en charge par SharePoint. Cette limite est de 200 Go. 
   
-    **Mesure de la taille de la base de données de contenu et des objets blob**
+    **À mesure de base de données contenu et de la taille des objets BLOB**
   
   1. Exécutez cette requête sur le serveur web frontal d’administration centrale. Démarrez SharePoint Management Shell, puis entrez la commande Windows PowerShell suivante pour obtenir la taille des bases de données de contenu :
      
@@ -226,9 +226,9 @@ Avant de désinstaller le logiciel StorSimple Adapter pour SharePoint, vous deve
 4. Sur la page **Configuration de l'adaptateur StorSimple**, cliquez sur le bouton **Désactiver** sous chaque base de données de contenu que vous souhaitez supprimer du stockage d'objets BLOB externe. 
 5. Supprimez les objets de SharePoint et téléchargez-les à nouveau.
 
-Vous pouvez également utiliser l'applet de commande Microsoft` RBS Migrate()` PowerShell inclus avec SharePoint. Pour plus d'informations, consultez [Migration du contenu vers ou à partir de RBS](https://technet.microsoft.com/library/ff628255.aspx).
+Vous pouvez également utiliser Microsoft `RBS Migrate()` applet de commande PowerShell inclus avec SharePoint. Pour plus d'informations, consultez [Migration du contenu vers ou à partir de RBS](https://technet.microsoft.com/library/ff628255.aspx).
 
-Après avoir déplacé les objets BLOB vers la base de données de contenu, passez à l'étape suivante : [Désinstallation de l'adaptateur](#uninstall-the-adapter).
+Après avoir déplacé les objets BLOB vers la base de données de contenu, accédez à l’étape suivante : [Désinstaller l’adaptateur](#uninstall-the-adapter).
 
 ### <a name="uninstall-the-adapter"></a>Désinstallation de l'adaptateur
 Après avoir déplacé les objets BLOB vers les bases de données de contenu SQL Server, utilisez l'une des options suivantes pour désinstaller StorSimple Adapter pour SharePoint.

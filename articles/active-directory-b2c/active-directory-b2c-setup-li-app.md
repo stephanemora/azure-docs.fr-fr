@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 04/01/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 6c340d6b410a289f8beca156f85472cb729b786a
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: de58f960842e0a4f8e9b964774ce62b3e2772113
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56427817"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863171"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte LinkedIn à l’aide d’Azure Active Directory B2C
 
@@ -36,8 +36,11 @@ Pour utiliser un compte LinkedIn en tant que [fournisseur d'identité](active-di
 2. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en cliquant sur le **filtre Répertoire et abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
 3. Choisissez **Tous les services** dans le coin supérieur gauche du Portail Azure, recherchez et sélectionnez **Azure Active Directory B2C**.
 4. Cliquez sur **Fournisseurs d’identité**, puis sélectionnez **Ajouter**.
-5. Fournissez un **nom**. Par exemple, entrez *LinkedIn*.
+5. Entrez un **nom**. Par exemple, entrez *LinkedIn*.
 6. Sélectionnez **Type de fournisseur d’identité**, **LinkedIn**, puis cliquez sur **OK**.
 7. Sélectionnez **Configurer ce fournisseur d’identité**, entrez l’ID client enregistré précédemment en tant **qu’ID Client** et entrez le secret client enregistré en tant que **Secret client** de l’application de compte LinkedIn créée précédemment.
 8. Cliquez sur **OK**, puis sur **Créer** pour enregistrer votre configuration de compte LinkedIn.
 
+## <a name="migration-from-v10-to-v20"></a>Migration à partir de la version 1.0 vers v2.0
+
+LinkedIn récemment [mis à jour leurs API à partir de la version 1.0 pour v2.0](https://engineering.linkedin.com/blog/2018/12/developer-program-updates). Dans le cadre de la migration, Azure AD B2C n’est en mesure d’obtenir le nom complet de l’utilisateur LinkedIn pendant l’inscription. Si une adresse de messagerie est un des attributs qui sont collectées au cours d’inscription, l’utilisateur doit manuellement entrer l’adresse de messagerie et validez-le.

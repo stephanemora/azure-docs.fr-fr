@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: fa5dfabeae829d52475d2e3cd6ccb123d8308c7c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bc78dade345c9f9c72cf936136d9969b79bc1398
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58013559"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878585"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Utilisation de l’émulateur de stockage Azure pour le développement et le test
 
@@ -140,8 +140,8 @@ Par exemple, l'adresse suivante peut être utilisée pour accéder à un objet b
 Les points de terminaison de service de l’émulateur de stockage sont :
 
 * Service BLOB : `http://127.0.0.1:10000/<account-name>/<resource-path>`
-* Service de File d’attente : `http://127.0.0.1:10001/<account-name>/<resource-path>`
-* Service de Table : `http://127.0.0.1:10002/<account-name>/<resource-path>`
+* Service de file d’attente : `http://127.0.0.1:10001/<account-name>/<resource-path>`
+* Service de table : `http://127.0.0.1:10002/<account-name>/<resource-path>`
 
 ### <a name="addressing-the-account-secondary-with-ra-grs"></a>Adressage du compte secondaire avec RA-GRS
 À partir de la version 3.1, l’émulateur de stockage prend en charge la réplication géo-redondante avec accès en lecture (RA-GRS). Pour les ressources de stockage dans le cloud et dans l'émulateur local, vous pouvez accéder à l'emplacement secondaire en ajoutant -secondary au nom du compte. Par exemple, vous pouvez utiliser l'adresse suivante pour accéder à un objet blob en utilisant l'emplacement secondaire en lecture seule dans l'émulateur de stockage :
@@ -169,10 +169,10 @@ Pour afficher la liste des options, tapez `/help` dans l’invite de commandes.
 
 | Option | Description | Commande | Arguments |
 | --- | --- | --- | --- |
-| **Start** |Permet de démarrer l’émulateur de stockage. |`AzureStorageEmulator.exe start [-inprocess]` |*-inprocess* : Démarrez l’émulateur dans le processus actuel au lieu de créer un processus. |
-| **Stop** |Permet d’arrêter l’émulateur de stockage. |`AzureStorageEmulator.exe stop` | |
-| **État** |Permet d’imprimer l’état de l’émulateur de stockage. |`AzureStorageEmulator.exe status` | |
-| **Clear** |Permet d’effacer les données de tous les services spécifiés sur la ligne de commande. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]                                                    ` |*blob* : Efface les données d’objet blob. <br/>*queue* : Efface les données de file d’attente. <br/>*table* : Efface les données de table. <br/>*all* : Efface toutes les données de tous les services. |
+| **Démarrer** |Permet de démarrer l’émulateur de stockage. |`AzureStorageEmulator.exe start [-inprocess]` |*-inprocess* : Démarrez l’émulateur dans le processus actuel au lieu de créer un processus. |
+| **Arrêter** |Permet d’arrêter l’émulateur de stockage. |`AzureStorageEmulator.exe stop` | |
+| **Statut** |Permet d’imprimer l’état de l’émulateur de stockage. |`AzureStorageEmulator.exe status` | |
+| **Effacer** |Permet d’effacer les données de tous les services spécifiés sur la ligne de commande. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]` |*blob* : Efface les données d’objet blob. <br/>*queue* : Efface les données de file d’attente. <br/>*table* : Efface les données de table. <br/>*all* : Efface toutes les données de tous les services. |
 | **Init** |Permet d’effectuer une initialisation ponctuelle pour configurer l’émulateur. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-server serverName\instanceName* : Spécifie le serveur qui héberge l’instance SQL. <br/>*-sqlinstance instanceName* : Spécifie le nom de l’instance SQL à utiliser dans l’instance de serveur par défaut. <br/>*-forcecreate* : Force la création de la base de données SQL, même si celle-ci existe déjà. <br/>*-skipcreate* : Ignore la création de la base de données SQL. Cet argument est prioritaire sur -forcecreate.<br/>*-reserveports* : Tente de réserver les ports HTTP associés aux services.<br/>*-unreserveports* : Tente de supprimer les réservations des ports HTTP associés aux services. Cet argument est prioritaire sur -reserveports.<br/>*-inprocess* : Effectue l’initialisation dans le processus actuel au lieu de générer un nouveau processus. Vous devez lancer le processus actuel avec des autorisations élevées en cas de modification des réservations des ports. |
 
 ## <a name="differences-between-the-storage-emulator-and-azure-storage"></a>Différences entre l’émulateur de stockage et Azure Storage

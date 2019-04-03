@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: 822c4631c08da27ef7b92af2df5e5e0d04f063b0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f2ad46e7738582f82edcef6b54ac8234901c887d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58013901"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885330"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Exemples de requêtes SQL pour Azure Cosmos DB
 
@@ -27,7 +27,7 @@ Cet article vous explique des exemples de requêtes SQL en utilisant des éléme
 
 Nous allons créer deux éléments JSON simples et interroger ces données. Sélectionnez deux éléments JSON sur les familles, insérez ces éléments JSON dans un conteneur, puis interrogez les données. Nous avons ici un élément JSON simple pour les familles Andersen et Wakefield, les parents, les enfants (et leurs animaux de compagnie), l’adresse et les informations d’inscription. L’élément se compose de chaînes, de nombres, de valeurs booléennes, de tableaux et de propriétés imbriquées.
 
-**Élément 1**
+**Item1**
 
 ```JSON
 {
@@ -263,7 +263,7 @@ Observons le rôle de `$1` ici. La clause `SELECT` doit créer un objet JSON et
 La clause FROM <from_specification> est facultative, sauf si la source est filtrée ou projetée plus loin dans la requête. Pour en savoir plus sur la syntaxe, consultez [Syntaxe FROM](sql-api-query-reference.md#bk_from_clause). Une requête telle que `SELECT * FROM Families` indique que l’intégralité du conteneur Families est la source de l’énumération. Un identificateur ROOT spécial peut être utilisé pour représenter le conteneur au lieu d’utiliser le nom du conteneur.
 La liste suivante contient les règles appliquées par requête :
 
-* Le conteneur peut être un alias, tel que `SELECT f.id FROM Families AS f` ou simplement `SELECT f.id FROM Families f`. Ici, `f` équivaut à `Families`. `AS` est un mot clé facultatif pour appliquer un alias à l’identificateur.  
+* Le conteneur peut être un alias, tel que `SELECT f.id FROM Families AS f` ou simplement `SELECT f.id FROM Families f`. Ici, `f` équivaut à `Families`. `AS` est un mot clé facultatif à l’alias de l’identificateur.  
 
 * Une fois l’alias appliqué, vous ne pouvez plus lier la source d’origine. Par exemple, `SELECT Families.id FROM Families f` est syntaxiquement incorrect dans la mesure où l’identificateur « Families » ne peut plus être résolu.  
 
@@ -403,12 +403,12 @@ En plus des opérateurs binaires et unaires, les références de propriétés so
 
 Le tableau suivant répertorie les résultats des comparaisons d'égalité dans l’API SQL entre deux types JSON.
 
-| **Opérateur** | **Undefined** | **Null** | **Booléen** | **Nombre** | **Chaîne** | **Object** | **Tableau** |
+| **Op** | **Undefined** | **Null** | **Booléen** | **Number** | **Chaîne** | **Object** | **Tableau** |
 |---|---|---|---|---|---|---|---|
 | **Undefined** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined |
 | **Null** | Undefined | **OK** | Undefined | Undefined | Undefined | Undefined | Undefined |
 | **Booléen** | Undefined | Undefined | **OK** | Undefined | Undefined | Undefined | Undefined |
-| **Nombre** | Undefined | Undefined | Undefined | **OK** | Undefined | Undefined | Undefined |
+| **Number** | Undefined | Undefined | Undefined | **OK** | Undefined | Undefined | Undefined |
 | **Chaîne** | Undefined | Undefined | Undefined | Undefined | **OK** | Undefined | Undefined |
 | **Object** | Undefined | Undefined | Undefined | Undefined | Undefined | **OK** | Undefined |
 | **Tableau** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | **OK** |
@@ -446,7 +446,7 @@ La principale différence entre l’utilisation de BETWEEN dans l’API SQL et A
 ### <a name="logical-and-or-and-not-operators"></a>Opérateurs logiques (AND, OR et NOT)
 Les opérateurs logiques interviennent sur des valeurs booléennes. Les tables de vérité logiques de ces opérateurs sont présentées dans les tableaux suivants.
 
-**Opérateur OR**
+**OU opérateur**
 
 | Ou | True | False | Undefined |
 | --- | --- | --- | --- |
@@ -454,7 +454,7 @@ Les opérateurs logiques interviennent sur des valeurs booléennes. Les tables d
 | False |True |False |Undefined |
 | Undefined |True |Undefined |Undefined |
 
-**Opérateur OR**
+**ET l’opérateur**
 
 | AND | True | False | Undefined |
 | --- | --- | --- | --- |
@@ -462,7 +462,7 @@ Les opérateurs logiques interviennent sur des valeurs booléennes. Les tables d
 | False |False |False |False |
 | Undefined |Undefined |False |Undefined |
 
-**Opérateur NOT**
+**PAS d’opérateur**
 
 | NOT |  |
 | --- | --- |
@@ -818,7 +818,7 @@ Vous pouvez également effectuer des agrégations en appliquant des filtres simu
     [ 1 ]
 ```
 
-Le tableau suivant présente la liste des fonctions d’agrégation prises en charge dans l’API SQL. `SUM` et `AVG` s’appliquent à des valeurs numériques, tandis que `COUNT`, `MIN`, et `MAX` peuvent être effectuées sur des nombres, des chaînes, des booléens et des valeurs Null.
+Le tableau suivant présente la liste des fonctions d’agrégation prises en charge dans l’API SQL. `SUM` et `AVG` sont effectuées sur des valeurs numériques, tandis que `COUNT`, `MIN`, et `MAX` peuvent être effectuées sur des nombres, des chaînes, des valeurs booléennes et les valeurs NULL.
 
 | Usage | Description |
 |-------|-------------|
@@ -1138,7 +1138,7 @@ Cet exemple est une extension naturelle du précédent, et effectue une double j
     }
 ```
 
-`AndersenFamily` a un enfant qui a un animal. Le produit croisé renvoie une ligne (1\*1\*1) à partir de cette famille. Cependant, WakefieldFamily a deux enfants, mais seul l'un d'eux, « Jesse », a des animaux. Or, Jesse a deux animaux. Le produit croisé renvoie donc 1\*1\*2 = 2 lignes à partir de cette famille.
+`AndersenFamily` possède un enfant qui a un animal. Le produit croisé renvoie une ligne (1\*1\*1) à partir de cette famille. Cependant, WakefieldFamily a deux enfants, mais seul l'un d'eux, « Jesse », a des animaux. Or, Jesse a deux animaux. Le produit croisé renvoie donc 1\*1\*2 = 2 lignes à partir de cette famille.
 
 L’exemple suivant contient un filtre supplémentaire sur `pet`, qui exclut tous les tuples dont le nom d’animal de compagnie (« pet ») n’est pas « Shadow ». Notez que nous pouvons développer des tuples à partir de tableaux, filtrer n'importe quel élément du tuple et projeter n'importe quelle combinaison d'éléments.
 
@@ -1409,7 +1409,7 @@ La principale différence entre les fonctions Cosmos DB et le langage SQL ANSI e
 
 Les fonctions de vérification du type vous permettent de vérifier le type d'une expression donnée dans les requêtes SQL. Elles peuvent être utilisées pour déterminer instantanément le type variable ou inconnu des propriétés des éléments. Le tableau répertorie les fonctions de vérification du type intégrées qui sont prises en charge.
 
-| **Utilisation** | **Description** |
+| **Usage** | **Description** |
 |-----------|------------|
 | [IS_ARRAY (expr)](sql-api-query-reference.md#bk_is_array) | Retourne une valeur booléenne indiquant si la valeur est du type tableau. |
 | [IS_BOOL (expr)](sql-api-query-reference.md#bk_is_bool) | Retourne une valeur booléenne indiquant si la valeur est du type booléen. |
@@ -1629,7 +1629,7 @@ L’image suivante illustre l’architecture de prise en charge des requêtes LI
 
 Le mappage entre les objets .NET et les éléments JSON est naturel : chaque champ de membre de données est mappé à un objet JSON, où le nom du champ est mappé à la partie « clé » de l’objet, tandis que la partie « valeur » est mappée de façon récursive à la partie valeur de l’objet. Considérez l'exemple suivant : L’objet Family créé est mappé vers l’élément JSON, comme indiqué ci-dessous. Et inversement, l’élément JSON est remappé à un objet .NET.
 
-**Classe C#**
+**Classe c#**
 
 ```csharp
     public class Family
@@ -1757,7 +1757,7 @@ Voici quelques exemples illustrant comment certains opérateurs de requête LINQ
 
 La syntaxe est `input.Select(x => f(x))`, où `f` est une expression scalaire.
 
-**Expression Lambda LINQ**
+**Expression lambda LINQ**
 
 ```csharp
     input.Select(family => family.parents[0].familyName);
@@ -1770,7 +1770,7 @@ La syntaxe est `input.Select(x => f(x))`, où `f` est une expression scalaire.
     FROM Families f
 ```
 
-**Expression Lambda LINQ**
+**Expression lambda LINQ**
 
 ```csharp
     input.Select(family => family.children[0].grade + c); // c is an int variable
@@ -1783,7 +1783,7 @@ La syntaxe est `input.Select(x => f(x))`, où `f` est une expression scalaire.
     FROM Families f
 ```
 
-**Expression Lambda LINQ**
+**Expression lambda LINQ**
 
 ```csharp
     input.Select(family => new
@@ -1806,7 +1806,7 @@ La syntaxe est `input.Select(x => f(x))`, où `f` est une expression scalaire.
 
 La syntaxe est `input.SelectMany(x => f(x))`, où `f` est une expression scalaire qui retourne un type de conteneur.
 
-**Expression Lambda LINQ**
+**Expression lambda LINQ**
 
 ```csharp
     input.SelectMany(family => family.children);
@@ -1823,7 +1823,7 @@ La syntaxe est `input.SelectMany(x => f(x))`, où `f` est une expression scalair
 
 La syntaxe est `input.Where(x => f(x))`, où `f` est une expression scalaire qui retourne une valeur booléenne.
 
-**Expression Lambda LINQ**
+**Expression lambda LINQ**
 
 ```csharp
     input.Where(family=> family.parents[0].familyName == "Smith");
@@ -1837,7 +1837,7 @@ La syntaxe est `input.Where(x => f(x))`, où `f` est une expression scalaire qui
     WHERE f.parents[0].familyName = "Smith"
 ```
 
-**Expression Lambda LINQ**
+**Expression lambda LINQ**
 
 ```csharp
     input.Where(
@@ -1862,7 +1862,7 @@ Les opérateurs suivants peuvent être composés pour former des requêtes plus 
 
 La syntaxe est `input(.|.SelectMany())(.Select()|.Where())*`. Une requête concaténée peut commencer par une requête `SelectMany` facultative suivie de plusieurs opérateurs `Select` ou `Where`.
 
-**Expression Lambda LINQ**
+**Expression lambda LINQ**
 
 ```csharp
     input.Select(family=>family.parents[0])
@@ -1877,7 +1877,7 @@ La syntaxe est `input(.|.SelectMany())(.Select()|.Where())*`. Une requête conca
     WHERE f.parents[0].familyName = "Smith"
 ```
 
-**Expression Lambda LINQ**
+**Expression lambda LINQ**
 
 ```csharp
     input.Where(family => family.children[0].grade > 3)
@@ -1892,7 +1892,7 @@ La syntaxe est `input(.|.SelectMany())(.Select()|.Where())*`. Une requête conca
     WHERE f.children[0].grade > 3
 ```
 
-**Expression Lambda LINQ**
+**Expression lambda LINQ**
 
 ```csharp
     input.Select(family => new { grade=family.children[0].grade}).
@@ -1907,7 +1907,7 @@ La syntaxe est `input(.|.SelectMany())(.Select()|.Where())*`. Une requête conca
     WHERE ({grade: f.children[0].grade}.grade > 3)
 ```
 
-**Expression Lambda LINQ**
+**Expression lambda LINQ**
 
 ```csharp
     input.SelectMany(family => family.parents)
@@ -1928,7 +1928,7 @@ La syntaxe est `input.SelectMany(x=>x.Q())`, où Q est un opérateur `Select`, `
 
 Dans une requête imbriquée, la requête interne est appliquée à chaque élément du conteneur externe. Une caractéristique importante est la capacité de la requête interne à faire référence aux champs des éléments du conteneur externe, à l’instar des jointures réflexives.
 
-**Expression Lambda LINQ**
+**Expression lambda LINQ**
 
 ```csharp
     input.SelectMany(family=>
@@ -1943,7 +1943,7 @@ Dans une requête imbriquée, la requête interne est appliquée à chaque élé
     JOIN p IN f.parents
 ```
 
-**Expression Lambda LINQ**
+**Expression lambda LINQ**
 
 ```csharp
     input.SelectMany(family =>
@@ -1959,7 +1959,7 @@ Dans une requête imbriquée, la requête interne est appliquée à chaque élé
     WHERE c.familyName = "Jeff"
 ```
 
-**Expression Lambda LINQ**
+**Expression lambda LINQ**
 
 ```csharp
     input.SelectMany(family => family.children.Where(
@@ -2208,7 +2208,7 @@ Le prochain exemple illustre des jointures, exprimées via l'opérateur LINQ Sel
 
 Le client .NET effectue une itération automatique à travers l'ensemble des pages des résultats de la requête dans les blocs foreach, comme indiqué précédemment. Les options de requête présentées dans la section sur l’API REST sont également disponibles dans le kit SDK .NET à l’aide des classes `FeedOptions` et `FeedResponse` dans la méthode CreateDocumentQuery. Vous pouvez aussi contrôler le nombre de pages en utilisant le paramètre `MaxItemCount` .
 
-Vous pouvez également contrôler explicitement la pagination en créant `IDocumentQueryable` à l’aide de l’objet `IQueryable`, puis en lisant les valeurs ` ResponseContinuationToken` et en les retransférant en tant que `RequestContinuationToken` dans `FeedOptions`. `EnableScanInQuery` peut être défini pour autoriser les analyses lorsque la stratégie d’indexation configurée ne peut pas prendre en charge la requête. Dans le cas des conteneurs partitionnés, vous pouvez utiliser `PartitionKey` pour exécuter la requête sur une seule partition (même si Azure Cosmos DB peut extraire automatiquement cet élément du texte de la requête) et `EnableCrossPartitionQuery` pour exécuter des requêtes qu’il peut être nécessaire d’exécuter sur plusieurs partitions.
+Vous pouvez également contrôler explicitement la pagination en créant `IDocumentQueryable` à l’aide de la `IQueryable` objet, puis en lisant le `ResponseContinuationToken` valeurs et en les passant sauvegarder en tant que `RequestContinuationToken` dans `FeedOptions`. `EnableScanInQuery` peut être défini pour autoriser les analyses lorsque la requête ne peut pas être pris en charge par la stratégie d’indexation configurée. Dans le cas des conteneurs partitionnés, vous pouvez utiliser `PartitionKey` pour exécuter la requête sur une seule partition (même si Azure Cosmos DB peut extraire automatiquement cet élément du texte de la requête) et `EnableCrossPartitionQuery` pour exécuter des requêtes qu’il peut être nécessaire d’exécuter sur plusieurs partitions.
 
 Reportez-vous aux [Exemples .NET Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-dotnet) pour obtenir plus d’exemples de requête.
 
@@ -2253,8 +2253,8 @@ L’exemple suivant illustre l’utilisation de queryDocuments dans l’API Java
 ## <a id="References"></a>Références
 
 1. [Présentation d’Azure Cosmos DB][introduction]
-2. [Spécification SQL Azure Cosmos DB](https://go.microsoft.com/fwlink/p/?LinkID=510612)
-3. [Exemples .NET Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-dotnet)
+2. [Spécification de Cosmos DB SQL Azure](https://go.microsoft.com/fwlink/p/?LinkID=510612)
+3. [Exemples de Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmosdb-dotnet)
 4. [Niveaux de cohérence de base Azure Cosmos DB][consistency-levels]
 5. ANSI SQL 2011 [https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 6. JSON [https://json.org/](https://json.org/)

@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f1eba2da1404f5b47d137b3c4f7b4cb9ceab43ea
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 64a688df3b6ed8602bb440d72e7f061c5f5893d1
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438051"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885602"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Syntaxe des requêtes Lucene dans Recherche Azure
 Vous pouvez écrire des requêtes sur Recherche Azure en utilisant la syntaxe riche en fonctionnalités de l’[analyseur de requêtes Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) pour des formes de requêtes spécialisées : caractère générique, recherche approximative, recherche de proximité et expressions régulières en sont quelques exemples. La plus grande partie de la syntaxe de l’analyseur de requêtes Lucene est [implémentée telle quelle dans Recherche Azure](search-lucene-query-architecture.md), à l’exception des *recherches de plage*, qui sont construites dans Recherche Azure via des expressions `$filter`. 
@@ -85,7 +85,7 @@ L’exemple ci-dessus concerne le tilde (~), mais le même principe s’applique
 
  Vérifiez que tous les caractères dangereux et réservés dans une URL sont encodés. Par exemple, « # » est un caractère dangereux, car c’est un identificateur de fragment/ancre dans une URL. Le caractère doit être encodé en `%23` s’il est utilisé dans une URL. « & » et « = » sont des exemples de caractères réservés, car ils délimitent les paramètres et spécifient des valeurs dans Recherche Azure. Pour plus d’informations, consultez [RFC1738 : Uniform Resource Locators (URL)](https://www.ietf.org/rfc/rfc1738.txt).
 
- Les caractères dangereux sont ``" ` < > # % { } | \ ^ ~ [ ] ``. Les caractères réservés sont `; / ? : @ = + &`.
+ Les caractères dangereux sont ``" ` < > # % { } | \ ^ ~ [ ]``. Les caractères réservés sont `; / ? : @ = + &`.
 
 ### <a name="precedence-operators-grouping-and-field-grouping"></a>Opérateurs de priorité : regroupement et regroupement de champs  
  Vous pouvez utiliser des parenthèses pour créer des sous-requêtes, en incluant des opérateurs au sein de l’instruction entre parenthèses. Par exemple, `motel+(wifi||luxury)` recherche les documents contenant le terme « motel », et « wifi » ou « luxury » (ou les deux).
@@ -167,6 +167,6 @@ L’exemple suivant permet d’illustrer les différences entre les deux. Suppos
 
 ## <a name="see-also"></a>Voir aussi  
 
-+ [Recherche dans des documents](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
-+ [Syntaxe des expressions OData pour les filtres et le tri](query-odata-filter-orderby-syntax.md)   
++ [Search Documents](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
++ [Syntaxe d’expression OData de filtres et de tri](query-odata-filter-orderby-syntax.md)   
 + [Syntaxe des requêtes simples dans Recherche Azure](query-simple-syntax.md)   

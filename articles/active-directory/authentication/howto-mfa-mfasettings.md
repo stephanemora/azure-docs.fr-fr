@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f622be53297a9d091a62a1239f022bbd4fb71347
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 3f1dbd4b6635d615cc7bed4cf5cc38234ec0c3f1
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311762"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885993"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurer les paramètres d’Azure Multi-Factor Authentication
 
@@ -34,7 +34,7 @@ Certains de ces paramètres s’appliquent à MFA Server, à Azure MFA ou aux de
 | ------- | ----------- |
 | Verrouillage de compte | Verrouille temporairement les comptes dans le service Multi-Factor Authentication si de trop nombreuses tentatives d’authentification sont refusées à la suite. Cette fonctionnalité s’applique seulement aux utilisateurs qui entrent un code PIN pour s’authentifier. (MFA Server) |
 | [Blocage/déblocage des utilisateurs](#block-and-unblock-users) | Utilisé pour empêcher des utilisateurs spécifiques sur MFA Server (local) de recevoir des demandes d’authentification multifacteur. Toutes les tentatives d’authentification des utilisateurs bloqués sont automatiquement refusées. La durée de blocage de ces utilisateurs est de 90 jours à partir du moment où ils sont bloqués. |
-| [Alerte de fraude](#fraud-alert) | Configurez les paramètres liés à la possibilité pour les utilisateurs de signaler des demandes de vérification frauduleuses de MFA Server. |
+| [Alerte de fraude](#fraud-alert) | Configurer les paramètres liés à la capacité des utilisateurs à signaler les demandes de vérification frauduleuse |
 | Notifications | Activez les notifications des événements provenant de MFA Server. |
 | [Jetons OATH](concept-authentication-methods.md#oath-hardware-tokens-public-preview) | Utilisé dans les environnements Azure MFA cloud afin de gérer les jetons OATH pour les utilisateurs. |
 | [Paramètres de l’appel téléphonique](#phone-call-settings) | Configurez les paramètres liés aux appels téléphoniques et aux messages d’accueil pour les environnements cloud et locaux. |
@@ -57,7 +57,7 @@ Les rapports disponibles ici sont spécifiques à MFA Server (local). Pour les r
 
 ## <a name="block-and-unblock-users"></a>Bloquer et débloquer des utilisateurs
 
-Utilisez la fonctionnalité de _blocage/déblocage_ pour empêcher les utilisateurs de recevoir des requêtes d’authentification. Toutes les tentatives d’authentification des utilisateurs bloqués sont automatiquement refusées. La durée de blocage de ces utilisateurs est de 90 jours à partir du moment où ils sont bloqués. Cette fonctionnalité est spécifique à MFA Server (local).
+Utilisez la fonctionnalité de _blocage/déblocage_ pour empêcher les utilisateurs de recevoir des requêtes d’authentification. Toutes les tentatives d’authentification des utilisateurs bloqués sont automatiquement refusées. La durée de blocage de ces utilisateurs est de 90 jours à partir du moment où ils sont bloqués.
 
 ### <a name="block-a-user"></a>Bloquer un utilisateur
 
@@ -77,7 +77,7 @@ Utilisez la fonctionnalité de _blocage/déblocage_ pour empêcher les utilisate
 
 ## <a name="fraud-alert"></a>Alerte de fraude
 
-Configurez la fonctionnalité d’_alerte de fraude_ pour que vos utilisateurs puissent signaler les tentatives frauduleuses d’accès à leurs ressources. Les utilisateurs peuvent signaler une tentative de fraude avec l’application mobile ou leur téléphone. Cette fonctionnalité est spécifique à MFA Server (local).
+Configurez la fonctionnalité d’_alerte de fraude_ pour que vos utilisateurs puissent signaler les tentatives frauduleuses d’accès à leurs ressources. Les utilisateurs peuvent signaler une tentative de fraude avec l’application mobile ou leur téléphone.
 
 ### <a name="turn-on-fraud-alerts"></a>Activer les alertes de fraude
 
@@ -372,7 +372,7 @@ La fonctionnalité réduit le nombre d’authentifications sur les applications 
 >[!IMPORTANT]
 >La fonctionnalité **Mémoriser Multi-Factor Authentication** n’est pas compatible avec la fonctionnalité **Maintenir la connexion** d’AD FS, lorsque les utilisateurs effectuent la vérification en deux étapes pour AD FS via le serveur Microsoft Azure Multi-Factor Authentication ou une solution d’authentification multifacteur tierce.
 >
->Si votre utilisateur sélectionne **Maintenir la connexion** dans AD FS et désigne son appareil comme approuvé pour Multi-Factor Authentication, il n’est pas vérifié automatiquement à l’issue du délai en jours spécifiés dans **Mémoriser Multi-Factor Authentication**. Azure AD demande une nouvelle vérification en deux étapes, mais AD FS renvoie un jeton avec la revendication Multi-Factor Authentication et la date associée, au lieu d’effectuer de nouveau la vérification en deux étapes. **Cette réaction déclenche une boucle de vérification entre Azure AD et AD FS**.
+>Si votre utilisateur sélectionne **Maintenir la connexion** dans AD FS et désigne son appareil comme approuvé pour Multi-Factor Authentication, il n’est pas vérifié automatiquement à l’issue du délai en jours spécifiés dans **Mémoriser Multi-Factor Authentication**. Azure AD demande une nouvelle vérification en deux étapes, mais AD FS renvoie un jeton avec la revendication Multi-Factor Authentication et la date associée, au lieu d’effectuer de nouveau la vérification en deux étapes. **Cette réaction déclenche une boucle de vérification entre Azure AD et AD FS.**
 >
 
 ### <a name="enable-remember-multi-factor-authentication"></a>Activer Mémoriser Multi-Factor Authentication

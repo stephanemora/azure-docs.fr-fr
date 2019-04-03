@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 1c9d5b214d0c79f84372ba679db1cbd4a7ad9858
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: b79f8a44f0fc38dd7e5f9ae7e3ac1fe6e9f6b7b8
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372588"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884174"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Guide pratique pour résoudre les problèmes liés à l’agent Log Analytics pour Linux 
 
@@ -36,7 +36,7 @@ Si aucune de ces étapes ne fonctionne, les canaux de support suivants sont éga
 
  Fichier | path
  ---- | -----
- Fichier journal de l’agent Log Analytics pour Linux | `/var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log `
+ Fichier journal de l’agent Log Analytics pour Linux | `/var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`
  Fichier journal de configuration de l’agent Log Analytics | `/var/opt/microsoft/omsconfig/omsconfig.log`
 
  Nous vous recommandons d’utiliser notre outil collecteur de journaux pour récupérer les journaux importants à des fins de dépannage ou avant de soumettre un problème GitHub. Vous pouvez en savoir plus sur l’outil et son exécution [ici](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/tools/LogCollector/OMS_Linux_Agent_Log_Collector.md).
@@ -380,13 +380,13 @@ Cette erreur indique que l’extension Linux Diagnostic (LAD) est installée à 
 
 **Contexte** : au lieu que l’agent Log Analytics pour Linux opère en tant qu’utilisateur privilégié - `root`, l’agent opère en tant qu’utilisateur `omsagent`. Dans la plupart des cas, une autorisation explicite doit être accordée à cet utilisateur pour la lecture de certains fichiers. Pour accorder l’autorisation à l’utilisateur `omsagent`, exécutez les commandes suivantes :
 
-1. Ajoutez l’utilisateur `omsagent` à un groupe spécifique : `sudo usermod -a -G <GROUPNAME> <USERNAME>`
-2. Accordez l’accès en lecture universel au fichier requis : `sudo chmod -R ugo+rx <FILE DIRECTORY>`
+1. Ajouter la `omsagent` utilisateur à un groupe spécifique `sudo usermod -a -G <GROUPNAME> <USERNAME>`
+2. Accorder l’accès en lecture universel au fichier requis `sudo chmod -R ugo+rx <FILE DIRECTORY>`
 
 Il existe un problème connu lié à une condition de concurrence affectant les versions de l’agent Log Analytics pour Linux antérieures à 1.1.0-217. Après mise à jour vers le dernier agent, exécutez la commande suivante pour obtenir la dernière version du plug-in de sortie : `sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.conf /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`.
 
 ## <a name="issue-you-are-trying-to-reonboard-to-a-new-workspace"></a>Problème : vous tentez d’effectuer une réintégration dans un nouvel espace de travail
-Quand vous tentez de réintégrer un agent dans un espace de travail, la configuration de l’agent Log Analytics doit être nettoyée avant la réintégration. Pour nettoyer l’ancienne configuration de l’agent, exécutez le bundle de l’interpréteur de commandes avec `--purge`
+Quand vous tentez de réintégrer un agent dans un espace de travail, la configuration de l’agent Log Analytics doit être nettoyée avant la réintégration. Pour nettoyer l’ancienne configuration de l’agent, exécutez l’application shell avec `--purge`
 
 ```
 sudo sh ./omsagent-*.universal.x64.sh --purge

@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/22/2018
-ms.openlocfilehash: 066c8bc3edfc2bf36b4d96f787d6db6f16daec9b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c817f017c7394943864e7f20a130c90d3f8485d9
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57856822"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885976"
 ---
 # <a name="trigger-and-action-types-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Référence des types d’actions et de déclencheurs pour le langage de définition de workflow dans Azure Logic Apps
 
@@ -78,8 +78,8 @@ Chaque type de déclencheur a une interface et des entrées différentes qui dé
 |--------------|-------------| 
 | [**HTTP**](#http-trigger) | Vérifie ou *interroge* n’importe quel point de terminaison. Ce point de terminaison doit être conforme à un contrat de déclencheur spécifique, soit en utilisant un modèle asynchrone « 202 », soit en retournant un tableau. | 
 | [**HTTPWebhook**](#http-webhook-trigger) | Crée un point de terminaison pouvant être appelé pour votre application logique, mais appelle l’URL spécifiée pour inscrire ou désinscrire. |
-| [**Recurrence**](#recurrence-trigger) | Se déclenche selon une planification définie. Vous pouvez définir une date et une heure ultérieures pour déclencher ce déclencheur. En fonction de la fréquence, vous pouvez également spécifier des heures et des jours d’exécution de votre workflow. | 
-| [**Request**](#request-trigger)  | Crée un point de terminaison pouvant être appelé pour votre application logique (également appelé déclencheur « manuel »). Par exemple, consultez [Appeler, déclencher ou imbriquer des workflows via des points de terminaison HTTP](../logic-apps/logic-apps-http-endpoint.md). | 
+| [**Périodicité**](#recurrence-trigger) | Se déclenche selon une planification définie. Vous pouvez définir une date et une heure ultérieures pour déclencher ce déclencheur. En fonction de la fréquence, vous pouvez également spécifier des heures et des jours d’exécution de votre workflow. | 
+| [**Requête**](#request-trigger)  | Crée un point de terminaison pouvant être appelé pour votre application logique (également appelé déclencheur « manuel »). Par exemple, consultez [Appeler, déclencher ou imbriquer des workflows via des points de terminaison HTTP](../logic-apps/logic-apps-http-endpoint.md). | 
 ||| 
 
 ### <a name="managed-api-triggers"></a>Déclencheurs d’API managées
@@ -151,7 +151,7 @@ Ce déclencheur vérifie ou *interroge* un point de terminaison à l’aide d’
 | <*operation-option*> | Chaîne | Vous pouvez modifier le comportement par défaut en définissant la propriété `operationOptions`. Pour plus d’informations, consultez [Options d’opérations](#operation-options). |
 ||||
 
-*Sorties*
+*Outputs*
  
 | Élément | Type | Description |
 |---------|------|-------------|
@@ -160,7 +160,7 @@ Ce déclencheur vérifie ou *interroge* un point de terminaison à l’aide d’
 | Code d’état | Entier  | Code d’état de la réponse |
 |||| 
 
-*Exemple*
+*Exemples*
 
 Cette définition de déclencheur vérifie tous les jours les e-mails dans la boîte de réception d’un compte Office 365 Outlook : 
 
@@ -241,7 +241,7 @@ Ce déclencheur envoie une demande d’abonnement à un point de terminaison à 
 | <*operation-option*> | Chaîne | Vous pouvez modifier le comportement par défaut en définissant la propriété `operationOptions`. Pour plus d’informations, consultez [Options d’opérations](#operation-options). | 
 |||| 
 
-*Exemple*
+*Exemples*
 
 Cette définition de déclencheur s’abonne à l’API Office 365 Outlook, fournit une URL de rappel au point de terminaison d’API, et attend que le point de terminaison réponde quand un nouvel e-mail arrive.
 
@@ -324,7 +324,7 @@ Ce déclencheur vérifie ou interroge le point de terminaison spécifié d’apr
 | <*operation-option*> | Chaîne | Vous pouvez modifier le comportement par défaut en définissant la propriété `operationOptions`. Pour plus d’informations, consultez [Options d’opérations](#operation-options). | 
 |||| 
 
-*Sorties*
+*Outputs*
 
 | Élément | Type | Description |
 |---------|------|-------------| 
@@ -333,7 +333,7 @@ Ce déclencheur vérifie ou interroge le point de terminaison spécifié d’apr
 | Code d’état | Entier  | Code d’état de la réponse | 
 |||| 
 
-*Conditions requises pour les requêtes entrantes*
+*Configuration requise pour les demandes entrantes*
 
 Pour fonctionner correctement avec votre application logique, le point de terminaison doit être conforme à un modèle ou contrat de déclencheur spécifique, et reconnaître ces propriétés :  
   
@@ -419,7 +419,7 @@ Certaines valeurs, telles que <*-method-type*>, sont disponibles pour les objets
 | <*operation-option*> | Chaîne | Vous pouvez modifier le comportement par défaut en définissant la propriété `operationOptions`. Pour plus d’informations, consultez [Options d’opérations](#operation-options). | 
 |||| 
 
-*Sorties* 
+*Outputs* 
 
 | Élément | Type | Description |
 |---------|------|-------------| 
@@ -428,7 +428,7 @@ Certaines valeurs, telles que <*-method-type*>, sont disponibles pour les objets
 | Code d’état | Entier  | Code d’état de la réponse | 
 |||| 
 
-*Exemple*
+*Exemples*
 
 Ce déclencheur crée un abonnement au point de terminaison spécifié, fournit une URL de rappel unique, et attend des articles sur la technologie venant d’être publiés.
 
@@ -503,7 +503,7 @@ Ce déclencheur s’active en fonction de la planification de périodicité que 
 
 | Valeur | Type | Description | 
 |-------|------|-------------| 
-| <*start-date-time-with-format-YYYY-MM-DDThh:mm:ss*> | Chaîne | Date et heure de début au format suivant : <p>AAAA-MM-JJThh:mm:ss si vous spécifiez un fuseau horaire <p>-ou- <p>AAAA-MM-JJThh:mm:ssZ si vous ne spécifiez pas de fuseau horaire <p>Par exemple, si vous choisissez le 18 septembre 2017 à 14h, spécifiez « 2017-09-18T14:00:00 » et spécifiez un fuseau horaire tel que « Pacific Standard Time » (Heure standard du Pacifique), ou spécifiez « 2017-09-18T14:00:00Z » sans fuseau horaire. <p>**Remarque :** Cette heure de début doit être conforme à la [spécification date/heure ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) au [format date/heure UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mais sans [décalage UTC](https://en.wikipedia.org/wiki/UTC_offset). Si vous ne spécifiez pas de fuseau horaire, vous devez ajouter la lettre « Z » à la fin, sans espace. Ce « Z » fait référence au [temps nautique](https://en.wikipedia.org/wiki/Nautical_time) équivalent. <p>Pour les planifications simples, l’heure de début est la première occurrence, tandis que pour les planifications complexes, le déclencheur ne se déclenche pas avant l’heure de début. Pour plus d’informations sur les dates et heures de début, consultez [Create and schedule regularly running tasks](../connectors/connectors-native-recurrence.md) (Créer et planifier des tâches à exécution régulière). | 
+| <*start-date-time-with-format-YYYY-MM-DDThh:mm:ss*> | Chaîne | Date et heure de début au format suivant : <p>AAAA-MM-JJThh:mm:ss si vous spécifiez un fuseau horaire <p>-ou- <p>AAAA-MM-JJThh:mm:ssZ si vous ne spécifiez pas de fuseau horaire <p>Par exemple, si vous choisissez le 18 septembre 2017 à 14h, spécifiez « 2017-09-18T14:00:00 » et spécifiez un fuseau horaire tel que « Pacific Standard Time » (Heure standard du Pacifique), ou spécifiez « 2017-09-18T14:00:00Z » sans fuseau horaire. <p>**Remarque :** Cette heure de début doit être conforme à la [spécification date/heure ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) au [format date/heure UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mais sans [décalage UTC](https://en.wikipedia.org/wiki/UTC_offset). Si vous ne spécifiez pas de fuseau horaire, vous devez ajouter la lettre « Z » à la fin, sans espace. Ce « Z » fait référence au [temps nautique](https://en.wikipedia.org/wiki/Nautical_time) équivalent. <p>Pour les planifications simples, l’heure de début est la première occurrence, tandis que pour les planifications complexes, le déclencheur ne s’active pas avant l’heure de début. Pour plus d’informations sur les dates et heures de début, consultez [Create and schedule regularly running tasks](../connectors/connectors-native-recurrence.md) (Créer et planifier des tâches à exécution régulière). | 
 | <*time-zone*> | Chaîne | S’applique uniquement quand vous spécifiez une heure de début, car ce déclencheur n’accepte pas le [décalage UTC](https://en.wikipedia.org/wiki/UTC_offset). Spécifiez le fuseau horaire à appliquer. | 
 | <*one-or-more-hour-marks*> | Entier ou tableau d’entiers | Si vous spécifiez « Jour » ou « Semaine » pour `frequency`, vous pouvez spécifier un ou plusieurs entiers compris entre 0 et 23, séparés par des virgules, pour les heures de la journée durant lesquelles exécuter le workflow. <p>Par exemple, si vous spécifiez « 10 », « 12 » et « 14 », vous obtenez 10h00, 12h00 et 14h00 comme marques horaires. | 
 | <*one-or-more-minute-marks*> | Entier ou tableau d’entiers | Si vous spécifiez « Jour » ou « Semaine » pour `frequency`, vous pouvez spécifier un ou plusieurs entiers compris entre 0 et 59, séparés par des virgules, pour les minutes de l’heure durant lesquelles exécuter le workflow. <p>Par exemple, vous pouvez spécifier « 30 » pour les minutes et à l’aide de l’exemple précédent des heures de la journée, vous obtenez 10h30, 12h30 et 14h30. | 
@@ -513,7 +513,7 @@ Ce déclencheur s’active en fonction de la planification de périodicité que 
 | <*operation-option*> | Chaîne | Vous pouvez modifier le comportement par défaut en définissant la propriété `operationOptions`. Pour plus d’informations, consultez [Options d’opérations](#operation-options). | 
 |||| 
 
-*Exemple 1*
+*Exemple 1*
 
 Ce déclencheur de périodicité de base s’active tous les jours :
 
@@ -527,7 +527,7 @@ Ce déclencheur de périodicité de base s’active tous les jours :
 }
 ```
 
-*Exemple 2*
+*Exemple 2*
 
 Vous pouvez définir une date et une heure de début pour activer le déclencheur. Ce déclencheur de périodicité démarre à la date spécifiée, puis s’active tous les jours :
 
@@ -542,7 +542,7 @@ Vous pouvez définir une date et une heure de début pour activer le déclencheu
 }
 ```
 
-*Exemple 3*
+*Exemple 3*
 
 Ce déclencheur de périodicité commence le 9 septembre 2017 à 14h00, et il s’active tous les lundis à 10h30, 12h30 et 14h30 Heure standard du Pacifique :
 
@@ -620,7 +620,7 @@ Pour appeler ce déclencheur, vous devez utiliser l’API `listCallbackUrl`, qui
 | <*operation-option*> | Chaîne | Vous pouvez modifier le comportement par défaut en définissant la propriété `operationOptions`. Pour plus d’informations, consultez [Options d’opérations](#operation-options). | 
 |||| 
 
-*Exemple*
+*Exemples*
 
 Ce déclencheur spécifie qu’une requête entrante doit utiliser la méthode HTTP POST pour appeler le déclencheur, et inclut un schéma qui valide l’entrée de la requête entrante : 
 
@@ -690,7 +690,7 @@ Pour connaître le nombre maximal d’éléments de tableau que **SplitOn** peut
 
 Si le fichier Swagger de votre déclencheur décrit une charge utile sous forme de tableau, la propriété **SplitOn** est automatiquement ajoutée à votre déclencheur. Sinon, ajoutez cette propriété à l’intérieur de la charge utile de la réponse qui contient le tableau à décomposer. 
 
-*Exemple*
+*Exemples*
 
 Supposez que vous avez une API qui retourne la réponse suivante : 
   
@@ -820,15 +820,15 @@ Voici quelques types d’actions couramment utilisés :
 | Type d’action | Description | 
 |-------------|-------------| 
 | [**Composer**](#compose-action) | Crée une sortie unique à partir des entrées, qui peuvent avoir différents types. | 
-| [**Function**](#function-action) | Appelle une fonction Azure. | 
+| [**Fonction**](#function-action) | Appelle une fonction Azure. | 
 | [**HTTP**](#http-action) | Appelle un point de terminaison HTTP. | 
 | [**Join**](#join-action) | Crée une chaîne à partir de tous les éléments d’un tableau, et sépare ces éléments avec un caractère délimiteur spécifié. | 
-| [**Parse JSON**](#parse-json-action) | Crée des jetons conviviaux à partir de propriétés dans du contenu JSON. Vous pouvez ensuite référencer ces propriétés en incluant les jetons dans votre application logique. | 
-| [**Query**](#query-action) | Crée un tableau à partir des éléments d’un autre tableau en fonction d’une condition ou d’un filtre. | 
-| [**Response**](#response-action) | Crée une réponse à une requête ou un appel entrant. | 
-| [**Select**](#select-action) | Crée un tableau avec des objets JSON en transformant les éléments d’un autre tableau en fonction de la carte spécifiée. | 
+| [**Analyse JSON**](#parse-json-action) | Crée des jetons conviviaux à partir de propriétés dans du contenu JSON. Vous pouvez ensuite référencer ces propriétés en incluant les jetons dans votre application logique. | 
+| [**Requête**](#query-action) | Crée un tableau à partir des éléments d’un autre tableau en fonction d’une condition ou d’un filtre. | 
+| [**response**](#response-action) | Crée une réponse à une requête ou un appel entrant. | 
+| [**Sélectionnez**](#select-action) | Crée un tableau avec des objets JSON en transformant les éléments d’un autre tableau en fonction de la carte spécifiée. | 
 | [**Table**](#table-action) | Crée une table CSV ou HTML à partir d’un tableau. | 
-| [**Terminate**](#terminate-action) | Arrête un workflow en cours d’exécution. | 
+| [**Terminer**](#terminate-action) | Arrête un workflow en cours d’exécution. | 
 | [**Wait**](#wait-action) | Interrompt votre workflow pour une durée spécifiée ou jusqu’à la date et l’heure spécifiées. | 
 | [**Workflow**](#workflow-action) | Imbrique un workflow à l’intérieur d’un autre workflow. | 
 ||| 
@@ -852,10 +852,10 @@ Ces actions vous permettent de contrôler l’exécution du workflow et d’incl
 | Type d’action | Description | 
 |-------------|-------------| 
 | [**ForEach**](#foreach-action) | Exécuter les mêmes actions dans une boucle pour chaque élément d’un tableau. | 
-| [**If**](#if-action) | Exécuter des actions selon que la condition spécifiée est true ou false. | 
-| [**Scope**](#scope-action) | Exécuter des actions en fonction de l’état de groupe d’un ensemble d’actions. | 
+| [**Si**](#if-action) | Exécuter des actions selon que la condition spécifiée est true ou false. | 
+| [**Étendue**](#scope-action) | Exécuter des actions en fonction de l’état de groupe d’un ensemble d’actions. | 
 | [**Switch**](#switch-action) | Exécuter des actions organisées en cas quand les valeurs d’expressions, d’objets ou de jetons correspondent aux valeurs spécifiées par chaque cas. | 
-| [**Until**](#until-action) | Exécuter des actions dans une boucle jusqu’à ce que la condition spécifiée ait la valeur true. | 
+| [**Jusqu'à**](#until-action) | Exécuter des actions dans une boucle jusqu’à ce que la condition spécifiée ait la valeur true. | 
 |||  
 
 ## <a name="actions---detailed-reference"></a>Actions - Référence détaillée
@@ -906,7 +906,7 @@ Cette action envoie une requête HTTP à une [API managée par Microsoft](../con
 | <*other-action-specific-properties*> | Objet JSON | Toutes autres propriétés qui s’appliquent à cette action spécifique | 
 |||| 
 
-*Exemple*
+*Exemples*
 
 Cette définition décrit l’action **Envoyer un e-mail** pour le connecteur Office 365 Outlook, qui est une API managée par Microsoft : 
 
@@ -1013,9 +1013,11 @@ Vous pouvez ensuite utiliser la sortie de l’action dans d’autres actions.
 | <*inputs-to-compose*> | Quelconque | Entrées pour la création d’une sortie unique | 
 |||| 
 
-*Exemple 1*
+*Exemple 1*
 
+<!-- markdownlint-disable MD038 -->
 Cette définition d’action fusionne `abcdefg ` avec un espace de fin et la valeur `1234` :
+<!-- markdownlint-enable MD038 -->
 
 ```json
 "Compose": {
@@ -1029,7 +1031,7 @@ Voici la sortie créée par cette action :
 
 `abcdefg 1234`
 
-*Exemple 2*
+*Exemple 2*
 
 Cette définition d’action fusionne une variable de chaîne qui contient `abcdefg` et une variable de type entier qui contient `1234` :
 
@@ -1098,7 +1100,7 @@ Quand vous enregistrez votre application logique, le moteur Logic Apps effectue 
 
 * Seuls les niveaux d’autorisation « fonction » et « anonyme » sont autorisés. 
 
-*Exemple*
+*Exemples*
 
 Cette définition d’action appelle la fonction « GetProductID » créée précédemment :
 
@@ -1158,7 +1160,7 @@ Cette action envoie une requête au point de terminaison spécifique et vérifie
 | <*other-action-specific-properties*> | Objet JSON | Toutes autres propriétés qui s’appliquent à cette action spécifique | 
 |||| 
 
-*Exemple*
+*Exemples*
 
 Cette définition d’action obtient les informations les plus récentes en envoyant une requête au point de terminaison spécifié :
 
@@ -1197,13 +1199,13 @@ Cette action crée une chaîne à partir de tous les éléments d’un tableau, 
 | <*delimiter*> | Chaîne d’un seul caractère | Caractère qui sépare chaque élément dans la chaîne | 
 |||| 
 
-*Exemple*
+*Exemples*
 
 Supposez que vous avez créé une variable « myIntegerArray » qui contient ce tableau d’entiers : 
 
 `[1,2,3,4]` 
 
-Cette définition d’action obtient les valeurs de la variable en utilisant la fonction `variables()` dans une expression, et elle crée cette chaîne avec ces valeurs, séparées par une virgule : `"1,2,3,4"`
+Cette définition de l’action Obtient les valeurs de la variable en utilisant le `variables()` la fonction dans une expression et crée cette chaîne avec ces valeurs, séparées par une virgule : `"1,2,3,4"`
 
 ```json
 "Join": {
@@ -1218,7 +1220,7 @@ Cette définition d’action obtient les valeurs de la variable en utilisant la 
 
 <a name="parse-json-action"></a>
 
-### <a name="parse-json-action"></a>Action Parse JSON
+### <a name="parse-json-action"></a>Action d’analyse de JSON
 
 Cette action crée des *jetons* ou champs conviviaux à partir des propriétés dans le contenu JSON. Vous pouvez ensuite accéder à ces propriétés dans votre application logique en utilisant les jetons à la place. Par exemple, quand vous souhaitez utiliser la sortie JSON de services tels qu’Azure Service Bus et Azure Cosmos DB, vous pouvez inclure cette action dans votre application logique afin de pouvoir référencer plus facilement les données dans cette sortie. 
 
@@ -1241,11 +1243,11 @@ Cette action crée des *jetons* ou champs conviviaux à partir des propriétés 
 | <*JSON-schema*> | Objet JSON | Schéma JSON qui décrit le contenu JSON sous-jacent, utilisé par l’action pour analyser le contenu JSON source. <p>**Conseil** : Dans le Concepteur d’applications logiques, vous pouvez fournir le schéma ou fournir un exemple de charge utile afin que l’action puisse générer le schéma. | 
 |||| 
 
-*Exemple*
+*Exemples*
 
 Cette définition d’action crée les jetons que vous pouvez utiliser dans votre workflow d’application logique, mais uniquement dans les actions qui s’exécutent après l’action **Parse JSON** : 
 
-`FirstName`, `LastName` et `Email`
+`FirstName`, `LastName`, et `Email`
 
 ```json
 "Parse_JSON": {
@@ -1343,7 +1345,7 @@ Cette action crée un tableau à partir des éléments d’un autre tableau en f
 | <*condition-or-filter*> | Chaîne | Condition utilisée pour le filtrage des éléments dans le tableau source <p>**Remarque**: Si aucune valeur ne remplit la condition, l’action crée un tableau vide. |
 |||| 
 
-*Exemple*
+*Exemples*
 
 Cette définition d’action crée un tableau qui contient des valeurs supérieures à la valeur spécifiée (deux) :
 
@@ -1391,7 +1393,7 @@ Cette action crée la charge utile pour la réponse à une requête HTTP.
 | <*response-body*> | Divers | Corps de réponse, qui peut être une chaîne, un objet JSON ou même du contenu binaire d’une action précédente | 
 |||| 
 
-*Exemple*
+*Exemples*
 
 Cette définition d’action crée une réponse à une requête HTTP avec le code d’état, le corps du message et les en-têtes de message spécifiés :
 
@@ -1462,7 +1464,7 @@ Cette action crée un tableau avec des objets JSON en transformant les élément
 
 L’action **Select** crée un tableau en tant que sortie. Par conséquent, toute action qui souhaite utiliser cette sortie doit accepter un tableau, ou vous devez convertir le tableau vers le type acceptée par l’action consommatrice. Par exemple, pour convertir le tableau de sortie en une chaîne, vous pouvez passer ce tableau à l’action **Compose**, puis référencer la sortie de l’action **Compose** dans vos autres actions.
 
-*Exemple*
+*Exemples*
 
 Cette définition d’action crée un tableau d’objets JSON à partir d’un tableau d’entiers. L’action itère au sein du tableau source, obtient chaque valeur entière à l’aide de l’expression `@item()`, et assigne chaque valeur à la propriété « `number` » dans chaque objet JSON : 
 
@@ -1567,7 +1569,7 @@ Pour spécifier ou personnaliser des en-têtes de colonne et des valeurs, utilis
 | <*column-value*> | Quelconque | Valeur de la colonne | 
 |||| 
 
-*Exemple 1*
+*Exemple 1*
 
 Supposez que vous avez créé une variable « myItemArray » qui contenant actuellement ce tableau : 
 
@@ -1594,7 +1596,7 @@ ID,Product_Name
 1,Oranges 
 ```
 
-*Exemple 2*
+*Exemple 2*
 
 Cette définition d’action crée une table HTML à partir de la variable « myItemArray ». L’expression utilisée par la propriété `from` obtient le tableau à partir de « myItemArray » à l’aide de la fonction `variables()` : 
 
@@ -1613,7 +1615,7 @@ Voici la table HTML créée par cette action :
 
 <table><thead><tr><th>ID</th><th>Product_Name</th></tr></thead><tbody><tr><td>0</td><td>Pommes</td></tr><tr><td>1</td><td>Oranges</td></tr></tbody></table>
 
-*Exemple 3*
+*Exemple 3*
 
 Cette définition d’action crée une table HTML à partir de la variable « myItemArray ». Toutefois, cet exemple remplace les noms d’en-têtes de colonnes par défaut par « Stock_ID » et « Description », et ajoute le mot « Organic » aux valeurs dans la colonne « Description ».
 
@@ -1679,7 +1681,7 @@ Les propriétés de l’objet « runStatus » s’appliquent uniquement quand 
 | <*error-message*> | Chaîne | Message ou texte qui décrit l’erreur et les actions que peut effectuer l’utilisateur de l’application | 
 |||| 
 
-*Exemple*
+*Exemples*
 
 Cette définition d’action arrête l’exécution d’un workflow, affecte la valeur « Failed » à l’état d’exécution, et retourne l’état, un code d’erreur et un message d’erreur :
 
@@ -1741,7 +1743,7 @@ Cette action interrompt l’exécution du workflow pendant l’intervalle spéci
 | <*date-time-stamp*> | Chaîne | Pour l’action **Delay**, il s’agit de la date et de l’heure de reprise de l’exécution. Cette valeur doit utiliser le [format date/heure UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time). | 
 |||| 
 
-*Exemple 1*
+*Exemple 1*
 
 Cette définition d’action suspend le workflow pendant 15 minutes :
 
@@ -1758,7 +1760,7 @@ Cette définition d’action suspend le workflow pendant 15 minutes :
 },
 ```
 
-*Exemple 2*
+*Exemple 2*
 
 Cette définition d’action suspend le workflow jusqu’à l’heure spécifiée :
 
@@ -1824,11 +1826,11 @@ Le moteur Logic Apps vérifie l’accès au déclencheur que vous souhaitez appe
 | <*body-content*> | Objet JSON | Tout contenu de message à envoyer avec l’appel | 
 ||||
 
-*Sorties*
+*Outputs*
 
 Les sorties de cette action dépendent de l’action Response de l’application logique imbriquée. Si celle-ci n’inclut pas d’action Response, les sorties sont vides.
 
-*Exemple*
+*Exemples*
 
 Une fois que l’action « Start_search » se termine correctement, cette définition d’action de workflow appelle une autre application logique nommée « Get_product_information », qui transmet les entrées spécifiées : 
 
@@ -1899,7 +1901,7 @@ Cette action de bouclage effectue une itération au sein d’un tableau et exéc
 | <*operation-option*> | Chaîne | Pour exécuter une boucle « for each » séquentiellement plutôt qu’en parallèle, affectez la valeur `Sequential` à <*operation-option*> ou la valeur `1` à <*count*>, mais pas les deux. Pour plus d’informations, consultez [Exécuter des boucles « for each » séquentiellement](#sequential-for-each). | 
 |||| 
 
-*Exemple*
+*Exemples*
 
 Cette boucle « for each » envoie un e-mail pour chaque élément du tableau qui contient des pièces jointes à un e-mail entrant. La boucle envoie un e-mail, pièce jointe comprise, à une personne qui passe en revue la pièce jointe.
 
@@ -1971,7 +1973,7 @@ Les actions dans les objets `actions` ou `else` reçoivent ces états :
 * Échec, lorsqu’elles sont exécutées et qu’elles échouent
 * Ignoré, lorsque la branche respective ne s’exécute pas
 
-*Exemple*
+*Exemples*
 
 Cette condition spécifie que quand la variable entière a une valeur supérieure à zéro, le workflow vérifie un site web. Si la variable est égale à zéro ou moins, le workflow vérifie un autre site web.
 
@@ -2104,7 +2106,7 @@ Cette action, également appelée *instruction switch*, organise d’autres acti
 | <*default-action-definition*> | Objet JSON | Définition de l’action à exécuter quand il n’existe aucun cas correspondant | 
 |||| 
 
-*Exemple*
+*Exemples*
 
 Cette définition d’action évalue si la personne qui répond à l’e-mail de demande d’approbation a sélectionné l’option « Approuver » ou « Rejeter ». En fonction de ce choix, l’action **Switch** exécute les actions pour le cas correspondant, qui consistent à envoyer un autre e-mail au répondant, mais avec un libellé différent dans chaque cas. 
 
@@ -2224,7 +2226,7 @@ Cette action de boucle contient des actions qui s’exécutent jusqu’à ce que
 | <*loop-timeout*> | Chaîne | Durée d’exécution maximale de la boucle. La valeur par défaut de `timeout` est `PT1H`, qui est le [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) requis. |
 |||| 
 
-*Exemple*
+*Exemples*
 
 Cette définition d’action de boucle envoie une requête HTTP à l’URL spécifiée jusqu’à ce que l’une des conditions suivantes soit remplie : 
 
@@ -2297,7 +2299,7 @@ Vous pouvez changer le comportement d’exécution par défaut pour les déclenc
 |----------|------|-------------|-------------------| 
 | `runtimeConfiguration.concurrency.runs` | Entier  | Modifiez la [*limite par défaut*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) du nombre d’instances d’application logique qui peuvent s’exécuter en même temps ou en parallèle. Cette valeur peut aider à limiter le nombre de requêtes reçues par les systèmes backend. <p>L’affectation de la valeur `1` à la propriété `runs` fonctionne de la même façon que l’affectation de la valeur `SingleInstance` à la propriété `operationOptions`. Vous pouvez définir l’une ou l’autre propriété, mais pas les deux. <p>Pour modifier la limite par défaut, consultez [Changer la concurrence du déclencheur](#change-trigger-concurrency) ou [Déclencher des instances séquentiellement](#sequential-trigger). | Tous les déclencheurs | 
 | `runtimeConfiguration.concurrency.maximumWaitingRuns` | Entier  | Modifier la [*limite par défaut*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) du nombre d’instances d’application logique qui peuvent attendre de s’exécuter quand votre application logique exécute déjà le nombre maximal d’instances simultanées. Vous pouvez modifier la limite de concurrence dans la propriété `concurrency.runs`. <p>Pour changer la limite par défaut, consultez [Changer la limite d’exécutions en attente](#change-waiting-runs). | Tous les déclencheurs | 
-| `runtimeConfiguration.concurrency.repetitions` | Entier  | Modifier la [*limite par défaut*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) du nombre d’itérations de boucles « for each » qui peuvent s’exécuter en même temps ou en parallèle. <p>L’affectation de la valeur `1` à la propriété `repetitions` fonctionne de la même façon que l’affectation de la valeur `SingleInstance` à la propriété `operationOptions`. Vous pouvez définir l’une ou l’autre propriété, mais pas les deux. <p>Pour changer la limite par défaut, consultez [Changer la concurrence « for each »](#change-for-each-concurrency) ou [Exécuter des boucles « for each » séquentiellement](#sequential-for-each). | Action : <p>[Foreach](#foreach-action) | 
+| `runtimeConfiguration.concurrency.repetitions` | Entier  | Modifier la [*limite par défaut*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) du nombre d’itérations de boucles « for each » qui peuvent s’exécuter en même temps ou en parallèle. <p>L’affectation de la valeur `1` à la propriété `repetitions` fonctionne de la même façon que l’affectation de la valeur `SingleInstance` à la propriété `operationOptions`. Vous pouvez définir l’une ou l’autre propriété, mais pas les deux. <p>Pour changer la limite par défaut, consultez [Changer la concurrence « for each »](#change-for-each-concurrency) ou [Exécuter des boucles « for each » séquentiellement](#sequential-for-each). | Action : <p>[foreach](#foreach-action) | 
 ||||| 
 
 <a name="operation-options"></a>
@@ -2308,9 +2310,9 @@ Vous pouvez changer le comportement par défaut pour les déclencheurs et les ac
 
 | Option d’opération | Type | Description | Déclencheur ou action | 
 |------------------|------|-------------|-------------------| 
-| `DisableAsyncPattern` | Chaîne | Exécuter des actions basées sur HTTP de manière synchrone plutôt qu’asynchrone. <p><p>Pour définir cette option, consultez [Exécuter des actions de manière synchrone](#asynchronous-patterns). | Actions : <p>[ApiConnection](#apiconnection-action), <br>[HTTP](#http-action), <br>[Réponse](#response-action) | 
+| `DisableAsyncPattern` | Chaîne | Exécuter des actions basées sur HTTP de manière synchrone plutôt qu’asynchrone. <p><p>Pour définir cette option, consultez [Exécuter des actions de manière synchrone](#asynchronous-patterns). | Actions : <p>[ApiConnection](#apiconnection-action), <br>[HTTP](#http-action), <br>[response](#response-action) | 
 | `OptimizedForHighThroughput` | Chaîne | Modifier la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) du nombre d’exécutions d’action par tranche de cinq minutes et affecter la [limite maximale](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). <p><p>Pour définir cette option, consultez [Exécuter en mode de débit élevé](#run-high-throughput-mode). | Toutes les actions | 
-| `Sequential` | Chaîne | Exécutez les itérations de boucle « for each » une à la fois, plutôt que toutes en même temps en parallèle. <p>Cette option fonctionne de la même façon que l’affectation de la valeur `1` à la propriété `runtimeConfiguration.concurrency.repetitions`. Vous pouvez définir l’une ou l’autre propriété, mais pas les deux. <p><p>Pour définir cette option, consultez [Exécuter des boucles « for each » séquentiellement](#sequential-for-each).| Action : <p>[Foreach](#foreach-action) | 
+| `Sequential` | Chaîne | Exécutez les itérations de boucle « for each » une à la fois, plutôt que toutes en même temps en parallèle. <p>Cette option fonctionne de la même façon que l’affectation de la valeur `1` à la propriété `runtimeConfiguration.concurrency.repetitions`. Vous pouvez définir l’une ou l’autre propriété, mais pas les deux. <p><p>Pour définir cette option, consultez [Exécuter des boucles « for each » séquentiellement](#sequential-for-each).| Action : <p>[foreach](#foreach-action) | 
 | `SingleInstance` | Chaîne | Exécuter le déclencheur pour chaque instance d’application logique de manière séquentielle, et attendre que l’exécution active précédente se termine avant de déclencher l’instance d’application logique suivante. <p><p>Cette option fonctionne de la même façon que l’affectation de la valeur `1` à la propriété `runtimeConfiguration.concurrency.runs`. Vous pouvez définir l’une ou l’autre propriété, mais pas les deux. <p>Pour définir cette option, consultez [Déclencher des instances séquentiellement](#sequential-trigger). | Tous les déclencheurs | 
 ||||
 
@@ -2562,14 +2564,14 @@ Pour une exécution d’application logique unique, le nombre d’actions qui s�
 Les points de terminaison HTTP prennent en charge différents types d’authentification. Vous pouvez configurer l’authentification pour ces actions et déclencheurs HTTP :
 
 * [HTTP](../connectors/connectors-native-http.md)
-* [HTTP + Swagger](../connectors/connectors-native-http-swagger.md)
-* [Déclencheur HTTPWebhook](../connectors/connectors-native-webhook.md)
+* [HTTP + Swagger](../connectors/connectors-native-http-swagger.md)
+* [HTTP Webhook](../connectors/connectors-native-webhook.md)
 
 Voici les types d’authentification que vous pouvez configurer :
 
 * [Authentification de base](#basic-authentication)
 * [Authentification par certificat client](#client-certificate-authentication)
-* [Authentification OAuth Azure Active Directory (Azure AD)](#azure-active-directory-oauth-authentication)
+* [Azure Active Directory (Azure AD) l’authentification OAuth](#azure-active-directory-oauth-authentication)
 
 > [!IMPORTANT]
 > Assurez-vous que vous protégez toutes les informations confidentielles que votre définition de flux de travail d’application logique gère. Utilisez des paramètres sécurisés et encodez des données selon les besoins. Pour plus d’informations sur l’utilisation et la sécurisation des paramètres, consultez [Sécuriser votre application logique](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
@@ -2582,9 +2584,9 @@ Pour [l’authentification de base](../active-directory-b2c/active-directory-b2c
 
 | Propriété | Obligatoire | Value | Description | 
 |----------|----------|-------|-------------| 
-| **type** | Oui | "Basic" | Type d’authentification à utiliser, en l’occurrence "Basic" | 
-| **nom d’utilisateur** | Oui | "@parameters('userNameParam')" | Nom d’utilisateur permettant d’authentifier l’accès au point de terminaison de service cible |
-| **mot de passe** | Oui | "@parameters('passwordParam')" | Mot de passe permettant d’authentifier l’accès au point de terminaison de service cible |
+| **Type** | Oui | "Basic" | Type d’authentification à utiliser, en l’occurrence "Basic" | 
+| **username** | Oui | "@parameters('userNameParam')" | Nom d’utilisateur permettant d’authentifier l’accès au point de terminaison de service cible |
+| **password** | Oui | "@parameters('passwordParam')" | Mot de passe permettant d’authentifier l’accès au point de terminaison de service cible |
 ||||| 
 
 Dans cet exemple de définition d’action HTTP, la `authentication` section spécifie `Basic` l’authentification. Pour plus d’informations sur l’utilisation et la sécurisation des paramètres, consultez [Sécuriser votre application logique](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
@@ -2616,9 +2618,9 @@ Pour [l’authentification basée sur un certificat](../active-directory/authent
 
 | Propriété | Obligatoire | Value | Description |
 |----------|----------|-------|-------------|
-| **type** | Oui | "ClientCertificate" | Type d’authentification à utiliser pour les certificats clients SSL (Secure Sockets Layer). Alors que les certificats auto-signés sont pris en charge, des certificats auto-signés pour SSL ne sont pas pris en charge. |
+| **Type** | Oui | "ClientCertificate" | Type d’authentification à utiliser pour les certificats clients SSL (Secure Sockets Layer). Alors que les certificats auto-signés sont pris en charge, des certificats auto-signés pour SSL ne sont pas pris en charge. |
 | **pfx** | Oui | "@parameters('pfxParam') | Contenu encodé en base64 à partir d’un fichier Personal Information Exchange (PFX) |
-| **mot de passe** | Oui | "@parameters('passwordParam')" | Mot de passe pour accéder au fichier PFX |
+| **password** | Oui | "@parameters('passwordParam')" | Mot de passe pour accéder au fichier PFX |
 ||||| 
 
 Dans cet exemple de définition d’action HTTP, la `authentication` section spécifie `ClientCertificate` l’authentification. Pour plus d’informations sur l’utilisation et la sécurisation des paramètres, consultez [Sécuriser votre application logique](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
@@ -2650,14 +2652,14 @@ Pour [l’authentification Azure AD OAuth](../active-directory/develop/authentic
 
 | Propriété | Obligatoire | Value | Description |
 |----------|----------|-------|-------------|
-| **type** | Oui | `ActiveDirectoryOAuth` | Type d’authentification à utiliser, qui est "ActiveDirectoryOAuth" pour Azure AD OAuth |
-| **authority** | Non  | <*URL de l’autorité émettrice du jeton*> | URL de l’autorité qui fournit le jeton d’authentification |
-| **client** | Oui | <*ID de locataire*> | Identificateur du locataire Azure AD |
-| **public ciblé** | Oui | <*ressource à autoriser*> | Ressource à utiliser pour l’autorisation, par exemple, `https://management.core.windows.net/` |
+| **Type** | Oui | `ActiveDirectoryOAuth` | Type d’authentification à utiliser, qui est "ActiveDirectoryOAuth" pour Azure AD OAuth |
+| **Autorité** | Non  | <*URL de l’autorité émettrice du jeton*> | URL de l’autorité qui fournit le jeton d’authentification |
+| **locataire** | Oui | <*ID de locataire*> | Identificateur du locataire Azure AD |
+| **audience** | Oui | <*ressource à autoriser*> | La ressource que vous souhaitez utiliser pour l’autorisation, par exemple, `https://management.core.windows.net/` |
 | **clientId** | Oui | <*ID client*> | ID client pour l’application demandant l’autorisation |
 | **credentialType** | Oui | « Certificat » ou « Secret » | Type d’informations d’identification que le client utilise pour la demande d’autorisation. Ces propriété et valeur n’apparaissent pas dans votre définition sous-jacente, mais elles déterminent les paramètres requis pour le type d’informations d’identification. |
 | **pfx** | Oui, uniquement pour le type d’informations d’identification "Certificate" | "@parameters('pfxParam') | Contenu encodé en base64 à partir d’un fichier Personal Information Exchange (PFX) |
-| **mot de passe** | Oui, uniquement pour le type d’informations d’identification "Certificate" | "@parameters('passwordParam')" | Mot de passe pour accéder au fichier PFX |
+| **password** | Oui, uniquement pour le type d’informations d’identification "Certificate" | "@parameters('passwordParam')" | Mot de passe pour accéder au fichier PFX |
 | **secret** | Oui, uniquement pour le type d’informations d’identification "Secret" | "@parameters('secretParam')" | Clé secrète client permettant de demander une autorisation |
 |||||
 

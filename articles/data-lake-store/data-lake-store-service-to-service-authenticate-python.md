@@ -3,24 +3,24 @@ title: 'Authentification de service à service : Python avec Azure Data Lake St
 description: Découvrez comment procéder à une authentification de service à service auprès d’Azure Data Lake Storage Gen1 en utilisant Azure Active Directory et Python
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 4cad09877a3fc4f586db2d92ce97a64b6efe295e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: twooley
+ms.openlocfilehash: 84b7fac10374c1c8f23d17ad775d522b4cb261e8
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537148"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877752"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-python"></a>Authentification de service à service auprès d’Azure Data Lake Storage Gen1 à l’aide de Python
 > [!div class="op_single_selector"]
-> * [À l’aide de Java](data-lake-store-service-to-service-authenticate-java.md)
+> * [Utilisation de Java](data-lake-store-service-to-service-authenticate-java.md)
 > * [Utilisation du kit de développement logiciel (SDK) .NET](data-lake-store-service-to-service-authenticate-net-sdk.md)
 > * [Utilisation de Python](data-lake-store-service-to-service-authenticate-python.md)
 > * [Utilisation de l'API REST](data-lake-store-service-to-service-authenticate-rest-api.md)
@@ -131,6 +131,6 @@ Use this snippet to authenticate with Azure AD for account management operations
 Dans cet article, vous avez appris à utiliser l’authentification de service à service auprès d’Azure Data Lake Storage Gen1 avec Python. Vous pouvez maintenant consulter les articles suivants, qui expliquent comment utiliser Python pour travailler avec Data Lake Storage Gen1.
 
 * [Opérations de gestion du compte sur Data Lake Storage Gen1 à l’aide de Python](data-lake-store-get-started-python.md)
-* [Opérations sur les données dans Data Lake Storage Gen1 à l’aide de Python](data-lake-store-data-operations-python.md)
+* [Opérations de données sur Data Lake Storage Gen1 à l’aide de Python](data-lake-store-data-operations-python.md)
 
 

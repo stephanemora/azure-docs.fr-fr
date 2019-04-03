@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 04/02/2019
 ms.author: bwren
-ms.openlocfilehash: 7942b4eb5788357a807911d3eb89d1054a92c3eb
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f3ee9b7aa595ae07bb97a8513bc0b751e94d7cc9
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449357"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883936"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Transmettre des données à Azure Monitor avec l’API Collecteur de données HTTP (préversion publique)
 Cet article vous montre comment utiliser l’API Collecte de données HTTP pour transmettre des données à Azure Monitor à partir d’un client API REST.  Il explique comment mettre en forme les données collectées par le script ou l’application, les inclure dans une requête et faire en sorte qu’Azure Monitor autorise cette requête.  Il est illustré par des exemples pour PowerShell, C# et Python.
@@ -166,6 +166,11 @@ Mais, si vous faisiez ensuite l’envoi suivant, Azure Monitor créerait les pro
 Si vous envoyiez ensuite l’entrée suivante, avant que la création du type d’enregistrement, Azure Monitor créerait un enregistrement avec trois propriétés, **number_s**, **boolean_s** **string_s**. Dans cette entrée, toutes les valeurs initiales sont au format de chaîne :
 
 ![Exemple d’enregistrement 4](media/data-collector-api/record-04.png)
+
+## <a name="reserved-properties"></a>Propriétés réservées
+Les propriétés suivantes sont réservées et ne doivent pas être utilisées dans un type d’enregistrement personnalisé. Vous recevrez une erreur si votre charge utile contient l’un de ces noms de propriété.
+
+- locataire
 
 ## <a name="data-limits"></a>Limites de données
 Il existe certaines contraintes sur les données publiées sur l’API de collecte de données d’Azure Monitor.

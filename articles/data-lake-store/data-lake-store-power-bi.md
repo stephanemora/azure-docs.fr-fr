@@ -3,26 +3,26 @@ title: Analyser des données dans Azure Data Lake Storage Gen1 à l’aide de Po
 description: Utilisez Power BI pour analyser des données stockées dans Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: 57d19d27-e135-49d9-a7ea-46c48ef4e3bd
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 5db9d18a31af4d6b407fcd9172ac80fc6f93f085
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
-ms.translationtype: HT
+ms.author: twooley
+ms.openlocfilehash: b873d90dbc33aff27cd2fc3b5099b08eacf929b6
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297177"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880064"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen1-by-using-power-bi"></a>Analyser des données dans Azure Data Lake Storage Gen1 à l’aide de Power BI
 Dans cet article, vous allez apprendre à utiliser Power BI Desktop pour analyser et visualiser les données stockées dans Azure Data Lake Storage Gen1.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -97,5 +97,5 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 Une fois que vous avez créé les visualisations dans Power BI Desktop, vous pouvez les partager avec d’autres utilisateurs en les publiant sur le service Power BI. Pour obtenir des instructions, consultez la page [Publier à partir de Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-upload-desktop-files/).
 
 ## <a name="see-also"></a>Voir aussi
-* [Analyser des données dans Data Lake Storage Gen1 à l’aide de Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Analyser les données dans Data Lake Storage Gen1 à l’aide de Data Lake Analytique](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 

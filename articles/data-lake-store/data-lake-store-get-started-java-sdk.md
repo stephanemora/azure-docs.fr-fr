@@ -3,26 +3,26 @@ title: 'Kit de développement logiciel (SDK) Java : opérations de gestion du s
 description: Utilisez le Kit de développement logiciel (SDK) Java Azure Data Lake Storage Gen1 pour effectuer des opérations de gestion du système de fichiers sur Data Lake Storage Gen1, comme la création de dossiers, etc.
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: d10e09db-5232-4e84-bb50-52efc2c21887
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: e84e84aac3aca0458dea4f30f6b0e222aafd9d44
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: twooley
+ms.openlocfilehash: bc6e0718cdc4ccb18480dc760279da9c177db4cb
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530294"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883545"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-java-sdk"></a>Opérations de gestion du système de fichiers sur Azure Data Lake Storage Gen1 à l’aide du Kit de développement logiciel (SDK) Java
 > [!div class="op_single_selector"]
 > * [Kit de développement logiciel (SDK) .NET](data-lake-store-data-operations-net-sdk.md)
-> * [Kit SDK Java](data-lake-store-get-started-java-sdk.md)
+> * [Kit de développement logiciel (SDK) Java](data-lake-store-get-started-java-sdk.md)
 > * [API REST](data-lake-store-data-operations-rest-api.md)
 > * [Python](data-lake-store-data-operations-python.md)
 >
@@ -209,7 +209,7 @@ L’extrait de code suivant permet de supprimer les fichiers et dossiers spécif
 2. Pour produire un fichier jar autonome que vous pouvez exécuter à partir de la ligne de commande, créez le fichier jar en incluant toutes les dépendances à l’aide du [plug-in assembly Maven](https://maven.apache.org/plugins/maven-assembly-plugin/usage.html). Le fichier pom.xml de l'[exemple de code source sur GitHub](https://github.com/Azure-Samples/data-lake-store-java-upload-download-get-started/blob/master/pom.xml) contient un exemple.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Explorer JavaDoc pour le SDK Java](https://azure.github.io/azure-data-lake-store-java/javadoc/)
+* [Explorer JavaDoc pour le Java SDK](https://azure.github.io/azure-data-lake-store-java/javadoc/)
 * [Sécuriser les données dans Data Lake Storage Gen1](data-lake-store-secure-data.md)
 
 

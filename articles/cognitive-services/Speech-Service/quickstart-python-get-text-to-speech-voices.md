@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: erhopf
-ms.openlocfilehash: 16c8444bdf91caf9da6f9625485090d09058ba52
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 66bda68b1313a7c172e273671bc3a03503d08e0d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522822"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876578"
 ---
 # <a name="quickstart-get-the-list-of-text-to-speech-voices-using-python"></a>Démarrage rapide : Obtenir la liste des voix de synthèse vocale à l’aide de Python
 
@@ -82,7 +82,7 @@ def get_token(self):
 
 Ici, vous allez à la demande de build et enregistrer la liste des voix retourné. Tout d’abord, vous devez définir les valeurs `base_url` et `path`. Cet exemple part du principe que vous utilisez le point de terminaison USA Ouest. Si votre ressource est inscrite dans une autre région, veillez à mettre à jour la valeur `base_url`. Pour plus d’informations, consultez [régions des Services de reconnaissance vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
-Ensuite, ajoutez les en-têtes requis pour la demande. Enfin, vous envoyez une requête au service. Si la requête réussit et qu’un code d’état 200 est retourné, la réponse de la reconnaissance vocale est écrite dans un fichier horodaté.
+Ensuite, ajoutez les en-têtes requis pour la demande. Enfin, vous envoyez une requête au service. Si la demande réussit, et un code de 200 état est retourné, la réponse est écrite dans le fichier.
 
 Copiez le code suivant dans la classe `GetVoices` :
 
@@ -131,10 +131,10 @@ N’oubliez pas de supprimer toutes les informations confidentielles (telles que
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Explorer des exemples Python sur GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/Python)
+> [Explorer les exemples Python sur GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/Python)
 
 ## <a name="see-also"></a>Voir aussi
 
-* [Référence sur l’API conversion de texte par synthèse vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
+* [Référence de l’API Conversion de texte par synthèse vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
 * [Création de polices de voix personnalisée](how-to-customize-voice-font.md)
 * [Enregistrer des échantillons vocaux pour créer une voix personnalisée](record-custom-voice-samples.md)

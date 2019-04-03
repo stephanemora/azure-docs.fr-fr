@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: mbullwin
-ms.openlocfilehash: ea4bc61dec59308b2c2311e8300e44aae78fc041
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 1c360d60a429f137c4b74ad4afe8ae9bba895b7d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57313512"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883409"
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>Créer des ressources Application Insights à l’aide de PowerShell
 
@@ -170,7 +170,7 @@ Créez un fichier .json appelé `template1.json` dans cet exemple. Copiez-y ce c
    
    * `-ResourceGroupName` est le groupe dans lequel vous souhaitez créer les nouvelles ressources.
    * `-TemplateFile` doit se produire avant les paramètres personnalisés.
-   * `-appName` est le nom de la ressource à créer.
+   * `-appName` Le nom de la ressource à créer.
 
 Vous pouvez ajouter d’autres paramètres. Vous trouverez leurs descriptions dans la section Paramètres du modèle.
 
@@ -422,14 +422,14 @@ Voici des exemples de substitutions que vous allez effectuer. Il existe plusieur
 
 | find | replace with |
 | --- | --- |
-| `"hidden-link:/subscriptions/.../../components/MyAppName"` |`"[concat('hidden-link:',`<br/>` resourceId('microsoft.insights/components',` <br/> ` parameters('appName')))]"` |
+| `"hidden-link:/subscriptions/.../../components/MyAppName"` |`"[concat('hidden-link:',`<br/>`resourceId('microsoft.insights/components',` <br/> `parameters('appName')))]"` |
 | `"/subscriptions/.../../alertrules/myAlertName-myAppName-subsId",` |`"[resourceId('Microsoft.Insights/alertrules', variables('alertRuleName'))]",` |
 | `"/subscriptions/.../../webtests/myTestName-myAppName",` |`"[resourceId('Microsoft.Insights/webtests', parameters('webTestName'))]",` |
 | `"myWebTest-myAppName"` |`"[variables(testName)]"'` |
 | `"myTestName-myAppName-subsId"` |`"[variables('alertRuleName')]"` |
 | `"myAppName"` |`"[parameters('appName')]"` |
 | `"myappname"` (minuscules) |`"[toLower(parameters('appName'))]"` |
-| `"<WebTest Name=\"myWebTest\" ...`<br/>` Url=\"http://fabrikam.com/home\" ...>"` |`[concat('<WebTest Name=\"',` <br/> `parameters('webTestName'),` <br/> `'\" ... Url=\"', parameters('Url'),` <br/> `'\"...>')]"`<br/>Supprimez le GUID et l’ID. |
+| `"<WebTest Name=\"myWebTest\" ...`<br/>`Url=\"http://fabrikam.com/home\" ...>"` |`[concat('<WebTest Name=\"',` <br/> `parameters('webTestName'),` <br/> `'\" ... Url=\"', parameters('Url'),` <br/> `'\"...>')]"`<br/>Supprimez le GUID et l’ID. |
 
 ### <a name="set-dependencies-between-the-resources"></a>Définir les dépendances entre les ressources
 Azure doit configurer les ressources dans un ordre strict. Pour vous assurer de l’achèvement d’une installation avant que la suivante ne commence, ajoutez les lignes de dépendance :
@@ -448,8 +448,8 @@ Autres articles sur l’automation :
 
 * [Création d'une ressource Application Insights](powershell-script-create-resource.md) - méthode rapide sans utiliser de modèle.
 * [Configurer des alertes](powershell-alerts.md)
-* [Créer des tests web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
-* [Envoyer des diagnostics Azure vers Application Insights.](powershell-azure-diagnostics.md)
+* [Créez des tests web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
+* [Envoyez des Diagnostics Azure à Application Insights](powershell-azure-diagnostics.md)
 * [Déployer sur Azure à partir de GitHub](https://blogs.msdn.com/b/webdev/archive/2015/09/16/deploy-to-azure-from-github-with-application-insights.aspx)
 * [Créer des annotations de version](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
 

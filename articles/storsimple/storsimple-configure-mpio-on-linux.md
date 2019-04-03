@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: d1188b40021fbb221bc19af6d4a5397f7ba8f800
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: HT
+ms.openlocfilehash: bc1e8a5abc85af95448570497177030f17649d87
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439870"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877582"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Configuration de MPIO sur un hôte StorSimple exécutant CentOS
 Cet article explique les étapes requises pour configurer la MPIO (gestion multivoie d’E/S) sur votre serveur hôte CentOS 6.6. Le serveur hôte est connecté à votre appareil Microsoft Azure StorSimple pour la haute disponibilité via les initiateurs iSCSI. Il décrit en détail la détection automatique des appareils multivoies et l’installation spécifique uniquement pour les volumes StorSimple.
@@ -35,15 +35,15 @@ La fonctionnalité de gestion multivoie vous permet de configurer plusieurs chem
 
 L’objectif de la gestion multivoie est double :
 
-* **Haute disponibilité** : elle fournit un chemin alternatif en cas d’échec de tout élément du chemin d’accès d’E/S (p. ex., câble, commutateur, interface réseau ou contrôleur).
-* **Équilibrage de charge**: selon la configuration de votre appareil de stockage, elle peut améliorer les performances en détectant des charges sur les chemins d’accès d’E/S et en les rééquilibrant dynamiquement.
+* **Haute disponibilité** : Il fournit un chemin alternatif en cas de n’importe quel élément du chemin d’e/s (par exemple, un câble, commutateur, interface réseau ou contrôleur).
+* **L’équilibrage de charge**: Selon la configuration de votre dispositif de stockage, elle peut améliorer les performances en détectant des charges sur les chemins d’accès d’e/s et en les rééquilibrant dynamiquement.
 
 ### <a name="about-multipathing-components"></a>À propos des composants de la gestion multivoie
 Sous Linux, la gestion multivoie comprend des composants du noyau et des composants de l’espace utilisateur comme présenté ci-dessous.
 
-* **Noyau**: le composant principal est le *mappeur d’appareils* qui redirige les E/S et prend en charge le basculement pour les chemins d’accès et les groupes de chemin d’accès.
+* **Noyau**: Le composant principal est le *mappeur d’appareil* qui redirige les e/s et prend en charge de basculement pour les chemins d’accès et les groupes de chemin d’accès.
 
-* **Espace utilisateur**: il s’agit des *outils de la gestion multivoie* permettant de gérer les appareils à chemins d’accès multiples en indiquant la marche à suivre au module multivoie du mappeur d’appareils. Les outils comprennent les éléments suivants :
+* **Espace utilisateur**: Il s’agit de *Multipath i/o-tools* qui gèrent des périphériques à chemins multiples en demandant le module multivoie du mappeur d’appareil quoi faire. Les outils comprennent les éléments suivants :
    
    * **Multipath**: répertorie et configure les appareils à chemins d’accès multiples.
    * **Multipathd**: démon qui exécute la gestion multivoie et surveille les chemins d’accès.
@@ -56,18 +56,18 @@ Le fichier de configuration `/etc/multipath.conf` rend un grand nombre de foncti
 
 Le fichier multipath.conf comporte cinq sections :
 
-- **Valeurs par défaut au niveau système***(defaults)*: vous pouvez remplacer les valeurs par défaut au niveau système.
-- **Appareils sur liste noire***(blacklist)*: vous pouvez spécifier la liste des appareils qui ne doivent pas être contrôlés par le mappeur d’appareils.
-- **Exceptions de la liste noire***(blacklist_exceptions)* : vous pouvez identifier des appareils spécifiques à traiter en tant qu’appareils multivoies même s’ils sont répertoriés dans la liste noire.
-- **Paramètres spécifiques au contrôleur de stockage***(devices)*: vous pouvez spécifier des paramètres de configuration qui seront appliqués aux appareils contenant des informations de produit et de fournisseur.
-- **Paramètres spécifiques aux appareils***(multipaths)*: vous pouvez utiliser cette section pour ajuster les paramètres de configuration des numéros d’unité logique individuels.
+- **Valeurs par défaut au niveau du système** *(par défaut)*: Vous pouvez remplacer les valeurs par défaut au niveau du système.
+- **Appareils sur liste rouge** *(blacklist)*: Vous pouvez spécifier la liste des appareils qui ne doivent pas être contrôlés par le mappeur d’appareil.
+- **Mettre sur liste rouge d’exceptions** *(blacklist_exceptions)*: Vous pouvez identifier des appareils spécifiques devant être traitée en tant qu’appareils MULTIVOIES même si répertorié dans la liste de blocage.
+- **Paramètres spécifiques au stockage contrôleur** *(appareils)*: Vous pouvez spécifier les paramètres de configuration qui seront appliqués aux appareils qui disposent de fournisseur et les informations produit.
+- **Paramètres spécifiques aux appareils** *(multipaths)*: Vous pouvez utiliser cette section pour ajuster les paramètres de configuration pour les numéros d’unité logique individuels.
 
 ## <a name="configure-multipathing-on-storsimple-connected-to-linux-host"></a>Configuration de la gestion multivoie sur StorSimple connecté à l’hôte Linux
 Un appareil StorSimple connecté à un hôte Linux peut être configuré pour la haute disponibilité et l’équilibrage de charge. Par exemple, si l’hôte Linux possède deux interfaces connectées au réseau SAN et que l’appareil possède deux interfaces connectées au réseau SAN de telle sorte qu’elles sont sur le même sous-réseau, 4 chemins d’accès sont disponibles. Cependant, si les interfaces DATA sur l’appareil et l’interface de l’hôte sont sur un autre sous-réseau IP (non routable), alors seuls 2 chemins d’accès sont disponibles. Vous pouvez configurer la gestion multivoie pour détecter automatiquement tous les chemins d’accès disponibles, choisir un algorithme d’équilibrage de charge pour ces chemins d’accès, appliquer des paramètres de configuration spécifiques pour les volumes StorSimple uniquement, puis activer et vérifier la gestion multivoie.
 
 La procédure suivante décrit comment configurer la gestion multivoie lorsqu’un appareil StorSimple possédant deux interfaces réseau est connecté à un hôte avec deux interfaces réseau.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Cette section détaille la configuration requise pour le serveur CentOS et votre appareil StorSimple.
 
 ### <a name="on-centos-host"></a>Sur l’hôte CentOS
@@ -183,7 +183,7 @@ La configuration ci-dessus produira 4 chemins d’accès distincts entre votre 
 ## <a name="configuration-steps"></a>Configuration
 Les étapes de configuration pour la gestion multivoie impliquent la configuration des chemins d’accès disponibles pour la détection automatique, la spécification de l’algorithme d’équilibrage de charge à utiliser, l’activation de la gestion multivoie et enfin la vérification de la configuration. Chacune de ces étapes est abordée en détail dans les sections suivantes.
 
-### <a name="step-1-configure-multipathing-for-automatic-discovery"></a>Étape 1 : Configurer la gestion multivoie pour la détection automatique
+### <a name="step-1-configure-multipathing-for-automatic-discovery"></a>Étape 1 : Configurer la gestion multivoie pour la découverte automatique
 Les appareils pris en charge par la gestion multivoie peuvent être automatiquement détectés et configurés.
 
 1. Initialisez le fichier `/etc/multipath.conf` . Tapez :
@@ -210,8 +210,8 @@ Les appareils pris en charge par la gestion multivoie peuvent être automatiquem
         path_grouping_policy multibus
         }
 
-### <a name="step-2-configure-multipathing-for-storsimple-volumes"></a>Étape 2 : Configurer la gestion multivoie pour les volumes StorSimple
-Par défaut, tous les appareils sont sur liste noire dans le fichier multipath.conf et seront contournés. Vous devrez créer des exceptions de la liste noire pour autoriser la gestion multivoie pour les volumes à partir des appareils StorSimple.
+### <a name="step-2-configure-multipathing-for-storsimple-volumes"></a>Étape 2 : Configurer la gestion multivoie pour les volumes StorSimple
+Par défaut, tous les appareils sont sur liste rouge dans le fichier multipath.conf et seront contournés. Vous devrez créer des exceptions de la liste noire pour autoriser la gestion multivoie pour les volumes à partir des appareils StorSimple.
 
 1. Modifiez le fichier `/etc/mulitpath.conf` . Tapez :
    
@@ -229,7 +229,7 @@ Par défaut, tous les appareils sont sur liste noire dans le fichier multipath.c
             }
            }
 
-### <a name="step-3-configure-round-robin-multipathing"></a>Étape 3 : Configurer la gestion multivoie de tourniquet (round robin)
+### <a name="step-3-configure-round-robin-multipathing"></a>Étape 3 : Configurer la gestion multivoie de tourniquet (round-robin)
 Cet algorithme d’équilibrage de charge utilise tous les chemins d’accès multiples disponibles pour le contrôleur actif de manière équilibrée, en tourniquet (round robin).
 
 1. Modifiez le fichier `/etc/multipath.conf` . Tapez :
@@ -250,7 +250,7 @@ Cet algorithme d’équilibrage de charge utilise tous les chemins d’accès mu
 > 
 > 
 
-### <a name="step-4-enable-multipathing"></a>Étape 4 : Activer la gestion multivoie
+### <a name="step-4-enable-multipathing"></a>Étape 4 : Activer la gestion multivoie
 1. Redémarrez le démon `multipathd` . Tapez :
    
     `service multipathd restart`
@@ -259,7 +259,7 @@ Cet algorithme d’équilibrage de charge utilise tous les chemins d’accès mu
         [root@centosSS ~]# service multipathd start
         Starting multipathd daemon:  [OK]
 
-### <a name="step-5-verify-multipathing"></a>Étape 5 : Vérifier la gestion multivoie
+### <a name="step-5-verify-multipathing"></a>Étape 5 : Vérifier la gestion multivoie
 1. Tout d’abord, assurez-vous que la connexion iSCSI est établie avec l’appareil StorSimple comme suit :
    
    a. Détectez votre appareil StorSimple. Tapez :
@@ -298,7 +298,7 @@ Cet algorithme d’équilibrage de charge utilise tous les chemins d’accès mu
 
     Si vous ne voyez qu’une seule interface hôte et deux chemins d’accès ici, vous devez activer les deux interfaces sur l’hôte pour iSCSI. Vous pouvez suivre les [instructions détaillées dans la documentation Linux](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html).
 
-1. Un volume est exposé au serveur CentOS à partir de l’appareil StorSimple. Pour plus d’informations, consultez [Étape 6 : Créer un volume](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume) via le portail Azure sur votre appareil StorSimple.
+1. Un volume est exposé au serveur CentOS à partir de l’appareil StorSimple. Pour plus d’informations, consultez [étape 6 : Créer un volume](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume) via le portail Azure sur votre appareil StorSimple.
 
 1. Vérifiez les chemins d’accès disponibles. Tapez :
 
@@ -351,7 +351,7 @@ Il convient également de vérifier que vous pouvez voir certains disques après
 
 * Pour relancer l’analyse du bus SCSI, utilisez la commande suivante :
   
-    `$ rescan-scsi-bus.sh `(partie du package sg3_utils)
+    `$ rescan-scsi-bus.sh` (partie du package de sg3_utils)
 * Tapez les commandes suivantes :
   
     `$ dmesg | grep sd*`

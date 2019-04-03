@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Reviewsnap | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Reviewsnap | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Reviewsnap.
 services: active-directory
 documentationCenter: na
@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09fd6c94fe32d683e61aacba5300b130fa6f416a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 24f4983f2ba1567241a6dfc6231a4925805947cd
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187404"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878432"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-reviewsnap"></a>Tutoriel : Intégration d’Azure Active Directory à Reviewsnap
+# <a name="tutorial-azure-active-directory-integration-with-reviewsnap"></a>Didacticiel : Intégration d’Azure Active Directory à Reviewsnap
 
 Dans ce tutoriel, vous allez apprendre à intégrer Reviewsnap à Azure Active Directory (Azure AD).
 
@@ -35,7 +35,7 @@ L’intégration de Reviewsnap à Azure AD offre les avantages suivants :
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD à Reviewsnap, vous aurez besoin des éléments suivants :
 
@@ -59,7 +59,7 @@ Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un e
 ## <a name="adding-reviewsnap-from-the-gallery"></a>Ajouter Reviewsnap à partir de la galerie
 Pour configurer l’intégration de Reviewsnap à Azure AD, vous devez ajouter Reviewsnap à votre liste d’applications SaaS gérées à partir de la galerie.
 
-**Pour ajouter Reviewsnap à partir de la galerie, suivez les étapes ci-dessous :**
+**Pour ajouter Reviewsnap à partir de la galerie, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
 
@@ -95,7 +95,7 @@ Pour configurer et tester l’authentification unique Azure AD avec Reviewsnap, 
 
 Dans cette section, vous allez activer l’authentification unique Azure AD sur le Portail Azure et configurer l’authentification unique dans votre application Reviewsnap.
 
-**Pour configurer l’authentification unique Azure AD avec Reviewsnap, suivez les étapes ci-dessous :**
+**Pour configurer Azure AD-authentification unique avec Reviewsnap, procédez comme suit :**
 
 1. Sur la page d’intégration de l’application **Reviewsnap** du Portail Azure, cliquez sur **Authentification unique**.
 
@@ -111,14 +111,13 @@ Dans cette section, vous allez activer l’authentification unique Azure AD sur 
 
     a. Dans la zone de texte **Identificateur**, tapez une URL : `https://app.reviewsnap.com`
 
-    b. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://app.reviewsnap.com/auth/saml/callback?namespace=<CUSTOMER_NAMESPACE>
-`
+    b. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://app.reviewsnap.com/auth/saml/callback?namespace=<CUSTOMER_NAMESPACE>`
 
 1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de service**, cochez **Afficher les paramètres d’URL avancés**, puis effectuez les étapes suivantes :
 
     ![Informations d’authentification unique dans Domaine et URL Reviewsnap](./media/reviewsnap-tutorial/tutorial_reviewsnap_url1.png)
 
-    Dans la zone de texte **URL d’authentification**, tapez l’URL `https://app.reviewsnap.com/login`
+    Dans la zone de texte **URL d’authentification**, tapez l’URL : `https://app.reviewsnap.com/login`
      
     > [!NOTE] 
     > La valeur de l’URL de réponse n’est pas réelle. Mettez à jour la valeur avec l’URL de réponse réelle. Pour obtenir cette valeur, contactez [l’équipe de support client de Reviewsnap](mailto:support@reviewsnap.com). 
@@ -179,7 +178,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 ![Attribuer le rôle utilisateur][200] 
 
-**Pour attribuer Britta Simon à Reviewsnap, suivez les étapes ci-dessous :**
+**Pour affecter Britta Simon à Reviewsnap, procédez comme suit :**
 
 1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
 

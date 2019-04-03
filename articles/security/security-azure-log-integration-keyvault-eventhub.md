@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: c199adb9ee1d9e5fbc879441da7395efa16f0d40
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7e70920e806b3d9838d693ff1fc74a3e9371319d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58094658"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883908"
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Tutoriel Azure Log Integration : Traiter les événements Azure Key Vault avec Event Hubs
 
@@ -43,8 +43,8 @@ Les informations fournies tout au long de la procédure vous expliquent la final
 
 Pour plus d’informations sur les services mentionnés par ce didacticiel, consultez les articles suivants : 
 
-- [Azure Key Vault](../key-vault/key-vault-whatis.md)
-- [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md)
+- [Azure Key Vault](../key-vault/key-vault-whatis.md)
+- [Hubs d'événements Azure](../event-hubs/event-hubs-what-is-event-hubs.md)
 - [Intégration des journaux Azure](security-azure-log-integration-overview.md)
 
 
@@ -89,13 +89,13 @@ Pour exécuter la procédure décrite dans cet article, vous devez disposer des 
 1. Après une authentification réussie, vous êtes connecté. Notez l’ID et le nom de l’abonnement, car vous aurez besoin de ces éléments dans la suite de cette procédure.
 
 1. Créez des variables pour stocker les valeurs qui seront utilisées par la suite. Entrez chacune des lignes PowerShell suivantes. Vous devrez peut-être ajuster les valeurs pour les faire correspondre à votre environnement.
-    - ```$subscriptionName = 'Visual Studio Ultimate with MSDN'``` (Votre nom d’abonnement peut être différent. Vous pouvez le voir apparaître dans la sortie de la commande précédente.)
-    - ```$location = 'West US'``` (Cette variable est utilisée pour transmettre l’emplacement où les ressources doivent être créées. Vous pouvez redéfinir cette variable sur tout autre emplacement de votre choix.)
+    - ```$subscriptionName = 'Visual Studio Ultimate with MSDN'``` (Le nom de votre abonnement peut être différent. Vous pouvez le voir apparaître dans la sortie de la commande précédente.)
+    - ```$location = 'West US'``` (Cette variable sera être utilisée pour transmettre l’emplacement où les ressources doivent être créées. Vous pouvez redéfinir cette variable sur tout autre emplacement de votre choix.)
     - ```$random = Get-Random```
-    - ``` $name = 'azlogtest' + $random``` (Le nom peut correspondre à une chaîne quelconque, mais doit uniquement inclure des lettres minuscules et des chiffres.)
-    - ``` $storageName = $name``` (Cette variable est utilisée pour le nom du compte de stockage.)
-    - ```$rgname = $name ``` (Cette variable est utilisée pour le nom du groupe de ressources.)
-    - ``` $eventHubNameSpaceName = $name``` (Cette variable correspond au nom de l’espace de noms Event Hub.)
+    - ```$name = 'azlogtest' + $random``` (Le nom peut être quoi que ce soit, mais elle doit inclure uniquement des lettres minuscules et chiffres).
+    - ```$storageName = $name``` (Cette variable sera utilisée pour le nom de compte de stockage.)
+    - ```$rgname = $name``` (Cette variable sera utilisée pour le nom de groupe de ressources.)
+    - ```$eventHubNameSpaceName = $name``` (Ceci est le nom de l’espace de noms event hub).
 1. Spécifiez l’abonnement que vous allez utiliser :
     
     ```Select-AzSubscription -SubscriptionName $subscriptionName```
@@ -114,7 +114,7 @@ Pour exécuter la procédure décrite dans cet article, vous devez disposer des 
     ```$eventHubNameSpace = New-AzEventHubNamespace -ResourceGroupName $rgname -NamespaceName $eventHubnamespaceName -Location $location```
 1. Obtenez l’ID de règle qui sera utilisé avec le fournisseur d’informations :
     
-    ```$sbruleid = $eventHubNameSpace.Id +'/authorizationrules/RootManageSharedAccessKey' ```
+    ```$sbruleid = $eventHubNameSpace.Id +'/authorizationrules/RootManageSharedAccessKey'```
 1. Obtenez tous les emplacements Azure possibles et ajoutez les noms à une variable que vous pourrez utiliser à une étape ultérieure :
     
     a. ```$locationObjects = Get-AzLocation```    
@@ -128,7 +128,7 @@ Pour exécuter la procédure décrite dans cet article, vous devez disposer des 
     Pour plus d’informations sur le profil de journal Azure, consultez l’article [Présentation du journal d’activité Azure](../azure-monitor/platform/activity-logs-overview.md).
 
 > [!NOTE]
-> Il est possible que vous obteniez un message d’erreur lorsque vous essayez de créer un profil de journal. Vous pouvez alors consulter la documentation pour Get-AzLogProfile et Remove-AzLogProfile. Si vous exécutez Get-AzLogProfile, des informations sur le profil de journal. Vous pouvez supprimer le profil de journal existant en entrant la commande ```Remove-AzLogProfile -name 'Log Profile Name' ```.
+> Il est possible que vous obteniez un message d’erreur lorsque vous essayez de créer un profil de journal. Vous pouvez alors consulter la documentation pour Get-AzLogProfile et Remove-AzLogProfile. Si vous exécutez Get-AzLogProfile, des informations sur le profil de journal. Vous pouvez supprimer le profil de journal existant en entrant la commande ```Remove-AzLogProfile -name 'Log Profile Name'```.
 >
 >![Erreur de profil Resource Manager](./media/security-azure-log-integration-keyvault-eventhub/rm-profile-error.png)
 
@@ -136,11 +136,11 @@ Pour exécuter la procédure décrite dans cet article, vous devez disposer des 
 
 1. Créez le coffre de clés :
 
-   ```$kv = New-AzKeyVault -VaultName $name -ResourceGroupName $rgname -Location $location ```
+   ```$kv = New-AzKeyVault -VaultName $name -ResourceGroupName $rgname -Location $location```
 
 1. Configurez la journalisation relative au coffre de clés :
 
-   ```Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -ServiceBusRuleId $sbruleid -Enabled $true ```
+   ```Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -ServiceBusRuleId $sbruleid -Enabled $true```
 
 ## <a name="generate-log-activity"></a>Générer l’activité de journalisation
 
@@ -157,7 +157,8 @@ La génération de l’activité de journalisation nécessite l’envoi de requ�
    ```Get-AzStorageAccountKey -Name $storagename -ResourceGroupName $rgname  | ft -a```
 1. Définissez et lisez un secret pour générer des entrées de journal supplémentaires :
     
-   a. ```Set-AzKeyVaultSecret -VaultName $name -Name TestSecret -SecretValue (ConvertTo-SecureString -String 'Hi There!' -AsPlainText -Force)``` b. ```(Get-AzKeyVaultSecret -VaultName $name -Name TestSecret).SecretValueText```
+   a. ```Set-AzKeyVaultSecret -VaultName $name -Name TestSecret -SecretValue (ConvertTo-SecureString -String 'Hi There!' -AsPlainText -Force)```
+   b. ```(Get-AzKeyVaultSecret -VaultName $name -Name TestSecret).SecretValueText```
 
    ![Secret renvoyé](./media/security-azure-log-integration-keyvault-eventhub/keyvaultsecret.png)
 
@@ -169,7 +170,7 @@ La génération de l’activité de journalisation nécessite l’envoi de requ�
 1. ```$storage = Get-AzStorageAccount -ResourceGroupName $rgname -Name $storagename```
 1. ```$eventHubKey = Get-AzEventHubNamespaceKey -ResourceGroupName $rgname -NamespaceName $eventHubNamespace.name -AuthorizationRuleName RootManageSharedAccessKey```
 1. ```$storagekeys = Get-AzStorageAccountKey -ResourceGroupName $rgname -Name $storagename```
-1. ``` $storagekey = $storagekeys[0].Value```
+1. ```$storagekey = $storagekeys[0].Value```
 
 Exécutez la commande AzLog pour chaque Event Hub :
 
@@ -181,5 +182,5 @@ Au bout d’une minute environ après l’exécution des deux dernières command
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Forum aux questions sur l’intégration des journaux Azure](security-azure-log-integration-faq.md)
-- [Bien démarrer avec l’intégration des journaux Azure](security-azure-log-integration-get-started.md)
+- [Bien démarrer avec Azure Log Integration](security-azure-log-integration-get-started.md)
 - [Intégrer des journaux à partir de ressources Azure dans vos systèmes SIEM](security-azure-log-integration-overview.md)

@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: 023395126a587992c1b5648bd9b8a993d9fa9ced
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: d80581aae56fc9d65d6f24d21f2c582cb74b3f2d
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564236"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863200"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Rechercher et appliquer les recommandations en matière de performances
 
@@ -78,6 +78,7 @@ Vous pouvez consulter et accepter les recommandations une à la fois.
 La recommandation sélectionnée est appliquée à la base de données.
 
 ### <a name="removing-recommendations-from-the-list"></a>Suppression de recommandations de la liste
+
 Si votre liste de recommandations contient des éléments que vous souhaitez supprimer de la liste, vous pouvez ignorer la recommandation :
 
 1. Sélectionnez une recommandation dans la liste des **Recommandations** pour afficher les informations.
@@ -110,18 +111,21 @@ Vous pouvez configurer Azure SQL Database de manière à implémenter automatiqu
 
 Une fois que vous avez sélectionné la configuration voulue, cliquez sur Appliquer.
 
-### <a name="manually-run-the-recommended-t-sql-script"></a>Exécuter manuellement le script T-SQL recommandé
+### <a name="manually-apply-recommendations-through-t-sql"></a>Appliquer manuellement les recommandations via T-SQL
+
 Sélectionnez une recommandation, puis cliquez sur **Afficher le script**. Exécutez ce script sur votre base de données pour appliquer la recommandation manuellement.
 
-*Les index qui sont exécutés manuellement ne sont pas surveillés ni validés en ce qui concerne l’impact du service sur les performances*. Nous vous suggérons donc de surveiller ces index après leur création pour vérifier s’ils améliorent les performances et de les ajuster ou de les supprimer, si nécessaire. Pour plus d’informations sur la création d’index, consultez [CREATE INDEX (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx).
+*Les index qui sont exécutés manuellement ne sont pas surveillés ni validés en ce qui concerne l’impact du service sur les performances*. Nous vous suggérons donc de surveiller ces index après leur création pour vérifier s’ils améliorent les performances et de les ajuster ou de les supprimer, si nécessaire. Pour plus d’informations sur la création d’index, consultez [CREATE INDEX (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx). En outre, des recommandations appliquées manuellement reste active et affichées dans la liste des recommandations de 24 à 48 heures. avant que le système retire automatiquement les. Si vous souhaitez supprimer une recommandation plus tôt, vous pouvez l’ignorer manuellement.
 
 ### <a name="canceling-recommendations"></a>Annulation de recommandations
+
 Les recommandations ayant l’état **En attente**, **En cours de validation** ou **Réussite** peuvent être annulées. Les recommandations avec l'état **En cours d'exécution** ne peuvent pas être annulées.
 
 1. Sélectionnez une recommandation dans la zone **Historique des réglages** pour ouvrir la page **Détails des recommandations**.
 2. Cliquez sur **Annuler** pour abandonner le processus d'application de la recommandation.
 
 ## <a name="monitoring-operations"></a>Surveillance des opérations
+
 L’application d’une recommandation ne se produit pas toujours instantanément. Le portail fournit des informations concernant l’état de la recommandation. Voici les états possibles des index :
 
 | Statut | Description |

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: c344e8c2d0ad62b394792201ab52bb37413012f8
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 40e2baaeaae933e8ff6a88eff2e2d86f645ad37b
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259905"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881033"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Questions fréquentes sur les différentes API dans Azure Cosmos DB
 
@@ -121,7 +121,7 @@ Lorsque vous définissez une région, n’oubliez pas qu’Azure Cosmos DB respe
 
 ### <a name="is-it-possible-to-switch-from-container-level-throughput-provisioning-to-database-level-throughput-provisioning-or-vice-versa"></a>Est-il possible de passer du provisionnement de débit au niveau du conteneur au provisionnement de débit au niveau de la base de données ? Et inversement ?
 
-Le provisionnement de débit au niveau du conteneur et de la base de données constituent des offres distinctes, et tout changement de l’un vers l’autre nécessite la migration de données de la source vers la destination. Cela signifie donc que vous devez créer une base de données ou une collection, puis migrer les données avec la [bibliothèque de l’exécuteur en bloc](bulk-executor-overview.md) ou [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md).
+L’approvisionnement de débit au niveau du conteneur et de la base de données constitue des offres distinctes, et tout changement de l’un vers l’autre nécessite la migration de données de la source vers la destination. Cela signifie donc que vous devez créer une base de données ou une collection, puis migrer les données avec la [bibliothèque de l’exécuteur en bloc](bulk-executor-overview.md) ou [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md).
 
 ### <a name="does-azure-cosmosdb-support-time-series-analysis"></a>Azure CosmosDB prend-il en charge l’analyse des séries chronologiques ?
 
@@ -201,7 +201,7 @@ Oui. L’[émulateur Azure Cosmos DB](local-emulator.md) fournit une émulation 
 
 ### <a name="why-are-long-floating-point-values-in-a-document-rounded-when-viewed-from-data-explorer-in-the-portal"></a>Pourquoi les longues valeurs à virgule flottante dans un document sont-elles arrondies quand elles sont affichées à partir de l’Explorateur de données dans le portail ?
 
-Il s’agit d’une limitation propre à JavaScript. Ce dernier utilise des nombres de format à virgule flottante double précision comme spécifié dans la norme IEEE 754 ; les nombres qu’il peut contenir de la sorte sont compris entre -(253 - 1) et 253-1 (c’est-à-dire, 9007199254740991) uniquement.
+Il s’agit d’une limitation propre à JavaScript. JavaScript utilise des nombres de format à virgule flottante double précision comme spécifié dans la norme IEEE 754 et elle peut contenir en toute sécurité les nombres compris entre-(2<sup>53</sup> -1) et 2<sup>53</sup>-1 (par exemple, 9007199254740991) uniquement.
 
 ### <a name="where-are-permissions-allowed-in-the-object-hierarchy"></a>Où se trouvent les autorisations accordées dans la hiérarchie d’objets ?
 
@@ -266,7 +266,7 @@ En ce qui concerne l’API REST, il existe un certain nombre d’options liées 
 | ------------| ------------- | ---------- | ----------- |
 | GET, PUT | /?restype=service@comp=properties| [Définir les propriétés du service Table](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) et [Obtenir les propriétés du service Table](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | Ce point de terminaison est utilisé pour définir les règles CORS, la configuration de Storage Analytics et les paramètres de journalisation. CORS n’est pas actuellement pris en charge, et l’analytique et la journalisation sont gérées différemment dans Azure Cosmos DB et dans les tables Stockage Azure. |
 | OPTIONS | /<nom-ressource-table-> | [Requête de table CORS préliminaire](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Cette option fait partie de CORS, qui n’est pas pris en charge par Azure Cosmos DB pour l’instant. |
-| GET | /?restype=service@comp=stats | [Obtenir les statistiques du service Table](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Fournit des informations sur la rapidité de la réplication des données entre un emplacement principal et un emplacement secondaire. Cette option est inutile dans Cosmos DB puisque la réplication fait partie des écritures. |
+| GET | /?restype=service@comp=stats | [Get Table Service Stats](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Fournit des informations sur la rapidité de la réplication des données entre un emplacement principal et un emplacement secondaire. Cette option est inutile dans Cosmos DB puisque la réplication fait partie des écritures. |
 | GET, PUT | /mytable?comp=acl | [Obtenir la liste de contrôle d’accès de la table](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) et [Définir la liste de contrôle d’accès de la table](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | Obtient et définit les stratégies d’accès stocké utilisées pour gérer les signatures d’accès partagé. Bien que ces signatures soient prises en charge, elles sont définies et gérées différemment. |
 
 De plus, l’API Table d’Azure Cosmos DB prend uniquement en charge le format JSON (ATOM n’est pas pris en charge).
@@ -292,7 +292,7 @@ Si l’une de ces différences constitue un obstacle pour votre projet, contacte
 
 Vous pouvez partager vos commentaires par les biais suivants :
 
-* [User voice](https://feedback.azure.com/forums/263030-azure-cosmos-db)
+* [User Voice](https://feedback.azure.com/forums/263030-azure-cosmos-db)
 * [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Consultez Stack Overflow pour les questions sur la programmation. Par souci de clarté et afin d’obtenir une réponse, vérifiez que votre question est [appropriée](https://stackoverflow.com/help/on-topic) et [ fournit un maximum de détails](https://stackoverflow.com/help/how-to-ask).
 

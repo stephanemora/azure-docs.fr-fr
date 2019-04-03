@@ -3,24 +3,24 @@ title: 'Authentification des utilisateurs finaux : API REST avec Azure Data Lak
 description: Découvrez comment authentifier les utilisateurs finaux auprès de Data Lake Storage Gen1 à l’aide d’Azure Active Directory et de l’API REST
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: d5603bb6bbb56d1aebb719902c60de631a4f14f0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: twooley
+ms.openlocfilehash: 0ef65c23ee1bf4f064695779b71c8616427da204
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58108186"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881441"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Authentification des utilisateurs finaux auprès d’Azure Data Lake Storage Gen1 avec l’API REST
 > [!div class="op_single_selector"]
-> * [À l’aide de Java](data-lake-store-end-user-authenticate-java-sdk.md)
+> * [Utilisation de Java](data-lake-store-end-user-authenticate-java-sdk.md)
 > * [Utilisation du kit de développement logiciel (SDK) .NET](data-lake-store-end-user-authenticate-net-sdk.md)
 > * [Utilisation de Python](data-lake-store-end-user-authenticate-python.md)
 > * [Utilisation de l'API REST](data-lake-store-end-user-authenticate-rest-api.md)
@@ -86,6 +86,6 @@ Pour plus d’informations sur l’authentification utilisateur interactive, con
 ## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez appris à utiliser l’authentification de service à service auprès d’Azure Data Lake Storage Gen1 avec l’API REST. Vous pouvez à présent consulter les articles ci-après, qui expliquent comment utiliser l’API REST pour travailler avec Azure Data Lake Storage Gen1.
 
-* [Opérations de gestion des comptes sur Data Lake Storage Gen1 à l’aide de l’API REST](data-lake-store-get-started-rest-api.md)
-* [Opérations sur les données dans Data Lake Storage Gen1 à l’aide de l’API REST](data-lake-store-data-operations-rest-api.md)
+* [Opérations de gestion du compte sur Data Lake Storage Gen1 à l’aide de l’API REST](data-lake-store-get-started-rest-api.md)
+* [Opérations de données sur Data Lake Storage Gen1 à l’aide de l’API REST](data-lake-store-data-operations-rest-api.md)
 

@@ -16,14 +16,14 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: celested
 ms.reviewer: hirsin, jesakowi, jmprieur
-ms.custom: aaddev
+ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6ccc2a355b22c2235253b78a1efa3912234027a
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: c0614a6bc588a26a23dc9d3795e532a303a472e3
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793456"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881645"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Autorisations et consentement dans le point de terminaison Azure Active Directory v2.0
 
@@ -39,7 +39,7 @@ Les applications qui s’intègrent à la plateforme d’identité Microsoft sui
 La plateforme d’identité Microsoft implémente le protocole d’autorisation [OAuth 2.0](active-directory-v2-protocols.md). OAuth 2.0 est une méthode par le biais de laquelle une application tierce peut accéder aux ressources hébergées sur le web au nom d’un utilisateur. Les ressources hébergées sur le web qui s’intègrent à la plateforme d’identité Microsoft présentent un identificateur de ressource, également appelé *URI d’ID d’application*. Voici, par exemple, quelques-unes des ressources hébergées sur le Web de Microsoft :
 
 * Microsoft Graph : `https://graph.microsoft.com`
-* API de messagerie Office 365 : `https://outlook.office.com`
+* API de messagerie Office 365 : `https://outlook.office.com`
 * Azure AD Graph : `https://graph.windows.net`
 
 > [!NOTE]
@@ -55,9 +55,9 @@ En définissant ces types d’autorisations, la ressource dispose d’un contrô
 
 Dans OAuth 2.0, ces types d’autorisations sont appelés des *étendues*. On y fait également référence simplement sous le nom d’*autorisations*. Une autorisation est représentée dans la plateforme d’identité Microsoft sous forme de valeur de chaîne. Toujours dans l’exemple Microsoft Graph, la valeur de chaîne pour chaque autorisation est la suivante :
 
-* Lire le calendrier d’un utilisateur en utilisant `Calendars.Read`
-* Écrire dans le calendrier d’un utilisateur en utilisant `Calendars.ReadWrite`
-* Envoi de messages en tant qu’utilisateur en utilisant `Mail.Send`
+* Lire le calendrier d’un utilisateur à l’aide `Calendars.Read`
+* Écrire dans le calendrier d’un utilisateur à l’aide de `Calendars.ReadWrite`
+* Envoyer du courrier en tant que l’utilisateur en utilisant `Mail.Send`
 
 Généralement, une application peut demander ces autorisations en spécifiant les étendues dans les requêtes dirigées vers le point de terminaison d’autorisation v2.0. Toutefois, certaines autorisations à privilèges élevés peuvent uniquement être accordées par le biais du consentement de l’administrateur. Elles sont généralement demandées/accordées à l’aide du [point de terminaison de consentement de l’administrateur](v2-permissions-and-consent.md#admin-restricted-permissions). Lisez la suite pour en savoir plus.
 
@@ -82,7 +82,7 @@ L’implémentation v2.0 d’OpenID Connect comprend quelques étendues bien d
 
 ### <a name="openid"></a>openid
 
-Si une application exécute la connexion à l’aide [d’OpenID Connect](active-directory-v2-protocols.md), elle doit solliciter l’étendue `openid`. L’étendue `openid` s’affiche sur la page de consentement du compte professionnel, en tant qu’autorisation de connexion, et sur la page de consentement du compte Microsoft personnel en tant qu’autorisation « Afficher votre profil et se connecter aux applications et aux services à l’aide de votre compte Microsoft ». Avec cette autorisation, une application peut recevoir un identifiant utilisateur unique sous la forme de la revendication `sub`. Elle permet également à l’application d’accéder au point de terminaison des informations utilisateur. L’étendue `openid` peut être utilisée sur le point de terminaison de jeton v2.0 afin d’acquérir des jetons d’ID, qui peuvent être sollicités pour sécuriser les appels HTTP entre différents composants d’une application.
+Si une application exécute la connexion à l’aide [d’OpenID Connect](active-directory-v2-protocols.md), elle doit solliciter l’étendue `openid`. L’étendue `openid` s’affiche sur la page de consentement du compte professionnel, en tant qu’autorisation de connexion, et sur la page de consentement du compte Microsoft personnel en tant qu’autorisation « Afficher votre profil et se connecter aux applications et aux services à l’aide de votre compte Microsoft ». Avec cette autorisation, une application peut recevoir un identifiant utilisateur unique sous la forme de la revendication `sub`. Elle permet également à l’application d’accéder au point de terminaison des informations utilisateur. Le `openid` étendue peut être utilisée au point de terminaison de jeton v2.0 pour acquérir des jetons d’ID, qui peuvent être utilisées par l’application pour l’authentification.
 
 ### <a name="email"></a>email
 
@@ -139,9 +139,9 @@ En outre, les applications doivent utiliser le point de terminaison de consentem
 
 Certaines autorisations à privilège élevé de l’écosystème Microsoft peuvent être définies sur *restreintes aux administrateurs*. Ces types d’autorisations peuvent être illustrés par ces exemples :
 
-* Lire les profils complets de tous les utilisateurs à l’aide de `User.Read.All`
+* Lire les profils complets de tous les utilisateurs à l’aide `User.Read.All`
 * Écrire des données dans le répertoire d’une organisation à l’aide de `Directory.ReadWrite.All`
-* Lire tous les groupes dans le répertoire d’une organisation à l’aide de `Groups.Read.All`
+* Lire tous les groupes dans le répertoire d’une organisation à l’aide `Groups.Read.All`
 
 Si un utilisateur consommateur peut accorder à une application l’accès à ce type de données, les utilisateurs d’organisation sont limités lorsqu’il s’agit d’octroyer l’accès au même jeu de données d’entreprise sensibles. Si votre application requiert l’accès à l’une de ces autorisations d’un utilisateur de l’organisation, ce dernier recevra un message erreur indiquant qu’il n’est pas autorisé à donner son consentement pour les autorisations de votre application.
 
@@ -199,7 +199,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 | --- | --- | --- |
 | `tenant` | Obligatoire | Le client d’annuaire auquel vous souhaitez demander l’autorisation. Peut être fourni au format GUID ou sous forme de nom convivial OU référencé de manière générique avec `common` comme indiqué dans l’exemple. |
 | `client_id` | Obligatoire | ID d’application (client) que le [portail d’inscription des applications](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) ou le [nouveau portail des inscriptions d’applications (préversion)](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) a attribué à votre application. |
-| `redirect_uri` | Obligatoire |URI de redirection où vous souhaitez que la réponse soit envoyée pour être gérée par votre application. Il doit correspondre exactement à l’un des URI de redirection que vous avez inscrits dans le portail d’inscription des applications. |
+| `redirect_uri` | Obligatoire |L'URI de redirection où vous souhaitez que la réponse soit envoyée pour être gérée par votre application. Il doit correspondre exactement à l’un des URI de redirection que vous avez inscrits dans le portail d’inscription des applications. |
 | `state` | Recommandé | Une valeur incluse dans la requête, qui sera également renvoyée dans la réponse de jeton. Il peut s’agir d’une chaîne du contenu de votre choix. Utilisez l’état pour encoder les informations sur l’état de l’utilisateur dans l’application avant la requête d’authentification, comme la page ou la vue sur laquelle ou laquelle il était positionné. |
 
 À ce stade, Azure AD nécessite qu’un administrateur client se connecte pour terminer la demande. L’administrateur est invité à approuver toutes les autorisations que vous avez demandées pour votre application dans le portail d’inscription.
@@ -283,7 +283,7 @@ Aucun consentement pour l’utilisateur n’existe entre le client et Microsoft 
 
 #### <a name="example-3-the-user-has-consented-and-the-client-requests-additional-scopes"></a>Exemple 3 : L’utilisateur a donné son consentement et le client demande des étendues supplémentaires
 
-L’utilisateur a déjà donné son consentement à `mail.read` pour le client. Le client s’est inscrit à l’étendue `contacts.read` dans son inscription. Quand le client effectue une demande pour un jeton à l’aide de `scope=https://graph.microsoft.com/.default` et demande un consentement via `prompt=consent`, l’utilisateur voit un écran de consentement uniquement pour toutes les autorisations inscrites par l’application. `contacts.read` est présent dans l’écran de consentement, mais pas `mail.read`. Le jeton retourné concerne Microsoft Graph et contient `mail.read` et `contacts.read`.
+L’utilisateur a déjà donné son consentement à `mail.read` pour le client. Le client s’est inscrit à l’étendue `contacts.read` dans son inscription. Quand le client effectue une demande pour un jeton à l’aide de `scope=https://graph.microsoft.com/.default` et demande un consentement via `prompt=consent`, l’utilisateur voit un écran de consentement uniquement pour toutes les autorisations inscrites par l’application. `contacts.read` seront présents dans l’écran de consentement, mais `mail.read` ne sera pas. Le jeton retourné concerne Microsoft Graph et contient `mail.read` et `contacts.read`.
 
 ### <a name="using-the-default-scope-with-the-client"></a>Utilisation de l’étendue /.default avec le client
 

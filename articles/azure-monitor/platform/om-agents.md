@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 2768a23c217052a342538b67ec59868e25fd4914
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: 19ae3322d26447cf7c7dd94d06f073ccf013738e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793813"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878350"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Connecter Operations Manager à Azure Monitor
 
@@ -220,7 +220,7 @@ Packs d’administration pour les solutions vous avez activé qui s’intègrent
     > Avant de continuer, vérifiez que les noms des packs d’administration personnalisés ne contiennent pas « Advisor » ou « IntelligencePack » ; sinon, les étapes suivantes les supprimeront du groupe d’administration.
     > 
 
-1. À l’invite de l’interpréteur de commandes, tapez `Get-SCOMManagementPack -name "*Advisor*" | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
+1. À partir de l’interpréteur de commandes, tapez `Get-SCOMManagementPack -name "*Advisor*" | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
 1. Ensuite, tapez `Get-SCOMManagementPack -name “*IntelligencePack*” | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
 1. Pour supprimer les packs d’administration restants qui ont une dépendance sur les autres packs d’administration System Center Advisor, utilisez le script *RecursiveRemove.ps1* que vous avez téléchargé à partir du centre de scripts TechNet.  
  
@@ -345,7 +345,7 @@ Pour supprimer les deux connecteurs (Microsoft.SystemCenter.Advisor.DataConnecto
 Par la suite, pour reconnecter votre groupe d’administration à un espace de travail Log Analytics, vous devez réimporter le fichier du pack d’administration `Microsoft.SystemCenter.Advisor.Resources.\<Language>\.mpb`. Selon la version de System Center Operations Manager déployée dans votre environnement, ce fichier se trouve à l’emplacement suivant :
 
 * Sur le média source, dans le dossier `\ManagementPacks` pour System Center 2016 - Operations Manager et les versions supérieures.
-* À partir du correctif cumulatif le plus récent appliqué à votre groupe d’administration. Pour Operations Manager 2012, le dossier source est` %ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups` pour 2012 R2. Il se trouve dans `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups`.
+* À partir du correctif cumulatif le plus récent appliqué à votre groupe d’administration. Pour Operations Manager 2012, le dossier source est `%ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups` et pour 2012 R2, il se trouve dans `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 08/27/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 5643b7c80307cea36f60bcc116c82ea7b31171f9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 04a1741bbe4e60567a22445c5674ec03b232640c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096569"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883670"
 ---
 # <a name="create-an-azure-compatible-vhd"></a>Créer un disque dur virtuel compatible avec Azure
 
 Cet article détaille les étapes nécessaires pour créer un disque dur virtuel (VHD) pour une offre de machine virtuelle dans la Place de marché Microsoft Azure.  Il inclut également les meilleures pratiques pour différents aspects, comme l’utilisation du protocole RDP (Remote Desktop Protocol), la sélection d’une taille pour la machine virtuelle, l’installation des dernières mises à jour de Windows et la généralisation de l’image de disque dur virtuel.  Les sections suivantes sont principalement axées sur les disques durs virtuels basés sur Windows. Pour plus d’informations sur la création de disques durs virtuels basés sur Linux, consultez [Linux sur les distributions approuvées par Azure](../../../virtual-machines/linux/endorsed-distros.md). 
 
 > [!WARNING]
-> Nous vous recommandons vivement de suivre les instructions de cette rubrique pour utiliser Azure afin de créer une machine virtuelle contenant un système d’exploitation pris en charge préconfiguré.  Si ce n’est pas possible avec votre solution, il est alors possible de créer et de configurer une machine virtuelle locale à l’aide d’un système d’exploitation approuvé.  Vous pouvez ensuite la configurer et la préparer pour le chargement comme décrit dans [Préparer un disque dur virtuel Windows à charger sur Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
+> Nous vous recommandons vivement de suivre les instructions de cette rubrique pour utiliser Azure afin de créer une machine virtuelle contenant un système d’exploitation pris en charge préconfiguré.  Si ce n’est pas compatible avec votre solution, il est possible de créer et configurer une machine virtuelle locale à l’aide d’un système d’exploitation approuvé.  Vous pouvez ensuite la configurer et la préparer pour le chargement comme décrit dans [Préparer un disque dur virtuel Windows à charger sur Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
 
 
 ## <a name="select-an-approved-base"></a>Sélectionner une base approuvée

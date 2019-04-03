@@ -3,24 +3,24 @@ title: 'Authentification de service à service : Java avec Azure Data Lake Stor
 description: Découvrez comment procéder à une authentification de service à service auprès de Data Lake Storage Gen1 en utilisant Azure Active Directory et Java.
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 257db3ab0a155dd79ef74365f956293886e2f658
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: twooley
+ms.openlocfilehash: c32eada2acca73e089c2296ce8e59c529d7af665
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57529722"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879163"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-java"></a>Authentification de service à service auprès de Data Lake Storage Gen1 à l’aide de Java
 > [!div class="op_single_selector"]
-> * [À l’aide de Java](data-lake-store-service-to-service-authenticate-java.md)
+> * [Utilisation de Java](data-lake-store-service-to-service-authenticate-java.md)
 > * [Utilisation du kit de développement logiciel (SDK) .NET](data-lake-store-service-to-service-authenticate-net-sdk.md)
 > * [Utilisation de Python](data-lake-store-service-to-service-authenticate-python.md)
 > * [Utilisation de l'API REST](data-lake-store-service-to-service-authenticate-rest-api.md)
@@ -82,6 +82,6 @@ Le kit de développement logiciel (SDK) Data Lake Storage Gen1 propose des méth
 ## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez appris à utiliser l’authentification des utilisateurs finaux auprès de Data Lake Storage Gen1 à l’aide du Kit de développement logiciel (SDK) Java. Vous pouvez à présent consulter les articles ci-après, qui expliquent comment utiliser le Kit de développement logiciel (SDK) Java pour travailler avec Data Lake Storage Gen1.
 
-* [Opérations sur les données dans Data Lake Storage Gen1 à l’aide du kit de développement logiciel (SDK) Java](data-lake-store-get-started-java-sdk.md)
+* [Opérations de données sur Data Lake Storage Gen1 à l’aide du Kit de développement logiciel Java](data-lake-store-get-started-java-sdk.md)
 
 

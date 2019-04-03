@@ -3,25 +3,25 @@ title: 'API REST : opérations de gestion du système de fichiers sur Azure Data
 description: Utiliser les API REST de WebHDFS pour effectuer des opérations de gestion du système de fichiers sur Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 4c61d68a948cbc5638dab30713871d1aaf822f03
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: twooley
+ms.openlocfilehash: 351c92f1e1a698893f61004d523ba79ebca253e8
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57529244"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877623"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-rest-api"></a>Opérations de gestion du système de fichiers sur Azure Data Lake Storage Gen1 à l’aide d’une API REST
 > [!div class="op_single_selector"]
 > * [Kit de développement logiciel (SDK) .NET](data-lake-store-data-operations-net-sdk.md)
-> * [Kit SDK Java](data-lake-store-get-started-java-sdk.md)
+> * [Kit de développement logiciel (SDK) Java](data-lake-store-get-started-java-sdk.md)
 > * [API REST](data-lake-store-data-operations-rest-api.md)
 > * [Python](data-lake-store-data-operations-python.md)
 >
@@ -114,7 +114,7 @@ La lecture des données d’un compte Azure Data Lake Storage Gen1 s’effectue 
 * D’abord, envoyez une demande GET sur le point de terminaison `https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN`. Cet appel retourne un emplacement où envoyer la demande GET suivante.
 * Ensuite, envoyez la deuxième demande GET sur le point de terminaison `https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN&read=true`. Cet appel affiche le contenu du fichier.
 
-Toutefois, comme les paramètres d’entrée sont les mêmes pour la première et la deuxième étape, vous pouvez utiliser le paramètre `-L` pour envoyer la première demande. L’option `-L` permet essentiellement de combiner les deux demandes en une seule et d’indiquer à cURL de réexécuter la demande sur le nouvel emplacement. Le résultat final de tous les appels de la demande s’affiche, comme illustrée dans l’extrait de code suivant. Remplacez **\<yourstorename>** par votre nom de compte Data Lake Storage Gen1.
+Toutefois, comme les paramètres d’entrée sont les mêmes pour la première et la deuxième étape, vous pouvez utiliser le paramètre `-L` pour envoyer la première demande. `-L` option essentiellement combine deux demandes en une seule et rend à cURL de réexécuter la demande sur le nouvel emplacement. Le résultat final de tous les appels de la demande s’affiche, comme illustrée dans l’extrait de code suivant. Remplacez **\<yourstorename>** par votre nom de compte Data Lake Storage Gen1.
 
     curl -i -L GET -H "Authorization: Bearer <REDACTED>" 'https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN'
 
@@ -162,6 +162,6 @@ Un résultat similaire à ce qui suit s’affiche normalement :
 * [Opérations de gestion des comptes sur Data Lake Storage Gen1 à l’aide de l’API REST](data-lake-store-get-started-rest-api.md).
 
 ## <a name="see-also"></a>Voir aussi
-* [Référence relative à l’API REST d’Azure Data Lake Storage Gen1](https://docs.microsoft.com/rest/api/datalakestore/)
-* [Ouvrir des applications Big Data open source compatibles avec Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md)
+* [Référence d’API REST Azure Data Lake Storage Gen1](https://docs.microsoft.com/rest/api/datalakestore/)
+* [Ouvrir des applications de Big Data Source compatibles avec Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md)
 

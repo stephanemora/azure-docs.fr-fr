@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/27/2017
 ms.author: seguler
 ms.subservice: common
-ms.openlocfilehash: 966518f17392e6158089cb5b6df96f41674fed41
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0641a097761530285c2dd9aa176ddd8c2c159001
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57996153"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878738"
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>Transférer des données avec la bibliothèque de déplacement des données du Stockage Microsoft Azure
 
@@ -32,7 +32,7 @@ Ce document montre comment créer une application de console .NET Core qui s’e
 - copier des fichiers de l’URL vers le Stockage Blob ;
 - copier d’un Stockage Blob à un autre.
 
-**Ce dont vous avez besoin :**
+**Vous devez :**
 
 * [Visual Studio Code](https://code.visualstudio.com/)
 * Un [compte de stockage Azure](storage-quickstart-create-account.md)
@@ -49,12 +49,12 @@ Ce document montre comment créer une application de console .NET Core qui s’e
 3. Ouvrez ce répertoire dans Visual Studio Code. Vous pouvez effectuer rapidement cette étape en tapant `code .` en ligne de commande dans Windows.
 4. Installez [l’extension C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) à partir de la Place de marché Visual Studio. Redémarrez Visual Studio Code.
 5. À ce stade, vous devez voir deux invites. L’une permet d’ajouter les « composants requis pour générer et déboguer ». Cliquez sur « Oui ». L’autre invite permet de restaurer les dépendances non résolues. Cliquez sur « Restaurer ».
-6. Modifiez `launch.json` sous `.vscode` pour utiliser un terminal externe comme console. Ce paramètre doit alors être ` "console": "externalTerminal"`.
+6. Modifiez `launch.json` sous `.vscode` pour utiliser un terminal externe comme console. Ce paramètre doit être lu comme `"console": "externalTerminal"`
 7. Visual Studio Code vous permet de déboguer les applications .NET Core. Appuyez sur `F5` pour exécuter votre application et vérifier que votre configuration fonctionne. « Hello World! » doit s’imprimer dans la console.
 
 ## <a name="add-data-movement-library-to-your-project"></a>Ajouter la bibliothèque de déplacement des données à votre projet
 
-1. Ajoutez la dernière version de la bibliothèque de déplacement des données à la section `dependencies` de votre fichier `<project-name>.csproj`. Au moment de la rédaction de cette page, il s’agit de la version `"Microsoft.Azure.Storage.DataMovement": "0.6.2"`.
+1. Ajoutez la dernière version de la bibliothèque de déplacement des données à la section `dependencies` de votre fichier `<project-name>.csproj`. Au moment de la rédaction de, cette version serait `"Microsoft.Azure.Storage.DataMovement": "0.6.2"`
 2. Une invite doit s’afficher pour restaurer votre projet. Cliquez sur le bouton « Restaurer ». Vous pouvez également restaurer votre projet en ligne de commande en tapant la commande `dotnet restore` à la racine du répertoire de votre projet.
 
 Modifiez `<project-name>.csproj` :

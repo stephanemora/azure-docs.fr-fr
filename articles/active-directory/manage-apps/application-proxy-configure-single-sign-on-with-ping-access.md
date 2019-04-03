@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f236c6a78edeb04a69685bf27c99997ed470f498
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: 8eef15098eed8959655ae2904bf41a8c3dffc9f4
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58791521"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882784"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Authentification basée sur l’en-tête pour une authentification unique avec le proxy d’application et PingAccess
 
@@ -163,7 +163,7 @@ Cet exemple utilise le [portail Azure](https://portal.azure.com) pour mettre à 
 >[!NOTE]
 >Pour utiliser une revendication personnalisée, vous devez également disposer d’une stratégie personnalisée définie et affectée à l’application.  Cette stratégie doit inclure tous les attributs personnalisés nécessaires.
 >
->La définition et l’attribution de la stratégie peuvent être effectuées dans MS Graph, l’Explorateur Azure AD Graph et PowerShell.  Si vous utilisez PowerShell, vous devez d’abord utiliser `New-AzureADPolicy `, puis l’attribuer à l’application avec `Set-AzureADServicePrincipalPolicy`.  Pour plus d’informations, consultez la [documentation relative aux stratégies Azure AD](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+>La définition et l’attribution de la stratégie peuvent être effectuées dans MS Graph, l’Explorateur Azure AD Graph et PowerShell.  Si vous effectuez cette opération dans PowerShell, vous devrez peut-être d’abord utiliser `New-AzureADPolicy` et puis l’affecter à l’application avec `Set-AzureADServicePrincipalPolicy`.  Pour plus d’informations, consultez la [documentation relative aux stratégies Azure AD](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
 ### <a name="optional---use-a-custom-claim"></a>Facultatif : Utiliser une revendication personnalisée
 Pour que votre application utilise une revendication personnalisée et comprenne des champs supplémentaires, [créez une stratégie de mappage de revendications personnalisées et attribuez-la à l’application](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
@@ -183,5 +183,5 @@ Une fois toutes ces étapes effectuées, votre application doit être opération
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Configurer PingAccess pour Azure AD](https://docs.pingidentity.com/bundle/paaad_m_ConfigurePAforMSAzureADSolution_paaad43/page/pa_c_PAAzureSolutionOverview.html)
-- [Comment le proxy d’application Azure AD fournit-il une authentification unique ?](application-proxy-single-sign-on.md)
+- [Comment le proxy d’application Azure AD fournit-il l’authentification unique ?](application-proxy-single-sign-on.md)
 - [Résoudre les problèmes du proxy d’application](application-proxy-troubleshoot.md)

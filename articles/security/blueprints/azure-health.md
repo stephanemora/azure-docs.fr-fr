@@ -9,18 +9,18 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: 5f23435a43d139ecb9f20e5036124f175b1830c9
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 70721b8bfbecaf554a9502b9ec3417fc8e561b3f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225363"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885942"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Plan de sécurité et de conformité Azure - AI et données de santé HIPAA/HITRUST
 
 ## <a name="overview"></a>Présentation
 
-**Le Blueprint de sécurité et de conformité Azure - AI et données de santé HIPAA/HITRUST propose le déploiement clé en main d’une solution PaaS et IaaS Azure afin d’illustrer comment ingérer, stocker, analyser, interagir, identifier et déployer des solutions de manière sécurisée avec des données de santé tout en respectant les exigences de conformité du secteur. Le plan aide à accélérer l’adoption et l’utilisation du cloud pour les clients avec des données réglementées.**
+**La sécurité Azure plan et conformité - AI et données de santé HIPAA/HITRUST propose un déploiement clé en main d’une solution Azure PaaS et IaaS pour illustrer comment ingérer, stocker, analyser, interagir, identité et de déployer en toute sécurité des solutions avec des données d’intégrité lors de la la capacité à répondre aux exigences de conformité du secteur. Le plan aide à accélérer l’adoption du cloud et l’utilisation des clients avec des données réglementées.**
 
 Le Plan de sécurité et de conformité Azure - AI et données de santé HIPAA/HITRUST fournit des outils et des conseils pour aider à déployer un environnement PaaS (Platform-as-a-Service) sécurisé et compatible avec HIPAA (Health Insurance Portability and Accountability Act) et HITRUST (Health Information Trust Alliance) pour l’ingestion, le stockage, l’analyse et l’interaction avec des dossiers médicaux personnels et non-personnels dans un environnement cloud sécurisé à plusieurs niveaux, déployé en tant que solution de bout en bout. 
 
@@ -48,7 +48,7 @@ Ce plan est destiné à servir de base modulaire. Il pourra être adapté par le
 
 -   **Diagramme architectural.** Le diagramme illustre l’architecture de référence utilisée pour le plan et l’exemple de scénario de cas d’usage.
 
--   [IaaS Extension](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md) cette solution va vous montrer comment migrer une solution de basée sur SQL sur site vers Azure et pour implémenter une station de travail de l’accès privilégié pour gérer en toute sécurité des solutions et services basés sur le cloud. 
+-   [IaaS Extension](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md) cette solution va vous montrer comment migrer une solution SQL en local vers Azure et pour implémenter une station de travail de l’accès privilégié pour gérer en toute sécurité des solutions et services basés sur le cloud. 
 
 ## <a name="solution-components"></a>Composants de la solution
 
@@ -59,7 +59,7 @@ L’architecture de base est constituée des éléments suivants :
 
 -   **[Matrice d’implémentation client](https://aka.ms/healthcrmblueprint)** Un classeur Microsoft Excel répertorie les exigences HITRUST pertinentes, et explique de quelle manière Microsoft et le client doivent satisfaire chacune d’entre elles.
 
--   **[Contrôle d’intégrité.](https://aka.ms/healthreviewpaper)** La solution a été contrôlée par Coalfire systems, Inc. Le document relatif au contrôle et aux instructions Health Compliance (HIPAA et HITRUST) fournit l’évaluation de la solution réalisée par l’auditeur\', ainsi que des suggestions pour transformer le plan en déploiement prêt pour la production.
+-   **[Passez en revue l’intégrité.](https://aka.ms/healthreviewpaper)** La solution a été contrôlée par Coalfire systems, Inc. Le document relatif au contrôle et aux instructions Health Compliance (HIPAA et HITRUST) fournit l’évaluation de la solution réalisée par l’auditeur\', ainsi que des suggestions pour transformer le plan en déploiement prêt pour la production.
 
 ## <a name="architectural-diagram"></a>Diagramme architectural
 
@@ -148,38 +148,38 @@ Le plan comprend un jeu étendu de dossiers médicaux anonymes afin d’illustre
 ### <a name="users-and-roles"></a>Utilisateurs et rôles
 
 
-**Administrateur de site -- Alex**
+**Administrateur de site--Alex**
 
-*Adresse e-mail : Alex\_AdminSite*
+*E-mail : Alex\_SiteAdmin*
 
 Le travail d’Alex est d’évaluer les technologies susceptibles de réduire la charge de gestion d’un réseau local et de réduire les coûts de gestion. Alex évalue Azure depuis quelque temps, mais il a des difficultés à configurer les services dont il a besoin pour répondre aux exigences de conformité HiTrust relatives au stockage des données des patients dans le cloud. Alex a sélectionné l’AI Azure Health pour déployer une solution de santé conforme et répondant aux exigences des clients pour HiTrust.
 
-**Scientifique des données -- Marie**
+**Scientifique des données--Marie**
 
-*Adresse e-mail : Marie\_ScientifiqueDonnées*
+*E-mail : Marie\_Scientifiquedonnées*
 
 Marie est responsable de l’utilisation et de la création de modèles qui analysent les dossiers médicaux afin d’obtenir des informations détaillées sur les soins médicaux. Elle utilise SQL et le langage de programmation statistique R pour créer ses modèles.
 
-**Analyste de base de données -- Delphine**
+**Analyste de base de données--Delphine**
 
-*Adresse e-mail : Delphine\_AnalysteBD*
+*E-mail : Danny\_Analystebd*
 
 Delphine est le contact principal pour tout ce qui concerne le serveur Microsoft SQL Server qui stocke toutes les données relatives aux patients pour Contosoclinic. Delphine est une administratrice SQL Server expérimentée qui s’est récemment familiarisée avec Azure SQL Database.
 
-**Agent principal des renseignements médicaux -- Caroline**
+**Renseignements médicaux--Caroline**
 
 Caroline collabore avec Chris le responsable hiérarchique des soins et Marie la scientifique des données afin d’identifier les facteurs qui ont un impact sur la durée de séjour des patients.
 Caroline utilise les prédictions fournies par la solution de durée de séjour (DDS) pour déterminer si les ressources sont allouées de manière adéquate dans le réseau de l’hôpital. Elle utilise par exemple le tableau de bord fournie dans cette solution.
 
-**Responsable hiérarchique des soins -- Chris**
+**Responsable--Chris hiérarchique des soins**
 
-*Adresse e-mail : Chris\_ResponsableHiérarchiqueSoins*
+*E-mail : Chris\_CareLineManager*
 
 En tant que personne responsable de la gestion de l’admission et de la sortie des patients à Contosoclinic, Chris utilise les prédictions générées par la solution DDS pour s’assurer que le personnel adéquat est disponible pour fournir des soins aux patients pendant qu’ils sont à l’hôpital.
 
-**Auditeur -- Henri**
+**Auditeur--Henri**
 
-*Adresse e-mail : Henri\_Auditeur*
+*E-mail : Henri\_auditeur*
 
 Henri est un auditeur certifié ayant une expérience de l’audit pour ISO, SOC et HiTrust. Il a été embauché pour contrôler le réseau de Contosoclinc. Il peut vérifier la matrice de responsabilités client fournie avec la solution, afin de s’assurer que le plan et la solution DDS peuvent être utilisés pour stocker, traiter et afficher des données personnelles sensibles.
 
@@ -202,7 +202,7 @@ Cette section détaille les mesures de sécurité et les configurations par déf
 ### <a name="azure-active-directory-and-role-based-access-control-rbac"></a>Azure Active Directory et contrôle d’accès en fonction du rôle (RBAC)
 
 
-**Authentication :**
+**Authentification :**
 
 -   [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) est le service cloud et multilocataire de gestion des annuaires et des identités proposé par Microsoft\'. Tous les utilisateurs de la solution ont été créés dans Azure Active Directory, y compris ceux qui accèdent à la base de données SQL.
 
@@ -249,7 +249,7 @@ Cette section détaille les mesures de sécurité et les configurations par déf
 ### <a name="azure-functions"></a>Azure Functions
 La solution a été conçue pour utiliser [Azure Functions](/azure/azure-functions/) pour traiter les exemples de données de longueur de séjour utilisées dans la démonstration d’analytique. Trois capacités dans les fonctions ont été créées.
 
-**1. Importation en bloc de données de renseignements médicaux protégés (PHI)**
+**1. Importation en bloc des données de données de santé confidentielles de données client**
 
 Quand vous utilisez le script de démonstration .\\HealthcareDemo.ps1 avec le commutateur **BulkPatientAdmission** comme indiqué dans **Déploiement et exécution de la démo**, il exécute le pipeline de traitement suivant :
 1. **Stockage Blob Azure** : l’exemple de fichier .csv de données sur les patients est chargé dans le stockage.
@@ -268,7 +268,7 @@ En outre, la fonction Azure a été conçue pour lire et protéger les données 
 **2. Admission des nouveaux patients**
 
 Quand vous utilisez le script de démonstration .\\HealthcareDemo.ps1 avec le commutateur **BulkPatientadmission** comme indiqué dans **Déploiement et exécution de la démo**, il exécute le pipeline de traitement suivant : ![](images/securetransact.png)
-**1. Fonction Azure** déclenchée, et la fonction demande un [jeton du porteur](/rest/api/) à Azure Active directory.
+**1. Fonction Azure[ déclenchée, et la fonction demande un ](/rest/api/)jeton du porteur à Azure Active directory.
 
 **2. Key Vault** est sollicité afin d’obtenir un secret qui est associé au jeton demandé.
 
@@ -295,7 +295,7 @@ Pour effectuer le stockage des données, un schéma d’API commun a été impl�
 
 Le solution prend en charge Event Grid, un service unique permettant de gérer le routage de tous les événements de n’importe quelle source vers n’importe quelle destination et assurant :
 
--   [La sécurité et l’authentification.](/azure/event-grid/security-authentication)
+-   [Sécurité et authentification](/azure/event-grid/security-authentication)
 
 -   [Le contrôle d’accès en fonction du rôle](/azure/event-grid/security-authentication#management-access-control) pour diverses opérations de gestion telles que l’énumération des abonnements aux événements, la création de nouveaux abonnements et la génération de clés.
 

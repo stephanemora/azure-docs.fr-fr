@@ -13,10 +13,10 @@ ms.topic: reference
 ms.date: 10/12/2017
 ms.author: glenga
 ms.openlocfilehash: 01fce9813299465767bdaed7f3c2939813cfab87
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
+ms.lasthandoff: 04/03/2019
 ms.locfileid: "56339482"
 ---
 # <a name="azure-functions-developers-guide"></a>Guide de développement Azure Functions
@@ -52,7 +52,7 @@ La propriété `bindings` vous permet de configurer les liaisons et les déclenc
 | `direction` |'in', 'out' |Indique si la liaison sert à recevoir des données dans la fonction ou à envoyer des données à partir de la fonction. |
 | `name` |chaîne |Le nom utilisé pour les données liées dans la fonction. Pour C#, il s’agit d’un nom d'argument ; pour JavaScript, il s’agit de la clé dans une liste de clés/valeurs. |
 
-## <a name="function-app"></a>Conteneur de fonctions
+## <a name="function-app"></a>Function App
 Une application de fonction fournit un contexte d’exécution dans Azure dans lequel vos fonctions s’exécutent. Un conteneur de fonctions est constitué d’une ou de plusieurs des fonctions individuelles qui sont gérées, déployées et mises à l’échelle ensemble. Toutes les fonctions d’un conteneur de fonctions partagent le même plan de tarification, le même déploiement continu et la même version du runtime. Considérez un conteneur de fonctions comme un moyen d’organiser et de gérer collectivement vos fonctions. 
 
 > [!NOTE]
@@ -81,15 +81,15 @@ Lorsque plusieurs événements de déclenchement se produisent plus rapidement q
 
 Vous pouvez configurer la version du runtime Functions en utilisant le paramètre d’application `FUNCTIONS_EXTENSION_VERSION`. Par exemple, la valeur « ~2 » indique que votre application de fonction utilise 2.x comme version principale. Les applications Function sont mises à niveau pour chaque nouvelle version secondaire lorsqu’elles sont disponibles. Pour obtenir plus d’informations, notamment sur la façon d’afficher la version exacte de votre application de fonction, consultez [Guide pratique pour cibler des versions du runtime Azure Functions](set-runtime-version.md).
 
-## <a name="repositories"></a>Référentiels
+## <a name="repositories"></a>Dépôts
 Le code pour Azure Fonctions est open source et stocké dans des dépôts GitHub :
 
-* [Azure Functions](https://github.com/Azure/Azure-Functions)
-* [Hôte Azure Functions](https://github.com/Azure/azure-functions-host/)
-* [Portail Azure Functions](https://github.com/azure/azure-functions-ux)
+* [Fonctions Azure](https://github.com/Azure/Azure-Functions)
+* [Hôte de fonctions Azure](https://github.com/Azure/azure-functions-host/)
+* [portail Azure Functions](https://github.com/azure/azure-functions-ux)
 * [Modèles Azure Functions](https://github.com/azure/azure-functions-templates)
 * [Kit de développement logiciel Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/)
-* [Extensions du kit de développement logiciel Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk-extensions/)
+* [Extensions du Kit de développement logiciel Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk-extensions/)
 
 ## <a name="bindings"></a>Liaisons
 Voici un tableau de toutes les liaisons prises en charge.
@@ -104,8 +104,8 @@ Vous rencontrez des problèmes avec des erreurs de liaisons ? Consultez la docu
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations, consultez les ressources suivantes :
 
-* [Azure Functions triggers and bindings (Déclencheurs et liaisons Azure Functions)](functions-triggers-bindings.md)
+* [Liaisons et déclencheurs de fonctions azure](functions-triggers-bindings.md)
 * [Coder et tester Azure Functions localement](./functions-develop-local.md)
-* [Meilleures pratiques pour Azure Functions](functions-best-practices.md)
+* [Bonnes pratiques pour Azure Functions](functions-best-practices.md)
 * [Informations de référence pour les développeurs C# sur Azure Functions](functions-reference-csharp.md)
-* [Azure Functions NodeJS developer reference (Référence pour les développeurs NodeJS Azure Functions)](functions-reference-node.md)
+* [Informations de référence pour les développeurs NodeJS sur Azure Functions](functions-reference-node.md)

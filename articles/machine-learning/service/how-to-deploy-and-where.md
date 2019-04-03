@@ -1,5 +1,5 @@
 ---
-title: Déployer des modèles en tant que services web
+title: Comment et où déployer les modèles
 titleSuffix: Azure Machine Learning service
 description: 'Découvrez comment et où déployer vos modèles de service Azure Machine Learning, notamment : Azure Container Instances, Azure Kubernetes Service, Azure IoT Edge et FPGA (Field-Programmable Gate Arrays).'
 services: machine-learning
@@ -9,28 +9,32 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 12/07/2018
-ms.custom: seodec18
-ms.openlocfilehash: ea2986ea2b2f561288773a7d187101f90f3e9fa9
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.date: 04/02/2019
+ms.custom: seoapril2019
+ms.openlocfilehash: 1528b5e92e1952bf85799afd71bd5dac16aedcf4
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622125"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878296"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Déployer des modèles avec le service Azure Machine Learning
 
-Le Kit de développement logiciel Azure Machine Learning fournit plusieurs méthodes que vous pouvez déployer votre modèle formé. Dans ce document, découvrez comment déployer votre modèle en tant que service web dans le cloud Azure ou sur des appareils IoT Edge.
+Dans ce document, découvrez comment déployer votre modèle en tant que service web dans le cloud Azure ou sur des appareils IoT Edge. 
 
-Vous pouvez déployer des modèles sur les cibles de calcul suivantes :
+## <a name="compute-targets-for-deployment"></a>Cibles de calcul pour le déploiement
+
+Utilisez le Kit de développement logiciel Azure Machine Learning pour déployer votre modèle formé aux emplacements suivants :
 
 | Cible de calcul | Type de déploiement | Description |
 | ----- | ----- | ----- |
-| [Azure Kubernetes Service (AKS)](#aks) | Inférence en temps réel | Convient aux déploiements de production à grande échelle. Fournit la mise à l’échelle automatique et des temps de réponse rapides. |
+| [Service Azure Kubernetes (AKS)](#aks) | Inférence en temps réel | Convient aux déploiements de production à grande échelle. Fournit la mise à l’échelle automatique et des temps de réponse rapides. |
 | [Azure Machine Learning Compute (amlcompute)](#azuremlcompute) | Inférence de lot | Exécutez prédiction par lot sur le calcul sans serveur. Prend en charge des machines virtuelles normale et basse priorité. |
-| [Azure Container Instances (ACI)](#aci) | Test | Convient pour le développement ou le test. **Ne convient pas les charges de production.** |
-| [Azure IoT Edge](#iotedge) | (Version préliminaire) Module IoT | Déploiement de modèles sur des appareils IoT. Une inférence se produit sur l’appareil. |
+| [ACI (Azure Container Instances)](#aci) | Test | Convient pour le développement ou le test. **Ne convient pas les charges de production.** |
+| [Azure IoT Edge](#iotedge) | (Version préliminaire) Module IoT | Déploiement de modèles sur des appareils IoT. Une inférence se produit sur l’appareil. |
 | [FPGA (Field-Programmable Gate Array)](#fpga) | (Version préliminaire) Service Web | Latence ultra-faible pour l'inférence en temps réel. |
+
+## <a name="deployment-workflow"></a>Workflow du déploiement
 
 Le processus de déploiement d'un modèle est similaire pour toutes les cibles de calcul :
 
@@ -46,7 +50,7 @@ La vidéo suivante montre le déploiement sur Azure Container Instances :
 
 Pour plus d’informations sur les concepts impliqués dans le workflow de déploiement, consultez [Déployer, gérer et surveiller des modèles avec le service Azure Machine Learning](concept-model-management-and-deployment.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites-for-deployment"></a>Conditions préalables pour le déploiement
 
 [!INCLUDE [aml-prereq](../../../includes/aml-prereq.md)]
 
@@ -212,10 +216,10 @@ Le processus de déploiement varie légèrement en fonction de la cible de calcu
 
 | Cible de calcul | Type de déploiement | Description |
 | ----- | ----- | ----- |
-| [Azure Kubernetes Service (AKS)](#aks) | Service Web (inférence en temps réel)| Convient aux déploiements de production à grande échelle. Fournit la mise à l’échelle automatique et des temps de réponse rapides. |
+| [Service Azure Kubernetes (AKS)](#aks) | Service Web (inférence en temps réel)| Convient aux déploiements de production à grande échelle. Fournit la mise à l’échelle automatique et des temps de réponse rapides. |
 | [Azure ML Compute](#azuremlcompute) | Service Web (l’inférence de lot)| Exécutez prédiction par lot sur le calcul sans serveur. Prend en charge des machines virtuelles normale et basse priorité. |
-| [Azure Container Instances (ACI)](#aci) | Service Web (développement/test)| Convient pour le développement ou le test. **Ne convient pas les charges de production.** |
-| [Azure IoT Edge](#iotedge) | (Version préliminaire) Module IoT | Déploiement de modèles sur des appareils IoT. Une inférence se produit sur l’appareil. |
+| [ACI (Azure Container Instances)](#aci) | Service Web (développement/test)| Convient pour le développement ou le test. **Ne convient pas les charges de production.** |
+| [Azure IoT Edge](#iotedge) | (Version préliminaire) Module IoT | Déploiement de modèles sur des appareils IoT. Une inférence se produit sur l’appareil. |
 | [FPGA (Field-Programmable Gate Array)](#fpga) | (Version préliminaire) Service Web | Latence ultra-faible pour l'inférence en temps réel. |
 
 > [!IMPORTANT]
@@ -349,7 +353,7 @@ aks_target.wait_for_completion(True)
 
 Pour plus d’informations sur la création d’un cluster AKS en dehors du Kit de développement logiciel Azure Machine Learning, consultez les articles suivants :
 
-* [Créer un cluster AKS](https://docs.microsoft.com/cli/azure/aks?toc=%2Fen-us%2Fazure%2Faks%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest#az-aks-create)
+* [Créer un cluster AKS](https://docs.microsoft.com/cli/azure/aks?toc=%2Fen-us%2Fazure%2Faks%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest#az-aks-create)
 * [Créer un cluster AKS (portail)](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal?view=azure-cli-latest)
 
 #### <a name="deploy-the-image"></a>Déployer l'image
@@ -586,7 +590,7 @@ Inscrire votre appareil avec Azure IoT Hub et puis installer le runtime IoT Edge
 Autres méthodes d’inscription d’un appareil sont :
 
 * [Portail Azure](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal)
-* [Interface de ligne de commande Azure](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-cli)
+* [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-cli)
 * [Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-vscode)
 
 ### <a name="deploy-the-model-to-the-device"></a>Déployer le modèle sur l'appareil
@@ -609,11 +613,11 @@ Pour plus d’informations, consultez la documentation de référence de [WebSer
 
 * [Résolution des problèmes de déploiement](how-to-troubleshoot-deployment.md)
 * [Sécuriser les services web Azure Machine Learning avec SSL](how-to-secure-web-service.md)
-* [Utiliser un modèle ML déployé en tant que service web](how-to-consume-web-service.md)
-* [Exécuter des prédictions par lots](how-to-run-batch-predictions.md)
+* [Utiliser un modèle ML déployé comme un service web](how-to-consume-web-service.md)
+* [Comment exécuter des prédictions par lot](how-to-run-batch-predictions.md)
 * [Superviser vos modèles Azure Machine Learning avec Application Insights](how-to-enable-app-insights.md)
 * [Collecter des données pour des modèles en production](how-to-enable-data-collection.md)
-* [SDK du service Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
-* [Utiliser Azure Machine Learning service avec des réseaux virtuels Azure](how-to-enable-virtual-network.md)
-* [Bonnes pratiques pour la création de systèmes de recommandation](https://github.com/Microsoft/Recommenders)
+* [Service Machine Learning Azure SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
+* [Utiliser le service Azure Machine Learning avec des réseaux virtuels Azure](how-to-enable-virtual-network.md)
+* [Meilleures pratiques pour la création de systèmes de recommandation](https://github.com/Microsoft/Recommenders)
 * [Générer une API de recommandation en temps réel sur Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/real-time-recommendation)

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: 0d9f13003a9b81085fda9635fc8b07566a1c0c66
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d7370fc14a5ede23744e04ac9d35140f2368e21f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58107523"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877395"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-cluster-with-log-analytics"></a>(DÉPRÉCIÉ) Analyser un cluster Azure Container Service avec Log Analytics
 
@@ -100,7 +100,7 @@ Pour protéger votre ID et la clé de votre espace de travail Log Analytics, vou
   #> sudo bash ./secret-gen.sh
   ```
 
-  - Créez le pod de clés secrètes en exécutant la commande suivante : ``` kubectl create -f omsagentsecret.yaml ```
+  - Créez le pod de clés secrètes en exécutant la commande suivante : ```kubectl create -f omsagentsecret.yaml```
 
   - Pour vérifier, exécutez la commande suivante :
 
@@ -123,7 +123,7 @@ Pour protéger votre ID et la clé de votre espace de travail Log Analytics, vou
   KEY:    88 bytes
   ```
 
-  - Créer votre DaemonsSet omsagent en exécutant ``` kubectl create -f omsagent-ds-secrets.yaml ```
+  - Créer votre daemonsset en exécutant ```kubectl create -f omsagent-ds-secrets.yaml```
 
 ### <a name="conclusion"></a>Conclusion
 Et voilà ! Après quelques minutes, vous devez être en mesure de voir le flux de données vers votre tableau de bord Log Analytics.

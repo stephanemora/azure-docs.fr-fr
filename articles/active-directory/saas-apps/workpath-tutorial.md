@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad9a0d832bed2f4e67f4a87d72b773eaa587e700
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 2e8b334998983684d50c4faddceb03a0f30fd257
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208370"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878160"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-workpath"></a>Tutoriel : Intégration d’Azure Active Directory à Workpath | Microsoft Docs
+# <a name="tutorial-azure-active-directory-integration-with-workpath"></a>Didacticiel : Intégration d’Azure Active Directory à Workpath | Microsoft Docs
 
 Dans ce didacticiel, vous allez apprendre à intégrer Workpath à Azure Active Directory (Azure AD).
 
@@ -34,7 +34,7 @@ L’intégration de Workpath dans Azure AD vous offre les avantages suivants :
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD avec Workpath, vous avez besoin des éléments suivants :
 
@@ -99,7 +99,7 @@ Pour configurer et tester l’authentification unique Azure AD avec Workpath, v
 
 Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure et configurer l’authentification unique dans votre application Workpath.
 
-**Pour configurer l’authentification unique Azure AD avec Workpath, procédez comme suit :**
+**Pour configurer Azure AD-authentification unique avec Workpath, procédez comme suit :**
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **Workpath**, cliquez sur **Authentification unique**.
 
@@ -113,7 +113,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l'authentification unique](./media/workpath-tutorial/tutorial_workpath_url.png)
 
-    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://api.workpath.com/v1/saml/metadata/<instancename>`
+    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://api.workpath.com/v1/saml/metadata/<instancename>`
 
     b. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://api.workpath.com/v1/saml/assert/<instancename>`
 
@@ -121,7 +121,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l'authentification unique](./media/workpath-tutorial/tutorial_workpath_url1.png)
 
-    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<subdomain>.workpath.com/ `
+    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<subdomain>.workpath.com/`
 
     > [!NOTE] 
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse, l’identificateur et l’URL de connexion réels. Pour obtenir ces valeurs, contactez [l’équipe de support technique Workpath](https://help.workpath.com).
@@ -212,7 +212,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 ![Affecter des utilisateurs][200] 
 
-**Pour assigner Britta Simon à Workpath, procédez comme suit :**
+**Pour affecter Britta Simon à Workpath, procédez comme suit :**
 
 1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
 

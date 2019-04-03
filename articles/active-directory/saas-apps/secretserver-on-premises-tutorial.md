@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Secret Server (On-Premises) | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Secret Server (On-Premises) | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Secret Server (On-Premises).
 services: active-directory
 documentationCenter: na
@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 04/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e18c58aafd4aa56a27f5e4a97c9dcc9dcd0fdbd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9167a5ed72e6fec2ca03cc97d1d41dd6cd4aaba6
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199780"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885840"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-secret-server-on-premises"></a>Tutoriel : Intégration d’Azure Active Directory à Secret Server (On-Premises)
+# <a name="tutorial-azure-active-directory-integration-with-secret-server-on-premises"></a>Didacticiel : Intégration d’Azure Active Directory à Secret Server (On-Premises)
 
 Dans ce didacticiel, vous allez apprendre à intégrer Secret Server (On-Premises) avec Azure Active Directory (Azure AD).
 
@@ -35,7 +35,7 @@ L’intégration de Secret Server (On-Premises) avec Azure AD vous offre les ava
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD avec Secret Server (On-Premises), vous avez besoin des éléments suivants :
 
@@ -59,7 +59,7 @@ Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un e
 ## <a name="adding-secret-server-on-premises-from-the-gallery"></a>Ajout de Secret Server (On-Premises) à partir de la galerie
 Pour configurer l’intégration de Secret Server (On-Premises) avec Azure AD, vous devez l’ajouter à votre liste d’applications SaaS gérées à partir de la galerie.
 
-**Pour ajouter Secret Server (On-Premises) à partir de la galerie, procédez comme suit :**
+**Pour ajouter Secret Server (On-Premises) à partir de la galerie, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
 
@@ -95,7 +95,7 @@ Pour configurer et tester l’authentification unique Azure AD avec Secret Serve
 
 Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure et configurer l’authentification unique dans votre application Secret Server (On-Premises).
 
-**Pour configurer l’authentification unique Azure AD avec Secret Server (On-Premises), procédez comme suit :**
+**Pour configurer Azure AD-authentification unique avec Secret Server (On-Premises), procédez comme suit :**
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **Secret Server (On-Premises)**, cliquez sur **Authentification unique**.
 
@@ -109,9 +109,9 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Informations d’authentification unique dans Domaine et URL de Secret Server (On-Premises)](./media/secretserver-on-premises-tutorial/tutorial_secretserver_url.png)
 
-    a. Dans la zone de texte **Identificateur**, saisissez la valeur choisie par l’utilisateur comme exemple : `https://secretserveronpremises.azure`
+    a. Dans le **identificateur** zone de texte, entrez la valeur sous la forme d’un exemple de choisie par l’utilisateur : `https://secretserveronpremises.azure`
 
-    b. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://<SecretServerURL>/SAML/AssertionConsumerService.aspx `
+    b. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://<SecretServerURL>/SAML/AssertionConsumerService.aspx`
 
     > [!NOTE]
     > L’ID d’entité indiquée ci-dessus est seulement un exemple et vous êtes libre de choisir une valeur unique qui identifie votre instance Secret Server dans Azure AD. Vous devez envoyer cet ID d’entité à [l’équipe du support client Secret Server (On-Premises)](https://thycotic.force.com/support/s/) qui va la configurer de son côté. Pour plus de détails, veuillez lire [cet article](https://thycotic.force.com/support/s/article/Configuring-SAML-in-Secret-Server).
@@ -185,7 +185,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 ![Attribuer le rôle utilisateur][200]
 
-**Pour affecter Britta Simon à Secret Server (On-Premises), procédez comme suit :**
+**Pour affecter Britta Simon à Secret Server (On-Premises), procédez comme suit :**
 
 1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
 

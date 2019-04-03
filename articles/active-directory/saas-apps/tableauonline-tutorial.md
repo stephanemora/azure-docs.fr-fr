@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Tableau Online | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Tableau Online | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Tableau Online.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 05/09/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eee7adb7c4c0efc8a455d8dc74bc723644d006f3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: bd5e3087c21908600be9cd369a15f3036e5acb2f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169018"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884701"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-tableau-online"></a>Tutoriel : Intégration d’Azure Active Directory dans Tableau Online
+# <a name="tutorial-azure-active-directory-integration-with-tableau-online"></a>Didacticiel : Intégration d’Azure Active Directory dans Tableau Online
 
 Dans ce didacticiel, vous allez apprendre à intégrer Tableau Online à Azure Active Directory (Azure AD).
 
@@ -34,7 +34,7 @@ L’intégration de Tableau Online à Azure AD vous offre les avantages suivants
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD à Tableau Online, vous avez besoin des éléments suivants :
 
@@ -58,7 +58,7 @@ Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un e
 ## <a name="adding-tableau-online-from-the-gallery"></a>Ajout de Tableau Online à partir de la galerie
 Pour configurer l’intégration de Tableau Online à Azure AD, vous devez ajouter Tableau Online à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter Tableau Online à partir de la galerie, procédez comme suit :**
+**Pour ajouter Tableau Online à partir de la galerie, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
 
@@ -99,7 +99,7 @@ Pour configurer et tester l’authentification unique Azure AD avec Tableau Onli
 
 Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure et configurer l’authentification unique dans votre application Tableau Online.
 
-**Pour configurer l’authentification unique Azure AD avec Tableau Online, procédez comme suit :**
+**Pour configurer Azure AD-authentification unique avec Tableau Online, procédez comme suit :**
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **Tableau Online**, cliquez sur **Authentification unique**.
 
@@ -115,7 +115,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     
     a. Dans la zone de texte **URL de connexion**, tapez l’URL : `https://sso.online.tableau.com`
 
-    b. Dans la zone de texte **Identificateur**, tapez l’URL : `https://sso.online.tableau.com/public/sp/metadata?alias=<entityid> `
+    b. Dans la zone de texte **Identificateur**, tapez l’URL suivante : `https://sso.online.tableau.com/public/sp/metadata?alias=<entityid>`
 
 1. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
@@ -213,7 +213,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 ![Affecter des utilisateurs][200] 
 
-**Pour affecter Britta Simon à Tableau Online, procédez comme suit :**
+**Pour affecter Britta Simon à Tableau Online, procédez comme suit :**
 
 1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
 

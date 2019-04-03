@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
-ms.date: 10/29/2018
+ms.date: 04/02/2019
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celested
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 860a059f57578965045ff8e7f404c3b072df03a1
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 6cb7296ea4acfbf90d94b8f94a644b8a382b033b
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58293819"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877361"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>FAQ sur Azure Active Directory B2B Collaboration
 
@@ -48,7 +48,7 @@ Cette fonctionnalité est planifiée pour une version ultérieure : vous pourre
 Une organisation peut souhaiter ajouter des utilisateurs B2B Collaboration et les approvisionner pour les applications au fil des besoins, avant d'envoyer des invitations. Vous pouvez utiliser l’API d’invitation B2B Collaboration pour personnaliser le workflow d’intégration.
 
 ### <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>Puis-je rendre les utilisateurs invités visibles dans la liste d’adresses globale Exchange ?
-Oui. Par défaut, les objets invités ne sont pas visibles dans la liste d’adresses globale de votre organisation, mais vous pouvez utiliser Azure Active Directory PowerShell pour les rendre visibles. Consultez **Puis-je rendre les objets invités visibles dans la liste d’adresses globale ?** dans [Accès invité dans les groupes Office 365](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6#PickTab=FAQ).
+Oui. Objets invité ne sont pas visibles dans la liste d’adresses globale (LAG) de votre organisation par défaut, mais vous pouvez utiliser Azure Active Directory PowerShell pour les rendre visibles. Consultez [puis-je rendre des objets invité visible dans la liste d’adresses globale ?](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups#can-i-make-guest-objects-visible-in-the-global-address-list)
 
 ### <a name="can-i-make-a-guest-user-a-limited-administrator"></a>Peut-on faire d’un utilisateur invité un administrateur limité ?
 Absolument. Pour plus d’informations, consultez [Ajouter des utilisateurs invités à un rôle](add-guest-to-role.md).
@@ -57,7 +57,7 @@ Absolument. Pour plus d’informations, consultez [Ajouter des utilisateurs invi
 À moins qu’un rôle Administrateur limité ou Administrateur général ne leur soit assigné, les utilisateurs B2B Collaboration n’ont pas besoin d’accéder au portail Azure. Toutefois, les utilisateurs B2B Collaboration qui ont le rôle Administrateur limité ou Administrateur général peuvent accéder au portail. En outre, si un utilisateur invité qui ne possède aucun de ces rôles Administrateur accède au portail, il peut être en mesure d’accéder à certaines parties de l’expérience. Le rôle utilisateur invité possède quelques autorisations dans le répertoire.
 
 ### <a name="can-i-block-access-to-the-azure-portal-for-guest-users"></a>Puis-je bloquer l’accès au portail Azure pour les utilisateurs invités ?
- Oui. Lorsque vous configurez cette stratégie, faites attention à ne pas bloquer accidentellement l’accès aux membres et aux administrateurs.
+Oui. Lorsque vous configurez cette stratégie, faites attention à ne pas bloquer accidentellement l’accès aux membres et aux administrateurs.
 Pour bloquer l’accès d’un utilisateur invité au [portail Azure](https://portal.azure.com), utilisez une stratégie d’accès conditionnel dans l’API Modèle de déploiement Azure Classic :
 1. Modifiez le groupe **Tous les utilisateurs** pour qu’il contienne uniquement les membres.
    ![Capture d’écran montrant groupe tous les utilisateurs où UserType n’est pas égale invité ](media/faq/modify-all-users-group.png)
@@ -121,5 +121,5 @@ Pour plus d’informations sur les licences dont votre organisation a besoin pou
 
 ### <a name="next-steps"></a>Étapes suivantes
 
-- [Qu'est-ce que la collaboration B2B d'Azure AD ?](what-is-b2b.md)
+- [Qu’est-ce qu’Azure AD B2B Collaboration ?](what-is-b2b.md)
 
