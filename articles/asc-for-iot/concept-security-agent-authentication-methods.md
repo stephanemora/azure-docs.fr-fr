@@ -1,31 +1,31 @@
 ---
 title: Méthodes d’authentification pour Azure Security Center pour la version préliminaire IoT | Microsoft Docs
 description: Découvrez les différentes méthodes d’authentification disponibles lors de l’utilisation d’Azure Security Center pour le service IoT.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: 10b38f20-b755-48cc-8a88-69828c17a108
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: ec87c2b65728d8ac29daa90de36271e24cd85c0e
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: d1f9d77d1f87e8d201e2cb034401bb3cae14f41b
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758393"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862911"
 ---
 # <a name="security-agent-authentication-methods"></a>Méthodes d’authentification de l’agent de sécurité 
 
 > [!IMPORTANT]
 > Azure Security Center pour IoT est actuellement en version préliminaire publique.
-> Cette version préliminaire est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Cet article explique les différentes méthodes d’authentification que vous pouvez utiliser avec l’agent AzureIoTSecurity pour s’authentifier auprès du IoT Hub.
 
@@ -63,8 +63,8 @@ Ces arguments sont documentées dans le tableau suivant.
 
 |Paramètre|Description|Options|
 |---------|---------------|---------------|
-|**identity**|mode d'authentification| **Module** ou **appareil**|
-|**type**|Type d'authentification|**SymmetricKey** ou **SelfSignedCertificate**|
+|**identité**|mode d'authentification| **Module** ou **appareil**|
+|**Type**|Type d'authentification|**SymmetricKey** ou **SelfSignedCertificate**|
 |**filePath**|Chemin d’accès complet absolu du fichier contenant le certificat ou la clé symétrique| |
 |**gatewayHostname**|Nom de domaine complet de l’IoT Hub|Exemple : ContosoIotHub.azure-devices.net|
 |**deviceId**|ID de périphérique|Exemple : MyDevice1|
@@ -114,4 +114,4 @@ Modifier _LocalConfiguration.json_ avec les paramètres suivants :
 ## <a name="see-also"></a>Voir aussi
 - [Vue d’ensemble des agents de sécurité](security-agent-architecture.md)
 - [Déploiement de l’agent de sécurité](how-to-deploy-agent.md)
-- [Accéder aux données de sécurité brute](how-to-security-data-access.md)
+- [Accéder aux données de sécurité brutes](how-to-security-data-access.md)

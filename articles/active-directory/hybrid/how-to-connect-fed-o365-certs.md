@@ -16,12 +16,12 @@ ms.date: 10/20/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fae036a0860ddb5ee2776f7ed4734492741907f7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d98a1aabef2de505e66b2127226b9e89cd791e20
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58177719"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883443"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Renouvellement des certificats de fédération pour Office 365 et Azure Active Directory
 ## <a name="overview"></a>Présentation
@@ -114,11 +114,11 @@ Vérifiez les points suivants pour confirmer que le certificat peut être mis à
 
 **1. La propriété AutoCertificateRollover d’AD FS doit être définie sur True.** Cela indique qu’AD FS génère automatiquement de nouveaux certificats de signature de jetons et de déchiffrement de jeton avant que les anciens certificats n’arrivent à expiration.
 
-**2. Les métadonnées de fédération AD FS sont accessibles publiquement.**  Vérifiez que vos métadonnées de fédération sont publiquement accessibles en accédant à l’URL ci-dessous à partir d’un ordinateur relié au réseau Internet public (en dehors du réseau de l’entreprise) :
+**2. Les métadonnées de fédération AD FS sont accessible publiquement.**  Vérifiez que vos métadonnées de fédération sont publiquement accessibles en accédant à l’URL ci-dessous à partir d’un ordinateur relié au réseau Internet public (en dehors du réseau de l’entreprise) :
 
 https://(votre_nom_FS)/federationmetadata/2007-06/federationmetadata.xml
 
-où `(your_FS_name) `est remplacé par le nom d’hôte du service de fédération utilisé par votre organisation, tel que fs.contoso.com.  Si vous êtes parvenu à vérifier la présence de ces deux paramètres, vous n’avez rien d’autre à faire.  
+où `(your_FS_name)` est remplacé par le nom d’hôte de service federation utilise de votre organisation, tel que fs.contoso.com.  Si vous êtes parvenu à vérifier la présence de ces deux paramètres, vous n’avez rien d’autre à faire.  
 
 Exemple : https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml
 ## Renouveler le certificat de signature de jetons manuellement <a name="manualrenew"></a>
@@ -130,11 +130,11 @@ Vous pouvez choisir le renouvellement manuel des certificats de signature de jet
 Dans ces scénarios, vous devez mettre à jour votre domaine Office 365 à l’aide de la commande PowerShell Update-MsolFederatedDomain à chaque fois que vous mettez à jour les certificats de signature de jeton.
 
 ### <a name="step-1-ensure-that-ad-fs-has-new-token-signing-certificates"></a>Étape 1 : Vérifier qu’AD FS dispose de nouveaux certificats de signature de jetons
-**Configuration différente de la configuration par défaut**
+**Configuration par défaut non**
 
 Si vous êtes dans une configuration différente de la configuration par défaut d’AD FS, dans laquelle **AutoCertificateRollover** est défini sur **False**, vous utilisez probablement des certificats personnalisés (pas auto-signés). Pour en savoir plus sur la manière de renouveler les certificats de signature de jeton AD FS, consultez [Conseils pour les clients qui n’utilisent pas de certificats auto-signés AD FS](https://msdn.microsoft.com/library/azure/JJ933264.aspx#BKMK_NotADFSCert).
 
-**Les métadonnées de fédération ne sont pas disponibles publiquement**
+**Métadonnées de fédération ne sont pas disponible publiquement**
 
 En revanche, si **AutoCertificateRollover** est défini sur **True** sans que vos métadonnées de fédération ne soient disponibles publiquement, assurez-vous que les nouveaux certificats de signature de jetons ont été générés par AD FS. Confirmez que vous disposez des nouveaux certificats de signature de jeton en suivant les étapes suivantes :
 

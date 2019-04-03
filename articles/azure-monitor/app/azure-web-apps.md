@@ -9,12 +9,12 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: mbullwin
-ms.openlocfilehash: 7386f6bd92143cf3fb7b37725900425f99371cd0
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 9d121146924eb153227e35d608a3c6c33aae31a1
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804990"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862605"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Analyser les performances d’Azure App Service
 
@@ -101,7 +101,7 @@ Analyse côté client est opt-in pour ASP.NET. Pour activer l’analyse côté c
 
      Nom : `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
-     Valeur: `true`
+     Valeur : `true`
 
    * **Enregistrez** les paramètres et **Redémarrez** votre application.
 
@@ -118,9 +118,9 @@ Si pour une raison quelconque, vous souhaitez désactiver l’analyse côté cli
 * Sélectionnez **paramètres** > **paramètres d’Application**
    * Sous paramètres de l’Application, ajoutez un nouveau **nom de paramètre d’application** et **valeur**:
 
-     Nom : `APPINSIGHTS_JAVASCRIPT_ENABLED`
+     name : `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
-     Valeur: `false`
+     Valeur : `false`
 
    * **Enregistrez** les paramètres et **Redémarrez** votre application.
 
@@ -322,7 +322,7 @@ Voici notre guide de dépannage pas à pas pour l’extension/agent en fonction 
 > Les applications Java et Node.js sont uniquement pris en charge sur Azure App Services via une instrumentation manuelle SDK basé et par conséquent, les étapes ci-dessous ne s’appliquent pas à ces scénarios.
 
 1. Vérifiez que l’application est surveillée par le biais de `ApplicationInsightsAgent`.
-    * Vérifiez que « ApplicationInsightsAgent_EXTENSION_AGENT application est défini sur une valeur de « ~ 2 ».
+    * Vérifiez que `ApplicationInsightsAgent_EXTENSION_VERSION` paramètre d’application est défini sur une valeur de « ~ 2 ».
 2. Assurez-vous que l’application remplit les conditions à surveiller.
     * Accédez à `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`
 
@@ -353,10 +353,10 @@ Le tableau ci-dessous fournit une explication plus détaillée de la signifient 
 Pour plus d’informations sur l’extension Application Insights agent, consultez le [notes de version](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-
-* [Exécuter le profileur sur une application dynamique](../../azure-monitor/app/profiler.md).
+* [Exécuter le profileur sur une application dynamique](../app/profiler.md).
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample) - analyse les fonctions Azure avec Application Insights
-* [Autorisation de l’envoi de diagnostics Azure](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md) vers Application Insights.
-* [Analyse des mesures d’intégrité du service](../../azure-monitor/platform/data-collection.md) pour vous assurer que votre service est disponible et réactif.
-* [Réceptions de notifications d’alerte](../../azure-monitor/platform/alerts-overview.md) lorsque des événements opérationnels se produisent ou que des mesures dépassent un seuil.
-* [Configuration des tests de disponibilité web](../../azure-monitor/app/monitor-web-app-availability.md) , pour recevoir des alertes en cas d’interruption de votre site.
+* [Autorisation de l’envoi de diagnostics Azure](../platform/diagnostics-extension-to-application-insights.md) vers Application Insights.
+* [Analyse des mesures d’intégrité du service](../platform/data-platform.md) pour vous assurer que votre service est disponible et réactif.
+* [Réceptions de notifications d’alerte](../platform/alerts-overview.md) lorsque des événements opérationnels se produisent ou que des mesures dépassent un seuil.
+* Utilisation [d’Application Insights pour les pages Web et les applications JavaScript](javascript.md) pour obtenir les données de télémétrie du client à partir des navigateurs qui consultent une page web.
+* [Configuration des tests de disponibilité web](monitor-web-app-availability.md) , pour recevoir des alertes en cas d’interruption de votre site.

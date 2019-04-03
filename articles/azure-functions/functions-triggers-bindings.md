@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
 ms.openlocfilehash: 3865f748a9ca2fe09660d6454542d64f73a8e3c1
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: MT
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
+ms.lasthandoff: 04/03/2019
 ms.locfileid: "56736955"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Concepts des déclencheurs et liaisons Azure Functions
@@ -33,10 +33,10 @@ Prenons les exemples suivants de la façon dont vous pouvez implémenter des fon
 
 | Exemple de scénario | Déclencheur | Liaison d’entrée | Liaison de sortie |
 |-------------|---------|---------------|----------------|
-| Un nouveau message de file d’attente arrive qui exécute une fonction pour écrire dans une autre file d’attente. | File d’attente<sup>*</sup> | *Aucun* | File d’attente<sup>*</sup> |
+| Un nouveau message de file d’attente arrive qui exécute une fonction pour écrire dans une autre file d’attente. | File d’attente<sup>*</sup> | *Aucun(e)* | File d’attente<sup>*</sup> |
 |Une tâche planifiée lit le contenu du stockage d’objets Blob et crée un document Cosmos DB. | Minuteur | Stockage Blob | Cosmos DB |
-|La grille d’événements est utilisée pour lire une image à partir de stockage d’objets Blob et un document à partir de Cosmos DB pour envoyer un e-mail. | Event Grid | Stockage d’objets BLOB et Cosmos DB | SendGrid |
-| Un webhook qui utilise Microsoft Graph pour mettre à jour d’une feuille Excel. | HTTP | *Aucun* | Microsoft Graph |
+|La grille d’événements est utilisée pour lire une image à partir de stockage d’objets Blob et un document à partir de Cosmos DB pour envoyer un e-mail. | Grille d'événement | Stockage d’objets BLOB et Cosmos DB | SendGrid |
+| Un webhook qui utilise Microsoft Graph pour mettre à jour d’une feuille Excel. | HTTP | *Aucun(e)* | Microsoft Graph |
 
 <sup>\*</sup> Représente différentes files d’attente
 
@@ -72,8 +72,8 @@ Les autres options pour `dataType` sont `stream` et `string`.
 
 Tous les déclencheurs et liaisons ont une propriété `direction` dans le fichier [function.json](./functions-reference.md) :
 
-- Pour les déclencheurs, le sens est toujours `in`
-- Les liaisons d’entrée et de sortie utilisent `in` et `out`
+- Pour les déclencheurs, la direction est toujours `in`
+- Utilisent des liaisons d’entrée et de sortie `in` et `out`
 - Certaines liaisons prennent en charge un sens spécial `inout`. Si vous utilisez `inout`, seule la **éditeur avancé** est disponible via le **intégrer** onglet dans le portail.
 
 Lorsque vous utilisez des [attributs dans une bibliothèque de classes](functions-dotnet-class-library.md) pour configurer les déclencheurs et les liaisons, la direction est fournie dans un constructeur d’attribut ou déduite du type du paramètre.
