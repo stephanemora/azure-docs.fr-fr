@@ -8,19 +8,19 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 02/23/2017
 ms.author: sngun
-ms.openlocfilehash: 2830772dd69ac94c2b8373936665b9445f9f5f10
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 24426a4249934af1d85f43552617cda7c1d7e172
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431196"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883885"
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Créer une application web Python Flask à l’aide d’Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
 > * [Java](sql-api-java-application.md)
-> * [Node.JS](sql-api-nodejs-application.md)
+> * [Node.js](sql-api-nodejs-application.md)
 > * [Python](sql-api-python-application.md)
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
@@ -417,7 +417,7 @@ Maintenant que l’application complète fonctionne correctement avec la base de
     ![Résultats de la publication des applications Bottle, Flask et Django dans App Service](./media/sql-api-python-application/python-published-app-services.png)
 
     > [!Tip] 
-    > Si la page web n’apparaît pas ou si vous obtenez encore le message « The page cannot be displayed because an internal server error has occurred. » (La page ne peut pas être affichée en raison d’une erreur de serveur interne.), ouvrez le fichier web.config dans Kudo et ajoutez ` <httpErrors errorMode="Detailed"></httpErrors>` dans la section system.webServer, puis actualisez la page. Cela affichera le message d’erreur détaillé dans le navigateur. 
+    > Si la page web n’apparaît pas ou si vous obtenez encore le message « The page cannot be displayed because an internal server error has occurred. » (La page ne peut pas être affichée en raison d’une erreur de serveur interne.), ouvrez le fichier web.config dans Kudo et ajoutez `<httpErrors errorMode="Detailed"></httpErrors>` dans la section system.webServer, puis actualisez la page. Cela affichera le message d’erreur détaillé dans le navigateur. 
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 S’il s’agit de la première application Python que vous avez exécutée sur votre ordinateur, assurez-vous que les dossiers suivants (ou les emplacements d’installation équivalents) sont inclus dans votre variable PATH :

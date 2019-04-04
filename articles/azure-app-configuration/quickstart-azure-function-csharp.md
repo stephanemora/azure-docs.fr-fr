@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure Functions
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 22ec05660682f000d8bc3b9780732d5adf9b5c24
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 9b0c48b3a3fb3a1b4e4fbe94a368297823a86778
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226706"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579578"
 ---
 # <a name="quickstart-create-an-azure-function-with-app-configuration"></a>Démarrage rapide : Créer une fonction Azure avec App Configuration
 
@@ -45,13 +45,19 @@ Pour suivre ce guide de démarrage rapide, installez [Visual Studio 2017](https
 
 ## <a name="connect-to-an-app-configuration-store"></a>Se connecter à un magasin de configuration d’application
 
-1. Ouvrez *Function1.cs* et ajoutez une référence à un fournisseur de configuration .NET Core App Configuration.
+1. Cliquez avec le bouton droit sur votre projet, puis sélectionnez **Gérer les packages NuGet**. Sous l’onglet **Parcourir**, recherchez et ajoutez les packages NuGet suivants à votre projet. Si vous ne les trouvez pas, cochez la case **Inclure les préversions**.
+
+    ```
+    Microsoft.Extensions.Configuration.AzureAppConfiguration 1.0.0 preview or later
+    ```
+
+2. Ouvrez *Function1.cs* et ajoutez une référence à un fournisseur de configuration .NET Core App Configuration.
 
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
 
-2. Mettez à jour la méthode `Run` pour utiliser App Configuration en appelant `builder.AddAzureAppConfiguration()`.
+3. Mettez à jour la méthode `Run` pour utiliser App Configuration en appelant `builder.AddAzureAppConfiguration()`.
 
     ```csharp
     public static async Task<IActionResult> Run(

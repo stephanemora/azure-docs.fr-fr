@@ -3,17 +3,17 @@ title: 'Démarrage rapide : Interroger des données dans Azure Data Explorer'
 description: Dans ce guide de démarrage rapide, vous allez apprendre à interroger et partager des données dans l’Explorateur de données Azure.
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 9dade2ccebfb96cd54bdb9c8ef70c14fdeadad76
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 1774ae943dc96e07837a3cd155b5980ff732ceb4
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225771"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756152"
 ---
 # <a name="quickstart-query-data-in-azure-data-explorer"></a>Démarrage rapide : Interroger des données dans Azure Data Explorer
 

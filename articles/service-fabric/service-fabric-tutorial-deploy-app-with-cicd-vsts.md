@@ -3,8 +3,8 @@ title: Déployer une application Service Fabric avec intégration continue et Az
 description: Dans ce tutoriel, vous allez découvrir comment configurer l’intégration et le déploiement continus pour une application Service Fabric à l’aide d’Azure Pipelines.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/02/2018
-ms.author: ryanwi
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 766c0c780807ff7627ae9fb96aca4a896918f9c6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c805d2bc03ad07635b01a5e978822ecab2425457
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094948"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58668838"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Tutoriel : Déployer une application avec intégration et déploiement continus sur un cluster Service Fabric
 

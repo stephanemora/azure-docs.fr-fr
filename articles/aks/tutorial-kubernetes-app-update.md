@@ -2,20 +2,20 @@
 title: Didacticiel Kubernetes sur Azure - Mettre à jour une application
 description: Dans le cadre de ce didacticiel Azure Kubernetes Service (AKS), vous allez apprendre à mettre à jour un déploiement d’application existant vers ACS avec une nouvelle version du code d’application.
 services: container-service
-author: iainfoulds
+author: zr-msft
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: iainfou
+ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: cefbd4f16902b3a6816ebb4e818a81b18ba00d54
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5415778713261fbb3e57695573c8486cb32da781
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57995559"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756132"
 ---
-# <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Tutoriel : Mettre à jour une application dans Azure Kubernetes Service (AKS)
+# <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Didacticiel : Mettre à jour une application dans Azure Kubernetes Service (AKS)
 
 Après avoir déployé une application dans Kubernetes, vous pouvez la mettre à jour en spécifiant une nouvelle image conteneur ou une nouvelle version de l’image. Une mise à jour se fait alors étape par étape, afin que seule une partie du déploiement soit mise à jour en même temps. Cette mise à jour progressive permet à l’application de poursuivre son exécution pendant la mise à jour. Elle fournit également un mécanisme de restauration en cas d’échec du déploiement.
 

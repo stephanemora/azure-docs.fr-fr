@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Spring
 ms.workload: tbd
 ms.date: 01/08/2019
 ms.author: yidon
-ms.openlocfilehash: 050a7a3718cb7c9eb864b7ed6ea0787c079e31b9
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: fec72a4fac6baa3869928c0203aeb29e53ce5ea4
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226315"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648467"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-app-configuration"></a>Démarrage rapide : Créer une application Java Spring avec App Configuration
 
@@ -35,26 +35,26 @@ Pour suivre ce guide de démarrage rapide, installez [Java Development Kit (JDK)
 
 ## <a name="create-an-app-configuration-store"></a>Créer un magasin de configuration d’application
 
-1. Pour créer un magasin de configuration d’application, connectez-vous au [portail Azure](https://aka.ms/azconfig/portal). Dans le coin supérieur gauche de la page, sélectionnez **+ Créer une ressource**. Dans la zone **Rechercher dans la Place de marché**, entrez **App Configuration** et appuyez sur Entrée.
+1. Pour créer un magasin de configuration d’application, connectez-vous au [portail Azure](https://aka.ms/azconfig/portal). En haut à gauche de la page, sélectionnez **+ Créer une ressource**. Dans la zone **Rechercher dans la Place de marché**, entrez **App Configuration** et appuyez sur Entrée.
 
     ![Rechercher App Configuration](./media/quickstarts/azure-app-configuration-new.png)
 
-2. Dans les résultats de la recherche, sélectionnez **App Configuration**, puis **Créer**.
+2. Sélectionnez **Configuration d’application** dans les résultats de la recherche, puis **Créer**.
 
-3. Dans la page **App Configuration** > **Créer**, entrez les paramètres suivants.
+3. Dans la page **Configuration d’application** > **Créer**, entrez les paramètres suivants.
 
     | Paramètre | Valeur suggérée | Description |
     |---|---|---|
-    | **Nom de la ressource** | Nom globalement unique | Entrez un nom de ressource unique à utiliser pour la ressource du magasin de configuration d’application. Le nom doit être une chaîne de 1 à 63 caractères et contenir uniquement des chiffres, des lettres et le caractère `-`. Le nom ne peut ni commencer ni se terminer par le caractère `-`, et il n’accepte pas de caractères `-` consécutifs.  |
+    | **Nom de la ressource** | Nom globalement unique | Entrez un nom de ressource unique à utiliser pour la ressource du magasin de configuration d’application. Le nom doit être une chaîne de 1 à 63 caractères et contenir uniquement des chiffres, des lettres et le caractère `-`. Le nom ne peut ni commencer ni se terminer par le caractère `-`, et n’accepte pas les caractères `-` consécutifs.  |
     | **Abonnement** | Votre abonnement | Sélectionnez l’abonnement Azure à utiliser pour tester App Configuration. Si votre compte a un seul abonnement, il est automatiquement sélectionné et la liste déroulante **Abonnement** ne s’affiche pas. |
     | **Groupe de ressources** | *AppConfigTestResources* | Sélectionnez ou créez un groupe de ressources pour votre ressource du magasin de configuration d’application. Ce groupe est utile pour organiser plusieurs ressources que vous souhaitez supprimer en même temps que vous supprimez ce groupe de ressources. Pour plus d’informations, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). |
     | **Lieu** | *USA Centre* | Utilisez **Emplacement** pour indiquer l’emplacement géographique de l’hébergement de votre ressource SignalR. Pour des performances optimales, créez la ressource dans la même région que les autres composants de votre application. |
 
     ![Créer un magasin de configuration d’application](./media/quickstarts/azure-app-configuration-create.png)
 
-4. Sélectionnez **Créer**. Le déploiement peut prendre quelques instants pour se terminer.
+4. Sélectionnez **Créer**. Le déploiement peut prendre quelques minutes.
 
-5. À l’issue du déploiement, sélectionnez **Paramètres** > **Clés d’accès**. Prenez note de la chaîne de connexion de la clé primaire, en lecture seule ou en lecture-écriture. Vous utilisez cette chaîne de connexion plus tard pour configurer votre application, afin qu’elle communique avec le magasin de configuration d’application que vous avez créé. La chaîne de connexion prend la forme suivante :
+5. À la fin du déploiement, sélectionnez **Paramètres** > **Clés d’accès**. Prenez note de la chaîne de connexion de la clé primaire, en lecture seule ou en lecture-écriture. Vous utilisez cette chaîne de connexion plus tard pour configurer votre application, afin qu’elle communique avec le magasin de configuration d’application que vous avez créé. La chaîne de connexion prend la forme suivante :
 
         Endpoint=<your_endpoint>;Id=<your_id>;Secret=<your_secret>
 
@@ -93,7 +93,7 @@ Vous utilisez [Spring Initializr](https://start.spring.io/) pour créer un proje
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-starter-azure-appconfiguration-config</artifactId>
-        <version>1.1.0.M1</version>
+        <version>1.1.0.M3</version>
     </dependency>
     ```
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 5a7161d05b153a556cce20ec4f4d0cbbfdf1d2d1
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 2201a8017f82517f287cc0b73346a90eaa2408a4
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315502"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877718"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Configurer la récupération d’urgence de machines virtuelles Hyper-V locales vers Azure
 
@@ -30,7 +30,7 @@ Ce didacticiel vous montre comment configurer la récupération d’urgence de m
 Il s’agit du troisième didacticiel d’une série. Ce didacticiel suppose que vous avez déjà effectué les tâches des didacticiels précédents :
 
 1. [Préparer Azure](tutorial-prepare-azure.md)
-2. [Préparer un serveur Hyper-V local](tutorial-prepare-on-premises-hyper-v.md)
+2. [Préparer un Hyper-V local](tutorial-prepare-on-premises-hyper-v.md)
 
 Avant de commencer, [examinez l’architecture](concepts-hyper-v-to-azure-architecture.md) de ce scénario de récupération d’urgence.
 
@@ -87,17 +87,17 @@ Si vous utilisez un serveur Hyper-V, suivez les étapes ci-dessous une fois que 
 
 1. Extrayez les fichiers du dossier AzureSiteRecoveryProvider.exe en exécutant la commande suivante :
 
-    ``AzureSiteRecoveryProvider.exe /x:. /q``
+    `AzureSiteRecoveryProvider.exe /x:. /q`
  
     Cela permet d’extraire les fichiers dans le répertoire local.
  
-2.  Exécutez ``.\setupdr.exe /i ``
+2.  Exécuter `.\setupdr.exe /i`
 
     Les résultats sont consignés dans %Programdata%\ASRLogs\DRASetupWizard.log
 
 3.  Inscrivez le serveur à l’aide de la commande suivante :
 
-``cd  C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Friendlyname "FriendlyName of the Server" /Credentials "path to where the credential file is saved" ``
+`cd  C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Friendlyname "FriendlyName of the Server" /Credentials "path to where the credential file is saved"`
  
 
 ## <a name="set-up-the-target-environment"></a>Configurer l’environnement cible
@@ -140,4 +140,4 @@ Site Recovery vérifie que vous disposez d’un ou de plusieurs réseaux et comp
    Vous pouvez suivre la progression de l’action **Activer la protection** dans **Travaux** > **Travaux Site Recovery**. Lorsque le travail de **finalisation de la protection** est terminé, la réplication initiale est également terminée et la machine virtuelle est prête à être basculée.
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Effectuer un test de récupération d’urgence](tutorial-dr-drill-azure.md)
+[Exécuter une simulation de récupération d'urgence](tutorial-dr-drill-azure.md)

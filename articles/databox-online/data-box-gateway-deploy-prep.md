@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 03/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 78008357e3ea8fbfe707a7dbead19e3fce83b578
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 34bc4d7cbdbb89cd9ff3f334ca32087c474735b7
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403695"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620085"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>Didacticiel : Préparer le déploiement d’Azure Data Box Gateway
 
@@ -101,8 +101,11 @@ Pour créer une ressource Data Box Gateway, effectuez les étapes suivantes dans
     |Groupe de ressources  |Sélectionnez un groupe existant ou créez-en un.<br>Obtenez plus d’informations sur les [groupes de ressources Azure](../azure-resource-manager/resource-group-overview.md).     |
 
 5. Entrez ou sélectionnez les **détails de l’instance** suivants.
-   |Nom | Entrez un nom reconnaissable pour identifier la ressource.<br>Le nom doit être compris entre 2 et 50 caractères, et se composer uniquement de lettres, de chiffres et de traits d’union.<br> Le nom doit commencer et se terminer par une lettre ou un chiffre.        |   
-    |Région | Pour cette version, les zones USA Est, Asie Sud-Est et Europe Ouest sont disponibles pour déployer votre ressource. Pour Azure Government, toutes les régions administratives listées dans les [Régions Azure](https://azure.microsoft.com/global-infrastructure/regions/) sont disponibles. <br> Choisissez l’emplacement le plus proche de la région géographique dans laquelle vous souhaitez déployer votre appareil.|
+
+    |Paramètre  |Valeur  |
+    |---------|---------|
+    |Nom   | Entrez un nom reconnaissable pour identifier la ressource.<br>Le nom doit être compris entre 2 et 50 caractères, et se composer uniquement de lettres, de chiffres et de traits d’union.<br> Le nom doit commencer et se terminer par une lettre ou un chiffre.        |   
+    |Région     |Pour cette version, les zones USA Est, Asie Sud-Est et Europe Ouest sont disponibles pour déployer votre ressource. Pour Azure Government, toutes les régions administratives listées dans les [Régions Azure](https://azure.microsoft.com/global-infrastructure/regions/) sont disponibles. <br> Choisissez l’emplacement le plus proche de la région géographique dans laquelle vous souhaitez déployer votre appareil.|
     
     ![Créer la ressource Data Box Gateway](media/data-box-gateway-deploy-prep/data-box-gateway-resource.png)
     

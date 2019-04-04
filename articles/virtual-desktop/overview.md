@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 4443d71d5c0b84ac7dbc18129338229c40323d2c
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: f922f940f6c579c8710dadec29b365e7cf4c7938
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401050"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577184"
 ---
 # <a name="what-is-windows-virtual-desktop-preview"></a>Qu’est-ce que Windows Virtual Desktop Preview ? 
 
@@ -72,7 +72,7 @@ Votre infrastructure doit contenir les éléments suivants pour prendre en charg
   
 Les machines virtuelles Azure que vous créez pour Windows Virtual Desktop doivent :
 
-* être [standard jointes à un domaine](https://docs.microsoft.com/microsoft-desktop-optimization-pack/appv-v4/domain-joined-and-non-domain-joined-clients) ou [hybrides jointes à AD](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan). Les machines virtuelles ne peuvent pas être jointes à Azure AD.
+* être [standard jointes à un domaine](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-comparison) ou [hybrides jointes à AD](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan). Les machines virtuelles ne peuvent pas être jointes à Azure AD.
 * Exécuter l’une des images de système d’exploitation prises en charge suivantes :
   * Windows 10 Entreprise multisession
   * Windows Server 2016

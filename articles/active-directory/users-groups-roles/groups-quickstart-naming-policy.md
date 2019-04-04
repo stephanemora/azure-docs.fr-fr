@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f2219e038d3432807c81246256873a1ecb2cd9b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d4105fa17041c7cefd1387d1ee50c177b8c55fc9
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58093471"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651284"
 ---
 # <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Démarrage rapide : Stratégie d’affectation de noms pour les groupes dans Azure Active Directory
 
@@ -38,14 +38,18 @@ Veillez à désinstaller toute version ancienne du module Azure Active Directory
 1. Ouvrez l’application Windows PowerShell en tant qu’administrateur.
 2. Désinstallez toute version précédente d’AzureADPreview.
   
-   ```
+
+   ```powershell
    Uninstall-Module AzureADPreview
    ```
+
 3. Installez la dernière version d’AzureADPreview.
   
-   ```
+
+   ```powershell
    Install-Module AzureADPreview
    ```
+
    Si vous êtes invité à accéder à un référentiel non approuvé, tapez **Y**. L’installation du nouveau module peut prendre quelques minutes.
 
 ## <a name="set-up-naming-policy"></a>Configurer la stratégie d’affectation de noms
@@ -56,10 +60,12 @@ Veillez à désinstaller toute version ancienne du module Azure Active Directory
 
 2. Exécutez les commandes suivantes pour préparer l’exécution des applets de commande.
   
-   ```
+
+   ```powershell
    Import-Module AzureADPreview
    Connect-AzureAD
    ```
+
    Dans l’écran **Connectez-vous à votre compte** qui s’ouvre, entrez votre compte d’administrateur et votre mot de passe pour vous connecter à votre service, puis sélectionnez **Se connecter**.
 
 3. Suivez les étapes de [Configuration des paramètres de groupe avec les applets de commande Azure Active Directory](groups-settings-cmdlets.md) pour créer des paramètres de groupe pour ce locataire.
@@ -68,35 +74,46 @@ Veillez à désinstaller toute version ancienne du module Azure Active Directory
 
 1. Visualisez les paramètres de stratégie d’affectation de noms actuels.
   
+
+   ```powershell
+   $Setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | Where-Object -Property DisplayName -Value "Group.Unified" -EQ).id
    ```
-   $Setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id
-   ```
+
   
 2. Affichez les paramètres de groupe actuels.
   
-   ```
+
+   ```powershell
    $Setting.Values
    ```
+
   
+
 ### <a name="step-3-set-the-naming-policy-and-any-custom-blocked-words"></a>Étape 3 : Définir la stratégie d’affectation de noms et les éventuels mots bloqués personnalisés
 
 1. Définissez les préfixes et les suffixes de nom de groupe dans Azure AD PowerShell. Pour que la fonctionnalité fonctionne correctement, [GroupName] doit être inclus dans le paramètre.
   
-   ```
+
+   ```powershell
    $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
    ```
+
   
 2. Définissez les mots bloqués personnalisés sur lesquels vous voulez imposer des restrictions. L’exemple suivant illustre la façon dont vous pouvez ajouter vos propres mots personnalisés.
   
-   ```
+
+   ```powershell
    $Setting["CustomBlockedWordsList"]=“Payroll,CEO,HR"
    ```
+
   
 3. Enregistrez les paramètres de la nouvelle stratégie pour qu’elle prenne effet, comme dans l’exemple suivant.
   
+
+   ```powershell
+   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | Where-Object -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
-   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
-   ```
+
   
 Vous avez terminé. Vous avez défini votre stratégie d’affectation de noms et ajouté vos mots bloqués personnalisés.
 
@@ -104,20 +121,25 @@ Vous avez terminé. Vous avez défini votre stratégie d’affectation de noms e
 
 1. Supprimez les préfixes et les suffixes de nom de groupe dans Azure AD PowerShell.
   
-   ```
+
+   ```powershell
    $Setting["PrefixSuffixNamingRequirement"] =""
    ```
+
   
 2. Supprimez les mots bloqués personnalisés.
   
-   ```
+
+   ```powershell
    $Setting["CustomBlockedWordsList"]=""
    ```
+
   
 3. Enregistrez les paramètres.
   
-   ```
-   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
+
+   ```powershell
+   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | Where-Object -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
 
 ## <a name="next-steps"></a>Étapes suivantes

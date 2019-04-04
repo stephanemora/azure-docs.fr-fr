@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 24a35b387a8b47d44f742303ddde0a0e8fb47fe6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2451922f0eb49a5ccee036db72eb046760287dca
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57833796"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58628876"
 ---
 # <a name="azure-spatial-anchors-overview"></a>Vue d’ensemble d’Azure Spatial Anchors
 
@@ -30,7 +30,7 @@ Voici quelques exemples de cas d’usage rendus possibles par Spatial Anchors :
 
 - [Guidage](concepts/anchor-relationships-way-finding.md). Les développeurs peuvent aussi connecter plusieurs ancres spatiales et créer des relations entre elles. Par exemple, une application peut présenter une expérience constituée de plusieurs points d’intérêt avec lesquels un utilisateur doit interagir pour effectuer une tâche. Ces points d’intérêt peuvent être créés de manière connectée. Par la suite, quand l’utilisateur termine la tâche multi-étape, l’application peut demander les ancres situées à proximité de l’ancre active pour diriger l’utilisateur vers la prochaine étape de la tâche.
 
-- [Conservation du contenu virtuel dans le monde réel](concepts/create-locate-anchors-unity.md#create-a-cloud-spatial-anchor). Une application peut permettre à un utilisateur de placer un calendrier virtuel sur le mur d’une salle de conférence, que des personnes pourront voir à l’aide d’une application de téléphone ou d’un appareil HoloLens. Dans un environnement industriel, un utilisateur pourrait obtenir des informations contextuelles sur une machine en pointant vers celle-ci l’appareil photo d’un appareil pris en charge.
+- [Conservation du contenu virtuel dans le monde réel](how-tos/create-locate-anchors-unity.md#create-a-cloud-spatial-anchor). Une application peut permettre à un utilisateur de placer un calendrier virtuel sur le mur d’une salle de conférence, que des personnes pourront voir à l’aide d’une application de téléphone ou d’un appareil HoloLens. Dans un environnement industriel, un utilisateur pourrait obtenir des informations contextuelles sur une machine en pointant vers celle-ci l’appareil photo d’un appareil pris en charge.
 
 Azure Spatial Anchors se compose d’un service managé et de kits SDK clients pour les plateformes d’appareils prises en charge. Les sections suivantes indiquent comment commencer à générer des applications à l’aide d’Azure Spatial Anchors.
 

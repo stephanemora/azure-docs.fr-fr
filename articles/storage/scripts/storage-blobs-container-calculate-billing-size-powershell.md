@@ -15,12 +15,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 11/07/2017
 ms.author: fryu
-ms.openlocfilehash: 805abec84b26a6b2b9af3dfe318f877f4edb9547
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 02b4cfcc6d88430701f653665269532a4eb7092f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58080894"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880761"
 ---
 # <a name="calculate-the-total-billing-size-of-a-blob-container"></a>Calculer la taille totale de facturation d’un conteneur d’objets blob
 
@@ -43,11 +43,11 @@ Les sections suivantes décrivent comment calculer la capacité de stockage pour
 
 Le calcul suivant montre comment estimer la quantité de stockage utilisée par le conteneur d’objets blob :
 
-`
+```
 48 bytes + Len(ContainerName) * 2 bytes +
 For-Each Metadata[3 bytes + Len(MetadataName) + Len(Value)] +
 For-Each Signed Identifier[512 bytes]
-`
+```
 
 Voici la répartition :
 * 48 octets de charge utile pour chaque conteneur comprenant l’heure de dernière modification, les autorisations, les paramètres publics et des métadonnées système.
@@ -64,22 +64,22 @@ Les calculs suivants montrent comment estimer la quantité de stockage utilisée
 
 * Objet blob de blocs (objet blob de base ou instantané) :
 
-   `
+   ```
    124 bytes + Len(BlobName) * 2 bytes +
    For-Each Metadata[3 bytes + Len(MetadataName) + Len(Value)] +
    8 bytes + number of committed and uncommitted blocks * Block ID Size in bytes +
    SizeInBytes(data in unique committed data blocks stored) +
    SizeInBytes(data in uncommitted data blocks)
-   `
+   ```
 
 * Objet blob de pages (objet blob de base ou instantané) :
 
-   `
+   ```
    124 bytes + Len(BlobName) * 2 bytes +
    For-Each Metadata[3 bytes + Len(MetadataName) + Len(Value)] +
    number of nonconsecutive page ranges with data * 12 bytes +
    SizeInBytes(data in unique pages stored)
-   `
+   ```
 
 Voici la répartition :
 

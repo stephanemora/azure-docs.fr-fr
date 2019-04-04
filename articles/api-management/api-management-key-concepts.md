@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 0ede6c0c55e2f953e0d109d2d371313759ed4d06
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 2ed29f50278afe5bf7cd3daabe088cee55caae06
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965153"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793944"
 ---
 # <a name="what-is-api-management"></a>Présentation de Gestion des API
 
@@ -101,7 +101,7 @@ Pour plus d’informations, consultez les pages [Création ou invitation de dév
 ## <a name="policies"></a> Stratégies
 Les stratégies sont une fonctionnalité puissante de Gestion des API. Elles permettent au portail Azure de modifier le comportement de l’API grâce à la configuration. Les stratégies sont un ensemble d'instructions qui sont exécutées dans l'ordre sur demande ou sur réponse d'une API. Les instructions les plus utilisées comprennent la conversion du format XML au format JSON et la limitation du débit d'appels pour restreindre le nombre d'appels entrants d'un développeur. De nombreuses autres stratégies sont disponibles.
 
-Les expressions de stratégie peuvent être utilisées comme valeurs d’attribut ou valeurs de texte dans l’une des stratégies de Gestion des API, sauf si la stratégie le spécifie autrement. Certaines stratégies, telles que les stratégies [Control flow](https://msdn.microsoft.com/library/azure/dn894085.aspx#choose) et [Set variable](https://msdn.microsoft.com/library/azure/dn894085.aspx#set-variable), sont basées sur des expressions de stratégie. Pour plus d’informations, consultez les rubriques [Stratégies avancées](https://msdn.microsoft.com/library/azure/dn894085.aspx#AdvancedPolicies) et [Expressions de stratégie](https://msdn.microsoft.com/library/azure/dn910913.aspx).
+Les expressions de stratégie peuvent être utilisées comme valeurs d’attribut ou valeurs de texte dans l’une des stratégies de Gestion des API, sauf si la stratégie le spécifie autrement. Certaines stratégies, telles que les stratégies [Control flow](/azure/api-management/api-management-advanced-policies#choose) et [Set variable](/azure/api-management/api-management-advanced-policies#set-variable), sont basées sur des expressions de stratégie. Pour plus d’informations, consultez les rubriques [Stratégies avancées](/azure/api-management/api-management-advanced-policies#AdvancedPolicies) et [Expressions de stratégie](/azure/api-management/api-management-policy-expressions).
 
 
 Pour obtenir la liste complète des stratégies Gestion des API, consultez la page [Référence de stratégie][Policy reference]. Pour plus d’informations sur l’utilisation et la configuration des stratégies, consultez la page [Stratégies Gestion des API][API Management policies]. Pour consulter un didacticiel sur la création d’un produit avec des stratégies de limite de débit et de quota, référez-vous à la page [Création et configuration de paramètres de produit avancés][How create and configure advanced product settings].
