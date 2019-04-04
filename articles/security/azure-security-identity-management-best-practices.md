@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/17/2018
 ms.author: barclayn
-ms.openlocfilehash: bf5143c3c0c75bc37f6981c6d995339e41baa4c4
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: f872c61ad0597d2307cd244668fdfc258f7a45cb
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112101"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895684"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Meilleures pratiques en matière de sécurité du contrôle d’accès et de la gestion des identités Azure
 
@@ -116,7 +116,7 @@ Voici les options et les avantages de la vérification en deux étapes :
 **Option 1** : [Activez Multi-Factor Authentication en modifiant l’état de l’utilisateur](../active-directory/authentication/howto-mfa-userstates.md).   
 **Avantage** : C’est la méthode traditionnelle pour exiger une vérification en deux étapes. Elle fonctionne avec [l’authentification multifacteur Azure dans le cloud et le serveur Multi-Factor Authentication Azure](../active-directory/authentication/concept-mfa-whichversion.md). Cette méthode nécessite que les utilisateurs effectuent la vérification en deux étapes chaque fois qu’ils se connectent, puis remplace les stratégies d’accès conditionnel.
 
-**Option 2** : [Activez Multi-Factor Authentication avec stratégie d’accès conditionnel](../active-directory/authentication/howto-mfa-getstarted.md#enable-multi-factor-authentication-with-conditional-access).   
+**Option 2** : [Activez Multi-Factor Authentication avec stratégie d’accès conditionnel](../active-directory/authentication/howto-mfa-getstarted.md).
 **Avantage** : Cette option permet de demander une vérification en deux étapes sous certaines conditions à l’aide de [l’accès conditionnel](../active-directory/active-directory-conditional-access-azure-portal.md). Les conditions spécifiques peuvent être une connexion de l’utilisateur à partir d’emplacements différents, d’appareils non approuvés ou d’applications que vous considérez comme risquées. Le fait de définir des conditions spécifiques pour une vérification en deux étapes vous permet d’éviter de la demander continuellement à vos utilisateurs, ce qui peut être désagréable.
 
 Il s’agit de la méthode la plus souple pour activer la vérification en deux étapes pour vos utilisateurs. Activer une stratégie d’accès conditionnel fonctionne uniquement pour l’authentification multifacteur Azure dans le cloud, et c’est une fonctionnalité payante d’Azure AD. Vous pouvez trouver plus d’informations sur cette méthode dans [Déployer une authentification multifacteur Azure basée sur le cloud](../active-directory/authentication/howto-mfa-getstarted.md).
@@ -183,11 +183,11 @@ Les éléments suivants résument les meilleures pratiques indiquées dans [Séc
 
 [Vérifier les comptes d’utilisateur distincts et le transfert de messagerie pour les comptes administrateur général](../active-directory/users-groups-roles/directory-admin-roles-secure.md)  
 
-[Vérifier que les mots de passe des comptes administrateur ont été récemment modifiés](../active-directory/users-groups-roles/directory-admin-roles-secure.md#ensure-the-passwords-of-administrative-accounts-have-recently-changed)  
+[Vérifiez que les mots de passe des comptes d’administration ont récemment modifié](../active-directory/users-groups-roles/directory-admin-roles-secure.md#ensure-the-passwords-of-administrative-accounts-have-recently-changed)  
 
 [Activer la synchronisation de hachage de mot de passe](../active-directory/users-groups-roles/directory-admin-roles-secure.md#turn-on-password-hash-synchronization)  
 
-[Exiger l’authentification multifacteur pour les utilisateurs dans tous les rôles privilégiés, ainsi que pour les utilisateurs exposés](../active-directory/users-groups-roles/directory-admin-roles-secure.md#require-multi-factor-authentication-mfa-for-users-in-all-privileged-roles-as-well-as-exposed-users)  
+[Exiger une authentification multifacteur pour les utilisateurs de tous les rôles privilégiés, ainsi que des utilisateurs exposés](../active-directory/users-groups-roles/directory-admin-roles-secure.md#require-multi-factor-authentication-mfa-for-users-in-all-privileged-roles-as-well-as-exposed-users)  
 
 [Obtenir votre Office 365 Secure Score (si vous utilisez Office 365)](../active-directory/users-groups-roles/directory-admin-roles-secure.md#obtain-your-office-365-secure-score-if-using-office-365)  
 

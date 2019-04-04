@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: ff1239093f7562bd314305ae3ea8a580fddb8326
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 1c3c7e913f2f096918efaebb84384df98bd68be8
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862273"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895830"
 ---
 # <a name="train-your-active-version-of-the-luis-app"></a>Entraîner votre version active de l’application LUIS 
 
@@ -60,5 +60,5 @@ Pour savoir quand la formation est terminée, vous devez interroger l’état ju
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Étiqueter des énoncés suggérés avec LUIS](luis-how-to-review-endoint-utt.md) 
+* [Étiquette suggérées énoncés avec LUIS](luis-how-to-review-endpoint-utterances.md) 
 * [Utiliser les fonctionnalités pour améliorer les performances de votre application LUIS](luis-how-to-add-features.md) 

@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 37e3dbb5f69d7319e0b56a5d209e0487e0562e00
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6ab5ee923cc439901149a26d7af4b57f9933ee19
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838797"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905883"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Créer et configurer un runtime d’intégration auto-hébergé
 Le runtime d’intégration (IR) représente l’infrastructure de calcul utilisée par Azure Data Factory pour fournir des capacités d’intégration de données entre différents environnements réseau. Pour plus d’informations sur le runtime d’intégration (IR), consultez [Runtime d’intégration dans Azure Data Factory](concepts-integration-runtime.md).
@@ -53,7 +53,7 @@ Voici un flux de données global résumant les étapes de copie avec un runtime 
 ![Vue d’ensemble globale](media/create-self-hosted-integration-runtime/high-level-overview.png)
 
 1. Le développeur des données crée un runtime d’intégration auto-hébergé dans une fabrique de données Azure à l’aide d’une cmdlet PowerShell. Actuellement, le portail Azure ne prend pas en charge cette fonctionnalité.
-2. Le développeur des données crée un service lié pour un magasin de données local en spécifiant l’instance de runtime d’intégration auto-hébergé qu’il doit utiliser pour se connecter à des magasins de données. Dans le cadre de la configuration du service lié, le développeur des données utilise l’application Gestionnaire d’informations d’identification (non pris en charge actuellement) pour spécifier les types d’authentification et les informations d’identification. L’application Gestionnaire d’informations d’identification communique avec le magasin de données pour tester la connexion et le runtime d’intégration auto-hébergé pour enregistrer les informations d’identification.
+2. Le développeur des données crée un service lié pour un magasin de données local en spécifiant l’instance de runtime d’intégration auto-hébergé qu’il doit utiliser pour se connecter à des magasins de données.
 3. Le nœud du runtime d’intégration auto-hébergé chiffre les informations d’identification à l’aide de l’API de protection des données (DPAPI) Windows et les enregistre localement. Si plusieurs nœuds sont définis pour une haute disponibilité, les informations d’identification sont synchronisées sur les autres nœuds. Chaque nœud chiffre les informations d’identification à l’aide de DPAPI et les stocke localement. La synchronisation des informations d’identification est une opération transparente pour le développeur des données, et elle est gérée par le runtime d’intégration auto-hébergé.    
 4. Le service Data Factory communique avec le runtime d’intégration auto-hébergé pour la planification et la gestion des travaux via un *canal de contrôle* qui utilise une file d’attente Azure Service Bus partagée. Lorsqu’une tâche de l’activité doit être lancée, Data Factory place en file d’attente la requête ainsi que les informations d’identification (au cas où les informations d’identification ne sont pas déjà stockées sur le runtime d’intégration autohébergé). Le runtime d’intégration auto-hébergé lance le travail après interrogation de la file d’attente.
 5. Le runtime d’intégration auto-hébergé copie les données d’un magasin local vers un stockage cloud, ou vice versa selon la configuration de l’activité de copie dans le pipeline de données. Pour cette étape, le runtime d’intégration auto-hébergé communique directement avec les services de stockage cloud comme le stockage Blob Azure via un canal sécurisé (HTTPS).
@@ -188,7 +188,7 @@ La vidéo suivante est une présentation et une démonstration de 12 minutes de 
 
   ![Onglet pour la supervision](media/create-self-hosted-integration-runtime/contoso-shared-ir-monitoring.png)
 
-- **IR lié**
+- **Runtime d’intégration lié**
 
   ![Sélections pour la recherche d’un runtime d’intégration lié](media/create-self-hosted-integration-runtime/Contoso-linked-ir.png)
 
@@ -329,7 +329,7 @@ Si vous rencontrez l’une des erreurs suivantes, cela signifie que vous avez pr
     ```
 
 ### <a name="enabling-remote-access-from-an-intranet"></a>Activation de l’accès à distance à partir d’un intranet  
-Si vous utilisez PowerShell ou l’application Gestionnaire d’informations d’identification pour chiffrer les informations d’identification à partir d’une machine (dans le réseau) autre que celle où est installé le runtime d’intégration auto-hébergé, vous pouvez activer l’option **Accès à distance à partir de l’Intranet**. Si vous exécutez PowerShell ou l’application Gestionnaire d’informations d’identification pour chiffrer les informations d’identification sur la même machine que celle où est installé le runtime d’intégration auto-hébergé, vous ne pouvez pas activer l’option **Accès à distance à partir de l’Intranet**.
+Si vous utilisez PowerShell pour chiffrer les informations d’identification à partir d’un autre ordinateur (dans le réseau) autre qu’où le runtime d’intégration auto-hébergé est installé, vous pouvez activer le **accès à distance à partir de l’Intranet** option. Si vous exécutez PowerShell pour chiffrer les informations d’identification sur le même ordinateur où est installé le runtime d’intégration auto-hébergé, vous ne pouvez pas activer **accès à distance à partir de l’Intranet**.
 
 Vous devez activer l’option **Accès à distance à partir de l’Intranet** avant d’ajouter un autre nœud de haute disponibilité et d’extensibilité.  
 
@@ -339,9 +339,7 @@ Si vous utilisez un pare-feu tiers, vous pouvez ouvrir manuellement le port 8060
 
 ```
 msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
-```
-> [!NOTE]
-> L’application Gestionnaire d’informations d’identification n’est pas encore disponible pour le chiffrement des informations d’identification dans Azure Data Factory V2.  
+``` 
 
 Si vous préférez ne pas ouvrir le port 8060 sur la machine du runtime intégration auto-hébergé, utilisez d’autres mécanismes que l’application Définition des informations d’identification pour configurer les informations d’identification du magasin de données. Par exemple, vous pouvez utiliser la **New-AzDataFactoryV2LinkedServiceEncryptCredential** applet de commande PowerShell.
 

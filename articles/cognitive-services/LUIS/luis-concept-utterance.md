@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: ae3a2788a0d5451736433a6338a71eda3d0ad9ca
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 2fd3416824189007bfdbe55d30907d9cb56f87ca
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984356"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895120"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Comprendre ce que sont les bons énoncés pour votre application LUIS
 
@@ -72,7 +72,7 @@ Dans chaque itération du modèle, n’ajoutez pas une grande quantité d’éno
 
 LUIS génère des modèles efficaces avec des énoncés soigneusement sélectionnés par l’auteur du modèle LUIS. L’ajout d’un trop grand nombre d’énoncés n’est pas productif, car cela introduit de la confusion.  
 
-Il est préférable de commencer avec quelques énoncés, puis d’[examiner les énoncés de point de terminaison](luis-how-to-review-endoint-utt.md) pour vérifier le bon fonctionnement de la prédiction d’intention et de l’extraction entité.
+Il est préférable de commencer avec quelques énoncés, puis d’[examiner les énoncés de point de terminaison](luis-how-to-review-endpoint-utterances.md) pour vérifier le bon fonctionnement de la prédiction d’intention et de l’extraction entité.
 
 ## <a name="punctuation-marks"></a>Signes de ponctuation
 
@@ -88,11 +88,11 @@ La formation (ou l’entraînement) n’est généralement pas déterministe : 
 
 ## <a name="testing-utterances"></a>Test des énoncés 
 
-Les développeurs doivent commencer à tester leur application LUIS avec un trafic réel en envoyant des énoncés à l’URL du [point de terminaison de prédiction](luis-how-to-azure-subscription.md). Ces énoncés sont utilisés pour améliorer les performances des intentions et des entités à l’aide d’un [examen des énoncés](luis-how-to-review-endoint-utt.md). Les tests soumis via le volet de test du site web LUIS ne sont pas envoyés via le point de terminaison. Ils ne contribuent donc pas à un apprentissage actif. 
+Les développeurs doivent commencer à tester leur application LUIS avec un trafic réel en envoyant des énoncés à l’URL du [point de terminaison de prédiction](luis-how-to-azure-subscription.md). Ces énoncés sont utilisés pour améliorer les performances des intentions et des entités à l’aide d’un [examen des énoncés](luis-how-to-review-endpoint-utterances.md). Les tests soumis via le volet de test du site web LUIS ne sont pas envoyés via le point de terminaison. Ils ne contribuent donc pas à un apprentissage actif. 
 
 ## <a name="review-utterances"></a>Examen des énoncés
 
-Une fois votre modèle formé et publié, et après réception des requêtes de [point de terminaison](luis-glossary.md#endpoint), [examinez les énoncés](luis-how-to-review-endoint-utt.md) suggérés par LUIS. LUIS sélectionne sur le point de terminaison les énoncés qui présentent des scores bas en lien avec l’intention ou l’entité. 
+Une fois votre modèle formé et publié, et après réception des requêtes de [point de terminaison](luis-glossary.md#endpoint), [examinez les énoncés](luis-how-to-review-endpoint-utterances.md) suggérés par LUIS. LUIS sélectionne sur le point de terminaison les énoncés qui présentent des scores bas en lien avec l’intention ou l’entité. 
 
 ## <a name="best-practices"></a>Bonnes pratiques
 

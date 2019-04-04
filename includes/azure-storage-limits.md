@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 01/11/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 01d84914682d40b97c3d480a753c8b966cf61acc
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: dccc967e7899d8cc9c4bde6829d6fc44f9cba4e0
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553583"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58890940"
 ---
 Le tableau suivant décrit les limites par défaut du Stockage Azure. Le *entrée* limite s’applique à toutes les données à partir des demandes qui sont envoyées à un compte de stockage. Le *sortie* limite s’applique à toutes les données à partir des réponses sont reçues d’un compte de stockage.
 
 | Ressource | Limite par défaut |
 | --- | --- |
-| Nombre de comptes de stockage par région et par abonnement, ce qui inclut les comptes Standard et Premium | 250 |
+| Nombre de comptes de stockage par région et par abonnement, y compris les comptes standard et premium | 250 |
 | Capacité de compte de stockage maximale | 2 Go pour les États-Unis et Europe, 500 To pour toutes les autres régions, ce qui inclut le Royaume-Uni |
 | Nombre maximal de conteneurs d’objets blob, objets BLOB, partages de fichiers, tables, files d’attente, entités ou des messages par compte de stockage | Aucune limite |
 | Taux de demande maximal<sup>1</sup> par compte de stockage | 20 000 demandes par seconde |

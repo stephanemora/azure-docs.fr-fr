@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: d8ada53082b0ccc95d472b43a0ae2ff63cd76a3e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5f1774e02a34b60a8a6e936b62905a0a27ccfb85
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58125236"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58890939"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Utiliser les outils d’automatisation d’infrastructure avec les machines virtuelles dans Azure
 Pour créer et gérer des machines virtuelles de façon cohérente à grande échelle, une forme d’automatisation est généralement souhaitée. De nombreux outils et solutions permettent d’automatiser le déploiement et la gestion du cycle de vie de toute l’infrastructure Azure. Cet article présente certains des outils d’automatisation d’infrastructure utilisables dans Azure. Ces outils s’intègrent généralement dans l’une des approches suivantes :
@@ -53,7 +53,7 @@ Découvrez comment :
 
 
 ## <a name="cloud-init"></a>Cloud-Init
-[Cloud-init](https://cloudinit.readthedocs.io) est une méthode largement utilisée pour personnaliser une machine virtuelle Linux lors de son premier démarrage. Vous pouvez utiliser cloud-init pour installer des packages et écrire des fichiers, ou encore pour configurer des utilisateurs ou des paramètres de sécurité. cloud-init étant appelé pendant le processus de démarrage initial, aucune autre étape ni aucun agent ne sont nécessaires pour appliquer votre configuration.  Pour plus d’informations sur la façon de mettre correctement en forme vos fichiers `#cloud-config`, consultez le [site de documentation cloud-init](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  Les fichiers `#cloud-config` sont des fichiers texte encodés en base64.
+[Cloud-init](https://cloudinit.readthedocs.io) est une méthode largement utilisée pour personnaliser une machine virtuelle Linux lors de son premier démarrage. Vous pouvez utiliser cloud-init pour installer des packages et écrire des fichiers, ou encore pour configurer des utilisateurs ou des paramètres de sécurité. cloud-init étant appelé pendant le processus de démarrage initial, aucune autre étape ni aucun agent ne sont nécessaires pour appliquer votre configuration.  Pour plus d’informations sur la façon de mettre correctement en forme vos fichiers `#cloud-config`, consultez le [site de documentation cloud-init](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config` les fichiers texte encodé en base 64.
 
 Cloud-init fonctionne aussi sur les différentes distributions. Par exemple, vous n’utilisez pas **apt-get install** ou **yum install** pour installer un package. Au lieu de cela, vous pouvez définir une liste des packages à installer, après quoi cloud-init se charge d’utiliser automatiquement l’outil de gestion de package natif correspondant à la distribution que vous sélectionnez.
 
@@ -69,7 +69,7 @@ Cloud-init fonctionne aussi sur les différentes distributions. Par exemple, vou
 
 Pour en savoir plus sur cloud-init sur Azure :
 
-- [Prise en charge de cloud-init pour les machines virtuelles Linux dans Azure](../articles/virtual-machines/linux/using-cloud-init.md)
+- [Cloud-init prise en charge des machines virtuelles Linux dans Azure](../articles/virtual-machines/linux/using-cloud-init.md)
 - [Essayez un didacticiel sur la configuration automatisée de machine virtuelle à l’aide de cloud-init](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md).
 
 
@@ -80,7 +80,7 @@ Les configurations d’état souhaité définissent les éléments à installer 
 
 Découvrez comment :
 
-- [Créer une configuration d’état souhaité de base](https://msdn.microsoft.com/powershell/dsc/quickstart).
+- [Créer une configuration d’état souhaité de base](https://msdn.microsoft.com/powershell/dsc/quickstarts/website-quickstart).
 - [Configurer un serveur collecteur de configuration d’état souhaité](https://msdn.microsoft.com/powershell/dsc/pullserver).
 - [Utiliser une configuration d’état souhaité pour Linux](https://msdn.microsoft.com/powershell/dsc/lnxgettingstarted).
 

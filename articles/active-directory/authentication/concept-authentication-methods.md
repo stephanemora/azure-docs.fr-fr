@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e21f7a67b11caf0180959de68d698f0ff4a1af1
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: a7a2866952d5e66e24770b81e69039d733fdd2a1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371857"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894591"
 ---
 # <a name="what-are-authentication-methods"></a>Que sont les méthodes d’authentification ?
 
-La fonctionnalités de réinitialisation de mot de passe en libre-service Azure AD et d’authentification multifacteur peuvent nécessiter des informations supplémentaires, appelées méthodes d’authentification ou informations de sécurité, pour vérifier votre identité lorsque vous utilisez les fonctionnalités associées.
+Un administrateur de choisir les méthodes d’authentification pour Azure multi-Factor Authentication et le mot de passe libre-service (SSPR) de réinitialisation, il est recommandé que vous avez besoin aux utilisateurs d’inscrire plusieurs méthodes d’authentification. Quand une méthode d’authentification n’est pas disponible pour un utilisateur, ils peuvent choisir de s’authentifier avec une autre méthode.
 
-Les administrateurs peuvent définir, dans la stratégie, les méthodes d’authentification disponibles pour les utilisateurs avec les fonctionnalités d’authentification multifacteur et de réinitialisation de mot de passe en libre-service. Certaines méthodes d’authentification peuvent ne pas être disponibles pour toutes les fonctionnalités.
+Les administrateurs peuvent définir, dans la stratégie, les méthodes d’authentification disponibles pour les utilisateurs avec les fonctionnalités d’authentification multifacteur et de réinitialisation de mot de passe en libre-service. Certaines méthodes d’authentification peuvent ne pas être disponibles pour toutes les fonctionnalités. Pour plus d’informations sur la configuration de vos stratégies consultez les articles [comment déployer avec succès la réinitialisation de mot de passe libre-service](howto-sspr-deployment.md) et [planification basée sur le cloud Azure multi-Factor Authentication](howto-mfa-getstarted.md)
 
 Microsoft recommande vivement aux administrateurs de permettre aux utilisateurs de sélectionner plus que le nombre minimal requis de méthodes d’authentification au cas où une ne serait pas accessible.
 
@@ -233,10 +233,10 @@ Si votre organisation est fédérée (SSO) avec Azure AD et si vous vous apprê
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Activer la réinitialisation du mot de passe en libre-service pour votre organisation](quickstart-sspr.md)
+[Activer le mot de passe libre-service de réinitialisation pour votre organisation](quickstart-sspr.md)
 
-[Activer Azure Multi-Factor Authentication pour votre organisation](howto-mfa-getstarted.md)
+[Activer l’authentification multifacteur Azure pour votre organisation](howto-mfa-getstarted.md)
 
 [Activer l’inscription de combiné dans votre client](howto-registration-mfa-sspr-combined.md)
 
-[Documentation relative à la configuration de la méthode d’authentification de l’utilisateur final](https://aka.ms/securityinfoguide)
+[Documentation de configuration de l’utilisateur final d’authentification (méthode)](https://aka.ms/securityinfoguide)

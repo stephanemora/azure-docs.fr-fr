@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6d637436721ff464f58e41069bb00746fcd82410
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: ae732ab5c73dbec4a2aef6521b9edb490079112e
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427234"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918142"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Création de graphiques dans Azure Automation
 
@@ -48,7 +48,7 @@ Le contrôle Bibliothèque est l'emplacement où vous sélectionnez les [activit
 |:--- |:--- |
 | Applets de commande |Inclut toutes les applets de commande qui peuvent être utilisées dans votre Runbook. Les applets de commande sont organisées par module. Tous les modules que vous avez installés dans votre compte Automation sont disponibles. |
 | Runbooks |Inclut les Runbooks de votre compte Automation. Ces Runbooks peuvent être ajoutés au canevas pour être utilisés en tant que Runbooks enfants. Seuls les Runbooks du même type de base que le Runbook en cours de modification sont affichés. Dans le cas des Runbooks graphiques, seuls les Runbooks basés sur PowerShell sont indiqués ; pour les Runbooks de workflow PowerShell graphique, seuls les Runbooks basés sur un workflow PowerShell s’affichent. |
-| Éléments multimédias |Inclut les [ressources Automation](https://msdn.microsoft.com/library/dn939988.aspx) de votre compte Automation qui peuvent être utilisées dans votre Runbook. Lorsque vous ajoutez une ressource à un Runbook, cela ajoute une activité de workflow qui obtient la ressource sélectionnée. Pour les ressources de type Variable, vous pouvez choisir d'ajouter une activité pour obtenir la variable ou de définir la variable. |
+| Éléments multimédias |Inclut les [ressources Automation](/previous-versions/azure/dn939988(v=azure.100)) de votre compte Automation qui peuvent être utilisées dans votre Runbook. Lorsque vous ajoutez une ressource à un Runbook, cela ajoute une activité de workflow qui obtient la ressource sélectionnée. Pour les ressources de type Variable, vous pouvez choisir d'ajouter une activité pour obtenir la variable ou de définir la variable. |
 | Contrôle de Runbook |Inclut des activités de contrôle de Runbook qui peuvent être utilisées dans votre Runbook actuel. Une *jonction* prend plusieurs entrées et attend que tout soit terminé pour poursuivre le workflow. Une activité *Code* exécute une ou plusieurs lignes de code PowerShell ou de workflow PowerShell en fonction du type de Runbook graphique. Vous pouvez utiliser cette activité pour du code personnalisé ou pour une fonctionnalité difficile à obtenir avec d’autres activités. |
 
 ### <a name="configuration-control"></a>Contrôle Configuration
@@ -324,7 +324,7 @@ Chaque paramètre d'entrée est défini par les propriétés figurant dans le ta
 
 | Propriété | Description |
 |:--- |:--- |
-| NOM |Nom unique du paramètre. Il ne peut contenir que des caractères alphanumériques et ne peut pas contenir d'espace. |
+| Nom |Nom unique du paramètre. Il ne peut contenir que des caractères alphanumériques et ne peut pas contenir d'espace. |
 | Description |Description facultative du paramètre d'entrée. |
 | type |Type de données attendu pour la valeur de paramètre. Le portail Azure fournit un contrôle approprié pour le type de données de chaque paramètre lorsque vous êtes invité à indiquer une entrée. |
 | Obligatoire |Spécifie si une valeur doit être fournie pour le paramètre. Le Runbook ne peut pas être démarré si vous ne fournissez pas une valeur pour chaque paramètre obligatoire pour lequel aucune valeur par défaut n'est définie. |

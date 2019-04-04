@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/20/2016
 ms.author: jehollan
-ms.openlocfilehash: 05dd4ae3c4ee439d66401a3f5595f9104051f8ee
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
-ms.translationtype: HT
+ms.openlocfilehash: 2a82afe396039857e5b9ad6b8a6d0e710573037f
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27962643"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893565"
 ---
 # <a name="get-started-with-the-query-action"></a>Prise en main de l’action de requête
 L’action de requête vous permet d’utiliser des lots et des tableaux pour obtenir des flux de travail afin d’effectuer les tâches suivantes :
@@ -31,7 +31,8 @@ L’action de requête vous permet d’utiliser des lots et des tableaux pour ob
 Pour commencer à utiliser l’action de requête dans une application logique, consultez [Créer une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-query-action"></a>Utilisation de l’action de requête
-Une action est une opération effectuée par le flux de travail défini dans une application logique. [En savoir plus sur les actions](connectors-overview.md).  
+Une action est une opération effectuée par le flux de travail défini dans une application logique. 
+[En savoir plus sur les actions](../connectors/apis-list.md).  
 
 L’action de requête a actuellement une opération, appelée Filtrer le tableau, exposée dans le concepteur. Celle-ci vous permet d’interroger un tableau et de retourner un jeu de résultats filtrés.
 
@@ -80,6 +81,6 @@ Vous trouverez ci-dessous les détails de sortie correspondant à la requête HT
 | --- | --- | --- |
 | Tableau filtré |array |Tableau contenant un objet pour chaque résultat filtré |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Essayez maintenant la plateforme et [créez une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md). Vous pouvez explorer les autres connecteurs disponibles dans les applications logiques en examinant notre [liste d’API](apis-list.md).
 

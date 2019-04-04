@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 3/21/2019
 ms.author: victorh
-ms.openlocfilehash: 1d0506179f9f0044f9f05edd3395d2677310c2d0
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 4f0800dfd264059e1dc8aac32a54f216f777647f
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337103"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905713"
 ---
 # <a name="azure-dns-faq"></a>FAQ Azure DNS
 
@@ -80,7 +80,7 @@ La fonctionnalité DNSSEC est suivie dans le backlog Azure DNS. Utilisez le site
 
 ### <a name="does-azure-dns-support-zone-transfers-axfrixfr"></a>Azure DNS prend-il en charge les transferts de zone (AXFR/IXFR) ?
 
-Non. Azure DNS ne prend actuellement pas en charge les transferts de zone. Les zones DNS peuvent être [importées dans Azure DNS à l’aide de l’interface Azure CLI](dns-import-export.md). Les enregistrements DNS sont gérés par le biais du [portail de gestion Azure DNS](dns-operations-recordsets-portal.md), [l’API REST](https://docs.microsoft.com/powershell/module/azurerm.dns), le [SDK](dns-sdk.md), les [applets de commande PowerShell](dns-operations-recordsets.md) ou [l’outil CLI](dns-operations-recordsets-cli.md).
+Non. Azure DNS ne prend actuellement pas en charge les transferts de zone. Les zones DNS peuvent être [importées dans Azure DNS à l’aide de l’interface Azure CLI](dns-import-export.md). Les enregistrements DNS sont gérés par le biais du [portail de gestion Azure DNS](dns-operations-recordsets-portal.md), [l’API REST](https://docs.microsoft.com/powershell/module/az.dns), le [SDK](dns-sdk.md), les [applets de commande PowerShell](dns-operations-recordsets.md) ou [l’outil CLI](dns-operations-recordsets-cli.md).
 
 La fonctionnalité de transfert de zone est suivie dans le backlog Azure DNS. Utilisez le site de commentaires pour [inscrire votre support pour cette fonctionnalité](https://feedback.azure.com/forums/217313-networking/suggestions/12925503-extend-azure-dns-to-support-zone-transfers-so-it-c).
 
@@ -116,8 +116,8 @@ Les jeux d’enregistrements d’alias sont pris en charge pour les types d’en
 
 ### <a name="what-resources-are-supported-as-targets-for-alias-record-sets"></a>Quelles sont les ressources prises en charge comme cibles pour les jeux d’enregistrements alias ?
 
-- **Pointer vers une ressource d’adresse IP publique à partir d’un jeu d’enregistrements A/AAAA DNS.** Vous pouvez créer un jeu d’enregistrements A/AAAA et en faire un jeu d’enregistrements d’alias pour pointer vers une ressource d’adresse IP publique.
-- **Pointer vers un profil Traffic Manager à partir d’un jeu d’enregistrements A/AAAA/CNAME DNS.** Vous pouvez pointer vers le CNAME d’un profil Traffic Manager à partir d’un jeu d’enregistrements CNAME DNS. contoso.trafficmanager.net en est un exemple. Maintenant, vous pouvez également pointer vers un profil Traffic Manager qui a des points de terminaison externes à partir d’un jeu d’enregistrements A ou AAAA dans votre zone DNS.
+- **Pointez sur une ressource IP publique à partir d’un jeu d’enregistrements A/AAAA DNS.** Vous pouvez créer un jeu d’enregistrements A/AAAA et en faire un jeu d’enregistrements d’alias pour pointer vers une ressource d’adresse IP publique.
+- **Pointez sur un profil Traffic Manager à partir d’un jeu d’enregistrements DNS A/AAAA/CNAME.** Vous pouvez pointer vers le CNAME d’un profil Traffic Manager à partir d’un jeu d’enregistrements CNAME DNS. contoso.trafficmanager.net en est un exemple. Maintenant, vous pouvez également pointer vers un profil Traffic Manager qui a des points de terminaison externes à partir d’un jeu d’enregistrements A ou AAAA dans votre zone DNS.
 - **Pointez sur un point de terminaison Azure Content Delivery Network (CDN)**. Cela est utile lorsque vous créez des sites Web statiques à l’aide du stockage Azure et Azure CDN.
 - **Pointer vers un autre jeu d’enregistrements DNS au sein de la même zone.** Les enregistrements d’alias peuvent faire référence à d’autres jeux d’enregistrements du même type. Par exemple, un jeu d’enregistrements CNAME DNS peut être un alias pour un autre jeu d’enregistrements CNAME du même type. Cette disposition est utile si vous voulez que certains jeux d’enregistrements d’alias soient des alias et d’autres des non-alias.
 
@@ -149,7 +149,7 @@ Oui. Azure DNS prend en charge le co-hébergement de domaines avec d’autres se
 
 Pour configurer le co-hébergement, modifier les enregistrements NS pour le domaine pointer vers les serveurs de noms des deux fournisseurs. Les enregistrements de serveur de noms (NS) déterminent quels fournisseurs reçoivent des requêtes DNS pour le domaine. Vous pouvez modifier ces enregistrements NS dans Azure DNS, dans l’autre fournisseur et dans la zone parente. Cette dernière est généralement configurée par le biais du bureau d’enregistrement de noms de domaine. Pour plus d’informations sur la délégation DNS, consultez [Délégation de domaine DNS](dns-domain-delegation.md).
 
-Vérifiez également que les enregistrements DNS du domaine sont synchronisés entre les deux fournisseurs DNS. Azure DNS ne prend actuellement pas en charge les transferts de zone DNS. Les enregistrements DNS doivent être synchronisés à l’aide du [portail de gestion Azure DNS](dns-operations-recordsets-portal.md), de [l’API REST](https://docs.microsoft.com/powershell/module/azurerm.dns), du [SDK](dns-sdk.md), des [applets de commande PowerShell](dns-operations-recordsets.md) ou de [l’outil CLI](dns-operations-recordsets-cli.md).
+Vérifiez également que les enregistrements DNS du domaine sont synchronisés entre les deux fournisseurs DNS. Azure DNS ne prend actuellement pas en charge les transferts de zone DNS. Les enregistrements DNS doivent être synchronisés à l’aide du [portail de gestion Azure DNS](dns-operations-recordsets-portal.md), de [l’API REST](https://docs.microsoft.com/powershell/module/az.dns), du [SDK](dns-sdk.md), des [applets de commande PowerShell](dns-operations-recordsets.md) ou de [l’outil CLI](dns-operations-recordsets-cli.md).
 
 ### <a name="do-i-have-to-delegate-my-domain-to-all-four-azure-dns-name-servers"></a>Dois-je déléguer mon domaine sur les quatre serveurs de noms Azure DNS ?
 

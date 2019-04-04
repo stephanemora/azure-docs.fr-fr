@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 1306b97ce7fcf2cd429be31bc99d022de53805d6
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 602c7385b252daa7db22bd47f43afec3ad072263
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259854"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904200"
 ---
 # <a name="set-up-a-device-template-new-ui-design"></a>Configurer un modèle d’appareil (refonte de l’interface utilisateur)
 
@@ -197,8 +197,8 @@ Vous pouvez créer une propriété d’emplacement sous forme de propriété d�
    ![Formulaire « Configurer l’emplacement » contenant les détails de l’emplacement](./media/howto-set-up-template/locationcloudproperty2.png)
 
    Vous pouvez ajouter un emplacement dans les deux formats suivants :
-   - **Emplacement sous forme d’adresse**
-   - **Emplacement sous forme de coordonnées**
+   - **Emplacement en tant qu’adresse**
+   - **Emplacement en tant que coordonnées**
 
 4. Sélectionnez **Enregistrer**. Un opérateur peut mettre à jour la valeur de l’emplacement dans **Device Explorer**.
 
@@ -280,4 +280,6 @@ Vous pouvez redimensionner la carte à la taille souhaitée. Désormais, quand u
 Maintenant que vous avez appris à configurer un modèle d’appareil dans votre application Azure IoT Central, vous pouvez :
 
 > [!div class="nextstepaction"]
-> [Créer une version d’un modèle d’appareil](howto-version-devicetemplate.md)
+> [Créer une nouvelle version de modèle d’appareil](howto-version-devicetemplate.md)
+> [connecter un appareil IoT DevKit MXChip à votre application Azure IoT Central](howto-connect-devkit.md)
+> [connecter une application de client générique à votre Azure Application IoT Central (Node.js)](howto-connect-nodejs.md)

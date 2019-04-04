@@ -11,12 +11,12 @@ ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
 ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: 47cc7d9f09b7fb22cf99ad010f1dc75e6388c314
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 23cc0f03c41801de944eb9938d4cd15896d1745e
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731923"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482179"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>Préparer l’hôte d’extension pour Azure Stack
 
@@ -47,13 +47,13 @@ L’outil de vérification de la disponibilité Azure Stack offre la possibilit�
 1. Ouvrez PowerShell avec des autorisations élevées sur l’hôte de cycle de vie du matériel ou sur la station de travail de gestion Azure Stack.
 2. Exécutez le cmdlet suivant pour installer l’outil de vérification de la disponibilité Azure Stack.
 
-    ```PowerShell  
+    ```powershell  
     Install-Module -Name Microsoft.AzureStack.ReadinessChecker
     ```
 
 3. Exécutez le script suivant pour créer la structure de dossiers suivante :
 
-    ```PowerShell  
+    ```powershell  
     New-Item C:\Certificates -ItemType Directory
 
     $directories = 'ACSBlob','ACSQueue','ACSTable','Admin Portal','ARM Admin','ARM Public','KeyVault','KeyVaultInternal','Public Portal', 'Admin extension host', 'Public extension host'
@@ -69,7 +69,7 @@ L’outil de vérification de la disponibilité Azure Stack offre la possibilit�
 4. Placez les certificats existants, que vous utilisez actuellement dans Azure Stack, dans les répertoires appropriés. Par exemple, placez le certificat **Admin ARM** dans le dossier `Arm Admin`. Puis, placez les certificats d’hébergement qui viennent d’être créés les répertoires `Admin extension host` et `Public extension host`.
 5. Exécutez la cmdlet suivante pour démarrer la vérification du certificat :
 
-    ```PowerShell  
+    ```powershell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
 
     Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD
@@ -86,7 +86,7 @@ Utilisez un ordinateur capable de se connecter au point de terminaison Azure Sta
 2. Ouvrez PowerShell ISE pour exécuter les blocs de script suivants.
 3. Importez le certificat pour le point de terminaison d’hébergement d’administration.
 
-    ```PowerShell  
+    ```powershell  
 
     $CertPassword = read-host -AsSecureString -prompt "Certificate Password"
 
@@ -104,7 +104,7 @@ Utilisez un ordinateur capable de se connecter au point de terminaison Azure Sta
     }
     ```
 4. Importez le certificat pour le point de terminaison d’hébergement.
-    ```PowerShell  
+    ```powershell  
     $CertPassword = read-host -AsSecureString -prompt "Certificate Password"
 
     $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
@@ -142,7 +142,7 @@ L’article [Intégration au centre de données Azure Stack : publier des point
 
 Il existe deux nouveaux points de terminaison requis pour être publiés via votre pare-feu. Les adresses IP allouées à partir du pool d’adresses IP virtuelles peuvent être récupérées à l'aide du code suivant qui doit être exécuté à partir du [point de terminaison privilégié de votre environnement](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint) Azure Stack.
 
-```PowerShell
+```powershell
 # Create a PEP Session
 winrm s winrm/config/client '@{TrustedHosts= "<IpOfERCSMachine>"}'
 $PEPCreds = Get-Credential
@@ -173,7 +173,7 @@ Remove-PSSession -Session $PEPSession
 
 #### <a name="sample-output"></a>Exemple de sortie
 
-```PowerShell
+```powershell
 Can access AZS DNS
 The IP for the Admin Extension Host is: *.adminhosting.\<region>.\<fqdn> - is: xxx.xxx.xxx.xxx
 The Record to be added in the DNS zone: Type A, Name: *.adminhosting.\<region>.\<fqdn>, Value: xxx.xxx.xxx.xxx

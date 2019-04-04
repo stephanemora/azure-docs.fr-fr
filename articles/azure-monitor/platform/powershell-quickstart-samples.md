@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 2/14/2018
 ms.author: robb
 ms.subservice: ''
-ms.openlocfilehash: 1ca2faca6c3d34ec4c987df85fff65e0a8fdc7f1
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: e9376b0d137534f301332feaf4e99bfa937fbfa9
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486043"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905475"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Exemples de démarrage rapide Azure Monitor PowerShell
 Cet article vous présente des exemples de commandes PowerShell qui vous aideront à accéder rapidement aux fonctions de surveillance Azure Insights.
@@ -27,7 +27,7 @@ Cet article vous présente des exemples de commandes PowerShell qui vous aideron
 Si vous ne l’avez déjà fait, configurez PowerShell pour s’exécuter sur votre ordinateur. Pour plus d’informations, consultez l’article [Guide pratique pour installer et configurer PowerShell](/powershell/azure/overview).
 
 ## <a name="examples-in-this-article"></a>Exemples de cet article
-Les exemples de cet article montrent comment utiliser les applets de commande Azure Monitor. Vous pouvez également consulter la liste complète des applets de commande PowerShell Azure Monitor dans la rubrique [Applets de commande Azure Monitor (Insights)](https://docs.microsoft.com/powershell/module/azurerm.insights).
+Les exemples de cet article montrent comment utiliser les applets de commande Azure Monitor. Vous pouvez également consulter la liste complète des applets de commande PowerShell Azure Monitor dans la rubrique [Applets de commande Azure Monitor (Insights)](https://docs.microsoft.com/powershell/module/az.applicationinsights).
 
 ## <a name="sign-in-and-use-subscriptions"></a>Se connecter et utiliser des abonnements
 Tout d’abord, connectez-vous à votre abonnement Azure.
@@ -91,7 +91,7 @@ Get-AzLog -MaxEvents 1000
 `Get-AzLog` prend en charge de nombreux autres paramètres. Pour plus d'informations, consultez `Get-AzLog` .
 
 > [!NOTE]
-> `Get-AzLog` fournit uniquement 15 jours d'historique. Le paramètre **-MaxEvents** vous permet d'interroger les N derniers événements, au-delà de 15 jours. Pour accéder aux événements antérieurs à 15 jours, utilisez l'API REST ou le Kit SDK (exemple de code C# à l'aide du SDK). Si vous n'incluez pas **StartTime**, la valeur par défaut est **EndTime** moins une heure. Si vous n'incluez pas **EndTime**, la valeur par défaut est l'heure actuelle. Toutes les heures sont exprimées en heure UTC.
+> `Get-AzLog` fournit uniquement 15 jours d’historique. Le paramètre **-MaxEvents** vous permet d'interroger les N derniers événements, au-delà de 15 jours. Pour accéder aux événements antérieurs à 15 jours, utilisez l'API REST ou le Kit SDK (exemple de code C# à l'aide du SDK). Si vous n'incluez pas **StartTime**, la valeur par défaut est **EndTime** moins une heure. Si vous n'incluez pas **EndTime**, la valeur par défaut est l'heure actuelle. Toutes les heures sont exprimées en heure UTC.
 > 
 > 
 
@@ -131,7 +131,7 @@ Récupérer toutes les règles d'alerte définies pour une ressource cible. Par 
 Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
 ```
 
-`Get-AzAlertRule` prend en charge d'autres paramètres. Consultez [Get-AlertRule](https://msdn.microsoft.com/library/mt282459.aspx) pour plus d'informations.
+`Get-AzAlertRule` prend en charge d’autres paramètres. Consultez [Get-AlertRule](https://msdn.microsoft.com/library/mt282459.aspx) pour plus d'informations.
 
 ## <a name="create-metric-alerts"></a>Créer des alertes de métriques
 Vous pouvez utiliser la cmdlet `Add-AlertRule` pour créer, mettre à jour ou désactiver une règle d’alerte.

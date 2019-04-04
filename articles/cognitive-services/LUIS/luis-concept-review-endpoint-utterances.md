@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: diberry
-ms.openlocfilehash: d5f6a89d279f0e1b0babc98ed59a07fa1761707f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 2af11d7776a29288801e5db049262481ae27c102
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55856442"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893688"
 ---
 # <a name="concepts-for-enabling-active-learning-by-reviewing-endpoint-utterances"></a>Concepts pour l’activation de l’apprentissage actif en passant en revue les énoncés de point de terminaison
 L’apprentissage actif est l’une des trois stratégies pour améliorer la précision de la prédiction et simplifier l’implémentation. Avec l’apprentissage actif, vous passez en revue les énoncés de point de terminaison afin de vérifier que l’intention et l’entité sont correctes. LUIS choisit les énoncés de point de terminaison pour lesquels il a des doutes.
 
 ## <a name="what-is-active-learning"></a>Présentation de l’apprentissage actif
-L’apprentissage actif est un processus en deux étapes. Tout d’abord, LUIS sélectionne les énoncés qu’il reçoit au niveau du point de terminaison de l’application nécessitant une validation. La deuxième étape est effectuée par le propriétaire de l’application ou un collaborateur pour valider les énoncés sélectionnés pour [révision](luis-how-to-review-endoint-utt.md), y compris l’intention correcte et toutes les entités au sein de l’intention. Après avoir passé en revue les énoncés, formez et publiez de nouveau l’application. 
+L’apprentissage actif est un processus en deux étapes. Tout d’abord, LUIS sélectionne les énoncés qu’il reçoit au niveau du point de terminaison de l’application nécessitant une validation. La deuxième étape est effectuée par le propriétaire de l’application ou un collaborateur pour valider les énoncés sélectionnés pour [révision](luis-how-to-review-endpoint-utterances.md), y compris l’intention correcte et toutes les entités au sein de l’intention. Après avoir passé en revue les énoncés, formez et publiez de nouveau l’application. 
 
 ## <a name="which-utterances-are-on-the-review-list"></a>Quels sont les énoncés dans la liste de révision ?
 LUIS ajoute des énoncés à la liste de révision lorsque la première intention de déclenchement a un faible score ou que les scores les deux premières intentions sont trop proches. 
@@ -41,4 +41,4 @@ Utilisez l’API **[de suppression des énoncés non étiquetés](https://westus
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur la [révision](luis-how-to-review-endoint-utt.md) des énoncés de point de terminaison
+* En savoir plus sur la [révision](luis-how-to-review-endpoint-utterances.md) des énoncés de point de terminaison

@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 02/25/2018
 ms.author: glenga
-ms.openlocfilehash: 079fe74ec11570b26cbba93e4aba26d7359bef20
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 30d578f130985548c431dea8b68ee291325b5c99
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402369"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893214"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Gérer les connexions dans Azure Functions
 
@@ -23,7 +23,7 @@ Fonctions dans une application de fonction partagent des ressources. Parmi ces r
 
 Le nombre de connexions disponibles est limité en partie parce qu’une application de fonction s’exécute dans un [environnement de bac à sable](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). Une des restrictions qui le bac à sable impose sur votre code est un [limite concernant le nombre de connexions (actuellement à 600 connexions actives et le nombre total de 1 200 connexions)](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#numerical-sandbox-limits) par instance. Quand vous atteignez cette limite, le runtime des fonctions crée un journal avec le message suivant : `Host thresholds exceeded: Connections`.
 
-Cette limite s’effectue par instance.  Lorsque le [contrôleur de mise à l’échelle ajoute des instances d’application de fonction](functions-scale.md#how-the-consumption-plan-works) pour traiter les demandes de plus, chaque instance a une limite de connexion indépendante. Cela signifie qu’il n’existe aucune limite de connexion global, et vous pouvez avoir beaucoup plus de 600 connexions actives entre toutes les instances actives.
+Cette limite s’effectue par instance.  Lorsque le [contrôleur de mise à l’échelle ajoute des instances d’application de fonction](functions-scale.md#how-the-consumption-and-premium-plans-work) pour traiter les demandes de plus, chaque instance a une limite de connexion indépendante. Cela signifie qu’il n’existe aucune limite de connexion global, et vous pouvez avoir beaucoup plus de 600 connexions actives entre toutes les instances actives.
 
 ## <a name="static-clients"></a>Clients statiques
 

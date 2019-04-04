@@ -11,20 +11,20 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: e18a63892f000eff0f72656082d5e6e1f0ca159b
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: c1c20e225e15769a8cb09f60dfc371f4ec4d81f6
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437473"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895847"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Liaisons Stockage Blob Azure pour Azure Functions
 
 Cet article explique comment utiliser des liaisons Stockage Blob Azure dans Azure Functions. Azure Functions prend en charge les liaisons de déclencheur, d’entrée et de sortie pour les objets blob. Cet article propose une section pour chaque liaison :
 
-* [Déclencheur d’objet blob](#trigger)
-* [Liaison d’entrée d’objet blob](#input)
-* [Liaison de sortie d’objet blob](#output)
+* [Déclencheur de blob](#trigger)
+* [Liaison d’entrée d’objets BLOB](#input)
+* [Liaison de sortie d’objets BLOB](#output)
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -316,11 +316,11 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 
 |Propriété function.json | Propriété d’attribut |Description|
 |---------|---------|----------------------|
-|**type** | n/a | Cette propriété doit être définie sur `blobTrigger`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure.|
+|**Type** | n/a | Cette propriété doit être définie sur `blobTrigger`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure.|
 |**direction** | n/a | Cette propriété doit être définie sur `in`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure. Les exceptions sont notées à la section [utilisation](#trigger---usage). |
-|**name** | n/a | Nom de la variable qui représente l’objet blob dans le code de la fonction. |
-|**path** | **BlobPath** |[Conteneur](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) à superviser.  Peut être un [modèle de nom d’objet blob](#trigger---blob-name-patterns). |
-|**Connexion** | **Connection** | Nom d’un paramètre d’application comportant la chaîne de connexion de stockage à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom ici. Par exemple, si vous définissez `connection` sur « MyStorage », le runtime Functions recherche un paramètre d’application qui est nommé « AzureWebJobsMyStorage ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion de stockage par défaut dans le paramètre d’application nommé `AzureWebJobsStorage`.<br><br>La chaîne de connexion doit être destinée à un compte de stockage à usage général, et non pas à un [compte Stockage Blob](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|**Nom** | n/a | Nom de la variable qui représente l’objet blob dans le code de la fonction. |
+|**chemin d’accès** | **BlobPath** |[Conteneur](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) à superviser.  Peut être un [modèle de nom d’objet blob](#trigger---blob-name-patterns). |
+|**connection** | **Connexion** | Nom d’un paramètre d’application comportant la chaîne de connexion de stockage à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom ici. Par exemple, si vous définissez `connection` sur « MyStorage », le runtime Functions recherche un paramètre d’application qui est nommé « AzureWebJobsMyStorage ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion de stockage par défaut dans le paramètre d’application nommé `AzureWebJobsStorage`.<br><br>La chaîne de connexion doit être destinée à un compte de stockage à usage général, et non pas à un [compte Stockage Blob](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -444,7 +444,7 @@ Si les 5 tentatives échouent, Azure Functions ajoute un message à une file d�
 
 Le déclencheur de blob utilise une file d’attente en interne. Le nombre maximal d’appels de fonction concurrents est par conséquent contrôlé par la [configuration des files d’attente dans host.json](functions-host-json.md#queues). Les paramètres par défaut limitent la concurrence à 24 appels. Cette limite s’applique séparément à chaque fonction qui utilise un déclencheur de blob.
 
-[Le plan de consommation](functions-scale.md#how-the-consumption-plan-works) limite une application de fonction sur une machine virtuelle (VM) à 1,5 Go de mémoire. La mémoire est utilisée par chaque instance de la fonction qui s’exécutent simultanément et par le runtime de fonctions lui-même. Si une fonction déclenchée par blob charge le blob entier en mémoire, la mémoire maximale utilisée par cette fonction uniquement pour les blobs est 24 * la taille maximale du blob. Par exemple, une application de fonction avec trois fonctions déclenchées par blob et les paramètres par défaut aurait une concurrence par machine virtuelle maximale de 3 * 24 = 72 appels de fonction.
+[Le plan de consommation](functions-scale.md#how-the-consumption-and-premium-plans-work) limite une application de fonction sur une machine virtuelle (VM) à 1,5 Go de mémoire. La mémoire est utilisée par chaque instance de la fonction qui s’exécutent simultanément et par le runtime de fonctions lui-même. Si une fonction déclenchée par blob charge le blob entier en mémoire, la mémoire maximale utilisée par cette fonction uniquement pour les blobs est 24 * la taille maximale du blob. Par exemple, une application de fonction avec trois fonctions déclenchées par blob et les paramètres par défaut aurait une concurrence par machine virtuelle maximale de 3 * 24 = 72 appels de fonction.
 
 Les fonctions JavaScript et Java chargent l’objet blob entier en mémoire et les fonctions C# le font si vous faites la liaison avec `string`, `Byte[]` ou POCO.
 
@@ -636,8 +636,8 @@ def main(queuemsg: func.QueueMessage, inputblob: func.InputStream) -> func.Input
 
 Cette section contient les exemples suivants :
 
-* [Déclencheur HTTP, rechercher le nom de l’objet blob dans la chaîne de requête](#http-trigger-look-up-blob-name-from-query-string-java)
-* [Déclencheur de file d’attente, recevoir le nom de l’objet blob à partir du message en file d’attente](#queue-trigger-receive-blob-name-from-queue-message-java)
+* [Déclencheur HTTP, nom d’objet blob à partir de la chaîne de requête de recherche](#http-trigger-look-up-blob-name-from-query-string-java)
+* [Déclencheur de file d’attente, le nom d’objet blob de réception de message de file d’attente](#queue-trigger-receive-blob-name-from-queue-message-java)
 
 #### <a name="http-trigger-look-up-blob-name-from-query-string-java"></a>Déclencheur HTTP, rechercher le nom de l’objet blob dans la chaîne de requête (Java)
 
@@ -727,12 +727,12 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 
 |Propriété function.json | Propriété d’attribut |Description|
 |---------|---------|----------------------|
-|**type** | n/a | Cette propriété doit être définie sur `blob`. |
+|**Type** | n/a | Cette propriété doit être définie sur `blob`. |
 |**direction** | n/a | Cette propriété doit être définie sur `in`. Les exceptions sont notées à la section [utilisation](#input---usage). |
-|**name** | n/a | Nom de la variable qui représente l’objet blob dans le code de la fonction.|
-|**path** |**BlobPath** | Chemin de l’objet blob. |
-|**Connexion** |**Connection**| Nom d’un paramètre d’application comportant la [chaîne de connexion de stockage](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-azure-storage-account) à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom ici. Par exemple, si vous définissez `connection` sur « MyStorage », le runtime Functions recherche un paramètre d’application qui est nommé « AzureWebJobsMyStorage ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion de stockage par défaut dans le paramètre d’application nommé `AzureWebJobsStorage`.<br><br>La chaîne de connexion doit être pour un compte de stockage à usage général, et non pour un [compte de stockage d’objets blob uniquement](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
-|n/a | **y accéder** | Indique si vous lirez ou écrirez. |
+|**Nom** | n/a | Nom de la variable qui représente l’objet blob dans le code de la fonction.|
+|**chemin d’accès** |**BlobPath** | Chemin de l’objet blob. |
+|**connection** |**Connexion**| Nom d’un paramètre d’application comportant la [chaîne de connexion de stockage](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-azure-storage-account) à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom ici. Par exemple, si vous définissez `connection` sur « MyStorage », le runtime Functions recherche un paramètre d’application qui est nommé « AzureWebJobsMyStorage ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion de stockage par défaut dans le paramètre d’application nommé `AzureWebJobsStorage`.<br><br>La chaîne de connexion doit être pour un compte de stockage à usage général, et non pour un [compte de stockage d’objets blob uniquement](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|n/a | **Access** | Indique si vous lirez ou écrirez. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -960,8 +960,8 @@ def main(queuemsg: func.QueueMessage, inputblob: func.InputStream,
 
 Cette section contient les exemples suivants :
 
-* [Déclencheur HTTP, utilisation d’OutputBinding](#http-trigger-using-outputbinding-java)
-* [Déclencheur de file d’attente, utilisation de la valeur de retour de la fonction](#queue-trigger-using-function-return-value-java)
+* [Déclencheur HTTP, à l’aide de OutputBinding](#http-trigger-using-outputbinding-java)
+* [Déclencheur de file d’attente, à l’aide de la valeur de retour de fonction](#queue-trigger-using-function-return-value-java)
 
 #### <a name="http-trigger-using-outputbinding-java"></a>Déclencheur HTTP, utilisation d’OutputBinding (Java)
 
@@ -1061,12 +1061,12 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 
 |Propriété function.json | Propriété d’attribut |Description|
 |---------|---------|----------------------|
-|**type** | n/a | Cette propriété doit être définie sur `blob`. |
+|**Type** | n/a | Cette propriété doit être définie sur `blob`. |
 |**direction** | n/a | Cette propriété doit être définie sur `out` pour une liaison de type sortie. Les exceptions sont notées à la section [utilisation](#output---usage). |
-|**name** | n/a | Nom de la variable qui représente l’objet blob dans le code de la fonction.  La valeur doit être `$return` pour faire référence à la valeur de retour de la fonction.|
-|**path** |**BlobPath** | Chemin de l’objet blob. |
-|**Connexion** |**Connection**| Nom d’un paramètre d’application comportant la chaîne de connexion de stockage à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom ici. Par exemple, si vous définissez `connection` sur « MyStorage », le runtime Functions recherche un paramètre d’application qui est nommé « AzureWebJobsMyStorage ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion de stockage par défaut dans le paramètre d’application nommé `AzureWebJobsStorage`.<br><br>La chaîne de connexion doit être pour un compte de stockage à usage général, et non pour un [compte de stockage d’objets blob uniquement](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
-|n/a | **y accéder** | Indique si vous lirez ou écrirez. |
+|**Nom** | n/a | Nom de la variable qui représente l’objet blob dans le code de la fonction.  La valeur doit être `$return` pour faire référence à la valeur de retour de la fonction.|
+|**chemin d’accès** |**BlobPath** | Chemin de l’objet blob. |
+|**connection** |**Connexion**| Nom d’un paramètre d’application comportant la chaîne de connexion de stockage à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom ici. Par exemple, si vous définissez `connection` sur « MyStorage », le runtime Functions recherche un paramètre d’application qui est nommé « AzureWebJobsMyStorage ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion de stockage par défaut dans le paramètre d’application nommé `AzureWebJobsStorage`.<br><br>La chaîne de connexion doit être pour un compte de stockage à usage général, et non pour un [compte de stockage d’objets blob uniquement](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|n/a | **Access** | Indique si vous lirez ou écrirez. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -1103,13 +1103,13 @@ Dans JavaScript, accédez aux données de l’objet blob en utilisant `context.b
 
 | Liaison |  Référence |
 |---|---|
-| Blob | [Codes d’erreur du service BLOB](https://docs.microsoft.com/rest/api/storageservices/fileservices/blob-service-error-codes) |
+| Blob | [Codes d’erreur BLOB](https://docs.microsoft.com/rest/api/storageservices/fileservices/blob-service-error-codes) |
 | Objet blob, Table, File d’attente |  [Codes d’erreur de stockage](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
-| Objet blob, Table, File d’attente |  [Dépannage](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
+| Objet blob, Table, File d’attente |  [Résolution de problèmes](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [En savoir plus sur les déclencheurs et les liaisons Azure Functions](functions-triggers-bindings.md)
+* [En savoir plus sur les liaisons et les déclencheurs Azure functions](functions-triggers-bindings.md)
 
 <!---
 > [!div class="nextstepaction"]

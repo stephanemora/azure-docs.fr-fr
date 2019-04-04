@@ -11,20 +11,22 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 04/03/2019
 ms.author: juliako
-ms.openlocfilehash: ab8d4fb9b46573d58fd93fc5121a4fc1918cc69d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: ad8e84d84665b20bfff53cf09473bc8bce9760d8
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58879384"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916023"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming en direct avec Azure Media Services v3
 
 Azure Media Services vous permet de transmettre des événements en direct auprès de vos clients dans le cloud Azure. Pour cela, vous avez besoin des éléments suivants :  
 
 - Une caméra, pour capturer l’événement en direct.<br/>Pour obtenir des idées de configuration, consultez [Simple and portable event video gear setup]( https://link.medium.com/KNTtiN6IeT).
+
+    Si vous n’avez pas accès à un appareil photo, des outils tels que [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) peut être utilisé générer un flux en direct à partir d’un fichier vidéo.
 - Un encodeur vidéo live, pour convertir les signaux de la caméra (ou d’un autre appareil, comme un ordinateur portable) en flux de contribution qui sera ensuite envoyé à Media Services. Le flux de contribution peut inclure des signaux de publicité, tels que les marqueurs SCTE-35.<br/>Pour obtenir une liste d’encodeurs de streaming live recommandés, consultez [Encodeurs de streaming live](recommended-on-premises-live-encoders.md). Consultez également ce billet de blog : [Live streaming production with OBS](https://link.medium.com/ttuwHpaJeT).
 - Des composants dans Media Services, pour ingérer, prévisualiser, empaqueter, enregistrer, chiffrer et diffuser l’événement en direct auprès de vos clients, ou dans un CDN en vue d’une diffusion ultérieure.
 

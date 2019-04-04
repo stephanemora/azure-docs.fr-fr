@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/22/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: 6cddb513249b424ef0df2ed2d1b5609de17c0744
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a5fe2d9b295a72b8e2e3adb7e5cffd5a98c03070
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894034"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487513"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Gérer les mises à jour dans Azure Stack - Vue d’ensemble
 
@@ -48,7 +48,7 @@ Nous vous recommandons vivement d’informer les utilisateurs de toutes les opé
 
 - Avant de démarrer l’installation de cette mise à jour, exécutez [Test-AzureStack](azure-stack-diagnostic-test.md) avec les paramètres suivants pour valider l’état de votre Azure Stack et résoudre les éventuels problèmes opérationnels détectés, y compris tous les avertissements et les échecs. Examinez aussi les alertes actives et résolvez toutes celles qui nécessitent une intervention.  
 
-  ```PowerShell
+  ```powershell
   Test-AzureStack -Group UpdateReadiness
   ``` 
 

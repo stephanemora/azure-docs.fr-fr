@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: efe85e017d883ca82414fe5ff10b5c2932366e48
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c0b1b415db9d8a530a495e09805ad9788c1edfbe
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58101123"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904217"
 ---
 # <a name="configure-access-from-virtual-networks-vnet"></a>Configurer l’accès à partir de réseaux virtuels (VNet)
 
@@ -27,6 +27,8 @@ Vous pouvez configurer les comptes Azure Cosmos DB pour autoriser l’accès uni
 > Pour plus d’informations, voir les étapes décrites dans la section [Migrer à partir d’une règle de pare-feu IP à une liste de contrôle d’accès de réseau virtuel](#migrate-from-firewall-to-vnet) de cet article. 
 
 Les sections suivantes expliquent comment configurer un point de terminaison de service du réseau virtuel pour un compte Azure Cosmos DB.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a id="configure-using-portal"></a>Configurer un point de terminaison de service avec le portail Azure
 
@@ -90,7 +92,7 @@ Pour être sûr d’avoir accès aux métriques Azure Cosmos DB à partir du por
 
 Effectuez les étapes suivantes afin de configurer un point de terminaison de service pour un compte Azure Cosmos DB à l’aide d’Azure PowerShell :  
 
-1. Installez [Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) et [connectez-vous](https://docs.microsoft.com/powershell/azure/authenticate-azureps).  
+1. Installez [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) et [connectez-vous](https://docs.microsoft.com/powershell/azure/authenticate-azureps).  
 
 1. Activez le point de terminaison de service pour un sous-réseau existant d’un réseau virtuel.  
 
@@ -100,18 +102,18 @@ Effectuez les étapes suivantes afin de configurer un point de terminaison de se
    $sname = "<Subnet name>"
    $subnetPrefix = "<Subnet address range>"
 
-   Get-AzureRmVirtualNetwork `
+   Get-AzVirtualNetwork `
     -ResourceGroupName $rgname `
-    -Name $vnName | Set-AzureRmVirtualNetworkSubnetConfig `
+    -Name $vnName | Set-AzVirtualNetworkSubnetConfig `
     -Name $sname  `
     -AddressPrefix $subnetPrefix `
-    -ServiceEndpoint "Microsoft.AzureCosmosDB" | Set-AzureRmVirtualNetwork
+    -ServiceEndpoint "Microsoft.AzureCosmosDB" | Set-AzVirtualNetwork
    ```
 
 1. Obtenez les informations relatives au réseau virtuel.
 
    ```powershell
-   $vnProp = Get-AzureRmVirtualNetwork `
+   $vnProp = Get-AzVirtualNetwork `
      -Name $vnName `
      -ResourceGroupName $rgName
    ```
@@ -122,7 +124,7 @@ Effectuez les étapes suivantes afin de configurer un point de terminaison de se
    $apiVersion = "2015-04-08"
    $acctName = "<Azure Cosmos DB account name>"
 
-   $cosmosDBConfiguration = Get-AzureRmResource `
+   $cosmosDBConfiguration = Get-AzResource `
      -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
      -ApiVersion $apiVersion `
      -ResourceGroupName $rgName `
@@ -162,7 +164,7 @@ Effectuez les étapes suivantes afin de configurer un point de terminaison de se
       isVirtualNetworkFilterEnabled = $True;
    }
 
-   Set-AzureRmResource `
+   Set-AzResource `
      -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
      -ApiVersion $apiVersion `
      -ResourceGroupName $rgName `
@@ -173,7 +175,7 @@ Effectuez les étapes suivantes afin de configurer un point de terminaison de se
 1. Exécutez la commande suivante pour vérifier que votre compte Azure Cosmos DB est mis à jour avec le point de terminaison de service de réseau virtuel que vous avez configuré à l’étape précédente :
 
    ```powershell
-   $UpdatedcosmosDBConfiguration = Get-AzureRmResource `
+   $UpdatedcosmosDBConfiguration = Get-AzResource `
      -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
      -ApiVersion $apiVersion `
      -ResourceGroupName $rgName `
@@ -225,7 +227,7 @@ Lorsqu’un point de terminaison de service d’un compte Azure Cosmos DB est ac
    $apiVersion = "2015-04-08"
    $acctName = "<Azure Cosmos DB account name>"
 
-   $cosmosDBConfiguration = Get-AzureRmResource `
+   $cosmosDBConfiguration = Get-AzResource `
      -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
      -ApiVersion $apiVersion `
      -ResourceGroupName $rgName `
@@ -268,7 +270,7 @@ Lorsqu’un point de terminaison de service d’un compte Azure Cosmos DB est ac
       isVirtualNetworkFilterEnabled = $True;
    }
 
-   Set-AzureRmResource `
+   Set-AzResource `
       -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
       -ApiVersion $apiVersion `
       -ResourceGroupName $rgName `
@@ -288,12 +290,12 @@ Lorsqu’un point de terminaison de service d’un compte Azure Cosmos DB est ac
     $sname = "<Subnet name>"
     $subnetPrefix = "<Subnet address range>"
 
-    Get-AzureRmVirtualNetwork `
+    Get-AzVirtualNetwork `
        -ResourceGroupName $rgname `
-       -Name $vnName | Set-AzureRmVirtualNetworkSubnetConfig `
+       -Name $vnName | Set-AzVirtualNetworkSubnetConfig `
        -Name $sname `
        -AddressPrefix $subnetPrefix `
-       -ServiceEndpoint "Microsoft.AzureCosmosDB" | Set-AzureRmVirtualNetwork
+       -ServiceEndpoint "Microsoft.AzureCosmosDB" | Set-AzVirtualNetwork
     ```
 
 1. Supprimez la règle de pare-feu IP pour le sous-réseau.

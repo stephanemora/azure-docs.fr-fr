@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/22/2019
 ms.author: cwatson
-ms.openlocfilehash: 9eba59bcdc9974519fc1ed37078a205eff28f116
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: fe0d0f0baa2b3d1c08e871541dce1511e00f7f87
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58653083"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917054"
 ---
 # <a name="understand-how-the-red-hat-linux-enterprise-software-reservation-plan-discount-is-applied-for-azure"></a>Comprendre comment la remise de plan de Red Hat Linux Enterprise logiciel réservation est appliquée pour Azure
 
@@ -158,12 +158,12 @@ Noms dans la place de marché du portail Azure :
 
 Pour plus d’informations sur les réservations, consultez les articles suivants :
 
-- [Qu’est-ce qu’une réservation Azure ?](billing-save-compute-costs-reservations.md)
+- [Quelles sont les réservations pour Azure](billing-save-compute-costs-reservations.md)
 - [Prépayer les plans de logiciels de Red Hat avec les réservations Azure](../virtual-machines/linux/prepay-rhel-software-charges.md)
-- [Prépayer des machines virtuelles avec des instances de machines virtuelles réservées Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Prépayer les machines virtuelles avec Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Gérer les réservations pour Azure](billing-manage-reserved-vm-instance.md)
-- [Comprendre l’utilisation d’une réservation pour votre abonnement avec paiement à l’utilisation](billing-understand-reserved-instance-usage.md)
-- [Comprendre l’utilisation d’une réservation pour votre Accord de Mise en Œuvre Entreprise](billing-understand-reserved-instance-usage-ea.md)
+- [Comprendre l’utilisation de la réservation pour votre abonnement de paiement à l’utilisation](billing-understand-reserved-instance-usage.md)
+- [Comprendre l’utilisation de la réservation pour l’inscription de votre entreprise](billing-understand-reserved-instance-usage-ea.md)
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Nous contacter
 

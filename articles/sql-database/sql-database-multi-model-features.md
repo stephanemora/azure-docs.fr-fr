@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: f3bb6fa93a96adcd2c1995b6874aa0b36b2ce320
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4351017cc1848e29cca038f82fd96548ae3492e0
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57884521"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892464"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Fonctionnalités multimodèles d’Azure SQL Database
 
@@ -29,7 +29,7 @@ Azure SQL Database est conçu pour fonctionner avec le modèle relationnel qui o
 Vous devez envisager d’utiliser des fonctionnalités de plusieurs modèles de base de données SQL Azure dans les cas suivants :
 - Vous avez des informations ou des structures qui sont mieux adaptée à pour les modèles de NoSQL et vous ne souhaitez pas utiliser la base de données NoSQL distincte.
 - Une majorité de vos données est appropriée pour le modèle relationnel, et vous avez besoin de modéliser certaines parties de vos données dans le style de NoSQL.
-- Vous souhaitez tirer parti des nombreux langages Transact-SQL pour interroger et analyser relationnelles et données NoSQL et l’intégrer avec un large éventail d’outils et de liaison qui permettre utiliser le langage SQL.
+- Vous souhaitez tirer parti des nombreux langages Transact-SQL pour interroger et analyser relationnelles et données NoSQL et l’intégrer avec un large éventail d’outils et applications qui peuvent utiliser le langage SQL.
 - Vous souhaitez appliquer les fonctionnalités de base de données tel que [technologies in-memory](sql-database-in-memory.md) pour améliorer les performances de votre analyse ou de traitement de votre strucutres de données NoSQL, utilisez [la réplication transactionnelle](sql-database-managed-instance-transactional-replication.md) ou [réplicas lisibles](sql-database-read-scale-out.md) pour créer de copie de vos données sur l’autre emplacement et de décharger certaines charges de travail analytiques à partir de la base de données primaire.
 
 ## <a name="overview"></a>Présentation
@@ -140,7 +140,7 @@ Découvrez [comment BWin utilise la technologie OLTP en mémoire pour atteindre 
 ## <a name="next-steps"></a>Étapes suivantes
 Les fonctionnalités multimodèles des bases de données SQL Azure sont également les fonctionnalités essentielles du moteur de base de données SQL Server que partagent Azure SQL Database et SQL Server. Pour plus d’informations sur ces fonctionnalités, visitez les pages de documentation sur la base de données relationnelle SQL :
 
-* [Traitement de graphe](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview)
+* [Traitement de graphique](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview)
 * [Données JSON](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server)
 * [Prise en charge spatiale](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server)
 * [Données XML](https://docs.microsoft.com/sql/relational-databases/xml/xml-data-sql-server)

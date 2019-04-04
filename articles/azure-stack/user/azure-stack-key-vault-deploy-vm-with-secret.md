@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 30ebccd6bee26900ac01f7f4d17993e24c9db745
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 3318e52b29723eaa08d8c3a4fba18e278e6cfe9c
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779247"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487751"
 ---
 # <a name="create-a-virtual-machine-using-a-secure-password-stored-in-azure-stack-key-vault"></a>Créer une machine virtuelle avec un mot de passe sécurisé stocké dans un coffre de clés Azure Stack
 
@@ -53,7 +53,7 @@ Les étapes suivantes décrivent le processus nécessaire pour créer une machin
 
 Le script suivant crée un coffre de clés et stocke un mot de passe dans le coffre de clés en tant que secret. Utilisez le paramètre `-EnabledForDeployment` quand vous créez le coffre de clés. Ce paramètre garantit que le coffre de clés peut être référencé à partir des modèles Azure Resource Manager.
 
-```PowerShell
+```powershell
 
 $vaultName = "contosovault"
 $resourceGroup = "contosovaultrg"
@@ -118,7 +118,7 @@ Mettez à jour le fichier azuredeploy.parameters.json avec les valeurs de la mac
 
 Déployez maintenant le modèle avec le script PowerShell suivant :
 
-```PowerShell  
+```powershell  
 New-AzureRmResourceGroupDeployment `
   -Name KVPwdDeployment `
   -ResourceGroupName $resourceGroup `

@@ -8,18 +8,16 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 43947413f061ec8b366392b676e848ebf5e6484e
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 994ccf292a4215624d4222fe13ca9ac25c863368
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570111"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895864"
 ---
-# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities-preview"></a>Authentifier Stream Analytics pour Azure Data Lake Storage Gen1 à l’aide d’identités managées (préversion)
+# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>Authentifier Analytique Stream pour Azure Data Lake Storage Gen1 à l’aide d’identités gérées
 
 Azure Stream Analytics prend en charge l’authentification des identités managées avec la sortie Azure Data Lake Storage (ADLS) Gen1. L’identité est une application managée inscrite auprès d’Azure Active Directory. Elle représente un travail Stream Analytics spécifique et peut servir à l’authentification auprès d’une ressource cible. Les identités managées n’ont pas les limitations des méthodes d’authentification basée sur l’utilisateur, comme la réauthentification obligatoire après un changement de mot de passe ou l’expiration du jeton d’utilisateur tous les 90 jours. De plus, les identités managées facilitent l’automatisation des déploiements de travaux Stream Analytics dont la sortie est générée dans Azure Data Lake Storage Gen1.
-
-Consultez le billet de blog [Eight new features in Azure Stream Analytics](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/) pour vous inscrire à cette préversion et en savoir plus sur les nouvelles fonctionnalités.
 
 Cet article présente trois façons d'activer une identité managée pour un travail Azure Stream Analytics dont la sortie est générée dans Azure Data Lake Storage Gen1 à l'aide du portail Azure, d'un déploiement de modèle Azure Resource Manager et d'Azure Stream Analytics Tools pour Visual Studio.
 
@@ -27,11 +25,11 @@ Cet article présente trois façons d'activer une identité managée pour un tra
 
 ## <a name="azure-portal"></a>Portail Azure
 
-1. Commencez par créer un travail Stream Analytics ou par ouvrir un travail existant dans le portail Azure. Dans la barre de menus située sur le côté gauche de l’écran, sélectionnez **Identité managée (préversion)** sous **Configurer**.
+1. Commencez par créer un travail Stream Analytics ou par ouvrir un travail existant dans le portail Azure. Dans la barre de menus située sur le côté gauche de l’écran, sélectionnez **msi** situé sous **configurer**.
 
-   ![Configurer une identité managée Stream Analytics (préversion)](./media/stream-analytics-managed-identities-adls/stream-analytics-managed-identity-preview.png)
+   ![Configurer l’identité de l’Analytique Stream gérés](./media/stream-analytics-managed-identities-adls/stream-analytics-managed-identity-preview.png)
 
-2. Sélectionnez **Utiliser une identité managée assignée par le système (préversion)** dans la fenêtre à droite. Cliquez sur **enregistrer** à un principal de service pour l’identité de la tâche Analytique de Stream dans Azure Active Directory. Le cycle de vie de la nouvelle identité est géré par Azure. Quand le travail Stream Analytics est supprimé, l’identité associée (autrement dit, le principal de service) est également automatiquement supprimée par Azure.
+2. Sélectionnez **attribué par le système de l’utilisation des identités gérées** à partir de la fenêtre qui apparaît à droite. Cliquez sur **enregistrer** à un principal de service pour l’identité de la tâche Analytique de Stream dans Azure Active Directory. Le cycle de vie de la nouvelle identité est géré par Azure. Quand le travail Stream Analytics est supprimé, l’identité associée (autrement dit, le principal de service) est également automatiquement supprimée par Azure.
 
    Une fois que la configuration est enregistrée, l’ID objet (l’OID) du principal de service s’affiche en tant qu’ID de principal, comme ci-dessous :
 
@@ -39,7 +37,7 @@ Cet article présente trois façons d'activer une identité managée pour un tra
  
    Le principal de service a le même nom que le travail Stream Analytics. Par exemple, si le nom de votre travail est **MyASAJob**, le nom du principal de service créé est également **MyASAJob**.
 
-3. Dans la fenêtre de propriétés de la sortie du récepteur de sortie ADLS Gen1, cliquez sur la liste déroulante Mode d’authentification et sélectionnez **Identité managée (préversion)**.
+3. Dans la fenêtre de propriétés de sortie du récepteur de sortie ADLS Gen1, cliquez sur le mode d’authentification liste déroulante et sélectionnez ** msi **.
 
 4. Renseignez le reste des propriétés. Pour en savoir plus sur la création d’une sortie ADLS, consultez [Créer une sortie Data Lake Storage avec Stream Analytics](../data-lake-store/data-lake-store-stream-analytics.md). Quand vous avez terminé, cliquez sur **Enregistrer**.
 
@@ -101,7 +99,7 @@ Cet article présente trois façons d'activer une identité managée pour un tra
 
    Cette propriété indique à Azure Resource Manager de créer et manager l’identité de votre travail Azure Stream Analytics.
 
-   **Exemple de travail**
+   **Exemple de tâche**
 
     ```json
     {
@@ -131,7 +129,7 @@ Cet article présente trois façons d'activer une identité managée pour un tra
               }
    ```
   
-   **Exemple de réponse du travail**
+   **Exemple de réponse de tâche**
 
    ```json
    {
@@ -164,7 +162,7 @@ Cet article présente trois façons d'activer une identité managée pour un tra
 
    La valeur **PrincipalId** correspond à l’ID objet du principal de service, qui s’affiche sur le portail une fois que le principal de service est créé. Si vous avez créé le travail à l’aide d’un déploiement de modèle Resource Manager, l’ID objet est indiqué dans la propriété Identity contenue dans la réponse du travail.
 
-   **Exemple**
+   **Exemples**
 
    ```powershell
    PS > Set-AzDataLakeStoreItemAclEntry -AccountName "adlsmsidemo" -Path / -AceType
@@ -183,6 +181,6 @@ Cette fonctionnalité ne prend en charge les éléments suivants :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Créer une sortie Data Lake Store avec Stream Analytics](../data-lake-store/data-lake-store-stream-analytics.md)
+* [Créer une sortie Data lake Store avec analytique de flux de données](../data-lake-store/data-lake-store-stream-analytics.md)
 * [Tester des requêtes Stream Analytics localement avec Visual Studio](stream-analytics-vs-tools-local-run.md)
-* [Tester des données actives localement à l’aide d’Azure Stream Analytics Tools pour Visual Studio](stream-analytics-live-data-local-testing.md) 
+* [Test des données actives localement à l’aide des outils d’Analytique de Stream Azure pour Visual Studio](stream-analytics-live-data-local-testing.md) 

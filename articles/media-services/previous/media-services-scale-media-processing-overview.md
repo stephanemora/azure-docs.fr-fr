@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 3a88c29739faca33794ce10de895c0439f007532
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 51d168474fd593dd537a25c0434e240a426c2cbf
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294227"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918346"
 ---
 # <a name="scaling-media-processing-overview"></a>Vue d’ensemble de la mise à l’échelle du traitement multimédia 
 Cette page fournit une vue d’ensemble de la procédure de mise à l’échelle du traitement multimédia et de ses avantages. 
@@ -48,7 +48,7 @@ Le tableau suivant vous aide à choisir entre les différentes vitesses d’enco
 
 ## <a name="billing"></a>Facturation
 
-Vous êtes facturé en fonction des minutes réelles d’utilisation des unités réservées Multimédia. Pour plus d’informations, consultez la section FAQ de la page [Tarification Media Services](https://azure.microsoft.com/pricing/details/media-services/).   
+Vous êtes facturé en nombre de minutes pendant que les unités réservées multimédia sont configurées dans votre compte. Cela se produit indépendamment de si il existe des travaux en cours d’exécution dans votre compte. Pour plus d’informations, consultez la section FAQ de la page [Tarification Media Services](https://azure.microsoft.com/pricing/details/media-services/).   
 
 ## <a name="quotas-and-limitations"></a>Quotas et limitations
 Pour plus d’informations sur les quotas et les limitations et pour savoir comment ouvrir un ticket de support, consultez la rubrique [Quotas et limitations](media-services-quotas-and-limitations.md).

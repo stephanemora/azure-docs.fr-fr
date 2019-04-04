@@ -7,18 +7,21 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: d75eb87bff812589e4d3a3a14079ddaaf368a588
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 8839d7ea93bcb205b1900e63d3ab98394e72cd75
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259769"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904863"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Journalisation des diagnostics dans Azure Cosmos DB 
 
 Après avoir commencé à utiliser une ou plusieurs bases de données Azure Cosmos DB, vous pouvez surveiller comment et quand vos bases de données font l’objet d’un accès. Cet article fournit une vue d’ensemble des journaux disponibles sur la plateforme Azure. Vous allez apprendre à activer la journalisation des diagnostics pour la surveillance pour envoyer les journaux à [stockage Azure](https://azure.microsoft.com/services/storage/), comment diffuser des journaux sur [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)et comment exporter des journaux vers [Azure Monitor enregistre](https://azure.microsoft.com/services/log-analytics/).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="logs-available-in-azure"></a>Journaux disponibles dans Azure
 
@@ -132,7 +135,7 @@ Si vous avez déjà installé Azure PowerShell et que vous ne connaissez pas la 
 Démarrez une session Azure PowerShell et connectez-vous à votre compte Azure avec la commande suivante :  
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 Dans la fenêtre contextuelle de votre navigateur, entrez votre nom d’utilisateur et votre mot de passe Azure. Azure PowerShell obtient alors tous les abonnements associés à ce compte et utilise par défaut le premier.
@@ -140,13 +143,13 @@ Dans la fenêtre contextuelle de votre navigateur, entrez votre nom d’utilisat
 Si vous disposez de plusieurs abonnements, vous devrez peut-être en spécifier un en particulier, celui qui a été utilisé pour créer votre coffre de clés Azure. Pour afficher les abonnements de votre compte, entrez la commande suivante :
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
 Ensuite, pour spécifier l’abonnement associé au compte Azure Cosmos DB que vous allez journaliser, entrez la commande suivante :
 
 ```powershell
-Set-AzureRmContext -SubscriptionId <subscription ID>
+Set-AzContext -SubscriptionId <subscription ID>
 ```
 
 > [!NOTE]
@@ -162,7 +165,7 @@ Bien que vous puissiez utiliser un compte de stockage existant pour vos journaux
 Pour faciliter encore la gestion, dans ce didacticiel nous utilisons le groupe de ressources qui contient la base de données Azure Cosmos DB. Remplacez les valeurs des paramètres **ContosoResourceGroup**, **contosocosmosdblogs** et **USA Centre Nord**, comme il convient :
 
 ```powershell
-$sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup `
+$sa = New-AzStorageAccount -ResourceGroupName ContosoResourceGroup `
 -Name contosocosmosdblogs -Type Standard_LRS -Location 'North Central US'
 ```
 
@@ -175,15 +178,15 @@ $sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup `
 Définissez le nom du compte Azure Cosmos DB sur une variable nommée **account**, où **ResourceName** est le nom du compte Azure Cosmos DB.
 
 ```powershell
-$account = Get-AzureRmResource -ResourceGroupName ContosoResourceGroup `
+$account = Get-AzResource -ResourceGroupName ContosoResourceGroup `
 -ResourceName contosocosmosdb -ResourceType "Microsoft.DocumentDb/databaseAccounts"
 ```
 
 ### <a id="enable"></a>Activation de la journalisation
-Pour activer la journalisation pour Azure Cosmos DB, utilisez la cmdlet `Set-AzureRmDiagnosticSetting`, ainsi que les variables pour le nouveau compte de stockage, le compte Azure Cosmos DB et la catégorie pour laquelle vous souhaitez activer les journaux. Exécutez la commande suivante et définissez l’indicateur **-Enabled** sur **$true** :
+Pour activer la journalisation pour Azure Cosmos DB, utilisez la cmdlet `Set-AzDiagnosticSetting`, ainsi que les variables pour le nouveau compte de stockage, le compte Azure Cosmos DB et la catégorie pour laquelle vous souhaitez activer les journaux. Exécutez la commande suivante et définissez l’indicateur **-Enabled** sur **$true** :
 
 ```powershell
-Set-AzureRmDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories DataPlaneRequests
+Set-AzDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories DataPlaneRequests
 ```
 
 La sortie de la commande doit ressembler à l’exemple suivant :
@@ -221,7 +224,7 @@ La sortie de la commande confirme que la journalisation est maintenant activée 
 Si vous le souhaitez, vous pouvez également définir la stratégie de rétention pour vos journaux, par exemple la suppression automatique des anciens journaux. Spécifiez par exemple la stratégie de rétention avec l’indicateur **-RetentionEnabled** défini sur **$true**. Définissez le paramètre **-RetentionInDays** sur **90** afin que les journaux de plus de 90 jours soient automatiquement supprimés.
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
+Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
  -StorageAccountId $sa.Id -Enabled $true -Categories DataPlaneRequests`
   -RetentionEnabled $true -RetentionInDays 90
 ```
@@ -238,7 +241,7 @@ Commencez par créer une variable pour le nom du conteneur. Cette variable est u
 Pour répertorier tous les objets blob présents dans ce conteneur, saisissez :
 
 ```powershell
-Get-AzureStorageBlob -Container $container -Context $sa.Context
+Get-AzStorageBlob -Container $container -Context $sa.Context
 ```
 
 La sortie de la commande doit ressembler à l’exemple suivant :
@@ -257,7 +260,7 @@ Name              : resourceId=/SUBSCRIPTIONS/<subscription-ID>/RESOURCEGROUPS/C
 /MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/CONTOSOCOSMOSDB/y=2017/m=09/d=28/h=19/m=00/PT1H.json
 ```
 
-Comme vous pouvez le voir dans cette sortie, les objets blob suivent une convention d’affectation de noms : `resourceId=/SUBSCRIPTIONS/<subscription-ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<Database Account Name>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json`
+Comme vous pouvez le voir dans cette sortie, les objets BLOB suivent une convention d’affectation de noms : `resourceId=/SUBSCRIPTIONS/<subscription-ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<Database Account Name>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json`
 
 Les valeurs de date et d’heure utilisent UTC.
 
@@ -273,13 +276,13 @@ New-Item -Path 'C:\Users\username\ContosoCosmosDBLogs'`
 Procurez-vous la liste de tous les objets blob :  
 
 ```powershell
-$blobs = Get-AzureStorageBlob -Container $container -Context $sa.Context
+$blobs = Get-AzStorageBlob -Container $container -Context $sa.Context
 ```
 
-Redirigez cette liste via la commande `Get-AzureStorageBlobContent` pour télécharger les objets blob dans le dossier de destination :
+Redirigez cette liste via la commande `Get-AzStorageBlobContent` pour télécharger les objets blob dans le dossier de destination :
 
 ```powershell
-$blobs | Get-AzureStorageBlobContent `
+$blobs | Get-AzStorageBlobContent `
  -Destination 'C:\Users\username\ContosoCosmosDBLogs'
 ```
 
@@ -290,27 +293,27 @@ Pour télécharger les objets blob de façon sélective, utilisez des caractère
 * Si vous disposez de plusieurs bases de données et souhaitez télécharger les journaux d’une seule d’entre elles nommée **CONTOSOCOSMOSDB3**, utilisez la commande suivante :
 
     ```powershell
-    Get-AzureStorageBlob -Container $container `
+    Get-AzStorageBlob -Container $container `
      -Context $sa.Context -Blob '*/DATABASEACCOUNTS/CONTOSOCOSMOSDB3
     ```
 
 * Si vous disposez de plusieurs groupes de ressources et souhaitez télécharger les journaux d’un seul d’entre eux, utilisez la commande `-Blob '*/RESOURCEGROUPS/<resource group name>/*'` :
 
     ```powershell
-    Get-AzureStorageBlob -Container $container `
+    Get-AzStorageBlob -Container $container `
     -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
     ```
 * Si vous souhaitez télécharger tous les journaux du mois de juillet 2017, utilisez la commande `-Blob '*/year=2017/m=07/*'` :
 
     ```powershell
-    Get-AzureStorageBlob -Container $container `
+    Get-AzStorageBlob -Container $container `
      -Context $sa.Context -Blob '*/year=2017/m=07/*'
     ```
 
 Vous pouvez également exécuter les commandes suivantes :
 
-* Pour interroger l’état des paramètres de diagnostic de votre ressource de base de données, utilisez la commande `Get-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`.
-* Pour désactiver la journalisation de la catégorie **DataPlaneRequests** pour votre ressource de compte de base de données, utilisez la commande `Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories DataPlaneRequests`.
+* Pour interroger l’état des paramètres de diagnostic de votre ressource de base de données, utilisez la commande `Get-AzDiagnosticSetting -ResourceId $account.ResourceId`.
+* Pour désactiver la journalisation de la catégorie **DataPlaneRequests** pour votre ressource de compte de base de données, utilisez la commande `Set-AzDiagnosticSetting -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories DataPlaneRequests`.
 
 
 Les objets blob retournés dans chacune de ces requêtes sont stockés sous forme de blob JSON au format texte, comme indiqué dans le code suivant :
@@ -438,7 +441,7 @@ Le tableau suivant décrit le contenu de chaque entrée de journal.
 | Propriété ou champ du stockage Azure | Azure Monitor enregistre la propriété | Description |
 | --- | --- | --- |
 | **time** | **TimeGenerated** | Date et heure (UTC) de l’opération. |
-| **resourceId** | **Ressource** | Le compte Azure Cosmos DB pour lequel les journaux sont activés.|
+| **ResourceId** | **Ressource** | Le compte Azure Cosmos DB pour lequel les journaux sont activés.|
 | **category** | **Catégorie** | Pour les journaux Azure Cosmos DB, **DataPlaneRequests** est la seule valeur disponible. |
 | **operationName** | **OperationName** | Nom de l’opération. Cette valeur peut être l’une des opérations suivantes : Create, Update, Read, ReadFeed, Delete, Replace, Execute, SqlQuery, Query, JSQuery, Head, HeadFeed ou Upsert.   |
 | **properties** | n/a | Le contenu de ce champ est décrit dans les lignes suivantes. |
@@ -459,7 +462,7 @@ Le tableau suivant décrit le contenu de chaque entrée de journal.
 
 - Pour comprendre comment activer la journalisation, mais aussi les métriques et les catégories de journaux prises en charge par les différents services Azure, consultez les articles [Vue d’ensemble des métriques dans Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) et [Présentation des journaux de diagnostic Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
 - Pour en savoir plus sur les concentrateurs d’événements, lisez les articles suivants :
-   - [Nouveautés des concentrateurs d’événements Azure ?](../event-hubs/event-hubs-what-is-event-hubs.md)
+   - [Nouveautés des concentrateurs d'événements Azure ?](../event-hubs/event-hubs-what-is-event-hubs.md)
    - [Prise en main des hubs d’événements](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 - Consultez [Télécharger les journaux de métriques et diagnostics de Stockage Azure](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-blobs).
 - Lecture [présentation des recherches dans les journaux Azure Monitor](../log-analytics/log-analytics-log-search-new.md).

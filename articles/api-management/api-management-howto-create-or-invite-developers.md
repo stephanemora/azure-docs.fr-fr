@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: d56e2da00e60b9daa44e040db6796215dd03436b
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: 6a4ad827c39ec106acdc7b52a5b769ab6e7febf8
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793082"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893943"
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Gestion des comptes d’utilisateur dans Gestion des API Azure
 
-Dans Gestion des API Azure, les développeurs sont les utilisateurs des API que vous exposez via Gestion des API. Ce guide vous montre comment créer et inviter des développeurs à utiliser les API et les produits que vous mettez à leur disposition dans votre instance Gestion des API. Pour plus d’informations sur la gestion des comptes d’utilisateur par programme, consultez la documentation [Entité utilisateur](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity) dans la référence [API REST de gestion](/rest/api/apimanagement/).
+Dans Gestion des API Azure, les développeurs sont les utilisateurs des API que vous exposez via Gestion des API. Ce guide vous montre comment créer et inviter des développeurs à utiliser les API et les produits que vous mettez à leur disposition dans votre instance Gestion des API. Pour plus d’informations sur la gestion des comptes d’utilisateur par programme, consultez la documentation [Entité utilisateur](https://docs.microsoft.com/en-us/rest/api/apimanagement/user) dans la référence [API REST de gestion](/rest/api/apimanagement/).
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -69,7 +69,7 @@ Pour bloquer un utilisateur, procédez comme suit.
 
 ## <a name="reset-a-user-password"></a>Réinitialiser le mot de passe d’un utilisateur
 
-Pour utiliser les comptes d’utilisateur par programme, consultez la documentation [Entité utilisateur](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity) dans la référence [API REST de gestion](/rest/api/apimanagement/). Pour réinitialiser le mot de passe d’un compte d’utilisateur sur une valeur spécifique, vous pouvez utiliser l’opération [Mettre à jour un utilisateur](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) et spécifier le mot de passe nécessaire.
+Pour utiliser les comptes d’utilisateur par programme, consultez la documentation [Entité utilisateur](https://docs.microsoft.com/en-us/rest/api/apimanagement/user) dans la référence [API REST de gestion](/rest/api/apimanagement/). Pour réinitialiser le mot de passe d’un compte d’utilisateur sur une valeur spécifique, vous pouvez utiliser l’opération [Mettre à jour un utilisateur](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) et spécifier le mot de passe nécessaire.
 
 ## <a name="next-steps"> </a>Étapes suivantes
 Une fois le compte de développeur créé, vous pouvez l'associer à des rôles et l'abonner à des produits et des API. Pour plus d’informations, consultez la page [Création et utilisation de groupes][How to create and use groups].

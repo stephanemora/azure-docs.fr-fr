@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 89ad91316da027e399891a7e1b348e66c1d3a4f5
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 7a30aecc3cc2259072ea33ae018c371a1f05741a
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499894"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893386"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C : Forum Aux Questions (FAQ) 
 Cette page répond aux questions fréquemment posées sur Azure Active Directory (Azure AD) B2C. N'hésitez pas à la consulter pour vous tenir au courant des mises à jour.
@@ -80,7 +80,7 @@ Il n’existe actuellement aucun moyen de modifier le champ « De : » de l�
 Vous pouvez utiliser l’API Graph Azure AD pour écrire l’outil de migration. Consultez le [guide de migration des utilisateurs](active-directory-b2c-user-migration.md) pour plus d’informations.
 
 ### <a name="what-password-user-flow-is-used-for-local-accounts-in-azure-ad-b2c"></a>Quel flux d’utilisateur de mot de passe est utilisé pour les comptes locaux dans Azure AD B2C ?
-Le flux d’utilisateur de mot de passe Azure AD B2C pour les comptes locaux est basé sur la stratégie pour Azure AD. Les flux d’utilisateur de réinitialisation du mot de passe, d’inscription ou de connexion et d’inscription Azure AD B2C utilisent des mots de passe « forts » et qui n’expirent pas. Pour plus d’informations, consultez [Stratégie de mot de passe dans Azure AD](https://msdn.microsoft.com/library/azure/jj943764.aspx) . Pour plus d’informations sur les verrouillages de compte et mots de passe, voir l’article sur la [gestion les menaces pesant sur les ressources et données dans Azure Active Directory B2C](active-directory-b2c-reference-threat-management.md).
+Le flux d’utilisateur de mot de passe Azure AD B2C pour les comptes locaux est basé sur la stratégie pour Azure AD. Les flux d’utilisateur de réinitialisation du mot de passe, d’inscription ou de connexion et d’inscription Azure AD B2C utilisent des mots de passe « forts » et qui n’expirent pas. Pour plus d’informations, consultez [Stratégie de mot de passe dans Azure AD](/previous-versions/azure/jj943764(v=azure.100)) . Pour plus d’informations sur les verrouillages de compte et mots de passe, voir l’article sur la [gestion les menaces pesant sur les ressources et données dans Azure Active Directory B2C](active-directory-b2c-reference-threat-management.md).
 
 ### <a name="can-i-use-azure-ad-connect-to-migrate-consumer-identities-that-are-stored-on-my-on-premises-active-directory-to-azure-ad-b2c"></a>Puis-je utiliser Azure AD Connect pour migrer les identités de clients stockées dans mon répertoire Active Directory local vers Azure AD B2C ?
 Non, Azure AD Connect n'est pas conçu pour fonctionner avec Azure AD B2C. Utilisez l’[API Graph Azure AD](active-directory-b2c-devquickstarts-graph-dotnet.md) pour la migration des utilisateurs.  Consultez le [guide de migration des utilisateurs](active-directory-b2c-user-migration.md) pour plus d’informations.

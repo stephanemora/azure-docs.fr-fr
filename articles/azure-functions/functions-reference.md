@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 01fce9813299465767bdaed7f3c2939813cfab87
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: HT
+ms.openlocfilehash: 5b2b7f3cd6bfa219b794edc63d6bf8b2784b713c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "56339482"
+ms.locfileid: "58891886"
 ---
 # <a name="azure-functions-developers-guide"></a>Guide de développement Azure Functions
 Dans Azure Functions, des fonctions spécifiques partagent quelques concepts techniques et composants de base, quels que soient le langage et la liaison que vous utilisez. Avant de passer à l'apprentissage des détails propres à un langage ou une liaison donnés, veillez à lire cette présentation qui s'applique à l’ensemble d’entre eux.
@@ -48,11 +48,11 @@ La propriété `bindings` vous permet de configurer les liaisons et les déclenc
 
 | Propriété | Valeurs/types | Commentaires |
 | --- | --- | --- |
-| `type` |chaîne |Type de liaison. Par exemple, `queueTrigger`. |
+| `type` |string |Type de liaison. Par exemple, `queueTrigger`. |
 | `direction` |'in', 'out' |Indique si la liaison sert à recevoir des données dans la fonction ou à envoyer des données à partir de la fonction. |
-| `name` |chaîne |Le nom utilisé pour les données liées dans la fonction. Pour C#, il s’agit d’un nom d'argument ; pour JavaScript, il s’agit de la clé dans une liste de clés/valeurs. |
+| `name` |string |Le nom utilisé pour les données liées dans la fonction. Pour C#, il s’agit d’un nom d'argument ; pour JavaScript, il s’agit de la clé dans une liste de clés/valeurs. |
 
-## <a name="function-app"></a>Function App
+## <a name="function-app"></a>Conteneur de fonctions
 Une application de fonction fournit un contexte d’exécution dans Azure dans lequel vos fonctions s’exécutent. Un conteneur de fonctions est constitué d’une ou de plusieurs des fonctions individuelles qui sont gérées, déployées et mises à l’échelle ensemble. Toutes les fonctions d’un conteneur de fonctions partagent le même plan de tarification, le même déploiement continu et la même version du runtime. Considérez un conteneur de fonctions comme un moyen d’organiser et de gérer collectivement vos fonctions. 
 
 > [!NOTE]
@@ -75,16 +75,16 @@ Vous pouvez créer et publier des applications de fonction à l’aide de diffé
 L’éditeur de fonctions intégré au portail Azure vous permet de mettre à jour votre code et votre fichier *function.json* directement en ligne. Cela n’est recommandé que pour les petites modifications ou les preuves de concept - la meilleure pratique est d’utiliser un outil de développement local comme VS Code.
 
 ## <a name="parallel-execution"></a>Exécution en parallèle
-Lorsque plusieurs événements de déclenchement se produisent plus rapidement qu'un runtime de fonction monothread ne peut les traiter, le runtime peut appeler la fonction plusieurs fois en parallèle.  Si un conteneur de fonctions utilise le [plan d’hébergement de consommation](functions-scale.md#how-the-consumption-plan-works), il peut monter automatiquement augmenter la taille des instances.  Que l’application s’exécute sur le plan d’hébergement de consommation ou sur un [plan d’hébergement App Service](../app-service/overview-hosting-plans.md) standard, chaque instance de l’application de fonction peut traiter en parallèle des appels de fonction simultanés en utilisant plusieurs threads.  Le nombre maximal d’appels de fonction simultanés dans chaque instance de chaque application de fonction varie en fonction du type de déclencheur utilisé, ainsi que des ressources utilisées par d’autres fonctions au sein de l’application de fonction.
+Lorsque plusieurs événements de déclenchement se produisent plus rapidement qu'un runtime de fonction monothread ne peut les traiter, le runtime peut appeler la fonction plusieurs fois en parallèle.  Si un conteneur de fonctions utilise le [plan d’hébergement de consommation](functions-scale.md#how-the-consumption-and-premium-plans-work), il peut monter automatiquement augmenter la taille des instances.  Que l’application s’exécute sur le plan d’hébergement de consommation ou sur un [plan d’hébergement App Service](../app-service/overview-hosting-plans.md) standard, chaque instance de l’application de fonction peut traiter en parallèle des appels de fonction simultanés en utilisant plusieurs threads.  Le nombre maximal d’appels de fonction simultanés dans chaque instance de chaque application de fonction varie en fonction du type de déclencheur utilisé, ainsi que des ressources utilisées par d’autres fonctions au sein de l’application de fonction.
 
 ## <a name="functions-runtime-versioning"></a>Contrôle de version du runtime Functions
 
 Vous pouvez configurer la version du runtime Functions en utilisant le paramètre d’application `FUNCTIONS_EXTENSION_VERSION`. Par exemple, la valeur « ~2 » indique que votre application de fonction utilise 2.x comme version principale. Les applications Function sont mises à niveau pour chaque nouvelle version secondaire lorsqu’elles sont disponibles. Pour obtenir plus d’informations, notamment sur la façon d’afficher la version exacte de votre application de fonction, consultez [Guide pratique pour cibler des versions du runtime Azure Functions](set-runtime-version.md).
 
-## <a name="repositories"></a>Dépôts
+## <a name="repositories"></a>Référentiels
 Le code pour Azure Fonctions est open source et stocké dans des dépôts GitHub :
 
-* [Fonctions Azure](https://github.com/Azure/Azure-Functions)
+* [Azure Functions](https://github.com/Azure/Azure-Functions)
 * [Hôte de fonctions Azure](https://github.com/Azure/azure-functions-host/)
 * [portail Azure Functions](https://github.com/azure/azure-functions-ux)
 * [Modèles Azure Functions](https://github.com/azure/azure-functions-templates)

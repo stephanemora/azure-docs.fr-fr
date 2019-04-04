@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 81401d95b9c40f16a6e593d61b79f5c2d647c0c5
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 38d8bdfcba48d2080b434ebec192b41f3663ae6a
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518828"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895205"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Comment utiliser le Kit de développement logiciel (SDK) Azure WebJobs pour le traitement en arrière-plan basé sur les événements
 
@@ -80,7 +80,7 @@ Vous pouvez exécuter l’hôte en mode de développement pour améliorer l’ef
 
 | Propriété | Paramètre de développement |
 | ------------- | ------------- |
-| `Tracing.ConsoleLevel` | `TraceLevel.Verbose` pour optimiser la sortie de la journalisation. |
+| `Tracing.ConsoleLevel` | `TraceLevel.Verbose` Pour optimiser la sortie du journal. |
 | `Queues.MaxPollingInterval`  | Une valeur faible pour garantir le déclenchement immédiat des méthodes de file d’attente.  |
 | `Singleton.ListenerLockPeriod` | 15 secondes pour favoriser le développement itératif rapide. |
 
@@ -130,7 +130,7 @@ static void Main()
 
 Dans la version 3. *x*, la limite de connexion par défaut est infinies connexions. Si pour une raison quelconque, vous devez modifier cette limite, vous pouvez utiliser la [ `MaxConnectionsPerServer` ](/dotnet/api/system.net.http.winhttphandler.maxconnectionsperserver) propriété de la [ `WinHttpHandler` ](/dotnet/api/system.net.http.winhttphandler) classe.
 
-Dans la version 2. *x*, vous contrôler le nombre de connexions simultanées à un ordinateur hôte à l’aide de la [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit) API. 2. *x*, vous devez augmenter cette valeur à partir de la valeur par défaut de 2 avant de commencer votre hôte de tâches Web.
+Dans la version 2. *x*, vous contrôler le nombre de connexions simultanées à un ordinateur hôte à l’aide de la [ServicePointManager.DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit#System_Net_ServicePointManager_DefaultConnectionLimit) API. 2. *x*, vous devez augmenter cette valeur à partir de la valeur par défaut de 2 avant de commencer votre hôte de tâches Web.
 
 Les requêtes HTTP sortantes que vous apportez à partir d’une fonction à l’aide de `HttpClient` circuler `ServicePointManager`. Après avoir accédé à la valeur définie dans `DefaultConnectionLimit`, `ServicePointManager` démarre les demandes de file d’attente avant de les envoyer. Supposons que votre limite `DefaultConnectionLimit` est définie sur 2 et que votre code effectue 1 000 requêtes HTTP. Au départ, seulement deux requêtes sont autorisées à transiter jusqu’au système d’exploitation. Les 998 autres sont mises en file d’attente jusqu’à ce que de la place se libère pour elles. Cela signifie que votre `HttpClient` peut expirer parce qu’elle semble avoir effectué la demande, mais la requête n’est jamais envoyée par le système d’exploitation pour le serveur de destination. Par conséquent, il se peut que vous observiez un comportement qui semble illogique : votre `HttpClient` local met 10 secondes pour effectuer une requête, mais votre service renvoie chaque requête en 200 ms. 
 
@@ -849,7 +849,7 @@ Vous pouvez filtrer indépendamment de chaque catégorie pour un particulier [ `
 
 Version 3. *x* du SDK s’appuie sur le filtrage intégré à .NET Core. La classe `LogCategories` vous permet de définir des catégories pour des fonctions, des déclencheurs ou des utilisateurs spécifiques. Il définit également des filtres pour les États de l’ordinateur hôte spécifique, comme `Startup` et `Results`. Cela vous permet de vous permettent d’affiner la sortie de journalisation. Si aucune correspondance n’est trouvée dans les catégories définies, le filtre se replie sur la valeur `Default` pour décider si le message doit être filtré ou non.
 
-`LogCategories` nécessite l’instruction using suivante :
+`LogCategories` requiert les éléments suivants à l’aide d’instruction :
 
 ```cs
 using Microsoft.Azure.WebJobs.Logging; 

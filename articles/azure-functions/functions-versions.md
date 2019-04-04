@@ -11,10 +11,10 @@ ms.date: 10/03/2018
 ms.author: glenga
 ms.openlocfilehash: 6988fb547b07f81891efea3caad8bf34f4c8a476
 ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "58088415"
+ms.locfileid: "58889751"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Vue d’ensemble des versions du runtime Azure Functions
 
@@ -29,7 +29,7 @@ La version 2.x du runtime s’exécute sur .NET Core 2, ce qui lui permet de s�
 
 En comparaison, la version 1.x du runtime prend uniquement en charge le développement et l’hébergement dans le portail Microsoft Azure ou sur les ordinateurs Windows.
 
-## <a name="languages"></a>Langues
+## <a name="languages"></a>Languages
 
 La version 2.x du runtime utilise un nouveau modèle d’extensibilité de langage. Dans la version 2.x, toutes les fonctions d’une application de fonction doivent partager le même langage. Dans une application de fonction, le langage des fonctions est choisi au moment de la création de l’application.
 

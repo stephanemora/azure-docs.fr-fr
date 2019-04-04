@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: d7859572b090913db13fe9bb7f3ed67619fe5521
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: cc9e2e09da572dc4260dcc0e20a8a1846ae17320
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456344"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894147"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>Intégration continue dans Azure DevOps Services à l’aide de projets de déploiement Groupe de ressources Azure
 Pour déployer un modèle Azure, vous effectuez des tâches en différentes étapes : Générer, tester, copier sur Azure (également appelé « Intermédiaire ») et déployer le modèle. Il existe deux façons de déployer des modèles dans Azure DevOps Services. Les deux méthodes fournissent les mêmes résultats. Par conséquent, choisissez celle qui convient le mieux à votre flux de travail.
@@ -37,7 +37,7 @@ Quel que soit le scénario, si vous disposez de tous les artefacts nécessaires 
 * fichiers binaires d’application
 
 ### <a name="nested-templates-and-configuration-scripts"></a>Modèles imbriqués et les scripts de configuration
-Lorsque vous utilisez les modèles fournis par Visual Studio (ou générés à l’aide d’extraits de code Visual Studio), le script PowerShell ne se contente pas de préparer les artefacts. Elle ajuste également l’URI correspondant aux différentes ressources de déploiement. Le script copie les artefacts vers un conteneur sécurisé dans Azure, crée un jeton SAP pour ce conteneur, puis transmet ces informations au déploiement du modèle. Consultez la section [Créer un modèle de déploiement](https://msdn.microsoft.com/library/azure/dn790564.aspx) pour en savoir plus sur les modèles imbriqués.  Quand vous utilisez des tâches dans Azure DevOps Services, vous devez sélectionner les tâches appropriées pour votre déploiement de modèle et, si nécessaire, transmettre les valeurs de paramètre de l’étape intermédiaire au déploiement du modèle.
+Lorsque vous utilisez les modèles fournis par Visual Studio (ou générés à l’aide d’extraits de code Visual Studio), le script PowerShell ne se contente pas de préparer les artefacts. Elle ajuste également l’URI correspondant aux différentes ressources de déploiement. Le script copie les artefacts vers un conteneur sécurisé dans Azure, crée un jeton SAP pour ce conteneur, puis transmet ces informations au déploiement du modèle. Consultez la section [Créer un modèle de déploiement](/previous-versions/azure/reference/dn790564(v=azure.100)) pour en savoir plus sur les modèles imbriqués.  Quand vous utilisez des tâches dans Azure DevOps Services, vous devez sélectionner les tâches appropriées pour votre déploiement de modèle et, si nécessaire, transmettre les valeurs de paramètre de l’étape intermédiaire au déploiement du modèle.
 
 ## <a name="set-up-continuous-deployment-in-azure-pipelines"></a>Configurer le déploiement continu dans Azure Pipelines
 Pour appeler le script PowerShell dans Azure Pipelines, vous devez mettre à jour votre pipeline de build. En bref, les étapes sont : 

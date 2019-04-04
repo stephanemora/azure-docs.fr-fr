@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2016
 ms.author: jeconnoc
-ms.openlocfilehash: 4adc6ef6e7dd445eea3fd567072a995e3ac07dda
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 8b521ebe869210b66ac3b3efeebda873f7c0e50b
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539630"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918159"
 ---
 # <a name="enable-communication-for-role-instances-in-azure"></a>Activer la communication pour les instances de rôle dans Azure
 Les rôles de service cloud communiquent via des connexions internes et externes. Les connexions externes sont appelées **points de terminaison d’entrée** tandis que les connexions internes sont appelées **points de terminaison internes**. Cette rubrique explique comment modifier la [définition de service](cloud-services-model-and-package.md#csdef) pour créer des points de terminaison.
 
 ## <a name="input-endpoint"></a>Point de terminaison d’entrée
-Le point de terminaison d’entrée est utilisé lorsque vous souhaitez exposer un port à l’extérieur. Vous spécifiez le type de protocole et le port du point de terminaison qui s’applique ensuite aux ports internes et externes du point de terminaison. Si vous le souhaitez, vous pouvez spécifier un autre port interne pour le point de terminaison avec l’attribut [localPort](https://msdn.microsoft.com/library/azure/gg557552.aspx#InputEndpoint) .
+Le point de terminaison d’entrée est utilisé lorsque vous souhaitez exposer un port à l’extérieur. Vous spécifiez le type de protocole et le port du point de terminaison qui s’applique ensuite aux ports internes et externes du point de terminaison. Si vous le souhaitez, vous pouvez spécifier un autre port interne pour le point de terminaison avec l’attribut [localPort](/previous-versions/azure/reference/gg557552(v=azure.100)#InputEndpoint) .
 
 Le point de terminaison d’entrée peut utiliser les protocoles suivants : **http, https, tcp, udp**.
 
@@ -96,7 +96,7 @@ La bibliothèque managée Azure fournit des méthodes permettant aux instances d
 > 
 > 
 
-Vous pouvez utiliser la propriété [Instances](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.role.instances.aspx) pour récupérer les instances d’un rôle. Utilisez d’abord la propriété [CurrentRoleInstance](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.currentroleinstance.aspx) pour renvoyer une référence à l’instance de rôle actuelle, puis la propriété [Role](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.role.aspx) pour retourner une référence au rôle lui-même.
+Vous pouvez utiliser la propriété [Instances](/previous-versions/azure/reference/ee741904(v=azure.100)) pour récupérer les instances d’un rôle. Utilisez d’abord la propriété [CurrentRoleInstance](/previous-versions/azure/reference/ee741907(v=azure.100)) pour renvoyer une référence à l’instance de rôle actuelle, puis la propriété [Role](/previous-versions/azure/reference/ee741918(v=azure.100)) pour retourner une référence au rôle lui-même.
 
 Lorsque vous vous connectez à une instance de rôle par programme via le Kit de développement logiciel (SDK) .NET, il est relativement facile d’accéder aux informations de point de terminaison. Par exemple, une fois que vous êtes connecté à un environnement de rôle spécifique, vous pouvez obtenir le port d’un point de terminaison spécifique avec ce code :
 
@@ -111,7 +111,7 @@ La propriété **Instances** renvoie une collection d’objets **RoleInstance**.
 > 
 > 
 
-Pour déterminer le numéro de port d’un point de terminaison interne sur une instance de rôle, vous pouvez utiliser la propriété [InstanceEndpoints](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.instanceendpoints.aspx) pour renvoyer un objet Dictionnaire qui contient les noms des points de terminaison et les adresses IP et ports correspondants. La propriété [IPEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstanceendpoint.ipendpoint.aspx) renvoie l’adresse IP et le port pour un point de terminaison spécifié. La propriété **PublicIPEndpoint** renvoie le port pour un point de terminaison à charge équilibrée. La partie de la propriété **PublicIPEndpoint** relative à l’adresse IP n’est pas utilisée.
+Pour déterminer le numéro de port d’un point de terminaison interne sur une instance de rôle, vous pouvez utiliser la propriété [InstanceEndpoints](/previous-versions/azure/reference/ee741917(v=azure.100)) pour renvoyer un objet Dictionnaire qui contient les noms des points de terminaison et les adresses IP et ports correspondants. La propriété [IPEndpoint](/previous-versions/azure/reference/ee741919(v=azure.100)) renvoie l’adresse IP et le port pour un point de terminaison spécifié. La propriété **PublicIPEndpoint** renvoie le port pour un point de terminaison à charge équilibrée. La partie de la propriété **PublicIPEndpoint** relative à l’adresse IP n’est pas utilisée.
 
 Voici un exemple d’itération d’instances de rôle.
 
@@ -368,7 +368,7 @@ Autoriser uniquement le trafic réseau de **WebRole1** à **WorkerRole1**, de **
 </ServiceDefinition>
 ```
 
-Vous trouverez une référence de schéma XML pour les éléments ci-dessus [ici](https://msdn.microsoft.com/library/azure/gg557551.aspx).
+Vous trouverez une référence de schéma XML pour les éléments ci-dessus [ici](/previous-versions/azure/reference/gg557551(v=azure.100)).
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur le [modèle](cloud-services-model-and-package.md)de service cloud.

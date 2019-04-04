@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: d0c5ba41bc636479407e7580fa686fe1bba91612
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 9d54cff81f39f41b60800e9b33f3b4da1a735d85
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873188"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893423"
 ---
 # <a name="plan-your-luis-app-with-subject-domain-intents-and-entities"></a>Planifier votre application LUIS avec le domaine du sujet ainsi que les intentions et les entités
 
@@ -49,7 +49,7 @@ Lorsque vous déterminez les entités à utiliser dans votre application, gardez
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois que votre application est entraînée et publiée, et obtient les énoncés du point de terminaison, envisagez d’implémenter des améliorations de prédiction avec [l’apprentissage actif](luis-how-to-review-endoint-utt.md), des [listes d’expressions](luis-concept-feature.md) et des [modèles](luis-concept-patterns.md). 
+Une fois que votre application est entraînée et publiée, et obtient les énoncés du point de terminaison, envisagez d’implémenter des améliorations de prédiction avec [l’apprentissage actif](luis-how-to-review-endpoint-utterances.md), des [listes d’expressions](luis-concept-feature.md) et des [modèles](luis-concept-patterns.md). 
 
 
 * Consultez [Créer votre première application Language Understanding Intelligent Services (LUIS)](luis-get-started-create-app.md) pour connaître la procédure de création d’une application LUIS.

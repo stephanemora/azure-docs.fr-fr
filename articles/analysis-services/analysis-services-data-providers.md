@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: bc8fae8f1278babd8c4c7402d86700ad78e3cb9d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bfd488828d9c96461cb371b35bb0a0cb24fff373
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897416"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891937"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Bibliothèques clientes pour la connexion à Azure Analysis Services
 
@@ -66,7 +66,7 @@ Les bibliothèques clientes pour les connexions clientes sont différentes des f
 
  ADOMD.NET est une bibliothèque cliente de données managée utilisée pour interroger des données Analysis Services. Elle est installée et utilisée par des outils et des applications clientes. 
   
- Durant la connexion à une base de données, les propriétés de chaîne de connexion pour les trois bibliothèques sont similaires. Pratiquement toute chaîne de connexion que vous définissez pour ADOMD.NET à l’aide de [Microsoft.AnalysisServices.AdomdClient.AdomdConnection.ConnectionString](https://msdn.microsoft.com/library/microsoft.analysisservices.adomdclient.adomdconnection.connectionstring.aspx) fonctionne également pour AMO et le fournisseur OLE DB Analysis Services (MSOLAP). Pour plus d’informations, consultez [Propriétés des chaînes de connexion &#40;Analysis Services&#41;](https://docs.microsoft.com/sql/analysis-services/instances/connection-string-properties-analysis-services).  
+ Durant la connexion à une base de données, les propriétés de chaîne de connexion pour les trois bibliothèques sont similaires. Pratiquement toute chaîne de connexion que vous définissez pour ADOMD.NET à l’aide de [Microsoft.AnalysisServices.AdomdClient.AdomdConnection.ConnectionString](/dotnet/api/microsoft.analysisservices.adomdclient.adomdconnection.connectionstring#Microsoft_AnalysisServices_AdomdClient_AdomdConnection_ConnectionString) fonctionne également pour AMO et le fournisseur OLE DB Analysis Services (MSOLAP). Pour plus d’informations, consultez [Propriétés des chaînes de connexion &#40;Analysis Services&#41;](https://docs.microsoft.com/sql/analysis-services/instances/connection-string-properties-analysis-services).  
 
   
 ##  <a name="bkmk_LibUpdate"></a>Comment déterminer la version de la bibliothèque cliente   
@@ -93,4 +93,4 @@ Les bibliothèques clientes pour les connexions clientes sont différentes des f
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Connexion avec Excel](analysis-services-connect-excel.md)    
-[Connexion avec Power BI](analysis-services-connect-pbi.md)
+[Se connecter avec Power BI](analysis-services-connect-pbi.md)

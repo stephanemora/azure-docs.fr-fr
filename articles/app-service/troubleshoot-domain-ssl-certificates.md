@@ -15,18 +15,21 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: c316176094f6d9b8b45b812acaad04ad37f4bce2
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 8ae6c9d5238f2853a12c20edfd3dba6d3f529b2c
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449122"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905815"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Résoudre les problèmes de domaines et de certificats SSL dans Azure App Service
 
 Cet article répertorie les problèmes courants que vous pouvez rencontrer lorsque vous configurez un certificat de domaine ou SSL pour vos applications web dans Azure App Service. Il décrit également les causes possibles et les solutions à ces problèmes.
 
 Si vous avez besoin d’une aide supplémentaire à quelque étape que ce soit dans cet article, vous pouvez contacter les experts Azure sur les [forums MSDN et Stack Overflow](https://azure.microsoft.com/support/forums/). Vous pouvez également signaler un incident au support Azure. Accédez au [site du support Azure](https://azure.microsoft.com/support/options/), puis sélectionnez **Obtenir un support**.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="certificate-problems"></a>Problèmes de certificat
 
@@ -108,21 +111,21 @@ Si vous accédez au site à l’aide du nom de domaine personnalisé, le message
 
 #### <a name="cause-and-solution"></a>Cause et solution
 
-**Cause 1** 
+**Cause 1** 
 
 Un enregistrement CNAME ou A est manquant dans le domaine personnalisé que vous avez configuré. 
 
-**Solution pour la cause 1**
+**Solution pour la cause 1**
 
 - Si vous avez ajouté un enregistrement A, vérifiez qu’un enregistrement TXT a également été ajouté. Pour plus d’informations, consultez [Créer un enregistrement A](./app-service-web-tutorial-custom-domain.md#create-the-a-record).
 - Si vous n’avez pas à utiliser le domaine racine de votre application, nous vous recommandons d’utiliser un enregistrement CNAME au lieu d’un enregistrement A.
 - N’utilisez pas à la fois un enregistrement CNAME et un enregistrement A pour un même domaine. Ce problème peut provoquer un conflit et empêcher que le domaine en cours de résolution. 
 
-**Cause 2** 
+**Cause 2** 
 
 Le navigateur Internet met peut-être en cache l’ancienne adresse IP de votre domaine. 
 
-**Solution pour la cause 2**
+**Solution pour la cause 2**
 
 Effacez le cache du navigateur. Pour les appareils Windows, vous pouvez exécuter la commande `ipconfig /flushdns`. Utilisez [WhatsmyDNS.net](https://www.whatsmydns.net/) pour vérifier que votre domaine pointe vers l’adresse IP de l’application. 
 
@@ -314,7 +317,7 @@ Oui. Lorsque vous accédez à la panneau domaines personnalisés et SSL dans le 
 
 **Puis-je transférer un domaine d’un abonnement vers un autre abonnement ?**
 
-Vous pouvez déplacer un domaine vers un autre groupe ressources/abonnement à l’aide du [Move-AzureRmResource](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Move-AzureRmResource) applet de commande PowerShell.
+Vous pouvez déplacer un domaine vers un autre groupe ressources/abonnement à l’aide du [AzResource de déplacement](https://docs.microsoft.com/powershell/module/az.Resources/Move-azResource) applet de commande PowerShell.
 
 **Comment puis-je gérer mon domaine personnalisé si je n’ai pas actuellement une application Azure App Service ?**
 

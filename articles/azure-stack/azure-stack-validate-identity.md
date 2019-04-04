@@ -16,12 +16,12 @@ ms.date: 03/23/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 3dfb87e5f6c231831cd9c007b19ad001e1fce326
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: b6a859f1104be8650b95ac789f3da606fb1b70f6
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403185"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486680"
 ---
 # <a name="validate-azure-identity"></a>Valider l’identité Azure
 
@@ -85,7 +85,7 @@ Les prérequis suivants sont obligatoires :
 
 4. Au terme de l’exécution de l’outil, passez en revue la sortie. Vérifiez que l’état est **OK** pour les conditions d’installation. Une validation réussie génère une image semblable à la suivante :
 
-   ```shell
+   ```powershell
    Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
    Starting Azure Identity Validation
 
@@ -119,7 +119,7 @@ Les exemples suivants donnent des conseils sur la façon de résoudre les échec
 
 ### <a name="expired-or-temporary-password"></a>Mot de passe temporaire ou ayant expiré
 
-```shell
+```powershell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 
@@ -145,9 +145,9 @@ Login-AzureRMAccount
 
 Vous pouvez également vous connecter au [portail Azure](https://portal.azure.com) en tant que propriétaire du compte et l’utilisateur sera obligé de changer de mot de passe.
 
-### <a name="unknown-user-type"></a>Type d’utilisateur inconnu
-
-```shell
+### <a name="unknown-user-type"></a>Type d’utilisateur inconnu 
+ 
+```powershell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 
@@ -173,7 +173,7 @@ Login-AzureRmAccount –EnvironmentName AzureChinaCloud
 
 ### <a name="account-is-not-an-administrator"></a>Le compte n’est pas un administrateur
 
-```shell
+```powershell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 

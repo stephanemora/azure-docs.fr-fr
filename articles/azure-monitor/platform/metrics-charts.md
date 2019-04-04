@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: b52e7c0de2d834c793bb30fa35bd53b45aaebe5d
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 08ae74bcd9ee0a7cf5e0fb6d38758b1429c39145
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58848864"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916340"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure Monitor Metrics Explorer
 
@@ -76,11 +76,33 @@ Vous pouvez appliquer des filtres à des graphiques qui montrent des métriques 
 
 5. Vous pouvez répéter les étapes 1 à 4 pour appliquer plusieurs filtres aux mêmes graphiques.
 
+## <a name="multiple-metrics-and-charts"></a>Plusieurs mesures et graphiques
+
+Vous pouvez également créer des graphiques qui tracer plusieurs métriques ou affichent des graphiques de mesures plusieurs à la fois. Cette fonctionnalité vous permet de :
+
+- mettre en corrélation les mesures associées sur le même graphique pour voir comment une valeur sont liée à un autre
+- afficher les métriques avec différentes unités de mesure à proximité
+- agréger visuellement et de comparer les mesures de plusieurs ressources
+
+Par exemple, si vous avez 5 comptes de stockage et vous souhaitez connaître la quantité d’espace total est consommée entre eux, vous pouvez créer un graphique en aires (empilées) qui illustre la personne et la somme de toutes les valeurs à un point particulier dans le temps.
+
+### <a name="multiple-metrics-on-a-chart"></a>Plusieurs mesures sur un graphique
+
+Tout d’abord, [créer un nouveau graphique](#create-a-new-chart). Cliquez sur **ajouter une métrique** et répétez les étapes pour ajouter une autre mesure sur le même graphique.
+
+### <a name="multiple-charts"></a>Plusieurs graphiques
+
+Cliquez sur le **ajouter un graphique** et créer un autre graphique avec une autre mesure.
+
+### <a name="order-or-delete-multiple-charts"></a>Définir ou supprimer plusieurs graphiques
+
+Pour définir ou supprimer plusieurs graphiques, cliquez sur le bouton de sélection ( **...**  ) symbole pour ouvrir le menu de graphique et choisissez l’élément de menu approprié de **déplacer vers le haut**, **Descendre**, ou **supprimer**.
+
 ## <a name="apply-splitting-to-a-chart"></a>Appliquer le fractionnement à un graphique
 
-Vous pouvez fractionner une métrique par dimension afin de visualiser la façon dont les différents segments de la métrique se comparent entre eux, et d’identifier des segments éloignés d’une dimension. 
+Vous pouvez fractionner une métrique par dimension afin de visualiser la façon dont les différents segments de la métrique se comparent entre eux, et d’identifier des segments éloignés d’une dimension.
 
-### <a name="to-apply-splitting"></a>Pour appliquer le fractionnement
+### <a name="apply-splitting"></a>Appliquer la division
 
 1. Cliquez sur **Appliquer un fractionnement** au-dessus du graphique.
  
@@ -141,7 +163,7 @@ Lisez cet [article](alerts-metric.md) pour en savoir plus sur la configuration d
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 
-*Mon graphique ne contient aucune donnée.*
+*Je ne vois pas toutes les données de mon graphique.*
 
 * Les filtres s’appliquent à tous les graphiques du volet. Lorsque vous vous concentrez sur un graphique, vérifiez que vous n’avez pas défini un filtre qui exclut toutes les données d’un autre graphique.
 
