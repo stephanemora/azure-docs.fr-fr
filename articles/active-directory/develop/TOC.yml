@@ -157,13 +157,13 @@ items:
         items:
         - name: Configurer des revendications de rôle
           href: active-directory-enterprise-app-role-management.md
-        - name: Personnaliser des revendications
+        - name: Personnaliser des revendications - Portail
           href: active-directory-saml-claims-customization.md
-        - name: Personnaliser des revendications (préversion)
+        - name: Personnaliser des revendications - PowerShell
           href: active-directory-claims-mapping.md
-        - name: Configurer des revendications facultatives (préversion)
+        - name: Configurer des revendications facultatives
           href: active-directory-optional-claims.md
-        - name: Configurer les durées de vie des jetons (préversion)
+        - name: Configurer les durées de vie des jetons
           href: active-directory-configurable-token-lifetimes.md
       - name: Meilleures pratiques en matière de gestion des erreurs ADAL
         href: active-directory-devhowto-adal-error-handling.md
@@ -370,13 +370,13 @@ items:
       items:
       - name: Configurer des revendications de rôle
         href: active-directory-enterprise-app-role-management.md
-      - name: Personnaliser des revendications
+      - name: Personnaliser des revendications - Portail
         href: active-directory-saml-claims-customization.md
-      - name: Personnaliser des revendications (préversion)
+      - name: Personnaliser des revendications - PowerShell
         href: active-directory-claims-mapping.md
-      - name: Configurer des revendications facultatives (préversion)
+      - name: Configurer des revendications facultatives
         href: active-directory-optional-claims.md
-      - name: Configurer les durées de vie des jetons (préversion)
+      - name: Configurer les durées de vie des jetons
         href: active-directory-configurable-token-lifetimes.md
     - name: Configuration de l’application
       items:
@@ -443,9 +443,9 @@ items:
     href: developer-support-help-options.md
   - name: Identités gérées pour les ressources Azure
     href: https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview
-ms.openlocfilehash: 4b1ce1f30f76553174c0c13e04f020e22d6c8d2d
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 974758ddcaa4d855b395e982b6bc9a3b0b72e130
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792053"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886605"

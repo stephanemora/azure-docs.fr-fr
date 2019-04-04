@@ -105,6 +105,8 @@ items:
         href: service-bus-sas.md
     - name: Actions et filtres de rubrique
       href: topic-filters.md
+    - name: Migrer des espaces de noms Standard vers Premium
+      href: service-bus-migrate-standard-premium.md
     - name: Files d’attente et rubriques partitionnées
       href: service-bus-partitioning.md
     - name: Sessions de message
@@ -121,6 +123,8 @@ items:
         href: service-bus-amqp-protocol-guide.md
       - name: Opérations basées sur les requêtes-réponses AMQP
         href: service-bus-amqp-request-response.md
+      - name: Erreurs AMPQ
+        href: service-bus-amqp-troubleshoot.md
     - name: Fonctionnalités avancées
       items:
       - name: Utiliser des pare-feu
@@ -234,9 +238,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azureservicebus
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-bus
-ms.openlocfilehash: 09a7759c89411d53b374552a969f7aefdb89ee98
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 464e19bc796e41045d0c8422718da39f2aa66a9b
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58848097"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906274"

@@ -64,17 +64,17 @@ items:
     href: azure-management.md
   - name: Supervision continue
     href: continuous-monitoring.md
-  - name: Analyser les données de journal
+  - name: Plateforme de données
     items:
-    - name: Requêtes dans les journaux
-      href: log-query/log-query-overview.md
-    - name: Portails de requête de journal
-      href: log-query/portals.md
-  - name: Données de surveillance
+    - name: Vue d’ensemble
+      href: platform/data-platform.md
+    - name: Mesures
+      href: platform/data-platform-metrics.md
+    - name: Journaux
+      href: platform/data-platform-logs.md
+  - name: Sources de données
     items:
-    - name: Métriques et journaux
-      href: platform/data-collection.md
-    - name: Sources de données
+    - name: Résumé des sources de données
       href: platform/data-sources.md
     - name: Sources de données Azure
       href: platform/data-sources-reference.md
@@ -86,14 +86,20 @@ items:
       href: platform/data-ingestion-time.md
     - name: Envoi de métriques personnalisées au magasin de métriques
       href: platform/metrics-custom-overview.md
-    - name: Sécurité des données
-      items:
-      - name: Données de journal
-        href: platform/data-security.md
-      - name: Gestion des données de journal personnelles
-        href: platform/personal-data-mgmt.md
-      - name: Collecte, rétention et stockage des données d’application
-        href: app/data-retention-privacy.md
+  - name: Analyser les données de journal
+    items:
+    - name: Requêtes dans les journaux
+      href: log-query/log-query-overview.md
+    - name: Portails de requête de journal
+      href: log-query/portals.md
+  - name: Sécurité des données
+    items:
+    - name: Données de journal
+      href: platform/data-security.md
+    - name: Gestion des données de journal personnelles
+      href: platform/personal-data-mgmt.md
+    - name: Collecte, rétention et stockage des données d’application
+      href: app/data-retention-privacy.md
   - name: Insights
     items:
     - name: Application Insights
@@ -128,6 +134,8 @@ items:
       href: platform/alerts-unified-log.md
     - name: Alertes de journal d’activité
       href: platform/activity-log-alerts.md
+    - name: Schéma d’alerte courant
+      href: platform/alerts-common-schema.md
   - name: Visualiser les données
     href: visualizations.md
   - name: Intégrations des partenaires
@@ -181,8 +189,6 @@ items:
           href: learn/quick-create-workspace-posh.md
       - name: Supprimer un espace de travail
         href: platform/delete-workspace.md
-      - name: Gérer un espace de travail
-        href: platform/manage-access.md
       - name: Conception pour les fournisseurs de services
         href: platform/service-providers.md
   - name: Collecter les données
@@ -342,6 +348,8 @@ items:
           href: app/annotations.md
         - name: ApplicationInsights.config
           href: app/configuration-with-applicationinsights-config.md
+        - name: Débogueur de capture instantanée
+          href: app/snapshot-debugger.md
       - name: Applications Java
         items:
         - name: les applications web
@@ -435,6 +443,8 @@ items:
         href: platform/collect-azure-metrics-logs.md
       - name: Données de diagnostics et de journaux du Stockage Azure
         href: platform/azure-storage-iis-table.md
+      - name: Ressources Azure PaaS
+        href: platform/collect-azurepass-posh.md
       - name: Mettre en corrélation les sources de données personnalisées
         href: app/custom-data-correlation.md
     - name: Collecter des données personnalisées
@@ -461,10 +471,10 @@ items:
         href: platform/archive-diagnostic-logs.md
       - name: Stocker les journaux de diagnostic
         href: platform/diagnostic-logs-stream-log-store.md
-      - name: Données de ressources Azure vers Event Hub
-        href: platform/stream-monitoring-data-event-hubs.md
       - name: Diffuser en continu le journal d’activité vers Event Hubs
         href: platform/activity-logs-stream-event-hubs.md
+      - name: Journaux et métriques vers Event Hub
+        href: platform/stream-monitoring-data-event-hubs.md
       - name: Journaux de diagnostic vers Event Hub
         href: platform/diagnostic-logs-stream-event-hubs.md
       - name: Données d’application vers Log Analytics
@@ -651,9 +661,8 @@ items:
   - name: Visualiser les données
     items:
     - name: Views
+      href: platform/view-designer.md
       items:
-      - name: Concepteur de vues
-        href: platform/view-designer.md
       - name: Référence de vignette
         href: platform/view-designer-tiles.md
       - name: Référence des composants de visualisation
@@ -808,6 +817,8 @@ items:
           href: platform/action-groups.md
         - name: En savoir plus sur le schéma des webhooks
           href: platform/activity-log-alerts-webhook.md
+        - name: Définitions de schéma d’alerte courant
+          href: platform/alerts-common-schema-definitions.md
         - name: Comportement des alertes SMS
           href: platform/alerts-sms-behavior.md
         - name: Limitation du débit des alertes
@@ -979,9 +990,9 @@ items:
   - name: Azure PowerShell
     items:
     - name: Surveiller
-      href: /powershell/module/azurerm.insights
+      href: /powershell/module/az.applicationinsights
     - name: Journaux
-      href: /powershell/module/azurerm.operationalinsights
+      href: /powershell/module/az.operationalinsights
   - name: API REST
     items:
     - name: Surveiller
@@ -1057,9 +1068,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Exemples de code
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 48ea888b5c21bc2c689d93684b4dbae7eaee1ed8
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 9c0f17f113b7940f83e3d3b5b2161fe9f88c01ac
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629433"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886639"

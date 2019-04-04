@@ -149,6 +149,8 @@ items:
         href: devtest-lab-import-vm.md
       - name: Démarrer ou arrêter une machine virtuelle avec PowerShell ou CLI
         href: use-command-line-start-stop-virtual-machines.md
+      - name: Démarrer des machines virtuelles avec des runbooks Automation
+        href: start-machines-use-automation-runbooks.md
     - name: Utiliser des environnements dans un laboratoire
       items:
       - name: Créer un environnement
@@ -157,6 +159,10 @@ items:
         href: devtest-lab-configure-use-public-environments.md
       - name: Créer un environnement avec un cluster Service Fabric
         href: create-environment-service-fabric-cluster.md
+      - name: Connecter un environnement au réseau virtuel de votre laboratoire
+        href: connect-environment-lab-virtual-network.md
+      - name: Intégrer des environnements dans votre pipeline Azure DevOps CI/CD
+        href: integrate-environments-devops-pipeline.md
     - name: Sécuriser l’accès aux laboratoires
       items:
       - name: Ajouter des propriétaires et utilisateurs de laboratoires
@@ -242,7 +248,7 @@ items:
     - name: Interface de ligne de commande
       href: /cli/azure/lab
     - name: PowerShell
-      href: /powershell/module/azurerm.devtestlabs/#devtest_labs
+      href: /powershell/module/az.devtestlabs
     - name: API REST
       href: https://docs.microsoft.com/rest/api/dtl/
     - name: Modèle Resource Manager
@@ -271,9 +277,9 @@ items:
       href: https://azure.microsoft.com/resources/videos/index/?services=devtest-lab
     - name: Questions fréquentes (FAQ)
       href: devtest-lab-faq.md
-ms.openlocfilehash: 4c96945c5e7a0aed52d3148c7dbf084a8d8b9f29
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: bee44d9ce7378bd48960c47ed9be9c7f53e23110
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651163"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886673"

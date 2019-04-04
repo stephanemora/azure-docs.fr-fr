@@ -41,8 +41,12 @@ items:
     href: video-indexer-output-json-v2.md
   - name: Rechercher des instants précis dans les vidéos
     href: video-indexer-search.md
+  - name: Scènes, captures et images clés
+    href: scenes-shots-keyframes.md
   - name: Afficher et modifier les insights Video Indexer
     href: video-indexer-view-edit.md
+  - name: Utiliser l’éditeur pour créer des projets
+    href: use-editor-create-project.md
   - name: Créer des insights vidéo à partir de vidéos existantes
     href: video-indexer-create-new.md
   - name: Incorporer des widgets dans votre application
@@ -85,9 +89,9 @@ items:
     href: faq.md
   - name: Conformité
     href: https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942
-ms.openlocfilehash: 667aacd14c7bc3aada0acfa4968bd7155effc4d5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f6caade807d37dfbf38e3f0dd47ab7f801c36a9a
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57836995"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894831"

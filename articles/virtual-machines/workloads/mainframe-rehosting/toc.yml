@@ -7,16 +7,28 @@ items:
       href: overview.md
     - name: Charges de travail
       href: partner-workloads.md
+  - name: Concepts
+    items:
+    - name: Calcul
+      href: concepts/mainframe-compute-azure.md
+    - name: Stockage
+      href: concepts/mainframe-storage-azure.md
   - name: Micro Focus
     items:
     - name: Prise en main
       href: microfocus/get-started.md
-    - name: Installer Micro Focus Enterprise Server
-      href: microfocus/set-up-micro-focus-on-azure.md
-    - name: Démonstration
+    - name: Installer Enterprise Server
+      href: microfocus/set-up-micro-focus-azure.md
+    - name: Exécuter CICS BankDemo
       href: microfocus/demo.md
+    - name: Enterprise Server dans des conteneurs
+      href: microfocus/run-enterprise-server-container.md
   - name: TmaxSoft OpenFrame
-    href: https://azure.microsoft.com/resources/install-tmaxsoft-openframe-on-azure/
+    items:
+    - name: Prise en main
+      href: tmaxsoft/get-started.md
+    - name: Installer OpenFrame
+      href: tmaxsoft/install-openframe-azure.md
   - name: IBM
     items:
     - name: Prise en main
@@ -29,9 +41,15 @@ items:
       href: /azure/virtual-machines/linux/ibm-db2-purescale-azure?toc=/azure/virtual-machines/workloads/mainframe-rehosting/toc.json
     - name: Déployer IBM DB2 pureScale
       href: /azure/virtual-machines/linux/deploy-ibm-db2-purescale-azure?toc=/azure/virtual-machines/workloads/mainframe-rehosting/toc.json
-ms.openlocfilehash: e89b8301a325ab25d78598cfd3e58e6ac74198a6
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+  - name: Ressources
+    items:
+    - name: Livres blancs
+      href: mainframe-white-papers.md
+    - name: Feuille de route Azure
+      href: https://azure.microsoft.com/updates/
+ms.openlocfilehash: c0cec35997d398045f9c34904c8ee07755724572
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342545"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895222"
