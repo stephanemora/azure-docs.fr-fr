@@ -9,18 +9,18 @@ ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
 ms.subservice: alerts
-ms.openlocfilehash: dcce5e424a5f14cb8f36582635383b0a8ba86caa
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: f8b9db47684a6dd78302f094d8e670da4a61ab2c
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54472260"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849815"
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>Recevoir une notification quand une valeur de métrique remplit une condition
 
 Azure Monitor propose des métriques pour un grand nombre de ressources Azure. Ces métriques traduisent les performances et l’intégrité de ces ressources. Dans bon nombre de cas, les valeurs des métriques peuvent indiquer un problème au niveau d’une ressource. Vous pouvez créer des alertes de métriques pour détecter un comportement anormal et être notifié, le cas échéant. Ce guide de démarrage rapide vous explique de façon détaillée comment créer une application logique, comment créer un travail et comment visualiser les métriques de l’application logique. Il décrit ensuite les étapes permettant de créer une alerte et de recevoir une notification pour une métrique de la ressource d’application logique.
 
-Pour plus d’informations sur les métriques et les alertes de métriques, consultez [Vue d’ensemble des métriques Azure Monitor](../../azure-monitor/platform/data-collection.md) et [Vue d’ensemble des alertes Azure Monitor](./alerts-overview.md). 
+Pour plus d’informations sur les métriques et les alertes de métriques, consultez [Vue d’ensemble des métriques Azure Monitor](data-platform.md) et [Vue d’ensemble des alertes Azure Monitor](alerts-overview.md). 
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 

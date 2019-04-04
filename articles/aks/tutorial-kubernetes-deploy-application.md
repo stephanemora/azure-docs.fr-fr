@@ -2,20 +2,20 @@
 title: Didacticiel Kubernetes sur Azure - Déployer une application
 description: Dans le cadre de ce didacticiel Azure Kubernetes Service (AKS), vous allez déployer une application multiconteneur dans votre cluster à l’aide d’une image personnalisée stockée dans Azure Container Registry.
 services: container-service
-author: iainfoulds
+author: zr-msft
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: iainfou
+ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 224f6b91d53995674ab8a68baaaedfe7ed22c448
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 42437130d30a405af47289ae16d9851fb506a598
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755967"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756267"
 ---
-# <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Tutoriel : Exécuter des applications dans Azure Kubernetes Service (AKS)
+# <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Didacticiel : Exécuter des applications dans Azure Kubernetes Service (AKS)
 
 Kubernetes fournit une plateforme distribuée destinée aux applications en conteneur. Vous générez et déployez vos propres applications et services dans un cluster Kubernetes, et vous laissez le cluster gérer la disponibilité et la connectivité. Dans ce didacticiel (le quatrième d’une série de sept), un exemple d’application est déployé dans un cluster Kubernetes. Vous allez apprendre à effectuer les actions suivantes :
 

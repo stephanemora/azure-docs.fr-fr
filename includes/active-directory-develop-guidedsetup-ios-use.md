@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: dadobali
 ms.custom: include file
-ms.openlocfilehash: d5a38d19541e59e0e2815362c0181a8e317a5d0f
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.openlocfilehash: b7883de410a1fd281a154a792dd45132c08f0c03
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203505"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58890944"
 ---
 ## <a name="use-the-microsoft-authentication-library-msal-to-get-a-token-for-the-microsoft-graph-api"></a>Utiliser la bibliothèque d’authentification Microsoft (MSAL) afin d’obtenir un jeton pour l’API Microsoft Graph
 
@@ -215,7 +215,7 @@ La méthode `acquireTokenSilent` gère les acquisitions et renouvellements de je
 
 `acquireTokenSilent` finira par échouer, par exemple si l’utilisateur s’est déconnecté ou a modifié son mot de passe sur un autre appareil. Quand la bibliothèque MSAL détecte que le problème peut être résolu par une intervention interactive, elle déclenche une exception `MSALErrorCode.interactionRequired`. Votre application peut gérer cette exception de deux manières :
 
-1. En adressant immédiatement un appel à `acquireToken`, suite à quoi l’utilisateur est invité à se connecter. Cette méthode est généralement employée dans les applications en ligne où aucun contenu hors connexion dans l’application n’est disponible pour l’utilisateur. L’exemple d’application généré par cet Assistant Installation utilise ce modèle : vous pouvez le voir en action la première fois que vous exécutez l’application. Aucun utilisateur n’ayant jamais utilisé l’application, `applicationContext.allAccounts().first` contient une valeur null et une exception ` MSALErrorCode.interactionRequired ` est levée. Le code de l’exemple gère ensuite cette exception en appelant `acquireToken`, suite à quoi l’utilisateur est invité à se connecter.
+1. En adressant immédiatement un appel à `acquireToken`, suite à quoi l’utilisateur est invité à se connecter. Cette méthode est généralement employée dans les applications en ligne où aucun contenu hors connexion dans l’application n’est disponible pour l’utilisateur. L’exemple d’application généré par cet Assistant Installation utilise ce modèle : vous pouvez le voir en action la première fois que vous exécutez l’application. Aucun utilisateur n’ayant jamais utilisé l’application, `applicationContext.allAccounts().first` contient une valeur null et une exception `MSALErrorCode.interactionRequired` est levée. Le code de l’exemple gère ensuite cette exception en appelant `acquireToken`, suite à quoi l’utilisateur est invité à se connecter.
 
 2. Les applications peuvent également signaler à l’utilisateur qu’une connexion interactive est requise afin qu’il puisse choisir le bon moment pour se connecter ou que l’application puisse réessayer d’exécuter `acquireTokenSilent` ultérieurement. Cette solution est généralement retenue lorsque l’utilisateur peut utiliser d’autres fonctionnalités de l’application sans être perturbé, notamment lorsque du contenu hors connexion est disponible dans l’application. Dans ce cas, l’utilisateur peut décider quand il souhaite se connecter pour accéder à la ressource protégée ou pour actualiser les informations obsolètes. Ou bien, votre application peut décider de réexécuter `acquireTokenSilent` après une indisponibilité temporaire du réseau.
 
