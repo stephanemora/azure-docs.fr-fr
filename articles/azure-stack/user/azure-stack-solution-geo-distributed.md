@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 3df5bd177dfd88e74a8dbc72dd1966a18a61d0f8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2c2b0d022c81dffe5e98932c22b9707eb10b7e63
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57860582"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481720"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>Tutoriel : Créer une solution d’application géolocalisée avec Azure et Azure Stack
 
@@ -123,7 +123,7 @@ Configurez la CI/CD hybride pour déployer Web App sur Azure et Azure Stack, et 
 
 ### <a name="create-web-app-deployment-in-both-clouds"></a>Création d’un déploiement d’application web dans les deux clouds
 
-1.  Modifiez le fichier **WebApplication.csproj** : Sélectionnez **Runtimeidentifier** et ajoutez **win10-x64**. (Consultez la documentation sur le [déploiement autonome](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd).)
+1.  Modifiez le fichier **WebApplication.csproj** : Sélectionnez Runtimeidentifier et ajoutez **win10-x64**. (Consultez la documentation sur le [déploiement autonome](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd).)
 
     ![Alt text](media/azure-stack-solution-geo-distributed/image3.png)
 
@@ -472,7 +472,7 @@ Exportez un certificat SSL fusionné avec la clé privée générée par le cert
 
 Un fichier de clé privée est créé via OpenSSL. Pour exporter le certificat au format PFX, exécutez la commande suivante, en remplaçant les espaces réservés *<fichier-clé-privée>* et *<fichier-certificat-fusionné>* avec les chemins de clés privées et le fichier de certificat fusionné.
 
-```PowerShell
+```powershell
 openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-certificate-file>
 ```
 

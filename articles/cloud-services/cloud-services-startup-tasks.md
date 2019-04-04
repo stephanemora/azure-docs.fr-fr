@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 6601eba90f3c3644d418ddd0a74746e1a12bcbd3
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: HT
+ms.openlocfilehash: 59bfa83ab3432adb7a4df5112367f87014a0b292
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39007777"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917615"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>Comment configurer et exécuter des tâches de démarrage pour un service cloud
 Vous pouvez utiliser des tâches de démarrage pour exécuter des opérations avant le démarrage d’un rôle. Parmi les opérations que vous pouvez effectuer figurent l’installation d’un composant, l’enregistrement de composants COM, la définition des clés du Registre ou le démarrage d’un processus de longue durée.
@@ -50,13 +50,13 @@ Les informations suivantes indiquent la procédure de démarrage de rôle dans A
    * Les tâches **background** et **foreground** sont démarrées de façon asynchrone, en parallèle de la tâche de démarrage.  
      
      > [!WARNING]
-     > Il est possible qu’IIS ne soit pas configuré complètement pendant l’étape de la tâche de démarrage ; de ce fait, les données spécifiques au rôle ne sont pas forcément disponibles. Les tâches de démarrage qui ont besoin de données spécifiques au rôle doivent utiliser [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx).
+     > Il est possible qu’IIS ne soit pas configuré complètement pendant l’étape de la tâche de démarrage ; de ce fait, les données spécifiques au rôle ne sont pas forcément disponibles. Les tâches de démarrage qui ont besoin de données spécifiques au rôle doivent utiliser [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](/previous-versions/azure/reference/ee772851(v=azure.100)).
      > 
      > 
 3. Le processus hôte de rôle est démarré, et le site est créé dans IIS.
-4. La méthode [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx) est appelée.
+4. La méthode [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](/previous-versions/azure/reference/ee772851(v=azure.100)) est appelée.
 5. L’instance est marquée comme **Ready** , et le trafic est acheminé vers l’instance.
-6. La méthode [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.Run](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) est appelée.
+6. La méthode [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.Run](/previous-versions/azure/reference/ee772746(v=azure.100)) est appelée.
 
 ## <a name="example-of-a-startup-task"></a>Exemple d’une tâche de démarrage
 Les tâches de démarrage sont définies dans le fichier [ServiceDefinition.csdef] , dans l’élément **Task** . L’attribut **commandLine** spécifie le nom et les paramètres du fichier de commandes de démarrage ou de la commande de la console, l’attribut **executionContext** indique le niveau de privilège de la tâche de démarrage et l’attribut **taskType** définit l’exécution de la tâche.
@@ -99,7 +99,7 @@ Vous trouverez ci-dessous une description des attributs de l’élément **Task*
 
 **executionContext** - spécifie le niveau de privilège pour la tâche de démarrage. Le niveau de privilège peut être limité ou élevé :
 
-* **limited**  
+* **Limité**  
    : la tâche de démarrage s’exécute avec les mêmes privilèges que le rôle. Quand l’attribut **executionContext** de l’élément [Runtime] est également **limited**, les privilèges utilisateur sont utilisés.
 * **elevated**  
    : la tâche de démarrage s’exécute avec des privilèges d’administrateur. Les tâches de démarrage peuvent ainsi installer des programmes, apporter des modifications à la configuration IIS, modifier le Registre et effectuer d’autres tâches d’administration, sans augmenter le niveau de privilège du rôle.  
@@ -111,7 +111,7 @@ Vous trouverez ci-dessous une description des attributs de l’élément **Task*
 
 **taskType** - spécifie la façon dont une tâche de démarrage est exécutée.
 
-* **simple**  
+* **Simple**  
   sont exécutées de façon synchrone, une à la fois, dans l’ordre spécifié dans le fichier [ServiceDefinition.csdef] . Quand une tâche **simple** se termine par un **errorlevel** égal à zéro, la tâche de démarrage **simple** suivante est exécutée. Quand toutes les tâches **simple** ont été exécutées, le rôle est démarré.   
   
   > [!NOTE]
@@ -121,9 +121,9 @@ Vous trouverez ci-dessous une description des attributs de l’élément **Task*
   
     Pour vous assurer que votre fichier de commandes se termine par un **errorlevel** égal à zéro, exécutez la commande `EXIT /B 0` à la fin du processus de votre fichier de commandes.
 * **background**  
-  sont exécutées de façon asynchrone, en parallèle du démarrage du rôle.
-* **foreground**  
-  sont exécutées de façon asynchrone, en parallèle du démarrage du rôle. La principale différence entre une tâche **foreground** et une tâche **background** est que la tâche **foreground** empêche le recyclage ou l’arrêt du rôle tant qu’elle n’est pas terminée. Les tâches **background** n’ont pas cette restriction.
+   sont exécutées de façon asynchrone, en parallèle du démarrage du rôle.
+* **Premier plan**  
+   sont exécutées de façon asynchrone, en parallèle du démarrage du rôle. La principale différence entre une tâche **foreground** et une tâche **background** est que la tâche **foreground** empêche le recyclage ou l’arrêt du rôle tant qu’elle n’est pas terminée. Les tâches **background** n’ont pas cette restriction.
 
 ## <a name="environment-variables"></a>Variables d’environnement
 Les variables d’environnement permettent de passer les informations à une tâche de démarrage. Par exemple, vous pouvez indiquer le chemin vers un objet blob qui contient un programme à installer ou les numéros de port que votre rôle va utiliser ou des paramètres pour contrôler les fonctionnalités de votre tâche de démarrage.
@@ -161,10 +161,10 @@ Découvrez comment effectuer certaines [tâches de démarrage courantes](cloud-s
 [Créez un package](cloud-services-model-and-package.md) de votre service cloud.  
 
 [ServiceDefinition.csdef]: cloud-services-model-and-package.md#csdef
-[Task]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
-[Startup]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
+[Tâche]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
+[Démarrage]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
 [Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
-[Environment]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
+[Environnement]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
 [Variable]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx

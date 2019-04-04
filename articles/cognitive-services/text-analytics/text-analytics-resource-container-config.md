@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/08/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 5ed1e393c78f0f8d74ad6ae8096fb8b3e384e6e0
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 3cb6f4563cf45b9ccd377dec3db4ebab095c8a09
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56308823"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885432"
 ---
 # <a name="configure-text-analytics-docker-containers"></a>Configurer les conteneurs Docker Analyse de texte
 
@@ -47,11 +47,11 @@ Le paramètre `Billing` permet de spécifier l’URI du point de terminaison de 
 
 Vous trouverez ce paramètre à l’emplacement suivant :
 
-* Portail Azure : Vue d’ensemble d’**Analyse de texte**, intitulée `Endpoint`
+* Portail Azure : **Du texte Analytique** vue d’ensemble, étiqueté `Endpoint`
 
 |Obligatoire| Nom | Type de données | Description |
 |--|------|-----------|-------------|
-|OUI| `Billing` | Chaîne | URI du point de terminaison de facturation<br><br>Exemple :<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.0` |
+|Oui| `Billing` | Chaîne | URI du point de terminaison de facturation<br><br>Exemple :<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.0` |
 
 ## <a name="eula-setting"></a>Paramètre Eula
 
@@ -82,10 +82,6 @@ La syntaxe exacte de l’emplacement de montage d’hôte varie en fonction du s
 |Non autorisé| `Input` | Chaîne | Les conteneurs Analyse de texte n’utilisent pas cet élément.|
 |Facultatif| `Output` | Chaîne | Cible du montage de sortie. La valeur par défaut est `/output`. Il s’agit de l’emplacement des journaux. Les journaux de conteneur sont inclus. <br><br>Exemple :<br>`--mount type=bind,src=c:\output,target=/output`|
 
-## <a name="hierarchical-settings"></a>Paramètres hiérarchiques
-
-[!INCLUDE [Container shared configuration hierarchical settings](../../../includes/cognitive-services-containers-configuration-shared-hierarchical-settings.md)]
-
 ## <a name="example-docker-run-commands"></a>Exemples de commandes docker run 
 
 Les exemples suivants utilisent les paramètres de configuration pour illustrer comment écrire et utiliser des commandes `docker run`.  Une fois en cours d’exécution, le conteneur continue à s’exécuter jusqu’à ce que vous l’[arrêtiez](how-tos/text-analytics-how-to-install-containers.md#stop-the-container).
@@ -114,17 +110,10 @@ Les exemples Docker suivants s’appliquent au conteneur Extraction de phrases c
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/keyphrase Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} 
   ```
 
-### <a name="logging-example-with-command-line-arguments"></a>Exemple de journalisation avec arguments de ligne de commande
+### <a name="logging-example"></a>Exemple de journalisation 
 
   ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/keyphrase Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel=Information
-  ```
-
-### <a name="logging-example-with-environment-variable"></a>Exemple de journalisation avec variable d’environnement
-
-  ```
-  SET Logging:Console:LogLevel=Information
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/keyphrase  Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY}
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/keyphrase Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel:Default=Information
   ```
 
 ## <a name="language-detection-container-docker-examples"></a>Exemples Docker pour le conteneur Détection de langue
@@ -134,20 +123,13 @@ Les exemples Docker suivants s’appliquent au conteneur Détection de langue.
 ### <a name="basic-example"></a>Exemple de base
 
   ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/language Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel=Information
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/language Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} 
   ```
 
-### <a name="logging-example-with-command-line-arguments"></a>Exemple de journalisation avec arguments de ligne de commande
+### <a name="logging-example"></a>Exemple de journalisation
 
   ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/language Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel=Information
-  ```
-
-### <a name="logging-example-with-environment-variable"></a>Exemple de journalisation avec variable d’environnement
-
-  ```
-  SET Logging:Console:LogLevel=Information
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/language  Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY}
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/language Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel:Default=Information
   ```
  
 ## <a name="sentiment-analysis-container-docker-examples"></a>Exemples Docker pour le conteneur Analyse des sentiments
@@ -157,20 +139,13 @@ Les exemples Docker suivants s’appliquent au conteneur Analyse des sentiments.
 ### <a name="basic-example"></a>Exemple de base
 
   ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel=Information
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} 
   ```
 
-### <a name="logging-example-with-command-line-arguments"></a>Exemple de journalisation avec arguments de ligne de commande
+### <a name="logging-example"></a>Exemple de journalisation
 
   ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel=Information
-  ```
-
-### <a name="logging-example-with-environment-variable"></a>Exemple de journalisation avec variable d’environnement
-
-  ```
-  SET Logging:Console:LogLevel=Information
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY}
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel:Default=Information
   ```
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Migrer des données locales vers le Stockage Azure à l’aide d’AzCopy | Microsoft Docs'
+title: 'Didacticiel : Migrer des données locales vers le Stockage Azure à l’aide d’AzCopy | Microsoft Docs'
 description: Dans ce tutoriel, vous utilisez AzCopy pour migrer ou copier des données vers ou depuis un blob, une table ou un fichier. Migrez facilement des données de votre stockage local vers le Stockage Azure.
 services: storage
 author: roygara
@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 12/14/2017
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: b7dbea4736eae3371d288883ba40d8edfe310869
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 40138a69baf9cd621b2f287b2fe035225bfd9bec
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727942"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877486"
 ---
-#  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>Tutoriel : Migrer des données locales vers un stockage cloud à l’aide d’AzCopy
+#  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>Didacticiel : Migrer des données locales vers un stockage cloud à l’aide d’AzCopy
 
 AzCopy est un outil en ligne de commande qui vous permet de copier des données vers ou depuis le Stockage Blob Azure, Azure Files ou le Stockage Table Azure, à l’aide de commandes simples. Les commandes sont conçues pour offrir des performances optimales. Grâce à AzCopy, vous pouvez copier des données entre un système de fichiers et un compte de stockage, ou entre comptes de stockage. AzCopy peut être utilisé pour copier des données à partir de données locales vers un compte de stockage.
 
@@ -59,7 +59,7 @@ Les noms de conteneur doivent commencer par une lettre ou un chiffre. Ils peuven
 
 Vous pouvez utiliser AzCopy pour charger tous les fichiers d’un dossier dans le Stockage Blob sur [Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#upload-blobs-to-blob-storage) ou [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux#blob-download). Pour charger tous les objets blob d’un dossier, entrez la commande AzCopy suivante :
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# [<a name="linux"></a>Linux](#tab/linux)
 
     azcopy \
         --source /mnt/myfolder \
@@ -67,7 +67,7 @@ Vous pouvez utiliser AzCopy pour charger tous les fichiers d’un dossier dans l
         --dest-key <key> \
         --recursive
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# [<a name="windows"></a> Windows](#tab/windows)
 
     AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:<key> /S
 ---
@@ -82,7 +82,7 @@ Vous pouvez utiliser AzCopy pour [charger des fichiers](https://docs.microsoft.c
 
 Si vous souhaitez copier uniquement les ressources de code source qui n’existent pas dans la destination, spécifiez les deux paramètres `--exclude-older` et `--exclude-newer` (Linux) ou les deux paramètres `/XO` et `/XN` (Windows) dans la commande AzCopy. AzCopy charge uniquement les données mises à jour, en se basant sur leur horodatage.
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# [<a name="linux"></a>Linux](#tab/linux)
 
     azcopy \
     --source /mnt/myfolder \
@@ -91,7 +91,7 @@ Si vous souhaitez copier uniquement les ressources de code source qui n’existe
     --recursive \
     --exclude-older
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# [<a name="windows"></a> Windows](#tab/windows)
 
     AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:<key> /S /XO
 ---
@@ -102,11 +102,11 @@ Vous pouvez créer une tâche planifiée ou un travail Cron qui exécute un scri
 
 Copiez la commande AzCopy dans un éditeur de texte. Mettez à jour les valeurs de paramètre de la commande AzCopy avec les valeurs appropriées. Enregistrez le fichier sous `script.sh` (Linux) ou `script.bat` (Windows) pour AzCopy.
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# [<a name="linux"></a>Linux](#tab/linux)
 
     azcopy --source /mnt/myfiles --destination https://myaccount.blob.core.windows.net/mycontainer --dest-key <key> --recursive --exclude-older --exclude-newer --verbose >> Path/to/logfolder/`date +\%Y\%m\%d\%H\%M\%S`-cron.log
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# [<a name="windows"></a> Windows](#tab/windows)
 
     cd C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
     AzCopy /Source: C:\myfolder  /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:<key> /V /XO /XN >C:\Path\to\logfolder\azcopy%date:~-4,4%%date:~-7,2%%date:~-10,2%%time:~-11,2%%time:~-8,2%%time:~-5,2%.log
@@ -117,7 +117,7 @@ AzCopy s’exécute en mode détaillé avec l’option `--verbose` (Linux) ou `/
 Dans ce didacticiel, [Schtasks](https://msdn.microsoft.com/library/windows/desktop/bb736357(v=vs.85).aspx) est utilisé pour créer une tâche planifiée sur Windows. La commande [Crontab](http://crontab.org/) est utilisée pour créer un travail Cron sur Linux.
  Avec **Schtasks**, un administrateur peut créer, supprimer, interroger, modifier, exécuter et terminer des tâches planifiées sur un ordinateur local ou distant. Avec **Cron**, les utilisateurs sur Linux et Unix peuvent exécuter des commandes ou des scripts à la date et à l’heure qu’ils ont spécifiées à l’aide [d’expressions Cron](https://en.wikipedia.org/wiki/Cron#CRON_expression).
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# [<a name="linux"></a>Linux](#tab/linux)
 
 Pour créer un travail Cron sur Linux, entrez la commande suivante sur un terminal :
 
@@ -126,9 +126,9 @@ crontab -e
 */5 * * * * sh /path/to/script.sh
 ```
 
-La spécification de l’expression Cron `*/5 * * * * ` dans la commande indique que le script d’interpréteur de commandes `script.sh` doit s’exécuter toutes les cinq minutes. Vous pouvez planifier le script pour qu’il s’exécute à une heure précise tous les jours, tous les mois ou tous les ans. Pour en savoir plus sur la définition de la date et l’heure d’exécution d’un travail, consultez la page sur les [expressions Cron](https://en.wikipedia.org/wiki/Cron#CRON_expression).
+La spécification de l’expression Cron `*/5 * * * *` dans la commande indique que le script d’interpréteur de commandes `script.sh` doit s’exécuter toutes les cinq minutes. Vous pouvez planifier le script pour qu’il s’exécute à une heure précise tous les jours, tous les mois ou tous les ans. Pour en savoir plus sur la définition de la date et l’heure d’exécution d’un travail, consultez la page sur les [expressions Cron](https://en.wikipedia.org/wiki/Cron#CRON_expression).
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# [<a name="windows"></a> Windows](#tab/windows)
 
 Pour créer une tâche planifiée sur Windows, entrez la commande suivante à une invite de commandes ou dans PowerShell :
 

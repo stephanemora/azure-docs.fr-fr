@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: jeconnoc
-ms.openlocfilehash: aa62db0948ffa036b37736477b872d694d14836b
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a2eff2ca2e72ad263e3e23d0827e7603bca3fdcb
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762593"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917474"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Prise en main des services cloud Azure et d'ASP.NET
 
 ## <a name="overview"></a>Présentation
-Ce didacticiel explique comment créer une application .NET multiniveau avec un composant frontal ASP.NET MVC et comment la déployer sur un [service cloud Azure](cloud-services-choose-me.md). L’application utilise la [Base de données SQL Azure](https://msdn.microsoft.com/library/azure/ee336279), le [service Blob Azure](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) et le [service de File d'attente Azure](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). Vous pouvez [télécharger le projet Visual Studio](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) dans la galerie de code MSDN.
+Ce didacticiel explique comment créer une application .NET multiniveau avec un composant frontal ASP.NET MVC et comment la déployer sur un [service cloud Azure](cloud-services-choose-me.md). L’application utilise la [Base de données SQL Azure](/previous-versions/azure/ee336279(v=azure.100)), le [service Blob Azure](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) et le [service de File d'attente Azure](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). Vous pouvez [télécharger le projet Visual Studio](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) dans la galerie de code MSDN.
 
 Le didacticiel vous apprend à générer et à exécuter l’application localement, à la déployer dans Azure, à l’exécuter dans le cloud et à la générer intégralement. Vous pouvez également démarrer à partir de zéro, puis effectuer les tests et le déploiement par la suite.
 
@@ -81,7 +81,7 @@ Lorsqu'un utilisateur télécharge une image, l'application frontale qui s'exéc
 6. Si vous utilisez Visual Studio 2015 ou version ultérieure, modifiez la chaîne de connexion SQL Server dans le fichier d’application *Web.config* du projet ContosoAdsWeb et dans le fichier *ServiceConfiguration.Local.cscfg* du projet ContosoAdsCloudService. Dans tous les cas, changez « (localdb) \v11.0 » en « (localdb) \MSSQLLocalDB ».
 7. Appuyez sur Ctrl+F5 pour exécuter l’application.
 
-    Lorsque vous exécutez un projet de service cloud localement, Visual Studio appelle automatiquement *l’émulateur de calcul* Azure et *l’émulateur de stockage* Azure. L'émulateur de calcul utilise les ressources de votre ordinateur pour simuler les environnements de rôle Web et de rôle de travail. L'émulateur de stockage utilise une base de données [SQL Server Express LocalDB](https://msdn.microsoft.com/library/hh510202.aspx) pour simuler le stockage sur le cloud Azure.
+    Lorsque vous exécutez un projet de service cloud localement, Visual Studio appelle automatiquement *l’émulateur de calcul* Azure et *l’émulateur de stockage* Azure. L'émulateur de calcul utilise les ressources de votre ordinateur pour simuler les environnements de rôle Web et de rôle de travail. L'émulateur de stockage utilise une base de données [SQL Server Express LocalDB](/sql/database-engine/configure-windows/sql-server-2016-express-localdb) pour simuler le stockage sur le cloud Azure.
 
     À la première exécution d'un projet de service cloud, le démarrage des émulateurs prend une ou deux minutes. Après le démarrage de l'émulateur, le navigateur par défaut s'ouvre sur la page d'accueil de l'application.
 
@@ -178,7 +178,7 @@ Dans une application réelle, on crée généralement des comptes distincts pour
 
     Lorsque le service cloud et le compte de stockage se trouvent dans des centres de données différents (différentes régions), la latence augmente et la bande passante en dehors du centre de données vous est facturée, alors qu'elle est gratuite dans un centre de données.
 
-    Les groupes d'affinités Azure fournissent un mécanisme pour minimiser la distance entre les ressources dans un centre de données, ce qui peut réduire la latence. Ce didacticiel n'utilise pas de groupes d'affinités. Pour plus d'informations, consultez la page [Création d'un groupe d'affinités dans Azure](https://msdn.microsoft.com/library/azure/gg715317.aspx).
+    Les groupes d'affinités Azure fournissent un mécanisme pour minimiser la distance entre les ressources dans un centre de données, ce qui peut réduire la latence. Ce didacticiel n'utilise pas de groupes d'affinités. Pour plus d'informations, consultez la page [Création d'un groupe d'affinités dans Azure](/previous-versions/azure/reference/gg715317(v=azure.100)).
 7. Cliquez sur **Créer**.
 
     ![New storage account](./media/cloud-services-dotnet-get-started/newstorage.png)
@@ -417,8 +417,8 @@ Pour ajouter des fichiers à un projet ou à un dossier, cliquez avec le bouton 
 
 Les sections suivantes présentent le code utilisé dans l'environnement, les objets blob et les files d'attente Azure. Ce didacticiel ne montre pas comment créer des contrôleurs et des vues MVC à l'aide de la structure, comment écrire du code Entity Framework qui fonctionne avec les bases de données SQL Server, ni les bases de la programmation asynchrone dans ASP.NET 4.5. Pour plus d'informations sur ces sujets, consultez les ressources suivantes :
 
-* [Prise en main de MVC 5](https://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
-* [Prise en main d’EF 6 et de MVC 5](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc)
+* [Bien démarrer avec MVC 5](https://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
+* [Bien démarrer avec EF 6 et MVC 5](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc)
 * [Introduction à la programmation asynchrone dans .NET 4.5](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#async).
 
 ### <a name="contosoadscommon---adcs"></a>ContosoAdsCommon - Ad.cs
@@ -549,7 +549,7 @@ queueClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSec
 imagesQueue = queueClient.GetQueueReference("images");
 ```
 
-La plupart du code du contrôleur permet généralement d'utiliser un modèle de données Entity Framework en utilisant une classe DbContext. La méthode HttpPost `Create` est une exception, car elle télécharge un fichier et l’enregistre dans le stockage d’objets blob. Le classeur de modèles fournit un objet [HttpPostedFileBase](https://msdn.microsoft.com/library/system.web.httppostedfilebase.aspx) à la méthode.
+La plupart du code du contrôleur permet généralement d'utiliser un modèle de données Entity Framework en utilisant une classe DbContext. La méthode HttpPost `Create` est une exception, car elle télécharge un fichier et l’enregistre dans le stockage d’objets blob. Le classeur de modèles fournit un objet [HttpPostedFileBase](/dotnet/api/system.web.httppostedfilebase) à la méthode.
 
 ```csharp
 [HttpPost]
@@ -703,7 +703,7 @@ Après chaque itération de la boucle, si aucun message de file d'attente n'a é
 
 Il arrive que le contenu d'un message de file d'attente provoque une erreur de traitement. On parle alors de *message empoisonné*, et si vous relancez la boucle après avoir consigné une erreur, vous risquez d'essayer sans fin de traiter ce message.  Le bloc catch inclut donc une instruction If qui vérifie combien de fois l'application a tenté de traiter le message actuel, et si le nombre de tentatives est supérieur à 5, le message est supprimé de la file d'attente.
 
-`ProcessQueueMessage` est appelé lorsqu'un message de file d'attente est trouvé.
+`ProcessQueueMessage` est appelée lorsqu’un message de file d’attente est détecté.
 
 ```csharp
 private void ProcessQueueMessage(CloudQueueMessage msg)
@@ -775,7 +775,7 @@ Pour voir une vidéo de présentation des meilleures pratiques et des modèles A
 
 Pour plus d’informations, consultez les ressources suivantes :
 
-* [Azure Cloud Services Partie 1 : Introduction](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
-* [Gestion des services cloud](cloud-services-how-to-manage-portal.md)
-* [Azure Storage](https://docs.microsoft.com/azure/storage/)
+* [Azure Cloud Services partie 1 : Présentation](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
+* [Comment gérer les Services de Cloud](cloud-services-how-to-manage-portal.md)
+* [Stockage Azure](https://docs.microsoft.com/azure/storage/)
 * [Choix d’un fournisseur de services cloud](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

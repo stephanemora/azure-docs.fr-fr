@@ -11,12 +11,12 @@ ms.assetid: eccfd87c-c5fe-4cf7-b564-9752775fd667
 tags: connectors
 ms.topic: article
 ms.date: 07/18/2016
-ms.openlocfilehash: de61443da41f1015b2890e9052f38e25d3bed86a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 9408b66f74391b080ef46c758b07850b2ae8de57
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551966"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893388"
 ---
 # <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>Appeler des points de terminaison REST avec le connecteur HTTP + Swagger dans Azure Logic Apps
 
@@ -28,7 +28,7 @@ Pour savoir comment créer des applications logiques avec des connecteurs, consu
 
 Le déclencheur et l’action HTTP + Swagger fonctionnent comme une [action HTTP](connectors-native-http.md) mais en fournissant une meilleure expérience dans le concepteur Logic App en exposant la structure d’API et les sorties à partir des [métadonnées Swagger](https://swagger.io). Vous pouvez également utiliser le connecteur HTTP + Swagger en tant que déclencheur. Si vous souhaitez implémenter un déclencheur d’interrogation, suivez le modèle d’interrogation décrit dans [Créer des API personnalisées pour appeler d’autres APO, services et systèmes à partir de Logic Apps](../logic-apps/logic-apps-create-api-app.md#polling-triggers).
 
-En savoir plus sur les [déclencheurs et actions de l’application logique](connectors-overview.md).
+En savoir plus sur les [déclencheurs et actions de l’application logique](../connectors/apis-list.md).
 
 Voici un exemple d’utilisation de l’opération HTTP + Swagger en tant qu’action dans un flux de travail dans une application logique.
 
@@ -72,14 +72,14 @@ Voici les étapes pour créer, configurer et stocker des documents swagger dans 
 Vous trouverez ci-dessous les détails des déclencheurs et des actions que ce connecteur HTTP + Swagger prend en charge.
 
 ## <a name="http--swagger-triggers"></a>Déclencheurs HTTP + Swagger
-Un déclencheur est un événement qui peut être utilisé pour lancer le flux de travail défini dans une application logique. [En savoir plus sur les déclencheurs.](connectors-overview.md)  Le connecteur HTTP + Swagger a un déclencheur.
+Un déclencheur est un événement qui peut être utilisé pour lancer le flux de travail défini dans une application logique.  Le connecteur HTTP + Swagger a un déclencheur. [En savoir plus sur les déclencheurs](../connectors/apis-list.md).
 
 | Déclencheur | Description |
 | --- | --- |
 | HTTP + Swagger |Exécuter un appel HTTP et obtenir le contenu de la réponse |
 
 ## <a name="http--swagger-actions"></a>Actions HTTP + Swagger
-Une action est une opération effectuée par le flux de travail défini dans une application logique. [En savoir plus sur les actions.](connectors-overview.md)  Le connecteur HTTP + Swagger a une action possible.
+Une action est une opération effectuée par le flux de travail défini dans une application logique.  Le connecteur HTTP + Swagger a une action possible. [En savoir plus sur les actions](../connectors/apis-list.md).
 
 | Action | Description |
 | --- | --- |
@@ -123,7 +123,6 @@ Lorsque vous exécutez des appels de diverses actions, vous pouvez obtenir certa
 | 404 |Introuvable |
 | 500 |Erreur interne du serveur. Une erreur inconnue s’est produite. |
 
-- - -
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Créer une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md)

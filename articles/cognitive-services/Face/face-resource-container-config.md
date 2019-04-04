@@ -9,20 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 4215b008af21a3473a1d2dcef5f73a1b19133215
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 73fc17ae5c65cd1a6ce47a18cbe17e6c338b7aaf
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821557"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882121"
 ---
 # <a name="configure-face-docker-containers"></a>Configurer des conteneurs Docker Visage
 
 L’environnement d’exécution de conteneur **Visage** est configuré à l’aide des arguments de la commande `docker run`. Ce conteneur a plusieurs paramètres obligatoires et quelques paramètres facultatifs. Plusieurs [exemples](#example-docker-run-commands) de commande sont disponibles. Les paramètres propres aux conteneurs correspondent aux paramètres de facturation. 
-
-Les paramètres de conteneur sont [hiérarchiques](#hierarchical-settings) et peuvent être définis avec des [variables d’environnement](#environment-variable-settings) ou des [arguments de ligne de commande](#command-line-argument-settings) docker.
 
 ## <a name="configuration-settings"></a>Paramètres de configuration
 
@@ -49,7 +47,7 @@ Le paramètre `Billing` permet de spécifier l’URI de point de terminaison de 
 
 Vous trouverez ce paramètre à l’emplacement suivant :
 
-* Portail Azure : Vue d’ensemble de **Visage**, étiqueté `Endpoint`
+* Portail Azure : **Face** vue d’ensemble, étiqueté `Endpoint`
 
 |Obligatoire| Nom | Type de données | Description |
 |--|------|-----------|-------------|
@@ -82,7 +80,7 @@ Les scénarios de stockage et les paramètres de configuration associés sont g�
 
 | Nom | Type de données | Description |
 |------|-----------|-------------|
-| `StorageScenario` | Chaîne | Scénario de stockage pris en charge par le conteneur. Les valeurs disponibles sont les suivantes :<br/>`Memory` - Valeur par défaut. Le conteneur utilise un stockage non persistant, non réparti et en mémoire pour une utilisation temporaire sur un nœud unique. Si le conteneur est arrêté ou supprimé, son stockage est détruit.<br/>`Azure` - Le conteneur utilise des ressources Azure pour le stockage. Si le conteneur est arrêté ou supprimé, son stockage est conservé.|
+| `StorageScenario` | Chaîne | Scénario de stockage pris en charge par le conteneur. Les valeurs disponibles sont les suivantes :<br/>`Memory` -Valeur par défaut. Le conteneur utilise un stockage non persistant, non réparti et en mémoire pour une utilisation temporaire sur un nœud unique. Si le conteneur est arrêté ou supprimé, son stockage est détruit.<br/>`Azure` -Conteneur utilise les ressources Azure pour le stockage. Si le conteneur est arrêté ou supprimé, son stockage est conservé.|
 | `ConnectionStringOfAzureStorage` | Chaîne | Chaîne de connexion de la ressource Stockage Azure utilisée par le conteneur.<br/>Ce paramètre s’applique uniquement si `Azure` est spécifié pour le paramètre de configuration `StorageScenario`. |
 | `ConnectionStringOfCosmosMongo` | Chaîne | Chaîne de connexion MongoDB de la ressource Azure Cosmos DB utilisée par le conteneur.<br/>Ce paramètre s’applique uniquement si `Azure` est spécifié pour le paramètre de configuration `StorageScenario`. |
 
@@ -127,10 +125,6 @@ La syntaxe exacte de l’emplacement de montage d’hôte varie en fonction du s
 |Non autorisé| `Input` | Chaîne | Les conteneurs Visage n’utilisent pas cet élément.|
 |Facultatif| `Output` | Chaîne | Cible du montage de sortie. La valeur par défaut est `/output`. Il s’agit de l’emplacement des journaux. Les journaux de conteneur sont inclus. <br><br>Exemple :<br>`--mount type=bind,src=c:\output,target=/output`|
 
-## <a name="hierarchical-settings"></a>Paramètres hiérarchiques
-
-[!INCLUDE [Container shared configuration hierarchical settings](../../../includes/cognitive-services-containers-configuration-shared-hierarchical-settings.md)]
-
 ## <a name="example-docker-run-commands"></a>Exemples de commandes docker run 
 
 Les exemples suivants utilisent les paramètres de configuration pour illustrer comment écrire et utiliser des commandes `docker run`.  Une fois en cours d’exécution, le conteneur continue à s’exécuter jusqu’à ce que vous l’[arrêtiez](face-how-to-install-containers.md#stop-the-container).
@@ -163,23 +157,13 @@ Les exemples Docker suivants s’appliquent au conteneur Visage.
   ApiKey={BILLING_KEY} 
   ```
 
-### <a name="logging-example-with-command-line-arguments"></a>Exemple de journalisation avec arguments de ligne de commande
+### <a name="logging-example"></a>Exemple de journalisation 
 
   ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-face \
   Eula=accept \
   Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} \
-  Logging:Console:LogLevel=Information
-  ```
-
-### <a name="logging-example-with-environment-variable"></a>Exemple de journalisation avec variable d’environnement
-
-  ```
-  SET Logging:Console:LogLevel=Information
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-face \
-  Eula=accept \
-  Billing={BILLING_ENDPOINT_URI} \
-  ApiKey={BILLING_KEY}
+  Logging:Console:LogLevel:Default=Information
   ```
 
 ## <a name="next-steps"></a>Étapes suivantes

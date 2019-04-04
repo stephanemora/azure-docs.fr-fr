@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: 841e00825b243d883303121022918efd51397f04
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 54c8e44685bb69e845c819b0c2846b188a771d71
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757437"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878228"
 ---
 # <a name="preview---create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Afficher un aperçu : créer et configurer un cluster Azure Kubernetes service (AKS) pour utiliser des nœuds virtuels à l’aide de l’interface CLI Azure
 
@@ -21,7 +21,7 @@ Pour mettre à l’échelle rapidement des charges de travail d’application da
 > [!IMPORTANT]
 > Fonctionnalités de préversion AKS sont libre-service et participer. Les préversions sont fournies pour recueillir des commentaires et des bogues à partir de notre communauté. Toutefois, ils ne sont pas pris en charge par le support technique Azure. Si vous créez un cluster, ou ajoutez ces fonctionnalités à des clusters existants, ce cluster est non pris en charge jusqu'à ce que la fonctionnalité n’est plus disponible en version préliminaire et atteignent à la disposition générale (GA).
 >
-> Si vous rencontrez des problèmes avec les fonctionnalités en version préliminaire, [de signaler un problème sur le référentiel GitHub d’AKS] [ aks-github] par le nom de la fonctionnalité d’aperçu dans le titre du bogue.
+> Si vous rencontrez des problèmes avec les fonctionnalités en version préliminaire, [de signaler un problème sur le référentiel GitHub d’AKS][aks-github] par le nom de la fonctionnalité d’aperçu dans le titre du bogue.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -47,7 +47,7 @@ Si le fournisseur apparaît *NotRegistered* (Non-inscrit), inscrivez-le à l’a
 az provider register --namespace Microsoft.ContainerInstance
 ```
 
-## <a name="regional-availability-limitations"></a>Limitations de la disponibilité régionale
+## <a name="regional-availability"></a>Disponibilité régionale
 
 Les régions suivantes sont prises en charge pour les déploiements de nœud virtuel :
 
@@ -162,13 +162,7 @@ az aks create \
 
 Au bout de quelques minutes, la commande se termine et retourne des informations formatées JSON sur le cluster.
 
-## <a name="enable-virtual-nodes"></a>Activer les nœuds virtuels
-
-Pour fournir des fonctionnalités supplémentaires, le connecteur de nœuds virtuels utilise une extension Azure CLI. Avant de pouvoir activer le connecteur de nœuds virtuels, installez l’extension à l’aide de la commande [az extension add][az-extension-add] :
-
-```azurecli-interactive
-az extension add --source https://aksvnodeextension.blob.core.windows.net/aks-virtual-node/aks_virtual_node-0.2.0-py2.py3-none-any.whl
-```
+## <a name="enable-virtual-nodes-addon"></a>Activer le module complémentaire de nœuds virtuels
 
 Pour activer les nœuds virtuels, utilisez à présent la commande [az aks enable-addons][az-aks-enable-addons]. L’exemple suivant utilise le sous-réseau nommé *myVirtualNodeSubnet* créé à l’étape précédente :
 
@@ -179,6 +173,11 @@ az aks enable-addons \
     --addons virtual-node \
     --subnet-name myVirtualNodeSubnet
 ```
+> [!NOTE]
+> Si vous recevez une erreur relative à introuvable-nœud virtuel, vous devrez peut-être installer son extension CLI 
+> ```azurecli-interactive
+> az extension add --source https://aksvnodeextension.blob.core.windows.net/aks-virtual-node/aks_virtual_node-0.2.0-py2.py3-none-any.whl
+> ```
 
 ## <a name="connect-to-the-cluster"></a>Connexion au cluster
 

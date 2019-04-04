@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 03bafcdbf6890573d1d2855e2b47520d0111fe13
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 67fba7a921868d0e5720216208cff7c298c926f6
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57996776"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895011"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Dépanner une application dans Azure App Service à l'aide de Visual Studio
 ## <a name="overview"></a>Présentation
@@ -35,7 +35,7 @@ Vous apprendrez ce qui suit :
 * l'affichage des journaux de serveur Web, notamment des messages d'erreur détaillés et le suivi des demandes ayant échoué ;
 * l'envoi de journaux de diagnostic à un compte Azure Storage et leur affichage depuis ce compte.
 
-Si vous disposez de Visual Studio Ultimate, vous pouvez également utiliser [IntelliTrace](https://msdn.microsoft.com/library/vstudio/dd264915.aspx) à des fins de débogage. IntelliTrace n’est pas couvert dans ce didacticiel.
+Si vous disposez de Visual Studio Ultimate, vous pouvez également utiliser [IntelliTrace](/visualstudio/debugger/intellitrace) à des fins de débogage. IntelliTrace n’est pas couvert dans ce didacticiel.
 
 ## <a name="prerequisites"></a>Configuration requise
 Ce didacticiel fonctionne avec l'environnement de développement, le projet web et l'application App Service que vous avez configurés dans [Créer une application ASP.NET dans Azure App Service](app-service-web-get-started-dotnet-framework.md). Pour les sections WebJobs, vous aurez besoin de l’application créée dans le cadre de la [Prise en main du Kit de développement logiciel (SDK) WebJobs Azure][GetStartedWJ].
@@ -77,11 +77,11 @@ Visual Studio permet d'accéder à un sous-ensemble des fonctionnalités de ges
 ## <a name="remoteview"></a>Accès aux fichiers d'applications dans l'Explorateur de serveurs
 En général, vous déployez un projet Web avec l’indicateur `customErrors` défini sur la valeur `On` ou `RemoteOnly` dans le fichier Web.config, ce qui signifie que vous n’obtenez pas de message d’erreur utile en cas de problème. Généralement, ces messages se présentent sous la forme d’une page comme celles qui suivent :
 
-**Erreur de serveur dans l’application « / » :**
+**Erreur de serveur dans l’Application '/' :**
 
 ![Page d’erreur inutile](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror.png)
 
-**Nous avons rencontré une erreur :**
+**Une erreur s’est produite :**
 
 ![Page d’erreur inutile](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror1.png)
 
@@ -252,16 +252,16 @@ Si votre fonction [a écrit des journaux](https://github.com/Azure/azure-webjobs
 ```
 * Si le débogueur ne parcourt pas le code que vous voulez déboguer, vous devez modifier le paramètre « Uniquement mon code ».  Pour plus d’informations, consultez la section [Specify whether to debug only user code using Just My Code in Visual Studio](https://docs.microsoft.com/visualstudio/debugger/just-my-code) (Déterminer s’il faut déboguer uniquement le code utilisateur via l’option Uniquement mon code dans Visual Studio).
 * Lorsque vous activez la fonctionnalité de débogage à distance, un compteur démarre sur le serveur : après 48 heures, la fonctionnalité est automatiquement désactivée. Cette limite de 48 heures a été définie à des fins de sécurité et de performances. Vous pouvez facilement réactiver la fonctionnalité autant de fois que nécessaire. Nous vous recommandons de la désactiver lorsque vous n'utilisez pas le débogage.
-* Vous pouvez manuellement connecter le débogueur à n'importe quel processus, et pas seulement au processus de l'application (w3wp.exe). Pour plus d'informations sur l'utilisation du mode débogage dans Visual Studio, consultez la page [Débogage dans Visual Studio](https://msdn.microsoft.com/library/vstudio/sc65sadd.aspx).
+* Vous pouvez manuellement connecter le débogueur à n'importe quel processus, et pas seulement au processus de l'application (w3wp.exe). Pour plus d'informations sur l'utilisation du mode débogage dans Visual Studio, consultez la page [Débogage dans Visual Studio](/visualstudio/debugger/debugging-in-visual-studio).
 
 ## <a name="logsoverview"></a>Présentation des journaux de diagnostic
 Une application ASP.NET qui s'exécute dans une application App Service peut créer les types de journaux suivants :
 
 * **Journaux de suivi d’application**<br/>
-  : l'application crée ces journaux en appelant des méthodes de la classe [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace.aspx) .
-* **Journaux des serveurs web**<br/>
+  : l'application crée ces journaux en appelant des méthodes de la classe [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) .
+* **Journaux des serveurs Web**<br/>
    : le serveur web crée une entrée de journal pour chaque requête HTTP à destination de l'application.
-* **Journaux détaillés des messages d’erreur**<br/>
+* **Journaux de messages d’erreur détaillés**<br/>
    : le serveur Web crée une page HTML contenant certaines informations supplémentaires pour les requêtes HTTP ayant échoué (celles dont le code d’état est 400 ou plus).
 * **Journaux de suivi de demandes ayant échoué**<br/>
    : le serveur Web crée un fichier XML avec des informations de suivi détaillées pour les requêtes HTTP ayant échoué. Le serveur Web fournit également un fichier XSL pour mettre en forme le XML dans un navigateur.
@@ -622,7 +622,7 @@ Vous avez vu en quoi Visual Studio facilite l'affichage des journaux créés pa
 ### <a name="app-service-troubleshooting"></a>Résolution des problèmes App Service
 Pour en savoir plus sur la résolution des problèmes liés aux applications dans Azure App Service, consultez les ressources suivantes :
 
-* [Surveiller les applications](web-sites-monitor.md)
+* [Comment surveiller des applications](web-sites-monitor.md)
 * [Étude des fuites de mémoire dans Azure App Service avec Visual Studio 2013](https://blogs.msdn.com/b/visualstudioalm/archive/2013/12/20/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013.aspx). Article sur le blog ALM de Microsoft concernant les fonctionnalités de Visual Studio prévues pour l'analyse de problèmes de mémoire gérés.
 * [Les outils en ligne d'Azure App Service que vous devez connaître](https://azure.microsoft.com/blog/2014/03/28/windows-azure-websites-online-tools-you-should-know-about-2/). Article de blog par Amit Apple.
 
@@ -633,14 +633,14 @@ Pour obtenir des réponses sur une question relative à la résolution des probl
 * [StackOverflow.com](https://www.stackoverflow.com).
 
 ### <a name="debugging-in-visual-studio"></a>Débogage dans Visual Studio
-Pour plus d’informations sur l’utilisation du mode débogage dans Visual Studio, consultez [Débogage dans Visual Studio](https://msdn.microsoft.com/library/vstudio/sc65sadd.aspx), puis [Conseils de débogage avec Visual Studio 2010](https://weblogs.asp.net/scottgu/archive/2010/08/18/debugging-tips-with-visual-studio-2010.aspx).
+Pour plus d’informations sur l’utilisation du mode débogage dans Visual Studio, consultez [Débogage dans Visual Studio](/visualstudio/debugger/debugging-in-visual-studio), puis [Conseils de débogage avec Visual Studio 2010](https://weblogs.asp.net/scottgu/archive/2010/08/18/debugging-tips-with-visual-studio-2010.aspx).
 
 ### <a name="remote-debugging-in-azure"></a>Débogage distant dans Azure
 Pour en savoir plus sur le débogage à distance des applications App Service et des tâches web, consultez les ressources suivantes :
 
 * [Présentation du débogage à distance d'Azure App Service](https://azure.microsoft.com/blog/2014/05/06/introduction-to-remote-debugging-on-azure-web-sites/).
-* [Présentation du débogage à distance d'Azure App Service : 2e partie - Au cœur du débogage à distance](https://azure.microsoft.com/blog/2014/05/07/introduction-to-remote-debugging-azure-web-sites-part-2-inside-remote-debugging/)
-* [Présentation du débogage à distance d'Azure App Service : 3e partie - Environnement à plusieurs instances et GIT](https://azure.microsoft.com/blog/2014/05/08/introduction-to-remote-debugging-on-azure-web-sites-part-3-multi-instance-environment-and-git/)
+* [Introduction à Remote Debugging Azure App Service 2ème partie - à l’intérieur de débogage à distance](https://azure.microsoft.com/blog/2014/05/07/introduction-to-remote-debugging-azure-web-sites-part-2-inside-remote-debugging/)
+* [Introduction au débogage à distance sur Azure App Service 3ème partie-environnement multi-instance et GIT](https://azure.microsoft.com/blog/2014/05/08/introduction-to-remote-debugging-on-azure-web-sites-part-3-multi-instance-environment-and-git/)
 * [Débogage de WebJobs (vidéo)](https://www.youtube.com/watch?v=ncQm9q5ZFZs&list=UU_SjTh-ZltPmTYzAybypB-g&index=1)
 
 Si votre application utilise une API Web Azure ou un système principal Mobile Services qu'il vous faut déboguer, consultez l'article [Débogage du serveur principal .NET dans Visual Studio](https://blogs.msdn.com/b/azuremobile/archive/2014/03/14/debugging-net-backend-in-visual-studio.aspx).
@@ -650,14 +650,14 @@ Il n'y a pas d'autre présentation du suivi ASP.NET plus détaillée et actualis
 
 * [Surveillance et télémétrie (développement d’applications cloud concrètes avec Azure)](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).<br>
    Chapitre de livre électronique contenant des recommandations pour le suivi dans les applications de cloud Azure.
-* [Suivi ASP.NET](https://msdn.microsoft.com/library/ms972204.aspx)<br/>
+* [Traçage ASP.NET](/previous-versions/dotnet/articles/ms972204(v=msdn.10))<br/>
    Une ressource ancienne mais toujours efficace pour une présentation de base du sujet.
-* [Écouteurs de suivi](https://msdn.microsoft.com/library/4y5y10s7.aspx)<br/>
-  Contient des informations sur les écouteurs de suivi mais ne mentionne pas l’élément [WebPageTraceListener](https://msdn.microsoft.com/library/system.web.webpagetracelistener.aspx).
-* [Procédure pas à pas : intégration du suivi ASP.NET avec le suivi System.Diagnostics](https://msdn.microsoft.com/library/b0ectfxd.aspx)<br/>
+* [Écouteurs de suivi](/dotnet/framework/debug-trace-profile/trace-listeners)<br/>
+  Contient des informations sur les écouteurs de suivi mais ne mentionne pas l’élément [WebPageTraceListener](/dotnet/api/system.web.webpagetracelistener).
+* [Procédure pas à pas : Intégration du suivi ASP.NET avec le suivi System.Diagnostics](/previous-versions/b0ectfxd(v=vs.140))<br/>
   Cet article est également ancien, mais vous y trouverez des informations complémentaires que l’article de présentation ne traite pas.
-* [Suivi dans les vues d’ASP.NET MVC Razor](https://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
-   En plus du suivi dans les vues Razor, ce billet explique également comment créer un filtre d'erreur pour journaliser toutes les exceptions non gérées dans une application MVC. Pour plus d'informations sur la procédure de journalisation des exceptions non gérées dans une application Web Forms, consultez l'exemple de Global.asax dans [Exemple complet pour les gestionnaires d'erreurs](https://msdn.microsoft.com/library/bb397417.aspx) sur MSDN. Dans MVC ou Web Forms, si vous voulez journaliser certaines exceptions tout en laissant le Framework par défaut les gérer, vous pouvez utiliser l'exemple de code suivant :
+* [Le suivi dans les vues Razor ASP.NET MVC](https://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
+   En plus du suivi dans les vues Razor, ce billet explique également comment créer un filtre d'erreur pour journaliser toutes les exceptions non gérées dans une application MVC. Pour plus d'informations sur la procédure de journalisation des exceptions non gérées dans une application Web Forms, consultez l'exemple de Global.asax dans [Exemple complet pour les gestionnaires d'erreurs](/previous-versions/bb397417(v=vs.140)) sur MSDN. Dans MVC ou Web Forms, si vous voulez journaliser certaines exceptions tout en laissant le Framework par défaut les gérer, vous pouvez utiliser l'exemple de code suivant :
 
 ``` c#
 try
@@ -671,7 +671,7 @@ catch (Exception ex)
 }
 ```
 
-* [Journalisation de suivi de diagnostics de diffusion à partir de l’outil en ligne de commande Azure (et Glimpse)](https://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
+* [Suivi des Diagnostics de diffusion en continu la journalisation à partir de la ligne de commande Azure (et Glimpse)](https://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
    Apprenez à utiliser l’outil en ligne de commande pour effectuer ce que montre ce didacticiel dans Visual Studio. [Glimpse](https://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) est un outil pour le débogage d'applications ASP.NET.
 * [Utilisation des fonctions de journalisation et de diagnostic des applications web - avec David Ebbo](https://azure.microsoft.com/documentation/videos/azure-web-site-logging-and-diagnostics/) et [Journaux de streaming dans Web Apps - avec David Ebbo](https://azure.microsoft.com/documentation/videos/log-streaming-with-azure-web-sites/)<br>
    par Scott Hanselman et David Ebbo.
@@ -687,8 +687,8 @@ Pour plus d'informations sur l'analyse des journaux de serveur Web, consultez le
   Un outil pour afficher les données des journaux de serveur Web (fichiers *.log* ).
 * [Dépannage des problèmes de performances IIS ou des erreurs d’Application à l’aide de LogParser](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
    Une introduction à l'outil LogParser que vous pouvez utiliser pour analyser les journaux de serveur Web.
-* [Billets du blog de Robert McMurray sur l’utilisation de LogParser](https://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
-* [Code d’état HTTP dans IIS 7.0, IIS 7.5 et IIS 8.0](https://support.microsoft.com/kb/943891)
+* [Billets de blog de Robert McMurray sur l’utilisation de LogParser](https://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
+* [Le code d’état HTTP dans IIS 7.0, IIS 7.5 et IIS 8.0](https://support.microsoft.com/kb/943891)
 
 ### <a name="analyzing-failed-request-tracing-logs"></a>Analyse des journaux de suivi des demandes ayant échoué
 Le site web Microsoft TechNet comporte une section [Utilisation du suivi des demandes ayant échoué](https://www.iis.net/learn/troubleshoot/using-failed-request-tracing) qui permet de comprendre l’utilisation de ces journaux. Toutefois, cette documentation se concentre principalement sur la configuration du suivi des demandes ayant échoué dans IIS, ce que vous ne pouvez pas faire dans Azure App Service.

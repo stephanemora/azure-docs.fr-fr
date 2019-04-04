@@ -3,19 +3,19 @@ title: Méthode des exemples de dictionnaire de l’API de traduction de texte T
 titlesuffix: Azure Cognitive Services
 description: Utilisez la méthode des exemples de dictionnaire de l’API de traduction de texte Translator Text.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: a72aca47b33c911d4812274cfa624eaacbdec0d0
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 26f147fde58a7f9c836bdacd6d66321f0fc5529a
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884781"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916412"
 ---
 # <a name="translator-text-api-30-dictionary-examples"></a>API de traduction de texte Translator Text 3.0 : Exemples de dictionnaire
 
@@ -56,7 +56,7 @@ Les en-têtes de demande sont les suivants :
   <th width="20%">headers</th>
   <th>Description</th>
   <tr>
-    <td>_One authorization_<br/>_header_</td>
+    <td>_Une seule autorisation_<br/>_en-tête_</td>
     <td>*En-tête de demande obligatoire*.<br/>Voir les [options disponibles pour l’authentification](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
@@ -79,7 +79,7 @@ Le corps de la demande est un tableau JSON. Chaque élément du tableau est un o
 
   * `Text`: chaîne spécifiant le terme à rechercher. Elle doit correspondre à la valeur d’un champ `normalizedText` d’après les traductions inverses d’une précédente demande de [recherche dans le dictionnaire](./v3-0-dictionary-lookup.md). Elle peut également correspondre à la valeur du champ `normalizedSource`.
 
-  * `Translation`: chaîne spécifiant le texte traduit et retourné au préalable par l’opération de [recherche dans le dictionnaire](./v3-0-dictionary-lookup.md). Elle doit correspondre à la valeur du champ `normalizedTarget` dans la liste `translations` de la réponse à la [recherche dans le dictionnaire](./v3-0-dictionary-lookup.md). Le service renvoie des exemples pour la paire de mots source-cible indiquée.
+  * `Translation`: chaîne spécifiant le texte traduit et retourné au préalable par l’opération de ](./v3-0-dictionary-lookup.md)recherche dans le dictionnaire. Elle doit correspondre à la valeur du champ `normalizedTarget` dans la liste `translations` de la réponse à la [recherche dans le dictionnaire](./v3-0-dictionary-lookup.md). Le service renvoie des exemples pour la paire de mots source-cible indiquée.
 
 Voici un exemple :
 
@@ -104,11 +104,11 @@ Une réponse correcte est un tableau JSON avec un résultat pour chaque chaîne 
   
   * `examples`: liste d’exemples pour la paire (terme source, terme cible). Chaque élément de la liste est un objet dont les propriétés sont les suivantes :
 
-    * `sourcePrefix`: chaîne à concaténer _avant_ la valeur de `sourceTerm` pour former un exemple complet. N’ajoutez aucun espace, car la chaîne en contient déjà si besoin. Cette valeur peut être une chaîne vide.
+    * `sourcePrefix`: chaîne à concaténer _avant`sourceTerm` la valeur de  pour former un exemple complet. N’ajoutez aucun espace, car la chaîne en contient déjà si besoin. Cette valeur peut être une chaîne vide.
 
     * `sourceTerm`: chaîne égale au terme à rechercher. Cette chaîne est ajoutée avec `sourcePrefix` et `sourceSuffix` pour former un exemple complet. Sa valeur est séparée afin de pouvoir être signalée dans une interface utilisateur (par exemple, en caractères gras).
 
-    * `sourceSuffix`: chaîne à concaténer _après_ la valeur de `sourceTerm` pour former un exemple complet. N’ajoutez aucun espace, car la chaîne en contient déjà si besoin. Cette valeur peut être une chaîne vide.
+    * `sourceSuffix`: chaîne à concaténer _après`sourceTerm` la valeur de  pour former un exemple complet. N’ajoutez aucun espace, car la chaîne en contient déjà si besoin. Cette valeur peut être une chaîne vide.
 
     * `targetPrefix`: chaîne similaire à `sourcePrefix`, mais pour la cible.
 
@@ -123,7 +123,7 @@ Une réponse correcte est un tableau JSON avec un résultat pour chaque chaîne 
 
 Cet exemple montre comment rechercher des exemples pour la paire composée du terme anglais `fly` et sa traduction espagnole `volar`.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# [<a name="curl"></a>curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.0&from=en&to=es" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly', 'Translation':'volar'}]"
