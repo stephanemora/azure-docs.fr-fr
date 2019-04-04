@@ -1,20 +1,25 @@
 ---
 title: Documentation sur la Place de marché Azure | Microsoft Docs
 description: En savoir plus sur la Place de marché Azure.
-services: 'Azure, marketplace'
+services: Azure, marketplace
 author: jm-aditi-ms
 manager: pabutler
-editor: null
+editor: ''
 layout: LandingPage
-ms.assetid: null
+ms.assetid: ''
 ms.service: marketplace
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 06/04/2018
 ms.author: ellacroi
+ms.openlocfilehash: cdff88d828de465443d59865e6ab51f98619b949
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56738247"
 ---
-
 # <a name="azure-marketplace-documentation"></a>Documentation sur la Place de marché Azure
 
 Découvrez la Place de marché Microsoft Azure, un marché en ligne d’applications et de services qui permet aux éditeurs de logiciels indépendants appartenant à des startups ou à des entreprises de proposer des solutions aux clients partout dans le monde.

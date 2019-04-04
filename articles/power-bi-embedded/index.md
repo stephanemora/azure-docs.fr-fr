@@ -1,6 +1,6 @@
 ---
-title: "Documentation Azure Power BI Embedded\_- Didacticiels, informations de référence sur les API\_| Microsoft\_Docs"
-description: 'Apprenez à incorporer des visualisations de données et des rapports interactifs Power BI dans des applications. Didacticiels, références d’API et autres documents.'
+title: Documentation Azure Power BI Embedded - Didacticiels, informations de référence sur les API | Microsoft Docs
+description: Apprenez à incorporer des visualisations de données et des rapports interactifs Power BI dans des applications. Didacticiels, références d’API et autres documents.
 services: power-bi-embedded
 author: markingmyname
 ms.author: maghan
@@ -9,8 +9,13 @@ layout: LandingPage
 ms.service: power-bi-embedded
 ms.topic: landing-page
 ms.date: 07/31/2018
+ms.openlocfilehash: 8c7ee917234891123392a7954bf704e1ff2a70e1
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447815"
 ---
-
 # <a name="power-bi-embedded-documentation"></a>Documentation Power BI Embedded
 
 Découvrez comment ajouter des visualisations de données et des rapports interactifs à des applications avec Power BI Embedded. Des didacticiels, références d’API et autres documents vous montrent comment intégrer en toute transparence des rapports et des tableaux de bord Power BI dans des applications.

@@ -1,8 +1,8 @@
 ---
 layout: HubPage
 hide_bc: false
-title: "Documentation Azure Active Directory\_- Didacticiels, informations de référence sur les API\_| Microsoft\_Docs"
-description: 'Azure Active Directory (Azure AD) est le service mutualisé et reposant sur le cloud de gestion des identités et de répertoire Microsoft qui combine les principaux services d’annuaire, la gestion des accès aux applications et la protection des identités dans une seule solution.'
+title: Documentation Azure Active Directory - Didacticiels, informations de référence sur les API | Microsoft Docs
+description: Azure Active Directory (Azure AD) est le service mutualisé et reposant sur le cloud de gestion des identités et de répertoire Microsoft qui combine les principaux services d’annuaire, la gestion des accès aux applications et la protection des identités dans une seule solution.
 services: active-directory
 author: barbkess
 manager: daveba
@@ -11,8 +11,13 @@ ms.topic: landing-page
 ms.date: 01/24/2019
 ms.author: barbkess
 ms.collection: M365-identity-device-management
+ms.openlocfilehash: d3ad12ac45a90edc5b3d9be0dc78786ef01a0f04
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337831"
 ---
-
 <div id="main" class="v2">
     <div class="container">
         <h1>Documentation Azure Active Directory</h1>

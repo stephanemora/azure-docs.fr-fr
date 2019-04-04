@@ -1,7 +1,7 @@
 ---
 layout: LandingPage
-title: 'Aide utilisateur relative à la gestion de l’authentification, des applications et des appareils dans Azure Active Directory | Microsoft Docs'
-description: 'Cette aide s’adresse aux personnes cherchant à configurer et utiliser les informations de sécurité, ainsi que les fonctions de vérification en deux étapes, de réinitialisation de mot de passe en libre-service et de gestion des appareils, l’application Microsoft Authenticator et le portail MyApps.'
+title: Aide utilisateur relative à la gestion de l’authentification, des applications et des appareils dans Azure Active Directory | Microsoft Docs
+description: Cette aide s’adresse aux personnes cherchant à configurer et utiliser les informations de sécurité, ainsi que les fonctions de vérification en deux étapes, de réinitialisation de mot de passe en libre-service et de gestion des appareils, l’application Microsoft Authenticator et le portail MyApps.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -11,8 +11,13 @@ ms.topic: landing-page
 ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6e73e089f0753f49233c75a5e55513ebaf7bf9c9
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338103"
 ---
-
 # <a name="user-help-for-authentication-apps-and-device-management"></a>Aide utilisateur relative à la gestion de l’authentification, des applications et des appareils
 
 Nous avons créé ce contenu pour vous aider à configurer et utiliser les informations de sécurité et la fonction de vérification en deux étapes, mais aussi à réinitialiser votre propre mot de passe, configurer et joindre vos appareils Azure Active Directory et configurer et utiliser l’application Microsoft Authenticator et le portail MyApps.

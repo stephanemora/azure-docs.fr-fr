@@ -1,5 +1,5 @@
 ---
-title: 'Documentation Azure Analysis Services - Tutoriels, informations de référence sur les API'
+title: Documentation Azure Analysis Services - Tutoriels, informations de référence sur les API
 description: Apprenez à configurer la modélisation de données avec Analysis Services dans le cloud. La documentation vous montre comment créer une solution BI d’entreprise à l’aide de données tabulaires.
 services: analysis-services
 author: minewiskan
@@ -8,6 +8,12 @@ layout: LandingPage
 ms.service: azure-analysis-services
 ms.topic: landing-page
 ms.date: 02/14/2018
+ms.openlocfilehash: ec3c45961ac92a505ee565373474ce3dc2fbabcc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106965"
 ---
 # <a name="analysis-services-documentation"></a>Documentation Analysis Services
 
